@@ -1,19 +1,20 @@
 # Z is Diophantine in Q
 
-## Version 9
+## Version 10
 
-This repository contains *Z is Diophantine in Q*, Version 9, dated November 7, 2026. It adds quartics in 523 variables with exact symbolic coefficients and 540 variables with every coefficient written out in decimal. The original large construction and the earlier quartic proofs remain in the manuscript. The new reductions were contributed by Gabriel Conant with ChatGPT.
+This repository contains *Z is Diophantine in Q*, Version 10, dated November 7, 2026. It addresses the nine points in [Issue 2](https://github.com/elliotglazer/diophantine-z-q/issues/2), with unchanged polynomial data. Version 9 added quartics in 523 variables with exact symbolic coefficients and 540 variables with every coefficient written out in decimal. The original large construction and the earlier quartic proofs remain in the manuscript. The new reductions were contributed by Gabriel Conant with ChatGPT.
 
 The project uses the collective agentic notes from Stefan Baranczuk, Jose Brox, Gabe Conant, Sohail Farhangi, James Freitag, Elliot Glazer, Jennifer Park, and Caroline Terry.
 
 | To | Open |
 | --- | --- |
-| Read Version 9 | [Manuscript PDF](manuscripts/quartic_v9.pdf), [TeX source](manuscripts/quartic_v9.tex) |
+| Read Version 10 | [Manuscript PDF](manuscripts/quartic_v10.pdf), [TeX source](manuscripts/quartic_v10.tex) |
 | Reproduce the 523/540-variable quartics | [Tables, source, dependency chain and checks](docs/quartic-523-540/README.md) |
 | Read the fully expanded Version 4 quartic | [4,973-variable package](quartics/quartic-4973/README.md), [integer monomial table](quartics/quartic-4973/polynomial.expanded.txt) |
+| Inspect the nine review corrections | [Version 10 response and inventory](docs/manuscript-revisions/version10/README.md) |
 | Inspect theorem applications and conventions | [Version 9 extension](docs/quartic-523-540/README.md), [inherited proof inventory](docs/quartic-962/README.md) |
 | Build the manuscript or run the checks | [Build instructions](docs/building.md) |
-| Download the new audit supplement | [Version 9 supplement and guide](research/version9/README.md) |
+| Download the current audit supplement | [Version 10 supplement and guide](research/version10/README.md) |
 | Download the Version 7 research handoffs | [Full handoff](https://github.com/elliotglazer/diophantine-z-q/releases/download/quartic-962-version-7/z-in-q-version7-full-handoff.zip), [current-only handoff](https://github.com/elliotglazer/diophantine-z-q/releases/download/quartic-962-version-7/z-in-q-version7-current-handoff.zip), [contents and verification](handoff/README.md) |
 | Read collaborator notes and the height replacement | [Research update](research/2026-11-06-collaborator-notes/README.md) |
 | Read the October 11 manuscript | [Manuscript and provenance](October%2011%20Manuscript/README.md) |
@@ -27,7 +28,7 @@ Version 7 incorporates four further audits of the Gaussian appendix and their re
 
 The Version 7 full handoff includes the Version 7 public snapshot, selected research notes, and the unchanged Version 6 full handoff, which preserves the Version 5 and earlier November 4 archives. The current-only handoff omits the embedded historical archive. Neither includes a conversational transcript.
 
-## The three polynomials
+## Polynomial constructions
 
 For each polynomial, the input and all witnesses range over the rationals. The asserted defining property is
 
@@ -66,7 +67,7 @@ The Lean formalization is incomplete. The accepted snapshot contains 48 helper m
 
 ## Earlier work and provenance
 
-The October 11, 2026 manuscript, *A conditional Diophantine definition of Z in Q from four arithmetic inputs*, was produced by Sohail Farhangi with ChatGPT 6. Its PDF is preserved without modification. Its provenance and conditional scope are distinct from Version 9.
+The October 11, 2026 manuscript, *A conditional Diophantine definition of Z in Q from four arithmetic inputs*, was produced by Sohail Farhangi with ChatGPT 6. Its PDF is preserved without modification. Its provenance and conditional scope are distinct from Version 10.
 
 The November manuscript was produced by Elliot Glazer with Astra 6, Sol 6.1, and Opus 5.5, with auditing from Fable 5.1. The [Version 5 manuscript](manuscripts/archive/quartic_1272.pdf), [Version 4 manuscript](manuscripts/archive/quartic_4973.pdf), [Version 3 manuscript](manuscripts/archive/quartic_9625.pdf) and [Version 2 manuscript](manuscripts/archive/quartic_12504.pdf) remain historical references, with their separate polynomial packages and inventories. Earlier research handoffs identify their own snapshots.
 

@@ -34,6 +34,8 @@ jobs:
           node-version: '24.22.1'
       - run: python -B scripts/check_odd_product.py
       - run: python -B docs/quartic-523-540/inventory.py validate
+      - run: python -B docs/manuscript-revisions/version10/check.py
+      - run: python -B docs/manuscript-revisions/version10/check_valuation.py
       - run: python -B -m unittest discover -s docs/quartic-523-540 -p test_inventory.py -v
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
@@ -117,6 +119,8 @@ jobs:
           key: tectonic-${{ runner.os }}-0.17.0-6ffe055852f8faf66
       - run: python -E -B scripts/check_manuscript_revision.py
       - run: python -B docs/quartic-523-540/inventory.py validate
+      - run: python -B docs/manuscript-revisions/version10/check.py
+      - run: python -B docs/manuscript-revisions/version10/check_valuation.py
       - run: python scripts/build_paper.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
