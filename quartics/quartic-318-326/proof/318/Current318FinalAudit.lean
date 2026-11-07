@@ -1,0 +1,11 @@
+module
+public import Current318FinalBridge
+public import Current318FinalExactDegree
+public section
+set_option format.width 200
+#print axioms Current318FinalPolynomial.coordinate_degree_le_four
+#print axioms Current318FinalPolynomial.zero_iff_constraints
+#print axioms Raw318FinalReplay.source_iff_final
+#print axioms Current318FinalBridge.polynomial_zero_iff_source
+#print axioms Current318FinalBridge.defines_integers_of_source_arithmetic
+#print axioms Current318FinalExactDegree.degree_exactly_four

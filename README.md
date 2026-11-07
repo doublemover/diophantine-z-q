@@ -28,6 +28,10 @@ Version 7 incorporates four further audits of the Gaussian appendix and their re
 
 The Version 7 full handoff includes the Version 7 public snapshot, selected research notes, and the unchanged Version 6 full handoff, which preserves the Version 5 and earlier November 4 archives. The current-only handoff omits the embedded historical archive. Neither includes a conversational transcript.
 
+## 318/326 contribution branch
+
+This branch adds [318- and 326-variable quartics](docs/quartic-318-326/README.md), with coefficient tables, reproducible source, written derivations, and Lean polynomial/source equivalence and arithmetic helpers. The global integer-characterization theorem still assumes `sourceArithmetic` in Lean. This contribution sits alongside Version 10; the published manuscript and historical verification scopes below are unchanged.
+
 ## Polynomial constructions
 
 For each polynomial, the input and all witnesses range over the rationals. The asserted defining property is
