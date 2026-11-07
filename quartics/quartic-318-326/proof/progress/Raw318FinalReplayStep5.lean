@@ -1,0 +1,320 @@
+module
+
+public import Raw318FinalReplayStep4
+
+public section
+
+namespace Raw318FinalReplay
+
+open CircuitReplay
+
+set_option maxRecDepth 100000
+
+set_option maxHeartbeats 0
+
+set_option linter.unusedSimpArgs false
+
+set_option linter.unusedVariables false
+
+set_option linter.unnecessarySimpa false
+
+set_option linter.unnecessarySeqFocus false
+
+
+
+theorem congr5 (S : ℚ) : ∀ q, HasSolution (stage6 S) q ↔ HasSolution (stage5 S) q := by
+  apply solutions_congr
+  apply constraints_congr
+  simp only [stage6, stage5, List.map_cons, List.map_nil]
+  exact List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.cons (fun _ => Iff.rfl) (
+List.Forall₂.nil))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+end Raw318FinalReplay

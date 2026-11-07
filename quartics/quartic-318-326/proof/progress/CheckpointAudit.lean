@@ -1,0 +1,215 @@
+module
+import all AbsoluteHeightNormalization318
+import all ActualCanonicalHeight318
+import all ActualChord318
+import all ActualDoubleQuotient318
+import all ActualFreePart318
+import all ActualGlobalGenerator318
+import all ActualGlobalRank318
+import all ActualJLog318
+import all ActualLogAddition318
+import all ActualLogHom318
+import all ActualLogIdentification318
+import all ActualLogIsometry318
+import all ActualLogMembership318
+import all ActualLogRatio318
+import all ActualMordellWeil318
+import all ActualOddProductHeight318
+import all ActualQuadraticEmbeddings318
+import all ActualRankOne318
+import all ActualRawProductHeight318
+import all AlgebraicFormalSubgroup318
+import all AllIndexStageBudget
+import all AlternateFormal318
+import all AlternateRatioKernel318
+import all AlternateSourceData318
+import all AnchorAnisotropy
+import all AnchorLocalCharts
+import all ArbitraryInertSeries318
+import all BadSeven318
+import all BasePointHeight318
+import all BranchHalving
+import all CanonicalChart318
+import all CanonicalLimit
+import all CanonicalQuadratic
+import all CanonicalRoot318
+import all ClosedActualLog318
+import all ClosedLine318
+import all ClosedScaledEvaluation318
+import all CompressedGlobal318
+import all CompressedOrientation318
+import all CompressedPoint318
+import all CompressedTranslation318
+import all ConcreteG8Domain
+import all ConcretePadic318
+import all ConcreteQuadraticDomains
+import all ConstantLift326
+import all Contact49Growth318
+import all Current326Bridge
+import all Current326CoefficientBinding
+import all Current326CoefficientBindingData
+import all Current326CoefficientBindingExpanded
+import all Current326CoefficientBindingNormalize
+import all Current326ExactDegree
+import all Current326Final
+import all Current326Polynomial
+import all DeltaPrime318
+import all DetectorHeightTransfer318
+import all DiscreteCompletion318
+import all DualLocalArithmetic318
+import all DualPrimeParity318
+import all DualSeven318
+import all DualSignature318
+import all EuclideanSqrtTwo318
+import all EvaluatedAddition318
+import all EvenPhase
+import all FiniteContact318
+import all FiniteHeightEquiv
+import all FiniteScale318
+import all FirstFieldClasses318
+import all FirstPrimeParity318
+import all FiveContactMetricBounds318
+import all FormalChain318
+import all FormalChartDouble
+import all FormalChartNorm
+import all FormalDifferential318
+import all FormalLine318
+import all FormalSeriesNaturality318
+import all FractionSqrtTwo318
+import all G8Nonvanishing
+import all GPade318
+import all GTail318
+import all GenericFormalAddition318
+import all GenericFormalDifferential318
+import all GeometricInverse318
+import all GlobalDualSquare318
+import all GlobalFirstDescent318
+import all GlobalHeightPositivity318
+import all GlobalIndexHeight318
+import all GlobalReductionCounts318
+import all HCoefficients318
+import all HCubic318
+import all HTail318
+import all HeightCoverageFromMahler318
+import all InertChart318
+import all InertClosedDisc318
+import all InertCompletion318
+import all InertHensel318
+import all InertIntegers318
+import all InertLogHom318
+import all InertMembership318
+import all InertPadicEmbedding318
+import all InertPlace318
+import all InertQuadratic318
+import all InertScalarIndex318
+import all InertScalarSource318
+import all InertSelectedContact318
+import all InertSourceExclusion318
+import all IntegralFormalAddition318
+import all IntegralGeometricInverse318
+import all IntegralLine318
+import all IntegralRingEvaluation318
+import all IntegralScaledBounds318
+import all IntegralScaledNorm318
+import all IntegralScaledSeries318
+import all IntegralSquareRoot318
+import all JLinear318
+import all JPade318
+import all JTail318
+import all KummerDetector
+import all LocalMahlerHeight
+import all LocalSoundness318
+import all NormChainCompleteness
+import all OddCoefficientReading
+import all OddMinimum
+import all OddProductHeight318
+import all OddSubgroupSign318
+import all OrderSeparation
+import all Pade21Accuracy
+import all Pade21Domains
+import all Pade21LocalError
+import all PadeDenominatorNonvanishing
+import all PadicIntEvaluation318
+import all PositiveUnitSquare318
+import all PrimaryFormal318
+import all PrimeCRTAssembly
+import all PrimitiveQuadratic318
+import all PrimitiveQuadraticMahler318
+import all ProductHeight318
+import all QuadraticDiscriminant318
+import all QuadraticHeightBounds
+import all QuarticOptimization
+import all RationalAbsoluteHeight
+import all RationalPointBox318
+import all RawAlternatePade318
+import all RawDetector318
+import all RawInertScalar318
+import all RawLucasOrientation318
+import all RawProductHeight318
+import all RawReciprocal318
+import all RawRootDifference318
+import all RawSelectedContact318
+import all RawSourcePole318
+import all RawWeights318
+import all RealMultiples318
+import all ReciprocalAddition318
+import all ReciprocalDifference318
+import all ReciprocalDouble318
+import all ReciprocalGroup318
+import all ReciprocalIntegral318
+import all RegularCusp318
+import all RegularCuspGroup318
+import all RelativeHeightEquiv
+import all RestrictedBranch318
+import all RestrictedEvaluation318
+import all ScalarLocalValues318
+import all ScalarPlaceBridge318
+import all ScalarPoleValuation318
+import all ScalarSource318
+import all ScaledClosedDisc318
+import all ScaledCoefficients318
+import all ScaledDecay318
+import all ScaledEvaluation318
+import all ScaledFormalSeries318
+import all SelectedContact318
+import all SeriesEndpoints318
+import all SeriesUnits318
+import all ShellDivisibility
+import all ShortCurveBaseChange318
+import all SoundnessHeight318
+import all SourceAlternateBase318
+import all SourceAlternateDomain318
+import all SourceAlternatePrecision318
+import all SourceContact318
+import all SourceLogDomain318
+import all SourceMaxIndexHeight318
+import all SourcePadic318
+import all SourcePole318
+import all SourcePrimarySplitLog318
+import all SourceSplitLog318
+import all SquareFactorization318
+import all ThetaRecurrence
+import all TorsionSafeIndex318
+import all UnitSquareclasses318
+import all ValuationLucasOrientation318
+import all WeightedCMMass
+import all WholePrimeOmission
+import Lean.Util.CollectAxioms
+
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`RationalAbsoluteHeight,`QuarticOptimization,`G8Nonvanishing,`ConcreteQuadraticDomains,`ConcreteG8Domain,`SemilocalAnchor318,`AnchorNorm318,`LocalGenerator318,`FiniteSquareTest318,`FiniteGeneratorChunk1318,`FiniteGeneratorChunk2318,`FiniteGeneratorChunk3318,`FiniteGeneratorChunk4318,`FiniteGeneratorChunk5318,`FiniteGeneratorChunk6318,`FiniteGeneratorChunk7318,`FiniteGeneratorChunk8318,`FiniteGeneratorChunk9318,`RamifiedTwo318,`NormChainValuation,`NormChainExtraction,`EvenDeltaValuation,`ValuationCurveParity,`ValuationDuplication318,`ValuationAddition318,`GeneratorMultiplesTwo318,`KummerAlgebra318,`RootPointAlgebra318,`KummerGroup318,`SparseQuartic,`CircuitReplay,`AffineAnchor,`AnchorValueShear,`Raw318FinalReplayData,`OddAffineInput,`NestedInput,`ArithmeticSeparation,`HeightSeparation318,`ScalarAnchorBound318,`RawAnchor318,`RawAnchorNorm318,`RawRootPoints318,`RawScalarKummer318,`RawOddAnchorPoints318,`InertThree318,`ValuationTriplication318,`ThreeGroupSteps318,`GeneratorMultiplesThree318,`OddMultiplesThree318,`RawAnchorPoints318,`RawScalarOrientation318,`RawGroupAnchor318,`GlobalGeneratorPoints318,`RationalCandidates318,`FiniteGeneratorEnumeration318,`PolynomialCandidate318,`GlobalSaturationHeight318,`PolynomialHeightInterface318,`RationalPointBox318,`QuadraticDiscriminant318,`PrimitiveQuadratic318,`QuadraticHeightBounds,`HeightCoverageFromMahler318,`LocalMahlerHeight,`FiniteHeightEquiv,`RelativeHeightEquiv,`ActualQuadraticEmbeddings318,`AbsoluteHeightNormalization318,`CanonicalLimit,`CanonicalQuadratic,`PrimitiveQuadraticMahler318,`BasePointHeight318,`DuplicationHeightArch318,`DuplicationHeightLocal318,`GlobalSquareHalving318,`DuplicationProjective318,`RelativeDuplicationHeight318,`DuplicationFiniteAbs318,`ActualDuplicationPlaces318,`DuplicationFiniteProduct318,`DuplicationInfiniteProduct318,`GlobalDuplicationHeight318,`ActualCanonicalHeight318,`ConcretePadic318,`InertPlace318,`ValuationEvenNormChain,`RawReciprocal318,`ValuationNormChainExtraction,`ValuationTraceSelection,`ConcreteValuationTrace,`RawDetector318,`SourcePole318,`FiveHeight49Weights,`LocalSoundness318,`DegenerateDetector,`RawWeights318,`RawSourcePole318,`SourceContact318,`SourcePadic318,`FiniteContact318,`CompressedOrientation318,`InertSourceExclusion318,`InertHensel318,`RawLucasOrientation318,`ValuationLucasOrientation318,`SelectedContact318,`InertSelectedContact318,`FiniteScale318,`CompressedPoint318,`CompressedGlobal318,`ScalarSource318,`ScalarPoleValuation318,`ScalarLocalValues318,`DualLocalArithmetic318,`DualSeven318,`DualSignature318,`PositiveUnitSquare318,`EuclideanSqrtTwo318,`FractionSqrtTwo318,`DeltaPrime318,`DualPrimeParity318,`SquareFactorization318,`GlobalDualSquare318,`GlobalReductionCounts318,`GlobalNormClasses318,`GlobalNormCoset318,`UnitSquareclasses318,`FirstPrimeParity318,`FirstFieldClasses318,`GlobalFirstDescent318,`ActualChord318,`ActualDoubleQuotient318,`ActualMordellWeil318,`GlobalHeightPositivity318,`GlobalSaturationLogic318,`GlobalSaturation318,`CompressedTranslation318,`CompressedGeneratorBridge318,`RawCompressedLabels318,`GlobalGeneratorClosure318,`GlobalTorsionOddIndex318,`ActualFreePart318,`ActualRankOne318,`ActualGlobalRank318,`ActualGlobalGenerator318,`HCoefficients318,`FormalDifferential318,`FormalChain318,`GenericFormalDifferential318,`GenericFormalAddition318,`IntegralFormalAddition318,`FormalLine318,`HTail318,`HCubic318,`PadeDenominatorNonvanishing,`Pade21Domains,`Pade21Accuracy,`Pade21LocalError,`JTail318,`ScaledCoefficients318,`ScaledFormalSeries318,`ScaledDecay318,`RestrictedEvaluation318,`ScaledClosedDisc318,`GeometricInverse318,`ClosedLine318,`RestrictedBranch318,`JPade318,`GTail318,`GPade318,`SeriesEndpoints318,`SeriesUnits318,`ReciprocalIntegral318,`CanonicalRoot318,`ClosedScaledEvaluation318,`ReciprocalDouble318,`ReciprocalAddition318,`ReciprocalGroup318,`ClosedActualLog318,`ActualLogHom318,`CanonicalChart318,`ActualLogMembership318,`ActualLogIsometry318,`ActualLogIdentification318,`JLinear318,`ActualJLog318,`PadicIntEvaluation318,`EvaluatedAddition318,`ScaledEvaluation318,`ActualLogAddition318,`ActualLogRatio318,`FormalChordAlgebra318,`FormalChartGroup318,`FormalChartNorm,`FormalChartDouble,`AlgebraicFormalSubgroup318,`GlobalIndexHeight318,`OddSubgroupSign318,`ProductHeight318,`RealMultiples318,`OddProductHeight318,`UnitPlaceOddSigns318,`RegularCusp318,`RegularCuspGroup318,`BadSeven318,`ActualOddProductHeight318,`RawProductHeight318,`ActualRawProductHeight318,`Height13RealLog,`AllIndexStageBudget,`PrimaryFormal318,`ReciprocalDifference318,`RawAlternatePade318,`RawRootDifference318,`AlternateFormal318,`AlternateRatioKernel318,`AlternateSourceData318,`AnchorAnisotropy,`AnchorLocalCharts,`IntegralRingEvaluation318,`IntegralGeometricInverse318,`FormalSeriesNaturality318,`IntegralScaledSeries318,`DiscreteCompletion318,`InertCompletion318,`InertPadicEmbedding318,`InertQuadratic318,`InertIntegers318,`InertClosedDisc318,`ArbitraryInertSeries318,`BranchHalving,`ConstantLift326,`Contact49Growth318,`Current326Polynomial,`Raw318FinalReplayStep0,`Raw318FinalReplayStep1,`Raw318FinalReplayStep2,`Raw318FinalReplayStep3,`Raw318FinalReplayStep4,`Raw318FinalReplayStep5,`Raw318FinalReplayStep6,`Raw318FinalReplay,`Current318FinalPolynomial,`Current318FinalBridge,`Current326Bridge,`Current326CoefficientBindingNormalize,`Current326CoefficientBindingExpanded,`Current326CoefficientBindingData,`Current326CoefficientBinding,`ExactDegree,`Current326ExactDegree,`Current326Final,`DetectorHeightTransfer318,`EvenPhase,`FiveContactMetricBounds318,`IntegralScaledBounds318,`IntegralLine318,`InertChart318,`IntegralScaledNorm318,`InertLogHom318,`IntegralSquareRoot318,`InertMembership318,`ScalarPlaceBridge318,`TorsionSafeIndex318,`InertScalarSource318,`InertScalarIndex318,`KummerDetector,`NormChainCompleteness,`OddCoefficientReading,`OddMinimum,`OrderSeparation,`PrimeCRTAssembly,`ShortCurveBaseChange318,`RawInertScalar318,`RawSelectedContact318,`ShellDivisibility,`LucasHeight318,`RationalSeparationBase,`RationalHeight318,`SoundnessHeight318,`SourceLogDomain318,`SourceSplitLog318,`SourcePrimarySplitLog318,`SourceAlternateDomain318,`SourceAlternateBase318,`SourceAlternatePrecision318,`SourceMaxIndexHeight318,`ThetaRecurrence,`WeightedCMMass,`WholePrimeOmission]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"CHECKPOINT_AXIOM_AUDIT_PASS declarations={count} modules={found}"

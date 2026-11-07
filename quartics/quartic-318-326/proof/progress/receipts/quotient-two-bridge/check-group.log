@@ -1,0 +1,15 @@
+nsmulAddMonoidHom.{u_1} {α : Type u_1} [AddCommMonoid α] (n : ℕ) : α →+ α
+zsmulAddGroupHom.{u_1} {α : Type u_1} [SubtractionCommMonoid α] (n : ℤ) : α →+ α
+QuotientAddGroup.eq_iff_sub_mem.{u_1} {G : Type u_1} [AddGroup G] {N : AddSubgroup G} [nN : N.Normal] {x y : G} :
+  ↑x = ↑y ↔ x - y ∈ N
+QuotientAddGroup.mk'_apply.{u_1} {G : Type u_1} [AddGroup G] (N : AddSubgroup G) [nN : N.Normal] (x : G) :
+  (QuotientAddGroup.mk' N) x = ↑x
+Quotient.out_eq.{u_1} {α : Sort u_1} {s : Setoid α} (q : Quotient s) : ⟦q.out⟧ = q
+Quotient.out_eq'.{u_1} {α : Sort u_1} {s₁ : Setoid α} (q : Quotient s₁) : Quotient.mk'' q.out = q
+Finite.of_injective.{u_3, u_4} {α : Sort u_3} {β : Sort u_4} [Finite β] (f : α → β) (H : Function.Injective f) :
+  Finite α
+Nat.card_le_card_of_injective.{u, v} {α : Type u} {β : Type v} [Finite β] (f : α → β) (hf : Function.Injective f) :
+  Nat.card α ≤ Nat.card β
+AddSubgroup.finiteIndex_iff.{u_1} {G : Type u_1} [AddGroup G] {H : AddSubgroup G} : H.FiniteIndex ↔ H.index ≠ 0
+AddSubgroup.FiniteIndex.{u_3} {G : Type u_3} [AddGroup G] (H : AddSubgroup G) : Prop
+AddSubgroup.index.{u_1} {G : Type u_1} [AddGroup G] (H : AddSubgroup G) : ℕ

@@ -20,14 +20,17 @@ Complete decimal coefficients: **[318](results/318/coefficients.txt)** ([JSON](r
 - `results/318/`, `results/326/`: coefficient tables, quadratic systems, coordinate maps, and compiler certificates.
 - `construction/`: source builder, affine shear, constant lift, and intermediate systems.
 - `proof/318/`: Lean polynomial/source equivalence and exact degree-four proof.
-- `proof/components/`: 50 Lean modules covering local arithmetic, valuations, and Padé identities.
+- `proof/components/`: the original 50 Lean component modules.
+- `proof/progress/`: a dependency-closed checked progress checkpoint covering literal 326, global elliptic generation, actual heights, local logarithms and source bridges.
 - `checks/`: independent coefficient, transformation, and sum-of-squares checks.
 - `tools/`: compiler, exact sparse arithmetic, and generation command.
 - `docs/`: [arithmetic derivations](docs/arithmetic.md) and pinned source manuscripts.
 
 ## Proof status
 
-[`polynomial_zero_iff_source`](proof/318/Current318FinalBridge.lean) proves equivalence between zeros of the 318 polynomial and witnesses of its 288-equation source. [`degree_exactly_four`](proof/318/Current318FinalExactDegree.lean) proves its degree. The integer-characterization theorem still assumes `sourceArithmetic`; the global arithmetic argument is not yet fully formalized. The 326 unique lift is checked by exact Python arithmetic. The additional `ConstantLift326.lean` proves unique extension and elimination of its eight auxiliary coordinates; it does not yet connect the literal 296 rows to the 326 polynomial.
+[`polynomial_zero_iff_source`](proof/318/Current318FinalBridge.lean) proves equivalence between zeros of the 318 polynomial and witnesses of its 288-equation source. [`degree_exactly_four`](proof/318/Current318FinalExactDegree.lean) proves its degree. The original integer-characterization theorem still assumes `sourceArithmetic`; the complete global arithmetic argument is not yet formalized.
+
+The [checked progress checkpoint](proof/progress/README.md) now also proves the literal 326 source/lift/coefficient-table connection, unconditional global elliptic generation and raw source labels, actual canonical-height bounds, and the odd-index product-height identity. It records the substantial remaining global five-contact 49/8 and witness-existence inputs, rather than treating component checks as the final theorem.
 
 The written argument combines reciprocal elliptic charts, the odd-input bridge, three-helper pole normalization, valuation norm chains, and the 49/8 height bound. [Arithmetic derivations](docs/arithmetic.md) supplies the details; [remaining Lean obligations](proof/components/arithmetic-obligations.md) identifies the formalization gap.
 

@@ -1,0 +1,54 @@
+/workspace/scratch/2cb21e4e0864/alternate-source-log/SourceAlternatePrecision318.lean:51:24: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ShortCurveBaseChange318.pointMap ?φ ?D) 0
+in the target expression
+  (ShortCurveBaseChange318.pointMap φ D) 0 = 0
+
+case left
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+φ : K →+* ℚ_[p]
+S : ℚ
+w : Assignment
+source : Constraints (stage0 S) w
+hs : shift w = 0
+⊢ (ShortCurveBaseChange318.pointMap φ D) 0 = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    0
+  has type
+    @WeierstrassCurve.Affine.Point K QuadraticAlgebra.instCommRing CompressedPoint318.E
+  but is expected to have type
+    @WeierstrassCurve.Affine.Point K QuadraticAlgebra.instField.toCommRing (ReciprocalDouble318.E D)
+  in the application
+    (ShortCurveBaseChange318.pointMap φ D) 0
+/workspace/scratch/2cb21e4e0864/alternate-source-log/SourceAlternatePrecision318.lean:54:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ShortCurveBaseChange318.pointMap ?φ ?D) 0
+in the target expression
+  (ShortCurveBaseChange318.pointMap φ D) 0 = 0
+
+case right
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+φ : K →+* ℚ_[p]
+S : ℚ
+w : Assignment
+source : Constraints (stage0 S) w
+hs : shift w = 0
+j : Fin 4
+hy : RawRootDifference318.v w j ≠ 0
+⊢ (ShortCurveBaseChange318.pointMap φ D) 0 = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    0
+  has type
+    @WeierstrassCurve.Affine.Point K QuadraticAlgebra.instCommRing CompressedPoint318.E
+  but is expected to have type
+    @WeierstrassCurve.Affine.Point K QuadraticAlgebra.instField.toCommRing (ReciprocalDouble318.E D)
+  in the application
+    (ShortCurveBaseChange318.pointMap φ D) 0
+'SourceAlternatePrecision318.source_alternate_precision' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SourceAlternatePrecision318.source_identity_points' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
