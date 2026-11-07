@@ -27,7 +27,7 @@ Complete decimal coefficients: **[318](results/318/coefficients.txt)** ([JSON](r
 
 ## Proof status
 
-[`polynomial_zero_iff_source`](proof/318/Current318FinalBridge.lean) proves equivalence between zeros of the 318 polynomial and witnesses of its 288-equation source. [`degree_exactly_four`](proof/318/Current318FinalExactDegree.lean) proves its degree. The integer-characterization theorem still assumes `sourceArithmetic`; the global arithmetic argument is not yet fully formalized. The 326 unique lift is checked by exact Python arithmetic.
+[`polynomial_zero_iff_source`](proof/318/Current318FinalBridge.lean) proves equivalence between zeros of the 318 polynomial and witnesses of its 288-equation source. [`degree_exactly_four`](proof/318/Current318FinalExactDegree.lean) proves its degree. The integer-characterization theorem still assumes `sourceArithmetic`; the global arithmetic argument is not yet fully formalized. The 326 unique lift is checked by exact Python arithmetic. The additional `ConstantLift326.lean` proves unique extension and elimination of its eight auxiliary coordinates; it does not yet connect the literal 296 rows to the 326 polynomial.
 
 The written argument combines reciprocal elliptic charts, the odd-input bridge, three-helper pole normalization, valuation norm chains, and the 49/8 height bound. [Arithmetic derivations](docs/arithmetic.md) supplies the details; [remaining Lean obligations](proof/components/arithmetic-obligations.md) identifies the formalization gap.
 
@@ -56,9 +56,11 @@ bash verify_concrete.sh
 cd ../components
 lake exe cache get
 bash verify_components.sh
+cd ..
+bash verify_all.sh
 ```
 
-The scripts enable kernel checking and audit theorem dependencies against `propext`, `Classical.choice`, and `Quot.sound`. [Build receipts](proof/receipts/) record the original runs.
+The scripts enable kernel checking and audit theorem dependencies against `propext`, `Classical.choice`, and `Quot.sound`. [Build receipts](proof/receipts/) retain the original runs. A [fresh rebuild](proof/receipts/fresh-rebuild/receipt.json) kernel-checked all 18 concrete modules and 50 component modules, audited all 1,968 and 881 declarations respectively, and checked the seven new constant-lift theorems. The official Lean binary and pinned Mathlib cache were trusted inputs, not rebuilt. `proof/verify_all.sh` repeats the selected and full-declaration audits and the new helper check.
 
 ## Sources
 

@@ -2,7 +2,10 @@
 
 The 318-variable source uses the constructions below. Its final parameters are local orders 4 and 13, scalar index 8, contact-height exponent 49/8, and fixed integer S = 3^(2^16). Earlier parameter choices in the derivations are specialized by the final height and exceptional-prime bounds.
 
-- [Reciprocal H,V0 charts and exact fixed translation](#reciprocal-fixed-translation)
+- [Current compressed anchor, integer labels and scalar soundness](#compressed-anchor)
+- [Real-part guards and completeness bounds](#real-guards)
+- [Kato applicability and the remaining global dependency](#kato-scope)
+- [Historical reciprocal H,V0 charts and exact fixed translation](#reciprocal-fixed-translation)
 - [Affine parity packing in the existing semilocal anchor](#affine-parity-anchor)
 - [Rational V0 norm test and the exact base-detector weight rewrite](#norm-v0-orientation-and-base-weight)
 - [One-gate odd-input encoding](#odd-linear-square-input)
@@ -20,9 +23,285 @@ The 318-variable source uses the constructions below. Its final parameters are l
 - [Vertical branch support for the Gamma_H cover](#modular-vertical-support)
 - [Formal-log and Padé accuracy outside primes at most17](#small-prime-log-tail)
 
+<a id="compressed-anchor"></a>
+
+## Current compressed anchor and torsion-safe scalar comparison
+
+This supplement applies to the literal 318-variable source in `construction/318/build_source.cjs`, especially the fixed-anchor rows at lines 408–425 and the scalar rows at lines 817–845. It supplies connecting arguments for those rows. It does not replace the inherited elliptic-group theorem, pole-obstruction theorem, or global height theorem.
+
+### Reconstruction of the compressed anchor
+
+Put
+
+\[
+K=\mathbb Q(\sqrt2),\qquad d=3-\sqrt2,\qquad D=d^2,
+\qquad E:y^2=x^3-Dx.
+\]
+
+Write the fixed point as \(P=(k^2,km)\), with the actual nonzero constants
+
+\[
+k=-1+\frac74\sqrt2,\qquad m=\frac{39}{8}-\frac92\sqrt2,
+\qquad m^2=k^4-D.
+\]
+
+The compressed source has \(f,w\in K\), \(n_H\in\mathbb Q\), and the relations
+
+\[
+F:=1-k^2f(1+w^2)-2mfw-Df^2w^2=0,
+\qquad n_H^2=N_{K/\mathbb Q}(f).
+\tag{1}
+\]
+
+The assigned auxiliary values are \(t=fw\) and \(f_V=fw^2\). Define
+
+\[
+A=m+(Df+k^2)w,\qquad B=k^2+mw+Dfw^2.
+\]
+
+Direct expansion using \(m^2=k^4-D\) gives
+
+\[
+fA^2-k^2(1-Df^2)=-(Df+k^2)F,
+\tag{2}
+\]
+\[
+fB^2-k^2(1-Df^2w^4)=-(Dfw^2+k^2)F.
+\tag{3}
+\]
+
+First, \(f\ne0\), since otherwise \(F=1\). Hence \(n_H\ne0\). Also \(A\ne0\): by (2), \(A=0\) would give \(f=\pm1/d\), whose norm is \(1/7\), contrary to (1), since \(1/7\) is not a rational square. If \(w=0\), then \(B=k^2\ne0\). If \(w\ne0\) and \(B=0\), (3) gives \(fw^2=\pm1/d\), so
+
+\[
+\bigl(n_H N_{K/\mathbb Q}(w)\bigr)^2=1/7,
+\]
+
+again impossible. Thus both denominator expressions \(A,B\) are nonzero throughout the actual source domain.
+
+Define
+
+\[
+H=\left(\frac1f,\frac{A}{kf}\right).
+\tag{4}
+\]
+
+For \(w\ne0\), define
+
+\[
+V_0=\left(\frac1{fw^2},-\frac{B}{kfw^3}\right),
+\tag{5}
+\]
+
+and for \(w=0\), define \(V_0=O\). Identities (2) and (3) prove that these are points of \(E(K)\). Their finite ordinates are nonzero.
+
+These points satisfy the exact, oriented group relation
+
+\[
+H-V_0=P.
+\tag{6}
+\]
+
+For \(w\ne0\) and \(w^2\ne1\), the slope of the line through \(H\) and \(-V_0\) simplifies to
+
+\[
+\ell=\frac{y(H)+y(V_0)}{x(H)-x(V_0)}
+=\frac{k^2+mw+(Df+k^2)w^2}{kw}.
+\]
+
+Substitution of \(F=0\) gives
+
+\[
+\ell^2-x(H)-x(V_0)=k^2,
+\qquad -y(H)+\ell(x(H)-k^2)=km,
+\]
+
+which proves (6). The equal-abscissa cases are not discarded. For \(w=1\) or \(w=-1\), equations (4)–(5) give \(V_0=-H\). Substitution into the tangent formula
+
+\[
+\ell_{\mathrm{tan}}=\frac{3x(H)^2-D}{2y(H)}
+\]
+
+gives \(\ell_{\mathrm{tan}}^2-2x(H)=k^2\) and
+\(-y(H)+\ell_{\mathrm{tan}}(x(H)-k^2)=km\). Thus \([2]H=P\), again proving (6). The nonzero ordinate already established makes the tangent formula legitimate. Finally, when \(w=0\), (1) gives \(f=1/k^2\), so \(H=P\) and (6) holds with \(V_0=O\).
+
+With \(z(Q)=-x(Q)/y(Q)\) for finite non-torsion points, and \(z(O)=0\), the actual source expressions are therefore
+
+\[
+z(H)=-\frac{k}{A},\qquad z(V_0)=\frac{kw}{B}.
+\tag{7}
+\]
+
+In particular the primary ratio row is exactly \(z(U_i)/z(H)\). The common alternate logarithm is \(z(V_0)\) times its stated rational \(G\)-approximant. The latter is zero precisely in the \(V_0=O\) branch, using the separately established global nonvanishing of its numerator and denominator. This reconstruction does not itself remove that exceptional ratio branch; the later local/height argument must retain its stated treatment.
+
+#### Completeness of the compression
+
+For the original completeness witnesses, take finite nonidentity \(H\in2E(K)\) and \(V_0=H-P\). Let \(f=1/x(H)\). Since \(x(H)\) is a square, choose \(u_H\in K\) with \(u_H^2=f\), and set \(n_H=N_{K/\mathbb Q}(u_H)\). Put
+
+\[
+w=\frac{kf\,y(H)-m}{k^2+Df}.
+\tag{8}
+\]
+
+The denominator is nonzero: at either real embedding \(f>0\), \(D>0\), and \(k^2>0\). With this choice \(A=kf\,y(H)\); the elliptic equation and (2) imply \(F=0\). Equations (4)–(6) then recover the original \(H,V_0\), and (1) holds. Thus the completeness witnesses lift through the compression using rational coordinates. This is a completeness lifting statement, not a claim that every compressed witness has a square abscissa.
+
+### The exact free label and the remaining torsion coset
+
+Use the inherited assertions
+
+\[
+2E(K)=\mathbb ZP,\qquad [2]R_0=P,\qquad E(K)_{\mathrm{tors}}=E[2](K),
+\]
+
+where \(R_0=(\epsilon,2\sqrt2)\), \(\epsilon=1+\sqrt2\), and \(E[2](K)\) is generated by \(T_0=(0,0)\) and \(T_d=(d,0)\). The established squareclass homomorphism satisfies
+
+\[
+\alpha(m_0R_0+aT_0+bT_d)
+=[\epsilon]^{m_0}[-1]^a[d]^b,
+\qquad a,b\in\{0,1\},
+\tag{9}
+\]
+
+and \(\alpha(Q)=[x(Q)]\) when \(x(Q)\ne0\). These are the group and squareclass inputs recorded in the [Version 9 addition](../../../docs/quartic-523-540/addition.tex), lines 382–388, and the [pinned Version 10 manuscript](sources/quartic_v10.tex), lines 19475–19500.
+
+For the reconstructed \(H\), equation (1) implies that \(N(x(H))=1/n_H^2\) is a rational square. Taking norms of the squareclass identity (9), and using
+
+\[
+N(\epsilon)=-1,\qquad N(d)=7,\qquad N(-1)=1,
+\]
+
+shows that \((-1)^{m_0}7^b\) must be a rational square. Therefore \(m_0\) is even and \(b=0\). Consequently the actual source has
+
+\[
+H=hP+\tau,\qquad V_0=(h-1)P+\tau,
+\qquad h\in\mathbb Z\setminus\{0\},\quad \tau\in\{O,T_0\}.
+\tag{10}
+\]
+
+Here \(h\ne0\) because (4) is finite with nonzero abscissa and nonzero ordinate, excluding both \(O\) and \(T_0\). In particular the exact norm-square source does not require half-integer free labels. The equal-abscissa possibilities above are actually excluded once (10) is used: \([2]H=P\) would imply \(2h=1\).
+
+The torsion term \(\tau\) must not be omitted. If \(\tau=T_0\), then \(x(H)=-D/x(hP)\), which is negative at both real embeddings. Thus neither \(H\in2E(K)\) nor real positivity of \(f\) is available for arbitrary soundness witnesses. Whenever logarithms compare \(H\) with a point \(R=cP\), use the exact identity
+
+\[
+[2h]R=[2c]H,
+\tag{11}
+\]
+
+which kills \(\tau\). There is no need to assert the potentially false identity \([h]R=[c]H\).
+
+### Scalar divisibility without a real-sign assumption
+
+Let the preceding scalar Kummer reconstruction supply a finite nonidentity point \(R=cP\in2E(K)\), with signed label \(c\in\mathbb Z\setminus\{0\}\). Write \(f_R=1/x(R)=u_R^2\), \(n_R=N(u_R)\), and keep \(n_H^2=N(f)\) as above. The literal scalar rows impose
+
+\[
+N=N_{K/\mathbb Q}(1+f/r)
+=1+\frac{2f_0}{r}+\frac{n_H^2}{r^2},
+\]
+\[
+Q=\frac{n_R}{n_Hr^{15}},\qquad
+W=N^2+rQ^2,\qquad
+b=c_0r\left(\frac{W}{1+c_0r}\right)^2,
+\qquad c_0=114444.
+\tag{12}
+\]
+
+The exponent is 15, not 16: the emitted `ri16` numerator is divided by `scalarScaledNormH=n_H/r`. All displayed quotient domains follow from the retained inverse equations, the anchor reconstruction above, and the separately established input squareclass argument for \(1+c_0r\).
+
+Fix a consumed contact prime \(p\notin S_{\mathrm{bad}}\), and suppose
+
+\[
+R_p:=v_p(r)>0\quad\text{is odd}.
+\tag{13}
+\]
+
+In particular \(p\) is odd, \(K/\mathbb Q\) is unramified at \(p\), the elliptic curve has good reduction, and \(D,c_0\) are units. Normalize each local valuation \(\nu_v\) above \(p\) by \(\nu_v(p)=1\). If \(d_v\) is its residue degree, then
+
+\[
+v_p(N_{K/\mathbb Q}(a))=\sum_{v\mid p}d_v\nu_v(a),
+\qquad \sum_{v\mid p}d_v=2.
+\tag{14}
+\]
+
+Only the soundness direction of the inherited pole theorem is used here: the pole predicate excludes negative odd values of \(v_p(b)\). Since \(1+c_0r\) is a unit and \(Q\ne0\), the summands \(N^2\) and \(rQ^2\) have unequal even and odd valuations, with the usual value \(+\infty\) allowed for a zero first summand. Thus \(W\ne0\). Its pole argument has odd valuation
+
+\[
+v_p(b)=R_p+2v_p(W)\ge1,
+\]
+
+so \(v_p(W)>-R_p/2\). Noncancellation in \(W=N^2+rQ^2\) then gives
+
+\[
+v_p(N)>-R_p/4,\qquad v_p(Q)>-3R_p/4.
+\tag{15}
+\]
+
+For any non-torsion point of \(E(K_v)\), the valuation of its abscissa, and hence of its reciprocal abscissa, is even. Indeed, if \(\nu_v(x)<0\), the curve equation gives \(2\nu_v(y)=3\nu_v(x)\); if \(\nu_v(x)>0\), it gives \(2\nu_v(y)=\nu_v(x)\); valuation zero is immediate. Therefore \(\nu_v(f)\) is even and cannot equal the odd number \(R_p\). It follows that
+
+\[
+\nu_v(1+f/r)=\min(0,\nu_v(f)-R_p)\le0.
+\tag{16}
+\]
+
+The norm in (14) is a sum of these nonpositive valuations. Its lower bound in (15) forces every summand in (16) to exceed \(-R_p/4\). Hence
+
+\[
+\nu_v(f)>3R_p/4>0\qquad\text{for every }v\mid p.
+\tag{17}
+\]
+
+Thus \(H\) is in the formal group at every place above \(p\). This conclusion holds on the \(T_0\)-coset too; it does not use the sign of any real coordinate.
+
+From the second inequality of (15) and (12),
+
+\[
+v_p(n_R/n_H)>\frac{57}{4}R_p\ge\frac{57}{4}.
+\]
+
+The left side is an integer, so it is at least 15. Since
+
+\[
+(n_R/n_H)^2=N_{K/\mathbb Q}(f_R/f),
+\]
+
+we obtain \(v_p(N(f_R/f))\ge30\). By (14), at least one place \(v\mid p\) has \(\nu_v(f_R/f)\ge15\). Both reciprocal-abscissa valuations are even, so at that place
+
+\[
+\nu_v(f_R/f)\ge16.
+\tag{18}
+\]
+
+Equations (17)–(18) make both \(R\) and \(H\) formal there. At an unramified good odd place the formal logarithm is an isometry on this formal group, and for a formal point \(T\),
+
+\[
+\nu_v(\log_E T)=\nu_v(z(T))=\tfrac12\nu_v(f(T)).
+\]
+
+Applying the logarithm to the torsion-safe identity (11) gives
+
+\[
+\frac{\log_E R}{\log_E H}=\frac{c}{h},
+\qquad
+v_p(c/h)=\tfrac12\nu_v(f_R/f)\ge8.
+\]
+
+The nonzero formal points have nonzero logarithms; \(h\ne0\) was established above. Finally \(h\in\mathbb Z\) implies \(v_p(h)\ge0\), and therefore
+
+\[
+p^8\mid c.
+\tag{19}
+\]
+
+This supplies the scalar-index order 8 conclusion needed by the subsequent contact-height argument. It is a local soundness proof and applies equally at split and inert primes through the residue-degree weighting in (14). It does not claim an order proportional to \(R_p\); the contact radical needs the fixed order 8 for each consumed prime.
+
+#### Real completeness remains a separate use
+
+The existing completeness construction chooses \(H\in2E(K)\), hence \(\tau=O\), and lifts by (8). Its positive real reciprocal chart and the associated smallness estimate for \(W\) remain available for that chosen family. No such positivity assertion is needed or justified for arbitrary soundness witnesses on \(\tau=T_0\).
+
+
 <a id="reciprocal-fixed-translation"></a>
 
-## Reciprocal H,V0 charts and exact fixed translation
+## Historical reciprocal H,V0 charts and exact fixed translation
+
+This section records the earlier square-chart construction with translation 4P. The final builder instead uses the free-f compressed chart with translation P; its current reconstruction, integer label and torsion treatment are given in the [compressed-anchor bridge](#compressed-anchor). Do not apply the earlier H=4P exceptional-branch conclusion to the final rows.
 
 ### Two quadratic field equations
 
@@ -460,6 +739,8 @@ When T_i is formal, this v reduces to+1. This supplies the required branch simul
 
 ## Removing scalar preparation after fixed correction and half-norm packing
 
+The initial formulas in this section record the earlier nested-input, order-32 stage. The final source uses beta=3723(2X+1)^2, a=114444r and q=Norm(uR)/(nH*r^15). See the [current torsion-safe soundness argument](#compressed-anchor) and [final real bound](#real-guards) before applying these earlier calculations.
+
 ### Input and scalar notation
 
 Use Y=102X^2+357, beta=Y^2, and
@@ -529,9 +810,227 @@ Finally
 
 All conditions of the source's preparation-zero completeness lemma (Brox v3 lines 2572-2599) now hold. Its inherited simultaneous two-twist argument provides the pole witnesses. The normalized denominator 1+a is automatically nonzero, and no new local correction choice is needed.
 
+
 ### Compatibility with the root-square-root Kummer entry
 
 If the scalar entry reconstructs a point with abscissa belonging to S-P or S+P, all scalar contact divisibility and anchor inequalities apply to its actual nonzero integer label c_signed=±a-1, not silently to a-1. Its absolute value c satisfies ||a|-c|<=1. This is the only relation needed in the later height comparison; completeness chooses the original orientation S-P. The real bound above only uses R in2E, so it holds for either reconstructed orientation.
+
+
+<a id="real-guards"></a>
+
+## Real-part root guards and simultaneous real choice
+
+This argument applies to the final direct-target source. It assumes the inherited prime-pattern theorem, local scalar preparation and real-group facts identified below. It proves compatibility of the four guards with the real scalar region; it does not prove pole completeness, the height theorem or global source arithmetic.
+
+### Exact source and notation
+
+Use the final direct-target normalization
+
+\[
+ K=\mathbf Q(\sqrt2),\qquad d=3-\sqrt2,\qquad D=d^2,
+ \qquad E:y^2=x^3-Dx,
+\]
+
+\[
+ P=\left((57-28\sqrt2)/8,\;(-660+417\sqrt2)/32\right).
+\]
+
+The fixed roots are \(Q_i=[n_i]P\), with all four \(n_i\ne0\). Completeness chooses
+
+\[
+ H=[h]P,\qquad U_i=[n_i]H,\qquad
+ V_i=[n_i](H-P),\qquad U_i-V_i=Q_i.
+\]
+
+The final builder does not use the older \(h-4\) convention. Its fixed translation is \(P\). The two real embeddings are denoted by \(\sigma=+,-\), with \(d_\pm=3\mp\sqrt2>1\) and \(d_+d_-=7\). For \(a+b\sqrt2\), write \(\operatorname{Re}(a+b\sqrt2)=a\); this is the rational coefficient, equal to half the sum of the two real embeddings, not one chosen real embedding.
+
+Source passages (paths relative to this package):
+
+- `construction/318/build_source.cjs:427–444`: the four actual inverse guards on coefficient zero of \(f(V_i)-f(U_i)\).
+- `construction/318/build_source.cjs:362–370`: the fixed curve and point constants.
+- `docs/sources/quartic_v10.tex:19381–19415`: fixed point, infinite order, doubling, and real abscissa facts.
+- `docs/sources/quartic_v10.tex:19580–19598`: nonzero root labels and final \(h,h-1\) convention.
+- `docs/sources/quartic_v10.tex:19661–19678`: direct-target CRT and formal depth construction.
+- `docs/sources/quartic_v10.tex:10632–10692`: real-progression lemma.
+- `docs/sources/diophantine_optimization_20261106_v3.tex:3249–3302`: explicit component-group divisibility before prime selection. This passage uses the earlier \(h-4\) normalization; import its component-group argument, not its old CRT residues.
+
+### Proposition: the four guard loci can be avoided
+
+Let \(E_\sigma(\mathbf R)^0\) be the real identity component and let
+
+\[
+ G=\overline{\mathbf Z(P_+,P_-)}
+ \subset E_+(\mathbf R)^0\times E_-(\mathbf R)^0.
+\]
+
+Then its identity component \(G^0\) is a connected compact real-analytic torus. Each projection of \(G^0\) onto its real elliptic identity circle is surjective. To see this, the projected cyclic orbit is infinite because \(P\) has infinite order. If the connected projection were trivial, the image of \(G\), which has finitely many components, would be finite. A nontrivial connected closed subgroup of a circle is the whole circle.
+
+The fixed point lies in each identity component because it is a double. More generally, the real identity component is the unbounded oval consisting of \(O\) and the points with \(x\ge d_\sigma\). On this oval the rational function
+
+\[
+ f_\sigma=1/x
+\]
+
+has no pole, extends real-analytically at \(O\) with value zero, and is positive everywhere else. Analyticity at \(O\) also follows from the formal parameter expansion \(x=z^{-2}(1+O(z))\).
+
+For each fixed nonzero root label define on \(G^0\)
+
+\[
+ g_i(H_+,H_-)=\frac12\sum_{\sigma=\pm}
+ \left(f_\sigma([n_i]H_\sigma-[n_i]P_\sigma)
+       -f_\sigma([n_i]H_\sigma)\right).
+\]
+
+This is globally real-analytic: multiplication, translation, and \(f_\sigma\) are real-analytic on the relevant compact circles. At the identity,
+
+\[
+ g_i(O,O)=\frac12\left(f_+(-[n_i]P_+)+f_-(-[n_i]P_-)\right)>0.
+\]
+
+Here neither \([n_i]P_\sigma\) is \(O\), since \(P\) has infinite order and the real embedding is injective on algebraic points. Thus \(g_i\) is not identically zero. A nonzero real-analytic function on a connected real-analytic manifold has a zero set with empty interior and measure zero. Each of the four loci \(g_i=0\) therefore has Haar measure zero in \(G^0\).
+
+It follows that their union can be removed from any nonempty open scalar region without exhausting that region. The argument works in either possible dimension of \(G^0\) and does not assume independence of the two elliptic logarithms.
+
+**Trace-zero distinction.** These are trace-zero loci, involving both real factors. They are not automatically inverse images of finite subsets under one projection. The older finite-pole argument alone does not establish their avoidance. The positivity computation at \((O,O)\) establishes nontriviality of each analytic guard.
+
+### Quantitative scalar region
+
+Define, on each identity circle,
+
+\[
+ s_\sigma=\sqrt{d_\sigma f_\sigma(H)},\qquad 0\le s_\sigma\le1.
+\]
+
+This nonnegative expression is sufficient for the measure computation; no globally single-valued signed square root on the circle is asserted. Along each of the two arcs, substitute \(x=d_\sigma/s^2\) into the invariant differential to obtain
+
+\[
+ \left|\frac{dx}{2y}\right|
+ =\frac{ds}{\sqrt{d_\sigma}\sqrt{1-s^4}}.
+\]
+
+Consequently the normalized Haar measure of \(s_\sigma\le\eta\) is
+
+\[
+ \frac{\int_0^\eta(1-s^4)^{-1/2}\,ds}
+      {\int_0^1(1-s^4)^{-1/2}\,ds}
+ \le\frac{\eta}{\sqrt{1-\eta^4}}.
+\]
+
+The inequality uses that the integrand is increasing and that the denominator is at least 1. A surjective continuous homomorphism sends normalized Haar measure to normalized Haar measure. Thus the union bound applies on \(G^0\), without requiring independence of the two projections. With \(\eta=1/10\),
+
+\[
+ \Omega=\{H\in G^0:s_+(H)>1/10,\ s_-(H)>1/10\}
+\]
+
+is open and has measure at least
+
+\[
+ 1-\frac{2}{10\sqrt{1-10^{-4}}}>0.79998.
+\]
+
+For the rational completeness charts \(f_H=u_H^2\), this gives
+
+\[
+ |\operatorname{Norm}(u_H)|>\frac1{100\sqrt7}.
+\]
+
+For any scalar point \(R\in2E(K)\), its two real abscissas are at least \(d_\sigma\), so
+
+\[
+ |\operatorname{Norm}(u_R)|\le\frac1{\sqrt7},\qquad
+ |\operatorname{Norm}(u_R/u_H)|<100.
+\]
+
+The final builder has
+
+\[
+ q=\operatorname{Norm}(u_R/u_H)r^{-15},\qquad
+ N=\operatorname{Norm}(1+f_H/r),\qquad W=N^2+rq^2.
+\]
+
+Indeed, `scalar.normalizedNormRatio` is `scalar.normUR * r^(-16)` divided by `scalar.normUH/r`. Since \(0<f_{H,\sigma}<1\), for \(r\ge10\)
+
+\[
+ 0<W\le(1+1/r)^4+10^4r^{-29}
+ \le1.4641+10^{-25}<2.
+\]
+
+For integral input \(\beta=3723(2X+1)^2\ge3723\), the displayed product
+
+\[
+ r=(\beta-1)(\beta-2401)(32\beta+343)(2\beta-1)
+\]
+
+is positive and exceeds 10. With \(a=114444r\),
+
+\[
+ 0<b=a\left(\frac W{1+a}\right)^2<\frac4a<17.
+\]
+
+The earlier scalar-preparation derivation uses a different stage and exponent. The final source uses exponent −29; its exact consumers are `construction/318/build_source.cjs:820–844`.
+
+### Compact uniform bounds and order of choices
+
+Fix the four roots and their labels before applying the contact-prime theorem. Inside \(\Omega\), remove both the four zero sets above and the finite union of inherited quotient/pole loci. The latter loci are covered by the existing rational-function/pole argument; their relevant multiplications have nonzero labels.
+
+The remainder contains a nonempty open set. Choose a nonempty open neighborhood with compact closure \(K_0\) lying in the remainder. Then
+
+\[
+ \epsilon=\min_{1\le i\le4}\min_{H\in K_0}|g_i(H)|>0.
+\]
+
+All four new guard inverses are uniformly bounded by \(\epsilon^{-1}\), and the finitely many other comparison functions are bounded on the same compact set. These bounds are fixed before the contact primes and the progression moduli arising from their reduction orders. No universal numerical lower bound on \(\epsilon\) is needed: the existing prime-pattern application permits an arbitrarily large real parameter after these bounds are fixed.
+
+### Component divisibility and final CRT
+
+Let \(m=|G/G^0|\). When choosing the prepared shared index and continuity modulus, require
+
+\[
+ 64m\mid h_0,\qquad64m\mid L.
+\]
+
+This may be imposed before prime selection. The original local preparation permits additional fixed divisibility, and enlarging the continuity modulus preserves the local neighborhoods. The component-group argument is already explicitly present in Brox v3 lines 3249–3302.
+
+For the final direct-target construction write
+
+\[
+ M_\pm=\operatorname{lcm}_p(d_\pm(p)/4),\qquad\Pi=\prod_p p.
+\]
+
+Use the inherited prime-pattern conclusions
+
+\[
+ \gcd(M_-,M_+)=1,\quad\gcd(M_-,L)=16,
+ \quad\gcd(M_+,L)=1,
+ \quad\gcd(\Pi,M_+)=\gcd(\Pi,L)=1.
+\]
+
+Then, for the primary-depth exponent \(e\) used in that construction,
+
+\[
+ h\equiv0\pmod{\Pi^eM_-},\qquad
+ h\equiv1\pmod{M_+},\qquad
+ h\equiv h_0\pmod L
+\]
+
+are compatible, since the only common divisor with the first and third moduli is 16 and \(16\mid h_0\). Enlarging the fixed \(L\) by \(m\) before prime selection is allowed: its odd factors enter the avoidance modulus, and the prescribed 2-parts remain controlled. This is an application of the stated prime theorem, not a new proof of it.
+
+Every index in the resulting progression is divisible by \(m\), and its step is divisible by \(m\). If a progression is \(r+k\mathbf Z\), its closure in \(G\) is \([r]P+[k]G\). Since multiplication by a nonzero integer is surjective on the torus \(G^0\), and \(m\) annihilates \(G/G^0\), we have \([k]G=G^0\) whenever \(m\mid k\). Also \([r]P\in G^0\) when \(m\mid r\). Its closure is therefore exactly \(G^0\). The positive tail is dense in that closure by compactness/recurrence, so arbitrarily large positive indices meet the interior of \(K_0\).
+
+This establishes simultaneous real scalar smallness, the four new guards, the inherited pole avoidance, and all prescribed local congruences. Chart signs at finite places are supplied separately by the existing reciprocal-branch construction; the new guards depend only on \(f=u^2\), so they impose no extra sign requirement.
+
+### Soundness of the inverse guard
+
+If \(f(V_i)-f(U_i)=a+b\sqrt2\), the rational inverse equation forces \(a\ne0\). Then \(a^2-2b^2\ne0\), since otherwise 2 would be a rational square. Thus the two rational field-quotient equations have a nonzero determinant and determine the quotient uniquely. This implication is already formalized as `ConcreteQuadraticDomains.norm_nonzero_of_real_nonzero`, at `proof/components/ConcreteQuadraticDomains.lean:54–60`.
+
+For reciprocal charts the numerator used by the builder is \(u_Uv_V+u_Vv_U\), with denominator \(u_V^2-u_U^2\). The elliptic addition identity gives
+
+\[
+ \left(\frac{u_Uv_V+u_Vv_U}{u_V^2-u_U^2}\right)^2=x(U_i-V_i).
+\]
+
+The ordinary finite case follows by substitution in the secant formula. If one point is \(O\), use \(u=0,v=\pm1\) to obtain the same identity directly. Equal-abscissa cases have zero denominator and are excluded by the guard. The present completeness proof shows that excluding them, and even excluding the stronger trace-zero locus, loses no required integer-input witnesses.
+
 
 <a id="six-helper-8-29-trivial-height"></a>
 
@@ -1087,3 +1586,19 @@ The low direct approximation J1=1-delta/5 retains relative precision 8r. Norm-H 
 The G denominator root13/7 is not a square inK, whereas actualw=Df^2 is a K-square. The J denominator rootdelta=-13/5 would forcev=-8/5, impossible at a real embedding ofv^2=1-Du^4. The numerator discriminants7003/12675 and 952/12675 are neither rational-square nor twice rational-square, so neither numerator has a K-root. These are global domain statements and do not add their numerator prime factors to the finite exceptional set.
 
 Conclusion: all local formal-log, Padé accuracy and nonvanishing consumers in the current4/13,index 8 source are valid at every good unramified primep>17. No additional prime beyond{2,3,5,7,11,13,17} is required by this log module. The complete source still has other exceptional primes from its input, contact forms, fixed point and scalar product, which must be audited separately.
+
+<a id="kato-scope"></a>
+
+## Kato applicability and the remaining global dependency
+
+The primary source is K. Kato, *Euler systems, Iwasawa theory, and Selmer groups*, Kodai Mathematical Journal 22 (1999), 313–372, [published PDF](https://www.jstage.jst.go.jp/article/kodaimath1978/22/3/22_3_313/_pdf), DOI [10.2996/kmj/1138044090](https://doi.org/10.2996/kmj/1138044090). The inspected PDF has SHA-256 `483dc18c56b2fe9cfac4e37f2e6594399625c3f0ea98a05bb69116377c67fc06`.
+
+Theorem 0.8 and Example 0.6.2, printed pages 317–318, allow the coefficient prime 2 in the rational case localized at a DVR prime not containing 2. The stronger residual-irreducibility and integral-cokernel hypotheses concern primes containing the coefficient prime and are not the case used here. Lemma 12.7, page 364, accounts for the extra factor 2 at the small dyadic levels; that factor is invertible at the localization in question.
+
+The consuming passage is the [pinned Version 10 manuscript](sources/quartic_v10.tex), lines 12610–12720. Its representation comes from E_l: y²=x(x−l)(x+3l), for the fixed positive squarefree l≡11 mod 12, not the different CM curve used to encode integer labels. Its j-invariant is 35152/9, hence nonintegral and non-CM. Serre's open-image input gives rational irreducibility and an open SL₂ subgroup in the image of the abelian-kernel Galois group. A quadratic character is trivial on that group; the same open subgroup therefore survives twisting. A nonidentity upper unipotent has a one-dimensional fixed space, verifying the stronger abelian-kernel condition. Complex conjugation has one-dimensional eigenspaces. The roots of Kato's arithmetic-Frobenius polynomial P_q(T) have absolute value q^−1/2, so condition 0.6(iii) has w=−1. The Tate-module Euler factor 1−a_q T+qT² becomes 1−(a_q/q)σ_q^−1+(1/q)σ_q^−2 under Kato's substitution, with the expected quadratic-twist factor on a_q.
+
+The theorem controls H²₀, the kernel of local restriction, and the coordinate ideal of the actual retained nontorsion Euler-system class. It does not directly control all of H². Version 10 separately compares the j_* complex and full open-scheme cochains and pays the odd-place cone lengths with unused good-prime Euler factors and fixed old-place correction factors (lines 12693–12828). Verifying applicability still presupposes the manuscript's construction, norm relations and nonvanishing of that retained class. This source check is not a reconstruction of every cohomological step.
+
+The support-uniform integral assertion 2^c_E u^ev∈Z₂[[t]][G] uses a different positive-complex argument, lines 12832–13075, followed by central calibration, lines 13078–13240. Kato's away-from-two theorem does not prove that integral assertion or the restricted converse. Compatible finite free models and determinant bases, uniformity in G and added conductor support, the completed-localization comparison, the calibrated determinant and subsequent coefficient/limit arguments remain consequential dependencies. Constants may depend on the fixed E_l; the asserted uniformity is not over all l.
+
+The prior positive-complex and central-calibration arguments are present in the manuscript. Their complete independent validation, and the downstream chain through restricted converse, simultaneous descent, pole completeness and actual final-source witness assembly, are not established by this source check. This is an unresolved validation boundary, not a claim that those historical arguments are absent or disproved.
