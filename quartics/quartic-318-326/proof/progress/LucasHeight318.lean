@@ -3,7 +3,7 @@ public import HeightSeparation318
 public section
 namespace HeightSeparation318
 
-def lucasResidual (a t z : ℝ) : ℝ := t^2-a*(a-2)*t*z+(a-2)^2*z^2-1
+@[expose] def lucasResidual (a t z : ℝ) : ℝ := t^2-a*(a-2)*t*z+(a-2)^2*z^2-1
 
 /-- The literal Lucas residual has the required quartic absolute-value bound. -/
 theorem lucas_residual_bound (a t z B : ℝ) (hB : 3≤B)

@@ -1,0 +1,13 @@
+# Primary-source normalization ledger
+
+Fresh source: Gaudron–Rémond, *Théorème des périodes et degrés minimaux d'isogénies*, Commentarii Mathematici Helvetici 89 (2014), 343–403, official author PDF https://lmbp.uca.fr/~gaudron/art11.pdf, SHA256 d6b02e1adb9c8f2ab5a574bd8f8c301b5dfcfb8e14db3516bd2ae099b216ac54. Section 2.3, printed pages 351–352, explicitly distinguishes the following heights.
+
+1. Original stable Faltings height h0 uses squared Hodge norm 2^(−g) times the integral. This is the L2 convention appearing for a Jacobian in Javanpeykar's definition.
+2. The shifted height h+ uses squared norm (2pi)^(−g) times the integral, and h+=h0+(g/2)log(pi). GR2014 uses h+ in its body but states its introductory upper bounds using h0. The definitions and the direction of the correction are explicit.
+3. Yuan's surface norm is (2pi)^(−2) times the integral, exactly h+ in dimension two. Therefore his isometry gives h(omega_X²)=2h+(A)+log210. Written with h0 it is 2h0(A)+2log(pi)+log210, as in V10. The +120 geometric budget was certified using the latter, larger written constant. It is also a valid conservative budget for h+.
+4. Javanpeykar Lemma 2.4.4 explicitly gives h+=h_Javan+(g/2)log(pi). Adding this shift, bounded by g, before the Jacobian 2^11*d²*L² aggregation is correct.
+5. Rémond's Corollary 1.2 is invariant under adding any constant times dimension, because dimension is additive in the exact sequence. His displayed original-normalization Bost lower bound is h0>=−log(pi*sqrt(2))*g. Thus h+>=h0>=−(3/2)*g, and the source's +3g/2 image-height allowance is safe in either convention.
+6. The fresh GR2022 author version, *Nouveaux théorèmes d'isogénie*, section 1.5, says Theorem 1.9 uses the original height h0. Inserting h+ in its maximum gives a larger bound because h0<=h+. This is not an equality of normalizations: it is monotonicity. The new `half_log_expression_mono` and `surface_height_from_original` lemmas explicitly check this bridge.
+7. GR2014 section 2.3 states Raynaud's |h(A')−h(A)|<=1/2 log degree for an isogeny. Equal-dimensional isogenous varieties acquire the same additive normalization shift, so the inequality is unchanged. Thus one can first get the degree bound with h0, enlarge its maximum to h+, and compare the shifted heights of the actual two-dimensional image and source surface.
+
+No arithmetic constant or final exponent changes. The source's phrase “GR/Rémond normalization” names the shifted convention used downstream, while the primary 2022 isogeny theorem's stated original-height convention is handled by the explicit inequality above. This note records the distinction rather than conflating them.
