@@ -1,0 +1,31 @@
+smul_pow.{u_1, u_2} {M : Type u_1} {N : Type u_2} [Monoid M] [Monoid N] [MulAction M N] [IsScalarTower M N N]
+  [SMulCommClass M N N] (r : M) (x : N) (n : ℕ) : (r • x) ^ n = r ^ n • x ^ n
+smul_mul_assoc.{u_5, u_6} {α : Type u_5} {β : Type u_6} [Mul β] [SMul α β] [IsScalarTower α β β] (r : α) (x y : β) :
+  r • x * y = r • (x * y)
+mul_smul_comm.{u_5, u_6} {α : Type u_5} {β : Type u_6} [Mul β] [SMul α β] [SMulCommClass α β β] (s : α) (x y : β) :
+  x * s • y = s • (x * y)
+smul_eq_zero.{u_1, u_3} {R : Type u_1} {M : Type u_3} [Semiring R] [AddCommMonoid M] [Module R M] {r : R} {m : M}
+  [Module.IsTorsionFree R M] [IsCancelMulZero R] : r • m = 0 ↔ r = 0 ∨ m = 0
+smul_eq_zero_iff_right.{u_1, u_3} {R : Type u_1} {M : Type u_3} [Semiring R] [AddCommMonoid M] [Module R M] {r : R}
+  {m : M} [Module.IsTorsionFree R M] [IsCancelMulZero R] (hr : r ≠ 0) : r • m = 0 ↔ m = 0
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check.lean:13:7: error(lean.unknownIdentifier): Unknown constant `Matrix.mapRingHom`
+Int.dvd_of_emod_eq_zero {a b : ℤ} (H : b % a = 0) : a ∣ b
+Int.ediv_mul_cancel {a b : ℤ} (H : b ∣ a) : a / b * b = a
+Int.mul_ediv_cancel (a : ℤ) {b : ℤ} (H : b ≠ 0) : a * b / b = a
+Int.eq_zero_of_dvd_of_natAbs_lt_natAbs {d n : ℤ} (h : d ∣ n) (h₁ : n.natAbs < d.natAbs) : n = 0
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check.lean:18:7: error(lean.unknownIdentifier): Unknown constant `Int.eq_zero_of_dvd_of_natAbs_lt`
+Nat.pow_dvd_iff_le_padicValNat {p k n : ℕ} (hp : p ≠ 1) (hn : n ≠ 0) : p ^ k ∣ n ↔ k ≤ padicValNat p n
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check.lean:20:7: error(lean.unknownIdentifier): Unknown constant `padicValInt.pow_dvd_iff_le`
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check.lean:21:7: error(lean.unknownIdentifier): Unknown constant `padicValInt.pow_dvd_iff_le_padicValInt`
+Int.natAbs_dvd_natAbs {a b : ℤ} : a.natAbs ∣ b.natAbs ↔ a ∣ b
+Nat.not_dvd_of_pos_of_lt {n m : ℕ} (h1 : 0 < n) (h2 : n < m) : ¬m ∣ n
+Nat.exists_prime_and_dvd {n : ℕ} (hn : n ≠ 1) : ∃ p, Nat.Prime p ∧ p ∣ n
+orderOf_pow_orderOf_div.{u_1} {G : Type u_1} [Monoid G] {x : G} {n : ℕ} (hx : orderOf x ≠ 0) (hn : n ∣ orderOf x) :
+  orderOf (x ^ (orderOf x / n)) = n
+orderOf_eq_one_iff.{u_1} {G : Type u_1} [Monoid G] {x : G} : orderOf x = 1 ↔ x = 1
+Matrix.GeneralLinearGroup.{u, v} (n : Type u) (R : Type v) [DecidableEq n] [Fintype n] [Semiring R] : Type (max v u)
+Int.prime_three : Prime 3
+Prime.dvd_mul.{u_1} {M : Type u_1} [CommMonoidWithZero M] {p : M} (hp : Prime p) {a b : M} : p ∣ a * b ↔ p ∣ a ∨ p ∣ b
+Int.natCast_dvd_natCast {m n : ℕ} : ↑m ∣ ↑n ↔ m ∣ n
+Int.ofNat_dvd {m n : ℕ} : ↑m ∣ ↑n ↔ m ∣ n
+IsMulTorsionFree.{u_2} (M : Type u_2) [Monoid M] : Prop

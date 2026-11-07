@@ -1,6 +1,6 @@
 # Checked proof-progress checkpoint
 
-This directory is a dependency-closed source snapshot of the completed proof packets at the November 7 soundness-integration checkpoint. It is **not** a proof of the full integer-characterization theorem. The original polynomial and source-equivalence files elsewhere in the repository are unchanged.
+This directory is a dependency-closed source snapshot of the completed proof packets at the November 7 geometric-producer checkpoint. It is **not** a proof of the full integer-characterization theorem. The original polynomial and source-equivalence files elsewhere in the repository are unchanged.
 
 ## What is now proved
 
@@ -13,13 +13,15 @@ This directory is a dependency-closed source snapshot of the completed proof pac
 - **Complete local/source soundness joins:** one coherent source-label object fixes signs before primes are chosen. Actual split/inert logarithms, all three contact chains, and integer targets now give the high p^13, low p^4 and scalar p^8 divisibility statements. The rational-contact radical and actual three detector scales yield all required height comparisons from the named geometric input.
 - **Lucas growth and witnesses:** integral Vieta descent and actual recurrence congruences prove the required logarithmic growth, including negative parameters. The exact completeness choice k=2(s−2) gives positive odd Lucas witnesses for odd s≥3 with s≡1 modulo three.
 - **Published-polynomial soundness with one premise:** `LiteralSoundness318326.polynomial318_soundness` and `stored326_soundness` prove that zeros of the actual 318 polynomial or stored 3157-term 326 table have integer input, conditional only on `ContactHeight318.FiveContact49Height`. This geometric theorem is explicitly defined and is **not proved** by this checkpoint.
+- **Actual analytic and local geometric components:** holomorphic disc energy implies the factorial-normalized Wronskian estimate; actual SL2(Z), q-parameter, derivative and whole-fiber estimates give the cusp inputs. Actual field trace, different ideals and DVR valuations prove the horizontal and vertical different bounds. The finite-divisor arithmetic and negative-definite exceptional intersection argument are proved, with model realization explicit.
+- **Global height producer assembly:** actual all-place section heights, CM eta/discriminant bounds, finite field/torsor and integral matrix arguments, character-index/Euler bounds, and the Jacobian-to-surface transfer are checked. `FiveContactProducer318.five_contact_of_realization` assembles these into the exact five-contact predicate from explicitly required geometric producer data. `GeometricSoundness318326` carries that explicit premise to both published polynomial endpoints. **The existence of `GeometricRealization` is not proved.** Record fields and source-level classical geometric reviews are not counted as formal constructions.
 - **Completeness and49/8 components:** checked finite budgets, CRT/anchor/producer fragments, integral scaled-series machinery, exact contact determinants and metric/curvature/growth inequalities. Their global theorem dependencies remain explicit.
 
 The manifest lists every included source, its hash, its producer and the topological build order. Producer receipts and independent bounded reviews are preserved under `receipts/` and `reviews/`. They are dated, scoped records: an earlier receipt's remaining-input list may have been closed by a later packet. The current status is described here, not inferred by adding declaration counts.
 
 ## What remains
 
-1. Complete the global five-contact height producer with exponent 49/8. Exact metric cancellation, normalization corrections, isogeny-height transfer and finite constants are checked, and the source-level metric producer has been independently reviewed. These do not themselves construct the required models, covering fields, modular-support objects or global Arakelov/Yuan data.
+1. Construct the actual global geometric realization in Lean. The conditional assembly is now explicit and its analytic, local-different, section-height and finite arithmetic producers are checked. Source-level applications of the Shimura/modular models, controlled fields, conductor, maximal Kodaira-Spencer model and Arakelov/Yuan identifications have bounded independent reviews, but these are not a Lean construction of all producer data for every contact point.
 2. Complete the formal integer-to-source witness existence direction. Prime-pattern/restricted-converse source audits and checked finite producer fragments are not yet a full Lean construction of every witness.
 3. Compose these into an unconditional replacement for the existing `sourceArithmetic` assumption, then run the end-to-end clean rebuild and independent final review.
 
@@ -38,8 +40,8 @@ bash replay.sh
 
 `replay.sh` kernel-checks every source in dependency order, then recursively audits all declarations, allowing only `propext`, `Classical.choice` and `Quot.sound`. It uses neither `sorry` nor native evaluation. The full finite enumeration is deliberately expensive. `bash replay.sh --audit-only` audits already built artifacts and does not claim a fresh source rebuild.
 
-For this checkpoint, the 44 new or changed modules were freshly rebuilt inside this snapshot with kernel checking. Earlier producer packets were separately checked. The full333-module snapshot was hash/import-checked and recursively audited using those artifacts. The exact combined result and repository-check results are recorded in `checkpoint-verification.json`; it distinguishes that combined audit from a fresh rebuild of every snapshot module. Compiler binaries and the pinned Mathlib cache are trusted inputs.
+For this checkpoint, the 53 new modules were freshly rebuilt inside this snapshot with kernel checking. Earlier producer packets were separately checked. The full386-module snapshot was hash/import-checked and recursively audited using those artifacts. The exact combined result and repository-check results are recorded in `checkpoint-verification.json`; it distinguishes that combined audit from a fresh rebuild of every snapshot module. Compiler binaries and the pinned Mathlib cache are trusted inputs.
 
 ## Exclusions
 
-Exploratory/debug files, local `.olean`/`.ir` artifacts, dependency caches, browser/download scratch files, and still-live geometric/fiber-field/embedded-disc/Wronskian work are excluded. No PR is created by this checkpoint.
+Exploratory/debug files, local `.olean`/`.ir` artifacts, dependency caches, browser/download scratch files, and work completed after this checkpoint cutoff, including the later tame-formal-coordinate and residue-characteristic wrappers, are excluded. No PR is created by this checkpoint.

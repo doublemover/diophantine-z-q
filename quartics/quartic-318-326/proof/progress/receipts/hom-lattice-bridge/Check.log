@@ -1,0 +1,18 @@
+LinearEquiv.map_smul.{u_2, u_12, u_13} {R₁ : Type u_2} {N₁ : Type u_12} {N₂ : Type u_13} [Semiring R₁]
+  [AddCommMonoid N₁] [AddCommMonoid N₂] {module_N₁ : Module R₁ N₁} {module_N₂ : Module R₁ N₂} (e : N₁ ≃ₗ[R₁] N₂)
+  (c : R₁) (x : N₁) : e (c • x) = c • e x
+LinearEquiv.map_smulₛₗ.{u_1, u_6, u_7, u_9} {R : Type u_1} {S : Type u_6} {M : Type u_7} {M₂ : Type u_9} [Semiring R]
+  [Semiring S] [AddCommMonoid M] [AddCommMonoid M₂] {module_M : Module R M} {module_S_M₂ : Module S M₂} {σ : R →+* S}
+  {σ' : S →+* R} {re₁ : RingHomInvPair σ σ'} {re₂ : RingHomInvPair σ' σ} (e : M ≃ₛₗ[σ] M₂) (c : R) (x : M) :
+  e (c • x) = σ c • e x
+LinearMap.map_smul.{u_1, u_8, u_10} {R : Type u_1} {M : Type u_8} {M₂ : Type u_10} [Semiring R] [AddCommMonoid M]
+  [AddCommMonoid M₂] [Module R M] [Module R M₂] (fₗ : M →ₗ[R] M₂) (c : R) (x : M) : fₗ (c • x) = c • fₗ x
+map_zsmul.{u_7, u_8, u_9} {G : Type u_7} {H : Type u_8} {F : Type u_9} [FunLike F G H] [AddGroup G]
+  [SubtractionMonoid H] [AddMonoidHomClass F G H] (f : F) (n : ℤ) (g : G) : f (n • g) = n • f g
+/workspace/scratch/2cb21e4e0864/hom-lattice-bridge/Check.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Int.smul_eq_mul`
+Int.cast_smul_eq_zsmul.{u_1, u_3} (R : Type u_1) {M : Type u_3} [Ring R] [AddCommGroup M] [Module R M] (n : ℤ) (b : M) :
+  ↑n • b = n • b
+Finsupp.smul_apply.{u_1, u_2, u_4} {α : Type u_1} {M : Type u_2} {R : Type u_4} [Zero M] [SMulZeroClass R M] (b : R)
+  (v : α →₀ M) (a : α) : (b • v) a = b • v a
+Module.Basis.repr.{u_1, u_3, u_4} {ι : Type u_1} {R : Type u_3} {M : Type u_4} [Semiring R] [AddCommMonoid M]
+  [Module R M] (self : Module.Basis ι R M) : M ≃ₗ[R] ι →₀ R
