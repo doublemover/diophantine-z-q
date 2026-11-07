@@ -1,0 +1,9 @@
+# Independent review: actual affine integral model
+
+Accepted. The two exact copied source modules were independently rebuilt with strict kernel checking and all 26 declarations passed the recursive standard-axiom audit. Frozen source hashes match the upstream receipt. No upstream files were edited.
+
+The constructed model ring is the actual integral closure of the original base inside the given finite algebra over its denominator localization. The denominator-clearing theorem derives that a power of the actual inverted element makes each algebra element integral over the base. This gives all three genuine localization conditions: the denominator becomes a unit, every element is represented after clearing a power, and equality is detected through the actual injective integral-closure inclusion. Thus the original algebra is proved to be the localization of the model, rather than identified through a generic-field or abstract-isomorphism premise.
+
+The scheme is the actual spectrum of that ring. Its structure morphism is genuinely integral, the original cover maps by an actual open immersion, the image is exactly the denominator basic open, and the actual open-subscheme isomorphism respects the embedding. The j-line specialization uses the literal OpenJModel denominator and the genuine scalar tower; the full diagram commutes as scheme morphisms.
+
+The claim is deliberately integrality, not finiteness or normality of the extended model. The finite-etale statement for the original open cover retains an actual Algebra.Etale instance for the input algebra and derives the scheme property from it. This packet does not construct the specific primitive-torsion algebra, prove its splitting, construct a proper completion, or supply the source geometric identification. These boundaries match the frozen README and receipt.

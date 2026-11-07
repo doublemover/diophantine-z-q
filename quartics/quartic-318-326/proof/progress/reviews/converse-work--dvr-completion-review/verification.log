@@ -1,0 +1,68 @@
+/workspace/scratch/2cb21e4e0864/converse-work/dvr-completion-review/snapshot/SeparatedPrincipalLocal318.lean:20:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/scratch/2cb21e4e0864/converse-work/dvr-completion-review/snapshot/SeparatedPrincipalLocal318.lean:49:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/scratch/2cb21e4e0864/converse-work/dvr-completion-review/snapshot/SeparatedPrincipalLocal318.lean:50:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/converse-work/dvr-completion-review/snapshot/SeparatedPrincipalLocal318.lean:54:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/scratch/2cb21e4e0864/converse-work/dvr-completion-review/snapshot/SeparatedPrincipalLocal318.lean:59:26: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/2cb21e4e0864/converse-work/dvr-completion-review/snapshot/SeparatedPrincipalLocal318.lean:59:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+AXIOM_CHECK SeparatedPrincipalLocal318.domain: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK SeparatedPrincipalLocal318.principal: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK _private.SeparatedPrincipalLocal318.0.SeparatedPrincipalLocal318.principal._simp_1_1: []
+AXIOM_CHECK SeparatedPrincipalLocal318.decomposition: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK _private.SeparatedPrincipalLocal318.0.SeparatedPrincipalLocal318.decomposition._proof_1_3: [propext,
+ Classical.choice,
+ Quot.sound]
+AXIOM_CHECK _private.SeparatedPrincipalLocal318.0.SeparatedPrincipalLocal318.decomposition._simp_1_2: [propext,
+ Classical.choice,
+ Quot.sound]
+AXIOM_CHECK _private.SeparatedPrincipalLocal318.0.SeparatedPrincipalLocal318.decomposition._simp_1_4: [propext]
+AXIOM_CHECK _private.SeparatedPrincipalLocal318.0.SeparatedPrincipalLocal318.decomposition._simp_1_5: [propext]
+AXIOM_CHECK _private.SeparatedPrincipalLocal318.0.SeparatedPrincipalLocal318.decomposition._simp_1_1: [propext,
+ Classical.choice,
+ Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.instIsDiscreteValuationRingCompletion: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completed_contact_map: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completion_value: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completion_injective: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completion_principal: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completion_domain: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completion_complete: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.instIsDomainCompletion: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.Completion: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completed_uniformizer: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK ActualDVRCompletion318.completion_maximal: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.residueEquiv: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.residueEquiv._proof_1: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.residueEquiv._proof_4: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.residueEquiv._proof_2: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.residueEquiv._proof_3: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.completion_faithfullyFlat: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CompletionDescent318.residueEquiv_map: [propext, Classical.choice, Quot.sound]
+DVR_COMPLETION_AUDIT_PASS declarations=27 modules=3
