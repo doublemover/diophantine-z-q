@@ -51,3 +51,7 @@ The default is two concurrent single-threaded compilers. `--jobs 1` through `--j
 ## Validation scope
 
 The release preparation checks are recorded in the [validation report](VALIDATION.json) and the [704-declaration axiom ledger](AXIOMS.json). They distinguish a fresh build of the project modules from a rebuild of upstream dependencies. Published dependency caches are trusted inputs; this procedure does not independently rebuild Lean or Mathlib, and an axiom audit does not replace review of a theorem's statement or its relation to the 11/5 manuscript.
+
+## Separate 318/326 contribution
+
+The [318/326 contribution package](../docs/quartic-318-326/README.md) contains its own Lean 4.35.0 packages, polynomial/source bridge, exact degree proof, and arithmetic helpers. These are not part of the accepted historical snapshot described above. The global `sourceArithmetic` hypothesis remains open.

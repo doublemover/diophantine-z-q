@@ -17,8 +17,12 @@ All variable counts include the input. Each download below is a byte-identical c
 | 9,625 | [quartic-9625-fully-expanded.txt](quartic-9625-fully-expanded.txt) | Fully written decimal integers | [Version 3 package](quartic-9625/) |
 | 12,504 | [quartic-12504-fully-expanded.txt](quartic-12504-fully-expanded.txt) | Fully written decimal integers | [Version 2 package](quartic-12504/) |
 
-The 540-variable quartic is the smallest here with every coefficient written out in decimal. The current manuscript proves its defining property and that of the 523-variable quartic, while retaining the original construction and earlier proof baselines. The new text downloads are lossless reformattings of their package JSON tables; the reproduction command compares every coefficient.
+The 540-variable quartic is the smallest in the published Version 10 manuscript with every coefficient written out in decimal. The current manuscript proves its defining property and that of the 523-variable quartic, while retaining the original construction and earlier proof baselines. The new text downloads are lossless reformattings of their package JSON tables; the reproduction command compares every coefficient.
 
 In a text table, each non-comment line contains the coefficient followed by repeated variable indices. For example, `-6 0 2 2` denotes `-6 X_0 X_2^2`. A line containing only a coefficient is the constant term. The JSON format is explained in the corresponding package guide.
 
 The package directories retain their existing names because the source inventories, certificates and reproduction commands refer to those paths.
+
+## 318/326 contribution branch
+
+The [318/326 guide](../docs/quartic-318-326/README.md) links both new tables, including complete decimal exports, their source and independent checks. They remain separate from the published Version 10 results above.

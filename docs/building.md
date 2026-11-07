@@ -138,3 +138,7 @@ GitHub Actions dependencies are pinned to commit hashes; the elan installer and 
 The earlier Version 4 release digest remains in its historical evidence; use the Pheidas-update digest above for the retained current Version 4 source.
 
 The current revision and its inherited application bindings are checked with `python -B docs/manuscript-revisions/version10/check.py`. The bounded valuation regression is `python -B docs/manuscript-revisions/version10/check_valuation.py`. Neither is a decision procedure for the mathematical proof.
+
+## 318/326 contribution branch
+
+Run `python -B scripts/check_quartic318_326.py` for source generation, exact coefficient comparisons, independent checks, unit tests, and frozen Lean hashes. See the [guide](quartic-318-326/README.md) for scope and Lean rebuild instructions.

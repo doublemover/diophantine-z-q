@@ -1,0 +1,64 @@
+{
+  "schema": "quartic-park-result-manifest-v1",
+  "schema_note": "Repository-defined review metadata; exact hashes bind the released files.",
+  "problem": "Z is Diophantine in Q",
+  "problem_url": "https://bigospeedrun.com/other/z-diophantine-in-q",
+  "statement": "For every rational input q, q is an integer if and only if there exist rational witnesses w with P(q,w)=0. The arithmetic characterization is subject to the explicitly listed inherited arithmetic inputs and written refinements.",
+  "ranking_order": [
+    "degree",
+    "total_variables",
+    "nonzero_coordinate_monomials",
+    "largest_absolute_coefficient"
+  ],
+  "authoritative_symbolic_result": "quartic-318",
+  "bounded_coefficient_alternative": "quartic-326",
+  "results": [
+    {
+      "id": "quartic-318",
+      "degree": 4,
+      "total_variables": 318,
+      "existential_witnesses": 317,
+      "input_coordinate": 0,
+      "quadratic_residuals": 288,
+      "nonzero_coordinate_monomials": 3134,
+      "largest_absolute_coefficient": "64 * 3^(2^17)",
+      "coefficient_representation": "fixed-integer symbolic coefficients",
+      "fixed_integer_parameter": "S = 3^(2^16); a coefficient, not a quantified variable",
+      "polynomial_path": "results/318/polynomial.json",
+      "polynomial_sha256": "06b1015a355e0c6e79673ffa93a6d07c0d50465b7b1310bf99e5a0a7f820b21b",
+      "expanded_decimal_term_list": {
+        "json_path": "results/318/coefficients.json",
+        "json_sha256": "6019e595859e7abf1eab9fb1e885a80e039c9fb52359b796e091a939d083ca50",
+        "text_path": "results/318/coefficients.txt",
+        "text_sha256": "01354e2b581b6d8474d76772167e7f9deab55fae590967590d43280d5145ac0e",
+        "audit": "Exact numeric SOS replay of 288 residuals, plus independent all-coefficient export comparison."
+      }
+    },
+    {
+      "id": "quartic-326",
+      "degree": 4,
+      "total_variables": 326,
+      "existential_witnesses": 325,
+      "input_coordinate": 0,
+      "quadratic_residuals": 296,
+      "nonzero_coordinate_monomials": 3157,
+      "largest_absolute_coefficient": "3^2048 + 3813373282171",
+      "coefficient_representation": "fully decimal integer coefficients",
+      "fixed_integer_parameter": "No symbolic coefficient remains in the term table. Seven additional quantified coordinates force the fixed value 3^(2^16), starting at 3^1024 and squaring six times; an eighth additional coordinate stores its required parity-norm product. All eight are included in the total 326 variables.",
+      "polynomial_path": "results/326/polynomial.json",
+      "polynomial_sha256": "d22173ff9a4cfd5b60318597a136036b4722893d7ca6e9a1e7694014061a9b73"
+    }
+  ],
+  "verification_scope": {
+    "finite_replay": "Independent exact source, transformation, coefficient and sum-of-squares checks; see per-result audit reports.",
+    "lean": "Exact final 318-variable polynomial/source equivalence and degree four. Lean proof of integer characterization is in progress; the theorem currently takes sourceArithmetic as a hypothesis.",
+    "arithmetic": "Written soundness and completeness arguments, with inherited assumptions and new refinements listed in the proof map.",
+    "site_status": "Not submitted or accepted; no Big O Speedrun verification label is claimed.",
+    "lean_bundle": "proof/318",
+    "lean_manifest_sha256": "1d4cc1d3e9c90c4480fdf7ed404cb118fd409a6a946ee5234b2152a3f298c8da"
+  },
+  "upstream_reference": {
+    "url": "https://github.com/elliotglazer/diophantine-z-q",
+    "commit": "ba7a3e0a0c171b7cd2ce75976addba57fad8a5dd"
+  }
+}
