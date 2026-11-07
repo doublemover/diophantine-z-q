@@ -31,5 +31,12 @@ for part, manifest in (("318", "concrete-verification.json"),
     base = PACKAGE / "proof" / part
     for name, digest in json.loads((base / manifest).read_text())["sha256"].items():
         assert hashlib.sha256((base / name).read_bytes()).hexdigest() == digest, name
+receipt_dir = PACKAGE / "proof/receipts/fresh-rebuild"
+for name, digest in json.loads((receipt_dir / "receipt.json").read_text())["sha256"].items():
+    assert hashlib.sha256((receipt_dir / name).read_bytes()).hexdigest() == digest, name
+source_check = json.loads((receipt_dir / "source-check.json").read_text())
+for part in ("318", "components"):
+    assert hashlib.sha256((receipt_dir / (part + "-manifest.json")).read_bytes()).hexdigest() == source_check["packages"][part]["manifestSHA256"]
+print("PASS: fresh Lean rebuild evidence and added proof-source hashes match.")
 print("PASS: both quartics reproduced; independent finite checks, unit tests, and frozen Lean hashes passed.")
 print("Lean was not rebuilt by this command; sourceArithmetic remains an explicit hypothesis.")
