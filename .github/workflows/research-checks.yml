@@ -96,6 +96,7 @@ jobs:
         with:
           node-version: '24.22.1'
       - run: python scripts/check_construction.py --report build/construction-checks.json
+      - run: python -B docs/audit-history/issue3/replay_row_hash.py
       - run: python scripts/check_lean.py
       - name: Validate theorem inventory bindings and references
         run: python docs/theorem-application-audit/validate.py
