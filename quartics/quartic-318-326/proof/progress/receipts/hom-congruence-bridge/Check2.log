@@ -1,0 +1,21 @@
+RingHom.mapMatrix.{u_2, u_8, u_9} {m : Type u_2} {α : Type u_8} {β : Type u_9} [Fintype m] [DecidableEq m]
+  [NonAssocSemiring α] [NonAssocSemiring β] (f : α →+* β) : Matrix m m α →+* Matrix m m β
+RingHom.mapMatrix_apply.{u_2, u_8, u_9} {m : Type u_2} {α : Type u_8} {β : Type u_9} [Fintype m] [DecidableEq m]
+  [NonAssocSemiring α] [NonAssocSemiring β] (f : α →+* β) (M : Matrix m m α) : f.mapMatrix M = M.map ⇑f
+ZMod.intCast_zmod_eq_zero_iff_dvd (a : ℤ) (b : ℕ) : ↑a = 0 ↔ ↑b ∣ a
+Matrix.map_apply.{v, w, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} {β : Type w} {M : Matrix m n α} {f : α → β}
+  {i : m} {j : n} : M.map f i j = f (M i j)
+map_intCast.{u_1, u_2, u_3} {F : Type u_1} {α : Type u_2} {β : Type u_3} [NonAssocRing α] [NonAssocRing β]
+  [FunLike F α β] [RingHomClass F α β] (f : F) (n : ℤ) : f ↑n = ↑n
+Nat.cast_smul_eq_nsmul.{u_1, u_3} (R : Type u_1) {M : Type u_3} [Semiring R] [AddCommMonoid M] [Module R M] (n : ℕ)
+  (b : M) : ↑n • b = n • b
+isOfFinOrder_of_finite.{u_1} {G : Type u_1} [LeftCancelMonoid G] [Finite G] (x : G) : IsOfFinOrder x
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check2.lean:11:7: error(lean.unknownIdentifier): Unknown constant `Matrix.GeneralLinearGroup.coeHom`
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check2.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Matrix.GeneralLinearGroup.toMatrix`
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check2.lean:13:7: error(lean.unknownIdentifier): Unknown constant `Units.valHom`
+Int.natAbs_pow (n : ℤ) (k : ℕ) : (n ^ k).natAbs = n.natAbs ^ k
+padicValInt (p : ℕ) (z : ℤ) : ℕ
+/workspace/scratch/2cb21e4e0864/hom-congruence-bridge/Check2.lean:16:7: error(lean.unknownIdentifier): Unknown constant `Nat.Prime.dvd_prime`
+Nat.Prime.dvd_iff_eq {p a : ℕ} (hp : Nat.Prime p) (a1 : a ≠ 1) : a ∣ p ↔ p = a
+Int.cast_sub.{u} {R : Type u} [AddGroupWithOne R] (m n : ℤ) : ↑(m - n) = ↑m - ↑n
+Int.cast_zero.{u} {R : Type u} [AddGroupWithOne R] : ↑0 = 0
