@@ -1,0 +1,14 @@
+PeriodPair.weierstrassP_add_coe (L : PeriodPair) (z : ℂ) (l : ↥L.lattice) : L.weierstrassP (z + ↑l) = L.weierstrassP z
+PeriodPair.derivWeierstrassP_add_coe (L : PeriodPair) (z : ℂ) (l : ↥L.lattice) :
+  L.derivWeierstrassP (z + ↑l) = L.derivWeierstrassP z
+add_mem_cancel_right.{u_1, u_4} {G : Type u_1} [AddGroup G] {S : Type u_4} {H : S} [SetLike S G] [AddSubgroupClass S G]
+  {x y : G} (h : x ∈ H) : y + x ∈ H ↔ y ∈ H
+AddSubgroup.add_mem_cancel_right.{u_1} {G : Type u_1} [AddGroup G] (H : AddSubgroup G) {x y : G} (h : x ∈ H) :
+  y + x ∈ H ↔ y ∈ H
+QuotientAddGroup.leftRel_apply.{u_1} {α : Type u_1} [AddGroup α] {s : AddSubgroup α} {x y : α} :
+  (QuotientAddGroup.leftRel s) x y ↔ -x + y ∈ s
+QuotientAddGroup.leftRel_eq.{u_1} {α : Type u_1} [AddGroup α] (s : AddSubgroup α) :
+  ⇑(QuotientAddGroup.leftRel s) = fun x y => -x + y ∈ s
+QuotientAddGroup.mk.{u_1} {α : Type u_1} [AddGroup α] {s : AddSubgroup α} (a : α) : α ⧸ s
+QuotientAddGroup.quotientKerEquivRange.{u, v} {G : Type u} [AddGroup G] {H : Type v} [AddGroup H] (φ : G →+ H) :
+  G ⧸ φ.ker ≃+ ↥φ.range

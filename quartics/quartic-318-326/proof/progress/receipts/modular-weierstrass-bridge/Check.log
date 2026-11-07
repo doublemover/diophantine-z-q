@@ -1,0 +1,8 @@
+WeierstrassCurve.j.{u} {R : Type u} [CommRing R] (W : WeierstrassCurve R) [W.IsElliptic] : R
+WeierstrassCurve.j_eq.{u_1} {K : Type u_1} [Field K] (W : WeierstrassCurve K) [W.IsElliptic] : W.j = W.Δ⁻¹ * W.c₄ ^ 3
+WeierstrassCurve.IsElliptic.{u} {R : Type u} [CommRing R] (W : WeierstrassCurve R) : Prop
+ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq (z : UpperHalfPlane) :
+  ModularForm.discriminant z = (ModularForm.E₄ z ^ 3 - ModularForm.E₆ z ^ 2) / 1728
+ModularForm.discriminant_ne_zero (z : UpperHalfPlane) : ModularForm.discriminant z ≠ 0
+ActualQJ318.G_qParam (tau : UpperHalfPlane) :
+  ActualQJ318.G (Function.Periodic.qParam 1 ↑tau) = Function.Periodic.qParam 1 ↑tau * ActualQJ318.jInvariant tau

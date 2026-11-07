@@ -1,173 +1,186 @@
-MANIFEST_PASS modules=386; exact hashes, closed imports, topological order, no placeholders/native evaluation
-KERNEL_CHECK CuspRadius318
-Try this:
-  [apply] ring_nf
-  
-  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
-    
-  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-'CuspRadius318.gap_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspRadius318.fixed_radius_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspRadius318.radius_level_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspRadius318.centered_disc_inside' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspDerivative318
-CuspDerivative318.lean:78:42: warning: Variable name `hD` is not explicitly referenced.
+MANIFEST_PASS modules=435; exact hashes, closed imports, topological order, no placeholders/native evaluation
+KERNEL_CHECK CompactMetricComparison318
+'CompactMetricComparison318.second_deriv_nonpos_of_localMax' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CompactMetricComparison318.laplacian_nonpos_of_localMax' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CompactMetricComparison318.curvature_forces_positive_laplacian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CompactMetricComparison318.compact_ratio_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CompactMetricComparison318.compact_metric_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK ConformalCurvature318
+'ConformalCurvature318.second_deriv_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConformalCurvature318.second_deriv_log_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConformalCurvature318.laplacian_log_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConformalCurvature318.conformal_curvature_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConformalCurvature318.hyperbolic_curvature_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK DistanceLaplacian318
+DistanceLaplacian318.lean:36:147: warning: This simp argument is unused:
+  add_zero
 
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hD
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, Pi.pow_apply, id_eq, zero_add, pow_one, mul_one]
 
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-'CuspDerivative318.derivative_formula_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspDerivative318.chain_factor_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspDerivative318.log_differential_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspCauchy318
-'CuspCauchy318.cauchy_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspCauchy318.constant_term_near' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspCauchy318.cusp_errors' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspCauchy318.actual_belyi_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspLocation318
-'CuspLocation318.large_j_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspLocation318.imaginary_part_gt_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspLocation318.fundamental_q_small' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspModular318
-'CuspModular318.transformed_im_small' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspModular318.qParam_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspModular318.qParam_power' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspModular318.actual_cusp_disc' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspWidthDerivative318
-'CuspWidthDerivative318.actual_width_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspFiber318
-'CuspFiber318.exists_fiber_avoiding' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspFiber318.exists_source_index' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspFiber318.candidate_log_height' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CuspHeight318
-CuspHeight318.lean:16:2: warning: Try this: 
-  letI̵
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DistanceLaplacian318.lean:36:156: warning: This simp argument is unused:
+  pow_one
 
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, Pi.pow_apply, id_eq, zero_add, add_zero, mul_one]
 
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CuspHeight318.lean:23:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CuspHeight318.lean:27:62: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DistanceLaplacian318.lean:36:173: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-CuspHeight318.lean:27:62: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+DistanceLaplacian318.lean:37:55: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+DistanceLaplacian318.lean:37:70: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+DistanceLaplacian318.lean:37:74: warning: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+DistanceLaplacian318.lean:37:74: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+DistanceLaplacian318.lean:36:173: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-'CuspHeight318.rational_absolute_height' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspHeight318.reciprocal_nat_height' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspHeight318.candidate_height' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK ActualCuspEstimates318
-'ActualCuspEstimates318.coordinate_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK DiskEnergy318
-'DiskEnergy318.disk_integral_polar' depends on axioms: [propext, Classical.choice, Quot.sound]
-'DiskEnergy318.disk_energy_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CircleEnergy318
-'CircleEnergy318.coefficient_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CircleEnergy318.coefficient_energy_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK HolomorphicDisk318
-'HolomorphicDisk318.coefficient_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
-'HolomorphicDisk318.coefficient_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK WronskianFinite318
-WronskianFinite318.lean:16:62: warning: Variable name `hB` is not explicitly referenced.
+DistanceLaplacian318.lean:37:55: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hB
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+DistanceLaplacian318.lean:51:26: warning: This simp argument is unused:
+  Pi.div_apply
 
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-'WronskianFinite318.norm_det_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'WronskianFinite318.logarithmic_det_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK WronskianCoefficient318
-'WronskianCoefficient318.actual_wronskian_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK ActualWronskian318
-'ActualWronskian318.local_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ActualWronskian318.local_wronskian_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMEta318
-'CMEta318.tprod_log_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CMEta318.reduced_eta_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMArchimedean318
-'CMArchimedean318.average_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMDiscriminant318
-'CMDiscriminant318.fundamental_discriminant_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMIsogeny318
-'CMIsogeny318.cm_surface_from_periods' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMProducer318
-'CMProducer318.original_surface_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMSurfaceTransfer318
-'CMSurfaceTransfer318.actual_CM_contact_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CMSurfaceTransfer318.actual_CM_shifted_contact_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CMSurfaceTransfer318.surface_normalization_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK CMContactAssembly318
-KERNEL_CHECK HolomorphicEnergy318
-'HolomorphicEnergy318.complex_jacobian' depends on axioms: [propext, Classical.choice, Quot.sound]
-'HolomorphicEnergy318.integral_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
-'HolomorphicEnergy318.pullback_energy_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK GlobalEnergyMeasure318
-'GlobalEnergyMeasure318.chart_energy_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
-'GlobalEnergyMeasure318.normalized_chart_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
-'GlobalEnergyMeasure318.normalized_pullback_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK ChartWronskian318
-'ChartWronskian318.pullback_holomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ChartWronskian318.coefficient_from_global_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ChartWronskian318.wronskian_from_global_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ChartWronskian318.wronskian_from_global_measure' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK ContactCoordinates318
-KERNEL_CHECK SectionHeight318
-SectionHeight318.lean:85:0: warning: automatically included section variable(s) unused in theorem `SectionHeight318.local_log_bound`:
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, id_eq] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DistanceLaplacian318.lean:82:156: warning: This simp argument is unused:
+  pow_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, Pi.pow_apply, id_eq, zero_add, add_zero, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DistanceLaplacian318.lean:84:26: warning: This simp argument is unused:
+  Pi.div_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, id_eq] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DistanceLaplacian318.lean:82:173: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+DistanceLaplacian318.lean:82:173: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'DistanceLaplacian318.laplacian_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DistanceLaplacian318.laplacian_log_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK FiniteLaplacian318
+'FiniteLaplacian318.laplacian_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteLaplacian318.laplacian_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK ContactCurvature318
+'ContactCurvature318.negative_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK GradientNorm318
+'GradientNorm318.actual_gradient_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GradientNorm318.curvature_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK ActualContactCurvature318
+'ActualContactCurvature318.curvature_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK GlobalCuspEnergy318
+GlobalCuspEnergy318.lean:48:0: warning: automatically included section variable(s) unused in theorem `GlobalCuspEnergy318.Data.local_energy`:
   [NumberField K]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [NumberField K] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK RationalSectionHeight318
-KERNEL_CHECK CuspArakelovData318
-'CuspArakelovData318.embedding_average_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspArakelovData318.embedding_average_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CuspArakelovData318.actual_archimedean_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK ExceptionalNegativity318
-ExceptionalNegativity318.lean:31:0: warning: automatically included section variable(s) unused in theorem `ExceptionalNegativity318.negative_self_intersection`:
-  [DecidableEq ι]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq ι] in theorem ...
+'GlobalCuspEnergy318.Data.local_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GlobalCuspEnergy318.Data.toCusp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GlobalCuspEnergy318.Data.actual_archimedean_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK GlobalEnergyJacobian318
+'GlobalEnergyJacobian318.jacobian_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GlobalEnergyJacobian318.jacobian_49_over_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK EulerProduct318
+'EulerProduct318.inverse_pow_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EulerProduct318.discriminant_qParam' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK E4Producer318
+KERNEL_CHECK ActualQJ318
+'ActualQJ318.G_qParam' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualQJ318.cusp_G_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK ActualGlobalCusp318
+'ActualGlobalCusp318.Data.toGlobal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualGlobalCusp318.Data.toCusp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualGlobalCusp318.Data.actual_archimedean_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualGlobalCusp318.jacobian_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK ActualJInvariant318
+'ActualJInvariant318.modular_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK ActualMetricComparison318
+'ActualMetricComparison318.laplacian_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualMetricComparison318.ratio_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ActualMetricComparison318.metric_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK MetricSmoothExtension318
+MetricSmoothExtension318.lean:59:2: warning: `simp` already closes the goal
 
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK FiniteDivisorArithmetic318
-FiniteDivisorArithmetic318.lean:40:27: warning: This simp argument is unused:
-  Nat.cast_max
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'MetricSmoothExtension318.branchCoefficient_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricSmoothExtension318.branchCoefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricSmoothExtension318.branch_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricSmoothExtension318.infinityCoefficient_smooth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricSmoothExtension318.infinityCoefficient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK MetricPullback318
+'MetricPullback318.infinity_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricPullback318.infinity_actual_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricPullback318.source_branch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MetricPullback318.branch_actual_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK LiteralMetricExtension318
+'LiteralMetricExtension318.finite_branch_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiteralMetricExtension318.infinity_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiteralMetricExtension318.finite_branch_axisC2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiteralMetricExtension318.infinity_axisC2' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK BicanonicalCharts318
+'BicanonicalCharts318.finite_q0_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalCharts318.finite_q1_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalCharts318.infinity_q0_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalCharts318.infinity_q1_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalCharts318.infinity_transition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalCharts318.source_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK BicanonicalHolomorphy318
+'BicanonicalHolomorphy318.source_holomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalHolomorphy318.branch_holomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalHolomorphy318.infinity_holomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalHolomorphy318.literal_branch_neighborhood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BicanonicalHolomorphy318.literal_infinity_neighborhood' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK TameCoordinate318
+'TameCoordinate318.average_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TameCoordinate318.finite_order_tangent_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK TameLinearization318
+'TameLinearization318.parameter_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TameLinearization318.conjugated_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TameLinearization318.exists_linearizing_parameter' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK EvenFormalQuotient318
+EvenFormalQuotient318.lean:84:10: warning: This simp argument is unused:
+  coeff_derivative
 
 Hint: Omit it from the simp argument list.
-  [apply] simp only [Rat.cast_id, Nat.cast_natAbs, Int.cast_abs] at h
+  [apply] simp [coeff_X_pow]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-KERNEL_CHECK SourceFiniteDivisor318
-'SourceFiniteDivisor318.branch_prime_card' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SourceFiniteDivisor318.vertical_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SourceFiniteDivisor318.canonical_section_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK SourceJacobianBound318
-SourceJacobianBound318.lean:114:23: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+EvenFormalQuotient318.lean:84:27: warning: This simp argument is unused:
+  coeff_X_pow
 
-Note: This linter can be disabled with `set_option linter.unusedTactic false`
-SourceJacobianBound318.lean:114:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_derivative]
 
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-'SourceJacobianBound318.FiniteData.bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SourceJacobianBound318.logarithmic_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SourceJacobianBound318.jacobian_GR_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK SourceNonCMHeight318
-'SourceNonCMHeight318.jacobian_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SourceNonCMHeight318.jacobian_49_over_8' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SourceNonCMHeight318.nonCM_contact_49_over_8' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK FiveContactProducer318
-FiveContactProducer318.lean:153:4: warning: Try this: 
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK ConjugateFormalQuotient318
+KERNEL_CHECK DVRRamification318
+KERNEL_CHECK FormalStabilizer318
+KERNEL_CHECK FiveBranchCount318
+FiveBranchCount318.lean:19:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -175,7 +188,13 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-FiveContactProducer318.lean:154:4: warning: Try this: 
+FiveBranchCount318.lean:14:0: warning: automatically included section variable(s) unused in theorem `FiveBranchCount318.stabilizer_card_two`:
+  [Fintype Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+FiveBranchCount318.lean:39:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -183,198 +202,258 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK ContactMetricSections318
-KERNEL_CHECK LenstraTrace318
-LenstraTrace318.lean:16:0: warning: automatically included section variable(s) unused in theorem `LenstraTrace318.inverse_not_in_base`:
-  [IsDomain A]
-  [CharZero K]
+FiveBranchCount318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FiveBranchCount318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FiveBranchCount318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FiveBranchCount318.lean:69:0: warning: automatically included section variable(s) unused in theorem `FiveBranchCount318.unique_nontrivial_fixer`:
+  [Fintype G]
+  [Fintype Ω]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain A] [CharZero K] in theorem ...
+  omit [Fintype G] [Fintype Ω] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-LenstraTrace318.lean:35:0: warning: automatically included section variable(s) unused in theorem `LenstraTrace318.trace_inverse_degree_not_in_base`:
-  [Algebra A L]
-  [IsScalarTower A K L]
+FiveBranchCount318.lean:110:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK InertiaLabels318
+KERNEL_CHECK ProjectiveGalois318
+KERNEL_CHECK HomogeneousGalois318
+KERNEL_CHECK InducedLattice318
+KERNEL_CHECK InvolutionQuotient318
+KERNEL_CHECK PeriodEisenstein318
+KERNEL_CHECK NormalizedWeierstrass318
+KERNEL_CHECK ModularWeierstrass318
+KERNEL_CHECK LatticeInvariants318
+KERNEL_CHECK LatticeModelPoint318
+KERNEL_CHECK LevelThreeKernel318
+LevelThreeKernel318.lean:16:0: warning: automatically included section variable(s) unused in theorem `LevelThreeKernel318.isUnit_iff_residue_ne_zero`:
+  [Fintype F]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Algebra A L] [IsScalarTower A K L] in theorem ...
+  omit [Fintype F] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK LenstraDifferent318
-LenstraDifferent318.lean:20:8: warning: Overlapping instance parameters in `different_not_le_degree_mul`:
+LevelThreeKernel318.lean:29:0: warning: automatically included section variable(s) unused in theorem `LevelThreeKernel318.kernel_card`:
+  [Fintype R]
+  [Fintype F]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] [Fintype F] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+LevelThreeKernel318.lean:71:0: warning: automatically included section variable(s) unused in theorem `LevelThreeKernel318.signs_card`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+LevelThreeKernel318.lean:97:35: warning: This simp argument is unused:
+  Fintype.card_fun
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [W, Nat.card_eq_fintype_card]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LevelThreeKernel318.lean:123:0: warning: automatically included section variable(s) unused in theorem `LevelThreeKernel318.ring_card_from_coordinates`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+LevelThreeKernel318.lean:127:0: warning: automatically included section variable(s) unused in theorem `LevelThreeKernel318.two_ne_zero_of_residue`:
+  [Fintype R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK LiteralCurvature318
+'LiteralCurvature318.literal_curvature_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK VerticalResidueDifferent318
+VerticalResidueDifferent318.lean:19:8: warning: Overlapping instance parameters in `vertical_bound`:
+
+⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+VerticalResidueDifferent318.lean:28:0: warning: automatically included section variable(s) unused in theorem `VerticalResidueDifferent318.ramification_value`:
+  [CharZero B]
+  [IsIntegrallyClosed A]
+  [IsDedekindDomain B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero B] [IsIntegrallyClosed A] [IsDedekindDomain B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+VerticalResidueDifferent318.lean:28:8: warning: Overlapping instance parameters in `ramification_value`:
+
+⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+VerticalResidueDifferent318.lean:40:8: warning: Overlapping instance parameters in `ramified_vertical_bound`:
+
+⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+KERNEL_CHECK ResidueDifferent318
+ResidueDifferent318.lean:29:8: warning: Overlapping instance parameters in `horizontal_bound`:
+
+⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+ResidueDifferent318.lean:38:8: warning: Overlapping instance parameters in `horizontal_ramification_bound`:
+
+⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
+💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+KERNEL_CHECK LocalDivisorData318
+LocalDivisorData318.lean:96:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+LocalDivisorData318.lean:104:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+LocalDivisorData318.lean:105:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK RamifiedResidueModel318
+RamifiedResidueModel318.lean:96:15: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pair, Fin.sum_univ_two, map_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RamifiedResidueModel318.lean:96:32: warning: This simp argument is unused:
+  Fin.sum_univ_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pair, Matrix.mul_apply, map_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK RefinedContactRealization318
+RefinedContactRealization318.lean:182:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RefinedContactRealization318.lean:183:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RefinedContactRealization318.lean:186:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RefinedContactRealization318.lean:187:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RefinedContactRealization318.lean:188:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RefinedContactRealization318.lean:189:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK RefinedSoundness318326
+'RefinedSoundness318326.source_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RefinedSoundness318326.polynomial318_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RefinedSoundness318326.stored326_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK TorusPointInterface318
+KERNEL_CHECK UnramifiedDifferent318
+UnramifiedDifferent318.lean:12:8: warning: Overlapping instance parameters in `different_eq_top`:
 
 ⚠️ `[IsDomain
-   B]` and `[IsDedekindDomain
-   B]` each imply `[Nontrivial B]`, `[IsLeftCancelMulZero B]`, and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` may be removed.
+   A]` and `[IsDedekindDomain
+   A]` each imply `[Nontrivial A]`, `[IsLeftCancelMulZero A]`, and `[IsRightCancelMulZero A]`.
+💡️ Of these, `[IsDomain A]` may be removed.
 
 Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-KERNEL_CHECK LenstraDVR318
-LenstraDVR318.lean:18:8: warning: Overlapping instance parameters in `different_value_lt`:
+UnramifiedDifferent318.lean:22:8: warning: Overlapping instance parameters in `different_exponent_zero`:
 
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-KERNEL_CHECK DVRIntegerValue318
-KERNEL_CHECK EulerIndex318
-EulerIndex318.lean:69:41: warning: Variable name `p` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _p
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-KERNEL_CHECK FiberCentralizer318
-FiberCentralizer318.lean:81:0: warning: automatically included section variable(s) unused in theorem `FiberCentralizer318.transportRepresentation_apply`:
-  [Group G]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Group G] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-FiberCentralizer318.lean:84:0: warning: automatically included section variable(s) unused in theorem `FiberCentralizer318.transportRepresentation_injective`:
-  [Group G]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Group G] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK MatrixCongruence318
-MatrixCongruence318.lean:27:0: warning: automatically included section variable(s) unused in theorem `MatrixCongruence318.exists_smul_iff`:
-  [Fintype n]
-  [DecidableEq n]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype n] [DecidableEq n] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-MatrixCongruence318.lean:74:31: warning: This simp argument is unused:
-  smul_smul
-
-Hint: Omit it from the simp argument list.
-  [apply] simp only [smul_pow, smul_add]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-KERNEL_CHECK MatrixThreeTorsion318
-'MatrixCongruence318.finite_order_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK HomLatticeDescent318
-HomLatticeDescent318.lean:29:2: warning: Try this: 
-  haveI̵
-
-The goal is a proposition, so `have` is preferred over `haveI`.
-The difference between `have` and `haveI` is that `haveI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-'HomLatticeDescent318.finite_image_representation_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK IntegralLatticeDescent318
-IntegralLatticeDescent318.lean:45:2: warning: Try this: 
-  haveI̵
-
-The goal is a proposition, so `have` is preferred over `haveI`.
-The difference between `have` and `haveI` is that `haveI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-'IntegralLatticeDescent318.finite_image_action_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK FiniteOrbitLattice318
-FiniteOrbitLattice318.lean:17:2: warning: Try this: 
-  haveI̵
-
-The goal is a proposition, so `have` is preferred over `haveI`.
-The difference between `have` and `haveI` is that `haveI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-FiniteOrbitLattice318.lean:12:0: warning: automatically included section variable(s) unused in theorem `IntegralLatticeDescent318.finite_image_of_basis_orbits`:
-  [DecidableEq n]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [DecidableEq n] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-'IntegralLatticeDescent318.finite_orbit_action_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK GeometricSoundness318326
-'GeometricSoundness318326.source_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
-'GeometricSoundness318326.polynomial318_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
-'GeometricSoundness318326.stored326_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK LenstraVertical318
-LenstraVertical318.lean:20:14: warning: Overlapping instance parameters in `differentExponent`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
+⚠️ `[IsDomain
+   A]` and `[IsDedekindDomain
+   A]` each imply `[Nontrivial A]`, `[IsLeftCancelMulZero A]`, and `[IsRightCancelMulZero A]`.
+💡️ Of these, `[IsDomain A]` may be removed.
 
 Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-LenstraVertical318.lean:24:8: warning: Overlapping instance parameters in `different_exponent_lt`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-LenstraVertical318.lean:55:0: warning: automatically included section variable(s) unused in theorem `LenstraVertical318.different_ideal_eq_pow`:
-  [CharZero B]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [CharZero B] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-LenstraVertical318.lean:55:8: warning: Overlapping instance parameters in `different_ideal_eq_pow`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-LenstraVertical318.lean:80:8: warning: Overlapping instance parameters in `different_exponent_le_two_log`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-LenstraVertical318.lean:93:8: warning: Overlapping instance parameters in `different_exponent_le_two_floor`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-LenstraVertical318.lean:102:8: warning: Overlapping instance parameters in `ramified_vertical_bound`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-KERNEL_CHECK LenstraHorizontal318
-LenstraHorizontal318.lean:20:8: warning: Overlapping instance parameters in `different_exponent_lt`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-LenstraHorizontal318.lean:43:8: warning: Overlapping instance parameters in `horizontal_bound`:
-
-⚠️ `[IsDomain B]`, `[IsDedekindDomain B]`, and `[IsDiscreteValuationRing B]` each imply `[Nontrivial B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-⚠️ `[IsDomain B]` and `[IsDedekindDomain B]` each imply `[IsLeftCancelMulZero B]` and `[IsRightCancelMulZero B]`.
-💡️ Of these, `[IsDomain B]` and `[IsDedekindDomain B]` may be removed.
-
-Note: This linter can be disabled with `set_option linter.overlappingInstances false`
-KERNEL_CHECK NebentypusOrder318
-NebentypusOrder318.lean:48:0: warning: automatically included section variable(s) unused in theorem `NebentypusOrder318.determinant_square`:
-  [Fintype Q]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Fintype Q] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-NebentypusOrder318.lean:69:2: warning: Try this: 
+UnramifiedDifferent318.lean:45:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -382,30 +461,6 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-'NebentypusOrder318.character_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.character_order_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.character_order_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.source_order_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.determinant_square' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.determinant_order_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.kernel_index_le_of_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.character_kernel_index_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.finite_character_index_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NebentypusOrder318.determinant_finite_index_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK ModularIndex318
-'ModularIndex318.index_from_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ModularIndex318.jacobian_growth_from_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
-KERNEL_CHECK OpenJModel318
-'OpenJModel318.discriminant' depends on axioms: [propext, Quot.sound]
-'OpenJModel318.c4' depends on axioms: [propext, Quot.sound]
-'OpenJModel318.c4_cube' depends on axioms: [propext, Quot.sound]
-'OpenJModel318.discriminant_unit' depends on axioms: [propext, Quot.sound]
-'OpenJModel318.j_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.base_units' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.denominator_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.integralModel_isElliptic' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.integralModel_j' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.integralModel_discriminant' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.base_change_elliptic' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OpenJModel318.base_change_j' depends on axioms: [propext, Classical.choice, Quot.sound]
+KERNEL_CHECK WeierstrassODE318
+KERNEL_CHECK WeierstrassImmersion318
 CHECKPOINT_NEW_SOURCE_REBUILD_PASS
