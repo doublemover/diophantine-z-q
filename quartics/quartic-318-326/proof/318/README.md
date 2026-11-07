@@ -24,7 +24,3 @@ Use the official toolchain in `lean-toolchain` and the exact dependencies in `la
 The script verifies frozen hashes, rebuilds every local proof module with kernel checking enabled, and rejects dependencies outside the standard Lean axioms propext, Classical.choice and Quot.sound. No proof holes or custom axioms occur. Every emitted identity is proved by Lean’s checked ring procedure.
 
 `Raw318FinalReplayMonolithic.lean` preserves the generated replay in a single file. Split modules make rebuilding practical. `concrete-verification.json` states the exact boundary and records all hashes.
-
-## Historical generators
-
-The `generate_*_general.py` scripts retain their frozen historical paths and are not the current package regeneration interface. Use `tools/generate.py` from the package root for the published coefficient tables; the checked Lean sources are supplied directly. Run `python tools/unpack_data.py` from the package root before the Lean commands above.
