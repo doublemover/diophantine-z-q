@@ -1,0 +1,33 @@
+AnalyticOnNhd.eq_zero_or_eq_zero_of_mul_eq_zero.{u_1, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {U : Set 𝕜}
+  {A : Type u_3} [NormedRing A] [IsDomain A] [NormedAlgebra 𝕜 A] {f g : 𝕜 → A} (hf : AnalyticOnNhd 𝕜 f U)
+  (hg : AnalyticOnNhd 𝕜 g U) (hfg : ∀ z ∈ U, f z * g z = 0) (hU : IsPreconnected U) :
+  (∀ z ∈ U, f z = 0) ∨ ∀ z ∈ U, g z = 0
+AnalyticAt.deriv.{v, u_1} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]
+  [NormedSpace 𝕜 F] {f : 𝕜 → F} {x : 𝕜} [CompleteSpace F] (h : AnalyticAt 𝕜 f x) : AnalyticAt 𝕜 (deriv f) x
+AnalyticOnNhd.deriv.{v, u_1} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]
+  [NormedSpace 𝕜 F] {f : 𝕜 → F} {s : Set 𝕜} [CompleteSpace F] (h : AnalyticOnNhd 𝕜 f s) : AnalyticOnNhd 𝕜 (deriv f) s
+meromorphicOrderAt_eq_top_iff.{u_1, u_2} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2}
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] {f : 𝕜 → E} {x : 𝕜} :
+  meromorphicOrderAt f x = ⊤ ↔ ∀ᶠ (z : 𝕜) in nhdsWithin x {x}ᶜ, f z = 0
+meromorphicOrderAt_deriv_eq_sub_one.{u_1, u_2} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2}
+  [NormedAddCommGroup E] [NormedSpace 𝕜 E] [CompleteSpace E] {f : 𝕜 → E} {x : 𝕜} {n : ℤ} (hn : ↑n ≠ 0)
+  (hf : meromorphicOrderAt f x = ↑n) : meromorphicOrderAt (deriv f) x = ↑(n - 1)
+Filter.EventuallyEq.hasDerivAt_iff.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]
+  [NormedSpace 𝕜 F] {f₀ f₁ : 𝕜 → F} {f' : F} {x : 𝕜} (h : f₀ =ᶠ[nhds x] f₁) : HasDerivAt f₀ f' x ↔ HasDerivAt f₁ f' x
+Filter.EventuallyEq.deriv_eq.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]
+  [NormedSpace 𝕜 F] {f f₁ : 𝕜 → F} {x : 𝕜} (hL : f₁ =ᶠ[nhds x] f) : deriv f₁ x = deriv f x
+HasDerivAt.congr_of_eventuallyEq.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]
+  [NormedSpace 𝕜 F] {f f₁ : 𝕜 → F} {f' : F} {x : 𝕜} (h : HasDerivAt f f' x) (h₁ : f₁ =ᶠ[nhds x] f) : HasDerivAt f₁ f' x
+countable_of_Lindelof_of_discrete.{u} {X : Type u} [TopologicalSpace X] [LindelofSpace X] [DiscreteTopology X] :
+  Countable X
+/workspace/scratch/2cb21e4e0864/weierstrass-ode-bridge/Check.lean:13:7: error(lean.unknownIdentifier): Unknown constant `Set.Countable.isConnected_compl_of_one_lt_rank`
+HasDerivAt.pow.{u_1, u_2} {𝕜 : Type u_1} {𝔸 : Type u_2} [NontriviallyNormedField 𝕜] [NormedCommRing 𝔸]
+  [NormedAlgebra 𝕜 𝔸] {f : 𝕜 → 𝔸} {f' : 𝔸} {x : 𝕜} (h : HasDerivAt f f' x) (n : ℕ) :
+  HasDerivAt (f ^ n) (↑n * f x ^ (n - 1) * f') x
+HasDerivAt.const_mul.{u, u_3} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {x : 𝕜} {𝔸 : Type u_3} [NormedRing 𝔸]
+  [NormedAlgebra 𝕜 𝔸] {d : 𝕜 → 𝔸} {d' : 𝔸} (c : 𝔸) (hd : HasDerivAt d d' x) : HasDerivAt (fun y => c * d y) (c * d') x
+hasDerivAt_const.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F] [NormedSpace 𝕜 F]
+  (x : 𝕜) (c : F) : HasDerivAt (fun x => c) 0 x
+AnalyticAt.contDiffAt.{u, uE, uF} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {E : Type uE} [NormedAddCommGroup E]
+  [NormedSpace 𝕜 E] {F : Type uF} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F} {x : E} {n : WithTop ℕ∞}
+  [CompleteSpace F] (h : AnalyticAt 𝕜 f x) : ContDiffAt 𝕜 n f x

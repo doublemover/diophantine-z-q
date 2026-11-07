@@ -1,10 +1,10 @@
 {
-  "status": "PASS: explicit geometric-producer assembly and conditional published-polynomial soundness; not full sourceArithmetic",
-  "verified_utc": "2026-11-07T20:51:51.534928+00:00",
-  "source_modules": 386,
-  "recursively_audited_declarations": 9192,
-  "root_modules": 289,
-  "freshly_rebuilt_new_or_changed_modules": 53,
+  "status": "PASS: refined geometric-producer assembly and conditional published-polynomial soundness; not full sourceArithmetic",
+  "verified_utc": "2026-11-07T21:25:04.641440+00:00",
+  "source_modules": 435,
+  "recursively_audited_declarations": 10145,
+  "root_modules": 338,
+  "freshly_rebuilt_new_or_changed_modules": 49,
   "axioms": [
     "propext",
     "Classical.choice",
@@ -13,26 +13,27 @@
   "checks": {
     "exact_source_hashes_and_closed_topological_imports": "PASS",
     "no_sorry_admit_or_native_evaluation": "PASS",
-    "new_and_changed_source_kernel_rebuild": "PASS53, in snapshot topological order, debug.skipKernelTC=false",
-    "combined_recursive_axiom_audit": "PASS9192 declarations across386 modules",
+    "new_and_changed_source_kernel_rebuild": "PASS49, in snapshot topological order, debug.skipKernelTC=false",
+    "combined_recursive_axiom_audit": "PASS10145 declarations across435 modules",
     "coefficient_regeneration": "PASS: both published coefficient tables unchanged",
     "unit_tests": "PASS:5 tests and compiler self-tests",
     "audit_history": "PASS:9 evidence-bound historical dispositions; structural, not mathematical",
     "git_whitespace": "Frozen producer sources and original compiler logs are retained byte-identically. Cosmetic whitespace warnings do not indicate proof errors."
   },
-  "rebuild_scope": "All53 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for unchanged dependencies. The full386-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all386 modules; replay.sh performs that full rebuild.",
-  "independent_reviews": "Bounded copied-source reviews under reviews/, including local different, global/section assembly, CM, Wronskian, cusp, energy, section height and matrix/Hom. Classical source/model reviews are explicitly distinguished from Lean realization.",
+  "rebuild_scope": "All49 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for unchanged dependencies. The full435-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all435 modules; replay.sh performs that full rebuild.",
+  "independent_reviews": "Bounded copied-source reviews under reviews/, now including local divisor/unramified constructors, formal involution invariants, projective/homogeneous descent, refined endpoints, level-three, lattice, curvature and cusp/conformal producers. Classical model/source reviews are distinguished from Lean realization.",
   "remaining": [
-    "Construct FiveContactProducer318.GeometricRealization in Lean for every primitive noncontact input. Exact actual curves/models, completed local rings, controlled fields/conductor and named Arakelov/Yuan identifications remain explicit; conditional record assembly does not establish their existence.",
+    "Construct RefinedContactRealization318.RefinedGeometricRealization (or the original GeometricRealization) in Lean for every primitive noncontact input. Actual global curves/models, local-ring/branch identifications, controlled fields/conductor and named Arakelov/Yuan realizations remain explicit. Conditional record assembly does not establish their existence.",
     "Complete the formal prime-pattern/restricted-converse and integer-to-source witness existence direction.",
     "Combine both directions into unconditional sourceArithmetic and perform final full clean rebuild/review."
   ],
   "excluded_post_cutoff": [
-    "tame-formal-coordinate-bridge",
-    "residue-different-bridge",
-    "formal-stabilizer-bridge",
-    "converse-work/global-cusp-energy",
-    "Ongoing actual E4/global geometric realization work"
+    "quadratic-formal-extension (live finite-free/different work)",
+    "weierstrass-injectivity-bridge",
+    "even-contact-hensel",
+    "converse-work/vertical-derivation",
+    "branch-origin-curvature",
+    "Ongoing actual global curve/model realization work"
   ],
   "documentation_corrections": [
     "The no-constant horizontal3h(a) estimate is qualified to the actual0<a<1 application; arbitrary a requires an additional log2.",
@@ -40,15 +41,15 @@
     "The linked GR2022 theorem uses original Faltings height; the larger shifted budget applies by monotonicity. The linked bibliography title is corrected."
   ],
   "files": {
-    "checkpoint-manifest.json": "a6e43658b54fc5d5fc1b1a3f785f4512ae952eb94722fe4fd7a64d60b7fae78d",
-    "module-order.json": "b55c4aad88f3fe36991c87d970d5b1347950c97e74b913a8e63d18838c6b1b97",
-    "CheckpointAudit.lean": "84bf8121d33434cf51af88778874cd51a13257b0c30dde33e7d616de24d6c7fe",
+    "checkpoint-manifest.json": "ceb77bf591577fddf046157b861a3cf89c95dd3ecd995f27ce0a1e1880dcacfb",
+    "module-order.json": "663e4684a07ab79de99e4a281cc3b468e85f4d7c6ec4aab5981a993143d3c066",
+    "CheckpointAudit.lean": "c4dbe1a7156978ed7b160f342fabf5d944cdafabca049fc4662d8a3e6ab0aa86",
     "replay.sh": "9c7af09953cddf04961b2c37577cefb713ef96c09af90c128a8dc40136767a7f",
     "verify_manifest.py": "aa657e41be7be1524138b106c6bdad89ed836640e8b94340e8d572eb228cd63a",
-    "combined-audit.log": "22c364e5a4c108d3f472dd912b86e56e7c2b08ab58ac74a6086fd59109931437",
-    "checkpoint-rebuild-modules.json": "729fd180c66595208fabf4342dbe0a037d50334cbd6becc7aedda0eb3a6083d2",
-    "checkpoint-rebuild.log": "890931067e9b8cafafe5e2535bf01c8302a7bb5559728c5eb71b0ae9c0efbe8e",
-    "repository-checks.log": "2ce82f09bc58326d9eda2ed1a3bd9ca0ebc7fef98461e91c535d89bf197e210f",
-    "README.md": "45cec7cdb0332a45df513bfd46e61077bb6481ddbf24d6ad52a2fce298214d4c"
+    "combined-audit.log": "a529eeccf519376c90250bd7d7dc71571ffd8cad804342aca07c62bf72b3a0a4",
+    "checkpoint-rebuild-modules.json": "7f10ee725a02cfb4fb1ff792a92b8a8eabfd2d83c9ae035e78c9ab326ffedd3f",
+    "checkpoint-rebuild.log": "57f05f1b63008825b5fc0965aa1c2191e9b1a6f2b03144bf2c3c35fbdb1c5a75",
+    "repository-checks.log": "e13bb7ceb85a0a869847105807587a836215d294d8952d9687d5849e7ad27407",
+    "README.md": "fbd3e6c0e235dcf419fd80d86b66abf17054d6b153eb1b02a0c66f9f08810ecb"
   }
 }
