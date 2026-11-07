@@ -1,10 +1,10 @@
 {
-  "status": "PASS: refined geometric-producer assembly and conditional published-polynomial soundness; not full sourceArithmetic",
-  "verified_utc": "2026-11-07T21:25:04.641440+00:00",
-  "source_modules": 435,
-  "recursively_audited_declarations": 10145,
-  "root_modules": 338,
-  "freshly_rebuilt_new_or_changed_modules": 49,
+  "status": "PASS: actual local normalization, torus uniformization and etale descent; conditional published-polynomial soundness, not full sourceArithmetic",
+  "verified_utc": "2026-11-07T22:04:36.510261+00:00",
+  "source_modules": 524,
+  "recursively_audited_declarations": 11582,
+  "root_modules": 427,
+  "freshly_rebuilt_new_or_changed_modules": 89,
   "axioms": [
     "propext",
     "Classical.choice",
@@ -13,27 +13,26 @@
   "checks": {
     "exact_source_hashes_and_closed_topological_imports": "PASS",
     "no_sorry_admit_or_native_evaluation": "PASS",
-    "new_and_changed_source_kernel_rebuild": "PASS49, in snapshot topological order, debug.skipKernelTC=false",
-    "combined_recursive_axiom_audit": "PASS10145 declarations across435 modules",
+    "new_and_changed_source_kernel_rebuild": "PASS 89, in snapshot topological order, debug.skipKernelTC=false",
+    "combined_recursive_axiom_audit": "PASS 11,582 declarations across 524 modules",
     "coefficient_regeneration": "PASS: both published coefficient tables unchanged",
     "unit_tests": "PASS:5 tests and compiler self-tests",
     "audit_history": "PASS:9 evidence-bound historical dispositions; structural, not mathematical",
     "git_whitespace": "Frozen producer sources and original compiler logs are retained byte-identically. Cosmetic whitespace warnings do not indicate proof errors."
   },
-  "rebuild_scope": "All49 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for unchanged dependencies. The full435-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all435 modules; replay.sh performs that full rebuild.",
-  "independent_reviews": "Bounded copied-source reviews under reviews/, now including local divisor/unramified constructors, formal involution invariants, projective/homogeneous descent, refined endpoints, level-three, lattice, curvature and cusp/conformal producers. Classical model/source reviews are distinguished from Lean realization.",
+  "rebuild_scope": "All 89 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for unchanged dependencies. The full 524-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all 524 modules; replay.sh performs that full rebuild.",
+  "independent_reviews": "Bounded copied-source reviews under reviews/, now including quadratic formal/domain models, actual even-contact normalization/base change, all-branch Weierstrass group equivalence/torsion transport, invariant-base torsor binding, actual local/sheaf section gluing, and metric/Petersson producers. Classical model/source reviews are distinguished from Lean realization.",
   "remaining": [
     "Construct RefinedContactRealization318.RefinedGeometricRealization (or the original GeometricRealization) in Lean for every primitive noncontact input. Actual global curves/models, local-ring/branch identifications, controlled fields/conductor and named Arakelov/Yuan realizations remain explicit. Conditional record assembly does not establish their existence.",
     "Complete the formal prime-pattern/restricted-converse and integer-to-source witness existence direction.",
     "Combine both directions into unconditional sourceArithmetic and perform final full clean rebuild/review."
   ],
   "excluded_post_cutoff": [
-    "quadratic-formal-extension (live finite-free/different work)",
-    "weierstrass-injectivity-bridge",
-    "even-contact-hensel",
-    "converse-work/vertical-derivation",
-    "branch-origin-curvature",
-    "Ongoing actual global curve/model realization work"
+    "primitive-diamond-bridge",
+    "complete-dvr-evaluation",
+    "converse-work/kaehler-frame-derivation",
+    "gamma-one-quotient-atlas",
+    "Ongoing relative elliptic/modular/global source model and holomorphic atlas realization"
   ],
   "documentation_corrections": [
     "The no-constant horizontal3h(a) estimate is qualified to the actual0<a<1 application; arbitrary a requires an additional log2.",
@@ -41,15 +40,15 @@
     "The linked GR2022 theorem uses original Faltings height; the larger shifted budget applies by monotonicity. The linked bibliography title is corrected."
   ],
   "files": {
-    "checkpoint-manifest.json": "ceb77bf591577fddf046157b861a3cf89c95dd3ecd995f27ce0a1e1880dcacfb",
-    "module-order.json": "663e4684a07ab79de99e4a281cc3b468e85f4d7c6ec4aab5981a993143d3c066",
-    "CheckpointAudit.lean": "c4dbe1a7156978ed7b160f342fabf5d944cdafabca049fc4662d8a3e6ab0aa86",
-    "replay.sh": "9c7af09953cddf04961b2c37577cefb713ef96c09af90c128a8dc40136767a7f",
+    "checkpoint-manifest.json": "7624f9ee66363bfda4528fcc96559f65c3188ea2600fefbd17de8e3187e5c6fc",
+    "module-order.json": "f13fe48f5045e9dd16e489a3757b94baa8c48e9aee33130d54fe6284b666c6f8",
+    "CheckpointAudit.lean": "fd26c3509e0797edb583fc401492c8a5b5d4e817aac8adecc0f917f424b0f771",
+    "replay.sh": "320dfdb8f66e5e7dad3b759552be28899afa0cf6f8af748c39c8c1668206deb1",
     "verify_manifest.py": "aa657e41be7be1524138b106c6bdad89ed836640e8b94340e8d572eb228cd63a",
-    "combined-audit.log": "a529eeccf519376c90250bd7d7dc71571ffd8cad804342aca07c62bf72b3a0a4",
-    "checkpoint-rebuild-modules.json": "7f10ee725a02cfb4fb1ff792a92b8a8eabfd2d83c9ae035e78c9ab326ffedd3f",
-    "checkpoint-rebuild.log": "57f05f1b63008825b5fc0965aa1c2191e9b1a6f2b03144bf2c3c35fbdb1c5a75",
+    "combined-audit.log": "853e788953db1086fdb13c8c9c60dd70ac87658e49f5b9d8f57b96f38b20d4b8",
+    "checkpoint-rebuild-modules.json": "d5623b50c4934bdf8c8fa31be516eaf5da8ae0804e70decee554074465ebd3af",
+    "checkpoint-rebuild.log": "b63081f37f065dc4497e6c4c097c7232a2b593db9d2a98e0dd1759d1d03d4a11",
     "repository-checks.log": "e13bb7ceb85a0a869847105807587a836215d294d8952d9687d5849e7ad27407",
-    "README.md": "fbd3e6c0e235dcf419fd80d86b66abf17054d6b153eb1b02a0c66f9f08810ecb"
+    "README.md": "fce5c8839cca2b243795f8c292018d7fc9cbb636dd5e7640dec3cff4e109f7fb"
   }
 }
