@@ -63,3 +63,7 @@ The scripts enable kernel checking and audit theorem dependencies against `prope
 ## Sources
 
 Based on [José Brox’s v3 manuscript](https://github.com/JoseBrox/diophantine-z-q_improvements/blob/f4d1b5e6c23d4adeb3ae1f986ab0bf87884bdff6/paper/diophantine_optimization_20261106_v3.tex) and [elliotglazer/diophantine-z-q](https://github.com/elliotglazer/diophantine-z-q/tree/ba7a3e0a0c171b7cd2ce75976addba57fad8a5dd), including Gabriel Conant’s odd-product and asymmetric-depth construction. The pinned manuscripts are in [`docs/sources/`](docs/sources/). Upstream attribution and applicable licenses remain with their authors.
+
+## Historical Lean generators
+
+The `generate_*_general.py` scripts retain their frozen historical paths and are not the current package regeneration interface. Use `tools/generate.py` from the package root for the published coefficient tables; the checked Lean sources are supplied directly. Run `python tools/unpack_data.py` from the package root before the Lean commands above.
