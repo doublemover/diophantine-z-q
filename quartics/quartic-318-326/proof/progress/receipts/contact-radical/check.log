@@ -1,0 +1,10 @@
+CheckContact.lean:2:7: error(lean.unknownIdentifier): Unknown identifier `gcd_normalize`
+normalize_gcd.{u_1} {α : Type u_1} [CommMonoidWithZero α] [NormalizedGCDMonoid α] (a b : α) :
+  normalize (gcd a b) = gcd a b
+CheckContact.lean:4:7: error(lean.unknownIdentifier): Unknown identifier `gcd_mul_unit_right`
+CheckContact.lean:5:7: error(lean.unknownIdentifier): Unknown constant `IsCoprime.gcd_eq_one`
+CheckContact.lean:6:7: error(lean.unknownIdentifier): Unknown constant `IsCoprime.isUnit_gcd`
+CheckContact.lean:7:7: error(lean.unknownIdentifier): Unknown constant `Finset.isCoprime_gcd`
+CheckContact.lean:8:7: error(lean.unknownIdentifier): Unknown constant `Associated.gcd_eq`
+@[defeq] theorem Int.coe_gcd : ∀ (i j : ℤ), ↑(i.gcd j) = gcd i j :=
+fun i j => rfl

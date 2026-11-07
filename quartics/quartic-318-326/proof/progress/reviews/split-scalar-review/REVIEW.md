@@ -1,0 +1,11 @@
+# Independent split/inert scalar-divisibility join review
+
+PASS. The three frozen source files were copied and independently rebuilt with strict kernel checking. The exhaustive recursive audit checked 34 declarations with only standard Lean/Mathlib axioms. Copies match the author's frozen files.
+
+- `affine_depth` starts with an actual nonsingular affine point of reciprocal-abscissa valuation 2r>0. Unit D forces ordinate nonvanishing and exact ordinate valuation -3r, hence z-depth r. Actual subgroup membership and logarithm isometry are invoked without a chosen ordinate sign or an assumed logarithm law.
+- The actual global-to-Qp point homomorphism is built from the checked curve transport and short-curve base change. Its coordinate lemmas identify precisely the literal H and scalar point. The comment above `globalMap` says "inert completion", but the type and proof correctly use the split Qp field; this is a cosmetic copied comment, not a mathematical issue.
+- Source evenness turns reciprocal valuation gain16 into logarithm gain8. The generic torsion-safe index theorem removes the common two-torsion offset and does not require the global generator to be locally formal. Integral valuations are normalized at p, not p squared.
+- The final source theorem splits exhaustively on whether 2 is a square modulo p. The split branch constructs an actual Hensel root, applies the source scalar norm decoder at both embeddings, and chooses whichever has gain16. The other branch uses the independently constructed normalized inert completion and its actual logarithm.
+- The coherent-label wrapper consumes labels proved to exist from the literal source. It concludes p^8 divides that same scalar index for every positive odd scalar contact at p>=19, with no supplied local field, formality, logarithm, branch, or precision premise.
+
+This is the local scalar index producer, not the geometric contact-height theorem or all of `sourceArithmetic`. It relies on imported source/global point constructions and the separately reviewed inert logarithm packet. The replay freshly rebuilt only the three listed modules and recursively audited all their axioms; the author's dependency receipt is hash-bound.
