@@ -1,0 +1,11 @@
+# Genuine three-chart differential coherence
+
+`DifferentialFunctor318` proves actual universal-differential pullback composition and identity for arbitrary algebra homomorphisms, by spanning with actual universal derivatives. `GlobalDifferentialFunctor318` defines transport using the genuine canonical sheaf morphism and actual affine pushforward/global-section comparison. It proves composition, identity, and path independence for actual commutative algebra-map squares on all genuine affine differential global sections.
+
+`ActualDifferentialTriple318` constructs a literal common localization for the finite x-Jacobian chart, finite y-Jacobian chart, and infinity Jacobian chart. It localizes the already constructed finite/infinity common ring at the image of the x-Jacobian minor. The actual map from the finite x/y overlap is constructed using the two proved unit minors. The two routes from the finite y-chart agree by the actual localization universal property, not by an assumed compatibility. Consequently the actual invariant differential forms from all three charts agree; the theorem `triple_global_sections` states this as equality of transported genuine global sections, using the canonical sheaf transports.
+
+`TripleOpen318` proves the actual triple-to-overlap and triple-to-chart scheme maps are open immersions. The x/y-overlap map uses cancellation against the actual open finite y-chart map and the derived commutative diamond. No openness or map-compatibility premise is supplied.
+
+This closes the explicit three-chart/refinement coherence at the actual universal-differential and genuine global-section levels. It does not by itself construct a global relative differential sheaf or identify a Hodge pushforward. The following global-line work must use the actual source scheme and compatible local sheaf frames. Relative elliptic-family differentials remain distinct from the compact modular/PEL base canonical line; no analytic/algebraic comparison or unconditional soundness is claimed.
+
+Run `bash verify.sh`. All four modules are freshly strictly rebuilt; the explicit import-all recursive audit passes all 46 declarations with only propext, Classical.choice and Quot.sound. Upstream frozen packets and repository/Git state are unchanged.

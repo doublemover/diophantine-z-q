@@ -1,10 +1,10 @@
 {
-  "status": "PASS: actual proper normal j-models, simultaneous contact normalization and twisted degree-16 fields; conditional published-polynomial soundness, not full sourceArithmetic",
-  "verified_utc": "2026-11-07T23:29:45.509220+00:00",
-  "source_modules": 705,
-  "recursively_audited_declarations": 14677,
-  "root_modules": 608,
-  "freshly_rebuilt_new_or_changed_modules": 118,
+  "status": "PASS: finite-input addition, actual contact Galois cover, cusp atlas and model components; conditional published-polynomial soundness, not full sourceArithmetic",
+  "verified_utc": "2026-11-07T23:52:32.557176+00:00",
+  "source_modules": 767,
+  "recursively_audited_declarations": 15391,
+  "root_modules": 670,
+  "freshly_rebuilt_new_or_changed_modules": 62,
   "axioms": [
     "propext",
     "Classical.choice",
@@ -13,49 +13,45 @@
   "checks": {
     "exact_source_hashes_and_closed_topological_imports": "PASS",
     "no_sorry_admit_or_native_evaluation": "PASS",
-    "new_and_changed_source_kernel_rebuild": "PASS 118, in snapshot topological order, debug.skipKernelTC=false",
-    "combined_recursive_axiom_audit": "PASS 14,677 declarations across 705 modules",
+    "new_and_changed_source_kernel_rebuild": "PASS 62, inside this snapshot in dependency order, debug.skipKernelTC=false",
+    "combined_recursive_axiom_audit": "PASS 15,391 declarations across 767 modules",
     "coefficient_regeneration": "PASS: both published coefficient tables unchanged",
     "unit_tests": "PASS: 5 tests and compiler self-tests",
     "audit_history": "PASS:9 evidence-bound historical dispositions; structural, not mathematical",
     "git_whitespace": "Frozen producer sources and original compiler logs are retained byte-identically. Cosmetic whitespace warnings do not indicate proof errors.",
-    "unchanged_prior_sources": "PASS: all 587 earlier source hashes unchanged; no shared-source variants",
-    "frozen_packet_receipt_hashes": "PASS: 385 directly enumerated frozen receipt file hashes; independent manifest binds every included Lean source"
+    "unchanged_prior_sources": "PASS: all 705 earlier source hashes unchanged; no shared-source variants",
+    "frozen_packet_receipt_hashes": "PASS: 208 directly enumerated new frozen receipt/review file hashes and their dependency receipts; independent manifest binds every included Lean source"
   },
-  "rebuild_scope": "All 118 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for unchanged dependencies. The full 705-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all 705 modules; replay.sh performs that full rebuild.",
-  "independent_reviews": "Bounded exact-copy reviews under reviews/, including twisted Kummer fields, simultaneous even-contact normalization, actual proper projective and normal j-models, full relative Weierstrass field points/fibers, addition charts, holomorphic cotangent bundles and genuine differential-sheaf overlaps. Some producer reviews are still queued; no blanket independent acceptance of all new modules is claimed. Classical source reviews remain distinguished from Lean realization.",
+  "rebuild_scope": "All 62 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for the 705 unchanged dependencies. The full 767-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all 767 modules; replay.sh performs that full rebuild.",
+  "independent_reviews": "Bounded exact-copy reviews are retained under reviews/. This checkpoint adds independent strict replay and application review for finite-input addition/gluing and its field-point interpretation, actual Kummer Galois automorphisms, and normal-model chart dimension. Earlier reviews remain scoped to their unchanged sources. No blanket independent acceptance of all new modules is claimed; several producer reviews, including the new pointed component/model join, are still pending. Classical source reviews remain distinguished from Lean realization.",
   "remaining": [
     "Construct RefinedContactRealization318.RefinedGeometricRealization (or the original GeometricRealization) in Lean for every primitive noncontact input. Generic actual proper/normal/flat j-models and local contact fields/normalizations are now constructed, but the particular modular/PEL cover and twists, regular or semistable resolution, controlled fields/conductor and named Arakelov/Yuan identifications remain explicit. Conditional record assembly does not establish their existence.",
     "Complete the formal prime-pattern/restricted-converse and integer-to-source witness existence direction.",
     "Combine both directions into unconditional sourceArithmetic and perform final full clean rebuild/review."
   ],
   "excluded_post_cutoff": [
-    "addition-cross-overlap",
-    "finite-addition-gluing",
-    "cusp-hausdorff and extended filled-cusp atlas",
-    "j-model-dimension",
-    "converse-work/infinity-overlap-sheaves",
-    "converse-work/differential-triple-coherence",
-    "contact-kummer-galois (live)",
-    "Ongoing global relative group/torsion families, actual source curve/PEL and Arakelov realization"
+    "Mixed-product and both-infinity addition gluing and global group/torsion families",
+    "Rotated cusp homeomorphisms and all-cusp compactification",
+    "Finite-contact ramification coordinate realization",
+    "Ongoing actual source modular/PEL, regular/semistable and Arakelov realization"
   ],
   "documentation_corrections": [
-    "The no-constant horizontal3h(a) estimate is qualified to the actual0<a<1 application; arbitrary a requires an additional log2.",
-    "The CM854R bound is a surface-height bound; metric transfer gives1708R+120.",
-    "The linked GR2022 theorem uses original Faltings height; the larger shifted budget applies by monotonicity. The linked bibliography title is corrected.",
+    "The no-constant horizontal 3h(a) estimate is qualified to the actual 0<a<1 application; arbitrary a requires an additional log 2.",
+    "The CM 854R bound is a surface-height bound; metric transfer gives 1708R+120.",
+    "The linked GR 2022 theorem uses original Faltings height; the larger shifted budget applies by monotonicity. The linked bibliography title is corrected.",
     "The user-facing guide now links the actual audited literal 326-coordinate row replay, coefficient binding and conditional soundness instead of repeating the obsolete not-formalized statement. Dated historical receipts remain unchanged."
   ],
   "files": {
-    "checkpoint-manifest.json": "b6ec3ecb7cd8edea0eb7c4c1ed34c56ae6de2d4f3ecf36924f984f05b4088640",
-    "module-order.json": "fd587af9ed2718f05a01fd00209d49ccba851ee950edf37c66399f039abc35a6",
-    "CheckpointAudit.lean": "0d184fbc20d12ece355293c9d03e7c0b5ef5215258b604f2815c727de16b6513",
+    "checkpoint-manifest.json": "28b755545208f741d683d28432aba9c86ccea4833c73852f82cb7c8cc280901f",
+    "module-order.json": "c2c36c55e7e79cb6d4429ec591820760d660d44fed8442ce093c3a1c75024a10",
+    "CheckpointAudit.lean": "ac68073ef04696b47fc45a0c6f0137149538a43491d9df3fccd20ea7a0a3d437",
     "replay.sh": "320dfdb8f66e5e7dad3b759552be28899afa0cf6f8af748c39c8c1668206deb1",
     "verify_manifest.py": "aa657e41be7be1524138b106c6bdad89ed836640e8b94340e8d572eb228cd63a",
-    "combined-audit.log": "3555ef7f61c8a2f752221ee66533119552a8738f24fd7a7876106c485edd48b2",
-    "checkpoint-rebuild-modules.json": "869fca23d4c04c4c9aefc2aebc8dc4f97d5361dbeaa573906ba75499d70502d8",
-    "checkpoint-rebuild.log": "1c89edf8a01af34e55576b9d7f13e1ecea5d53d06d77ad2f7c88a159db9761b8",
-    "repository-checks.log": "acfb38769b86c3efa96d60e7bbcc2f21284bcb1bd1f170f75a2f619ca6f91bed",
-    "README.md": "dda471267aed39d20f9516a420935eeb79a6f92da74c070e44208e11dba8d158",
-    "packet-hash-check.log": "44a379cb7bfaa401bde3734986ea61dd12da9e12ede02400f0466b53c1ac154d"
+    "combined-audit.log": "93313b7938548bc2539f80d6a4ca791b3556d4616d8654153ecfcea6cd9a6685",
+    "checkpoint-rebuild-modules.json": "02b7ab89e69138ecce6c7a6110a22ab7d38dc3da55e90070f63702468abb27bc",
+    "checkpoint-rebuild.log": "a7823e3df6baca85c003134f0071b605aae443d066e818fef11216dd4fc40fa3",
+    "repository-checks.log": "54800d3636e7d7b5a2cba281e0df73af44db72075f448c27ded8feb18acf534e",
+    "README.md": "40b4623f3eac0e101ca7d77c192748cbaece6128c5d1ee12fce3b0dd08f7d2d0",
+    "packet-hash-check.log": "154248c448e902f68d8554792bda8538d2841921d2360161fd9ce007d402228c"
   }
 }
