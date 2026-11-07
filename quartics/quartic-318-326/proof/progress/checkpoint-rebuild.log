@@ -1,19 +1,7 @@
-MANIFEST_PASS modules=587; exact hashes, closed imports, topological order, no placeholders/native evaluation
-KERNEL_CHECK SeparatedPrincipalLocal318
-SeparatedPrincipalLocal318.lean:20:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
-If you'd rather continue using `push_neg` in your project, you can implement it as follows:
-```
-open Lean.Parser.Tactic in
-macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
-  `(tactic| push $cfg:optConfig Not $[$loc]?)
-```
-SeparatedPrincipalLocal318.lean:49:35: warning: `simp` already closes the goal
-
-Hint: Use `simp` instead of `simpa`:
-  [apply] simp
-
-Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-SeparatedPrincipalLocal318.lean:50:2: warning: Try this: 
+MANIFEST_PASS modules=705; exact hashes, closed imports, topological order, no placeholders/native evaluation
+KERNEL_CHECK QuotientJ318
+KERNEL_CHECK HolomorphicQuotientJ318
+HolomorphicQuotientJ318.lean:25:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -21,21 +9,32 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-SeparatedPrincipalLocal318.lean:54:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
-If you'd rather continue using `push_neg` in your project, you can implement it as follows:
-```
-open Lean.Parser.Tactic in
-macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
-  `(tactic| push $cfg:optConfig Not $[$loc]?)
-```
-SeparatedPrincipalLocal318.lean:59:26: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+HolomorphicQuotientJ318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ActualJCusp318
+KERNEL_CHECK ReciprocalCuspCoordinate318
+KERNEL_CHECK CuspOrbit318
+CuspOrbit318.lean:22:22: warning: This simp argument is unused:
+  Complex.ofReal_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coe_vadd, Complex.ofReal_intCast]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK HighQParameter318
+KERNEL_CHECK ActualCuspHomeomorph318
+ActualCuspHomeomorph318.lean:25:4: warning: Unused tactic linter: `change
+  ReciprocalCuspCoordinate318.inverseGerm ((jMap N u.val)⁻¹) ∈ punctured height` does nothing.
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-SeparatedPrincipalLocal318.lean:59:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-KERNEL_CHECK AdicEvaluation318
-AdicEvaluation318.lean:24:2: warning: Try this: 
+KERNEL_CHECK HolomorphicCuspChart318
+HolomorphicCuspChart318.lean:22:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -43,7 +42,32 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-AdicEvaluation318.lean:25:2: warning: Try this: 
+KERNEL_CHECK LocalQInverse318
+KERNEL_CHECK ActualCuspPartialChart318
+KERNEL_CHECK UnitDifferential318
+UnitDifferential318.lean:11:0: warning: automatically included section variable(s) unused in theorem `UnitDifferential318.inverse`:
+  [IsScalarTower R T M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsScalarTower R T M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK ShortInfinityDifferential318
+ShortInfinityDifferential318.lean:14:0: warning: automatically included section variable(s) unused in theorem `ShortInfinityDifferential318.differentiated_relation`:
+  [IsScalarTower R T M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsScalarTower R T M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ShortInfinityDifferential318.lean:18:70: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, d.leibniz, d.leibniz_pow, ha, hb, smul_zero, add_zero, map_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK ActualDifferentialOverlap318
+KERNEL_CHECK FourUnitCover318
+FourUnitCover318.lean:46:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -51,7 +75,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-AdicEvaluation318.lean:31:2: warning: Try this: 
+FourUnitCover318.lean:47:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -59,7 +83,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-AdicEvaluation318.lean:32:2: warning: Try this: 
+FourUnitCover318.lean:48:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -67,8 +91,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK CompleteContactEvaluation318
-CompleteContactEvaluation318.lean:27:2: warning: Try this: 
+FourUnitCover318.lean:49:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -76,7 +99,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompleteContactEvaluation318.lean:30:2: warning: Try this: 
+FourUnitCover318.lean:50:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -84,7 +107,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompleteContactEvaluation318.lean:31:2: warning: Try this: 
+FourUnitCover318.lean:51:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -92,7 +115,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompleteContactEvaluation318.lean:36:2: warning: Try this: 
+FourUnitCover318.lean:55:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -100,7 +123,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompleteContactEvaluation318.lean:39:2: warning: Try this: 
+FourUnitCover318.lean:61:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -108,7 +131,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompleteContactEvaluation318.lean:40:2: warning: Try this: 
+FourUnitCover318.lean:62:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -116,15 +139,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK ActualDVRCompletion318
-KERNEL_CHECK JacobianLocalSmooth318
-KERNEL_CHECK ShortAffineJacobian318
-KERNEL_CHECK ShortAffineScheme318
-KERNEL_CHECK OpenJAffineScheme318
-KERNEL_CHECK AffineEquationFunctor318
-KERNEL_CHECK AffineBaseChange318
-KERNEL_CHECK HeightOneDVR318
-HeightOneDVR318.lean:18:2: warning: Try this: 
+FourUnitCover318.lean:64:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -132,7 +147,9 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HeightOneDVR318.lean:20:2: warning: Try this: 
+KERNEL_CHECK TensorPairBaseChange318
+KERNEL_CHECK FourContactOrder318
+FourContactOrder318.lean:26:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -140,7 +157,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HeightOneDVR318.lean:24:2: warning: Try this: 
+FourContactOrder318.lean:27:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -148,7 +165,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HeightOneDVR318.lean:25:2: warning: Try this: 
+FourContactOrder318.lean:38:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -156,7 +173,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-HeightOneDVR318.lean:26:2: warning: Try this: 
+FourContactOrder318.lean:67:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -164,284 +181,590 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK CompletionDescent318
-KERNEL_CHECK AffineHeightOneStalk318
-AffineHeightOneStalk318.lean:22:0: warning: automatically included section variable(s) unused in theorem `AffineHeightOneStalk318.coefficient_germ`:
+KERNEL_CHECK FourContactNormalization318
+FourContactNormalization318.lean:21:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:19:0: warning: automatically included section variable(s) unused in theorem `FourContactNormalization318.order_scalar_tower`:
   [IsDomain R]
-  [IsNoetherianRing R]
-  [IsIntegrallyClosed R]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain R] [IsNoetherianRing R] [IsIntegrallyClosed R] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-AffineHeightOneStalk318.lean:33:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK AffineIntegralModel318
-KERNEL_CHECK AffineRelativeDimension318
-KERNEL_CHECK AffineSchemeBaseChange318
-KERNEL_CHECK AffineSchemeSolutions318
-KERNEL_CHECK ContactTensor318
-KERNEL_CHECK IntegralClosureTransport318
-KERNEL_CHECK CompletedNormalization318
-CompletedNormalization318.lean:44:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompletedNormalization318.lean:45:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompletedNormalization318.lean:46:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompletedNormalization318.lean:50:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompletedNormalization318.lean:92:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-CompletedNormalization318.lean:93:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK GammaOneProper318
-KERNEL_CHECK GammaOneAtlas318
-GammaOneAtlas318.lean:18:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-GammaOneAtlas318.lean:40:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK LocalDeck318
-KERNEL_CHECK InverseCoordinate318
-KERNEL_CHECK HolomorphicCharts318
-HolomorphicCharts318.lean:71:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK HolomorphicProjection318
-HolomorphicProjection318.lean:16:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK HolomorphicInverse318
-HolomorphicInverse318.lean:18:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK FiberQuotientCovering318
-FiberQuotientCovering318.lean:65:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK LocalFrameEmbedding318
-KERNEL_CHECK LocalTrivialization318
-KERNEL_CHECK FrameTransition318
-KERNEL_CHECK CotangentTransition318
-KERNEL_CHECK DependentFiberBundle318
-DependentFiberBundle318.lean:56:0: warning: Definition `DependentFiberBundle318.fiberBundle` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
-definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
-KERNEL_CHECK HeightOneContact318
-KERNEL_CHECK EvenValuationNormalization318
-KERNEL_CHECK FiberLinearStructure318
-KERNEL_CHECK FiniteAffineOrder318
-FiniteAffineOrder318.lean:28:36: warning: `simp` already closes the goal
-
-Hint: Use `simp` instead of `simpa`:
-  [apply] simp
-
-Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-FiniteAffineOrder318.lean:23:36: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
-
-Note: This linter can be disabled with `set_option linter.unusedTactic false`
-FiniteAffineOrder318.lean:27:36: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
-
-Note: This linter can be disabled with `set_option linter.unusedTactic false`
-FiniteAffineOrder318.lean:23:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-FiniteAffineOrder318.lean:27:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
-
-Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-KERNEL_CHECK FiniteOpenModel318
-KERNEL_CHECK FractionDerivation318
-FractionDerivation318.lean:33:2: warning: `simp` already closes the goal
-
-Hint: Use `simp` instead of `simpa`:
-  [apply] simp [jet]
-
-Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-KERNEL_CHECK KaehlerFrame318
-KERNEL_CHECK FractionKaehlerFrame318
-FractionKaehlerFrame318.lean:40:0: warning: automatically included section variable(s) unused in theorem `FractionKaehlerFrame318.generic_spanned`:
-  [IsDomain B]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain B] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK FractionSourceSections318
-KERNEL_CHECK InfinityChart318
-KERNEL_CHECK WeierstrassOverlap318
-KERNEL_CHECK InfinitySmooth318
-KERNEL_CHECK WeierstrassGluing318
-KERNEL_CHECK InfinityRelativeDimension318
-KERNEL_CHECK GluedRelativeDimension318
-GluedRelativeDimension318.lean:17:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-GluedRelativeDimension318.lean:18:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK JacobianKaehlerFrame318
-KERNEL_CHECK KaehlerSourceSections318
-KaehlerSourceSections318.lean:17:0: warning: automatically included section variable(s) unused in theorem `KaehlerSourceSections318.derived_integral`:
-  [IsDomain B]
-  [IsFractionRing B K]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain B] [IsFractionRing B K] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK LiteralWeierstrassPoints318
-KERNEL_CHECK LocalizedKaehlerFrame318
-LocalizedKaehlerFrame318.lean:44:2: warning: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK SmoothGenericField318
-SmoothGenericField318.lean:24:0: warning: automatically included section variable(s) unused in theorem `SmoothGenericField318.generic_domain`:
-  [IsIntegrallyClosed R]
-  [Module.Finite R B]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsIntegrallyClosed R] [Module.Finite R B] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-SmoothGenericField318.lean:32:0: warning: automatically included section variable(s) unused in theorem `SmoothGenericField318.generic_finite`:
-  [IsDomain R]
-  [IsIntegrallyClosed R]
   [IsFractionRing R K]
-  [IsDomain B]
-  [Smooth R B]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain R] [IsIntegrallyClosed R] [IsFractionRing R K] [IsDomain B] [Smooth R B] in theorem ...
+  omit [IsDomain R] [IsFractionRing R K] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-SmoothGenericField318.lean:50:0: warning: automatically included section variable(s) unused in theorem `SmoothGenericField318.generic_integrallyClosedIn`:
+FourContactNormalization318.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:41:0: warning: automatically included section variable(s) unused in theorem `FourContactNormalization318.genericOrderEquiv_on_order`:
   [IsDomain R]
-  [IsDomain B]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain R] [IsDomain B] in theorem ...
+  omit [IsDomain R] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK NormalAffineModel318
-NormalAffineModel318.lean:22:0: warning: automatically included section variable(s) unused in theorem `NormalAffineModel318.model_integralClosure`:
+FourContactNormalization318.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:56:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactNormalization318.lean:57:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK EtaleLocalDVR318
+EtaleLocalDVR318.lean:19:0: warning: automatically included section variable(s) unused in theorem `EtaleLocalDVR318.maximal_eq`:
+  [Module.Flat R S]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Flat R S] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+EtaleLocalDVR318.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtaleLocalDVR318.lean:39:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtaleLocalDVR318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtaleLocalDVR318.lean:60:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtaleLocalDVR318.lean:61:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtaleLocalDVR318.lean:72:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtaleLocalDVR318.lean:73:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK EtalePrimeDVR318
+EtalePrimeDVR318.lean:21:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtalePrimeDVR318.lean:29:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtalePrimeDVR318.lean:33:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtalePrimeDVR318.lean:37:0: warning: automatically included section variable(s) unused in theorem `EtalePrimeDVR318.ramification_one`:
   [IsDomain R]
-  [IsNoetherianRing R]
-  [IsIntegrallyClosed R]
+  [IsDiscreteValuationRing R]
+  [q.LiesOver (maximalIdeal R)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] [IsDiscreteValuationRing R] [q.LiesOver (maximalIdeal R)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+EtalePrimeDVR318.lean:46:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EtalePrimeDVR318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK FourEvenContacts318
+KERNEL_CHECK FourContactBranches318
+FourContactBranches318.lean:73:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactBranches318.lean:71:0: warning: automatically included section variable(s) unused in theorem `FourContactBranches318.all_prime_indices`:
+  [IsDomain R]
+  [IsDiscreteValuationRing R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] [IsDiscreteValuationRing R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+FourContactBranches318.lean:79:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactBranches318.lean:84:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourContactBranches318.lean:92:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ActualFourContactNormalization318
+KERNEL_CHECK HolomorphicLineFactor318
+HolomorphicLineFactor318.lean:42:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK LinearCocycleBinding318
+KERNEL_CHECK HolomorphicLineRegistration318
+HolomorphicLineRegistration318.lean:18:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HolomorphicLineRegistration318.lean:32:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HolomorphicLineRegistration318.lean:33:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+HolomorphicLineRegistration318.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK TangentCoordinates318
+KERNEL_CHECK ComplexQuadraticForms318
+KERNEL_CHECK ActualQuadraticForm318
+KERNEL_CHECK FormBundleCoordinates318
+KERNEL_CHECK QuadraticBundleEquivalence318
+KERNEL_CHECK TangentMetric318
+KERNEL_CHECK ActualOperatorNorm318
+KERNEL_CHECK TwoChartGluing318
+TwoChartGluing318.lean:41:38: warning: This simp argument is unused:
+  TopCat.hom_ofHom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [overlaps, transitions, ContinuousMap.toFun_eq_coe, CategoryTheory.id_apply,
+    TopologicalSpace.Opens.mem_top] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+TwoChartGluing318.lean:41:55: warning: This simp argument is unused:
+  ContinuousMap.toFun_eq_coe
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [overlaps, transitions, TopCat.hom_ofHom, CategoryTheory.id_apply,
+    TopologicalSpace.Opens.mem_top] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+TwoChartGluing318.lean:42:8: warning: This simp argument is unused:
+  CategoryTheory.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [overlaps, transitions, TopCat.hom_ofHom, ContinuousMap.toFun_eq_coe,
+    TopologicalSpace.Opens.mem_top] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+TwoChartGluing318.lean:49:29: warning: This simp argument is unused:
+  TopCat.hom_ofHom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transitions, CategoryTheory.id_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+TwoChartGluing318.lean:43:32: warning: Unused tactic linter: `exact hx` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+TwoChartGluing318.lean:43:43: warning: Unused tactic linter: `exact x.property` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+TwoChartGluing318.lean:50:22: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+KERNEL_CHECK BiholomorphicCusp318
+BiholomorphicCusp318.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+BiholomorphicCusp318.lean:58:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ActualSingleCusp318
+KERNEL_CHECK AffineCoordinateDomain318
+KERNEL_CHECK AffineDifferentialSheaf318
+KERNEL_CHECK AlgHomDifferential318
+AlgHomDifferential318.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AlgHomDifferential318.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AlgHomDifferential318.lean:25:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+AlgHomDifferential318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK IntegralClosureSquare318
+KERNEL_CHECK GlobalNormalization318
+GlobalNormalization318.lean:35:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalNormalization318.lean:40:69: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+GlobalNormalization318.lean:40:69: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+GlobalNormalization318.lean:47:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalNormalization318.lean:80:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalNormalization318.lean:81:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalNormalization318.lean:89:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK NormalizationChart318
+NormalizationChart318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationChart318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationChart318.lean:42:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ReciprocalJ318
+ReciprocalJ318.lean:60:22: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ReciprocalJ318.lean:60:22: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+KERNEL_CHECK ReciprocalCover318
+ReciprocalCover318.lean:62:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ReciprocalCover318.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ReciprocalCover318.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ReciprocalCover318.lean:66:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ReciprocalCover318.lean:67:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ProjectiveJLine318
+KERNEL_CHECK ProjectiveChart318
+ProjectiveChart318.lean:47:0: warning: automatically included section variable(s) unused in theorem `ProjectiveChart318.val_coeff`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ProjectiveChart318.lean:92:8: warning: automatically included section variable(s) unused in theorem `ProjectiveChart318.coordinate_inverse`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ProjectiveChart318.lean:96:0: warning: automatically included section variable(s) unused in theorem `ProjectiveChart318.val_coordinate`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ProjectiveChart318.lean:118:0: warning: automatically included section variable(s) unused in theorem `ProjectiveChart318.val_mk`:
+  [DecidableEq σ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq σ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK JLineAtlas318
+KERNEL_CHECK JLineEvaluation318
+KERNEL_CHECK JLineOverlap318
+JLineOverlap318.lean:40:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [φ]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+KERNEL_CHECK OpenJProjectiveMap318
+OpenJProjectiveMap318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+OpenJProjectiveMap318.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+OpenJProjectiveMap318.lean:71:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+OpenJProjectiveMap318.lean:74:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ReciprocalProjective318
+ReciprocalProjective318.lean:30:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ProperOpenJNormalization318
+ProperOpenJNormalization318.lean:28:0: warning: automatically included section variable(s) unused in theorem `ProperOpenJNormalization318.finite_factor`:
   [IsDomain B]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [IsDomain R] [IsNoetherianRing R] [IsIntegrallyClosed R] [IsDomain B] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK SmoothOpenModel318
-SmoothOpenModel318.lean:42:0: warning: automatically included section variable(s) unused in theorem `SmoothOpenModel318.model_normal`:
-  [CharZero K]
-  [Algebra R K]
-  [IsFractionRing R K]
-  [IsScalarTower R Rf K]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [CharZero K] [Algebra R K] [IsFractionRing R K] [IsScalarTower R Rf K] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK LocalizedNormalModel318
-KERNEL_CHECK OpenJIntegralModel318
-OpenJIntegralModel318.lean:30:0: warning: automatically included section variable(s) unused in theorem `OpenJIntegralModel318.original_finite_etale`:
-  [Algebra (Polynomial ℤ) B]
-  [IsScalarTower (Polynomial ℤ) (OpenJModel318.Base N) B]
-consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Algebra (Polynomial ℤ) B] [IsScalarTower (Polynomial ℤ) (OpenJModel318.Base N) B] in theorem ...
-
-Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-OpenJIntegralModel318.lean:47:0: warning: automatically included section variable(s) unused in theorem `OpenJIntegralModel318.original_diagram`:
   [Module.Finite (OpenJModel318.Base N) B]
+  [Algebra.Etale (OpenJModel318.Base N) B]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
-  omit [Module.Finite (OpenJModel318.Base N) B] in theorem ...
+  omit [IsDomain B] [Module.Finite (OpenJModel318.Base N) B] [Algebra.Etale (OpenJModel318.Base N) B] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-KERNEL_CHECK OpenJLocalModel318
-OpenJLocalModel318.lean:24:2: warning: Try this: 
+ProperOpenJNormalization318.lean:37:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -449,7 +772,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-OpenJLocalModel318.lean:25:2: warning: Try this: 
+ProperOpenJNormalization318.lean:38:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -457,7 +780,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-OpenJLocalModel318.lean:38:2: warning: Try this: 
+ProperOpenJNormalization318.lean:75:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -465,7 +788,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-OpenJLocalModel318.lean:55:2: warning: Try this: 
+ProperOpenJNormalization318.lean:81:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -473,7 +796,22 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-OpenJLocalModel318.lean:56:2: warning: Try this: 
+ProperOpenJNormalization318.lean:79:0: warning: automatically included section variable(s) unused in theorem `ProperOpenJNormalization318.normalization_dense`:
+  [IsDomain B]
+  [Algebra.Etale (OpenJModel318.Base N) B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain B] [Algebra.Etale (OpenJModel318.Base N) B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ProperOpenJNormalization318.lean:86:0: warning: automatically included section variable(s) unused in theorem `ProperOpenJNormalization318.normalization_over_Z`:
+  [IsDomain B]
+  [Algebra.Etale (OpenJModel318.Base N) B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain B] [Algebra.Etale (OpenJModel318.Base N) B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK NormalChart318
+NormalChart318.lean:44:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -481,7 +819,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-OpenJLocalModel318.lean:72:2: warning: Try this: 
+NormalChart318.lean:45:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -489,7 +827,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-OpenJLocalModel318.lean:97:2: warning: Try this: 
+NormalChart318.lean:52:2: warning: Try this: 
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -497,9 +835,860 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-KERNEL_CHECK PrimitiveDiamond318
-KERNEL_CHECK VectorBundleRegistration318
-KERNEL_CHECK RegisteredLine318
-KERNEL_CHECK WeierstrassKaehler318
-KERNEL_CHECK WeierstrassPrimeFrames318
+NormalChart318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalChart318.lean:59:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalChart318.lean:62:0: warning: automatically included section variable(s) unused in theorem `NormalChart318.properties_of_factor`:
+  [QuasiCompact (Spec.map φ ≫ c)]
+  [QuasiSeparated (Spec.map φ ≫ c)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [QuasiCompact (Spec.map φ ≫ c)] [QuasiSeparated (Spec.map φ ≫ c)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK NormalJModel318
+NormalJModel318.lean:33:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJModel318.lean:34:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJModel318.lean:44:0: warning: automatically included section variable(s) unused in theorem `NormalJModel318.sourceCover_covers`:
+  [IsDomain B]
+  [Algebra.Etale (OpenJModel318.Base N) B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain B] [Algebra.Etale (OpenJModel318.Base N) B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NormalJModel318.lean:60:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJModel318.lean:62:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJModel318.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJModel318.lean:65:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJModel318.lean:71:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK NormalJStalk318
+NormalJStalk318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJStalk318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJStalk318.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJStalk318.lean:29:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJStalk318.lean:30:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalJStalk318.lean:31:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK FlatJChart318
+FlatJChart318.lean:33:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:47:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:43:0: warning: automatically included section variable(s) unused in theorem `FlatJChart318.chart_charZero_of_factor`:
+  [QuasiCompact (Spec.map φ ≫ c)]
+  [QuasiSeparated (Spec.map φ ≫ c)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [QuasiCompact (Spec.map φ ≫ c)] [QuasiSeparated (Spec.map φ ≫ c)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+FlatJChart318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:73:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:74:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:76:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:79:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FlatJChart318.lean:80:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ArithmeticJModel318
+ArithmeticJModel318.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ArithmeticJModel318.lean:30:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ArithmeticJModel318.lean:36:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ArithmeticJModel318.lean:37:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ArithmeticJModel318.lean:48:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK PushforwardGlobalSections318
+KERNEL_CHECK CanonicalDifferentialSheafMap318
+KERNEL_CHECK TildePullback318
+KERNEL_CHECK ScalarExtensionTensor318
+KERNEL_CHECK EtaleDifferentialSheaf318
+KERNEL_CHECK TildeComparison318
+KERNEL_CHECK CanonicalEtaleComparison318
+KERNEL_CHECK CanonicalRestrictionComparison318
+KERNEL_CHECK ChartNegation318
+KERNEL_CHECK ProjectivePlane318
+KERNEL_CHECK ProjectiveAtlas318
+KERNEL_CHECK ProjectiveEvaluation318
+KERNEL_CHECK CubicProjectiveMap318
+CubicProjectiveMap318.lean:37:60: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [overlapCoordinates, aeval_X, Matrix.cons_val_two, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CubicProjectiveMap318.lean:37:80: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [overlapCoordinates, aeval_X, Matrix.cons_val_two, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CubicProjectiveMap318.lean:44:56: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [overlapCoordinates]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CubicProjectiveMap318.lean:47:93: warning: This simp argument is unused:
+  show (2 : Fin 3).succAbove (1 : Fin 2) = 1 from rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [AlgHom.comp_apply, overlapCoordinates, show (2 : Fin 3).succAbove (0 : Fin 2) = 0 from rfl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CubicProjectiveMap318.lean:48:47: warning: This simp argument is unused:
+  show (2 : Fin 3).succAbove (0 : Fin 2) = 0 from rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [AlgHom.comp_apply, overlapCoordinates, show (2 : Fin 3).succAbove (1 : Fin 2) = 1 from rfl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK CubicChartGeometry318
+KERNEL_CHECK CubicClosedImmersion318
+CubicClosedImmersion318.lean:36:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CubicClosedImmersion318.lean:37:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK CompletedFieldPoints318
+CompletedFieldPoints318.lean:33:0: warning: automatically included section variable(s) unused in theorem `CompletedFieldPoints318.field_chart_cases`:
+  [Algebra R K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Algebra R K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK InfinityCoordinateDomain318
+InfinityCoordinateDomain318.lean:33:0: warning: automatically included section variable(s) unused in theorem `InfinityCoordinateDomain318.defining_ideal`:
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK InfinityBaseChange318
+KERNEL_CHECK WeierstrassCoefficientMap318
+KERNEL_CHECK WeierstrassBaseChange318
+WeierstrassBaseChange318.lean:42:6: warning: Unused tactic linter: `change
+  WeierstrassGluing318.finiteChart A B (finiteMap A B p) =
+    coefficientMap A B (WeierstrassGluing318.finiteChart (a A) (a B) p)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+WeierstrassBaseChange318.lean:75:6: warning: Unused tactic linter: `change
+  WeierstrassGluing318.infinityChart A B (infinityMap A B p) =
+    coefficientMap A B (WeierstrassGluing318.infinityChart (a A) (a B) p)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+KERNEL_CHECK CompletedIntegral318
+KERNEL_CHECK DifferentialChartMaps318
+DifferentialChartMaps318.lean:22:38: warning: This simp argument is unused:
+  Algebra.algHom_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [commonFiniteDenominator, map_mul, map_ofNat]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK EvenContactBranch318
+EvenContactBranch318.lean:16:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EvenContactBranch318.lean:14:0: warning: automatically included section variable(s) unused in theorem `EvenContactBranch318.all_prime_indices`:
+  [IsDomain R]
+  [IsDiscreteValuationRing R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] [IsDiscreteValuationRing R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+EvenContactBranch318.lean:24:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EvenContactBranch318.lean:32:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EvenContactBranch318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EvenContactBranch318.lean:50:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK ProductLocalization318
+ProductLocalization318.lean:34:16: warning: This simp argument is unused:
+  rightMap
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [leftMap, IsLocalization.Away.liftAlgHom_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ProductLocalization318.lean:38:8: warning: This simp argument is unused:
+  leftMap
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, IsLocalization.Away.liftAlgHom_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK ProductOverlapOpen318
+ProductOverlapOpen318.lean:35:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:44:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:45:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:75:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:83:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:84:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:92:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ProductOverlapOpen318.lean:93:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK InvariantChartForms318
+KERNEL_CHECK FiniteInvariantDifferential318
+KERNEL_CHECK FiniteOverlapSheaves318
+KERNEL_CHECK FiniteGlobalFormCompatibility318
+FiniteGlobalFormCompatibility318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FiniteGlobalFormCompatibility318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FiniteGlobalFormCompatibility318.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FiniteGlobalFormCompatibility318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK RelativeChordAlgebra318
+KERNEL_CHECK TangentOpenAlgebra318
+KERNEL_CHECK HomogeneousAddition318
+KERNEL_CHECK InfinityAdditionAlgebra318
+KERNEL_CHECK FinitePairCover318
+FinitePairCover318.lean:18:23: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FinitePairCover318.lean:18:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FinitePairCover318.lean:36:22: warning: This simp argument is unused:
+  map_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, Bool.false_eq_true, ite_false, map_sub,
+    map_mul, map_add, hx, hy, sub_self, pow_succ, pow_zero, map_one, mul_one, one_mul, mul_zero, zero_mul,
+    sub_zero] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:36:71: warning: This simp argument is unused:
+  map_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, Bool.false_eq_true, ite_false, map_sub,
+    map_mul, map_pow, map_add, hx, hy, sub_self, pow_succ, pow_zero, mul_one, one_mul, mul_zero, zero_mul,
+    sub_zero] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:36:79: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, Bool.false_eq_true, ite_false, map_sub,
+    map_mul, map_pow, map_add, hx, hy, sub_self, pow_succ, pow_zero, map_one, one_mul, mul_zero, zero_mul,
+    sub_zero] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:36:104: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, Bool.false_eq_true, ite_false, map_sub,
+    map_mul, map_pow, map_add, hx, hy, sub_self, pow_succ, pow_zero, map_one, mul_one, one_mul, mul_zero,
+    sub_zero] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:47:91: warning: This simp argument is unused:
+  map_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, ite_true, map_sub, map_mul, map_add, hx, hy,
+    hz, neg_zero, add_zero, pow_succ, pow_zero, map_one, mul_one, one_mul, mul_zero, zero_mul, sub_zero] at ht
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:48:53: warning: This simp argument is unused:
+  map_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, ite_true, map_sub, map_mul, map_pow, map_add,
+    hx, hy, hz, neg_zero, add_zero, pow_succ, pow_zero, mul_one, one_mul, mul_zero, zero_mul, sub_zero] at ht
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:48:61: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, ite_true, map_sub, map_mul, map_pow, map_add,
+    hx, hy, hz, neg_zero, add_zero, pow_succ, pow_zero, map_one, one_mul, mul_zero, zero_mul, sub_zero] at ht
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:48:86: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [numeratorY, numeratorX, denominator, slopeNumerator, ite_true, map_sub, map_mul, map_pow, map_add,
+    hx, hy, hz, neg_zero, add_zero, pow_succ, pow_zero, map_one, mul_one, one_mul, mul_zero, sub_zero] at ht
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+FinitePairCover318.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK RelativeChordScheme318
+RelativeChordScheme318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK InfinityAdditionScheme318
+KERNEL_CHECK TangentOpenScheme318
+TangentOpenScheme318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK FinitePairSchemeCover318
+KERNEL_CHECK GeometricFibers318
+GeometricFibers318.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK GlobalOpenNormalization318
+GlobalOpenNormalization318.lean:17:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:18:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:31:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:32:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:59:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:60:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:61:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:71:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:72:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:73:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:74:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:81:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalOpenNormalization318.lean:82:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK GlobalCompactification318
+GlobalCompactification318.lean:18:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+GlobalCompactification318.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+KERNEL_CHECK GluedNegation318
+KERNEL_CHECK InfinityFiniteCompatibility318
+KERNEL_CHECK TangentChordOverlap318
+KERNEL_CHECK InfinityAdditionFinite318
+InfinityAdditionFinite318.lean:117:21: warning: This simp argument is unused:
+  map_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_mul, map_add, map_pow, AlgHom.commutes, TangentOpenAlgebra318.x1, TangentOpenAlgebra318.x2,
+    TangentOpenAlgebra318.y1, TangentOpenAlgebra318.y2, g, tangentLift_left, tangentLift_right] at hs
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK InfinityAdditionValues318
+KERNEL_CHECK LiteralCompletedPoints318
+KERNEL_CHECK RelativeChordPoints318
+KERNEL_CHECK InfinityAdditionPoints318
+KERNEL_CHECK TangentOpenPoints318
+KERNEL_CHECK InfinityAdditionLaw318
+KERNEL_CHECK InvariantFormFrames318
+KERNEL_CHECK SquareReflection318
+SquareReflection318.lean:38:54: warning: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [QuadraticAlgebra.algebraMap_re, QuadraticAlgebra.algebraMap_im, QuadraticAlgebra.re_mul,
+    QuadraticAlgebra.im_mul, zero_mul, add_zero] at hr hi
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+KERNEL_CHECK LinearContactSquareclass318
+LinearContactSquareclass318.lean:14:0: warning: automatically included section variable(s) unused in theorem `LinearContactSquareclass318.product_squarefree`:
+  [DecidableEq ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK QuadraticTower318
+QuadraticTower318.lean:25:8: warning: automatically included section variable(s) unused in theorem `_private.QuadraticTower318.0.QuadraticTower318.all_ne_zero`:
+  [CharZero F]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero F] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+QuadraticTower318.lean:63:0: warning: automatically included section variable(s) unused in theorem `QuadraticTower318.degree_sixteen`:
+  [CharZero F]
+  h
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero F] h in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+KERNEL_CHECK SourceKummerField318
+KERNEL_CHECK KummerTensorField318
+KERNEL_CHECK TangentMetricContinuity318
+KERNEL_CHECK MetricOperatorSupremum318
+KERNEL_CHECK NegationPoints318
+KERNEL_CHECK SingleCuspDensity318
+KERNEL_CHECK WeierstrassDifferentialSheaf318
 CHECKPOINT_NEW_SOURCE_REBUILD_PASS
