@@ -1,0 +1,22 @@
+AddMonoid.FG.to_moduleFinite_int
+Module.Finite.quotient ℤ (Submodule.torsion ℤ E.Point)
+Submodule.QuotientTorsion.instIsTorsionFree
+Module.free_of_finite_type_torsion_free'
+Module.finBasis.{u, v} (R : Type u) (M : Type v) [Semiring R] [AddCommMonoid M] [Module R M] [Module.Free R M]
+  [StrongRankCondition R] [Module.Finite R M] : Module.Basis (Fin (Module.finrank R M)) R M
+Submodule.Quotient.mk_eq_zero.{u_1, u_2} {R : Type u_1} {M : Type u_2} {x : M} [Ring R] [AddCommGroup M] [Module R M]
+  (p : Submodule R M) : Submodule.Quotient.mk x = 0 ↔ x ∈ p
+Submodule.torsion_int.{u_3} {G : Type u_3} [AddCommGroup G] :
+  (Submodule.torsion ℤ G).toAddSubgroup = AddCommGroup.torsion G
+AddCommGroup.mem_torsion.{u_1} {G : Type u_1} [AddCommGroup G] (g : G) : g ∈ AddCommGroup.torsion G ↔ IsOfFinAddOrder g
+Submodule.Quotient.mk_surjective.{u_1, u_2} {R : Type u_1} {M : Type u_2} [Ring R] [AddCommGroup M] [Module R M]
+  (p : Submodule R M) : Function.Surjective Submodule.Quotient.mk
+/workspace/scratch/2cb21e4e0864/quotient-two-bridge/CheckRank.lean:18:7: error(lean.unknownIdentifier): Unknown constant `IsAddTorsionFree.nsmul_right_injective`
+Module.IsTorsionFree.{u_1, u_3} (R : Type u_1) (M : Type u_3) [Semiring R] [AddCommMonoid M] [Module R M] : Prop
+smul_eq_zero.{u_1, u_3} {R : Type u_1} {M : Type u_3} [Semiring R] [AddCommMonoid M] [Module R M] {r : R} {m : M}
+  [Module.IsTorsionFree R M] [IsCancelMulZero R] : r • m = 0 ↔ r = 0 ∨ m = 0
+/workspace/scratch/2cb21e4e0864/quotient-two-bridge/CheckRank.lean:21:7: error(lean.unknownIdentifier): Unknown constant `Int.cast_zsmul`
+/workspace/scratch/2cb21e4e0864/quotient-two-bridge/CheckRank.lean:22:7: error(lean.unknownIdentifier): Unknown identifier `Basis.repr_self`
+Module.Basis.repr_self.{u_1, u_3, u_4} {ι : Type u_1} {R : Type u_3} {M : Type u_4} [Semiring R] [AddCommMonoid M]
+  [Module R M] (b : Module.Basis ι R M) (i : ι) : b.repr (b i) = Finsupp.single i 1
+Nat.not_succ_le_self (n : ℕ) : ¬n.succ ≤ n

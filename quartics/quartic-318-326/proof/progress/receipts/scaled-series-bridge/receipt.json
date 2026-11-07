@@ -1,0 +1,919 @@
+{
+  "date_utc": "2026-11-07T19:27:21.582757+00:00",
+  "result": "PASS",
+  "kernel_checking": "-Ddebug.skipKernelTC=false on all package modules and audit",
+  "modules": 15,
+  "public_theorems": 172,
+  "axiom_roots": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "scope": "Actual all-index scaled coefficients; generic closed-unit-disc evaluation/composition and geometric inverse; arbitrary integral D including literal inert 11\u22126\u221a2; exact formal-series binding/addition; quantitative near-one, actual-unit, nonzero and exact norm-one consequences. No assumed analytic log law. Exact arbitrary-input B square-root identity, quantitative positive-root choice, genuine unit and norm one.",
+  "remaining_scope": "Final two-variable pullback and source chart/root/group-law assembly belong to analytic worker.",
+  "files": {
+    "ScaledCoefficients318.lean": "b5cd1f61784f93c39909f39ffee3a4e64938f11e99a37f10d821c8a4fee06c91",
+    "ScaledFormalSeries318.lean": "7d463fc9c1d93640037823ad376614de283ac22e6798292e88343a5765d5b10b",
+    "ScaledDecay318.lean": "aede811ddd5d190e1b6f3f2c63cff4763fca902f766711c4a422a24aa2e40ae0",
+    "RestrictedEvaluation318.lean": "0754a48f1b5c12316b8b2e9453c3b641990584b9bae2aa16e765ca4917395cb2",
+    "ScaledClosedDisc318.lean": "8b5a8ebf70145df8f8c6f8c601e88cf5ff442696a9429962fe852d630d365f2e",
+    "GeometricInverse318.lean": "db0f02397a23ed629f4954d5d80fff8dfa2de3ccc42c7881b308eed63376b88b",
+    "IntegralRingEvaluation318.lean": "ecf5e6e06a4d49e56af3ce1668938f13d11cdc9bbabcafc95b81861cb295c0f0",
+    "InertClosedDisc318.lean": "0056962aaa9e81189094341220a3e052fc32bf1b9a0aedd8cdc777287978453c",
+    "IntegralGeometricInverse318.lean": "16a9a95285ed0c31e0131a944174ffbc9213a1cf2c225ce63d7a6fb35ee16d56",
+    "FormalSeriesNaturality318.lean": "a2274556b893c2f7513a6f267ec49c7121111eb4057e1cc8bc5060cc8e6c3a15",
+    "IntegralScaledSeries318.lean": "06124b1d0fafe44c3e8128c7ce4a3a24f6aa476f8359099225be59082197997d",
+    "ArbitraryInertSeries318.lean": "19100b4280de1f3f24b11ce4e40c68cda02fe3a133372ae94334ba6c6f47a87b",
+    "IntegralScaledBounds318.lean": "ac3a410a2b59416e4520b7272677f10aa01fa1e8f74cebfc48c6d0ccdcc7ec2c",
+    "IntegralScaledNorm318.lean": "d0f0d1af46edad6af1d5e65151924d8927ed0784fff73778c521131aa7cfb87e",
+    "AxiomAuditAll.lean": "c736b32db2684db4220c871f989df50223135fcf47572d9019840bcf8c970f1e",
+    "build.sh": "aee896a490629e1df5a41af9a6146f0b1709c8e19ba25e637febcc6562f3960f",
+    "build-restricted.sh": "fd54a00d2700a51cebbbfa314390baf4ab90473e0179136d0cdb8c8ed4d79f60",
+    "build-generic.sh": "6b2bdf2eaf5f983d26fd23279a6c6bcc6f03117f32e05f85758b82a061432e9b",
+    "build-all.sh": "f4ae4cf42d5144d262d6714a3cd2938aad03f61804fd7de95293ca527e838271",
+    "build.log": "7dd6ab7443902a830758daf777e20c9f2d2bd9648ff25591071f9d2b95fa9828",
+    "build-restricted.log": "aa8454b5dd02182fc527a7b97fe16b2c2056ef9d142f0177b3f635bf05d43a1f",
+    "build-generic.log": "a40acbf0121a9fd8824649124dcbd6c433e3d7d8ebce225e99e1927ce774c2a8",
+    "build-all.log": "f3eda0cc60914661ead572084758887eaac036785356b843533ec71392107836",
+    "bounds-build.log": "10b74f61d8cb3bc91a52ecf8b2782c9fbbf536253c11cc84f7c6a2890f335641",
+    "norm-build.log": "637b44926fde1bea2e34ad2e38183c60bb08c4768fa87c3609f1f2fd70f3de27",
+    "axiom-audit-all.log": "eec830ccc2304c13c93b3d619577c76f44e8c2a5e93e074dee5b8bc32e4f6fe1",
+    "README.md": "d1f55db60900d1e94bd4b5b14ffce94f3e4a3e8bfd6c1c16c61d80c7eb6ee366",
+    "module-list.txt": "a702e6676a369553a655d4174780f472fa366cb4762a971269dba1189d784514",
+    "IntegralSquareRoot318.lean": "d6f066a6ebb92a26143432c68fe63acc1c11cdaa48f8a05abd1a5a9f5bc0e512",
+    "square-root-build.log": "db8bfb2d5c77712e7bfabdf10eaa5bdffc549fd5bec5bfc98334d79ac9ffd639"
+  },
+  "upstream_sources": {
+    "padic-tail/HCoefficients318.lean": "d3f5fdc3269c0dec54a0028557ad6052b4c8dd7fcf1a0fbafcca6d963b62df4c",
+    "padic-tail/FormalDifferential318.lean": "20f750b8ebdded19c17c55b4907238a52c95ca86fe5d17800f6a2463fe39e8af",
+    "padic-tail/GenericFormalDifferential318.lean": "5de255883a7bae6c12b1aeed4962a957e585dc9f82baf3e40eb8d85a3a74bf4c",
+    "padic-tail/GenericFormalAddition318.lean": "ea441ef187908ef685ac3c928d36daad93d6b518b046e6f66370f73be0cf4d78",
+    "padic-tail/IntegralFormalAddition318.lean": "c0dae8b6127ac3417ddd84d41cb46e178519083f21a2515b207749ea1d467804",
+    "inert-completion/InertIntegers318.lean": "5c0ac13bb5c2e9993ac337408bd00d97ee9c0485bf63ef302f4f2c7d6872ebab",
+    "inert-completion/InertCompletion318.lean": "d1a53724ba6fea7a32704729018416a07e9578202ea1a755309c3a51c1e58e46",
+    "inert-completion/InertPadicEmbedding318.lean": "065cd46db6ab294f64501dba3b2486b74b7e8ce17aa0a34f28bdc6d0372a55f8",
+    "soundness-local/CompressedOrientation318.lean": "f845f03aa420bfa3a2f271de7528168fe7e2ddd4b15de0e5375d8bfc45010d16",
+    "soundness-local/RestrictedBranch318.lean": "49b746df43c31d096717e0820dfd25921066f3a7f3e84f32d67f9eb60959c67d"
+  },
+  "theorem_axioms": {
+    "ScaledCoefficients318.h_cleared_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.hCoefficient_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.b_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.bCoefficient_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.coe_hIntegralCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.coe_bIntegralCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.coeff_Hscaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.coeff_Bscaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.map_Hscaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledCoefficients318.map_Bscaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.map_subst_univariate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.rescale_subst_fourth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.coe_parameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.map_integralScaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.map_differentialScaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.map_branchScaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.powerSeries_map_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.integralScaled_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.branchScaled_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledFormalSeries318.formal_addition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.denominator_lt_power": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.h_coefficient_valuation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.h_cleared_one_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.hCoefficient_decay": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.bCoefficient_decay": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.ratio_lt_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.h_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.b_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.Hscaled_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledDecay318.Bscaled_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.coefficient_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.summable_of_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.monomial_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.double_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.composition_family_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.composition_column": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.subst_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.subst_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_subst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_C": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RestrictedEvaluation318.eval_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.X_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.Hscaled_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.Bscaled_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.differentialScaled_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.integralScaled_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.branchScaled_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.eval_integralScaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.eval_differentialScaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ScaledClosedDisc318.eval_branchScaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.geometric_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.qline_mul_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.inverse_eq_invOfUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.geometric_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.qline_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.inverse_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.invOfUnit_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.eval_qline": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.eval_inverse_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.eval_inverse_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GeometricInverse318.eval_invOfUnit_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.coefficient_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.summable_of_norm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.monomial_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.double_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.composition_family_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.composition_column": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.subst_summable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.subst_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_subst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_X": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_C": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.eval_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.restricted_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.X_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralRingEvaluation318.rescale_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "InertClosedDisc318.eval_subst": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "InertClosedDisc318.integral_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "InertClosedDisc318.branch_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "InertClosedDisc318.integral_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "InertClosedDisc318.branch_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.geometric_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.qline_mul_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.inverse_eq_invOfUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.geometric_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.qline_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.inverse_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.invOfUnit_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.eval_qline": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.eval_inverse_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.eval_inverse_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralGeometricInverse318.eval_invOfUnit_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "FormalSeriesNaturality318.map_H": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "FormalSeriesNaturality318.map_B": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "FormalSeriesNaturality318.map_argument": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "FormalSeriesNaturality318.map_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "FormalSeriesNaturality318.map_differential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "FormalSeriesNaturality318.map_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.H_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.B_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.integral_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.differential_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.branch_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.map_H": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.map_B": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.map_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.map_differential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.map_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledSeries318.formal_addition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.H_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.integral_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.branch_restricted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.map_H": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.map_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.map_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.formal_addition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.sourceD_embedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ArbitraryInertSeries318.source_integral_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.inclusion_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.prime_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_coefficient_decay": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_coefficient_decay": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.parameter_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.eval_branch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.branch_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.isUnit_of_near_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.branch_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_map_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_map_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.branch_map_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.norm_map_sub_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_map_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_map_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.branch_map_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.H_map_near_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.B_map_near_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledBounds318.branch_map_near_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.norm_of_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.H_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.B_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.branch_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.norm_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.H_map_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.B_map_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralScaledNorm318.branch_map_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralSquareRoot318.B_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralSquareRoot318.eval_B_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralSquareRoot318.root_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralSquareRoot318.root_error": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralSquareRoot318.root_isUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "IntegralSquareRoot318.root_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+AddValuation.comap.{u_3, u_4, u_6} {R : Type u_3} {Γ₀ : Type u_4} [Ring R] [LinearOrderedAddCommMonoidWithTop Γ₀]
+  {S : Type u_6} [Ring S] (f : S →+* R) (v : AddValuation R Γ₀) : AddValuation S Γ₀
+/workspace/scratch/2cb21e4e0864/alternate-source-log/Check.lean:5:7: error: Application type mismatch: The argument
+  AddValuation
+has type
+  (R : Type ?u.2) → [Ring R] → (Γ₀ : Type ?u.1) → [LinearOrderedAddCommMonoidWithTop Γ₀] → Type (max ?u.2 ?u.1)
+but is expected to have type
+  ?m.2 → ?m.3
+in the application
+  Function.comp AddValuation
+/workspace/scratch/2cb21e4e0864/alternate-source-log/Check.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Padic.norm_lt_one_iff`
+/workspace/scratch/2cb21e4e0864/alternate-source-log/Check.lean:7:7: error(lean.unknownIdentifier): Unknown constant `Padic.norm_lt_one_iff_val_pos`
+Padic.addValuation.apply {p : ℕ} [hp : Fact (Nat.Prime p)] {x : ℚ_[p]} (hx : x ≠ 0) :
+  Padic.addValuation x = ↑x.valuation
+AddValuation.map_pow
+  Padic.addValuation : ∀ (x : ℚ_[?m.1]) (n : ℕ), Padic.addValuation (x ^ n) = n • Padic.addValuation x
+SourceLogDomain318.affine_mem_of_valuation (p : ℕ) [Fact (Nat.Prime p)] (hp : 19 ≤ p) (D x y : ℚ_[p])
+  (hD : Padic.addValuation D = 0) (hy : y ≠ 0) (hc : y ^ 2 = x ^ 3 - D * x)
+  (h : (ReciprocalDouble318.E D).Nonsingular x y) (r : ℤ) (hr : 1 ≤ r) (hx : Padic.addValuation x = ↑(-2 * r))
+  (hz : 1 ≤ Padic.addValuation (-x / y)) :
+  ∃ (hDn : ‖D‖ ≤ 1), WeierstrassCurve.Affine.Point.some x y h ∈ ActualLogHom318.formalSubgroup p hp D hDn
+CompressedGlobal318.source_global_V (S : ℚ) (w : CircuitReplay.Assignment)
+  (source : CircuitReplay.Constraints (Raw318FinalReplay.stage0 S) w) (hs : CompressedOrientation318.shift w ≠ 0) :
+  CompressedGlobal318.yV w ≠ 0 ∧
+    CompressedPoint318.E.Nonsingular (CompressedGlobal318.xV w) (CompressedGlobal318.yV w) ∧
+      CompressedGlobal318.zV w = -CompressedGlobal318.xV w / CompressedGlobal318.yV w

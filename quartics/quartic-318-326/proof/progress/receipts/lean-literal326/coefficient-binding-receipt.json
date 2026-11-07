@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "completedUTC": "2026-11-07T17:48:08.180170+00:00",
+  "scope": "All 296 quadratic residual squares interpreted as 4128 sparse contributions, transparent sum-preserving normalization, exact kernel equality with the literal stored 3157-term coefficient data. Public wrapper and full-module audit are tracked separately by the 326 integration worker.",
+  "coordinateCount": 326,
+  "residualCount": 296,
+  "expandedContributionCount": 4128,
+  "storedTermCount": 3157,
+  "kernelCheckingEnabled": true,
+  "nativeDecideUsed": false,
+  "remainingGlobalSourceArithmeticProved": false,
+  "theorems": [
+    "Current326CoefficientBindingNormalize.evaluate_normalize",
+    "Current326CoefficientBindingData.sos_eq_expanded",
+    "Current326CoefficientBindingData.normalized_data",
+    "Current326CoefficientBindingData.table_eq_sos"
+  ],
+  "allowedAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "inputSHA256": {
+    "input326/polynomial.json": "d22173ff9a4cfd5b60318597a136036b4722893d7ca6e9a1e7694014061a9b73",
+    "input326/compiled-ir.json": "d0fbbb8a8f9128f9e5e9bdf5ca13c72177901123464a3bf611e578722ece947b"
+  },
+  "sha256": {
+    "Current326CoefficientBindingNormalize.lean": "c872b83c5c188e385f276b36dea74a1925479eff63038612a4dc5dfa46997724",
+    "Current326CoefficientBindingExpanded.lean": "f3f698243bde25b4087363a9913b97e2021e0d59cc727e11a312e06a42036646",
+    "Current326CoefficientBindingData.lean": "cb915d7c3fddc20d8cc144b45b78256fd842e0d909c781a6c2954bd2abc4a878",
+    "generate_coefficient_binding_data.py": "1e72ab28c3bfa23266c0d75c06ccc0c2dc2f839beb6a4c092b8e5383dfa2c244",
+    "coefficient-binding-normalize-exposed.log": "dd7ed8f7dbb9e6aa6aaf51bbaa34bc2261668046de3c15a645b3ff8d09af4815",
+    "coefficient-binding-expanded.log": "179a8e7991f29b22aaec832aa677efb67503fd7b67db5765f558ae8656dd4300",
+    "coefficient-binding-data.log": "b3b79d6099ba18227aab71e9a801670a4868c7de6050b52d711e4aee2e5cb7e0",
+    "exposed-sort-smoke.log": "ee8cc1a160e402cffe3f48dd3f3b86c10d518f5c2b9d9f0b29d76074d4161df8"
+  },
+  "commands": [
+    "lake env lean -Ddebug.skipKernelTC=false Current326CoefficientBindingNormalize.lean -o .lake/build/lib/lean/Current326CoefficientBindingNormalize.olean",
+    "lake env lean -Ddebug.skipKernelTC=false Current326CoefficientBindingExpanded.lean -o .lake/build/lib/lean/Current326CoefficientBindingExpanded.olean",
+    "lake env lean -Ddebug.skipKernelTC=false Current326CoefficientBindingData.lean -o .lake/build/lib/lean/Current326CoefficientBindingData.olean"
+  ]
+}

@@ -1,0 +1,7 @@
+# Independent canonical-height construction review
+
+PASS: the three exact canonical limit/quadratic/actual interface modules were independently rebuilt with kernel checking, then recursively audited over all originating declarations: 42 declarations, only propext, Classical.choice, Quot.sound. Sources match the producer byte-for-byte. Logs and hashes accompany this note.
+
+The actual height is half of the Tate limit of 4^(-n) times the absolute x-height of [2^n]P. The one-step bounds yield a summable geometric difference, Cauchy convergence, and the exact L/3 and U/3 comparison bounds with correct directions. Approximate parallelogram error vanishes after multiplying by4^(-n), proving a genuine quadratic form; negative and all integer multiples are covered. The O case and invariance under actual two-torsion are proved. The live x-height/relative-height normalization is explicitly bound by naiveHeight=2*xHeight, so the additional factor1/2 in canonicalHeight matches CanonicalData. The base-point height is imported from the checked exact certificate.
+
+The theorem canonical_data has no remaining canonical-height premise. This is a bounded review of the three construction/interface modules. It does not independently rederive the nine imported local/global duplication-height modules or the base-height certificate; the exact unconditional GlobalDuplicationHeight318.absolute_duplication_bounds theorem is the explicit imported input. The separate quotient/rank review uses this actual theorem and has also passed.
