@@ -141,5 +141,28 @@ class ProgressTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Corrupt cohort"):
                 ci.collect_bundles(bundles, plan, plan["cohorts"])
 
+    def test_complete_cache_survives_cohort_reassignment(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "project"; self.fixture(root)
+            old = ci.derive_plan(root, 1)
+            new = ci.derive_plan(root, 2)
+            whole = Path(temp) / "whole"
+            def fake_compile(project, env, label, source, target, logs, root=None):
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(source.read_bytes())
+                return {"module": label, "exit_code": 0, "seconds": 0}
+            with patch.object(ci, "PROJECT", root), \
+                 patch.object(ci, "environment", return_value=({}, "test")), \
+                 patch.object(ci, "ensure_official"), \
+                 patch.object(ci, "compile_one", side_effect=fake_compile) as compiler:
+                ci.build_cohort(argparse.Namespace(cohort=0, clean=False, cache=whole,
+                    output=Path(temp) / "old"), old)
+                compiler.reset_mock()
+                for cohort in new["cohorts"]:
+                    ci.build_cohort(argparse.Namespace(cohort=cohort["id"], clean=False,
+                        cache=Path(temp) / f"new-cache-{cohort['id']}", fallback_cache=whole,
+                        output=Path(temp) / f"new-{cohort['id']}"), new)
+                self.assertEqual(compiler.call_count, 0)
+
 
 if __name__ == "__main__": unittest.main()
