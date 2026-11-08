@@ -21,7 +21,7 @@ from check_lean import code_only
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "quartics/quartic-318-326/proof/progress"
-SCHEMA = 1
+SCHEMA = 2
 FLAGS = ["-j1", "-M", "6144", "-Ddebug.skipKernelTC=false"]
 SUFFIXES = (".olean", ".olean.private", ".olean.server", ".ir")
 OFFICIAL = [
@@ -53,7 +53,22 @@ def import_names(text):
         code_only(text), re.M) for name in line.split()}
 
 
-def derive_plan(project=PROJECT, count=4):
+def partition_stage(order, dependencies, count):
+    local = set(order)
+    closure = {}
+    for name in order:
+        closure[name] = {name}.union(*(closure[d] for d in dependencies[name] if d in local))
+    used = {d for n in order for d in dependencies[n] if d in local}
+    sinks = sorted(local - used, key=lambda n: (-len(closure[n]), n))
+    groups, roots = [set() for _ in range(count)], [[] for _ in range(count)]
+    for name in sinks:
+        i = min(range(count), key=lambda i: (
+            4 * len(closure[name] - groups[i]) + len(groups[i]), len(groups[i]), i))
+        groups[i].update(closure[name]); roots[i].append(name)
+    return [(group, root) for group, root in zip(groups, roots) if group]
+
+
+def derive_plan(project=PROJECT, count=16, split_depth=21):
     manifest = json.loads((project / "checkpoint-manifest.json").read_text())
     order = manifest["module_order"]
     if len(set(order)) != len(order) or set(order) != set(manifest["modules"]):
@@ -84,24 +99,23 @@ def derive_plan(project=PROJECT, count=4):
     audit_imports = import_names((project / "CheckpointAudit.lean").read_text())
     if audit_imports.intersection(order) != set(order):
         raise ValueError("Combined audit must import every snapshot module")
-    used = set().union(*dependencies.values())
-    sinks = sorted(set(order) - used, key=lambda n: (-len(closure[n]), n))
-    groups, roots = [set() for _ in range(count)], [[] for _ in range(count)]
-    for name in sinks:
-        # Reward shared dependencies, with a modest balance penalty.
-        i = min(range(count), key=lambda i: (
-            4 * len(closure[name] - groups[i]) + len(groups[i]), len(groups[i]), i))
-        groups[i].update(closure[name]); roots[i].append(name)
+    depth = {}
+    for name in order:
+        depth[name] = max((depth[d] + 1 for d in dependencies[name]), default=0)
     cohorts = []
-    for i, group in enumerate(groups):
-        if group:
+    for stage in range(2):
+        members = [n for n in order if int(depth[n] >= split_depth) == stage]
+        for slot, (group, roots) in enumerate(partition_stage(members, dependencies, count)):
             modules = [name for name in order if name in group]
-            cohorts.append({"id": i, "modules": modules, "roots": roots[i],
+            imports = set().union(*(closure[n] for n in modules)) - group
+            cohorts.append({"id": len(cohorts), "stage": stage, "slot": slot,
+                            "modules": modules, "imports": [n for n in order if n in imports], "roots": roots,
                             "key": digest([keys[n] for n in modules])})
     snapshot = digest({"base": base, "modules": keys, "audit": sha(project / "CheckpointAudit.lean")})
     return {"schema": SCHEMA, "base": base, "snapshot": snapshot, "module_order": order,
             "dependencies": dependencies, "module_keys": keys, "cohorts": cohorts,
-            "upstream": sorted(upstream), "audit_sha256": sha(project / "CheckpointAudit.lean")}
+            "upstream": sorted(upstream), "depth": depth, "cohort_count": count,
+            "split_depth": split_depth, "audit_sha256": sha(project / "CheckpointAudit.lean")}
 
 
 def check_sources(project):
@@ -223,6 +237,15 @@ def build_cohort(args, plan):
         except (ValueError, OSError):
             pass
     built, commands, hits = {}, [], []
+    if cohort["imports"]:
+        if args.bundles is None: raise ValueError("Dependent cohort requires earlier-stage bundles")
+        prerequisites = [c for c in plan["cohorts"] if c["stage"] < cohort["stage"]]
+        prior_entries, _, _, versions, origins = collect_bundles(
+            args.bundles, plan, prerequisites, args.clean)
+        if versions != {version}: raise ValueError("Earlier stage used a different compiler")
+        for name in cohort["imports"]:
+            built[name] = prior_entries[name]
+            copy_artifacts(origins[name], lib, name, built[name]["files"])
     for name in cohort["modules"]:
         entry = prior.get(name)
         if not args.clean and reusable(entry, name, plan, cache / "lib", built):
@@ -238,9 +261,14 @@ def build_cohort(args, plan):
         write_json(output / "commands.json", commands)
     receipt = {"schema": SCHEMA, "status": "PASS", "base": plan["base"],
                "snapshot": plan["snapshot"], "cohort": args.cohort, "cohort_key": cohort["key"],
+               "stage": cohort["stage"],
                "mode": "clean" if args.clean else "incremental", "toolchain": version,
-               "modules": built, "reused": hits, "compiled": [c["module"] for c in commands]}
+               "modules": {n: built[n] for n in cohort["modules"]}, "reused": hits, "compiled": [c["module"] for c in commands]}
     write_json(output / "receipt.json", receipt)
+    # Earlier-stage imports are verified inputs, not this cohort's output/cache.
+    for name in cohort["imports"]:
+        for path in artifact_paths(lib, name).values():
+            if path.exists(): path.unlink()
     # Only successfully validated/compiled files enter the next cache generation.
     cache.mkdir(parents=True, exist_ok=True)
     cached_lib = cache / "lib"
@@ -250,17 +278,14 @@ def build_cohort(args, plan):
     print(json.dumps({"cohort": args.cohort, "compiled": len(commands), "reused": len(hits)}), flush=True)
 
 
-def merge_and_audit(args, plan):
-    output = args.output.resolve()
-    output.mkdir(parents=True, exist_ok=False)
-    lib, logs = output / "lib", output / "logs"
-    lib.mkdir()
+def collect_bundles(bundles, plan, cohorts, clean=False, lib=None):
     entries, reports, freshly_compiled, versions = {}, [], set(), set()
-    for cohort in plan["cohorts"]:
-        bundle = args.bundles / f"progress-cohort-{cohort['id']}"
+    origins = {}
+    for cohort in cohorts:
+        bundle = bundles / f"progress-cohort-{cohort['id']}"
         receipt = json.loads((bundle / "receipt.json").read_text())
         if any(receipt.get(k) != v for k, v in {"status": "PASS", "base": plan["base"],
-               "snapshot": plan["snapshot"], "cohort_key": cohort["key"], "cohort": cohort["id"]}.items()):
+               "snapshot": plan["snapshot"], "cohort_key": cohort["key"], "cohort": cohort["id"], "stage": cohort["stage"]}.items()):
             raise ValueError(f"Wrong cohort receipt: {cohort['id']}")
         if set(receipt["modules"]) != set(cohort["modules"]): raise ValueError("Cohort coverage mismatch")
         compiled, reused = set(receipt["compiled"]), set(receipt["reused"])
@@ -268,19 +293,33 @@ def merge_and_audit(args, plan):
             raise ValueError("Incorrect compiled/reused partition")
         freshly_compiled.update(compiled)
         versions.add(receipt["toolchain"])
-        if args.clean and (receipt["mode"] != "clean" or receipt["reused"]):
+        if clean and (receipt["mode"] != "clean" or receipt["reused"]):
             raise ValueError("Clean audit cannot consume incremental cache reuse")
         for name in cohort["modules"]:
             item = receipt["modules"][name]
             if item["key"] != plan["module_keys"][name]: raise ValueError(f"Wrong source key: {name}")
-            dep_artifacts = {d: receipt["modules"][d]["files"] for d in plan["dependencies"][name]}
+            dep_artifacts = {d: (receipt["modules"].get(d) or entries[d])["files"]
+                             for d in plan["dependencies"][name]}
             if item["dependency_artifacts"] != dep_artifacts: raise ValueError(f"Wrong dependency artifacts: {name}")
             if name in entries and entries[name] != item:
                 raise ValueError(f"Cohorts produced different bytes for {name}; refusing mixed artifacts")
-            copy_artifacts(bundle / "lib", lib, name, item["files"])
+            if artifact_hashes(bundle / "lib", name) != item["files"]:
+                raise ValueError(f"Corrupt cohort artifacts: {name}")
+            if lib is not None: copy_artifacts(bundle / "lib", lib, name, item["files"])
+            origins[name] = bundle / "lib"
             entries[name] = item
         reports.append({"id": cohort["id"], "compiled": len(receipt["compiled"]),
                         "reused": len(receipt["reused"])})
+    return entries, reports, freshly_compiled, versions, origins
+
+
+def merge_and_audit(args, plan):
+    output = args.output.resolve()
+    output.mkdir(parents=True, exist_ok=False)
+    lib, logs = output / "lib", output / "logs"
+    lib.mkdir()
+    entries, reports, freshly_compiled, versions, _ = collect_bundles(
+        args.bundles, plan, plan["cohorts"], args.clean, lib)
     if set(entries) != set(plan["module_order"]): raise ValueError("Incomplete combined source coverage")
     env, version = environment(PROJECT, lib)
     if versions != {version}: raise ValueError("Cohorts used a different compiler")
@@ -306,7 +345,9 @@ def main():
     if not __debug__: raise RuntimeError("Run without Python -O")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["plan", "build", "audit", "cache-targets"])
-    parser.add_argument("--cohorts", type=int, default=4, choices=range(1, 9))
+    parser.add_argument("--cohorts", type=int, default=16, choices=range(1, 33))
+    parser.add_argument("--max-parallel", type=int, default=16, choices=range(1, 33))
+    parser.add_argument("--split-depth", type=int, default=21, choices=range(1, 1001))
     parser.add_argument("--cohort", type=int)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--cache", type=Path)
@@ -315,14 +356,21 @@ def main():
     parser.add_argument("--github-output", type=Path)
     args = parser.parse_args()
     if args.command != "cache-targets": check_sources(PROJECT)
-    plan = derive_plan(count=args.cohorts)
+    plan = derive_plan(count=args.cohorts, split_depth=args.split_depth)
     if args.command == "plan":
         if args.output: write_json(args.output, plan)
-        matrix = {"include": [{"id": c["id"], "key": c["key"], "modules": len(c["modules"])} for c in plan["cohorts"]]}
-        print(json.dumps({"modules": len(plan["module_order"]), "matrix": matrix, "base": plan["base"]}))
+        matrices = [{"include": [{"id": c["id"], "key": c["key"], "modules": len(c["modules"]),
+                                    "stage": c["stage"], "slot": c["slot"]}
+                                   for c in plan["cohorts"] if c["stage"] == stage]}
+                    for stage in range(2)]
+        print(json.dumps({"modules": len(plan["module_order"]), "matrices": matrices, "base": plan["base"]}))
         if args.github_output:
             with args.github_output.open("a") as out:
-                out.write("matrix=" + json.dumps(matrix, separators=(",", ":")) + "\nbase=" + plan["base"] + "\n")
+                for stage, matrix in enumerate(matrices):
+                    out.write(f"matrix{stage}=" + json.dumps(matrix, separators=(",", ":")) + "\n")
+                out.write("base=" + plan["base"] + "\nhas_stage1=" +
+                          str(bool(matrices[1]["include"])).lower() + "\n")
+                out.write(f"parallel={args.max_parallel}\n")
     elif args.command == "cache-targets":
         print("\n".join(x for x in plan["upstream"] if x.split(".")[0] not in {"Lean", "Std", "Init"}))
     elif args.command == "build":

@@ -57,7 +57,8 @@ class ProgressTests(unittest.TestCase):
         plan = ci.derive_plan()
         all_modules = set()
         for group in plan["cohorts"]:
-            seen = set()
+            seen = set(group["imports"])
+            self.assertTrue(all(plan["depth"][n] < plan["split_depth"] for n in seen))
             for name in group["modules"]:
                 self.assertTrue(set(plan["dependencies"][name]).issubset(seen))
                 seen.add(name)
@@ -111,6 +112,34 @@ class ProgressTests(unittest.TestCase):
                 ci.build_cohort(args, plan)
                 self.assertEqual(compiler.call_count, 3)
                 self.assertEqual(json.loads((args.output / "receipt.json").read_text())["reused"], [])
+
+    def test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "project"; self.fixture(root)
+            plan = ci.derive_plan(root, 2, split_depth=1)
+            bundles = Path(temp) / "bundles"; bundles.mkdir()
+            def fake_compile(project, env, label, source, target, logs, root=None):
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(source.read_bytes())
+                return {"module": label, "exit_code": 0, "seconds": 0}
+            with patch.object(ci, "PROJECT", root), \
+                 patch.object(ci, "environment", return_value=({}, "test")), \
+                 patch.object(ci, "ensure_official"), \
+                 patch.object(ci, "compile_one", side_effect=fake_compile) as compiler:
+                for cohort in plan["cohorts"]:
+                    args = argparse.Namespace(cohort=cohort["id"], clean=False, bundles=bundles,
+                        cache=Path(temp) / f"cache-{cohort['id']}",
+                        output=bundles / f"progress-cohort-{cohort['id']}")
+                    ci.build_cohort(args, plan)
+                    for name in cohort["imports"]:
+                        self.assertFalse((args.output / "lib" / (name + ".olean")).exists())
+                self.assertEqual(compiler.call_count, 3)
+            entries, _, _, _, _ = ci.collect_bundles(bundles, plan, plan["cohorts"])
+            self.assertEqual(set(entries), {"A", "B", "C"})
+            foundation = next(c for c in plan["cohorts"] if "A" in c["modules"])
+            (bundles / f"progress-cohort-{foundation['id']}" / "lib/A.olean").write_bytes(b"corrupt")
+            with self.assertRaisesRegex(ValueError, "Corrupt cohort"):
+                ci.collect_bundles(bundles, plan, plan["cohorts"])
 
 
 if __name__ == "__main__": unittest.main()
