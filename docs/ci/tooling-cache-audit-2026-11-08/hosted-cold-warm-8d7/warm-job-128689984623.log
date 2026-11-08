@@ -1,0 +1,706 @@
+﻿2026-11-08T09:29:34.8876681Z Current runner version: '2.338.2'
+2026-11-08T09:29:34.8901948Z ##[group]Runner Image Provisioner
+2026-11-08T09:29:34.8902927Z Hosted Compute Agent
+2026-11-08T09:29:34.8903517Z Version: 20261028.624
+2026-11-08T09:29:34.8904202Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T09:29:34.8904978Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T09:29:34.8905723Z Worker ID: {dfad75af-8829-414b-8cc0-034df78ff24d}
+2026-11-08T09:29:34.8906456Z Region: eastus
+2026-11-08T09:29:34.8907006Z Cloud: Azure
+2026-11-08T09:29:34.8907597Z ##[endgroup]
+2026-11-08T09:29:34.8909139Z ##[group]Operating System
+2026-11-08T09:29:34.8909912Z Ubuntu
+2026-11-08T09:29:34.8910463Z 24.04.5
+2026-11-08T09:29:34.8910973Z LTS
+2026-11-08T09:29:34.8911719Z ##[endgroup]
+2026-11-08T09:29:34.8912334Z ##[group]Runner Image
+2026-11-08T09:29:34.8912989Z Image: ubuntu-24.04
+2026-11-08T09:29:34.8913581Z Version: 20261101.360.1
+2026-11-08T09:29:34.8914897Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T09:29:34.8916490Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T09:29:34.8917499Z ##[endgroup]
+2026-11-08T09:29:34.8918620Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T09:29:34.8920809Z Contents: read
+2026-11-08T09:29:34.8921709Z Metadata: read
+2026-11-08T09:29:34.8922370Z ##[endgroup]
+2026-11-08T09:29:34.8924478Z Secret source: Actions
+2026-11-08T09:29:34.8925514Z Cache mode: write
+2026-11-08T09:29:34.8926616Z Prepare workflow directory
+2026-11-08T09:29:34.9500999Z Prepare all required actions
+2026-11-08T09:29:34.9548911Z Getting action download info
+2026-11-08T09:29:35.1172225Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-08T09:29:35.3200295Z Download action repository 'actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-11-08T09:29:35.4592060Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-08T09:29:35.7041851Z Complete job name: Foundation cohort 3 (10 modules)
+2026-11-08T09:29:35.7874788Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-08T09:29:35.7876187Z with:
+2026-11-08T09:29:35.7876675Z   repository: doublemover/diophantine-z-q
+2026-11-08T09:29:35.7880770Z   token: ***
+2026-11-08T09:29:35.7881204Z   ssh-strict: true
+2026-11-08T09:29:35.7881848Z   ssh-user: git
+2026-11-08T09:29:35.7882295Z   persist-credentials: true
+2026-11-08T09:29:35.7882787Z   clean: true
+2026-11-08T09:29:35.7883233Z   sparse-checkout-cone-mode: true
+2026-11-08T09:29:35.7883751Z   fetch-depth: 1
+2026-11-08T09:29:35.7884176Z   fetch-tags: false
+2026-11-08T09:29:35.7884614Z   show-progress: true
+2026-11-08T09:29:35.7885057Z   lfs: false
+2026-11-08T09:29:35.7885464Z   submodules: false
+2026-11-08T09:29:35.7885910Z   set-safe-directory: true
+2026-11-08T09:29:35.7886440Z   allow-unsafe-pr-checkout: false
+2026-11-08T09:29:35.7887254Z env:
+2026-11-08T09:29:35.7887750Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:35.7888348Z   COHORTS: 16
+2026-11-08T09:29:35.7888797Z   MAX_PARALLEL: 16
+2026-11-08T09:29:35.7889239Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:35.7889667Z   EARLY_DEPTH: 7
+2026-11-08T09:29:35.7890085Z   CLEAN: false
+2026-11-08T09:29:35.7890497Z ##[endgroup]
+2026-11-08T09:29:36.4078494Z Syncing repository: doublemover/diophantine-z-q
+2026-11-08T09:29:36.4080609Z ##[group]Getting Git version info
+2026-11-08T09:29:36.4081860Z Working directory is '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T09:29:36.4083122Z [command]/usr/bin/git version
+2026-11-08T09:29:36.4624097Z git version 2.56.0
+2026-11-08T09:29:36.4643402Z ##[endgroup]
+2026-11-08T09:29:36.4653486Z Temporarily overriding HOME='/home/runner/work/_temp/2a3cbead-91bf-434d-8f54-bd53035f9329' before making global git config changes
+2026-11-08T09:29:36.4656246Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T09:29:36.4661999Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:29:36.4722642Z Deleting the contents of '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T09:29:36.4727670Z ##[group]Determining repository object format
+2026-11-08T09:29:36.4729489Z ##[endgroup]
+2026-11-08T09:29:36.4730747Z ##[group]Initializing the repository
+2026-11-08T09:29:36.4735512Z [command]/usr/bin/git init /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:29:36.4859102Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T09:29:36.4860649Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T09:29:36.4862088Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T09:29:36.4862978Z hint: call:
+2026-11-08T09:29:36.4863422Z hint:
+2026-11-08T09:29:36.4864068Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T09:29:36.4864757Z hint:
+2026-11-08T09:29:36.4865689Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T09:29:36.4866820Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T09:29:36.4867651Z hint:
+2026-11-08T09:29:36.4868115Z hint: 	git branch -m <name>
+2026-11-08T09:29:36.4868644Z hint:
+2026-11-08T09:29:36.4869350Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T09:29:36.5075687Z Initialized empty Git repository in /home/runner/work/diophantine-z-q/diophantine-z-q/.git/
+2026-11-08T09:29:36.5089152Z [command]/usr/bin/git remote add origin https://github.com/doublemover/diophantine-z-q
+2026-11-08T09:29:36.5152176Z ##[endgroup]
+2026-11-08T09:29:36.5153123Z ##[group]Disabling automatic garbage collection
+2026-11-08T09:29:36.5156080Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T09:29:36.5201961Z ##[endgroup]
+2026-11-08T09:29:36.5282749Z ##[group]Setting up auth
+2026-11-08T09:29:36.5283702Z Removing SSH command configuration
+2026-11-08T09:29:36.5284887Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T09:29:36.5303185Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T09:29:36.5841207Z Removing HTTP extra header
+2026-11-08T09:29:36.5847652Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T09:29:36.5893238Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T09:29:36.6137061Z Removing includeIf entries pointing to credentials config files
+2026-11-08T09:29:36.6140466Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T09:29:36.6195841Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T09:29:36.6446015Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T09:29:36.6496863Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path /home/runner/work/_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:29:36.6542402Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:29:36.6588033Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:29:36.6633704Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:29:36.6677357Z ##[endgroup]
+2026-11-08T09:29:36.6679003Z ##[group]Fetching the repository
+2026-11-08T09:29:36.6686523Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8d7ca58063f1825f99bf350f4115f22b1245a7bd:refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:29:39.3429174Z From https://github.com/doublemover/diophantine-z-q
+2026-11-08T09:29:39.3431223Z  * [new ref]         8d7ca58063f1825f99bf350f4115f22b1245a7bd -> origin/add-quartic-318-326
+2026-11-08T09:29:39.3438337Z [command]/usr/bin/git branch --list --remote origin/add-quartic-318-326
+2026-11-08T09:29:39.3483584Z   origin/add-quartic-318-326
+2026-11-08T09:29:39.3493270Z [command]/usr/bin/git rev-parse refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:29:39.3532719Z 8d7ca58063f1825f99bf350f4115f22b1245a7bd
+2026-11-08T09:29:39.3537669Z ##[endgroup]
+2026-11-08T09:29:39.3538571Z ##[group]Determining the checkout info
+2026-11-08T09:29:39.3539431Z ##[endgroup]
+2026-11-08T09:29:39.3544345Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T09:29:39.3616195Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T09:29:39.3667355Z ##[group]Checking out the ref
+2026-11-08T09:29:39.3668504Z [command]/usr/bin/git checkout --progress --force -B add-quartic-318-326 refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:29:40.3901969Z Updating files:  88% (7622/8605)
+2026-11-08T09:29:40.3958518Z Updating files:  89% (7659/8605)
+2026-11-08T09:29:40.4026601Z Updating files:  90% (7745/8605)
+2026-11-08T09:29:40.4087486Z Updating files:  91% (7831/8605)
+2026-11-08T09:29:40.4626687Z Updating files:  92% (7917/8605)
+2026-11-08T09:29:40.5145925Z Updating files:  93% (8003/8605)
+2026-11-08T09:29:40.6083867Z Updating files:  94% (8089/8605)
+2026-11-08T09:29:40.6217148Z Updating files:  95% (8175/8605)
+2026-11-08T09:29:40.8482877Z Updating files:  96% (8261/8605)
+2026-11-08T09:29:40.8752414Z Updating files:  97% (8347/8605)
+2026-11-08T09:29:40.9813742Z Updating files:  98% (8433/8605)
+2026-11-08T09:29:41.0423362Z Updating files:  99% (8519/8605)
+2026-11-08T09:29:41.0424074Z Updating files: 100% (8605/8605)
+2026-11-08T09:29:41.0424696Z Updating files: 100% (8605/8605), done.
+2026-11-08T09:29:41.0530205Z Switched to a new branch 'add-quartic-318-326'
+2026-11-08T09:29:41.0536655Z branch 'add-quartic-318-326' set up to track 'origin/add-quartic-318-326'.
+2026-11-08T09:29:41.0684488Z ##[endgroup]
+2026-11-08T09:29:41.0755247Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T09:29:41.0798460Z 8d7ca58063f1825f99bf350f4115f22b1245a7bd
+2026-11-08T09:29:41.1185664Z Prepare all required actions
+2026-11-08T09:29:41.1186254Z Getting action download info
+2026-11-08T09:29:41.1811125Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-08T09:29:41.3737451Z ##[group]Run ./.github/actions/setup-pinned-python
+2026-11-08T09:29:41.3737777Z with:
+2026-11-08T09:29:41.3737980Z   python-version: 3.12.14
+2026-11-08T09:29:41.3738199Z env:
+2026-11-08T09:29:41.3738424Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:41.3738722Z   COHORTS: 16
+2026-11-08T09:29:41.3738908Z   MAX_PARALLEL: 16
+2026-11-08T09:29:41.3739105Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:41.3739301Z   EARLY_DEPTH: 7
+2026-11-08T09:29:41.3739490Z   CLEAN: false
+2026-11-08T09:29:41.3739677Z ##[endgroup]
+2026-11-08T09:29:41.3797505Z ##[start-action display=Run set -euo pipefail;id=__self.platform]
+2026-11-08T09:29:41.3835960Z ##[group]Run set -euo pipefail
+2026-11-08T09:29:41.3836357Z [36;1mset -euo pipefail[0m
+2026-11-08T09:29:41.3836620Z [36;1mtest -n "${ImageOS:-}"[0m
+2026-11-08T09:29:41.3836909Z [36;1mecho "image=$ImageOS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T09:29:41.3861988Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:29:41.3862331Z env:
+2026-11-08T09:29:41.3862575Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:41.3862868Z   COHORTS: 16
+2026-11-08T09:29:41.3863058Z   MAX_PARALLEL: 16
+2026-11-08T09:29:41.3863260Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:41.3863458Z   EARLY_DEPTH: 7
+2026-11-08T09:29:41.3863642Z   CLEAN: false
+2026-11-08T09:29:41.3863824Z ##[endgroup]
+2026-11-08T09:29:41.3960387Z ##[end-action id=__self.platform;outcome=success;conclusion=success;duration_ms=16]
+2026-11-08T09:29:41.3965869Z ##[start-action display=Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9;id=__self.runtime]
+2026-11-08T09:29:41.4660806Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:29:41.4661260Z with:
+2026-11-08T09:29:41.4661778Z   path: /opt/hostedtoolcache/Python/3.12.14
+2026-11-08T09:29:41.4662475Z   key: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:29:41.4663191Z   enableCrossOsArchive: false
+2026-11-08T09:29:41.4663475Z   fail-on-cache-miss: false
+2026-11-08T09:29:41.4663731Z   lookup-only: false
+2026-11-08T09:29:41.4663952Z env:
+2026-11-08T09:29:41.4664210Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:41.4664557Z   COHORTS: 16
+2026-11-08T09:29:41.4664772Z   MAX_PARALLEL: 16
+2026-11-08T09:29:41.4664997Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:41.4665215Z   EARLY_DEPTH: 7
+2026-11-08T09:29:41.4665425Z   CLEAN: false
+2026-11-08T09:29:41.4665608Z ##[endgroup]
+2026-11-08T09:29:41.6590845Z Cache hit for: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:29:42.1632888Z Received 79345965 of 79345965 (100.0%), 176.8 MBs/sec
+2026-11-08T09:29:42.1636451Z Cache Size: ~76 MB (79345965 B)
+2026-11-08T09:29:42.1679734Z [command]/usr/bin/tar -xf /home/runner/work/_temp/954e5737-49ed-4ddf-8350-d0e9b24918d9/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:29:43.0461125Z Cache restored successfully
+2026-11-08T09:29:43.0676278Z Cache restored from key: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:29:43.0852823Z ##[end-action id=__self.runtime;outcome=success;conclusion=success;duration_ms=1688]
+2026-11-08T09:29:43.0856769Z ##[start-action display=Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0;id=__self.__actions_setup-python]
+2026-11-08T09:29:43.0937669Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-11-08T09:29:43.0938054Z with:
+2026-11-08T09:29:43.0938254Z   python-version: 3.12.14
+2026-11-08T09:29:43.0938487Z   architecture: x64
+2026-11-08T09:29:43.0938912Z   check-latest: false
+2026-11-08T09:29:43.0941845Z   token: ***
+2026-11-08T09:29:43.0967353Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-08T09:29:43.0968098Z   update-environment: true
+2026-11-08T09:29:43.0968501Z   allow-prereleases: false
+2026-11-08T09:29:43.0968879Z   freethreaded: false
+2026-11-08T09:29:43.0969102Z env:
+2026-11-08T09:29:43.0969346Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:43.0969655Z   COHORTS: 16
+2026-11-08T09:29:43.0969872Z   MAX_PARALLEL: 16
+2026-11-08T09:29:43.0970074Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:43.0970274Z   EARLY_DEPTH: 7
+2026-11-08T09:29:43.0970472Z   CLEAN: false
+2026-11-08T09:29:43.0970662Z ##[endgroup]
+2026-11-08T09:29:43.2143863Z ##[group]Installed versions
+2026-11-08T09:29:43.2166022Z Successfully set up CPython (3.12.14)
+2026-11-08T09:29:43.2166807Z ##[endgroup]
+2026-11-08T09:29:43.2286379Z ##[end-action id=__self.__actions_setup-python;outcome=success;conclusion=success;duration_ms=142]
+2026-11-08T09:29:43.2293554Z ##[start-action display=Verify exact restored or installed Python;id=__self.__run]
+2026-11-08T09:29:43.2322916Z ##[group]Run set -euo pipefail
+2026-11-08T09:29:43.2323499Z [36;1mset -euo pipefail[0m
+2026-11-08T09:29:43.2325315Z [36;1mpython -c 'import os,sys; actual=".".join(map(str,sys.version_info[:3])); assert actual == os.environ["EXPECTED_PYTHON"], (actual,os.environ["EXPECTED_PYTHON"]); print("Verified Python", actual, "at", sys.executable)'[0m
+2026-11-08T09:29:43.2358893Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:29:43.2359278Z env:
+2026-11-08T09:29:43.2359584Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:43.2359981Z   COHORTS: 16
+2026-11-08T09:29:43.2360205Z   MAX_PARALLEL: 16
+2026-11-08T09:29:43.2360410Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:43.2360611Z   EARLY_DEPTH: 7
+2026-11-08T09:29:43.2360858Z   CLEAN: false
+2026-11-08T09:29:43.2361189Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2362030Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:43.2362602Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2363130Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2363614Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2364135Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:43.2364557Z   EXPECTED_PYTHON: 3.12.14
+2026-11-08T09:29:43.2364793Z ##[endgroup]
+2026-11-08T09:29:43.2526024Z Verified Python 3.12.14 at /opt/hostedtoolcache/Python/3.12.14/x64/bin/python
+2026-11-08T09:29:43.2558055Z ##[end-action id=__self.__run;outcome=success;conclusion=success;duration_ms=26]
+2026-11-08T09:29:43.2560975Z ##[start-action display=Save verified runtime before any project checks;id=__self.__actions_cache]
+2026-11-08T09:29:43.2573554Z ##[end-action id=__self.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:29:43.2645317Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:29:43.2645732Z with:
+2026-11-08T09:29:43.2645955Z   path: .cache/progress-ci
+2026-11-08T09:29:43.2646706Z   key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-6c2e696a14020c40b912e3e572ce1d0cb056695a7e2928bc6029f1906c10f96b
+2026-11-08T09:29:43.2647704Z   restore-keys: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-
+
+2026-11-08T09:29:43.2648238Z   enableCrossOsArchive: false
+2026-11-08T09:29:43.2648501Z   fail-on-cache-miss: false
+2026-11-08T09:29:43.2648736Z   lookup-only: false
+2026-11-08T09:29:43.2648939Z env:
+2026-11-08T09:29:43.2649168Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:43.2649481Z   COHORTS: 16
+2026-11-08T09:29:43.2649674Z   MAX_PARALLEL: 16
+2026-11-08T09:29:43.2649872Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:43.2650069Z   EARLY_DEPTH: 7
+2026-11-08T09:29:43.2650263Z   CLEAN: false
+2026-11-08T09:29:43.2650557Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2651013Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:43.2651764Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2652181Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2652580Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:43.2652975Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:43.2653304Z ##[endgroup]
+2026-11-08T09:29:43.4605621Z Cache hit for restore-key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-7f3c14d58580f1d8babf515a74716ee53d5d4b1ae3b0633e0e749c6276fb4aaf
+2026-11-08T09:29:44.3186425Z Received 155445411 of 155445411 (100.0%), 184.6 MBs/sec
+2026-11-08T09:29:44.3188513Z Cache Size: ~148 MB (155445411 B)
+2026-11-08T09:29:44.3252063Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a5f8224b-5174-4c36-8a66-dd39508cd59b/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:29:45.3270277Z Cache restored successfully
+2026-11-08T09:29:45.3417072Z Cache restored from key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-7f3c14d58580f1d8babf515a74716ee53d5d4b1ae3b0633e0e749c6276fb4aaf
+2026-11-08T09:29:45.5019926Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:29:45.5020374Z with:
+2026-11-08T09:29:45.5020598Z   path: .cache/progress-cohort
+2026-11-08T09:29:45.5021608Z   key: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-0-3-44ea96fbe3be117a3a8a4354d440f1d0b7cd3c70f96938ba923c20ca187eed49
+2026-11-08T09:29:45.5022643Z   restore-keys: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-0-3-
+
+2026-11-08T09:29:45.5023187Z   enableCrossOsArchive: false
+2026-11-08T09:29:45.5023461Z   fail-on-cache-miss: false
+2026-11-08T09:29:45.5023704Z   lookup-only: false
+2026-11-08T09:29:45.5023913Z env:
+2026-11-08T09:29:45.5024156Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:45.5024465Z   COHORTS: 16
+2026-11-08T09:29:45.5024674Z   MAX_PARALLEL: 16
+2026-11-08T09:29:45.5024893Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:45.5025099Z   EARLY_DEPTH: 7
+2026-11-08T09:29:45.5025313Z   CLEAN: false
+2026-11-08T09:29:45.5025620Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.5026061Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:45.5026498Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.5026886Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.5027283Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.5027683Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:45.5028017Z ##[endgroup]
+2026-11-08T09:29:45.6904805Z Cache hit for: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-0-3-44ea96fbe3be117a3a8a4354d440f1d0b7cd3c70f96938ba923c20ca187eed49
+2026-11-08T09:29:45.8641691Z Received 3097122 of 3097122 (100.0%), 25.5 MBs/sec
+2026-11-08T09:29:45.8642419Z Cache Size: ~3 MB (3097122 B)
+2026-11-08T09:29:45.8670005Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a843adcc-f44a-4073-8b0a-007f48401cdd/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:29:45.8933556Z Cache restored successfully
+2026-11-08T09:29:45.9012255Z Cache restored from key: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-0-3-44ea96fbe3be117a3a8a4354d440f1d0b7cd3c70f96938ba923c20ca187eed49
+2026-11-08T09:29:45.9153019Z Prepare all required actions
+2026-11-08T09:29:45.9153530Z Getting action download info
+2026-11-08T09:29:45.9857378Z ##[group]Run ./.github/actions/setup-pinned-lean
+2026-11-08T09:29:45.9857707Z env:
+2026-11-08T09:29:45.9857959Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:45.9858277Z   COHORTS: 16
+2026-11-08T09:29:45.9858483Z   MAX_PARALLEL: 16
+2026-11-08T09:29:45.9858700Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:45.9858906Z   EARLY_DEPTH: 7
+2026-11-08T09:29:45.9859134Z   CLEAN: false
+2026-11-08T09:29:45.9859411Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9859868Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:45.9860315Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9860718Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9861128Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9861781Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:45.9862127Z ##[endgroup]
+2026-11-08T09:29:45.9868740Z ##[start-action display=Require the supported runner and unchanged compiler pins;id=__self_2.__run]
+2026-11-08T09:29:45.9884891Z ##[group]Run set -euo pipefail
+2026-11-08T09:29:45.9885192Z [36;1mset -euo pipefail[0m
+2026-11-08T09:29:45.9885449Z [36;1mtest "$RUNNER_OS" = Linux[0m
+2026-11-08T09:29:45.9885723Z [36;1mtest "$RUNNER_ARCH" = X64[0m
+2026-11-08T09:29:45.9886142Z [36;1mtest "${ImageOS:-}" = ubuntu24[0m
+2026-11-08T09:29:45.9886523Z [36;1mtest "$(cat lean/lean-toolchain)" = leanprover/lean4:v4.35.0[0m
+2026-11-08T09:29:45.9887118Z [36;1mtest "$(cat quartics/quartic-318-326/proof/progress/lean-toolchain)" = leanprover/lean4:v4.35.0[0m
+2026-11-08T09:29:45.9907832Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:29:45.9908185Z env:
+2026-11-08T09:29:45.9908437Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:45.9908773Z   COHORTS: 16
+2026-11-08T09:29:45.9908987Z   MAX_PARALLEL: 16
+2026-11-08T09:29:45.9909200Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:45.9909413Z   EARLY_DEPTH: 7
+2026-11-08T09:29:45.9909618Z   CLEAN: false
+2026-11-08T09:29:45.9909916Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9910364Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:45.9910815Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9911221Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9911812Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:45.9912212Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:45.9912551Z ##[endgroup]
+2026-11-08T09:29:45.9987032Z ##[end-action id=__self_2.__run;outcome=success;conclusion=success;duration_ms=11]
+2026-11-08T09:29:45.9989370Z ##[start-action display=Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9;id=__self_2.installer]
+2026-11-08T09:29:46.0021191Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:29:46.0021918Z with:
+2026-11-08T09:29:46.0022246Z   path: ~/.cache/pinned-elan/4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+2026-11-08T09:29:46.0022889Z   key: elan-installer-v1-Linux-X64-4.2.4-42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+2026-11-08T09:29:46.0023432Z   enableCrossOsArchive: false
+2026-11-08T09:29:46.0023706Z   fail-on-cache-miss: false
+2026-11-08T09:29:46.0023962Z   lookup-only: false
+2026-11-08T09:29:46.0024183Z env:
+2026-11-08T09:29:46.0024420Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:46.0024736Z   COHORTS: 16
+2026-11-08T09:29:46.0024942Z   MAX_PARALLEL: 16
+2026-11-08T09:29:46.0025150Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:46.0025358Z   EARLY_DEPTH: 7
+2026-11-08T09:29:46.0025559Z   CLEAN: false
+2026-11-08T09:29:46.0025839Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.0026495Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:46.0026949Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.0027344Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.0027738Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.0028128Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:46.0028464Z ##[endgroup]
+2026-11-08T09:29:46.2002709Z Cache hit for: elan-installer-v1-Linux-X64-4.2.4-42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+2026-11-08T09:29:46.4211761Z Received 4978421 of 4978421 (100.0%), 32.3 MBs/sec
+2026-11-08T09:29:46.4212643Z Cache Size: ~5 MB (4978421 B)
+2026-11-08T09:29:46.4240247Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b9e82d71-a32d-4248-9ad5-531f7adc936f/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:29:46.4388039Z Cache restored successfully
+2026-11-08T09:29:46.4466502Z Cache restored from key: elan-installer-v1-Linux-X64-4.2.4-42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+2026-11-08T09:29:46.4546402Z ##[end-action id=__self_2.installer;outcome=success;conclusion=success;duration_ms=455]
+2026-11-08T09:29:46.4549330Z ##[start-action display=Verify cached installer checksum and install pinned elan;id=__self_2.__run_2]
+2026-11-08T09:29:46.4567736Z ##[group]Run bash scripts/setup_pinned_lean.sh installer
+2026-11-08T09:29:46.4568343Z [36;1mbash scripts/setup_pinned_lean.sh installer[0m
+2026-11-08T09:29:46.4589203Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:29:46.4589562Z env:
+2026-11-08T09:29:46.4589829Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:46.4590164Z   COHORTS: 16
+2026-11-08T09:29:46.4590378Z   MAX_PARALLEL: 16
+2026-11-08T09:29:46.4590605Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:46.4590818Z   EARLY_DEPTH: 7
+2026-11-08T09:29:46.4592257Z   CLEAN: false
+2026-11-08T09:29:46.4592776Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.4593588Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:46.4594048Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.4594457Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.4594857Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.4595260Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:46.4595621Z ##[endgroup]
+2026-11-08T09:29:46.4737993Z /home/runner/.cache/pinned-elan/4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz: OK
+2026-11-08T09:29:46.5778319Z elan 4.2.4 (227caca13 2026-08-25)
+2026-11-08T09:29:46.5790430Z ##[end-action id=__self_2.__run_2;outcome=success;conclusion=success;duration_ms=124]
+2026-11-08T09:29:46.5793425Z ##[start-action display=Save checked installer even if a later toolchain fetch fails;id=__self_2.__actions_cache]
+2026-11-08T09:29:46.5799114Z ##[end-action id=__self_2.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:29:46.5801671Z ##[start-action display=Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9;id=__self_2.toolchain]
+2026-11-08T09:29:46.6457087Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:29:46.6457838Z with:
+2026-11-08T09:29:46.6458303Z   path: ~/.elan/toolchains/leanprover--lean4---v4.35.0
+2026-11-08T09:29:46.6459881Z   key: lean-runtime-v1-Linux-X64-ubuntu24-4.35.0-eb6cafb7290e8bd5f2937522d8d804f58f02bafc-d0fc00ee27b0b598736ace5f4bcd19a50eabfcd324eedd47c92649a7eec995d7
+2026-11-08T09:29:46.6461785Z   enableCrossOsArchive: false
+2026-11-08T09:29:46.6462314Z   fail-on-cache-miss: false
+2026-11-08T09:29:46.6462783Z   lookup-only: false
+2026-11-08T09:29:46.6463185Z env:
+2026-11-08T09:29:46.6463644Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:46.6464252Z   COHORTS: 16
+2026-11-08T09:29:46.6464626Z   MAX_PARALLEL: 16
+2026-11-08T09:29:46.6465376Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:46.6465806Z   EARLY_DEPTH: 7
+2026-11-08T09:29:46.6466192Z   CLEAN: false
+2026-11-08T09:29:46.6466706Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.6467537Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:46.6468350Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.6469106Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.6469877Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:46.6470638Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:46.6471800Z ##[endgroup]
+2026-11-08T09:29:46.8405294Z Cache hit for: lean-runtime-v1-Linux-X64-ubuntu24-4.35.0-eb6cafb7290e8bd5f2937522d8d804f58f02bafc-d0fc00ee27b0b598736ace5f4bcd19a50eabfcd324eedd47c92649a7eec995d7
+2026-11-08T09:29:47.9152707Z Received 230686720 of 772606652 (29.9%), 218.7 MBs/sec
+2026-11-08T09:29:48.9276630Z Received 515899392 of 772606652 (66.8%), 244.2 MBs/sec
+2026-11-08T09:29:49.9296470Z Received 772606652 of 772606652 (100.0%), 243.7 MBs/sec
+2026-11-08T09:29:49.9299000Z Cache Size: ~737 MB (772606652 B)
+2026-11-08T09:29:49.9365931Z [command]/usr/bin/tar -xf /home/runner/work/_temp/201d703a-8a55-45b2-83c1-2f1f3ca26b35/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:29:55.8840983Z Cache restored successfully
+2026-11-08T09:29:55.9631053Z Cache restored from key: lean-runtime-v1-Linux-X64-ubuntu24-4.35.0-eb6cafb7290e8bd5f2937522d8d804f58f02bafc-d0fc00ee27b0b598736ace5f4bcd19a50eabfcd324eedd47c92649a7eec995d7
+2026-11-08T09:29:55.9943962Z ##[end-action id=__self_2.toolchain;outcome=success;conclusion=success;duration_ms=9414]
+2026-11-08T09:29:55.9946946Z ##[start-action display=Install if absent and verify exact Lean commit;id=__self_2.__run_3]
+2026-11-08T09:29:56.0008319Z ##[group]Run bash scripts/setup_pinned_lean.sh toolchain
+2026-11-08T09:29:56.0009046Z [36;1mbash scripts/setup_pinned_lean.sh toolchain[0m
+2026-11-08T09:29:56.0037624Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:29:56.0038231Z env:
+2026-11-08T09:29:56.0038680Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:56.0039245Z   COHORTS: 16
+2026-11-08T09:29:56.0039623Z   MAX_PARALLEL: 16
+2026-11-08T09:29:56.0040013Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:56.0040392Z   EARLY_DEPTH: 7
+2026-11-08T09:29:56.0040753Z   CLEAN: false
+2026-11-08T09:29:56.0041265Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.0042336Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:56.0043098Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.0043820Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.0044554Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.0045299Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:56.0045927Z ##[endgroup]
+2026-11-08T09:29:56.1095101Z Verified pinned compiler: Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+2026-11-08T09:29:56.1513775Z Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)
+2026-11-08T09:29:56.1584244Z ##[end-action id=__self_2.__run_3;outcome=success;conclusion=success;duration_ms=163]
+2026-11-08T09:29:56.1588422Z ##[start-action display=Save verified compiler before fetching Mathlib or running proof checks;id=__self_2.__actions_cache_2]
+2026-11-08T09:29:56.1596832Z ##[end-action id=__self_2.__actions_cache_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:29:56.2032003Z ##[group]Run set -euo pipefail
+2026-11-08T09:29:56.2032699Z [36;1mset -euo pipefail[0m
+2026-11-08T09:29:56.2033605Z [36;1mpython -B scripts/check_progress_lean.py cache-targets > "$RUNNER_TEMP/progress-cache-targets.txt"[0m
+2026-11-08T09:29:56.2034381Z [36;1mmapfile -t targets < "$RUNNER_TEMP/progress-cache-targets.txt"[0m
+2026-11-08T09:29:56.2034857Z [36;1mtest "${#targets[@]}" -gt 0[0m
+2026-11-08T09:29:56.2035191Z [36;1mcd "$PROGRESS"[0m
+2026-11-08T09:29:56.2035499Z [36;1mlake exe cache get "${targets[@]}"[0m
+2026-11-08T09:29:56.2056667Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:29:56.2057048Z env:
+2026-11-08T09:29:56.2057325Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:29:56.2057658Z   COHORTS: 16
+2026-11-08T09:29:56.2057879Z   MAX_PARALLEL: 16
+2026-11-08T09:29:56.2058123Z   SPLIT_DEPTH: 16
+2026-11-08T09:29:56.2058348Z   EARLY_DEPTH: 7
+2026-11-08T09:29:56.2058565Z   CLEAN: false
+2026-11-08T09:29:56.2058898Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.2059371Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:29:56.2059839Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.2060258Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.2060683Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:29:56.2061101Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:29:56.2061661Z ##[endgroup]
+2026-11-08T09:29:58.8705368Z info: mathlib: materializing new dependency
+2026-11-08T09:29:58.8781148Z info: mathlib: fetching revision '56a005855ea17e0b0958f73ec801ae140b0a1679' from https://github.com/leanprover-community/mathlib4.git
+2026-11-08T09:30:00.0319460Z info: mathlib: checking out revision '56a005855ea17e0b0958f73ec801ae140b0a1679'
+2026-11-08T09:30:10.4326195Z info: plausible: materializing new dependency
+2026-11-08T09:30:10.4548566Z info: plausible: fetching revision 'dfa4f38190d07c37e315953e08b90fe2d95b3c24' from https://github.com/leanprover-community/plausible
+2026-11-08T09:30:10.6249469Z info: plausible: checking out revision 'dfa4f38190d07c37e315953e08b90fe2d95b3c24'
+2026-11-08T09:30:10.9548150Z info: LeanSearchClient: materializing new dependency
+2026-11-08T09:30:10.9736870Z info: LeanSearchClient: fetching revision 'd6b4c7be5be75ec4917c873ac50c756dc1436372' from https://github.com/leanprover-community/LeanSearchClient
+2026-11-08T09:30:11.1159567Z info: LeanSearchClient: checking out revision 'd6b4c7be5be75ec4917c873ac50c756dc1436372'
+2026-11-08T09:30:11.4341051Z info: importGraph: materializing new dependency
+2026-11-08T09:30:11.4532845Z info: importGraph: fetching revision 'a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93' from https://github.com/leanprover-community/import-graph
+2026-11-08T09:30:11.6443192Z info: importGraph: checking out revision 'a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93'
+2026-11-08T09:30:12.0455546Z info: proofwidgets: materializing new dependency
+2026-11-08T09:30:12.0645633Z info: proofwidgets: fetching revision 'df72b022e558978a1c50264cfc4d7fec86fa8e04' from https://github.com/leanprover-community/ProofWidgets4
+2026-11-08T09:30:12.2731225Z info: proofwidgets: checking out revision 'df72b022e558978a1c50264cfc4d7fec86fa8e04'
+2026-11-08T09:30:13.4049487Z info: aesop: materializing new dependency
+2026-11-08T09:30:13.4257764Z info: aesop: fetching revision '4a174c490d8707121c4a9290800489f105d85e07' from https://github.com/leanprover-community/aesop
+2026-11-08T09:30:13.6279818Z info: aesop: checking out revision '4a174c490d8707121c4a9290800489f105d85e07'
+2026-11-08T09:30:14.0060781Z info: Qq: materializing new dependency
+2026-11-08T09:30:14.0244137Z info: Qq: fetching revision 'dce0ad79c486cb1fb504af04f953c3466b0c6db8' from https://github.com/leanprover-community/quote4
+2026-11-08T09:30:14.1954594Z info: Qq: checking out revision 'dce0ad79c486cb1fb504af04f953c3466b0c6db8'
+2026-11-08T09:30:14.5072419Z info: batteries: materializing new dependency
+2026-11-08T09:30:14.5259033Z info: batteries: fetching revision '66e469188fe07963e5cf666c7d4433f45b8131c5' from https://github.com/leanprover-community/batteries
+2026-11-08T09:30:14.9955071Z info: batteries: checking out revision '66e469188fe07963e5cf666c7d4433f45b8131c5'
+2026-11-08T09:30:15.4873287Z info: Cli: materializing new dependency
+2026-11-08T09:30:15.5065529Z info: Cli: fetching revision 'c24fe6078c630e89b489bffe59b3e20ac30d12c8' from https://github.com/leanprover/lean4-cli
+2026-11-08T09:30:15.6860515Z info: Cli: checking out revision 'c24fe6078c630e89b489bffe59b3e20ac30d12c8'
+2026-11-08T09:30:16.7262891Z ✔ [5/43] Built Cache.Cli (441ms)
+2026-11-08T09:30:16.9272680Z ✔ [6/43] Built Cache.Lean (627ms)
+2026-11-08T09:30:17.0254369Z ✔ [7/43] Built Cache.Env (550ms)
+2026-11-08T09:30:17.0272561Z ✔ [8/43] Built Cache.Cli:c.o (230ms)
+2026-11-08T09:30:17.2256914Z ✔ [9/43] Built Cache.Lean:c.o (264ms)
+2026-11-08T09:30:17.3260837Z ✔ [10/43] Built Cache.Env:c.o (286ms)
+2026-11-08T09:30:17.5266065Z ✔ [11/43] Built Cache.Infra (469ms)
+2026-11-08T09:30:17.8283309Z ✔ [12/43] Built Batteries.Tactic.OpenPrivate (1.3s)
+2026-11-08T09:30:17.8302167Z ✔ [13/43] Built Cache.Infra:c.o (250ms)
+2026-11-08T09:30:18.0277407Z ✔ [14/43] Built Cache.Location (518ms)
+2026-11-08T09:30:18.3284576Z ✔ [15/43] Built Cache.Location:c.o (255ms)
+2026-11-08T09:30:19.3312417Z ✔ [16/43] Built Batteries.Tactic.OpenPrivate:c.o (1.5s)
+2026-11-08T09:30:19.4313622Z ✔ [17/43] Built Cache.IO (1.6s)
+2026-11-08T09:30:20.0321997Z ✔ [18/43] Built Cache.Hashing (608ms)
+2026-11-08T09:30:20.7324298Z ✔ [19/43] Built Cache.Hashing:c.o (680ms)
+2026-11-08T09:30:21.4333725Z ✔ [20/43] Built Cache.IO:c.o (2.0s)
+2026-11-08T09:30:21.9342041Z ✔ [21/43] Built Cache.Requests (1.0s)
+2026-11-08T09:30:22.3402845Z ✔ [22/43] Built Cache.Marker (364ms)
+2026-11-08T09:30:22.6393256Z ✔ [23/43] Built Cache.Marker:c.o (340ms)
+2026-11-08T09:30:22.9402919Z ✔ [24/43] Built Cache.Upload.Curl (592ms)
+2026-11-08T09:30:23.1502800Z ✔ [25/43] Built Cache.Upload.Rclone (850ms)
+2026-11-08T09:30:23.2509929Z ✔ [26/43] Built Cache.Upload.Curl:c.o (307ms)
+2026-11-08T09:30:23.5553176Z ✔ [27/43] Built Cache.Query (924ms)
+2026-11-08T09:30:23.6552907Z ✔ [28/43] Built Cache.Upload.Rclone:c.o (485ms)
+2026-11-08T09:30:23.8542887Z ✔ [29/43] Built Cache.Upload.Azure (635ms)
+2026-11-08T09:30:24.1540832Z ✔ [30/43] Built Cache.Upload.Azure:c.o (287ms)
+2026-11-08T09:30:24.1552381Z ✔ [31/43] Built Cache.Query:c.o (456ms)
+2026-11-08T09:30:24.3573183Z ✔ [32/43] Built Cache.Upload.S3 (744ms)
+2026-11-08T09:30:24.8562279Z ✔ [33/43] Built Cache.Upload.S3:c.o (500ms)
+2026-11-08T09:30:24.9592714Z ✔ [34/43] Built Cache.Upload.Defs (621ms)
+2026-11-08T09:30:24.9622194Z ✔ [35/43] Built Cache.Warning (806ms)
+2026-11-08T09:30:25.2566036Z ✔ [36/43] Built Cache.Upload.Defs:c.o (250ms)
+2026-11-08T09:30:25.4602926Z ✔ [37/43] Built Cache.Upload (463ms)
+2026-11-08T09:30:25.4604172Z ✔ [38/43] Built Cache.Warning:c.o (541ms)
+2026-11-08T09:30:25.6586826Z ✔ [39/43] Built Cache.Upload:c.o (188ms)
+2026-11-08T09:30:25.8590089Z ✔ [40/43] Built Cache.Requests:c.o (3.9s)
+2026-11-08T09:30:26.3595708Z ✔ [41/43] Built Cache.Main (954ms)
+2026-11-08T09:30:27.3623945Z ✔ [42/43] Built Cache.Main:c.o (1.0s)
+2026-11-08T09:30:28.0645692Z ✔ [43/43] Built cache:exe (643ms)
+2026-11-08T09:30:30.6160686Z Current branch: HEAD
+2026-11-08T09:30:30.6161550Z Using cache from origin: (some leanprover-community/mathlib4)
+2026-11-08T09:30:30.6162768Z Attempting to download 4830 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+2026-11-08T09:30:30.7154394Z 
+2026-11-08T09:30:30.8234735Z Downloaded: 10 file(s) [attempted 10/4830 = 0%, 969 KB/s]
+2026-11-08T09:30:30.9293025Z Downloaded: 129 file(s) [attempted 129/4830 = 2%, 1111 KB/s]
+2026-11-08T09:30:31.0282780Z Downloaded: 237 file(s) [attempted 237/4830 = 4%, 3924 KB/s]
+2026-11-08T09:30:31.1318265Z Downloaded: 383 file(s) [attempted 383/4830 = 7%, 953 KB/s]
+2026-11-08T09:30:31.2362447Z Downloaded: 519 file(s) [attempted 519/4830 = 10%, 6893 KB/s]
+2026-11-08T09:30:31.3444495Z Downloaded: 646 file(s) [attempted 646/4830 = 13%, 379 KB/s]
+2026-11-08T09:30:31.4445015Z Downloaded: 799 file(s) [attempted 799/4830 = 16%, 1288 KB/s]
+2026-11-08T09:30:31.5425127Z Downloaded: 938 file(s) [attempted 938/4830 = 19%, 1661 KB/s]
+2026-11-08T09:30:31.6435090Z Downloaded: 1075 file(s) [attempted 1075/4830 = 22%, 217 KB/s]
+2026-11-08T09:30:31.7445636Z Downloaded: 1223 file(s) [attempted 1223/4830 = 25%, 320 KB/s]
+2026-11-08T09:30:31.8442715Z Downloaded: 1323 file(s) [attempted 1323/4830 = 27%, 2303 KB/s]
+2026-11-08T09:30:31.9732630Z Downloaded: 1459 file(s) [attempted 1459/4830 = 30%, 1903 KB/s]
+2026-11-08T09:30:32.0717062Z Downloaded: 1577 file(s) [attempted 1577/4830 = 32%, 2533 KB/s]
+2026-11-08T09:30:32.2012694Z Downloaded: 1726 file(s) [attempted 1726/4830 = 35%, 1630 KB/s]
+2026-11-08T09:30:32.3091088Z Downloaded: 1827 file(s) [attempted 1827/4830 = 37%, 1674 KB/s]
+2026-11-08T09:30:32.4100444Z Downloaded: 1990 file(s) [attempted 1990/4830 = 41%, 2042 KB/s]
+2026-11-08T09:30:32.5152784Z Downloaded: 2111 file(s) [attempted 2111/4830 = 43%, 4149 KB/s]
+2026-11-08T09:30:32.6160812Z Downloaded: 2219 file(s) [attempted 2219/4830 = 45%, 552 KB/s]
+2026-11-08T09:30:32.7229577Z Downloaded: 2372 file(s) [attempted 2372/4830 = 49%, 191 KB/s]
+2026-11-08T09:30:32.8210281Z Downloaded: 2487 file(s) [attempted 2487/4830 = 51%, 3145 KB/s]
+2026-11-08T09:30:32.9257925Z Downloaded: 2611 file(s) [attempted 2611/4830 = 54%, 1772 KB/s]
+2026-11-08T09:30:33.0263034Z Downloaded: 2705 file(s) [attempted 2705/4830 = 56%, 1775 KB/s]
+2026-11-08T09:30:33.1322945Z Downloaded: 2831 file(s) [attempted 2831/4830 = 58%, 2244 KB/s]
+2026-11-08T09:30:33.2338763Z Downloaded: 2965 file(s) [attempted 2965/4830 = 61%, 536 KB/s]
+2026-11-08T09:30:33.3346898Z Downloaded: 3105 file(s) [attempted 3105/4830 = 64%, 1199 KB/s]
+2026-11-08T09:30:33.4392815Z Downloaded: 3217 file(s) [attempted 3217/4830 = 66%, 1089 KB/s]
+2026-11-08T09:30:33.5423038Z Downloaded: 3333 file(s) [attempted 3333/4830 = 69%, 115 KB/s]
+2026-11-08T09:30:33.6406704Z Downloaded: 3436 file(s) [attempted 3436/4830 = 71%, 190 KB/s]
+2026-11-08T09:30:33.7432887Z Downloaded: 3594 file(s) [attempted 3594/4830 = 74%, 1554 KB/s]
+2026-11-08T09:30:33.8432907Z Downloaded: 3723 file(s) [attempted 3723/4830 = 77%, 1167 KB/s]
+2026-11-08T09:30:33.9491762Z Downloaded: 3866 file(s) [attempted 3866/4830 = 80%, 746 KB/s]
+2026-11-08T09:30:34.0772811Z Downloaded: 3962 file(s) [attempted 3962/4830 = 82%, 760 KB/s]
+2026-11-08T09:30:34.2042886Z Downloaded: 4098 file(s) [attempted 4098/4830 = 84%, 2716 KB/s]
+2026-11-08T09:30:34.3221975Z Downloaded: 4265 file(s) [attempted 4265/4830 = 88%, 6555 KB/s]
+2026-11-08T09:30:34.4252673Z Downloaded: 4418 file(s) [attempted 4418/4830 = 91%, 628 KB/s]
+2026-11-08T09:30:34.5244828Z Downloaded: 4547 file(s) [attempted 4547/4830 = 94%, 6024 KB/s]
+2026-11-08T09:30:34.6270581Z Downloaded: 4646 file(s) [attempted 4646/4830 = 96%, 326 KB/s]
+2026-11-08T09:30:34.6590119Z Downloaded: 4782 file(s) [attempted 4782/4830 = 99%, 973 KB/s]
+2026-11-08T09:30:34.6591684Z Downloaded: 4830 file(s) [attempted 4830/4830 = 100%, 973 KB/s]
+2026-11-08T09:30:34.6592664Z Still decompressing downloaded files...
+2026-11-08T09:30:47.8272464Z Decompressed 4830 file(s)
+2026-11-08T09:30:47.8272823Z Already decompressed 4830 file(s)
+2026-11-08T09:30:47.8890094Z ##[group]Run set -euo pipefail
+2026-11-08T09:30:47.8890449Z [36;1mset -euo pipefail[0m
+2026-11-08T09:30:47.8890715Z [36;1mflags=()[0m
+2026-11-08T09:30:47.8891020Z [36;1mif [[ "$CLEAN" == true ]]; then flags+=(--clean); fi[0m
+2026-11-08T09:30:47.8891630Z [36;1mcd "$PROGRESS"[0m
+2026-11-08T09:30:47.8892893Z [36;1mlake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-ci" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '3' --cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --output "$GITHUB_WORKSPACE/build/progress-cohort-3" "${flags[@]}"[0m
+2026-11-08T09:30:47.8914403Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:30:47.8914768Z env:
+2026-11-08T09:30:47.8915044Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:30:47.8915386Z   COHORTS: 16
+2026-11-08T09:30:47.8915612Z   MAX_PARALLEL: 16
+2026-11-08T09:30:47.8915876Z   SPLIT_DEPTH: 16
+2026-11-08T09:30:47.8916099Z   EARLY_DEPTH: 7
+2026-11-08T09:30:47.8916313Z   CLEAN: false
+2026-11-08T09:30:47.8916612Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:47.8917089Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:30:47.8917551Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:47.8917970Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:47.8918380Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:47.8918803Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:30:47.8919165Z ##[endgroup]
+2026-11-08T09:30:51.2845214Z MANIFEST_PASS modules=1386; exact hashes, closed imports, topological order, strict source admission, no kernel overrides/placeholders/native evaluation
+2026-11-08T09:30:56.4171919Z {"module": "QuarticOptimization", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4227943Z {"module": "G8Nonvanishing", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4260857Z {"module": "ConcreteQuadraticDomains", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4280499Z {"module": "ConcreteG8Domain", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4338648Z {"module": "SemilocalAnchor318", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4377489Z {"module": "AnchorNorm318", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4405261Z {"module": "LocalGenerator318", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4431548Z {"module": "FiniteSquareTest318", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4448412Z {"module": "FiniteGeneratorChunk6318", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4461863Z {"module": "HeightOneDVR318", "cache": "verified-reuse"}
+2026-11-08T09:30:56.4597339Z {"cohort": 3, "compiled": 0, "reused": 10}
+2026-11-08T09:30:56.5147273Z ##[group]Run actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:30:56.5147708Z with:
+2026-11-08T09:30:56.5147945Z   path: .cache/progress-cohort
+2026-11-08T09:30:56.5148720Z   key: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-0-3-44ea96fbe3be117a3a8a4354d440f1d0b7cd3c70f96938ba923c20ca187eed49
+2026-11-08T09:30:56.5149522Z   enableCrossOsArchive: false
+2026-11-08T09:30:56.5149793Z env:
+2026-11-08T09:30:56.5150049Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:30:56.5150386Z   COHORTS: 16
+2026-11-08T09:30:56.5150624Z   MAX_PARALLEL: 16
+2026-11-08T09:30:56.5150856Z   SPLIT_DEPTH: 16
+2026-11-08T09:30:56.5151087Z   EARLY_DEPTH: 7
+2026-11-08T09:30:56.5152364Z   CLEAN: false
+2026-11-08T09:30:56.5152839Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.5153338Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:30:56.5153947Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.5154377Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.5154798Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.5155223Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:30:56.5155576Z ##[endgroup]
+2026-11-08T09:30:56.6525544Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --files-from manifest.txt --use-compress-program zstdmt
+2026-11-08T09:30:56.7804752Z Failed to save: Unable to reserve cache with key progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-0-3-44ea96fbe3be117a3a8a4354d440f1d0b7cd3c70f96938ba923c20ca187eed49, another job may be creating this cache.
+2026-11-08T09:30:56.7932183Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-08T09:30:56.7932671Z with:
+2026-11-08T09:30:56.7932910Z   name: progress-cohort-3
+2026-11-08T09:30:56.7933198Z   path: build/progress-cohort-3/
+2026-11-08T09:30:56.7933483Z   retention-days: 7
+2026-11-08T09:30:56.7933724Z   if-no-files-found: warn
+2026-11-08T09:30:56.7933985Z   compression-level: 6
+2026-11-08T09:30:56.7934230Z   overwrite: false
+2026-11-08T09:30:56.7934471Z   include-hidden-files: false
+2026-11-08T09:30:56.7934727Z   archive: true
+2026-11-08T09:30:56.7934964Z env:
+2026-11-08T09:30:56.7935227Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T09:30:56.7935565Z   COHORTS: 16
+2026-11-08T09:30:56.7935784Z   MAX_PARALLEL: 16
+2026-11-08T09:30:56.7936020Z   SPLIT_DEPTH: 16
+2026-11-08T09:30:56.7936246Z   EARLY_DEPTH: 7
+2026-11-08T09:30:56.7936465Z   CLEAN: false
+2026-11-08T09:30:56.7936760Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.7937248Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:30:56.7937722Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.7938128Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.7938548Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:30:56.7938969Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:30:56.7939334Z ##[endgroup]
+2026-11-08T09:30:56.9533905Z With the provided path, there will be 42 files uploaded
+2026-11-08T09:30:56.9540122Z Artifact name is valid!
+2026-11-08T09:30:56.9540617Z Root directory input is valid!
+2026-11-08T09:30:57.1242952Z Uploading artifact: progress-cohort-3.zip
+2026-11-08T09:30:57.1282405Z Beginning upload of artifact content to blob storage
+2026-11-08T09:30:57.6809772Z Uploaded bytes 3224646
+2026-11-08T09:30:57.6961597Z Finished uploading artifact content to blob storage!
+2026-11-08T09:30:57.6963047Z SHA256 digest of uploaded artifact is a4252fb96225ead50efdd616badb944913d0ae1409c92f055cfeb595d0409ddc
+2026-11-08T09:30:57.6964612Z Finalizing artifact upload
+2026-11-08T09:30:58.0986920Z Artifact progress-cohort-3 successfully finalized. Artifact ID 13611988473
+2026-11-08T09:30:58.0988045Z Artifact progress-cohort-3 has been successfully uploaded! Final size is 3224646 bytes. Artifact ID is 13611988473
+2026-11-08T09:30:58.0991154Z Artifact download URL: https://github.com/doublemover/diophantine-z-q/actions/runs/42467270037/artifacts/13611988473
+2026-11-08T09:30:58.1210217Z Post job cleanup.
+2026-11-08T09:30:58.1214580Z ##[start-action display=Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0;id=__b6c54797-63ec-490e-9ddc-a4d38e648c8a.__actions_setup-python]
+2026-11-08T09:30:58.1259399Z Post job cleanup.
+2026-11-08T09:30:58.2555850Z ##[end-action id=__b6c54797-63ec-490e-9ddc-a4d38e648c8a.__actions_setup-python;outcome=success;conclusion=success;duration_ms=133]
+2026-11-08T09:30:58.2629295Z Post job cleanup.
+2026-11-08T09:30:58.3589524Z [command]/usr/bin/git version
+2026-11-08T09:30:58.3663023Z git version 2.56.0
+2026-11-08T09:30:58.3706830Z Temporarily overriding HOME='/home/runner/work/_temp/cd20ecc5-dac0-4487-b75f-10a7a6d0c47e' before making global git config changes
+2026-11-08T09:30:58.3710371Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T09:30:58.3714820Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:30:58.3758597Z Removing SSH command configuration
+2026-11-08T09:30:58.3767669Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T09:30:58.3817339Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T09:30:58.4104232Z Removing HTTP extra header
+2026-11-08T09:30:58.4112195Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T09:30:58.4160717Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T09:30:58.4455604Z Removing includeIf entries pointing to credentials config files
+2026-11-08T09:30:58.4464672Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T09:30:58.4513451Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T09:30:58.4514761Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T09:30:58.4516063Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T09:30:58.4517018Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T09:30:58.4525344Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T09:30:58.4565072Z /home/runner/work/_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:30:58.4577901Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-af7a19cd\-28e8\-4b42\-989a\-8b3362195712\.config
+2026-11-08T09:30:58.4662596Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T09:30:58.4701824Z /home/runner/work/_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:30:58.4710657Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-af7a19cd\-28e8\-4b42\-989a\-8b3362195712\.config
+2026-11-08T09:30:58.4757980Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T09:30:58.4794563Z /github/runner_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:30:58.4804330Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-af7a19cd\-28e8\-4b42\-989a\-8b3362195712\.config
+2026-11-08T09:30:58.4852146Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T09:30:58.4887318Z /github/runner_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config
+2026-11-08T09:30:58.4895271Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-af7a19cd\-28e8\-4b42\-989a\-8b3362195712\.config
+2026-11-08T09:30:58.4941111Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T09:30:58.5202787Z Removing credentials config '/home/runner/work/_temp/git-credentials-af7a19cd-28e8-4b42-989a-8b3362195712.config'
+2026-11-08T09:30:58.5355591Z Cleaning up orphan processes

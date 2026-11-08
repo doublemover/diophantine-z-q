@@ -70,3 +70,7 @@ The 1,386-module combined checkpoint is still pending, not retroactively passed.
 - [Pinned setup-node distribution/cache implementation](https://github.com/actions/setup-node/blob/949feb2413d6458794dcd2491c4babbbce0c15c1/src/distributions/base-distribution.ts).
 - [Pinned download-artifact singleton handling](https://github.com/actions/download-artifact/blob/9000827ccba6bdab643e8b6fd33ac0654aef8333/src/download-artifact.ts).
 - [Pinned cache restore error handling](https://github.com/actions/cache/blob/55cc8345863c7cc4c66a329aec7e433d2d1c52a9/src/restoreImpl.ts).
+
+## Subsequent hosted cold/warm observation at 8d7ca58
+
+[Exact report and preserved logs](hosted-cold-warm-8d7/REPORT.md) distinguish four initial cold Python HTTP 504 failures from later successful cache restoration. The identical Python key was saved after the failed jobs had already attempted their first restore. An actual subsequent cohort job restored Python in about 1.4 seconds, recognized and verified it without downloading, and also restored/checksummed elan and restored/verified the exact Lean distribution in about nine seconds without a toolchain download. This supplies hosted warm-path evidence, not a claim that cold upstream failures are impossible or that the combined proof cohort has passed. No pin or setup-source patch was required by these logs.
