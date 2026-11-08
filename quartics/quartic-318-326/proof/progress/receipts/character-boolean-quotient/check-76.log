@@ -1,0 +1,39 @@
+ACQUIRED 2026-11-08T08:28:37Z
+CharacterBooleanAffine318.lean:23:29: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CharacterBooleanAffine318.lean:45:30: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Bool.false_eq_true, ite_false, ite_true, map_neg, map_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CharacterBooleanGlobal318.lean:51:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ContactProjectiveModel318.sourceOpen units ≫ completedMap ?i
+in the target expression
+  (ContactGlobalSigns318.openMap units b ≫ affineMap i) ≫
+      WeierstrassGluing318.finiteChart (publishedA i) (publishedB i) =
+    affineMap i ≫ WeierstrassGluing318.finiteChart (publishedA i) (publishedB i)
+
+i : Fin 4
+b : Fin 4 → Bool
+h : ContactGlobalSigns318.map units b ≫ completedMap i = completedMap i
+ho :
+  (ContactGlobalSigns318.openMap units b ≫ affineMap i) ≫
+      WeierstrassGluing318.finiteChart (publishedA i) (publishedB i) =
+    affineMap i ≫ WeierstrassGluing318.finiteChart (publishedA i) (publishedB i)
+⊢ epsilon i b = 1
+CharacterBooleanGlobal318.lean:71:16: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+CharacterBooleanGlobal318.lean:72:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+RELEASED 2026-11-08T08:28:51Z exit=1

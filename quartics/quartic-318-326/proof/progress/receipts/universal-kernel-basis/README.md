@@ -1,0 +1,9 @@
+# Actual universal level-three kernel trivialization
+
+For nonzero N, pull back the actual full tripling kernel to the original finite-etale surjective rank48 independent-pair Scheme. It is isomorphic, over that Scheme, to the disjoint union of nine copies indexed by Fin 2 → ZMod 3. The component c is exactly the genuine point c(0)P+c(1)Q, where P and Q are the two original universal kernel projections.
+
+This is an actual Scheme isomorphism, not a geometric-point bijection promoted without proof. The generic criterion proves each actual section is an open immersion from the etale diagonal. To prove disjointness it passes from a hypothetical intersection point to an actual geometric test of the intersection pullback, and uses injectivity on actual maps. Surjectivity follows by lifting every target point to an algebraic closure of its residue field and applying actual-map surjectivity. The disjoint covering open sections then give the Scheme isomorphism, with its exact component and base equations. Nilpotents are retained throughout the Scheme gluing.
+
+The geometric map test is discharged by the exact cartesian kernel-point equivalence and the existing actual two-vector basis. Its coordinate map is precisely the inverse of that basis's linear equivalence. Both chosen basis vectors and all coefficient combinations are therefore fixed, not arbitrarily relabeled. Zero, both standard vectors and addition of coefficients are checked in the genuine original kernel point group.
+
+Four bounded strict first-time source checks and required-endpoint recursive axiom audit pass. Distinct non-author review remains separate. This packet does not package a GrpObj isomorphism or prove a GL2 torsor comparison, Weil pairing, symplectic level, PEL/Jacobian/polarization or final arithmetic identification. Its exact result is the full relative Scheme trivialization with specified genuine additive component sections.
