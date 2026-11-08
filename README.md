@@ -1,14 +1,15 @@
 # Z is Diophantine in Q
 
-## Version 12
+## Version 13
 
-This repository contains *Z is Diophantine in Q*, Version 12, dated November 7, 2026. It gives quartics in **498 total variables** with exact symbolic coefficients and **514 total variables** with every coefficient written out in decimal. The new section proves the reductions from the retained 523-variable construction and records independent reviews of their composition. The original large construction and earlier quartic proofs remain in the manuscript. Version 11's Kato index-set and limiting-class repair is retained. The Version 9 starting reductions were contributed by Gabriel Conant with ChatGPT.
+This repository contains *Z is Diophantine in Q*, Version 13, dated November 7, 2026. It gives quartics in **394 total variables** with exact symbolic coefficients and **411 total variables** with every coefficient written out in decimal. The new section proves the reductions from the retained Version 12 construction and records separate mathematical and coefficient-table reviews. The original large construction, earlier quartic proofs and Version 11 Kato index-set and limiting-class repair remain in the manuscript. The Version 9 starting reductions were contributed by Gabriel Conant with ChatGPT.
 
 The project uses the collective agentic notes from Stefan Baranczuk, Jose Brox, Gabe Conant, Sohail Farhangi, James Freitag, Elliot Glazer, Jennifer Park, and Caroline Terry.
 
 | To | Open |
 | --- | --- |
-| Read Version 12 | [Manuscript PDF](manuscripts/quartic_v12.pdf), [TeX source](manuscripts/quartic_v12.tex) |
+| Read Version 13 | [Manuscript PDF](manuscripts/quartic_v13.pdf), [TeX source](manuscripts/quartic_v13.tex) |
+| Reproduce the 394/411-variable quartics | [Tables, proof inventory and review scopes](docs/manuscript-revisions/version13/GUIDE.md) |
 | Reproduce the 498/514-variable quartics | [Tables, proof inventory and independent reviews](docs/manuscript-revisions/version12/README.md) |
 | Reproduce the 523/540-variable quartics | [Tables, source, dependency chain and checks](docs/quartic-523-540/README.md) |
 | Read the fully expanded Version 4 quartic | [4,973-variable package](quartics/quartic-4973/README.md), [integer monomial table](quartics/quartic-4973/polynomial.expanded.txt) |
@@ -16,7 +17,7 @@ The project uses the collective agentic notes from Stefan Baranczuk, Jose Brox, 
 | Inspect the nine earlier review corrections | [Version 10 response and inventory](docs/manuscript-revisions/version10/README.md) |
 | Inspect theorem applications and conventions | [Version 9 extension](docs/quartic-523-540/README.md), [inherited proof inventory](docs/quartic-962/README.md) |
 | Build the manuscript or run the checks | [Build instructions](docs/building.md) |
-| Download the current audit supplement | [Version 12 supplement and guide](research/version12/README.md) |
+| Download the current audit supplement | [Version 13 supplement and guide](research/version13/README.md), [Version 12 archive](research/version12/README.md) |
 | Download the Version 7 research handoffs | [Full handoff](https://github.com/elliotglazer/diophantine-z-q/releases/download/quartic-962-version-7/z-in-q-version7-full-handoff.zip), [current-only handoff](https://github.com/elliotglazer/diophantine-z-q/releases/download/quartic-962-version-7/z-in-q-version7-current-handoff.zip), [contents and verification](handoff/README.md) |
 | Read collaborator notes and the height replacement | [Research update](research/2026-11-06-collaborator-notes/README.md) |
 | Read the October 11 manuscript | [Manuscript and provenance](October%2011%20Manuscript/README.md) |
@@ -42,12 +43,16 @@ $$
 | Construction | Total variables, including input | Degree | Nonzero monomials | Coefficient magnitude |
 | --- | ---: | ---: | ---: | --- |
 | Original | 292,890,231,905 | Less than $2\uparrow\uparrow7$ | Not expanded | Less than $2\uparrow\uparrow8$ |
+| Version 13, decimal table | 411 | 4 | 6,388 | Less than $2^{3247}$ |
+| Version 13, symbolic table | 394 | 4 | 6,338 | Maximum $16\cdot3^{2^{26}}$ |
 | Version 12, decimal table | 514 | 4 | 24,716 | Maximum $3^{2048}+1005072314676622<2^{3247}$ |
 | Version 12, symbolic table | 498 | 4 | 24,669 | Maximum $16\cdot3^{2^{26}}$ |
 | Version 9, decimal table | 540 | 4 | 35,213 | Maximum $3^{2048}+1005072314631333<2^{3247}$ |
 | Version 9, symbolic table | 523 | 4 | 35,163 | Maximum $64\cdot3^{2^{27}}$ |
 | Version 4 quartic, retained | 4,973 | 4 | 72,925 | Maximum 685,783,949,153,203,534,233,890, less than $2^{80}$ |
 | Version 6 quartic | 962 | 4 | 55,409 | Maximum $64\cdot3^{2^{28}}$ |
+
+The [411-variable decimal table](quartics/quartic-411-fully-expanded.txt) contains every coefficient in decimal and occupies 214,957 bytes. The [394-variable table](quartics/quartic-394-symbolic-coefficients.json) uses the fixed integer $C=3^{2^{25}}$, not an extra variable. Both have content one. The ordinary companion adds sixteen constant-chain coordinates and one multiplication coordinate to keep its residuals quadratic. [Version 13 checks and reviews](docs/manuscript-revisions/version13/GUIDE.md) explain the construction and their separate scopes.
 
 The [514-variable table](quartics/quartic-514-fully-expanded.txt) contains every coefficient in decimal and occupies 690,922 bytes. The [498-variable table](quartics/quartic-498-symbolic-coefficients.json) uses the fixed integer $C=3^{2^{25}}$, not an extra variable. [Version 12 checks and reviews](docs/manuscript-revisions/version12/README.md) cover the exact coefficient data and new mathematical transformations separately.
 
@@ -63,7 +68,7 @@ The earlier 962-variable polynomial builds on an independent reconstruction of t
 
 The finite checks verify the source program, algebraic coordinate changes, projection-preserving eliminations, complete sum-of-squares expansion and coefficient statistics. Independent checks and rejection tests accompany the package. These checks do not prove the source system's arithmetic characterization of the integers.
 
-The manuscript supplies that arithmetic argument. The [Version 12 application inventory and reviews](docs/manuscript-revisions/version12/README.md) cover the new reductions while retaining the prior arithmetic inputs and their source qualifications. The [Version 9 extension](docs/quartic-523-540/README.md) connects the new arithmetic arguments to the inherited proofs. The [Version 7 inventory](docs/quartic-962/README.md) records exact theorem applications, source versions, hypotheses, conventions and translations. Version 6 proves the needed Gaussian ray-field estimate within the manuscript, following the method of Frei–Tinková without assuming their theorem. The replacement uses Mitsui's published prime-ideal estimate, Green–Tao's one-parameter results, and ordinary-prime transference.
+The manuscript supplies that arithmetic argument. The [Version 13 guide](docs/manuscript-revisions/version13/GUIDE.md) separates the new component and composition reviews, the finite table checks, and the 39-application inventory. These internal reviews retain the inherited arithmetic inputs and source qualifications. The [Version 12 application inventory and reviews](docs/manuscript-revisions/version12/README.md) cover that edition's reductions while retaining the prior arithmetic inputs and their source qualifications. The [Version 9 extension](docs/quartic-523-540/README.md) connects the new arithmetic arguments to the inherited proofs. The [Version 7 inventory](docs/quartic-962/README.md) records exact theorem applications, source versions, hypotheses, conventions and translations. Version 6 proves the needed Gaussian ray-field estimate within the manuscript, following the method of Frei–Tinková without assuming their theorem. The replacement uses Mitsui's published prime-ideal estimate, Green–Tao's one-parameter results, and ordinary-prime transference.
 
 The inventory retains source-version qualifications. In particular, the applications of Dodos–Kanellopoulos and Kollár were checked in the stated author versions of published works; their final typeset statements were not compared. This is not a claim that every cited source's final published text has been inspected.
 

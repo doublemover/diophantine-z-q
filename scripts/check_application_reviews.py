@@ -101,9 +101,15 @@ def validate(record, read):
         need(old and old != new and text.count(old) == 1, 'Ambiguous, empty or ineffective revision edit')
         if edit['kind'] == 'administrative':
             # Administrative changes cannot conceal a changed mathematical passage.
-            title = r'\\large Version [0-9]+\.'
+            # Released editions through 12 use a period. The author requires
+            # edition 13 onward to omit it. Only this exact title fragment is
+            # administrative; appended text still requires a reviewed edit.
+            def title_fragment(value):
+                match = re.fullmatch(r'\\large Version ([1-9][0-9]*)(\.)?', value)
+                return bool(match) and bool(match[2]) == (int(match[1]) <= 12)
             date = r'\\date\{[A-Za-z]+ [0-9]{1,2}, [0-9]{4}\}'
-            need(any(re.fullmatch(p, old) and re.fullmatch(p, new) for p in (title, date)),
+            need((title_fragment(old) and title_fragment(new)) or
+                 (re.fullmatch(date, old) and re.fullmatch(date, new)),
                  'Non-administrative text requires an application contract')
         else:
             need(edit['kind'] in {'mathematical', 'source'}, 'Unknown edit classification')
