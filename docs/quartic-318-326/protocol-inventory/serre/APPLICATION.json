@@ -1,0 +1,83 @@
+{
+  "id": "V13-SERRE-ABELIAN-KERNEL-INDEPENDENT",
+  "target_sha256": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+  "reviewer": "/root/restart_modular_curve",
+  "independent_of_target_authors": true,
+  "status": "ACCEPT_BOUNDED_SOURCE_APPLICATION",
+  "decision": "The actual fixed non-CM E_l and every quadratic twist satisfy the required rational G_Qab unipotent and cyclotomic absolute-irreducibility hypotheses.",
+  "nine_obligations": [
+    {
+      "name": "source_hypotheses",
+      "required": "An elliptic curve over a number field, geometrically without complex multiplication, and its genuine Tate representation.",
+      "constructed": "The fixed E_l over Q has l positive squarefree, l congruent to 11 modulo 12, and equation y²=x(x−l)(x+3l).",
+      "why_match": "The three roots are distinct. c4=208l² and Delta=2304l⁶ give j=35152/9, a noninteger rational number. The classical integrality of CM j-invariants excludes geometric CM.",
+      "evidence": "actual-restricted-curve; Serre pp.259–260"
+    },
+    {
+      "name": "constructed_objects",
+      "required": "The same lattice and rational representation later consumed by Kato.",
+      "constructed": "T=T_2(E_l), V=T tensor Q_2, and Vχ for the actual quadratic characters χ=χ0(x composed with ψ).",
+      "why_match": "No projective representation, auxiliary modular curve, or CM index-generator curve is substituted. E_l is fixed before any family of conductor primes.",
+      "evidence": "fixed-curve-and-character-family"
+    },
+    {
+      "name": "domain_index_coverage",
+      "required": "All quadratic characters in the finite character family, and coefficient prime 2, with constants independent of varying conductor support.",
+      "constructed": "A single principal congruence subgroup for fixed E_l produces one subgroup of rho(G_Qab); every quadratic χ is trivial on G_Qab.",
+      "why_match": "The same subgroup works simultaneously for every χ, irrespective of conductor. The open-image statement includes the prime 2. The bound may depend on E_l and is not uniform in l.",
+      "evidence": "abelian-kernel-hypothesis; commutator verification in REVIEW.md"
+    },
+    {
+      "name": "transition_comparison_maps",
+      "required": "Pass from the full G_Q Tate image to the abelian-kernel image and then to the cyclotomic restriction.",
+      "constructed": "Lift explicit matrix commutators to G_Q. Their lifts lie in G_Qab. G_Qab is contained in G_Q(mu_2∞), and twisting is unchanged on it.",
+      "why_match": "Upper and lower unipotents are obtained by actual commutators, not from an unsupported inference that a cyclotomic unipotent lies in G_Qab. An explicit Gauss decomposition proves an open SL2 subgroup.",
+      "evidence": "Serre (4); Kato Example 0.6.2; REVIEW.md"
+    },
+    {
+      "name": "identity_of_consumed_object",
+      "required": "A unipotent on this Vχ with one-dimensional fixed space, belonging to G_Qab, plus absolute irreducibility on the cyclotomic subgroup.",
+      "constructed": "U(b) and L(c), b and c nonzero, act on the same Vχ.",
+      "why_match": "U(b) has fixed line Q_2 e1; L(c) has fixed line Q_2 e2. These remain distinct over an algebraic closure. This proves Kato 0.6(ii), and excludes invariant lines on the cyclotomic restriction.",
+      "evidence": "abelian-kernel-hypothesis"
+    },
+    {
+      "name": "coefficients_normalizations",
+      "required": "Rational p-adic conditions, with the Tate representation convention and abelian inverse-deck coefficients preserved.",
+      "constructed": "The argument is over Q_2 on T_2E tensor Q_2. Every abelian coefficient action is trivial on G_Qab.",
+      "why_match": "Nonzero b,c are units over Q_2 and over any Q_2 coefficient algebra; both fixed-vector equations force zero. The argument does not require scalar specialization to have finite order, and does not alter Frobenius or purity conventions.",
+      "evidence": "rational-image-and-coefficient-consumers"
+    },
+    {
+      "name": "local_conditions",
+      "required": "Preserve the character family’s stated real sign and local squareclasses at primes dividing 2N.",
+      "constructed": "The original character family remains unchanged. The image argument holds for every quadratic character without imposing further conductor, real, or local constraints.",
+      "why_match": "A stronger global subgroup argument validates the existing local family. It does not construct that family or prove purity, oddness, or its Selmer local conditions.",
+      "evidence": "fixed-curve-and-character-family; actual-kato-class-and-index-consumer"
+    },
+    {
+      "name": "exceptional_cases",
+      "required": "Address rational full 2-torsion, the prime 2, and the distinction between rational and strong integral Kato hypotheses.",
+      "constructed": "E_l has full rational 2-torsion, so its mod-2 image is trivial, but its 2-adic image is open. The characteristic-zero nonidentity unipotent suffices away from 2.",
+      "why_match": "No residual irreducibility or surjectivity is assumed. If b is divisible by 2, the cokernel of 1−U(b) on the lattice has torsion; the proof therefore does not claim condition (ii_str). The separate CM generator curve is not in scope.",
+      "evidence": "actual-restricted-curve; rational-image-and-coefficient-consumers; Kato 0.6 and 0.8"
+    },
+    {
+      "name": "downstream_consumption",
+      "required": "The exact rational irreducibility/unipotent hypotheses used by Kato 1999 Theorem 0.8 and the displayed K15 application.",
+      "constructed": "V13 explicitly uses 0.6(ii) in G_Qab, identifies the retained class and its coordinate ideal, and works at height-one primes away from 2.",
+      "why_match": "This review discharges the non-CM/open-image/twist subgroup input and its fixed-vector consequence. It does not reaccept the separate index, norm, class, local-complex, nonvanishing, RC, or literal-318 assembly obligations.",
+      "evidence": "abelian-kernel-hypothesis; actual-kato-class-and-index-consumer"
+    }
+  ],
+  "model_metadata": null,
+  "model_metadata_reason": "No verified runtime model identifier is available to this worker.",
+  "formal_lean_status": "No new Lean theorem or compile; this is an independent source and mathematical-application review.",
+  "not_accepted": [
+    "The complete proof of Serre’s theorem independently reconstructed",
+    "Integral residual/cokernel hypotheses at primes containing 2",
+    "The other Kato hypotheses or entire K15 argument",
+    "The whole restricted converse, PP, or sourceArithmetic for literal 318",
+    "A bound uniform across different E_l"
+  ]
+}

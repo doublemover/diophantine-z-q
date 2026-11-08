@@ -1,0 +1,117 @@
+{
+  "id": "V11-PAN-REGULAR-MODULARITY-INDEPENDENT",
+  "reviewer": "/root/restart_modular_curve",
+  "independent_of_target_authors": true,
+  "target_sha256": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+  "status": "ACCEPT_SCOPED_APPLICATION_WITH_SOURCE_VERSION_AND_UPSTREAM_LIMITS",
+  "authoritative_publication_comparison": "OPEN",
+  "decision": "At p=5, the stated Pan interface applies to the constructed r5 once the identified representation and de Rham inputs hold. There is no additional residual-image condition. The inspected primary theorem is author v2, corroborated by the official published Calegari formulation.",
+  "nine_obligations": [
+    {
+      "name": "source_hypotheses",
+      "required": "A continuous irreducible odd two-dimensional representation of G_Q, finitely ramified, potentially semistable at p and with distinct Hodge–Tate weights.",
+      "constructed": "r5 is the multiplicity summand of the corrected QM Tate representation. Its support is T union {5}, its weights are {0,-1}, and de Rham comparison plus Berger gives potential semistability.",
+      "why_match": "This is exactly Conjecture 1.0.1 plus Theorem 1.0.4. De Rhamness is a separate dependency, not a consequence merely of the weights.",
+      "evidence": [
+        "pan-author-v2",
+        "baseline-pan-and-twist",
+        "level-pan-twist-and-realizations",
+        "de-rham-consumer"
+      ]
+    },
+    {
+      "name": "constructed_objects",
+      "required": "An honest G_Q representation over a finite coefficient extension, rather than a projective action.",
+      "constructed": "The scalar-corrected rho_l uses beta or b, a_sigma and mu_sigma. A finite coefficient field contains these data and splits B; matrix units give rho_l = r_l direct-sum r_l.",
+      "why_match": "The sign-cocycle identity removes projectivity. Added scalars have trivial Galois action. The multiplicity summand is genuinely two-dimensional.",
+      "evidence": [
+        "baseline-scalar-descent",
+        "level-fiber-and-scalar-construction"
+      ]
+    },
+    {
+      "name": "domain_index_coverage",
+      "required": "The actual chosen prime and all coefficient realizations used downstream must lie in their stated domains.",
+      "constructed": "Pan is invoked only at 5. The realization r3 is subsequently obtained from the same algebraic Frobenius-trace system.",
+      "why_match": "There is no invocation of Pan at 3, so its extra p=3 residual restriction is irrelevant. A uniform coefficient-field degree is not assumed.",
+      "evidence": [
+        "baseline-coefficient-transfer",
+        "level-pan-twist-and-realizations"
+      ]
+    },
+    {
+      "name": "transition_comparison_maps",
+      "required": "Scalar correction, restriction over a finite extension, modular twisting and Tate/cohomological comparison.",
+      "constructed": "Over G_Lprime the corrected rho is the actual Tate action. The modularity conclusion for r5 is up to character twist. Weight comparison and a separate finite-image argument remove that twist.",
+      "why_match": "The level route uses the determinant-square argument, while the baseline invokes Conrad. Duality preserves the conductor, but the duality step remains explicit.",
+      "evidence": [
+        "baseline-pan-and-twist",
+        "level-pan-twist-and-realizations"
+      ]
+    },
+    {
+      "name": "identity_of_consumed_object",
+      "required": "The representation must belong to the actual QM surface and match the downstream J1(N) constituent.",
+      "constructed": "The non-CM hypothesis is the exact equality End_geo^0(A)=B. The restricted multiplicity representation has scalar commutant and is absolutely irreducible.",
+      "why_match": "An unrelated modular family or unlabeled finite cover is not substituted. Construction of the particular geometric surface remains a separate dependency.",
+      "evidence": [
+        "baseline-scalar-descent",
+        "baseline-jacobian-consumer",
+        "level-pending-marker-and-height-consumer"
+      ]
+    },
+    {
+      "name": "coefficients_normalizations",
+      "required": "Hodge–Tate, reciprocity, coefficient and character-twist conventions must agree.",
+      "constructed": "The cyclotomic weight is -1. The Tate weights are {0,-1}; the modular weights are {0,1-k}. Added coefficients are constant.",
+      "why_match": "Pan page 7 matches this convention. The weight difference forces k=2. Frobenius, duality and local normalization comparisons are separately retained.",
+      "evidence": [
+        "pan-author-v2",
+        "baseline-pan-and-twist",
+        "level-conductor-consumer"
+      ]
+    },
+    {
+      "name": "local_conditions",
+      "required": "Potential semistability at 5, oddness at infinity and finite ramification.",
+      "constructed": "Proper-smooth comparison, direct summands and finite descent give de Rhamness; Berger supplies potential semistability. Corrected conjugation exchanges Hodge summands and has square one.",
+      "why_match": "These are conditions on r5 itself. Neither residual oddness nor Hodge–Tate weights alone is substituted. The independent de Rham review remains separate.",
+      "evidence": [
+        "de-rham-consumer",
+        "baseline-pan-and-twist",
+        "level-pan-twist-and-realizations"
+      ]
+    },
+    {
+      "name": "exceptional_cases",
+      "required": "CM fibers, small primes, residual exceptions and finite character twisting must be handled.",
+      "constructed": "The CM case is separate. The chosen prime is 5, and r3 is not another Pan application. The finite twist may have unbounded order.",
+      "why_match": "No residual-image exception occurs at 5. Weight zero alone is not used to infer finite image: the level-route determinant calculation supplies that step.",
+      "evidence": [
+        "baseline-scalar-descent",
+        "level-pan-twist-and-realizations"
+      ]
+    },
+    {
+      "name": "downstream_consumption",
+      "required": "The exact conclusion required by the modular-height consumer.",
+      "constructed": "A weight-two newform gives a modular Tate constituent. Compatible realizations, Carayol and Casselman, then Faltings and Poincare give the conductor and the isogeny A times Z to J1(N).",
+      "why_match": "Pan supplies modularity up to twist only. Conductor estimates, coefficient-field bounds, global PEL/contact identity and the final sourceArithmetic statement are not consequences of this bounded review.",
+      "evidence": [
+        "baseline-jacobian-consumer",
+        "level-conductor-consumer",
+        "level-pending-marker-and-height-consumer"
+      ]
+    }
+  ],
+  "not_accepted": [
+    "JAMS final text comparison",
+    "Independent reconstruction of Pan’s complete proof",
+    "Global QM, PEL and contact-source producer",
+    "Separate conductor and height applications",
+    "Unconditional 318 sourceArithmetic"
+  ],
+  "related_review": "The actual de Rham consumer is separately reviewed by /root/restart_group_law; that result is not preaccepted here.",
+  "model_metadata": null,
+  "model_metadata_reason": "No verified runtime model identifier is available to this worker."
+}

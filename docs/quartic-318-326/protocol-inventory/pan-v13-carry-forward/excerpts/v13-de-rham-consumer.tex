@@ -1,0 +1,68 @@
+\begin{lemma}\label{lem:de-rham-descent}
+Let $K/\mathbb Q_\ell$ and $F/K$ be finite extensions, let $A/F$
+be an abelian surface, and let $C_\ell/\mathbb Q_\ell$ be a finite
+coefficient field. Suppose a continuous representation
+$r:G_K\longrightarrow\mathrm{GL}_2(C_\ell)$ satisfies
+\[
+ V_\ell(A)\otimes_{\mathbb Q_\ell}C_\ell
+       \simeq r|_{G_F}\oplus r|_{G_F}.
+\]
+Then $r$ is de Rham. At every coefficient embedding its
+Hodge--Tate weights are $0,-1$, with
+$\mathbb Q_\ell(1)$ assigned weight $-1$.
+\end{lemma}
+
+\begin{proof}
+The smooth proper variety $A$ has a smooth proper rigid
+analytification. Apply \cite[Corollary 1.8]{scholze2013}, with the
+corrections in \cite{scholze-erratum}. The passage from algebraic
+to analytic cohomology uses \cite[Theorems 9.1 and 9.3]{scholze2013}:
+Theorem 9.1 identifies coherent cohomology, and hence the filtered
+de Rham hypercohomology, while Theorem 9.3 identifies the
+$\mathbb Z/\ell^n\mathbb Z$-cohomology, compatibly in $n$.
+Its invertibility condition holds because $F$ has characteristic
+zero. Taking inverse limits and then inverting $\ell$ identifies
+the algebraic and analytic $\ell$-adic cohomology, compatibly with
+the action of $G_F$. Thus
+$H^1_{\mathrm{et}}(A_{\overline F},\mathbb Q_\ell)$ is de Rham.
+
+The canonical, Galois-equivariant identification
+\cite[Part I, Theorem 12.1(a)]{milne-av}
+\[
+ V_\ell(A)\simeq
+ H^1_{\mathrm{et}}(A_{\overline F},\mathbb Q_\ell)^\vee
+\]
+gives the same property for the Tate module. De Rham representations
+are closed under duals and subquotients
+\cite[Theorem 5.2.1 and Proposition 6.3.3]{brinon-conrad}.
+Extension of the coefficient field is, on underlying
+$\mathbb Q_\ell$-representations, a finite direct sum.
+The displayed decomposition therefore makes $r|_{G_F}$ de Rham.
+
+Here finite-extension descent requires no semistable descent
+assertion. To see it explicitly, pass to a finite Galois extension
+$F'/K$ containing $F$, and let $W$ be the underlying
+$\mathbb Q_\ell$-representation of $r$. The vector space
+\[
+ D_{F'}=(B_{\mathrm{dR}}\otimes_{\mathbb Q_\ell}W)^{G_{F'}}
+\]
+has its natural semilinear $\mathrm{Gal}(F'/K)$-action, and its
+invariants are
+$D_K=(B_{\mathrm{dR}}\otimes_{\mathbb Q_\ell}W)^{G_K}$.
+Finite Galois descent gives $F'\otimes_K D_K\simeq D_{F'}$,
+also on each filtration step. Since $W|_{G_{F'}}$ is de Rham,
+$\dim_K D_K=\dim_{F'}D_{F'}=\dim_{\mathbb Q_\ell}W$.
+This proves the assertion over $K$; it is the finite-extension
+case of \cite[Proposition 6.3.8]{brinon-conrad}.
+
+The two Hodge numbers of $H^1_{\mathrm{dR}}(A/F)$ are $2,2$.
+Consequently the Tate module has weights $0,0,-1,-1$.
+At each coefficient embedding, its two isomorphic summands
+have the same weight multiset, so each summand has weights $0,-1$.
+The filtration-compatible descent preserves these weights.
+\end{proof}
+
+The Hodge--Tate comparison in \cite[Chapter III, Theorem 4.1]{faltings1988}
+alone would not prove the de Rham assertion. The preceding argument
+uses the de Rham comparison itself and does not infer de Rhamness
+from Hodge--Tate weights.

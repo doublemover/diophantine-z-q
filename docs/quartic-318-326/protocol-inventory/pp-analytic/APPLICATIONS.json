@@ -1,0 +1,553 @@
+{
+  "schema": "scoped-nine-obligation-source-application-v1",
+  "author": "/root/restart_modular_curve",
+  "independent_acceptance": false,
+  "scope": "PP and analytic modular lane; current priority review, no proof expansion",
+  "applications": [
+    {
+      "id": "PP-LOCAL-SIEVE",
+      "title": "Actual rank-five quadric and adjacent-norm sieve",
+      "status": "Inherited argument/source review retained; final typeset BL/BHB comparison open",
+      "evidence": [
+        "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+        "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+      ],
+      "obligations": [
+        {
+          "name": "source_hypotheses",
+          "required": "Rank>=5 isotropic nonsingular quadric and appropriate congruence subsets; coprime-polynomial/lattice hypotheses.",
+          "constructed": "Qκ=a²+b²−c²−d²−κw² with nonzero κ; explicit residue sets and inhomogeneous adjacent norms.",
+          "why_match": "Displayed nonsingular rational zero, exact discriminant exclusions and primitive nonzero residues match BL n=5; BHB lemmas used rather than its inapplicable homogeneous main theorem.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "constructed_objects",
+          "required": "Actual varieties and sieving polynomials, not merely equal dimensions.",
+          "constructed": "Gε=(a+ε)²+b², Hη=(c+η)²+d² and transformed fixed-coordinate polynomials.",
+          "why_match": "Their vanishing is exactly the forbidden common adjacent-order divisibility.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "domain_index_coverage",
+          "required": "Every selected pair and both signs; modulus and box ranges.",
+          "constructed": "Finite distinct coefficient pairs, all ε,η in {±1}; squarefree m coprime2κ; B,L>=2.",
+          "why_match": "Finite union bound covers all required common divisors; no omitted diagonal or rank-changing prime.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "transition_comparison_maps",
+          "required": "Primitive congruence and fixed-coordinate maps preserve counted obstructions.",
+          "constructed": "Möbius inversion, x0=a+c,x1=a−c,x=b−d,z=b+d, x0x1=κw²−xz.",
+          "why_match": "Residues rescale by h^-1; parity can be discarded only for an upper bound; fixed nonzero coordinate determines the other.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "identity_of_consumed_object",
+          "required": "Tail counts on the exact p_i=u+c_iw² system.",
+          "constructed": "Norm identities tie two Gaussian generators and common w to Qκ.",
+          "why_match": "A formal unrelated quadric bound is not the output: actual adjacent norms are retained.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "coefficients_normalizations",
+          "required": "Uniform leading constants and correct local density.",
+          "constructed": "Primitive factor |Ω_l|/(l⁴−1); rank-three determinant q², count9^ω(q)q, tail9^ω(q)q³/T³.",
+          "why_match": "The leading obstruction coefficient is independent of τ,L; error thresholds may depend on τ.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "local_conditions",
+          "required": "Bad primes, zero residues and degeneracies.",
+          "constructed": "Primes dividing2κ separated; zero vector excluded; inert degeneration computed.",
+          "why_match": "BL good-prime conditions and BHB odd rank-preserving conditions hold in the used range.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "exceptional_cases",
+          "required": "Zero RHS, zero fixed coordinate, t=−2 and common contents.",
+          "constructed": "These cases are removed/count-bounded or explicitly checked before coprime-polynomial sieving.",
+          "why_match": "No application assumes a nonzero coordinate on a locus where it may vanish.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        },
+        {
+          "name": "downstream_consumption",
+          "required": "A tail smaller than the final fixed-field prime lower bound.",
+          "constructed": "CτN^(3/2)/(LlogL)+Oτ(N^(3/2−1/800)).",
+          "why_match": "Choose L once against c(logL)^(-4k), then fix the field and asymptotic; not a uniform growing-field theorem.",
+          "evidence": [
+            "V13 Gaussian PP appendix; lem:v5-primitive-count; lem:v5-large-sieve; prop:v5-obstruction-tail",
+            "PRIME-PATTERN-AUDIT.md sections on local counts and sieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MITSUI-EXACT-SPECIALIZATION",
+      "title": "Published Mitsui to Gaussian and rational all-endpoint sums",
+      "status": "Fresh published bytes/conventions checked; historical exact hash matched; full PP acceptance not asserted",
+      "evidence": [
+        "sources/mitsui1956.pdf pp2,11,12",
+        "V13 lem:gaussian-hecke-sw",
+        "MITSUI_SW_DERIVATION.md"
+      ],
+      "obligations": [
+        {
+          "name": "source_hypotheses",
+          "required": "Fixed number field, fixed logarithmic exponent, ray character modulus norm bound.",
+          "constructed": "E=Q(i), fixed χ modulo m; variable ρ modulo q<=(logX)^B.",
+          "why_match": "θ=χ(ρ∘Norm) has modulus dividing m(q), norm<=Nm q².",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "constructed_objects",
+          "required": "Actual Hecke character and ideal von Mangoldt sum.",
+          "constructed": "θ(a)=χ(a)ρ(Na), ΛE(p^j)=logNp, zero elsewhere.",
+          "why_match": "The pointwise character identity gives the exact summand in the application.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "domain_index_coverage",
+          "required": "Uniform over all X>=3,1<=Y<=X,q and ρ.",
+          "constructed": "For Y>=√X use exponent2B+1; for smallerY elementary bound; boundedX absorbed.",
+          "why_match": "No application at Y violates the modulus bound. The field/ray modulus remain fixed.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "transition_comparison_maps",
+          "required": "Prime-ideal to prime-power sum and primitive/imprimitive restoration.",
+          "constructed": "Complex-valued unsmoothing and O(√Ylog²Y) prime-power error; optional excluded Euler-factor error.",
+          "why_match": "Absolute values control boundary terms without positivity; conductor restoration changes no main term.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "identity_of_consumed_object",
+          "required": "Principal main term for the actual twisted character.",
+          "constructed": "r=1 iff the inducing primitive Hecke character is trivial.",
+          "why_match": "This is exactly Mitsui E(θ), even though imprimitive zero extension is not1 on excluded ideals.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "coefficients_normalizations",
+          "required": "Error normalized by X and rational analog.",
+          "constructed": "Xexp(−c√logX), χ,B fixed; K=Q uses B+1 and the real infinite place if needed.",
+          "why_match": "The same source covers Q; no n>=2 restriction appears on inspectedp2.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "local_conditions",
+          "required": "All residue degrees and excluded primes.",
+          "constructed": "All prime ideals included; character extended by zero at noncoprime ideals.",
+          "why_match": "Degree-one rational prime conversion occurs later with its factor2; not silently at this source application.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "exceptional_cases",
+          "required": "Small endpoints, imprimitive characters, exceptional zeros.",
+          "constructed": "Small endpoints trivial; principal definition checked; constants ineffective.",
+          "why_match": "No effective or varying-field claim added; Mitsui theorem is used directly, not an unverified correction to Kane.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        },
+        {
+          "name": "downstream_consumption",
+          "required": "Finite ray-character expansion in the actual Gaussian centered weight.",
+          "constructed": "Supplies the strong SW estimate used by fixed-modulus progressions and factorization.",
+          "why_match": "It is a prime-sum input only, not itself the nilsequence or polynomial-pattern theorem.",
+          "evidence": [
+            "sources/mitsui1956.pdf pp2,11,12",
+            "V13 lem:gaussian-hecke-sw",
+            "MITSUI_SW_DERIVATION.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NILSEQUENCE-TO-POLYNOMIAL",
+      "title": "Retained 26 Green–Tao and transference applications",
+      "status": "Existing scoped component acceptances preserved; DK final typeset comparison remains open",
+      "evidence": [
+        "retained-applications.json",
+        "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+      ],
+      "obligations": [
+        {
+          "name": "source_hypotheses",
+          "required": "Fixed nilmanifold complexity, rational filtrations, ordinary prime-majorant hypotheses and DK U^(2s).",
+          "constructed": "Actual Gaussian norm pullbacks, TypeI/II row orbits, centered real weights, fixed rescaled truncated majorant.",
+          "why_match": "Thirteen norm/factorization and thirteen transference rows give the individual source-specific obligations; DK exponent freshly reconfirmed in author manuscript.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "constructed_objects",
+          "required": "Constructed orbits and models at their actual groups.",
+          "constructed": "One-parameter nilsequences; degree2d stretched filtration; product nilmanifold for TypeII; prime cyclic ambient group.",
+          "why_match": "No multiparameter theorem or arbitrary Artin-prime theorem is substituted.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "domain_index_coverage",
+          "required": "All necessary residue classes, cutoffs, intervals, complexities and signs.",
+          "constructed": "Finite fixed-residue lists before thresholds; auxiliaryz distinct from polynomialv; physical-scale step diagonals.",
+          "why_match": "No implicit z=z(N/Vz), varying-field uniformity, or assertion every dilation preserves total equidistribution.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "transition_comparison_maps",
+          "required": "Norm pullback, rational conjugation, normal-form and model comparisons.",
+          "constructed": "Integer coefficient extrapolation; positive-density TypeII row; rational metric bounds; fixed affine normal-form bijection.",
+          "why_match": "Losses are fixed before later exponents; exact cardinality and residue-mass factors are retained.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "identity_of_consumed_object",
+          "required": "The centered Gaussian prime weight, not only an ordinary-prime analog.",
+          "constructed": "h=φ(V)/V(ΛCprime−μCΛprime), with T_C(p)=2ΛCprime and exact Fourier inversion.",
+          "why_match": "The factor2 and conditional μC survive conversion; prime powers have bounded discarded error.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "coefficients_normalizations",
+          "required": "All norm and majorant scaling conventions.",
+          "constructed": "Full-cyclic U^(2s), normalized zero-extension interval U^s, positive α rescaling, arbitrary-function model rescaled to bounded range.",
+          "why_match": "Source inequalities apply to the same real functions and ambient measure used downstream.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "local_conditions",
+          "required": "Unit residues and fixed conductor primes.",
+          "constructed": "V_z=E product_{p<=z}p; fixedE absorbed; unit residue kills added divisor terms.",
+          "why_match": "Ordinary majorant local factors and full-cube expansion remain the specified ones.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "exceptional_cases",
+          "required": "Initial truncation, wrap regions, constant shift and boundary strips.",
+          "constructed": "Crude short-interval cube bound; convex wrap-region split; independent parameter copies and weighted second moment.",
+          "why_match": "Avoids the invalid strip-size times log-power bound and dependent-variable application of polynomial-forms estimates.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        },
+        {
+          "name": "downstream_consumption",
+          "required": "Weighted quadratic Gaussian prime count with uniform range needed for separation.",
+          "constructed": "TZ model/concat/GN and boundary argument produce the fixed-field count; final diagonal controls T.",
+          "why_match": "Existing component acceptances remain conditional on their explicit upstream inputs. The exact final318 consumer still needs its own joined review.",
+          "evidence": [
+            "retained-applications.json",
+            "V13 lem:gn-norm-transfer, gi TypeI/II, prop:gf-factorization, cor:ga-fixed-centered-nilsequence, subsec:gaussian-gowers-bridge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PP-TO-LITERAL-318",
+      "title": "Gaussian PP and separation to actual final source witnesses",
+      "status": "Exact current consumer identified; no unconditional sourceArithmetic discharge; independent joined acceptance pending",
+      "evidence": [
+        "COMPLETENESS-ASSEMBLY.md sections1–9",
+        "final-consumer-pins.json",
+        "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+        "Current318FinalBridge.lean sourceArithmetic"
+      ],
+      "obligations": [
+        {
+          "name": "source_hypotheses",
+          "required": "Fixed distinct integer coefficients, finite avoidance data, divisibility and lower bounds.",
+          "constructed": "D0 clears denominators of θ/Ar; merged forms u−D0²(θ/Ar)w²; Θ has five contacts.",
+          "why_match": "At least two forms remain; duplicates are one position; all roots/scales and bounds are fixed before PP.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "constructed_objects",
+          "required": "The actual elliptic curve, roots, scales and detector coordinates.",
+          "constructed": "E:y²=x³−(3−√2)²x, P=2R0; coherent hi; final318 builder/IR.",
+          "why_match": "All builder/IR hashes match; no surrogate modular family is identified with this source.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "domain_index_coverage",
+          "required": "Every detector/contact and all finite bad/local data.",
+          "constructed": "Three scales times five contacts merged; cutoff>76176 and all fixed bad factors; odd avoidanceM excludes7.",
+          "why_match": "q-divisibility and fixed rays handle small-prime/local requirements before asymptotics.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "transition_comparison_maps",
+          "required": "Orders, CRT, halving branch, trace and conic normalization.",
+          "constructed": "M±=lcm(d±/4); h=0modΠ³M−,1modM+,h0modL; R0 halving branch; B/B³ pole residual scaling.",
+          "why_match": "The consumed objects are doubling-image orders; the plus branch is obtained without conflicting p-power congruences.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "identity_of_consumed_object",
+          "required": "Final sixteen-leaf left-deep chain and every318-source row.",
+          "constructed": "Twelve square leaves, four unsquared deltas, m=1,4,13 weights; fill288rows.",
+          "why_match": "Product-of-factors arguments and historical constants cannot replace this chain; finite detector_trace_unit matches it.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "coefficients_normalizations",
+          "required": "Correct 2-adic factors, local depth and final constants.",
+          "constructed": "v2d−=6,v2d+=2; gcdM−L=16 and16|h0; exponent3; sourceindex8 and4/13.",
+          "why_match": "64 component/divisibility factor accounts for R0 versusP; current scalar a0 valuation at2 is4, not6.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "local_conditions",
+          "required": "Real guard domain, all denominator exclusions and finite-adic continuity.",
+          "constructed": "Choose compactK0 and adjusth0 within old local neighborhood if necessary; fixL on hR0 orbit.",
+          "why_match": "New quotients are not presumed defined at oldh0; roots and bounds are not selected retrospectively.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "exceptional_cases",
+          "required": "Selected-prime/order collisions, zero leaves, h=0/1 and zero poles.",
+          "constructed": "Weighted separation uses w²>=N^(2/3),w²=oN and Hasse; chooseh>1; zero-leaf valuation induction; B>0.",
+          "why_match": "Cross-prime separation is stronger than same-prime affinePP; no zero-fiber division in completeness.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        },
+        {
+          "name": "downstream_consumption",
+          "required": "IntegerX produces literal rational witnesses, then the final equivalence.",
+          "constructed": "Conditional assembly usesPP plus RC-dependent pole existence; finite algebraic bridge still takes sourceArithmetic.",
+          "why_match": "This proves neither the global premise nor the converse by compilation alone. RC and Kato source-consumer joins are separately assigned.",
+          "evidence": [
+            "COMPLETENESS-ASSEMBLY.md sections1–9",
+            "final-consumer-pins.json",
+            "V13 thm:v5-simultaneous-primes and v9:lem:separation",
+            "Current318FinalBridge.lean sourceArithmetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ANALYTIC-ARITHMETIC-IDENTITY",
+      "title": "Actual modular analytic objects and remaining arithmetic comparison",
+      "status": "Checked bounded formal endpoints with exact receipts; global analytic/algebraic/PEL/metric application OPEN",
+      "evidence": [
+        "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+        "../recovered-modular-core/receipt.json",
+        "../recovered-infinity-germs/receipt.json"
+      ],
+      "obligations": [
+        {
+          "name": "source_hypotheses",
+          "required": "Actual subgroup/level and smooth arithmetic-fiber assumptions.",
+          "constructed": "FineΓ1(N) all-cusp atlas forN>=5; literal short-curve complex fibers at genuinej; localization hypotheses.",
+          "why_match": "GeneralΓH atlas is not inferred; OpenJModel318.BaseN localization parameter is not torsion orderN.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "constructed_objects",
+          "required": "Actual complex curve, algebra and comparison map.",
+          "constructed": "Genuine all-cusp quotient; genuinewp periods; full rank8 order3 cover and its full rank4 fixed algebra.",
+          "why_match": "Rank8 and coarse rank4 objects remain distinct; no PEL label added.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "domain_index_coverage",
+          "required": "All cusps, all points of the claimed arithmetic target, and exceptional j.",
+          "constructed": "All-cusp charts at proven levels; actual quotient map onto all fixed-algebra ℂ-homomorphisms on the stated open base.",
+          "why_match": "Every target point is represented via the actual algebra; excluded elliptic/j values are not silently added.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "transition_comparison_maps",
+          "required": "Scaling and sign actions, not only coordinate resemblance.",
+          "constructed": "Selected short-Weierstrass scaling; additive point equivalence; exact sign quotient; j,x coordinates.",
+          "why_match": "Central−I identifies± on the effective analytic quotient; labels are not assumed a full additive basis.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "identity_of_consumed_object",
+          "required": "The object required by the final arithmetic/height consumer.",
+          "constructed": "Current results reach the auxiliary literal short-family fixed algebra.",
+          "why_match": "They do not yet identify the contact curve/PEL family/Jacobian and its arithmetic metric; this is a genuine remaining bridge.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "coefficients_normalizations",
+          "required": "wp and coordinate/differential normalization.",
+          "constructed": "Recovered genuinewp(1/3), exact scaling germs and derivativeu^-1; algebraic invariant differentials separate.",
+          "why_match": "A local scaling derivative does not imply lift linearity, lattice homothety or global period comparison.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "local_conditions",
+          "required": "Local analytic topology and cusp charts.",
+          "constructed": "Proven j,x induced topology; proper continuous finite-fiber surjection; analytic infinity germs.",
+          "why_match": "Topological properness is not Scheme.Finite or analytification equivalence.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "exceptional_cases",
+          "required": "Small levels, automorphisms, sign and proof-state limits.",
+          "constructed": "Fine-level restrictions explicit; sign quotient verified; injectivity/lattice classification drafts paused.",
+          "why_match": "Unverified draft endpoints are excluded; four-germ combined audit and independent review not invented.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        },
+        {
+          "name": "downstream_consumption",
+          "required": "Actual algebraic/arithmetic modular comparison needed by height estimates.",
+          "constructed": "Bounded formal analytic results are available, seven-module audit passed; broader identity remains absent.",
+          "why_match": "No contact-height or unconditional318 theorem follows just from these formal components.",
+          "evidence": [
+            "Published receipts: all-cusp-complex-atlas, analytic-j-proper, analytic-arithmetic-comparison, canonical-x-comparison, three-torsion-sign-quotient",
+            "../recovered-modular-core/receipt.json",
+            "../recovered-infinity-germs/receipt.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

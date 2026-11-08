@@ -1,0 +1,58 @@
+$E_0=10(DG_0)^2$.
+
+\paragraph{Modularity and a uniform conductor bound.}
+Choose one number field $C$ containing all $a_\sigma$, the values of
+$\beta$, and a splitting field of $B$. For each coefficient prime
+$\ell$ choose an embedding of $C$ into $\overline{\mathbb Q}_\ell$
+and extend scalars on $V_\ell(A)$ to a finite extension containing
+its image. With the constant-coefficient convention above, define
+\[
+ \rho_\ell(\sigma)
+   =\beta(\sigma)^{-1}a_\sigma\mu_\sigma\circ\sigma.
+\]
+The cocycle identities make this a representation of $G_\Q$.
+It commutes with $B$, so matrix units give
+$\rho_\ell\simeq r_\ell\oplus r_\ell$ with $\dim r_\ell=2$.
+On $G_{L'}$ it is the actual Tate action of $A$.
+Faltings' semisimplicity and endomorphism theorems
+\cite{faltings1983} show that $r_\ell|_{G_{L'}}$ is absolutely
+irreducible: after splitting $B$, its commutant is the scalars.
+Lemma~\ref{lem:de-rham-descent} below shows that the representation
+is de Rham at $\ell$, by proper-smooth comparison and finite descent
+\cite{scholze2013,scholze-erratum}, and that its
+two Hodge--Tate weights are $0,-1$ in the Tate convention.
+Berger's $p$-adic monodromy theorem \cite{berger2002} makes this
+de Rham representation potentially semistable, as required by
+Pan's theorem.
+It is odd. To see this without an assumption on a residual
+representation, compare with Betti homology at a complex
+embedding. Take the map on rational Betti homology induced by
+antiholomorphic conjugation followed by the holomorphic
+quasi-isogeny $\mu_c$, and extend it $\mathbb C$-linearly.
+It exchanges the two Hodge summands. Each
+summand is a simple module for $B\otimes\mathbb C=M_2(\mathbb C)$.
+Consequently its action on the two-dimensional multiplicity
+space is not scalar; since $r_\ell(c)^2=1$, its eigenvalues
+are $1,-1$.
+It is unramified outside $T\cup\{\ell\}$, since there $L$ is
+unramified, $A$ has good reduction, and $\beta$ is unramified.
+
+Use the Tate convention in which the cyclotomic character has
+Hodge--Tate weight $-1$. Apply \cite[Theorem 1.0.4]{pan2022} at
+$\ell=5$; there is no residual-image proviso at this prime.
+It gives a cuspidal eigenform up to character twist. The twisting
+character is a de Rham subrepresentation of the Hom representation
+and is unramified outside finitely many primes. Local algebraicity
+\cite[Appendix B, pp.~32--33]{conrad-local-characters} and class field
+theory over $\mathbb Q$ make it a finite character times an integral
+power of the cyclotomic character: removing its integral local
+Hodge--Tate weight leaves finite inertia at five and at every other
+prime, hence a finite ray-class character. Comparing $\{0,-1\}$
+with the modular weights $\{0,1-k\}$ after that power forces
+$k=2$ and power zero. Absorb the finite Dirichlet character into
+the eigenform and take its primitive newform $f$. Li's Fricke formula
+\cite[p.~296, before Lemma 6]{li-newforms} makes the span of its
+coefficient conjugates Fricke-stable. Shimura's quotient construction
+and Euler-factor identity \cite[Theorem 1]{shimura-factors} therefore
+show that $r_5$ is a constituent of the Tate module of the modular abelian variety
+$A_f$, or equivalently $r_5^\vee$ is its cohomological constituent.

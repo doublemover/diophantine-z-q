@@ -1,0 +1,257 @@
+{
+  "id": "V13-CARRY-FORWARD-TO-LITERAL-318-326",
+  "status": "frozen amendment candidate for independent review; no self-acceptance",
+  "author_task": "/root/restart_geometric_model",
+  "active_baseline": {
+    "path": "manuscripts/quartic_v13.tex",
+    "sha256": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+    "bytes": 1056445
+  },
+  "historical_repair": "Version 11 Kato index/norm/lattice/class interface, adopted in immutable previous packet",
+  "upstream_contract": {
+    "path": "docs/manuscript-revisions/version13/kato-carryforward-application.json",
+    "sha256": "10f81599b387b96d8cc8da01f14e736f5573e03f5ad40ca9e8a4c1d0927a6676",
+    "bytes": 8887
+  },
+  "upstream_acceptance": {
+    "path": "docs/manuscript-revisions/version13/kato-carryforward-acceptance.json",
+    "sha256": "19beb33d71765b510cd08c22b2ed212e365924a7f7bfb592abf1e10e40195831",
+    "bytes": 787
+  },
+  "prior_adoption": [
+    {
+      "repository_destination": "docs/quartic-318-326/v11-consumer-binding/APPLICATION.json",
+      "sha256": "864dae54e7a3d57b612bc728788e407f818369adb266f512b76b2fef1795db8a"
+    },
+    {
+      "repository_destination": "docs/quartic-318-326/v11-consumer-binding/candidate-manifest.json",
+      "sha256": "0d8e01654e91d97d573c955f9d61a4cbbd5a75c6afffe281cb315bc281d73ae6"
+    },
+    {
+      "repository_destination": "docs/quartic-318-326/v11-consumer-binding/source-consumer-manifest.json",
+      "sha256": "edd59d5d75e643a2be7f02bcd791516ad07afb111c86642e874ba965a4638f46"
+    },
+    {
+      "workspace_relative_path": "v11-kato-independent-audit/acceptance.json",
+      "sha256": "5d85b1fb1beb79ff46fb1227e9a7faba1022f9704ea0499c2366e4c836107782"
+    },
+    {
+      "workspace_relative_path": "recovery-contact-0358/v11-binding-review/acceptance.json",
+      "sha256": "d837fbe1bfae151cb2b56c2a1fc780ba621f0e1665de089483d5a537c809f728"
+    }
+  ],
+  "evidence_manifest": {
+    "path": "source-consumer-manifest.json",
+    "sha256": "7f3eb1e78da34f504c5953487216d31277d7ca50427a796e3aaf814a3eceeb54"
+  },
+  "scope": "Rebind only the exact retained dependency and two current consumer documents to Version 13. All nine previously reviewed Kato obligations and actual downstream passages are unchanged.",
+  "nine_obligations": {
+    "source_hypotheses": {
+      "status": "checked",
+      "required": "1999 0.1 requires every multiple of N_K coprime to Nprime; 0.7 uses its normed Iwasawa class.",
+      "constructed": "N_K=2Nd, Nprime=c*d_s, with gcd=1 by K5 and d|F.",
+      "justification": "Original definitions were read. Existing rational-away-2 representation hypotheses are retained, not inferred from residual irreducibility.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "constructed_objects": {
+      "status": "checked",
+      "required": "An integral compatible T*chi-valued Euler system in the stated cohomology groups.",
+      "constructed": "K8 defined for all positive m prime to c*d_s, using the same original z_(Dm), symbol and smoothers.",
+      "justification": "2004 8.1.3 and 8.9-8.12 allow these levels. K7 supplies j-star descent; the fixed lattice map is used uniformly.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "index_domain_coverage": {
+      "status": "checked",
+      "required": "All m divisible by N_K and coprime to Nprime, including conductor and bad primes.",
+      "constructed": "The expanded K8 domain includes every such m and retains the old Xi subfamily.",
+      "justification": "S_(Dm) misses smoothing primes. The former Xi restriction is no longer incorrectly used to satisfy the larger 1999 domain.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "transition_maps": {
+      "status": "checked",
+      "required": "1999 0.1.1: identity for repeated primes, P_l(l^-1 sigma_l^-1) for new primes.",
+      "constructed": "If l|m the supports agree; otherwise N_K|m implies l does not divide 2Nd and exactly l is added.",
+      "justification": "Prop8.12 and tensor/corestriction equivariance give both cases, with no bad-prime Euler polynomial substituted.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "limiting_object_identity": {
+      "status": "checked",
+      "required": "The 0.7 class for divisor parameter1 must be the supplied retained dyadic class.",
+      "constructed": "Displayed corestriction identity from N_K*2^n to 2^n for every n>=1.",
+      "justification": "Equal construction supports give exact norm of original classes. Transitivity through two intermediate fields in one upper field gives y_(2^n); no field-degree scalar. The fixed lattice factor is separately stated.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "coefficient_conventions": {
+      "status": "checked",
+      "required": "Arithmetic Frobenius on T*chi, inverse deck element in Euler substitution; integral lattice followed by localization away2.",
+      "constructed": "P_l(X)=1-a_l chi(l)X+lX^2. Optional uniform2^c_E sends original lattice into T.",
+      "justification": "chi is quadratic, so the equivariance scalar matches K9. The fixed factor is a unit only at the explicitly used away-2 primes, preserving J there.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "local_conditions": {
+      "status": "checked",
+      "required": "1999 full cohomology uses fixed inverted N_K; 2004 construction is j-star over the dyadic open scheme.",
+      "constructed": "The proof distinguishes the varying construction support S_(Dm) from primes inverted in the 1999 scheme.",
+      "justification": "K7 gives the integral j-star property even for ramified transfer; restriction then supplies full cohomology. Existing local-complex comparison is unchanged.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "exceptional_cases": {
+      "status": "checked",
+      "required": "Repeated bad/conductor primes, dyadic conductor, smoothing primes, initial dyadic levels and the reused symbol d.",
+      "constructed": "Repeated support gives factor1; smoothers are excluded; n>=1 is cofinal; source divisor parameter1 is distinguished from conductor d.",
+      "justification": "No disjointness of the two intermediate cyclotomic fields is assumed. Full D remains in every upper field. No assertion that 3 always belongs to Sigma is needed.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    },
+    "downstream_consumption": {
+      "status": "checked",
+      "required": "K15 must bound J of the actual supplied retained class, not an arbitrary proportional generator.",
+      "constructed": "xi_K is the full-cohomology image of y_(2^infinity), with only the stated uniform lattice map.",
+      "justification": "The equality and away-2 unit show its localized coordinate ideal is J. The subsequent unchanged cohomology comparison transfers the bound in the convention consumed by K15.",
+      "evidence": [
+        "norms",
+        "interface"
+      ],
+      "sources": [
+        "kato1999",
+        "kato2004"
+      ]
+    }
+  },
+  "dependency_impact": {
+    "v12": "New 498/514 reductions from 523, including mixed12/40 tests, normalized poles, half-trace guards and scalar/anchor circuit reductions.",
+    "v13": "New394/411 reductions from498, including rational logs/order10, identity-inclusive charts, enlarged H-domain, positive scalar/depth24, factored/preparation-zero poles and anchor rescaling.",
+    "literal_318_326": "No automatic transport of either different source. Current order4/13, index8, height49/8 and coefficient data remain unchanged. This amendment changes active references, not mathematical source or Lean definitions.",
+    "retained_open": "Full restricted converse, positive-complex/central calibration, geometric/height comparison and simultaneous compatible all288-row witness construction retain their recorded review/formalization boundaries."
+  },
+  "proposed_outputs": [
+    {
+      "target": "quartics/quartic-318-326/docs/arithmetic.md",
+      "before_sha256": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "after_sha256": "069738d42a127a2cd3a476cba9281a77f3cbd23ec81a5a3441090ea8ebab09d0",
+      "before_file": "arithmetic.before.md",
+      "candidate_file": "arithmetic.proposed.md",
+      "patch_file": "arithmetic.patch",
+      "changed_ranges": [
+        {
+          "operation": "replace",
+          "before_range": [
+            1594,
+            1594
+          ],
+          "after_range": [
+            1594,
+            1594
+          ],
+          "before_excerpt_sha256": "a81409275084882298b7959f03ef9beca773568726f4a92fc75b71cd280ff184",
+          "after_excerpt_sha256": "ee9df3a7e24bc20f0b0104198037bd4d76894b5fa908a52fabaf48473c2cd9f2"
+        },
+        {
+          "operation": "replace",
+          "before_range": [
+            1596,
+            1596
+          ],
+          "after_range": [
+            1596,
+            1598
+          ],
+          "before_excerpt_sha256": "41eaafffae3f7a084adabeecbaefd8b499aecd96aa617837a28cbc75ec614e71",
+          "after_excerpt_sha256": "125505dd2058c21b4dc866e804b13e3f45e745168d7df0de9c6e7f5c7e397f48"
+        }
+      ]
+    },
+    {
+      "target": "quartics/quartic-318-326/proof/components/arithmetic-obligations.md",
+      "before_sha256": "f82977d998d71d8a9ba3fc1c7d848ee20150efa4fb82d3219648cc1a8f632e00",
+      "after_sha256": "00279bdb4ca41399abcf9df3b1dfc0b28b62cf30dfcd231e386a6f9e226546f1",
+      "before_file": "arithmetic-obligations.before.md",
+      "candidate_file": "arithmetic-obligations.proposed.md",
+      "patch_file": "arithmetic-obligations.patch",
+      "changed_ranges": [
+        {
+          "operation": "replace",
+          "before_range": [
+            33,
+            33
+          ],
+          "after_range": [
+            33,
+            33
+          ],
+          "before_excerpt_sha256": "a976adce77786bc54304acbe053ba9553863b373920b8e86edc54e92a2b6eaa0",
+          "after_excerpt_sha256": "2884cd386d4e414dce1f87d502fbf83dda7f376ca76b479f6ab50296ab5fe533"
+        },
+        {
+          "operation": "replace",
+          "before_range": [
+            42,
+            42
+          ],
+          "after_range": [
+            42,
+            42
+          ],
+          "before_excerpt_sha256": "bcfb8310ff8861bc62bcd1a7a78f9781a8d0e3e51622477f33688661b69680d4",
+          "after_excerpt_sha256": "315dbcf06af85ee08017d553c6f7472c76acce6356035b6012234318cf6683df"
+        }
+      ]
+    }
+  ],
+  "acceptance_requested": "Exact carry-forward identity and narrow documentation scope, not approval of V12/V13 new reductions or full inherited arithmetic proof"
+}

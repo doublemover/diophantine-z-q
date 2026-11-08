@@ -1,0 +1,45 @@
+--- recovery-modular-0358/input-inventory-v13/excerpts/arithmetic-e96.md	2026-11-07 23:36:49.042510310 -0500
++++ diophantine-z-q/quartics/quartic-318-326/docs/arithmetic.md	2026-11-07 22:59:25.593431164 -0500
+@@ -1259,12 +1259,14 @@
+ 
+ ### Intersect the chosen section
+ 
+-Let P':Spec O_L->Y' be the closure of a rational point b above the rational valuea, with a outside0,1,infinity. Its image is not contained in the effective difference. The preceding divisor inequality and the projection formula for the pullback of D_bound give
++Let P':Spec O_L->Y' be the closure of a rational point b above the chosen rational value a, with 0<a<1. In the application a=1/(2^128+i), so this condition holds. Its image is not contained in the effective difference. The preceding divisor inequality and the projection formula for the pullback of D_bound give
+ 
+ (K_Y',P')_fin/[L:Q]
+  <= (D_hor,Q)_fin/[L:Q] + 2 sum_p m_p*logp
+  <= 3h(a)+2 sum_p floor(logd/logp)*logp.
+ 
++The horizontal estimate here uses 0<a<1: if a=u/v in lowest terms with 0<u<v, then log u+log v+log(v-u)<=3log v=3h(a). For an arbitrary rational a outside0,1,infinity the uniform bound needs an extra log2; a=-1 already rules out the unqualified 3h(a) statement. This qualification does not change the chosen application or any final constant.
++
+ For the modular cover the sum is at most omega(6N)*logd. Thus the finite contribution is
+ 
+ 3h(a)+2omega(6N)logd,
+@@ -1414,7 +1416,7 @@
+ 
+     h_GR(J_H)<=2^11*d^2*L^2.                        (1)
+ 
+-Normalization: Javanpeykar Lemma2.4.4 states that the Gaudron-Rémond height is h_GR=h_Fal+g log(sqrt(pi)). The preceding cancellation bounds h_Fal. Add g log(sqrt(pi))<g before using Rémond and Gaudron-Rémond below. The displayed2^11 bound has ample slack to absorb this, so(1) and all later h_F notation use the GR/Rémond normalization.
++Normalization: Javanpeykar Lemma2.4.4 compares the original height h_Fal with the shifted height h_shift=h_Fal+g log(sqrt(pi)). The preceding cancellation bounds h_Fal. Add g log(sqrt(pi))<g; the displayed2^11 bound absorbs this, and(1) and the later h_F budget use this larger shifted height. The linked Gaudron-Rémond Theorem1.9 uses the original height. Its maximum is bounded by the maximum using h_shift, so the larger budget is valid without identifying the two conventions. Equal-dimension isogeny variation is unchanged by the shift.
+ 
+ For example F_b+h(a_i)+9<=409+12log(g+1)+2log(6N)logd/log2, and the Wronskian term is at most100d^2L. All these terms are below the right side of(1).
+ 
+@@ -1445,7 +1447,7 @@
+     h_F(A)<2^67 C^2 R^(49/8),
+     h(a)<2^68 C^2 R^(49/8)+128.
+ 
+-The inherited CM bound854R is smaller. The old constant H19=2^110 C^6 B_*^19+128 therefore remains valid for
++The inherited CM bound854R is a bound for the original surface height h_Fal(A), not directly for h(a). Combining it with the actual metric comparison h(a)<=2h_Fal(A)+120 gives h(a)<1708R+120, still smaller than the displayed contact cap. The positive log(pi) normalization shift is also absorbed by the same cap. The old constant H19=2^110 C^6 B_*^19+128 therefore remains valid for
+ 
+     h(a)<=H19*M5(a)^(49/8).                         (2)
+ 
+@@ -1477,7 +1479,7 @@
+ 
+ - Ariyan Javanpeykar, *Polynomial bounds for Arakelov invariants of Belyi curves*, with an appendix by Peter Bruin, arXiv:1403.6404. The relevant inputs are section 2.3, Theorem2.4.1, Lemma2.4.4, section 4.2 and Theorem4.3.2. https://arxiv.org/abs/1403.6404
+ - Gaël Rémond, *Propriétés de la hauteur de Faltings*, Annali della Scuola Normale Superiore di Pisa23(2022),1589–1596, Corollary1.2 and the stable-height observation on page2. https://www-fourier.univ-grenoble-alpes.fr/~remond/2476.pdf
+-- Éric Gaudron and Gaël Rémond, *Degrés minimaux d'isogénies et invariants des variétés abéliennes*, Theorem1.9(1) and section 1.5, current author version. https://lmbp.uca.fr/~gaudron/art20.pdf
++- Éric Gaudron and Gaël Rémond, *Nouveaux théorèmes d'isogénie*, Theorem1.9(1) and section 1.5, September2022 author version. https://lmbp.uca.fr/~gaudron/art20.pdf
+ 
+ The final source uses S = 3^(2^16) and H = 2^5385; see [exceptional-prime bounds](#finite-exceptional-primes).
+ 

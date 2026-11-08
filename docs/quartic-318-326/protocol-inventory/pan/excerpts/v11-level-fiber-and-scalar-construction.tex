@@ -1,0 +1,120 @@
+% the published 2021 edition of Voight, chapter 43.
+\paragraph{A level bound for the non-CM fibers}
+\label{sec:h5-level-repair}
+
+This argument allows the scalar character order and coefficient field to
+vary. It does not assert bounded same-field descent to a rational
+GL$_2$-type variety. Let $s$ be a rational point outside the five contacts,
+let $L/\mathbb Q$ be the normal fiber field constructed above, and let
+$A/L$ be a non-CM fiber surface. Thus $[L:\mathbb Q]\mid576$, all
+geometric homomorphisms between conjugate fibers are defined over $L$,
+and $\operatorname{End}^0(A_{\overline{\mathbb Q}})=B$, the quaternion
+division algebra of discriminant $210$. Put
+\[
+ R=B_*M(s),\qquad T=\{p:p\mid R\}.
+\]
+The geometric argument gives that $L$ is unramified outside $T$ and
+$A$ has good reduction outside the primes above $210$. All conjugate
+QM structures lie in the same normalizer orbit.
+
+\paragraph{Good reduction after full torsion.}
+First a QM surface with the indicated division action has potentially
+good reduction at every finite place. Indeed, pass to an extension with
+semistable reduction, using \cite[Theorem 3.4, p.~406]{silverbergzarhin}.
+Every endomorphism extends uniquely to the N\'eron model by its mapping
+property. On the identity component of the geometric special fiber it
+preserves the maximal torus $\mathcal T$: this torus is the maximal
+connected affine subgroup, and every homomorphism from a torus to an
+abelian variety is zero. If its rank $t$ is positive, restriction gives
+a unital homomorphism
+\[
+ B\longrightarrow\operatorname{End}^0(\mathcal T)=M_t(\mathbb Q),
+ \qquad 1\le t\le2.
+\]
+The kernel is a two-sided ideal of the simple algebra $B$, and the map
+is unital, so it is injective. For $t=1$ dimensions prohibit this;
+for $t=2$ it would be an isomorphism from a division algebra to
+$M_2(\mathbb Q)$, also impossible. Hence $t=0$. The semistable identity
+component is abelian, which is good reduction. These N\'eron-model and
+reduction conventions are those of \cite[\S3, pp.~405--406]{silverbergzarhin}.
+
+Set $E=L(A[11])$. We next justify that $E/\mathbb Q$ is Galois.
+For each $\sigma$, the normalizer relation supplies a compatible
+isogeny ${}^{\sigma}A\to A$ of degree prime to $11$. Here is the
+prime-to-$11$ detail. In the analytic description
+$A_z=\mathbb C^2/(\mathcal O(z,1)^t)$ of the published 2021 edition
+of Voight \cite[equations (43.1.2)--(43.1.3)]{voight2021}, a positive normalizer element
+$b=\left(\begin{smallmatrix}a&b'\\c&d\end{smallmatrix}\right)$
+gives the scalar compatible map $(cz+d)I:A_{bz}\to A_z$.
+When $\mathcal O b\subset\mathcal O$, its degree is
+$[\mathcal O:\mathcal O b]=\operatorname{Nrd}(b)^2$.
+At $11$ the algebra is split and the maximal-order normalizer is
+$\mathbb Q_{11}^*\operatorname{GL}_2(\mathbb Z_{11})$.
+Rescale $b$ rationally to make it an $11$-adic unit, then clear the
+remaining denominators by an integer prime to $11$. This produces
+the claimed isogeny. Changes of level marking use isomorphisms.
+All these geometric homomorphisms are $L$-defined by construction.
+Consequently the $11$-torsion representations of $A$ and its conjugates
+over $L$ have the same kernel. Thus every conjugate of $E$ equals $E$.
+
+The faithful action on $A[11]$ now gives
+\[
+ [E:\mathbb Q]\le576|\operatorname{GL}_4(\mathbb F_{11})|
+ <2^{10}11^{16}<2^{66}.
+\tag{LR1}
+\]
+For residue characteristic different from $11$, full rational
+$11$-torsion gives semistable reduction over $E$ by
+\cite[Theorem 3.5, p.~406]{silverbergzarhin}. The preceding torus
+argument makes this good reduction. In particular it applies at
+each of $2,3,5,7$.
+
+\paragraph{The scalar lift with controlled support.}
+Choose $B$-compatible isogenies $\mu_\sigma:{}^\sigma A\to A$ over $L$,
+with $\mu_1=1$, and inflate this finite choice to $G_{\mathbb Q}$.
+Their discrepancies $c(\sigma,\tau)$ commute with $B$, so lie in
+$\mathbb Q^*$. Put $a_\sigma=(\deg\mu_\sigma)^{-1/4}>0$ and
+$\nu_\sigma=a_\sigma\mu_\sigma$, with trivial Galois action on the
+added algebraic coefficients. Since a scalar $c$ has degree $c^4$,
+the discrepancies of the $\nu_\sigma$ form a sign cocycle
+$\varepsilon\in Z^2(G_{\mathbb Q},\{\pm1\})$, inflated from
+$\operatorname{Gal}(L/\mathbb Q)$.
+
+The sign class is unramified, hence zero, locally outside $T$.
+At each odd prime where its Brauer invariant is $1/2$, choose an odd
+Dirichlet character modulo $p$; at $2$ use the odd character modulo
+$4$ if required. Their product $\chi$ is tame at every odd prime,
+has local conductor at most $4$ at $2$, and has order
+\[
+ m\le2\prod_{\substack{p\in T\\p\ne2}}(p-1)\le2R.
+\]
+For constant coefficient groups, the boundary in
+$1\to\{\pm1\}\to\mu_\infty\xrightarrow{2}\mu_\infty\to1$
+is the obstruction to a character square root. Local reciprocity
+identifies this obstruction with the value at $-1$: the cyclic
+torsion factor has precisely this obstruction, while the valuation
+and principal-unit factors admit character square roots.
+Thus the boundary of $\chi$ equals $[\varepsilon]$ at every finite
+place. Brauer reciprocity and the global-to-local injection give
+equality globally. A pointwise square root, corrected by a sign
+cochain, gives
+\[
+ b:G_{\mathbb Q}\longrightarrow\mu_{2m},\qquad
+ b^2=\chi,\qquad\delta b=\varepsilon.
+\tag{LR2}
+\]
+Only this \emph{sign} cochain is asserted to take root-of-unity values;
+the full scalar splitting also involves the $a_\sigma$.
+
+On $G_L$, $b$ is a conjugation-invariant character. Outside $T$ its
+inertia characters are quadratic. Only finitely many are nontrivial;
+twist by the quadratic character of the product of those odd primes
+to kill them. At each odd prime there is a unique nontrivial quadratic
+inertia character. This changes no square or coboundary in (LR2),
+and introduces possible ramification only at $2\in T$.
+The kernel field $L'$ of $b|G_L$ is normal over $\mathbb Q$ and
+\[
+ [L':\mathbb Q]\le2m[L:\mathbb Q]\le2304R.
+\tag{LR3}
+\]
+

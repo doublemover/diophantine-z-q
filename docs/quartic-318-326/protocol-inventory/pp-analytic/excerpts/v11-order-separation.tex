@@ -1,0 +1,19 @@
+\begin{lemma}\label{v9:lem:separation}
+The contact primes in the source completeness argument may be chosen so that no selected prime divides any opposite reduced group order.
+\end{lemma}
+\begin{proof}
+After merging repeated contact forms and fixing all scale and congruence data, the prime-pattern proof uses distinct forms $p_j=u+c_jw^2$, with fixed coefficients $c_j$. Integer dilations and ray congruences change only fixed constants. It counts $u\in[N/2,N]$ and $1\le w\le T$, where $T=\lfloor\tau(N)\sqrt N\rfloor$ and $\tau(N)\to0$ can be chosen arbitrarily slowly in the final diagonal argument. Its weighted count, after the prescribed obstruction removal, retains a fixed positive proportion of $NT$. These are the fixed-field weighted count in Proposition~\ref{prop:v5-artin-patterns} and the final diagonal argument of Section~\ref{subsec:v5-diagonal}, including its obstruction removal.
+
+If there are $k$ forms, impose also
+\[
+ \frac{\tau(N)N^{1/6}}{(\log N)^k}\longrightarrow\infty.
+\]
+This is compatible with the same diagonal choice: for each fixed positive value of $\tau$, its threshold can be added to the existing finite list of thresholds. The strip $w<N^{1/3}$ has at most $O(N^{4/3})$ integer pairs and weight at most $O((\log N)^k)$ per pair. Its total weight is $o(NT)$, so an admissible pattern remains outside it.
+
+For these patterns $w^2\ge N^{2/3}$ and $w^2=o(N)$. All $p_j$ are asymptotic to the same $u$. Hasse's bound \cite[Theorem V.1.1, p. 138]{silverman} gives $d_+(p_j)=p_j+O(\sqrt N)$ for the opposite reduced group order. Every ratio $d_+(p_j)/p_i$ is eventually strictly between $1/2$ and $2$. Hence $p_i\mid d_+(p_j)$ would force equality. If $i\ne j$, this contradicts
+\[
+ |p_i-p_j|\ge c_*N^{2/3},\qquad
+ c_*:=\min_{i\ne j}|c_i-c_j|>0.
+\]
+If $i=j$, equality is impossible because $4\mid d_+(p_i)$ whereas $p_i$ is odd.
+\end{proof}
