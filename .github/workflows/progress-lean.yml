@@ -1,0 +1,167 @@
+name: Progress Lean cohorts
+
+on:
+  push:
+    paths:
+      - 'quartics/quartic-318-326/proof/progress/**'
+      - 'scripts/check_progress_lean.py'
+      - 'scripts/check_lean.py'
+      - 'scripts/test_progress_lean.py'
+      - '.github/workflows/progress-lean.yml'
+  pull_request:
+    paths:
+      - 'quartics/quartic-318-326/proof/progress/**'
+      - 'scripts/check_progress_lean.py'
+      - 'scripts/check_lean.py'
+      - 'scripts/test_progress_lean.py'
+      - '.github/workflows/progress-lean.yml'
+  workflow_dispatch:
+    inputs:
+      clean:
+        description: 'Rebuild every project module without reusing project artifacts'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# Let a cold run finish and populate caches. The latest pending commit follows it.
+concurrency:
+  group: progress-lean-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PROGRESS: quartics/quartic-318-326/proof/progress
+  CLEAN: ${{ github.event_name == 'workflow_dispatch' && inputs.clean && 'true' || 'false' }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      base: ${{ steps.plan.outputs.base }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.14'
+      - run: python -B -m unittest discover -s scripts -p 'test_*lean*.py' -v
+      - id: plan
+        run: python -B scripts/check_progress_lean.py plan --output build/progress-plan.json --github-output "$GITHUB_OUTPUT"
+
+  cohort:
+    needs: plan
+    name: Progress cohort ${{ matrix.id }} (${{ matrix.modules }} modules)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.14'
+      - name: Restore prior project artifacts
+        if: env.CLEAN != 'true'
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .cache/progress-ci
+          key: progress-v1-${{ needs.plan.outputs.base }}-${{ matrix.id }}-${{ matrix.key }}
+          restore-keys: |
+            progress-v1-${{ needs.plan.outputs.base }}-${{ matrix.id }}-
+      - name: Install pinned elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/elan-install"
+          cd "$RUNNER_TEMP/elan-install"
+          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
+          tar -xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned upstream artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B scripts/check_progress_lean.py cache-targets > "$RUNNER_TEMP/progress-cache-targets.txt"
+          mapfile -t targets < "$RUNNER_TEMP/progress-cache-targets.txt"
+          test "${#targets[@]}" -gt 0
+          cd "$PROGRESS"
+          lake exe cache get "${targets[@]}"
+      - name: Verify cache and kernel-check invalidated modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          flags=()
+          if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
+          cd "$PROGRESS"
+          lake env python -B ../../../../scripts/check_progress_lean.py build --cohort '${{ matrix.id }}' --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
+      - name: Cache freshly verified clean artifacts
+        if: env.CLEAN == 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .cache/progress-ci
+          key: progress-v1-${{ needs.plan.outputs.base }}-${{ matrix.id }}-${{ matrix.key }}
+      - name: Upload verified cohort and failure logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: progress-cohort-${{ matrix.id }}
+          path: build/progress-cohort-${{ matrix.id }}/
+          retention-days: 7
+
+  audit:
+    needs: [plan, cohort]
+    name: Full progress axiom audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.14'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: progress-cohort-*
+          path: build/cohort-bundles
+      - name: Install pinned elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/elan-install"
+          cd "$RUNNER_TEMP/elan-install"
+          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
+          tar -xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned upstream artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B scripts/check_progress_lean.py cache-targets > "$RUNNER_TEMP/progress-cache-targets.txt"
+          mapfile -t targets < "$RUNNER_TEMP/progress-cache-targets.txt"
+          test "${#targets[@]}" -gt 0
+          cd "$PROGRESS"
+          lake exe cache get "${targets[@]}"
+      - name: Verify cohort compatibility and audit every declaration
+        shell: bash
+        run: |
+          set -euo pipefail
+          flags=()
+          if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
+          cd "$PROGRESS"
+          lake env python -B ../../../../scripts/check_progress_lean.py audit --bundles "$GITHUB_WORKSPACE/build/cohort-bundles" --output "$GITHUB_WORKSPACE/build/progress-audit" "${flags[@]}"
+      - name: Upload exact audit result
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: progress-full-audit
+          path: |
+            build/progress-audit/RESULT.json
+            build/progress-audit/logs/
+          retention-days: 30
