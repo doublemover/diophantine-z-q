@@ -1,4 +1,4 @@
-name: Version 9 manuscript and quartic verification
+name: Current manuscript and quartic verification
 
 on:
   workflow_dispatch:
@@ -87,14 +87,14 @@ jobs:
         with:
           path: .cache/tectonic
           key: tectonic-${{ runner.os }}-0.17.0-6ffe055852f8faf66
-      - name: Compile the exact Version 9 manuscript
+      - name: Compile the exact Version 12 manuscript
         run: python scripts/build_paper.py
       - name: Render changed pages for visual review
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y poppler-utils
           ulimit -v 2097152
-          python scripts/render_quartic_review.py --pdf build/paper/quartic_v9.pdf --edition v9 --pages 1-2,245-259,265 --expected-pages 265
+          python scripts/render_quartic_review.py --pdf build/paper/quartic_v12.pdf --edition v12 --pages 1,263-276 --expected-pages 284
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

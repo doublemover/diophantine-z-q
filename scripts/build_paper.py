@@ -79,7 +79,7 @@ def main():
     version = subprocess.check_output([str(executable), "--version"], text=True).strip()
     if version != "Tectonic " + VERSION and version != "tectonic " + VERSION:
         raise RuntimeError("Unexpected engine version: " + version)
-    source = ROOT / "manuscripts" / "quartic_v11.tex"
+    source = ROOT / "manuscripts" / "quartic_v12.tex"
     source_bytes = source.read_bytes()
     output = ROOT / "build" / "paper"
     output.mkdir(parents=True, exist_ok=True)
@@ -95,7 +95,7 @@ def main():
             result = subprocess.run(cmd, cwd=temporary, env=env, stdout=log, stderr=subprocess.STDOUT)
         if result.returncode:
             raise RuntimeError("Paper build failed; see build/paper/compiler.log")
-        log_path = temporary / "quartic_v11.log"
+        log_path = temporary / "quartic_v12.log"
         text = log_path.read_text(errors="replace")
         if any(line.startswith("!") for line in text.splitlines()) or "undefined references" in text or "undefined citations" in text:
             raise RuntimeError("TeX errors or unresolved references; see build/paper/compiler.log")
@@ -105,15 +105,15 @@ def main():
         bundle_hash_file = cache / "bundles" / "hashes" / bundle_key
         if not bundle_hash_file.is_file() or bundle_hash_file.read_text().strip() != BUNDLE_DIGEST:
             raise RuntimeError("The selected TeX bundle fingerprint does not match the pin")
-        pdf = (temporary / "quartic_v11.pdf").read_bytes()
+        pdf = (temporary / "quartic_v12.pdf").read_bytes()
         if not pdf.startswith(b"%PDF-"):
             raise RuntimeError("Compiler did not produce a PDF")
-        (output / "quartic_v11.pdf").write_bytes(pdf)
-        shutil.copyfile(log_path, output / "quartic_v11.log")
+        (output / "quartic_v12.pdf").write_bytes(pdf)
+        shutil.copyfile(log_path, output / "quartic_v12.log")
     if source.read_bytes() != source_bytes:
         raise RuntimeError("Manuscript changed during build")
     receipt = {"engine": version, "bundle_url": args.bundle, "bundle_fingerprint": BUNDLE_DIGEST,
-               "manuscript_version": 11, "pdf": "quartic_v11.pdf",
+               "manuscript_version": 12, "pdf": "quartic_v12.pdf",
                "source_sha256": sha(source_bytes), "pdf_sha256": sha(pdf), "pdf_bytes": len(pdf),
                "tex_errors": 0, "unresolved_references": False,
                "original_pdf_replaced": False, "byte_identity_to_uploaded_pdf_claimed": False}
