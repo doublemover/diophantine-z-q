@@ -1,0 +1,3592 @@
+{
+  "reviewed_commit": "dea5d91b63e43d5f3ba9874c64463a0f28ff934b",
+  "ci_source_commit": "0e5ff6ec3af901673ae4cf312329f3da0e503cf4",
+  "ci_run_url": "https://github.com/doublemover/diophantine-z-q/actions/runs/42450454824",
+  "ci_audit_job": "128640564405",
+  "ci_success_provenance": "Checkpoint message; not freshly fetched by this reviewer. Source equality independently checked.",
+  "primary_lean_source_count": 38,
+  "primary_packets": [
+    "monic-etale-splitting",
+    "relative-three-torsion",
+    "three-torsion-splitting",
+    "three-torsion-sign-quotient",
+    "three-torsion-equalizer",
+    "three-torsion-tangent"
+  ],
+  "files": [
+    {
+      "path": "quartics/quartic-318-326/proof/progress/MonicRootEtale318.lean",
+      "sha256": "b6c2fcbd927126c9b1dfa0ad22e5c6280e7c55d48d00ecf5959a8b6f6e3298d4",
+      "lines": 47,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "b6c2fcbd927126c9b1dfa0ad22e5c6280e7c55d48d00ecf5959a8b6f6e3298d4",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "theorem derivative_unit (hs:p.Separable) :"
+        },
+        {
+          "line": 21,
+          "text": "@[expose] def pair : StandardEtalePair R where"
+        },
+        {
+          "line": 27,
+          "text": "@[expose] def standardEquiv (hs:p.Separable) :"
+        },
+        {
+          "line": 35,
+          "text": "theorem root_etale (hs:p.Separable) : Algebra.Etale R (AdjoinRoot p) :="
+        },
+        {
+          "line": 39,
+          "text": "theorem root_faithfullyFlat [Nontrivial R] (hn:0<p.natDegree) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/MonicEtaleSplitting318.lean",
+      "sha256": "11aa466a4006abb66dc742879e1f67e2b7326559e8515080db4e6f526abd28dd",
+      "lines": 78,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "11aa466a4006abb66dc742879e1f67e2b7326559e8515080db4e6f526abd28dd",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "structure Splitting {R:Type u} [CommRing R] (p:R[X]) (n:\u2115) where"
+        },
+        {
+          "line": 30,
+          "text": "theorem exists_splitting (n:\u2115) :"
+        },
+        {
+          "line": 74,
+          "text": "@[expose] def splitting {R:Type u} [CommRing R] [Nontrivial R]"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/SplitPolynomialAlgebra318.lean",
+      "sha256": "7e06ae1299337a1856b65b0983a009511db7ed8ebd3aa883a6b03ae920846934",
+      "lines": 77,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "7e06ae1299337a1856b65b0983a009511db7ed8ebd3aa883a6b03ae920846934",
+      "declaration_locators": [
+        {
+          "line": 18,
+          "text": "theorem root_eval (i:Fin n) : p.eval (r i)=0 := by"
+        },
+        {
+          "line": 23,
+          "text": "theorem factors_coprime (hs:p.Separable) :"
+        },
+        {
+          "line": 34,
+          "text": "@[expose] def evalHom : AdjoinRoot p\u2192\u2090[R](Fin n\u2192R) :="
+        },
+        {
+          "line": 38,
+          "text": "theorem evalHom_mk (f:R[X]) (i:Fin n) : evalHom p r h (AdjoinRoot.mk p f) i=f.eval (r i) := by"
+        },
+        {
+          "line": 41,
+          "text": "theorem evalHom_injective (hs:p.Separable) : Function.Injective (evalHom p r h) := by"
+        },
+        {
+          "line": 53,
+          "text": "theorem evalHom_surjective (hs:p.Separable) : Function.Surjective (evalHom p r h) := by"
+        },
+        {
+          "line": 70,
+          "text": "@[expose] def evalEquiv (hs:p.Separable) : AdjoinRoot p\u2243\u2090[R](Fin n\u2192R) :="
+        },
+        {
+          "line": 73,
+          "text": "theorem evalEquiv_mk (hs:p.Separable) (f:R[X]) (i:Fin n) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/MonogenicSplitEquiv318.lean",
+      "sha256": "d11da14d7815aeca6a411b1f4cbfd67d616320d93468294b040c0b261427a9cb",
+      "lines": 89,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "d11da14d7815aeca6a411b1f4cbfd67d616320d93468294b040c0b261427a9cb",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "@[expose] def baseChange (p:R[X]) :"
+        },
+        {
+          "line": 25,
+          "text": "theorem baseChange_root (p:R[X]) :"
+        },
+        {
+          "line": 30,
+          "text": "theorem baseChange_mk (p f:R[X]) :"
+        },
+        {
+          "line": 54,
+          "text": "@[expose] def splitEquiv : S\u2297[R]AdjoinRoot p\u2243\u2090[S](Fin n\u2192S) :="
+        },
+        {
+          "line": 57,
+          "text": "theorem splitEquiv_one_tmul_mk (f:R[X]) (i:Fin n) :"
+        },
+        {
+          "line": 62,
+          "text": "theorem splitEquiv_tmul_mk (s:S) (f:R[X]) (i:Fin n) :"
+        },
+        {
+          "line": 83,
+          "text": "@[expose] def canonicalSplitEquiv :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ShortTwoTorsion318.lean",
+      "sha256": "e22adc4fc9456a6658e8f7fb0decb3fffdc07b52cca38f08da0f16cedc74e128",
+      "lines": 56,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "e22adc4fc9456a6658e8f7fb0decb3fffdc07b52cca38f08da0f16cedc74e128",
+      "declaration_locators": [
+        {
+          "line": 12,
+          "text": "@[expose] def polynomial : R[X] := X^3+C A*X+C B"
+        },
+        {
+          "line": 14,
+          "text": "lemma monic : (polynomial A B).Monic := by"
+        },
+        {
+          "line": 20,
+          "text": "lemma degree [Nontrivial R] : (polynomial A B).natDegree=3 := by"
+        },
+        {
+          "line": 25,
+          "text": "lemma bezout :"
+        },
+        {
+          "line": 34,
+          "text": "lemma separable (hD:IsUnit (-16*(4*A^3+27*B^2))) : (polynomial A B).Separable := by"
+        },
+        {
+          "line": 41,
+          "text": "abbrev Ring := AdjoinRoot (polynomial A B)"
+        },
+        {
+          "line": 43,
+          "text": "lemma finite : Module.Finite R (Ring A B) := (monic A B).finite_adjoinRoot"
+        },
+        {
+          "line": 44,
+          "text": "lemma free : Module.Free R (Ring A B) := (monic A B).free_adjoinRoot"
+        },
+        {
+          "line": 45,
+          "text": "lemma etale (hD:IsUnit (-16*(4*A^3+27*B^2))) : Algebra.Etale R (Ring A B) :="
+        },
+        {
+          "line": 47,
+          "text": "lemma faithfullyFlat [Nontrivial R] : Module.FaithfullyFlat R (Ring A B) :="
+        },
+        {
+          "line": 49,
+          "text": "lemma rank_three [Nontrivial R] : Module.finrank R (Ring A B)=3 := by"
+        },
+        {
+          "line": 53,
+          "text": "@[expose] def splitting [Nontrivial R] (hD:IsUnit (-16*(4*A^3+27*B^2))) :="
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/TwoTorsionCurve318.lean",
+      "sha256": "7d1defab85e6e8bf5734158fd23eb51e1dd04db82bfa5277c81920ee2fac3f88",
+      "lines": 102,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "7d1defab85e6e8bf5734158fd23eb51e1dd04db82bfa5277c81920ee2fac3f88",
+      "declaration_locators": [
+        {
+          "line": 16,
+          "text": "lemma root_relation :"
+        },
+        {
+          "line": 25,
+          "text": "@[expose] def coordinateMap :"
+        },
+        {
+          "line": 35,
+          "text": "lemma coordinateMap_x : coordinateMap A B (ShortAffineJacobian318.x A B)="
+        },
+        {
+          "line": 38,
+          "text": "lemma coordinateMap_y : coordinateMap A B (ShortAffineJacobian318.y A B)=0 :="
+        },
+        {
+          "line": 41,
+          "text": "lemma coordinateMap_surjective : Function.Surjective (coordinateMap A B) := by"
+        },
+        {
+          "line": 47,
+          "text": "@[expose] def scheme : Scheme:=Spec (CommRingCat.of (ShortTwoTorsion318.Ring A B))"
+        },
+        {
+          "line": 48,
+          "text": "@[expose] def structureMap : scheme A B\u27f6Spec (CommRingCat.of R):="
+        },
+        {
+          "line": 50,
+          "text": "@[expose] def inclusion : scheme A B\u27f6ShortAffineScheme318.scheme A B:="
+        },
+        {
+          "line": 53,
+          "text": "theorem inclusion_closed : IsClosedImmersion (inclusion A B):="
+        },
+        {
+          "line": 56,
+          "text": "theorem inclusion_over_base : inclusion A B\u226bShortAffineScheme318.structureMap A B="
+        },
+        {
+          "line": 62,
+          "text": "theorem finite_etale (hD:IsUnit (-16*(4*A^3+27*B^2))) :"
+        },
+        {
+          "line": 72,
+          "text": "theorem flat_surjective [Nontrivial R] :"
+        },
+        {
+          "line": 81,
+          "text": "theorem factor_zero_y (\u03c6:ShortAffineJacobian318.Ring A B\u2192\u2090[R]S)"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/TwoTorsionPoints318.lean",
+      "sha256": "0df5833aa4acd010308bca8960280a5c9c67142ff8f251116d07a9cc05fe5ef3",
+      "lines": 62,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "0df5833aa4acd010308bca8960280a5c9c67142ff8f251116d07a9cc05fe5ef3",
+      "declaration_locators": [
+        {
+          "line": 10,
+          "text": "@[expose] def curve : WeierstrassCurve K:=\u27e80,0,0,A,B\u27e9"
+        },
+        {
+          "line": 11,
+          "text": "lemma discriminant : (curve A B).\u0394= -16*(4*A^3+27*B^2) := by"
+        },
+        {
+          "line": 16,
+          "text": "lemma root_equation (x:K) :"
+        },
+        {
+          "line": 25,
+          "text": "theorem root_iff_order_two (hD:IsUnit (-16*(4*A^3+27*B^2))) (x:K) :"
+        },
+        {
+          "line": 44,
+          "text": "theorem order_two_zero_y (hD:IsUnit (-16*(4*A^3+27*B^2)))"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/LiteralTwoTorsion318.lean",
+      "sha256": "3358979e27c0ab95ad0f3e3445c5f692ad7b40bf8673baa273f4941655e8b088",
+      "lines": 57,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "3358979e27c0ab95ad0f3e3445c5f692ad7b40bf8673baa273f4941655e8b088",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "lemma denominator_ne_zero (N:\u2115) (hN:N\u22600) : OpenJModel318.denominator N\u22600 := by"
+        },
+        {
+          "line": 21,
+          "text": "instance base_domain (N:\u2115) [NeZero N] : IsDomain (Base N) :="
+        },
+        {
+          "line": 24,
+          "text": "abbrev Ring (N:\u2115) := ShortTwoTorsion318.Ring (A N) (B N)"
+        },
+        {
+          "line": 25,
+          "text": "instance finite (N:\u2115) : Module.Finite (Base N) (Ring N) :="
+        },
+        {
+          "line": 27,
+          "text": "instance etale (N:\u2115) : Algebra.Etale (Base N) (Ring N) :="
+        },
+        {
+          "line": 29,
+          "text": "instance faithfullyFlat (N:\u2115) [NeZero N] : Module.FaithfullyFlat (Base N) (Ring N) :="
+        },
+        {
+          "line": 32,
+          "text": "theorem rank_three (N:\u2115) [NeZero N] : Module.finrank (Base N) (Ring N)=3 :="
+        },
+        {
+          "line": 38,
+          "text": "theorem actual_cover (N:\u2115) [NeZero N] :"
+        },
+        {
+          "line": 46,
+          "text": "@[expose] def splitting (N:\u2115) [NeZero N] :="
+        },
+        {
+          "line": 51,
+          "text": "@[expose] def splitEquiv (N:\u2115) [NeZero N] :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/PrimitiveTwoModel318.lean",
+      "sha256": "09252c76b5a7579bf955250269d03bafd89b8c84841de676a902338213a89bd3",
+      "lines": 77,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "09252c76b5a7579bf955250269d03bafd89b8c84841de676a902338213a89bd3",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "@[expose] def label : Fin 3\u2192Points 2 :="
+        },
+        {
+          "line": 18,
+          "text": "lemma label_bijective : Function.Bijective label := by"
+        },
+        {
+          "line": 29,
+          "text": "@[expose] def labels : Fin 3\u2243Points 2:=Equiv.ofBijective label label_bijective"
+        },
+        {
+          "line": 31,
+          "text": "abbrev Base:=OpenJModel318.Base 2"
+        },
+        {
+          "line": 32,
+          "text": "abbrev Cover:=LiteralTwoTorsion318.Ring 2"
+        },
+        {
+          "line": 33,
+          "text": "abbrev SplitRing:=(LiteralTwoTorsion318.splitting 2).S"
+        },
+        {
+          "line": 35,
+          "text": "@[expose] def splitEquiv : SplitRing\u2297[Base]Cover\u2243\u2090[SplitRing](Points 2\u2192SplitRing) :="
+        },
+        {
+          "line": 40,
+          "text": "lemma unit_two_one (g:(ZMod 2)\u02e3) : g=1 := by"
+        },
+        {
+          "line": 44,
+          "text": "@[expose] def action (H:Subgroup (ZMod 2)\u02e3) : H\u2192Cover\u2243\u2090[Base]Cover :="
+        },
+        {
+          "line": 47,
+          "text": "lemma equivariant (H:Subgroup (ZMod 2)\u02e3) :"
+        },
+        {
+          "line": 61,
+          "text": "@[expose] def pointedComponent (\u03a9:Type) [Field \u03a9] (H:Subgroup (ZMod 2)\u02e3)"
+        },
+        {
+          "line": 70,
+          "text": "theorem proper_model (\u03a9:Type) [Field \u03a9] (H:Subgroup (ZMod 2)\u02e3) (\u03b2:Cover\u2192+*\u03a9) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/monic-etale-splitting/README.md",
+      "sha256": "e30b6aadf64aa54602f9eaaad3367aeef9e07aa0c8e1afef8bc1637d1827bda4",
+      "lines": 33,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/monic-etale-splitting/receipt.json",
+      "sha256": "0652483fc49c7f7a2f201273024317df0fffedcc147ba43a1650303c8462c862",
+      "lines": 52,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionIdentity318.lean",
+      "sha256": "bd0d7b4d2317d9b977db0726cb4c29976ac48db6eb4a80100619f844b1cd8b2e",
+      "lines": 41,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "bd0d7b4d2317d9b977db0726cb4c29976ac48db6eb4a80100619f844b1cd8b2e",
+      "declaration_locators": [
+        {
+          "line": 10,
+          "text": "@[expose] def divisionPolynomial : R[X] :="
+        },
+        {
+          "line": 14,
+          "text": "lemma derivative : (divisionPolynomial A B).derivative="
+        },
+        {
+          "line": 23,
+          "text": "lemma bezout :"
+        },
+        {
+          "line": 32,
+          "text": "lemma cubic_unit (hD:IsUnit (-16*(4*A^3+27*B^2))) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ShortThreeTorsion318.lean",
+      "sha256": "fee217eaa854b583ed12ad418a53b1ecfd23cb91ceb96137fcbfa7a6720236bc",
+      "lines": 77,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "fee217eaa854b583ed12ad418a53b1ecfd23cb91ceb96137fcbfa7a6720236bc",
+      "declaration_locators": [
+        {
+          "line": 10,
+          "text": "@[expose] def polynomial : R[X] :="
+        },
+        {
+          "line": 13,
+          "text": "lemma monic : (polynomial A B).Monic := by"
+        },
+        {
+          "line": 17,
+          "text": "lemma degree [Nontrivial R] : (polynomial A B).natDegree=4 := by"
+        },
+        {
+          "line": 21,
+          "text": "lemma scalar_identity : C (3:R)*polynomial A B="
+        },
+        {
+          "line": 28,
+          "text": "lemma separable (hD:IsUnit (-16*(4*A^3+27*B^2))) : (polynomial A B).Separable := by"
+        },
+        {
+          "line": 49,
+          "text": "abbrev Ring := AdjoinRoot (polynomial A B)"
+        },
+        {
+          "line": 51,
+          "text": "lemma finite : Module.Finite R (Ring A B) := (monic A B).finite_adjoinRoot"
+        },
+        {
+          "line": 52,
+          "text": "lemma free : Module.Free R (Ring A B) := (monic A B).free_adjoinRoot"
+        },
+        {
+          "line": 53,
+          "text": "lemma etale (hD:IsUnit (-16*(4*A^3+27*B^2))) : Algebra.Etale R (Ring A B) :="
+        },
+        {
+          "line": 55,
+          "text": "lemma faithfullyFlat [Nontrivial R] : Module.FaithfullyFlat R (Ring A B) :="
+        },
+        {
+          "line": 57,
+          "text": "lemma rank_four [Nontrivial R] : Module.finrank R (Ring A B)=4 := by"
+        },
+        {
+          "line": 61,
+          "text": "@[expose] def splitting [Nontrivial R] (hD:IsUnit (-16*(4*A^3+27*B^2))) :="
+        },
+        {
+          "line": 64,
+          "text": "lemma division_zero :"
+        },
+        {
+          "line": 68,
+          "text": "lemma cubic_unit (hD:IsUnit (-16*(4*A^3+27*B^2))) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionAlgebra318.lean",
+      "sha256": "2105002e354e5890c19558b4bee5351fca6202b68659346ccce16e17f572e7cf",
+      "lines": 78,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "2105002e354e5890c19558b4bee5351fca6202b68659346ccce16e17f572e7cf",
+      "declaration_locators": [
+        {
+          "line": 12,
+          "text": "abbrev XRing := ShortThreeTorsion318.Ring A B"
+        },
+        {
+          "line": 13,
+          "text": "@[expose] def cubic : XRing A B :="
+        },
+        {
+          "line": 15,
+          "text": "@[expose] def cubicUnit (hD:IsUnit (-16*(4*A^3+27*B^2))) : (XRing A B)\u02e3 :="
+        },
+        {
+          "line": 17,
+          "text": "lemma cubicUnit_val (hD:IsUnit (-16*(4*A^3+27*B^2))) :"
+        },
+        {
+          "line": 20,
+          "text": "abbrev Ring (hD:IsUnit (-16*(4*A^3+27*B^2))) :="
+        },
+        {
+          "line": 25,
+          "text": "@[expose] def x : Ring A B hD :="
+        },
+        {
+          "line": 27,
+          "text": "@[expose] def y : Ring A B hD := EvenContactEtale318.root (cubicUnit A B hD)"
+        },
+        {
+          "line": 29,
+          "text": "lemma equation : (y A B hD)^2=(x A B hD)^3+"
+        },
+        {
+          "line": 36,
+          "text": "lemma y_unit : IsUnit (y A B hD) := EvenContactEtale318.root_isUnit _"
+        },
+        {
+          "line": 39,
+          "text": "lemma two_unit : IsUnit (2:R) := by"
+        },
+        {
+          "line": 44,
+          "text": "lemma finite : Module.Finite R (Ring A B hD) := by"
+        },
+        {
+          "line": 49,
+          "text": "lemma free : Module.Free R (Ring A B hD) := by"
+        },
+        {
+          "line": 54,
+          "text": "lemma etale : Algebra.Etale R (Ring A B hD) := by"
+        },
+        {
+          "line": 61,
+          "text": "lemma xRing_nontrivial [Nontrivial R] : Nontrivial (XRing A B) :="
+        },
+        {
+          "line": 65,
+          "text": "lemma faithfullyFlat [Nontrivial R] : Module.FaithfullyFlat R (Ring A B hD) := by"
+        },
+        {
+          "line": 71,
+          "text": "lemma rank_eight [Nontrivial R] : Module.finrank R (Ring A B hD)=8 := by"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionPoints318.lean",
+      "sha256": "a0ad5ddce7e045cba7ccb4a5c400e40057e4420f14fd8efb6e761b31c353a99b",
+      "lines": 123,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "a0ad5ddce7e045cba7ccb4a5c400e40057e4420f14fd8efb6e761b31c353a99b",
+      "declaration_locators": [
+        {
+          "line": 10,
+          "text": "abbrev curve := TwoTorsionPoints318.curve A B"
+        },
+        {
+          "line": 12,
+          "text": "lemma two_ne_zero (hD:IsUnit (-16*(4*A^3+27*B^2))) : (2:K)\u22600 := by"
+        },
+        {
+          "line": 18,
+          "text": "lemma equation {x y:K} (h:(curve A B).toAffine.Nonsingular x y) :"
+        },
+        {
+          "line": 24,
+          "text": "lemma root_value (x:K) : (ThreeTorsionIdentity318.divisionPolynomial A B).IsRoot x \u2194"
+        },
+        {
+          "line": 29,
+          "text": "lemma y_ne_zero_of_root (hD:IsUnit (-16*(4*A^3+27*B^2)))"
+        },
+        {
+          "line": 40,
+          "text": "lemma nonvertical (h2:(2:K)\u22600) {x y:K} (hy:y\u22600) :"
+        },
+        {
+          "line": 48,
+          "text": "lemma slope {x y:K} (hn:y\u2260(curve A B).toAffine.negY x y) :"
+        },
+        {
+          "line": 58,
+          "text": "theorem root_iff_double_neg (hD:IsUnit (-16*(4*A^3+27*B^2)))"
+        },
+        {
+          "line": 109,
+          "text": "theorem root_iff_order_three (hD:IsUnit (-16*(4*A^3+27*B^2)))"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionFunctor318.lean",
+      "sha256": "f95bb62788cc74e827635f146eba6f53ce2493d3b6ec1aee069717d77fa7e971",
+      "lines": 78,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "f95bb62788cc74e827635f146eba6f53ce2493d3b6ec1aee069717d77fa7e971",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "lemma normalized_eval_iff (a:S) :"
+        },
+        {
+          "line": 19,
+          "text": "@[expose] def Solutions := {p:S\u00d7S //"
+        },
+        {
+          "line": 23,
+          "text": "@[expose] def xHom (p:Solutions (S:=S) A B) : XRing A B\u2192\u2090[R]S :="
+        },
+        {
+          "line": 26,
+          "text": "lemma xHom_cubic (p:Solutions (S:=S) A B) :"
+        },
+        {
+          "line": 32,
+          "text": "@[expose] def toHom (p:Solutions (S:=S) A B) : Ring A B hD\u2192\u2090[R]S :="
+        },
+        {
+          "line": 40,
+          "text": "lemma toHom_x (p:Solutions (S:=S) A B) : toHom A B hD p (x A B hD)=p.val.1 := by"
+        },
+        {
+          "line": 43,
+          "text": "lemma toHom_y (p:Solutions (S:=S) A B) : toHom A B hD p (y A B hD)=p.val.2 :="
+        },
+        {
+          "line": 46,
+          "text": "lemma hom_ext (f g:Ring A B hD\u2192\u2090[R]S)"
+        },
+        {
+          "line": 53,
+          "text": "lemma x_relation : aeval (x A B hD) (ShortThreeTorsion318.polynomial A B)=0 := by"
+        },
+        {
+          "line": 59,
+          "text": "@[expose] def ofHom (f:Ring A B hD\u2192\u2090[R]S) : Solutions (S:=S) A B :="
+        },
+        {
+          "line": 70,
+          "text": "@[expose] def solutionEquiv : (Ring A B hD\u2192\u2090[R]S)\u2243Solutions (S:=S) A B where"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionScheme318.lean",
+      "sha256": "8d4e063e33eef1fc1358f7eecdb8b70e5dea165fab2f932494129ac0ae7be44f",
+      "lines": 49,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "8d4e063e33eef1fc1358f7eecdb8b70e5dea165fab2f932494129ac0ae7be44f",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "@[expose] def coordinateMap : ShortAffineJacobian318.Ring A B\u2192\u2090[R]Ring A B hD :="
+        },
+        {
+          "line": 19,
+          "text": "lemma coordinateMap_x : coordinateMap A B hD (ShortAffineJacobian318.x A B)=x A B hD :="
+        },
+        {
+          "line": 21,
+          "text": "lemma coordinateMap_y : coordinateMap A B hD (ShortAffineJacobian318.y A B)=y A B hD :="
+        },
+        {
+          "line": 24,
+          "text": "@[expose] def scheme : Scheme:=Spec (CommRingCat.of (Ring A B hD))"
+        },
+        {
+          "line": 25,
+          "text": "@[expose] def structureMap : scheme A B hD\u27f6Spec (CommRingCat.of R):="
+        },
+        {
+          "line": 27,
+          "text": "@[expose] def inclusion : scheme A B hD\u27f6ShortAffineScheme318.scheme A B:="
+        },
+        {
+          "line": 30,
+          "text": "theorem inclusion_over_base : inclusion A B hD\u226bShortAffineScheme318.structureMap A B="
+        },
+        {
+          "line": 36,
+          "text": "theorem finite_etale : IsFinite (structureMap A B hD) \u2227 Etale (structureMap A B hD):=by"
+        },
+        {
+          "line": 44,
+          "text": "theorem flat_surjective [Nontrivial R] :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/LiteralThreeTorsion318.lean",
+      "sha256": "655d7d8a478214019fed54bbad5b52c61cf445686136963ab2290ccc40881eda",
+      "lines": 37,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "655d7d8a478214019fed54bbad5b52c61cf445686136963ab2290ccc40881eda",
+      "declaration_locators": [
+        {
+          "line": 11,
+          "text": "instance inverse_three (N:\u2115) : Invertible (3:Base N) := (base_units N).2.1.invertible"
+        },
+        {
+          "line": 12,
+          "text": "abbrev Ring (N:\u2115) := ThreeTorsionAlgebra318.Ring (A N) (B N) (discriminant_unit N)"
+        },
+        {
+          "line": 14,
+          "text": "instance finite (N:\u2115) : Module.Finite (Base N) (Ring N) :="
+        },
+        {
+          "line": 16,
+          "text": "instance free (N:\u2115) : Module.Free (Base N) (Ring N) :="
+        },
+        {
+          "line": 18,
+          "text": "instance etale (N:\u2115) : Algebra.Etale (Base N) (Ring N) :="
+        },
+        {
+          "line": 20,
+          "text": "instance faithfullyFlat (N:\u2115) [NeZero N] : Module.FaithfullyFlat (Base N) (Ring N) :="
+        },
+        {
+          "line": 23,
+          "text": "theorem rank_eight (N:\u2115) [NeZero N] : Module.finrank (Base N) (Ring N)=8 :="
+        },
+        {
+          "line": 29,
+          "text": "theorem actual_cover (N:\u2115) [NeZero N] :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionFieldPoints318.lean",
+      "sha256": "439556932282e8a7c50e7e2cdb091880c40fc4cc76c4498ff0e51f4aadd79b4a",
+      "lines": 55,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "439556932282e8a7c50e7e2cdb091880c40fc4cc76c4498ff0e51f4aadd79b4a",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "lemma field_discriminant : IsUnit (-16*(4*(algebraMap R K A)^3+"
+        },
+        {
+          "line": 17,
+          "text": "lemma division_eval (a:K) :"
+        },
+        {
+          "line": 29,
+          "text": "theorem solution_iff_order_three (a b:K) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/relative-three-torsion/README.md",
+      "sha256": "75c0189619535f22d15ceed221f17a47594edbd22b6bdeb63d6d7afb103fd422",
+      "lines": 28,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/relative-three-torsion/receipt.json",
+      "sha256": "c4988f66afd348ef50670baedf8bae91dddad4cedd4afe6ab41da4444cc0276f",
+      "lines": 49,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionInvolution318.lean",
+      "sha256": "f1ca0344727cdf61744672b70f80260e6029b1acf9a80d11c69828d0c491bb75",
+      "lines": 37,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "f1ca0344727cdf61744672b70f80260e6029b1acf9a80d11c69828d0c491bb75",
+      "declaration_locators": [
+        {
+          "line": 12,
+          "text": "@[expose] def negHom : Ring A B hD\u2192\u2090[R]Ring A B hD :="
+        },
+        {
+          "line": 17,
+          "text": "@[simp] theorem negHom_x : negHom A B hD (x A B hD)=x A B hD :="
+        },
+        {
+          "line": 19,
+          "text": "@[simp] theorem negHom_y : negHom A B hD (y A B hD)= -y A B hD :="
+        },
+        {
+          "line": 22,
+          "text": "theorem negHom_comp : (negHom A B hD).comp (negHom A B hD)=AlgHom.id R (Ring A B hD) := by"
+        },
+        {
+          "line": 28,
+          "text": "@[expose] def negEquiv : Ring A B hD\u2243\u2090[R]Ring A B hD :="
+        },
+        {
+          "line": 30,
+          "text": "@[simp] theorem negEquiv_x : negEquiv A B hD (x A B hD)=x A B hD := negHom_x _ _ _"
+        },
+        {
+          "line": 31,
+          "text": "@[simp] theorem negEquiv_y : negEquiv A B hD (y A B hD)= -y A B hD := negHom_y _ _ _"
+        },
+        {
+          "line": 33,
+          "text": "theorem negEquiv_involutive : Function.Involutive (negEquiv A B hD) := by"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionSplitData318.lean",
+      "sha256": "c783eacfe6d4f7aa7fa366840c691338d991d09f61633b5644ff4e114816eb73",
+      "lines": 106,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "c783eacfe6d4f7aa7fa366840c691338d991d09f61633b5644ff4e114816eb73",
+      "declaration_locators": [
+        {
+          "line": 15,
+          "text": "abbrev split := ShortThreeTorsion318.splitting A B hD"
+        },
+        {
+          "line": 16,
+          "text": "abbrev S := (split A B hD).S"
+        },
+        {
+          "line": 17,
+          "text": "@[expose] def xRoot (i:Fin 4) : S A B hD :="
+        },
+        {
+          "line": 20,
+          "text": "lemma xRoot_relation (i:Fin 4) :"
+        },
+        {
+          "line": 26,
+          "text": "@[expose] def xEval (i:Fin 4) : XRing A B\u2192\u2090[R]S A B hD :="
+        },
+        {
+          "line": 29,
+          "text": "@[expose] def units (i:Fin 4) : (S A B hD)\u02e3 :="
+        },
+        {
+          "line": 32,
+          "text": "lemma units_val (i:Fin 4) : (units A B hD i:S A B hD)="
+        },
+        {
+          "line": 41,
+          "text": "abbrev T := FourUnitCover318.Cover (units A B hD)"
+        },
+        {
+          "line": 43,
+          "text": "instance finite : Module.Finite R (T A B hD) := by"
+        },
+        {
+          "line": 48,
+          "text": "instance etale : Algebra.Etale R (T A B hD) := by"
+        },
+        {
+          "line": 53,
+          "text": "instance faithfullyFlat : Module.FaithfullyFlat R (T A B hD) := by"
+        },
+        {
+          "line": 57,
+          "text": "instance nontrivial : Nontrivial (T A B hD) := by"
+        },
+        {
+          "line": 64,
+          "text": "@[expose] def xs (i:Fin 4) : T A B hD := algebraMap (S A B hD) (T A B hD) (xRoot A B hD i)"
+        },
+        {
+          "line": 65,
+          "text": "@[expose] def ys (i:Fin 4) : T A B hD := FourUnitCover318.generator (units A B hD) i"
+        },
+        {
+          "line": 67,
+          "text": "lemma ys_square (i:Fin 4) : (ys A B hD i)^2=(xs A B hD i)^3+"
+        },
+        {
+          "line": 73,
+          "text": "lemma ys_unit (i:Fin 4) : IsUnit (ys A B hD i) := by"
+        },
+        {
+          "line": 79,
+          "text": "lemma xs_relation (i:Fin 4) :"
+        },
+        {
+          "line": 85,
+          "text": "lemma factorization : (ShortThreeTorsion318.polynomial A B).map (algebraMap R (T A B hD))="
+        },
+        {
+          "line": 96,
+          "text": "@[expose] def xSplitEquiv :"
+        },
+        {
+          "line": 101,
+          "text": "theorem xSplitEquiv_tmul (s:T A B hD) (f:R[X]) (i:Fin 4) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionSplitEval318.lean",
+      "sha256": "8b0bfd1e467559766f66472a783bfe9e0f38c1a1b5c3cc0a96eebba5d0cfefd9",
+      "lines": 109,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "8b0bfd1e467559766f66472a783bfe9e0f38c1a1b5c3cc0a96eebba5d0cfefd9",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "abbrev Index := Fin 4\u00d7Bool"
+        },
+        {
+          "line": 16,
+          "text": "@[expose] def signedY (i:Index) : T A B hD := if i.2 then -(ys A B hD i.1) else ys A B hD i.1"
+        },
+        {
+          "line": 17,
+          "text": "lemma signedY_square (i:Index) : (signedY A B hD i)^2=(xs A B hD i.1)^3+"
+        },
+        {
+          "line": 25,
+          "text": "@[expose] def evaluate (i:Index) : Ring A B hD\u2192\u2090[R]T A B hD :="
+        },
+        {
+          "line": 28,
+          "text": "@[simp] theorem evaluate_x (i:Index) : evaluate A B hD i (x A B hD)=xs A B hD i.1 :="
+        },
+        {
+          "line": 30,
+          "text": "@[simp] theorem evaluate_y (i:Index) : evaluate A B hD i (y A B hD)=signedY A B hD i :="
+        },
+        {
+          "line": 33,
+          "text": "@[expose] def evaluation : T A B hD\u2297[R]Ring A B hD\u2192\u2090[T A B hD](Index\u2192T A B hD) :="
+        },
+        {
+          "line": 35,
+          "text": "theorem evaluation_tmul (s:T A B hD) (b:Ring A B hD) (i:Index) :"
+        },
+        {
+          "line": 38,
+          "text": "@[expose] def includeX : T A B hD\u2297[R]XRing A B\u2192\u2090[T A B hD]T A B hD\u2297[R]Ring A B hD :="
+        },
+        {
+          "line": 42,
+          "text": "lemma evaluate_of_mk (f:R[X]) (i:Index) :"
+        },
+        {
+          "line": 50,
+          "text": "lemma evaluation_includeX (z:T A B hD\u2297[R]XRing A B) (i:Index) :"
+        },
+        {
+          "line": 61,
+          "text": "lemma evaluation_surjective : Function.Surjective (evaluation A B hD) := by"
+        },
+        {
+          "line": 93,
+          "text": "lemma evaluation_bijective : Function.Bijective (evaluation A B hD) := by"
+        },
+        {
+          "line": 103,
+          "text": "@[expose] def splitEquiv : T A B hD\u2297[R]Ring A B hD\u2243\u2090[T A B hD](Index\u2192T A B hD) :="
+        },
+        {
+          "line": 106,
+          "text": "theorem splitEquiv_tmul (s:T A B hD) (b:Ring A B hD) (i:Index) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionLabels318.lean",
+      "sha256": "dc0e442d9934b3878fde110ec9bfd714479638967f3e4b790bac1eb94ae9dfdf",
+      "lines": 30,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "dc0e442d9934b3878fde110ec9bfd714479638967f3e4b790bac1eb94ae9dfdf",
+      "declaration_locators": [
+        {
+          "line": 10,
+          "text": "abbrev Index:=Fin 4\u00d7Bool"
+        },
+        {
+          "line": 11,
+          "text": "@[expose] def vector : Fin 4\u2192ZMod 3\u00d7ZMod 3 := ![(1,0),(0,1),(1,1),(1,2)]"
+        },
+        {
+          "line": 12,
+          "text": "@[expose] def label (i:Index) : Points 3 :="
+        },
+        {
+          "line": 16,
+          "text": "lemma label_bijective : Function.Bijective label := by"
+        },
+        {
+          "line": 19,
+          "text": "@[expose] def labels : Index\u2243Points 3:=Equiv.ofBijective label label_bijective"
+        },
+        {
+          "line": 20,
+          "text": "@[expose] def flip (i:Index) : Index:=(i.1,!i.2)"
+        },
+        {
+          "line": 22,
+          "text": "lemma unit_cases (g:(ZMod 3)\u02e3) : g=1 \u2228 g= -1 := by"
+        },
+        {
+          "line": 25,
+          "text": "lemma neg_one_ne_one : (-1:(ZMod 3)\u02e3)\u22601 := by decide"
+        },
+        {
+          "line": 26,
+          "text": "lemma label_flip (i:Index) : label (flip i)=(-1:(ZMod 3)\u02e3)\u2022label i := by"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionDiamond318.lean",
+      "sha256": "ba73e3783a97fb22269c5210a98589b2bb1f5ca6136920dffa0e22c87fb4b4ae",
+      "lines": 78,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "ba73e3783a97fb22269c5210a98589b2bb1f5ca6136920dffa0e22c87fb4b4ae",
+      "declaration_locators": [
+        {
+          "line": 17,
+          "text": "@[expose] def diamond (g:(ZMod 3)\u02e3) : Ring A B hD\u2243\u2090[R]Ring A B hD :="
+        },
+        {
+          "line": 19,
+          "text": "@[simp] theorem diamond_one : diamond A B hD 1=AlgEquiv.refl := by simp [diamond]"
+        },
+        {
+          "line": 20,
+          "text": "@[simp] theorem diamond_neg_one : diamond A B hD (-1)=negEquiv A B hD := by"
+        },
+        {
+          "line": 23,
+          "text": "theorem diamond_mul (g h:(ZMod 3)\u02e3) (b:Ring A B hD) :"
+        },
+        {
+          "line": 31,
+          "text": "lemma signedY_flip (i:ThreeTorsionLabels318.Index) :"
+        },
+        {
+          "line": 36,
+          "text": "lemma evaluate_neg (i:ThreeTorsionLabels318.Index) (b:Ring A B hD) :"
+        },
+        {
+          "line": 45,
+          "text": "lemma split_neg (z:T A B hD\u2297[R]Ring A B hD) (i:ThreeTorsionLabels318.Index) :"
+        },
+        {
+          "line": 53,
+          "text": "@[expose] def primitiveSplit :"
+        },
+        {
+          "line": 58,
+          "text": "lemma primitiveSplit_label (z:T A B hD\u2297[R]Ring A B hD) (i:ThreeTorsionLabels318.Index) :"
+        },
+        {
+          "line": 65,
+          "text": "theorem equivariant (g:(ZMod 3)\u02e3) (z:T A B hD\u2297[R]Ring A B hD) (p:Points 3) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionTorsor318.lean",
+      "sha256": "f7ea9d5577a59dca36ec37652baee04fea27df75ed05bec7a4694af42868e0d6",
+      "lines": 31,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "f7ea9d5577a59dca36ec37652baee04fea27df75ed05bec7a4694af42868e0d6",
+      "declaration_locators": [
+        {
+          "line": 15,
+          "text": "@[expose] def action : H\u2192Ring A B hD\u2243\u2090[R]Ring A B hD :="
+        },
+        {
+          "line": 20,
+          "text": "@[expose] def torsorEquiv :"
+        },
+        {
+          "line": 27,
+          "text": "theorem torsorEquiv_tmul (b c:Ring A B hD) (g:H) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionClosed318.lean",
+      "sha256": "20b1cbce29e0865f2868a47e1d7115b1577f0a58d8e3aae486c171ae182fddd5",
+      "lines": 43,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "20b1cbce29e0865f2868a47e1d7115b1577f0a58d8e3aae486c171ae182fddd5",
+      "declaration_locators": [
+        {
+          "line": 12,
+          "text": "lemma x_polynomial (f:R[X]) : aeval (x A B hD) f="
+        },
+        {
+          "line": 22,
+          "text": "theorem coordinateMap_surjective : Function.Surjective (coordinateMap A B hD) := by"
+        },
+        {
+          "line": 40,
+          "text": "theorem inclusion_closed : IsClosedImmersion (inclusion A B hD) :="
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/PrimitiveThreeModel318.lean",
+      "sha256": "97b85aad53d98290df4fb1174984b509d8132820f1efbbd30183509de505b8d6",
+      "lines": 42,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "97b85aad53d98290df4fb1174984b509d8132820f1efbbd30183509de505b8d6",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "abbrev Base:=OpenJModel318.Base 3"
+        },
+        {
+          "line": 14,
+          "text": "abbrev Cover:=LiteralThreeTorsion318.Ring 3"
+        },
+        {
+          "line": 15,
+          "text": "abbrev SplitRing:=ThreeTorsionSplitData318.T (OpenJAffineScheme318.A 3)"
+        },
+        {
+          "line": 18,
+          "text": "@[expose] def splitEquiv : SplitRing\u2297[Base]Cover\u2243\u2090[SplitRing](Points 3\u2192SplitRing) :="
+        },
+        {
+          "line": 20,
+          "text": "@[expose] def action (H:Subgroup (ZMod 3)\u02e3) : H\u2192Cover\u2243\u2090[Base]Cover :="
+        },
+        {
+          "line": 23,
+          "text": "theorem equivariant (H:Subgroup (ZMod 3)\u02e3) :"
+        },
+        {
+          "line": 30,
+          "text": "@[expose] def pointedComponent (\u03a9:Type) [Field \u03a9] (H:Subgroup (ZMod 3)\u02e3)"
+        },
+        {
+          "line": 35,
+          "text": "theorem proper_model (\u03a9:Type) [Field \u03a9] (H:Subgroup (ZMod 3)\u02e3) (\u03b2:Cover\u2192+*\u03a9) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-splitting/README.md",
+      "sha256": "1b1bfbe3772fb4ce03c7216e66a0aac4a8fa98f9c10d778542facac9b24fe081",
+      "lines": 23,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-splitting/receipt.json",
+      "sha256": "3429f32454412cba01818f57539d4daeddbfb331f404602dad8bdd2a3ef92b28",
+      "lines": 50,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/QuadraticCoefficients318.lean",
+      "sha256": "a36280c6b6789348886d451132fcd2960078036b70b77e0402f1c65bed8bd7ea",
+      "lines": 31,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "a36280c6b6789348886d451132fcd2960078036b70b77e0402f1c65bed8bd7ea",
+      "declaration_locators": [
+        {
+          "line": 12,
+          "text": "theorem exists_coefficients (z:RootRing u) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionSignQuotient318.lean",
+      "sha256": "d964c4b2df0b3663ff1759355c1ac28a2e5a3f7e877560faaa68c4bda761ea8c",
+      "lines": 82,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "d964c4b2df0b3663ff1759355c1ac28a2e5a3f7e877560faaa68c4bda761ea8c",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "lemma neg_on_xRing (a:XRing A B) :"
+        },
+        {
+          "line": 25,
+          "text": "lemma fixed_iff_from_x (z:Ring A B hD) :"
+        },
+        {
+          "line": 45,
+          "text": "abbrev Fixed := invariants (ThreeTorsionDiamond318.diamond A B hD)"
+        },
+        {
+          "line": 47,
+          "text": "@[expose] def xToFixed : XRing A B\u2192\u2090[R]Fixed A B hD :="
+        },
+        {
+          "line": 55,
+          "text": "lemma xToFixed_bijective : Function.Bijective (xToFixed A B hD) :=by"
+        },
+        {
+          "line": 71,
+          "text": "@[expose] def signQuotientEquiv : XRing A B\u2243\u2090[R]Fixed A B hD :="
+        },
+        {
+          "line": 74,
+          "text": "theorem signQuotientEquiv_val (a:XRing A B) :"
+        },
+        {
+          "line": 78,
+          "text": "theorem fixed_rank_four : Module.finrank R (Fixed A B hD)=4:=by"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-sign-quotient/README.md",
+      "sha256": "a2a9387d68d23b935ab7ae1fb5b418fdeca7f68cc1788ff4b03ab929d423e2e4",
+      "lines": 7,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-sign-quotient/receipt.json",
+      "sha256": "122838f67825b33ed030a675b9fabd7522877c1fd55afc4e43996cf28929138b",
+      "lines": 36,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/TangentDiagonalNatural318.lean",
+      "sha256": "9563c17b5a78161a314b34db7a803868579c8abbaa857fe6349f7c1e4e6b124a",
+      "lines": 41,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "9563c17b5a78161a314b34db7a803868579c8abbaa857fe6349f7c1e4e6b124a",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "local instance pairCommRing : CommRing (PairRing A B):=inferInstance"
+        },
+        {
+          "line": 15,
+          "text": "local instance pairAlgebra : Algebra R (PairRing A B):=inferInstance"
+        },
+        {
+          "line": 17,
+          "text": "lemma pair_natural (z:PairRing A B) : h (pair A B \u03c6 z)=pair A B (h.comp \u03c6) z:=by"
+        },
+        {
+          "line": 22,
+          "text": "lemma diagonal_comp_base (hu:IsUnit (2*\u03c6 (ShortAffineJacobian318.y A B))) :"
+        },
+        {
+          "line": 30,
+          "text": "lemma natural (hu:IsUnit (2*\u03c6 (ShortAffineJacobian318.y A B)))"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/NonverticalDoubling318.lean",
+      "sha256": "4399cd8640812faf2f8e8c13431f8eea67f5e0966d9230d3dbad3b690ae72b71",
+      "lines": 50,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "4399cd8640812faf2f8e8c13431f8eea67f5e0966d9230d3dbad3b690ae72b71",
+      "declaration_locators": [
+        {
+          "line": 12,
+          "text": "abbrev Curve:=ShortAffineJacobian318.Ring A B"
+        },
+        {
+          "line": 13,
+          "text": "@[expose] def denominator : Curve A B:=2*ShortAffineJacobian318.y A B"
+        },
+        {
+          "line": 14,
+          "text": "abbrev OpenRing:=Localization.Away (denominator A B)"
+        },
+        {
+          "line": 15,
+          "text": "@[expose] def curveMap : Curve A B\u2192\u2090[R]OpenRing A B:=IsScalarTower.toAlgHom R _ _"
+        },
+        {
+          "line": 17,
+          "text": "lemma unit : IsUnit (2*curveMap A B (ShortAffineJacobian318.y A B)):=by"
+        },
+        {
+          "line": 21,
+          "text": "@[expose] def double : Curve A B\u2192\u2090[R]OpenRing A B:="
+        },
+        {
+          "line": 23,
+          "text": "@[expose] def negative : Curve A B\u2192\u2090[R]OpenRing A B:="
+        },
+        {
+          "line": 27,
+          "text": "@[expose] def toTorsion : OpenRing A B\u2192\u2090[R]Ring A B hD:="
+        },
+        {
+          "line": 31,
+          "text": "lemma toTorsion_curveMap : (toTorsion A B hD).comp (curveMap A B)=coordinateMap A B hD:=by"
+        },
+        {
+          "line": 38,
+          "text": "lemma condition : (toTorsion A B hD).comp (double A B)="
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionOpenUniversal318.lean",
+      "sha256": "77e5cf63401c6045938ab305c3f3480f7cf0e36aa9b0f9eda414751f185464da",
+      "lines": 40,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "77e5cf63401c6045938ab305c3f3480f7cf0e36aa9b0f9eda414751f185464da",
+      "declaration_locators": [
+        {
+          "line": 15,
+          "text": "theorem existsUnique {S:Type} [CommRing S] [Algebra R S] (k:OpenRing A B\u2192\u2090[R]S)"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionCoequalizer318.lean",
+      "sha256": "6dd7f9ba28a09244a8dd77ea1c431ad35f984006f958ab36bf4ac349f1f9175c",
+      "lines": 43,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "6dd7f9ba28a09244a8dd77ea1c431ad35f984006f958ab36bf4ac349f1f9175c",
+      "declaration_locators": [
+        {
+          "line": 15,
+          "text": "abbrev curveObject:=CommAlgCat.of R (Curve A B)"
+        },
+        {
+          "line": 16,
+          "text": "abbrev openObject:=CommAlgCat.of R (OpenRing A B)"
+        },
+        {
+          "line": 17,
+          "text": "abbrev torsionObject:=CommAlgCat.of R (Ring A B hD)"
+        },
+        {
+          "line": 18,
+          "text": "@[expose] def doubling : curveObject A B\u27f6openObject A B:=CommAlgCat.ofHom (double A B)"
+        },
+        {
+          "line": 19,
+          "text": "@[expose] def negation : curveObject A B\u27f6openObject A B:=CommAlgCat.ofHom (negative A B)"
+        },
+        {
+          "line": 20,
+          "text": "@[expose] def quotient : openObject A B\u27f6torsionObject A B hD:=CommAlgCat.ofHom (toTorsion A B hD)"
+        },
+        {
+          "line": 22,
+          "text": "lemma condition : doubling A B\u226bquotient A B hD=negation A B\u226bquotient A B hD:=by"
+        },
+        {
+          "line": 26,
+          "text": "@[expose] def cofork : Cofork (doubling A B) (negation A B):="
+        },
+        {
+          "line": 31,
+          "text": "@[expose] def isColimit : IsColimit (cofork A B hD):=by"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionRingCoequalizer318.lean",
+      "sha256": "aaa8b5859880de6e0f47437f7386c7a64d9d1b887d0ffc5e931a155829425dc4",
+      "lines": 65,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "aaa8b5859880de6e0f47437f7386c7a64d9d1b887d0ffc5e931a155829425dc4",
+      "declaration_locators": [
+        {
+          "line": 15,
+          "text": "lemma quotient_surjective : Function.Surjective (toTorsion A B hD):=by"
+        },
+        {
+          "line": 22,
+          "text": "the test ring receives its base algebra structure through the given map. -/"
+        },
+        {
+          "line": 23,
+          "text": "lemma ring_existsUnique {S:Type} [CommRing S] (k:OpenRing A B\u2192+*S)"
+        },
+        {
+          "line": 41,
+          "text": "abbrev curveObject:=CommRingCat.of (Curve A B)"
+        },
+        {
+          "line": 42,
+          "text": "abbrev openObject:=CommRingCat.of (OpenRing A B)"
+        },
+        {
+          "line": 43,
+          "text": "abbrev torsionObject:=CommRingCat.of (Ring A B hD)"
+        },
+        {
+          "line": 44,
+          "text": "@[expose] def doubling : curveObject A B\u27f6openObject A B:=CommRingCat.ofHom (double A B).toRingHom"
+        },
+        {
+          "line": 45,
+          "text": "@[expose] def negation : curveObject A B\u27f6openObject A B:=CommRingCat.ofHom (negative A B).toRingHom"
+        },
+        {
+          "line": 46,
+          "text": "@[expose] def quotient : openObject A B\u27f6torsionObject A B hD:=CommRingCat.ofHom (toTorsion A B hD).toRingHom"
+        },
+        {
+          "line": 47,
+          "text": "lemma condition : doubling A B\u226bquotient A B hD=negation A B\u226bquotient A B hD:=by"
+        },
+        {
+          "line": 50,
+          "text": "@[expose] def cofork : Cofork (doubling A B) (negation A B):="
+        },
+        {
+          "line": 55,
+          "text": "@[expose] def isColimit : IsColimit (cofork A B hD):=by"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionEqualizerScheme318.lean",
+      "sha256": "c0052785829237188f298147a12121336d2bc3884d13c248ec39cac5b03ac2a7",
+      "lines": 70,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "c0052785829237188f298147a12121336d2bc3884d13c248ec39cac5b03ac2a7",
+      "declaration_locators": [
+        {
+          "line": 17,
+          "text": "@[expose] def openInclusion : Spec (CommRingCat.of (OpenRing A B))\u27f6ShortAffineScheme318.scheme A B:="
+        },
+        {
+          "line": 20,
+          "text": "instance openInclusion_open : IsOpenImmersion (openInclusion A B):=by"
+        },
+        {
+          "line": 23,
+          "text": "@[expose] def doubling : Spec (CommRingCat.of (OpenRing A B))\u27f6ShortAffineScheme318.scheme A B:="
+        },
+        {
+          "line": 25,
+          "text": "@[expose] def negation : Spec (CommRingCat.of (OpenRing A B))\u27f6ShortAffineScheme318.scheme A B:="
+        },
+        {
+          "line": 27,
+          "text": "@[expose] def inclusion : ThreeTorsionScheme318.scheme A B hD\u27f6Spec (CommRingCat.of (OpenRing A B)):="
+        },
+        {
+          "line": 30,
+          "text": "lemma inclusion_intoCurve : inclusion A B hD\u226bopenInclusion A B="
+        },
+        {
+          "line": 37,
+          "text": "instance inclusion_closed : IsClosedImmersion (inclusion A B hD):="
+        },
+        {
+          "line": 40,
+          "text": "lemma condition : inclusion A B hD\u226bdoubling A B=inclusion A B hD\u226bnegation A B:=by"
+        },
+        {
+          "line": 46,
+          "text": "@[expose] def fork : Fork (doubling A B) (negation A B):="
+        },
+        {
+          "line": 52,
+          "text": "@[expose] def isLimit : IsLimit (fork A B hD):=by"
+        },
+        {
+          "line": 65,
+          "text": "theorem universal {X:Scheme} (f:X\u27f6Spec (CommRingCat.of (OpenRing A B)))"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-equalizer/README.md",
+      "sha256": "63d86747b0be62ffe894a0b7e104cfe33c558d427c03cfa2ba9608a541fba498",
+      "lines": 32,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-equalizer/receipt.json",
+      "sha256": "eb725c5b929669155f1100fb20fd441bbda6193c40e228a2d4ac62a7fac3a5ee",
+      "lines": 42,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionTangentCriterion318.lean",
+      "sha256": "7d0ecba5a897262fe29a93e98ba48c17d9f62d0e87355b17012cd8eb3162a279",
+      "lines": 45,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "7d0ecba5a897262fe29a93e98ba48c17d9f62d0e87355b17012cd8eb3162a279",
+      "declaration_locators": [
+        {
+          "line": 11,
+          "text": "theorem criterion (a b x y l:S) (he:y^2=x^3+a*x+b)"
+        },
+        {
+          "line": 33,
+          "text": "theorem normalized_criterion {R:Type*} [CommRing R] [Algebra R S]"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/TangentDiagonal318.lean",
+      "sha256": "5060eb1e69603819460d24e90e2fab99886f9b3ce14ac200047322a65c203ddb",
+      "lines": 53,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "5060eb1e69603819460d24e90e2fab99886f9b3ce14ac200047322a65c203ddb",
+      "declaration_locators": [
+        {
+          "line": 16,
+          "text": "@[expose] def pair : PairRing A B\u2192\u2090[R]S :="
+        },
+        {
+          "line": 18,
+          "text": "@[simp] theorem pair_left (z:ShortAffineJacobian318.Ring A B) :"
+        },
+        {
+          "line": 21,
+          "text": "@[simp] theorem pair_right (z:ShortAffineJacobian318.Ring A B) :"
+        },
+        {
+          "line": 26,
+          "text": "@[expose] def diagonal : TangentRing A B\u2192\u2090[R]S :="
+        },
+        {
+          "line": 30,
+          "text": "@[simp] theorem diagonal_left (z:ShortAffineJacobian318.Ring A B) :"
+        },
+        {
+          "line": 34,
+          "text": "@[simp] theorem diagonal_right (z:ShortAffineJacobian318.Ring A B) :"
+        },
+        {
+          "line": 39,
+          "text": "lemma slope_relation : diagonal A B \u03c6 hu (slope A B)*(2*\u03c6 (ShortAffineJacobian318.y A B))="
+        },
+        {
+          "line": 46,
+          "text": "lemma curve_relation : (\u03c6 (ShortAffineJacobian318.y A B))^2="
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionTangent318.lean",
+      "sha256": "2d313fb4e7d7f38fd30de5151adfae52e993032336a91e2522cc0a053cd1498a",
+      "lines": 47,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "2d313fb4e7d7f38fd30de5151adfae52e993032336a91e2522cc0a053cd1498a",
+      "declaration_locators": [
+        {
+          "line": 18,
+          "text": "theorem factor_iff_double_neg :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionTangentUniversal318.lean",
+      "sha256": "4a1aa163a8430924b10eec774ad89074cdcce25ade1415eb71c7be9676942eca",
+      "lines": 51,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "4a1aa163a8430924b10eec774ad89074cdcce25ade1415eb71c7be9676942eca",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "theorem factor_iff_existsUnique :"
+        },
+        {
+          "line": 44,
+          "text": "theorem universal (hu:IsUnit (2*\u03c6 (ShortAffineJacobian318.y A B))) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionTangentScheme318.lean",
+      "sha256": "9ab7beb25975ca2ecc2aef4c1a2c8c716950cea8983faff1c186055c8f6e67d8",
+      "lines": 65,
+      "role": "assigned packet or tangent precursor; full source read",
+      "producer_sha256": "9ab7beb25975ca2ecc2aef4c1a2c8c716950cea8983faff1c186055c8f6e67d8",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "lemma ordinate_unit : IsUnit (2*coordinateMap A B hD (ShortAffineJacobian318.y A B)):=by"
+        },
+        {
+          "line": 19,
+          "text": "@[expose] def diagonalMap : TangentOpenAlgebra318.TangentRing A B\u2192\u2090[R]Ring A B hD :="
+        },
+        {
+          "line": 22,
+          "text": "lemma double_neg_coordinates :"
+        },
+        {
+          "line": 32,
+          "text": "@[expose] def diagonal : scheme A B hD\u27f6tangentOpen A B :="
+        },
+        {
+          "line": 37,
+          "text": "theorem double_neg : diagonal A B hD\u226baddition A B="
+        },
+        {
+          "line": 45,
+          "text": "theorem diagonal_intoProduct : diagonal A B hD\u226bintoProduct A B="
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-tangent/README.md",
+      "sha256": "b21e8dc61d93c60968756896e6ed91f0560d3a75bae5a238baa441d3e70ba3b5",
+      "lines": 19,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/receipts/three-torsion-tangent/receipt.json",
+      "sha256": "0695d77fb5b52141243543831d5ac50fed7abc7e7a61b6608643772999f958bd",
+      "lines": 43,
+      "role": "historical scope/validation record"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ThreeTorsionOrderEquiv318.lean",
+      "sha256": "a56d3f4705b8dbe5fd97d9a9e6542ce0ea8bf74dcdbc3d710af3b7d01f210bf4",
+      "lines": 45,
+      "role": "supporting source read; OrderEquiv is reviewer-authored consumer interface, not independently accepted here",
+      "declaration_locators": [
+        {
+          "line": 11,
+          "text": "abbrev Curve := ThreeTorsionPoints318.curve (algebraMap R K A) (algebraMap R K B)"
+        },
+        {
+          "line": 12,
+          "text": "abbrev OrderThree := {P : (Curve (K:=K) A B).toAffine.Point // addOrderOf P=3}"
+        },
+        {
+          "line": 14,
+          "text": "@[expose] def toPoint (p : Solutions (S:=K) A B) : OrderThree (K:=K) A B :="
+        },
+        {
+          "line": 18,
+          "text": "@[expose] def toSolution (p : OrderThree (K:=K) A B) : Solutions (S:=K) A B :="
+        },
+        {
+          "line": 28,
+          "text": "@[expose] def solutionPointEquiv : Solutions (S:=K) A B \u2243 OrderThree (K:=K) A B where"
+        },
+        {
+          "line": 42,
+          "text": "@[expose] def algebraPointEquiv : (Ring A B hD \u2192\u2090[R] K) \u2243 OrderThree (K:=K) A B :="
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/EvenContactEtale318.lean",
+      "sha256": "4bfa9a8f28e1d30b642d11fa6d6b627b336b701551901a985f1a18188758d996",
+      "lines": 125,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "@[expose] def polynomial (u:R\u02e3) : R[X] := X^2-C (u:R)"
+        },
+        {
+          "line": 15,
+          "text": "theorem monic (u:R\u02e3) : (polynomial u).Monic := monic_X_pow_sub_C _ (by decide)"
+        },
+        {
+          "line": 17,
+          "text": "abbrev RootRing (u:R\u02e3):=AdjoinRoot (polynomial u)"
+        },
+        {
+          "line": 18,
+          "text": "@[expose] def root (u:R\u02e3):RootRing u := AdjoinRoot.root (polynomial u)"
+        },
+        {
+          "line": 20,
+          "text": "theorem root_square (u:R\u02e3) : (root u)^2=algebraMap R (RootRing u) (u:R) := by"
+        },
+        {
+          "line": 26,
+          "text": "theorem root_isUnit (u:R\u02e3) : IsUnit (root u) := by"
+        },
+        {
+          "line": 31,
+          "text": "theorem derivative_isUnit (u:R\u02e3) (h2:IsUnit (2:R)) :"
+        },
+        {
+          "line": 45,
+          "text": "@[expose] def pair (u:R\u02e3) : StandardEtalePair R where"
+        },
+        {
+          "line": 53,
+          "text": "@[expose] def standardEquiv (u:R\u02e3) (h2:IsUnit (2:R)) :"
+        },
+        {
+          "line": 60,
+          "text": "theorem rootRing_etale (u:R\u02e3) (h2:IsUnit (2:R)) : Algebra.Etale R (RootRing u) :="
+        },
+        {
+          "line": 63,
+          "text": "theorem rootRing_finite (u:R\u02e3) : Module.Finite R (RootRing u) :="
+        },
+        {
+          "line": 66,
+          "text": "theorem rootRing_free (u:R\u02e3) : Module.Free R (RootRing u) :="
+        },
+        {
+          "line": 69,
+          "text": "theorem rootRing_nontrivial [Nontrivial R] (u:R\u02e3) : Nontrivial (RootRing u) := by"
+        },
+        {
+          "line": 74,
+          "text": "theorem rootRing_rank_two [Nontrivial R] (u:R\u02e3) :"
+        },
+        {
+          "line": 81,
+          "text": "theorem rootRing_faithfullyFlat [Nontrivial R] (u:R\u02e3) :"
+        },
+        {
+          "line": 89,
+          "text": "theorem even_contact_root (u:R\u02e3) (pi:R) (k:\u2115) :"
+        },
+        {
+          "line": 98,
+          "text": "theorem factor_even_contact_point (u:R\u02e3) (pi:R) (k:\u2115)"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/FourUnitCover318.lean",
+      "sha256": "d1a9d2d5c7172eeecf7a81ead2bdd31ed72519e7f9aaf1955c587b61980d6c79",
+      "lines": 116,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "abbrev Pair01:=RootRing (u 0)\u2297[R]RootRing (u 1)"
+        },
+        {
+          "line": 15,
+          "text": "abbrev Pair23:=RootRing (u 2)\u2297[R]RootRing (u 3)"
+        },
+        {
+          "line": 16,
+          "text": "abbrev Cover:=Pair01 u\u2297[R]Pair23 u"
+        },
+        {
+          "line": 18,
+          "text": "@[expose] def generator : Fin 4\u2192Cover u :="
+        },
+        {
+          "line": 22,
+          "text": "@[expose] def includeFactor (i:Fin 4) : RootRing (u i)\u2192\u2090[R]Cover u := by"
+        },
+        {
+          "line": 36,
+          "text": "theorem generator_eq_include (i:Fin 4) : generator u i=includeFactor u i (root (u i)) := by"
+        },
+        {
+          "line": 39,
+          "text": "theorem generator_square (i:Fin 4) :"
+        },
+        {
+          "line": 44,
+          "text": "theorem finite_free_etale (h2:IsUnit (2:R)) :"
+        },
+        {
+          "line": 54,
+          "text": "theorem rank_sixteen [Nontrivial R] : Module.finrank R (Cover u)=16 := by"
+        },
+        {
+          "line": 60,
+          "text": "theorem faithfullyFlat [Nontrivial R] : Module.FaithfullyFlat R (Cover u) := by"
+        },
+        {
+          "line": 70,
+          "text": "@[expose] def liftFour (f:\u2200i:Fin 4,RootRing (u i)\u2192\u2090[R]T) : Cover u\u2192\u2090[R]T :="
+        },
+        {
+          "line": 76,
+          "text": "theorem liftFour_generator (f:\u2200i:Fin 4,RootRing (u i)\u2192\u2090[R]T) (i:Fin 4) :"
+        },
+        {
+          "line": 80,
+          "text": "@[expose] def rootLift (y:Fin 4\u2192T) (hy:\u2200i,y i^2=algebraMap R T (u i:R))"
+        },
+        {
+          "line": 87,
+          "text": "theorem rootLift_root (y:Fin 4\u2192T) (hy:\u2200i,y i^2=algebraMap R T (u i:R)) (i:Fin 4) :"
+        },
+        {
+          "line": 90,
+          "text": "theorem roots_lift (y:Fin 4\u2192T) (hy:\u2200i,y i^2=algebraMap R T (u i:R)) :"
+        },
+        {
+          "line": 97,
+          "text": "theorem hom_ext (f g:Cover u\u2192\u2090[R]T)"
+        },
+        {
+          "line": 111,
+          "text": "theorem roots_unique_lift (y:Fin 4\u2192T) (hy:\u2200i,y i^2=algebraMap R T (u i:R)) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/PrimitiveDiamond318.lean",
+      "sha256": "cca94e5ca9f2f07a1a37808cb54e474ec84bba490f4da1bea5d63a951138d686",
+      "lines": 151,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 17,
+          "text": "theorem primitive_bezout (x : ZMod N \u00d7 ZMod N) (hx : PrimitiveTorsion318.Primitive N x) :"
+        },
+        {
+          "line": 33,
+          "text": "theorem primitive_of_bezout (x : ZMod N \u00d7 ZMod N)"
+        },
+        {
+          "line": 54,
+          "text": "theorem primitive_iff_bezout (x : ZMod N \u00d7 ZMod N) :"
+        },
+        {
+          "line": 58,
+          "text": "abbrev Points := {x : ZMod N \u00d7 ZMod N // PrimitiveTorsion318.Primitive N x}"
+        },
+        {
+          "line": 61,
+          "text": "def scalar (u : (ZMod N)\u02e3) (x : ZMod N \u00d7 ZMod N) : ZMod N \u00d7 ZMod N :="
+        },
+        {
+          "line": 64,
+          "text": "theorem primitive_scalar (u : (ZMod N)\u02e3) (x : Points N) :"
+        },
+        {
+          "line": 76,
+          "text": "instance scalarAction : MulAction (ZMod N)\u02e3 (Points N) where"
+        },
+        {
+          "line": 87,
+          "text": "@[simp] theorem scalarAction_val (u : (ZMod N)\u02e3) (x : Points N) :"
+        },
+        {
+          "line": 91,
+          "text": "instance scalarFree : IsCancelSMul (ZMod N)\u02e3 (Points N) where"
+        },
+        {
+          "line": 103,
+          "text": "instance subgroupFree (H : Subgroup (ZMod N)\u02e3) : IsCancelSMul H (Points N) where"
+        },
+        {
+          "line": 107,
+          "text": "theorem scalar_eq_nsmul (u : (ZMod N)\u02e3) (x : ZMod N \u00d7 ZMod N) :"
+        },
+        {
+          "line": 112,
+          "text": "theorem actual_point_scalar (tau : UpperHalfPlane) (u : (ZMod N)\u02e3) (x : Points N) :"
+        },
+        {
+          "line": 118,
+          "text": "theorem actual_point_free (tau : UpperHalfPlane)"
+        },
+        {
+          "line": 135,
+          "text": "def primitiveTorsorEquiv (\u03c1 : H \u2192 B \u2243\u2090[R] B)"
+        },
+        {
+          "line": 143,
+          "text": "@[simp] theorem primitiveTorsorEquiv_tmul (\u03c1 : H \u2192 B \u2243\u2090[R] B)"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/InvariantBaseChange318.lean",
+      "sha256": "40e1224c181f59c8eca3c1af5509a67375d8d556a0ec6152912ea2528406eeaa",
+      "lines": 122,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 20,
+          "text": "def invariants (\u03c1 : G \u2192 B \u2243\u2090[R] B) : Subalgebra R B where"
+        },
+        {
+          "line": 29,
+          "text": "def difference (\u03c1 : G \u2192 B \u2243\u2090[R] B) : B \u2192\u2097[R] (G \u2192 B) :="
+        },
+        {
+          "line": 32,
+          "text": "@[simp] theorem difference_apply (\u03c1 : G \u2192 B \u2243\u2090[R] B) (b : B) (g : G) :"
+        },
+        {
+          "line": 35,
+          "text": "theorem mem_invariants_iff (\u03c1 : G \u2192 B \u2243\u2090[R] B) (b : B) :"
+        },
+        {
+          "line": 41,
+          "text": "theorem invariant_exact (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 51,
+          "text": "def baseAction (\u03c1 : G \u2192 B \u2243\u2090[R] B) (g : G) :"
+        },
+        {
+          "line": 55,
+          "text": "@[simp] theorem baseAction_tmul (\u03c1 : G \u2192 B \u2243\u2090[R] B) (g : G) (s : S) (b : B) :"
+        },
+        {
+          "line": 59,
+          "text": "def inclusion (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 63,
+          "text": "@[simp] theorem inclusion_tmul (\u03c1 : G \u2192 B \u2243\u2090[R] B) (s : S) (b : invariants \u03c1) :"
+        },
+        {
+          "line": 67,
+          "text": "theorem inclusion_fixed (\u03c1 : G \u2192 B \u2243\u2090[R] B) (a : S \u2297[R] invariants \u03c1) :"
+        },
+        {
+          "line": 75,
+          "text": "def canonical (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 81,
+          "text": "theorem difference_baseChange [Fintype G] [DecidableEq G] (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 89,
+          "text": "theorem canonical_injective [Module.Flat R S] (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 99,
+          "text": "theorem canonical_surjective [Finite G] [Module.Flat R S] (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 113,
+          "text": "def baseChangeEquiv [Finite G] [Module.Flat R S] (\u03c1 : G \u2192 B \u2243\u2090[R] B) :"
+        },
+        {
+          "line": 118,
+          "text": "@[simp] theorem baseChangeEquiv_tmul [Finite G] [Module.Flat R S]"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/InvariantRegularSplit318.lean",
+      "sha256": "3d1a469aa9bbd064e8ecc0752530187bd809a641f234017b34a25e6bc36499a9",
+      "lines": 139,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 25,
+          "text": "def fixedAction (g : G) : B \u2243\u2090[invariants \u03c1] B where"
+        },
+        {
+          "line": 29,
+          "text": "@[simp] theorem fixedAction_apply (g : G) (b : B) : fixedAction \u03c1 g b = \u03c1 g b := rfl"
+        },
+        {
+          "line": 32,
+          "text": "def coverSplit : B \u2297[R] S \u2243\u2090[S] (X \u2192 S) :="
+        },
+        {
+          "line": 35,
+          "text": "@[simp] theorem coverSplit_tmul (b : B) (s : S) :"
+        },
+        {
+          "line": 39,
+          "text": "def invariantSplit : (invariants \u03c1) \u2297[R] S \u2243\u2090[S] fixedFunctions S G X :="
+        },
+        {
+          "line": 43,
+          "text": "@[simp] theorem invariantSplit_tmul (a : invariants \u03c1) (s : S) :"
+        },
+        {
+          "line": 47,
+          "text": "theorem inclusion_compatible (a : (invariants \u03c1) \u2297[R] S) :"
+        },
+        {
+          "line": 55,
+          "text": "def regularSplit : B \u2297[R] S \u2243\u2090[(invariants \u03c1) \u2297[R] S]"
+        },
+        {
+          "line": 72,
+          "text": "@[simp] theorem regularSplit_coordinates (b : B \u2297[R] S) (g : G) :"
+        },
+        {
+          "line": 78,
+          "text": "def liftedSplit : (((invariants \u03c1) \u2297[R] S) \u2297[invariants \u03c1] B) \u2243\u2090[(invariants \u03c1) \u2297[R] S]"
+        },
+        {
+          "line": 83,
+          "text": "theorem liftedSplit_tmul_coordinates (a : invariants \u03c1) (s : S) (b : B)"
+        },
+        {
+          "line": 97,
+          "text": "theorem liftedSplit_equivariant (g : G)"
+        },
+        {
+          "line": 124,
+          "text": "def invariantTorsorEquiv :"
+        },
+        {
+          "line": 136,
+          "text": "@[simp] theorem invariantTorsorEquiv_tmul (b c : B) (g : G) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/FaithfullyFlatTorsor318.lean",
+      "sha256": "ba4f1194c2146070d23fe5f539d4d67d7e19461acbc7e8df3b6031c3cf40a94f",
+      "lines": 150,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 18,
+          "text": "def canonical (\u03c1 : G \u2192 B \u2243\u2090[A] B) : B \u2297[A] B \u2192\u2090[A] (G \u2192 B) :="
+        },
+        {
+          "line": 22,
+          "text": "@[simp] theorem canonical_tmul (\u03c1 : G \u2192 B \u2243\u2090[A] B) (b c : B) (g : G) :"
+        },
+        {
+          "line": 26,
+          "text": "def regularEquiv (A : Type*) [CommRing A] (G : Type*) [Group G] [Fintype G] :"
+        },
+        {
+          "line": 32,
+          "text": "@[simp] theorem regularEquiv_tmul (b c : G \u2192 A) (g h : G) :"
+        },
+        {
+          "line": 38,
+          "text": "def splitEquiv (e : B \u2243\u2090[A] (G \u2192 A)) : B \u2297[A] B \u2243\u2090[A] (G \u2192 B) :="
+        },
+        {
+          "line": 42,
+          "text": "theorem splitEquiv_tmul (e : B \u2243\u2090[A] (G \u2192 A)) (b c : B) (g : G) :"
+        },
+        {
+          "line": 50,
+          "text": "theorem splitEquiv_eq_canonical (\u03c1 : G \u2192 B \u2243\u2090[A] B) (e : B \u2243\u2090[A] (G \u2192 A))"
+        },
+        {
+          "line": 62,
+          "text": "theorem canonical_bijective_of_split (\u03c1 : G \u2192 B \u2243\u2090[A] B)"
+        },
+        {
+          "line": 74,
+          "text": "def doubleBaseEquiv :"
+        },
+        {
+          "line": 79,
+          "text": "@[simp] theorem doubleBaseEquiv_tmul (s : S) (b c : B) :"
+        },
+        {
+          "line": 85,
+          "text": "theorem canonical_baseChange [DecidableEq G] (\u03c1 : G \u2192 B \u2243\u2090[A] B) :"
+        },
+        {
+          "line": 105,
+          "text": "theorem canonical_bijective_of_faithfullyFlat_split [Module.FaithfullyFlat A S]"
+        },
+        {
+          "line": 133,
+          "text": "def torsorEquiv_of_faithfullyFlat_split [Module.FaithfullyFlat A S]"
+        },
+        {
+          "line": 141,
+          "text": "@[simp] theorem descended_tmul [Module.FaithfullyFlat A S]"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/FreeOrbitAlgebra318.lean",
+      "sha256": "2f6f0ed56c71cc408ca276edc1750eb191eb631cf7ed05d05d28a47241e78405",
+      "lines": 154,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 17,
+          "text": "@[simp] theorem orbit_smul (g : G) (x : X) :"
+        },
+        {
+          "line": 21,
+          "text": "def point (a : G \u00d7 Orbits G X) : X := a.1 \u2022 a.2.out"
+        },
+        {
+          "line": 23,
+          "text": "@[simp] theorem point_orbit (g : G) (q : Orbits G X) :"
+        },
+        {
+          "line": 27,
+          "text": "theorem point_bijective : Function.Bijective (point G X) := by"
+        },
+        {
+          "line": 43,
+          "text": "def coords : G \u00d7 Orbits G X \u2243 X := Equiv.ofBijective _ (point_bijective G X)"
+        },
+        {
+          "line": 45,
+          "text": "@[simp] theorem coords_apply (g : G) (q : Orbits G X) :"
+        },
+        {
+          "line": 48,
+          "text": "@[simp] theorem coords_symm_orbit (x : X) :"
+        },
+        {
+          "line": 58,
+          "text": "theorem fixed_out (f : fixedFunctions R G X) (x : X) :"
+        },
+        {
+          "line": 66,
+          "text": "def coverEquiv : (X \u2192 R) \u2243\u2090[fixedFunctions R G X] (G \u2192 fixedFunctions R G X) where"
+        },
+        {
+          "line": 94,
+          "text": "@[simp] theorem coverEquiv_apply (f : X \u2192 R) (g : G) (x : X) :"
+        },
+        {
+          "line": 98,
+          "text": "theorem cover_free [Finite G] :"
+        },
+        {
+          "line": 109,
+          "text": "def coverBasis : Module.Basis G (fixedFunctions R G X) (X \u2192 R) :="
+        },
+        {
+          "line": 113,
+          "text": "theorem cover_finrank [Nontrivial R] [Nonempty X] :"
+        },
+        {
+          "line": 118,
+          "text": "def matrixTwist (A : Type*) [CommRing A] :"
+        },
+        {
+          "line": 129,
+          "text": "def torsorEquiv :"
+        },
+        {
+          "line": 141,
+          "text": "theorem torsorEquiv_tmul (b c : X \u2192 R) (g : G) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/TangentOpenAlgebra318.lean",
+      "sha256": "270e87d7e4ced04d859215cf47d7a12a04528021a223e18a5dae820ecdcd6d92",
+      "lines": 87,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 13,
+          "text": "@[expose] def ordinateSum (A B:R) : PairRing A B := leftPair A B (y A B)+rightPair A B (y A B)"
+        },
+        {
+          "line": 14,
+          "text": "abbrev TangentRing (A B:R) := Localization.Away (ordinateSum A B)"
+        },
+        {
+          "line": 15,
+          "text": "@[expose] def left (A B:R) : Ring A B \u2192\u2090[R] TangentRing A B :="
+        },
+        {
+          "line": 17,
+          "text": "@[expose] def right (A B:R) : Ring A B \u2192\u2090[R] TangentRing A B :="
+        },
+        {
+          "line": 19,
+          "text": "@[expose] def x1 (A B:R) : TangentRing A B := left A B (x A B)"
+        },
+        {
+          "line": 20,
+          "text": "@[expose] def y1 (A B:R) : TangentRing A B := left A B (y A B)"
+        },
+        {
+          "line": 21,
+          "text": "@[expose] def x2 (A B:R) : TangentRing A B := right A B (x A B)"
+        },
+        {
+          "line": 22,
+          "text": "@[expose] def y2 (A B:R) : TangentRing A B := right A B (y A B)"
+        },
+        {
+          "line": 24,
+          "text": "theorem sum_unit (A B:R) : IsUnit (y1 A B+y2 A B) := by"
+        },
+        {
+          "line": 28,
+          "text": "@[expose] def sumUnit (A B:R) : (TangentRing A B)\u02e3 := (sum_unit A B).unit"
+        },
+        {
+          "line": 29,
+          "text": "@[expose] def slope (A B:R) : TangentRing A B :="
+        },
+        {
+          "line": 31,
+          "text": "@[expose] def x3 (A B:R) : TangentRing A B := slope A B^2-x1 A B-x2 A B"
+        },
+        {
+          "line": 32,
+          "text": "@[expose] def y3 (A B:R) : TangentRing A B := slope A B*(x1 A B-x3 A B)-y1 A B"
+        },
+        {
+          "line": 34,
+          "text": "theorem slope_sum (A B:R) : slope A B*(y1 A B+y2 A B)="
+        },
+        {
+          "line": 41,
+          "text": "theorem first_equation (A B:R) :"
+        },
+        {
+          "line": 46,
+          "text": "theorem second_equation (A B:R) :"
+        },
+        {
+          "line": 53,
+          "text": "theorem slope_gap (A B:R) : slope A B*(x2 A B-x1 A B)=y2 A B-y1 A B := by"
+        },
+        {
+          "line": 64,
+          "text": "theorem tangent_identity (a b X1 Y1 X2 Y2 L:R) :"
+        },
+        {
+          "line": 72,
+          "text": "theorem third_equation (A B:R) :"
+        },
+        {
+          "line": 82,
+          "text": "@[expose] def tangentMap (A B:R) : Ring A B \u2192\u2090[R] TangentRing A B :="
+        },
+        {
+          "line": 84,
+          "text": "@[simp] theorem tangentMap_x (A B:R) : tangentMap A B (x A B)=x3 A B := toHom_x _ _ _"
+        },
+        {
+          "line": 85,
+          "text": "@[simp] theorem tangentMap_y (A B:R) : tangentMap A B (y A B)=y3 A B := toHom_y _ _ _"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/PrimitivePointedModel318.lean",
+      "sha256": "01aeaa06f3a36041e0af47f82d49cd0784930f2b31595b382937ace1ac7e4bcd",
+      "lines": 61,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 24,
+          "text": "@[expose] def component (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 32,
+          "text": "theorem torsor_and_model (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 44,
+          "text": "theorem torsor_formula (b c:B) (g:H) :"
+        },
+        {
+          "line": 49,
+          "text": "theorem original_point_factor (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 56,
+          "text": "theorem point_over_Z (\u03b2:B\u2192+*\u03a9) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/PointedQuotientModel318.lean",
+      "sha256": "b7629d4168db7cddebd90d14348de6e11af10fcb24b91bda9e6b7974f35a71a5",
+      "lines": 78,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 24,
+          "text": "@[expose] def quotientPoint (\u03b2:B\u2192+*\u03a9) : invariants \u03c1\u2192+*\u03a9 :="
+        },
+        {
+          "line": 30,
+          "text": "@[expose] def component (hN:N\u22600) (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 40,
+          "text": "theorem quotient_point_factor (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 49,
+          "text": "theorem selected_point_factor (hN:N\u22600) (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 59,
+          "text": "theorem constructed_model_properties (hN:N\u22600) (\u03b2:B\u2192+*\u03a9) :"
+        },
+        {
+          "line": 73,
+          "text": "theorem constructed_point_over_Z (hN:N\u22600) (\u03b2:B\u2192+*\u03a9) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/PointedArithmeticModel318.lean",
+      "sha256": "5b10de5ac81bebd7847c90b9e075e8ffcc2027e02dc8f333e4b60e94f188a0b1",
+      "lines": 114,
+      "role": "supporting source read for named maps and hypotheses",
+      "declaration_locators": [
+        {
+          "line": 20,
+          "text": "structure PointedComponent (\u03b2:B\u2192+*\u03a9) where"
+        },
+        {
+          "line": 28,
+          "text": "@[expose] def ofPoint (hN:N\u22600) (\u03b2:B\u2192+*\u03a9) : PointedComponent N B \u03a9 \u03b2 := by"
+        },
+        {
+          "line": 37,
+          "text": "abbrev Ring := Localization.Away c.idempotent"
+        },
+        {
+          "line": 40,
+          "text": "@[expose] def inclusion : Spec (CommRingCat.of (Ring c)) \u27f6 Spec (CommRingCat.of B) :="
+        },
+        {
+          "line": 43,
+          "text": "@[expose] def lift : Ring c\u2192+*\u03a9 :="
+        },
+        {
+          "line": 46,
+          "text": "abbrev model : Scheme := (OpenJProjectiveMap318.coverMap N (Ring c)).normalization"
+        },
+        {
+          "line": 48,
+          "text": "@[expose] def sourceMap : Spec (CommRingCat.of (Ring c)) \u27f6 model c :="
+        },
+        {
+          "line": 51,
+          "text": "@[expose] def structureMap : model c \u27f6 Spec (CommRingCat.of \u2124) :="
+        },
+        {
+          "line": 54,
+          "text": "@[expose] def point : Spec (CommRingCat.of \u03a9) \u27f6 model c :="
+        },
+        {
+          "line": 59,
+          "text": "theorem original_point_factor :"
+        },
+        {
+          "line": 64,
+          "text": "theorem inclusion_open_closed : IsOpenImmersion (inclusion c) \u2227"
+        },
+        {
+          "line": 70,
+          "text": "theorem source_open : IsOpenImmersion (sourceMap c) :="
+        },
+        {
+          "line": 73,
+          "text": "theorem model_integral : IsIntegral (model c) := inferInstance"
+        },
+        {
+          "line": 75,
+          "text": "theorem proper_flat_surjective (hN:N\u22600) :"
+        },
+        {
+          "line": 79,
+          "text": "theorem model_noetherian (hN:N\u22600) : AlgebraicGeometry.IsNoetherian (model c) :="
+        },
+        {
+          "line": 82,
+          "text": "theorem model_normal_stalk (hN:N\u22600) (x:model c) :"
+        },
+        {
+          "line": 86,
+          "text": "theorem chart_dimension_two (hN:N\u22600) (j:Fin 2) :"
+        },
+        {
+          "line": 91,
+          "text": "theorem point_over_Z : point c \u226b structureMap c="
+        },
+        {
+          "line": 104,
+          "text": "@[expose] def genericEquiv (hN:N\u22600) :"
+        },
+        {
+          "line": 109,
+          "text": "theorem genericEquiv_coeff (hN:N\u22600) (b:Ring c) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ChartNegation318.lean",
+      "sha256": "8aaef58684450b11999c48b285b62f84ebd44fcfc0e1e97e8d1332d6df20d9aa",
+      "lines": 80,
+      "role": "declaration/interface inspection; full negation source not re-audited",
+      "declaration_locators": [
+        {
+          "line": 14,
+          "text": "@[expose] def affineNeg (A B:R) : Affine A B \u2192\u2090[R] Affine A B :="
+        },
+        {
+          "line": 18,
+          "text": "@[simp] theorem affineNeg_x (A B:R) : affineNeg A B (ShortAffineJacobian318.x A B)="
+        },
+        {
+          "line": 20,
+          "text": "@[simp] theorem affineNeg_y (A B:R) : affineNeg A B (ShortAffineJacobian318.y A B)="
+        },
+        {
+          "line": 23,
+          "text": "theorem affineNeg_twice (A B:R) : (affineNeg A B).comp (affineNeg A B)=AlgHom.id R _ := by"
+        },
+        {
+          "line": 27,
+          "text": "@[expose] def infinityNeg (A B:R) : Infinity A B \u2192\u2090[R] Infinity A B :="
+        },
+        {
+          "line": 30,
+          "text": "@[simp] theorem infinityNeg_x (A B:R) : infinityNeg A B (InfinityChart318.x A B)="
+        },
+        {
+          "line": 32,
+          "text": "@[simp] theorem infinityNeg_z (A B:R) : infinityNeg A B (InfinityChart318.z A B)="
+        },
+        {
+          "line": 35,
+          "text": "theorem infinityNeg_twice (A B:R) : (infinityNeg A B).comp (infinityNeg A B)=AlgHom.id R _ := by"
+        },
+        {
+          "line": 39,
+          "text": "@[expose] def overlapNeg (A B:R) : InfinityOverlap A B \u2192\u2090[R] InfinityOverlap A B :="
+        },
+        {
+          "line": 47,
+          "text": "@[simp] theorem overlapNeg_map (A B:R) (a:Infinity A B) :"
+        },
+        {
+          "line": 51,
+          "text": "@[simp] theorem overlapNeg_ix (A B:R) : overlapNeg A B (ix A B)= -ix A B := by"
+        },
+        {
+          "line": 53,
+          "text": "@[simp] theorem overlapNeg_iz (A B:R) : overlapNeg A B (iz A B)= -iz A B := by"
+        },
+        {
+          "line": 55,
+          "text": "@[simp] theorem overlapNeg_ii (A B:R) : overlapNeg A B (ii A B)= -ii A B := by"
+        },
+        {
+          "line": 65,
+          "text": "theorem affine_overlap (A B:R) :"
+        },
+        {
+          "line": 73,
+          "text": "theorem infinity_overlap (A B:R) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/README.md",
+      "sha256": "0b54dc69e76f469d0259d76e9e6f6c4b074ba716849d5663ea2c80e05db80ecd",
+      "lines": 72,
+      "role": "current scope and consumer claims"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/.lake/packages/mathlib/Mathlib/LinearAlgebra/Dimension/Free.lean",
+      "sha256": "f79c9b1213f5991832518b4547da7bf4103ec2d51b045b2ecd5eae72243880ce",
+      "lines": 425,
+      "role": "pinned upstream selected theorem/adjunction passage inspection",
+      "declaration_locators": [
+        {
+          "line": 44,
+          "text": "theorem lift_rank_mul_lift_rank :"
+        },
+        {
+          "line": 58,
+          "text": "theorem rank_mul_rank (A : Type v) [AddCommMonoid A]"
+        },
+        {
+          "line": 68,
+          "text": "theorem Module.finrank_mul_finrank : finrank F K * finrank K A = finrank F A := by"
+        },
+        {
+          "line": 73,
+          "text": "theorem Module.finrank_dvd_finrank_left :"
+        },
+        {
+          "line": 77,
+          "text": "theorem Module.finrank_dvd_finrank_right :"
+        },
+        {
+          "line": 81,
+          "text": "theorem Module.finrank_div_finrank_cancel_right (h : Module.finrank K A \u2260 0) :"
+        },
+        {
+          "line": 85,
+          "text": "theorem Module.finrank_div_finrank_cancel_left (h : Module.finrank F K \u2260 0) :"
+        },
+        {
+          "line": 89,
+          "text": "theorem Module.finrank_div_finrank_cancel_right_of_nontrivial [Nontrivial A] [Module.Finite K A] :"
+        },
+        {
+          "line": 93,
+          "text": "theorem Module.finrank_div_finrank_cancel_left_of_nontrivial [Nontrivial K] [Module.Finite F K] :"
+        },
+        {
+          "line": 110,
+          "text": "theorem exists_linearMap_injective_of_linearIndependent_of_lift_rank_le"
+        },
+        {
+          "line": 122,
+          "text": "theorem exists_linearMap_injective_of_linearIndependent_of_rank_le"
+        },
+        {
+          "line": 127,
+          "text": "theorem exists_linearMap_injective_of_lift_rank_lt"
+        },
+        {
+          "line": 134,
+          "text": "theorem exists_linearMap_injective_of_rank_lt (cnd : Module.rank R M < Module.rank R N) :"
+        },
+        {
+          "line": 149,
+          "text": "theorem rank_eq_card_chooseBasisIndex : Module.rank R M = #(ChooseBasisIndex R M) :="
+        },
+        {
+          "line": 153,
+          "text": "theorem _root_.Module.finrank_eq_card_chooseBasisIndex [Module.Finite R M] :"
+        },
+        {
+          "line": 159,
+          "text": "lemma rank_eq_mk_of_infinite_lt [Infinite R] (h_lt : lift.{v} #R < lift.{u} #M) :"
+        },
+        {
+          "line": 174,
+          "text": "theorem lift_rank_le_iff_exists_linearMap :"
+        },
+        {
+          "line": 183,
+          "text": "theorem rank_le_iff_exists_linearMap :"
+        },
+        {
+          "line": 187,
+          "text": "theorem finrank_le_iff_exists_linearMap [Module.Finite R M] [Module.Finite R M'] :"
+        },
+        {
+          "line": 192,
+          "text": "theorem nonempty_linearEquiv_of_lift_rank_eq"
+        },
+        {
+          "line": 202,
+          "text": "theorem nonempty_linearEquiv_of_rank_eq (cond : Module.rank R M = Module.rank R M\u2081) :"
+        },
+        {
+          "line": 211,
+          "text": "def LinearEquiv.ofLiftRankEq"
+        },
+        {
+          "line": 217,
+          "text": "def LinearEquiv.ofRankEq (cond : Module.rank R M = Module.rank R M\u2081) : M \u2243\u2097[R] M\u2081 :="
+        },
+        {
+          "line": 223,
+          "text": "theorem Module.nonempty_linearEquiv_iff_lift_rank_eq : Nonempty (M \u2243\u2097[R] M') \u2194"
+        },
+        {
+          "line": 231,
+          "text": "theorem Module.nonempty_linearEquiv_iff_rank_eq :"
+        },
+        {
+          "line": 239,
+          "text": "theorem FiniteDimensional.nonempty_linearEquiv_of_finrank_eq"
+        },
+        {
+          "line": 245,
+          "text": "theorem FiniteDimensional.nonempty_linearEquiv_iff_finrank_eq [Module.Finite R M]"
+        },
+        {
+          "line": 251,
+          "text": "noncomputable def LinearEquiv.ofFinrankEq [Module.Finite R M] [Module.Finite R M']"
+        },
+        {
+          "line": 258,
+          "text": "lemma subsingleton_of_rank_zero (h : Module.rank R M = 0) : Subsingleton M := by"
+        },
+        {
+          "line": 263,
+          "text": "lemma rank_lt_aleph0_iff : Module.rank R M < \u2135\u2080 \u2194 Module.Finite R M := by"
+        },
+        {
+          "line": 268,
+          "text": "theorem finrank_of_not_finite (h : \u00acModule.Finite R M) : finrank R M = 0 := by"
+        },
+        {
+          "line": 272,
+          "text": "theorem finite_of_finrank_pos (h : 0 < finrank R M) : Module.Finite R M := by"
+        },
+        {
+          "line": 276,
+          "text": "theorem finite_of_finrank_eq_succ {n : \u2115} (hn : finrank R M = n.succ) : Module.Finite R M :="
+        },
+        {
+          "line": 279,
+          "text": "theorem finite_iff_of_rank_eq_nsmul {W} [AddCommMonoid W] [Module R W] [Module.Free R W] {n : \u2115}"
+        },
+        {
+          "line": 288,
+          "text": "lemma finrank_top_le_finrank_of_isScalarTower_of_free [Semiring S] [StrongRankCondition S]"
+        },
+        {
+          "line": 302,
+          "text": "lemma finrank_bot_le_finrank_of_isScalarTower_of_free (S T : Type*) [Semiring S] [Semiring T]"
+        },
+        {
+          "line": 313,
+          "text": "theorem nonempty_linearEquiv_iff_rank_eq_one :"
+        },
+        {
+          "line": 318,
+          "text": "theorem nonempty_linearEquiv_iff_finrank_eq_one :"
+        },
+        {
+          "line": 324,
+          "text": "theorem nonempty_algEquiv_iff_finrank_eq_one"
+        },
+        {
+          "line": 334,
+          "text": "noncomputable def finBasis [Module.Finite R M] :"
+        },
+        {
+          "line": 340,
+          "text": "noncomputable def finBasisOfFinrankEq [Module.Finite R M] {n : \u2115} (hn : finrank R M = n) :"
+        },
+        {
+          "line": 346,
+          "text": "noncomputable def basisUnique (\u03b9 : Type*) [Unique \u03b9]"
+        },
+        {
+          "line": 354,
+          "text": "theorem Basis.nonempty_unique_index_of_finrank_eq_one"
+        },
+        {
+          "line": 364,
+          "text": "theorem basisUnique_repr_eq_zero_iff {\u03b9 : Type*} [Unique \u03b9]"
+        },
+        {
+          "line": 372,
+          "text": "theorem _root_.OrzechProperty.bijective_of_surjective_of_finrank_le"
+        },
+        {
+          "line": 386,
+          "text": "theorem _root_.LinearMap.existsUnique_eq_smul_id_of_finrank_eq_one"
+        },
+        {
+          "line": 405,
+          "text": "noncomputable def _root_.LinearEquiv.smul_id_of_finrank_eq_one (d1 : Module.finrank R M = 1) :"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/.lake/packages/mathlib/Mathlib/AlgebraicGeometry/GammaSpecAdjunction.lean",
+      "sha256": "b7123bbff3422cd5c34666486455233f686e4700352a6a361cd688aef6e89335",
+      "lines": 631,
+      "role": "pinned upstream selected theorem/adjunction passage inspection",
+      "declaration_locators": [
+        {
+          "line": 69,
+          "text": "def to\u0393SpecFun : X \u2192 PrimeSpectrum (\u0393.obj (op X)) := fun x =>"
+        },
+        {
+          "line": 73,
+          "text": "theorem notMem_prime_iff_unit_in_stalk (r : \u0393.obj (op X)) (x : X) :"
+        },
+        {
+          "line": 80,
+          "text": "theorem to\u0393Spec_preimage_basicOpen_eq (r : \u0393.obj (op X)) :"
+        },
+        {
+          "line": 89,
+          "text": "theorem to\u0393Spec_continuous : Continuous X.to\u0393SpecFun := by"
+        },
+        {
+          "line": 97,
+          "text": "def to\u0393SpecBase : X.toTopCat \u27f6 Spec.topObj (\u0393.obj (op X)) :="
+        },
+        {
+          "line": 105,
+          "text": "abbrev to\u0393SpecMapBasicOpen : Opens X :="
+        },
+        {
+          "line": 109,
+          "text": "theorem to\u0393SpecMapBasicOpen_eq : X.to\u0393SpecMapBasicOpen r = X.toRingedSpace.basicOpen r :="
+        },
+        {
+          "line": 113,
+          "text": "abbrev toTo\u0393SpecMapBasicOpen :"
+        },
+        {
+          "line": 119,
+          "text": "theorem isUnit_res_to\u0393SpecMapBasicOpen : IsUnit (X.toTo\u0393SpecMapBasicOpen r r) := by"
+        },
+        {
+          "line": 127,
+          "text": "def to\u0393SpecCApp :"
+        },
+        {
+          "line": 142,
+          "text": "theorem to\u0393SpecCApp_iff"
+        },
+        {
+          "line": 158,
+          "text": "theorem to\u0393SpecCApp_spec :"
+        },
+        {
+          "line": 165,
+          "text": "def to\u0393SpecCBasicOpens :"
+        },
+        {
+          "line": 181,
+          "text": "def to\u0393SpecSheafedSpace : X.toSheafedSpace \u27f6 Spec.toSheafedSpace.obj (op (\u0393.obj (op X))) :="
+        },
+        {
+          "line": 188,
+          "text": "theorem to\u0393SpecSheafedSpace_app_eq :"
+        },
+        {
+          "line": 193,
+          "text": "@[reassoc] theorem to\u0393SpecSheafedSpace_app_spec (r : \u0393.obj (op X)) :"
+        },
+        {
+          "line": 202,
+          "text": "theorem toStalk_stalkMap_to\u0393Spec (x : X) :"
+        },
+        {
+          "line": 215,
+          "text": "def to\u0393Spec : X \u27f6 Spec.locallyRingedSpaceObj (\u0393.obj (op X)) :="
+        },
+        {
+          "line": 238,
+          "text": "lemma to\u0393Spec_preimage_zeroLocus_eq {X : LocallyRingedSpace.{u}}"
+        },
+        {
+          "line": 255,
+          "text": "theorem comp_ring_hom_ext {X : LocallyRingedSpace.{u}} {R : CommRingCat.{u}} {f : R \u27f6 \u0393.obj (op X)}"
+        },
+        {
+          "line": 286,
+          "text": "def identityTo\u0393Spec : \ud835\udfed LocallyRingedSpace.{u} \u27f6 \u0393.rightOp \u22d9 Spec.toLocallyRingedSpace where"
+        },
+        {
+          "line": 307,
+          "text": "theorem left_triangle (X : LocallyRingedSpace) :"
+        },
+        {
+          "line": 314,
+          "text": "theorem right_triangle (R : CommRingCat) :"
+        },
+        {
+          "line": 329,
+          "text": "def locallyRingedSpaceAdjunction : \u0393.rightOp \u22a3 Spec.toLocallyRingedSpace.{u} where"
+        },
+        {
+          "line": 342,
+          "text": "lemma toSpec\u0393_unop (R : CommRingCat\u1d52\u1d56) :"
+        },
+        {
+          "line": 348,
+          "text": "lemma toSpec\u0393_of (R : Type u) [CommRing R] :"
+        },
+        {
+          "line": 352,
+          "text": "lemma locallyRingedSpaceAdjunction_counit_app (R : CommRingCat\u1d52\u1d56) :"
+        },
+        {
+          "line": 357,
+          "text": "lemma locallyRingedSpaceAdjunction_counit_app' (R : Type u) [CommRing R] :"
+        },
+        {
+          "line": 362,
+          "text": "lemma unop_locallyRingedSpaceAdjunction_counit_app' (R : Type u) [CommRing R] :"
+        },
+        {
+          "line": 366,
+          "text": "lemma locallyRingedSpaceAdjunction_homEquiv_apply"
+        },
+        {
+          "line": 372,
+          "text": "lemma locallyRingedSpaceAdjunction_homEquiv_apply'"
+        },
+        {
+          "line": 379,
+          "text": "lemma toOpen_comp_locallyRingedSpaceAdjunction_homEquiv_app"
+        },
+        {
+          "line": 395,
+          "text": "def adjunction : Scheme.\u0393.rightOp \u22a3 Scheme.Spec.{u} where"
+        },
+        {
+          "line": 407,
+          "text": "lemma _root_.AlgebraicGeometry.ext_to_Spec {X : Scheme} {R : Type*} [CommRing R]"
+        },
+        {
+          "line": 414,
+          "text": "theorem adjunction_homEquiv_apply {X : Scheme} {R : CommRingCat\u1d52\u1d56}"
+        },
+        {
+          "line": 418,
+          "text": "theorem adjunction_homEquiv_symm_apply {X : Scheme} {R : CommRingCat\u1d52\u1d56}"
+        },
+        {
+          "line": 423,
+          "text": "theorem adjunction_counit_app' {R : CommRingCat\u1d52\u1d56} :"
+        },
+        {
+          "line": 427,
+          "text": "theorem adjunction_counit_app {R : CommRingCat\u1d52\u1d56} :"
+        },
+        {
+          "line": 431,
+          "text": "def _root_.AlgebraicGeometry.Scheme.toSpec\u0393 (X : Scheme.{u}) : X \u27f6 Spec \u0393(X, \u22a4) :="
+        },
+        {
+          "line": 435,
+          "text": "theorem adjunction_unit_app {X : Scheme} :"
+        },
+        {
+          "line": 438,
+          "text": "instance isIso_locallyRingedSpaceAdjunction_counit :"
+        },
+        {
+          "line": 443,
+          "text": "instance isIso_adjunction_counit : IsIso \u0393Spec.adjunction.counit := by"
+        },
+        {
+          "line": 451,
+          "text": "theorem Scheme.toSpec\u0393_apply (X : Scheme.{u}) (x) :"
+        },
+        {
+          "line": 455,
+          "text": "theorem Scheme.toSpec\u0393_naturality {X Y : Scheme.{u}} (f : X \u27f6 Y) :"
+        },
+        {
+          "line": 461,
+          "text": "theorem Scheme.toSpec\u0393_appTop (X : Scheme.{u}) :"
+        },
+        {
+          "line": 471,
+          "text": "theorem SpecMap_\u0393SpecIso_hom (R : CommRingCat.{u}) :"
+        },
+        {
+          "line": 478,
+          "text": "theorem SpecMap_\u0393SpecIso_inv_toSpec\u0393 (R : CommRingCat.{u}) :"
+        },
+        {
+          "line": 483,
+          "text": "theorem toSpec\u0393_SpecMap_\u0393SpecIso_inv (R : CommRingCat.{u}) :"
+        },
+        {
+          "line": 487,
+          "text": "lemma Scheme.toSpec\u0393_preimage_basicOpen (X : Scheme.{u}) (r : \u0393(X, \u22a4)) :"
+        },
+        {
+          "line": 514,
+          "text": "def Spec.fullyFaithfulToLocallyRingedSpace : Spec.toLocallyRingedSpace.FullyFaithful :="
+        },
+        {
+          "line": 526,
+          "text": "def Spec.fullyFaithful : Scheme.Spec.FullyFaithful :="
+        },
+        {
+          "line": 530,
+          "text": "instance Spec.full : Scheme.Spec.Full :="
+        },
+        {
+          "line": 534,
+          "text": "instance Spec.faithful : Scheme.Spec.Faithful :="
+        },
+        {
+          "line": 541,
+          "text": "lemma Spec.map_inj : Spec.map \u03c6 = Spec.map \u03c8 \u2194 \u03c6 = \u03c8 := by"
+        },
+        {
+          "line": 545,
+          "text": "lemma Spec.map_injective {R S : CommRingCat} : Function.Injective (Spec.map : (R \u27f6 S) \u2192 _) :="
+        },
+        {
+          "line": 549,
+          "text": "lemma Spec.map_eq_id {R : CommRingCat} {\u03d5 : R \u27f6 R} : Spec.map \u03d5 = \ud835\udfd9 (Spec R) \u2194 \u03d5 = \ud835\udfd9 R := by"
+        },
+        {
+          "line": 553,
+          "text": "def Spec.preimage : R \u27f6 S := (Scheme.Spec.preimage f).unop"
+        },
+        {
+          "line": 555,
+          "text": "@[simp] lemma Spec.map_preimage : Spec.map (Spec.preimage f) = f := Scheme.Spec.map_preimage f"
+        },
+        {
+          "line": 557,
+          "text": "@[simp] lemma Spec.map_preimage_unop (f : Spec R \u27f6 Spec S) :"
+        },
+        {
+          "line": 561,
+          "text": "@[simp] lemma Spec.preimage_map : Spec.preimage (Spec.map \u03c6) = \u03c6 :="
+        },
+        {
+          "line": 565,
+          "text": "lemma Spec.map_surjective {R S : CommRingCat} :"
+        },
+        {
+          "line": 573,
+          "text": "def Spec.homEquiv {R S : CommRingCat} : (Spec S \u27f6 Spec R) \u2243 (R \u27f6 S) where"
+        },
+        {
+          "line": 580,
+          "text": "lemma Spec.preimage_id {R : CommRingCat} : Spec.preimage (\ud835\udfd9 (Spec R)) = \ud835\udfd9 R :="
+        },
+        {
+          "line": 584,
+          "text": "lemma Spec.preimage_comp {R S T : CommRingCat} (f : Spec R \u27f6 Spec S) (g : Spec S \u27f6 Spec T) :"
+        },
+        {
+          "line": 588,
+          "text": "lemma Spec.preimage_injective {R S : CommRingCat} : Function.Injective (preimage : _ \u2192 (R \u27f6 S)) :="
+        },
+        {
+          "line": 592,
+          "text": "lemma Spec.preimage_inj {R S : CommRingCat} (f g : Spec S \u27f6 Spec R) :"
+        },
+        {
+          "line": 596,
+          "text": "lemma Spec.preimage_surjective {R S : CommRingCat} :"
+        },
+        {
+          "line": 602,
+          "text": "noncomputable def Spec.homEquivRingHom {R S : Type u} [CommRing R] [CommRing S] :"
+        },
+        {
+          "line": 608,
+          "text": "noncomputable def Spec.homEquivAlgHom {R : Type u} [CommRing R] {A B : Type u} [CommRing A]"
+        },
+        {
+          "line": 622,
+          "text": "instance Spec.reflective : Reflective Scheme.Spec where"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/.lake/packages/mathlib/Mathlib/AlgebraicGeometry/AffineScheme.lean",
+      "sha256": "5895482a137bb5d752badedcd000d8fe1254127767d328861c943cef3c80548a",
+      "lines": 1339,
+      "role": "pinned upstream selected theorem/adjunction passage inspection",
+      "declaration_locators": [
+        {
+          "line": 52,
+          "text": "def AffineScheme :="
+        },
+        {
+          "line": 66,
+          "text": "def Scheme.isoSpec (X : Scheme) [IsAffine X] : X \u2245 Spec \u0393(X, \u22a4) :="
+        },
+        {
+          "line": 70,
+          "text": "theorem Scheme.isoSpec_hom_naturality {X Y : Scheme} [IsAffine X] [IsAffine Y] (f : X \u27f6 Y) :"
+        },
+        {
+          "line": 75,
+          "text": "theorem Scheme.isoSpec_inv_naturality {X Y : Scheme} [IsAffine X] [IsAffine Y] (f : X \u27f6 Y) :"
+        },
+        {
+          "line": 81,
+          "text": "lemma Scheme.toSpec\u0393_isoSpec_inv (X : Scheme.{u}) [IsAffine X] :"
+        },
+        {
+          "line": 86,
+          "text": "lemma Scheme.isoSpec_inv_toSpec\u0393 (X : Scheme.{u}) [IsAffine X] :"
+        },
+        {
+          "line": 93,
+          "text": "def AffineScheme.mk (X : Scheme) (_ : IsAffine X) : AffineScheme :="
+        },
+        {
+          "line": 98,
+          "text": "def AffineScheme.of (X : Scheme) [h : IsAffine X] : AffineScheme :="
+        },
+        {
+          "line": 102,
+          "text": "def AffineScheme.ofHom {X Y : Scheme} [IsAffine X] [IsAffine Y] (f : X \u27f6 Y) :"
+        },
+        {
+          "line": 107,
+          "text": "theorem essImage_Spec {X : Scheme} : Scheme.Spec.essImage X \u2194 IsAffine X :="
+        },
+        {
+          "line": 111,
+          "text": "instance isAffine_affineScheme (X : AffineScheme.{u}) : IsAffine X.obj :="
+        },
+        {
+          "line": 117,
+          "text": "instance isAffine_Spec (R : CommRingCat) : IsAffine (Spec R) :="
+        },
+        {
+          "line": 120,
+          "text": "theorem IsAffine.of_isIso {X Y : Scheme} (f : X \u27f6 Y) [IsIso f] [h : IsAffine Y] : IsAffine X := by"
+        },
+        {
+          "line": 123,
+          "text": "theorem IsAffine.iff_of_isIso {X Y : Scheme} (f : X \u27f6 Y) [IsIso f] : IsAffine X \u2194 IsAffine Y :="
+        },
+        {
+          "line": 129,
+          "text": "def arrowIsoSpec\u0393OfIsAffine {X Y : Scheme} [IsAffine X] [IsAffine Y] (f : X \u27f6 Y) :"
+        },
+        {
+          "line": 135,
+          "text": "def arrowIso\u0393SpecOfIsAffine {A B : CommRingCat} (f : A \u27f6 B) :"
+        },
+        {
+          "line": 140,
+          "text": "theorem Scheme.isoSpec_Spec (R : CommRingCat.{u}) :"
+        },
+        {
+          "line": 144,
+          "text": "@[simp] theorem Scheme.isoSpec_Spec_hom (R : CommRingCat.{u}) :"
+        },
+        {
+          "line": 148,
+          "text": "@[simp] theorem Scheme.isoSpec_Spec_inv (R : CommRingCat.{u}) :"
+        },
+        {
+          "line": 152,
+          "text": "lemma ext_of_isAffine {X Y : Scheme} [IsAffine Y] {f g : X \u27f6 Y} (e : f.appTop = g.appTop) :"
+        },
+        {
+          "line": 162,
+          "text": "instance preservesLimit_rightOp_\u0393.{v, w}"
+        },
+        {
+          "line": 177,
+          "text": "instance preservesColimit_\u0393.{v, w}"
+        },
+        {
+          "line": 186,
+          "text": "def Spec : CommRingCat\u1d52\u1d56 \u2964 AffineScheme :="
+        },
+        {
+          "line": 191,
+          "text": "instance Spec_full : Spec.Full := Functor.Full.toEssImage _"
+        },
+        {
+          "line": 193,
+          "text": "instance Spec_faithful : Spec.Faithful := Functor.Faithful.toEssImage _"
+        },
+        {
+          "line": 195,
+          "text": "instance Spec_essSurj : Spec.EssSurj := Functor.EssSurj.toEssImage (F := _)"
+        },
+        {
+          "line": 199,
+          "text": "def forgetToScheme : AffineScheme \u2964 Scheme :="
+        },
+        {
+          "line": 204,
+          "text": "instance forgetToScheme_full : forgetToScheme.Full :="
+        },
+        {
+          "line": 207,
+          "text": "instance forgetToScheme_faithful : forgetToScheme.Faithful :="
+        },
+        {
+          "line": 215,
+          "text": "def equivCommRingCat : AffineScheme \u224c CommRingCat\u1d52\u1d56 :="
+        },
+        {
+          "line": 225,
+          "text": "instance hasColimits : HasColimits AffineScheme.{u} :="
+        },
+        {
+          "line": 229,
+          "text": "instance hasLimits : HasLimits AffineScheme.{u} := by"
+        },
+        {
+          "line": 236,
+          "text": "noncomputable instance forgetToScheme_preservesLimits : PreservesLimits forgetToScheme := by"
+        },
+        {
+          "line": 243,
+          "text": "instance createsLimitsForgetToScheme : CreatesLimits forgetToScheme.{u} :="
+        },
+        {
+          "line": 249,
+          "text": "def IsAffineOpen {X : Scheme} (U : X.Opens) : Prop :="
+        },
+        {
+          "line": 253,
+          "text": "def Scheme.affineOpens (X : Scheme) : Set X.Opens :="
+        },
+        {
+          "line": 260,
+          "text": "theorem isAffineOpen_opensRange {X Y : Scheme} [IsAffine X] (f : X \u27f6 Y)"
+        },
+        {
+          "line": 265,
+          "text": "theorem isAffineOpen_top (X : Scheme) [IsAffine X] : IsAffineOpen (\u22a4 : X.Opens) := by"
+        },
+        {
+          "line": 270,
+          "text": "theorem exists_isAffineOpen_mem_and_subset {X : Scheme.{u}} {x : X}"
+        },
+        {
+          "line": 276,
+          "text": "lemma Scheme.exists_Spec_apply_eq {X : Scheme.{u}} (x : X) :"
+        },
+        {
+          "line": 281,
+          "text": "instance Scheme.isAffine_affineCover (X : Scheme) (i : X.affineCover.I\u2080) :"
+        },
+        {
+          "line": 285,
+          "text": "instance Scheme.isAffine_affineBasisCover (X : Scheme) (i : X.affineBasisCover.I\u2080) :"
+        },
+        {
+          "line": 289,
+          "text": "instance Scheme.isAffine_affineOpenCover (X : Scheme) (\ud835\udcb0 : X.AffineOpenCover) (i : \ud835\udcb0.I\u2080) :"
+        },
+        {
+          "line": 303,
+          "text": "theorem Scheme.isBasis_affineOpens (X : Scheme) : Opens.IsBasis X.affineOpens := by"
+        },
+        {
+          "line": 311,
+          "text": "theorem iSup_affineOpens_eq_top (X : Scheme) : \u2a06 i : X.affineOpens, (i : X.Opens) = \u22a4 := by"
+        },
+        {
+          "line": 318,
+          "text": "theorem Scheme.map_PrimeSpectrum_basicOpen_of_affine"
+        },
+        {
+          "line": 323,
+          "text": "theorem isBasis_basicOpen (X : Scheme) [IsAffine X] :"
+        },
+        {
+          "line": 335,
+          "text": "def Scheme.Opens.toSpec\u0393 {X : Scheme.{u}} (U : X.Opens) :"
+        },
+        {
+          "line": 341,
+          "text": "lemma Scheme.Opens.toSpec\u0393_SpecMap_presheaf_map {X : Scheme} (U V : X.Opens) (h : U \u2264 V) :"
+        },
+        {
+          "line": 348,
+          "text": "lemma Scheme.Opens.toSpec\u0393_SpecMap_presheaf_map_top {X : Scheme} (U : X.Opens) :"
+        },
+        {
+          "line": 354,
+          "text": "lemma Scheme.Opens.toSpec\u0393_top {X : Scheme} :"
+        },
+        {
+          "line": 360,
+          "text": "lemma Scheme.Opens.toSpec\u0393_appTop {X : Scheme.{u}} (U : X.Opens) :"
+        },
+        {
+          "line": 366,
+          "text": "lemma Scheme.Opens.toSpec\u0393_naturality {X Y : Scheme} (f : X \u27f6 Y) (U : Y.Opens) :"
+        },
+        {
+          "line": 373,
+          "text": "lemma Scheme.Opens.toSpec\u0393_SpecMap_appLE"
+        },
+        {
+          "line": 386,
+          "text": "def isoSpec :"
+        },
+        {
+          "line": 391,
+          "text": "lemma isoSpec_hom : hU.isoSpec.hom = U.toSpec\u0393 := rfl"
+        },
+        {
+          "line": 394,
+          "text": "lemma toSpec\u0393_isoSpec_inv : U.toSpec\u0393 \u226b hU.isoSpec.inv = \ud835\udfd9 _ := hU.isoSpec.hom_inv_id"
+        },
+        {
+          "line": 397,
+          "text": "lemma isoSpec_inv_toSpec\u0393 : hU.isoSpec.inv \u226b U.toSpec\u0393 = \ud835\udfd9 _ := hU.isoSpec.inv_hom_id"
+        },
+        {
+          "line": 402,
+          "text": "lemma isoSpec_hom_apply (x : U) :"
+        },
+        {
+          "line": 413,
+          "text": "lemma isoSpec_hom_appTop :"
+        },
+        {
+          "line": 418,
+          "text": "lemma isoSpec_inv_appTop :"
+        },
+        {
+          "line": 425,
+          "text": "def fromSpec :"
+        },
+        {
+          "line": 430,
+          "text": "instance isOpenImmersion_fromSpec :"
+        },
+        {
+          "line": 436,
+          "text": "lemma isoSpec_inv_\u03b9 : hU.isoSpec.inv \u226b U.\u03b9 = hU.fromSpec := rfl"
+        },
+        {
+          "line": 439,
+          "text": "lemma isoSpec_hom_fromSpec : hU.isoSpec.hom \u226b hU.fromSpec = U.\u03b9 := by"
+        },
+        {
+          "line": 443,
+          "text": "lemma toSpec\u0393_fromSpec : U.toSpec\u0393 \u226b hU.fromSpec = U.\u03b9 := toSpec\u0393_isoSpec_inv_assoc _ _"
+        },
+        {
+          "line": 448,
+          "text": "theorem range_fromSpec :"
+        },
+        {
+          "line": 457,
+          "text": "lemma fromSpec_toSpec\u0393 {X : Scheme} {U : X.Opens} (hU : IsAffineOpen U) :"
+        },
+        {
+          "line": 463,
+          "text": "theorem opensRange_fromSpec : hU.fromSpec.opensRange = U := Opens.ext (range_fromSpec hU)"
+        },
+        {
+          "line": 467,
+          "text": "theorem map_fromSpec {V : X.Opens} (hV : IsAffineOpen V) (f : op U \u27f6 op V) :"
+        },
+        {
+          "line": 480,
+          "text": "lemma SpecMap_appLE_fromSpec (f : X \u27f6 Y) {V : X.Opens} {U : Y.Opens}"
+        },
+        {
+          "line": 492,
+          "text": "lemma fromSpec_top [IsAffine X] : (isAffineOpen_top X).fromSpec = X.isoSpec.inv := by"
+        },
+        {
+          "line": 497,
+          "text": "lemma fromSpec_app_of_le (V : X.Opens) (h : U \u2264 V) :"
+        },
+        {
+          "line": 508,
+          "text": "protected theorem isCompact :"
+        },
+        {
+          "line": 514,
+          "text": "theorem _root_.AlgebraicGeometry.Scheme.Hom.isAffineOpen_iff_of_isOpenImmersion"
+        },
+        {
+          "line": 521,
+          "text": "theorem image_of_isOpenImmersion (f : X \u27f6 Y) [H : IsOpenImmersion f] :"
+        },
+        {
+          "line": 525,
+          "text": "theorem preimage_of_isIso {U : Y.Opens} (hU : IsAffineOpen U) (f : X \u27f6 Y) [IsIso f] :"
+        },
+        {
+          "line": 530,
+          "text": "theorem preimage_of_isOpenImmersion {U : Y.Opens} (hU : IsAffineOpen U)"
+        },
+        {
+          "line": 539,
+          "text": "def _root_.AlgebraicGeometry.IsOpenImmersion.affineOpensEquiv (f : X \u27f6 Y) [H : IsOpenImmersion f] :"
+        },
+        {
+          "line": 550,
+          "text": "def _root_.AlgebraicGeometry.affineOpensRestrict {X : Scheme.{u}} (U : X.Opens) :"
+        },
+        {
+          "line": 555,
+          "text": "lemma _root_.AlgebraicGeometry.affineOpensRestrict_symm_apply_coe"
+        },
+        {
+          "line": 565,
+          "text": "theorem fromSpec_preimage_self :"
+        },
+        {
+          "line": 576,
+          "text": "theorem fromSpec_app_self :"
+        },
+        {
+          "line": 581,
+          "text": "theorem fromSpec_preimage_basicOpen' :"
+        },
+        {
+          "line": 586,
+          "text": "theorem fromSpec_preimage_basicOpen :"
+        },
+        {
+          "line": 590,
+          "text": "theorem fromSpec_image_basicOpen :"
+        },
+        {
+          "line": 599,
+          "text": "theorem basicOpen_fromSpec_app :"
+        },
+        {
+          "line": 605,
+          "text": "theorem basicOpen :"
+        },
+        {
+          "line": 613,
+          "text": "lemma Spec_basicOpen {R : CommRingCat} (f : R) :"
+        },
+        {
+          "line": 630,
+          "text": "theorem exists_basicOpen_le {V : X.Opens} (x : V) (h : \u2191x \u2208 U) :"
+        },
+        {
+          "line": 646,
+          "text": "lemma algebraMap_Spec_obj {R : CommRingCat} {U} : algebraMap R \u0393(Spec R, U) ="
+        },
+        {
+          "line": 658,
+          "text": "def basicOpenSectionsToAffine :"
+        },
+        {
+          "line": 664,
+          "text": "instance basicOpenSectionsToAffine_isIso :"
+        },
+        {
+          "line": 671,
+          "text": "theorem isLocalization_basicOpen :"
+        },
+        {
+          "line": 685,
+          "text": "instance _root_.AlgebraicGeometry.isLocalization_away_of_isAffine"
+        },
+        {
+          "line": 690,
+          "text": "lemma appLE_eq_away_map {X Y : Scheme.{u}} (f : X \u27f6 Y) {U : Y.Opens} (hU : IsAffineOpen U)"
+        },
+        {
+          "line": 704,
+          "text": "lemma app_basicOpen_eq_away_map {X Y : Scheme.{u}} (f : X \u27f6 Y) {U : Y.Opens}"
+        },
+        {
+          "line": 725,
+          "text": "def appBasicOpenIsoAwayMap {X Y : Scheme.{u}} (f : X \u27f6 Y) {U : Y.Opens}"
+        },
+        {
+          "line": 737,
+          "text": "theorem isLocalization_of_eq_basicOpen {V : X.Opens} (i : V \u27f6 U) (e : V = X.basicOpen f) :"
+        },
+        {
+          "line": 741,
+          "text": "instance _root_.AlgebraicGeometry.\u0393_restrict_isLocalization"
+        },
+        {
+          "line": 747,
+          "text": "theorem basicOpen_basicOpen_is_basicOpen (g : \u0393(X, X.basicOpen f)) :"
+        },
+        {
+          "line": 761,
+          "text": "theorem _root_.AlgebraicGeometry.exists_basicOpen_le_affine_inter"
+        },
+        {
+          "line": 772,
+          "text": "noncomputable def primeIdealOf (x : U) :"
+        },
+        {
+          "line": 777,
+          "text": "theorem fromSpec_primeIdealOf (x : U) :"
+        },
+        {
+          "line": 784,
+          "text": "theorem primeIdealOf_eq_map_closedPoint (x : U) :"
+        },
+        {
+          "line": 789,
+          "text": "lemma comap_primeIdealOf_appLE {f : X \u27f6 Y} {x : X} (U : Y.Opens)"
+        },
+        {
+          "line": 802,
+          "text": "theorem primeIdealOf_isMaximal_of_isClosed (x : U) (hx : IsClosed {(x : X)}) :"
+        },
+        {
+          "line": 815,
+          "text": "theorem isLocalization_stalk' (y : PrimeSpectrum \u0393(X, U)) (hy : hU.fromSpec y \u2208 U) :"
+        },
+        {
+          "line": 831,
+          "text": "theorem isLocalization_stalk (x : U) :"
+        },
+        {
+          "line": 840,
+          "text": "lemma stalkMap_injective (f : X \u27f6 Y) {U : Opens Y} (hU : IsAffineOpen U) (x : X)"
+        },
+        {
+          "line": 851,
+          "text": "lemma mem_ideal_iff {s : \u0393(X, U)} {I : Ideal \u0393(X, U)} :"
+        },
+        {
+          "line": 866,
+          "text": "lemma ideal_le_iff {I J : Ideal \u0393(X, U)} :"
+        },
+        {
+          "line": 873,
+          "text": "lemma ideal_ext_iff {I J : Ideal \u0393(X, U)} :"
+        },
+        {
+          "line": 882,
+          "text": "def arrowStalkMapIso (f : X \u27f6 Y) {x : X} (U : Y.Opens)"
+        },
+        {
+          "line": 913,
+          "text": "def _root_.AlgebraicGeometry.Scheme.affineBasicOpen"
+        },
+        {
+          "line": 917,
+          "text": "lemma _root_.AlgebraicGeometry.Scheme.affineBasicOpen_le"
+        },
+        {
+          "line": 926,
+          "text": "theorem iSup_basicOpen_eq_self_iff {s : Set \u0393(X, U)} :"
+        },
+        {
+          "line": 953,
+          "text": "theorem self_le_iSup_basicOpen_iff {s : Set \u0393(X, U)} :"
+        },
+        {
+          "line": 966,
+          "text": "def Scheme.AffineOpenCover.ofIsOpenCover {X : Scheme.{u}} {\u03b9 : Type*} (U : \u03b9 \u2192 X.Opens)"
+        },
+        {
+          "line": 981,
+          "text": "noncomputable def SpecMapRestrictBasicOpenIso {R S : CommRingCat} (f : R \u27f6 S) (r : R) :"
+        },
+        {
+          "line": 996,
+          "text": "lemma stalkMap_injective_of_isAffine {X Y : Scheme} (f : X \u27f6 Y) [IsAffine Y] (x : X)"
+        },
+        {
+          "line": 1006,
+          "text": "lemma iSup_basicOpen_of_span_eq_top {X : Scheme} (U) (s : Set \u0393(X, U))"
+        },
+        {
+          "line": 1031,
+          "text": "theorem of_affine_open_cover {X : Scheme} {P : X.affineOpens \u2192 Prop}"
+        },
+        {
+          "line": 1064,
+          "text": "lemma eq_of_SpecMap_comp_eq_of_isAffineOpen {R S : CommRingCat} {X : Scheme}"
+        },
+        {
+          "line": 1086,
+          "text": "lemma toSpec\u0393_preimage_zeroLocus (s : Set \u0393(X, \u22a4)) :"
+        },
+        {
+          "line": 1093,
+          "text": "lemma isoSpec_image_zeroLocus [IsAffine X]"
+        },
+        {
+          "line": 1099,
+          "text": "lemma toSpec\u0393_image_zeroLocus [IsAffine X] (s : Set \u0393(X, \u22a4)) :"
+        },
+        {
+          "line": 1104,
+          "text": "lemma isoSpec_inv_preimage_zeroLocus [IsAffine X] (s : Set \u0393(X, \u22a4)) :"
+        },
+        {
+          "line": 1110,
+          "text": "lemma isoSpec_inv_image_zeroLocus [IsAffine X] (s : Set \u0393(X, \u22a4)) :"
+        },
+        {
+          "line": 1117,
+          "text": "lemma eq_zeroLocus_of_isClosed_of_isAffine [IsAffine X] (s : Set X) :"
+        },
+        {
+          "line": 1131,
+          "text": "lemma Opens.toSpec\u0393_preimage_basicOpen {X : Scheme.{u}} (U : X.Opens) (r : \u0393(X, U)) :"
+        },
+        {
+          "line": 1142,
+          "text": "lemma Opens.toSpec\u0393_preimage_zeroLocus {X : Scheme.{u}} (U : X.Opens) (s : Set \u0393(X, U)) :"
+        },
+        {
+          "line": 1151,
+          "text": "lemma IsAffineOpen.fromSpec_preimage_zeroLocus {X : Scheme.{u}} {U : X.Opens}"
+        },
+        {
+          "line": 1160,
+          "text": "lemma IsAffineOpen.fromSpec_image_zeroLocus {X : Scheme.{u}} {U : X.Opens}"
+        },
+        {
+          "line": 1167,
+          "text": "lemma Scheme.zeroLocus_inf (X : Scheme.{u}) {U : X.Opens} (I J : Ideal \u0393(X, U)) :"
+        },
+        {
+          "line": 1180,
+          "text": "lemma Scheme.zeroLocus_biInf"
+        },
+        {
+          "line": 1190,
+          "text": "lemma Scheme.zeroLocus_biInf_of_nonempty"
+        },
+        {
+          "line": 1199,
+          "text": "lemma Scheme.zeroLocus_iInf"
+        },
+        {
+          "line": 1205,
+          "text": "lemma Scheme.zeroLocus_iInf_of_nonempty"
+        },
+        {
+          "line": 1219,
+          "text": "def Scheme.Hom.liftQuotient (f : X.Hom (Spec A)) (I : Ideal A)"
+        },
+        {
+          "line": 1227,
+          "text": "lemma Scheme.Hom.liftQuotient_comp (f : X.Hom (Spec A)) (I : Ideal A)"
+        },
+        {
+          "line": 1239,
+          "text": "def specTargetImageIdeal (f : X \u27f6 Spec A) : Ideal A :="
+        },
+        {
+          "line": 1246,
+          "text": "def specTargetImage (f : X \u27f6 Spec A) : CommRingCat :="
+        },
+        {
+          "line": 1251,
+          "text": "def specTargetImageFactorization (f : X \u27f6 Spec A) : X \u27f6 Spec (specTargetImage f) :="
+        },
+        {
+          "line": 1256,
+          "text": "def specTargetImageRingHom (f : X \u27f6 Spec A) : A \u27f6 specTargetImage f :="
+        },
+        {
+          "line": 1261,
+          "text": "lemma specTargetImageRingHom_surjective : Function.Surjective (specTargetImageRingHom f) :="
+        },
+        {
+          "line": 1265,
+          "text": "lemma specTargetImageFactorization_app_injective :"
+        },
+        {
+          "line": 1275,
+          "text": "lemma specTargetImageFactorization_comp :"
+        },
+        {
+          "line": 1289,
+          "text": "def Spec.stalkIso : (Spec R).presheaf.stalk x \u2245 \u21a7(Localization.AtPrime x.asIdeal) :="
+        },
+        {
+          "line": 1293,
+          "text": "lemma Spec.algebraMap_stalkIso_inv :"
+        },
+        {
+          "line": 1300,
+          "text": "lemma Spec.germ_stalkMapIso_hom :"
+        },
+        {
+          "line": 1310,
+          "text": "lemma Scheme.localRingHom_comp_stalkIso {R S : CommRingCat.{u}} (f : R \u27f6 S) (p : PrimeSpectrum S) :"
+        },
+        {
+          "line": 1320,
+          "text": "def Scheme.arrowStalkMapSpecIso {R S : CommRingCat.{u}} (f : R \u27f6 S) (p : PrimeSpectrum S) :"
+        },
+        {
+          "line": 1337,
+          "text": "meta def AlgebraicGeometry.AffineScheme.delabOf : Delab := CategoryTheory.delabOf"
+        }
+      ]
+    },
+    {
+      "path": "docs/audit-history/PROTOCOL.md",
+      "sha256": "c0b9834a75e64bfd66183b06d1e26019f957a38468ce41b10ce290f8c5c44816",
+      "lines": 59,
+      "role": "review protocol"
+    }
+  ]
+}
