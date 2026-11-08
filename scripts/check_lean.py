@@ -130,7 +130,9 @@ def main():
     waiting = set(order); completed = set(); active = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
         while waiting or active:
-            for mod in sorted(waiting):
+            # This independent certificate dominates CI wall time. Start it as
+            # soon as it is ready so its kernel check overlaps other modules.
+            for mod in sorted(waiting, key=lambda m: (m != 'ZInQ.PolynomialCertificates', m)):
                 if len(active) >= args.jobs: break
                 if not imports[mod].issubset(completed): continue
                 future = pool.submit(compile_file, mod, PROJECT / modules[mod]['path'],
