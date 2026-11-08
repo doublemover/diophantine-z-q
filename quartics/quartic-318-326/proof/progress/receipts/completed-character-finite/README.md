@@ -1,0 +1,11 @@
+# Actual finite completed-character maps
+
+For every i:Fin4 with the fixed original SourceTwistArithmetic318.units, this packet proves that the previously constructed completedMap is genuinely finite and surjective. It constructs the actual targetTMap from the completed published Weierstrass curve to the original contact t-line, proves its exact Q-structure square, and proves completedMap followed by targetTMap equals the original finite contact normalization map. The targetTMap itself is finite.
+
+The target coordinate transformation is the independently constructed actual Proj automorphism with slope (xScale i)^-1=q^2/d and centroid translation. Its exact chart1 and base squares are consumed directly. The already checked finite-source x formula gives the complete finite-chart t-square. Schematic density of the nonempty source affine chart in the integral original model and separatedness of the actual projective line extend that equality over the entire source. There is no unfilled affine-transformation premise in CompletedCharacterFinite318.
+
+The actual source map is finite by IsFinite.of_comp applied to the exact finite original composite and the separated actual targetTMap. For target finiteness, the generic ProperFiniteFiberDescent318.finite theorem proves each whole target fiber is the image of the finite composite fiber under a surjective map. Properness then gives local quasi-finiteness and finiteness by the pinned theorem. This uses all actual points, not only generic points or geometric closed points.
+
+The same completedMap already has an independently reviewed actual generic-stalk pullback square and generic degree eight in the separate frozen packet. No replacement map or alternate field algebra is introduced here. No flatness, fiber length/degree at every point, relative-normalization isomorphism, Jacobian factor, polarized or maximal-order action, PEL or Kodaira–Spencer identification is inferred.
+
+Four final source files passed bounded strict kernel checks, with debug.skipKernelTC=false, in check-45, check-46 and check-49. No whole-chain replay was run. Integrated replay/recursive audit is pending hosted CI. Independent consuming review is separate.
