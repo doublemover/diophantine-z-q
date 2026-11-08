@@ -1,0 +1,54 @@
+ACQUIRED 2026-11-08T10:43:41Z fifth-branch7
+START BranchOriginalCoordinate318 2026-11-08T10:43:41Z
+MODULE BranchOriginalCoordinate318 exit=0 2026-11-08T10:44:00Z
+START FifthBranchUnitCoefficient318 2026-11-08T10:44:00Z
+MODULE FifthBranchUnitCoefficient318 exit=0 2026-11-08T10:44:06Z
+START FifthBranchDifferential318 2026-11-08T10:44:06Z
+FifthBranchDifferential318.lean:27:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ContactUnbranchedDifferentialFrame318.frame ?c)
+    ((KaehlerDifferential.D ℚ (ContactKummerOrder318.OpenOrder ?c))
+      (ContactUnbranchedDifferentialFrame318.coordinate ?c))
+in the target expression
+  (ContactUnbranchedDifferentialFrame318.frame units)
+      ((KaehlerDifferential.D ℚ (ContactOverlapAlgebraMaps318.Source units)) (SourceInfinityOverlap318.t units)) =
+    (ContactUnbranchedDifferentialFrame318.frame units)
+      ((2 * (algebraMap ℚ (ContactOverlapAlgebraMaps318.Source units)) ↑(units j)⁻¹ *
+          (ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j)) •
+        (KaehlerDifferential.D ℚ (ContactOverlapAlgebraMaps318.Source units))
+          ((ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j)))
+
+j : Fin 4
+h :
+  (KaehlerDifferential.D ℚ (ContactOverlapAlgebraMaps318.Source units))
+      ((ContactOverlapAlgebraMaps318.branchMap units j) (ContactBicanonicalCoefficients318.branchT units j)) =
+    (2 * (algebraMap ℚ (ContactOverlapAlgebraMaps318.Source units)) ↑(units j)⁻¹ *
+        (ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j)) •
+      (KaehlerDifferential.D ℚ (ContactOverlapAlgebraMaps318.Source units))
+        ((ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j))
+hh :
+  (ContactUnbranchedDifferentialFrame318.frame units)
+      ((KaehlerDifferential.D ℚ (ContactOverlapAlgebraMaps318.Source units)) (SourceInfinityOverlap318.t units)) =
+    (ContactUnbranchedDifferentialFrame318.frame units)
+      ((2 * (algebraMap ℚ (ContactOverlapAlgebraMaps318.Source units)) ↑(units j)⁻¹ *
+          (ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j)) •
+        (KaehlerDifferential.D ℚ (ContactOverlapAlgebraMaps318.Source units))
+          ((ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j)))
+⊢ 2 * (algebraMap ℚ O) ↑(units j)⁻¹ *
+        (ContactOverlapAlgebraMaps318.branchMap units j) (ContactFrameNormalization318.sourceCoordinate units j) *
+      rootDerivative j =
+    1
+FifthBranchDifferential318.lean:51:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (SourceOpenFractionField318.openEmbedding units) FifthOverlapDifferentialEquation318.coefficient
+in the target expression
+  (algebraMap ℚ L) (-82320 / ↑(units j)) * (ComplementCharacterIndependence318.root units j)⁻¹ *
+      (SourceOpenFractionField318.openEmbedding units) (rootDerivative j) =
+    (SourceOpenFractionField318.openEmbedding units)
+      ((ContactUnbranchedDifferentialFrame318.frame units) FifthOverlapDifferentialEquation318.pulled)
+
+j : Fin 4
+⊢ (algebraMap ℚ L) (-82320 / ↑(units j)) * (ComplementCharacterIndependence318.root units j)⁻¹ *
+      (SourceOpenFractionField318.openEmbedding units) (rootDerivative j) =
+    (SourceOpenFractionField318.openEmbedding units)
+      ((ContactUnbranchedDifferentialFrame318.frame units) FifthOverlapDifferentialEquation318.pulled)
+MODULE FifthBranchDifferential318 exit=1 2026-11-08T10:44:19Z
+RELEASED 2026-11-08T10:44:19Z fifth-branch7

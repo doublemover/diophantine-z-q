@@ -1,0 +1,78 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Actual reciprocal-chart restriction of original full-field automorphisms and exact infinity residue/ideal-inertia criterion for every original Boolean sign",
+  "sources": {
+    "InfinityReciprocalAction318.lean": "0129eab23ad013e10afd8f9b46656bef2ede6eaa16c5ec6cb0d5bfe4c7e7eb4c",
+    "ThreeRootCoordinates318.lean": "5b921c983eaf646cec55cfa3bfb6e6e9312d0c0530bb17b3c2d299ffa243b8c4",
+    "InfinityOrderCoordinates318.lean": "df6acdb2188a9f96a910152decd2605615ab83ce53f7ab458c69c68631232109",
+    "InfinitySignCoordinates318.lean": "e02f3e7b017b0ddaacfbdf81f05fd546aab636156fd0a8e1988ad8a0e10bd73a",
+    "InfinityRingHomExt318.lean": "c41d5a3666449e1feb5ff841fc9e60db27374068dc683f793fd80089122ced6f",
+    "InfinitySignResidue318.lean": "7e71e1e4d21e5d2e9fa2d26acfb57ec518890bdad95054ae0f1fa511863f84e2",
+    "InfinityPrimeSignInertia318.lean": "4bde3fa2194018822840c50b3579743052532f1501ab8ece02aaa43d9ca423e4"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "The reciprocal chart must carry the original full-field action.",
+      "constructed_input": "Every e:L\u2243\u2090[Q(t)]L fixes the entire reciprocal base by localization extensionality and its exact s\u21a6t\u207b\u00b9 embedding. The whole infinity order is the already proved integral closure over this reciprocal base.",
+      "justification": "Every e:L\u2243\u2090[Q(t)]L fixes the entire reciprocal base by localization extensionality and its exact s\u21a6t\u207b\u00b9 embedding. The whole infinity order is the already proved integral closure over this reciprocal base.",
+      "source_references": "InfinityReciprocalAction318.reciprocal_fixed"
+    },
+    {
+      "name": "Objects",
+      "required_input": "The entire actual infinity chart and original field must be retained.",
+      "constructed_input": "Order is InfinityOpenChart318.OpenOrder c, Base is ReciprocalInfinityBase318.ReciprocalOpen c, L is the specified original Kummer Raw field; the existing normalizationEquiv is used, not a surrogate affine equation.",
+      "justification": "Order is InfinityOpenChart318.OpenOrder c, Base is ReciprocalInfinityBase318.ReciprocalOpen c, L is the specified original Kummer Raw field; the existing normalizationEquiv is used, not a surrogate affine equation.",
+      "source_references": "Base/Order/L/restrict"
+    },
+    {
+      "name": "Index coverage",
+      "required_input": "Every rational unit twist, every Boolean sign and every actual infinity prime must be covered.",
+      "constructed_input": "c:Fin4\u2192Q\u02e3 and b:Fin4\u2192Bool are unrestricted. Final Q is an arbitrary actual prime containing the original reciprocal coordinate s. Canonical residue fields remove any chosen point-presentation premise.",
+      "justification": "c:Fin4\u2192Q\u02e3 and b:Fin4\u2192Bool are unrestricted. Final Q is an arbitrary actual prime containing the original reciprocal coordinate s. Canonical residue fields remove any chosen point-presentation premise.",
+      "source_references": "InfinityPrimeSignInertia318.sign_mem_exactly"
+    },
+    {
+      "name": "Maps",
+      "required_input": "The restricted automorphism must equal the original field automorphism on every element.",
+      "constructed_input": "restrict is conjugation of mapIntegralClosure through the actual normalization equivalence; embedding_square proves the exact whole-ring square.",
+      "justification": "restrict is conjugation of mapIntegralClosure through the actual normalization equivalence; embedding_square proves the exact whole-ring square.",
+      "source_references": "InfinityReciprocalAction318.restrict/embedding_square"
+    },
+    {
+      "name": "Coordinates",
+      "required_input": "The three presentation roots and ramified coordinate must match the original full field.",
+      "constructed_input": "The actual tensor generators map to original ratios y_j/y_0, equal the previously constructed ratio elements, and are units on the whole chart. u transforms by b0, and ratio_j by xor(b_j,b0).",
+      "justification": "The actual tensor generators map to original ratios y_j/y_0, equal the previously constructed ratio elements, and are units on the whole chart. u transforms by b0, and ratio_j by xor(b_j,b0).",
+      "source_references": "InfinityOrderCoordinates318/InfinitySignCoordinates318"
+    },
+    {
+      "name": "Residue action",
+      "required_input": "Generator tests must yield the whole residue map, including localized coefficients.",
+      "constructed_input": "Whole-ring extensionality includes the actual localized u-base and all three roots. For every field residue map with u=0, fixed_iff proves complete homomorphism equality iff all four bits agree.",
+      "justification": "Whole-ring extensionality includes the actual localized u-base and all three roots. For every field residue map with u=0, fixed_iff proves complete homomorphism equality iff all four bits agree.",
+      "source_references": "InfinityRingHomExt318/InfinitySignResidue318.fixed_iff"
+    },
+    {
+      "name": "Original base and ideal inertia",
+      "required_input": "Do not substitute the ramified u-base for the original reciprocal s-base.",
+      "constructed_input": "reciprocal_square is the actual s=u\u00b2/c0 identity. Only for field-valued residues does s=0 imply u=0. The final theorem uses literal Ideal.inertia for the actual Base-algebra automorphism group and proves identity on every element of the actual prime quotient.",
+      "justification": "reciprocal_square is the actual s=u\u00b2/c0 identity. Only for field-valued residues does s=0 imply u=0. The final theorem uses literal Ideal.inertia for the actual Base-algebra automorphism group and proves identity on every element of the actual prime quotient.",
+      "source_references": "InfinityPrimeSignInertia318"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Exact source bytes and final individual strict evidence must be bound.",
+      "constructed_input": "Seven source-specific strict checks pass with debug.skipKernelTC=false under heavy.lock. The generic extensionality module was extended and checked after the first generator-bridge check; this is not represented as a clean rebuild of final dependencies. Combined recursive/hosted audit and independent consuming review remain pending.",
+      "justification": "Seven source-specific strict checks pass with debug.skipKernelTC=false under heavy.lock. The generic extensionality module was extended and checked after the first generator-bridge check; this is not represented as a clean rebuild of final dependencies. Combined recursive/hosted audit and independent consuming review remain pending.",
+      "source_references": "receipt.json/check122/123/125/127"
+    },
+    {
+      "name": "Boundaries",
+      "required_input": "Do not promote the sign-restricted ideal statement to unproved geometric or valuation conclusions.",
+      "constructed_input": "This packet restricts every original field automorphism to the chart and classifies original sign membership in prime-ideal inertia. It does not yet prove the actual global Scheme action square for this chart, full Base-order automorphism exhaustion, valuation-subring inertia, infinity ramification index, or identity on the entire nonreduced s=0 fiber. Picard/Jacobian/polarization/PEL are not inferred.",
+      "justification": "This packet restricts every original field automorphism to the chart and classifies original sign membership in prime-ideal inertia. It does not yet prove the actual global Scheme action square for this chart, full Base-order automorphism exhaustion, valuation-subring inertia, infinity ramification index, or identity on the entire nonreduced s=0 fiber. Picard/Jacobian/polarization/PEL are not inferred.",
+      "source_references": "README.md"
+    }
+  ]
+}

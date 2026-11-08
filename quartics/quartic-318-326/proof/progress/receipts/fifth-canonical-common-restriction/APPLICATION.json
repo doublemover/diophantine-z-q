@@ -1,0 +1,85 @@
+{
+  "claim": "Canonical whole-common-open restriction of the actual fifth global invariant differential with explicitly fixed Scheme, affine ring and open presentations",
+  "producer": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "FifthCanonicalCommonRestriction318.lean": "ffcbdb292b5b70a60d98e7f6bcfb630d1c3f8905aaff6e479619f25bb31f7464"
+  },
+  "consuming_dependencies": {
+    "recovery-hodge-0358/fifth-invariant-pullback/FifthActualDifferentialRestriction318.lean": "ef7470f58eadc0212cee024c56e7b872d635601834ba442e9edc0f843659702e",
+    "recovery-hodge-0358/fifth-invariant-pullback/FifthActualDifferential318.lean": "561f35ce5df412ca19a44f1a4d605d71955f228b58299084d8a04bfce6d98a4b",
+    "recovery-hodge-0358/fifth-invariant-pullback/FifthOverlapDifferentialEquation318.lean": "1d837e41ac8334079a645b77a2985324fc736f63149bd940a6322b55fd7cdd32",
+    "recovery-hodge-0358/character-invariant-pullback/IntrinsicDifferentialSectionPullback318.lean": "e4a7d6dcdd42e84998704cac6db631eb736d77bca81479ae671a514d06ebbc63",
+    "recovery-hodge-0358/character-invariant-pullback/WeierstrassAffineInvariant318.lean": "a7ee7a66d8e3e82dc09ad67ff2025bd56d27cc1ac0753c135befb045c7ee3e11",
+    "recovery-geometric-0358/fifth-global-source-map/FifthCompletedGlobal318.lean": "42017127aaaef7ea094fc6146db604850da62264b86df81800170f3226fe6cad"
+  },
+  "predecessor_receipts": {
+    "recovery-hodge-0358/fifth-invariant-pullback/receipt.json": "e493e89ee9b7c0590c33066faef43ff0a6d1e1b290b42eb66ef750e33e387849",
+    "recovery-modular-0358/fifth-invariant-pullback-independent-review/acceptance.json": "426f4e231125c8627399b9fc69f1759a36fa4a16768e870c8bca6e1a2742f3cf",
+    "recovery-geometric-0358/fifth-global-source-map/receipt.json": "95ac23074e06828e0942a7fdb93621227477dfae4e09fcd273000e970904002e",
+    "recovery-contact-0358/fifth-global-source-independent-review/acceptance.json": "87aa247f2261ae57ec6619e7a2944b1e3ede774b4de2d8aa9cc520d99f234594"
+  },
+  "endpoint": "FifthCanonicalCommonRestriction318.restrict",
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required": "The fixed actual fifth quotient and contact source",
+      "constructed": "The same fixed twists, completed map and structure morphisms as the existing canonical pullback",
+      "why_match": "No hypotheses or maps are changed"
+    },
+    {
+      "name": "Objects",
+      "required": "Actual intrinsic Omega and whole common affine chart",
+      "constructed": "Model, literal Spec(OpenOrder), its actual embedding, and the original intrinsic module are fixed in the statement",
+      "why_match": "Eliminates costly implicit presentation conversion without replacing the object"
+    },
+    {
+      "name": "Coverage",
+      "required": "The entire nonempty common open",
+      "constructed": "The literal image of top under the whole common embedding",
+      "why_match": "No restriction to generic points or smaller dense open"
+    },
+    {
+      "name": "Maps",
+      "required": "Original fifth completed map and original short ring map",
+      "constructed": "Uses original on_common commuting square",
+      "why_match": "No separately selected ring or field map"
+    },
+    {
+      "name": "Coefficients",
+      "required": "Original affine invariant with its exact normalization",
+      "constructed": "Uses the existing specified invariant form and its actual affine-section identity",
+      "why_match": "No scalar change is introduced"
+    },
+    {
+      "name": "Identity",
+      "required": "Actual local section equals actual global-section restriction",
+      "constructed": "Canonical affine pullback naturality followed by globalSection_restrict",
+      "why_match": "A direct equality in the same original module of sections"
+    },
+    {
+      "name": "Consumer",
+      "required": "Finite branch section extension into the actual global section",
+      "constructed": "An opaque theorem with explicitly pinned ambient and open presentations",
+      "why_match": "Separate predecessor avoids a circular dependency on the later global range proof"
+    },
+    {
+      "name": "Evidence",
+      "required": "Strict kernel check and recursive axiom audit",
+      "constructed": "One bounded strict source check and fresh recursive target audit, exact source and logs bound",
+      "why_match": "No predecessor replay or hosted result claimed"
+    },
+    {
+      "name": "Boundary",
+      "required": "Only the common restriction equality",
+      "constructed": "Exactly this presentation bridge",
+      "why_match": "No new branch extension, regular descent, dimension, Jacobian, PEL or KS conclusion"
+    }
+  ],
+  "not_claimed": [
+    "Finite branch restriction or regular target descent",
+    "All-open differential trace",
+    "Canonical-space dimension or complete basis",
+    "Picard/Jacobian/PEL/KS"
+  ]
+}

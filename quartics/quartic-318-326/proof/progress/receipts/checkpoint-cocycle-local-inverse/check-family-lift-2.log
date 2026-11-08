@@ -1,0 +1,67 @@
+ACQUIRED:2026-11-08T11:25:04Z
+CHECK:CocycleLocalFamily318
+CocycleLocalFamily318.lean:46:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK:CocycleLocalLift318
+CocycleLocalLift318.lean:27:6: error: Type mismatch
+  compatible U c i ?m.477 ?m.478
+[Error pretty printing: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (500000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.(invalid MessageData.lazy, missing context)]
+CocycleLocalLift318.lean:16:14: error: (kernel) declaration has metavariables 'CocycleLocalLift318.localCone'
+CocycleLocalLift318.lean:26:8: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Functor.const_obj_map, Functor.comp_map, MulticospanIndex.multicospan_map_fst,
+    MulticospanIndex.multicospan_map_snd, Category.comp_id, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CocycleLocalLift318.lean:26:25: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Functor.const_obj_map, Functor.comp_map, MulticospanIndex.multicospan_map_fst,
+    MulticospanIndex.multicospan_map_snd, Category.id_comp, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CocycleLocalLift318.lean:26:42: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Functor.const_obj_map, Functor.comp_map, MulticospanIndex.multicospan_map_fst,
+    MulticospanIndex.multicospan_map_snd, Category.id_comp, Category.comp_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CocycleLocalLift318.lean:28:14: error: (kernel) declaration type mismatch, 'CocycleLocalLift318.localLift' has type
+  {X : Scheme} →
+    {ι : Type u} →
+      (U : ι → X.Opens) →
+        (c : UnitTransitionCocycle318.Cocycle (StructureUnitsSheaf318.units X).obj U) →
+          (i : ι) →
+            (localCone U c i).pt ⟶ ((Scheme.Modules.restrictFunctor (U i).ι).mapCone (CocycleModuleCone318.cone U c)).pt
+but it is expected to have type
+  {X : Scheme} →
+    {ι : Type u} →
+      (U : ι → X.Opens) →
+        (c : UnitTransitionCocycle318.Cocycle (StructureUnitsSheaf318.units X).obj U) →
+          (i : ι) → ClutchedModule318.unit ↑(U i) ⟶ (CocycleModule318.object U c).restrict (U i).ι
+CocycleLocalLift318.lean:31:6: error: (kernel) declaration type mismatch, 'CocycleLocalLift318.localLift_coefficient' has type
+  ∀ {X : Scheme} {ι : Type u} (U : ι → X.Opens)
+    (c : UnitTransitionCocycle318.Cocycle (StructureUnitsSheaf318.units X).obj U) (i j : ι),
+    CategoryStruct.comp ((CocycleModuleCone318.restrictedIsLimit U c (U i).ι).lift (localCone U c i))
+        (((Scheme.Modules.restrictFunctor (U i).ι).mapCone (CocycleModuleCone318.cone U c)).π.app
+          (WalkingMulticospan.left j)) =
+      (localCone U c i).π.app (WalkingMulticospan.left j)
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u} (U : ι → X.Opens)
+    (c : UnitTransitionCocycle318.Cocycle (StructureUnitsSheaf318.units X).obj U) (i j : ι),
+    CategoryStruct.comp (localLift U c i) ((restriction U i).map (CocycleModule318.coefficient U c j)) =
+      localMap U c i j
+RELEASED:2026-11-08T11:25:43Z

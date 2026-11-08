@@ -1,0 +1,7 @@
+# Bundled local freeness of the actual normed lines
+
+The two modules consume the immutable actual norm-clutched source/target lines and their whole-chart frames. A singleton free sheaf is identified with the original O unit module using the genuine one-index coproduct isomorphism. The actual frame cover yields explicit LocalGeneratorsData with index PUnit on each member; data_free proves the original IsLocallyFreeData property. FifthNormLineLocallyFree318.source_locallyFree and norm_locallyFree prove bundled IsLocallyFree for the unchanged actual source and target normed lines.
+
+The rank-one content is retained in the actual singleton generator data, rather than inferred from the weaker bare locally-free class. The original inverse-image source opens and whole target opens are unchanged, and their covers are the earlier proved ones. No global line triviality, arbitrary source line classification, cover-independent Picard norm or Jacobian conclusion is asserted.
+
+Both final modules strictly pass. Their strict log retains a later unrelated failed first check of FiniteLocalRankOne318; the first two CHECK blocks complete successfully and are the only evidence claimed here. A separate private-inclusive recursive audit passes25 declarations/two modules with standard axiom roots. No full-chain replay. The generic open-frame criterion and line9 have separate distinct consuming reviews, which are not self-approval of this addendum. Hosted integration and new distinct review remain pending.

@@ -1,5 +1,13 @@
 # Pending Lean experiments
 
+## Natural period-to-plane R2 recheck
+
+[Run 42474692244](https://github.com/doublemover/diophantine-z-q/actions/runs/42474692244) passed all seven unchanged analytic predecessors but failed the new NaturalPeriodPlaneComparison318 consumer. Its exact artifact evidence is preserved under forward-period-plane-r1/hosted-failure, with the ZIP digest bound and the ZIP excluded. The consumer audit was not reached. R1 is inactive.
+
+Only forward-period-plane-r2 is active. It changes that consumer proof alone: explicit reduction of the pinned library whole-to-partial diffeomorphism conversion and explicit target model/type arguments for local composition. All statements, maps, seven predecessor sources and 211 required baseline source pins are unchanged. A tiny isolated API probe stopped before elaboration because its official Mathlib object was unavailable locally; it supplies no local success claim. The eight-source closure remains pending hosted verification.
+
+This experiment is separate from the newly staged 1,685-module algebraic/differential checkpoint. No experimental module was promoted into it. The exact green1,494 audit is preserved separately, and the new combined1,685 audit is pending. Historical intake sections below describe their own earlier state.
+
 ## Natural period-to-plane consumer
 
 [Run 42472915036](https://github.com/doublemover/diophantine-z-q/actions/runs/42472915036) passed the exact period R4 pair and its 23-declaration private-inclusive recursive audit, reusing 195 verified predecessors. Its immutable evidence is preserved under forward-period-sections-r4/hosted-pass. The separate projection and inverse-section consuming reviews are under independent-reviews. R4 is now inactive.

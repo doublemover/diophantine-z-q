@@ -1,0 +1,80 @@
+ACQUIRED 2026-11-08T10:34:56Z fifth-character
+CHECK ClutchedGaugeIso318 2026-11-08T10:34:56Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/ClutchedGaugeIso318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/ClutchedGaugeIso318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/ClutchedGaugeIso318.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK OpenClutchedGauge318 2026-11-08T10:35:00Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/OpenClutchedGauge318.lean:27:37: error: Application type mismatch: The argument
+  (ConcreteCategory.hom (U ⊓ V).topIso.inv) ?m.220
+has type
+  ↑Γ(↑(U ⊓ V), ⊤)
+but is expected to have type
+  TopCat.Presheaf ?m.200 ?m.202
+in the application
+  (TopCat.Presheaf.pushforward ?m.200 ?m.211).obj ((ConcreteCategory.hom (U ⊓ V).topIso.inv) ?m.220)
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/OpenClutchedGauge318.lean:28:32: error: Application type mismatch: The argument
+  (ConcreteCategory.hom (U ⊓ V).topIso.inv) ?m.245
+has type
+  ↑Γ(↑(U ⊓ V), ⊤)
+but is expected to have type
+  TopCat.Presheaf ?m.225 ?m.227
+in the application
+  (TopCat.Presheaf.pushforward ?m.225 ?m.236).obj ((ConcreteCategory.hom (U ⊓ V).topIso.inv) ?m.245)
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/OpenClutchedGauge318.lean:28:4: error: Application type mismatch: The argument
+  (U ⊓ V).topIso.inv
+has type
+  Γ(X, U ⊓ V) ⟶ Γ(↑(U ⊓ V), ⊤)
+but is expected to have type
+  ?m.227 ⟶ ?m.203
+in the application
+  TopCat.Presheaf.pushforward ?m.200 (U ⊓ V).topIso.inv
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/OpenClutchedGauge318.lean:43:2: error: don't know how to synthesize implicit argument `he`
+  @ClutchedGaugeIso318.first_map X (↑U) (↑V) (↑(U ⊓ V)) U.ι V.ι (leftInclusion U V) (rightInclusion U V) (square U V)
+    (transition U V a) (transition U V b) (leftUnit U s₀) (rightUnit V s₁) (?m.177 U V a b s₀ s₁ he first_hom)
+context:
+X : Scheme
+U V : X.Opens
+a b : (↑Γ(X, U ⊓ V))ˣ
+s₀ : (↑Γ(X, U))ˣ
+s₁ : (↑Γ(X, V))ˣ
+he :
+  (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) ↑s₁ * ↑b =
+    ↑a * (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) ↑s₀
+⊢ (ConcreteCategory.hom (Scheme.Hom.appTop (rightInclusion U V))) ↑(rightUnit V s₁) * transition U V b =
+    transition U V a * (ConcreteCategory.hom (Scheme.Hom.appTop (leftInclusion U V))) ↑(leftUnit U s₀)
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/OpenClutchedGauge318.lean:50:2: error: don't know how to synthesize implicit argument `he`
+  @ClutchedGaugeIso318.second_map X (↑U) (↑V) (↑(U ⊓ V)) U.ι V.ι (leftInclusion U V) (rightInclusion U V) (square U V)
+    (transition U V a) (transition U V b) (leftUnit U s₀) (rightUnit V s₁) (?m.177 U V a b s₀ s₁ he second_hom)
+context:
+X : Scheme
+U V : X.Opens
+a b : (↑Γ(X, U ⊓ V))ˣ
+s₀ : (↑Γ(X, U))ˣ
+s₁ : (↑Γ(X, V))ˣ
+he :
+  (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) ↑s₁ * ↑b =
+    ↑a * (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) ↑s₀
+⊢ (ConcreteCategory.hom (Scheme.Hom.appTop (rightInclusion U V))) ↑(rightUnit V s₁) * transition U V b =
+    transition U V a * (ConcreteCategory.hom (Scheme.Hom.appTop (leftInclusion U V))) ↑(leftUnit U s₀)
+RELEASED 2026-11-08T10:35:04Z fifth-character

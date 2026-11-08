@@ -1,0 +1,56 @@
+ACQUIRED 2026-11-08T09:27:01Z
+MODULE SourceOrderFieldEquiv318 exit=0
+SourceValuationDecomposition318.lean:57:4: error: Type mismatch: After simplification, term
+  IsUnit.map (action c p i ht g).symm.toRingHom h
+ has type
+  IsUnit ((action c p i ht g).symm.toRingHom ((action c p i ht g) ((algebraMap (SourceOrder c) ↥(V c p i ht)) x)))
+but is expected to have type
+  IsUnit ((algebraMap (SourceOrder c) ↥(V c p i ht)) x)
+SourceValuationDecomposition318.lean:68:4: error: don't know how to synthesize implicit argument `a`
+  @Eq.symm (↥(V c p i ht))
+    ((localEquiv c p i ht (orderAut c p i ht g) ?m.105) ((algebraMap (SourceOrder c) ↥(V c p i ht)) x))
+    ((algebraMap (SourceOrder c) ↥(V c p i ht)) ((orderAut c p i ht g) x))
+    (localEquiv_on_source c p i ht (orderAut c p i ht g) ?m.105 x)
+context:
+c : Fin 4 → ℚˣ
+F : Type u_1
+inst✝³ : Field F
+inst✝² : Algebra ℚ F
+inst✝¹ : Algebra R F
+inst✝ : IsScalarTower ℚ R F
+p : SourceOrder c →ₐ[R] F
+i : Fin 4
+ht : (algebraMap R F) X = (algebraMap ℚ F) (LinearContactSquareclass318.contacts i)
+g : ↥(D c p i ht)
+x : SourceOrder c
+⊢ ↥(V c p i ht)
+SourceValuationDecomposition318.lean:68:37: error: don't know how to synthesize placeholder for argument `he`
+context:
+c : Fin 4 → ℚˣ
+F : Type u_1
+inst✝³ : Field F
+inst✝² : Algebra ℚ F
+inst✝¹ : Algebra R F
+inst✝ : IsScalarTower ℚ R F
+p : SourceOrder c →ₐ[R] F
+i : Fin 4
+ht : (algebraMap R F) X = (algebraMap ℚ F) (LinearContactSquareclass318.contacts i)
+g : ↥(D c p i ht)
+x : SourceOrder c
+⊢ P c p = Ideal.comap (orderAut c p i ht g) (P c p)
+SourceValuationDecomposition318.lean:62:79: error: unsolved goals
+c : Fin 4 → ℚˣ
+F : Type u_1
+inst✝³ : Field F
+inst✝² : Algebra ℚ F
+inst✝¹ : Algebra R F
+inst✝ : IsScalarTower ℚ R F
+p : SourceOrder c →ₐ[R] F
+i : Fin 4
+ht : (algebraMap R F) X = (algebraMap ℚ F) (LinearContactSquareclass318.contacts i)
+g : ↥(D c p i ht)
+x : SourceOrder c
+⊢ ((action c p i ht g).toRingHom.comp (algebraMap (SourceOrder c) ↥(V c p i ht))) x =
+    ((localEquiv c p i ht (orderAut c p i ht g) ⋯).toRingHom.comp (algebraMap (SourceOrder c) ↥(V c p i ht))) x
+MODULE SourceValuationDecomposition318 exit=1
+RELEASED 2026-11-08T09:27:14Z exit=1

@@ -1,0 +1,153 @@
+{
+  "authors": [
+    "/root/restart_group_law",
+    "/root/restart_checkpoint"
+  ],
+  "claim": "Actual open-cartesian and affine fromSpec restriction isomorphisms for the original structure-sheaf pushforward",
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "An open cartesian square and both specified open immersions; for the affine specialization f is affine and U is affine.",
+      "constructed_input": "The generic source retains q,k,j,f and IsPullback q k j f. The affine source uses IsAffineHom f and hU, obtaining the actual affine preimage hU.preimage f.",
+      "justification": "No reducedness, field test, smoothness or finite-flat premise is inserted.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Objects",
+      "required_input": "The original O-module pushforward and its actual restriction to U must be identified.",
+      "constructed_input": "PushforwardStructureSheaf318.object f is the actual Scheme.Modules.pushforward of the structure sheaf. Both endpoints remain that same object under the original maps.",
+      "justification": "The result is an isomorphism in actual Scheme.Modules, not an equivalence of global sections alone.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Coverage",
+      "required_input": "Section comparisons must hold for every open W and all further restrictions.",
+      "constructed_input": "ringIso W and natural cover all opens of the changed base, including empty opens.",
+      "justification": "The cartesian identity of inverse-image opens and original open-immersion section isomorphism supply full coverage, including nilpotents.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Maps",
+      "required_input": "The section isomorphism must have the correct contravariant directions and original structure-map scalar action.",
+      "constructed_input": "ringIso is the exact equality transport of opens followed by k.appIso; ringIso_hom identifies its hom with k.appLE.",
+      "justification": "scalar_square proves compatibility of f.app, j.appIso and q.app before the additive isomorphism is promoted to a module isomorphism.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Coefficients",
+      "required_input": "The scalar action on the restricted module uses the inverse of j.appIso, not a new algebra structure.",
+      "constructed_input": "The checked ModuleCat.isoMk proof explicitly uses f.app((j.appIso).inv a) and q.app a on the same original section.",
+      "justification": "The source correction only supplies an explicit original section-ring type cast; it does not alter any map or scalar.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Identities",
+      "required_input": "Both inverse maps and exact components must be retained.",
+      "constructed_input": "iso_component is the literal ringIso component; iso_hom_inv and iso_inv_hom are the actual categorical inverse equations.",
+      "justification": "PresheafOfModules.isoMk and the fully faithful sheaf forgetful functor construct the sheaf iso from those natural module isomorphisms.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Local/global",
+      "required_input": "The affine chart must use the actual Spec.map(f.app U) and original fromSpec maps.",
+      "constructed_input": "AffinePullbackStructure318.square uses SpecMap_appLE_fromSpec and exact opensRange identities to establish the original square.",
+      "justification": "Its iso and component are literal specializations of the checked generic comparison and supply the next free-sheaf frame consumer.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Evidence",
+      "required_input": "Final exact sources require bounded strict checks and target-only recursive audit.",
+      "constructed_input": "Both final sources passed their separate bounded strict checks under kernel TC. The audit verifies twelve endpoints and all target-private/generated bodies.",
+      "justification": "No predecessor replay is performed. Final audit status and count are recorded only after its actual result.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Boundary",
+      "required_input": "Separate these comparisons from local freeness, a determinant line and Picard constructions.",
+      "constructed_input": "This author packet supplies only original open/affine restriction isomorphisms. The actual rank-eight frame and local-freeness consumer remain group-owned.",
+      "justification": "Group authored the ring comparison and initial generic wrapper; checkpoint repaired its explicit cast and authored the affine specialization. This is a joint-author producer, not independent acceptance.",
+      "sources": [
+        "OpenPullbackStructure318.lean",
+        "AffinePullbackStructure318.lean"
+      ],
+      "evidence": [
+        "DEPENDENCIES.json",
+        "open-pullback-check1.log",
+        "affine-pullback-check1.log",
+        "audit.log"
+      ]
+    }
+  ]
+}

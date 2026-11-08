@@ -1,0 +1,76 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Actual reciprocal infinity ramification index two at every prime, with prime existence and normalized adic-valuation restriction in the original fields",
+  "sources": {
+    "InfinityReciprocalPrime318.lean": "b8e59521813f3030bdfc11253fdbec0192c7b54a31dfaa55958e504888003178",
+    "InfinityOrderGalois318.lean": "d69133da3803314cd97e05e47e3be54eb9be3d0986d8ef0a8c33cc7f32df528c",
+    "InfinityOrderInertia318.lean": "d83b86a5bd83cddaf74596203763e01f3ab85a5425f2d553b46282ff9b701ab7",
+    "InfinityReciprocalRamification318.lean": "d39e9cdd427f7a2155685ca497833e0638b3d76c18d799b9da2a20f0a0952706",
+    "InfinityValuationRamification318.lean": "5ef479f02384c0f588aa392eafa8a797fce13b494cab4d2211f128b8a4f29799"
+  },
+  "obligations": [
+    {
+      "name": "Base and field",
+      "required_input": "Use the actual reciprocal open and original Q(t), not the u-coordinate field.",
+      "constructed_input": "The exact helper maps s to t inverse and identifies Q(t) as its fraction field. original_field_value installs the actual scalar tower to the original L.",
+      "justification": "The exact helper maps s to t inverse and identifies Q(t) as its fraction field. original_field_value installs the actual scalar tower to the original L.",
+      "source_references": "InfinityReciprocalRamification318 fieldBase/fieldFraction/fieldTower"
+    },
+    {
+      "name": "Actual prime",
+      "required_input": "The base prime and every source prime must be the literal infinity ideals.",
+      "constructed_input": "prime is the kernel of evaluation at s=0 on the localized reciprocal base. residue_base_square and liesOver identify every actual Q containing s with that prime.",
+      "justification": "prime is the kernel of evaluation at s=0 on the localized reciprocal base. residue_base_square and liesOver identify every actual Q containing s with that prime.",
+      "source_references": "InfinityReciprocalPrime318 prime/maximal/residue_base_square/liesOver"
+    },
+    {
+      "name": "Galois action",
+      "required_input": "Full order invariants and complete automorphism action are required.",
+      "constructed_input": "galRestrict is proved equal to the existing original-field restriction on every order element. Its exact group equivalence supplies all order signs and full invariants. The generic AKLB premises are explicitly discharged by the actual consumer.",
+      "justification": "galRestrict is proved equal to the existing original-field restriction on every order element. Its exact group equivalence supplies all order signs and full invariants. The generic AKLB premises are explicitly discharged by the actual consumer.",
+      "source_references": "InfinityOrderGalois318 fieldRestriction_eq/signEquiv/invariant/galoisGroup"
+    },
+    {
+      "name": "Finite flatness",
+      "required_input": "Do not rename a finite generic-degree result as flatness.",
+      "constructed_input": "Finiteness is the existing entire reciprocal chartMap_finite. The exact map is injective through its specified base fraction field and original field square. The actual base is Dedekind and the order is a domain, so flatness follows from torsion freeness.",
+      "justification": "Finiteness is the existing entire reciprocal chartMap_finite. The exact map is injective through its specified base fraction field and original field square. The actual base is Dedekind and the order is a domain, so flatness follows from torsion freeness.",
+      "source_references": "InfinityReciprocalPrime318.base_dedekind/InfinityOrderGalois318.chart_injective/finite_flat"
+    },
+    {
+      "name": "Residue hypotheses",
+      "required_input": "Cardinality to index requires the actual prime and separable residue fields.",
+      "constructed_input": "The finite integral reciprocal extension has characteristic-zero base residue field, yielding all residue extensions separable at its literal rational infinity prime.",
+      "justification": "The finite integral reciprocal extension has characteristic-zero base residue field, yielding all residue extensions separable at its literal rational infinity prime.",
+      "source_references": "InfinityReciprocalPrime318.residue_separable"
+    },
+    {
+      "name": "Complete inertia",
+      "required_input": "The inertia cardinal must cover the full order automorphism group.",
+      "constructed_input": "The exact full group sign equivalence and earlier complete prime-residue criterion give a bijection from Bool to the entire ideal inertia subgroup, not only its chosen sign subset.",
+      "justification": "The exact full group sign equivalence and earlier complete prime-residue criterion give a bijection from Bool to the entire ideal inertia subgroup, not only its chosen sign subset.",
+      "source_references": "InfinityOrderInertia318.diagonal_bijective/ideal_inertia_card"
+    },
+    {
+      "name": "Index and valuation",
+      "required_input": "Apply actual index and normalized-valuation theorems with all inputs.",
+      "constructed_input": "The exact Ideal.card_inertia_eq_ramificationIdxIn gives index two, then every actual source prime has index two. The actual base and source HeightOneSpectrum places give v_base(x)^2=v_source(x) for every original x in Q(t), by valuation_liesOver.",
+      "justification": "The exact Ideal.card_inertia_eq_ramificationIdxIn gives index two, then every actual source prime has index two. The actual base and source HeightOneSpectrum places give v_base(x)^2=v_source(x) for every original x in Q(t), by valuation_liesOver.",
+      "source_references": "InfinityReciprocalRamification318/InfinityValuationRamification318.valuation_restriction"
+    },
+    {
+      "name": "Coverage and validation",
+      "required_input": "The final theorem must be nonvacuous and have exact evidence.",
+      "constructed_input": "Finite integral faithful extension supplies actual primes over infinity. infinity_index_two has no supplied Q or fraction-field premise; every_prime_index_two covers all actual primes. All five final modules individually strictly pass; combined recursive/hosted audit remains pending.",
+      "justification": "Finite integral faithful extension supplies actual primes over infinity. infinity_index_two has no supplied Q or fraction-field premise; every_prime_index_two covers all actual primes. All five final modules individually strictly pass; combined recursive/hosted audit remains pending.",
+      "source_references": "primes_nonempty/infinity_index_two/every_prime_index_two/receipt.json"
+    },
+    {
+      "name": "Retained boundaries",
+      "required_input": "Do not assert relative fifth-quotient or moduli claims.",
+      "constructed_input": "This proves ramification of the full original contact field over Q(t) at projective infinity. The nonreduced fiber is not replaced by its residue. Relative fifth-quotient ramification, global regular-differential descent, Picard/Jacobian/polarization/PEL require separate constructions.",
+      "justification": "This proves ramification of the full original contact field over Q(t) at projective infinity. The nonreduced fiber is not replaced by its residue. Relative fifth-quotient ramification, global regular-differential descent, Picard/Jacobian/polarization/PEL require separate constructions.",
+      "source_references": "README.md"
+    }
+  ]
+}

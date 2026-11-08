@@ -1,0 +1,163 @@
+{
+  "claim": "Exact eight-sign averaging of actual global intrinsic differentials, with complementary vanishing and normalized fifth-invariant preservation",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "FifthFixingSigns318.lean": "99a7b12a7793bf5bbee88166d5d548238b6615c5739e7acd19216d1507aeee6d",
+    "FifthDifferentialAveraging318.lean": "6cdde9e3ffcd6222fd17133555efc3066750ba309cb1094928271e5cb0f14232"
+  },
+  "direct_dependencies": {
+    "FifthGlobalCharacters318": {
+      "path": "recovery-hodge-0358/fifth-differential-character/FifthGlobalCharacters318.lean",
+      "sha256": "d5edf24acd41ea8591138321f439a6f967cff9a28eb6835117240e7330135f69"
+    },
+    "FifthSignCharacter318": {
+      "path": "fifth-sign-equivariance/FifthSignCharacter318.lean",
+      "sha256": "9066f6b3f158814a1cfbd2299d12c58e3d05b52033ac3ff5322212776184cb31"
+    },
+    "ContactGlobalSignFaithful318": {
+      "path": "checkpoint-global-sign-action/frozen/ContactGlobalSignFaithful318.lean",
+      "sha256": "5889e2c6f47f38a474c219330d65ed4a69b9bc1e92011a9b3daf4dcdc6103e8d"
+    }
+  },
+  "consuming_joins": {
+    "recovery-hodge-0358/character-differential-signs/ContactDifferentialCharacters318.lean": "115a527be67a832b7d8ed9d03a1d8b669aabd11f00215fcc466fd1c5fd0b0717",
+    "recovery-hodge-0358/fifth-differential-character/FifthOpenSigns318.lean": "6f1f0ca990d15a23dc1f8d203c016c9b1631f72aa768e3f198e39da374be37c2",
+    "recovery-hodge-0358/fifth-invariant-pullback/FifthActualDifferential318.lean": "561f35ce5df412ca19a44f1a4d605d71955f228b58299084d8a04bfce6d98a4b",
+    "recovery-hodge-0358/fifth-invariant-pullback/FifthGlobalPullbackNormalization318.lean": "0e81fb796851f60e1a3fd51b2d66eb818d97d2a60df0382dab0f17a4581202bb",
+    "recovery-hodge-0358/character-differential-independence/ContactCharacterGlobalIndependence318.lean": "8e3377c2121d05697905c58336ed2379f55210e111ed99efa2ff30ecdc5bd296",
+    "recovery-contact-0358/contact-global-signs/ContactGlobalSigns318.lean": "b47d558f378928f360a7b1baa67895d2ff38986a73fd0a9ccebb6532d67e600f",
+    "fifth-sign-equivariance/FifthSignAffine318.lean": "57759496e0e47598ce667b390125645e7dc54a9d27cc16a425c4f18d26c85a3d",
+    "fifth-sign-equivariance/FifthSignGlobal318.lean": "07f924bb5cd4b6683beac7c6aee906c1408a6affc92dff760af79cb18f451902"
+  },
+  "predecessor_receipts": {
+    "recovery-hodge-0358/fifth-differential-character/receipt.json": "c587b0909e1409f0457e3ab03d84c9b4293ec4e4a9edb3fed65d74f4f296c42b",
+    "recovery-modular-0358/fifth-sign-independent-review/acceptance.json": "b86970259a620ca7f995ce9e12d755665b8eb6acf7248fcf54e0918ffab3bcdf",
+    "recovery-hodge-0358/fifth-invariant-pullback/receipt.json": "e493e89ee9b7c0590c33066faef43ff0a6d1e1b290b42eb66ef750e33e387849",
+    "recovery-modular-0358/fifth-invariant-pullback-independent-review/acceptance.json": "426f4e231125c8627399b9fc69f1759a36fa4a16768e870c8bca6e1a2742f3cf",
+    "fifth-sign-equivariance/receipt.json": "25a88d1dce61d697e95e13895d7fdfe8136df20b7c12bb8c0625bdea31fec134",
+    "checkpoint-global-sign-action/frozen/receipt.json": "a014bed11f3f60651626dcff6c6d2496a0fc8704187bb500e42f53fdf064bef9"
+  },
+  "endpoints": [
+    "FifthFixingSigns318.cardinality",
+    "FifthFixingSigns318.mem_iff_fixed",
+    "FifthFixingSigns318.maps_injective",
+    "FifthFixingSigns318.complementary_sum",
+    "FifthFixingSigns318.full_sum",
+    "FifthDifferentialAveraging318.signSum",
+    "FifthDifferentialAveraging318.complementary",
+    "FifthDifferentialAveraging318.fifth",
+    "FifthDifferentialAveraging318.average_add",
+    "FifthDifferentialAveraging318.average_complementary",
+    "FifthDifferentialAveraging318.average_fifth"
+  ],
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "Actual canonical source-sign actions and exact fifth-map fixing criterion.",
+      "constructed": "The existing ContactDifferentialCharacters318.action and FifthSignCharacter318.fixed_iff are consumed, together with actual action faithfulness.",
+      "why_match": "No abstract representation or pointwise stabilizer is substituted for the whole-map fixing condition.",
+      "evidence": [
+        "FifthFixingSigns318.mem_iff_fixed",
+        "FifthFixingSigns318.maps_injective",
+        "FifthDifferentialAveraging318.signSum"
+      ]
+    },
+    {
+      "name": "Constructed objects",
+      "required": "An averaging operation on actual source global intrinsic differential sections.",
+      "constructed": "signSum is an AddMonoidHom sum of the actual canonical pullbacks. average is multiplication by the actual rational constant1/8 after that sum.",
+      "why_match": "The codomain remains the same source global Omega; no target differential trace is asserted.",
+      "evidence": [
+        "FifthDifferentialAveraging318.signSum",
+        "FifthDifferentialAveraging318.average"
+      ]
+    },
+    {
+      "name": "Domain and index coverage",
+      "required": "All eight signs fixing the entire fifth completed map, applied to all five actual invariant pullbacks.",
+      "constructed": "The full finite index set is defined by the full-root character; cardinality8 and actual-map injectivity are proved. All four complementary indices and the actual fifth form are covered.",
+      "why_match": "The finite character calculations enumerate the complete sixteen-Boolean ambient set, not selected generators or sample points.",
+      "evidence": [
+        "FifthFixingSigns318.cardinality",
+        "FifthFixingSigns318.maps_injective",
+        "FifthDifferentialAveraging318.complementary",
+        "FifthDifferentialAveraging318.fifth"
+      ]
+    },
+    {
+      "name": "Transition and comparison maps",
+      "required": "Match Q-valued full-root epsilon with the RatFunc-valued character used in the actual fixing criterion.",
+      "constructed": "sign_matches proves that exact coefficient transport, and mem_iff_fixed uses injectivity of the Q-to-RatFunc map.",
+      "why_match": "There is no relabeling of a field subgroup as a Scheme stabilizer without the actual whole-map theorem.",
+      "evidence": [
+        "FifthFixingSigns318.sign_matches",
+        "FifthFixingSigns318.mem_iff_fixed"
+      ]
+    },
+    {
+      "name": "Identity of the consumed object",
+      "required": "Use the actual global completed-map invariant pullbacks already constructed and normalized.",
+      "constructed": "The sum is evaluated on ContactCharacterDifferentials318.differential i and FifthActualDifferential318.differential, with their genuine global eigenrelations.",
+      "why_match": "The fifth form is not rescaled to erase its -41160 normalization or replaced by a function-field proxy.",
+      "evidence": [
+        "FifthDifferentialAveraging318.complementary",
+        "FifthDifferentialAveraging318.fifth"
+      ]
+    },
+    {
+      "name": "Coefficient and normalization conventions",
+      "required": "Retain unnormalized factor8 and normalized factor1/8 under actual rational constants.",
+      "constructed": "The exact full-root sum is8, each complementary sum is0, and the normalized operation uses constants(1/8). The actual source constants preserve sums and products.",
+      "why_match": "Both unnormalized and normalized identities are explicit, without confusing source averaging with a target trace or choosing an unexplained scalar.",
+      "evidence": [
+        "FifthFixingSigns318.complementary_sum",
+        "FifthFixingSigns318.full_sum",
+        "FifthDifferentialAveraging318.average_fifth"
+      ]
+    },
+    {
+      "name": "Local/global conditions",
+      "required": "The result must be an operation on genuine global sections rather than local coefficient symbols.",
+      "constructed": "The consumed eigenrelations already prove actual whole-source canonical pullback equalities. The new argument only sums those equalities and uses additive/module laws.",
+      "why_match": "No new extension from a rational identity or local open is assumed in this packet.",
+      "evidence": [
+        "FifthDifferentialAveraging318.signSum_apply",
+        "FifthDifferentialAveraging318.complementary",
+        "FifthDifferentialAveraging318.fifth"
+      ]
+    },
+    {
+      "name": "Exceptional cases and evidence",
+      "required": "Verify complete finite counts/sums and legitimacy of rational normalization.",
+      "constructed": "Finite count and character sums use decide+kernel, not native_decide. The index maps are distinct. The constant1/8 is rational and its product with8 is proved in the final normalization.",
+      "why_match": "There is no hidden empty-index, duplicate-map or characteristic-divisibility exception. The base is the fixed rational source throughout.",
+      "evidence": [
+        "FifthFixingSigns318.cardinality",
+        "FifthFixingSigns318.maps_injective",
+        "FifthDifferentialAveraging318.average_fifth"
+      ]
+    },
+    {
+      "name": "Downstream consumption",
+      "required": "Supply actual finite global differential averaging data for the trace/norm correspondence work.",
+      "constructed": "The normalized average fixes the fifth actual invariant pullback and kills the other four; it is also proved additive.",
+      "why_match": "No target-Omega trace, Picard norm, Jacobian/polarization, complete basis, full-image classification or general idempotence is claimed.",
+      "evidence": [
+        "FifthDifferentialAveraging318.average_add",
+        "FifthDifferentialAveraging318.average_complementary",
+        "FifthDifferentialAveraging318.average_fifth"
+      ]
+    }
+  ],
+  "external_input_scope": "No new literature input. Finite character arithmetic is checked by kernel reduction and combined with existing actual global maps/actions.",
+  "not_claimed": [
+    "target differential trace",
+    "Picard norm or Jacobian/polarization correspondence",
+    "complete global differential basis",
+    "general idempotence or full-image classification of average",
+    "inertia or PEL/KS/metric/height comparison"
+  ],
+  "validation": "Two exact strict sources and fresh recursive target audit27 declarations, standard roots only. No full dependency replay.",
+  "independent_review": "Pending; producer only"
+}

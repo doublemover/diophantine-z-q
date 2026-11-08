@@ -1,0 +1,36 @@
+ACQUIRED 2026-11-08T10:45:50Z fifth-character
+CHECK OpenClutchedLocallyFree318 2026-11-08T10:45:50Z
+CHECK FifthNormLineLocallyFree318 2026-11-08T10:45:54Z
+CHECK FiniteLocalRankOne318 2026-11-08T10:45:58Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:19:37: error(lean.unknownIdentifier): Unknown identifier `A`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:20:68: error(lean.unknownIdentifier): Unknown identifier `A`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:21:52: error(lean.unknownIdentifier): Unknown identifier `A`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:24:41: error(lean.unknownIdentifier): Unknown identifier `A`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:24:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:25:62: error: Application type mismatch: The argument
+  congrArg Subtype.val ?m.54
+has type
+  ↑?m.50 = ↑?m.51
+but is expected to have type
+  q.asIdeal = r.asIdeal
+in the application
+  MaximalSpectrum.ext (congrArg Subtype.val ?m.54)
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:32:23: error(lean.unknownIdentifier): Unknown identifier `A`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FiniteLocalRankOne318.lean:31:56: error: unsolved goals
+B : Type v
+inst✝⁴ : CommRing B
+L : Type w
+inst✝³ : AddCommGroup L
+inst✝² : Module B L
+inst✝¹ : Module.Finite B L
+inst✝ : Module.Flat B L
+rk : ∀ (q : PrimeSpectrum B), Module.rankAtStalk L q = 1
+⊢ Nonempty (Module.Basis (Fin 1) B L)
+RELEASED 2026-11-08T10:46:01Z fifth-character

@@ -1,0 +1,80 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Actual fifth completed invariant pullback is the explicit unit times the original branch-root differential on every entire finite branch chart",
+  "sources": {
+    "BranchOriginalCoordinate318.lean": "97b4af72298433d68b4612351f80e87041a71987561edef4ffa6c080c0af5f1e",
+    "FifthBranchUnitCoefficient318.lean": "7ee71aafbe1f2be34d229119f91beb832412c0d5a32f0b8054c8ba3a5da98c36",
+    "FifthBranchDifferential318.lean": "1073a667a9933c45b6d0d3b5abb40e479069387eba7413dda5477466bfd34c75",
+    "IntegralChartSectionDetection318.lean": "f0ba7d39736e432197631d1d7dc4da5af1d0ab30f0d5c86ef0a467a097c9d0e8",
+    "BranchIntrinsicNaturality318.lean": "be736f4a1596c94bf4685ea4284da78acd5182afca8bb6437c14d7a2fb1b424a",
+    "BranchRestrictionInjective318.lean": "6618770f1694a51b6bedcc227a49ad4178f9da1ac57e516d6784e0399923b2c0",
+    "BranchSectionExtension318.lean": "6a1dcde24037b22bb52959fe086bd5b51d1ddd4bc411012b91682c75de445cff",
+    "FifthBranchCommonSection318.lean": "c45c9263d23184aebe1e6ee3caded3a8635d0a73bfe13a72064535c7a7850d8a",
+    "FifthBranchInvariantRestriction318.lean": "d67a6181ac79771bd069ebdd8d3bf266644df3871d7631e398e6311361d10e8b"
+  },
+  "obligations": [
+    {
+      "name": "Exact objects and coverage",
+      "required_input": "The actual fixed source and all four entire finite branch charts.",
+      "constructed_input": "The coefficient/restriction statements range over every j:Fin4 on the actual source with SourceTwistArithmetic318.units; no branch is removed.",
+      "justification": "The coefficient/restriction statements range over every j:Fin4 on the actual source with SourceTwistArithmetic318.units; no branch is removed.",
+      "source_references": "FifthBranchInvariantRestriction318.unit_frame_and_restrict"
+    },
+    {
+      "name": "Original coordinate identity",
+      "required_input": "The frame coordinate must be the original signed root, not a chosen root with the same square.",
+      "constructed_input": "Generic tensor-association/permutation identities compute sourceRegroup on each of the four original roots. The actual localization equivalence transports this equality to the entire branch ring.",
+      "justification": "Generic tensor-association/permutation identities compute sourceRegroup on each of the four original roots. The actual localization equivalence transports this equality to the entire branch ring.",
+      "source_references": "BranchOriginalCoordinate318.coordinate_eq_root"
+    },
+    {
+      "name": "Unit coefficient",
+      "required_input": "Every denominator in the exact coefficient must be invertible on the whole branch.",
+      "constructed_input": "Each of the other three original roots is a proved unit in the actual branch localization. Their product and its inverse are units; the rational coefficient -82320/c_j is nonzero.",
+      "justification": "Each of the other three original roots is a proved unit in the actual branch localization. Their product and its inverse are units; the rational coefficient -82320/c_j is nonzero.",
+      "source_references": "FifthBranchUnitCoefficient318.coefficient/coefficient_unit"
+    },
+    {
+      "name": "Preserved scalar and field",
+      "required_input": "The actual completed fifth pullback normalization and original root product must be retained.",
+      "constructed_input": "The exact coefficient maps into the same original Raw field. scale_identity is -82320/c_j=(-41160)*(2/c_j). The derivative equation and literal full-root product yield the exact common differential.",
+      "justification": "The exact coefficient maps into the same original Raw field. scale_identity is -82320/c_j=(-41160)*(2/c_j). The derivative equation and literal full-root product yield the exact common differential.",
+      "source_references": "FifthBranchDifferential318.common_eq"
+    },
+    {
+      "name": "Actual comparison maps",
+      "required_input": "Use the actual whole common-open branch map and intrinsic restriction.",
+      "constructed_input": "The algebraic map is ContactOverlapAlgebraMaps318.branchMap; the whole Scheme square is BranchFullOverlap318.branch_square. The c-generic BranchIntrinsicNaturality318.naturality is an inferred proposition-valued specialization of IntrinsicChartNaturality318.section_restrict_to and transports the actual universal differential through that map.",
+      "justification": "The algebraic map is ContactOverlapAlgebraMaps318.branchMap; the whole Scheme square is BranchFullOverlap318.branch_square. The c-generic BranchIntrinsicNaturality318.naturality is an inferred proposition-valued specialization of IntrinsicChartNaturality318.section_restrict_to and transports the actual universal differential through that map.",
+      "source_references": "FifthBranchInvariantRestriction318.restrict"
+    },
+    {
+      "name": "Whole-chart extension",
+      "required_input": "Equality on the common open must imply equality of actual entire-chart sections.",
+      "constructed_input": "IntegralChartSectionDetection318.restrict_injective proves this from the actual branch frame and nonempty common open, for arbitrary local chart sections. No regular extension is asserted without that injectivity proof.",
+      "justification": "IntegralChartSectionDetection318.restrict_injective proves this from the actual branch frame and nonempty common open, for arbitrary local chart sections. No regular extension is asserted without that injectivity proof.",
+      "source_references": "IntegralChartSectionDetection318.restrict_injective"
+    },
+    {
+      "name": "Downstream-object identity",
+      "required_input": "The form must be the actual completed-map invariant pullback.",
+      "constructed_input": "The existing actual FifthActualDifferentialRestriction318.restrict is joined with the exact common equation, then restriction injectivity gives literal equality with FifthActualDifferential318.differential on each entire branch.",
+      "justification": "The existing actual FifthActualDifferentialRestriction318.restrict is joined with the exact common equation, then restriction injectivity gives literal equality with FifthActualDifferential318.differential on each entire branch.",
+      "source_references": "FifthBranchInvariantRestriction318.restrict/unit_frame_and_restrict"
+    },
+    {
+      "name": "Validation provenance",
+      "required_input": "Evidence must bind exact source bytes and not inflate a mixed log to a whole-batch pass.",
+      "constructed_input": "Each final module has its own successful strict exit marker and produced object hash. Logs7/14/30 contain later-module failures; only their successful named modules are claimed. Combined recursive/hosted audit and independent review remain pending.",
+      "justification": "Each final module has its own successful strict exit marker and produced object hash. Logs7/14/30 contain later-module failures; only their successful named modules are claimed. Combined recursive/hosted audit and independent review remain pending.",
+      "source_references": "receipt.json"
+    },
+    {
+      "name": "Retained scope",
+      "required_input": "Do not infer target descent or moduli constructions.",
+      "constructed_input": "The packet supplies the exact finite-branch unit-form input. Global source scalar gluing, trace-based target regular descent, Picard/Jacobian/polarization/PEL are separate. Generic coordinate identity permits arbitrary rational unit twists; differential coefficient uses the actual fixed twists only.",
+      "justification": "The packet supplies the exact finite-branch unit-form input. Global source scalar gluing, trace-based target regular descent, Picard/Jacobian/polarization/PEL are separate. Generic coordinate identity permits arbitrary rational unit twists; differential coefficient uses the actual fixed twists only.",
+      "source_references": "README.md"
+    }
+  ]
+}

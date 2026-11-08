@@ -1,0 +1,72 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Actual valuation inertia cardinal two at every source prime over each literal finite contact",
+  "sources": {
+    "SourcePrimeValuationInertia318.lean": "cc94b5a2bd80edd8673bfb77c01f19a8a08bfcb6df85ab94fa2930e06f8621b5"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "An actual prime Q of SourceOrder containing the original contact polynomial.",
+      "constructed_input": "Q.IsPrime and the literal hc are the only additional input beyond c and i.",
+      "justification": "Q.IsPrime and the literal hc are the only additional input beyond c and i.",
+      "source_references": "theorem binders"
+    },
+    {
+      "name": "Objects",
+      "required_input": "The previously supplied field point must be replaced by a canonical point of this prime.",
+      "constructed_input": "residuePoint is the original source algebra map into Q.ResidueField with explicit R and Q scalar towers.",
+      "justification": "residuePoint is the original source algebra map into Q.ResidueField with explicit R and Q scalar towers.",
+      "source_references": "residueBase/residueRat/baseTower/ratTower/residuePoint"
+    },
+    {
+      "name": "Coverage",
+      "required_input": "Every prime over every finite contact, with no separately chosen field embedding.",
+      "constructed_input": "Q and i are unrestricted; hc expresses the original finite-contact equation in Q.",
+      "justification": "Q and i are unrestricted; hc expresses the original finite-contact equation in Q.",
+      "source_references": "inertia_card"
+    },
+    {
+      "name": "Kernel identity",
+      "required_input": "The prime used by the predecessor must be this exact Q.",
+      "constructed_input": "kernel_exact uses the actual canonical residue-field kernel theorem.",
+      "justification": "kernel_exact uses the actual canonical residue-field kernel theorem.",
+      "source_references": "kernel_exact"
+    },
+    {
+      "name": "Contact compatibility",
+      "required_input": "The canonical residue point must satisfy the literal R-polynomial equation required upstream.",
+      "constructed_input": "residue_contact follows by sending the original hc element to zero, preserving the Q and Q[t] coefficients.",
+      "justification": "residue_contact follows by sending the original hc element to zero, preserving the Q and Q[t] coefficients.",
+      "source_references": "residue_contact"
+    },
+    {
+      "name": "Valuation identity",
+      "required_input": "The valuation must be embedded in the original Raw field at Q.",
+      "constructed_input": "valuationRing consumes the exact predecessor construction; actual_prime identifies its HeightOneSpectrum ideal with Q.",
+      "justification": "valuationRing consumes the exact predecessor construction; actual_prime identifies its HeightOneSpectrum ideal with Q.",
+      "source_references": "valuationRing/actual_prime"
+    },
+    {
+      "name": "Downstream group",
+      "required_input": "The group must remain Mathlib ValuationSubring.inertiaSubgroup over original K.",
+      "constructed_input": "inertia_card applies the earlier full valuation theorem to canonical residuePoint and exact residue_contact.",
+      "justification": "inertia_card applies the earlier full valuation theorem to canonical residuePoint and exact residue_contact.",
+      "source_references": "inertia_card"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Exact final source and successful strict evidence required.",
+      "constructed_input": "check116 has MODULE exit0 with debug.skipKernelTC=false; combined hosted audit and review pending.",
+      "justification": "check116 has MODULE exit0 with debug.skipKernelTC=false; combined hosted audit and review pending.",
+      "source_references": "receipt.json/check-116.log"
+    },
+    {
+      "name": "Boundary",
+      "required_input": "No unproved ramification-index or geometric-moduli inference.",
+      "constructed_input": "The conclusion is exactly valuation inertia order2 at every specified source prime over a finite contact.",
+      "justification": "The conclusion is exactly valuation inertia order2 at every specified source prime over a finite contact.",
+      "source_references": "README.md"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "author": "/root/restart_checkpoint",
+  "claim": "The actual reciprocal base has original Q(t) as fraction field under s maps to 1/t, with exact original full-field embedding square",
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "The reciprocal polynomial embedding must be injective and its denominator a unit in K.",
+      "constructed_input": "inverse_transcendental proves X inverse transcendental; inverse_aeval_injective supplies the actual polynomial injection. All four twists are rational units.",
+      "justification": "The localization lift uses the actual reciprocalDenominator_ne_zero, not a new nonvanishing assumption.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Objects",
+      "required_input": "The field must remain original Q(t), and the base its specified reciprocal open.",
+      "constructed_input": "K=RatFunc Q and Base c=ReciprocalInfinityBase318.ReciprocalOpen c. L is the original full Kummer field.",
+      "justification": "The s-line is not replaced by the ramified u-line, and no field is silently relabeled.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Coverage",
+      "required_input": "The statement must hold on the entire localized base, for all unit twists.",
+      "constructed_input": "actual_fractionField and original_field_square quantify over every c; original_field_value covers every base element.",
+      "justification": "Polynomial generators determine the full localization maps by the genuine localization extensionality theorem.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Maps",
+      "required_input": "Actual coordinate inversion and base maps must have their correct directions.",
+      "constructed_input": "inversionHom is the rational-function extension of aeval(X inverse); twice proves both inverses of inversion. baseFieldMap maps the reciprocal open to original K.",
+      "justification": "on_polynomial and on_coordinate compute the actual map, and original_field_square composes it with the original K to L inclusion.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Coefficients",
+      "required_input": "The reciprocal coordinate and rational constants must be exactly normalized.",
+      "constructed_input": "s maps to t inverse, with all rational constants preserved. The existing reciprocalEmbedding_coordinate supplies this exact normalization in L.",
+      "justification": "No scalar multiple or ramified u coordinate replaces s. Rational map compatibility is proved on constants, not assumed.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Identities",
+      "required_input": "IsFractionRing must use precisely the constructed base algebra.",
+      "constructed_input": "baseAlgebra is baseFieldMap.toAlgebra; actual_fractionField explicitly installs it and the reciprocal polynomial algebra with exact scalar tower.",
+      "justification": "The polynomial fraction property is transported through the actual inversion ring equivalence and then through localization. Equality of underlying field types alone is not used.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Local/global",
+      "required_input": "A generator identity must extend to the whole base ring.",
+      "constructed_input": "original_field_square is equality of ring homomorphisms from the full reciprocal localization.",
+      "justification": "It is proved by localization extensionality and polynomial constants/X, not by generic point or closed-point injectivity.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Evidence",
+      "required_input": "Exact final sources need strict checks and recursive private-inclusive audit.",
+      "constructed_input": "The final ReciprocalRatFunc318 passes its MODULE_EXIT=0 in check-4; the unchanged final ReciprocalBaseFraction318 passes check-6. audit.log freshly checks all27 declarations in both modules and six required endpoints.",
+      "justification": "The later distinct source failure in check-4 and all earlier failed elaboration logs are retained honestly. No full-chain replay, no dependency download.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "name": "Boundary",
+      "required_input": "Separate this helper from ramification and independent acceptance.",
+      "constructed_input": "This author packet supplies actual fraction-field and embedding-square inputs to contact\u2019s consumer.",
+      "justification": "It does not itself prove infinity inertia, ramification index, prime existence, or a valuation restriction formula. Non-author consuming review and hosted integration are pending.",
+      "sources": [
+        "ReciprocalRatFunc318.lean",
+        "ReciprocalBaseFraction318.lean",
+        "diophantine-z-q/quartics/quartic-318-326/proof/progress/ReciprocalInfinityNormalization318.lean"
+      ],
+      "evidence": [
+        "check-4.log",
+        "check-6.log",
+        "audit.log",
+        "DEPENDENCIES.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+--- /workspace/scratch/2cb21e4e0864/recovery-modular-0358/forward-period-plane-r1/NaturalPeriodPlaneComparison318.lean	2026-11-08 06:08:19.997025883 -0500
++++ /workspace/scratch/2cb21e4e0864/recovery-modular-0358/forward-period-plane-r2/NaturalPeriodPlaneComparison318.lean	2026-11-08 06:41:45.950166214 -0500
+@@ -52,6 +52,7 @@
+     localBiholomorph N tau sigma = periodToPlane N sigma := by
+   letI := AdmissiblePeriodProjection318.complexChartedSpace
+   letI := LiteralPlaneJAtlas318.complexChartedSpace
++  unfold localBiholomorph Diffeomorph.toPartialDiffeomorph
+   change comparison N ((AdmissibleAnalyticSections318.inverseSection tau).symm sigma) = _
+   rw [AdmissibleAnalyticSections318.inverseSection_symm]
+   rfl
+@@ -62,7 +63,11 @@
+     letI := AdmissiblePeriodProjection318.complexChartedSpace
+     letI := LiteralPlaneJAtlas318.complexChartedSpace
+     (localBiholomorph N tau).symm p =
+-      AdmissibleAnalyticSections318.inverseSection tau ((comparison N).symm p) := rfl
++      AdmissibleAnalyticSections318.inverseSection tau ((comparison N).symm p) := by
++  letI := AdmissiblePeriodProjection318.complexChartedSpace
++  letI := LiteralPlaneJAtlas318.complexChartedSpace
++  unfold localBiholomorph Diffeomorph.toPartialDiffeomorph
++  rfl
+ 
+ /-- The original natural period-to-plane map is locally biholomorphic
+ throughout the admissible locus. No global injectivity is asserted. -/
+@@ -74,7 +79,8 @@
+   letI := AdmissibleJComplexAtlas318.complexChartedSpace
+   letI := LiteralPlaneJAtlas318.complexChartedSpace
+   intro tau
+-  exact (AdmissibleAnalyticSections318.sourceProjection_localDiffeomorph tau).comp
++  exact IsLocalDiffeomorphAt.comp (K := 𝓘(ℂ)) (P := Plane)
++    (AdmissibleAnalyticSections318.sourceProjection_localDiffeomorph tau)
+     ((LiteralPlaneBiholomorph318.biholomorph N).isLocalDiffeomorph (sourceProjection tau))
+ 
+ end NaturalPeriodPlaneComparison318

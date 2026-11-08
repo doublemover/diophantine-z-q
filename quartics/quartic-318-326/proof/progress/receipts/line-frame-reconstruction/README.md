@@ -1,0 +1,9 @@
+# Reconstruct the original line from its actual frames
+
+Seven sources, strict kernel checks and targeted private-inclusive recursive audit PASS: 53 declarations. Hosted integration and distinct independent review remain separate.
+
+LineFrameReconstructionIso318.iso is a genuine isomorphism from the unchanged original O-module sheaf M to the actual cocycle module extracted from its own covering unit frames. Its hom is the original coordinate family under the actual restriction/pushforward adjunction. Both inverse laws, every original coefficient in both directions and every original local frame are bound. The actual coefficient-transpose isomorphism is supplied by the separately authored and reviewed cocycle-actual-local-frame producer; there is no remaining local-projection assumption in the final theorem.
+
+The base Scheme and covering family are arbitrary at the stated universe. No affine, field, reducedness, finite-index or nonempty-open premise is added. This constructs reconstruction for supplied covering unit frames, not a classification of all locally free objects or an equivalence with a Picard group. Different-cover/gauge independence, a normed-line functor and Jacobian/PEL realizations remain separate.
+
+Evidence scope: line-reconstruction-criterion-check1 checks the final first two sources. clutched-chart-section-check4 checks the unchanged final LineFrameChartCoordinates318 and then retains a later failed ClutchedChartSections318 draft. clutched-chart-section-check7 checks final ClutchedChartSections318 and then retains a later failed compatibility draft. line-frame-compatibility-check2 checks the final compatibility and map sources. line-frame-reconstruction-iso-check1 checks the final unconditional iso. The fresh final audit imports all seven exact sources including private declarations. Mixed-log later failures are not claimed as successful, and no predecessor or full-chain replay is asserted.

@@ -1,0 +1,40 @@
+ACQUIRED 2026-11-08T10:35:56Z fifth-character
+CHECK OpenClutchedGauge318 2026-11-08T10:35:56Z
+CHECK FifthNormLineGauge318 2026-11-08T10:35:59Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthNormLineGauge318.lean:33:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op (?U ?i ⊓ ?U ?j))))
+    (UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.pushedUnits map).obj ?U ?a ?i ?j)
+in the target expression
+  (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op overlap))) (d.transition false true) =
+    (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op overlap)))
+        (UnitTransitionCocycle318.coboundary SourceUnits cover s false true) *
+      (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op overlap))) (c.transition false true)
+
+c d : FifthNormCocycle318.SourceCocycle cover
+s : (i : Bool) → ↑(SourceUnits.obj (op (cover i)))
+hs : ∀ (i j : Bool), d.transition i j = UnitTransitionCocycle318.coboundary SourceUnits cover s i j * c.transition i j
+r₀ : (↑Γ(Target, overlap))ˣ :=
+  (Units.map ↑(CommRingCat.Hom.hom (Target.presheaf.map (homOfLE ⋯).op))) (coefficient s false)
+r₁ : (↑Γ(Target, overlap))ˣ :=
+  (Units.map ↑(CommRingCat.Hom.hom (Target.presheaf.map (homOfLE ⋯).op))) (coefficient s true)
+h :
+  (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op overlap))) (d.transition false true) =
+    (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op overlap)))
+        (UnitTransitionCocycle318.coboundary SourceUnits cover s false true) *
+      (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op overlap))) (c.transition false true)
+⊢ (ConcreteCategory.hom (Target.presheaf.map (homOfLE ⋯).op)) ↑(coefficient s true) *
+      ↑(targetTransition (d.transition false true)) =
+    ↑(targetTransition (c.transition false true)) *
+      (ConcreteCategory.hom (Target.presheaf.map (homOfLE ⋯).op)) ↑(coefficient s false)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    StructureUnitsSheaf318.units Target
+  has type
+    TopCat.Sheaf CommGrpCat ↑Target.toPresheafedSpace
+  but is expected to have type
+    ObjectProperty.FullSubcategory (Presheaf.IsSheaf (Opens.grothendieckTopology ↥Target))
+  in the application
+    (StructureUnitsSheaf318.units Target).obj
+RELEASED 2026-11-08T10:36:02Z fifth-character

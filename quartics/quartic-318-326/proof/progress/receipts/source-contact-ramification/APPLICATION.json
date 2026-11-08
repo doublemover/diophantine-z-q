@@ -1,0 +1,75 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Literal ramification index two at every prime above all four finite contacts, for arbitrary rational unit twists",
+  "sources": {
+    "SourceOrderGaloisAction318.lean": "58edeb4b33c7504024bbb7cb8da72d4e678c92992e2cf1b02e1ca04b8ab376b1",
+    "SourceContactPrime318.lean": "225912a540df01fd19d5e3a0264d18f7a1b5cb5cc34d49a1c7a0ca29769895d6",
+    "SourceContactRamification318.lean": "a1f796efba1c2e14e40a5be3e3b86a518ba780358399450f33cb576b78533c23",
+    "SourceContactRamificationAll318.lean": "b3be516be7961139853d26aab79549a4f69341f0fef4b4f1381e38d27e9d93ef"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "The actual full source action must satisfy the ramification theorem, not just have 16 signs.",
+      "constructed_input": "SourceOrderGaloisAction318 constructs Finite G, invariants exactly Q[t], and IsGaloisGroup for the actual entire Q[t]-automorphism group. Actual full-field Galoisness, degree16 and original integral closure supply the invariant proof.",
+      "justification": "SourceOrderGaloisAction318 constructs Finite G, invariants exactly Q[t], and IsGaloisGroup for the actual entire Q[t]-automorphism group. Actual full-field Galoisness, degree16 and original integral closure supply the invariant proof.",
+      "source_references": "group_finite/invariant/galoisGroup"
+    },
+    {
+      "name": "Objects",
+      "required_input": "The extension and inertia must be the original source order over the original polynomial base.",
+      "constructed_input": "SourceOrder c and R=Q[X] are unchanged; G is SourceOrder c \u2243\u2090[R] SourceOrder c. The previous canonical residue point recovers the exact prime Q.",
+      "justification": "SourceOrder c and R=Q[X] are unchanged; G is SourceOrder c \u2243\u2090[R] SourceOrder c. The previous canonical residue point recovers the exact prime Q.",
+      "source_references": "G/ideal_inertia_card/kernel_exact"
+    },
+    {
+      "name": "Index coverage",
+      "required_input": "All four finite contacts, all rational unit twists, and every actual prime over each must be covered.",
+      "constructed_input": "c:Fin4\u2192Q\u02e3 and i:Fin4 are unrestricted. primes_nonempty is proved from actual finite integral faithful extension. every_prime_index_two ranges over the full primesOver subtype.",
+      "justification": "c:Fin4\u2192Q\u02e3 and i:Fin4 are unrestricted. primes_nonempty is proved from actual finite integral faithful extension. every_prime_index_two ranges over the full primesOver subtype.",
+      "source_references": "SourceContactRamificationAll318"
+    },
+    {
+      "name": "Base and prime maps",
+      "required_input": "The source prime must lie over the precise rational contact ideal.",
+      "constructed_input": "prime i is span{X\u2212C(contacts i)}; maximal is proved by its exact evaluation kernel. liesOver derives equality with Q.under R from the actual contact membership.",
+      "justification": "prime i is span{X\u2212C(contacts i)}; maximal is proved by its exact evaluation kernel. liesOver derives equality with Q.under R from the actual contact membership.",
+      "source_references": "SourceContactPrime318.prime/maximal/liesOver"
+    },
+    {
+      "name": "Finite-flat hypotheses",
+      "required_input": "The cardinality/index theorem requires finite flatness and domains.",
+      "constructed_input": "source_finite_free supplies both finiteness and free-module flatness. source_domain supplies the actual order domain; polynomial base is a domain. No generic-degree-to-flatness inference.",
+      "justification": "source_finite_free supplies both finiteness and free-module flatness. source_domain supplies the actual order domain; polynomial base is a domain. No generic-degree-to-flatness inference.",
+      "source_references": "SourceOrderGaloisAction318.finite_flat/SourceContactRamification318 instances"
+    },
+    {
+      "name": "Residue hypotheses",
+      "required_input": "All residue fields above the actual contact must be separable.",
+      "constructed_input": "The actual base prime residue field has its explicit rational algebra and characteristic zero, hence is perfect. The actual finite order is integral, so HasSeparableResidueFieldsAt follows.",
+      "justification": "The actual base prime residue field has its explicit rational algebra and characteristic zero, hence is perfect. The actual finite order is integral, so HasSeparableResidueFieldsAt follows.",
+      "source_references": "SourceContactPrime318.residue_separable"
+    },
+    {
+      "name": "Actual index identity",
+      "required_input": "Cardinality two alone must not be renamed as ramification two.",
+      "constructed_input": "Ideal.card_inertia_eq_ramificationIdxIn is applied with the proved full Galois action, finite flatness and separable residues. Ideal.ramificationIdxIn_eq_ramificationIdx then identifies the index at each actual prime.",
+      "justification": "Ideal.card_inertia_eq_ramificationIdxIn is applied with the proved full Galois action, finite flatness and separable residues. Ideal.ramificationIdxIn_eq_ramificationIdx then identifies the index at each actual prime.",
+      "source_references": "SourceContactRamification318.ramificationIdxIn_two/ramificationIdx_two"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Exact source-specific strict evidence and official dependencies must be pinned.",
+      "constructed_input": "Four sources pass with debug.skipKernelTC=false under the exclusive lock. Eight unchanged official source modules were separately compiled into a complete isolated overlay, with exact hashes and final successful log; no downloads/shared cache changes. Combined recursive and hosted audits, and independent new-consumer review remain pending.",
+      "justification": "Four sources pass with debug.skipKernelTC=false under the exclusive lock. Eight unchanged official source modules were separately compiled into a complete isolated overlay, with exact hashes and final successful log; no downloads/shared cache changes. Combined recursive and hosted audits, and independent new-consumer review remain pending.",
+      "source_references": "receipt.json/check119-121/ramification-official-build2.log"
+    },
+    {
+      "name": "Boundary",
+      "required_input": "Do not enlarge the result to unproved local formulas or geometric identifications.",
+      "constructed_input": "The conclusion is the literal ideal ramification index two at all finite contacts. The corresponding original-field valuation and inertia were proved separately. No new uniformizer expansion, normalized valuation formula, infinity inertia/ramification, entire nonreduced-fiber identity, source Jacobian, polarization or PEL conclusion is claimed.",
+      "justification": "The conclusion is the literal ideal ramification index two at all finite contacts. The corresponding original-field valuation and inertia were proved separately. No new uniformizer expansion, normalized valuation formula, infinity inertia/ramification, entire nonreduced-fiber identity, source Jacobian, polarization or PEL conclusion is claimed.",
+      "source_references": "README.md"
+    }
+  ]
+}

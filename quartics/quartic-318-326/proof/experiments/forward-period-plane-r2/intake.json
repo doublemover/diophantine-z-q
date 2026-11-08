@@ -1,0 +1,119 @@
+{
+  "packet": "forward-period-plane-r2",
+  "status": "PENDING_HOSTED_RECHECK_ONE_REPAIRED_CONSUMER",
+  "order": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318",
+    "LiteralPlaneJAtlas318",
+    "LiteralPlaneBiholomorph318",
+    "AdmissiblePeriodProjection318",
+    "AdmissibleAnalyticSections318",
+    "NaturalPeriodPlaneComparison318"
+  ],
+  "files": {
+    "AnalyticImplicitGraph318.lean": {
+      "sha256": "8c62dd62a76a70ca2aa31c598c7847c61fe01e34bb155203a0fa1a9b72f555c7",
+      "imports": [
+        "Mathlib.Analysis.Calculus.ImplicitContDiff",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic",
+        "Mathlib.Analysis.Complex.Basic"
+      ]
+    },
+    "LiteralThreePlaneImmersion318.lean": {
+      "sha256": "392b7184f6ce298c2d396ecf29f32f86ce6bf2b2e9bf85b2f326ac7d70b518c5",
+      "imports": [
+        "LiteralThreePlanePoints318"
+      ]
+    },
+    "LiteralThreePlaneGraph318.lean": {
+      "sha256": "05ae558f71bb7a0ad6966bd0bede82ace9b809720681cdaad6efcc14b5659946",
+      "imports": [
+        "AnalyticImplicitGraph318",
+        "LiteralThreePlaneImmersion318",
+        "Mathlib.Analysis.Analytic.Linear"
+      ]
+    },
+    "LiteralPlaneJAtlas318.lean": {
+      "sha256": "9ec6f2e0fac7ad1518b05f2b53c24b60c8fb273ed1eed3103d9aefbdbc034359",
+      "imports": [
+        "LiteralPlaneComparison318",
+        "LiteralThreePlaneGraph318"
+      ]
+    },
+    "LiteralPlaneBiholomorph318.lean": {
+      "sha256": "a528670ba43513ffce29a54b2068a2ed2e2b62ac8bec9e67cd9d2b5f957413d0",
+      "imports": [
+        "LiteralPlaneJAtlas318",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Geometry.Manifold.Diffeomorph"
+      ]
+    },
+    "AdmissiblePeriodProjection318.lean": {
+      "sha256": "6e9ee77555f927fc45d2c2f3a53c30ba92a98eece3781e8315a414c80535583f",
+      "imports": [
+        "ActualJSurjective318",
+        "AdmissibleJComplexAtlas318",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace"
+      ]
+    },
+    "AdmissibleAnalyticSections318.lean": {
+      "sha256": "ff6964028dcc78b6965fa9e7afd76c8974aa320abc678c1a1c8782e084f9d798",
+      "imports": [
+        "AdmissiblePeriodProjection318",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic",
+        "Mathlib.Geometry.Manifold.LocalDiffeomorph"
+      ]
+    },
+    "NaturalPeriodPlaneComparison318.lean": {
+      "sha256": "5d8fc27eadc0a199b2938158724d590b05a4fc642fe26f512705b60b0728d781",
+      "imports": [
+        "AdmissibleAnalyticSections318",
+        "LiteralPlaneBiholomorph318"
+      ]
+    }
+  },
+  "already_checked_modules": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318",
+    "LiteralPlaneJAtlas318",
+    "LiteralPlaneBiholomorph318",
+    "AdmissiblePeriodProjection318",
+    "AdmissibleAnalyticSections318"
+  ],
+  "pending_first_compilation_modules": [
+    "NaturalPeriodPlaneComparison318"
+  ],
+  "exact_predecessor_evidence": {
+    "recovery-modular-0358/plane-analytic-hosted-pass/receipt.json": "a882f099325a99ebbb07ab6790e7c2fd7dd8854c98cdeef6a04d497a141c6719",
+    "recovery-modular-0358/period-sections-hosted-pass/receipt.json": "15fc69f7d1582509efbf288db483252f0719a93a9f6c0c657c8f7a2397915858"
+  },
+  "current_baseline_modules": 1685,
+  "scope": "One uncompiled actual natural-period to literal-plane consumer, seven unchanged hosted-passed necessary predecessors. Admissible open only.",
+  "activation": "Inactive versioned repair; coordinator owns publication and dispatch.",
+  "no_local_compile": true,
+  "failed_attempt": {
+    "receipt": "recovery-modular-0358/ci-period-plane-r1-42474692244/receipt.json",
+    "sha256": "8992b257f4c062dd51709e04f9dc5f19f4a61b1f39e0361f9f1a3c1d868fac84",
+    "run_id": 42474692244
+  },
+  "changes": {
+    "unchanged_modules": [
+      "AnalyticImplicitGraph318",
+      "LiteralThreePlaneImmersion318",
+      "LiteralThreePlaneGraph318",
+      "LiteralPlaneJAtlas318",
+      "LiteralPlaneBiholomorph318",
+      "AdmissiblePeriodProjection318",
+      "AdmissibleAnalyticSections318"
+    ],
+    "changed_module": "NaturalPeriodPlaneComparison318",
+    "theorem_statements": "unchanged",
+    "proof_repairs": [
+      "Explicit unfolding of non-exposed Diffeomorph.toPartialDiffeomorph for actual forward/inverse identities",
+      "Explicit target model K and type P in IsLocalDiffeomorphAt.comp"
+    ]
+  }
+}

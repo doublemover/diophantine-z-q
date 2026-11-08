@@ -1,0 +1,1 @@
+Actual coefficient-module and arbitrary-small restriction-limit foundation. Final source checks and target-only recursive audit pass. Local frames and reconstruction remain separate consumers. Public files only; no compiled artifacts.

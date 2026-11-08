@@ -1,0 +1,15 @@
+# Regular global differential descent for the actual fifth quotient
+
+This packet identifies the actual eight-sign-invariant global intrinsic differentials on the fixed contact normalization with the range of the original completed fifth quotient's canonical pullback from regular target global differentials. The final theorem concerns actual global sections, not only their function-field coefficients.
+
+The proof first constructs a genuine globally regular source ratio. On each of the four entire finite branch charts, the fifth pulled invariant has coefficient -82320/c_j times the inverse product of the other three original roots in the literal dy_j frame. That coefficient is a unit. On the entire infinity chart the same pulled invariant is factor*u*du with factor a unit. Invariance under the diagonal sign makes every invariant form's coefficient divisible by u in the whole infinity ring. This yields regular local ratios on the full five-chart cover without dividing by u at infinity.
+
+A generic sheaf lemma glues those ratios. Equality is first detected on the common nonempty unbranched chart, where the actual fifth form has a unit frame coefficient. Integrality then gives compatibility on every full chart intersection. The ordinary structure-sheaf gluing axiom supplies a global regular source function r with s=r times the actual fifth form.
+
+The actual generic germ of r is compared with its value in the original full field through the specified infinity chart and the entire common-open restriction map. This proves compatibility with the true dt coefficient for arbitrary global regular scalars. The two differential coefficients are in the actual fifth field image; their quotient therefore identifies the generic germ of r with an element of the target generic stalk. The already constructed all-open regular function trace, divided by the honest target unit8, supplies a globally regular target scalar g whose actual pullback is r. Field membership alone is not used as a regularity argument.
+
+Exact scalar compatibility of the canonical differential pullback turns g times the target invariant into s. Conversely, functoriality and equality of the whole fifth map under each of the eight signs show that every target global differential pulls back to an invariant. The final range is therefore exactly the previously constructed global averaging summand.
+
+The scope is this fixed rational model and these actual global-section maps. There is no new sheaf-level differential trace, all-open target differential descent, complete canonical basis, canonical dimension, Picard/Jacobian or PEL/KS identification. Numeric fifth normalization and original maps are retained.
+
+Validation: all thirteen frozen sources passed bounded strict checks; the fresh recursive target audit passed for 86 declarations with standard roots only. Retained logs preserve successful source segments, including mixed histories where later draft checks failed. No predecessor replay was performed. Independent consuming review and hosted integration are separate.
