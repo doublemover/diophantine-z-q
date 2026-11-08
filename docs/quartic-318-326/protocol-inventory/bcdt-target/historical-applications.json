@@ -1,0 +1,295 @@
+[
+  {
+    "id": "A020",
+    "title": "Forward rank-one theorem",
+    "citations": [
+      "C029",
+      "C030"
+    ],
+    "sources": [
+      "gz",
+      "kolyvagin",
+      "kato",
+      "bcdt"
+    ],
+    "source_locator": "Kolyvagin MPI/90-69, Theorem 1 pp.4-5 and Theorems 2-5; Kato 2004 Corollary 14.3 p.235; BCDT Theorem A",
+    "objects_and_maps": "E_n,E_nθ after RC; known simple-zero twists in arithmetic comparison.",
+    "hypotheses_and_discharge": "Modularity, analytic order exactly1, auxiliary Heegner data for the standard forward theorem. Apply only after simple zero has been proved; never use the desired converse as a forward premise.",
+    "conventions": "Analytic rank versus Mordell–Weil rank versus full Selmer corank. Finiteness of Sha is an output only at these known simple zeros.",
+    "translation_justification": "The forward analytic-rank-one result gives rank one and finite Sha; combine dim Sel_2=3 and full rational two-torsion to remove Sha[2]. The separate analytic-rank-zero application is recorded in A082 with its own independently nonzero central L-value premise.",
+    "prior_evidence": [
+      "pole",
+      "arithmetic",
+      "parallel-forward-modularity-report"
+    ],
+    "status": "direct_source_application_check_complete_with_listed_dependencies",
+    "open_items": "",
+    "fresh_source_check": {
+      "date": "2026-11-05",
+      "reviewer": "Named Astra reviewers in attached reports; root integration review",
+      "scope": "The registered source applications and their explicit translations. Listed internal premises remain dependencies; not acceptance of the entire manuscript.",
+      "result": "Corrected Kolyvagin source identity. Checked both analytic ranks and full Sha finiteness, actual modular quotient, auxiliary-field descent and two-primary Kummer consequence. Kato rank-zero result includes prime two."
+    },
+    "review_scope": "Source statement, hypotheses, conventions and recorded translation checked for the registered consumers, with named internal premises and integrated repairs. This does not certify all upstream lemmas or the main theorem.",
+    "manuscript_anchors": [
+      {
+        "kind": "citation",
+        "citation_id": "C029",
+        "line_start": 1086,
+        "line_end": 1109,
+        "excerpt_sha256": "752850520c38c21ae6a391365868a16b2a1a5561026038e742a21ea685e72574"
+      },
+      {
+        "kind": "citation",
+        "citation_id": "C030",
+        "line_start": 1086,
+        "line_end": 1109,
+        "excerpt_sha256": "752850520c38c21ae6a391365868a16b2a1a5561026038e742a21ea685e72574"
+      },
+      {
+        "kind": "context",
+        "line_start": 1084,
+        "line_end": 1088,
+        "excerpt": "\\end{proof}\n\n\\begin{lemma}[Forward analytic rank zero and one]\\label{lem:forward-rank}\nLet $A/\\Q$ be an elliptic curve. If $\\ord_{s=1}L(A,s)=r\\leq1$,\nthen $\\operatorname{rank}A(\\Q)=r$ and $\\Sha(A/\\Q)$ is finite.",
+        "excerpt_sha256": "a5dd7ffde2a5d940cff283e828c3856ddaa49f2fc7b56e36e4e006101c4cf7b5"
+      },
+      {
+        "kind": "context",
+        "line_start": 1113,
+        "line_end": 1117,
+        "excerpt": "$\\Sha[2]=0$.\nThe Kummer class is then represented by actual rational points. Their\nabscissas have squareclass $\\beta$, by the cubic equation. Write\n$H=\\theta c^2$ and rescale the second point to $E_{nH}$. If the first\nabscissa is $Aq^2$, divide both parameters by $q^2$ and both coordinates",
+        "excerpt_sha256": "4b4828249e1a477df7e0580b21d5ab795a8697294b61dee4e1dd43dd95fe328f"
+      },
+      {
+        "kind": "context",
+        "line_start": 4015,
+        "line_end": 4019,
+        "excerpt": "Self-duality identifies the degree-three torsion with the degree-one\ntorsion and gives a unimodular pairing of the free degree-one and\ndegree-two parts. Thus their rational dimensions equal full Selmer\ncorank, including a possible divisible part of $\\Sha$.\n",
+        "excerpt_sha256": "f650bc25a78b2593b65b19928756d21d0c60bd440d5dfd6afc7f600710f7d1b2"
+      },
+      {
+        "kind": "context",
+        "line_start": 4029,
+        "line_end": 4033,
+        "excerpt": "It applies here with finite $\\Sha$, canonical heights and pullback\nmeasures.\n\nAt every active $p\\mid h$, $K$ splits, so the isogeny local factors\ncancel exactly. At either split place the full/Kummer quotient",
+        "excerpt_sha256": "c4970dda9f4743dc8165f7fbeccbfd2f39ea7b91cfa3fe5bbfc4c77b9624b565"
+      }
+    ],
+    "manuscript_sha256": "cb1148cd6c7769d2af3f1636b60ff0ada4b40431978d1e98d0c339274b3d792b",
+    "hypothesis_status": "Source interface and registered translations reviewed with stated internal premises; no whole-proof certificate.",
+    "source_pin_complete": true
+  },
+  {
+    "id": "A066",
+    "title": "Modularity and modular parametrization",
+    "citations": [
+      "C029",
+      "C046",
+      "C047"
+    ],
+    "sources": [
+      "bcdt",
+      "milnemf"
+    ],
+    "source_locator": "BCDT inspected author manuscript Theorem A and Introduction (1)-(6); Milne MF v1.31 Remark 11.18 and Theorem 11.19",
+    "objects_and_maps": "E_l/Q and all rational quadratic twists; fixed pi:X0(N)→E with pi(infinity)=0; A_f for weight2 newform in A011.",
+    "hypotheses_and_discharge": "E is over Q; use full modularity theorem, not only semistable theorem. Rational newform coefficient field for E; arbitrary coefficient field for A_f.",
+    "conventions": "Tate versus H1 cohomological representation, conductor-level equality and normalization of pi.",
+    "translation_justification": "Modularity supplies newform/parametrization. Fixed rational lattice comparison is chosen once and may cost a fixed denominator.",
+    "prior_evidence": [
+      "parallel-forward-modularity-report",
+      "parallel-theta-local-a070-second-review"
+    ],
+    "status": "direct_source_application_check_complete_with_listed_dependencies",
+    "open_items": "",
+    "fresh_source_check": {
+      "date": "2026-11-05",
+      "reviewer": "Named Astra reviewers in attached reports; root integration review",
+      "scope": "The registered source applications and their explicit translations. Listed internal premises remain dependencies; not acceptance of the entire manuscript.",
+      "result": "Checked modularity of the actual rational elliptic curve and its nonzero twists, normalized map via the newform quotient and rational isogeny, and scalar Hecke transport. No publisher byte equivalence or integral Tate-lattice identity is claimed."
+    },
+    "review_scope": "Source statement, hypotheses, conventions and recorded translation checked for the registered consumers, with named internal premises and integrated repairs. This does not certify all upstream lemmas or the main theorem.",
+    "manuscript_anchors": [
+      {
+        "kind": "citation",
+        "citation_id": "C029",
+        "line_start": 1086,
+        "line_end": 1109,
+        "excerpt_sha256": "752850520c38c21ae6a391365868a16b2a1a5561026038e742a21ea685e72574"
+      },
+      {
+        "kind": "citation",
+        "citation_id": "C046",
+        "line_start": 1771,
+        "line_end": 1803,
+        "excerpt_sha256": "4aa2ef431f02d4e69076666a13fbe1fbf78a9215941a9dfb041c949a4149ab68"
+      },
+      {
+        "kind": "citation",
+        "citation_id": "C047",
+        "line_start": 1771,
+        "line_end": 1803,
+        "excerpt_sha256": "4aa2ef431f02d4e69076666a13fbe1fbf78a9215941a9dfb041c949a4149ab68"
+      },
+      {
+        "kind": "context",
+        "line_start": 1777,
+        "line_end": 1781,
+        "excerpt": "Appendices~\\ref{app:even-source}--\\ref{app:endpoints} give the fixed-form,\ntheta, nonvanishing and normalization constructions used in this deduction.\nBy \\cite[Theorem A and Introduction, conditions (1)--(6)]{bcdt},\n$E=E_\\ell$ is modular. Here $N$ denotes its conductor.\nThe modular realization gives a rational weight-two newform $f$",
+        "excerpt_sha256": "58c661b805c3c3837780ad60dece9df17459c8dd5d6baa64e18165e36d780852"
+      },
+      {
+        "kind": "context",
+        "line_start": 1788,
+        "line_end": 1792,
+        "excerpt": "$\\varphi T_q=[a_q(f)]\\varphi$.\nFix the integral Tate lattice\nand the local squareclasses allowed at the primes of $2N$.\nConstants depending on this data are chosen before any conductor,\ncompanion field or binary dimension varies. Quotienting by a rational",
+        "excerpt_sha256": "d0324a1253c33318c8107a527a38953a433101e78e3076083551d6d8daf70bed"
+      },
+      {
+        "kind": "context",
+        "line_start": 6833,
+        "line_end": 6837,
+        "excerpt": "All numbered primary references in this subsection are to Kato~\\cite{kato}.\n\nFix a non-CM elliptic curve $E/\\mathbf Q$ of conductor $N$, its weight-two newform $f$,\n$T=T_2E$, and $V=T\\otimes\\mathbf Q_2$. In the application\n$E=E_\\ell$ is fixed first. Put",
+        "excerpt_sha256": "02a5643f0e147943ba44c89b42c7470445db5f5406e70f325a202b6888e090e4"
+      },
+      {
+        "kind": "context",
+        "line_start": 6838,
+        "line_end": 6842,
+        "excerpt": "$\\Lambda=\\mathbf Z_2[[\\Gamma]]=\\mathbf Z_2[[t]]$, where $\\Gamma$\nis the real cyclotomic Galois group. Let\n$\\kappa:G_{\\mathbf Q}\\to\\Gamma\\subset\\Lambda^\\times$ be the quotient map,\nand set $A=\\Lambda[1/2]$.\nWe use arithmetic Frobenius throughout. The action on the cyclotomic",
+        "excerpt_sha256": "c9d905c3dedabf5ba02967c2843c50fd134b45cc9c0f7b9f8ecccc5438ceb22c"
+      },
+      {
+        "kind": "context",
+        "line_start": 770,
+        "line_end": 774,
+        "excerpt": "coefficient conjugates Fricke-stable. Shimura's quotient construction\nand Euler-factor identity \\cite[Theorem 1]{shimura-factors} therefore\nshow that $r_5$ is a constituent of the Tate module of the modular abelian variety\n$A_f$, or equivalently $r_5^\\vee$ is its cohomological constituent.\nThis duality preserves the conductor.",
+        "excerpt_sha256": "5b153a58b721b3071464836d608e82b9fbcad005d3758b7c8ecb36f792c4c6bb"
+      }
+    ],
+    "manuscript_sha256": "cb1148cd6c7769d2af3f1636b60ff0ada4b40431978d1e98d0c339274b3d792b",
+    "hypothesis_status": "Source interface and registered translations reviewed with stated internal premises; no whole-proof certificate.",
+    "source_pin_complete": true
+  },
+  {
+    "id": "A082",
+    "title": "Forward analytic rank zero",
+    "citations": [
+      "C029",
+      "C030",
+      "C031"
+    ],
+    "sources": [
+      "kolyvagin",
+      "kato",
+      "bcdt"
+    ],
+    "source_locator": "Kolyvagin MPI/90-69, Theorem 1 pp.4-5 and Theorems 2-5; Kato 2004 Corollary 14.3 p.235; BCDT Theorem A",
+    "objects_and_maps": "Known twists with L(E^h,1)≠0 in even central calibration.",
+    "hypotheses_and_discharge": "Nonzero central L-value known independently; modular curve over Q. Need rank0 and finite Sha[2∞] for central Selmer length.",
+    "conventions": "Finite Sha alone does not imply corank0; unknown corank1 base is excluded.",
+    "translation_justification": "Supplies corank0 for use of integral determinant length formula; does not derive nonzero L-value from finite Sha.",
+    "prior_evidence": [
+      "applications",
+      "parallel-forward-modularity-report"
+    ],
+    "status": "direct_source_application_check_complete_with_listed_dependencies",
+    "open_items": "",
+    "fresh_source_check": {
+      "date": "2026-11-05",
+      "reviewer": "Named Astra reviewers in attached reports; root integration review",
+      "scope": "The registered source applications and their explicit translations. Listed internal premises remain dependencies; not acceptance of the entire manuscript.",
+      "result": "Corrected Kolyvagin source identity. Checked both analytic ranks and full Sha finiteness, actual modular quotient, auxiliary-field descent and two-primary Kummer consequence. Kato rank-zero result includes prime two."
+    },
+    "review_scope": "Source statement, hypotheses, conventions and recorded translation checked for the registered consumers, with named internal premises and integrated repairs. This does not certify all upstream lemmas or the main theorem.",
+    "manuscript_anchors": [
+      {
+        "kind": "citation",
+        "citation_id": "C029",
+        "line_start": 1086,
+        "line_end": 1109,
+        "excerpt_sha256": "752850520c38c21ae6a391365868a16b2a1a5561026038e742a21ea685e72574"
+      },
+      {
+        "kind": "citation",
+        "citation_id": "C030",
+        "line_start": 1086,
+        "line_end": 1109,
+        "excerpt_sha256": "752850520c38c21ae6a391365868a16b2a1a5561026038e742a21ea685e72574"
+      },
+      {
+        "kind": "citation",
+        "citation_id": "C031",
+        "line_start": 1086,
+        "line_end": 1109,
+        "excerpt_sha256": "752850520c38c21ae6a391365868a16b2a1a5561026038e742a21ea685e72574"
+      },
+      {
+        "kind": "context",
+        "line_start": 2385,
+        "line_end": 2389,
+        "excerpt": "type, the already chosen dummy supply makes $hk'$ partitionable.\nIts analytic nonvanishing gives Selmer corank zero by the forward\nrank-zero theorem. Apply (3.3b), obtaining\n\\[\n \\omega(k')\\le A,\\qquad",
+        "excerpt_sha256": "4398ec83a2ea1a4d4dca4755e7b2000f7ad240424af6aaea0dfd80fba91fb373"
+      },
+      {
+        "kind": "context",
+        "line_start": 2614,
+        "line_end": 2618,
+        "excerpt": "the old fields $\\Q(i)$ and $\\Q(\\sqrt{\\ell})$.\n\nThe forward theorem at this known nonzero central value gives\n$s_2(E^{(k)}/\\Q)=0$. The sum-and-difference isogeny over $\\Q$ gives\n\\[",
+        "excerpt_sha256": "dda141696c6af17b575e55fe779b68b6bc76669489a2bda1891262f0e6a5605a"
+      },
+      {
+        "kind": "context",
+        "line_start": 4050,
+        "line_end": 4054,
+        "excerpt": "Here is the determinant and isogeny bookkeeping in more detail. This\ncalculation is used only at the known simple-zero constituents, where\nthe forward theorems give finite $\\Sha$. Put\n$\\mathcal A=\\operatorname{Res}_{K/\\Q}(E^{(h)}_K)$ and\n$\\mathcal B=E^{(h)}\\times E^{(hk)}$, and let $g_{\\mathcal A}$ and",
+        "excerpt_sha256": "ca509d57cb4d6765db783cb97651ed0255e3593d0db945c2f0bee0d0a9a79f40"
+      },
+      {
+        "kind": "context",
+        "line_start": 5264,
+        "line_end": 5268,
+        "excerpt": "group is finite. The already fixed companion has\n$L(E^{(k)},1)\\ne0$, so the sum-and-difference isogeny and the\nforward corank-zero theorem give full Selmer corank one for $E/K$.\nThis includes any divisible part of the Tate--Shafarevich group.\n",
+        "excerpt_sha256": "4c716e48f21918a63f4390c2409dcb35b3e39722aaf910cad03284e50a238e1f"
+      },
+      {
+        "kind": "context",
+        "line_start": 7624,
+        "line_end": 7628,
+        "excerpt": "Consequently every admissible $h$ with $L_*(h)\\ne0$ satisfies\n$v_2L_*(h)\\ge2\\omega(h)+s(h)-c_E-C_{\\rm loc}$: the forward\nrank-zero theorem in Lemma~\\ref{lem:forward-rank} supplies the\npreceding corank and finiteness hypotheses in this case. The central saturation corrections are those\nin (E.6)--(E.7); no primitivity after inverting $t$ is assumed to",
+        "excerpt_sha256": "a254dd0add374e37a2bd991fd16bcfb58cb5572006c83bd0e34b9c193e5a7f91"
+      },
+      {
+        "kind": "context",
+        "line_start": 7778,
+        "line_end": 7782,
+        "excerpt": "this is specialization of (E.4). Corank-zero duality also shows\n$u_h^{\\rm ev}(0)=0$ if and only if $L_*(h)=0$.\nAt $L_*(h)\\ne0$, Lemma~\\ref{lem:forward-rank} supplies the\ncorank-zero and finite-$\\Sha$ hypotheses just used.\nEquations (E.5) and (E.8), already with $G=1$, yield",
+        "excerpt_sha256": "6b032fabdcacd1854bec2da7da1517db8e0b725bcb67811228f1639b2324a4e5"
+      },
+      {
+        "kind": "context",
+        "line_start": 8265,
+        "line_end": 8269,
+        "excerpt": "$D$- and $h_*$-components. In the degenerate case $D=1$ these are\nthe trivial and $h_*$ characters of the actual quadratic group.\nThe $h_*$-component has rank zero by the forward rank-zero theorem.\nFor $D_w$, the unaveraged height formula\n\\cite[Theorem 1.1]{cst} has Rankin derivative",
+        "excerpt_sha256": "ae9c2b77ed6a3dd61a298494a59ffcb65b6b460bc80ae1dfd96e263d6a93dca2"
+      },
+      {
+        "kind": "context",
+        "line_start": 10138,
+        "line_end": 10142,
+        "excerpt": "$\\omega(k')\\le A$, where $A$ is the fixed dummy count plus five.\nFor the total type that actually occurs, $hk'$ is partitionable.\nNonvanishing gives corank zero by the forward theorem, so (F.2)\napplies. Taking the maximum over the finitely many prepared\nconstants proves",
+        "excerpt_sha256": "88231197539cfca9cacf03941312e18950b9afd22a181b9e60f9810510df09a8"
+      },
+      {
+        "kind": "context",
+        "line_start": 10277,
+        "line_end": 10281,
+        "excerpt": "Section~\\ref{sec:rc}, with fresh ramification outside the old odd\nlabel and torsion fields. Fix $K=\\Q(\\sqrt k)$ before the binary\ndimension. The forward theorem gives corank zero for $E^k$;\nthe sum-and-difference isogeny, on compact Selmer modules tensored\nwith $\\Q_2$, gives full corank one for $E/K$.",
+        "excerpt_sha256": "534294ee889ee047781672aedec67ef73de8eb98130ce1eb1e2406da3f077810"
+      }
+    ],
+    "manuscript_sha256": "cb1148cd6c7769d2af3f1636b60ff0ada4b40431978d1e98d0c339274b3d792b",
+    "hypothesis_status": "Source interface and registered translations reviewed with stated internal premises; no whole-proof certificate.",
+    "source_pin_complete": true
+  }
+]
