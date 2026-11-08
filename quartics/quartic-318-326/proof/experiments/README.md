@@ -1,5 +1,11 @@
 # Pending Lean experiments
 
+## Natural period-to-plane consumer
+
+[Run 42472915036](https://github.com/doublemover/diophantine-z-q/actions/runs/42472915036) passed the exact period R4 pair and its 23-declaration private-inclusive recursive audit, reusing 195 verified predecessors. Its immutable evidence is preserved under forward-period-sections-r4/hosted-pass. The separate projection and inverse-section consuming reviews are under independent-reviews. R4 is now inactive.
+
+Only forward-period-plane-r1 is active: seven unchanged already-checked analytic predecessors and one pending original-map composition consumer. The consumer retains the natural period atlas, original sourceProjection and literal-plane comparison, their actual j/x identities and composed local inverse. The minimal closure excludes the ambient immersion consumer. No local Lean replay or pass of the new module is asserted. All experiments remain outside the unchanged 1,494-module main checkpoint, whose combined hosted result is separately pending. Historical intake sections follow.
+
 ## Latest isolated consumer result and recheck
 
 [Run 42471197658](https://github.com/doublemover/diophantine-z-q/actions/runs/42471197658) passed the five-source ambient closure and its 46-declaration recursive audit, with 211 exact baseline predecessors verified. Its successful evidence is preserved under forward-plane-ambient-closure-r2/hosted-pass. That packet is inactive and will not be rerun; distinct review and baseline promotion remain separate.
