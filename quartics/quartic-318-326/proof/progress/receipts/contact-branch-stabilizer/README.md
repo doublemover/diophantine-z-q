@@ -1,0 +1,11 @@
+# Exact point stabilizers at the four finite contacts
+
+For arbitrary rational unit twists, every labelled finite contact, every field F over Q in the actual Scheme universe, and every actual global source point Spec F to the contact normalization above that exact contact, the stabilizing original root-sign patterns are precisely the identity and the flip of the root at that contact. These are two distinct actual whole-Scheme maps.
+
+The full finite source-chart sign square is first proved using its exact polynomial base map and the actual unbranched original open, with schematic-density equality into the separated original normalization. Thus the root-sign algebra on the entire finite chart agrees with the previously constructed whole-source automorphism even at ramification points.
+
+The original four root equations show that at the chosen contact exactly its own root evaluates to zero, while the other three are nonzero. Four-generator extensionality then proves the two-way algebraic point stabilizer. The actual chart immersion promotes this to the actual global Scheme point. A separate full-image argument uses the proved chart opensRange, which is exactly the preimage of the finite t-line, to lift every global point satisfying the literal base square. Spec.homEquivAlgHom recovers its actual algebra point. Consequently a chosen finite-chart presentation is not an extra hypothesis of the controlling final theorem.
+
+ContactBranchStabilizer318 installs the canonical contact-evaluation algebra only inside its proofs. Its public endpoints fixed_exactly and stabilizer_image_card require only the original twists/index, F over Q, the actual global point and its equality over the literal contactPoint. There is no assumed branchpoint existence for an arbitrary field F; the theorem applies to every such point when given.
+
+Five bounded source-specific strict checks pass with debug.skipKernelTC=false. Combined recursive audit and hosted integration remain pending; independent review is separate. This is a point stabilizer result. It does not assert that the stabilizing flip is trivial on the nonreduced scheme-theoretic branch fiber. It does not yet identify a valuation/residue inertia subgroup, prove a ramification index, cover the infinity point, classify all automorphisms, or construct a Jacobian/PEL object.

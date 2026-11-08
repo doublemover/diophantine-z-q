@@ -1,0 +1,17 @@
+# Independent bounded reciprocal-fraction consuming review
+
+Decision: accept the two newly authored sources at their exact stated scope. I read both complete source bodies, all nine application obligations, the source-specific strict evidence and target-only recursive audit, and recomputed all producer artifact and dependency hashes. No discrepancy was found.
+
+Reviewer: /root/restart_contact_field. Producer: /root/restart_checkpoint. I did not author these two modules. I did author the earlier ReciprocalInfinityBase/Normalization and original infinity field/embedding predecessors, so this is an independent review of the new assembly and exact consuming interface, not an independent revalidation of those predecessors. I did not recompile or run an independent kernel replay.
+
+The generic inverse is an actual ring equivalence of the original RatFunc Q. The proof that X inverse is transcendental uses inversion of an algebraic element and the existing transcendence of X. The rational-function lift extends the literal polynomial aeval(X inverse). Its square is identity by first checking constants and X, then the full fraction-ring extensionality theorem. This supplies both inverse identities, not only an injection.
+
+I checked the pinned IsLocalization.isLocalization_iff_of_ringEquiv signature: the target algebra is the composite of the ring equivalence with the original algebra map. inverse_fractionRing proves that composite is precisely aeval(X inverse), then transports the entire fraction-ring property under this exact algebra. It does not rely on the two field types merely being the same.
+
+For every c:Fin4→Q units, baseFieldMap is the full localization lift from the original reciprocal open. The actual denominator is nonzero, and injectivity of reciprocal polynomial evaluation makes its image a unit in K. on_polynomial and on_coordinate fix the exact normalization s↦t inverse. actual_fractionField installs that exact baseAlgebra, the reciprocal polynomial algebra, and their explicit scalar structures/tower before localizing the fraction-field theorem.
+
+original_field_square is equality of maps from the entire localized reciprocal base into the original full Kummer field. Localization extensionality and polynomial constants/X are used in the correct direction. Its X calculation consumes the original reciprocalEmbedding_coordinate, so the ramified coordinate u is never substituted for s. original_field_value is its complete elementwise consequence.
+
+All nine obligations are met within this bounded claim: hypotheses, objects, full unit-twist/element coverage, map directions, exact coefficients, algebra-instance identity, entire-localization comparison, qualified validation evidence, and retained boundary. check-4 records the generic source passing before the distinct localized draft failed; it is not a blanket passing batch. The final localized source passes check-6, and audit.log checks all 27 declarations/private dependencies and required endpoints with standard axiom roots. Hosted integration remains pending in the producer record.
+
+This acceptance supplies the exact reciprocal fraction-field and original-field square to the separate actual infinity ramification consumer. It does not independently accept that consumer, nor infer inertia, an index, prime existence, a valuation restriction, fifth-relative ramification, or Picard/Jacobian/PEL results from this helper alone.

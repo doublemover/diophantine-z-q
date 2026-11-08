@@ -1,0 +1,111 @@
+ACQUIRED 2026-11-08T10:01:29Z fifth-character
+CHECK NormalAffineBasis318 2026-11-08T10:01:29Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/NormalAffineBasis318.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/NormalAffineBasis318.lean:35:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/NormalAffineBasis318.lean:36:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/NormalAffineBasis318.lean:38:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CHECK FunctionFieldGluing318 2026-11-08T10:01:31Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:13:78: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Min (Type u)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:26:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Min (Type u)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:27:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Nonempty ↥↑(V i ⊓ V j)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:28:6: error: No goals to be solved
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:33:54: error: Function expected at
+  Sup
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  V
+
+Hint: The identifier `Sup` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:39:22: error: Application type mismatch: The argument
+  Sup
+has type
+  x✝
+but is expected to have type
+  ?m.1
+in the application
+  @?m.50 Sup
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FunctionFieldGluing318.lean:42:66: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (Y.sheaf.obj.map (inc i).op)) a
+in the target expression
+  (ConcreteCategory.hom (Y.germToFunctionField (V i))) ((ConcreteCategory.hom (Y.presheaf.map (inc i).op)) a) = z
+
+Y : Scheme
+inst✝² : AlgebraicGeometry.IsIntegral Y
+x✝ : Sort u_2
+Sup : x✝
+ι : Type u_1
+V : ι → Y.Opens
+inst✝¹ : ∀ (i : ι), Nonempty ↥↑(V i)
+U : Y.Opens
+inst✝ : Nonempty ↥↑U
+inc : (i : ι) → V i ⟶ U
+cover : ↥↑U ≤i sorry
+s : (i : ι) → ↑Γ(Y, V i)
+z : ↑Y.functionField
+hs : ∀ (i : ι), (ConcreteCategory.hom (Y.germToFunctionField (V i))) (s i) = z
+a : ToType (Y.sheaf.obj.obj (Opposite.op U))
+ha : ∀ (i : ι), (ConcreteCategory.hom (Y.sheaf.obj.map (inc i).op)) a = s i
+x : ↥↑U
+hx : ↑x ∈ iSup V
+i : ι
+hi : ↑x ∈ V i
+⊢ (ConcreteCategory.hom (Y.germToFunctionField (V i))) ((ConcreteCategory.hom (Y.presheaf.map (inc i).op)) a) = z
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    a
+  has type
+    ToType (Y.sheaf.obj.obj (Opposite.op U))
+  but is expected to have type
+    ↑Γ(Y, U)
+  in the application
+    (ConcreteCategory.hom (Y.presheaf.map (inc i).op)) a
+RELEASED 2026-11-08T10:01:33Z fifth-character

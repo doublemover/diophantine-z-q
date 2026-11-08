@@ -1,0 +1,65 @@
+ACQUIRED 2026-11-08T09:49:00Z contact119
+START SourceOrderGaloisAction318 2026-11-08T09:49:00Z
+MODULE SourceOrderGaloisAction318 exit=0 2026-11-08T09:49:05Z
+START SourceContactPrime318 2026-11-08T09:49:05Z
+SourceContactPrime318.lean:39:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+SourceContactPrime318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+SourceContactPrime318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+SourceContactPrime318.lean:43:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+MODULE SourceContactPrime318 exit=0 2026-11-08T09:49:08Z
+START SourceContactRamification318 2026-11-08T09:49:08Z
+SourceContactRamification318.lean:24:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 5: `(hc : (algebraMap R (SourceOrder c))
+       (Polynomial.X - Polynomial.C (LinearContactSquareclass318.contacts i)) ∈
+     Q)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+SourceContactRamification318.lean:33:10: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  IsLocalRing.ResidueField.algebra (Localization.AtPrime Q)
+inferred
+  SourcePrimeValuationInertia318.residueBase c Q
+SourceContactRamification318.lean:44:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Q.LiesOver (SourceContactPrime318.prime i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceContactRamification318.lean:51:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Q.LiesOver (SourceContactPrime318.prime i)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceContactRamification318.lean:50:51: error: unsolved goals
+c : Fin 4 → ℚˣ
+Q : Ideal (SourceOrder c)
+inst✝ : Q.IsPrime
+i : Fin 4
+hc : (algebraMap R (SourceOrder c)) (Polynomial.X - Polynomial.C (LinearContactSquareclass318.contacts i)) ∈ Q
+⊢ Q.ramificationIdx R = 2
+RELEASED 2026-11-08T09:49:12Z contact119

@@ -1,0 +1,60 @@
+ACQUIRED 2026-11-08T10:43:19Z
+RESULT FifthCommonScalarInjection318 0
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:14:33: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Top (Type ?u.16)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:14:36: error: Function expected at
+  Sup
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  U
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:25:0: warning: automatically included section variable(s) unused in theorem `GlobalScalarMultipleGluing318.ringRes_ringRes`:
+  [AlgebraicGeometry.IsIntegral X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [AlgebraicGeometry.IsIntegral X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:31:2: error: Type mismatch
+  Scheme.Modules.map_smul M ?m.148 a s
+has type
+  (ConcreteCategory.hom (M.presheaf.map (Quiver.Hom.op ?m.148))) (a • s) =
+    (ConcreteCategory.hom (X.presheaf.map (Quiver.Hom.op ?m.148))) a •
+      (ConcreteCategory.hom (M.presheaf.map (Quiver.Hom.op ?m.148))) s
+but is expected to have type
+  res M h (a • s) = ringRes h a • res M h s
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:31:28: error: Application type mismatch: The argument
+  (homOfLE h).op
+has type
+  op V ⟶ op Z
+but is expected to have type
+  ?m.138 ⟶ V
+in the application
+  Scheme.Modules.map_smul M (homOfLE h).op
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:35:8: error(lean.unknownIdentifier): Unknown identifier `hinj`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:36:2: error: No goals to be solved
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:44:56: error(lean.unknownIdentifier): Unknown identifier `hW`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:44:63: error(lean.unknownIdentifier): Unknown identifier `hW`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:44:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Nonempty ↥↑?m.126
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:45:2: error: No goals to be solved
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:55:61: error(lean.unknownIdentifier): Unknown identifier `U`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:56:28: error(lean.unknownIdentifier): Unknown identifier `hc`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:56:31: error(lean.unknownIdentifier): Unknown identifier `a`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:56:47: error(lean.unknownIdentifier): Unknown identifier `U`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:56:49: error(lean.unknownIdentifier): Unknown identifier `W`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:56:51: error(lean.unknownIdentifier): Unknown identifier `hW`
+recovery-hodge-0358/fifth-global-ratio-work/GlobalScalarMultipleGluing318.lean:56:45: error: Application type mismatch: The argument
+  M
+has type
+  X.Modules
+but is expected to have type
+  ?m.144 → Scheme.Opens ?m.142
+in the application
+  compatible M
+RESULT GlobalScalarMultipleGluing318 1
+RELEASED 2026-11-08T10:43:27Z status=1

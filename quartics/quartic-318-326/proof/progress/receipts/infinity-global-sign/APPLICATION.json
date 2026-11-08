@@ -1,0 +1,75 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Actual infinity-chart/global-sign square and exact stabilizer at every original global field-valued point over projective infinity",
+  "sources": {
+    "InfinitySignChart318.lean": "f683a3275b242ec4f3af75918bffbce3f8b29b42167f92f8f471ac63159cf766",
+    "InfinitySignPoint318.lean": "b8ecb5e7948be925c626559f82b5d37668b8588757d068c29b4c4414ad700708",
+    "InfinityBasePoint318.lean": "ee9865a61beb10bac9d9edf53b75ad071d01434490ce244d5d71b578b32472a5",
+    "InfinityWholePointStabilizer318.lean": "e0b1f3f23e0b1430ec953f508e3f0788206a517ea369f3dce127f5f63b2a5ebc"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "The new chart automorphism must be the actual global sign restriction.",
+      "constructed_input": "The target model map is the original integral normalization map and hence separated. The actual common open inclusion is a nonempty open in an integral infinity chart, hence schematically dominant.",
+      "justification": "The target model map is the original integral normalization map and hence separated. The actual common open inclusion is a nonempty open in an integral infinity chart, hence schematically dominant.",
+      "source_references": "InfinitySignChart318 instances/actual_square"
+    },
+    {
+      "name": "Objects",
+      "required_input": "The whole original global source, its exact infinity chart and the same original projective line are required.",
+      "constructed_input": "All objects are the existing ContactProjectiveModel318 and InfinityGlobalScheme318 objects. The chart source is the whole ReciprocalInfinityNormalization318.neighborhood c.",
+      "justification": "All objects are the existing ContactProjectiveModel318 and InfinityGlobalScheme318 objects. The chart source is the whole ReciprocalInfinityNormalization318.neighborhood c.",
+      "source_references": "map/actual_square/point"
+    },
+    {
+      "name": "Coverage",
+      "required_input": "Every actual global field-valued point above projective infinity must be included.",
+      "constructed_input": "The exact infinity-chart image is the preimage of the reciprocal base open. The constructed localized base point lies in that open and maps to the literal chart0 evaluation-at-zero point. IsOpenImmersion.lift then covers any such q.",
+      "justification": "The exact infinity-chart image is the preimage of the reciprocal base open. The constructed localized base point lies in that open and maps to the literal chart0 evaluation-at-zero point. IsOpenImmersion.lift then covers any such q.",
+      "source_references": "InfinityBasePoint318/InfinityWholePointStabilizer318.range_infinity/exists_chart_point"
+    },
+    {
+      "name": "Maps",
+      "required_input": "Do not substitute equality of field equations for a Scheme square.",
+      "constructed_input": "open_square compares the exact ring maps through the injective original field embedding. SchematicEqualityExtension318.ext promotes the common-open equality with the actual over-line square to actual_square.",
+      "justification": "open_square compares the exact ring maps through the injective original field embedding. SchematicEqualityExtension318.ext promotes the common-open equality with the actual over-line square to actual_square.",
+      "source_references": "InfinitySignChart318.open_square/over_reciprocal/actual_square"
+    },
+    {
+      "name": "Coefficients and base",
+      "required_input": "The original reciprocal s=1/t base and rational structure must be retained.",
+      "constructed_input": "The chart automorphism is a Base-algebra map. The localized base point is literal evaluation at s=0, justified by nonzero denominator there; it agrees with Polynomial.aeval 0 followed by the original projective chart0.",
+      "justification": "The chart automorphism is a Base-algebra map. The localized base point is literal evaluation at s=0, justified by nonzero denominator there; it agrees with Polynomial.aeval 0 followed by the original projective chart0.",
+      "source_references": "InfinityBasePoint318.fieldPoint_over_infinity"
+    },
+    {
+      "name": "Identities",
+      "required_input": "The actual source points and their residue equations must match, not just their abstract isomorphism classes.",
+      "constructed_input": "Spec.homEquivAlgHom supplies the exact Base-algebra map of the lifted point; its Spec map is the same lift and its reciprocal coordinate is zero. The point composite is exactly the input q.",
+      "justification": "Spec.homEquivAlgHom supplies the exact Base-algebra map of the lifted point; its Spec map is the same lift and its reciprocal coordinate is zero. The point composite is exactly the input q.",
+      "source_references": "InfinityWholePointStabilizer318.exists_chart_point"
+    },
+    {
+      "name": "Downstream stabilizer",
+      "required_input": "The complete point stabilizer criterion must use the actual global maps.",
+      "constructed_input": "InfinitySignPoint318.fixed_exactly cancels the actual open chart embedding and uses the entire residue-map equality. InfinityWholePointStabilizer318.fixed_exactly applies it to every actual global q above the literal infinity point.",
+      "justification": "InfinitySignPoint318.fixed_exactly cancels the actual open chart embedding and uses the entire residue-map equality. InfinityWholePointStabilizer318.fixed_exactly applies it to every actual global q above the literal infinity point.",
+      "source_references": "fixed_exactly endpoints"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Final exact source-specific strict evidence is required.",
+      "constructed_input": "All four final sources strictly pass. check130 contains a successful base-point module followed by an earlier failed coverage draft; final coverage passes check131. Combined recursive/hosted audit and independent new-consumer review remain pending.",
+      "justification": "All four final sources strictly pass. check130 contains a successful base-point module followed by an earlier failed coverage draft; final coverage passes check131. Combined recursive/hosted audit and independent new-consumer review remain pending.",
+      "source_references": "receipt.json/check129-131"
+    },
+    {
+      "name": "Boundaries",
+      "required_input": "Do not infer nonreduced-fiber identity or unproved valuation/moduli results.",
+      "constructed_input": "This packet supplies the actual global infinity-action square and complete field-valued point stabilizer. Full valuation-subring inertia, infinity ramification index, nonreduced whole-fiber identity and Picard/Jacobian/polarization/PEL conclusions remain separate.",
+      "justification": "This packet supplies the actual global infinity-action square and complete field-valued point stabilizer. Full valuation-subring inertia, infinity ramification index, nonreduced whole-fiber identity and Picard/Jacobian/polarization/PEL conclusions remain separate.",
+      "source_references": "README.md"
+    }
+  ]
+}

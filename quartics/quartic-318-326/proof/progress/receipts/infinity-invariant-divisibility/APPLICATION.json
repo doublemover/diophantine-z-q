@@ -1,0 +1,107 @@
+{
+  "claim": "Actual whole-infinity regular divisibility of every invariant global differential by u du",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "InfinityDiagonalDivisibility318.lean": "e0d40cbd1579de7539e734168e1ac712dadbd86ed582943ec2bf9adb7f7766cf",
+    "NegatedCoordinateFrameFunctor318.lean": "a6d2dceb6a7f996a170b9c0e3d2660631ba7424758012b7fe4564a3074009048",
+    "InfinityDifferentialDivisibility318.lean": "f0079e233dc4b26decbdb9489c02ba30822bf453f27b8c580efd84cd710d6338",
+    "InfinityGlobalDifferentialRestriction318.lean": "904258e6b4212e92cbf038d0762bee18a2d3e2db8fcc6711d14658ee8092017d"
+  },
+  "consuming_dependencies": {
+    "recovery-contact-0358/infinity-sign-residue/InfinityRingHomExt318.lean": "c41d5a3666449e1feb5ff841fc9e60db27374068dc683f793fd80089122ced6f",
+    "recovery-contact-0358/infinity-sign-residue/InfinitySignCoordinates318.lean": "e02f3e7b017b0ddaacfbdf81f05fd546aab636156fd0a8e1988ad8a0e10bd73a",
+    "recovery-contact-0358/infinity-sign-residue/InfinityOrderCoordinates318.lean": "df6acdb2188a9f96a910152decd2605615ab83ce53f7ab458c69c68631232109",
+    "recovery-contact-0358/infinity-global-sign/InfinitySignChart318.lean": "f683a3275b242ec4f3af75918bffbce3f8b29b42167f92f8f471ac63159cf766",
+    "recovery-hodge-0358/fifth-differential-character/FixedCoordinateFrameFunctor318.lean": "59264fabf8b48cbf3b4340a00297c7ddbffbb3c89b844ddb878cff7776cc18e4",
+    "recovery-hodge-0358/contact-exact/ContactFrameNormalization318.lean": "5cbcf340c95d9a6b7cc9c47147cf7d5b5d54b8a0083ca35ef5b2f4ba276989bc",
+    "recovery-hodge-0358/contact-exact/ContactDifferentialFrames318.lean": "90a258574daf0fc15e3ca469c28eb016bee4a3c777d40511c35c3d203b051826",
+    "recovery-hodge-0358/fifth-differential-invariant-summand/FifthDifferentialInvariantSummand318.lean": "f4eb16c8fa0b3212d52bd52f6700635276e31a5ce3384a1d7e8b561352754ec8",
+    "recovery-hodge-0358/character-invariant-pullback/IntrinsicAffineSectionEquiv318.lean": "6ba0adaf7a646e9e228ac22386599132fc9f4eda2e05161a0b6c47432d30cde1",
+    "recovery-hodge-0358/character-invariant-pullback/IntrinsicDifferentialSectionPullback318.lean": "e4a7d6dcdd42e84998704cac6db631eb736d77bca81479ae671a514d06ebbc63",
+    "recovery-hodge-0358/character-differential-signs/ContactDifferentialCharacters318.lean": "115a527be67a832b7d8ed9d03a1d8b669aabd11f00215fcc466fd1c5fd0b0717"
+  },
+  "predecessor_receipts": {
+    "recovery-contact-0358/infinity-sign-residue/receipt.json": "5f22c9bea4b91b556d7f8268c1b2ee441b2c51b39643b80abd5fce9cd35e380b",
+    "recovery-modular-0358/infinity-sign-residue-independent-review/acceptance.json": "813490a51d4d04205a7a552c886a3e38c921c72d024b44101f6243712ad12e68",
+    "recovery-contact-0358/infinity-global-sign/receipt.json": "06c74f804adbf1aa551f68472b0ff6be1c2e97afa12c000e1cd87d12124062a6",
+    "recovery-hodge-0358/fifth-differential-invariant-summand/receipt.json": "4ae6c7cc8db3ba5b48b9472dfb3297033fba073c9fd739b8f2e76e8bb7d79fa9",
+    "recovery-modular-0358/fifth-invariant-summand-independent-review/acceptance.json": "9013088a41680f191ac10e048e6c214daa9286c7c7a2c17dc16c7623143f1b15"
+  },
+  "endpoints": [
+    "InfinityDiagonalDivisibility318.quotient_fixed",
+    "InfinityDiagonalDivisibility318.divisible",
+    "NegatedCoordinateFrameFunctor318.map_frame",
+    "InfinityDifferentialDivisibility318.fixed_divisible",
+    "InfinityDifferentialDivisibility318.fixed_factorization",
+    "InfinityGlobalDifferentialRestriction318.form_action",
+    "InfinityGlobalDifferentialRestriction318.invariant_factorization",
+    "InfinityGlobalDifferentialRestriction318.average_factorization"
+  ],
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "The genuine infinity ring, literal source-sign restriction and true normalized du frame.",
+      "constructed": "The ring and coordinate are InfinityOrderCoordinates318.Order/coordinate, the sign is InfinitySignCoordinates318.sign, and the frame is ContactDifferentialFrames318.infinityFrame.",
+      "why_match": "The local algebraic statements retain arbitrary rational twist units; the actual global consumer specializes to the unchanged fixed source."
+    },
+    {
+      "name": "Constructed objects",
+      "required": "The whole u=0 quotient and actual algebraic infinity differential.",
+      "constructed": "ideal is literally Ideal.span {u}; quotient_fixed compares actual quotient ring maps. form is the actual global restriction through the proved affine section equivalence.",
+      "why_match": "No prime quotient, reduced fiber or field-valued point substitutes for the whole quotient."
+    },
+    {
+      "name": "Coverage",
+      "required": "The entire infinity chart, including u=0, for every invariant global differential.",
+      "constructed": "Ring-hom extensionality checks u and every actual unit root ratio, including localized coefficients. All source global sections are covered by canonical naturality.",
+      "why_match": "There is no generic-only or selected-point statement."
+    },
+    {
+      "name": "Maps",
+      "required": "Actual all-four root sign and global Scheme square.",
+      "constructed": "The exact ring sign negates u and fixes all ratios. The Q-AlgHom wrapper has canonical rational linearity. The global form_action uses InfinitySignChart.actual_square and genuine canonical Omega naturality.",
+      "why_match": "The algebraic action is not inferred solely from its original-field values."
+    },
+    {
+      "name": "Coefficient conventions",
+      "required": "Negation of the coordinate changes the differential frame sign.",
+      "constructed": "NegatedCoordinateFrameFunctor proves e(map f omega)=-f(e omega) from the universal derivative and e(du)=1. Thus invariant differentials have anti-invariant coefficients.",
+      "why_match": "The derivative minus sign is retained, rather than treating the coefficient as an invariant function."
+    },
+    {
+      "name": "Identities",
+      "required": "Anti-invariance implies regular divisibility by u.",
+      "constructed": "The actual quotient map satisfies q(sign x)=q(x). Combined with sign x=-x this gives2*q(x)=0;2 is a unit from Q even if the quotient were nonreduced. Hence x lies in the literal principal ideal(u).",
+      "why_match": "No reducedness, primality or quotient-domain assumption is added."
+    },
+    {
+      "name": "Local/global",
+      "required": "Transport the divisibility to the actual global invariant summand.",
+      "constructed": "Every globally diagonal-fixed section yields an invariant algebraic chart differential. Every eight-sign fixed section is diagonal-fixed, since the all-four sign lies in the exact fixing set. Every actual average is therefore (u*a)du with a regular on the entire chart.",
+      "why_match": "The resulting factorization is in actual Kaehler differentials on the full ring, not a rational extension assertion."
+    },
+    {
+      "name": "Evidence",
+      "required": "Strict sources and recursive axiom audit with exact predecessor bindings.",
+      "constructed": "The four frozen sources have passing bounded strict checks and a fresh recursive target audit. The first three successful source segments precede a final-wrapper parser failure in check03; the corrected fourth source passes in check04.",
+      "why_match": "The mixed historical log is disclosed accurately; no failed whole batch is called a full pass and no predecessor replay is claimed."
+    },
+    {
+      "name": "Boundary",
+      "required": "A concrete prerequisite for target-Omega regular descent.",
+      "constructed": "The actual invariant coefficient has its necessary infinity u factor.",
+      "why_match": "The exact unit-times-u coefficient of the fifth invariant pullback, finite-chart unit facts, full target regular descent, relative ramification indices and Jacobian/Picard/PEL assertions remain separate."
+    }
+  ],
+  "not_claimed": [
+    "Exact unit-times-u normalization of the fifth invariant pullback",
+    "Whole target-Omega regular descent or transfer",
+    "Finite-chart pullback unit frames",
+    "Relative ramification indices of the fifth map",
+    "Source canonical-space dimension or complete basis",
+    "Picard/Jacobian/polarization/PEL/KS comparison"
+  ],
+  "validation": "Four strict source checks and fresh recursive target audit of 52 declarations; no predecessor replay.",
+  "independent_review": "Pending; no self-acceptance"
+}

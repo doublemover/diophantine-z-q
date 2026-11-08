@@ -1,0 +1,75 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Full actual infinity valuation-subring inertia consists exactly of the two diagonal original root signs and has cardinal two",
+  "sources": {
+    "InfinityBranchValuation318.lean": "817052ddb9d767cceb600c5151afd35c95b3df2dabf454f0ad49732ad2c7af69",
+    "InfinityValuationLocal318.lean": "f5e4c579fbe2382dea2e9dda4809b5a3ba8d7d61a4deb6af78a15cfd568387bf",
+    "InfinityValuationDecomposition318.lean": "7ac762126c1c93540de50c896088c10671f224a8279ce00ebe34420ea6b629cc",
+    "InfinityValuationFullInertia318.lean": "99d17e4d0f248f5394a31313ac89e7d42ed6305cffec969e1b8f184f9941d990"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "A genuine Dedekind place/localization is required.",
+      "constructed_input": "The entire actual infinity order is a domain, normal and finite over the localized u-polynomial ring; Noetherianity and dimension at most one are derived. Its actual reciprocal coordinate is nonzero in the original full field.",
+      "justification": "The entire actual infinity order is a domain, normal and finite over the localized u-polynomial ring; Noetherianity and dimension at most one are derived. Its actual reciprocal coordinate is nonzero in the original full field.",
+      "source_references": "InfinityBranchValuation318.order_dedekind/reciprocal_ne_zero"
+    },
+    {
+      "name": "Objects",
+      "required_input": "Use the supplied prime and the original field, not isomorphic surrogates.",
+      "constructed_input": "For arbitrary c and every actual prime Q containing s, place.asIdeal is definitionally Q. valuationRing is the actual HeightOneSpectrum.valuationSubringAtPrime in the original L using openEmbedding, and equals the adic valuation subring.",
+      "justification": "For arbitrary c and every actual prime Q containing s, place.asIdeal is definitionally Q. valuationRing is the actual HeightOneSpectrum.valuationSubringAtPrime in the original L using openEmbedding, and equals the adic valuation subring.",
+      "source_references": "place_ideal/actual_localization/equals_adic_valuation"
+    },
+    {
+      "name": "Coverage",
+      "required_input": "Cover every original field automorphism and every actual prime over infinity.",
+      "constructed_input": "Every c:Fin4\u2192Q units and every Q prime with s in Q are quantified. field_sign_surjective covers the entire original Gal(L/Q(t)), with no extra sign-only assumption on decomposition elements.",
+      "justification": "Every c:Fin4\u2192Q units and every Q prime with s in Q are quantified. field_sign_surjective covers the entire original Gal(L/Q(t)), with no extra sign-only assumption on decomposition elements.",
+      "source_references": "InfinityValuationDecomposition318.field_sign_surjective/mem_inertia_field_exactly"
+    },
+    {
+      "name": "Base and maps",
+      "required_input": "Do not replace original s=1/t by ramified u.",
+      "constructed_input": "The order action restricts the original Q(t)-linear field automorphism through the entire reciprocal integral closure. The u-line is used only to establish Dedekindness. All action squares use original openEmbedding.",
+      "justification": "The order action restricts the original Q(t)-linear field automorphism through the entire reciprocal integral closure. The u-line is used only to establish Dedekindness. All action squares use original openEmbedding.",
+      "source_references": "InfinityValuationLocal318.ambient_square"
+    },
+    {
+      "name": "Residue comparison",
+      "required_input": "Identity must hold on the entire actual local residue field.",
+      "constructed_input": "The built-in valuation decomposition action equals the specified localization extension on every element. PrimeLocalizationInertia318 identifies its complete residue automorphism with actual order ideal inertia.",
+      "justification": "The built-in valuation decomposition action equals the specified localization extension on every element. PrimeLocalizationInertia318 identifies its complete residue automorphism with actual order ideal inertia.",
+      "source_references": "action_eq_local/mem_inertia_iff"
+    },
+    {
+      "name": "Inverse construction",
+      "required_input": "A prime stabilizer alone must not be renamed a valuation stabilizer.",
+      "constructed_input": "ofField proves both set inclusions for the actual embedded valuation subring, using the entire local ring equivalence and its inverse. The original field automorphism remains literal.",
+      "justification": "ofField proves both set inclusions for the actual embedded valuation subring, using the entire local ring equivalence and its inverse. The original field automorphism remains literal.",
+      "source_references": "InfinityValuationFullInertia318.ofField"
+    },
+    {
+      "name": "Final cardinality",
+      "required_input": "The exact full inertia group must have both classified elements and no others.",
+      "constructed_input": "The two diagonal original root signs are actual inertia elements. diagonal_bijective proves injectivity and surjectivity, giving Bool equivalence and Nat.card=2 for the built-in valuation inertia subgroup.",
+      "justification": "The two diagonal original root signs are actual inertia elements. diagonal_bijective proves injectivity and surjectivity, giving Bool equivalence and Nat.card=2 for the built-in valuation inertia subgroup.",
+      "source_references": "diagonal_field/diagonal_bijective/inertiaEquiv/inertia_card"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Bind exact final sources and successful strict evidence.",
+      "constructed_input": "All four final sources individually pass with kernel checking on. check134 passes the first three; check136 passes the fourth. No new combined recursive audit or hosted replay is claimed.",
+      "justification": "All four final sources individually pass with kernel checking on. check134 passes the first three; check136 passes the fourth. No new combined recursive audit or hosted replay is claimed.",
+      "source_references": "receipt.json/check134/check136"
+    },
+    {
+      "name": "Boundary",
+      "required_input": "Do not infer relative quotient ramification or moduli results.",
+      "constructed_input": "This establishes actual full infinity valuation inertia for the original Q(t) cover. The infinity ideal ramification index requires the separate Galois/flat/separable-residue consumer. Fifth-quotient ramification, nonreduced whole-fiber identity, Picard/Jacobian/polarization/PEL remain separate.",
+      "justification": "This establishes actual full infinity valuation inertia for the original Q(t) cover. The infinity ideal ramification index requires the separate Galois/flat/separable-residue consumer. Fifth-quotient ramification, nonreduced whole-fiber identity, Picard/Jacobian/polarization/PEL remain separate.",
+      "source_references": "README.md"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "claim": "The actual fifth invariant pullback is unit times u du on the entire infinity chart, and every invariant global differential is an actual regular multiple there",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "QuadraticCoordinateDerivative318.lean": "2d2f5bcdfa095c11a0f1a2a127758576f8411e815508fbadbc595e0985bd0f91",
+    "FifthInfinityInvariantCoefficient318.lean": "d451aa9b15462aa0543ab17ec1b3639879ea0921b6f7ea0dfa61d37d11b721ac",
+    "FifthInfinityInvariantRestriction318.lean": "d8f65d1c214be36ef5cd108398398bf62d83cdbf49fc91a41194e52053f4be01",
+    "RegularUnitMultiple318.lean": "da5b0017ceb9e77981270da64ba06ee2595f9ada4ee2dea9cb9d1d018eaf27bf",
+    "FifthInfinityRegularMultiple318.lean": "1460a370b4e97c3ca9a1013b2fdb6c280766b401691f22d2314a4a096df9afe1"
+  },
+  "consuming_dependencies": {
+    "recovery-hodge-0358/infinity-invariant-divisibility/InfinityGlobalDifferentialRestriction318.lean": "904258e6b4212e92cbf038d0762bee18a2d3e2db8fcc6711d14658ee8092017d",
+    "recovery-hodge-0358/character-invariant-pullback/WeierstrassAffineInvariantEquation318.lean": "023be86c0f6d422ed70a2e2917f857da24133178bec3851d803302903b9fc429",
+    "recovery-hodge-0358/character-invariant-pullback/IntrinsicDifferentialSectionPullback318.lean": "e4a7d6dcdd42e84998704cac6db631eb736d77bca81479ae671a514d06ebbc63",
+    "fifth-source-infinity/FifthSourceInfinityAlgebra318.lean": "b5efe68059c78c1d7861351e76354ddc42ab890b3ea4d9e94f06a9725614abab",
+    "fifth-source-infinity/FifthSourceInfinityCoordinates318.lean": "e911bbd7125b799134ed8f9139a1e2c25550599fc6492706c9cbcf6e8e1e5bef",
+    "fifth-source-infinity/FifthSourceInfinityScheme318.lean": "eda438857f647155f769b9028ea9ea69a78be2c800f9c06e3d9f28bea53e4544",
+    "recovery-geometric-0358/fifth-global-source-map/FifthCompletedGlobal318.lean": "42017127aaaef7ea094fc6146db604850da62264b86df81800170f3226fe6cad",
+    "recovery-hodge-0358/fifth-invariant-pullback/FifthActualDifferential318.lean": "561f35ce5df412ca19a44f1a4d605d71955f228b58299084d8a04bfce6d98a4b",
+    "diophantine-z-q/quartics/quartic-318-326/proof/progress/InfinityCharacterUnits318.lean": "4b0ec72f21cce7b528c5981fd9b7eb59bdef3ebc084a05fb9f7d8d7d4b3a8ab8"
+  },
+  "predecessor_receipts": {
+    "recovery-hodge-0358/infinity-invariant-divisibility/receipt.json": "a54114cede6204314d0369d44c13f5f88ee4fed88a32c92d839210344b66e061",
+    "recovery-modular-0358/infinity-invariant-divisibility-independent-review/acceptance.json": "8b4b512e5d3000bc2281d200c6cf7032df718a32b2bf396aad2231712a1231b2",
+    "fifth-source-infinity/receipt.json": "8be21f68c291e5b7f16007de3423dff56de7cd8343c598b0c9a2df39ad6c1fc1",
+    "recovery-geometric-0358/fifth-global-source-map/receipt.json": "95ac23074e06828e0942a7fdb93621227477dfae4e09fcd273000e970904002e",
+    "recovery-contact-0358/fifth-global-source-independent-review/acceptance.json": "87aa247f2261ae57ec6619e7a2944b1e3ede774b4de2d8aa9cc520d99f234594",
+    "recovery-hodge-0358/fifth-invariant-pullback/receipt.json": "e493e89ee9b7c0590c33066faef43ff0a6d1e1b290b42eb66ef750e33e387849"
+  },
+  "endpoints": [
+    "FifthInfinityInvariantCoefficient318.numerator_unit",
+    "FifthInfinityInvariantCoefficient318.two_y_unit",
+    "FifthInfinityInvariantCoefficient318.derivative_x",
+    "FifthInfinityInvariantCoefficient318.factor_unit",
+    "FifthInfinityInvariantCoefficient318.normalized",
+    "FifthInfinityInvariantRestriction318.section_restrict",
+    "FifthInfinityInvariantRestriction318.normalized",
+    "FifthInfinityRegularMultiple318.form_multiple",
+    "FifthInfinityRegularMultiple318.section_multiple",
+    "FifthInfinityRegularMultiple318.average_section_multiple"
+  ],
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required": "The fixed rational source and exact completed fifth map with its specified invariant.",
+      "constructed": "The existing actual infinity shortMap and canonical global pullback are consumed.",
+      "why_match": "No new quotient, function-field choice or rescaling is introduced."
+    },
+    {
+      "name": "Objects",
+      "required": "The entire infinity ring and actual Kaehler/intrinsic sheaf sections.",
+      "constructed": "The shortMap coordinates are X=m*(u\u00b2/c0)+k and Y=n*c0\u00b2*product indexed root ratios in the literal infinity ring.",
+      "why_match": "The ramified u is distinct from the reciprocal1/t coordinate denoted u in FifthSourceInfinityCoordinates318; the definition is unfolded explicitly."
+    },
+    {
+      "name": "Coverage",
+      "required": "Every point of the infinity chart, including u=0.",
+      "constructed": "Y is a unit because n,c0 and all indexed root ratios are units on the whole ring. Thus2Y is also a unit.",
+      "why_match": "No restriction to the u-invertible common open or omission of infinity occurs."
+    },
+    {
+      "name": "Maps",
+      "required": "The actual entire shortMap and global on_infinity square.",
+      "constructed": "The denominator-free elliptic invariant equation is pulled by the genuine universal-differential map. Canonical sheaf naturality then identifies this with the actual global fifth differential restriction.",
+      "why_match": "This is a full ring/section identity, not an equality only inside Raw."
+    },
+    {
+      "name": "Coefficients",
+      "required": "Retain every prescribed coordinate scalar.",
+      "constructed": "numerator is algebraMap(2*m/c0), inverseTwoY is the inverse of the proved unit2Y, and factor=inverseTwoY*numerator. Both numerator and factor are units.",
+      "why_match": "The proof does not silently choose another invariant or erase the previously established\u221241160 global normalization."
+    },
+    {
+      "name": "Identities",
+      "required": "Exact derivative and actual invariant normalization.",
+      "constructed": "The universal derivative of the exact quadratic coordinate is numerator*u*du. Pulling2Y*omega=dX and multiplying by the honest inverse of2Y proves omega=factor*u*du.",
+      "why_match": "Only an actual unit is inverted; u itself is never inverted on this chart."
+    },
+    {
+      "name": "Local/global",
+      "required": "Regular multiple for every genuine invariant global section.",
+      "constructed": "The preceding divisibility packet supplies form(s)=(u*a)du. Since factor is a unit, RegularUnitMultiple constructs a regular coefficient expressing form(s) as a multiple of the actual fifth pullback. section_multiple transports that equality through the actual sectionMap and scalar map.",
+      "why_match": "This covers all invariant sections and every actual average, not only the five known forms."
+    },
+    {
+      "name": "Evidence",
+      "required": "Strict checks and fresh recursive target audit.",
+      "constructed": "All five frozen sources have bounded strict success markers and a fresh target audit. check03 contains successful first three modules followed by a draft fourth-wrapper failure; check04 supplies the successful generic helper/final wrapper.",
+      "why_match": "Mixed log provenance is retained and not promoted to a successful whole batch. No predecessor replay is claimed."
+    },
+    {
+      "name": "Boundary",
+      "required": "Infinity regularity prerequisite for all-five source gluing and regular trace descent.",
+      "constructed": "An actual regular multiple exists on the entire infinity chart.",
+      "why_match": "Finite branch unit frames, globally glued source coefficient, actual global target coefficient/regular differential descent, canonical dimension and Picard/Jacobian/PEL are not concluded here."
+    }
+  ],
+  "not_claimed": [
+    "Finite-branch fifth unit frames",
+    "A globally glued source regular quotient coefficient",
+    "Regular target-Omega descent or transfer",
+    "Target preimage open equality or fifth relative ramification",
+    "Complete canonical basis or dimension",
+    "Picard/Jacobian/polarization/PEL/KS comparison"
+  ],
+  "validation": "Five strict sources and fresh recursive target audit38, standard roots only, no predecessor replay.",
+  "independent_review": "Pending; no self-acceptance"
+}

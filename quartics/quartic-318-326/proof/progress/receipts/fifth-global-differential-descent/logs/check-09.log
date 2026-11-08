@@ -1,0 +1,70 @@
+ACQUIRED 2026-11-08T10:51:08Z
+recovery-hodge-0358/fifth-global-ratio-work/AffineGlobalFunction318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+recovery-hodge-0358/fifth-global-ratio-work/AffineGlobalFunction318.lean:47:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RESULT AffineGlobalFunction318 0
+RESULT AffineGlobalValueNaturality318 0
+recovery-hodge-0358/fifth-global-ratio-work/ContactGlobalFunctionCoefficient318.lean:33:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    (AffineGlobalFunction318.value _a) r =
+      (ContactOverlapAlgebraMaps318.infinityMap units)
+        ((AffineGlobalFunction318.value (InfinityGlobalScheme318.chartEmbedding units)) r)
+Error: Application type mismatch: The argument
+  ContactOverlapIntrinsic318.embedding_open units
+has type
+  IsOpenImmersion (ContactOverlapIntrinsic318.embedding units)
+but is expected to have type
+  IsOpenImmersion _a
+in the application
+  @AffineGlobalFunction318.value (ContactProjectiveModel318.model units) (ContactKummerOrder318.OpenOrder units)
+    Algebra.TensorProduct.instCommRing _a ⋯
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+r : ↑Γ(Model, ⊤)
+h :
+  Spec.map (CommRingCat.ofHom (ContactOverlapAlgebraMaps318.infinityMap units).toRingHom) ≫
+      InfinityGlobalScheme318.chartEmbedding units =
+    j
+⊢ (AffineGlobalFunction318.value j) r =
+    (ContactOverlapAlgebraMaps318.infinityMap units)
+      ((AffineGlobalFunction318.value (InfinityGlobalScheme318.chartEmbedding units)) r)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    j
+  has type
+    @Quiver.Hom Scheme Scheme.instCategory.toQuiver (ContactKummerCover318.cover units)
+      (ContactProjectiveModel318.model units)
+  but is expected to have type
+    @Quiver.Hom Scheme Scheme.instCategory.toQuiver (Spec ↧(ContactKummerOrder318.OpenOrder units))
+      (ContactProjectiveModel318.model units)
+  in the application
+    @AffineGlobalFunction318.value (ContactProjectiveModel318.model units) (ContactKummerOrder318.OpenOrder units)
+      Algebra.TensorProduct.instCommRing j
+recovery-hodge-0358/fifth-global-ratio-work/ContactGlobalFunctionCoefficient318.lean:41:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsDomain (InfinityOpenChart318.OpenOrder units)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+recovery-hodge-0358/fifth-global-ratio-work/ContactGlobalFunctionCoefficient318.lean:40:90: error: unsolved goals
+r : ↑Γ(Model, ⊤)
+⊢ sourceEquiv ((ConcreteCategory.hom (Model.germToFunctionField ⊤)) r) =
+    (SourceOpenFractionField318.openEmbedding units) ((AffineGlobalFunction318.value j) r)
+RESULT ContactGlobalFunctionCoefficient318 1
+RELEASED 2026-11-08T10:51:53Z status=1

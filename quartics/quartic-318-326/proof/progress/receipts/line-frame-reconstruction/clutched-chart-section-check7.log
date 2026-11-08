@@ -1,0 +1,48 @@
+ACQUIRED 2026-11-08T11:31:16Z fifth-character
+CHECK ClutchedChartSections318 2026-11-08T11:31:16Z
+CHECK LineFrameCoefficientCompatibility318 2026-11-08T11:31:19Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LineFrameCoefficientCompatibility318.lean:40:42: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (ClutchedChartSections318.overlapIso ?U ?V ?W).hom)
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (ClutchedModule318.twistedRestriction (Scheme.Opens.ι ?U) (Scheme.Opens.ι ?V)
+            (OpenClutchedLine318.leftInclusion ?U ?V) (OpenClutchedLine318.rightInclusion ?U ?V) ⋯
+            (OpenClutchedLine318.transition ?U ?V ?a))
+          ?W))
+      ?s)
+in the target expression
+  (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op))
+      ((ConcreteCategory.hom (LineFrameChartCoordinates318.ringIso (U i) W).hom)
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app (LineFrameAdjunction318.coordinate M (U i) (frames i)) W)) s)) =
+    (ConcreteCategory.hom (ClutchedChartSections318.overlapIso (U i) (U j) W).hom)
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app (coefficient M U frames j ≫ CocycleModule318.right U (cocycle M U frames) i j) W))
+        s)
+
+X : Scheme
+M : X.Modules
+ι : Type u
+U : ι → X.Opens
+frames : (i : ι) → SheafOfModules.unit (↑(U i)).ringCatSheaf ≅ M.restrict (U i).ι
+i j : ι
+W : X.Opens
+s : ↑Γ(M, W)
+⊢ (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op))
+      ((ConcreteCategory.hom (LineFrameChartCoordinates318.ringIso (U i) W).hom)
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app (LineFrameAdjunction318.coordinate M (U i) (frames i)) W)) s)) =
+    (ConcreteCategory.hom (ClutchedChartSections318.overlapIso (U i) (U j) W).hom)
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app (coefficient M U frames j ≫ CocycleModule318.right U (cocycle M U frames) i j) W))
+        s)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (↑(U i)).ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑(↑(U i)).toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥↑(U i)) RingCat
+  in the application
+    SheafOfModules.unit (↑(U i)).ringCatSheaf
+RELEASED 2026-11-08T11:31:22Z fifth-character

@@ -1,0 +1,36 @@
+ACQUIRED 2026-11-08T09:28:10Z
+MODULE SourceValuationDecomposition318 exit=0
+SourceValuationFullInertia318.lean:50:10: error: invalid `▸` notation, expected result type of cast is 
+  SourceOrderAutomorphisms318.extend c e • y ∈ V c p i ht
+however, the equality 
+  hs
+of type 
+  ↑((localEquiv c p i ht e he) ⟨y, hy⟩) = (SourceOrderAutomorphisms318.extend c e) y
+does not contain the expected result type on either the left or the right hand side
+SourceValuationFullInertia318.lean:81:42: error: don't know how to synthesize placeholder for argument `he`
+context:
+c : Fin 4 → ℚˣ
+F : Type u_1
+inst✝³ : Field F
+inst✝² : Algebra ℚ F
+inst✝¹ : Algebra R F
+inst✝ : IsScalarTower ℚ R F
+p : SourceOrder c →ₐ[R] F
+i : Fin 4
+ht : (algebraMap R F) X = (algebraMap ℚ F) (LinearContactSquareclass318.contacts i)
+e : ↥(Ideal.inertia (SourceOrder c ≃ₐ[R] SourceOrder c) (P c p))
+⊢ P c p = Ideal.comap (↑e) (P c p)
+SourceValuationFullInertia318.lean:79:15: error: unsolved goals
+c : Fin 4 → ℚˣ
+F : Type u_1
+inst✝³ : Field F
+inst✝² : Algebra ℚ F
+inst✝¹ : Algebra R F
+inst✝ : IsScalarTower ℚ R F
+p : SourceOrder c →ₐ[R] F
+i : Fin 4
+ht : (algebraMap R F) X = (algebraMap ℚ F) (LinearContactSquareclass318.contacts i)
+e : ↥(Ideal.inertia (SourceOrder c ≃ₐ[R] SourceOrder c) (P c p))
+⊢ ↑((fun g => ⟨orderAut c p i ht ↑g, ⋯⟩) ((fun e => ⟨ofOrder c p i ht ↑e ⋯, ⋯⟩) e)) = ↑e
+MODULE SourceValuationFullInertia318 exit=1
+RELEASED 2026-11-08T09:28:23Z exit=1

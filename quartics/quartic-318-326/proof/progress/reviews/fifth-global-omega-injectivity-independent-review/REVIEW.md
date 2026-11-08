@@ -1,0 +1,33 @@
+# Actual fifth global differential pullback: injectivity review
+
+Accepted at the exact three-source consuming scope, with no correction required. Target receipt3b09891ab19a64bc975907207cfae4bfe5d1b140721388722bac41108e8325bb; applicatione31994aa665e6fea9c845caf58e02cf4148dd99c9a2e158f579419b40a595d50. All three complete sources, their nine obligations and relevant actual map/frame/germ interfaces were read.
+
+## Specified target global generator
+
+IntrinsicGlobalInvariantGenerator318 does not infer a generator from the number of differentials. It takes the existing actual intrinsic global frame for a nonsingular completed short-Weierstrass family over an arbitrary commutative base ring with unit discriminant. Its frame_inv_apply identifies the inverse sheaf-frame map on the entire top open with multiplication by the specified globally glued invariant. ModuleGlobalSections318.ofTop_apply supplies the exact scalar multiplication, and the top restriction is the identity. Thus scalar one is retained, not an unspecified nonzero rescaling.
+
+Evaluating the genuine frame isomorphism at the whole top open gives a bijection from the actual global regular-function ring to actual global intrinsic relative differentials. This is the intended rank-one generator over that section ring; it is not a dimension computation over Q or a basis claim for all source differentials. The specific A,B,discriminant_unit used later are the original fifth target's coefficients.
+
+## Original source and scalar pullback injections
+
+FifthGlobalScalarInjections318.multiply_injective compares two original global source regular functions multiplying the actual fifth pulled invariant. Restricting their equality to the complete nonempty common chart uses the actual module-presheaf scalar naturality. The source common-open coefficient is an actual unit, so the read FifthCommonScalarInjection318 endpoint cancels there. Integrality of the original source and nonemptiness of that actual open then give injectivity of global regular-function restriction. The proof does not assume the fifth pulled form is a global free generator; its infinity zeros are not removed from the claim.
+
+The source-bound common-open input is itself read: the existing exact normalized differential equation makes the coefficient a unit because its product with the other displayed factor is the image of the nonzero rational xScale. Its actual intrinsic section is identified with the original completed-map global pullback by FifthActualDifferentialRestriction318. IntrinsicChartScalarInjection318 uses the genuine whole-affine differential section equivalence, scalar section isomorphism and a unit frame value. This is actual scalar cancellation, not a generic dimension assertion.
+
+scalar_pullback_injective uses the original map.appTop. Both actual schemes are integral and the original completed map is dominant. DominantFunctionField318.map is the actual generic-stalk pullback with the generic-point identification; map_germ supplies its exact square with the original appTop and whole-top germs. The actual target function-field map is injective as a homomorphism of the original fields. Its two naturality squares turn equality after appTop into equality of target generic germs, and the integral target germ map detects equality of the original target global functions. No independent embedding with merely matching traces or coordinates is substituted.
+
+## Canonical global Omega consumer
+
+FifthGlobalDifferentialInjective318 uses FifthTargetDifferentialInvariants318.pullback, which is precisely IntrinsicDifferentialPullback318.globalHom for the actual completed fifth map and original structure-map square. Write any two actual target global sections as regular multiples of the specified target invariant using the proven target generator bijection. The exact canonical scalar-compatibility identity sends these to original appTop coefficients multiplying the actual fifth pulled invariant. Source multiplication injection and then target scalar pullback injection force equal original coefficients, hence equal target sections.
+
+The proof consumes no regular differential range theorem, no unfinished finite-branch restriction endpoint and no assumed equality of dimensions. It proves injection on all actual regular global target intrinsic differential sections. The source-only definition of pullback is bound exactly; the adjacent fixedness theorem is consistent with the actual whole-map sign identity but is not needed as a surrogate for injection.
+
+## Source-only dependencies, evidence and authorship
+
+The three direct working dependencies IntrinsicChartScalarInjection318, FifthCommonScalarInjection318 and FifthTargetDifferentialInvariants318 are explicitly hash-bound. Their complete bodies and designated successful strict log segments were read. Their coherent thirteen-source packet is not yet frozen, and no nonexistent receipt or aggregate acceptance is invented. Hosted integration must preserve/include those exact bytes. The bounded acceptance here is of their exact use by injectivity3, not of future modified versions or the unfinished range13 consumer.
+
+All target artifact/dependency pins match, and all three frozen target sources match the working originals. check-01 contains the successful first target module followed by an older failed scalar-injection draft; its later failure is not accepted as a full batch pass. check-04 contains final strict success for both remaining targets and the fresh target-only recursive audit. The audit requires all four named endpoints, includes private/generated target declarations, checks exactly13 declarations across3 modules and permits only propext, Classical.choice and Quot.sound. No reviewer replay or hosted success is claimed.
+
+The reviewer authored none of these three new modules or the three source-bound working inputs. The reviewer did author IntrinsicDifferentialGlobalScalars318, used by pullback_smul. Its producer record and distinct Hodge acceptance9afd444c44b7ff675a2f53c3106bd7be5b90a3ccf809baadb88cc247decfe363 are separately pinned; this review does not independently reaccept that helper. Other frame, generic-stalk, completed-map and scalar-injection predecessor scopes remain separately bound, not blanket reaccepted.
+
+Accepted: injectivity of the exact original completed fifth quotient's canonical pullback on regular global intrinsic Omega, with the specified target invariant normalization and original appTop/generic-stalk maps. Excluded: regular range equality or a constructed inverse/retraction, all-open differential trace, global source dimension or complete basis, Picard/Jacobian/polarization/PEL, and the full arithmetic theorem. No required changes found.

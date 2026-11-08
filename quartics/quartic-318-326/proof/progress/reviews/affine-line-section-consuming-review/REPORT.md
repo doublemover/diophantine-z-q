@@ -1,0 +1,15 @@
+# Bounded non-author affine-line section review
+
+Decision: accept the exact seven-source affine-line-section-module packet within its stated scope. No correction requested. This is an independent source/application read, not a compiler replay or whole-proof acceptance.
+
+Author: /root/restart_group_law. Reviewer: /root/restart_geometric_model. I authored the finite fifth-map/chart and norm predecessors and the separate target-neighborhood/converse-frame consumers. Those are excluded from independent reapproval here. I separately reviewed the generic fixed-open-frame producer previously; its distinct decision remains bound rather than being represented as new review.
+
+I read all seven source bodies and their exact application/README. OpenLineSectionBasis transports the original unit frame through the actual overEquiv, evaluates at the identity over the same open, and constructs the actual original-ring-linear section equivalence and Fin 1 basis. Both inverse identities and the smaller-open restriction are genuine map identities.
+
+The principal-cover argument refines the actual original cover, not an assumed trivial affine chart. Its denominators span the unit ideal. Local-freeness is derived from actual singleton frames and used only to obtain quasicoherence. The original global-to-basic-open restriction map then satisfies the pinned IsLocalizedModule predicate. Finite presentation and flatness descend from genuine localized bases through the localization-span theorems. The rank computation lifts each specified prime through a covering localization and uses the exact base-change identity. It does not infer scheme equality from field points or infer rank one from unrestricted local freeness.
+
+The general affine comparison uses the original fromSpec immersion, exact image-top equality, restrictAppIso, and the actual ring_square/ring_roundtrip. Consequently its equivalence is linear over the original Γ(X,U), and the transported finite-presentation/flat/every-prime-rank claims apply to literal Γ(M,U). The fifth specialization is the entire source inverse image of each actual target chart; no branch locus or zero section is removed.
+
+Nine application obligations checked: stated actual rank-one frame hypotheses; unchanged source objects; covering refinement and span-one; exact restriction maps; correct coefficient rings/scalars; explicit inverse and rank identities; whole-affine/fifth consumer match; exact source/log/audit provenance; retained conclusions and boundaries. All bound artifacts, predecessor receipts, and direct source pins match. The retained audit records 60 declarations in seven modules with kernel typechecking and only the three allowed standard axioms. Empty individual log files are not separately construed as proof of compilation; the final target audit and author provenance remain explicit.
+
+No global line generator, PicardGroup equivalence, target-pullback frame cover, determinant/Picard/Jacobian norm, polarization, differential trace or PEL realization is accepted from this packet. The target-neighborhood and original-sheaf-frame conclusions require their separately authored consumers.

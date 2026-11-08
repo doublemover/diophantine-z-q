@@ -1,0 +1,149 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "Actual finite-contact valuation inertia in the original full contact field is exactly identity/contact-root flip and has order two",
+  "sources": {
+    "SourceBranchValuation318.lean": "0e9b627eea1c2924ce7c86964916b00299300841f006ecfb544f7a7e24ae07a6",
+    "PrimeLocalizationInertia318.lean": "272205b19b0a030d2897d645f01cc5313bc20d5ced74c7158af27d7210e21076",
+    "SourceValuationInertia318.lean": "81ceec9a42d956d7f4d51809734ac75eb29e81bfb9427598087b84bdcf8fa9e3",
+    "SourceOrderFieldEquiv318.lean": "c07dcffec8e2dc792f63ec14a2bf3b7f51ef5b34f4cdedfa54bc387bf1824304",
+    "SourceValuationDecomposition318.lean": "a246354acc70f318ebbdf3c09eedc9d27177b5494318812aefe9f2cfe8f2d4d1",
+    "SourceValuationFullInertia318.lean": "045808682776479ddabb5c598bfc8da4c1cc4111442a9c8a84333261566fe65c"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "A Dedekind order in its exact fraction field, a nonzero prime, and compatible automorphisms are required.",
+      "constructed_input": "The whole original SourceOrder is normal by SourceGlobalAffine318, finite over Q[t], Noetherian and dimension at most one. The literal contact polynomial proves ker p nonzero.",
+      "justification": "The whole original SourceOrder is normal by SourceGlobalAffine318, finite over Q[t], Noetherian and dimension at most one. The literal contact polynomial proves ker p nonzero.",
+      "source_references": "SourceBranchValuation318.source_dedekind/prime_ne_bot",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Actual objects",
+      "required_input": "The valuation must be the one attached to the actual source branch prime in the original full field.",
+      "constructed_input": "place.asIdeal is definitionally ker p. valuationRing is HeightOneSpectrum.valuationSubringAtPrime in SourceFractionField318.L with the original embedding.",
+      "justification": "place.asIdeal is definitionally ker p. valuationRing is HeightOneSpectrum.valuationSubringAtPrime in SourceFractionField318.L with the original embedding.",
+      "source_references": "SourceBranchValuation318.place/actual_localization/equals_adic_valuation",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Index and domain",
+      "required_input": "All four contacts and every original unit twist and specified field-valued branch point must be covered.",
+      "constructed_input": "All c,i,p and literal ht are quantified. No fixed twist specialization, chosen named coordinates-only action or rational-point existence assumption is used. Arbitrary-prime reparametrization is not included.",
+      "justification": "All c,i,p and literal ht are quantified. No fixed twist specialization, chosen named coordinates-only action or rational-point existence assumption is used. Arbitrary-prime reparametrization is not included.",
+      "source_references": "All concrete theorem binders; README",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Local comparison",
+      "required_input": "The actual valuation automorphism must agree with the whole original field action everywhere.",
+      "constructed_input": "The localization extension agrees on every source element, then localization ringHom_ext proves the ambient square on every valuation-ring element.",
+      "justification": "The localization extension agrees on every source element, then localization ringHom_ext proves the ambient square on every valuation-ring element.",
+      "source_references": "PrimeLocalizationInertia318.lift/lift_algebraMap; SourceValuationInertia318.ambient_square",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Residue identity",
+      "required_input": "Inertia requires identity on the complete residue field, not just generators or the original quotient image.",
+      "constructed_input": "The exact local residue homomorphism is compared by localization extensionality; residue_surjective proves equality of the entire induced residue automorphism.",
+      "justification": "The exact local residue homomorphism is compared by localization extensionality; residue_surjective proves equality of the entire induced residue automorphism.",
+      "source_references": "PrimeLocalizationInertia318.residue_trivial_iff/residue_equiv_identity_iff; SourceValuationInertia318.residue_identity_iff_inertia",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Full field-group coverage",
+      "required_input": "Every actual valuation decomposition element must be covered, not only supplied root signs.",
+      "constructed_input": "fieldEquiv is the literal tensor/fraction-field extension, injective, surjective and multiplicative. Every decomposition g is sent to its inverse source automorphism; the built-in action is proved equal to the localized action.",
+      "justification": "fieldEquiv is the literal tensor/fraction-field extension, injective, surjective and multiplicative. Every decomposition g is sent to its inverse source automorphism; the built-in action is proved equal to the localized action.",
+      "source_references": "SourceOrderFieldEquiv318.fieldEquiv; SourceValuationDecomposition318.orderAut_preserves/action_eq_local",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Downstream object and both directions",
+      "required_input": "The concluded group must be Mathlib ValuationSubring.inertiaSubgroup on that valuation and field.",
+      "constructed_input": "mem_inertia_iff unfolds its actual residue-action kernel. ofOrder proves actual valuation stabilization. inertiaEquiv has both inverse identities. inertia_card and mem_inertia_field_exactly refer to that actual subgroup and original field signs.",
+      "justification": "mem_inertia_iff unfolds its actual residue-action kernel. ofOrder proves actual valuation stabilization. inertiaEquiv has both inverse identities. inertia_card and mem_inertia_field_exactly refer to that actual subgroup and original field signs.",
+      "source_references": "SourceValuationDecomposition318.mem_inertia_iff; SourceValuationFullInertia318.ofOrder/inertiaEquiv/inertia_card/mem_inertia_field_exactly",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required_input": "Final exact source bytes, predecessor versions and strict evidence must be bound.",
+      "constructed_input": "Each module has its own successful strict result or explicit MODULE exit0 marker. One pinned unchanged official source has independent bounded compile evidence. Hosted joined audit and non-author acceptance are pending.",
+      "justification": "Each module has its own successful strict result or explicit MODULE exit0 marker. One pinned unchanged official source has independent bounded compile evidence. Hosted joined audit and non-author acceptance are pending.",
+      "source_references": "receipt.json; check105/check110/check112/check113/check114",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    },
+    {
+      "name": "Conclusion limits",
+      "required_input": "Inertia order is not yet a formal ramification-index statement, infinity result or Jacobian identification.",
+      "constructed_input": "Those conclusions remain excluded; historical order-prime result is retained separately and consumed by an explicit new comparison.",
+      "justification": "Those conclusions remain excluded; historical order-prime result is retained separately and consumed by an explicit new comparison.",
+      "source_references": "README; SourceBranchFullInertia318 predecessor",
+      "evidence": [
+        "SourceBranchValuation318.lean",
+        "PrimeLocalizationInertia318.lean",
+        "SourceValuationInertia318.lean",
+        "SourceOrderFieldEquiv318.lean",
+        "SourceValuationDecomposition318.lean",
+        "SourceValuationFullInertia318.lean"
+      ]
+    }
+  ]
+}

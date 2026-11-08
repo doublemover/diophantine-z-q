@@ -1,0 +1,29 @@
+ACQUIRED 2026-11-08T10:31:49Z
+RESULT QuadraticCoordinateDerivative318 0
+RESULT FifthInfinityInvariantCoefficient318 0
+RESULT FifthInfinityInvariantRestriction318 0
+recovery-hodge-0358/fifth-infinity-normalization-work/FifthInfinityRegularMultiple318.lean:20:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a₁ • ?a₂ • ?b
+in the target expression
+  (InfinityOrderCoordinates318.coordinate units * a) •
+      (KaehlerDifferential.D ℚ I) (InfinityOrderCoordinates318.coordinate units) =
+    (↑v⁻¹ * a) •
+      (FifthInfinityInvariantCoefficient318.factor * InfinityOrderCoordinates318.coordinate units) •
+        (KaehlerDifferential.D ℚ I) (InfinityOrderCoordinates318.coordinate units)
+
+s : ↑Γ(M, ⊤)
+h : FifthDifferentialInvariantSummand318.Fixed s
+a : I
+ha :
+  form s =
+    (InfinityOrderCoordinates318.coordinate units * a) •
+      (KaehlerDifferential.D ℚ I) (InfinityOrderCoordinates318.coordinate units)
+v : FifthSourceInfinityCoordinates318.Iˣ
+hv : ↑v = FifthInfinityInvariantCoefficient318.factor
+⊢ (InfinityOrderCoordinates318.coordinate units * a) •
+      (KaehlerDifferential.D ℚ I) (InfinityOrderCoordinates318.coordinate units) =
+    (↑v⁻¹ * a) •
+      (FifthInfinityInvariantCoefficient318.factor * InfinityOrderCoordinates318.coordinate units) •
+        (KaehlerDifferential.D ℚ I) (InfinityOrderCoordinates318.coordinate units)
+RESULT FifthInfinityRegularMultiple318 1
+RELEASED 2026-11-08T10:32:36Z status=1
