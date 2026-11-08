@@ -1,7 +1,7 @@
 {
   "status": "checked-progress-checkpoint; not full sourceArithmetic",
-  "created_utc": "2026-11-08T01:06:25.416600+00:00",
-  "base_commit": "51b4fb388de98f5f79c37cebbf1b1b49a4395309",
+  "created_utc": "2026-11-08T01:18:15.060000+00:00",
+  "base_commit": "52743ce9390944eec47dd9fb9f3f07032ff7c678",
   "lean_version": "4.35.0",
   "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
   "root_modules": [
@@ -69,6 +69,10 @@
     "AllCuspFilling318",
     "AllCuspHausdorff318",
     "AllCuspInfinity318",
+    "AllCuspJ318",
+    "AllCuspJGlobal318",
+    "AllCuspJHolomorphic318",
+    "AllCuspJPole318",
     "AllCuspOverlap318",
     "AllCuspQJ318",
     "AllCuspTransitions318",
@@ -119,6 +123,7 @@
     "ClosedScaledEvaluation318",
     "CodimensionOneExtension318",
     "CompactMetricComparison318",
+    "ComplementSquareclass318",
     "CompleteContactEvaluation318",
     "CompletedFieldPoints318",
     "CompletedIntegral318",
@@ -218,6 +223,7 @@
     "EvenValuationNormalization318",
     "ExceptionalNegativity318",
     "FaithfullyFlatTorsor318",
+    "FamilyIntrinsicDifferentials318",
     "FiberCentralizer318",
     "FiberLinearStructure318",
     "FiberQuotientCovering318",
@@ -371,6 +377,8 @@
     "InfinityCoordinateDomain318",
     "InfinityCrossMaps318",
     "InfinityCrossOpen318",
+    "InfinityFieldCoordinates318",
+    "InfinityFieldMap318",
     "InfinityFiniteCompatibility318",
     "InfinityGlobalFormCompatibility318",
     "InfinityInputAlgebra318",
@@ -383,7 +391,9 @@
     "InfinityInputOverlapScheme318",
     "InfinityInputPolynomial318",
     "InfinityInputScheme318",
+    "InfinityOpenChart318",
     "InfinityOverlapSheaves318",
+    "InfinityParameters318",
     "InfinityRelativeDimension318",
     "InfinitySmooth318",
     "InfinityVietaAlgebra318",
@@ -399,6 +409,8 @@
     "IntegralScaledNorm318",
     "IntegralScaledSeries318",
     "IntegralSquareRoot318",
+    "IntrinsicHodgeComparison318",
+    "IntrinsicUniversalComparison318",
     "InvariantBaseChange318",
     "InvariantChartCover318",
     "InvariantChartForms318",
@@ -454,6 +466,8 @@
     "LucasCongruence318",
     "LucasGrowth318",
     "LucasWitness318",
+    "MarkedDiamond318",
+    "MarkedPeriod318",
     "MatrixCongruence318",
     "MatrixThreeTorsion318",
     "MeromorphicContinuation318",
@@ -537,6 +551,7 @@
     "ProperOpenJNormalization318",
     "PushforwardGlobalSections318",
     "QuadraticBundleEquivalence318",
+    "QuadraticContactSquareclass318",
     "QuadraticDiscriminant318",
     "QuadraticFiber318",
     "QuadraticFormalBasis318",
@@ -662,9 +677,13 @@
     "SourceSelectedCongruences318",
     "SourceSeparation318",
     "SourceSplitLog318",
+    "SourceTwistArithmetic318",
+    "SourceTwistFieldEquiv318",
+    "SourceTwistRecovery318",
     "SplitReciprocalDepth318",
     "SquareFactorization318",
     "SquareReflection318",
+    "StructurePushforwardSplit318",
     "SymmetricMixedAddition318",
     "TameCoordinate318",
     "TameLinearization318",
@@ -688,6 +707,7 @@
     "TorusInjective318",
     "TorusPointInterface318",
     "TripleOpen318",
+    "TripleQuadraticField318",
     "TwoChartGluing318",
     "UniformizingSectionBounds318",
     "UnitDifferential318",
@@ -696,6 +716,7 @@
     "UnitRamifiedIntegral318",
     "UnitRamifiedPullback318",
     "UnitSquareclasses318",
+    "UniversalSheafDifferentials318",
     "UnramifiedDifferent318",
     "ValuationLucasOrientation318",
     "VectorBundleRegistration318",
@@ -722,7 +743,7 @@
     "WronskianCoefficient318",
     "WronskianFinite318"
   ],
-  "module_count": 813,
+  "module_count": 834,
   "module_order": [
     "RationalAbsoluteHeight",
     "QuarticOptimization",
@@ -1536,7 +1557,28 @@
     "AllCuspTransitions318",
     "AllCuspComplexCurve318",
     "AllCuspEmbeddings318",
-    "AllCuspConnected318"
+    "AllCuspConnected318",
+    "AllCuspJ318",
+    "InfinityFieldCoordinates318",
+    "MarkedPeriod318",
+    "QuadraticContactSquareclass318",
+    "SourceTwistArithmetic318",
+    "UniversalSheafDifferentials318",
+    "AllCuspJHolomorphic318",
+    "ComplementSquareclass318",
+    "FamilyIntrinsicDifferentials318",
+    "InfinityParameters318",
+    "IntrinsicUniversalComparison318",
+    "MarkedDiamond318",
+    "AllCuspJPole318",
+    "IntrinsicHodgeComparison318",
+    "SourceTwistRecovery318",
+    "StructurePushforwardSplit318",
+    "TripleQuadraticField318",
+    "AllCuspJGlobal318",
+    "InfinityFieldMap318",
+    "InfinityOpenChart318",
+    "SourceTwistFieldEquiv318"
   ],
   "modules": {
     "RationalAbsoluteHeight": {
@@ -4792,6 +4834,92 @@
     "WidthLocalInverse318": {
       "sha256": "153596b6080e91447dd348771876d0d438956aa336bbdf55392442fd76cf9cc4",
       "origin": "all-cusp-complex-atlas/WidthLocalInverse318.lean"
+    },
+    "SourceTwistArithmetic318": {
+      "sha256": "5dcd3c3561a45bd423abaafb19e50a4b2e9c4f418b49d607b5678f5854f836d3",
+      "origin": "resumed-source-twists/SourceTwistArithmetic318.lean"
+    },
+    "ComplementSquareclass318": {
+      "sha256": "15f30f2353cbf8563dbdb4f997b6f60ed03aea1ac3c26c9729b660fd67068b79",
+      "origin": "resumed-source-twists/ComplementSquareclass318.lean"
+    },
+    "SourceTwistRecovery318": {
+      "sha256": "bebec63fb572832bcb6f2b1ad05b120dc58fcb0a46f63104cd7f942b20636f37",
+      "origin": "resumed-source-twists/SourceTwistRecovery318.lean"
+    },
+    "SourceTwistFieldEquiv318": {
+      "sha256": "1b0fc98457bb99bce6327e04fbbeb1e67eaf5d8723d6a94d842d253331539ef7",
+      "origin": "resumed-source-twists/SourceTwistFieldEquiv318.lean"
+    },
+    "AllCuspJ318": {
+      "sha256": "3696ae05fe8cc60e540c49787a1b12f2ac32ed24a7a29202e7584797e9e29d24",
+      "origin": "all-cusp-meromorphic-j/AllCuspJ318.lean"
+    },
+    "AllCuspJHolomorphic318": {
+      "sha256": "caf062063850de8e11203000f23e78d6156a1d96d51b0d5e89b24e0498ec8c80",
+      "origin": "all-cusp-meromorphic-j/AllCuspJHolomorphic318.lean"
+    },
+    "AllCuspJPole318": {
+      "sha256": "71392d6de384976725b620ebc46bbe51319b34ebf4d6ec0f625b1fa424a977fb",
+      "origin": "all-cusp-meromorphic-j/AllCuspJPole318.lean"
+    },
+    "AllCuspJGlobal318": {
+      "sha256": "388cac13308ed36c13bf6c3e62d5cc9cf99ed87832790a7be39ed2dc1ae912f4",
+      "origin": "all-cusp-meromorphic-j/AllCuspJGlobal318.lean"
+    },
+    "MarkedPeriod318": {
+      "sha256": "893b064a3ba6e6768abf56cafed5138c6ba881fa1920a9e64244e607a6c4b3a0",
+      "origin": "marked-period-comparison/MarkedPeriod318.lean"
+    },
+    "MarkedDiamond318": {
+      "sha256": "88dfb9478b2ce37dd4c2e3f730237d2733f158723b0dbee6de40ac95c164bb00",
+      "origin": "marked-period-comparison/MarkedDiamond318.lean"
+    },
+    "FamilyIntrinsicDifferentials318": {
+      "sha256": "352df4f1ede42c006ee3a108431af47a7d0bd23781c0430b96ce59325050603a",
+      "origin": "restarted-intrinsic-differentials/FamilyIntrinsicDifferentials318.lean"
+    },
+    "IntrinsicHodgeComparison318": {
+      "sha256": "5e1f4e2ec6835c8312042b5a7db96802205b56abdf1716199e6730ce2fcefe92",
+      "origin": "restarted-intrinsic-differentials/IntrinsicHodgeComparison318.lean"
+    },
+    "IntrinsicUniversalComparison318": {
+      "sha256": "1f72802af262b2362fba82ca9025280bd5ce27d9f116389a3bce0e92608012ad",
+      "origin": "restarted-intrinsic-differentials/IntrinsicUniversalComparison318.lean"
+    },
+    "StructurePushforwardSplit318": {
+      "sha256": "e5e026d89e7467e29a6deefd9e7f94a5c069cc994dc028f54586d8eae8a70c9f",
+      "origin": "restarted-intrinsic-differentials/StructurePushforwardSplit318.lean"
+    },
+    "UniversalSheafDifferentials318": {
+      "sha256": "43620b633702fdade1429305f4f7e09413ad1e890c3949b23cbf11bc70e50bf1",
+      "origin": "restarted-intrinsic-differentials/UniversalSheafDifferentials318.lean",
+      "producer_sha256": "b113f211f8c3b622afb1509df2b02ab9b97ad49c266f3e3f8d4ef7517c7ced81",
+      "integration_change": "Canonical pinned Mathlib imports replace renamed source copies; proof body unchanged."
+    },
+    "InfinityFieldCoordinates318": {
+      "sha256": "50083b3ac4e6085d1d57286b61ab3494cb65d9563f55196532ea961bea7cd16a",
+      "origin": "resumed-infinity-contact/InfinityFieldCoordinates318.lean"
+    },
+    "QuadraticContactSquareclass318": {
+      "sha256": "a01eca1316763b952edc12fdea99aa60a127a5a61d384982b0ff57cbab4692c8",
+      "origin": "resumed-infinity-contact/QuadraticContactSquareclass318.lean"
+    },
+    "InfinityParameters318": {
+      "sha256": "2df81075b8f90e001502f237e8140f9affc95809d614a66be98f35062292c209",
+      "origin": "resumed-infinity-contact/InfinityParameters318.lean"
+    },
+    "TripleQuadraticField318": {
+      "sha256": "86c201de614b768e64e73632e4fcb5466c22a2b4b5ab5ac9d0334846b0c7af2d",
+      "origin": "resumed-infinity-contact/TripleQuadraticField318.lean"
+    },
+    "InfinityOpenChart318": {
+      "sha256": "76b9f2e364b98acb3d7ba8e7f6aea231579bc324a62a5eac0bf6ff75d51582e2",
+      "origin": "resumed-infinity-contact/InfinityOpenChart318.lean"
+    },
+    "InfinityFieldMap318": {
+      "sha256": "450f33c6c809ff94dd502aab3536bfb12c3c4f95f8c542a5ed81ddad2e177ff6",
+      "origin": "resumed-infinity-contact/InfinityFieldMap318.lean"
     }
   },
   "shared_source_variants": [],
@@ -5401,6 +5529,21 @@
     },
     "all-cusp-complex-atlas": {
       "receipt_directory": "receipts/all-cusp-complex-atlas"
+    },
+    "resumed-source-twists": {
+      "receipt_directory": "receipts/resumed-source-twists"
+    },
+    "all-cusp-meromorphic-j": {
+      "receipt_directory": "receipts/all-cusp-meromorphic-j"
+    },
+    "marked-period-comparison": {
+      "receipt_directory": "receipts/marked-period-comparison"
+    },
+    "restarted-intrinsic-differentials": {
+      "receipt_directory": "receipts/restarted-intrinsic-differentials"
+    },
+    "resumed-infinity-contact": {
+      "receipt_directory": "receipts/resumed-infinity-contact"
     }
   },
   "integration_adjustments": [
@@ -5415,6 +5558,15 @@
         "Mathlib.CategoryTheory.Limits.Final.Type",
         "Mathlib.Algebra.Category.ModuleCat.Sheaf.PullbackFree"
       ]
+    },
+    {
+      "module": "UniversalSheafDifferentials318",
+      "kind": "canonical upstream imports",
+      "producer_source_sha256": "b113f211f8c3b622afb1509df2b02ab9b97ad49c266f3e3f8d4ef7517c7ced81",
+      "integrated_source_sha256": "43620b633702fdade1429305f4f7e09413ad1e890c3949b23cbf11bc70e50bf1",
+      "replacements": {
+        "MathlibPresheafDifferentials318": "Mathlib.Algebra.Category.ModuleCat.Differentials.Presheaf"
+      }
     }
   ]
 }
