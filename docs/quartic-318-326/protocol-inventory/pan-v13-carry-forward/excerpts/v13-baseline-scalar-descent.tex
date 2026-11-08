@@ -1,0 +1,91 @@
+ &\le2B_{\rm cm}+4096(1028+5D+84000D^2)=C_{\rm cm}.
+\end{align*}
+For the last line use $\log28<4$, $\log d\le D$, and
+$\log(2B_{\rm cm})\le2+2D+42000D^2$.
+No bound for the degree of the auxiliary good-reduction extension
+enters the isogeny estimate.
+
+\paragraph{Non-CM fibers and scalar descent.}
+Now suppose $\operatorname{End}^0(A_{\overline\Q})=B$.
+In particular $A$ is absolutely simple. For each
+$\sigma\in\operatorname{Gal}(L/\Q)$ choose a geometric isomorphism
+$\psi_\sigma:{}^\sigma A\to A$. The automorphism
+$b\mapsto\psi_\sigma{}^\sigma b\psi_\sigma^{-1}$ of $B$ is inner.
+Correcting it by Skolem--Noether and clearing denominators gives
+a $B$-linear isogeny $\mu_\sigma:{}^\sigma A\to A$, defined over
+$L$ because all the relevant Hom groups are defined there. Take
+$\mu_1=1$ and inflate this finite choice to $G_\Q$.
+The discrepancy
+\[
+ c(\sigma,\tau)=
+ \mu_\sigma{}^\sigma\mu_\tau\mu_{\sigma\tau}^{-1}
+\]
+commutes with $B$, hence belongs to $\Q^\times$.
+Set $a_\sigma=(\deg\mu_\sigma)^{-1/4}>0$ and
+$\nu_\sigma=a_\sigma\mu_\sigma$ in the category with algebraic
+coefficients. Throughout these coefficient extensions Galois acts on
+the varieties and morphisms and acts trivially on the added scalars;
+the induced homology maps are extended linearly. In particular, the
+$a_\sigma$ are constant coefficients in the products below.
+Multiplicativity of degree and
+$\deg[c]=c^4$ show that
+\[
+ \nu_\sigma{}^\sigma\nu_\tau
+       =\varepsilon(\sigma,\tau)\nu_{\sigma\tau},
+ \qquad \varepsilon(\sigma,\tau)\in\{1,-1\}.
+\]
+Thus $\varepsilon$ is a normalized sign cocycle inflated from
+$\operatorname{Gal}(L/\Q)$. Only finitely many algebraic
+coefficients $a_\sigma$ occur.
+
+We need a splitting with controlled ramification, not merely
+existence of a projective lift. Identify
+$H^2(G_\Q,\{1,-1\})$ with $\operatorname{Br}(\Q)[2]$.
+At a finite prime outside $T$ the class of $\varepsilon$ is zero:
+its restriction is unramified and the unramified local quotient
+has cohomological dimension one. Let $T_-$ be the finite primes
+where its invariant is $1/2$. For each odd $p\in T_-$ choose an
+odd character of $(\Z/p\Z)^\times$; at $2\in T_-$ use the
+nontrivial character modulo four. Their product is a Dirichlet
+character $\chi$, unramified outside $T$, whose order $m$ satisfies
+\[
+ m\le2\prod_{\substack{p\in T\\p\ne2}}(p-1)
+       \le2R^R M.
+\]
+Here the product over an empty set is one.
+
+To check that $\chi$ has the required square-root obstruction,
+use the exact sequence of constant discrete Galois modules
+$1\to\{\pm1\}\to\mu_\infty\xrightarrow{z\mapsto z^2}
+\mu_\infty\to1$. By local reciprocity, a finite-order character
+of $G_{\Q_p}$ has a character square root exactly when its value
+on $-1\in\Q_p^\times$ is $1$. Indeed this is the only obstruction
+on the torsion part of $\Q_p^\times$; the valuation factor and
+the procyclic principal-unit factors admit such roots. Hence the
+boundary of $\chi$ and $[\varepsilon]$ agree at every finite
+place. Brauer reciprocity makes them agree at the real place,
+and the injective global-to-local Brauer map makes them equal
+globally \cite[Chapter I]{milne}.
+Choosing a continuous pointwise square root of $\chi$ and
+correcting it by a sign cochain consequently gives a continuous
+cochain $\beta:G_\Q\to\mu_{2m}$ such that
+\[
+ \beta^2=\chi,\qquad
+ \beta(\sigma)\beta(\tau)\beta(\sigma\tau)^{-1}
+        =\varepsilon(\sigma,\tau).
+\]
+Its restriction to $G_L$ is a character invariant under $G_\Q$.
+Outside $T$, its inertia restrictions are quadratic and nontrivial
+at only finitely many primes. Twisting by the quadratic character
+of the product of those odd primes kills all these restrictions:
+at an odd prime there is a unique nontrivial quadratic character
+on inertia. This introduces ramification only at those primes
+and possibly at $2\in T$, and changes neither displayed identity.
+We henceforth use this choice of $\beta$.
+
+Let $L'$ be the kernel field of $\beta|_{G_L}$.
+Conjugacy invariance shows that $L'/\Q$ is Galois, and
+\[
+ [L':\Q]\le2md\le4DR^R M\le QM.
+\]
+The last inequality follows from $R\ge\max(D,10^{12})$ and
