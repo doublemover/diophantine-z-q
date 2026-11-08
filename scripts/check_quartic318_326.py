@@ -26,6 +26,7 @@ run("generate", sys.executable, "-B", "tools/generate.py", "--check")
 for check in sorted((PACKAGE / "checks").glob("*/*.py")):
     run(check.parent.name + "-" + check.stem, sys.executable, "-B", check)
 run("unit-tests", sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests", "-v")
+run("progress-manifest", sys.executable, "-B", "proof/progress/verify_manifest.py")
 for part, manifest in (("318", "concrete-verification.json"),
                        ("components", "verification.json")):
     base = PACKAGE / "proof" / part
@@ -39,4 +40,5 @@ for part in ("318", "components"):
     assert hashlib.sha256((receipt_dir / (part + "-manifest.json")).read_bytes()).hexdigest() == source_check["packages"][part]["manifestSHA256"]
 print("PASS: fresh Lean rebuild evidence and added proof-source hashes match.")
 print("PASS: both quartics reproduced; independent finite checks, unit tests, and frozen Lean hashes passed.")
+print("PASS: progress snapshot source hashes, closed imports, build order, and placeholder checks. This is not a Lean replay.")
 print("Lean was not rebuilt by this command; sourceArithmetic remains an explicit hypothesis.")

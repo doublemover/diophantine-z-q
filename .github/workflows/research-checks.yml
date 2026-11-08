@@ -98,6 +98,7 @@ jobs:
       - run: python scripts/check_construction.py --report build/construction-checks.json
       - run: python -B docs/audit-history/issue3/replay_row_hash.py
       - run: python scripts/check_lean.py
+      - run: python -B -m unittest discover -s scripts -p 'test_*lean*.py' -v
       - name: Validate theorem inventory bindings and references
         run: python docs/theorem-application-audit/validate.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -154,7 +155,13 @@ jobs:
       # Mathlib tree again can exhaust the runner's disk during cache saving.
       - name: Fetch pinned dependency cache
         working-directory: lean
-        run: lake exe cache get
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B ../scripts/lean_cache_targets.py > "$RUNNER_TEMP/lean-cache-targets.txt"
+          mapfile -t targets < "$RUNNER_TEMP/lean-cache-targets.txt"
+          test "${#targets[@]}" -gt 0
+          lake exe cache get "${targets[@]}"
       - name: Build every helper from fresh project artifacts and audit axioms
         run: python scripts/check_lean.py --build --output build/lean-ci
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
