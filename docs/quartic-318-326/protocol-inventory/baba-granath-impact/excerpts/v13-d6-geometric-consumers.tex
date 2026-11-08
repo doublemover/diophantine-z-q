@@ -1,0 +1,139 @@
+\begin{theorem}[Six-contact estimate]\label{thm:height}
+For every such $S,R$ and every $u\in\Q\setminus\Cset$,
+\[
+ h(u)\le H_6(S;R)M_S(u)^{24}.
+\]
+\end{theorem}
+\begin{proof}
+Take $B=(2,-3)$, the maximal order $\mathcal O=\Z[i,(1+j)/2]$, and
+$\mu=2j+ij$. With its positive sign choice, the form
+$\Trd(\mu^{-1}x\overline y)$ has matrix
+\[
+ \begin{pmatrix}0&0&-1&1\\0&0&1&-2\\1&-1&0&0\\-1&2&0&0\end{pmatrix}
+\]
+and determinant one, in the ordered basis
+$(1,i,(1+j)/2,(i+ij)/2)$. The Riemann form is the convention of
+\cite[equation (3) and Lemma 3]{linyang}; its Rosati involution is
+$a\mapsto\mu^{-1}\overline a\mu$. This is the principal-polarization datum whose
+normalizer quotient is $\mathbf P^1_j$, with branch values
+$0,\infty,-16/27$ and indices $4,6,2$ \cite{babagranath,linyang}.
+Put $K_0=\widehat{\mathcal O}^{\,*}$ and
+$K_3=\ker(K_0\longrightarrow(\mathcal O/3\mathcal O)^*)$.
+Let $N$ be the finite-adelic normalizer of $\widehat{\mathcal O}$.
+It normalizes $K_3$. At a split prime the local normalizer is the
+center times the maximal-order units; at each of the two division
+primes its quotient by these groups has order two. Thus
+$|N/(\mathbb A_f^*K_0)|=4$.
+A central finite idele acts trivially on the level-three curve:
+multiply it by a rational scalar to remove all finite valuations,
+and choose the scalar's sign so that the residue at three is one.
+The remaining idele lies in $K_3$, and the rational central scalar
+acts trivially on the symmetric domain. Consequently the entire
+level-three curve $Y_3$, with all its determinant components, admits
+the action of $N/(\mathbb A_f^*K_3)$ with quotient $\mathbf P^1_j$,
+and
+\[
+ \deg(Y_3\longrightarrow\mathbf P^1_j)
+ \le4|(\mathcal O/3\mathcal O)^*|\le4\cdot81=324.
+\]
+
+We construct its integral model without changing this degree.
+Apply \cite[Theorem 2.1 and Corollary 2.3]{buzzard} to $V_1(5)$
+over $\mathbb Z[1/30]$. Its determinant image is full, its level
+is maximal at the division primes, and $5\ge4$ is prime to six.
+First add a full five-marking refining the $V_1(5)$-marking.
+This gives the full-five moduli scheme, including every determinant
+component, as a finite \'{e}tale cover. Next add the finite \'{e}tale sheaf
+\[
+ \operatorname{Isom}_{\mathcal O}
+       ((\mathcal O/3\mathcal O),A[3]).
+\]
+This sheaf is nonempty on every geometric fiber. Indeed $B_3$ is
+a division algebra and the rational Tate module is a rank-one
+left $B_3$-module. Every $\mathcal O_3$-stable lattice in that module
+is principal: choose a nonzero lattice element of least division
+valuation and divide every other element by it on the right.
+Thus the Tate lattice is free of rank one over $\mathcal O_3$.
+One can also check this in characteristic zero and extend it to
+all fibers by local constancy of the finite \'{e}tale $A[3]$ with its
+$\mathcal O$-action.
+
+The resulting smooth projective scheme $X_{35}$ carries full
+markings at three and five. The group
+$G_5=(\mathcal O/5\mathcal O)^*$ changes only the five-marking.
+Its action is free: a stabilizer would give a polarized automorphism
+preserving the full three-marking, hence a finite-order element of
+$1+3M_4(\mathbb Z_3)$. That group is torsion-free, as follows by
+expanding a hypothetical prime-order element at its first nonzero
+$3$-adic term. The automorphism is therefore the identity, and
+the full five-marking forces the group element to be the identity.
+The quotient $X_{35}/G_5$ is smooth projective, its covering map is
+finite \'{e}tale, and the universal abelian scheme, its canonical
+principal polarization, its $\mathcal O$-action and its three-marking
+descend. This quotient represents exactly the full-three moduli
+problem, so its generic fiber is $Y_3$. The auxiliary five-marking
+has contributed no degree factor to $Y_3\to\mathbf P^1_j$.
+
+Each geometric component of $Y_3$ is a torsion-free cover of the
+norm-one orbifold of Euler characteristic $-1/3$, and hence has genus
+at least two. The normalizer action extends to its smooth proper
+model by uniqueness of the stable model, including permutations of
+components. Fix $p>324$ and work after strict henselization.
+The action is tame. On each component use its effective action.
+A finite-order automorphism of order prime to $p$ cannot specialize
+to the identity, by considering its first nonzero term modulo a
+power of the uniformizer. At a fixed point the same power-series
+argument shows that the tangent character of the stabilizer is
+faithful. Thus the stabilizer is cyclic.
+
+For a nonidentity generator the tangent eigenvalue minus one is a
+unit. Its fixed-point equation therefore has a unique lift by
+Hensel's lemma. All powers of the generator fix that lift. It follows
+that no new branch orbit appears and that distinct branch orbits
+cannot collide: their stabilizers at a purported common specialization
+would belong to one cyclic group, whose nontrivial elements have the
+same unique fixed lift. Averaging a parameter gives a local invariant
+ring $R[[z^e]]$. Hence the quotient is smooth and retains the three
+disjoint branch sections and their indices $4,6,2$.
+
+Its genus-zero model with these three ordered sections is isomorphic
+to $\mathbf P^1_{\mathbb Z_p}$ carrying the ordered triple
+$(0,\infty,-16/27)$, which is disjoint since $2$ and $3$ are units.
+The isomorphism agrees with $j$ on the generic fiber, by uniqueness
+of a projective coordinate on three points. Thus it is the integral
+model in the stated $j$-coordinate; no further denominator prime
+has been discarded.
+
+Pull back by $J(u)=-57600F(u)^2/G(u)^6$. If
+\[
+ H(u)=(u^2-60u-1800)(13u^2+480u+3600)(11u^2+600u+7200),
+\]
+direct calculation gives $G^6-97200F^2=H^2$. The pullback indices are
+$2,6,2$. Tame normalization replaces $e$ by $e/\gcd(e,a)$ and leaves
+$2,1,1$. The discriminants and resultants have prime support at most 13,
+so this persists at $p>324$. The normalized cover of $\mathbf P^1_u$
+has degree at most 324, not $12\cdot324$, and is branched only at the
+six contacts. Locally it has equation $u-c=z^2$ after unramified
+extension. Positive even contact valuation is unramified; negative
+valuation specializes to the unbranched point at infinity. This is
+exactly the support specified by $M_S(u)$.
+
+Let $K$ be the splitting field of the fiber over $u$ of the normalized
+cover. The fiber is finite \'{e}tale of degree at most $324$, so $K/\mathbb Q$
+is normal with $[K:\mathbb Q]\le F_0=324!$. The preceding local
+calculation makes it unramified outside
+$T=S\cup\operatorname{supp}M_S(u)$. Choose a fiber $A/K$.
+The proper model and its universal abelian scheme give good reduction
+outside the places over $S$.
+
+All conjugates of $A$ have the same geometric polarized moduli point.
+Indeed Baba--Granath's polarized equivalence relation gives
+$V_{\mathbb Z}=V/W$; for discriminant six its two twisting involutions
+generate the whole Atkin--Lehner group $W$. On the finite nonzero
+$j$-locus the polarized point is equivalently specified by
+\[
+ [J_2,J_4,J_6,J_{10}]
+ =[12(j+1),6(j^2+j+1),4(j^3-2j^2+1),j^3].
+\]
+Here $j=J(u)$ is rational, finite and nonzero: $F(u)\ne0$ and
+$\operatorname{disc}(G)=-10800<0$.

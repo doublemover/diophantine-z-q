@@ -1,0 +1,29 @@
+\[
+ \bigvee_{c\in\Cset}(N=\iota(c)\wedge t=c)
+ \quad\vee\quad
+ \exists\mathcal K\,
+ (\Close(N,\mathcal K,t)\wedge\Test(N,\mathcal K,t)).
+\]
+The same five coordinates $\mathcal K$ are used in both calls.
+In an accepting main branch $n\notin\Cset$, $\kappa\ne0$, and
+Lemma~\ref{lem:test} and the height estimate imply
+\[
+ h(t)\le H_6(S_{\rm ht})|\kappa F(n)|^{24}=B(n,\kappa).
+\]
+For $t=a/b\ne n$ in reduced form, $|a-nb|\ge1$, hence
+\[
+ |t-n|\ge1/b\ge e^{-h(t)}\ge e^{-B(n,\kappa)},
+\]
+contradicting~\eqref{eq:close-sound}. Thus $t=n$.
+Conversely choose $\kappa$ by Lemma~\ref{lem:test-complete}, then use
+\eqref{eq:close-complete} for that same shift. Private witness blocks
+are disjoint, so the two calls can be satisfied simultaneously.
+The six remaining integers have exactly their displayed branches.
+
+Therefore $\Val(\iota(n),t)$ is exactly the graph $t=n$.
+Existentially quantifying $N$ gives ordinary $\Z$ in $\Q$.
+S01 and S16 multiply the exception and main-branch polynomials and
+conjoin membership by a sum of squares. The literal substitutions in
+Section~\ref{sec:syntax} and Appendix~\ref{app:literal} identify this
+polynomial with the saved root $P_*$. This proves the zero-set part of
+Lemma~\ref{lem:assembly}.

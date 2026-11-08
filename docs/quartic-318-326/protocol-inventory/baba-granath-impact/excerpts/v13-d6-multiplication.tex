@@ -1,0 +1,45 @@
+To specify the height certificate, write the abscissa of each input as
+$x_{i0}+x_{i1}s$, using $x_{i0}=x_{i1}=0$ at the identity. Choose
+$a_{i0},a_{i1},b_i\in\Q$ with $b_i\ne0$ and
+$b_i x_{ij}=a_{ij}$. Express each of these nine rational quantities
+as a sum of three slopes. Impose the preceding slope predicate on
+all 27 slopes, with private witnesses, and impose membership on the
+three input codes. This conjunction is the height certificate.
+The multiplication predicate conjoins it with the fixed scalar
+graphs and the inverse of the finite guard below.
+
+\begin{proposition}[Finite-box deduction]\label{prop:box}
+Assuming these local test identities and the height estimate for
+$S_{\rm mul}$ with constant $A_{\rm ht}$, every false triple accepted
+by the unguarded certificate has $\max_i|n_i|<T=(48A_{\rm ht})^{13}$.
+\end{proposition}
+\begin{proof}
+Put $f=n_1n_2-n_3\ne0$. For each of the 27 slopes,
+$M_{S_{\rm mul}}(t)^{25}\mid f$, so $h(t)\le A_{\rm ht}|f|^{24/25}$.
+The nine rational homogeneous quantities for the three abscissas
+are sums of three slopes. The sum and quotient height bounds give
+$h(x_j)\le6A_{\rm ht}|f|^{24/25}+2\log3$ for each rational component.
+The fixed coordinate change and the duplication bounds yield
+\[
+ 2n_i^2\widehat h(P_0)\le12A_{\rm ht}|f|^{24/25}+B_0,
+\]
+where $2\widehat h(P_0)>1$ and
+$B_0=4\log3+\tfrac32\log2+2\log(1+\sqrt2)+\tfrac13\log676<10$.
+For $N=\max|n_i|$, $|f|\le2N^2$, so
+$N^2<24A_{\rm ht}N^{48/25}+10$.
+If $N\ge5$, this implies $N^{2/25}<48A_{\rm ht}$, hence
+$N<(48A_{\rm ht})^{25/2}\le T$. The case $N\le4$ is immediate.
+\end{proof}
+
+For each false triple $(a,b,c)\in[-T,T]^3$, write its fifteen code
+coordinates as $A_j/B_j$ with $B_j>0$, put $D_{abc}=\prod B_j$, and
+form
+\[
+ g_{abc}(X)=\sum_{j=1}^{15}
+       (D_{abc}X_j-(D_{abc}/B_j)A_j)^2.
+\]
+The guard requires the product of all these factors to have an inverse.
+A false accepted triple makes its own factor zero. At a true triple
+every factor is positive by injectivity of codes, and the inverse exists.
+Thus the sound direction uses the generator and corrected all-$S$
+height theorem but does not use pole completeness.

@@ -1,0 +1,70 @@
+\paragraph{The metric comparison, with its exact additive budget}
+Put $t=32s$, $(a_1,a_2,a_3,a_4)=(0,32,76832,-343)$ and
+$P(t)=\prod_i(t-a_i)$. The sections
+\[
+ q_0=(dt)^2/P(t),\qquad q_1=tq_0
+\]
+are holomorphic bicanonical sections on $X$, with no common zero. At a
+finite branch point use $t-a_i=z^2$; at infinity use $t=z^{-2}$.
+At infinity $q_0$ vanishes to order two and $q_1$ does not vanish.
+
+For each prime let $\delta_p=\max_{i<j}v_p(a_i-a_j)$, so
+\[
+ J=\prod_p p^{\delta_p}=2^{10}3^2 5^3 7^4=2765952000.
+\]
+Both $J^2q_i$ extend across the maximal regular stack. Indeed, at the
+generic point of a vertical component semistability makes $p$ a
+uniformizer, and the relative differential satisfies $v(du)\ge v(u)$.
+Writing $r_i=v(t-a_i)$ gives $v(dt)\ge\max r_i$. If $v(t)<0$, all $r_i$
+equal $v(t)$ and both sections have nonnegative valuation. Otherwise all
+$r_i\ge0$ and at most one exceeds $\delta_p$. In either case
+$2\max r_i-\sum r_i\ge-2\delta_p$. This proves the required vertical
+integrality; regularity handles codimension two.
+
+For the archimedean estimate write $r_i=|t-a_i|$, $U_0=1+\sum_i r_i$ and
+\[
+ ds_\rho^2=\frac{U_0}{\prod_i r_i}|dt|^2,\qquad
+ C_{\rm met}=16(12\cdot76832+9)^3=12540153541944538512.
+\]
+Its pullback is smooth and positive at every branch point and infinity.
+The curvature formula, $\Delta U_0=\sum_i r_i^{-1}$ and
+$|\nabla U_0|^2\le16$ give
+\[
+ -K_\rho\ge\frac{\sum_i\prod_{j\ne i}r_j}{2U_0^3}.
+\]
+When $|t|\le2\cdot76832+2$, at most one $r_i<1/2$, and
+$U_0\le12\cdot76832+9$. The displayed bound is at least
+$C_{\rm met}^{-1}$. Outside this disk, $|t|/2\le r_i\le3|t|/2$
+and $U_0\le7|t|$, giving the stronger bound $1/1372$.
+The maximum principle against the curvature $-1$ metric implies
+$ds_\rho^2/C_{\rm met}\le ds_{\rm hyp}^2$. Yuan's Petersson norm is
+$\|d\tau\|=2\operatorname{Im}\tau$. Consequently
+\[
+ \|q_0\|_{\rm Pet}\le4C_{\rm met}/U_0,\qquad
+ \|q_1\|_{\rm Pet}\le4C_{\rm met}|t|/U_0\le4C_{\rm met}.
+\]
+
+Yuan's isometry \cite[Theorem 1.1 and metric definitions, pp.~2--3]{Yuan2024} identifies the square of the Hodge bundle with
+$210\omega_{\mathscr X}^{\otimes2}$ with the induced metric. The Hodge
+height in his normalization equals the original stable Faltings height
+plus $\log\pi$ in dimension two. Thus
+\[
+ h_{\bar\omega^{\otimes2}}(y)=2h_F(A_y)+2\log\pi+\log210.
+\]
+The sign of $\log210$ is positive: the sublattice $210\omega^{\otimes2}$
+has height $h_{\bar\omega^{\otimes2}}-\log210$. Evaluate on an extension
+where the point extends to the proper maximal stack; its universal
+abelian scheme computes stable height. The integral sections and the
+supremum estimate yield
+\[
+ h(s)\le2h_F(A_y)+2\log\pi+\log210+2\log J
+                       +\log(4C_{\rm met})+\log32.
+\]
+The integer comparison
+$210J^2(4C_{\rm met})32\cdot16<2^{160}$, together with $\pi<4$ and
+$\log2<3/4$, bounds the additive term by $120<128$. Therefore
+\[
+ h(s)\le2\max(0,h_F(A_y))+128.
+\tag{G}\label{eq:h5-G}
+\]
+

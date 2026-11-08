@@ -1,0 +1,83 @@
+{
+  "id": "V13-LI-SHIMURA-FALTINGS-JACOBIAN-INDEPENDENT",
+  "active_target_sha256": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+  "reviewer": "/root/restart_modular_curve",
+  "independent_of_target_authors": true,
+  "status": "ACCEPT_BOUNDED_SOURCE_APPLICATION_WITH_NAMED_UPSTREAM_PREMISES",
+  "decision": "The exact Fricke premise, Q-defined modular quotient, chosen Tate constituent, coefficient descent of Hom, and same-field isogeny consumer match the inspected source interfaces.",
+  "nine_obligations": [
+    {
+      "name": "source_hypotheses",
+      "required": "A normalized weight-two common Hecke eigenform on a group between Gamma1(N) and Gamma0(N); Fricke-stable full conjugate span for Shimura’s zeta conclusion.",
+      "constructed": "The finite twist has already been absorbed and the final normalized primitive newform f of level N and nebentypus epsilon has been chosen.",
+      "why_match": "Use Gamma1(N), not the easier Gamma0(N) alternative. Li’s actual arbitrary-character newform relation supplies the extra Fricke premise.",
+      "evidence": "baseline-modular-quotient; Li pp.285,294,296,298; Shimura Theorem 1"
+    },
+    {
+      "name": "constructed_objects",
+      "required": "An actual Q-defined quotient A_f of the same J1(N) with the relevant differential and Euler-factor data.",
+      "constructed": "Shimura supplies q:J1(N)→A_f over Q, dim A_f=[K_f:Q], coefficient-field endomorphisms, and the pullback differential span of every coefficient conjugate.",
+      "why_match": "The quotient is geometric and Q-defined by the source theorem. It is not inferred solely from equal Frobenius traces or constructed over a cyclotomic coefficient field.",
+      "evidence": "Shimura Theorem 1(i)–(iv); baseline-modular-quotient"
+    },
+    {
+      "name": "domain_index_coverage",
+      "required": "Every coefficient embedding, not just the embedding selected by Pan, must enter the product Euler factors and Fricke span.",
+      "constructed": "Use all embeddings of K_f into C and, after a finite splitting coefficient extension, into Qbar_5.",
+      "why_match": "Shimura supplies all conjugates before its conditional zeta assertion. Li’s primitive decomposition and Theorem 5 show each conjugate stays primitive at N by conjugating a hypothetical lower-level source back. This avoids circular use of the zeta conclusion.",
+      "evidence": "Li pp.294,298; Shimura Theorem 1; REVIEW.md"
+    },
+    {
+      "name": "transition_comparison_maps",
+      "required": "Pass from Li’s slash operation to Shimura’s map, then from Euler factors to a genuine representation constituent using named comparison results.",
+      "constructed": "At weight two h(-1/(Nz))/z²=N(h|H_N)(z). Compare the whole Tate module of A_f with the sum of conjugate modular representations, using Chebotarev and the semisimple-character theorem.",
+      "why_match": "The scalar N does not affect span stability. Faltings gives Tate semisimplicity; equality of total characters identifies semisimplifications through the finite-dimensional image algebra. The chosen known irreducible r5 then occurs.",
+      "evidence": "Li p.296; Shimura p.526; Faltings Satz 3; Milne IV Lemma 3.9"
+    },
+    {
+      "name": "identity_of_consumed_object",
+      "required": "The exact r5 from the corrected QM action must be a common constituent over the actual field Lprime.",
+      "constructed": "Over G_Lprime the correction is trivial and V5(A) is r5 direct-sum r5. The same r5 is in V5(A_f), hence in V5(J1(N)) after semisimple splitting of the quotient.",
+      "why_match": "This uses the selected Pan embedding inside the whole direct sum, not an unsupported labeling of individual coefficient factors from a product polynomial. Restriction is to the existing Lprime, not a newly enlarged number field.",
+      "evidence": "actual-Lprime-and-r; baseline-common-constituent-and-isogeny"
+    },
+    {
+      "name": "coefficients_normalizations",
+      "required": "Keep Tate/cohomological duals, finite coefficient extensions, Fricke normalization and nebentypus distinct.",
+      "constructed": "r5 is the Tate constituent, while r5 dual is the H1 constituent. Li maps epsilon to its conjugate; complex conjugation permutes all embeddings, even for a non-Galois coefficient field.",
+      "why_match": "No single form is assumed to be a Fricke eigenvector, no algebraicity of its Fricke scalar is needed, and no bound on coefficient degree is imposed. Invariants in the finite-dimensional Hom space commute with coefficient extension.",
+      "evidence": "baseline-modular-quotient; level-repair-common-constituent; REVIEW.md"
+    },
+    {
+      "name": "local_conditions",
+      "required": "The representation comparison needs equality away from one finite bad set and the same arithmetic/geometric Frobenius convention.",
+      "constructed": "Shimura’s good-prime product Euler factors match the conjugate modular factors after consistently using the Tate convention; omit bad primes and the coefficient prime.",
+      "why_match": "Chebotarev density and continuity extend trace equality. Missing finitely many local factors do not obstruct the comparison. This step makes no new conductor claim at omitted primes.",
+      "evidence": "Shimura Theorem 1 final clause; compatible-trace-convention; preceding conductor review"
+    },
+    {
+      "name": "exceptional_cases",
+      "required": "Handle nontrivial nebentypus, unbounded coefficient degree, the published Faltings correction, and coefficient extension versus field of definition.",
+      "constructed": "All are allowed. Faltings 1984 corrects the preceding height-tower assertion to eventual stationarity, and says this suffices for later results.",
+      "why_match": "Satz 3/4 semisimplicity and End remain available. Apply End to A×J and take the off-diagonal block for Hom. A finite coefficient extension is not a base-field extension. Milne’s imperfect-field footnote is irrelevant over Lprime.",
+      "evidence": "Faltings 1983 p.360 and erratum p.381; Milne I Proposition 10.1"
+    },
+    {
+      "name": "downstream_consumption",
+      "required": "Produce an actual nonzero Lprime-homomorphism A→J and an Lprime-isogeny A×Z→J, as used by the height argument.",
+      "constructed": "The common constituent yields a nonzero invariant Tate Hom after coefficient extension; descent gives one over Q5. Faltings identifies it with geometric Hom tensored Q5. Absolute simplicity gives finite kernel onto its image; Poincare supplies a complement over Lprime.",
+      "why_match": "This names the exact theorems bridging representations to geometry. The J_H variant consumes its separately constructed Q-isogeny factor A_f of J_H; this review does not silently certify that quotient producer or subsequent height bounds.",
+      "evidence": "baseline-common-constituent-and-isogeny; level-repair-common-constituent; kernel-character-quotient-consumer"
+    }
+  ],
+  "not_accepted": [
+    "The Pan JAMS primary final-text comparison",
+    "The complete QM/PEL source producer",
+    "The separate J_H quotient producer",
+    "Numerical conductor, Belyi, height or isogeny-degree estimates",
+    "Whole RC or literal-318 sourceArithmetic"
+  ],
+  "model_metadata": null,
+  "model_metadata_reason": "No verified runtime model identifier is available to this worker.",
+  "formalization": "No Lean theorem or compile; independent mathematical source/application review."
+}

@@ -1,0 +1,24 @@
+\section{A variable-shift relation for ordinary values}\label{sec:bridge}
+We prove the ordinary-value deduction from the exact index model,
+the compiled precision relation, the height theorem and $\mathsf{PC}$.
+These are supplied by Sections~\ref{sec:model}, \ref{sec:compiler},
+\ref{sec:height} and Theorem~\ref{hyp:PC}, respectively. Capital letters below denote five-coordinate point codes;
+their lower-case indices are ordinary integers. The external variable
+$t$ is any rational number.
+
+\subsection{Approximation for every fixed shift}
+Define $\Close(N,\mathcal K,t)$ by choosing $A,L,J$, linking all five
+signed codes to precision inputs in the order $(n,\kappa,a,l,j)$, and
+imposing $|t-r(a,j)|<\epsilon_l$ on those same coordinates. Put
+\[
+ B(n,\kappa)=H_6(S_{\rm ht})|\kappa F(n)|^{24}.
+\]
+The precision contract gives
+\begin{align}
+ \Close(\iota(n),\iota(\kappa),t)&\Longrightarrow
+                  |t-n|<e^{-B(n,\kappa)},\label{eq:close-sound}\\
+ \Close(\iota(n),\iota(\kappa),n)&\quad\text{for every }
+                  n\notin\Cset,\ \kappa\ne0.\label{eq:close-complete}
+\end{align}
+The first follows from $|t-n|<2\epsilon_l<4^{-B}/2<e^{-B}$.
+For the second, positive multiples of $P_0$ approach the identity
