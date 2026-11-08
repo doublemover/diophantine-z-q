@@ -1,0 +1,24 @@
+ACQUIRED:2026-11-08T12:12:04Z
+CHECK:UnitCocycleProduct318
+CHECK:TensorLineFrameCoordinates318
+TensorLineFrameCoordinates318.lean:51:2: error: Type mismatch
+  hh
+has type
+  (OpenLineFrameCoordinates318.frame (tensor M N) U (TensorLineLocalFrame318.frame M N U e f) Z ⋯).symm
+      (IntrinsicTensorSheaf318.pure M N Z ((ConcreteCategory.hom (M.presheaf.map (𝟙 Z).op)) m)
+        ((ConcreteCategory.hom (N.presheaf.map (𝟙 Z).op)) n)) =
+    (OpenLineFrameCoordinates318.frame M U e Z ⋯).symm ((ConcreteCategory.hom (M.presheaf.map (𝟙 Z).op)) m) *
+      (OpenLineFrameCoordinates318.frame N U f Z ⋯).symm ((ConcreteCategory.hom (N.presheaf.map (𝟙 Z).op)) n)
+but is expected to have type
+  (OpenLineFrameCoordinates318.frame (tensor M N) U (TensorLineLocalFrame318.frame M N U e f) Z hZ).symm
+      (IntrinsicTensorSheaf318.pure M N Z m n) =
+    (OpenLineFrameCoordinates318.frame M U e Z hZ).symm m * (OpenLineFrameCoordinates318.frame N U f Z hZ).symm n
+TensorLineFrameCoordinates318.lean:50:17: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← M.presheaf.map_comp_apply, ← N.presheaf.map_comp_apply, ← op_comp, homOfLE_comp,
+    homOfLE_refl] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RELEASED:2026-11-08T12:12:09Z
