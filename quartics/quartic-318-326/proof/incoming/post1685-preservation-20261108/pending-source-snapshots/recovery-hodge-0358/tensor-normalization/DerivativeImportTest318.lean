@@ -1,0 +1,6 @@
+module
+public import ContactIntrinsicFrames318
+public import ContactFrameNormalization318
+public import UnitLineDifferentials318
+public section
+#check UnitLineDifferentials318.frame_inverse_one

@@ -1,0 +1,70 @@
+ACQUIRED 2026-11-08T11:44:01Z fifth-character
+CHECK AuditNormCocycleGauge 2026-11-08T11:44:01Z
+AXIOM_CHECK CocycleGaugeMaps318.scalar_square: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.scale: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.overlapScale: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.compatible: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.map: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.right_square: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.map_coefficient: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.left_square: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.inv_hom: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.hom_coefficient: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.inv_coefficient: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.hom_inv: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.scale_one: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK _private.CocycleGaugeIso318.0.CocycleGaugeIso318.scale_mul._simp_1_2: []
+AXIOM_CHECK CocycleGaugeIso318.multiply_one: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.scale_mul: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.iso._proof_1: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.scale_inv: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.inverse_relation: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeMaps318.scale.eq_1: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.map_inverse: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK CocycleGaugeIso318.iso: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.targetUnit: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.target_relation: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.ofOriginalFrames._proof_1: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.ofOriginalFrames: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.inv_hom: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.iso: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.inv_coefficient: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.hom_coefficient: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.ofOriginalFrames._proof_2: [propext, Classical.choice, Quot.sound]
+AXIOM_CHECK FifthNormGaugeIso318.hom_inv: [propext, Classical.choice, Quot.sound]
+NORM_COCYCLE_GAUGE_AUDIT_PASS declarations=32 modules=3
+CHECK LineFrameIsoTransport318 2026-11-08T11:44:03Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LineFrameIsoTransport318.lean:39:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Scheme.Modules.overFunctorEquiv U).inv.app M ≫
+    (SheafOfModules.overFunctor X.ringCatSheaf U ⋙ (Scheme.Modules.overEquiv U).functor).map e.hom
+in the target expression
+  (TopologicalSpace.Opens.sheafOfModulesEquivOverUnit U X.ringCatSheaf).hom ≫
+      frame.hom ≫ (Scheme.Modules.restrictFunctor U.ι).map e.hom ≫ ((Scheme.Modules.overFunctorEquiv U).app N).inv =
+    (TopologicalSpace.Opens.sheafOfModulesEquivOverUnit U X.ringCatSheaf).hom ≫
+      frame.hom ≫
+        ((Scheme.Modules.overFunctorEquiv U).app M).inv ≫
+          (Scheme.Modules.overEquiv U).functor.map ((SheafOfModules.overFunctor X.ringCatSheaf U).map e.hom)
+
+X : Scheme
+M N : X.Modules
+e : M ≅ N
+U : X.Opens
+frame : SheafOfModules.unit (↑U).ringCatSheaf ≅ M.restrict U.ι
+⊢ (TopologicalSpace.Opens.sheafOfModulesEquivOverUnit U X.ringCatSheaf).hom ≫
+      frame.hom ≫ (Scheme.Modules.restrictFunctor U.ι).map e.hom ≫ ((Scheme.Modules.overFunctorEquiv U).app N).inv =
+    (TopologicalSpace.Opens.sheafOfModulesEquivOverUnit U X.ringCatSheaf).hom ≫
+      frame.hom ≫
+        ((Scheme.Modules.overFunctorEquiv U).app M).inv ≫
+          (Scheme.Modules.overEquiv U).functor.map ((SheafOfModules.overFunctor X.ringCatSheaf U).map e.hom)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    (TopologicalSpace.Opens.sheafRestrict U).obj X.ringCatSheaf
+RELEASED 2026-11-08T11:44:06Z fifth-character
