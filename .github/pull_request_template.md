@@ -17,4 +17,4 @@ Follow the [contributor review guide](https://github.com/elliotglazer/diophantin
 
 List checks run, their results and what they establish. Report `python -B scripts/check_audit_history.py --self-test` when relevant. Identify unrun checks and unresolved assumptions.
 
-The full `Protocol / independent agent audit` App check is being rolled out and is not yet active. Existing green CI does not establish full protocol completion. Further changes require renewed review of affected evidence; do not update old acceptance hashes on behalf of reviewers.
+Check the live [public ruleset](https://github.com/elliotglazer/diophantine-z-q/rules/26781429) or [private ruleset](https://github.com/elliotglazer/private-diophantine/rules/26781446) for current enforcement. A protocol-gated merge requires `Protocol / independent agent audit` from the designated App to be required and passing for the exact revision; existing green CI alone is insufficient. This template does not assert that requirement is already active or retroactively certify a proof. Further changes require renewed review; do not update acceptance hashes on behalf of reviewers.

@@ -4,9 +4,9 @@ Follow the [mathematical research review protocol](PROTOCOL.md), version 1.1, fo
 
 ## Enforcement status
 
-Rollout is in progress. Existing pull-request and CI requirements are active, but the full GitHub App check, `Protocol / independent agent audit`, is not yet active. Do not describe a green existing workflow as approval under the complete protocol. Maintainers will update this section after activation and live verification.
+The live [public repository ruleset](https://github.com/elliotglazer/diophantine-z-q/rules/26781429) and [private repository ruleset](https://github.com/elliotglazer/private-diophantine/rules/26781446) are authoritative for current enforcement. Before treating a merge as protocol-gated, confirm that the applicable ruleset requires `Protocol / independent agent audit` from the designated GitHub App and that it passes for the exact revision. Existing CI alone is insufficient. This document does not assert that the App requirement is already active.
 
-The planned App check will bind its decision to the reviewed repository, PR, base, head and merge revisions, evidence manifests and audit history. Contributor-written reviewer names, acceptance flags or receipts cannot authorize that check. Trusted observations and policy are managed separately. A check records an evaluation cutoff; it does not promise instantaneous detection of later comments or an atomic comment-and-merge transaction.
+The App check must bind its decision to the reviewed repository, PR, base, head and merge revisions, evidence manifests and audit history. Contributor-written reviewer names, acceptance flags or receipts cannot authorize that check. Trusted observations and policy are managed separately. A check records an evaluation cutoff; it does not promise instantaneous detection of later comments or an atomic comment-and-merge transaction.
 
 The [current review record](../audit-history/current.json) states the manuscript's existing scope and inherited qualifications. Installing this protocol does not expand that scope or retroactively certify the complete proof.
 
