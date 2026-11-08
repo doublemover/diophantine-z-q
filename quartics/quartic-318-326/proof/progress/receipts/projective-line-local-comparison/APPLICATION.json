@@ -1,0 +1,134 @@
+{
+  "claim": "Actual normalized local comparisons of pullback O(1) with the intrinsic bicanonical sheaf on all five contact charts",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "OpenPushforwardGlobalValue318.lean": "b20bb8f3affc695716281643742a2b1e240eb257b3cbb084eb1840f87b7bcf53",
+    "ClutchedFrameSections318.lean": "edcf6a7872b070fe105abc28e999ee7dbd0d1c3186517835283b4b47e9c669b0",
+    "ClutchedCoordinateFrames318.lean": "5d1ed2eedcc223e822a469374f5fa3b3d35363b63d116822e68dfd389ab61d0a",
+    "ProjectiveLineCoordinateFrames318.lean": "66429ecf36032aea8610a6359c61e08aa98188a83845a3c54471e2400af784a8",
+    "ModuleTopExt318.lean": "08f7ef15198751f50affabacd36a5828fd46faa313a287cd713a8d076cffcc7b",
+    "NormalizedSectionFrame318.lean": "c337798fce271d6f70d888817badbcb688da708fe35de88a9d9dabfa94d78817",
+    "ClutchedCoordinateGenerators318.lean": "b2e562b06ce22a2d3c0ca481ede82e45321ee6d4655c84f95b8a0e9c6335f379",
+    "ProjectiveLineCoordinateGenerators318.lean": "9cd4da5240360a3cb46dad8971928b5f3ca6c8e1af4335cd8ee0abd13e793faf",
+    "PullbackChartNaturality318.lean": "90000642dda46dee8738098c2c3fd336041f77fa1a06ef1cfda6b9e6da661ed7",
+    "PulledCoordinateMaps318.lean": "2c288e59e226aeab573c7233093d8fef586b4401002914abf8fbbb35c2c74cb8",
+    "ContactPulledCoordinates318.lean": "d633f971bdf968ad63d0c70fbd551fa2e71ac8cdeded4d13ba359efbee62d7a1",
+    "SectionGeneratorIsomorphism318.lean": "449656920b74bfd32370b29b83e42a6eabad5c27bbead0728a5e946ff2e1a5d2",
+    "ContactBicanonicalSheafMaps318.lean": "40878e23c31e775333bbcbcf793e05dcaeeebd237ec80428864160c34693123d",
+    "ContactLocalLineComparison318.lean": "87410aad2ff77140f51c02ccac22ef2be7a68c75027e561ab1b85c8a23b2e2f4"
+  },
+  "predecessor_receipt": "9761eb82d0561165afe9eff8453d95dbbf64eb6e369f397eba9b8b32c99086c2",
+  "external_input_scope": "No new literature theorem or copied source. Uses pinned canonical Mathlib sheaf restriction, pullback and adjunction APIs.",
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "Genuine sheaf morphisms, actual open charts and exact frames are needed.",
+      "constructed": "OpenPushforwardGlobalValue318.localMap_top uses naturality and the actual open-immersion counit; no scalar choice is introduced.",
+      "why_match": "OpenPushforwardGlobalValue318.localMap_top uses naturality and the actual open-immersion counit; no scalar choice is introduced.",
+      "evidence": [
+        "OpenPushforwardGlobalValue318.localMap_top",
+        "ClutchedFrameSections318.firstFrame_top",
+        "ClutchedFrameSections318.secondFrame_top"
+      ]
+    },
+    {
+      "name": "Constructed objects",
+      "required": "The target line and pullback must remain distinct from the intrinsic tensor square.",
+      "constructed": "ContactPulledCoordinates318 defines actual pulled coordinate maps using the canonical pullback-of-unit isomorphism; ContactBicanonicalSheafMaps318 separately uses the existing global q0/q1.",
+      "why_match": "ContactPulledCoordinates318 defines actual pulled coordinate maps using the canonical pullback-of-unit isomorphism; ContactBicanonicalSheafMaps318 separately uses the existing global q0/q1.",
+      "evidence": [
+        "ContactPulledCoordinates318.zeroMap",
+        "ContactPulledCoordinates318.oneMap",
+        "ContactBicanonicalSheafMaps318.zeroMap",
+        "ContactBicanonicalSheafMaps318.oneMap"
+      ]
+    },
+    {
+      "name": "Domain and index coverage",
+      "required": "Every finite contact and the whole infinity neighborhood must be included.",
+      "constructed": "zero_branch_isIso and branchIso quantify over every i:Fin4. one_infinity_isIso and infinityIso include u=0.",
+      "why_match": "zero_branch_isIso and branchIso quantify over every i:Fin4. one_infinity_isIso and infinityIso include u=0.",
+      "evidence": [
+        "ContactPulledCoordinates318.zero_branch_isIso",
+        "ContactPulledCoordinates318.one_infinity_isIso",
+        "ContactLocalLineComparison318.branchIso",
+        "ContactLocalLineComparison318.infinityIso"
+      ]
+    },
+    {
+      "name": "Transition and comparison maps",
+      "required": "Coordinate projections must be transported through actual local frames and pullback naturality.",
+      "constructed": "All four target frame values follow from generic counit and clutching proofs. chartNatIso has component definitionally equal to the previously frozen chartIso.",
+      "why_match": "All four target frame values follow from generic counit and clutching proofs. chartNatIso has component definitionally equal to the previously frozen chartIso.",
+      "evidence": [
+        "ProjectiveLineCoordinateFrames318.q0_finite",
+        "ProjectiveLineCoordinateFrames318.q0_infinity",
+        "ProjectiveLineCoordinateFrames318.q1_finite",
+        "ProjectiveLineCoordinateFrames318.q1_infinity",
+        "PullbackChartNaturality318.app_eq"
+      ]
+    },
+    {
+      "name": "Identity of consumed object",
+      "required": "The same actual projectiveMap, target O(1) and source tensor square must be used.",
+      "constructed": "The source local isomorphism types explicitly use ContactProjectiveLinePullback318.line and ContactGlobalBicanonical318.tensor; no replacement by an isomorphic unnamed object occurs.",
+      "why_match": "The source local isomorphism types explicitly use ContactProjectiveLinePullback318.line and ContactGlobalBicanonical318.tensor; no replacement by an isomorphic unnamed object occurs.",
+      "evidence": [
+        "ContactLocalLineComparison318.branchIso",
+        "ContactLocalLineComparison318.infinityIso"
+      ]
+    },
+    {
+      "name": "Coefficient and normalization conventions",
+      "required": "The first coordinate is X1 and finite generator; the second is X0 and infinity generator. No projective rescaling may hide a scalar.",
+      "constructed": "Target values are (1,s) and (t,1). The local comparison is defined by inverse of the pulled generator map followed by the bicanonical generator map; normalized identities are exact.",
+      "why_match": "Target values are (1,s) and (t,1). The local comparison is defined by inverse of the pulled generator map followed by the bicanonical generator map; normalized identities are exact.",
+      "evidence": [
+        "ContactLocalLineComparison318.branch_normalized",
+        "ContactLocalLineComparison318.infinity_normalized"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required": "Local isomorphism must hold on every subopen, not merely on chart-top sections.",
+      "constructed": "NormalizedSectionFrame318 proves equality of entire sheaf maps by global value at one. SectionGeneratorIsomorphism318 uses all-subopen bijectivity, and pullback preserves actual isomorphisms without flatness.",
+      "why_match": "NormalizedSectionFrame318 proves equality of entire sheaf maps by global value at one. SectionGeneratorIsomorphism318 uses all-subopen bijectivity, and pullback preserves actual isomorphisms without flatness.",
+      "evidence": [
+        "NormalizedSectionFrame318.framedMap_eq",
+        "NormalizedSectionFrame318.restrict_isIso",
+        "SectionGeneratorIsomorphism318.restrict_isIso",
+        "PulledCoordinateMaps318.restrict_isIso"
+      ]
+    },
+    {
+      "name": "Exceptional cases",
+      "required": "Do not invert branch coordinates or discard infinity.",
+      "constructed": "Only the previously established generating coordinate is used on each complete chart. Rational twist units remain arbitrary. No new nonvanishing or geometric hypothesis is added.",
+      "why_match": "Only the previously established generating coordinate is used on each complete chart. Rational twist units remain arbitrary. No new nonvanishing or geometric hypothesis is added.",
+      "evidence": [
+        "ContactBicanonicalSheafMaps318.zero_branch_isIso",
+        "ContactBicanonicalSheafMaps318.one_infinity_isIso"
+      ]
+    },
+    {
+      "name": "Downstream consumption",
+      "required": "Local isomorphisms require a separate overlap compatibility and gluing proof before any global O(1) conclusion.",
+      "constructed": "This packet ends at exact normalized local isomorphisms. The other-coordinate compatibility and global morphism construction are active subsequent work, not hypotheses silently discharged here.",
+      "why_match": "This packet ends at exact normalized local isomorphisms. The other-coordinate compatibility and global morphism construction are active subsequent work, not hypotheses silently discharged here.",
+      "evidence": [
+        "ContactLocalLineComparison318.branch_normalized",
+        "ContactLocalLineComparison318.infinity_normalized"
+      ]
+    }
+  ],
+  "consumer": "Preparation for an actual global pullback-O(1) isomorphism carrying both coordinate sections to the actual contact q0/q1. Whole-overlap gluing remains separate.",
+  "not_claimed": [
+    "global pullback-bicanonical isomorphism",
+    "overlap compatibility of the local comparison isomorphisms",
+    "normalization of the other coordinate on each source chart",
+    "PEL identification or Shimura twist selection",
+    "Kodaira-Spencer comparison",
+    "metric, height, genus or complete-linear-system conclusion"
+  ]
+}
