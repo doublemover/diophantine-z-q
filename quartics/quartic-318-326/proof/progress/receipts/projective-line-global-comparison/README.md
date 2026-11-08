@@ -1,0 +1,13 @@
+# Actual global pullback O(1) and bicanonical comparison
+
+`ContactGlobalLineComparison318.iso` is an actual isomorphism of module sheaves from `ContactProjectiveLinePullback318.line c` to `ContactGlobalBicanonical318.tensor c`, for every four rational twist units. The source object is literally the pullback of the independently clutched target O(1) along the actual ratio-defined projective map. The destination is the genuine intrinsic Omega tensor Omega, as established in the prior tensor/global-section packets.
+
+`zero_morphism` and `one_morphism` are exact identities of the coordinate section morphisms. `q0_normalized` and `q1_normalized` identify both literal pulled global sections with the actual global bicanonical sections, with scalar one. `branch_comparison` and `infinity_comparison` prove equality of the restricted global isomorphism with the previously frozen local comparison isomorphisms.
+
+The proof first checks both target whole-chart coordinate ratios, then transports them through the exact natural restriction/pullback comparisons. `PullbackScalar318.pullback_multiply` verifies the literal pullback regular function by the canonical adjunction and unit map, rather than guessing a scalar. The finite and reciprocal coordinates are evaluated through their actual Spec maps. The resulting relations hold on the entire charts, including every branch point and infinity.
+
+The global gluing is explicit. `ModuleLocalGluing318` glues compatible linear maps on all subopens using the actual sheaf condition. `ModuleLocalIsomorphism318` independently glues their inverses and proves both identities. `SectionGeneratedGluing318` verifies compatibility on every subopen of every intersection by exact common coordinate relations and genuine generation. This is not a density argument or an inference from the two sheaves being locally free. The final concrete five-chart specialization supplies all hypotheses.
+
+No identification of the contact model with a Shimura or PEL source, selection of its twists from that source, Kodaira–Spencer comparison, metric/height comparison, genus, numerical line-bundle degree, or complete-linear-system assertion is made. The target O(1) is precisely the independent clutched sheaf from the foundation packet, with the documented transition convention; this packet does not introduce a different library twisting-sheaf object and assert equality to it. The existing generic-field rank16 theorem remains separate.
+
+All sources are new checked proofs consuming immutable predecessor packets and canonical pinned Mathlib imports. Proof-valued inferred specializations preserve chosen categorical instances. Retained linter warnings are informational. No failed draft or third-party PDF is part of this packet.
