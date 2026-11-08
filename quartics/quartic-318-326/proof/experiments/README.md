@@ -1,5 +1,13 @@
 # Pending Lean experiments
 
+## Natural period-to-plane R3 recheck
+
+[Run 42477548692](https://github.com/doublemover/diophantine-z-q/actions/runs/42477548692) again passed all seven unchanged predecessors. The new consumer still failed because the pinned library does not expose its whole-to-partial diffeomorphism implementation to `unfold`. The exact R2 failure is preserved under forward-period-plane-r2/hosted-failure, with its archive digest and without the ZIP.
+
+Only forward-period-plane-r3 is now active. It explicitly constructs the full-domain partial diffeomorphism with the original comparison, original inverse, unchanged whole domain and already proved analytic functions. All theorem/type statements, seven predecessor source bytes and 211 baseline source pins remain unchanged. This source has not been locally compiled; the eight-source closure requires hosted rechecking. R2 is inactive.
+
+The main 1,685-module baseline is unchanged and its combined hosted verification remains pending. The separate incoming/post1685-preservation-20261108 directory is an inactive source/evidence preservation snapshot, not a promotion, proof manifest or experimental input. Historical sections below retain their historical state.
+
 ## Natural period-to-plane R2 recheck
 
 [Run 42474692244](https://github.com/doublemover/diophantine-z-q/actions/runs/42474692244) passed all seven unchanged analytic predecessors but failed the new NaturalPeriodPlaneComparison318 consumer. Its exact artifact evidence is preserved under forward-period-plane-r1/hosted-failure, with the ZIP digest bound and the ZIP excluded. The consumer audit was not reached. R1 is inactive.

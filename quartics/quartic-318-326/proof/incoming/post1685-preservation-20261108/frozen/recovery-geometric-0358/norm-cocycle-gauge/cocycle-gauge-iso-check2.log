@@ -1,0 +1,46 @@
+ACQUIRED 2026-11-08T11:41:09Z fifth-character
+CHECK CocycleGaugeIso318 2026-11-08T11:41:09Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/CocycleGaugeIso318.lean:41:46: warning: This simp argument is unused:
+  inv_mul_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_assoc, mul_left_comm, mul_comm, mul_inv_cancel, mul_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK FifthNormGaugeIso318 2026-11-08T11:41:15Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthNormGaugeIso318.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (FifthSheafNorm318.norm.hom.app (op (?U ?i ⊓ ?U ?j))))
+    (UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.pushedUnits map).obj ?U ?a ?i ?j)
+in the target expression
+  (ConcreteCategory.hom (FifthOpenNorm318.unitNorm.app (op (U i ⊓ U j))))
+        (UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.pushedUnits map).obj U a i j) *
+      (ConcreteCategory.hom (FifthOpenNorm318.unitNorm.app (op (U i ⊓ U j)))) (c.transition i j) =
+    UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.units Target).obj U (targetUnit U a) i j *
+      (FifthNormCocycle318.transfer c).transition i j
+
+ι : Type
+U : ι → Target.Opens
+c d : FifthNormCocycle318.SourceCocycle U
+a : (i : ι) → (↑Γ(Model, map ⁻¹ᵁ U i))ˣ
+h :
+  ∀ (i j : ι),
+    d.transition i j =
+      UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.pushedUnits map).obj U a i j * c.transition i j
+i j : ι
+⊢ (ConcreteCategory.hom (FifthOpenNorm318.unitNorm.app (op (U i ⊓ U j))))
+        (UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.pushedUnits map).obj U a i j) *
+      (ConcreteCategory.hom (FifthOpenNorm318.unitNorm.app (op (U i ⊓ U j)))) (c.transition i j) =
+    UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.units Target).obj U (targetUnit U a) i j *
+      (FifthNormCocycle318.transfer c).transition i j
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    StructureUnitsSheaf318.units Target
+  has type
+    TopCat.Sheaf CommGrpCat ↑Target.toPresheafedSpace
+  but is expected to have type
+    ObjectProperty.FullSubcategory (Presheaf.IsSheaf (Opens.grothendieckTopology ↥Target))
+  in the application
+    (StructureUnitsSheaf318.units Target).obj
+RELEASED 2026-11-08T11:41:19Z fifth-character

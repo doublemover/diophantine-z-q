@@ -1,0 +1,33 @@
+--- /workspace/scratch/2cb21e4e0864/recovery-modular-0358/forward-period-plane-r2/NaturalPeriodPlaneComparison318.lean	2026-11-08 06:41:45.950166214 -0500
++++ /workspace/scratch/2cb21e4e0864/recovery-modular-0358/forward-period-plane-r3/NaturalPeriodPlaneComparison318.lean	2026-11-08 07:08:26.992554573 -0500
+@@ -44,7 +44,11 @@
+   letI := AdmissibleJComplexAtlas318.complexChartedSpace
+   letI := LiteralPlaneJAtlas318.complexChartedSpace
+   exact (AdmissibleAnalyticSections318.localBiholomorph tau).trans
+-    (LiteralPlaneBiholomorph318.biholomorph N).toPartialDiffeomorph
++    { toPartialEquiv := (comparison N).toEquiv.toPartialEquiv
++      open_source := isOpen_univ
++      open_target := isOpen_univ
++      contMDiffOn_toFun := (LiteralPlaneBiholomorph318.comparison_analytic N).contMDiffOn
++      contMDiffOn_invFun := (LiteralPlaneBiholomorph318.comparison_inverse_analytic N).contMDiffOn }
+ 
+ lemma localBiholomorph_apply (N : ℕ) [NeZero N] (tau sigma : Locus) :
+     letI := AdmissiblePeriodProjection318.complexChartedSpace
+@@ -52,7 +56,7 @@
+     localBiholomorph N tau sigma = periodToPlane N sigma := by
+   letI := AdmissiblePeriodProjection318.complexChartedSpace
+   letI := LiteralPlaneJAtlas318.complexChartedSpace
+-  unfold localBiholomorph Diffeomorph.toPartialDiffeomorph
++  unfold localBiholomorph
+   change comparison N ((AdmissibleAnalyticSections318.inverseSection tau).symm sigma) = _
+   rw [AdmissibleAnalyticSections318.inverseSection_symm]
+   rfl
+@@ -66,7 +70,7 @@
+       AdmissibleAnalyticSections318.inverseSection tau ((comparison N).symm p) := by
+   letI := AdmissiblePeriodProjection318.complexChartedSpace
+   letI := LiteralPlaneJAtlas318.complexChartedSpace
+-  unfold localBiholomorph Diffeomorph.toPartialDiffeomorph
++  unfold localBiholomorph
+   rfl
+ 
+ /-- The original natural period-to-plane map is locally biholomorphic

@@ -1,0 +1,173 @@
+{
+  "run_id": 42477548692,
+  "head_sha": "b7b5377ffd5136ee7ee6e746a849969c8faae7e8",
+  "jobs": [
+    {
+      "id": 128722135758,
+      "name": "plan",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 42477548692,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run ./.github/actions/setup-pinned-python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -B scripts/test_ci_tooling.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python -B scripts/test_progress_experiment.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python -B scripts/check_progress_experiment.py plan --github-output \"$GITHUB_OUTPUT\"",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Warm pinned compiler cache before matrix fan-out",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run ./.github/actions/setup-pinned-python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ]
+    },
+    {
+      "id": 128722271495,
+      "name": "Experimental packet forward-period-plane-r2",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 42477548692,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run ./.github/actions/setup-pinned-python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Restore previously audited baseline",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run ./.github/actions/setup-pinned-lean",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Fetch exact pinned upstream artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "First strict checks and new-declaration audit",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7
+        },
+        {
+          "name": "Upload bounded results and error logs only",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run ./.github/actions/setup-pinned-python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13616280804,
+      "name": "experiment-forward-period-plane-r2",
+      "size_in_bytes": 4408,
+      "url": "https://api.github.com/repos/doublemover/diophantine-z-q/actions/artifacts/13616280804",
+      "archive_download_url": "https://api.github.com/repos/doublemover/diophantine-z-q/actions/artifacts/13616280804/zip",
+      "expired": false,
+      "created_at": "2026-11-08T11:53:35Z",
+      "expires_at": "2026-11-11T11:53:35Z",
+      "updated_at": "2026-11-08T11:53:35Z",
+      "digest": "sha256:d4e4ab7f064ec928e09e272291c5498c3e2604de12bdbadeaeaf6293714dba89",
+      "workflow_run": {
+        "id": 42477548692,
+        "repository_id": 1449548415,
+        "head_repository_id": 1449548415,
+        "head_branch": "add-quartic-318-326",
+        "head_sha": "b7b5377ffd5136ee7ee6e746a849969c8faae7e8"
+      }
+    }
+  ]
+}
