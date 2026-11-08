@@ -1,0 +1,13 @@
+# Intrinsic global differential and Hodge join review
+
+Accepted in the stated scope after reading all 22 producer modules and tracing the consuming global-frame and Hodge endpoints. This is a bounded source/argument review, not a separate kernel replay or independent reconstruction of every predecessor. The reviewer authored the earlier proper-global-functions input; that predecessor is not independently revalidated here.
+
+The affine comparison carries its actual universal-derivative normalization through equality of coefficient and algebra structures. The open-restriction comparison likewise transports D, not merely an abstract rank-one object. The chart-section map sends every algebraic differential to the corresponding intrinsic ambient section. Its naturality uses the literal regular-function restriction square and Kähler generation, with compatible scalar actions. Thus equality of the prior invariant forms gives equality of the intrinsic sections on the actual common chart.
+
+The two directly checked common charts have exactly the full x/finite and finite/infinity intersections as their images. Under unit discriminant, the full x/infinity intersection is contained in the finite chart; transitivity of restrictions supplies the third equality on its entire intersection. This does not replace a full intersection by a dense open. The actual three-chart cover then allows the genuine sheaf gluing axiom to construct a top-open section.
+
+Local freeness is proved on every subopen of each chart image by the actual restricted frame, its value on one and linearity. The subopens form a basis, so the resulting structure-module-to-intrinsic-Omega map is an isomorphism of sheaves. This supplies the global intrinsic differential frame over any commutative base with unit discriminant, with exact local generator normalization.
+
+For a domain base the existing structure-pushforward theorem and previously proved canonical Hodge criterion consume that frame. The resulting hom is explicitly the pre-existing canonical evaluation at the actual infinity section, not an arbitrary isomorphism between line sheaves. The literal open-j specialization proves its localized coefficient ring is a domain for N nonzero. No domain hypothesis is silently removed from Hodge evaluation.
+
+The checked result does not assert arbitrary non-domain structure-pushforward or Hodge invertibility, compact-source canonical-line realization, PEL/source comparison, integral reduction or the final arithmetic theorem. No defect was found in these consuming joins. Historical claims beyond the cited predecessor chain were not investigated.
