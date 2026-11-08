@@ -122,3 +122,24 @@ setup-node 7.1.0, cache 6.1.0, upload-artifact 7.0.2 and download-artifact 8.0.2
 Installing Node 26 for project commands does not change an action's embedded
 runtime; these actions support Node 24 rather than Node 26. No forced Node-20
 compatibility override is used.
+
+## Isolated first-time experiments
+
+`Progress Lean experiments` checks small pending packets under
+`quartics/quartic-318-326/proof/experiments/`, separately from the verified
+snapshot. Each packet supplies an exact source hash/import/order inventory and
+is explicitly unverified until execution. This workflow restores the already
+audited baseline cache, verifies the transitive source keys, dependency artifact
+hashes and artifact bytes for just the required predecessor closure, then
+compiles each draft in a new isolated output directory with kernel checks on,
+6 GiB memory and a 180-second per-module wall-clock limit. It recursively audits
+all private/generated declarations from the new modules after all checks pass.
+
+The jobs run in parallel by packet, up to 16. They upload results and error logs,
+not compiled draft artifacts. They never save into the accepted cache or change
+the progress manifest. A missing or stale baseline cache is an explicit failure;
+run the regular cohort workflow first rather than silently accepting unchecked
+imports or rebuilding the whole project in the cloud. Pinned upstream artifacts
+remain trusted dependencies, as in the cohort workflow. Experimental PASS is
+execution evidence only; independent application review and a separate coherent
+integration cutoff are still required.

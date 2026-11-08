@@ -10,6 +10,8 @@ This review answers the specific concern about isomorphism claims already made i
 - [Torsion, splitting and the categorical equalizer](torsion-equalizer/REVIEW.md): 38 packet sources. Actual CRT/interpolation maps and both directions were checked, as were arbitrary-ring hypotheses and the arbitrary-Scheme equalizer property. No global multiplication kernel, full additive marking or PEL identification follows from these statements.
 - [Our classical CM/PEL/metric producer arguments](classical-producers/REPORT.md): the actual maps in three notes and their formal consumers were inspected, with predecessor authorship disclosed. The CM note uses isogeny, the map E/E[2] to E is induced through [2] rather than calling [2] invertible, and the KS argument uses the actual forget-level universal fiber. Formal realization hypotheses remain explicit.
 
+- [Analytic and modular comparisons](analytic-modular/REPORT.md): 29 Lean sources and eight packet READMEs. The actual complex algebra/Spec fiber isomorphism, elliptic torus additive equivalence and Gamma_H quotient homeomorphism were inspected separately from the proper finite-fiber arithmetic surjection. The latter is not yet an injectivity or analytification theorem; new injectivity drafts are outside this review.
+
 No Baba–Granath-style degree-four-map-to-isomorphism shortcut was found in these bounded reads. This is not exhaustive acceptance of every mathematical claim or of the unfinished full theorem.
 
 ## Required prose correction
