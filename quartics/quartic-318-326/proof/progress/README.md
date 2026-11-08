@@ -1,6 +1,8 @@
 # Recovered proof-progress checkpoint
 
-This directory is a dependency-closed snapshot of 1,067 source modules. The 31 recovered additions passed fresh strict producer checks and their five packet audits (520 declarations). The combined hosted audit is **pending**; the expected union count of 19,780 is not a completed audit result. It is **not** a proof of the full integer-characterization theorem. The original polynomial and source-equivalence files elsewhere in the repository are unchanged.
+This directory preserves a dependency-closed snapshot of 1,083 source modules. The latest 16 modules were completed before the external-input review pause and have each passed strict producer checks. Three of their packets have recursive audits (224 declarations); the four infinity-germ modules still await their combined audit. The whole 1,083-module hosted audit is **pending**, and its declaration count is not yet claimed. The previous 1,067-module hosted run and all original producer evidence are retained separately. This is **not** a proof of the full integer-characterization theorem.
+
+The new preserved scope is limited to actual tensor-square sheaves/local frames/local sections (no global bicanonical gluing); finite surjective source-to-character normalization maps (no Jacobian/PEL identification); literal pair/triple reducedness (no group axioms); and analytic infinity coordinate germs (no global lattice classification). Non-author consuming-join reviews remain pending. No new proof expansion or repeated cloud full replay was performed for this preservation cutoff. Hosted CI owns the combined verification.
 
 ## What is now proved
 
