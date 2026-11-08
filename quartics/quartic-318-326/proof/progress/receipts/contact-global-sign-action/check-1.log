@@ -1,0 +1,21 @@
+ACQUIRED 2026-11-08T08:25:03Z
+SOURCE FourRootOrderSignAction318
+06b5d34fccde651a1aac429ce4fcd96b20074c8dabc4e5d9c372a7c8ef3b52d7  FourRootOrderSignAction318.lean
+FourRootOrderSignAction318.lean:18:10: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ht, signEquiv_generator]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PASS FourRootOrderSignAction318
+SOURCE ContactGlobalSignAction318
+ea70aa6b79d35b29b4baffff82a397e57d3832e8ca2b3caf3e9ad3a0c4e059cc  ContactGlobalSignAction318.lean
+ContactGlobalSignAction318.lean:25:59: error: unsolved goals
+c : Fin 4 → ℚˣ
+s t : Fin 4 → Bool
+x : ↑↧(OpenOrder c)
+⊢ (FourRootOrderSigns318.signEquiv (fun i => (algebraMap R OpenBase) (coefficient c i)) fun i => s i ^^ t i) x =
+    (ContactGlobalSigns318.openEquiv c fun i => s i ^^ t i) x
+RELEASED 2026-11-08T08:25:09Z
+EXIT=1

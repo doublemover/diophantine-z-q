@@ -1,0 +1,25 @@
+ACQUIRED 2026-11-08T08:15:10Z
+recovery-hodge-0358/character-differential-work/ContactCharacterDifferentials318.lean:14:0: warning: Definition `discriminantUnit` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+RESULT ContactCharacterDifferentials318 0
+recovery-hodge-0358/character-differential-work/CharacterCoordinateDifferentials318.lean:48:11: error(lean.unknownIdentifier): Unknown identifier `twistUnit`
+recovery-hodge-0358/character-differential-work/CharacterCoordinateDifferentials318.lean:51:63: error: unsolved goals
+i : Fin 4
+h : ↑(CharacterPublishedModels318.scaleUnit i) * ↑(CharacterPublishedModels318.scaleUnit i)⁻¹ = 1
+⊢ ↑(CubicWeierstrassPolynomial318.twistUnit i) * ↑(CharacterPublishedModels318.scaleUnit i)⁻¹ ^ 2 =
+    sorry * ↑(CharacterPublishedModels318.scaleUnit i)⁻¹ ^ 2
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+recovery-hodge-0358/character-differential-work/CharacterCoordinateDifferentials318.lean:52:13: error: unsolved goals
+i : Fin 4
+h : ↑(CharacterPublishedModels318.scaleUnit i) * ↑(CharacterPublishedModels318.scaleUnit i)⁻¹ = 1
+⊢ sorry * ↑(CharacterPublishedModels318.scaleUnit i)⁻¹ ^ 3 * ↑(CharacterPublishedModels318.scaleUnit i) =
+    ↑(CharacterPublishedModels318.scaleUnit i)⁻¹ ^ 3 * ↑(CharacterPublishedModels318.scaleUnit i) *
+      ↑(CubicWeierstrassPolynomial318.twistUnit i)
+RESULT CharacterCoordinateDifferentials318 1
+RELEASED 2026-11-08T08:15:19Z status=1

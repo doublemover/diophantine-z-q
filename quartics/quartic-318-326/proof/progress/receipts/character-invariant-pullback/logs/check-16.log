@@ -1,0 +1,43 @@
+ACQUIRED 2026-11-08T08:21:43Z
+recovery-hodge-0358/character-differential-work/WeierstrassFiniteDifferentialEquality318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RESULT WeierstrassFiniteDifferentialEquality318 0
+recovery-hodge-0358/character-differential-work/WeierstrassAffineInvariantEquation318.lean:28:39: error(lean.unknownIdentifier): Unknown constant `IsLocalization.Away.invSelf_mul`
+recovery-hodge-0358/character-differential-work/WeierstrassAffineInvariantEquation318.lean:53:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (AlgHomDifferential318.map (chartMap ?A ?B 0)) (form ?A ?B ?hD)
+in the target expression
+  (chartMap A B ((fun i => i) ⟨0, ⋯⟩)) (2 * y A B) •
+      (AlgHomDifferential318.map (chartMap A B ((fun i => i) ⟨0, ⋯⟩))) (form A B hD) =
+    (D R (WeierstrassKaehler318.AffineChart A B ((fun i => i) ⟨0, ⋯⟩))) ((chartMap A B ((fun i => i) ⟨0, ⋯⟩)) (x A B))
+
+case «0»
+R : Type u_1
+inst✝ : CommRing R
+A B : R
+hD : IsUnit (-16 * (4 * A ^ 3 + 27 * B ^ 2))
+⊢ (chartMap A B ((fun i => i) ⟨0, ⋯⟩)) (2 * y A B) •
+      (AlgHomDifferential318.map (chartMap A B ((fun i => i) ⟨0, ⋯⟩))) (form A B hD) =
+    (D R (WeierstrassKaehler318.AffineChart A B ((fun i => i) ⟨0, ⋯⟩))) ((chartMap A B ((fun i => i) ⟨0, ⋯⟩)) (x A B))
+recovery-hodge-0358/character-differential-work/WeierstrassAffineInvariantEquation318.lean:55:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (AlgHomDifferential318.map (chartMap ?A ?B 1)) (form ?A ?B ?hD)
+in the target expression
+  (chartMap A B ((fun i => i) ⟨1, ⋯⟩)) (2 * y A B) •
+      (AlgHomDifferential318.map (chartMap A B ((fun i => i) ⟨1, ⋯⟩))) (form A B hD) =
+    (D R (WeierstrassKaehler318.AffineChart A B ((fun i => i) ⟨1, ⋯⟩))) ((chartMap A B ((fun i => i) ⟨1, ⋯⟩)) (x A B))
+
+case «1»
+R : Type u_1
+inst✝ : CommRing R
+A B : R
+hD : IsUnit (-16 * (4 * A ^ 3 + 27 * B ^ 2))
+⊢ (chartMap A B ((fun i => i) ⟨1, ⋯⟩)) (2 * y A B) •
+      (AlgHomDifferential318.map (chartMap A B ((fun i => i) ⟨1, ⋯⟩))) (form A B hD) =
+    (D R (WeierstrassKaehler318.AffineChart A B ((fun i => i) ⟨1, ⋯⟩))) ((chartMap A B ((fun i => i) ⟨1, ⋯⟩)) (x A B))
+RESULT WeierstrassAffineInvariantEquation318 1
+RELEASED 2026-11-08T08:22:00Z status=1

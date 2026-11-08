@@ -1,0 +1,9 @@
+# Exact global Boolean root-sign action
+
+For every choice of four rational unit twists, the previously constructed whole-normalization sign maps obey pointwise Boolean exclusive-or composition, the all-false identity, and commutation. The same action is faithful: distinct Boolean patterns give different actual Scheme morphisms and isomorphisms. Its image has exactly sixteen members. This does not assert that every automorphism of the source is a root-sign automorphism.
+
+The arbitrary-ring tensor-order composition is checked on all four actual generators. Contravariant Spec composition is tracked explicitly. The entire-Scheme action equations use the actual normalization uniqueness theorem, actual original open restrictions and the same t-line base maps. Faithfulness restricts equal whole maps to the true open immersion, applies Spec faithfulness, then the exact original-field embedding square and fraction-field universal property. It finally uses the already proved original root-sign field automorphisms' injectivity. No inference from geometric-point injectivity is used.
+
+All three modules strictly pass. The first log retains the initial global-alias normalization failure after the successful generic source, and the second records both final global sources passing. A target-only recursive audit checks all seventeen declarations and required endpoint presence with only propext, Classical.choice and Quot.sound. Hosted integration and independent application review remain pending. There was no full dependency replay.
+
+This packet does not prove valuation inertia, quotient character equivariance, source Jacobian/polarization, PEL realization or arithmetic completeness. Those are separate consumers. The precursor coefficient-change comment correction remains bound in DEPENDENCIES.json; no generic injectivity of base change is inferred.

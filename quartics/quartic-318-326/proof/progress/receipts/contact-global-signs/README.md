@@ -1,0 +1,9 @@
+# Actual whole-source root-sign involutions
+
+For every c:Fin4→Q units and every Boolean sign pattern b, the packet constructs a literal tensor-root sign algebra automorphism and extends its actual Spec morphism to the entire original contact normalization. The canonical extension preserves the original t-line and restricts exactly to the specified original open map. Both inverse identities are proved by the actual relative-normalization uniqueness theorem. Thus all finite branch and infinity points are included.
+
+The ring construction works over every commutative base, with no field assumption. FourRootSignBaseChange318 checks the actual tensor coefficient-change map on every generator and proves exact sign compatibility. SourceSignFieldComparison318 specializes this to the original SourceOrder and OpenOrder and their existing embeddings into the original Raw Kummer field. The localization comparison is proved on the actual entire original order. The global involutions are therefore bound to the previously constructed field root-sign automorphisms, not merely arbitrary automorphisms of a same-degree extension.
+
+The four sources have bounded strict passes. check-62 records a successful FourRootOrderSigns318 pass followed by the first unsuccessful ContactGlobalSigns318 draft; its final exact source passes separately in check-63. check-65 and check-66 pass their named modules. The complete packet source hashes and exact produced objects are recorded. Combined recursive audit/integration remains pending hosted CI, and non-author review is separate.
+
+No valuation-theoretic inertia identification is asserted. No full group-action composition law or formal distinctness of global sign maps is newly claimed in this packet. Exact completed-character quotient equivariance is the next separate join. No source Jacobian, polarization or PEL object is inferred.
