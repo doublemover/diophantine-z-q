@@ -1,0 +1,63 @@
+diff --git a/.github/workflows/progress-experiments.yml b/.github/workflows/progress-experiments.yml
+index 8314aca..d637d1c 100644
+--- a/.github/workflows/progress-experiments.yml
++++ b/.github/workflows/progress-experiments.yml
+@@ -22,6 +22,7 @@ jobs:
+     timeout-minutes: 10
+     outputs:
+       matrix: ${{ steps.plan.outputs.matrix }}
++      has_packets: ${{ steps.plan.outputs.has_packets }}
+       base: ${{ steps.plan.outputs.base }}
+       snapshot: ${{ steps.plan.outputs.snapshot }}
+     steps:
+@@ -35,6 +36,7 @@ jobs:
+ 
+   first-check:
+     needs: plan
++    if: needs.plan.outputs.has_packets == 'true'
+     name: Experimental packet ${{ matrix.packet }}
+     runs-on: ubuntu-24.04
+     timeout-minutes: 30
+diff --git a/scripts/check_progress_experiment.py b/scripts/check_progress_experiment.py
+index ef22f5c..4a2c69a 100644
+--- a/scripts/check_progress_experiment.py
++++ b/scripts/check_progress_experiment.py
+@@ -160,7 +160,8 @@ def main():
+         names=json.loads((EXPERIMENTS/'packets.json').read_text())['active_packets']
+         if len(names)!=len(set(names)) or len(names)>16:raise ValueError('Invalid experiment matrix')
+         for n in names:packet(n,plan)
+-        d={'matrix':{'packet':names},'base':plan['base'],'snapshot':plan['snapshot']};print(json.dumps(d))
++        d={'matrix':{'packet':names},'base':plan['base'],'snapshot':plan['snapshot'],
++           'has_packets':'true' if names else 'false'};print(json.dumps(d))
+         if args.github_output:
+             with args.github_output.open('a') as f:
+                 for k,v in d.items():f.write(k+'='+(json.dumps(v,separators=(',',':')) if isinstance(v,dict) else v)+'\n')
+diff --git a/scripts/test_progress_experiment.py b/scripts/test_progress_experiment.py
+index fe2af25..7855095 100644
+--- a/scripts/test_progress_experiment.py
++++ b/scripts/test_progress_experiment.py
+@@ -88,6 +88,24 @@ class ExperimentTests(unittest.TestCase):
+         w=(ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
+         self.assertNotIn('uses: actions/cache/save',w);self.assertIn('path: .cache/progress-ci',w)
+         self.assertIn('--seconds 180',w);self.assertNotIn('/lib/',w)
++    def test_empty_matrix_skips_checks_without_weakening_admission(self):
++        with tempfile.TemporaryDirectory() as t:
++            root=Path(t);_,_,plan=self.fixture(root);plan['snapshot']='snapshot'
++            output=root/'github-output'
++            for names in [[],['sample']]:
++                ci.write_json(root/'packets.json',{'active_packets':names})
++                output.write_text('')
++                with patch.object(e,'EXPERIMENTS',root), patch.object(e.ci,'check_sources'), \
++                     patch.object(e.ci,'derive_plan',return_value=plan), \
++                     patch.object(e,'packet') as admission, \
++                     patch('sys.argv',['check','plan','--github-output',str(output)]):
++                    e.main()
++                self.assertEqual(admission.call_count,len(names))
++                self.assertIn('has_packets='+('true' if names else 'false')+'\n',output.read_text())
++                self.assertIn('matrix='+json.dumps({'packet':names},separators=(',',':'))+'\n',output.read_text())
++            workflow=(ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
++            self.assertIn("if: needs.plan.outputs.has_packets == 'true'",workflow)
++
+     def test_timeout_is_a_failed_check(self):
+         with tempfile.TemporaryDirectory() as t:
+             root=Path(t);source=root/'A.lean';source.write_text('module\n')
