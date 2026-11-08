@@ -1,0 +1,97 @@
+name: Progress Lean experiments
+
+on:
+  push:
+    paths:
+      - 'quartics/quartic-318-326/proof/experiments/**'
+      - 'scripts/check_progress_experiment.py'
+      - 'scripts/test_progress_experiment.py'
+      - '.github/workflows/progress-experiments.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: progress-experiments-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      base: ${{ steps.plan.outputs.base }}
+      snapshot: ${{ steps.plan.outputs.snapshot }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+        with:
+          python-version: '3.12.14'
+      - run: python -B scripts/test_progress_experiment.py
+      - id: plan
+        run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
+
+  first-check:
+    needs: plan
+    name: Experimental packet ${{ matrix.packet }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+        with:
+          python-version: '3.12.14'
+      - name: Restore previously audited baseline
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        with:
+          path: .cache/progress-ci
+          key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
+          restore-keys: |
+            progress-v2-full-${{ needs.plan.outputs.base }}-
+      - name: Install pinned elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/elan-install"
+          cd "$RUNNER_TEMP/elan-install"
+          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
+          tar -xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch exact pinned upstream artifacts
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          python -B scripts/check_progress_experiment.py targets --packet "$PACKET" > "$RUNNER_TEMP/experiment-targets.txt"
+          mapfile -t targets < "$RUNNER_TEMP/experiment-targets.txt"
+          test "${#targets[@]}" -gt 0
+          cd quartics/quartic-318-326/proof/progress
+          lake exe cache get "${targets[@]}"
+      - name: First strict checks and new-declaration audit
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
+      - name: Upload bounded results and error logs only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
+        with:
+          name: experiment-${{ matrix.packet }}
+          path: |
+            build/progress-experiments/${{ matrix.packet }}/RESULT.json
+            build/progress-experiments/${{ matrix.packet }}/logs/
+            build/progress-experiments/${{ matrix.packet }}/ExperimentAudit.lean
+          retention-days: 3
+# No cache/save step: experimental artifacts never enter the accepted baseline.
