@@ -1,10 +1,10 @@
 {
-  "status": "PASS: mixed addition, finite contact charts, connected all-cusp complex curve and differential gluing; conditional published-polynomial soundness, not full sourceArithmetic",
-  "verified_utc": "2026-11-08T01:09:59.005303+00:00",
-  "source_modules": 813,
-  "recursively_audited_declarations": 16096,
-  "root_modules": 716,
-  "freshly_rebuilt_new_or_changed_modules": 46,
+  "status": "PASS: source-twist field equivalence, infinity chart, meromorphic j, marked periods and intrinsic differential sheaves; conditional published-polynomial soundness, not full sourceArithmetic",
+  "verified_utc": "2026-11-08T01:20:40.390824+00:00",
+  "source_modules": 834,
+  "recursively_audited_declarations": 16524,
+  "root_modules": 737,
+  "freshly_rebuilt_new_or_changed_modules": 21,
   "axioms": [
     "propext",
     "Classical.choice",
@@ -13,17 +13,17 @@
   "checks": {
     "exact_source_hashes_and_closed_topological_imports": "PASS",
     "no_sorry_admit_or_native_evaluation": "PASS",
-    "new_and_changed_source_kernel_rebuild": "PASS 46, inside this snapshot in dependency order, debug.skipKernelTC=false",
-    "combined_recursive_axiom_audit": "PASS 16,096 declarations across 813 modules",
+    "new_and_changed_source_kernel_rebuild": "PASS 21, inside this snapshot in dependency order, debug.skipKernelTC=false",
+    "combined_recursive_axiom_audit": "PASS 16,524 declarations across 834 modules",
     "coefficient_regeneration": "PASS: both published coefficient tables unchanged",
     "unit_tests": "PASS: 5 tests and compiler self-tests",
     "audit_history": "PASS:9 evidence-bound historical dispositions; structural, not mathematical",
     "git_whitespace": "Frozen producer sources and original compiler logs are retained byte-identically. Cosmetic whitespace warnings do not indicate proof errors.",
-    "unchanged_prior_sources": "PASS: all 767 earlier source hashes unchanged; no changes to previously published sources; the new identity-cotangent module has a documented canonical-import adjustment",
-    "frozen_packet_receipt_hashes": "PASS: 128 directly enumerated new frozen receipt/review file hashes and exact dependency receipts; independent manifest binds every included Lean source"
+    "unchanged_prior_sources": "PASS: all 813 earlier source hashes unchanged; new upstream-import adjustments are recorded separately",
+    "frozen_packet_receipt_hashes": "PASS: 74 directly enumerated new frozen receipt/review hashes, exact dependencies and bound sources; independent manifest binds every included Lean source"
   },
-  "rebuild_scope": "All 46 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for the 767 unchanged dependencies. The full 813-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all 813 modules; replay.sh performs that full rebuild.",
-  "independent_reviews": "Earlier bounded reviews are retained under reviews/ with their unchanged source scope. This checkpoint adds an independent exact-source, hypothesis and manuscript-input review of all four finite-contact charts, plus copied strict replay and a separate recursive audit of 120 declarations in five modules. No blanket independent acceptance of all new modules is claimed; the all-cusp, global differential and new group-law producer packets await separate independent review. Classical source inputs remain distinct from their particular PEL realization and from a full Lean proof.",
+  "rebuild_scope": "All 21 new source modules were freshly kernel-checked inside this snapshot. Previously checked artifacts were used for the 813 unchanged dependencies. The full 834-module imported declaration audit then passed. This is not a claim of one fresh end-to-end rebuild of all 834 modules; replay.sh performs that full rebuild.",
+  "independent_reviews": "Earlier bounded reviews are retained under reviews/ with their unchanged source scope. This checkpoint includes an independent source reading, informal geometric argument review and exact rational recomputation for the conditional arithmetic source-twist identification, plus a documented recomparison to the exact current note. It does not constitute independent Lean replay of that packet, formal construction of its PEL/Jacobian hypotheses, or manuscript incorporation. A separate bounded integrator review checks the exact source-twist endpoint hypotheses and the changed base action of the infinity map and injectivity-only conclusion. Other new producer packets have author verification and integrated replay, not blanket independent mathematical acceptance.",
   "remaining": [
     "Construct RefinedContactRealization318.RefinedGeometricRealization (or the original GeometricRealization) in Lean for every primitive noncontact input. Generic actual proper/normal/flat j-models and local contact fields/normalizations are now constructed, but the particular modular/PEL cover and twists, regular or semistable resolution, controlled fields/conductor and named Arakelov/Yuan identifications remain explicit. Conditional record assembly does not establish their existence.",
     "Complete the formal prime-pattern/restricted-converse and integer-to-source witness existence direction.",
@@ -31,9 +31,9 @@
   ],
   "excluded_post_cutoff": [
     "Both-infinity overlap/global addition joins, group axioms and relative multiplication/torsion",
-    "Meromorphic projective j registration and analytic/algebraic source comparison",
-    "Intrinsic global differentials, universal derivation and Hodge pushforward comparison",
-    "Infinity ramification and exact PEL/source twist identification",
+    "Intrinsic differential descent-line identification and invertible Hodge pushforward comparison",
+    "Infinity field-map surjectivity and global finite/infinity chart gluing",
+    "Complex-projective target atlas and analytic/algebraic source comparison",
     "Actual source modular/PEL, regular/semistable, controlled-field and Arakelov realization",
     "Full prime-pattern/restricted-converse and integer-to-source witness construction"
   ],
@@ -44,16 +44,20 @@
     "The user-facing guide now links the actual audited literal 326-coordinate row replay, coefficient binding and conditional soundness instead of repeating the obsolete not-formalized statement. Dated historical receipts remain unchanged."
   ],
   "files": {
-    "checkpoint-manifest.json": "c65eb192d3178ad4c87f2f558aa06452561a711a519a24b4ad5b853fd8b47e29",
-    "module-order.json": "b549631ad0e20f560cf10dda833e73adc210c5c6be577fa9845194441f2775ed",
-    "CheckpointAudit.lean": "ed350e5e9e50a11747d6d3b73b64a9af82d44569ceff18af7d15a4b64b85c5bd",
-    "replay.sh": "79590f3e23f88737f0c85817f79ee06eef60d4ef77b3e13154332da7ee830183",
+    "checkpoint-manifest.json": "2b752c854ea0a3d6dc5f77c93cc61cde4b3e5b09e45f16b45cec944f082667d4",
+    "module-order.json": "8ce998e1430ea9162378975a2bba939875db8e0578f6a6557a03d1cbb07d7846",
+    "CheckpointAudit.lean": "fe1405dfb90085a28a6c8b0763f8ef4d80646394cdb7a9720343411b32a845d0",
+    "replay.sh": "d16d304486d7e2f7da87cbcc995e4b7ba65b68b544a9fefa8fc3ca9cb34779ce",
     "verify_manifest.py": "aa657e41be7be1524138b106c6bdad89ed836640e8b94340e8d572eb228cd63a",
-    "combined-audit.log": "8e09e87b1e10a96ad437a497c5bbe9c2bc9440d8da3c6b5d35032bf66932fb31",
-    "checkpoint-rebuild-modules.json": "897a565e9cffb019dbd51cd29a392de05912507849aa223e8fd95066f1426f90",
-    "checkpoint-rebuild.log": "ed98720e577de8b1c7b9d84fe6ffbf692c8d4b33cd720442138214078c664df5",
+    "combined-audit.log": "f67308008ccdf77c8939145d72ae15a70781d2a55930120054da5fa01150b996",
+    "checkpoint-rebuild-modules.json": "b5b4b843c8956c79663ec44318fc3b5673bb6ee19e9fb4c36d0ac8647310221e",
+    "checkpoint-rebuild.log": "5fcb2df31fa00e97ece228882b73f03138abbc345e9b988f7bd733fae750fe66",
     "repository-checks.log": "54800d3636e7d7b5a2cba281e0df73af44db72075f448c27ded8feb18acf534e",
-    "README.md": "12eb1b8220306369a97e94547c26cbdffd223c54cb10d49c63e3a41a47d81496",
-    "packet-hash-check.log": "0578243fb2da27a8ec4f373b17ec92c0e60e5785a176ded87ac28786e53f99ad"
+    "README.md": "878e07a991fd298d2b4f4535a5bd4145876026e299aaa2a3da5aac1f9ee23fe5",
+    "packet-hash-check.log": "fbcf83cf980e240da9d9fe35b0076d67a0b7f0d10d50be2b0c6840ea580f7739"
+  },
+  "integration_review_hashes": {
+    "reviews/source-twist-infinity-integration/REVIEW.md": "836577df50b0001e22c7110a5adb6e14fd00dc8ffd182a49085fd37428b88301",
+    "reviews/source-twist-infinity-integration/receipt.json": "7f8828d0fdd4eae956f3106c47dabba43680b02617ef6ff2887fb7e44ac8325f"
   }
 }

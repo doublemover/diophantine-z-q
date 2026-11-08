@@ -1,0 +1,16 @@
+--- reviewed-old
++++ reviewed-current
+@@ -1,6 +1,6 @@
+ # Recovering the arithmetic Kummer twists from the published Jacobians
+ 
+-Status: author argument awaiting independent review. The arithmetic calculations are exact; kernel verification is tracked separately. This note does not construct a PEL moduli object or a PEL comparison map in Lean.
++Status: author geometric argument awaiting independent review. Exact arithmetic and the conditional algebraic field-equivalence package have passed kernel replay and a recursive audit of all 90 declarations in four modules. This note does not construct a PEL moduli object or a PEL comparison map in Lean.
+ 
+ ## Fixed sources and historical scope
+ 
+@@ -72,4 +72,4 @@
+ 
+ It does not merely assert that four matching j-invariants determine a W-cover: the full arithmetic Jacobian isomorphisms determine four independent character squareclasses.
+ 
+-The Lean arithmetic package verifies the literal coefficient identities and the general complementary-squareclass recovery. It does not yet formalize the source PEL curve, its W quotient and character fields, the genus-one Jacobian quotient argument, or the source field comparison. Accordingly the unconditional source-model bridge in Lean remains open. Integral smooth/proper models, infinity normalization, good-reduction support and the final Diophantine theorem are separate tasks. The constants have no prime factors outside {2,3,7}, but that observation by itself is not a theorem of good reduction.
++The Lean package verifies the literal coefficient identities, general complementary-squareclass recovery, and the actual Q(t)-algebra equivalence of four-root fields produced by those squareclasses. Its final theorem takes the four actual rational short-Weierstrass coefficient scalings as explicit hypotheses. It does not yet formalize the source PEL curve, its W quotient and character fields, or the genus-one Jacobian quotient argument that supplies those hypotheses. Accordingly the unconditional source-model bridge in Lean remains open. Integral smooth/proper models, infinity normalization, good-reduction support and the final Diophantine theorem are separate tasks. The constants have no prime factors outside {2,3,7}, but that observation by itself is not a theorem of good reduction.

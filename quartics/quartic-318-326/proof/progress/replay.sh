@@ -9,7 +9,10 @@ if [[ ${1:-} != --audit-only ]]; then
   MATHLIB=.lake/packages/mathlib
   for OFFICIAL in Mathlib/RingTheory/Smooth/IntegralClosure \
     Mathlib/CategoryTheory/Limits/Final/Type \
-    Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackFree; do
+    Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackFree \
+    Mathlib/Algebra/Category/ModuleCat/Differentials/Basic \
+    Mathlib/Algebra/Category/ModuleCat/Presheaf/OfCommRing \
+    Mathlib/Algebra/Category/ModuleCat/Differentials/Presheaf; do
     if [[ ! -f "$MATHLIB/.lake/build/lib/lean/$OFFICIAL.olean" ]]; then
       mkdir -p "$MATHLIB/.lake/build/lib/lean/$(dirname "$OFFICIAL")"
       lake env lean -R "$MATHLIB" -Ddebug.skipKernelTC=false "$MATHLIB/$OFFICIAL.lean" \
