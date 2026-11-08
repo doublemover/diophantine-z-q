@@ -24,6 +24,12 @@ class IntegrationTests(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 manifest.validate_audit(bad, ['A', 'B'])
 
+    def test_official_imports_include_pinned_core_without_prefix_shadowing(self):
+        for name in ['Init.Data.Fin.Lemmas', 'Std', 'Lean.Util.CollectAxioms', 'Mathlib.Algebra.Group.Basic']:
+            self.assertTrue(manifest.is_official_import(name))
+        for name in ['Initial318', 'MathlibFake318', 'Standard318', 'CompletedAddition318']:
+            self.assertFalse(manifest.is_official_import(name))
+
     def test_current_binding_and_negative_controls(self):
         bindings.verify(ROOT)
         with tempfile.TemporaryDirectory() as temp:

@@ -1,0 +1,140 @@
+ACQUIRED 2026-11-08T05:51:51Z
+ReciprocalOverlapBase318.lean:20:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ReciprocalOverlapBase318.lean:53:2: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ReciprocalOverlapBase318.lean:53:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ReciprocalOverlapBase318.lean:77:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+InfinityOverlapLocalization318.lean:23:2: error: Type mismatch
+  IsScalarTower.of_algebraMap_eq fun x => rfl
+has type
+  IsScalarTower ?m.7 ?m.7 ?m.19
+but is expected to have type
+  IsScalarTower (A c) S (Source c)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  instMul ↦ 2
+InfinityOverlapLocalization318.lean:37:78: error: unsolved goals
+c : Fin 4 → ℚˣ
+a : A c
+⊢ (integralClosure (A c) (Source c)).val.toRingHom
+      ((InfinityGlobalChart318.sourceClosureEquiv c).symm.toRingEquiv.toRingHom ((algebraMap (A c) (Infinity c)) a)) =
+    (algebraMap (A c) (Source c)) a
+InfinityOverlapLocalization318.lean:39:32: warning: This simp argument is unused:
+  AlgEquiv.commutes
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, Subalgebra.val_apply, Subalgebra.coe_algebraMap]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+InfinityOverlapLocalization318.lean:39:50: warning: This simp argument is unused:
+  Subalgebra.val_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, AlgEquiv.commutes, Subalgebra.coe_algebraMap]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+InfinityOverlapLocalization318.lean:39:71: warning: This simp argument is unused:
+  Subalgebra.coe_algebraMap
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, AlgEquiv.commutes, Subalgebra.val_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+InfinityOverlapLocalization318.lean:42:2: error: Type mismatch
+  IsScalarTower.of_algebraMap_eq fun a => Eq.symm (toOpen_on_base c a)
+has type
+  @IsScalarTower (A c) (Infinity c) (Source c) (infinityAlgebra c).toSMul (infinitySourceAlgebra c).toSMul
+    (sourceAlgebra c).toSMul
+but is expected to have type
+  @IsScalarTower (A c) (Infinity c) (Source c) (infinityAlgebra c).toSMul (infinitySourceAlgebra c).toSMul
+    TensorProduct.leftHasSMul
+InfinityOverlapLocalization318.lean:50:2: error: Type mismatch: After simplification, term
+  Eq.symm h
+ has type
+  @Eq (InfinityOpenFractionField318.L c)
+    ((SourceOpenFractionField318.openEmbedding c) ↑((InfinityGlobalChart318.sourceClosureEquiv c).symm x))
+    ((InfinityOpenFractionField318.openEmbedding c) x)
+but is expected to have type
+  @Eq (SourceOpenFractionField318.L c) ((SourceOpenFractionField318.openEmbedding c) ((toOpen c) x))
+    ((InfinityOpenFractionField318.openEmbedding c) x)
+InfinityOverlapLocalization318.lean:54:40: error: Type mismatch
+  Algebra.IsIntegral.of_finite
+has type
+  ∀ (R : Type ?u.20) (B : Type ?u.19) [inst : CommRing R] [inst_1 : Ring B] [inst_2 : Algebra R B] [Module.Finite R B],
+    Algebra.IsIntegral R B
+but is expected to have type
+  Algebra.IsIntegral S (Source c)
+InfinityOverlapLocalization318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+InfinityOverlapLocalization318.lean:55:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsScalarTower (A c) S (Source c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+InfinityOverlapLocalization318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+InfinityOverlapLocalization318.lean:58:4: error: Application type mismatch: The argument
+  (InfinityGlobalChart318.sourceClosureEquiv c).symm.toRingEquiv
+has type
+  @RingEquiv (InfinityGlobalChart318.InfinityOrder c)
+    (↥(integralClosure (InfinityGlobalBase318.A c) (InfinityGlobalBase318.Source c))) instDistribOfSemiring.toMul
+    (@Distrib.toMul (↥(integralClosure (InfinityGlobalBase318.A c) (InfinityGlobalBase318.Source c)))
+      (@instDistribOfSemiring (↥(integralClosure (InfinityGlobalBase318.A c) (InfinityGlobalBase318.Source c)))
+        (integralClosure (InfinityGlobalBase318.A c) (InfinityGlobalBase318.Source c)).toSemiring))
+    instDistribOfSemiring.toAdd instDistribOfSemiring.toAdd
+but is expected to have type
+  @RingEquiv (Infinity c) ?m.43 instDistribOfSemiring.toMul
+    (@Distrib.toMul ?m.43 (@instDistribOfSemiring ?m.43 CommRing.toCommSemiring.toSemiring)) instDistribOfSemiring.toAdd
+    instDistribOfSemiring.toAdd
+in the application
+  LocalizationSourceTransport318.away (InfinityGlobalChart318.sourceClosureEquiv c).symm.toRingEquiv
+InfinityOverlapLocalization318.lean:78:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (algebraMap R (InfinityOpenChart318.OpenBase c)) ((algebraMap ℚ R) ?x)
+in the target expression
+  (algebraMap (InfinityOpenChart318.OpenBase c) (InfinityOpenChart318.OpenOrder c))
+        ((algebraMap InfinityOpenChart318.R (InfinityOpenChart318.OpenBase c)) (C ↑(c 0)⁻¹)) *
+      (algebraMap (InfinityOpenChart318.OpenBase c) (InfinityOpenChart318.OpenOrder c))
+          ((algebraMap InfinityOpenChart318.R (InfinityOpenChart318.OpenBase c)) X) ^
+        2 =
+    (algebraMap ℚ (Infinity c)) ↑(c 0)⁻¹ *
+      (algebraMap (InfinityOpenChart318.OpenBase c) (Infinity c)) ((algebraMap R (InfinityOpenChart318.OpenBase c)) X) ^
+        2
+
+c : Fin 4 → ℚˣ
+⊢ (algebraMap (InfinityOpenChart318.OpenBase c) (InfinityOpenChart318.OpenOrder c))
+        ((algebraMap InfinityOpenChart318.R (InfinityOpenChart318.OpenBase c)) (C ↑(c 0)⁻¹)) *
+      (algebraMap (InfinityOpenChart318.OpenBase c) (InfinityOpenChart318.OpenOrder c))
+          ((algebraMap InfinityOpenChart318.R (InfinityOpenChart318.OpenBase c)) X) ^
+        2 =
+    (algebraMap ℚ (Infinity c)) ↑(c 0)⁻¹ *
+      (algebraMap (InfinityOpenChart318.OpenBase c) (Infinity c)) ((algebraMap R (InfinityOpenChart318.OpenBase c)) X) ^
+        2
+RELEASED 2026-11-08T05:52:00Z exit=1

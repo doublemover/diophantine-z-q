@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Verify the exact checked source closure without relying on compiler artifacts."""
 import hashlib,json,pathlib,re,sys
+def is_official_import(name):
+ return name.split('.')[0] in {'Mathlib','Lean','Init','Std','Batteries','Qq','Aesop','Plausible','ImportGraph','ProofWidgets'}
+
 def validate_audit(text, order):
  # Import private declarations too; a regular import is insufficient for this audit.
  expected = 'module\n' + ''.join(f'import all {n}\n' for n in order)
@@ -24,7 +27,7 @@ def main():
   assert not re.search(r'\b(sorry|admit|native_decide)\b',re.sub(r'/\-.*?\-/|--[^\n]*','',text,flags=re.S)),f'Forbidden placeholder/evaluator: {m}'
   for line in re.findall(r'^(?:public\s+)?import\s+(?:all\s+)?([^\n]+)',text,re.M):
    for dep in line.split('--')[0].split():
-    if dep.startswith(('Mathlib','Lean','Batteries','Qq','Aesop','Plausible')):continue
+    if is_official_import(dep):continue
     assert dep in seen,f'Import not preceding consumer: {dep} -> {m}'
   seen.add(m)
  assert len(seen)==manifest['module_count']
