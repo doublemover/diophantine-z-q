@@ -1,0 +1,215 @@
+﻿2026-11-08T09:27:42.1352873Z Current runner version: '2.338.2'
+2026-11-08T09:27:42.1375097Z ##[group]Runner Image Provisioner
+2026-11-08T09:27:42.1375859Z Hosted Compute Agent
+2026-11-08T09:27:42.1376446Z Version: 20261028.624
+2026-11-08T09:27:42.1377027Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T09:27:42.1377634Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T09:27:42.1378248Z Worker ID: {b569dca7-b445-4c0e-9c09-ea690d26200c}
+2026-11-08T09:27:42.1378998Z Region: westus2
+2026-11-08T09:27:42.1379466Z Cloud: Azure
+2026-11-08T09:27:42.1380022Z ##[endgroup]
+2026-11-08T09:27:42.1381166Z ##[group]Operating System
+2026-11-08T09:27:42.1381733Z Ubuntu
+2026-11-08T09:27:42.1382229Z 24.04.5
+2026-11-08T09:27:42.1382694Z LTS
+2026-11-08T09:27:42.1383224Z ##[endgroup]
+2026-11-08T09:27:42.1383698Z ##[group]Runner Image
+2026-11-08T09:27:42.1384234Z Image: ubuntu-24.04
+2026-11-08T09:27:42.1384736Z Version: 20261101.360.1
+2026-11-08T09:27:42.1385839Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T09:27:42.1387110Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T09:27:42.1387920Z ##[endgroup]
+2026-11-08T09:27:42.1389099Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T09:27:42.1390906Z Contents: read
+2026-11-08T09:27:42.1391471Z Metadata: read
+2026-11-08T09:27:42.1391957Z ##[endgroup]
+2026-11-08T09:27:42.1394081Z Secret source: Actions
+2026-11-08T09:27:42.1394921Z Cache mode: write
+2026-11-08T09:27:42.1395607Z Prepare workflow directory
+2026-11-08T09:27:42.1660911Z Prepare all required actions
+2026-11-08T09:27:42.1699729Z Getting action download info
+2026-11-08T09:27:42.4858677Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-08T09:27:42.6904095Z Complete job name: finite-checks
+2026-11-08T09:27:42.7661226Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-08T09:27:42.7662455Z with:
+2026-11-08T09:27:42.7662865Z   repository: doublemover/diophantine-z-q
+2026-11-08T09:27:42.7665999Z   token: ***
+2026-11-08T09:27:42.7666363Z   ssh-strict: true
+2026-11-08T09:27:42.7666725Z   ssh-user: git
+2026-11-08T09:27:42.7667088Z   persist-credentials: true
+2026-11-08T09:27:42.7667488Z   clean: true
+2026-11-08T09:27:42.7667857Z   sparse-checkout-cone-mode: true
+2026-11-08T09:27:42.7668282Z   fetch-depth: 1
+2026-11-08T09:27:42.7668835Z   fetch-tags: false
+2026-11-08T09:27:42.7669210Z   show-progress: true
+2026-11-08T09:27:42.7669574Z   lfs: false
+2026-11-08T09:27:42.7669923Z   submodules: false
+2026-11-08T09:27:42.7670294Z   set-safe-directory: true
+2026-11-08T09:27:42.7670708Z   allow-unsafe-pr-checkout: false
+2026-11-08T09:27:42.7671330Z ##[endgroup]
+2026-11-08T09:27:42.9763227Z Syncing repository: doublemover/diophantine-z-q
+2026-11-08T09:27:42.9765848Z ##[group]Getting Git version info
+2026-11-08T09:27:42.9766823Z Working directory is '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T09:27:42.9768256Z [command]/usr/bin/git version
+2026-11-08T09:27:42.9819723Z git version 2.56.0
+2026-11-08T09:27:42.9836821Z ##[endgroup]
+2026-11-08T09:27:42.9845938Z Temporarily overriding HOME='/home/runner/work/_temp/c61ba6df-492d-4774-af06-d2c4b37469cd' before making global git config changes
+2026-11-08T09:27:42.9847807Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T09:27:42.9851462Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:27:42.9897121Z Deleting the contents of '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T09:27:42.9917586Z ##[group]Determining repository object format
+2026-11-08T09:27:42.9919019Z ##[endgroup]
+2026-11-08T09:27:42.9920147Z ##[group]Initializing the repository
+2026-11-08T09:27:42.9922507Z [command]/usr/bin/git init /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:27:43.0003120Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T09:27:43.0004980Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T09:27:43.0006269Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T09:27:43.0007239Z hint: call:
+2026-11-08T09:27:43.0007815Z hint:
+2026-11-08T09:27:43.0008680Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T09:27:43.0009549Z hint:
+2026-11-08T09:27:43.0010533Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T09:27:43.0011944Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T09:27:43.0014870Z hint:
+2026-11-08T09:27:43.0015771Z hint: 	git branch -m <name>
+2026-11-08T09:27:43.0016700Z hint:
+2026-11-08T09:27:43.0017568Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T09:27:43.0019040Z Initialized empty Git repository in /home/runner/work/diophantine-z-q/diophantine-z-q/.git/
+2026-11-08T09:27:43.0021413Z [command]/usr/bin/git remote add origin https://github.com/doublemover/diophantine-z-q
+2026-11-08T09:27:43.0066175Z ##[endgroup]
+2026-11-08T09:27:43.0067201Z ##[group]Disabling automatic garbage collection
+2026-11-08T09:27:43.0069643Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T09:27:43.0103987Z ##[endgroup]
+2026-11-08T09:27:43.0105272Z ##[group]Setting up auth
+2026-11-08T09:27:43.0105914Z Removing SSH command configuration
+2026-11-08T09:27:43.0108361Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T09:27:43.0145960Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T09:27:43.0516403Z Removing HTTP extra header
+2026-11-08T09:27:43.0522080Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T09:27:43.0562513Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T09:27:43.0801735Z Removing includeIf entries pointing to credentials config files
+2026-11-08T09:27:43.0805503Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T09:27:43.0846523Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T09:27:43.1057247Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T09:27:43.1104168Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path /home/runner/work/_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:27:43.1144646Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:27:43.1183748Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:27:43.1221395Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:27:43.1331591Z ##[endgroup]
+2026-11-08T09:27:43.1332218Z ##[group]Fetching the repository
+2026-11-08T09:27:43.1336994Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8d7ca58063f1825f99bf350f4115f22b1245a7bd:refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:27:50.1753907Z From https://github.com/doublemover/diophantine-z-q
+2026-11-08T09:27:50.1756338Z  * [new ref]         8d7ca58063f1825f99bf350f4115f22b1245a7bd -> origin/add-quartic-318-326
+2026-11-08T09:27:50.1761725Z [command]/usr/bin/git branch --list --remote origin/add-quartic-318-326
+2026-11-08T09:27:50.1796351Z   origin/add-quartic-318-326
+2026-11-08T09:27:50.1803133Z [command]/usr/bin/git rev-parse refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:27:50.1835338Z 8d7ca58063f1825f99bf350f4115f22b1245a7bd
+2026-11-08T09:27:50.1840246Z ##[endgroup]
+2026-11-08T09:27:50.1841602Z ##[group]Determining the checkout info
+2026-11-08T09:27:50.1843273Z ##[endgroup]
+2026-11-08T09:27:50.1844929Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T09:27:50.1901520Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T09:27:50.1939080Z ##[group]Checking out the ref
+2026-11-08T09:27:50.1941926Z [command]/usr/bin/git checkout --progress --force -B add-quartic-318-326 refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:27:51.2088908Z Updating files:  95% (8197/8605)
+2026-11-08T09:27:51.4034643Z Updating files:  96% (8261/8605)
+2026-11-08T09:27:51.4274262Z Updating files:  97% (8347/8605)
+2026-11-08T09:27:51.5221398Z Updating files:  98% (8433/8605)
+2026-11-08T09:27:51.5742902Z Updating files:  99% (8519/8605)
+2026-11-08T09:27:51.5743394Z Updating files: 100% (8605/8605)
+2026-11-08T09:27:51.5743747Z Updating files: 100% (8605/8605), done.
+2026-11-08T09:27:51.6547611Z Switched to a new branch 'add-quartic-318-326'
+2026-11-08T09:27:51.6560205Z branch 'add-quartic-318-326' set up to track 'origin/add-quartic-318-326'.
+2026-11-08T09:27:51.6669369Z ##[endgroup]
+2026-11-08T09:27:51.6726452Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T09:27:51.6764273Z 8d7ca58063f1825f99bf350f4115f22b1245a7bd
+2026-11-08T09:27:51.7059426Z Prepare all required actions
+2026-11-08T09:27:51.7060031Z Getting action download info
+2026-11-08T09:27:51.8292427Z Download action repository 'actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-11-08T09:27:52.3096054Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-08T09:27:52.8351606Z ##[group]Run ./.github/actions/setup-pinned-python
+2026-11-08T09:27:52.8351936Z with:
+2026-11-08T09:27:52.8352114Z   python-version: 3.12.14
+2026-11-08T09:27:52.8352310Z ##[endgroup]
+2026-11-08T09:27:52.8397906Z ##[start-action display=Run set -euo pipefail;id=__self.platform]
+2026-11-08T09:27:52.8428751Z ##[group]Run set -euo pipefail
+2026-11-08T09:27:52.8429061Z [36;1mset -euo pipefail[0m
+2026-11-08T09:27:52.8429277Z [36;1mtest -n "${ImageOS:-}"[0m
+2026-11-08T09:27:52.8429530Z [36;1mecho "image=$ImageOS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T09:27:52.8450606Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:27:52.8450910Z ##[endgroup]
+2026-11-08T09:27:52.8529139Z ##[end-action id=__self.platform;outcome=success;conclusion=success;duration_ms=13]
+2026-11-08T09:27:52.8532825Z ##[start-action display=Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9;id=__self.runtime]
+2026-11-08T09:27:52.9071172Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:27:52.9071521Z with:
+2026-11-08T09:27:52.9071729Z   path: /opt/hostedtoolcache/Python/3.12.14
+2026-11-08T09:27:52.9072215Z   key: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:27:52.9072685Z   enableCrossOsArchive: false
+2026-11-08T09:27:52.9072898Z   fail-on-cache-miss: false
+2026-11-08T09:27:52.9073093Z   lookup-only: false
+2026-11-08T09:27:52.9073267Z ##[endgroup]
+2026-11-08T09:27:53.3920384Z Cache not found for input keys: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:27:53.3999615Z ##[end-action id=__self.runtime;outcome=success;conclusion=success;duration_ms=546]
+2026-11-08T09:27:53.4002127Z ##[start-action display=Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0;id=__self.__actions_setup-python]
+2026-11-08T09:27:53.4059436Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-11-08T09:27:53.4059751Z with:
+2026-11-08T09:27:53.4059919Z   python-version: 3.12.14
+2026-11-08T09:27:53.4060138Z   architecture: x64
+2026-11-08T09:27:53.4060308Z   check-latest: false
+2026-11-08T09:27:53.4062290Z   token: ***
+2026-11-08T09:27:53.4062554Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-08T09:27:53.4062868Z   update-environment: true
+2026-11-08T09:27:53.4063068Z   allow-prereleases: false
+2026-11-08T09:27:53.4063257Z   freethreaded: false
+2026-11-08T09:27:53.4063435Z ##[endgroup]
+2026-11-08T09:27:53.5012892Z ##[group]Installed versions
+2026-11-08T09:27:53.5025971Z Version 3.12.14 was not found in the local cache
+2026-11-08T09:27:54.1755712Z Version 3.12.14 is available for downloading
+2026-11-08T09:27:54.1756761Z Download from "https://github.com/actions/python-versions/releases/download/3.12.14-31661455385/python-3.12.14-linux-24.04-x64.tar.gz"
+2026-11-08T09:28:05.3061321Z Unexpected HTTP response: 504
+2026-11-08T09:28:05.3061632Z Waiting 18 seconds before trying again
+2026-11-08T09:28:34.5116920Z Unexpected HTTP response: 504
+2026-11-08T09:28:34.5117242Z Waiting 15 seconds before trying again
+2026-11-08T09:29:00.6268167Z Unexpected HTTP response: 504
+2026-11-08T09:29:00.6325391Z ##[error]Unexpected HTTP response: 504
+2026-11-08T09:29:00.8021696Z ##[end-action id=__self.__actions_setup-python;outcome=failure;conclusion=failure;duration_ms=67401]
+2026-11-08T09:29:00.8032457Z ##[start-action display=Verify exact restored or installed Python;id=__self.__run]
+2026-11-08T09:29:00.8035594Z ##[end-action id=__self.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:29:00.8037199Z ##[start-action display=Save verified runtime before any project checks;id=__self.__actions_cache]
+2026-11-08T09:29:00.8042001Z ##[end-action id=__self.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:29:00.8142494Z Post job cleanup.
+2026-11-08T09:29:00.8145307Z ##[start-action display=Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0;id=__631057bb-f242-40b8-8717-1c80d0731220.__actions_setup-python]
+2026-11-08T09:29:00.8147177Z ##[end-action id=__631057bb-f242-40b8-8717-1c80d0731220.__actions_setup-python;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:29:00.8219010Z Post job cleanup.
+2026-11-08T09:29:00.8911390Z [command]/usr/bin/git version
+2026-11-08T09:29:00.8981804Z git version 2.56.0
+2026-11-08T09:29:00.9015306Z Temporarily overriding HOME='/home/runner/work/_temp/2562c393-9f23-4dff-b74b-ca7d5edc299b' before making global git config changes
+2026-11-08T09:29:00.9016229Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T09:29:00.9019475Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:29:00.9051038Z Removing SSH command configuration
+2026-11-08T09:29:00.9056016Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T09:29:00.9091291Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T09:29:00.9337420Z Removing HTTP extra header
+2026-11-08T09:29:00.9343314Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T09:29:00.9386994Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T09:29:00.9624914Z Removing includeIf entries pointing to credentials config files
+2026-11-08T09:29:00.9630614Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T09:29:00.9676241Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T09:29:00.9677837Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T09:29:00.9678805Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T09:29:00.9679485Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T09:29:00.9684468Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T09:29:00.9721921Z /home/runner/work/_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:29:00.9732156Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-ecb8f15e\-8f1b\-481b\-ad26\-4a6c29e2ff9a\.config
+2026-11-08T09:29:00.9772880Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T09:29:00.9804297Z /home/runner/work/_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:29:00.9812959Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-ecb8f15e\-8f1b\-481b\-ad26\-4a6c29e2ff9a\.config
+2026-11-08T09:29:00.9855776Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T09:29:00.9885756Z /github/runner_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:29:00.9892752Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-ecb8f15e\-8f1b\-481b\-ad26\-4a6c29e2ff9a\.config
+2026-11-08T09:29:00.9931012Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T09:29:00.9959900Z /github/runner_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config
+2026-11-08T09:29:00.9967216Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-ecb8f15e\-8f1b\-481b\-ad26\-4a6c29e2ff9a\.config
+2026-11-08T09:29:01.0007029Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T09:29:01.0224072Z Removing credentials config '/home/runner/work/_temp/git-credentials-ecb8f15e-8f1b-481b-ad26-4a6c29e2ff9a.config'
+2026-11-08T09:29:01.0376892Z Cleaning up orphan processes
