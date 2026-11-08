@@ -1,0 +1,40 @@
+ACQUIRED 2026-11-08T08:17:36Z
+CharacterSignGlobal318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+CharacterSignGlobal318.lean:79:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  GluedNegation318.negation ?A ?B ≫ WeierstrassGluing318.structureMap ?A ?B
+in the target expression
+  ContactGlobalSigns318.map units (SourceCharacterFields318.flip j) ≫
+      completedMap i ≫ WeierstrassGluing318.structureMap (publishedA i) (publishedB i) =
+    (completedMap i ≫ GluedNegation318.negation (publishedA i) (publishedB i)) ≫
+      WeierstrassGluing318.structureMap (publishedA i) (publishedB i)
+
+case hb
+i j : Fin 4
+hji : j ≠ i
+⊢ ContactGlobalSigns318.map units (SourceCharacterFields318.flip j) ≫
+      completedMap i ≫ WeierstrassGluing318.structureMap (publishedA i) (publishedB i) =
+    (completedMap i ≫ GluedNegation318.negation (publishedA i) (publishedB i)) ≫
+      WeierstrassGluing318.structureMap (publishedA i) (publishedB i)
+CharacterSignGlobal318.lean:83:24: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ContactProjectiveModel318.sourceOpen units ≫ completedMap ?i
+in the target expression
+  (affineMap i ≫ GluedNegation318.finiteNeg (publishedA i) (publishedB i)) ≫
+      WeierstrassGluing318.finiteChart (publishedA i) (publishedB i) =
+    ContactProjectiveModel318.sourceOpen units ≫
+      completedMap i ≫ GluedNegation318.negation (publishedA i) (publishedB i)
+
+case ho
+i j : Fin 4
+hji : j ≠ i
+⊢ (affineMap i ≫ GluedNegation318.finiteNeg (publishedA i) (publishedB i)) ≫
+      WeierstrassGluing318.finiteChart (publishedA i) (publishedB i) =
+    ContactProjectiveModel318.sourceOpen units ≫
+      completedMap i ≫ GluedNegation318.negation (publishedA i) (publishedB i)
+RELEASED 2026-11-08T08:17:50Z exit=1

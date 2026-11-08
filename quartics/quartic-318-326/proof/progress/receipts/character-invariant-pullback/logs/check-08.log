@@ -1,0 +1,94 @@
+ACQUIRED 2026-11-08T08:14:49Z
+RESULT AffineChartPullbackScalars318 0
+recovery-hodge-0358/character-differential-work/IntrinsicDifferentialSectionPullback318.lean:62:86: error(lean.unknownIdentifier): Unknown identifier `hsquare`
+recovery-hodge-0358/character-differential-work/IntrinsicDifferentialSectionPullback318.lean:67:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (AlgHomDifferential318.map ?f) ((KaehlerDifferential.D ?m.410 ?m.411) ?s)
+in the target expression
+  (FamilyIntrinsicDifferentials318.D p).d (aT (a s)) =
+    ((IntrinsicChartSections318.sectionMap j p hj).comp (AlgHomDifferential318.map a).toAddMonoidHom)
+      ((KaehlerDifferential.D R₀ S) s)
+
+case hD
+X Y : Scheme
+f : X ⟶ Y
+R₀ S T : Type u
+inst✝⁶ : CommRing R₀
+inst✝⁵ : CommRing S
+inst✝⁴ : CommRing T
+inst✝³ : Algebra R₀ S
+inst✝² : Algebra R₀ T
+p : X ⟶ Spec ↧R₀
+q : Y ⟶ Spec ↧R₀
+h : f ≫ q = p
+a : S →ₐ[R₀] T
+j : Spec ↧T ⟶ X
+inst✝¹ : IsOpenImmersion j
+k : Spec ↧S ⟶ Y
+inst✝ : IsOpenImmersion k
+hj : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap R₀ T))
+hk : k ≫ q = Spec.map (CommRingCat.ofHom (algebraMap R₀ S))
+hv : j ''ᵁ ⊤ ≤ f ⁻¹ᵁ k ''ᵁ ⊤
+v : ↑Γ(FamilyIntrinsicDifferentials318.omega q, k ''ᵁ ⊤) →+ ↑Γ(FamilyIntrinsicDifferentials318.omega p, j ''ᵁ ⊤) :=
+  value f p q h (k ''ᵁ ⊤) (j ''ᵁ ⊤) hv
+aS : S → ↑Γ(Y, k ''ᵁ ⊤) :=
+  fun s => (ConcreteCategory.hom (Scheme.Hom.appIso k ⊤).inv) ((ConcreteCategory.hom (Scheme.ΓSpecIso ↧S).inv) s)
+aT : T → ↑Γ(X, j ''ᵁ ⊤) :=
+  fun t => (ConcreteCategory.hom (Scheme.Hom.appIso j ⊤).inv) ((ConcreteCategory.hom (Scheme.ΓSpecIso ↧T).inv) t)
+ha : ∀ (s : S), (ConcreteCategory.hom (Scheme.Hom.appLE f (k ''ᵁ ⊤) (j ''ᵁ ⊤) hv)) (aS s) = aT (a s)
+s : S
+⊢ (FamilyIntrinsicDifferentials318.D p).d (aT (a s)) =
+    ((IntrinsicChartSections318.sectionMap j p hj).comp (AlgHomDifferential318.map a).toAddMonoidHom)
+      ((KaehlerDifferential.D R₀ S) s)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.sheaf
+  has type
+    TopCat.Sheaf CommRingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) CommRingCat
+  in the application
+    (sheafToPresheaf (Opens.grothendieckTopology ↥X) CommRingCat).obj X.sheaf
+recovery-hodge-0358/character-differential-work/IntrinsicDifferentialSectionPullback318.lean:74:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (AlgHomDifferential318.map ?f) (?s • ?ω)
+in the target expression
+  aT (a s) • (IntrinsicChartSections318.sectionMap j p hj) ((AlgHomDifferential318.map a) ω) =
+    ((IntrinsicChartSections318.sectionMap j p hj).comp (AlgHomDifferential318.map a).toAddMonoidHom) (s • ω)
+
+case hsmul
+X Y : Scheme
+f : X ⟶ Y
+R₀ S T : Type u
+inst✝⁶ : CommRing R₀
+inst✝⁵ : CommRing S
+inst✝⁴ : CommRing T
+inst✝³ : Algebra R₀ S
+inst✝² : Algebra R₀ T
+p : X ⟶ Spec ↧R₀
+q : Y ⟶ Spec ↧R₀
+h : f ≫ q = p
+a : S →ₐ[R₀] T
+j : Spec ↧T ⟶ X
+inst✝¹ : IsOpenImmersion j
+k : Spec ↧S ⟶ Y
+inst✝ : IsOpenImmersion k
+hj : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap R₀ T))
+hk : k ≫ q = Spec.map (CommRingCat.ofHom (algebraMap R₀ S))
+hv : j ''ᵁ ⊤ ≤ f ⁻¹ᵁ k ''ᵁ ⊤
+v : ↑Γ(FamilyIntrinsicDifferentials318.omega q, k ''ᵁ ⊤) →+ ↑Γ(FamilyIntrinsicDifferentials318.omega p, j ''ᵁ ⊤) :=
+  value f p q h (k ''ᵁ ⊤) (j ''ᵁ ⊤) hv
+aS : S → ↑Γ(Y, k ''ᵁ ⊤) :=
+  fun s => (ConcreteCategory.hom (Scheme.Hom.appIso k ⊤).inv) ((ConcreteCategory.hom (Scheme.ΓSpecIso ↧S).inv) s)
+aT : T → ↑Γ(X, j ''ᵁ ⊤) :=
+  fun t => (ConcreteCategory.hom (Scheme.Hom.appIso j ⊤).inv) ((ConcreteCategory.hom (Scheme.ΓSpecIso ↧T).inv) t)
+ha : ∀ (s : S), (ConcreteCategory.hom (Scheme.Hom.appLE f (k ''ᵁ ⊤) (j ''ᵁ ⊤) hv)) (aS s) = aT (a s)
+s : S
+ω : Ω[S⁄R₀]
+heq :
+  v ((IntrinsicChartSections318.sectionMap k q hk) ω) =
+    (IntrinsicChartSections318.sectionMap j p hj) ((AlgHomDifferential318.map a) ω)
+⊢ aT (a s) • (IntrinsicChartSections318.sectionMap j p hj) ((AlgHomDifferential318.map a) ω) =
+    ((IntrinsicChartSections318.sectionMap j p hj).comp (AlgHomDifferential318.map a).toAddMonoidHom) (s • ω)
+RESULT IntrinsicDifferentialSectionPullback318 1
+RELEASED 2026-11-08T08:14:56Z status=1

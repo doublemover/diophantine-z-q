@@ -1,0 +1,15 @@
+# Bounded non-author review: actual GL2 frame action
+
+Decision: ACCEPT the exact five-source application at receipt bb5c53934c7abbdc7404eba4d5af1647233b95f6b6b975fca090e65d8ed25317. No material defect or scope correction found. This is an exact source/map review, not a fresh kernel replay or whole-proof acceptance.
+
+1. Inputs: the actual kernel F3 point module and represented independent-pair open are named predecessors. I read the new elementary frame algebra and all five actual source modules, rather than treating the author's receipt as independent proof evidence.
+2. Objects: Group is the actual linear automorphism group of Fin 2 → ZMod 3. The domain is the original kernel relative product and its original fiberwise independent open, for all N. No additive label identification is used.
+3. Linear maps: linearize is the standard-basis linear extension. Its basis values, naturality and injectivity under independence identify the precise operation. change is precomposition by g, and change_mul correctly has the right-frame convention change h (change g v)=change (g*h) v.
+4. Base transport: rebase is equality substitution only; pull combines it with actual precomposition. pull_val explicitly retains the same underlying kernel map. No comparison of nonidentical bases is silently asserted.
+5. Ambient identity: map is the original pullback lift of the two genuine changed points. map_mul is checked by both original product projections and pull_change. The inverse is map at g inverse, with both categorical composite identities, not a cardinality argument.
+6. Open restriction: preserves checks the four actual primitive opens through the existing residue restriction. Field tests detect only open membership. The actual restricted morphism is an open-immersion lift; map_inclusion is exact. Arbitrary nilpotent and disconnected tests are not reduced to global inequalities.
+7. Actual restricted inverse: map_one/map_mul are proved by cancellation of the original open immersion. The resulting iso retains the actual restriction, not an abstract isomorphism between equally sized objects.
+8. Consumer: first/second and action_first/action_second bind the two original universal kernel projections to the genuine changed frame on every Scheme test. natural is actual precomposition compatibility. All N and all test Schemes remain, without NeZero N or a dimension-two premise.
+9. Limits: no free/transitive action, rank48, full-level torsor, Weil pairing, symplectic/PEL/polarization or final arithmetic conclusion is asserted by these sources. Those remain separate applications.
+
+Authorship disclosure: I did not author these five sources. I authored earlier torsion/kernel decomposition, density, scalar-extension and geometric-basis/count work, some of which occurs upstream of the consumed objects. This decision reviews the new frame-action application and does not independently approve my own predecessors. Group's kernel-group and independent-open predecessors likewise retain their separate review provenance. No compiler was run for this review.

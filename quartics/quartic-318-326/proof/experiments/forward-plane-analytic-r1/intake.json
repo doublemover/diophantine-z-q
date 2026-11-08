@@ -1,0 +1,65 @@
+{
+  "packet": "forward-plane-analytic-r1",
+  "status": "PENDING_FIRST_HOSTED_CHECK_FOR_LAST_TWO_SOURCES",
+  "order": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318",
+    "LiteralPlaneJAtlas318",
+    "LiteralPlaneBiholomorph318"
+  ],
+  "files": {
+    "AnalyticImplicitGraph318.lean": {
+      "sha256": "8c62dd62a76a70ca2aa31c598c7847c61fe01e34bb155203a0fa1a9b72f555c7",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ImplicitContDiff",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic"
+      ]
+    },
+    "LiteralThreePlaneImmersion318.lean": {
+      "sha256": "392b7184f6ce298c2d396ecf29f32f86ce6bf2b2e9bf85b2f326ac7d70b518c5",
+      "imports": [
+        "LiteralThreePlanePoints318"
+      ]
+    },
+    "LiteralThreePlaneGraph318.lean": {
+      "sha256": "05ae558f71bb7a0ad6966bd0bede82ace9b809720681cdaad6efcc14b5659946",
+      "imports": [
+        "LiteralThreePlaneImmersion318",
+        "AnalyticImplicitGraph318",
+        "Mathlib.Analysis.Analytic.Linear"
+      ]
+    },
+    "LiteralPlaneJAtlas318.lean": {
+      "sha256": "5310223b640b2b689cb585fc0156c5e490090e00a1c6e52c229cabda5e845f8e",
+      "imports": [
+        "LiteralPlaneComparison318",
+        "LiteralThreePlaneGraph318"
+      ]
+    },
+    "LiteralPlaneBiholomorph318.lean": {
+      "sha256": "a528670ba43513ffce29a54b2068a2ed2e2b62ac8bec9e67cd9d2b5f957413d0",
+      "imports": [
+        "LiteralPlaneJAtlas318",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Geometry.Manifold.Diffeomorph"
+      ]
+    }
+  },
+  "scope": "Five-source experimental closure: unchanged hosted-passed graph3 plus two uncompiled actual literal-j-atlas/analytic-equivalence consumers. Existing plane/source topologies and exact comparison maps retained.",
+  "already_checked_modules": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318"
+  ],
+  "pending_first_compilation_modules": [
+    "LiteralPlaneJAtlas318",
+    "LiteralPlaneBiholomorph318"
+  ],
+  "graph_pass_receipt_sha256": "26ae709a327bd7463896a1905bfd6830b8a4f45088c7e94e541f2086d2230537",
+  "existing_1338_coordinate_predecessor_receipt_sha256": "8a7cb9710105b65e50405312084eb768c154abf1cb958a999b1b342eaecf09e0",
+  "existing_coordinate_independent_acceptance_sha256": "f217165db99ed68e06109bdf8910746bed025f2cf1cb933d2e2d2c6c36968f40",
+  "all_source_bytes_unchanged_from_original_packets": true,
+  "no_local_replay": true
+}

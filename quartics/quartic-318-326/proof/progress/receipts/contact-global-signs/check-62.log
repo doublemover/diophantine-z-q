@@ -1,0 +1,58 @@
+ACQUIRED 2026-11-08T08:08:26Z
+FourRootOrderSigns318.lean:45:42: warning: This simp argument is unused:
+  ← AdjoinRoot.algebraMap_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [generator, Algebra.TensorProduct.tmul_pow, root_square, Algebra.TensorProduct.algebraMap_def,
+    scalar_right]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ContactGlobalSigns318.lean:19:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  𝟙 (Spec ?R)
+in the target expression
+  Spec.map
+      (CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom ≫
+        CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom) =
+    𝟙 (ContactKummerCover318.cover c)
+
+c : Fin 4 → ℚˣ
+b : Fin 4 → Bool
+⊢ Spec.map
+      (CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom ≫
+        CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom) =
+    𝟙 (ContactKummerCover318.cover c)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Spec.map
+      (CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom ≫
+        CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom)
+  has type
+    @Quiver.Hom Scheme Scheme.instCategory.toQuiver (Spec ↧(OpenOrder c)) (Spec ↧(OpenOrder c))
+  but is expected to have type
+    @Quiver.Hom Scheme Scheme.instCategory.toQuiver (ContactKummerCover318.cover c) (ContactKummerCover318.cover c)
+  in the application
+    Eq
+      (Spec.map
+        (CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom ≫
+          CommRingCat.ofHom (openEquiv c b).toRingEquiv.toRingHom))
+ContactGlobalSigns318.lean:47:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIntegralHom (ContactProjectiveModel318.modelMap c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ContactGlobalSigns318.lean:50:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIntegralHom (ContactProjectiveModel318.modelMap c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ContactGlobalSigns318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RELEASED 2026-11-08T08:08:32Z exit=1

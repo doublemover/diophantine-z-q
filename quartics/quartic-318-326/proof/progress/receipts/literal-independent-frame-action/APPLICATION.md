@@ -1,0 +1,23 @@
+# Bounded application contract: actual GL2 frame action
+
+1. **Inputs and exact statements.** The existing literal-kernel-group packet supplies the actual tripling-fiber Scheme, its F3-module of base-preserving maps on every Scheme test, actual addition, and additive/linear precomposition. The independent-pairs packet supplies the actual open cut out by nonvanishing of P, Q, Q-P, Q+P at every test point. The new elementary linear algebra uses the standard basis of F3^2 and its checked linear extension; it does not postulate an additive structure on a nine-element labeling.
+
+2. **Required domain and index.** For each natural N, K is the actual literal completed-tripling zero fiber over Base N. The domain of the ambient maps is K x_(Base N) K, and the final domain is exactly LiteralIndependentPairOpen318.scheme N. The change index is every linear automorphism of Fin 2 -> ZMod 3, i.e. the actual GL2(F3). No larger or smaller index family is substituted.
+
+3. **Constructed objects and identification.** LiteralKernelFrameChange318.frame is the original left/right universal pair in the intrinsic kernel-point module. Its map is the actual pullback lift of the two entries of change g frame. LiteralIndependentFrameChange318.map is the open-immersion lift of the old inclusion followed by this ambient map. map_inclusion is the exact comparison equation, not an abstract identification of schemes with matching cardinality.
+
+4. **Exact operation and convention.** linearize v sends each standard basis vector to v_i. change g v_i = linearize v (g e_i). Thus change h (change g v) = change (g*h) v. Both ambient and restricted Scheme maps satisfy sigma_g >> sigma_h = sigma_(g*h). The order is fixed explicitly; no left/right action convention is suppressed.
+
+5. **Hypotheses and quantifiers.** The linear algebra is valid in any F3 module. The Scheme construction retains all N, with no NeZero N, reducedness, algebraic closure, geometric splitting, dimension-two or basis assumption. Test objects are arbitrary Schemes. The kernel group and primitive/open comparisons are consumed at their existing exact hypotheses; this packet does not independently reprove its own author's predecessors.
+
+6. **Base and coefficient compatibility.** map_base proves that the actual ambient product structural map is preserved. LiteralKernelPointBaseTransport318 transports point modules only across equality of actual base morphisms; pull_val proves its underlying map is precisely precomposition. No implicit replacement by a merely isomorphic base, representation or coefficient ring is used.
+
+7. **Open restriction and nilpotents.** For an ambient point x, the existing atPoint linear map evaluates genuine kernel sections on its residue-field test. pulled_nonzero relates this only to membership in the actual primitive open. Linear independence after an invertible frame change proves nonvanishing of all four genuine combinations and hence membership in the same open. The resulting Scheme map is constructed by the actual open-immersion lifting property. Residue fields are used to detect open membership, never to infer general equality of maps or erase nilpotents.
+
+8. **Inverse and categorical identities.** The ambient and restricted iso definitions use g inverse. Both hom-inv and inv-hom composites reduce to the proved composition law and map_one. Ambient equality is proved by the two actual pullback projections; restricted equality is proved by cancellation of the original open immersion. No degree-one, pointwise injectivity or geometric-bijection shortcut is used.
+
+9. **Actual downstream consumer and limits.** LiteralIndependentFrameAction318.first/second identify both original universal kernel projections with the actual changed frame. action_first/action_second do this after every Scheme test map, and natural proves precomposition compatibility. These endpoints are intended for the existing independent geometric section/basis comparison and later full-level construction. Rank48, surjectivity and the universal F3^2 kernel trivialization are separately authored work. Free/transitive action, Weil/symplectic/PEL identification and final arithmetic are not consequences asserted in this packet.
+
+## Evidence and review scope
+
+The immutable receipt binds every source, strict log, endpoint/recursive audit and predecessor receipt. This is the author's application record, not independent acceptance. The author also wrote the consumed kernel-group and independent-pairs sources, so those are expressly retained as separately reviewed predecessors rather than self-approved here. Full dependency replay belongs to the hosted integration owner; this packet performs no redundant cloud full-chain replay.
