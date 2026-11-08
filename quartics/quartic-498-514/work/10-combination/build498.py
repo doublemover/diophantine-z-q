@@ -29,7 +29,7 @@ total={}
 for p in rows.values():total=V.add(total,V.mul(norm(p),norm(p)))
 assert len(d['coordinates'])==498 and len(rows)==467 and len(total)==24669
 assert V.degree(total)==4 and V.variables(total)=={c['id'] for c in d['coordinates']}
-def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n')
+def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n', encoding='utf-8', newline='\r\n')
 write('candidate498-ir.json',d);write('polynomial498.json',{'fixedParameter':d['fixedParameter'],'terms':terms(total)})
 stats={'variables':498,'witnesses':497,'residuals':467,'degree':4,'monomials':len(total),'content':1,'maximumCoefficient':'16*3^(2^26)',
  'candidateSha256':sha(H/'candidate498-ir.json'),'polynomialSha256':sha(H/'polynomial498.json')}

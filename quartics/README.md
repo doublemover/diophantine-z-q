@@ -21,6 +21,6 @@ All variable counts include the input. Each download below is a byte-identical c
 
 The 514-variable quartic is the smallest here with every coefficient written out in decimal. The current manuscript gives its defining property and that of the 498-variable quartic, while retaining the original construction and earlier proof baselines. The new text downloads are lossless reformattings of their package JSON tables; the reproduction command compares every coefficient.
 
-In a text table, each non-comment line contains the coefficient followed by repeated variable indices. For example, `-6 0 2 2` denotes `-6 X_0 X_2^2`. A line containing only a coefficient is the constant term. The JSON format is explained in the corresponding package guide.
+The 498/514-variable text tables use `coefficient | C exponent | variable indices`. Thus `-6 | 0 | 0,2,2` denotes `-6 X_0 X_2^2`; the middle field is zero throughout the fully expanded decimal table. A row with no variable indices is a constant term. Older packages may use whitespace-separated coefficients and repeated indices. Each table's header and package guide state its format.
 
 The package directories retain their existing names because the source inventories, certificates and reproduction commands refer to those paths.

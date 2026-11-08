@@ -38,7 +38,7 @@ assert set(x for m in poly for x in m)==set(c['id'] for c in out['coordinates'])
 assert poly[()]==3**2048+1005072314676622
 assert max(abs(c) for c in poly.values())==poly[()] and poly[()].bit_length()==3247
 assert max(map(len,poly))==4 and reduce(gcd,map(abs,poly.values()))==1
-def write(n,d):(H/n).write_text(json.dumps(d,indent=2)+'\n')
+def write(n,d):(H/n).write_text(json.dumps(d,indent=2)+'\n', encoding='utf-8', newline='\r\n')
 write('candidate514-ir.json',out)
 write('polynomial514.json',{'terms':[{'monomial':list(m),'coefficient':str(c)} for m,c in sorted(poly.items())]})
 stats={'variables':514,'witnesses':513,'residuals':483,'degree':4,'monomials':len(poly),'content':1,

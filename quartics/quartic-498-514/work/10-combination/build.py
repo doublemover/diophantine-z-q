@@ -18,7 +18,7 @@ def norm(p):
  d=reduce(lcm,(c.denominator for c in p.values()),1);g=reduce(gcd,(abs(int(c*d)) for c in p.values()),0)
  return {m:c*Q(d,g) for m,c in p.items()}
 def remap(p,mp):return {(s,tuple(sorted(mp[i] for i in m))):c for (s,m),c in p.items()}
-def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n')
+def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n', encoding='utf-8', newline='\r\n')
 def build(product=False):
  b=read(BASE); d=read(DEPTH); bc={c['id']:c for c in b['coordinates']}; names={c['name']:c['id'] for c in d['coordinates']}
  mapping={i:names[c['name']] for i,c in bc.items() if c['name'] in names}

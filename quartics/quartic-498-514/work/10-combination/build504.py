@@ -42,7 +42,7 @@ assert {i for s,m in total for i in m}=={c['id'] for c in d['coordinates']}
 assert max(len(m) for s,m in total)==4
 assert [(m,c) for (s,m),c in total.items() if s==2]==[((57,57),16)]
 assert any(s==0 and c==1 for (s,m),c in total.items())
-def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n')
+def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n', encoding='utf-8', newline='\r\n')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 write('candidate504-ir.json',d);write('polynomial504.json',{'fixedParameter':d['fixedParameter'],'terms':terms(total)})
 stats={'variables':504,'witnesses':503,'residuals':473,'degree':4,'monomials':len(total),'content':1,

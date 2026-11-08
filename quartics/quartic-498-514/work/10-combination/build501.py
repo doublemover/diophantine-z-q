@@ -35,7 +35,7 @@ assert max(len(m) for s,m in total)==4 and len(total)==24724
 assert {i for s,m in total for i in m}=={c['id'] for c in d['coordinates']}
 assert [(m,v) for (s,m),v in total.items() if s==2]==[((57,57),16)]
 assert any(s==0 and v==1 for (s,m),v in total.items())
-def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n')
+def write(n,o):(H/n).write_text(json.dumps(o,indent=2)+'\n', encoding='utf-8', newline='\r\n')
 write('candidate501-ir.json',d);write('polynomial501.json',{'fixedParameter':d['fixedParameter'],'terms':terms(total)})
 stats={'variables':501,'witnesses':500,'residuals':470,'degree':4,'monomials':len(total),'content':1,'maximumCoefficient':'16*3^(2^26)',
  'candidateSha256':sha(H/'candidate501-ir.json'),'polynomialSha256':sha(H/'polynomial501.json')}

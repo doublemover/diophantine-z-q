@@ -36,3 +36,7 @@ The exact [quartic application contract](quartic-application.json) and [independ
 These reviews cover the new reductions relative to the retained arithmetic inputs. They do not re-prove the restricted converse, height theorem or prime-pattern theorem, and they do not remove the source-version qualifications recorded in earlier inventories. Finite verification, structural validation, internal model review and a completed formal proof are different claims. No new completed formal proof is claimed.
 
 The [research supplement](../../../research/version12/README.md) preserves these records and the preceding supplements without a conversational transcript.
+
+## Serialization correction
+
+The initial Linux replay exposed platform-dependent line endings in generated intermediate JSON files. The frozen hashes were computed on Windows. The builders and table renderer now explicitly write UTF-8 with CRLF line endings on every platform. The [diagnostic and exact changes](portability/serialization-repair.json) preserve the initial review records. The mathematical data, hash assertions and manuscript are unchanged; the revised package binding received fresh independent review.
