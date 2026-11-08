@@ -8,21 +8,29 @@ the progress source manifest, but that inexpensive validation is not a Lean repl
 ## Parallel and incremental runs
 
 The planner validates the source manifest and actual import DAG. The default is
-up to 16 concurrent hosted cohorts in each of two dependency stages. The foundation
-stage builds modules below import depth 21. The dependent stage verifies and
-imports those exact artifacts, then compiles its own modules. Imported foundation
-files are not recompiled or reuploaded by the dependent cohorts.
+up to 16 concurrent hosted cohorts in each of three dependency stages, separated
+at import depths 7 and 16. Later stages verify and import earlier stages' exact
+artifacts. Imported files are not recompiled or reuploaded. Within each stage,
+the allocator balances source-bound measured compilation seconds while rewarding
+shared dependencies. Changed or unmeasured sources use a four-second scheduling
+estimate. Timing hints never authorize cache reuse or change source fingerprints.
 
-For the checked 951-module snapshot this gives 16 foundation cohorts, with at most
-108 modules each, followed by 10 dependent cohorts, with at most 102 each. A simple
-16-way split without dependency stages still left a 347-module job. The staged
-plan performs 1,219 cold module compilations including repeated within-stage
-dependencies, versus 1,111 in the original four-cohort plan. Its count-based longest
-lane is 108+102 rather than 347 modules. This is a planning comparison, not a
-measured wall-time speedup: setup, artifact transfer, queueing and unequal proof
-costs also matter.
+The first full hosted cold run at `0547a75` passed: all 882 source modules were
+freshly compiled and all 17,291 declarations recursively audited. Its slowest
+four-way cohort spent 39.7 minutes compiling. Nine independent finite-generator
+chunks alone took 25.1 minutes in that one job. A count-based 16-way plan also
+placed all nine together, so more runners alone did not remove that bottleneck.
+The new early boundary distributes those nine chunks across nine foundation jobs.
 
-Manual runs can change `cohorts`, `max_parallel` and `split_depth` independently.
+For the 1,036-module snapshot, the timing-aware plan has 16 jobs per stage, with
+maximum source counts 76, 37 and 144. Applying the measured 882-module timings
+plus the fallback estimate gives stage critical-path compile estimates of 223,
+334 and 304 seconds, about 14.4 minutes combined. This excludes setup, transfer,
+queueing and the final audit, and is not a measured speedup. The extra stage adds
+a setup/transfer barrier. Hosted runs must measure the complete tradeoff.
+
+Manual runs can change `cohorts`, `max_parallel`, `early_depth` and `split_depth`
+independently. Setting `early_depth` to zero selects two stages.
 Four was a configured budget, not a desktop or GitHub limit. GitHub documents a
 256-job matrix limit and standard hosted concurrency of 20 for Free, 40 for Pro,
 60 for Team and 500 for Enterprise. The owner's actual account limit is not
@@ -83,8 +91,11 @@ module, and imported prerequisites were not reuploaded. A further real Lean test
 changed the cohort partition while restoring the complete audited cache: it
 compiled zero unchanged modules. All five cold/warm/repartitioned/changed/clean
 combined audits passed. Regression tests also reject disagreement between the replay module list and the
-authoritative manifest. These small tests validate cache behavior, not the runtime
-or success of the initial full hosted run.
+authoritative manifest. These small tests validate cache behavior, not full-run performance. A three-stage
+real Lean test additionally changes A in A→B→D while leaving independent C
+unchanged. Cold, warm, repartitioned, changed and clean runs compiled 4, 0, 0,
+3 and 4 modules respectively, and all five complete recursive audits passed.
+This checks actual three-stage cache invalidation, not just a mocked planner.
 
 ## Small-helper dependency setup
 

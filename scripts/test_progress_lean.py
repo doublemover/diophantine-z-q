@@ -54,16 +54,70 @@ class ProgressTests(unittest.TestCase):
                 ci.derive_plan(root)
 
     def test_cohorts_cover_every_module_and_its_dependencies(self):
-        plan = ci.derive_plan()
+        plan = ci.derive_plan(early_depth=7)
         all_modules = set()
         for group in plan["cohorts"]:
             seen = set(group["imports"])
-            self.assertTrue(all(plan["depth"][n] < plan["split_depth"] for n in seen))
+            self.assertTrue(all(sum(plan["depth"][n] >= b for b in plan["stage_boundaries"]) < group["stage"] for n in seen))
             for name in group["modules"]:
                 self.assertTrue(set(plan["dependencies"][name]).issubset(seen))
                 seen.add(name)
             all_modules.update(seen)
         self.assertEqual(all_modules, set(plan["module_order"]))
+
+    def test_heavy_independent_chunks_are_distributed(self):
+        plan = ci.derive_plan(early_depth=7)
+        chunks = {f"FiniteGeneratorChunk{i}318" for i in range(1, 10)}
+        groups = [c for c in plan["cohorts"] if chunks.intersection(c["modules"])]
+        self.assertEqual(len(groups), 9)
+        self.assertTrue(all(c["stage"] == 0 for c in groups))
+        self.assertTrue(all(len(chunks.intersection(c["modules"])) == 1 for c in groups))
+
+    def test_weights_are_source_bound_and_not_cache_keys(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); self.fixture(root)
+            first = ci.derive_plan(root)
+            with patch.object(ci, "compile_weights", return_value={"A": 1000.0}):
+                second = ci.derive_plan(root)
+            self.assertEqual(first["module_keys"], second["module_keys"])
+            self.assertEqual(first["snapshot"], second["snapshot"])
+            self.assertNotEqual(first["cohorts"], second["cohorts"])
+            manifest = json.loads((ci.PROJECT / "checkpoint-manifest.json").read_text())
+            self.assertIn("FiniteGeneratorChunk1318", ci.compile_weights(manifest))
+            manifest["modules"]["FiniteGeneratorChunk1318"]["sha256"] = "changed"
+            self.assertNotIn("FiniteGeneratorChunk1318", ci.compile_weights(manifest))
+
+    def test_three_stages_selectively_rebuild_transitive_dependents(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "project"; self.fixture(root)
+            (root / "D.lean").write_text("module\npublic import B\npublic def d : Nat := b\n")
+            (root / "CheckpointAudit.lean").write_text("module\nimport all A\nimport all B\nimport all C\nimport all D\n")
+            self.manifest(root, ["A", "B", "C", "D"])
+            def fake_compile(project, env, label, source, target, logs, root=None):
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(source.read_bytes())
+                return {"module": label, "exit_code": 0, "seconds": 0}
+            def run(label, clean=False):
+                plan = ci.derive_plan(root, 2, split_depth=2, early_depth=1)
+                self.assertEqual({c["stage"] for c in plan["cohorts"]}, {0, 1, 2})
+                bundles = Path(temp) / label; bundles.mkdir()
+                for c in plan["cohorts"]:
+                    ci.build_cohort(argparse.Namespace(cohort=c["id"], clean=clean, bundles=bundles,
+                        cache=Path(temp) / f"cache-{c['id']}",
+                        output=bundles / f"progress-cohort-{c['id']}"), plan)
+                entries, _, _, _, _ = ci.collect_bundles(bundles, plan, plan["cohorts"], clean)
+                self.assertEqual(set(entries), {"A", "B", "C", "D"})
+            with patch.object(ci, "PROJECT", root), \
+                 patch.object(ci, "environment", return_value=({}, "test")), \
+                 patch.object(ci, "ensure_official"), \
+                 patch.object(ci, "compile_one", side_effect=fake_compile) as compiler:
+                run("cold"); self.assertEqual(compiler.call_count, 4)
+                compiler.reset_mock(); run("warm"); self.assertEqual(compiler.call_count, 0)
+                (root / "A.lean").write_text("module\npublic def a : Nat := 3\n")
+                self.manifest(root, ["A", "B", "C", "D"])
+                compiler.reset_mock(); run("changed")
+                self.assertEqual({c.args[2] for c in compiler.call_args_list}, {"A", "B", "D"})
+                compiler.reset_mock(); run("clean", True); self.assertEqual(compiler.call_count, 4)
 
     def test_replay_order_must_match_authoritative_manifest(self):
         with tempfile.TemporaryDirectory() as temp:

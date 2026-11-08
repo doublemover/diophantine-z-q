@@ -9,6 +9,7 @@ The final audit always imports the complete snapshot, including private declarat
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -53,22 +54,39 @@ def import_names(text):
         code_only(text), re.M) for name in line.split()}
 
 
-def partition_stage(order, dependencies, count):
+def compile_weights(manifest):
+    """Source-bound scheduling hints, never evidence for admitting an artifact."""
+    path = ROOT / "scripts/progress_compile_weights.json"
+    if not path.is_file(): return {}
+    rows = json.loads(path.read_text())["modules"]
+    result = {}
+    for name, row in rows.items():
+        seconds = row["seconds"]
+        if not isinstance(seconds, (int, float)) or not math.isfinite(seconds) or seconds <= 0:
+            raise ValueError(f"Invalid compile-time hint: {name}")
+        if manifest["modules"].get(name, {}).get("sha256") == row["source_sha256"]:
+            result[name] = seconds
+    return result
+
+
+def partition_stage(order, dependencies, count, weights=None):
+    weights = weights or {}
+    def cost(names): return sum(weights.get(n, 4.0) for n in names)
     local = set(order)
     closure = {}
     for name in order:
         closure[name] = {name}.union(*(closure[d] for d in dependencies[name] if d in local))
     used = {d for n in order for d in dependencies[n] if d in local}
-    sinks = sorted(local - used, key=lambda n: (-len(closure[n]), n))
+    sinks = sorted(local - used, key=lambda n: (-cost(closure[n]), n))
     groups, roots = [set() for _ in range(count)], [[] for _ in range(count)]
     for name in sinks:
         i = min(range(count), key=lambda i: (
-            4 * len(closure[name] - groups[i]) + len(groups[i]), len(groups[i]), i))
+            4 * cost(closure[name] - groups[i]) + cost(groups[i]), cost(groups[i]), i))
         groups[i].update(closure[name]); roots[i].append(name)
     return [(group, root) for group, root in zip(groups, roots) if group]
 
 
-def derive_plan(project=PROJECT, count=16, split_depth=21):
+def derive_plan(project=PROJECT, count=16, split_depth=16, early_depth=None):
     manifest = json.loads((project / "checkpoint-manifest.json").read_text())
     order = manifest["module_order"]
     if len(set(order)) != len(order) or set(order) != set(manifest["modules"]):
@@ -102,20 +120,26 @@ def derive_plan(project=PROJECT, count=16, split_depth=21):
     depth = {}
     for name in order:
         depth[name] = max((depth[d] + 1 for d in dependencies[name]), default=0)
+    if early_depth is not None and not 0 < early_depth < split_depth:
+        raise ValueError("Early boundary must be positive and below the final boundary")
+    boundaries = ([early_depth] if early_depth is not None else []) + [split_depth]
+    weights = compile_weights(manifest)
     cohorts = []
-    for stage in range(2):
-        members = [n for n in order if int(depth[n] >= split_depth) == stage]
-        for slot, (group, roots) in enumerate(partition_stage(members, dependencies, count)):
+    for stage in range(len(boundaries) + 1):
+        members = [n for n in order if sum(depth[n] >= b for b in boundaries) == stage]
+        for slot, (group, roots) in enumerate(partition_stage(members, dependencies, count, weights)):
             modules = [name for name in order if name in group]
             imports = set().union(*(closure[n] for n in modules)) - group
             cohorts.append({"id": len(cohorts), "stage": stage, "slot": slot,
                             "modules": modules, "imports": [n for n in order if n in imports], "roots": roots,
+                            "estimated_compile_seconds": round(sum(weights.get(n, 4.0) for n in modules), 3),
                             "key": digest([keys[n] for n in modules])})
     snapshot = digest({"base": base, "modules": keys, "audit": sha(project / "CheckpointAudit.lean")})
     return {"schema": SCHEMA, "base": base, "snapshot": snapshot, "module_order": order,
             "dependencies": dependencies, "module_keys": keys, "cohorts": cohorts,
             "upstream": sorted(upstream), "depth": depth, "cohort_count": count,
-            "split_depth": split_depth, "audit_sha256": sha(project / "CheckpointAudit.lean")}
+            "split_depth": split_depth, "stage_boundaries": boundaries,
+            "audit_sha256": sha(project / "CheckpointAudit.lean")}
 
 
 def check_sources(project):
@@ -362,7 +386,9 @@ def main():
     parser.add_argument("command", choices=["plan", "build", "audit", "cache-targets"])
     parser.add_argument("--cohorts", type=int, default=16, choices=range(1, 33))
     parser.add_argument("--max-parallel", type=int, default=16, choices=range(1, 33))
-    parser.add_argument("--split-depth", type=int, default=21, choices=range(1, 1001))
+    parser.add_argument("--split-depth", type=int, default=16, choices=range(1, 1001))
+    parser.add_argument("--early-depth", type=int, default=7, choices=range(0, 1001),
+                        help="Early dependency boundary; 0 selects two stages")
     parser.add_argument("--cohort", type=int)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--cache", type=Path)
@@ -372,13 +398,14 @@ def main():
     parser.add_argument("--github-output", type=Path)
     args = parser.parse_args()
     if args.command != "cache-targets": check_sources(PROJECT)
-    plan = derive_plan(count=args.cohorts, split_depth=args.split_depth)
+    if args.early_depth >= args.split_depth: parser.error("early-depth must be below split-depth")
+    plan = derive_plan(count=args.cohorts, split_depth=args.split_depth, early_depth=args.early_depth or None)
     if args.command == "plan":
         if args.output: write_json(args.output, plan)
         matrices = [{"include": [{"id": c["id"], "key": c["key"], "modules": len(c["modules"]),
                                     "stage": c["stage"], "slot": c["slot"]}
                                    for c in plan["cohorts"] if c["stage"] == stage]}
-                    for stage in range(2)]
+                    for stage in range(3)]
         print(json.dumps({"modules": len(plan["module_order"]), "matrices": matrices, "base": plan["base"]}))
         if args.github_output:
             with args.github_output.open("a") as out:
@@ -386,6 +413,7 @@ def main():
                     out.write(f"matrix{stage}=" + json.dumps(matrix, separators=(",", ":")) + "\n")
                 out.write("base=" + plan["base"] + "\nhas_stage1=" +
                           str(bool(matrices[1]["include"])).lower() + "\n")
+                out.write("has_stage2=" + str(bool(matrices[2]["include"])).lower() + "\n")
                 out.write(f"parallel={args.max_parallel}\n")
                 out.write("snapshot=" + plan["snapshot"] + "\n")
     elif args.command == "cache-targets":
