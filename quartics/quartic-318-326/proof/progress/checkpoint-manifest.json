@@ -1,7 +1,7 @@
 {
   "status": "checked-progress-checkpoint; not full sourceArithmetic",
-  "created_utc": "2026-11-08T01:18:15.060000+00:00",
-  "base_commit": "52743ce9390944eec47dd9fb9f3f07032ff7c678",
+  "created_utc": "2026-11-08T01:25:40.736800+00:00",
+  "base_commit": "c5e28946990ff071c8ba11288603d1e78ac87f52",
   "lean_version": "4.35.0",
   "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
   "root_modules": [
@@ -280,6 +280,7 @@
     "FourEvenContacts318",
     "FourRootAutomorphisms318",
     "FourRootGalois318",
+    "FourRootGeneration318",
     "FourRootOrder318",
     "FourRootPivot318",
     "FourUnitCover318",
@@ -378,6 +379,7 @@
     "InfinityCrossMaps318",
     "InfinityCrossOpen318",
     "InfinityFieldCoordinates318",
+    "InfinityFieldEquivalence318",
     "InfinityFieldMap318",
     "InfinityFiniteCompatibility318",
     "InfinityGlobalFormCompatibility318",
@@ -453,6 +455,8 @@
     "LiteralMetricExtension318",
     "LiteralOriginCurvature318",
     "LiteralSoundness318326",
+    "LiteralThreeTorsion318",
+    "LiteralTwoTorsion318",
     "LiteralWeierstrassPoints318",
     "LocalDeck318",
     "LocalDivisorData318",
@@ -490,6 +494,9 @@
     "ModularVerticalAlgebra318",
     "ModularWeierstrass318",
     "ModularWeierstrassScale318",
+    "MonicEtaleSplitting318",
+    "MonicRootEtale318",
+    "MonogenicSplitEquiv318",
     "NebentypusOrder318",
     "NegationPoints318",
     "NormChainCompleteness",
@@ -539,6 +546,7 @@
     "PrimitiveQuadratic318",
     "PrimitiveQuadraticMahler318",
     "PrimitiveTorsion318",
+    "PrimitiveTwoModel318",
     "ProductHeight318",
     "ProductLocalization318",
     "ProductOverlapOpen318",
@@ -642,6 +650,8 @@
     "ShortAffineScheme318",
     "ShortCurveBaseChange318",
     "ShortInfinityDifferential318",
+    "ShortThreeTorsion318",
+    "ShortTwoTorsion318",
     "SingleCuspDensity318",
     "SmoothGenericField318",
     "SmoothOpenModel318",
@@ -680,6 +690,7 @@
     "SourceTwistArithmetic318",
     "SourceTwistFieldEquiv318",
     "SourceTwistRecovery318",
+    "SplitPolynomialAlgebra318",
     "SplitReciprocalDepth318",
     "SquareFactorization318",
     "SquareReflection318",
@@ -698,6 +709,12 @@
     "TensorTower318",
     "ThetaRecurrence",
     "ThreeRootOrder318",
+    "ThreeTorsionAlgebra318",
+    "ThreeTorsionFieldPoints318",
+    "ThreeTorsionFunctor318",
+    "ThreeTorsionIdentity318",
+    "ThreeTorsionPoints318",
+    "ThreeTorsionScheme318",
     "TildeComparison318",
     "TildePullback318",
     "TorsionSafeIndex318",
@@ -709,6 +726,8 @@
     "TripleOpen318",
     "TripleQuadraticField318",
     "TwoChartGluing318",
+    "TwoTorsionCurve318",
+    "TwoTorsionPoints318",
     "UniformizingSectionBounds318",
     "UnitDifferential318",
     "UnitFrameHorizontal318",
@@ -743,7 +762,7 @@
     "WronskianCoefficient318",
     "WronskianFinite318"
   ],
-  "module_count": 834,
+  "module_count": 853,
   "module_order": [
     "RationalAbsoluteHeight",
     "QuarticOptimization",
@@ -1578,7 +1597,26 @@
     "AllCuspJGlobal318",
     "InfinityFieldMap318",
     "InfinityOpenChart318",
-    "SourceTwistFieldEquiv318"
+    "SourceTwistFieldEquiv318",
+    "FourRootGeneration318",
+    "MonicRootEtale318",
+    "InfinityFieldEquivalence318",
+    "MonicEtaleSplitting318",
+    "SplitPolynomialAlgebra318",
+    "MonogenicSplitEquiv318",
+    "ShortTwoTorsion318",
+    "ThreeTorsionIdentity318",
+    "TwoTorsionCurve318",
+    "TwoTorsionPoints318",
+    "LiteralTwoTorsion318",
+    "ShortThreeTorsion318",
+    "ThreeTorsionPoints318",
+    "PrimitiveTwoModel318",
+    "ThreeTorsionAlgebra318",
+    "ThreeTorsionFunctor318",
+    "ThreeTorsionFieldPoints318",
+    "ThreeTorsionScheme318",
+    "LiteralThreeTorsion318"
   ],
   "modules": {
     "RationalAbsoluteHeight": {
@@ -4920,6 +4958,82 @@
     "InfinityFieldMap318": {
       "sha256": "450f33c6c809ff94dd502aab3536bfb12c3c4f95f8c542a5ed81ddad2e177ff6",
       "origin": "resumed-infinity-contact/InfinityFieldMap318.lean"
+    },
+    "MonicRootEtale318": {
+      "sha256": "b6c2fcbd927126c9b1dfa0ad22e5c6280e7c55d48d00ecf5959a8b6f6e3298d4",
+      "origin": "monic-etale-splitting/MonicRootEtale318.lean"
+    },
+    "MonicEtaleSplitting318": {
+      "sha256": "11aa466a4006abb66dc742879e1f67e2b7326559e8515080db4e6f526abd28dd",
+      "origin": "monic-etale-splitting/MonicEtaleSplitting318.lean"
+    },
+    "SplitPolynomialAlgebra318": {
+      "sha256": "7e06ae1299337a1856b65b0983a009511db7ed8ebd3aa883a6b03ae920846934",
+      "origin": "monic-etale-splitting/SplitPolynomialAlgebra318.lean"
+    },
+    "MonogenicSplitEquiv318": {
+      "sha256": "d11da14d7815aeca6a411b1f4cbfd67d616320d93468294b040c0b261427a9cb",
+      "origin": "monic-etale-splitting/MonogenicSplitEquiv318.lean"
+    },
+    "ShortTwoTorsion318": {
+      "sha256": "e22adc4fc9456a6658e8f7fb0decb3fffdc07b52cca38f08da0f16cedc74e128",
+      "origin": "monic-etale-splitting/ShortTwoTorsion318.lean"
+    },
+    "TwoTorsionCurve318": {
+      "sha256": "7d1defab85e6e8bf5734158fd23eb51e1dd04db82bfa5277c81920ee2fac3f88",
+      "origin": "monic-etale-splitting/TwoTorsionCurve318.lean"
+    },
+    "TwoTorsionPoints318": {
+      "sha256": "0df5833aa4acd010308bca8960280a5c9c67142ff8f251116d07a9cc05fe5ef3",
+      "origin": "monic-etale-splitting/TwoTorsionPoints318.lean"
+    },
+    "LiteralTwoTorsion318": {
+      "sha256": "3358979e27c0ab95ad0f3e3445c5f692ad7b40bf8673baa273f4941655e8b088",
+      "origin": "monic-etale-splitting/LiteralTwoTorsion318.lean"
+    },
+    "PrimitiveTwoModel318": {
+      "sha256": "09252c76b5a7579bf955250269d03bafd89b8c84841de676a902338213a89bd3",
+      "origin": "monic-etale-splitting/PrimitiveTwoModel318.lean"
+    },
+    "ThreeTorsionIdentity318": {
+      "sha256": "bd0d7b4d2317d9b977db0726cb4c29976ac48db6eb4a80100619f844b1cd8b2e",
+      "origin": "relative-three-torsion/ThreeTorsionIdentity318.lean"
+    },
+    "ShortThreeTorsion318": {
+      "sha256": "fee217eaa854b583ed12ad418a53b1ecfd23cb91ceb96137fcbfa7a6720236bc",
+      "origin": "relative-three-torsion/ShortThreeTorsion318.lean"
+    },
+    "ThreeTorsionAlgebra318": {
+      "sha256": "2105002e354e5890c19558b4bee5351fca6202b68659346ccce16e17f572e7cf",
+      "origin": "relative-three-torsion/ThreeTorsionAlgebra318.lean"
+    },
+    "ThreeTorsionPoints318": {
+      "sha256": "a0ad5ddce7e045cba7ccb4a5c400e40057e4420f14fd8efb6e761b31c353a99b",
+      "origin": "relative-three-torsion/ThreeTorsionPoints318.lean"
+    },
+    "ThreeTorsionFunctor318": {
+      "sha256": "f95bb62788cc74e827635f146eba6f53ce2493d3b6ec1aee069717d77fa7e971",
+      "origin": "relative-three-torsion/ThreeTorsionFunctor318.lean"
+    },
+    "ThreeTorsionScheme318": {
+      "sha256": "8d4e063e33eef1fc1358f7eecdb8b70e5dea165fab2f932494129ac0ae7be44f",
+      "origin": "relative-three-torsion/ThreeTorsionScheme318.lean"
+    },
+    "LiteralThreeTorsion318": {
+      "sha256": "655d7d8a478214019fed54bbad5b52c61cf445686136963ab2290ccc40881eda",
+      "origin": "relative-three-torsion/LiteralThreeTorsion318.lean"
+    },
+    "ThreeTorsionFieldPoints318": {
+      "sha256": "439556932282e8a7c50e7e2cdb091880c40fc4cc76c4498ff0e51f4aadd79b4a",
+      "origin": "relative-three-torsion/ThreeTorsionFieldPoints318.lean"
+    },
+    "FourRootGeneration318": {
+      "sha256": "c72eb595862641294eccbed77136a67170433af29f9ec4fd5e3f0cf7124ee9cc",
+      "origin": "infinity-field-equivalence/FourRootGeneration318.lean"
+    },
+    "InfinityFieldEquivalence318": {
+      "sha256": "e0318d533247801dfe96b010d2ed25a5f30a2c48be51ade23ac68b3cca9d9886",
+      "origin": "infinity-field-equivalence/InfinityFieldEquivalence318.lean"
     }
   },
   "shared_source_variants": [],
@@ -5544,6 +5658,15 @@
     },
     "resumed-infinity-contact": {
       "receipt_directory": "receipts/resumed-infinity-contact"
+    },
+    "monic-etale-splitting": {
+      "receipt_directory": "receipts/monic-etale-splitting"
+    },
+    "relative-three-torsion": {
+      "receipt_directory": "receipts/relative-three-torsion"
+    },
+    "infinity-field-equivalence": {
+      "receipt_directory": "receipts/infinity-field-equivalence"
     }
   },
   "integration_adjustments": [
