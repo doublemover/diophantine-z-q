@@ -21,7 +21,7 @@ All compact coordinates run from 1 through the total variable count, with `x1` a
 Run from the repository root:
 
 ```sh
-python -B scripts/check_quartic394.py
+python -B scripts/check_quartic394_portable.py
 python -B docs/manuscript-revisions/version13/validate-applications.py --repo . --self-test
 python -B scripts/check_audit_history.py --self-test
 ```

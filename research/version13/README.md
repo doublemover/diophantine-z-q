@@ -7,7 +7,7 @@ The handoff preserves the November 7, 2026 manuscript, the portable 394/411-vari
 Start with the [Version 13 guide](../../docs/manuscript-revisions/version13/GUIDE.md). The package's source and file manifests identify the exact inputs. After restoration, run from the restored repository root:
 
 ```sh
-python -B scripts/check_quartic394.py
+python -B scripts/check_quartic394_portable.py
 python -B docs/manuscript-revisions/version13/validate-applications.py --repo . --self-test
 python -B scripts/check_audit_history.py --self-test
 ```

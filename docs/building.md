@@ -5,7 +5,7 @@ Run these commands from the repository root. Python scripts use the standard lib
 ## Current 394- and 411-variable quartics
 
 ```sh
-python -B scripts/check_quartic394.py
+python -B scripts/check_quartic394_portable.py
 python -B docs/manuscript-revisions/version13/validate-applications.py --repo . --self-test
 python -B scripts/check_audit_history.py --self-test
 ```
