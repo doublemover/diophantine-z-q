@@ -1,0 +1,104 @@
+{
+  "claim": "Local sheaf generation/base-point-freeness of the actual global intrinsic bicanonical pair",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "global_packet_receipt_sha256": "1f748f234a0c394ed78ae05dec7431d59f3ead4740a3cf1ff17c248bc264655f",
+  "sources": {
+    "IntrinsicTensorGenerator318.lean": "155c55184c0d4fe00b2ac0c2680bb940cd3ec3fe2e340a67189cb43c2866fd86",
+    "ContactBicanonicalGenerators318.lean": "869e971ba8ee5d85b66bbd5aacd648ec17d5a0975a80e71a9ad12d724dcc3702"
+  },
+  "external_input_scope": "No new literature theorem. Actual frames, restriction and module/sheaf arguments are supplied by the pinned kernel-checked dependencies.",
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "The actual local module must be rank one with a normalized coordinate and an invertible coefficient.",
+      "constructed": "A genuine restricted tensor frame is built from the intrinsic cotangent frame; the universal coordinate derivative has frame value one.",
+      "why_match": "frame_pure and basis_normalized use the exact restriction/congruence/multiplication normalization, not an arbitrary generator.",
+      "evidence": [
+        "IntrinsicTensorGenerator318.frame",
+        "IntrinsicTensorGenerator318.frame_pure",
+        "IntrinsicTensorGenerator318.basis_normalized"
+      ]
+    },
+    {
+      "name": "Constructed objects",
+      "required": "The generator must be one of the already constructed global bicanonical sections on the actual source.",
+      "constructed": "The tensor object, global q0/q1 and exact local expressions are imported from the frozen global packet unchanged.",
+      "why_match": "global_branch_generator and global_infinity_generator compose the actual global restriction equations with local generation.",
+      "evidence": [
+        "ContactBicanonicalGenerators318.global_branch_generator",
+        "ContactBicanonicalGenerators318.global_infinity_generator"
+      ]
+    },
+    {
+      "name": "Domain and index coverage",
+      "required": "Every point and every subopen of an appropriate neighborhood must be covered.",
+      "constructed": "Every finite branch i:Fin4 is handled, and the full infinity chart is handled. The prior five-chart cover covers every source point.",
+      "why_match": "generate_on_neighborhood explicitly quantifies over all subopens of the selected neighborhood; it is stronger than one global-section test.",
+      "evidence": [
+        "ContactBicanonicalGenerators318.generate_on_neighborhood"
+      ]
+    },
+    {
+      "name": "Transition and comparison maps",
+      "required": "The local frame and global-to-local restriction maps must be actual sheaf maps.",
+      "constructed": "ambientFrame starts with the exact restrictUnitIso and inverse tensor frame. Global restriction composition uses presheaf.map_comp and the frozen q0/q1_restrict equations.",
+      "why_match": "The basis value is exactly one, and composition gives the same actual local section; no scalar or transport is left unspecified.",
+      "evidence": [
+        "IntrinsicTensorGenerator318.ambientFrame_one",
+        "ContactBicanonicalGenerators318.global_branch_generator",
+        "ContactBicanonicalGenerators318.global_infinity_generator"
+      ]
+    },
+    {
+      "name": "Identity of the consumed object",
+      "required": "Local generation must apply to the actual globally glued pair, not merely a replacement local pair.",
+      "constructed": "The statements mention ContactGlobalBicanonical318.q0 and .q1 literally.",
+      "why_match": "The proof first establishes the exact restriction equalities on every subopen and then transfers bijectivity.",
+      "evidence": [
+        "ContactBicanonicalGenerators318.global_branch_generator",
+        "ContactBicanonicalGenerators318.global_infinity_generator"
+      ]
+    },
+    {
+      "name": "Coefficient and normalization conventions",
+      "required": "All c_i powers and coordinate choices must agree with the global packet.",
+      "constructed": "The existing branchQ0_unit and infinityQ1_unit theorems are used with the same coefficient and coordinate definitions.",
+      "why_match": "No coefficient is changed. Unit status maps through GammaSpecIso, chart appIso and the actual restriction map before multiplying the normalized basis.",
+      "evidence": [
+        "IntrinsicTensorGenerator318.weighted_generator_bijective",
+        "ContactBicanonicalGenerators318.branch_generator",
+        "ContactBicanonicalGenerators318.infinity_generator"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required": "Generation must include finite ramification points and all infinity points, without cancelling a vanishing coordinate.",
+      "constructed": "Finite q0 is a unit coefficient on the entire finite branch chart; infinity q1 is a unit coefficient on the entire infinity chart.",
+      "why_match": "Neither z_i nor u is inverted in these local generation arguments. The all-subopen statement follows from an actual local frame.",
+      "evidence": [
+        "ContactBicanonicalGenerators318.branch_generator",
+        "ContactBicanonicalGenerators318.infinity_generator"
+      ]
+    },
+    {
+      "name": "Exceptional cases",
+      "required": "Zero twists, omitted branch indices or endpoints, and an empty-subopen loophole must not weaken the conclusion.",
+      "constructed": "Twists remain arbitrary Q-units, every branch is included, and the chosen neighborhood explicitly contains the supplied point.",
+      "why_match": "The theorem covers all points and all W\u2264V, including the actual nonempty neighborhood V containing x. q0 is allowed to vanish at infinity because q1 generates there.",
+      "evidence": [
+        "ContactBicanonicalGenerators318.generate_on_neighborhood"
+      ]
+    },
+    {
+      "name": "Downstream consumption",
+      "required": "A base-point-free local-generating pair is required before constructing its associated projective morphism.",
+      "constructed": "At every point, one global section freely generates the sheaf throughout a whole neighborhood.",
+      "why_match": "This supplies the local-generation input. An explicit projective map, linear independence and degree remain separate endpoints; none is inferred here.",
+      "evidence": [
+        "ContactBicanonicalGenerators318.generate_on_neighborhood"
+      ]
+    }
+  ],
+  "consumer": "Exact input for a future projective morphism associated to the pair; no such morphism or PEL/KS consequence claimed."
+}

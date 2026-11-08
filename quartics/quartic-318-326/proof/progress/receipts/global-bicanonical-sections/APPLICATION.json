@@ -1,0 +1,131 @@
+{
+  "claim": "Actual global intrinsic bicanonical q0 and q1 on the complete contact normalization",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "mathematical_scope": "Every chosen rational unit twist c; no PEL identification and no manuscript revision",
+  "construction_change": "Use direct universal-coordinate weighted tensors in exactly the same bicanonical sheaf. Exclude the failed redundant alias-composition draft; do not assert a new equality to the previous inverse-frame local section names.",
+  "external_input_scope": "No new literature theorem is used. The actual sheaf-gluing theorem is supplied by the pinned kernel-checked project/Mathlib dependency graph.",
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "A genuine sheaf on an actual open cover and compatible sections on complete intersections are required.",
+      "constructed": "The module is the actual universal cotangent tensor square; all five embeddings are open immersions and frames_cover proves coverage.",
+      "why_match": "The compatibility theorems supply precisely the presheaf restriction equalities required by ModuleGlobalSections318.gluedTop, with no formal gluing hypothesis left over.",
+      "evidence": [
+        "ContactGlobalBicanonical318.cover",
+        "ContactGlobalBicanonical318.q0_compatible",
+        "ContactGlobalBicanonical318.q1_compatible"
+      ]
+    },
+    {
+      "name": "Constructed objects",
+      "required": "Sections must belong to the complete contact normalization, not a detached field or abstract line.",
+      "constructed": "The source is ContactGlobalSmooth318.Model c for every c:Fin4\u2192Q-units. The module is tensor(FamilyIntrinsicDifferentials318.omega(structureMap c), itself).",
+      "why_match": "tensor_eq proves equality with the existing bicanonical sheaf; q0 and q1 are literal top-open sections.",
+      "evidence": [
+        "ContactDirectTensorSections318.tensor",
+        "ContactGlobalBicanonical318.tensor_eq",
+        "ContactGlobalBicanonical318.q0",
+        "ContactGlobalBicanonical318.q1"
+      ]
+    },
+    {
+      "name": "Domain and index coverage",
+      "required": "All four finite branches, infinity, and every ordered chart pair must be covered.",
+      "constructed": "The cover index is Option(Fin4). Finite pairs with unequal indices and every finite/infinity pair are proved on their entire intersections.",
+      "why_match": "The compatibility proof handles equal indices by reflexivity and reversed pairs by symmetry. No branch or endpoint is dropped.",
+      "evidence": [
+        "ContactFiniteTensorRestrictions318.q0_finite_pair",
+        "ContactInfinityTensorRestrictions318.q0_branch_infinity",
+        "ContactGlobalBicanonical318.q0_compatible",
+        "ContactGlobalBicanonical318.q1_compatible"
+      ]
+    },
+    {
+      "name": "Transition and comparison maps",
+      "required": "Coefficient and both differential factors must use the actual chart restriction map.",
+      "constructed": "branchMap and infinityMap are the frozen Q-algebra maps, and their Spec maps compose to the same original sourceOpen.",
+      "why_match": "weightedSquare_restrict_to combines actual scalar restriction, actual universal differential restriction, and pure tensor restriction. Full-image identities then give the complete intersection.",
+      "evidence": [
+        "IntrinsicTensorChartSections318.weightedSquare_restrict_to",
+        "ContactFiniteTensorRestrictions318.q0_restrict",
+        "ContactInfinityTensorRestrictions318.q0_restrict"
+      ]
+    },
+    {
+      "name": "Identity of the consumed object",
+      "required": "The gluing output must restrict to the same coordinate-defined local sections used to verify compatibility.",
+      "constructed": "localQ0/localQ1 use ContactDirectTensorSections318 branch/infinity definitions verbatim.",
+      "why_match": "The actual sheaf-gluing restriction theorems return these exact sections. Older inverse-frame local section names are not silently substituted.",
+      "evidence": [
+        "ContactGlobalBicanonical318.localQ0",
+        "ContactGlobalBicanonical318.localQ1",
+        "ContactGlobalBicanonical318.q0_restrict",
+        "ContactGlobalBicanonical318.q1_restrict"
+      ]
+    },
+    {
+      "name": "Coefficient and normalization conventions",
+      "required": "The source uses rational twists, z_i^2=c_i(t-a_i), and u=c0/y0, retaining every scalar.",
+      "constructed": "Finite coefficients are 4*C_i/(c_i*D_i), t times that; infinity coefficients are 4*C0*u^2/(c0^5*D_inf) and 4*C0/(c0^4*D_inf).",
+      "why_match": "The finite cleared coefficient equals the square of 2*z_i/c_i. The infinity denominator has c0^7 and u^8, and reciprocal differentiation yields the exact factor. All algebra maps are Q-linear.",
+      "evidence": [
+        "ContactFiniteCoefficientIdentity318.finite_cleared_frame",
+        "ContactInfinityOverlapDifferential318.coefficient_cleared",
+        "ContactInfinityOverlapDifferential318.differential_relation",
+        "ContactInfinityOverlapDifferential318.q1_relation"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required": "Regularity at each finite branch and at infinity, and complete-open compatibility, are required.",
+      "constructed": "The coefficient denominators are units in their actual chart rings. On the whole overlap, P(t) and u are actual units.",
+      "why_match": "The finite clearing identity retains its ramified point. All unit cancellation occurs only on OpenOrder. Sheaf restriction, not generic-point matching alone, proves compatibility.",
+      "evidence": [
+        "ContactFiniteOverlapDifferential318.P_unit",
+        "ContactInfinityOverlapDifferential318.u_inverseU",
+        "IntrinsicTensorChartSections318.weightedSquare_agreement",
+        "ContactFiniteTensorRestrictions318.q0_finite_pair",
+        "ContactInfinityTensorRestrictions318.q0_branch_infinity"
+      ]
+    },
+    {
+      "name": "Exceptional cases",
+      "required": "Zero twists or unjustified division at branch/infinity points must not occur.",
+      "constructed": "Twists are quantified as Q-units. The contact locations are the existing fixed distinct rational contacts. q0 is permitted to vanish at infinity.",
+      "why_match": "The proof never cancels z_i at its branch point, never inverts u on the infinity chart itself, and explicitly uses i\u2260j only for the distinct finite-pair intersection. No nonzero/basis/base-point-free claim is inferred.",
+      "evidence": [
+        "ContactFiniteCoefficientIdentity318.finite_cleared",
+        "ContactInfinityOverlapDifferential318.coefficient_cleared",
+        "ContactFiniteTensorRestrictions318.q0_finite_pair"
+      ]
+    },
+    {
+      "name": "Downstream consumption",
+      "required": "A completed section constructor with exact local formulas is required for a later linear system; broader arithmetic applications require more input.",
+      "constructed": "q0 and q1 now exist globally with chart restriction equations, and same-tensor identity is proved.",
+      "why_match": "This completes the stated section-construction seam only. Linear independence, common-zero exclusion, a projective morphism/degree, and PEL/KS remain separate; no claim about literal318/326 completeness or manuscript producer closure is made.",
+      "evidence": [
+        "ContactGlobalBicanonical318.q0",
+        "ContactGlobalBicanonical318.q1",
+        "ContactGlobalBicanonical318.q0_restrict",
+        "ContactGlobalBicanonical318.q1_restrict"
+      ]
+    }
+  ],
+  "sources": {
+    "IntrinsicTensorChartSections318.lean": "8800eee4c40ce5f3f2148b60e690cddfb657a2488fc126ba613a2abc5e0fcd86",
+    "ContactFiniteCoefficientIdentity318.lean": "78eb4786387408554099bef72fe2b50da191ca0862cd4a7affb8b06a7504bc4c",
+    "ReciprocalCoordinateDifferential318.lean": "5becf21592c7346513b666c8f0de37bfd5b5436541af58492ba5652b2ac2df46",
+    "ReciprocalBicanonicalIdentity318.lean": "0aaeffea792c68572035ab9ffad56d46aa2997e4e81e059edd815a8adfd9ea87",
+    "ContactFiniteOverlapDifferential318.lean": "a073f325c603f0e9d7e1cf6805caebf3bc686648fe4517b61499828c1dd8252f",
+    "ContactOverlapIntrinsic318.lean": "275bdae204fca5b1875ddb0740442a99a80fe20e5c32bbcaf3283e679e47d0f7",
+    "ContactInfinityOverlapDifferential318.lean": "891e7980b535ca7114de8cc1fd8523106034d26d53d0a4f99b85d069bc9e6335",
+    "ContactCommonTensorSections318.lean": "f63a75f2b82860d4810428caf8cc315affbe5020e1c9538c99cacbd029486c52",
+    "ContactDirectTensorSections318.lean": "1c68fc27a570e53b8e05a599d07fd79cc0e3a2b884807c420ef0d7bd7eaa6af7",
+    "ContactFiniteTensorRestrictions318.lean": "73bece839fef6623202253d6fa0f0963ae5892b2cf6043fe599bc92029ddbe01",
+    "ContactInfinityTensorRestrictions318.lean": "ab1b32ee7eba59b3b6f431a82ee006d40a7667d968191900c7ab60c17cede2f1",
+    "ContactGlobalBicanonical318.lean": "6f552d28d0db9466a4ed2e656a91cb66e11890226d26a464d317bdf5c1d9fcb8"
+  },
+  "consumer": "ContactGlobalBicanonical318 exact global section and restriction constructors; future linear system not yet claimed"
+}

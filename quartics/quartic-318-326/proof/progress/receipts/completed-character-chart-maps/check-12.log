@@ -1,0 +1,39 @@
+ACQUIRED 2026-11-08T06:45:18Z
+MODULE=CompletedCharacterOverlap318
+EXIT=0
+MODULE=CompletedCharacterSchemeMaps318
+CompletedCharacterSchemeMaps318.lean:30:26: error: Tactic `unfold` failed to unfold `WeierstrassGluing318.intoAffine` in
+  Spec.map
+        (CommRingCat.ofHom
+          ((overlapMap i).comp ↑(WeierstrassOverlap318.overlapEquiv (publishedA i) (publishedB i))).toRingHom) ≫
+      WeierstrassGluing318.intoAffine (publishedA i) (publishedB i) =
+    Spec.map (CommRingCat.ofHom (finiteMap i).toRingHom)
+CompletedCharacterSchemeMaps318.lean:44:26: error: Tactic `unfold` failed to unfold `WeierstrassGluing318.intoInfinity` in
+  Spec.map
+        (CommRingCat.ofHom
+          ((overlapMap i).comp ↑(WeierstrassOverlap318.overlapEquiv (publishedA i) (publishedB i))).toRingHom) ≫
+      WeierstrassGluing318.intoInfinity (publishedA i) (publishedB i) =
+    Spec.map (CommRingCat.ofHom (infinityMap i).toRingHom)
+CompletedCharacterSchemeMaps318.lean:76:4: error: Application type mismatch: The argument
+  pushout.condition
+has type
+  WeierstrassGluing318.intoAffine (publishedA i) (publishedB i) ≫
+      pushout.inl (WeierstrassGluing318.intoAffine (publishedA i) (publishedB i))
+        (WeierstrassGluing318.intoInfinity (publishedA i) (publishedB i)) =
+    WeierstrassGluing318.intoInfinity (publishedA i) (publishedB i) ≫
+      pushout.inr (WeierstrassGluing318.intoAffine (publishedA i) (publishedB i))
+        (WeierstrassGluing318.intoInfinity (publishedA i) (publishedB i))
+but is expected to have type
+  WeierstrassGluing318.intoAffine (publishedA i) (publishedB i) ≫
+      WeierstrassGluing318.finiteChart (publishedA i) (publishedB i) =
+    WeierstrassGluing318.intoInfinity (publishedA i) (publishedB i) ≫
+      WeierstrassGluing318.infinityChart (publishedA i) (publishedB i)
+in the application
+  congrArg (fun f => overlapSchemeMap i ≫ f) pushout.condition
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  WeierstrassGluing318.intoAffine ↦ 4
+  WeierstrassGluing318.finiteChart ↦ 46
+  getColimitCocone ↦ 58
+EXIT=1
+RELEASED 2026-11-08T06:45:31Z exit=1
