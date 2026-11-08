@@ -1,0 +1,49 @@
+{
+  "schema": "scoped-hosted-failure-v1",
+  "run_id": 42463941507,
+  "attempt": 1,
+  "head_sha": "6f7151c7e2d63a07965a06343d8292e547afa2a6",
+  "status": "failed-before-full-audit",
+  "module_count": 1386,
+  "snapshot": "6c2e696a14020c40b912e3e572ce1d0cb056695a7e2928bc6029f1906c10f96b",
+  "failed_jobs": [
+    {
+      "id": 128679581331,
+      "name": "Middle cohort 1 (16 modules)",
+      "failed_steps": [
+        "Fetch pinned upstream artifacts"
+      ]
+    },
+    {
+      "id": 128679581399,
+      "name": "Middle cohort 5 (22 modules)",
+      "failed_steps": [
+        "Fetch pinned upstream artifacts"
+      ]
+    },
+    {
+      "id": 128679581450,
+      "name": "Middle cohort 15 (27 modules)",
+      "failed_steps": [
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0"
+      ]
+    }
+  ],
+  "finding": "All three failed jobs report HTTP 504 while fetching the pinned Lean toolchain or setting up Python. None reached a Lean source check. The dependent stage and complete recursive audit were skipped. No combined 1386 PASS is established.",
+  "repair": "Retry only failed jobs and their dependent stages at the unchanged commit. No mathematical source or checker changes required by this evidence.",
+  "public_whitelist": [
+    "run.json",
+    "jobs.json",
+    "job-128679581331.log",
+    "job-128679581399.log",
+    "job-128679581450.log",
+    "receipt.json"
+  ],
+  "artifacts": {
+    "run.json": "914f209c508d4e7c2e398ab8077fe89f1e7e1b3ee86f037d1930f7f98585bca6",
+    "jobs.json": "623227f9ee4c2962d1925458987f0a22c3cab0ad012856969179f6a6a17821f7",
+    "job-128679581331.log": "642c0ec62777d2dd19aca1e5783568c8926e191314bf23c33e15c7fec823700d",
+    "job-128679581399.log": "c4ff89f8b1c87c723e3ff1b0b385385927ee312d2c60e341cb4f2ca77eb9f10a",
+    "job-128679581450.log": "0709f42fd4804b3aa4a83422690bee06c26d1b3a946a6cc76d321c7cf7e85118"
+  }
+}
