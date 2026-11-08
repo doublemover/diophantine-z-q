@@ -1,20 +1,21 @@
 # Z is Diophantine in Q
 
-## Version 10
+## Version 11
 
-This repository contains *Z is Diophantine in Q*, Version 10, dated November 7, 2026. It addresses the nine points in [Issue 2](https://github.com/elliotglazer/diophantine-z-q/issues/2), with unchanged polynomial data. Version 9 added quartics in 523 variables with exact symbolic coefficients and 540 variables with every coefficient written out in decimal. The original large construction and the earlier quartic proofs remain in the manuscript. The new reductions were contributed by Gabriel Conant with ChatGPT.
+This repository contains *Z is Diophantine in Q*, Version 11, dated November 7, 2026. It adds the missing index-set and limiting-class argument in the Kato application following the latest review on [Issue 2](https://github.com/elliotglazer/diophantine-z-q/issues/2), with unchanged polynomial data. Version 9 added quartics in 523 variables with exact symbolic coefficients and 540 variables with every coefficient written out in decimal. The original large construction and the earlier quartic proofs remain in the manuscript. The new reductions were contributed by Gabriel Conant with ChatGPT.
 
 The project uses the collective agentic notes from Stefan Baranczuk, Jose Brox, Gabe Conant, Sohail Farhangi, James Freitag, Elliot Glazer, Jennifer Park, and Caroline Terry.
 
 | To | Open |
 | --- | --- |
-| Read Version 10 | [Manuscript PDF](manuscripts/quartic_v10.pdf), [TeX source](manuscripts/quartic_v10.tex) |
+| Read Version 11 | [Manuscript PDF](manuscripts/quartic_v11.pdf), [TeX source](manuscripts/quartic_v11.tex) |
 | Reproduce the 523/540-variable quartics | [Tables, source, dependency chain and checks](docs/quartic-523-540/README.md) |
 | Read the fully expanded Version 4 quartic | [4,973-variable package](quartics/quartic-4973/README.md), [integer monomial table](quartics/quartic-4973/polynomial.expanded.txt) |
-| Inspect the nine review corrections | [Version 10 response and inventory](docs/manuscript-revisions/version10/README.md) |
+| Inspect the current repair and review protocol | [Version 11 source audit](docs/manuscript-revisions/version11/README.md), [protocol](docs/audit-history/PROTOCOL.md) |
+| Inspect the nine earlier review corrections | [Version 10 response and inventory](docs/manuscript-revisions/version10/README.md) |
 | Inspect theorem applications and conventions | [Version 9 extension](docs/quartic-523-540/README.md), [inherited proof inventory](docs/quartic-962/README.md) |
 | Build the manuscript or run the checks | [Build instructions](docs/building.md) |
-| Download the current audit supplement | [Version 10 supplement and guide](research/version10/README.md) |
+| Download the current audit supplement | [Version 11 supplement and guide](research/version11/README.md) |
 | Download the Version 7 research handoffs | [Full handoff](https://github.com/elliotglazer/diophantine-z-q/releases/download/quartic-962-version-7/z-in-q-version7-full-handoff.zip), [current-only handoff](https://github.com/elliotglazer/diophantine-z-q/releases/download/quartic-962-version-7/z-in-q-version7-current-handoff.zip), [contents and verification](handoff/README.md) |
 | Read collaborator notes and the height replacement | [Research update](research/2026-11-06-collaborator-notes/README.md) |
 | Read the October 11 manuscript | [Manuscript and provenance](October%2011%20Manuscript/README.md) |
