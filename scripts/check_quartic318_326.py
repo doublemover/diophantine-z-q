@@ -18,9 +18,15 @@ shutil.copytree(SOURCE, PACKAGE, dirs_exist_ok=True, symlinks=True,
 
 def run(label, *args):
     print(label, flush=True)
-    with (WORK / (label + ".log")).open("w") as log:
-        subprocess.run([str(x) for x in args], cwd=PACKAGE, check=True,
-                       stdout=log, stderr=subprocess.STDOUT)
+    log_path = WORK / (label + ".log")
+    try:
+        with log_path.open("w") as log:
+            subprocess.run([str(x) for x in args], cwd=PACKAGE, check=True,
+                           stdout=log, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError:
+        print(f"FAILED {label}; exact child output follows:", file=sys.stderr, flush=True)
+        print(log_path.read_text(), file=sys.stderr, flush=True)
+        raise
 
 run("unpack", sys.executable, "-B", "tools/unpack_data.py")
 run("generate", sys.executable, "-B", "tools/generate.py", "--check")
@@ -28,7 +34,9 @@ for check in sorted((PACKAGE / "checks").glob("*/*.py")):
     run(check.parent.name + "-" + check.stem, sys.executable, "-B", check)
 run("unit-tests", sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests", "-v")
 run("integration-regressions", sys.executable, "-B", ROOT / "scripts/test_quartic_integration.py")
-run("progress-manifest", sys.executable, "-B", "proof/progress/verify_manifest.py")
+# Use the repository's shared source policy, but validate the copied package bytes.
+run("progress-manifest", sys.executable, "-B", SOURCE / "proof/progress/verify_manifest.py",
+    "--root", PACKAGE / "proof/progress")
 historical_obligations = verify_consumers(ROOT)
 for part, manifest in (("318", "concrete-verification.json"),
                        ("components", "verification.json")):

@@ -1,6 +1,8 @@
 """Cheap regressions for audit headers and reviewed-document carry-forward."""
 from pathlib import Path
 import importlib.util
+import hashlib
+import json
 import shutil
 import subprocess
 import sys
@@ -40,6 +42,56 @@ class IntegrationTests(unittest.TestCase):
                                 capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Run without Python -O', result.stderr)
+
+    def test_repository_verifier_validates_detached_copied_progress(self):
+        # No scripts/ directory or PYTHONPATH accompanies the detached package.
+        with tempfile.TemporaryDirectory() as temp:
+            copied = Path(temp) / 'copied-package/proof/progress'
+            copied.mkdir(parents=True)
+            source = copied / 'A.lean'
+            original = 'module\npublic section\ntheorem copied_identity : (1 : Nat) = 1 := rfl\n'
+            source.write_text(original)
+            audit = copied / 'CheckpointAudit.lean'
+            audit_text = 'module\nimport all A\nimport Lean.Util.CollectAxioms\nlet modules : Array Name := #[`A]\n'
+            audit.write_text(audit_text)
+            (copied / 'module-order.json').write_text(json.dumps(['A']))
+            manifest_path = copied / 'checkpoint-manifest.json'
+            def bind_source():
+                manifest_path.write_text(json.dumps({'module_order':['A'], 'module_count':1,
+                    'modules':{'A':{'sha256':hashlib.sha256(source.read_bytes()).hexdigest()}}}))
+            bind_source()
+            def check():
+                return subprocess.run([sys.executable, '-B', str(path), '--root', str(copied)],
+                                      cwd=temp, capture_output=True, text=True)
+            result = check()
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('MANIFEST_PASS modules=1', result.stdout)
+            source.write_text(original + '-- copied bytes changed\n')
+            result = check()
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Hash mismatch: A', result.stderr)
+            source.write_text(original + 'set_option debug.skipKernelTC true\n')
+            bind_source()
+            result = check()
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Kernel-check override: A', result.stderr)
+            source.write_text(original); bind_source()
+            audit.write_text(audit_text + 'set_option debug.skipKernelTC true\n')
+            result = check()
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Kernel-check override: CheckpointAudit', result.stderr)
+
+    def test_finite_replay_uses_original_policy_and_copied_root(self):
+        replay = (ROOT / 'scripts/check_quartic318_326.py').read_text()
+        self.assertIn('SOURCE / "proof/progress/verify_manifest.py"', replay)
+        self.assertIn('"--root", PACKAGE / "proof/progress"', replay)
+        self.assertIn('exact child output follows', replay)
+        workflow = (ROOT / '.github/workflows/check-quartic-318-326.yml').read_text()
+        self.assertIn('if: failure()', workflow)
+        self.assertIn('path: build/quartic-318-326/*.log', workflow)
+        for trigger in ["'.github/actions/setup-pinned-*/**'", "'scripts/check_lean.py'",
+                        "'scripts/test_quartic_integration.py'"]:
+            self.assertEqual(workflow.count(trigger), 2)
 
     def test_audit_requires_leading_module_and_private_imports(self):
         valid = 'module\nimport all A\nimport all B\nimport Lean.Util.CollectAxioms\nlet modules : Array Name := #[`A,`B]\n'
