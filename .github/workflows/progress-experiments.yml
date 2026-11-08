@@ -22,6 +22,7 @@ jobs:
     timeout-minutes: 10
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
+      has_packets: ${{ steps.plan.outputs.has_packets }}
       base: ${{ steps.plan.outputs.base }}
       snapshot: ${{ steps.plan.outputs.snapshot }}
     steps:
@@ -35,6 +36,7 @@ jobs:
 
   first-check:
     needs: plan
+    if: needs.plan.outputs.has_packets == 'true'
     name: Experimental packet ${{ matrix.packet }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30

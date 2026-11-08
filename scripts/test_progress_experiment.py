@@ -88,6 +88,24 @@ class ExperimentTests(unittest.TestCase):
         w=(ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
         self.assertNotIn('uses: actions/cache/save',w);self.assertIn('path: .cache/progress-ci',w)
         self.assertIn('--seconds 180',w);self.assertNotIn('/lib/',w)
+    def test_empty_matrix_skips_checks_without_weakening_admission(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);_,_,plan=self.fixture(root);plan['snapshot']='snapshot'
+            output=root/'github-output'
+            for names in [[],['sample']]:
+                ci.write_json(root/'packets.json',{'active_packets':names})
+                output.write_text('')
+                with patch.object(e,'EXPERIMENTS',root), patch.object(e.ci,'check_sources'), \
+                     patch.object(e.ci,'derive_plan',return_value=plan), \
+                     patch.object(e,'packet') as admission, \
+                     patch('sys.argv',['check','plan','--github-output',str(output)]):
+                    e.main()
+                self.assertEqual(admission.call_count,len(names))
+                self.assertIn('has_packets='+('true' if names else 'false')+'\n',output.read_text())
+                self.assertIn('matrix='+json.dumps({'packet':names},separators=(',',':'))+'\n',output.read_text())
+            workflow=(ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
+            self.assertIn("if: needs.plan.outputs.has_packets == 'true'",workflow)
+
     def test_timeout_is_a_failed_check(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);source=root/'A.lean';source.write_text('module\n')

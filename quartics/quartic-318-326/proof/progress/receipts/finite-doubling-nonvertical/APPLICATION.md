@@ -1,0 +1,11 @@
+# Exact application contract
+
+1. Required and available objects: actual finite curve and inclusion, actual completed doubling/negation/tripling/infinity, actual original D(2y) localization and rank-eight torsion inclusion. Every new consumer uses these literal maps.
+2. Domain/index coverage: the old D(2y) restriction is removed by a proved unique factorization for every finite Scheme test map with finite doubled output. No unexamined finite chart remains. The global infinity neighborhood is still separate.
+3. Transition maps: affine test maps acquire their R-algebra structure from their actual structural morphism. The algebra localization map composes exactly to the original input. An affine-open cover proves the image condition for the unique open-immersion lift; no descent datum or overlap identification is assumed.
+4. Coefficients: arbitrary commutative base/test rings for unit detection, including zero rings and nilpotents; unit discriminant for the global inverse; invertible 3 for the original rank-eight equalizer. Literal Base N supplies these exact instances.
+5. Norm/lattice/constants: no new norm family, lattice, analytic, height or external theorem is introduced. The nonunit/maximal-ideal argument proves actual invertibility, not only pointwise nonvanishing.
+6. Structural identity: the full-finite equalizer uses exactly the original affine torsion inclusion. The literal fiber is the actual pullback of the zero section along finiteChart followed by actual tripling. Its toFiber/fromFiber maps preserve both actual projections, and both inverse identities are explicit.
+7. Quantifiers and scope: arbitrary Scheme tests, including nonaffine and nonreduced tests. General-base inverse/nonverticality and finite doubling equalizer are separated from literal-base cancellation/tripling. The source does not prove general-base associativity, so neither does this application.
+8. Downstream obligation: the whole finite kernel has been identified. The zero-section neighborhood at infinity and global decomposition remain open and are not inferred from a closed-boundary calculation.
+9. Evidence/review: five strict first-time checks and recursive audit of 76 declarations, exact immutable hashes below; no whole-chain replay or independent author acceptance. The previous packets remain unchanged.

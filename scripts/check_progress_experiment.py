@@ -160,7 +160,8 @@ def main():
         names=json.loads((EXPERIMENTS/'packets.json').read_text())['active_packets']
         if len(names)!=len(set(names)) or len(names)>16:raise ValueError('Invalid experiment matrix')
         for n in names:packet(n,plan)
-        d={'matrix':{'packet':names},'base':plan['base'],'snapshot':plan['snapshot']};print(json.dumps(d))
+        d={'matrix':{'packet':names},'base':plan['base'],'snapshot':plan['snapshot'],
+           'has_packets':'true' if names else 'false'};print(json.dumps(d))
         if args.github_output:
             with args.github_output.open('a') as f:
                 for k,v in d.items():f.write(k+'='+(json.dumps(v,separators=(',',':')) if isinstance(v,dict) else v)+'\n')
