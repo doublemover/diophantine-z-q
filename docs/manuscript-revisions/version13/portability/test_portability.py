@@ -33,7 +33,8 @@ class PortabilityTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='quartic394-path-test-')
         self.addCleanup(self.temp.cleanup)
-        self.packet = Path(self.temp.name) / 'packet'
+        # Match the mapper's canonical paths even when TEMP uses an alias.
+        self.packet = (Path(self.temp.name) / 'packet').resolve()
         self.sources = self.packet / 'sources'
         self.target = self.sources / 'work' / 'nested' / 'input.json'
         self.target.parent.mkdir(parents=True)

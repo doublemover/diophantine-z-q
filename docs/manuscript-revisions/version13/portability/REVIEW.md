@@ -10,7 +10,7 @@ Decision: accepted as a bounded infrastructure change for CI submission. Actual 
 |---|---|
 | `scripts/check_quartic394_portable.py` | `0698c56d744c701901efcf418285001e7d0320b876c1edf9ed287fcfb0af0b91` |
 | `scripts/quartic394_path_bootstrap.py` | `a917b8ebac5bbe0d455d6b009083962aaf393b59208d9bfbaf54dbb341230b23` |
-| `docs/manuscript-revisions/version13/portability/test_portability.py` | `4a8f9d38e40147f8d15965d0ab36d66f73b9f00072e4d7d91e9564da91f76d52` |
+| `docs/manuscript-revisions/version13/portability/test_portability.py` | `90a686612583e6036b42fb22e2783e67f5779079204bc155a02dedb3355826ab` |
 | Unchanged `scripts/check_quartic394.py` | `faa43aab6431a9cb7ae14f92a47f649c494825ea5f3d56e798d73ad41e59ebd0` |
 | Unchanged `quartics/quartic-394-411/PACKAGE-MANIFEST.json` | `b3bc37df3fcb06d622808d3a23741d602b27c0ff0b2179ad28ef313a8489fe22` |
 
@@ -39,3 +39,12 @@ The tests also checked all 400 entries in the unchanged package manifest against
 The author separately reports a successful full Windows run through all 27 stages and the unchanged wrapper's final checks. Another review supplied 26 adverse path cases. Those are supporting reports, distinct from my own twelve-test execution. No successful Ubuntu replay is asserted here. Local WSL enumeration was unavailable, so the fixed Linux behavior must be observed in CI.
 
 The source-root symlink check was added after my review identified that `resolve()` would otherwise follow a link at that root before inspecting children. The final code includes that correction. I found no remaining blocking defect in the pinned launcher, mapper or preservation of the original checks. Approval is limited to this infrastructure change; the existing mathematical contract and its acceptance remain unchanged.
+
+
+## Addendum: canonical temporary fixture
+
+The hosted Windows job at commit `1eb0218c75726a31c4926165779814470e01fc95` failed only `test_child_symbolic_link_rejected`. The mock compared the unresolved fixture path with the canonical path used by `make_mapper`, so an aliased temporary-directory spelling could prevent the mock from identifying its intended child. The failed job log is consistent with that mechanism; it does not establish the specific junction or alias configured on the runner.
+
+The correction resolves the fixture packet root in `setUp` before constructing its descendants. No test assertion was removed or weakened. I independently reproduced the old failure using an existing `alias-component/..` spelling, which needs no junction privileges. The old test failed with the same `ValueError not raised` assertion. All twelve corrected tests passed both with ordinary temporary paths and under the controlled alias. The reproduction script and result are in the workspace portability directory.
+
+The old review, acceptance and test files are preserved under `work/quartic-v13-release/portability/review-before-fixture-normalization`. The previous acceptance hash was `fa26e20372d873a5abc34f1fc3b5e70f2e03c3cd7bd169c42e878bc9bcd8f5dc`. This fresh acceptance binds the corrected test hash in the table above. Both application scripts, the original wrapper, all 400 packet entries and the mathematical acceptance remain unchanged. Fresh hosted CI confirmation is still required; the local checks do not assert that it has already occurred.
