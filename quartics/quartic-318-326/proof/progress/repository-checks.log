@@ -25,6 +25,13 @@ test_clean_build_does_not_reuse_valid_cache (test_progress_lean.ProgressTests.te
 {"cohort": 0, "compiled": 3, "reused": 0}
 ok
 test_cohorts_cover_every_module_and_its_dependencies (test_progress_lean.ProgressTests.test_cohorts_cover_every_module_and_its_dependencies) ... ok
+test_complete_cache_survives_cohort_reassignment (test_progress_lean.ProgressTests.test_complete_cache_survives_cohort_reassignment) ... {"cohort": 0, "compiled": 3, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"module": "B", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 2}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+ok
 test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded (test_progress_lean.ProgressTests.test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded) ... {"cohort": 0, "compiled": 1, "reused": 0}
 {"cohort": 1, "compiled": 1, "reused": 0}
 {"cohort": 2, "compiled": 1, "reused": 0}
@@ -34,6 +41,6 @@ test_replay_order_must_match_authoritative_manifest (test_progress_lean.Progress
 test_source_hash_and_audit_coverage_fail_closed (test_progress_lean.ProgressTests.test_source_hash_and_audit_coverage_fail_closed) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 1.080s
+Ran 10 tests in 1.109s
 
 OK

@@ -1,7 +1,7 @@
 {
   "status": "checked-progress-checkpoint; not full sourceArithmetic",
-  "created_utc": "2026-11-08T03:21:34.734346+00:00",
-  "base_commit": "f3ed34324351137a0798784bf710e53c5c18c17a",
+  "created_utc": "2026-11-08T03:30:45.446736+00:00",
+  "base_commit": "2aae5b70a9c055aeb1e6deababc51a7a4ce851a5",
   "lean_version": "4.35.0",
   "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
   "root_modules": [
@@ -27,6 +27,7 @@
     "ActualJCusp318",
     "ActualJInvariant318",
     "ActualJLog318",
+    "ActualJSurjective318",
     "ActualKummerGalois318",
     "ActualLogAddition318",
     "ActualLogHom318",
@@ -571,6 +572,7 @@
     "MonogenicSplitEquiv318",
     "NebentypusOrder318",
     "NegationPoints318",
+    "NonverticalDoubling318",
     "NormChainCompleteness",
     "NormalAffineModel318",
     "NormalChart318",
@@ -796,6 +798,7 @@
     "TangentChordOverlap318",
     "TangentCoordinates318",
     "TangentDiagonal318",
+    "TangentDiagonalNatural318",
     "TangentMetric318",
     "TangentMetricContinuity318",
     "TangentOpenAlgebra318",
@@ -805,21 +808,29 @@
     "TensorPairBaseChange318",
     "TensorTower318",
     "ThetaRecurrence",
+    "ThreeArithmeticFiberSurjective318",
+    "ThreeArithmeticImage318",
     "ThreeArithmeticPoint318",
     "ThreeArithmeticQuotient318",
+    "ThreeArithmeticSurjective318",
     "ThreeEffectiveSource318",
+    "ThreePrimitiveOrbit318",
     "ThreeRootOrder318",
     "ThreeRootScaling318",
     "ThreeTorsionAlgebra318",
     "ThreeTorsionClosed318",
+    "ThreeTorsionCoequalizer318",
     "ThreeTorsionDiamond318",
+    "ThreeTorsionEqualizerScheme318",
     "ThreeTorsionFieldPoints318",
     "ThreeTorsionFunctor318",
     "ThreeTorsionIdentity318",
     "ThreeTorsionInvolution318",
     "ThreeTorsionLabels318",
+    "ThreeTorsionOpenUniversal318",
     "ThreeTorsionOrderEquiv318",
     "ThreeTorsionPoints318",
+    "ThreeTorsionRingCoequalizer318",
     "ThreeTorsionScheme318",
     "ThreeTorsionSignQuotient318",
     "ThreeTorsionSplitData318",
@@ -880,7 +891,7 @@
     "WronskianCoefficient318",
     "WronskianFinite318"
   ],
-  "module_count": 971,
+  "module_count": 982,
   "module_order": [
     "RationalAbsoluteHeight",
     "QuarticOptimization",
@@ -1852,7 +1863,18 @@
     "ThreeXComplexGeometry318",
     "SourceGlobalAffine318",
     "ThreeEffectiveSource318",
-    "ContactGlobalSmooth318"
+    "ContactGlobalSmooth318",
+    "ActualJSurjective318",
+    "TangentDiagonalNatural318",
+    "ThreePrimitiveOrbit318",
+    "NonverticalDoubling318",
+    "ThreeArithmeticFiberSurjective318",
+    "ThreeArithmeticImage318",
+    "ThreeTorsionOpenUniversal318",
+    "ThreeArithmeticSurjective318",
+    "ThreeTorsionCoequalizer318",
+    "ThreeTorsionRingCoequalizer318",
+    "ThreeTorsionEqualizerScheme318"
   ],
   "modules": {
     "RationalAbsoluteHeight": {
@@ -5742,6 +5764,50 @@
     "ContactGlobalSmooth318": {
       "sha256": "6e36be4ce960346282d0b1792f2f514f4376f50f6dc54bfd70161f90ac93aa5a",
       "origin": "contact-smooth-cover/ContactGlobalSmooth318.lean"
+    },
+    "TangentDiagonalNatural318": {
+      "sha256": "9563c17b5a78161a314b34db7a803868579c8abbaa857fe6349f7c1e4e6b124a",
+      "origin": "three-torsion-equalizer/TangentDiagonalNatural318.lean"
+    },
+    "NonverticalDoubling318": {
+      "sha256": "4399cd8640812faf2f8e8c13431f8eea67f5e0966d9230d3dbad3b690ae72b71",
+      "origin": "three-torsion-equalizer/NonverticalDoubling318.lean"
+    },
+    "ThreeTorsionOpenUniversal318": {
+      "sha256": "77e5cf63401c6045938ab305c3f3480f7cf0e36aa9b0f9eda414751f185464da",
+      "origin": "three-torsion-equalizer/ThreeTorsionOpenUniversal318.lean"
+    },
+    "ThreeTorsionCoequalizer318": {
+      "sha256": "6dd7f9ba28a09244a8dd77ea1c431ad35f984006f958ab36bf4ac349f1f9175c",
+      "origin": "three-torsion-equalizer/ThreeTorsionCoequalizer318.lean"
+    },
+    "ThreeTorsionRingCoequalizer318": {
+      "sha256": "aaa8b5859880de6e0f47437f7386c7a64d9d1b887d0ffc5e931a155829425dc4",
+      "origin": "three-torsion-equalizer/ThreeTorsionRingCoequalizer318.lean"
+    },
+    "ThreeTorsionEqualizerScheme318": {
+      "sha256": "c0052785829237188f298147a12121336d2bc3884d13c248ec39cac5b03ac2a7",
+      "origin": "three-torsion-equalizer/ThreeTorsionEqualizerScheme318.lean"
+    },
+    "ThreePrimitiveOrbit318": {
+      "sha256": "0725659c6e5a45ceb230fe92431033b7f13aaecebf7217365eff55668c6fb197",
+      "origin": "three-modular-fiber-surjectivity/ThreePrimitiveOrbit318.lean"
+    },
+    "ThreeArithmeticFiberSurjective318": {
+      "sha256": "0c85ea22775f5c67460f4869b97cda2723599e69f06df4d4396b4b41256cb356",
+      "origin": "three-modular-fiber-surjectivity/ThreeArithmeticFiberSurjective318.lean"
+    },
+    "ThreeArithmeticImage318": {
+      "sha256": "0575f0f69e820414fd02dfe2e245c3edc7324dbbe4e5185b3b73e2a8db8a63f4",
+      "origin": "three-modular-fiber-surjectivity/ThreeArithmeticImage318.lean"
+    },
+    "ActualJSurjective318": {
+      "sha256": "4c48674091e21acbb35d960362482f5846f777d17d68f6a10a23f0a7e9b02a43",
+      "origin": "all-cusp-j-surjectivity/ActualJSurjective318.lean"
+    },
+    "ThreeArithmeticSurjective318": {
+      "sha256": "05d92b5db5a647a2719c9d92f0e3e389095fa9b01cfdf0f3a7a83e442840261c",
+      "origin": "all-cusp-j-surjectivity/ThreeArithmeticSurjective318.lean"
     }
   },
   "shared_source_variants": [],
@@ -6459,6 +6525,15 @@
     },
     "contact-smooth-cover": {
       "receipt_directory": "receipts/contact-smooth-cover"
+    },
+    "three-torsion-equalizer": {
+      "receipt_directory": "receipts/three-torsion-equalizer"
+    },
+    "three-modular-fiber-surjectivity": {
+      "receipt_directory": "receipts/three-modular-fiber-surjectivity"
+    },
+    "all-cusp-j-surjectivity": {
+      "receipt_directory": "receipts/all-cusp-j-surjectivity"
     }
   },
   "integration_adjustments": [
