@@ -1,0 +1,98 @@
+ACQUIRED 2026-11-08T05:49:55Z
+MODULE=IntegralClosureOpen318
+MODULE=ReciprocalOverlapBase318
+ReciprocalOverlapBase318.lean:23:38: error: unexpected token 'have'; expected '}'
+ReciprocalOverlapBase318.lean:23:36: error: unsolved goals
+R : Type u_1
+A : Type u_2
+B : Type u_3
+inst✝⁸ : CommRing R
+inst✝⁷ : CommRing A
+inst✝⁶ : CommRing B
+inst✝⁵ : Algebra R A
+inst✝⁴ : Algebra R B
+inst✝³ : Algebra A B
+inst✝² : IsScalarTower R A B
+x q : R
+inst✝¹ : IsLocalization.Away q A
+inst✝ : IsLocalization.Away (x * q) B
+T : Type u_2 := Localization.Away ((algebraMap R A) x)
+this : IsLocalization.Away (x * q) T := IsLocalization.Away.mul A T q x
+e : T ≃ₐ[R] B := IsLocalization.algEquiv (Submonoid.powers (x * q)) T B
+⊢ ∀ (r : A), e.toRingEquiv.toFun ((algebraMap A T) r) = (algebraMap A B) r
+ReciprocalOverlapBase318.lean:18:48: error: unsolved goals
+R : Type u_1
+A : Type u_2
+B : Type u_3
+inst✝⁸ : CommRing R
+inst✝⁷ : CommRing A
+inst✝⁶ : CommRing B
+inst✝⁵ : Algebra R A
+inst✝⁴ : Algebra R B
+inst✝³ : Algebra A B
+inst✝² : IsScalarTower R A B
+x q : R
+inst✝¹ : IsLocalization.Away q A
+inst✝ : IsLocalization.Away (x * q) B
+T : Type u_2 := Localization.Away ((algebraMap R A) x)
+this : IsLocalization.Away (x * q) T := IsLocalization.Away.mul A T q x
+e : T ≃ₐ[R] B := IsLocalization.algEquiv (Submonoid.powers (x * q)) T B
+eA : T ≃ₐ[A] B :=
+  let __src := e.toRingEquiv;
+  { toEquiv := __src.toEquiv, map_mul' := ⋯, map_add' := ⋯, commutes' := ⋯ }
+⊢ IsLocalization.Away ((algebraMap R A) x) B
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ReciprocalOverlapBase318.lean:45:57: error: unsolved goals
+c : Fin 4 → ℚˣ
+⊢ X * C (↑(c 1) * (↑(c 0))⁻¹) * C ((↑(c 0))⁻¹ * ↑(c 2)) * C ((↑(c 0))⁻¹ * ↑(c 3)) -
+                  X ^ 2 * C (↑(c 1) * (↑(c 0))⁻¹) * C 32 * C ((↑(c 0))⁻¹ * ↑(c 2)) * C ((↑(c 0))⁻¹ * ↑(c 3)) -
+                X ^ 2 * C (↑(c 1) * (↑(c 0))⁻¹) * C ((↑(c 0))⁻¹ * ↑(c 2)) * C 76832 * C ((↑(c 0))⁻¹ * ↑(c 3)) +
+              X ^ 2 * C (↑(c 1) * (↑(c 0))⁻¹) * C ((↑(c 0))⁻¹ * ↑(c 2)) * C ((↑(c 0))⁻¹ * ↑(c 3)) * C 343 +
+            X ^ 3 * C (↑(c 1) * (↑(c 0))⁻¹) * C 32 * C ((↑(c 0))⁻¹ * ↑(c 2)) * C 76832 * C ((↑(c 0))⁻¹ * ↑(c 3)) -
+          X ^ 3 * C (↑(c 1) * (↑(c 0))⁻¹) * C 32 * C ((↑(c 0))⁻¹ * ↑(c 2)) * C ((↑(c 0))⁻¹ * ↑(c 3)) * C 343 -
+        X ^ 3 * C (↑(c 1) * (↑(c 0))⁻¹) * C ((↑(c 0))⁻¹ * ↑(c 2)) * C 76832 * C ((↑(c 0))⁻¹ * ↑(c 3)) * C 343 +
+      X ^ 4 * C (↑(c 1) * (↑(c 0))⁻¹) * C 32 * C ((↑(c 0))⁻¹ * ↑(c 2)) * C 76832 * C ((↑(c 0))⁻¹ * ↑(c 3)) * C 343 =
+    X * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) - X ^ 2 * C 32 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) -
+                X ^ 2 * C 76832 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) +
+              X ^ 2 * C 343 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) +
+            X ^ 3 * C 32 * C 76832 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) -
+          X ^ 3 * C 32 * C 343 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) -
+        X ^ 3 * C 76832 * C 343 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3)) +
+      X ^ 4 * C 32 * C 76832 * C 343 * C (↑(c 1) * (↑(c 0))⁻¹ ^ 3 * ↑(c 2) * ↑(c 3))
+ReciprocalOverlapBase318.lean:55:2: error: Type mismatch
+  IsScalarTower.of_algebraMap_eq fun p => Eq.symm (InfinityGlobalBase318.sourceBaseMap_polynomial c p)
+has type
+  @IsScalarTower InfinityGlobalBase318.R (InfinityGlobalBase318.A c) InfinityGlobalBase318.SourceBase
+    OreLocalization.instAlgebra.toSMul (baseAlgebra c).toSMul reciprocalAlgebra.toSMul
+but is expected to have type
+  @IsScalarTower R (A c) S OreLocalization.instSMulOfIsScalarTower (baseAlgebra c).toSMul
+    OreLocalization.instSMulOfIsScalarTower
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  instMul ↦ 18
+ReciprocalOverlapBase318.lean:64:81: error: Application type mismatch: The argument
+  c
+has type
+  Fin 4 → ℚˣ
+but is expected to have type
+  ContactReciprocalBase318.Base
+in the application
+  reciprocalBaseEquiv c
+ReciprocalOverlapBase318.lean:70:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ReciprocalOverlapBase318.lean:75:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsScalarTower ℚ[X] (A c) S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+RELEASED 2026-11-08T05:50:00Z

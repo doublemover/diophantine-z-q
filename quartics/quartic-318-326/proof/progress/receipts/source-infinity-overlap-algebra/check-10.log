@@ -1,0 +1,89 @@
+ACQUIRED 2026-11-08T05:59:18Z
+MODULE=BranchOverlapLocalization318
+BranchOverlapLocalization318.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+BranchOverlapLocalization318.lean:65:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EXIT=0
+MODULE=NormalizationSourceCompatibility318
+NormalizationSourceCompatibility318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationSourceCompatibility318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationSourceCompatibility318.lean:52:84: error: unsolved goals
+case hV
+A B : CommRingCat
+Y : Scheme
+φ : A ⟶ B
+j : Spec A ⟶ Y
+inst✝² : IsOpenImmersion j
+inst✝¹ : QuasiCompact (Spec.map φ ≫ j)
+inst✝ : QuasiSeparated (Spec.map φ ≫ j)
+hW : IsAffineOpen ((Spec.map φ ≫ j) ⁻¹ᵁ j ''ᵁ ⊤)
+⊢ IsAffineOpen ⊤
+NormalizationSourceCompatibility318.lean:56:34: warning: This simp argument is unused:
+  ← Scheme.isoSpec_Spec_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IsAffineOpen.fromSpec_top]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NormalizationSourceCompatibility318.lean:68:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationSourceCompatibility318.lean:85:35: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  𝟙 ?m.442 ≫ ?f
+in the target expression
+  𝟙 (Spec B) ≫ Scheme.Hom.toNormalization (Spec.map φ ≫ j) = Scheme.Hom.toNormalization (Spec.map φ ≫ j)
+
+A B : CommRingCat
+Y : Scheme
+φ : A ⟶ B
+j : Spec A ⟶ Y
+inst✝³ : IsOpenImmersion j
+inst✝² : QuasiCompact (Spec.map φ ≫ j)
+inst✝¹ : QuasiSeparated (Spec.map φ ≫ j)
+C : CommRingCat
+inst✝ : Algebra ↑A ↑C
+this : Algebra ↑A ↑B := (CommRingCat.Hom.hom φ).toAlgebra
+e : ↥(integralClosure ↑A ↑B) ≃ₐ[↑A] ↑C
+hs :
+  CommRingCat.ofHom ((NormalChart318.sectionsEquiv φ j).trans e.toRingEquiv).toRingHom ≫
+      CommRingCat.ofHom ((integralClosure ↑A ↑B).val.comp e.symm.toRingEquiv.toRingHom) =
+    CommRingCat.ofHom (NormalChart318.sectionsEquiv φ j).toRingHom ≫
+      CommRingCat.ofHom (integralClosure ↑A ↑B).val.toRingHom
+hW : IsAffineOpen ((Spec.map φ ≫ j) ⁻¹ᵁ j ''ᵁ ⊤)
+⊢ 𝟙 (Spec B) ≫ Scheme.Hom.toNormalization (Spec.map φ ≫ j) = Scheme.Hom.toNormalization (Spec.map φ ≫ j)
+EXIT=1
+RELEASED 2026-11-08T05:59:27Z
