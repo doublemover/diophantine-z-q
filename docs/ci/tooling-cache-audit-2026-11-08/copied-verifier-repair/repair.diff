@@ -1,0 +1,174 @@
+diff --git a/.github/workflows/check-quartic-318-326.yml b/.github/workflows/check-quartic-318-326.yml
+index c8a99f8..ff05cfb 100644
+--- a/.github/workflows/check-quartic-318-326.yml
++++ b/.github/workflows/check-quartic-318-326.yml
+@@ -5,11 +5,19 @@ on:
+     paths:
+       - 'quartics/quartic-318-326/**'
+       - 'scripts/check_quartic318_326.py'
++      - 'scripts/check_lean.py'
++      - 'scripts/check_quartic_consumer_bindings.py'
++      - 'scripts/test_quartic_integration.py'
++      - '.github/actions/setup-pinned-*/**'
+       - '.github/workflows/check-quartic-318-326.yml'
+   pull_request:
+     paths:
+       - 'quartics/quartic-318-326/**'
+       - 'scripts/check_quartic318_326.py'
++      - 'scripts/check_lean.py'
++      - 'scripts/check_quartic_consumer_bindings.py'
++      - 'scripts/test_quartic_integration.py'
++      - '.github/actions/setup-pinned-*/**'
+       - '.github/workflows/check-quartic-318-326.yml'
+   workflow_dispatch:
+ 
+@@ -29,3 +37,11 @@ jobs:
+         with:
+           node-version: '26.13.0'
+       - run: python -B scripts/check_quartic318_326.py
++      - name: Preserve exact finite-check failure logs
++        if: failure()
++        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1
++        with:
++          name: finite-check-failure-attempt-${{ github.run_attempt }}
++          path: build/quartic-318-326/*.log
++          if-no-files-found: warn
++          retention-days: 7
+diff --git a/quartics/quartic-318-326/proof/progress/README.md b/quartics/quartic-318-326/proof/progress/README.md
+index b0a5dcc..ab82f5b 100644
+--- a/quartics/quartic-318-326/proof/progress/README.md
++++ b/quartics/quartic-318-326/proof/progress/README.md
+@@ -86,3 +86,5 @@ Bounded recovered-character, recovered-contact-cotangent and geometric-integrali
+ ## Exclusions
+ 
+ Exploratory/debug files, local `.olean`/`.ir` artifacts, dependency caches, browser/download scratch files, and work completed after this checkpoint cutoff are excluded. Later or unaccepted work remains excluded, including rational associativity for models outside the literal coefficient family, packaged categorical group objects beyond the proved actual operation diagrams, further basis/count48/Weil identifications and other multiplication-kernel identifications, Hodge evaluation over arbitrary non-domain bases, source Jacobian/factor and polarization identification, general-N torsion and additive/symplectic full-level structure, genus of the contact model, the Gamma-H quotient complex atlas, extension of the admissible level-three comparison across elliptic values and cusps, holomorphic comparison or analytification, and live PEL/source realization. No PR is created by this checkpoint.
++
++The verifier uses the repository's shared Lean source-policy parser. To validate a detached copied progress directory, run the original repository entrypoint with `--root /path/to/copied/progress`; do not execute a copied verifier without the repository scripts. The finite replay passes its copied directory explicitly and still checks every copied source hash and the copied private-inclusive audit. This selector changes only which source directory is inspected, not the validation policy.
+diff --git a/quartics/quartic-318-326/proof/progress/verify_manifest.py b/quartics/quartic-318-326/proof/progress/verify_manifest.py
+index 00e2064..24b686b 100755
+--- a/quartics/quartic-318-326/proof/progress/verify_manifest.py
++++ b/quartics/quartic-318-326/proof/progress/verify_manifest.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python3
+ """Verify the exact checked source closure without relying on compiler artifacts."""
+-import hashlib,json,pathlib,re,sys
++import argparse,hashlib,json,pathlib,re,sys
+ # This entrypoint is repository-scoped, regardless of the caller's cwd.
+ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[4] / 'scripts'))
+ from check_lean import code_only
+@@ -44,7 +44,10 @@ def validate_audit(text, order):
+ 
+ def main():
+  if not __debug__: raise RuntimeError('Run without Python -O: validation assertions must be enabled')
+- root=pathlib.Path(__file__).resolve().parent
++ parser=argparse.ArgumentParser(description=__doc__)
++ parser.add_argument('--root',type=pathlib.Path,default=pathlib.Path(__file__).resolve().parent,
++   help='Progress source directory to validate, including a copied package; the verifier and parser stay repository-scoped')
++ root=parser.parse_args().root.resolve()
+  manifest=json.loads((root/'checkpoint-manifest.json').read_text())
+  order=manifest['module_order'];seen=set()
+  assert json.loads((root/'module-order.json').read_text())==order, 'Replay order differs from manifest'
+diff --git a/scripts/check_quartic318_326.py b/scripts/check_quartic318_326.py
+index da3575d..40434f5 100644
+--- a/scripts/check_quartic318_326.py
++++ b/scripts/check_quartic318_326.py
+@@ -18,9 +18,15 @@ shutil.copytree(SOURCE, PACKAGE, dirs_exist_ok=True, symlinks=True,
+ 
+ def run(label, *args):
+     print(label, flush=True)
+-    with (WORK / (label + ".log")).open("w") as log:
+-        subprocess.run([str(x) for x in args], cwd=PACKAGE, check=True,
+-                       stdout=log, stderr=subprocess.STDOUT)
++    log_path = WORK / (label + ".log")
++    try:
++        with log_path.open("w") as log:
++            subprocess.run([str(x) for x in args], cwd=PACKAGE, check=True,
++                           stdout=log, stderr=subprocess.STDOUT)
++    except subprocess.CalledProcessError:
++        print(f"FAILED {label}; exact child output follows:", file=sys.stderr, flush=True)
++        print(log_path.read_text(), file=sys.stderr, flush=True)
++        raise
+ 
+ run("unpack", sys.executable, "-B", "tools/unpack_data.py")
+ run("generate", sys.executable, "-B", "tools/generate.py", "--check")
+@@ -28,7 +34,9 @@ for check in sorted((PACKAGE / "checks").glob("*/*.py")):
+     run(check.parent.name + "-" + check.stem, sys.executable, "-B", check)
+ run("unit-tests", sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests", "-v")
+ run("integration-regressions", sys.executable, "-B", ROOT / "scripts/test_quartic_integration.py")
+-run("progress-manifest", sys.executable, "-B", "proof/progress/verify_manifest.py")
++# Use the repository's shared source policy, but validate the copied package bytes.
++run("progress-manifest", sys.executable, "-B", SOURCE / "proof/progress/verify_manifest.py",
++    "--root", PACKAGE / "proof/progress")
+ historical_obligations = verify_consumers(ROOT)
+ for part, manifest in (("318", "concrete-verification.json"),
+                        ("components", "verification.json")):
+diff --git a/scripts/test_quartic_integration.py b/scripts/test_quartic_integration.py
+index cccaca2..f01264b 100644
+--- a/scripts/test_quartic_integration.py
++++ b/scripts/test_quartic_integration.py
+@@ -1,6 +1,8 @@
+ """Cheap regressions for audit headers and reviewed-document carry-forward."""
+ from pathlib import Path
+ import importlib.util
++import hashlib
++import json
+ import shutil
+ import subprocess
+ import sys
+@@ -41,6 +43,56 @@ class IntegrationTests(unittest.TestCase):
+         self.assertNotEqual(result.returncode, 0)
+         self.assertIn('Run without Python -O', result.stderr)
+ 
++    def test_repository_verifier_validates_detached_copied_progress(self):
++        # No scripts/ directory or PYTHONPATH accompanies the detached package.
++        with tempfile.TemporaryDirectory() as temp:
++            copied = Path(temp) / 'copied-package/proof/progress'
++            copied.mkdir(parents=True)
++            source = copied / 'A.lean'
++            original = 'module\npublic section\ntheorem copied_identity : (1 : Nat) = 1 := rfl\n'
++            source.write_text(original)
++            audit = copied / 'CheckpointAudit.lean'
++            audit_text = 'module\nimport all A\nimport Lean.Util.CollectAxioms\nlet modules : Array Name := #[`A]\n'
++            audit.write_text(audit_text)
++            (copied / 'module-order.json').write_text(json.dumps(['A']))
++            manifest_path = copied / 'checkpoint-manifest.json'
++            def bind_source():
++                manifest_path.write_text(json.dumps({'module_order':['A'], 'module_count':1,
++                    'modules':{'A':{'sha256':hashlib.sha256(source.read_bytes()).hexdigest()}}}))
++            bind_source()
++            def check():
++                return subprocess.run([sys.executable, '-B', str(path), '--root', str(copied)],
++                                      cwd=temp, capture_output=True, text=True)
++            result = check()
++            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
++            self.assertIn('MANIFEST_PASS modules=1', result.stdout)
++            source.write_text(original + '-- copied bytes changed\n')
++            result = check()
++            self.assertNotEqual(result.returncode, 0)
++            self.assertIn('Hash mismatch: A', result.stderr)
++            source.write_text(original + 'set_option debug.skipKernelTC true\n')
++            bind_source()
++            result = check()
++            self.assertNotEqual(result.returncode, 0)
++            self.assertIn('Kernel-check override: A', result.stderr)
++            source.write_text(original); bind_source()
++            audit.write_text(audit_text + 'set_option debug.skipKernelTC true\n')
++            result = check()
++            self.assertNotEqual(result.returncode, 0)
++            self.assertIn('Kernel-check override: CheckpointAudit', result.stderr)
++
++    def test_finite_replay_uses_original_policy_and_copied_root(self):
++        replay = (ROOT / 'scripts/check_quartic318_326.py').read_text()
++        self.assertIn('SOURCE / "proof/progress/verify_manifest.py"', replay)
++        self.assertIn('"--root", PACKAGE / "proof/progress"', replay)
++        self.assertIn('exact child output follows', replay)
++        workflow = (ROOT / '.github/workflows/check-quartic-318-326.yml').read_text()
++        self.assertIn('if: failure()', workflow)
++        self.assertIn('path: build/quartic-318-326/*.log', workflow)
++        for trigger in ["'.github/actions/setup-pinned-*/**'", "'scripts/check_lean.py'",
++                        "'scripts/test_quartic_integration.py'"]:
++            self.assertEqual(workflow.count(trigger), 2)
++
+     def test_audit_requires_leading_module_and_private_imports(self):
+         valid = 'module\nimport all A\nimport all B\nimport Lean.Util.CollectAxioms\nlet modules : Array Name := #[`A,`B]\n'
+         manifest.validate_audit(valid, ['A', 'B'])

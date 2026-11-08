@@ -5,11 +5,19 @@ on:
     paths:
       - 'quartics/quartic-318-326/**'
       - 'scripts/check_quartic318_326.py'
+      - 'scripts/check_lean.py'
+      - 'scripts/check_quartic_consumer_bindings.py'
+      - 'scripts/test_quartic_integration.py'
+      - '.github/actions/setup-pinned-*/**'
       - '.github/workflows/check-quartic-318-326.yml'
   pull_request:
     paths:
       - 'quartics/quartic-318-326/**'
       - 'scripts/check_quartic318_326.py'
+      - 'scripts/check_lean.py'
+      - 'scripts/check_quartic_consumer_bindings.py'
+      - 'scripts/test_quartic_integration.py'
+      - '.github/actions/setup-pinned-*/**'
       - '.github/workflows/check-quartic-318-326.yml'
   workflow_dispatch:
 
@@ -29,3 +37,11 @@ jobs:
         with:
           node-version: '26.13.0'
       - run: python -B scripts/check_quartic318_326.py
+      - name: Preserve exact finite-check failure logs
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1
+        with:
+          name: finite-check-failure-attempt-${{ github.run_attempt }}
+          path: build/quartic-318-326/*.log
+          if-no-files-found: warn
+          retention-days: 7

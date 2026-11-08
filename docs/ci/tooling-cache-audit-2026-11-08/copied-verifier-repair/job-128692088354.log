@@ -1,0 +1,355 @@
+﻿2026-11-08T09:38:51.0973855Z Current runner version: '2.338.2'
+2026-11-08T09:38:51.0994564Z ##[group]Runner Image Provisioner
+2026-11-08T09:38:51.0995303Z Hosted Compute Agent
+2026-11-08T09:38:51.0995804Z Version: 20261028.624
+2026-11-08T09:38:51.0996384Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T09:38:51.0996990Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T09:38:51.0997572Z Worker ID: {5af9cb71-c451-4b7e-a453-4e21b8e15aec}
+2026-11-08T09:38:51.0998259Z Region: eastus2
+2026-11-08T09:38:51.0998736Z Cloud: Azure
+2026-11-08T09:38:51.0999237Z ##[endgroup]
+2026-11-08T09:38:51.1000767Z ##[group]Operating System
+2026-11-08T09:38:51.1001323Z Ubuntu
+2026-11-08T09:38:51.1001867Z 24.04.5
+2026-11-08T09:38:51.1002321Z LTS
+2026-11-08T09:38:51.1002792Z ##[endgroup]
+2026-11-08T09:38:51.1003281Z ##[group]Runner Image
+2026-11-08T09:38:51.1003826Z Image: ubuntu-24.04
+2026-11-08T09:38:51.1004386Z Version: 20261101.360.1
+2026-11-08T09:38:51.1005405Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T09:38:51.1006692Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T09:38:51.1007512Z ##[endgroup]
+2026-11-08T09:38:51.1008495Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T09:38:51.1010216Z Contents: read
+2026-11-08T09:38:51.1010820Z Metadata: read
+2026-11-08T09:38:51.1011337Z ##[endgroup]
+2026-11-08T09:38:51.1013356Z Secret source: Actions
+2026-11-08T09:38:51.1014186Z Cache mode: write
+2026-11-08T09:38:51.1014793Z Prepare workflow directory
+2026-11-08T09:38:51.1273658Z Prepare all required actions
+2026-11-08T09:38:51.1325215Z Getting action download info
+2026-11-08T09:38:51.3489358Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-08T09:38:51.5102713Z Complete job name: finite-checks
+2026-11-08T09:38:51.5964401Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-08T09:38:51.5965206Z with:
+2026-11-08T09:38:51.5965611Z   repository: doublemover/diophantine-z-q
+2026-11-08T09:38:51.5968539Z   token: ***
+2026-11-08T09:38:51.5968903Z   ssh-strict: true
+2026-11-08T09:38:51.5969272Z   ssh-user: git
+2026-11-08T09:38:51.5969646Z   persist-credentials: true
+2026-11-08T09:38:51.5970324Z   clean: true
+2026-11-08T09:38:51.5970698Z   sparse-checkout-cone-mode: true
+2026-11-08T09:38:51.5971119Z   fetch-depth: 1
+2026-11-08T09:38:51.5971475Z   fetch-tags: false
+2026-11-08T09:38:51.5971844Z   show-progress: true
+2026-11-08T09:38:51.5972224Z   lfs: false
+2026-11-08T09:38:51.5972559Z   submodules: false
+2026-11-08T09:38:51.5972925Z   set-safe-directory: true
+2026-11-08T09:38:51.5973335Z   allow-unsafe-pr-checkout: false
+2026-11-08T09:38:51.5973952Z ##[endgroup]
+2026-11-08T09:38:51.8510439Z Syncing repository: doublemover/diophantine-z-q
+2026-11-08T09:38:51.8512030Z ##[group]Getting Git version info
+2026-11-08T09:38:51.8512660Z Working directory is '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T09:38:51.8513557Z [command]/usr/bin/git version
+2026-11-08T09:38:51.8601370Z git version 2.56.0
+2026-11-08T09:38:51.8612051Z ##[endgroup]
+2026-11-08T09:38:51.8617795Z Temporarily overriding HOME='/home/runner/work/_temp/bef27ef2-fddb-49b5-be7f-d6bd28da338a' before making global git config changes
+2026-11-08T09:38:51.8619569Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T09:38:51.8632597Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:38:51.8684723Z Deleting the contents of '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T09:38:51.8687763Z ##[group]Determining repository object format
+2026-11-08T09:38:51.8689131Z ##[endgroup]
+2026-11-08T09:38:51.8690217Z ##[group]Initializing the repository
+2026-11-08T09:38:51.8693989Z [command]/usr/bin/git init /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:38:51.8806913Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T09:38:51.8808521Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T09:38:51.8809277Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T09:38:51.8809885Z hint: call:
+2026-11-08T09:38:51.8810536Z hint:
+2026-11-08T09:38:51.8811162Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T09:38:51.8811748Z hint:
+2026-11-08T09:38:51.8812220Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T09:38:51.8812955Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T09:38:51.8813538Z hint:
+2026-11-08T09:38:51.8813887Z hint: 	git branch -m <name>
+2026-11-08T09:38:51.8814352Z hint:
+2026-11-08T09:38:51.8814970Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T09:38:51.8822624Z Initialized empty Git repository in /home/runner/work/diophantine-z-q/diophantine-z-q/.git/
+2026-11-08T09:38:51.8832306Z [command]/usr/bin/git remote add origin https://github.com/doublemover/diophantine-z-q
+2026-11-08T09:38:51.8877640Z ##[endgroup]
+2026-11-08T09:38:51.8878551Z ##[group]Disabling automatic garbage collection
+2026-11-08T09:38:51.8887358Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T09:38:51.8911539Z ##[endgroup]
+2026-11-08T09:38:51.8912696Z ##[group]Setting up auth
+2026-11-08T09:38:51.8913324Z Removing SSH command configuration
+2026-11-08T09:38:51.8915419Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T09:38:51.8959128Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T09:38:51.9281646Z Removing HTTP extra header
+2026-11-08T09:38:51.9286775Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T09:38:51.9324692Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T09:38:51.9522718Z Removing includeIf entries pointing to credentials config files
+2026-11-08T09:38:51.9533671Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T09:38:51.9570963Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T09:38:51.9775550Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T09:38:51.9816742Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path /home/runner/work/_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:38:51.9853552Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:38:51.9889551Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:38:51.9925710Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:38:51.9960694Z ##[endgroup]
+2026-11-08T09:38:51.9965496Z ##[group]Fetching the repository
+2026-11-08T09:38:51.9966677Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8d7ca58063f1825f99bf350f4115f22b1245a7bd:refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:38:54.8384678Z From https://github.com/doublemover/diophantine-z-q
+2026-11-08T09:38:54.8386533Z  * [new ref]         8d7ca58063f1825f99bf350f4115f22b1245a7bd -> origin/add-quartic-318-326
+2026-11-08T09:38:54.8393227Z [command]/usr/bin/git branch --list --remote origin/add-quartic-318-326
+2026-11-08T09:38:54.8426605Z   origin/add-quartic-318-326
+2026-11-08T09:38:54.8433285Z [command]/usr/bin/git rev-parse refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:38:54.8463518Z 8d7ca58063f1825f99bf350f4115f22b1245a7bd
+2026-11-08T09:38:54.8467898Z ##[endgroup]
+2026-11-08T09:38:54.8469031Z ##[group]Determining the checkout info
+2026-11-08T09:38:54.8470456Z ##[endgroup]
+2026-11-08T09:38:54.8471891Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T09:38:54.8528360Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T09:38:54.8566403Z ##[group]Checking out the ref
+2026-11-08T09:38:54.8569422Z [command]/usr/bin/git checkout --progress --force -B add-quartic-318-326 refs/remotes/origin/add-quartic-318-326
+2026-11-08T09:38:55.8703171Z Updating files:  95% (8230/8605)
+2026-11-08T09:38:56.0670293Z Updating files:  96% (8261/8605)
+2026-11-08T09:38:56.0910778Z Updating files:  97% (8347/8605)
+2026-11-08T09:38:56.1824628Z Updating files:  98% (8433/8605)
+2026-11-08T09:38:56.2346105Z Updating files:  99% (8519/8605)
+2026-11-08T09:38:56.2346635Z Updating files: 100% (8605/8605)
+2026-11-08T09:38:56.2462771Z Updating files: 100% (8605/8605), done.
+2026-11-08T09:38:56.2463260Z Switched to a new branch 'add-quartic-318-326'
+2026-11-08T09:38:56.2467871Z branch 'add-quartic-318-326' set up to track 'origin/add-quartic-318-326'.
+2026-11-08T09:38:56.2582363Z ##[endgroup]
+2026-11-08T09:38:56.2637229Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T09:38:56.2671450Z 8d7ca58063f1825f99bf350f4115f22b1245a7bd
+2026-11-08T09:38:56.2961723Z Prepare all required actions
+2026-11-08T09:38:56.2962204Z Getting action download info
+2026-11-08T09:38:56.3830792Z Download action repository 'actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-11-08T09:38:56.5250469Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-08T09:38:56.7570442Z ##[group]Run ./.github/actions/setup-pinned-python
+2026-11-08T09:38:56.7570797Z with:
+2026-11-08T09:38:56.7570980Z   python-version: 3.12.14
+2026-11-08T09:38:56.7571180Z ##[endgroup]
+2026-11-08T09:38:56.7619145Z ##[start-action display=Run set -euo pipefail;id=__self.platform]
+2026-11-08T09:38:56.7650324Z ##[group]Run set -euo pipefail
+2026-11-08T09:38:56.7650654Z [36;1mset -euo pipefail[0m
+2026-11-08T09:38:56.7650875Z [36;1mtest -n "${ImageOS:-}"[0m
+2026-11-08T09:38:56.7651137Z [36;1mecho "image=$ImageOS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T09:38:56.7672489Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:38:56.7672790Z ##[endgroup]
+2026-11-08T09:38:56.7752347Z ##[end-action id=__self.platform;outcome=success;conclusion=success;duration_ms=13]
+2026-11-08T09:38:56.7757124Z ##[start-action display=Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9;id=__self.runtime]
+2026-11-08T09:38:56.8298282Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:38:56.8298631Z with:
+2026-11-08T09:38:56.8298833Z   path: /opt/hostedtoolcache/Python/3.12.14
+2026-11-08T09:38:56.8299312Z   key: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:38:56.8299771Z   enableCrossOsArchive: false
+2026-11-08T09:38:56.8300221Z   fail-on-cache-miss: false
+2026-11-08T09:38:56.8300503Z   lookup-only: false
+2026-11-08T09:38:56.8300685Z ##[endgroup]
+2026-11-08T09:38:57.0049461Z Cache hit for: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:38:57.3902432Z Received 79345965 of 79345965 (100.0%), 218.7 MBs/sec
+2026-11-08T09:38:57.3902983Z Cache Size: ~76 MB (79345965 B)
+2026-11-08T09:38:57.3947553Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a607cea6-dc3a-4686-be9f-0d8560332765/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:38:58.0506311Z Cache restored successfully
+2026-11-08T09:38:58.0712664Z Cache restored from key: python-runtime-v1-Linux-X64-ubuntu24-3.12.14-da9b18228f4ff38c8bf10b4e19cac7c5105f4692fafa0a1a3037b9ab6ae89c60
+2026-11-08T09:38:58.0813875Z ##[end-action id=__self.runtime;outcome=success;conclusion=success;duration_ms=1305]
+2026-11-08T09:38:58.0816983Z ##[start-action display=Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0;id=__self.__actions_setup-python]
+2026-11-08T09:38:58.0895981Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-11-08T09:38:58.0896332Z with:
+2026-11-08T09:38:58.0896519Z   python-version: 3.12.14
+2026-11-08T09:38:58.0896717Z   architecture: x64
+2026-11-08T09:38:58.0896895Z   check-latest: false
+2026-11-08T09:38:58.0898675Z   token: ***
+2026-11-08T09:38:58.0898945Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-08T09:38:58.0899286Z   update-environment: true
+2026-11-08T09:38:58.0899496Z   allow-prereleases: false
+2026-11-08T09:38:58.0899696Z   freethreaded: false
+2026-11-08T09:38:58.0899882Z ##[endgroup]
+2026-11-08T09:38:58.1822608Z ##[group]Installed versions
+2026-11-08T09:38:58.1837906Z Successfully set up CPython (3.12.14)
+2026-11-08T09:38:58.1838710Z ##[endgroup]
+2026-11-08T09:38:58.1938151Z ##[end-action id=__self.__actions_setup-python;outcome=success;conclusion=success;duration_ms=112]
+2026-11-08T09:38:58.1943083Z ##[start-action display=Verify exact restored or installed Python;id=__self.__run]
+2026-11-08T09:38:58.1967395Z ##[group]Run set -euo pipefail
+2026-11-08T09:38:58.1967979Z [36;1mset -euo pipefail[0m
+2026-11-08T09:38:58.1969054Z [36;1mpython -c 'import os,sys; actual=".".join(map(str,sys.version_info[:3])); assert actual == os.environ["EXPECTED_PYTHON"], (actual,os.environ["EXPECTED_PYTHON"]); print("Verified Python", actual, "at", sys.executable)'[0m
+2026-11-08T09:38:58.1996516Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:38:58.1996947Z env:
+2026-11-08T09:38:58.1997275Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.1997855Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:58.1998427Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.1998918Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.1999419Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.2000105Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:58.2000554Z   EXPECTED_PYTHON: 3.12.14
+2026-11-08T09:38:58.2000886Z ##[endgroup]
+2026-11-08T09:38:58.2156496Z Verified Python 3.12.14 at /opt/hostedtoolcache/Python/3.12.14/x64/bin/python
+2026-11-08T09:38:58.2183110Z ##[end-action id=__self.__run;outcome=success;conclusion=success;duration_ms=23]
+2026-11-08T09:38:58.2185633Z ##[start-action display=Save verified runtime before any project checks;id=__self.__actions_cache]
+2026-11-08T09:38:58.2196083Z ##[end-action id=__self.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:38:58.2259057Z Prepare all required actions
+2026-11-08T09:38:58.2259475Z Getting action download info
+2026-11-08T09:38:58.3058804Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-11-08T09:38:58.4437727Z ##[group]Run ./.github/actions/setup-pinned-node
+2026-11-08T09:38:58.4438006Z with:
+2026-11-08T09:38:58.4438189Z   node-version: 26.13.0
+2026-11-08T09:38:58.4438377Z env:
+2026-11-08T09:38:58.4438601Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4438960Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:58.4439299Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4439608Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4440337Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4440676Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:58.4440942Z ##[endgroup]
+2026-11-08T09:38:58.4445424Z ##[start-action display=Run set -euo pipefail;id=__self_2.platform]
+2026-11-08T09:38:58.4460681Z ##[group]Run set -euo pipefail
+2026-11-08T09:38:58.4460928Z [36;1mset -euo pipefail[0m
+2026-11-08T09:38:58.4461144Z [36;1mtest -n "${ImageOS:-}"[0m
+2026-11-08T09:38:58.4461392Z [36;1mecho "image=$ImageOS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T09:38:58.4481768Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:38:58.4482051Z env:
+2026-11-08T09:38:58.4482273Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4482632Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:58.4482978Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4483303Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4483605Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.4483912Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:58.4484174Z ##[endgroup]
+2026-11-08T09:38:58.4528529Z ##[end-action id=__self_2.platform;outcome=success;conclusion=success;duration_ms=8]
+2026-11-08T09:38:58.4530671Z ##[start-action display=Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9;id=__self_2.runtime]
+2026-11-08T09:38:58.5022053Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T09:38:58.5022389Z with:
+2026-11-08T09:38:58.5022580Z   path: /opt/hostedtoolcache/node/26.13.0
+2026-11-08T09:38:58.5023052Z   key: node-runtime-v1-Linux-X64-ubuntu24-26.13.0-5f0b5b1509cf29929d02a24b296ce2608fecb11871d660f5ac2fcbb8672c3aab
+2026-11-08T09:38:58.5023509Z   enableCrossOsArchive: false
+2026-11-08T09:38:58.5023722Z   fail-on-cache-miss: false
+2026-11-08T09:38:58.5023940Z   lookup-only: false
+2026-11-08T09:38:58.5024113Z env:
+2026-11-08T09:38:58.5024328Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.5024678Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:58.5025012Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.5025319Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.5025622Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:58.5025934Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:58.5026193Z ##[endgroup]
+2026-11-08T09:38:58.6881258Z Cache hit for: node-runtime-v1-Linux-X64-ubuntu24-26.13.0-5f0b5b1509cf29929d02a24b296ce2608fecb11871d660f5ac2fcbb8672c3aab
+2026-11-08T09:38:58.9836967Z Received 50475024 of 50475024 (100.0%), 190.3 MBs/sec
+2026-11-08T09:38:58.9837656Z Cache Size: ~48 MB (50475024 B)
+2026-11-08T09:38:58.9859867Z [command]/usr/bin/tar -xf /home/runner/work/_temp/8470afca-dd48-4b1a-8977-66671b94d729/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T09:38:59.4192786Z Cache restored successfully
+2026-11-08T09:38:59.4272869Z Cache restored from key: node-runtime-v1-Linux-X64-ubuntu24-26.13.0-5f0b5b1509cf29929d02a24b296ce2608fecb11871d660f5ac2fcbb8672c3aab
+2026-11-08T09:38:59.4392634Z ##[end-action id=__self_2.runtime;outcome=success;conclusion=success;duration_ms=986]
+2026-11-08T09:38:59.4395862Z ##[start-action display=Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1;id=__self_2.__actions_setup-node]
+2026-11-08T09:38:59.4432261Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-11-08T09:38:59.4432578Z with:
+2026-11-08T09:38:59.4432765Z   node-version: 26.13.0
+2026-11-08T09:38:59.4432957Z   architecture: x64
+2026-11-08T09:38:59.4433136Z   check-latest: false
+2026-11-08T09:38:59.4433341Z   package-manager-cache: false
+2026-11-08T09:38:59.4435122Z   token: ***
+2026-11-08T09:38:59.4435473Z env:
+2026-11-08T09:38:59.4435698Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.4436070Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:59.4436427Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.4436745Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.4437062Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.4437371Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:59.4437652Z ##[endgroup]
+2026-11-08T09:38:59.5443111Z Found in cache @ /opt/hostedtoolcache/node/26.13.0/x64
+2026-11-08T09:38:59.5634202Z ##[group]Environment details
+2026-11-08T09:38:59.7643310Z node: v26.13.0
+2026-11-08T09:38:59.7643752Z npm: 11.20.0
+2026-11-08T09:38:59.7643991Z yarn: 1.22.22
+2026-11-08T09:38:59.7644501Z ##[endgroup]
+2026-11-08T09:38:59.7725096Z ##[end-action id=__self_2.__actions_setup-node;outcome=success;conclusion=success;duration_ms=332]
+2026-11-08T09:38:59.7728130Z ##[start-action display=Verify exact restored or installed Node;id=__self_2.__run]
+2026-11-08T09:38:59.7744744Z ##[group]Run set -euo pipefail
+2026-11-08T09:38:59.7745013Z [36;1mset -euo pipefail[0m
+2026-11-08T09:38:59.7745601Z [36;1mnode -e 'if (process.versions.node !== process.env.EXPECTED_NODE) throw Error(process.versions.node); console.log("Verified Node", process.versions.node, "at", process.execPath)'[0m
+2026-11-08T09:38:59.7764396Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T09:38:59.7764682Z env:
+2026-11-08T09:38:59.7764910Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.7765267Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:59.7765610Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.7765928Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.7766245Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.7766568Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:59.7766847Z   EXPECTED_NODE: 26.13.0
+2026-11-08T09:38:59.7767049Z ##[endgroup]
+2026-11-08T09:38:59.8027254Z Verified Node 26.13.0 at /opt/hostedtoolcache/node/26.13.0/x64/bin/node
+2026-11-08T09:38:59.8059740Z ##[end-action id=__self_2.__run;outcome=success;conclusion=success;duration_ms=33]
+2026-11-08T09:38:59.8062232Z ##[start-action display=Save verified runtime before project checks;id=__self_2.__actions_cache]
+2026-11-08T09:38:59.8066708Z ##[end-action id=__self_2.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:38:59.8089649Z ##[group]Run python -B scripts/check_quartic318_326.py
+2026-11-08T09:38:59.8090214Z [36;1mpython -B scripts/check_quartic318_326.py[0m
+2026-11-08T09:38:59.8108571Z shell: /usr/bin/bash -e {0}
+2026-11-08T09:38:59.8108788Z env:
+2026-11-08T09:38:59.8109019Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.8109394Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T09:38:59.8109744Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.8110264Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.8110576Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T09:38:59.8110896Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T09:38:59.8111172Z ##[endgroup]
+2026-11-08T09:39:00.3818879Z unpack
+2026-11-08T09:39:00.4324844Z generate
+2026-11-08T09:39:01.4416548Z 318-check_coefficients
+2026-11-08T09:39:01.6729781Z 318-check_compiler
+2026-11-08T09:39:01.7417001Z 318-check_constant
+2026-11-08T09:39:01.7693660Z 318-check_shear
+2026-11-08T09:39:01.8514047Z 326-check
+2026-11-08T09:39:02.0295904Z equivalence-check
+2026-11-08T09:39:03.7590131Z equivalence-check_decimal318
+2026-11-08T09:39:03.9464665Z unit-tests
+2026-11-08T09:39:04.0317243Z integration-regressions
+2026-11-08T09:39:06.7917000Z progress-manifest
+2026-11-08T09:39:06.8181566Z Traceback (most recent call last):
+2026-11-08T09:39:06.8182246Z   File "/home/runner/work/diophantine-z-q/diophantine-z-q/scripts/check_quartic318_326.py", line 31, in <module>
+2026-11-08T09:39:06.8191003Z     run("progress-manifest", sys.executable, "-B", "proof/progress/verify_manifest.py")
+2026-11-08T09:39:06.8191943Z   File "/home/runner/work/diophantine-z-q/diophantine-z-q/scripts/check_quartic318_326.py", line 22, in run
+2026-11-08T09:39:06.8192745Z     subprocess.run([str(x) for x in args], cwd=PACKAGE, check=True,
+2026-11-08T09:39:06.8193538Z   File "/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/subprocess.py", line 571, in run
+2026-11-08T09:39:06.8194232Z     raise CalledProcessError(retcode, process.args,
+2026-11-08T09:39:06.8195009Z subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.12.14/x64/bin/python', '-B', 'proof/progress/verify_manifest.py']' returned non-zero exit status 1.
+2026-11-08T09:39:06.8265316Z ##[error]Process completed with exit code 1.
+2026-11-08T09:39:06.8356261Z Post job cleanup.
+2026-11-08T09:39:06.8359229Z ##[start-action display=Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1;id=__d31a8987-c568-4c66-97df-9f5216d12fda.__actions_setup-node]
+2026-11-08T09:39:06.8361475Z ##[end-action id=__d31a8987-c568-4c66-97df-9f5216d12fda.__actions_setup-node;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:39:06.8412303Z Post job cleanup.
+2026-11-08T09:39:06.8414881Z ##[start-action display=Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0;id=__d7242a0a-44a7-4333-8113-ee06352533a4.__actions_setup-python]
+2026-11-08T09:39:06.8416796Z ##[end-action id=__d7242a0a-44a7-4333-8113-ee06352533a4.__actions_setup-python;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-08T09:39:06.8467727Z Post job cleanup.
+2026-11-08T09:39:06.9171327Z [command]/usr/bin/git version
+2026-11-08T09:39:06.9209281Z git version 2.56.0
+2026-11-08T09:39:06.9241248Z Temporarily overriding HOME='/home/runner/work/_temp/54921364-23f4-4c7e-9aeb-258efb6cce5c' before making global git config changes
+2026-11-08T09:39:06.9242109Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T09:39:06.9245685Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T09:39:06.9277011Z Removing SSH command configuration
+2026-11-08T09:39:06.9282919Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T09:39:06.9315539Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T09:39:06.9563304Z Removing HTTP extra header
+2026-11-08T09:39:06.9564443Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T09:39:06.9601973Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T09:39:06.9839312Z Removing includeIf entries pointing to credentials config files
+2026-11-08T09:39:06.9845496Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T09:39:06.9882599Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T09:39:06.9883691Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T09:39:06.9884531Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T09:39:06.9885237Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T09:39:06.9890419Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T09:39:06.9924953Z /home/runner/work/_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:39:06.9951099Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-02155f0c\-bff7\-4e85\-bc4c\-335d28180522\.config
+2026-11-08T09:39:06.9979711Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T09:39:07.0017012Z /home/runner/work/_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:39:07.0024436Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-02155f0c\-bff7\-4e85\-bc4c\-335d28180522\.config
+2026-11-08T09:39:07.0062567Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T09:39:07.0093026Z /github/runner_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:39:07.0099683Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-02155f0c\-bff7\-4e85\-bc4c\-335d28180522\.config
+2026-11-08T09:39:07.0137914Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T09:39:07.0167456Z /github/runner_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config
+2026-11-08T09:39:07.0174141Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-02155f0c\-bff7\-4e85\-bc4c\-335d28180522\.config
+2026-11-08T09:39:07.0213085Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T09:39:07.0447920Z Removing credentials config '/home/runner/work/_temp/git-credentials-02155f0c-bff7-4e85-bc4c-335d28180522.config'
+2026-11-08T09:39:07.0605399Z Cleaning up orphan processes

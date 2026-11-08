@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Verify the exact checked source closure without relying on compiler artifacts."""
-import hashlib,json,pathlib,re,sys
+import argparse,hashlib,json,pathlib,re,sys
 # This entrypoint is repository-scoped, regardless of the caller's cwd.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[4] / 'scripts'))
 from check_lean import code_only
@@ -44,7 +44,10 @@ def validate_audit(text, order):
 
 def main():
  if not __debug__: raise RuntimeError('Run without Python -O: validation assertions must be enabled')
- root=pathlib.Path(__file__).resolve().parent
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--root',type=pathlib.Path,default=pathlib.Path(__file__).resolve().parent,
+   help='Progress source directory to validate, including a copied package; the verifier and parser stay repository-scoped')
+ root=parser.parse_args().root.resolve()
  manifest=json.loads((root/'checkpoint-manifest.json').read_text())
  order=manifest['module_order'];seen=set()
  assert json.loads((root/'module-order.json').read_text())==order, 'Replay order differs from manifest'

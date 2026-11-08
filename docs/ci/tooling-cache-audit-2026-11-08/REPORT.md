@@ -74,3 +74,11 @@ The 1,386-module combined checkpoint is still pending, not retroactively passed.
 ## Subsequent hosted cold/warm observation at 8d7ca58
 
 [Exact report and preserved logs](hosted-cold-warm-8d7/REPORT.md) distinguish four initial cold Python HTTP 504 failures from later successful cache restoration. The identical Python key was saved after the failed jobs had already attempted their first restore. An actual subsequent cohort job restored Python in about 1.4 seconds, recognized and verified it without downloading, and also restored/checksummed elan and restored/verified the exact Lean distribution in about nine seconds without a toolchain download. This supplies hosted warm-path evidence, not a claim that cold upstream failures are impossible or that the combined proof cohort has passed. No pin or setup-source patch was required by these logs.
+
+## Copied-package verifier correction after the warm retry
+
+The warm finite-check retry reached the real package replay and exposed a regression introduced by the shared-parser hardening: the detached copied verifier could not import the repository parser. The exact import exception is established by the retained local reproduction; the older hosted wrapper did not surface its child output. [Preserved failure, repair and validation](copied-verifier-repair/REPORT.md) bind both evidence levels.
+
+The original repository verifier now accepts an explicit source root and validates the detached copied package, including its actual source hashes and audit, under the unchanged shared policy. New regression tests mutate the copied source and audit to ensure they are not replaced by checks of the original checkout. Failed child output is displayed and retained by an attempt-qualified workflow artifact. Relevant parser and consumer changes now trigger this finite workflow.
+
+The complete actual finite replay passes locally, including the copied 1,386-module manifest and historical consumers. Seven integration tests, fourteen tooling tests, eleven experiment tests and actionlint also pass. The separately bound non-author review accepted the exact five-file repair. No Lean source, compiler pin or proof snapshot changed, and no new Lean compilation was performed. Hosted validation of this correction remains pending; these local results are not a combined proof-cohort PASS.
