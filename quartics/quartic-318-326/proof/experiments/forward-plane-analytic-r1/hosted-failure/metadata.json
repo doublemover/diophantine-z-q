@@ -1,0 +1,163 @@
+{
+  "jobs": {
+    "jobs": [
+      {
+        "id": 128679015707,
+        "name": "plan",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42463941444,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run python -B scripts/test_progress_experiment.py",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run python -B scripts/check_progress_experiment.py plan --github-output \"$GITHUB_OUTPUT\"",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          }
+        ]
+      },
+      {
+        "id": 128679101028,
+        "name": "Experimental packet forward-plane-analytic-r1",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_id": 42463941444,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Restore previously audited baseline",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned elan",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Fetch exact pinned upstream artifacts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "First strict checks and new-declaration audit",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 7
+          },
+          {
+            "name": "Upload bounded results and error logs only",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 15
+          },
+          {
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          }
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "artifacts": [
+      {
+        "id": 13611226096,
+        "name": "experiment-forward-plane-analytic-r1",
+        "size_in_bytes": 2223,
+        "url": "https://api.github.com/repos/doublemover/diophantine-z-q/actions/artifacts/13611226096",
+        "archive_download_url": "https://api.github.com/repos/doublemover/diophantine-z-q/actions/artifacts/13611226096/zip",
+        "expired": false,
+        "created_at": "2026-11-08T08:42:59Z",
+        "expires_at": "2026-11-11T08:42:58Z",
+        "updated_at": "2026-11-08T08:42:59Z",
+        "digest": "sha256:ca3bceefefbabe2875d70505514328d701118a1a7ba8be5912cc7453d47dac41",
+        "workflow_run": {
+          "id": 42463941444,
+          "repository_id": 1449548415,
+          "head_repository_id": 1449548415,
+          "head_branch": "add-quartic-318-326",
+          "head_sha": "6f7151c7e2d63a07965a06343d8292e547afa2a6"
+        }
+      }
+    ]
+  }
+}
