@@ -1,0 +1,34 @@
+ACQUIRED tensor-continuation 2026-11-08T04:24:29Z
+BUILD Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
+{"module": "Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric", "source_sha256": "e5bfe9d248b68d16c4a37014119676d29f3b15d4e4d032cca2a7b05e5a205647", "seconds": 2.171, "exit_code": 0}
+BUILD Mathlib.Algebra.Category.Grp.Yoneda
+{"module": "Mathlib.Algebra.Category.Grp.Yoneda", "source_sha256": "8ad300eba8203b54e3e580123a2b32466f831b636984fef52088e374bd460656", "seconds": 1.87, "exit_code": 0}
+BUILD Mathlib.CategoryTheory.Preadditive.Yoneda.Basic
+{"module": "Mathlib.CategoryTheory.Preadditive.Yoneda.Basic", "source_sha256": "d7a9505cecb545249687efaf51b24cda7bbdb28ca49caedb9361bb796ec44bee", "seconds": 2.673, "exit_code": 0}
+BUILD Mathlib.CategoryTheory.Linear.Yoneda
+{"module": "Mathlib.CategoryTheory.Linear.Yoneda", "source_sha256": "031c8193dd8f1a142f8f63900f74567973bb8c643497ec27cd0e5695924ee624", "seconds": 2.825, "exit_code": 0}
+BUILD Mathlib.Algebra.Category.ModuleCat.Monoidal.Closed
+{"module": "Mathlib.Algebra.Category.ModuleCat.Monoidal.Closed", "source_sha256": "01d99e7305275b158294e164ca5327e27da31000c9e442f07e17ceee9afed6bb", "seconds": 1.92, "exit_code": 0}
+BUILD Mathlib.Algebra.Category.ModuleCat.Presheaf.Monoidal
+{"module": "Mathlib.Algebra.Category.ModuleCat.Presheaf.Monoidal", "source_sha256": "4813c779a15ea9819b539bf877e2459f7cd6bf993b6e338b19ee2e0c09ca6f59", "seconds": 4.778, "exit_code": 0}
+BUILD IntrinsicTensorSheaf318
+{"module": "IntrinsicTensorSheaf318", "source_sha256": "4fcd3684b6b9b3bd36072aaa7e92c9a971c3079f990cc8b78ad111449975d26b", "seconds": 3.173, "exit_code": 0}
+BUILD OpenSheafification318
+{"module": "OpenSheafification318", "source_sha256": "e1ba784857d3cdb72f75a1af7bffc29113646b33bac0c93557746098830ff52b", "seconds": 10.695, "exit_code": 0}
+BUILD TensorScalarIso318
+{"module": "TensorScalarIso318", "source_sha256": "a5abd8b044e7b7edd78fa332b8b8a446d238e8e485a50b135efbe64f55b2e355", "seconds": 1.519, "exit_code": 1}
+/workspace/scratch/2cb21e4e0864/recovery-hodge-0358/tensor-reconstructed/TensorScalarIso318.lean:16:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  RingHomInvPair e.symm.toRingHom ?m.21
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/2cb21e4e0864/recovery-hodge-0358/tensor-reconstructed/TensorScalarIso318.lean:30:11: error: typeclass instance problem is stuck
+  RingHomInvPair ?m.87 ?m.74
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, third, fourth, and fifth type arguments to `RingHomInvPair` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/scratch/2cb21e4e0864/recovery-hodge-0358/tensor-reconstructed/TensorScalarIso318.lean:37:36: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module R ↑M
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+
