@@ -1,0 +1,107 @@
+{
+  "packet": "forward-plane-ambient-closure-r2",
+  "status": "PENDING_HOSTED_RECHECK_AFTER_EXACT_CONSUMER_FAILURE",
+  "order": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318",
+    "LiteralPlaneJAtlas318",
+    "LiteralPlaneAmbientAnalytic318"
+  ],
+  "files": {
+    "AnalyticImplicitGraph318.lean": {
+      "sha256": "8c62dd62a76a70ca2aa31c598c7847c61fe01e34bb155203a0fa1a9b72f555c7",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ImplicitContDiff",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic"
+      ]
+    },
+    "LiteralThreePlaneImmersion318.lean": {
+      "sha256": "392b7184f6ce298c2d396ecf29f32f86ce6bf2b2e9bf85b2f326ac7d70b518c5",
+      "imports": [
+        "LiteralThreePlanePoints318"
+      ]
+    },
+    "LiteralThreePlaneGraph318.lean": {
+      "sha256": "05ae558f71bb7a0ad6966bd0bede82ace9b809720681cdaad6efcc14b5659946",
+      "imports": [
+        "LiteralThreePlaneImmersion318",
+        "AnalyticImplicitGraph318",
+        "Mathlib.Analysis.Analytic.Linear"
+      ]
+    },
+    "LiteralPlaneJAtlas318.lean": {
+      "sha256": "9ec6f2e0fac7ad1518b05f2b53c24b60c8fb273ed1eed3103d9aefbdbc034359",
+      "imports": [
+        "LiteralPlaneComparison318",
+        "LiteralThreePlaneGraph318"
+      ]
+    },
+    "LiteralPlaneAmbientAnalytic318.lean": {
+      "sha256": "14f28aff7b1d35ff2df7b9533733ff655ff520d9f08e36e7ed24caecef3c58f7",
+      "imports": [
+        "LiteralPlaneJAtlas318",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+        "Mathlib.Analysis.Calculus.FDeriv.Prod"
+      ]
+    }
+  },
+  "already_checked_modules": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318",
+    "LiteralPlaneJAtlas318"
+  ],
+  "exact_predecessor_evidence": {
+    "recovery-modular-0358/plane-analytic-hosted-pass/receipt.json": "a882f099325a99ebbb07ab6790e7c2fd7dd8854c98cdeef6a04d497a141c6719",
+    "plane-analytic-independent-review/acceptance.json": "57415b593cfc10b4412f25c6e7345f496063ffc175eb63ceb7dc70d5aaaca7d3"
+  },
+  "current_baseline_modules": 1414,
+  "baseline_source_closure_count": 211,
+  "scope": "See APPLICATION-PENDING.md. Exact successful predecessors unchanged; one minimally repaired consumer awaits strict check, recursive audit and independent review.",
+  "activation": "Coordinator only; preparation does not dispatch or promote.",
+  "no_local_compile": true,
+  "historical_original_intake": {
+    "path": "recovery-modular-0358/forward-plane-ambient-r1/intake.json",
+    "sha256": "dc5de65f12175c872caba5ba3adad292e21de6ddb963b5cf4d579a203eb46ae6"
+  },
+  "pending_recheck_modules": [
+    "LiteralPlaneAmbientAnalytic318"
+  ],
+  "prior_failed_intake": {
+    "path": "recovery-modular-0358/forward-plane-ambient-closure-r1/intake.json",
+    "sha256": "2ea1bb13ad5503f9a82249b52d4c2aeab5bdff8e5152c434a2236557f23ec912"
+  },
+  "exact_failure_receipt": {
+    "path": "recovery-modular-0358/ci-experiment-forward-plane-ambient-closure-r1-42470305457/receipt.json",
+    "sha256": "1337e429e8f7cf1272dafa6bb8beff582a446762d0f4180d715ab6b3dfce6637"
+  },
+  "source_changes": {
+    "AnalyticImplicitGraph318": {
+      "old": "8c62dd62a76a70ca2aa31c598c7847c61fe01e34bb155203a0fa1a9b72f555c7",
+      "new": "8c62dd62a76a70ca2aa31c598c7847c61fe01e34bb155203a0fa1a9b72f555c7",
+      "unchanged": true
+    },
+    "LiteralThreePlaneImmersion318": {
+      "old": "392b7184f6ce298c2d396ecf29f32f86ce6bf2b2e9bf85b2f326ac7d70b518c5",
+      "new": "392b7184f6ce298c2d396ecf29f32f86ce6bf2b2e9bf85b2f326ac7d70b518c5",
+      "unchanged": true
+    },
+    "LiteralThreePlaneGraph318": {
+      "old": "05ae558f71bb7a0ad6966bd0bede82ace9b809720681cdaad6efcc14b5659946",
+      "new": "05ae558f71bb7a0ad6966bd0bede82ace9b809720681cdaad6efcc14b5659946",
+      "unchanged": true
+    },
+    "LiteralPlaneJAtlas318": {
+      "old": "9ec6f2e0fac7ad1518b05f2b53c24b60c8fb273ed1eed3103d9aefbdbc034359",
+      "new": "9ec6f2e0fac7ad1518b05f2b53c24b60c8fb273ed1eed3103d9aefbdbc034359",
+      "unchanged": true
+    },
+    "LiteralPlaneAmbientAnalytic318": {
+      "old": "62201552fcbb9a2d00c083d7406528259406d1995ea655c09391fa5cc044fd00",
+      "new": "14f28aff7b1d35ff2df7b9533733ff655ff520d9f08e36e7ed24caecef3c58f7",
+      "unchanged": false
+    }
+  }
+}

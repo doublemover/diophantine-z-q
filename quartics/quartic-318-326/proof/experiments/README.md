@@ -1,5 +1,13 @@
 # Pending Lean experiments
 
+## Current consumer repairs
+
+Both new consumers failed their first strict check in [run 42470305457](https://github.com/doublemover/diophantine-z-q/actions/runs/42470305457), while their respective four plane predecessors and one period predecessor passed. Exact tested sources, results, strict logs and archive digests are preserved under the old packets’ hosted-failure folders. Neither new consumer reached its recursive audit.
+
+The active ambient revision 2 only opens the namespace of the actual planeJ used by the helper. The active inverse-section revision 3 only replaces construction through an opaque imported predicate with the public PartialDiffeomorph.isLocalDiffeomorphAt theorem and the exact function equality. All theorem statements and previously successful predecessor bytes remain unchanged. The repaired consumers still await hosted strict checks and recursive packet audits; no local replay or accepted-baseline promotion was performed. The 1,414-source main snapshot is unchanged.
+
+The earlier intake description follows for provenance; the active packet names are now forward-plane-ambient-closure-r2 and forward-period-sections-r3.
+
 Two minimal versioned closures are active. The ambient-plane packet contains the unchanged checked graph3 and target j-atlas plus one pending ambient-coordinate analytic/derivative consumer. It does not repeat the unrelated successful biholomorphism module. The inverse-period-section packet contains unchanged hosted-successful period-projection revision 2 plus one pending analytic inverse-section consumer. Both new consumers still need their first successful strict check and recursive packet audit. Experimental objects are never saved into the accepted predecessor cache.
 
 Period projection revision 2 passed its strict check and eight-declaration recursive audit in [run 42468452829](https://github.com/doublemover/diophantine-z-q/actions/runs/42468452829/job/128693510001). Exact evidence is preserved in forward-period-projection-r2/hosted-pass. Its natural period atlas is the literal complex open-subspace structure, and its actual quotient projection is analytic by genuine j analyticity and the exact chart identity. The successful standalone packet is deactivated. Accepted-baseline promotion and a durable independent-review record remain separate; the subsequent inverse consumer is not claimed passed.

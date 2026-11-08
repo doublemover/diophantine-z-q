@@ -1,0 +1,19 @@
+--- forward-period-sections-r2/AdmissibleAnalyticSections318.lean
++++ forward-period-sections-r3/AdmissibleAnalyticSections318.lean
+@@ -132,9 +132,12 @@
+   letI := AdmissiblePeriodProjection318.complexChartedSpace
+   letI := AdmissibleJComplexAtlas318.complexChartedSpace
+   intro tau
+-  refine ⟨localBiholomorph tau,
+-    AdmissibleQuotientCover318.localHomeomorph.self_mem_localInverseAt_target, ?_⟩
+-  intro sigma _
+-  exact (congrFun (inverseSection_symm tau) sigma).symm
++  have hm : tau ∈ (localBiholomorph tau).source :=
++    AdmissibleQuotientCover318.localHomeomorph.self_mem_localInverseAt_target
++  have h := (localBiholomorph tau).isLocalDiffeomorphAt hm
++  have he : (localBiholomorph tau : Locus → Source) = sourceProjection :=
++    inverseSection_symm tau
++  rw [he] at h
++  exact h
+ 
+ end AdmissibleAnalyticSections318
