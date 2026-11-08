@@ -1,50 +1,3 @@
-import IntrinsicTensorSheaf318
-import OpenSheafification318
-import TensorScalarIso318
-import TensorOpenRestriction318
-import TensorSheafFunctor318
-import ContactBicanonicalSheaf318
-import ContactBicanonicalCoefficients318
-import ContactBicanonicalLocalSections318
-import SourceCharacterAlgebra318
-import SourceCharacterAffine318
-import SourceCharacterGlobal318
-import LiteralProductReduced318
-import InfinityBranchUniqueness318
-import ActualInfinityEquation318
-import AnalyticScalingGerm318
-import ScaledCoordinateGerm318
-import AffineRationalScaling318
-import PublishedCharacterScheme318
-import UnitRootScaling318
-import CubicWeierstrassPolynomial318
-import CubicWeierstrassAlgebra318
-import CubicPublishedScheme318
-import CubicCharacterFraction318
-import PublishedCharacterFraction318
-import EtaleDifferentialFrame318
-import ContactDifferentialFrames318
-import ContactFrameNormalization318
-import ContactIntrinsicDifferentials318
-import ContactIntrinsicFrames318
-import GenericOpenPushout318
-import WeierstrassChartPullback318
-import CompletedAdditionCharts318
-import WholeBothNaturality318
-import ChartInputEquality318
-import ContactGeometricOrder318
-import PolynomialScalarExtension318
-import SourceScalarExtension318
-import SourceGeometricallyIntegral318
-import GeometricIntegralDenseOpen318
-import ContactGeometricallyIntegral318
-import UniformPeriodBounds318
-import ThirdPeriodSummands318
-import ThirdPeriodNormalConvergence318
-import ThirdArithmeticHolomorphic318
-import ModularArithmeticCoordinates318
-import ModularCoordinateProper318
-import ArithmeticPointTopology318
 module
 import all RationalAbsoluteHeight
 import all QuarticOptimization
@@ -1082,6 +1035,53 @@ import all WeierstrassIntrinsicOverlaps318
 import all IntrinsicGlobalFrame318
 import all IntrinsicHodgeIsomorphism318
 import all LiteralIntrinsicHodge318
+import all AffineRationalScaling318
+import all PublishedCharacterScheme318
+import all UnitRootScaling318
+import all CubicWeierstrassPolynomial318
+import all CubicWeierstrassAlgebra318
+import all CubicPublishedScheme318
+import all CubicCharacterFraction318
+import all PublishedCharacterFraction318
+import all EtaleDifferentialFrame318
+import all ContactDifferentialFrames318
+import all ContactFrameNormalization318
+import all ContactIntrinsicDifferentials318
+import all ContactIntrinsicFrames318
+import all GenericOpenPushout318
+import all WeierstrassChartPullback318
+import all CompletedAdditionCharts318
+import all WholeBothNaturality318
+import all ChartInputEquality318
+import all ContactGeometricOrder318
+import all PolynomialScalarExtension318
+import all SourceScalarExtension318
+import all SourceGeometricallyIntegral318
+import all GeometricIntegralDenseOpen318
+import all ContactGeometricallyIntegral318
+import all UniformPeriodBounds318
+import all ThirdPeriodSummands318
+import all ThirdPeriodNormalConvergence318
+import all ThirdArithmeticHolomorphic318
+import all ModularArithmeticCoordinates318
+import all ModularCoordinateProper318
+import all ArithmeticPointTopology318
+import all IntrinsicTensorSheaf318
+import all OpenSheafification318
+import all TensorScalarIso318
+import all TensorOpenRestriction318
+import all TensorSheafFunctor318
+import all ContactBicanonicalSheaf318
+import all ContactBicanonicalCoefficients318
+import all ContactBicanonicalLocalSections318
+import all SourceCharacterAlgebra318
+import all SourceCharacterAffine318
+import all SourceCharacterGlobal318
+import all LiteralProductReduced318
+import all InfinityBranchUniqueness318
+import all ActualInfinityEquation318
+import all AnalyticScalingGerm318
+import all ScaledCoordinateGerm318
 import Lean.Util.CollectAxioms
 
 set_option maxHeartbeats 0

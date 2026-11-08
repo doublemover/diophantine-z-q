@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from check_quartic_consumer_bindings import verify as verify_consumers
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "quartics/quartic-318-326"
@@ -26,12 +27,15 @@ run("generate", sys.executable, "-B", "tools/generate.py", "--check")
 for check in sorted((PACKAGE / "checks").glob("*/*.py")):
     run(check.parent.name + "-" + check.stem, sys.executable, "-B", check)
 run("unit-tests", sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests", "-v")
+run("integration-regressions", sys.executable, "-B", ROOT / "scripts/test_quartic_integration.py")
 run("progress-manifest", sys.executable, "-B", "proof/progress/verify_manifest.py")
+historical_obligations = verify_consumers(ROOT)
 for part, manifest in (("318", "concrete-verification.json"),
                        ("components", "verification.json")):
     base = PACKAGE / "proof" / part
     for name, digest in json.loads((base / manifest).read_text())["sha256"].items():
-        assert hashlib.sha256((base / name).read_bytes()).hexdigest() == digest, name
+        bound = historical_obligations if (part, name) == ("components", "arithmetic-obligations.md") else base / name
+        assert hashlib.sha256(bound.read_bytes()).hexdigest() == digest, name
 receipt_dir = PACKAGE / "proof/receipts/fresh-rebuild"
 for name, digest in json.loads((receipt_dir / "receipt.json").read_text())["sha256"].items():
     assert hashlib.sha256((receipt_dir / name).read_bytes()).hexdigest() == digest, name

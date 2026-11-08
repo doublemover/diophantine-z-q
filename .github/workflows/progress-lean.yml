@@ -7,6 +7,8 @@ on:
       - 'scripts/check_progress_lean.py'
       - 'scripts/check_lean.py'
       - 'scripts/test_progress_lean.py'
+      - 'scripts/test_quartic_integration.py'
+      - 'scripts/check_quartic_consumer_bindings.py'
       - 'scripts/progress_compile_weights.json'
       - '.github/workflows/progress-lean.yml'
   pull_request:
@@ -15,6 +17,8 @@ on:
       - 'scripts/check_progress_lean.py'
       - 'scripts/check_lean.py'
       - 'scripts/test_progress_lean.py'
+      - 'scripts/test_quartic_integration.py'
+      - 'scripts/check_quartic_consumer_bindings.py'
       - 'scripts/progress_compile_weights.json'
       - '.github/workflows/progress-lean.yml'
   workflow_dispatch:
@@ -75,6 +79,7 @@ jobs:
         with:
           python-version: '3.12.14'
       - run: python -B -m unittest discover -s scripts -p 'test_*lean*.py' -v
+      - run: python -B scripts/test_quartic_integration.py
       - id: plan
         run: python -B scripts/check_progress_lean.py plan --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --max-parallel "$MAX_PARALLEL" --output build/progress-plan.json --github-output "$GITHUB_OUTPUT"
 

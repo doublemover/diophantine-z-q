@@ -72,9 +72,9 @@
   "files": {
     "checkpoint-manifest.json": "4e67cf177171dcd8bd56c7d7c64255bdd25331150909c6466ad1cda0a6d9160f",
     "module-order.json": "7984841d29b7e8ccb33a7f3bc82c597e90bd960299d487dc8de23ebdcfa13af1",
-    "CheckpointAudit.lean": "8c985f5ee95b352eeeeed29e10233023d7505d5b06724a55d387a4777bd313f5",
+    "CheckpointAudit.lean": "aabf1091f2ecce6d81c6f33d3b2e495027ff1bd6bb6ec1e7c2b7a04b826446db",
     "replay.sh": "d16d304486d7e2f7da87cbcc995e4b7ba65b68b544a9fefa8fc3ca9cb34779ce",
-    "verify_manifest.py": "7b3f93f74629c1b5f889c738a0fc243c21862478a60432a7b17832999b28409e",
+    "verify_manifest.py": "73d8bc72bb2be0d69959ef9d42680346d419389dd49ad4ea6212593f6b2fff80",
     "combined-audit.log": "f01b73b518590c9c6cf5818cd83e24f5b61960c607461cbe93ec428bd3b738e1",
     "checkpoint-rebuild-modules.json": "3fa45b24a4f29b8e51238bd4b954548efb9d3a8d7ee209bc36b54ea3d9599b8b",
     "checkpoint-rebuild.log": "43d6df19bd46e9dc38516783a3f86b7e3eeb0bacd9e8f1acd0f04f8d02582418",
@@ -158,5 +158,6 @@
   "new_source_modules": 16,
   "new_packet_audited_declarations": 224,
   "unified_new_packet_declarations": null,
-  "prior1067_snapshot": "receipts/prior-db8c532-progress"
+  "prior1067_snapshot": "receipts/prior-db8c532-progress",
+  "integration_correction": "The prior 1067 hosted run built every producer module, then rejected the misplaced module header in its combined audit. Header and private-inclusive audit imports are now checked before CI compilation. Combined1083 audit remains pending."
 }
