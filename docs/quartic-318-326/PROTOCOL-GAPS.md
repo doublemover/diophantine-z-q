@@ -6,6 +6,8 @@ Status: **incomplete protocol assessment and incomplete mathematical work, not a
 
 The mathematical dependency target is **Version 11**, particularly its repaired Kato construction/index/norm/class interface. Version 13 is the latest merged repository state, not a substitute mathematical target. The [initial application and findings inventory](protocol-inventory/APPLICATIONS-AND-FINDINGS.md) records seven actual chains and six findings with [source bindings](protocol-inventory/evidence.json). It is explicitly nonexhaustive. Unrelated proof expansion is paused while these requirements and actual consumers are reconciled.
 
+The [findings reconciliation ledger](protocol-inventory/FINDINGS-LEDGER.md) and [129-directory audit intake catalog](protocol-inventory/audit-intake.json) preserve concrete open concerns, earlier scope corrections and exact evidence hashes. This initial catalog does not establish exhaustive audit intake or resolve its open items.
+
 ## Requirements checked
 
 The controlling documents are [the contributor guide](../../CONTRIBUTING.md), [research review guide](../research-review/README.md), [protocol version 1.1](../research-review/PROTOCOL.md), [application-binding protocol](../audit-history/PROTOCOL.md), and [PR template](../../.github/pull_request_template.md).
