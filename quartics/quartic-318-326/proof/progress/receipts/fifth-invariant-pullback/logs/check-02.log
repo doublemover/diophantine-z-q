@@ -1,0 +1,54 @@
+ACQUIRED 2026-11-08T09:30:32Z
+RESULT LocalFrameSectionDetection318 0
+recovery-hodge-0358/fifth-pullback-work/IntegralLocalFrameDetection318.lean:23:30: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Nonempty ↥W
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+recovery-hodge-0358/fifth-pullback-work/IntegralLocalFrameDetection318.lean:25:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (LocallyRingedSpace.Hom.toShHom (Scheme.Hom.toLRSHom j)).hom.base) y
+in the target expression
+  j y ∈ W
+
+X Y : Scheme
+inst✝² : AlgebraicGeometry.IsIntegral X
+M : X.Modules
+j : Y ⟶ X
+inst✝¹ : IsOpenImmersion j
+e : M.restrict j ≅ SheafOfModules.unit Y.ringCatSheaf
+W : X.Opens
+inst✝ : Nonempty ↥↑W
+hle : W ≤ j ''ᵁ ⊤
+s t : ↑Γ(M, ⊤)
+h : (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) s = (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) t
+V : Y.Opens := j ⁻¹ᵁ W
+x : ↥W := Classical.choice ⋯
+y : ↥Y
+left✝ : y ∈ ↑⊤
+hy : (ConcreteCategory.hom (LocallyRingedSpace.Hom.toShHom (Scheme.Hom.toLRSHom j)).hom.base) y = ↑x
+⊢ j y ∈ W
+recovery-hodge-0358/fifth-pullback-work/IntegralLocalFrameDetection318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+recovery-hodge-0358/fifth-pullback-work/IntegralLocalFrameDetection318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+recovery-hodge-0358/fifth-pullback-work/IntegralLocalFrameDetection318.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RESULT IntegralLocalFrameDetection318 1
+RELEASED 2026-11-08T09:30:37Z status=1

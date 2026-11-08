@@ -1,0 +1,130 @@
+{
+  "author": "/root/restart_contact_field",
+  "claim": "The four original actual completed-character morphisms are globally finite flat surjective",
+  "observed_repo_head": "a54ba7cc1a534589d04b4b19afd060389aedacde",
+  "sources": {
+    "BivariateIntegral318.lean": "4110556ef0974d4262cf88753e21151bccbf557d72c2b075094bd44a0f739830",
+    "CompletedRationalDedekind318.lean": "91e269481c355f908c8254cea8da98db9ea33a583505d8e4acdfb516ca4a31b1",
+    "DedekindAffineFlat318.lean": "c200b9dd33ba63c6cd739681d5902d64434d54c11a6ed54a6f950ce3aa7b64ba",
+    "CompletedCharacterFlat318.lean": "7dc2139baa117c54866856bebbd664ac4d2c1c582c075a2ead6a920613fa79df"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "The flatness criterion requires integral source and target, finite and dominant actual f, and Dedekind section rings on the cover.",
+      "constructed_input": "CompletedCharacterFinite318.completedMap_finite, CompletedCharacterProper318.completedMap_dominant/target_proper_integral and actual model_integral supply these exact objects.",
+      "justification": "CompletedCharacterFinite318.completedMap_finite, CompletedCharacterProper318.completedMap_dominant/target_proper_integral and actual model_integral supply these exact objects.",
+      "source_references": "CompletedCharacterFlat318 local instances and completedMap_flat; CompletedCharacterFinite318; CompletedCharacterProper318",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Objects",
+      "required_input": "Target chart rings must be the whole actual rings, not normalizations merely sharing an equation.",
+      "constructed_input": "ShortAffineJacobian318.Ring A B and InfinityChart318.Ring A B are literally the charts in WeierstrassGluing318.",
+      "justification": "ShortAffineJacobian318.Ring A B and InfinityChart318.Ring A B are literally the charts in WeierstrassGluing318.",
+      "source_references": "CompletedRationalDedekind318.affine/infinity; completedMap_flat",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Index and domain coverage",
+      "required_input": "All four original characters and every point of each completed target must be covered.",
+      "constructed_input": "i:Fin4 is unrestricted; WeierstrassGluing318.charts_cover splits every p into the two actual opens, and preimage_nonempty covers the actual source restriction.",
+      "justification": "i:Fin4 is unrestricted; WeierstrassGluing318.charts_cover splits every p into the two actual opens, and preimage_nonempty covers the actual source restriction.",
+      "source_references": "CompletedCharacterFlat318.completedMap_flat; DedekindAffineFlat318.app_flat",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Dimension and exceptional coefficients",
+      "required_input": "Dedekind needs dimension at most one, Noetherianity, domain and full normality, without excluding vanishing A or B.",
+      "constructed_input": "The finite chart is integral over Q[x]; infinity over Q[z] through a monic cubic in x. Only the original unit discriminant is required for whole-chart normality; quotient Noetherianity and integral dimension descent supply the rest.",
+      "justification": "The finite chart is integral over Q[x]; infinity over Q[z] through a monic cubic in x. Only the original unit discriminant is required for whole-chart normality; quotient Noetherianity and integral dimension descent supply the rest.",
+      "source_references": "BivariateIntegral318.quotient_integral/monic_cubic; CompletedRationalDedekind318 finite_y_integral/infinity_x_integral/affine/infinity",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Exact comparison maps",
+      "required_input": "The ring flatness theorem must apply to the actual f.app U and actual target restrictions.",
+      "constructed_input": "Scheme-theoretic dominance gives actual app injectivity. The specific algebra is (f.app U).hom.toAlgebra. restrict_flat_iff uses actual appLE_congr and the exact top-open identities; sections_dedekind uses the actual \u0393Spec/open-immersion equivalence.",
+      "justification": "Scheme-theoretic dominance gives actual app injectivity. The specific algebra is (f.app U).hom.toAlgebra. restrict_flat_iff uses actual appLE_congr and the exact top-open identities; sections_dedekind uses the actual \u0393Spec/open-immersion equivalence.",
+      "source_references": "DedekindAffineFlat318.app_flat/restrict_flat_iff/sections_dedekind",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Flatness inference",
+      "required_input": "Torsion-freeness must be established for the actual module over each Dedekind section ring.",
+      "constructed_input": "Actual injective algebra map into domain gives Module.IsTorsionFree, and the pinned Dedekind torsion-free-flat theorem gives Module.Flat. Integral source and nonempty preimage are retained.",
+      "justification": "Actual injective algebra map into domain gives Module.IsTorsionFree, and the pinned Dedekind torsion-free-flat theorem gives Module.Flat. Integral source and nonempty preimage are retained.",
+      "source_references": "BivariateIntegral318.flat_of_injective; DedekindAffineFlat318.app_flat",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Downstream object identity",
+      "required_input": "The conclusion must concern the map already used in actual source/character/generic-degree joins.",
+      "constructed_input": "completedMap_flat and finite_flat_surjective refer literally to CompletedCharacterGlobal318.completedMap i, not an isomorphic replacement.",
+      "justification": "completedMap_flat and finite_flat_surjective refer literally to CompletedCharacterGlobal318.completedMap i, not an isomorphic replacement.",
+      "source_references": "CompletedCharacterFlat318.completedMap_flat/finite_flat_surjective",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required_input": "Each final source must have successful strict evidence and exact dependency binding.",
+      "constructed_input": "check98/check100/check103 provide exit0 with kernel checking. Frozen manifest binds sources, oleans, passing logs, predecessor receipts and consumed Mathlib files. Hosted combined audit and non-author review are pending.",
+      "justification": "check98/check100/check103 provide exit0 with kernel checking. Frozen manifest binds sources, oleans, passing logs, predecessor receipts and consumed Mathlib files. Hosted combined audit and non-author review are pending.",
+      "source_references": "receipt.json and passing logs",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    },
+    {
+      "name": "Conclusion boundary",
+      "required_input": "Finite flatness alone is not a proof of constant degree, a norm construction or a Jacobian/PEL model.",
+      "constructed_input": "This packet stops at genuine finite-flat-surjective. The actual generic-stalk degree-eight theorem is separately available; its all-point rank consumer is separately owned and not asserted here.",
+      "justification": "This packet stops at genuine finite-flat-surjective. The actual generic-stalk degree-eight theorem is separately available; its all-point rank consumer is separately owned and not asserted here.",
+      "source_references": "README.md; CompletedCharacterFlat318.finite_flat_surjective",
+      "evidence": [
+        "BivariateIntegral318.lean",
+        "CompletedRationalDedekind318.lean",
+        "DedekindAffineFlat318.lean",
+        "CompletedCharacterFlat318.lean"
+      ]
+    }
+  ]
+}

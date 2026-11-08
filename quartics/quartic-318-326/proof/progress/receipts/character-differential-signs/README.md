@@ -1,0 +1,11 @@
+# Actual intrinsic differential characters
+
+The target normalization is proved for the existing canonical differential pullback, the existing whole-Scheme elliptic negation, and the specified global invariant dx/(2y). It is not a declared action on a formal character space. The whole-affine relation 2y*omega=dx and the actual coordinate involution imply the negation formula after cancellation in the proved free intrinsic differential sheaf. Nonzero scalar cancellation comes from its genuine global frame and the integral completion. The nonempty whole finite chart detects equality of global forms by the same frame and the structure-sheaf restriction theorem for integral schemes.
+
+The generic Weierstrass result retains its explicit domain, discriminant-unit and nonzero 2y hypotheses. On all four fixed published targets, the original contact-field embedding proves y nonzero and characteristic zero proves 2 nonzero. Thus the actual application has no additional unverified hypothesis.
+
+Canonical pullback composition, derived independently from the universal derivation, is applied to the exact full completed-character/source-sign commuting squares. Every one of the sixteen Boolean source signs acts on each actual global intrinsic form by its complementary triple-root epsilon, with no remaining scalar ambiguity. Constants come from the actual Q-structure map. The positive and negative cases identify literal equality and literal negation, respectively.
+
+The forms were already constructed globally and proved independent in previous packets. This packet does not claim that they form a basis of the complete space of global differentials. It does not identify a source Jacobian or Picard scheme, an isogeny or polarization, or a PEL/Shimura object; no inertia interpretation or metric/height statement is introduced.
+
+All six source bodies passed bounded strict checks. The fresh target-only recursive audit checks these six modules and their recursive axiom roots; it is not a full dependency replay. Some preserved multi-source logs contain earlier failures of later targets, and the receipt records the successful marker and exact final source hash for every module. No moving draft is part of this packet. Independent review and hosted integration remain separate.

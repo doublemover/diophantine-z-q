@@ -1,0 +1,58 @@
+ACQUIRED 2026-11-08T09:20:01Z fifth-character
+CHECK FifthSourceAffine318 2026-11-08T09:20:01Z
+CHECK FifthQuarticCompatibility318 2026-11-08T09:20:05Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthQuarticCompatibility318.lean:32:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (algebraMap Quartic FifthBranchLocal318.Local) parameter
+in the target expression
+  φ ((algebraMap Quartic (LocalRing false)) parameter) = ψ ((algebraMap Quartic (LocalRing true)) parameter)
+
+S : Type
+inst✝¹ : CommRing S
+inst✝ : Algebra ℚ S
+φ : LocalRing false →ₐ[ℚ] S
+ψ : LocalRing true →ₐ[ℚ] S
+hp : ∀ (r : Quartic), φ ((input false) r) = ψ ((input true) r)
+hb : (algebraMap Quartic FifthBranchLocal318.Local) parameter = FifthBranchLocal318.t
+h : φ ((algebraMap Quartic (LocalRing false)) parameter) = ψ ((algebraMap Quartic (LocalRing true)) parameter)
+⊢ φ FifthQuarticFiniteCoordinates318.t = ψ FifthBranchLocal318.t
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthQuarticCompatibility318.lean:43:57: error: Application type mismatch: The argument
+  hx
+has type
+  φ (FifthQuarticFinite318.shortMap (ShortAffineJacobian318.x A B)) * ψ FifthBranchLocal318.t =
+    φ ((algebraMap ℚ FifthQuarticFinite318.Local) ↑xScale) +
+      φ ((algebraMap ℚ FifthQuarticFinite318.Local) shift) * ψ FifthBranchLocal318.t
+but is expected to have type
+  (φ.comp FifthQuarticFinite318.shortMap) (ShortAffineJacobian318.x A B) * ψ FifthBranchLocal318.t =
+    (algebraMap ℚ S) ↑xScale + (algebraMap ℚ S) shift * ψ FifthBranchLocal318.t
+in the application
+  FifthBranchAgreement318.agreement ψ (φ.comp FifthQuarticFinite318.shortMap)
+    (ht ▸ IsUnit.map φ FifthQuarticFiniteCoordinates318.t_unit) hx
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthQuarticCompatibility318.lean:37:37: warning: This simp argument is unused:
+  AlgHom.commutes
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_mul, map_add, map_pow, ht, hw] at hx hy
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthQuarticCompatibility318.lean:82:62: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (pullbackSpecIso ?R ?S ?T).inv ≫
+    pullback.snd (Spec.map (CommRingCat.ofHom (algebraMap ?R ?S))) (Spec.map (CommRingCat.ofHom (algebraMap ?R ?T)))
+in the target expression
+  Spec.map (CommRingCat.ofHom Algebra.TensorProduct.includeLeftRingHom) ≫ localMap b =
+    ((pullbackSpecIso Quartic (LocalRing b) (LocalRing d)).inv ≫ pullback.snd (cover.f b) (cover.f d)) ≫ localMap d
+
+b d : Bool
+⊢ Spec.map (CommRingCat.ofHom Algebra.TensorProduct.includeLeftRingHom) ≫ localMap b =
+    ((pullbackSpecIso Quartic (LocalRing b) (LocalRing d)).inv ≫ pullback.snd (cover.f b) (cover.f d)) ≫ localMap d
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    d
+  has type
+    Bool
+  but is expected to have type
+    cover.I₀
+  in the application
+    cover.X d
+RELEASED 2026-11-08T09:20:09Z fifth-character

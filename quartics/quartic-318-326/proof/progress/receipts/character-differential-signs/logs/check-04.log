@@ -1,0 +1,35 @@
+ACQUIRED 2026-11-08T08:46:50Z
+RESULT UnitFrameSectionDetection318 0
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:23:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Nonempty ↥(ShortAffineScheme318.scheme A B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:31:0: warning: automatically included section variable(s) unused in theorem `WeierstrassAffineFormCancellation318.scalar_injective`:
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:43:27: error: Application type mismatch: The argument
+  Function.Injective.ne (scalar_injective A B) (id hr)
+has type
+  (scalar A B) r ≠ (scalar A B) 0
+but is expected to have type
+  (scalar A B) r ≠ 0
+in the application
+  UnitFrameSectionDetection318.cancel_scalar (IntrinsicGlobalFrame318.frame A B hD) (U A B) ((scalar A B) r)
+    (Function.Injective.ne (scalar_injective A B) (id hr))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  inv ↦ 6
+  Limits.getColimitCocone ↦ 23
+RESULT WeierstrassAffineFormCancellation318 1
+RELEASED 2026-11-08T08:46:56Z status=1

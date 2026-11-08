@@ -1,0 +1,68 @@
+ACQUIRED 2026-11-08T08:57:11Z
+recovery-hodge-0358/character-differential-sign-work/PublishedInvariantNegation318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+recovery-hodge-0358/character-differential-sign-work/PublishedInvariantNegation318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RESULT PublishedInvariantNegation318 0
+recovery-hodge-0358/character-differential-sign-work/ContactDifferentialCharacters318.lean:36:79: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ContactGlobalSigns318.map units ?b ≫ ContactIntrinsicDifferentials318.structureMap units
+in the target expression
+  f ≫ Scheme.Hom.fromNormalization (ContactProjectiveModel318.coverMap units) ≫ ProjectiveJLine318.structureMap ℚ = p
+
+i : Fin 4
+b : Fin 4 → Bool
+he : CharacterBooleanAffine318.epsilon i b = 1
+p : ContactGlobalSmooth318.Model units ⟶ Spec ↧ℚ := ContactIntrinsicDifferentials318.structureMap units
+q : WeierstrassGluing318.scheme (publishedA i) (publishedB i) ⟶ Spec ↧ℚ :=
+  WeierstrassGluing318.structureMap (publishedA i) (publishedB i)
+f : ContactProjectiveModel318.model units ⟶ ContactProjectiveModel318.model units := ContactGlobalSigns318.map units b
+g : ContactGlobalSmooth318.Model units ⟶ CompletedCharacterSchemeMaps318.Target i :=
+  CompletedCharacterGlobal318.completedMap i
+⊢ f ≫ Scheme.Hom.fromNormalization (ContactProjectiveModel318.coverMap units) ≫ ProjectiveJLine318.structureMap ℚ = p
+recovery-hodge-0358/character-differential-sign-work/ContactDifferentialCharacters318.lean:52:79: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ContactGlobalSigns318.map units ?b ≫ ContactIntrinsicDifferentials318.structureMap units
+in the target expression
+  f ≫ Scheme.Hom.fromNormalization (ContactProjectiveModel318.coverMap units) ≫ ProjectiveJLine318.structureMap ℚ = p
+
+i : Fin 4
+b : Fin 4 → Bool
+he : CharacterBooleanAffine318.epsilon i b = -1
+p : ContactGlobalSmooth318.Model units ⟶ Spec ↧ℚ := ContactIntrinsicDifferentials318.structureMap units
+q : WeierstrassGluing318.scheme (publishedA i) (publishedB i) ⟶ Spec ↧ℚ :=
+  WeierstrassGluing318.structureMap (publishedA i) (publishedB i)
+f : ContactProjectiveModel318.model units ⟶ ContactProjectiveModel318.model units := ContactGlobalSigns318.map units b
+g : ContactGlobalSmooth318.Model units ⟶ CompletedCharacterSchemeMaps318.Target i :=
+  CompletedCharacterGlobal318.completedMap i
+n : WeierstrassGluing318.scheme (publishedA i) (publishedB i) ⟶
+  WeierstrassGluing318.scheme (publishedA i) (publishedB i) :=
+  GluedNegation318.negation (publishedA i) (publishedB i)
+⊢ f ≫ Scheme.Hom.fromNormalization (ContactProjectiveModel318.coverMap units) ≫ ProjectiveJLine318.structureMap ℚ = p
+recovery-hodge-0358/character-differential-sign-work/ContactDifferentialCharacters318.lean:53:22: error: unsolved goals
+i : Fin 4
+b : Fin 4 → Bool
+he : CharacterBooleanAffine318.epsilon i b = -1
+p : ContactGlobalSmooth318.Model units ⟶ Spec ↧ℚ := ContactIntrinsicDifferentials318.structureMap units
+q : WeierstrassGluing318.scheme (publishedA i) (publishedB i) ⟶ Spec ↧ℚ :=
+  WeierstrassGluing318.structureMap (publishedA i) (publishedB i)
+f : ContactProjectiveModel318.model units ⟶ ContactProjectiveModel318.model units := ContactGlobalSigns318.map units b
+g : ContactGlobalSmooth318.Model units ⟶ CompletedCharacterSchemeMaps318.Target i :=
+  CompletedCharacterGlobal318.completedMap i
+n : WeierstrassGluing318.scheme (publishedA i) (publishedB i) ⟶
+  WeierstrassGluing318.scheme (publishedA i) (publishedB i) :=
+  GluedNegation318.negation (publishedA i) (publishedB i)
+hfg : (f ≫ g) ≫ q = p
+⊢ Scheme.Hom.fromNormalization (ContactProjectiveModel318.coverMap units) ≫ ProjectiveJLine318.structureMap ℚ = p
+RESULT ContactDifferentialCharacters318 1
+RELEASED 2026-11-08T08:57:18Z status=1
