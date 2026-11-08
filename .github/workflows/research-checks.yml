@@ -13,6 +13,59 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quartic394:
+    name: Version 13 source and quartic replay (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            python: '3.12.14'
+          - os: windows-2022
+            python: '3.12.10'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -B docs/manuscript-revisions/version13/portability/test_portability.py
+      - run: python -B scripts/check_quartic394_portable.py
+      - run: python -B scripts/check_version13_inventory.py
+      - run: python -B scripts/check_audit_history.py --self-test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: quartic-394-${{ matrix.os }}
+          path: build/quartic-394/
+  quartic498:
+    name: Version 12 source and quartic replay (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            python: '3.12.14'
+          - os: windows-2022
+            python: '3.12.10'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '26.13.0'
+      - run: python -B scripts/check_audit_history.py --self-test
+      - run: python -B scripts/check_quartic498.py
+      - run: python -B docs/manuscript-revisions/version12/inventory/validate.py --repo . --self-test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: quartic-498-${{ matrix.os }}
+          path: build/quartic-498/
   oddproduct:
     name: Version 9 odd-product replay (${{ matrix.os }})
     runs-on: ${{ matrix.os }}

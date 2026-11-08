@@ -2,7 +2,17 @@
 
 Run these commands from the repository root. Python scripts use the standard library. The current quartic and the original large construction have separate checks. The Version 7 handoffs contain their own build instructions under `current/`; Version 9 adds the [odd-product constructions](quartic-523-540/README.md). See the [handoff guide](../handoff/README.md) for the archive layout and verification procedure.
 
-## Current 523- and 540-variable quartics
+## Current 394- and 411-variable quartics
+
+```sh
+python -B scripts/check_quartic394_portable.py
+python -B docs/manuscript-revisions/version13/validate-applications.py --repo . --self-test
+python -B scripts/check_audit_history.py --self-test
+```
+
+The Version 13 replay uses only Python's standard library. It checks the immutable packet before and after all 27 source and certificate stages, both complete coefficient tables, the compact coordinate maps and the three public download copies. It writes its receipt to `build/quartic-394/verification.json`. The inventory validator checks 39 applications and 351 obligations, with negative controls; it does not decide their mathematical truth. Read the [Version 13 guide](manuscript-revisions/version13/GUIDE.md) for the review boundaries.
+
+## Historical 523- and 540-variable quartics
 
 ```sh
 python -B scripts/check_odd_product.py
@@ -49,13 +59,13 @@ python -E -B /path/to/writable-copy/verify_certificate.py /path/to/writable-copy
 
 This portable checker writes `verification.json` in the supplied directory. Use the copy to keep the released package's exact file inventory unchanged. The packaged original receipt is [evidence/final-verification.json](../quartics/quartic-4973/evidence/final-verification.json). The checker verifies exact projection-preserving equivalence to the pinned source and the complete integer expansion, including the variable count, degree and coefficient bound. These checks do not prove the source system's arithmetic characterization of the integers. The [Version 4 evidence](quartic-4973/README.md) records that separate argument and its review scope.
 
-## Version 10 manuscript
+## Version 13 manuscript
 
 ```sh
 python scripts/build_paper.py
 ```
 
-The script downloads a SHA-256-verified Tectonic 0.17.0 binary for the host platform, then builds a copy of [manuscripts/quartic_v10.tex](../manuscripts/quartic_v10.tex) in an isolated temporary directory. It uses the fixed `tlextras-2022.0r0` bundle URL and checks the selected bundle's fingerprint. Tectonic fetches the required support files. The first run requires network access; later runs reuse the local resource cache.
+The script downloads a SHA-256-verified Tectonic 0.17.0 binary for the host platform, then builds a copy of [manuscripts/quartic_v13.tex](../manuscripts/quartic_v13.tex) in an isolated temporary directory. It uses the fixed `tlextras-2022.0r0` bundle URL and checks the selected bundle's fingerprint. Tectonic fetches the required support files. The first run requires network access; later runs reuse the local resource cache.
 
 If Tectonic 0.17.0 is already installed:
 
@@ -63,9 +73,15 @@ If Tectonic 0.17.0 is already installed:
 python scripts/build_paper.py --tectonic /path/to/tectonic
 ```
 
-Results are written to `build/paper/`, including `quartic_v10.pdf`, `quartic_v10.log`, `compiler.log`, and `build-report.json`. The script fails on a compilation error, unresolved references or citations, or an unexpected bundle fingerprint. Typesetting warnings remain in the log.
+Results are written to `build/paper/`, including `quartic_v13.pdf`, `quartic_v13.log`, `compiler.log`, and `build-report.json`. The script fails on a compilation error, unresolved references or citations, or an unexpected bundle fingerprint. Typesetting warnings remain in the log.
 
 The build does not replace the checked-in PDF. Fixed engine, bundle and timestamp inputs improve reproducibility, but PDF byte identity across operating systems is not claimed. The old receipts under `docs/theorem-application-audit/` describe their frozen historical manuscript, not the Version 10 build.
+
+The manual manuscript workflow renders pages 1 and 276–288 of the Version 13 PDF and checks the expected total of 296 pages. To run the same visual-review preparation with Poppler installed:
+
+```sh
+python scripts/render_quartic_review.py --pdf build/paper/quartic_v13.pdf --edition v13 --pages 1,276-288 --expected-pages 296
+```
 
 ## Manuscript inventories
 
@@ -137,8 +153,14 @@ GitHub Actions dependencies are pinned to commit hashes; the elan installer and 
 
 The earlier Version 4 release digest remains in its historical evidence; use the Pheidas-update digest above for the retained current Version 4 source.
 
-The current revision and its inherited application bindings are checked with `python -B docs/manuscript-revisions/version10/check.py`. The bounded valuation regression is `python -B docs/manuscript-revisions/version10/check_valuation.py`. Neither is a decision procedure for the mathematical proof.
+The historical Version 10 revision and its inherited application bindings are checked with `python -B docs/manuscript-revisions/version10/check.py`. The bounded valuation regression is `python -B docs/manuscript-revisions/version10/check_valuation.py`. Neither is a decision procedure for the mathematical proof.
+
+The current application contracts, exact revision and independent acceptance records are checked with `python -B scripts/check_audit_history.py --self-test`. Version 10 checks remain historical. Neither script proves the mathematics.
+
+For the retained Version 12 baseline, run `python -B scripts/check_quartic498.py` for the complete portable reconstruction and coefficient checks. This requires Python and Node. The new application inventory has its separate validator under `docs/manuscript-revisions/version12/inventory/`.
 
 ## 318/326 contribution branch
 
 Run `python -B scripts/check_quartic318_326.py` for source generation, exact coefficient comparisons, independent checks, unit tests, and frozen Lean hashes. See the [guide](quartic-318-326/README.md) for scope and Lean rebuild instructions.
+
+On this contribution branch, `python -B scripts/check_version13_inventory.py` runs the unchanged hash-bound Version 13 inventory validator and all ten original negative controls. It copies only the 85 files read by positive validation (about 21.9 MB), validates the relocated fixture first, and excludes unrelated build caches and optional-input symlinks. This avoids the original self-test copying the entire checkout; no reviewed source or acceptance record is changed.
