@@ -1,0 +1,40 @@
+name: Cached pinned Node runtime
+description: Restore the exact Node distribution before setup-node; no npm or project cache.
+inputs:
+  node-version:
+    description: Exact Node version already selected by the calling workflow.
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: platform
+      shell: bash
+      run: |
+        set -euo pipefail
+        test -n "${ImageOS:-}"
+        echo "image=$ImageOS" >> "$GITHUB_OUTPUT"
+    - id: runtime
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ runner.tool_cache }}/node/${{ inputs.node-version }}
+        key: node-runtime-v1-${{ runner.os }}-${{ runner.arch }}-${{ steps.platform.outputs.image }}-${{ inputs.node-version }}-${{ hashFiles('.github/actions/setup-pinned-node/action.yml') }}
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version: ${{ inputs.node-version }}
+        architecture: x64
+        check-latest: false
+        package-manager-cache: false
+    - name: Verify exact restored or installed Node
+      shell: bash
+      env:
+        EXPECTED_NODE: ${{ inputs.node-version }}
+      run: |
+        set -euo pipefail
+        node -e 'if (process.versions.node !== process.env.EXPECTED_NODE) throw Error(process.versions.node); console.log("Verified Node", process.versions.node, "at", process.execPath)'
+    - name: Save verified runtime before project checks
+      if: steps.runtime.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ runner.tool_cache }}/node/${{ inputs.node-version }}
+        key: node-runtime-v1-${{ runner.os }}-${{ runner.arch }}-${{ steps.platform.outputs.image }}-${{ inputs.node-version }}-${{ hashFiles('.github/actions/setup-pinned-node/action.yml') }}

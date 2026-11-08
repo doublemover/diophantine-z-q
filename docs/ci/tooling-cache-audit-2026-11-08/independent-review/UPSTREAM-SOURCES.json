@@ -1,0 +1,110 @@
+{
+  "review_kind": "Independent bounded tooling source review; no hosted replay",
+  "upstream_bindings": [
+    {
+      "key": "actions/setup-python-src/find-python.ts",
+      "url": "https://github.com/actions/setup-python/blob/6d4fd22b20465ccc0f7354476588e8df7c9ca0e0/src/find-python.ts",
+      "git_blob_sha": "dbb7ed2dc5b0e6d7bec9402734c56ba5bb2720c0",
+      "available": true
+    },
+    {
+      "key": "actions/setup-python-src/setup-python.ts",
+      "url": "https://github.com/actions/setup-python/blob/6d4fd22b20465ccc0f7354476588e8df7c9ca0e0/src/setup-python.ts",
+      "git_blob_sha": "8a3c7e370854795d907dd7a5f6768a05e576ca02",
+      "available": true
+    },
+    {
+      "key": "actions/cache-src/restoreImpl.ts",
+      "url": "https://github.com/actions/cache/blob/55cc8345863c7cc4c66a329aec7e433d2d1c52a9/src/restoreImpl.ts",
+      "git_blob_sha": "54bef49aa92d8689062800cdae296710ffc55341",
+      "available": true
+    },
+    {
+      "key": "actions/cache-src/saveImpl.ts",
+      "url": "https://github.com/actions/cache/blob/55cc8345863c7cc4c66a329aec7e433d2d1c52a9/src/saveImpl.ts",
+      "git_blob_sha": "70c65e4a11ba3d065ec45a1c38011c5fd2ead173",
+      "available": true
+    },
+    {
+      "key": "actions/cache-src/stateProvider.ts",
+      "url": "https://github.com/actions/cache/blob/55cc8345863c7cc4c66a329aec7e433d2d1c52a9/src/stateProvider.ts",
+      "git_blob_sha": "beb41e5ae51851fa93c3b0bfd5db4ce1440fff93",
+      "available": true
+    },
+    {
+      "key": "actions/upload-artifact-src/upload/upload-artifact.ts",
+      "url": "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/src/upload/upload-artifact.ts",
+      "git_blob_sha": "432ec11d70fd372bf97c21ce0434a32e70f087aa",
+      "available": true
+    },
+    {
+      "key": "actions/upload-artifact-action.yml",
+      "url": "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/action.yml",
+      "git_blob_sha": "7cb4d1e81db55320b41217e1a78a1a46e3d2baef",
+      "available": true
+    },
+    {
+      "key": "download-artifact-code",
+      "url": "https://github.com/actions/download-artifact/blob/9000827ccba6bdab643e8b6fd33ac0654aef8333/src/download-artifact.ts",
+      "git_blob_sha": "0e89600357dee2ea1e44bbd163ef489aadeef5ce",
+      "available": true
+    },
+    {
+      "key": "toolkit-packages/artifact/src/internal/client.ts",
+      "url": "https://github.com/actions/toolkit/blob/3e145bf7757797499b3ff168c99984389f117322/packages/artifact/src/internal/client.ts",
+      "git_blob_sha": "874d9103df85b9bb9d28d1e110950c7759c164ae",
+      "available": true
+    },
+    {
+      "key": "toolkit-packages/artifact/src/internal/find/list-artifacts.ts",
+      "url": "https://github.com/actions/toolkit/blob/3e145bf7757797499b3ff168c99984389f117322/packages/artifact/src/internal/find/list-artifacts.ts",
+      "git_blob_sha": "3f48d9d6e21f90f46d674e26bf02be4434cfa927",
+      "available": true
+    },
+    {
+      "key": "toolkit-packages/artifact/src/internal/upload/upload-artifact.ts",
+      "url": "https://github.com/actions/toolkit/blob/3e145bf7757797499b3ff168c99984389f117322/packages/artifact/src/internal/upload/upload-artifact.ts",
+      "git_blob_sha": "c7a6e60b7574fc0f13dedff98e61f6cde2499206",
+      "available": true
+    },
+    {
+      "key": "toolkit-packages/artifact/package.json",
+      "url": "https://github.com/actions/toolkit/blob/3e145bf7757797499b3ff168c99984389f117322/packages/artifact/package.json",
+      "git_blob_sha": "2f0179b5cebfbd15cfc60a61daff4b39e5024584",
+      "available": true
+    },
+    {
+      "key": "node-official",
+      "url": "https://github.com/actions/setup-node/blob/949feb2413d6458794dcd2491c4babbbce0c15c1/src/distributions/official_builds/official_builds.ts",
+      "git_blob_sha": "ca81655ef19474b2d8dd1e5fabb0aa1561f14c0d",
+      "available": true
+    }
+  ],
+  "artifact_package": {
+    "version": "6.3.1",
+    "npm_integrity": "sha512-DBXgdB9T4yj2KSe0tFg+MTi9T5se+16bdrFQh+3Y6Nq1lZ3gYQk1BjHoTof+7Zf36bEAlfVMf+8ifRKeyGJugQ==",
+    "scope": "Both pinned upload and download package locks name this exact package. Toolkit source at 3e145bf7757797499b3ff168c99984389f117322 declares this version; the reviewer did not rebuild or unpack the npm distribution."
+  },
+  "exact_findings": [
+    {
+      "source": "download-artifact-code",
+      "finding": "Pattern download extracts into the requested root when the matched artifact count is exactly one, not an artifact-name child directory. Multiple matches use separate name directories."
+    },
+    {
+      "source": "actions/cache-src/restoreImpl.ts",
+      "finding": "Restore exceptions call core.setFailed; ordinary misses do not. Optional runtime restore requires continue-on-error if setup fallback is intended."
+    },
+    {
+      "source": "actions/cache-src/saveImpl.ts",
+      "finding": "Many cache-save failures are warnings; successful job completion does not imply cache publication."
+    },
+    {
+      "source": "toolkit-packages/artifact/src/internal/client.ts",
+      "finding": "The SDK documents reruns as a case permitting duplicate artifact names. A universal cross-attempt conflict claim is not justified."
+    },
+    {
+      "source": "toolkit-packages/artifact/src/internal/find/list-artifacts.ts",
+      "finding": "latest=true retains the highest artifact ID per name."
+    }
+  ]
+}

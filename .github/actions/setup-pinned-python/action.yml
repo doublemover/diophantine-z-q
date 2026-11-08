@@ -1,0 +1,40 @@
+name: Cached pinned Python runtime
+description: Restore the exact hosted Python runtime before setup-python, independently of proof caches.
+inputs:
+  python-version:
+    description: Exact CPython version already selected by the calling workflow.
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: platform
+      shell: bash
+      run: |
+        set -euo pipefail
+        test -n "${ImageOS:-}"
+        echo "image=$ImageOS" >> "$GITHUB_OUTPUT"
+    - id: runtime
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        # Include x64.complete, not just x64/. setup-python requires both.
+        path: ${{ runner.tool_cache }}/Python/${{ inputs.python-version }}
+        key: python-runtime-v1-${{ runner.os }}-${{ runner.arch }}-${{ steps.platform.outputs.image }}-${{ inputs.python-version }}-${{ hashFiles('.github/actions/setup-pinned-python/action.yml') }}
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+      with:
+        python-version: ${{ inputs.python-version }}
+        architecture: x64
+        check-latest: false
+    - name: Verify exact restored or installed Python
+      shell: bash
+      env:
+        EXPECTED_PYTHON: ${{ inputs.python-version }}
+      run: |
+        set -euo pipefail
+        python -c 'import os,sys; actual=".".join(map(str,sys.version_info[:3])); assert actual == os.environ["EXPECTED_PYTHON"], (actual,os.environ["EXPECTED_PYTHON"]); print("Verified Python", actual, "at", sys.executable)'
+    - name: Save verified runtime before any project checks
+      if: steps.runtime.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ runner.tool_cache }}/Python/${{ inputs.python-version }}
+        key: python-runtime-v1-${{ runner.os }}-${{ runner.arch }}-${{ steps.platform.outputs.image }}-${{ inputs.python-version }}-${{ hashFiles('.github/actions/setup-pinned-python/action.yml') }}

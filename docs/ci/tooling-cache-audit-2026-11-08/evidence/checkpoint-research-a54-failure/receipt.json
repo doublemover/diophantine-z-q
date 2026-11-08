@@ -1,0 +1,46 @@
+{
+  "status": "FAILURE_INFRASTRUCTURE_ONLY_NO_CHECK_REACHED_IN_FAILED_JOBS",
+  "run_id": 42464991462,
+  "run_attempt": 1,
+  "head_sha": "a54ba7cc1a534589d04b4b19afd060389aedacde",
+  "failed_jobs": [
+    {
+      "id": 128682300756,
+      "name": "Version 9 odd-product replay (ubuntu-24.04)",
+      "failed_steps": [
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0"
+      ]
+    },
+    {
+      "id": 128682300802,
+      "name": "Version 13 source and quartic replay (ubuntu-24.04)",
+      "failed_steps": [
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0"
+      ]
+    },
+    {
+      "id": 128682300806,
+      "name": "Accepted Lean helpers and axiom audit",
+      "failed_steps": [
+        "Install pinned elan 4.2.4"
+      ]
+    }
+  ],
+  "finding": "All failed jobs report HTTP 504 during exact pinned Python or elan release download. Source checks were not reached in those failed jobs. This does not establish the unexecuted downstream/full audit.",
+  "no_source_change": true,
+  "public_whitelist": [
+    "run.json",
+    "jobs.json",
+    "job-128682300756.log",
+    "job-128682300802.log",
+    "job-128682300806.log",
+    "receipt.json"
+  ],
+  "artifacts": {
+    "run.json": "5089bcb15b7473b46843b8e23196d8777e4e5d153a67dacc5486f609b4248104",
+    "jobs.json": "0967914cbccc006341bda316f6d2bcd399fef678af62aba3810e6e0aef06bc82",
+    "job-128682300756.log": "13badd3c47e6d04005e856f37d2720907557f323489e166fb68dc29a5daebcd3",
+    "job-128682300802.log": "c43828f15c82ec82d3a1e6dd34134ff85f796bae1bfdd7f0544172d0500dd6eb",
+    "job-128682300806.log": "c98ca4dd7471ce4c3a62db249d4876258b4f9ad9b3826ae6d8241f07ae51fbfc"
+  }
+}

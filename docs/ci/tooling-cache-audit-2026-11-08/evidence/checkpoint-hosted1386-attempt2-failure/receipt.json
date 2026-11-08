@@ -1,0 +1,46 @@
+{
+  "status": "FAILURE_INFRASTRUCTURE_ONLY_NO_CHECK_REACHED_IN_FAILED_JOBS",
+  "run_id": 42463941507,
+  "run_attempt": 2,
+  "head_sha": "6f7151c7e2d63a07965a06343d8292e547afa2a6",
+  "failed_jobs": [
+    {
+      "id": 128681736903,
+      "name": "Middle cohort 5 (22 modules)",
+      "failed_steps": [
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0"
+      ]
+    },
+    {
+      "id": 128681736907,
+      "name": "Middle cohort 1 (16 modules)",
+      "failed_steps": [
+        "Install pinned elan"
+      ]
+    },
+    {
+      "id": 128681737080,
+      "name": "Middle cohort 15 (27 modules)",
+      "failed_steps": [
+        "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0"
+      ]
+    }
+  ],
+  "finding": "All failed jobs report HTTP 504 during exact pinned Python or elan release download. Source checks were not reached in those failed jobs. This does not establish the unexecuted downstream/full audit.",
+  "no_source_change": true,
+  "public_whitelist": [
+    "run.json",
+    "jobs.json",
+    "job-128681736903.log",
+    "job-128681736907.log",
+    "job-128681737080.log",
+    "receipt.json"
+  ],
+  "artifacts": {
+    "run.json": "ee7c7280ae25009c5945a9154d6aa7d7514c8e5579fe100c0c15373c802de1dd",
+    "jobs.json": "f0e2087d98659839643362367944c5a5d9ebd1ba0b08f0b6bad088a119cb3ec7",
+    "job-128681736903.log": "a880fde2b7140fe7653f99cbbbd9c24fbc97ec09365b619a1f00d384923053d7",
+    "job-128681736907.log": "57fdeedc664cc7c042dcb5c966f2745cd0d0676046f0a6a1baeb14dec9e3c7f7",
+    "job-128681737080.log": "2dee9f1d585d27d2e6a998989e0266846445d2c667706ed47c1360ed2b080ed3"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "jobs": {
+    "jobs": [
+      {
+        "id": 128682300923,
+        "name": "plan",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_id": 42464991532,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 3
+          },
+          {
+            "name": "Run python -B scripts/test_progress_experiment.py",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 4
+          },
+          {
+            "name": "Run python -B scripts/check_progress_experiment.py plan --github-output \"$GITHUB_OUTPUT\"",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 5
+          },
+          {
+            "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 9
+          },
+          {
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          }
+        ]
+      },
+      {
+        "id": 128682616765,
+        "name": "Experimental packet ${{ matrix.packet }}",
+        "status": "completed",
+        "conclusion": "skipped",
+        "run_id": 42464991532,
+        "logs_url": null,
+        "steps": null
+      }
+    ]
+  },
+  "artifacts": {
+    "artifacts": []
+  }
+}

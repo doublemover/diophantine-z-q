@@ -7,6 +7,9 @@ on:
       - 'scripts/check_progress_experiment.py'
       - 'scripts/test_progress_experiment.py'
       - '.github/workflows/progress-experiments.yml'
+      - '.github/actions/setup-pinned-*/**'
+      - 'scripts/setup_pinned_lean.sh'
+      - 'scripts/test_ci_tooling.py'
   workflow_dispatch:
 
 permissions:
@@ -19,7 +22,7 @@ concurrency:
 jobs:
   plan:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
       has_packets: ${{ steps.plan.outputs.has_packets }}
@@ -27,12 +30,17 @@ jobs:
       snapshot: ${{ steps.plan.outputs.snapshot }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
+      - run: python -B scripts/test_ci_tooling.py
       - run: python -B scripts/test_progress_experiment.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
+
+      - name: Warm pinned compiler cache before matrix fan-out
+        if: steps.plan.outputs.has_packets == 'true'
+        uses: ./.github/actions/setup-pinned-lean
 
   first-check:
     needs: plan
@@ -46,7 +54,7 @@ jobs:
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - name: Restore previously audited baseline
@@ -56,17 +64,7 @@ jobs:
           key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
           restore-keys: |
             progress-v2-full-${{ needs.plan.outputs.base }}-
-      - name: Install pinned elan
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/elan-install"
-          cd "$RUNNER_TEMP/elan-install"
-          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
-          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
-          tar -xzf elan.tar.gz
-          ./elan-init -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - uses: ./.github/actions/setup-pinned-lean
       - name: Fetch exact pinned upstream artifacts
         shell: bash
         env:
@@ -96,4 +94,5 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/logs/
             build/progress-experiments/${{ matrix.packet }}/ExperimentAudit.lean
           retention-days: 3
-# No cache/save step: experimental artifacts never enter the accepted baseline.
+# Only the tooling composite actions save runtime caches. Experimental proof
+# artifacts never enter the accepted baseline or any project artifact cache.

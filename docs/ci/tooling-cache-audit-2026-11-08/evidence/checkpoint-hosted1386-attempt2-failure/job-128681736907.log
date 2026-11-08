@@ -1,0 +1,345 @@
+﻿2026-11-08T08:53:14.7821703Z Current runner version: '2.338.2'
+2026-11-08T08:53:14.7842763Z ##[group]Runner Image Provisioner
+2026-11-08T08:53:14.7843334Z Hosted Compute Agent
+2026-11-08T08:53:14.7843686Z Version: 20261028.624
+2026-11-08T08:53:14.7844131Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T08:53:14.7844562Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T08:53:14.7845014Z Worker ID: {bd9d7e97-12a1-4487-a191-92a199a3d566}
+2026-11-08T08:53:14.7845438Z Region: westus3
+2026-11-08T08:53:14.7845771Z Cloud: Azure
+2026-11-08T08:53:14.7846155Z ##[endgroup]
+2026-11-08T08:53:14.7847098Z ##[group]Operating System
+2026-11-08T08:53:14.7847449Z Ubuntu
+2026-11-08T08:53:14.7847824Z 24.04.5
+2026-11-08T08:53:14.7848136Z LTS
+2026-11-08T08:53:14.7848496Z ##[endgroup]
+2026-11-08T08:53:14.7848844Z ##[group]Runner Image
+2026-11-08T08:53:14.7849218Z Image: ubuntu-24.04
+2026-11-08T08:53:14.7849601Z Version: 20261101.360.1
+2026-11-08T08:53:14.7850389Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T08:53:14.7851309Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T08:53:14.7851857Z ##[endgroup]
+2026-11-08T08:53:14.7852549Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T08:53:14.7853970Z Contents: read
+2026-11-08T08:53:14.7854372Z Metadata: read
+2026-11-08T08:53:14.7854713Z ##[endgroup]
+2026-11-08T08:53:14.7856319Z Secret source: Actions
+2026-11-08T08:53:14.7857197Z Cache mode: write
+2026-11-08T08:53:14.7857861Z Prepare workflow directory
+2026-11-08T08:53:14.8204864Z Prepare all required actions
+2026-11-08T08:53:14.8237802Z Getting action download info
+2026-11-08T08:53:15.1602193Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-08T08:53:15.2787470Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-08T08:53:15.9156037Z Download action repository 'actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-11-08T08:53:16.0549542Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-11-08T08:53:16.6351018Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-08T08:53:16.7884603Z Complete job name: Middle cohort 1 (16 modules)
+2026-11-08T08:53:16.8447432Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-08T08:53:16.8448129Z with:
+2026-11-08T08:53:16.8448567Z   repository: doublemover/diophantine-z-q
+2026-11-08T08:53:16.8450548Z   token: ***
+2026-11-08T08:53:16.8450964Z   ssh-strict: true
+2026-11-08T08:53:16.8451382Z   ssh-user: git
+2026-11-08T08:53:16.8451798Z   persist-credentials: true
+2026-11-08T08:53:16.8452230Z   clean: true
+2026-11-08T08:53:16.8452654Z   sparse-checkout-cone-mode: true
+2026-11-08T08:53:16.8453128Z   fetch-depth: 1
+2026-11-08T08:53:16.8453541Z   fetch-tags: false
+2026-11-08T08:53:16.8453972Z   show-progress: true
+2026-11-08T08:53:16.8454384Z   lfs: false
+2026-11-08T08:53:16.8454784Z   submodules: false
+2026-11-08T08:53:16.8455204Z   set-safe-directory: true
+2026-11-08T08:53:16.8455657Z   allow-unsafe-pr-checkout: false
+2026-11-08T08:53:16.8456184Z env:
+2026-11-08T08:53:16.8456703Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T08:53:16.8457180Z   COHORTS: 16
+2026-11-08T08:53:16.8457617Z   MAX_PARALLEL: 16
+2026-11-08T08:53:16.8458022Z   SPLIT_DEPTH: 16
+2026-11-08T08:53:16.8458418Z   EARLY_DEPTH: 7
+2026-11-08T08:53:16.8458817Z   CLEAN: false
+2026-11-08T08:53:16.8459209Z ##[endgroup]
+2026-11-08T08:53:17.0893910Z Syncing repository: doublemover/diophantine-z-q
+2026-11-08T08:53:17.0895886Z ##[group]Getting Git version info
+2026-11-08T08:53:17.0896902Z Working directory is '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T08:53:17.0898579Z [command]/usr/bin/git version
+2026-11-08T08:53:17.0970496Z git version 2.56.0
+2026-11-08T08:53:17.0987160Z ##[endgroup]
+2026-11-08T08:53:17.0993724Z Temporarily overriding HOME='/home/runner/work/_temp/ea04ef62-9219-429c-b15c-e8cbe430f6d6' before making global git config changes
+2026-11-08T08:53:17.0994984Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:53:17.0996762Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T08:53:17.1042934Z Deleting the contents of '/home/runner/work/diophantine-z-q/diophantine-z-q'
+2026-11-08T08:53:17.1045497Z ##[group]Determining repository object format
+2026-11-08T08:53:17.1046950Z ##[endgroup]
+2026-11-08T08:53:17.1047905Z ##[group]Initializing the repository
+2026-11-08T08:53:17.1050595Z [command]/usr/bin/git init /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T08:53:17.1164811Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T08:53:17.1165566Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T08:53:17.1166169Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T08:53:17.1166878Z hint: call:
+2026-11-08T08:53:17.1167395Z hint:
+2026-11-08T08:53:17.1167967Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T08:53:17.1168430Z hint:
+2026-11-08T08:53:17.1168896Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T08:53:17.1169520Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T08:53:17.1170016Z hint:
+2026-11-08T08:53:17.1170401Z hint: 	git branch -m <name>
+2026-11-08T08:53:17.1170809Z hint:
+2026-11-08T08:53:17.1171303Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T08:53:17.1176259Z Initialized empty Git repository in /home/runner/work/diophantine-z-q/diophantine-z-q/.git/
+2026-11-08T08:53:17.1186515Z [command]/usr/bin/git remote add origin https://github.com/doublemover/diophantine-z-q
+2026-11-08T08:53:17.1249322Z ##[endgroup]
+2026-11-08T08:53:17.1250320Z ##[group]Disabling automatic garbage collection
+2026-11-08T08:53:17.1251091Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T08:53:17.1278435Z ##[endgroup]
+2026-11-08T08:53:17.1279744Z ##[group]Setting up auth
+2026-11-08T08:53:17.1280426Z Removing SSH command configuration
+2026-11-08T08:53:17.1284184Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:53:17.1323751Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:53:17.1659521Z Removing HTTP extra header
+2026-11-08T08:53:17.1664324Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:53:17.1703391Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:53:17.1885863Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:53:17.1889602Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:53:17.1930969Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:53:17.2118034Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T08:53:17.2160060Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path /home/runner/work/_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:53:17.2197097Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:53:17.2233957Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:53:17.2270192Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:53:17.2308307Z ##[endgroup]
+2026-11-08T08:53:17.2308976Z ##[group]Fetching the repository
+2026-11-08T08:53:17.2313716Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +6f7151c7e2d63a07965a06343d8292e547afa2a6:refs/remotes/origin/add-quartic-318-326
+2026-11-08T08:53:24.5763768Z From https://github.com/doublemover/diophantine-z-q
+2026-11-08T08:53:24.5764568Z  * [new ref]         6f7151c7e2d63a07965a06343d8292e547afa2a6 -> origin/add-quartic-318-326
+2026-11-08T08:53:24.5771385Z [command]/usr/bin/git branch --list --remote origin/add-quartic-318-326
+2026-11-08T08:53:24.5807018Z   origin/add-quartic-318-326
+2026-11-08T08:53:24.5822875Z [command]/usr/bin/git rev-parse refs/remotes/origin/add-quartic-318-326
+2026-11-08T08:53:24.5846232Z 6f7151c7e2d63a07965a06343d8292e547afa2a6
+2026-11-08T08:53:24.5855390Z ##[endgroup]
+2026-11-08T08:53:24.5855660Z ##[group]Determining the checkout info
+2026-11-08T08:53:24.5856112Z ##[endgroup]
+2026-11-08T08:53:24.5856390Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T08:53:24.5919148Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T08:53:24.5951245Z ##[group]Checking out the ref
+2026-11-08T08:53:24.5954628Z [command]/usr/bin/git checkout --progress --force -B add-quartic-318-326 refs/remotes/origin/add-quartic-318-326
+2026-11-08T08:53:25.6237694Z Updating files:  96% (8278/8540)
+2026-11-08T08:53:25.6436151Z Updating files:  97% (8284/8540)
+2026-11-08T08:53:25.7197813Z Updating files:  98% (8370/8540)
+2026-11-08T08:53:25.7694695Z Updating files:  99% (8455/8540)
+2026-11-08T08:53:25.7694968Z Updating files: 100% (8540/8540)
+2026-11-08T08:53:25.7710133Z Updating files: 100% (8540/8540), done.
+2026-11-08T08:53:25.7780490Z Switched to a new branch 'add-quartic-318-326'
+2026-11-08T08:53:25.7785721Z branch 'add-quartic-318-326' set up to track 'origin/add-quartic-318-326'.
+2026-11-08T08:53:25.7930171Z ##[endgroup]
+2026-11-08T08:53:25.7984291Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T08:53:25.8020294Z 6f7151c7e2d63a07965a06343d8292e547afa2a6
+2026-11-08T08:53:25.8222084Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-11-08T08:53:25.8222323Z with:
+2026-11-08T08:53:25.8222437Z   python-version: 3.12.14
+2026-11-08T08:53:25.8222566Z   check-latest: false
+2026-11-08T08:53:25.8223881Z   token: ***
+2026-11-08T08:53:25.8224073Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-08T08:53:25.8224333Z   update-environment: true
+2026-11-08T08:53:25.8224464Z   allow-prereleases: false
+2026-11-08T08:53:25.8224591Z   freethreaded: false
+2026-11-08T08:53:25.8224706Z env:
+2026-11-08T08:53:25.8224833Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T08:53:25.8224991Z   COHORTS: 16
+2026-11-08T08:53:25.8225096Z   MAX_PARALLEL: 16
+2026-11-08T08:53:25.8225206Z   SPLIT_DEPTH: 16
+2026-11-08T08:53:25.8225313Z   EARLY_DEPTH: 7
+2026-11-08T08:53:25.8225418Z   CLEAN: false
+2026-11-08T08:53:25.8225522Z ##[endgroup]
+2026-11-08T08:53:25.9003732Z ##[group]Installed versions
+2026-11-08T08:53:25.9019814Z Version 3.12.14 was not found in the local cache
+2026-11-08T08:53:26.9133161Z Version 3.12.14 is available for downloading
+2026-11-08T08:53:26.9133924Z Download from "https://github.com/actions/python-versions/releases/download/3.12.14-31661455385/python-3.12.14-linux-24.04-x64.tar.gz"
+2026-11-08T08:53:38.1888930Z Unexpected HTTP response: 504
+2026-11-08T08:53:38.1895240Z Waiting 16 seconds before trying again
+2026-11-08T08:54:05.4996456Z Unexpected HTTP response: 504
+2026-11-08T08:54:05.4996868Z Waiting 19 seconds before trying again
+2026-11-08T08:54:36.0051817Z Extract downloaded archive
+2026-11-08T08:54:36.0174421Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/74b857d9-f552-4345-92bc-517b4ace5a15 -f /home/runner/work/_temp/a3133e41-eac2-41d1-afd3-363eaa442d56
+2026-11-08T08:54:37.4928152Z Execute installation script
+2026-11-08T08:54:37.5034642Z Check if Python hostedtoolcache folder exist...
+2026-11-08T08:54:37.5035012Z Create Python 3.12.14 folder
+2026-11-08T08:54:37.5048968Z Copy Python binaries to hostedtoolcache folder
+2026-11-08T08:54:37.8635659Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-11-08T08:54:37.8670942Z Upgrading pip...
+2026-11-08T08:54:39.1305301Z Collecting pip
+2026-11-08T08:54:39.1768035Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+2026-11-08T08:54:39.1901930Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-08T08:54:39.2448790Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 55.0 MB/s eta 0:00:00
+2026-11-08T08:54:39.2449221Z 
+2026-11-08T08:54:39.2572146Z Installing collected packages: pip
+2026-11-08T08:54:39.2572420Z Attempting uninstall: pip
+2026-11-08T08:54:39.2583392Z Found existing installation: pip 25.0.1
+2026-11-08T08:54:39.2785680Z Uninstalling pip-25.0.1:
+2026-11-08T08:54:39.2822460Z Successfully uninstalled pip-25.0.1
+2026-11-08T08:54:39.9198281Z Successfully installed pip-26.3
+2026-11-08T08:54:39.9851465Z Create complete file
+2026-11-08T08:54:39.9880645Z Successfully set up CPython (3.12.14)
+2026-11-08T08:54:39.9881689Z ##[endgroup]
+2026-11-08T08:54:40.0078603Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T08:54:40.0078839Z with:
+2026-11-08T08:54:40.0078960Z   path: .cache/progress-ci
+2026-11-08T08:54:40.0079388Z   key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-6c2e696a14020c40b912e3e572ce1d0cb056695a7e2928bc6029f1906c10f96b
+2026-11-08T08:54:40.0079980Z   restore-keys: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-
+
+2026-11-08T08:54:40.0080309Z   enableCrossOsArchive: false
+2026-11-08T08:54:40.0080463Z   fail-on-cache-miss: false
+2026-11-08T08:54:40.0080598Z   lookup-only: false
+2026-11-08T08:54:40.0080717Z env:
+2026-11-08T08:54:40.0080850Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T08:54:40.0081015Z   COHORTS: 16
+2026-11-08T08:54:40.0081126Z   MAX_PARALLEL: 16
+2026-11-08T08:54:40.0081241Z   SPLIT_DEPTH: 16
+2026-11-08T08:54:40.0081357Z   EARLY_DEPTH: 7
+2026-11-08T08:54:40.0081467Z   CLEAN: false
+2026-11-08T08:54:40.0081645Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:40.0081907Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T08:54:40.0082147Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:40.0082368Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:40.0082588Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:40.0082800Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T08:54:40.0082989Z ##[endgroup]
+2026-11-08T08:54:40.3127398Z Cache hit for restore-key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-7f3c14d58580f1d8babf515a74716ee53d5d4b1ae3b0633e0e749c6276fb4aaf
+2026-11-08T08:54:41.5847800Z Received 54525952 of 155445411 (35.1%), 52.0 MBs/sec
+2026-11-08T08:54:42.3440500Z Received 155445411 of 155445411 (100.0%), 84.3 MBs/sec
+2026-11-08T08:54:42.3441892Z Cache Size: ~148 MB (155445411 B)
+2026-11-08T08:54:42.3467777Z [command]/usr/bin/tar -xf /home/runner/work/_temp/11c9429d-f519-4fc5-81cd-996b91a7386a/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T08:54:42.9835556Z Cache restored successfully
+2026-11-08T08:54:43.0034716Z Cache restored from key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-7f3c14d58580f1d8babf515a74716ee53d5d4b1ae3b0633e0e749c6276fb4aaf
+2026-11-08T08:54:43.0302190Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-11-08T08:54:43.0302436Z with:
+2026-11-08T08:54:43.0302576Z   path: .cache/progress-cohort
+2026-11-08T08:54:43.0303028Z   key: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-1-1-f510d2d74a681225f4961c156170927e73f9647e737987599de45932e72c95dd
+2026-11-08T08:54:43.0303626Z   restore-keys: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-1-1-
+
+2026-11-08T08:54:43.0303948Z   enableCrossOsArchive: false
+2026-11-08T08:54:43.0304110Z   fail-on-cache-miss: false
+2026-11-08T08:54:43.0304258Z   lookup-only: false
+2026-11-08T08:54:43.0304391Z env:
+2026-11-08T08:54:43.0304532Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T08:54:43.0304725Z   COHORTS: 16
+2026-11-08T08:54:43.0304844Z   MAX_PARALLEL: 16
+2026-11-08T08:54:43.0304968Z   SPLIT_DEPTH: 16
+2026-11-08T08:54:43.0305087Z   EARLY_DEPTH: 7
+2026-11-08T08:54:43.0305211Z   CLEAN: false
+2026-11-08T08:54:43.0305401Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:43.0305663Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T08:54:43.0305914Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:43.0306140Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:43.0306373Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:43.0306799Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T08:54:43.0306990Z ##[endgroup]
+2026-11-08T08:54:43.3253488Z Cache hit for: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-1-1-f510d2d74a681225f4961c156170927e73f9647e737987599de45932e72c95dd
+2026-11-08T08:54:44.1031728Z Received 947950 of 947950 (100.0%), 1.6 MBs/sec
+2026-11-08T08:54:44.1032009Z Cache Size: ~1 MB (947950 B)
+2026-11-08T08:54:44.1048116Z [command]/usr/bin/tar -xf /home/runner/work/_temp/882cf143-de38-4a76-96b6-ca180a7de35d/cache.tzst -P -C /home/runner/work/diophantine-z-q/diophantine-z-q --use-compress-program unzstd
+2026-11-08T08:54:44.1168284Z Cache restored successfully
+2026-11-08T08:54:44.1219624Z Cache restored from key: progress-v2-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-1-1-f510d2d74a681225f4961c156170927e73f9647e737987599de45932e72c95dd
+2026-11-08T08:54:44.1321666Z ##[group]Run set -euo pipefail
+2026-11-08T08:54:44.1321919Z [36;1mset -euo pipefail[0m
+2026-11-08T08:54:44.1322116Z [36;1mmkdir -p "$RUNNER_TEMP/elan-install"[0m
+2026-11-08T08:54:44.1322308Z [36;1mcd "$RUNNER_TEMP/elan-install"[0m
+2026-11-08T08:54:44.1322698Z [36;1mcurl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz[0m
+2026-11-08T08:54:44.1323217Z [36;1mecho '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -[0m
+2026-11-08T08:54:44.1323510Z [36;1mtar -xzf elan.tar.gz[0m
+2026-11-08T08:54:44.1323683Z [36;1m./elan-init -y --default-toolchain none[0m
+2026-11-08T08:54:44.1323887Z [36;1mecho "$HOME/.elan/bin" >> "$GITHUB_PATH"[0m
+2026-11-08T08:54:44.1343347Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T08:54:44.1343544Z env:
+2026-11-08T08:54:44.1343688Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T08:54:44.1343897Z   COHORTS: 16
+2026-11-08T08:54:44.1344013Z   MAX_PARALLEL: 16
+2026-11-08T08:54:44.1344133Z   SPLIT_DEPTH: 16
+2026-11-08T08:54:44.1344252Z   EARLY_DEPTH: 7
+2026-11-08T08:54:44.1344366Z   CLEAN: false
+2026-11-08T08:54:44.1344519Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:44.1344758Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T08:54:44.1344998Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:44.1345367Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:44.1345580Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:44.1345796Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T08:54:44.1345980Z ##[endgroup]
+2026-11-08T08:54:44.1469189Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-11-08T08:54:44.1469626Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-11-08T08:54:44.1469831Z 
+2026-11-08T08:54:44.3123100Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:44.3123391Z   0    92    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:44.3123602Z curl: (22) The requested URL returned error: 504
+2026-11-08T08:54:44.3123835Z Warning: Problem : HTTP error. Will retry in 1 seconds. 3 retries left.
+2026-11-08T08:54:45.3134561Z 
+2026-11-08T08:54:45.3647308Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:45.3647625Z   0    92    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:45.3647851Z curl: (22) The requested URL returned error: 504
+2026-11-08T08:54:45.3648082Z Warning: Problem : HTTP error. Will retry in 2 seconds. 2 retries left.
+2026-11-08T08:54:47.3670229Z 
+2026-11-08T08:54:47.4187567Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:47.4187912Z   0    92    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:47.4188137Z curl: (22) The requested URL returned error: 504
+2026-11-08T08:54:47.4188389Z Warning: Problem : HTTP error. Will retry in 4 seconds. 1 retries left.
+2026-11-08T08:54:51.4227911Z 
+2026-11-08T08:54:51.4758565Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:51.4760933Z   0    92    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-08T08:54:51.4761194Z curl: (22) The requested URL returned error: 504
+2026-11-08T08:54:51.4870101Z ##[error]Process completed with exit code 22.
+2026-11-08T08:54:51.5049053Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-08T08:54:51.5049913Z with:
+2026-11-08T08:54:51.5050082Z   name: progress-cohort-17
+2026-11-08T08:54:51.5050274Z   path: build/progress-cohort-17/
+2026-11-08T08:54:51.5050427Z   retention-days: 2
+2026-11-08T08:54:51.5050559Z   if-no-files-found: warn
+2026-11-08T08:54:51.5050695Z   compression-level: 6
+2026-11-08T08:54:51.5050825Z   overwrite: false
+2026-11-08T08:54:51.5050953Z   include-hidden-files: false
+2026-11-08T08:54:51.5051093Z   archive: true
+2026-11-08T08:54:51.5051211Z env:
+2026-11-08T08:54:51.5051352Z   PROGRESS: quartics/quartic-318-326/proof/progress
+2026-11-08T08:54:51.5051551Z   COHORTS: 16
+2026-11-08T08:54:51.5051704Z   MAX_PARALLEL: 16
+2026-11-08T08:54:51.5051842Z   SPLIT_DEPTH: 16
+2026-11-08T08:54:51.5051996Z   EARLY_DEPTH: 7
+2026-11-08T08:54:51.5053383Z   CLEAN: false
+2026-11-08T08:54:51.5054019Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:51.5055375Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-11-08T08:54:51.5057419Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:51.5058740Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:51.5058961Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-11-08T08:54:51.5059185Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-11-08T08:54:51.5060756Z ##[endgroup]
+2026-11-08T08:54:51.6522088Z ##[warning]No files were found with the provided path: build/progress-cohort-17/. No artifacts will be uploaded.
+2026-11-08T08:54:51.6692913Z Post job cleanup.
+2026-11-08T08:54:51.7359109Z [command]/usr/bin/git version
+2026-11-08T08:54:51.7398886Z git version 2.56.0
+2026-11-08T08:54:51.7423613Z Temporarily overriding HOME='/home/runner/work/_temp/e1ea612a-06d3-4d9f-8a43-7c133c67d8fe' before making global git config changes
+2026-11-08T08:54:51.7424632Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:54:51.7427811Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/diophantine-z-q/diophantine-z-q
+2026-11-08T08:54:51.7463415Z Removing SSH command configuration
+2026-11-08T08:54:51.7468881Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:54:51.7510953Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:54:51.7754867Z Removing HTTP extra header
+2026-11-08T08:54:51.7760871Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:54:51.7814245Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:54:51.8096196Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:54:51.8105542Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:54:51.8150535Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T08:54:51.8151380Z includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T08:54:51.8152195Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T08:54:51.8152703Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T08:54:51.8160216Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path
+2026-11-08T08:54:51.8197656Z /home/runner/work/_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:54:51.8209564Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-632bfade\-1c4c\-428a\-8066\-ac132932aad8\.config
+2026-11-08T08:54:51.8266795Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path
+2026-11-08T08:54:51.8304465Z /home/runner/work/_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:54:51.8313080Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/diophantine-z-q/diophantine-z-q/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-632bfade\-1c4c\-428a\-8066\-ac132932aad8\.config
+2026-11-08T08:54:51.8363406Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T08:54:51.8399822Z /github/runner_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:54:51.8409142Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-632bfade\-1c4c\-428a\-8066\-ac132932aad8\.config
+2026-11-08T08:54:51.8469083Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T08:54:51.8508863Z /github/runner_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config
+2026-11-08T08:54:51.8518156Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-632bfade\-1c4c\-428a\-8066\-ac132932aad8\.config
+2026-11-08T08:54:51.8578368Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:54:51.8811335Z Removing credentials config '/home/runner/work/_temp/git-credentials-632bfade-1c4c-428a-8066-ac132932aad8.config'
+2026-11-08T08:54:51.8967574Z Cleaning up orphan processes
