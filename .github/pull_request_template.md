@@ -4,7 +4,7 @@ Describe the problem, resulting statement or behavior, and affected claims and c
 
 ## Review evidence
 
-Follow the [contributor review guide](../docs/research-review/README.md) and [full protocol](../docs/research-review/PROTOCOL.md). Link evidence for each applicable item; explain any item that does not apply. Do not mark incomplete work as accepted.
+Follow the [contributor review guide](https://github.com/elliotglazer/diophantine-z-q/blob/main/docs/research-review/README.md) and [full protocol](https://github.com/elliotglazer/diophantine-z-q/blob/main/docs/research-review/PROTOCOL.md). Link evidence for each applicable item; explain any item that does not apply. Do not mark incomplete work as accepted.
 
 - Exact revision, file hashes, proposed edits and dependency impact:
 - Complete proof and published-source application inventory, including the nine obligations and version/convention comparisons:
