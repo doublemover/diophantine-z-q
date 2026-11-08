@@ -1,0 +1,54 @@
+ACQUIRED 2026-11-08T06:04:37Z
+MODULE=NormalizationSourceCompatibility318
+NormalizationSourceCompatibility318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationSourceCompatibility318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+NormalizationSourceCompatibility318.lean:50:0: warning: automatically included section variable(s) unused in theorem `NormalizationSourceCompatibility318.sourceSections_fromSpec`:
+  [QuasiCompact (Spec.map φ ≫ j)]
+  [QuasiSeparated (Spec.map φ ≫ j)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [QuasiCompact (Spec.map φ ≫ j)] [QuasiSeparated (Spec.map φ ≫ j)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+NormalizationSourceCompatibility318.lean:56:34: warning: This simp argument is unused:
+  ← Scheme.isoSpec_Spec_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IsAffineOpen.fromSpec_top]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+NormalizationSourceCompatibility318.lean:68:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+EXIT=0
+MODULE=ContactOverlapMaps318
+EXIT=0
+MODULE=JLineOverlapOpen318
+JLineOverlapOpen318.lean:15:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  GetElem Type (?m.36 → MvPolynomial ?m.36 ?m.35) ?m.32 ?m.33
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+JLineOverlapOpen318.lean:15:44: error: tactic execution is stuck, goal contains metavariables
+  ?m.33 ℚ X
+EXIT=1
+RELEASED 2026-11-08T06:04:48Z

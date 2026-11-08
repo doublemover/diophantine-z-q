@@ -1,0 +1,7 @@
+# Entire distinct finite-chart intersections
+
+FinitePairOverlap318 proves, for every nonzero rational twist tuple c and every i,j : Fin 4 with i ≠ j, that the image intersection of the actual two branchEmbedding charts in the original contact normalization is exactly the original sourceOpen image. The common source is the entire original unbranched OpenOrder, and actual_pullback proves its cartesian universal property for the specified restriction maps. maps_agree holds for all i,j, including equal indices; the claimed nontrivial intersection/pullback theorem explicitly requires distinct indices. Diagonal self-intersections are not mislabeled as this unbranched open.
+
+The proof removes rational twist units from basic opens, proves the elementary intersection identity for all distinct pairs of the four indices, and transports it through the actual source chart open immersion. It does not infer full-open equality from equality at the generic point. The independent branch/infinity intersections and Q-algebra coordinate maps remain in the preceding six-module packet.
+
+A bounded strict Lean check with debug.skipKernelTC=false passed for this exact source (check-23.log). Harmless unused-simp warnings are preserved. Combined recursive audit and integration are pending hosted CI. Independent source review is pending. This is the author's packet, not self-acceptance. No shared-repository edit, global bicanonical gluing, Jacobian-factor or PEL claim is made.

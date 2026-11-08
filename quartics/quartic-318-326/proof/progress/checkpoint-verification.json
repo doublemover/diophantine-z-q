@@ -1,20 +1,20 @@
 {
-  "status": "PENDING hosted combined verification of1110 modules",
-  "created_utc": "2026-11-08T06:08:57.716797+00:00",
-  "source_modules": 1110,
+  "status": "PENDING hosted combined verification of 1143 modules",
+  "created_utc": "2026-11-08T06:30:19.478569+00:00",
+  "source_modules": 1143,
   "expected_combined_declarations": null,
   "recursively_audited_declarations": null,
   "combined_recursive_axiom_audit": "pending hosted CI",
   "prior_published_audit": {
-    "source_modules": 1083,
-    "declarations": 20034,
-    "status": "PASS incremental; all1083 exact artifacts reused, full recursive audit fresh",
-    "run_url": "https://github.com/doublemover/diophantine-z-q/actions/runs/42450454824",
-    "evidence": "receipts/hosted-1083-verification",
-    "prior_verification": "receipts/forward1110-intake/prior1083-verification.json"
+    "source_modules": 1110,
+    "declarations": 20467,
+    "status": "PASS hosted incremental verification of1110 modules and complete recursive audit of20467 declarations",
+    "run_url": "https://github.com/doublemover/diophantine-z-q/actions/runs/42453693133",
+    "evidence": "receipts/hosted-1110-verification",
+    "prior_verification": "receipts/forward1143-intake/prior1110-verification.json"
   },
-  "new_source_modules": 27,
-  "producer_evidence": "receipts/forward1110-intake/intake.json",
+  "new_source_modules": 33,
+  "producer_evidence": "receipts/forward1143-intake/intake.json",
   "axioms": [
     "propext",
     "Classical.choice",
@@ -22,17 +22,48 @@
   ],
   "rebuild_scope": "CI-first dependency-aware incremental; not clean rebuild",
   "independent_reviews": {
-    "finite_chart_and_product_density": "reviews/finite-density-independent-review/acceptance.json",
-    "global_addition_and_unit_inverse": "pending",
-    "source_infinity_overlap_algebra": "pending"
+    "admissible-atlas-independent-review": {
+      "REVIEW.md": "93835f41ec8da6d0cb9c90438fb4d5835827fd9819acf9344c3fbe52e618fc63",
+      "BINDINGS.json": "30322e3b39fa7c85fcdf8a4f80a9590814b64dab6d60d2774e43b02f10b3d91f",
+      "acceptance.json": "d98c849be975a7405462b17614f9edd0add9e973f9f3512c2027d52e754fa861",
+      "PUBLIC-ARTIFACTS.json": "048f9c7a66b82aebea3b8f3f3e7ffdfa5bcd690b8b0227a48aacd29883a7455d"
+    },
+    "completed-addition-independent-review": {
+      "REVIEW.md": "8a83c71daed6e5999cd0ece69d45c4f46c9895f4a72b91dc8cf406ab2650d655",
+      "BINDINGS.json": "509aaf60eaa6f3df636a954e51cb437615d144618c7914288a955b38a481bea8",
+      "acceptance.json": "da62b671a0aeae016a8a63d353c4d2470373bc1455e8bccb9abb2287cbdd6dd8",
+      "PUBLIC-ARTIFACTS.json": "d0959f76fbdcec0cec6092115f609d1c4a908cfdef46d1d5d3d1ace24e555826"
+    },
+    "literal-group-laws-independent-review": {
+      "REVIEW.md": "fde36aee6ee41c8e0814e6e3bb65964bc3e66af637611e3fd737180d98326f55",
+      "BINDINGS.json": "9f444cb50c571c4babf0ee86ea4fc2529630f5f7ca0270c4166a03fe793f4a97",
+      "acceptance.json": "763648be16f61e41fdf4ba58285287da779c76de309e140cc50f6bcfc8d33f9d",
+      "PUBLIC-ARTIFACTS.json": "08ec9f48e91503fb1ed3cfed42c911e31796da91325b748ef0ea677e93181b12"
+    },
+    "completed-torsion-independent": {
+      "REVIEW.md": "5f074b5d0ec4daf318cc808bdcdc0e1e452bffd123d428e741b5d300b1a45f09",
+      "APPLICATION.json": "ffd9a45a651b5a86a608c7b862ea2b046b797459dbf8c5eaaf1711f367d7b579",
+      "BINDINGS.json": "c1f92f1399b265478030773ffca767df4d19b498b66bc37c2c5343bc3494bfa0",
+      "receipt.json": "74762f7b909cad478ee436dc5a80f7f7ea520ea5eeae2478252aec8a46f70a9d"
+    },
+    "overlap-consuming-review": {
+      "REVIEW.md": "b110a541066a56ca699651dcd18157ff7092ac2a79ce186bea9f67c3713ee849",
+      "acceptance.json": "8e30e1e9e41abbadd831851b9699a4c2488729a37e13ac4183f25680b53aae6d",
+      "finite-pair-addendum.json": "d91f91db439d7a440ae0eb6b7a8c23650cd50b004d6c55d2205fb1e95193430d",
+      "infinity-denominator-addendum.json": "ca2a820c00279bee4ead499d8528aa0d289c9fa0c97794c8a564178e50a12390"
+    },
+    "intrinsic-tensor-independent-review": {
+      "REVIEW.md": "6cc05be8e6f00c4731f9e62c50784d7a88fdc5519a12351520a958787d942fe1",
+      "BINDINGS.json": "3ff8ffb7ad009ea6ee46b24d9866ae3eb538a4bb16b5796322928055b7433779",
+      "CHECKS.json": "c9339cb6b62025dba5b4491306191415c336f547db9ba07cc8b5a42565f9bada",
+      "acceptance.json": "6e3b772b3250afec539922931f16a9d6fcafe684c61fdbff683a671bb1b0778e"
+    }
   },
   "remaining": [
     "combined hosted verification",
-    "independent application review of new consumers",
-    "global group associativity/commutativity beyond this cutoff",
-    "full tripling kernel",
-    "actual source-infinity Scheme intersection",
-    "global PEL/metric realization",
+    "full tripling kernel and packaged group object",
+    "global bicanonical gluing",
+    "actual source PEL/metric realization",
     "full arithmetic completeness"
   ]
 }

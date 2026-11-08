@@ -1,0 +1,23 @@
+module
+import all NonverticalCompletedDoubling318
+import all ThreeTorsionCompletedEqualizer318
+import all ThreeTorsionCompletedClosed318
+import Lean.Util.CollectAxioms
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules := #[`NonverticalCompletedDoubling318, `ThreeTorsionCompletedEqualizer318, `ThreeTorsionCompletedClosed318]
+  let mut checked : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        checked := checked+1
+        logInfo m!"AXIOM_CHECK {name}: {axs.toList}"
+  unless found == modules.size do throwError "Missing module"
+  logInfo m!"NONVERTICAL_COMPLETED_AUDIT_PASS declarations={checked} modules={found}"
