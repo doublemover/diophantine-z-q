@@ -1,0 +1,11 @@
+# Actual character differential nonvanishing and independence
+
+This six-source packet proves that the four previously constructed global pullbacks of published elliptic invariant differentials are nonzero and Q-linearly independent in the actual intrinsic Omega of the complete contact normalization. The final theorem quantifies every rational coefficient function and uses constants from the actual Q-structure morphism.
+
+The proof passes through the entire unbranched order, whose genuine etale differential frame sends dt to one. It uses the already fixed map from the entire finite source ring to that order and the specified embedding into the original contact Raw field. The exact coefficient of the i-th actual finite form is (scaleUnit_i/2) times the inverse complementary triple root. The cubic-to-source and original-field embedding squares identify this root literally.
+
+The four complementary roots are separated by the actual original-field root-sign automorphisms: the i-th sign fixes the i-th complementary root and negates the other three. Adding the original dependence relation to its transformed relation isolates twice one coefficient. These are root-sign automorphisms, not an unproved inertia identification. A generic helper proves independence over RatFunc(Q); the actual global conclusion is rational independence with all four concrete nonzero coordinate scales retained.
+
+The global forms already exist as regular sections by the preceding accepted pullback packet. This continuation uses their exact whole-affine restriction to reject zero or linear relations. It does not extend a rational form from a dense open and does not assert a basis or the dimension of the full global section space. Jacobian, polarization, PEL/Shimura, Kodaira-Spencer, metric and height comparisons remain outside its claim.
+
+All six source bodies passed strict bounded checks. The fresh recursive audit checks only these target modules and their recursively collected axiom roots. It is not a full-chain replay; hosted integration and independent application review remain separate. Raw logs preserve unsuccessful attempts where relevant; the receipt names the successful source marker and final source hash for every target.

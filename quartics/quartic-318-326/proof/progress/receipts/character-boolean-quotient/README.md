@@ -1,0 +1,11 @@
+# Full Boolean character action on the actual quotient models
+
+Every original Boolean source sign acts on each of the four actual quotient maps by its precise complementary triple-root character. The character is +1 or -1 and respects pointwise xor composition. Positive signs fix the entire completed quotient map; negative signs induce its actual whole-Scheme elliptic negation. This includes all finite branch points and infinity.
+
+The stabilizer equality is proved in both directions. Equality of the whole quotient maps restricts to the original source open; cancellation of the actual finite chart and Spec faithfulness recover the actual affine y-coordinate equality. Its original-field value is nonzero, so it detects precisely the stated character. The positive sign kernel is explicitly equivalent to the original character-field fixing subgroup, not merely another group of order eight. Consequently exactly eight sign patterns fix each whole quotient map. The independently proved global sign faithfulness upgrades this to eight distinct actual Scheme morphisms.
+
+The same full equivariance and two-way stabilizer criterion are transported to the original cubic normalization through the already specified canonical comparison isomorphism. For every Scheme test over Q, the induced action is a genuine additive equivalence whose underlying morphism is literal postcomposition with the actual identity or quotient negation. No field-point or reducedness restriction is used.
+
+All four sources have bounded strict passes with debug.skipKernelTC=false. check-76 proves the final affine source before an initial global rewrite failure; the final global source passes check-77. check-80 proves the final kernel source before an initial additive commutativity failure; the final old-quotient source passes check-81. Combined recursive audit and hosted integration remain pending; a non-author application review is separate.
+
+This proves the exact specified source-sign quotient action and stabilizer. It does not claim a categorical/geometric quotient universal property, classification of all source automorphisms, valuation-theoretic inertia, Jacobian-factor decomposition, polarization or PEL realization. The degree-eight function-field theorem is a separate established predecessor, not a new consequence silently substituted for one of those conclusions.
