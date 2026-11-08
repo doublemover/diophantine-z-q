@@ -1,0 +1,26 @@
+ACQUIRED 2026-11-08T11:45:01Z fifth-character
+CHECK LineFrameIsoTransport318 2026-11-08T11:45:01Z
+CHECK LineFrameIsoCocycle318 2026-11-08T11:45:04Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LineFrameIsoCocycle318.lean:24:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (OpenLineFrameCoordinates318.frame ?m.85 ?U (LineFrameIsoTransport318.transported ?e ?U ?frame) ?W ?h) ?s
+in the target expression
+  (OpenLineFrameCoordinates318.frame N (V i) (transported e V frames i) W hi).symm
+      ((OpenLineFrameCoordinates318.frame N (V j) (transported e V frames j) W hj) 1) =
+    (OpenLineFrameCoordinates318.frame M (V i) (frames i) W hi).symm
+      ((OpenLineFrameCoordinates318.frame M (V j) (frames j) W hj) 1)
+
+X : Scheme
+M N : X.Modules
+e : M ≅ N
+ι : Type v
+V : ι → X.Opens
+frames : (i : ι) → SheafOfModules.unit (↑(V i)).ringCatSheaf ≅ M.restrict (V i).ι
+i j : ι
+W : X.Opens
+hi : W ≤ V i
+hj : W ≤ V j
+⊢ (OpenLineFrameCoordinates318.frame N (V i) (transported e V frames i) W hi).symm
+      ((OpenLineFrameCoordinates318.frame N (V j) (transported e V frames j) W hj) 1) =
+    (OpenLineFrameCoordinates318.frame M (V i) (frames i) W hi).symm
+      ((OpenLineFrameCoordinates318.frame M (V j) (frames j) W hj) 1)
+RELEASED 2026-11-08T11:45:06Z fifth-character

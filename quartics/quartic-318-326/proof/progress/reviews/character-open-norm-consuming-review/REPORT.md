@@ -1,0 +1,13 @@
+# Bounded consuming review: actual four-character regular and unit norms
+
+Decision: accept the exact two-source actual-map specialization. No required correction.
+
+I read both complete new bodies, the unchanged CompletedCharacterTraceBasis318 body, and the actual map, dominance, finiteness and generic pullback/degree interfaces used. Each i:Fin4 uses the same original completedMap i, its source normalization and published completed target. The normal affine basis is built from the genuine two target chart ranges and their actual Dedekind section rings. No selected subopen or generic-only regularity substitutes for whole-open sections.
+
+The explicit pullbackAlgebra is definitionally the same actual DominantFunctionField318.map(completedMap i) algebra used by the generic norm. Consequently original_generic_norm and the actual generic-degree-eight substitution retain the original field action. The all-open norm/restriction/affine comparison directly consume the genuine generic construction; empty opens retain its explicit unique-section case. The units map is the actual induced monoid map, with named underlying value. The final pullback_norm theorem is equality of actual entire unit-sheaf morphisms, proved by component extensionality and the exact all-open eighth-power identity. It is not a trace relabeling.
+
+Evidence: 31 immutable artifact, receipt and predecessor bindings passed; both frozen source bytes equal the checked work copies. The retained first strict log records both module exit0 with kernel checking, and the fresh private-inclusive target-only audit records24 declarations/two modules with required proposition endpoints. I read those audit instructions and markers. No new replay or clean/full-rebuild claim. Hosted integration remains separate.
+
+Authorship exclusion: I authored the generic affine/all-open norm and unit-sheaf machinery and some target-normality predecessors. This decision independently accepts only contact's exact four-map specialization and its matching application, not my own predecessors. The pinned Hodge norm/gluing acceptance and existing four-map trace-basis review retain that independent boundary.
+
+All nine application obligations are satisfied at the stated consumer scope: original maps and indices; actual normal basis; supplied finite/dominant/integral instances; original generic field action; every-open regularity; original restrictions and affine comparison; exact degree-eight pullback; genuine unit sheaves; exact evidence and retained limitations. This does not construct a four-map line-class norm, Picard group/scheme, Jacobian, polarization, PEL object, or a new proof of all predecessors.

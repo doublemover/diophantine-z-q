@@ -1,0 +1,7 @@
+# Four-character whole-chart differential normalization
+
+For each original completed complementary quotient, its actual pulled invariant differential now has a proved expression on every entire finite branch and on the entire infinity chart. There are16 finite branch/character pairs. On a branch other than the omitted index its coefficient is a unit. At the omitted branch it is exactly a unit times that literal original-root coordinate. At infinity its coefficient is a unit everywhere, including u=0.
+
+The common-open comparison is the exact factor scaleUnit_i/(2*(-41160)) times root_i times the already normalized fifth pullback. Finite coefficient formulas retain that signed factor and the actual fifth coefficient. At infinity, the whole-common identity u*root_i=c0*indexedRatio_i produces a coefficient that is a product of whole-infinity-ring units. No inverse of u is introduced there. Both actual section comparisons extend from the complete common open using genuine whole-chart frames and restriction injectivity.
+
+Nine sources passed bounded strict checks and a fresh recursive target audit. Retained logs include failed earlier rewriting drafts; only explicit successful source markers count. Independent review and hosted integration remain separate. Arbitrary invariant-form divisibility at the omitted branch and regular four-quotient differential descent are subsequent work. No complete canonical basis/dimension, Picard/Jacobian, PEL or KS conclusion is asserted.

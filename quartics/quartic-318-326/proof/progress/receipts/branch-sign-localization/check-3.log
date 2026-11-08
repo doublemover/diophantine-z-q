@@ -1,0 +1,34 @@
+ACQUIRED 2026-11-08T11:40:27Z branch-sign3
+START BranchSignScheme318 2026-11-08T11:40:27Z
+MODULE BranchSignScheme318 exit=0 2026-11-08T11:40:31Z
+START BranchFlipQuotient318 2026-11-08T11:40:31Z
+BranchFlipQuotient318.lean:27:2: error: unsolved goals
+case neg
+c : Fin 4 → ℚˣ
+T : Type u_1
+inst✝¹ : CommRing T
+inst✝ : Algebra R T
+i : Fin 4
+f : SourceOrder c →ₐ[R] T
+hz : f (ContactRootReciprocals318.root c i) = 0
+k : Fin 4
+hk : ¬k = i
+⊢ f
+      (if false = true then -FourRootOrderSigns318.generator (coefficient c) k
+      else FourRootOrderSigns318.generator (coefficient c) k) =
+    f (FourRootOrderSigns318.generator (coefficient c) k)
+BranchFlipQuotient318.lean:27:61: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SourceCharacterFields318.flip, hk, decide_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+BranchFlipQuotient318.lean:48:8: error: Ambiguous term
+  flip
+Possible interpretations:
+  _root_.flip : (?m.143 → ?m.144 → ?m.145) → ?m.144 → ?m.143 → ?m.145
+  
+  BranchSignLocalization318.flip : (c : Fin 4 → ℚˣ) → (i : Fin 4) → B c i ≃ₐ[ℚ] B c i
+MODULE BranchFlipQuotient318 exit=1 2026-11-08T11:40:38Z
+RELEASED 2026-11-08T11:40:38Z branch-sign3

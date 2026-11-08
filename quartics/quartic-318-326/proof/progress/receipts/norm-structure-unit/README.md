@@ -1,0 +1,9 @@
+# Actual structure-line unit for the fifth norm
+
+The structure-module frames are constructed from the identity on the actual over-open site. Their original section coordinates are exactly identity on every subopen. Both the ordinary and complete inverse-image extracted transitions are exactly one. The constant-one cocycle is a genuine transition cocycle. Its actual cocycle module is identified with the original target structure module by the existing original-line reconstruction, with a named original coefficient identity and both inverse laws.
+
+FifthNormUnit318.fixedIso applies the actual regular-unit norm to these complete inverse-image transitions and constructs a genuine target structure-line isomorphism. FifthNormUnit318.chosenIso applies to any original source module M, a supplied genuine isomorphism M≅O, and any actual initial covering unit frames. Its source is exactly FifthNormLineObject318.object M A hA eA; its target is the original target O-module sheaf. Both inverse equations are supplied.
+
+Validation: StructureLineFrames318 strictly passed in structure-line-unit-check3.log before a name-shadowing failure in the then-unfrozen UnitCocycleOne draft. The final other three exact sources strictly passed in check4, followed by the fresh private-inclusive target-only25/4 audit. The mixed earlier log is evidence only for the stated successful module. No predecessor/full-chain replay was made. Hosted integration and a distinct consuming review remain separate.
+
+This supplies a genuine unit value, not tensor compatibility, identity/composition coherence or a Picard/Jacobian/polarization/PEL construction. Author predecessor ownership remains disclosed in the pinned independent reviews. Public files contain only sources, docs and bounded evidence, not compiled objects.

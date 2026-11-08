@@ -1,0 +1,146 @@
+{
+  "author": "/root/restart_modular_curve",
+  "claim": "Actual target global intrinsic differential pullback is invariant under all map-fixing signs for all four completed character maps",
+  "source_sha256": "916859846bc7b654ae8ce948d6b65de9fbf788d5f2511c5079bbcf30b9c725ea",
+  "endpoints": [
+    "CharacterTargetDifferentialInvariants318.pullback",
+    "CharacterTargetDifferentialInvariants318.fixed",
+    "CharacterTargetDifferentialInvariants318.pullback_invariant"
+  ],
+  "obligations": [
+    {
+      "name": "Actual hypotheses",
+      "required_input": "Canonical differential pullback requires a morphism over the same Spec Q.",
+      "constructed_input": "For each i:Fin4, completedMap i has the exact over_Q identity; each original sign has ContactDifferentialCharacters318.over_Q.",
+      "justification": "The proof composes those actual structural squares without a surrogate map or assumed local equality.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Actual objects",
+      "required_input": "Target and source must be the original relative intrinsic differential sheaves.",
+      "constructed_input": "N i is FamilyIntrinsicDifferentials318.omega of the literal publishedA i/publishedB i structure map; the codomain is ContactIntrinsicDifferentials318.omega units.",
+      "justification": "These are exactly the objects already used to define ContactCharacterDifferentials318.invariant/differential.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Index coverage",
+      "required_input": "Every one of the four actual quotient maps, every regular target global differential, and every positive-character sign.",
+      "constructed_input": "The new theorem quantifies i:Fin4, s:Gamma(N i,top), b:Fin4\u2192Bool and epsilon i b=1.",
+      "justification": "No selected generator restriction, omitted index, generic-point reduction or exceptional-point exclusion occurs.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Original maps",
+      "required_input": "Pullback must be the canonical contravariant intrinsic map of the entire Scheme morphism.",
+      "constructed_input": "pullback i is exactly globalHom (CompletedCharacterGlobal318.completedMap i) with its original over_Q proof.",
+      "justification": "globalSection_comp is applied to actual source-sign followed by the actual completed map; globalSection_congr consumes the full equality CharacterBooleanGlobal318.positive.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Coefficients and scalars",
+      "required_input": "No coordinate rescaling or duality substitution is permitted.",
+      "constructed_input": "The action is the original ContactDifferentialCharacters318.action; invariant i uses the existing dx/(2y) normalization.",
+      "justification": "pullback_invariant is rfl, so the resulting actual source differential has scalar exactly one. Only additive bundling is claimed.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Downstream identity",
+      "required_input": "The converse range inclusion needs invariance of arbitrary target global sections, not merely the specified invariant.",
+      "constructed_input": "fixed applies to every s and exactly every epsilon=1 sign.",
+      "justification": "Hodge can use this theorem directly for its separately constructed fixed-section subgroup; there is no dependency on a moving Fixed definition.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Local/global distinction",
+      "required_input": "Equality must hold on full global sections and use the whole-map fixing identity.",
+      "constructed_input": "The proof is entirely the global functoriality/congruence of the actual full sheaf pullback.",
+      "justification": "No dense-open extension, inverse of a branch coordinate, field trace, restriction injection or gluing is introduced.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Verification and provenance",
+      "required_input": "Fresh source and recursive target audit, with standard roots and explicit predecessor boundaries.",
+      "constructed_input": "One source strictly passed on first check with debug.skipKernelTC=false; fresh target audit covers all6 declarations including abbreviations.",
+      "justification": "check-01.log binds source and audit. Exact compiled predecessor source presentations match frozen bytes. Independent consuming review and hosted integration remain pending.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    },
+    {
+      "name": "Remaining scope",
+      "required_input": "Do not replace the forward regular-descent construction or infer stronger moduli conclusions.",
+      "constructed_input": "This packet supplies only canonical pullback, arbitrary-section positive-character invariance, and exact invariant compatibility.",
+      "justification": "It does not prove injectivity, range equality, inverse/retraction, target differential trace on every open, a basis, Jacobian/Picard maps, PEL or the final arithmetic theorem.",
+      "sources": [
+        "CharacterTargetDifferentialInvariants318.lean",
+        "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean",
+        "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean",
+        "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean"
+      ],
+      "evidence": "check-01.log and DEPENDENCIES.json"
+    }
+  ],
+  "dependency_pins": {
+    "recovery-hodge-0358/character-differential-signs/ContactDifferentialCharacters318.lean": "115a527be67a832b7d8ed9d03a1d8b669aabd11f00215fcc466fd1c5fd0b0717",
+    "recovery-hodge-0358/character-differential-signs/receipt.json": "17a6704f2db2d7b5e607cddfbba209d802b26f7bf133a6e1a32acb1f4a453d5a",
+    "checkpoint-differential-functor/frozen/IntrinsicDifferentialFunctor318.lean": "e474e4af408da57d13b9863dfc73f00fea261ed2df12f7a21bf7cd46be09955e",
+    "checkpoint-differential-functor/frozen/receipt.json": "a8e5f28fcaaa89e4c8320069af8f0303998921a63d3790e1000abc2bc657a3e6",
+    "recovery-geometric-0358/intrinsic-differential-functor-review/acceptance.json": "aa4e09d1021d995cdef1072697a0bf06600ddfc21e65e5006394962eb43e0492",
+    "recovery-hodge-0358/character-invariant-pullback/IntrinsicDifferentialPullback318.lean": "6310e70b85b58e3112de1c0bfec99785d7c9286a86f9ce3046d24bb4bc6160db",
+    "recovery-hodge-0358/character-invariant-pullback/ContactCharacterDifferentials318.lean": "0d52e9400f7f0cce9b49485eb44e053629c8893d8c9131961f30adae6dbfc941",
+    "recovery-hodge-0358/character-invariant-pullback/receipt.json": "cd6a34418b8dc2fdcb6ce6aa32247857590037c47e1e6d80f012fa61b20d8866",
+    "recovery-contact-0358/character-boolean-quotient/CharacterBooleanGlobal318.lean": "38a1ec4d4b076ef8737c86dca7b18b3876b66fb7bb748b2dc89666579cf3b8e1",
+    "recovery-contact-0358/character-boolean-quotient/CharacterBooleanAffine318.lean": "a05ecae66249088b14ffc138364cdab25227539fd80c28c1c5ba0de0c9b2cfd6",
+    "recovery-contact-0358/character-boolean-quotient/receipt.json": "a9c265868f3d98845764ba3708011650897cb78dd35a500a4c629ebec91ecc2d",
+    "recovery-modular-0358/character-boolean-independent-review/acceptance.json": "eb72745597b7d3ff2e2a64d668027b8d42ad7fa51cf9f53ba2a599202617b9f6",
+    "recovery-contact-0358/completed-character-global/CompletedCharacterGlobal318.lean": "b5a2fc6902a165880b50a4b8516ed322fa4371e7726f396df644ee71682bbfaf",
+    "recovery-contact-0358/completed-character-global/receipt.json": "5342aac042d632fb9f501e3d738e3ffacf82d10bd7b4dd7fb75238cef14a8f0b"
+  },
+  "independent_acceptance": "pending"
+}

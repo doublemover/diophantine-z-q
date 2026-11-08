@@ -1,0 +1,30 @@
+ACQUIRED:2026-11-08T11:34:24Z
+CHECK:UnitCocycleRefinement318
+CHECK:InverseImageLineRefinement318
+InverseImageLineRefinement318.lean:61:73: error: unsolved goals
+case h
+X Y : Scheme
+f : X ⟶ Y
+M : X.Modules
+ι : Type v
+κ : Type w
+U : ι → Y.Opens
+V : κ → Y.Opens
+e : (i : ι) → SheafOfModules.unit (↑(f ⁻¹ᵁ U i)).ringCatSheaf ≅ M.restrict (f ⁻¹ᵁ U i).ι
+d : (j : κ) → SheafOfModules.unit (↑(f ⁻¹ᵁ V j)).ringCatSheaf ≅ M.restrict (f ⁻¹ᵁ V j).ι
+p q : ι × κ
+⊢ common U V p ⊓ common U V q ≤ common U V q
+
+case h
+X Y : Scheme
+f : X ⟶ Y
+M : X.Modules
+ι : Type v
+κ : Type w
+U : ι → Y.Opens
+V : κ → Y.Opens
+e : (i : ι) → SheafOfModules.unit (↑(f ⁻¹ᵁ U i)).ringCatSheaf ≅ M.restrict (f ⁻¹ᵁ U i).ι
+d : (j : κ) → SheafOfModules.unit (↑(f ⁻¹ᵁ V j)).ringCatSheaf ≅ M.restrict (f ⁻¹ᵁ V j).ι
+p q : ι × κ
+⊢ common U V p ⊓ common U V q ≤ common U V p
+RELEASED:2026-11-08T11:34:30Z
