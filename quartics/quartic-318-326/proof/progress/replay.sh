@@ -7,12 +7,15 @@ mkdir -p .lake/build/lib/lean
 export LEAN_PATH="$HERE/.lake/build/lib/lean:${LEAN_PATH:-}"
 if [[ ${1:-} != --audit-only ]]; then
   MATHLIB=.lake/packages/mathlib
-  OFFICIAL=Mathlib/RingTheory/Smooth/IntegralClosure
-  if [[ ! -f "$MATHLIB/.lake/build/lib/lean/$OFFICIAL.olean" ]]; then
-    mkdir -p "$MATHLIB/.lake/build/lib/lean/$(dirname "$OFFICIAL")"
-    lake env lean -R "$MATHLIB" -Ddebug.skipKernelTC=false "$MATHLIB/$OFFICIAL.lean" \
-      -o "$MATHLIB/.lake/build/lib/lean/$OFFICIAL.olean"
-  fi
+  for OFFICIAL in Mathlib/RingTheory/Smooth/IntegralClosure \
+    Mathlib/CategoryTheory/Limits/Final/Type \
+    Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackFree; do
+    if [[ ! -f "$MATHLIB/.lake/build/lib/lean/$OFFICIAL.olean" ]]; then
+      mkdir -p "$MATHLIB/.lake/build/lib/lean/$(dirname "$OFFICIAL")"
+      lake env lean -R "$MATHLIB" -Ddebug.skipKernelTC=false "$MATHLIB/$OFFICIAL.lean" \
+        -o "$MATHLIB/.lake/build/lib/lean/$OFFICIAL.olean"
+    fi
+  done
   while read -r module; do
     printf 'KERNEL_CHECK %s\n' "$module"
     lake env lean -R "$HERE" -Ddebug.skipKernelTC=false "$module.lean" -o ".lake/build/lib/lean/$module.olean"
