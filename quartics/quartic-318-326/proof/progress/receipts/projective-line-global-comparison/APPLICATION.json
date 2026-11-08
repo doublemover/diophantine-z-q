@@ -1,0 +1,140 @@
+{
+  "claim": "Actual global isomorphism from projectiveMap pullback O(1) to intrinsic Omega tensor Omega, carrying both actual coordinate sections with scalar one",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "ModuleLocalGluing318.lean": "87627b27b0aed7410261ed0e97acad21806a086ccc14d7a30d22b26d5bdf346f",
+    "ModuleLocalIsomorphism318.lean": "e8e3c4fe0a18347de8e82a25edf123d5d055c485a111d76f8d59a820317f407e",
+    "PullbackScalar318.lean": "91154939e6a7ea61ea5f2c4b1550f40d166ffa264b368f0c6813c7961aff225c",
+    "ModuleScalar318.lean": "f0acc624da78bde3ab8cfe2a63b4c66d8b28db86d2eb3c25da75855c06a8182a",
+    "LocalCoordinateRelation318.lean": "3fa25ed6db501f8d53f837f61f2c25ce25cb25b5479a88108f16d1edc8c39001",
+    "ClutchedCoordinateRelations318.lean": "34d8870490639fcdc4278818f1389725efb3d862acc0cd7b15cb68b18322c37b",
+    "ProjectiveLineCoordinateRelations318.lean": "7596c75b9ee37325140fdc469bb1fce5c4183e89ec69e65a9cd167e33d03ff46",
+    "PullbackLocalRelations318.lean": "34356c761611fdc829f48e0084791bd33b9d569feab32156c26c2c24fc7d3f8c",
+    "RestrictionScalarRelation318.lean": "516a6756a58009b8fe40a929573d4f74ad30cab1a2765b7fd4fa63d65022c193",
+    "PolynomialCoordinatePullback318.lean": "7da5e922dee9baf4f3f57f0eb86713d4b45337b4980bc5b48bf7c1e92b95f458",
+    "ContactPulledRatios318.lean": "e31993339ae6ca80b994de6af9b540b14a938d7e8839c0ec2238a0b4b77e3f98",
+    "SectionGeneratedGluing318.lean": "afc19233de8b75110cdf5b59f36fde9aa3c91e2e5ef597e19575e9f51dba3c9f",
+    "RestrictedMapBijective318.lean": "b0f5af028a6e252bef2a6586c3fda8c1dd6eb1f2c47e8ceb46daddc053cbcde3",
+    "ContactLineComparisonData318.lean": "de163b87b4c92f405322e02dceb68ffb25ed5a1592c01ec9b362dbeb96516a42",
+    "ContactGlobalLineComparison318.lean": "c4c7fb2a051a2e6fbac24b36ee3cbbd628539c12ba221540297b933417298d90"
+  },
+  "predecessor_receipt": "59f3d150ac609219036e46dccce4a79f3ce9c09474ed998f4657b2803b84a3f4",
+  "external_input_scope": "No new literature input. Uses the same canonical pinned sheaf, adjunction and unique-gluing APIs and immutable source/target constructions.",
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "Genuine sheaves, actual section morphisms and all-subopen generation are required.",
+      "constructed": "The generic gluing theorem consumes bijective actual coordinate maps on every subopen; the concrete data supplies these via genuine restriction isomorphisms.",
+      "why_match": "The generic gluing theorem consumes bijective actual coordinate maps on every subopen; the concrete data supplies these via genuine restriction isomorphisms.",
+      "evidence": [
+        "RestrictedMapBijective318.bijective",
+        "ContactLineComparisonData318.pulled_bijective",
+        "ContactLineComparisonData318.tensor_bijective"
+      ]
+    },
+    {
+      "name": "Constructed objects",
+      "required": "The comparison must be between the actual target pullback and actual intrinsic tensor square.",
+      "constructed": "The final iso has exactly ContactProjectiveLinePullback318.line c and ContactGlobalBicanonical318.tensor c as its source and target. Neither is renamed to the other.",
+      "why_match": "The final iso has exactly ContactProjectiveLinePullback318.line c and ContactGlobalBicanonical318.tensor c as its source and target. Neither is renamed to the other.",
+      "evidence": [
+        "ContactGlobalLineComparison318.iso"
+      ]
+    },
+    {
+      "name": "Domain and index coverage",
+      "required": "All five complete charts and every pairwise intersection must be covered.",
+      "constructed": "The existing actual cover is Option(Fin4). The generic local compatibility applies to every V contained in both chart opens and every pair of indices, including equal or distinct finite indices and infinity.",
+      "why_match": "The existing actual cover is Option(Fin4). The generic local compatibility applies to every V contained in both chart opens and every pair of indices, including equal or distinct finite indices and infinity.",
+      "evidence": [
+        "ModuleLocalGluing318.LocalData",
+        "SectionGeneratedGluing318.data",
+        "ContactLineComparisonData318.coefficient_relation"
+      ]
+    },
+    {
+      "name": "Transition and comparison maps",
+      "required": "Pullback and restriction comparisons must carry actual coordinate ratios, not just trivialize the objects.",
+      "constructed": "The target whole-chart relations are transported through the actual chart natural isomorphism. Its common domain factor is retained, and scalar naturality moves the same literal regular function through it.",
+      "why_match": "The target whole-chart relations are transported through the actual chart natural isomorphism. Its common domain factor is retained, and scalar naturality moves the same literal regular function through it.",
+      "evidence": [
+        "ProjectiveLineCoordinateRelations318.finite_relation",
+        "ProjectiveLineCoordinateRelations318.infinity_relation",
+        "PullbackLocalRelations318.factorization",
+        "PullbackLocalRelations318.relation"
+      ]
+    },
+    {
+      "name": "Identity of consumed object",
+      "required": "The same projective map, twist family and global sections must be consumed.",
+      "constructed": "ContactPulledRatios318 uses the actual projectiveMap, actual finite/infinity structural squares and literal pulled section morphisms. The final restricted iso is proved equal to every predecessor local iso.",
+      "why_match": "ContactPulledRatios318 uses the actual projectiveMap, actual finite/infinity structural squares and literal pulled section morphisms. The final restricted iso is proved equal to every predecessor local iso.",
+      "evidence": [
+        "ContactPulledRatios318.branch_relation",
+        "ContactPulledRatios318.infinity_relation",
+        "ContactGlobalLineComparison318.branch_comparison",
+        "ContactGlobalLineComparison318.infinity_comparison"
+      ]
+    },
+    {
+      "name": "Coefficient and normalization conventions",
+      "required": "Both coordinate order and scalar-one normalization must survive every canonical comparison.",
+      "constructed": "The pair remains [q1:q0], with q1=t*q0 on finite charts and q0=s*q1 on infinity. Pullback of multiplication is proved using the canonical unit adjunction; actual Spec evaluation identifies t and s. Both global morphism and section equalities are exact.",
+      "why_match": "The pair remains [q1:q0], with q1=t*q0 on finite charts and q0=s*q1 on infinity. Pullback of multiplication is proved using the canonical unit adjunction; actual Spec evaluation identifies t and s. Both global morphism and section equalities are exact.",
+      "evidence": [
+        "PullbackScalar318.pullback_multiply",
+        "PolynomialCoordinatePullback318.coordinate",
+        "ContactGlobalLineComparison318.zero_morphism",
+        "ContactGlobalLineComparison318.one_morphism",
+        "ContactGlobalLineComparison318.q0_normalized",
+        "ContactGlobalLineComparison318.q1_normalized"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required": "A global isomorphism cannot follow from local freeness without checked overlap compatibility and inverses.",
+      "constructed": "Actual linear maps and their inverses are glued via the sheaf condition. Additivity, module linearity, restriction naturality and both inverse identities are proved. Exact generator relations prove full-intersection compatibility.",
+      "why_match": "Actual linear maps and their inverses are glued via the sheaf condition. Additivity, module linearity, restriction naturality and both inverse identities are proved. Exact generator relations prove full-intersection compatibility.",
+      "evidence": [
+        "ModuleLocalGluing318.hom",
+        "ModuleLocalIsomorphism318.inverseData",
+        "ModuleLocalIsomorphism318.iso",
+        "SectionGeneratedGluing318.local_preserves",
+        "SectionGeneratedGluing318.iso_preserves"
+      ]
+    },
+    {
+      "name": "Exceptional cases",
+      "required": "No finite branch point or infinity point may be deleted to justify division.",
+      "constructed": "Only the section already proved to generate on a whole chart is inverted as a sheaf isomorphism. Finite t and reciprocal s may vanish; neither is divided by in the final glue. All four twist parameters remain arbitrary rational units.",
+      "why_match": "Only the section already proved to generate on a whole chart is inverted as a sheaf isomorphism. Finite t and reciprocal s may vanish; neither is divided by in the final glue. All four twist parameters remain arbitrary rational units.",
+      "evidence": [
+        "ContactLineComparisonData318.pulled_bijective",
+        "ContactLineComparisonData318.coefficient_relation",
+        "ContactGlobalLineComparison318.iso"
+      ]
+    },
+    {
+      "name": "Downstream consumption",
+      "required": "The pullback comparison is one algebraic interface, not automatically the required PEL/KS or metric theorem.",
+      "constructed": "This packet closes actual global pullback-O(1) comparison and both section normalizations. It explicitly leaves Shimura identification, twist selection, KS and metrics separate; rank16 function-field facts are not turned into an unproved line-bundle degree theorem.",
+      "why_match": "This packet closes actual global pullback-O(1) comparison and both section normalizations. It explicitly leaves Shimura identification, twist selection, KS and metrics separate; rank16 function-field facts are not turned into an unproved line-bundle degree theorem.",
+      "evidence": [
+        "ContactGlobalLineComparison318.iso",
+        "ContactGlobalLineComparison318.q0_normalized",
+        "ContactGlobalLineComparison318.q1_normalized"
+      ]
+    }
+  ],
+  "consumer": "Actual pullback O(1) bridge for the five-chart contact model. Any PEL/Kodaira-Spencer/metric/height application still needs its separate producer and comparison.",
+  "not_claimed": [
+    "PEL or Shimura source identification",
+    "selection of twist parameters from a Shimura source",
+    "Kodaira-Spencer map or isomorphism",
+    "metric or height comparison",
+    "genus or numerical line-bundle degree",
+    "complete bicanonical linear system",
+    "equality to an independently named Mathlib Proj twisting-sheaf object"
+  ]
+}

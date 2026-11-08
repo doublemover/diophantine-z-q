@@ -1,0 +1,11 @@
+# Exact full-kernel base-change application
+
+1. Requirements: the actual whole-kernel product-coordinate isomorphism over the literal base, the proved actual tripling-kernel cartesian square, the exact primitive algebra scalar-extension isomorphism, and the canonical inherited inverse of three.
+2. Actual objects: the original changed-coefficient completed curve, its literal tripling zero-fiber, the original changed two-equation primitive algebra, and Spec S. Arbitrary Base N-algebras are retained, including nonreduced or nonflat ones.
+3. Domain coverage: the complete product algebra and full kernel pullback are compared. No restriction to geometric points, a chosen component or a dense open replaces the entire Scheme.
+4. Actual maps: primitive and zero maps into the changed kernel are compared with the original maps by both actual pullback projections. scalarIso_inv_map adds the exact original-kernel projection to the earlier exact base projection.
+5. Factors: tensor product distributes over the original two ring factors, followed by the explicit primitive algebra equivalence and tensor right-unit equivalence. first_projection and second_projection compute the actual images of all original tensor generators. No unspecified permutation or scalar factor is used.
+6. Identity: the product-algebra equivalence has actual inverse data from its two constituent equivalences. Its Spec isomorphism is composed with the exact changed-kernel scalar model. finite_inv and zero_inv identify both Spec projection maps using the actual cartesian kernel square, not point counts.
+7. Consumer: the inverse of the product-Spec coproduct isomorphism yields the actual whole-kernel coproduct. The final canonical wrapper supplies inverse three from the base and retains both original component maps and their curve/base equations.
+8. Evidence: four bounded strict first-time checks, required endpoint-presence and recursive axiom audit; exact predecessor receipts and immutable source hashes. No independent self-acceptance or full-chain replay is claimed.
+9. Boundaries: this is a relative Scheme decomposition with exact maps. Arbitrary splitting labels have no newly asserted additive meaning. Intrinsic kernel-group, chosen full-level bases, PEL/polarized Jacobian and final arithmetic joins remain separately sourced consumers.

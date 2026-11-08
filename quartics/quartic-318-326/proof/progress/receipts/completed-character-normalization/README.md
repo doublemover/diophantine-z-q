@@ -1,0 +1,9 @@
+# Actual relative-normalization comparison
+
+This packet constructs a canonical integral, surjective morphism from the earlier SourceCharacterGlobal318.Model i to the literal completed published Weierstrass Target i, for every i:Fin4 with the fixed original source units. The finite target t-map from the separate finiteness packet supplies the integral factorization required by the actual relative-normalization universal property.
+
+Its restriction to the entire original cubic affine scheme is exactly CubicPublishedScheme318.affineIso.inv followed by the actual completed finite-chart inclusion. Its composite with targetTMap is exactly the earlier character modelMap. The full original source join is checked: SourceCharacterGlobal318.globalMap i followed by comparison i equals CompletedCharacterGlobal318.completedMap i. The proof compares the actual original open morphisms and invokes the actual relative-normalization uniqueness theorem over the same t-line. Surjectivity follows from this equality and the checked surjectivity of completedMap.
+
+The intermediate generic interfaces retain the explicit affine-transformation identities; the concrete final module supplies the already constructed transformation and both checked identities. There is no unfilled transformation hypothesis in the final comparison or original_global_join.
+
+The three sources have successful bounded strict checks in check-48 and check-52. Integrated replay and recursive audit remain pending hosted CI; non-author consuming review is separate. This does not yet prove the comparison is an isomorphism or even claim a new formal birationality API endpoint. Target whole-chart normality and the integral-birational-to-isomorphism join are subsequent work. No Jacobian-factor, polarization, maximal-order action, PEL or Kodaira–Spencer assertion is inferred from the actual affine restriction.
