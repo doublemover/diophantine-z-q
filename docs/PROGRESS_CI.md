@@ -51,6 +51,10 @@ therefore does not discard valid modules merely because they moved between jobs.
 For example, moving from 951 to 971 modules would otherwise miss 207 unchanged
 modules under per-cohort-only caching. Only matching source/dependency/artifact
 entries are admitted from either cache.
+Whole-snapshot saves and restores use the same `.cache/progress-ci` path;
+cohort saves and restores use `.cache/progress-cohort`. GitHub cache versions
+include the path, so differing save/restore directories would cause misses even
+with matching key strings. A workflow regression test checks this contract.
 The checker never copies an unlisted cache artifact into the fresh build directory
 and never uses an inherited project `LEAN_PATH`.
 

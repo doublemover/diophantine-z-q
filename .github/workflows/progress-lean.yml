@@ -136,11 +136,11 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
+          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-ci" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
       - name: Cache verified cohort artifacts
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
-          path: .cache/progress-ci
+          path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
       - name: Upload verified cohort and failure logs
         if: always()
@@ -214,11 +214,11 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --bundles "$GITHUB_WORKSPACE/build/foundation-bundles" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
+          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-ci" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --bundles "$GITHUB_WORKSPACE/build/foundation-bundles" --cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
       - name: Cache verified cohort artifacts
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
-          path: .cache/progress-ci
+          path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
       - name: Upload verified cohort and failure logs
         if: always()
@@ -292,11 +292,11 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --bundles "$GITHUB_WORKSPACE/build/foundation-bundles" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
+          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-ci" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --bundles "$GITHUB_WORKSPACE/build/foundation-bundles" --cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
       - name: Cache verified cohort artifacts
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
-          path: .cache/progress-ci
+          path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
       - name: Upload verified cohort and failure logs
         if: always()
@@ -348,11 +348,11 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py audit --cache "$GITHUB_WORKSPACE/.cache/progress-full" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --bundles "$GITHUB_WORKSPACE/build/cohort-bundles" --output "$GITHUB_WORKSPACE/build/progress-audit" "${flags[@]}"
+          lake env python -B ../../../../scripts/check_progress_lean.py audit --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --bundles "$GITHUB_WORKSPACE/build/cohort-bundles" --output "$GITHUB_WORKSPACE/build/progress-audit" "${flags[@]}"
       - name: Cache complete audited snapshot
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
-          path: .cache/progress-full
+          path: .cache/progress-ci
           key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
       - name: Upload exact audit result
         if: always()

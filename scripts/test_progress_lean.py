@@ -1,6 +1,7 @@
 """Regression tests for dependency invalidation and artifact admission."""
 import argparse
 import json
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,6 +11,24 @@ import check_progress_lean as ci
 
 
 class ProgressTests(unittest.TestCase):
+    def test_workflow_cache_paths_match_save_and_restore(self):
+        workflow = (ci.ROOT / '.github/workflows/progress-lean.yml').read_text()
+        paths = {'full': set(), 'cohort': set()}
+        for block in re.split(r'(?m)^      - ', workflow):
+            if 'uses: actions/cache/' not in block:
+                continue
+            path = re.search(r'(?m)^          path: (.+)$', block).group(1)
+            key = re.search(r'(?m)^          key: (.+)$', block).group(1)
+            paths['full' if 'progress-v2-full-' in key else 'cohort'].add(path)
+        self.assertEqual(paths['full'], {'.cache/progress-ci'})
+        self.assertEqual(paths['cohort'], {'.cache/progress-cohort'})
+        builds = [line for line in workflow.splitlines() if 'check_progress_lean.py build ' in line]
+        self.assertEqual(len(builds), 3)
+        for line in builds:
+            self.assertIn('--cache "$GITHUB_WORKSPACE/.cache/progress-cohort"', line)
+            self.assertIn('--fallback-cache "$GITHUB_WORKSPACE/.cache/progress-ci"', line)
+        self.assertIn('audit --cache "$GITHUB_WORKSPACE/.cache/progress-ci"', workflow)
+
     def fixture(self, root):
         root.mkdir(exist_ok=True)
         (root / "lean-toolchain").write_text("leanprover/lean4:v4.35.0\n")
