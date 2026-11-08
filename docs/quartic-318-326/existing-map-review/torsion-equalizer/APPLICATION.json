@@ -1,0 +1,119 @@
+{
+  "id": "completed-torsion-equivalences-independent-dea5d91",
+  "reviewer": "/root/restart_modular_curve",
+  "assigned_source_author": "/root/restart_geometric_model",
+  "reviewed_commit": "dea5d91b63e43d5f3ba9874c64463a0f28ff934b",
+  "decision": "bounded acceptance; no material defect found",
+  "obligations": {
+    "source_hypotheses": {
+      "status": "accepted within bounded scope",
+      "required": "Monic/separable p over a nontrivial commutative base; smooth short model with 3 invertible for rank-eight family.",
+      "constructed": "Exactly these hypotheses occur in exists_splitting and the relative-three sources; unit \u0394 derives unit2 and cubic unit.",
+      "justification": "No base square root, splitting ring, field closure or global group-law premise is silently supplied.",
+      "sources": "MonicRootEtale318; MonicEtaleSplitting318; ShortThreeTorsion318; ThreeTorsionAlgebra318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "constructed_objects": {
+      "status": "accepted within bounded scope",
+      "required": "The actual polynomial quotient and iterated quadratic algebra, not a same-cardinality set.",
+      "constructed": "AdjoinRoot \u03c83/3, followed by AdjoinRoot(y\u00b2-cubic); tensor root extension T; localized curve ring U.",
+      "justification": "Definitions and generation relations were read through their actual coordinate maps.",
+      "sources": "ThreeTorsionFunctor318; ThreeTorsionSplitData318; NonverticalDoubling318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "index_domain_coverage": {
+      "status": "accepted within bounded scope",
+      "required": "All polynomial degrees; every Fin4\u00d7Bool index; every coefficient algebra; every Scheme test for equalizer.",
+      "constructed": "Degree-zero/positive induction; four roots and both signs; unrestricted commutative algebra solutions; all-ring coequalizer then Scheme universal property.",
+      "justification": "The eight labels exhaust primitive pairs by a finite explicit bijection. Nonaffine/nonreduced Scheme tests follow from categorical limit, not geometric point detection.",
+      "sources": "MonicEtaleSplitting318; ThreeTorsionLabels318; ThreeTorsionRingCoequalizer318; ThreeTorsionEqualizerScheme318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "transition_maps": {
+      "status": "accepted within bounded scope",
+      "required": "Exact scalar extension, evaluation, action and contravariant Spec directions.",
+      "constructed": "s\u2297f(root)\u21a6sf(r_i); b\u2297c\u21a6(g\u21a6b\u03c1(g)c); x-inclusion into invariants; C\u2192U\u2192B then Spec B\u2192Spec U\u2192Spec C.",
+      "justification": "Pure-tensor/generator identities and base compatibility are proved. Coequalizer passes first to opposite rings, then a limit-preserving Spec functor.",
+      "sources": "MonogenicSplitEquiv318; ThreeTorsionTorsor318; ThreeTorsionSignQuotient318; ThreeTorsionEqualizerScheme318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "limiting_object_identity": {
+      "status": "accepted within bounded scope",
+      "required": "Exact target algebra/scheme used next, not merely equal rank.",
+      "constructed": "Evaluation is the explicit product equivalence; fixed algebra equivalence preserves original coefficient inclusion; equalizer underlying object is ThreeTorsionScheme318.scheme.",
+      "justification": "CRT/interpolation and unit cancellation prove identification. inclusion_intoCurve equals the original inclusion. No inverse-limit object is involved, so this obligation is object identity here.",
+      "sources": "SplitPolynomialAlgebra318; ThreeTorsionSplitEval318; ThreeTorsionSignQuotient318; ThreeTorsionEqualizerScheme318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "coefficient_conventions": {
+      "status": "accepted within bounded scope",
+      "required": "Actual base R, mapped coefficients in S/K, \u03c83 versus \u03c83/3, scalar-sign action, invariant rather than original tensor base.",
+      "constructed": "Normalized quartic constant is -A\u00b2/3; diamond -1 fixes x and negates y; torsor tensor base is B^H.",
+      "justification": "The invertible3 transport is explicit; both sign formulas and actual map directions were checked. Finrank injectivity uses the commutative-ring Orzech theorem, not field-only dimension.",
+      "sources": "ThreeTorsionFunctor318; ThreeTorsionDiamond318; ThreeTorsionSplitEval318; InvariantRegularSplit318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "local_conditions": {
+      "status": "accepted within bounded scope",
+      "required": "Nonvertical 2y-invertible domain for doubling; discriminant and 3 invertibility.",
+      "constructed": "U=C[(2y)^-1]; actual B has y and2 units; every test map out of U preserves that unit.",
+      "justification": "Tangent criterion uses unit(2y), never cancellation of x2-x1. No reducedness or characteristic-zero hypothesis is smuggled in.",
+      "sources": "TangentOpenAlgebra318; ThreeTorsionTangentCriterion318; NonverticalDoubling318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "exceptional_cases": {
+      "status": "accepted within bounded scope",
+      "required": "Degree0, zero rings, characteristic2/3, identity point, localization parameter N versus torsion order.",
+      "constructed": "Degree0 handled separately; nontriviality is explicit for ranks/splitting; unit \u0394 excludes characteristic2 and invertible3 excludes characteristic3 for rank8; identity ruled out by exactorder3; N is only base level.",
+      "justification": "These cases are not included beyond the declared theorem hypotheses. Field point theorem itself does not need invertible3, but the normalized rank8 construction does.",
+      "sources": "MonicEtaleSplitting318; ThreeTorsionPoints318; ThreeTorsionOrderEquiv318; LiteralTwoTorsion318; LiteralThreeTorsion318",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    },
+    "downstream_consumption": {
+      "status": "accepted within bounded scope",
+      "required": "Pointed model must use actual algebra/action and supplied \u03b2; analytic sign target must be rank4; no global[3]/PEL conclusion.",
+      "constructed": "PrimitiveThreeModel passes own splitting/action to component and retains \u03b2; exact sign-fixed inclusion is available to analytic consumers; README keeps global kernel/full marking/PEL open.",
+      "justification": "Named generic proper-model predecessor is retained, not wholly re-audited; reviewer-authored analytic consumers are not self-approved. No new hypothesis discharge for the final318/326 theorem.",
+      "sources": "PrimitiveThreeModel318; PrimitivePointedModel318; ThreeTorsionSignQuotient318; progress README.md",
+      "evidence": [
+        "REVIEW.md",
+        "BINDINGS.json"
+      ]
+    }
+  },
+  "historical_disposition": "prior justification found and independently read",
+  "manuscript_disposition": "no manuscript change; new review pending central integration",
+  "excluded": [
+    "global multiplication kernel",
+    "additive or symplectic full level",
+    "general N torsion",
+    "PEL/arithmetic source identification",
+    "full generic proper-model proof review",
+    "reviewer-authored analytic consumer acceptance",
+    "unconditional318/326"
+  ]
+}

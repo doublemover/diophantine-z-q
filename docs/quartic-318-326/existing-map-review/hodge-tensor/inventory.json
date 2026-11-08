@@ -1,0 +1,419 @@
+{
+  "scope": "Retrospective bounded audit of already-published intrinsic differential/Hodge and tensor equivalences. Map families, not an exhaustive repository count.",
+  "repo_commit": "dea5d91b63e43d5f3ba9874c64463a0f28ff934b",
+  "claim_families": [
+    {
+      "id": "H01",
+      "files": [
+        "AffineIntrinsicComparison318.lean",
+        "AffineDerivationDetermination318.lean",
+        "AffineDerivationExtension318.lean",
+        "AffineIntrinsicIso318.lean"
+      ],
+      "maps": [
+        "AffineIntrinsicIso318.iso"
+      ],
+      "objects": "Tilde of the algebraic Kaehler module for f:R\u2192S to the intrinsic differential O-module sheaf on Spec S.",
+      "hypotheses": "Arbitrary commutative rings and ring map f; no domain, reducedness or quasi-coherence assumption.",
+      "inverse_or_isomorphism_witness": [
+        "AffineIntrinsicIso318.comparison_inverse",
+        "AffineIntrinsicIso318.inverse_comparison",
+        "AffineIntrinsicComparison318.comparison_epi",
+        "AffineDerivationExtension318.extend_topDerivation",
+        "AffineDerivationExtension318.topDerivation_extend"
+      ],
+      "actual_map_binding": "The forward map is the previously defined comparison; iso_global_D fixes its value on every universal differential. Epi is proved using localized derivation uniqueness on the basic-open basis, not assumed.",
+      "boundary": "No additional gap found in this stated map claim.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H02",
+      "files": [
+        "IntrinsicUniversalComparison318.lean"
+      ],
+      "maps": [
+        "IntrinsicUniversalComparison318.isoOfUniversal"
+      ],
+      "objects": "Intrinsic differential sheaf to another O-module sheaf equipped with a universal derivation.",
+      "hypotheses": "The supplied IsUniversal proof quantifies over all module sheaves and derivations.",
+      "inverse_or_isomorphism_witness": [
+        "Both compositions in isoOfUniversal follow from universal-property uniqueness and intrinsic hom_ext."
+      ],
+      "actual_map_binding": "isoOfUniversal_fac identifies the universal derivation.",
+      "boundary": "Conditional universal-property lemma; it does not assert that an arbitrary candidate sheaf is universal.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H03",
+      "files": [
+        "IntrinsicOpenRestriction318.lean",
+        "FamilyOpenRestriction318.lean"
+      ],
+      "maps": [
+        "IntrinsicOpenRestriction318.iso",
+        "FamilyOpenRestriction318.restrictIso",
+        "FamilyOpenRestriction318.pullbackIso",
+        "FamilyOpenRestriction318.affineChartIso"
+      ],
+      "objects": "Restriction/pullback of actual intrinsic relative differentials to intrinsic differentials for the composite structural map.",
+      "hypotheses": "Actual open immersion; affineChartIso additionally receives the exact equation j\u226bp=Spec.map f.",
+      "inverse_or_isomorphism_witness": [
+        "IntrinsicOpenRestriction318.desc_fac",
+        "IntrinsicOpenRestriction318.hom_ext",
+        "IntrinsicOpenRestriction318.isUniversal",
+        "IntrinsicUniversalComparison318.isoOfUniversal"
+      ],
+      "actual_map_binding": "iso_D and coefficients_comp bind the derivative and coefficient map. The universal property is proved on every module sheaf, not inferred from chart points.",
+      "boundary": "No additional gap found in this stated map claim.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H04",
+      "files": [
+        "AffineIntrinsicFrames318.lean",
+        "IntrinsicChartNormalization318.lean",
+        "IntrinsicFamilyFrames318.lean"
+      ],
+      "maps": [
+        "AffineIntrinsicFrames318.specMapIso",
+        "AffineIntrinsicFrames318.algebraIso",
+        "AffineIntrinsicFrames318.frameIso",
+        "IntrinsicChartNormalization318.iso",
+        "IntrinsicFamilyFrames318.xIdentification",
+        "IntrinsicFamilyFrames318.finiteIdentification",
+        "IntrinsicFamilyFrames318.infinityIdentification",
+        "IntrinsicFamilyFrames318.xLineIso",
+        "IntrinsicFamilyFrames318.finiteLineIso",
+        "IntrinsicFamilyFrames318.infinityLineIso"
+      ],
+      "objects": "Actual finite/x/infinity chart restrictions, tilde Kaehler sheaves and actual invariant-line restrictions.",
+      "hypotheses": "Exact structural-map identities; a genuine algebraic LinearEquiv when a frame is transported. Unit discriminant is used for the three-chart cover.",
+      "inverse_or_isomorphism_witness": [
+        "Composition of H01/H03 with equality and existing line isomorphisms.",
+        "IntrinsicChartNormalization318.inverse_fac",
+        "IntrinsicChartNormalization318.differential"
+      ],
+      "actual_map_binding": "Original algebra instances retained by module_eq; finite_structure and infinity_structure identify actual chart composites.",
+      "boundary": "These are local identifications; this row does not substitute local frames for the global frame.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H05",
+      "files": [
+        "InvariantNormalizedFrames318.lean",
+        "IntrinsicChartFrames318.lean"
+      ],
+      "maps": [
+        "InvariantNormalizedFrames318.normalize",
+        "InvariantNormalizedFrames318.xFrame",
+        "InvariantNormalizedFrames318.finiteFrame",
+        "InvariantNormalizedFrames318.infinityFrame",
+        "IntrinsicChartFrames318.frame"
+      ],
+      "objects": "Algebraic differential modules and actual chart module sheaves with normalized generators.",
+      "hypotheses": "Normalization uses a proved unit, not a possibly vanishing scalar; actual open chart and exact structural map.",
+      "inverse_or_isomorphism_witness": [
+        "normalize_value",
+        "normalize_inverse_one",
+        "IntrinsicChartFrames318.frame_one",
+        "IntrinsicChartFrames318.generator_bijective"
+      ],
+      "actual_map_binding": "The frame maps the specified invariant differential to 1; bijectivity holds on every ambient subopen of the chart.",
+      "boundary": "No additional gap found in this stated map claim.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H06",
+      "files": [
+        "WeierstrassIntrinsicOverlaps318.lean",
+        "ModuleFrameDescent318.lean",
+        "IntrinsicGlobalFrame318.lean"
+      ],
+      "maps": [
+        "ModuleFrameDescent318.gluedFrame",
+        "IntrinsicGlobalFrame318.frame"
+      ],
+      "objects": "Actual intrinsic Omega on the complete Weierstrass family and its invariant structure line.",
+      "hypotheses": "Arbitrary commutative base with unit discriminant -16(4A\u00b3+27B\u00b2).",
+      "inverse_or_isomorphism_witness": [
+        "WeierstrassIntrinsicOverlaps318.x_finite",
+        "WeierstrassIntrinsicOverlaps318.finite_infinity",
+        "WeierstrassIntrinsicOverlaps318.x_infinity",
+        "IntrinsicGlobalFrame318.cover",
+        "IntrinsicGlobalFrame318.compatible",
+        "IntrinsicGlobalFrame318.local_free",
+        "ModuleFrameDescent318.isIso_of_cover",
+        "ModuleFrameDescent318.gluedMap_isIso"
+      ],
+      "actual_map_binding": "invariant_restrict and frame_inv_local identify the actual map and generator on the full chart intersections. Isomorphism detection is on the sheaf basis of all subopens, not injectivity on geometric points.",
+      "boundary": "No global contact-source cotangent trivialization, PEL or Kodaira-Spencer conclusion.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H07",
+      "files": [
+        "StructurePushforwardSplit318.lean"
+      ],
+      "maps": [
+        "StructurePushforwardSplit318.unitMap",
+        "StructurePushforwardSplit318.evaluate"
+      ],
+      "objects": "O_Y\u2192p_*O_X and evaluation along a section.",
+      "hypotheses": "Actual section e with e\u226bp=id.",
+      "inverse_or_isomorphism_witness": [
+        "unitMap_evaluate",
+        "unitMap_mono",
+        "family_structure_split"
+      ],
+      "actual_map_binding": "Only the splitting identity and monomorphism are concluded here.",
+      "boundary": "NOT an isomorphism claim. The section alone is never used to infer surjectivity.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H08",
+      "files": [
+        "IntegralRetraction318.lean",
+        "ProperGlobalSections318.lean",
+        "ProperAffineSections318.lean"
+      ],
+      "maps": [
+        "IntegralRetraction318.ringEquiv",
+        "ProperAffineSections318.unitMap_isIso",
+        "ProperAffineSections318.family_unitMap_isIso"
+      ],
+      "objects": "Integral ring map with a retraction, then the actual structure-sheaf pushforward map of the completed family.",
+      "hypotheses": "Ring lemma: nontrivial base, domain target, integral map and retraction. Scheme lemma: integral source, universally closed morphism and section; actual family specialization has domain base.",
+      "inverse_or_isomorphism_witness": [
+        "IntegralRetraction318.retraction_injective",
+        "IntegralRetraction318.bijective",
+        "ProperAffineSections318.app_bijective",
+        "ProperAffineSections318.unitMap_isIso"
+      ],
+      "actual_map_binding": "Integrality is proved on actual affine base opens; the section supplies the actual retraction. Full affine-basis sheaf detection, not only a global-section bijection, proves the sheaf isomorphism.",
+      "boundary": "No arbitrary non-domain base structure-descent assertion.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H09",
+      "files": [
+        "IntrinsicHodgeComparison318.lean",
+        "HodgeInvertibilityCriterion318.lean"
+      ],
+      "maps": [
+        "IntrinsicHodgeComparison318.sectionPullbackIso",
+        "IntrinsicHodgeComparison318.hodgeToIdentity",
+        "HodgeInvertibilityCriterion318.evaluation_isIso",
+        "HodgeInvertibilityCriterion318.hodgeToIdentity_isIso"
+      ],
+      "objects": "Canonical adjunction-defined evaluation p_*Omega\u2192e^*Omega.",
+      "hypotheses": "Isomorphism criterion explicitly requires the actual structure unit to be an isomorphism and a genuine differential frame.",
+      "inverse_or_isomorphism_witness": [
+        "unit_evaluation",
+        "evaluateAtSection_naturality",
+        "adjunction_unit_structure",
+        "evaluation_isIso_of_iso",
+        "evaluation_isIso_of_frame"
+      ],
+      "actual_map_binding": "Proof uses the existing evaluation and its naturality, not a separately selected free-line isomorphism.",
+      "boundary": "hodgeToIdentity itself is an unconditional map; its inverse is not claimed without the criterion hypotheses.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H10",
+      "files": [
+        "DomainHodgeComparison318.lean"
+      ],
+      "maps": [
+        "DomainHodgeComparison318.structureIso",
+        "DomainHodgeComparison318.invariantLineEvaluationIso",
+        "DomainHodgeComparison318.invariantLinePushforwardToCotangent",
+        "DomainHodgeComparison318.hodgeToIdentityIsoOfFrame"
+      ],
+      "objects": "Actual structure descent and canonical evaluation at the actual infinity identity.",
+      "hypotheses": "Domain base. The final ofFrame endpoint explicitly receives the global intrinsic frame.",
+      "inverse_or_isomorphism_witness": [
+        "ProperAffineSections318.family_unitMap_isIso",
+        "HodgeInvertibilityCriterion318.hodgeToIdentity_isIso",
+        "DomainHodgeComparison318.hodgeToIdentity_isIso_of_frame"
+      ],
+      "actual_map_binding": "asIso is used only after IsIso of the exact existing map is proved.",
+      "boundary": "This historical intermediate packet retains a frame premise; H11 discharges it.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "H11",
+      "files": [
+        "IntrinsicIdentityFrame318.lean",
+        "IntrinsicHodgeIsomorphism318.lean",
+        "LiteralIntrinsicHodge318.lean"
+      ],
+      "maps": [
+        "IntrinsicIdentityFrame318.toCotangent",
+        "IntrinsicIdentityFrame318.frame",
+        "IntrinsicHodgeIsomorphism318.hodgeToIdentityIso",
+        "IntrinsicHodgeIsomorphism318.hodgeToCotangent",
+        "IntrinsicHodgeIsomorphism318.hodgeFrame",
+        "LiteralIntrinsicHodge318.differentialFrame",
+        "LiteralIntrinsicHodge318.hodgeToIdentityIso",
+        "LiteralIntrinsicHodge318.hodgeFrame"
+      ],
+      "objects": "Actual Hodge pushforward, identity cotangent and the base line for the completed and literal open-j families.",
+      "hypotheses": "Global differential frame: unit discriminant. Canonical Hodge isomorphism: additionally a domain base. Literal Hodge specialization: N\u22600, with base_domain proved.",
+      "inverse_or_isomorphism_witness": [
+        "IntrinsicHodgeIsomorphism318.hodgeToIdentity_isIso",
+        "IntrinsicGlobalFrame318.frame",
+        "LiteralIntrinsicHodge318.base_domain"
+      ],
+      "actual_map_binding": "hodgeToIdentityIso_hom is literally rfl for the existing canonical Hodge map; identity frame uses the actual infinity factorization.",
+      "boundary": "No arbitrary non-domain Hodge theorem; N=0 is not silently included in the Hodge isomorphism.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "T01",
+      "files": [
+        "IntrinsicTensorSheaf318.lean",
+        "TensorScalarIso318.lean"
+      ],
+      "maps": [
+        "IntrinsicTensorSheaf318.homEquiv",
+        "TensorScalarIso318.scalarIdentity",
+        "TensorScalarIso318.tensorEquiv"
+      ],
+      "objects": "Genuine sheafified tensor product and semilinear tensor transport along R\u2243S.",
+      "hypotheses": "A supplied actual ring equivalence e:R\u2243S for scalar transport.",
+      "inverse_or_isomorphism_witness": [
+        "scalarIdentity.left_inv/right_inv",
+        "TensorProduct.congr",
+        "TensorScalarIso318.tensorEquiv_tmul",
+        "IntrinsicTensorSheaf318.hom_ext"
+      ],
+      "actual_map_binding": "The tensor equivalence retains the actual scalar structures and sends each pure tensor to the specified pure tensor.",
+      "boundary": "Not an assertion that arbitrary scalar extension preserves the underlying tensor module; raw tensor presheaf is not assumed to be a sheaf.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "T02",
+      "files": [
+        "OpenSheafification318.lean",
+        "TensorOpenRestriction318.lean",
+        "TensorSheafFunctor318.lean"
+      ],
+      "maps": [
+        "OpenSheafification318.iso",
+        "TensorOpenRestriction318.presheafIso",
+        "TensorOpenRestriction318.iso",
+        "TensorSheafFunctor318.congr",
+        "TensorSheafFunctor318.sheafifyIso",
+        "TensorSheafFunctor318.unitIso"
+      ],
+      "objects": "Actual restriction of sheafified tensor and tensor of actual restricted modules.",
+      "hypotheses": "Actual open immersion; coefficients use its genuine regular-function appIso.",
+      "inverse_or_isomorphism_witness": [
+        "OpenSheafification318.comparison_underlying",
+        "OpenSheafification318.comparison_isIso",
+        "TensorOpenRestriction318.presheafIso naturality by tensor induction"
+      ],
+      "actual_map_binding": "The comparison is matched to the standard restriction/sheafification isomorphism on underlying sheaves. Scalar transport uses T01; unitIso uses the monoidal unit and sheafification counit.",
+      "boundary": "No additional gap found in this stated map claim.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "T03",
+      "files": [
+        "ContactTensor318.lean"
+      ],
+      "maps": [
+        "ContactTensor318.rootBaseChange",
+        "ContactTensor318.unitBaseChange",
+        "ContactTensor318.orderBaseChange",
+        "ContactTensor318.tensorContact"
+      ],
+      "objects": "Base change of actual quadratic root presentations and tensor contact orders.",
+      "hypotheses": "Arbitrary commutative coefficient algebra; units as supplied in the actual presentation.",
+      "inverse_or_isomorphism_witness": [
+        "Composition of QuadraticAlgebra.baseChangeEquiv and explicit presentation equivalences.",
+        "rootBaseChange_root",
+        "unitBaseChange_root",
+        "orderBaseChange_root",
+        "ContactTensor318.contact_square"
+      ],
+      "actual_map_binding": "contact_square is equality of the entire actual AlgHoms using tensor and root extensionality.",
+      "boundary": "tensorContact is only an AlgHom, NOT claimed to be an isomorphism at the branch.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "T04",
+      "files": [
+        "EtaleDifferentialFrame318.lean",
+        "SourceBranchLocalization318.lean",
+        "ContactDifferentialFrames318.lean"
+      ],
+      "maps": [
+        "EtaleDifferentialFrame318.ofAlgEquiv",
+        "EtaleDifferentialFrame318.ofFormallyEtale",
+        "SourceBranchLocalization318.sourceLocalizationEquiv",
+        "ContactDifferentialFrames318.branchFrame",
+        "ContactDifferentialFrames318.sourceLocalizationFrame",
+        "ContactDifferentialFrames318.infinityFrame"
+      ],
+      "objects": "Actual localizations of the contact source, explicit branch/infinity orders and their algebraic differential modules.",
+      "hypotheses": "c:Fin4\u2192Q units; actual formally etale extension for frame transport and proved localization structures.",
+      "inverse_or_isomorphism_witness": [
+        "ofAlgEquiv.left_inv/right_inv using actual differential functor composition.",
+        "KaehlerDifferential.tensorKaehlerEquivOfFormallyEtale",
+        "source_localization",
+        "sourceLocalizationEquiv_on_source"
+      ],
+      "actual_map_binding": "At a branch the frame is in the ramified root coordinate, not the invalid parameter t. The localization equivalence retains Q-structure and its actual source map.",
+      "boundary": "Retains the previously checked explicit source regrouping/etaleness producers; no fresh re-audit of their full dependency closure.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "T05",
+      "files": [
+        "ContactIntrinsicDifferentials318.lean",
+        "ContactIntrinsicFrames318.lean"
+      ],
+      "maps": [
+        "ContactIntrinsicDifferentials318.sourceIso",
+        "ContactIntrinsicDifferentials318.infinityIso",
+        "ContactIntrinsicFrames318.branchFrame",
+        "ContactIntrinsicFrames318.infinityFrame",
+        "ContactIntrinsicFrames318.localFrame"
+      ],
+      "objects": "Intrinsic differential sheaf on the actual complete contact normalization restricted to its actual five-chart cover.",
+      "hypotheses": "c:Fin4\u2192Q units; actual chart open immersions and structural-map identities.",
+      "inverse_or_isomorphism_witness": [
+        "source_D",
+        "infinity_D",
+        "comparison_cover",
+        "ContactIntrinsicFrames318.frames_cover"
+      ],
+      "actual_map_binding": "Actual normalization model and actual structural morphism occur in the definitions; both derivative normalizations are explicit.",
+      "boundary": "Only local contact cotangent trivializations are claimed, not a global one.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    },
+    {
+      "id": "T06",
+      "files": [
+        "ContactBicanonicalSheaf318.lean",
+        "ContactBicanonicalLocalSections318.lean"
+      ],
+      "maps": [
+        "ContactBicanonicalSheaf318.localFrame",
+        "ContactBicanonicalLocalSections318.q0",
+        "ContactBicanonicalLocalSections318.q1"
+      ],
+      "objects": "Genuine tensor-square sheaf Omega\u2297Omega on the actual contact normalization; local sections on each of five charts.",
+      "hypotheses": "c:Fin4\u2192Q units and the actual local cotangent frames from T05.",
+      "inverse_or_isomorphism_witness": [
+        "TensorOpenRestriction318.iso",
+        "TensorSheafFunctor318.congr",
+        "TensorSheafFunctor318.unitIso"
+      ],
+      "actual_map_binding": "localFrame is the composite of restriction/tensor transport, two actual cotangent frames and the tensor-unit isomorphism. q0/q1 are defined via its inverse.",
+      "boundary": "q0/q1 are LOCAL sections, not global sections or published rational-section identifications. Whole-overlap gluing and PEL/KS comparisons are not claimed in this packet.",
+      "decision": "accepted in stated scope; source review against retained compiled bytes"
+    }
+  ]
+}
