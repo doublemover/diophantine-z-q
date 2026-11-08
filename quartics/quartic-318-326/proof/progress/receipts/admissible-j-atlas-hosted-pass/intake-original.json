@@ -1,0 +1,29 @@
+{
+  "packet": "forward-admissible-j-atlas",
+  "status": "PENDING_FIRST_SUCCESSFUL_COMPILATION",
+  "order": [
+    "AdmissibleJLocalHomeomorph318",
+    "AdmissibleJComplexAtlas318"
+  ],
+  "files": {
+    "AdmissibleJLocalHomeomorph318.lean": {
+      "sha256": "99c0fc63094e675cce1fdc1ac14b394e602c691a6f8d09b65fc2cfa948db605a",
+      "imports": [
+        "ActualJImmersion318",
+        "AdmissibleQuotientCover318",
+        "ModularCoordinateProper318"
+      ]
+    },
+    "AdmissibleJComplexAtlas318.lean": {
+      "sha256": "e1c30c05bfd162757e42e844ee1501d4044d3a828d6bb1af136e50ca8f894503",
+      "imports": [
+        "AdmissibleJLocalHomeomorph318",
+        "Mathlib.Geometry.Manifold.HasGroupoid"
+      ]
+    }
+  },
+  "scope": "Actual genuine-j local homeomorphism and complex atlas on existing admissible Gamma1(3) source; no target implicit chart or analytification/PEL claim.",
+  "revision": 2,
+  "previous_intake_sha256": "11f9c8da456ef148e6221cc47ecd502c60a21da1a80af55dec1829418ba6acaa",
+  "revision_reason": "Reverse the global forward-function equality to match the actual IsLocalHomeomorph constructor orientation in hosted run 42457491657. Statements and second source unchanged."
+}

@@ -1,0 +1,66 @@
+ACQUIRED 2026-11-08T07:07:01Z
+BUILD DominantFunctionField318
+DominantFunctionField318.lean:47:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+DominantFunctionField318.lean:48:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+DominantFunctionField318.lean:49:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+DominantFunctionField318.lean:50:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+RESULT=0
+BUILD AffineFunctionFieldMap318
+AffineFunctionFieldMap318.lean:27:53: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  StructureSheaf.toStalk ?m.122 ?m.125 ≫ (Spec.structureSheaf ?m.122).presheaf.stalkSpecializes ?h
+in the target expression
+  (StructureSheaf.toStalk R (genericPoint ↥(Spec ↧R)) ≫ (Spec ↧R).presheaf.stalkSpecializes ⋯) ≫
+      Scheme.Hom.stalkMap (Spec.map (CommRingCat.ofHom g)) (genericPoint ↥(Spec ↧S)) =
+    CommRingCat.ofHom g ≫ CommRingCat.ofHom (algebraMap S ↑(Spec ↧S).functionField)
+
+R S : Type u
+inst✝⁴ : CommRing R
+inst✝³ : CommRing S
+inst✝² : IsDomain R
+inst✝¹ : IsDomain S
+g : R →+* S
+inst✝ : IsDominant (Spec.map (CommRingCat.ofHom g))
+⊢ (StructureSheaf.toStalk R (genericPoint ↥(Spec ↧R)) ≫ (Spec ↧R).presheaf.stalkSpecializes ⋯) ≫
+      Scheme.Hom.stalkMap (Spec.map (CommRingCat.ofHom g)) (genericPoint ↥(Spec ↧S)) =
+    CommRingCat.ofHom g ≫ CommRingCat.ofHom (algebraMap S ↑(Spec ↧S).functionField)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    genericPoint ↥(Spec ↧R)
+  has type
+    ↥(Spec ↧R)
+  but is expected to have type
+    ↑(PrimeSpectrum.Top R)
+  in the application
+    (structurePresheafInCommRingCat R).stalk (genericPoint ↥(Spec ↧R))
+RESULT=1
+RELEASED 2026-11-08T07:07:05Z exit=1

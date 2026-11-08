@@ -1,0 +1,11 @@
+# Exact primitive-kernel application
+
+1. Required inputs: the actual literal completed curve and tripling for every N, the full-kernel coproduct, and the unchanged open-and-closed rank-eight kernel inclusion.
+2. Constructed object: the original full torsion coordinate algebra's Scheme, not a replacement scheme of the same cardinality. A test object may be any Scheme in the same universe, with no reducedness, affineness, field or connectedness assumption.
+3. Domain coverage: `LiteralKernelPointCover318.covers` is derived from the underlying homeomorphism of the exact coproduct isomorphism. The two original component maps are disjoint. No equality of Scheme maps is inferred from pointwise equality.
+4. Actual transitions: a tripling-killed test map lifts into the actual pullback kernel with its base map equal to its composition with the completed curve's structure map. The nowhere-zero condition excludes the zero summand pointwise. The actual open immersion then supplies the unique Scheme lift to the rank-eight component.
+5. Coefficients and scalar factors: no coefficient ring, lattice or scalar is changed. Every map is over the original literal base through its actual structural composition. There is no norm, Euler factor, Tate twist or analytic normalization to compare.
+6. Object identity: composition with the unchanged original completed torsion inclusion is exactly the original test map. Uniqueness uses the actual monomorphism of that closed immersion. The converse uses the original global tripling identity and disjointness of finite and zero charts.
+7. Consumer: `LiteralPrimitiveFunctor318.equivalence` is a genuine bijection with both inverses, and `natural` intertwines it with arbitrary Scheme precomposition. This supplies the geometric meaning of the original primitive cover, not a full-level or PEL identification.
+8. Evidence: three bounded first-time strict checks and recursive declaration audit. Exact sources and predecessor receipt are frozen. No full-chain replay or independent predecessor audit is asserted.
+9. Boundaries: nowhere-zero is fiberwise avoidance, not merely nonzero as a global section. The result does not equip arbitrary eight-point labels with addition, prove a PEL moduli theorem, or produce final 318/326 witnesses. Independent acceptance is separate.

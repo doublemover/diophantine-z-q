@@ -1,0 +1,13 @@
+# Actual primitive-kernel functor review
+
+Decision: accept the exact three-source arbitrary-Scheme primitive-functor application. Reviewer /root/restart_checkpoint is not the author of these sources or their geometric full-kernel predecessor; integration and earlier bounded reviews are disclosed. All three modules, author application/README/audit and the actual Mathlib open-immersion lift API were read. This is not a new Lean replay.
+
+LiteralKernelPointCover318 derives a cover and disjointness from the already constructed full Scheme coproduct isomorphism, using its exact original rank-eight and zero inclusion identities. This is solely topological coverage, not an inference that arbitrary Scheme maps are equal when points agree.
+
+LiteralPrimitiveKernel318.NowhereZero is pointwise avoidance of the entire zero-section image. A tripling-killed map first lifts to the genuine pullback kernel, with its base component the actual structure-map composition. Coverage and avoidance show its range lies in the rank-eight open component. The actual IsOpenImmersion.lift constructs a Scheme map with its morphism factorization identity, retaining nilpotents. Uniqueness uses the original closed immersion's monomorphism. The converse uses the exact original inclusion_tripling identity and disjointness from the zero section. No affine, field, reduced, connected or nonempty hypothesis is imposed on the test Scheme.
+
+LiteralPrimitiveFunctor318.equivalence has both actual inverse laws from this unique factorization. natural is exact composition associativity for arbitrary precomposition, and its Points type retains both the morphism-level tripling equation and nowhere-zero predicate. This is a genuine natural set-valued representability statement; it is not merely a count or a bijection on algebraically closed points. N may be zero, giving the appropriate empty-base case, with no numerical rank claim added here.
+
+All nine obligations in the source application are respected: named actual inputs, original object, arbitrary-test scope, actual transition maps, unchanged coefficients, original inclusion identity, precise natural consumer, scoped evidence and retained exclusions. In particular mere inequality with the zero map would fail on disconnected tests and is not used. No additive meaning of the eight labels, full-level structure, PEL/KS identification or final arithmetic completeness is accepted.
+
+All frozen artifact and predecessor hashes match. The producer audit explicitly reports 76 declarations in three modules with the three standard allowed axioms. Hosted integration remains pending; no extra compiler replay was performed for this review.
