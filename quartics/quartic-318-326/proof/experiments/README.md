@@ -1,3 +1,13 @@
+# Lean experiment history
+
+## Completed analytic closure promoted
+
+[Run 42479657345](https://github.com/doublemover/diophantine-z-q/actions/runs/42479657345) passed all eight exact R3 sources and the 80-declaration recursive audit, with 211 verified predecessor modules. Its unchanged source closure, the separately successful literal-plane ambient consumer, and their distinct bounded source reviews are now admitted to the 1,837-module main progress cutoff. Shared predecessor bytes are admitted once. Exact hosted success is preserved in ../progress/receipts/period-plane-hosted-pass; earlier failed revisions remain immutable below. The main expanded cutoff still awaits its own combined hosted validation.
+
+No experimental packet is active. Deactivation prevents the completed modules from shadowing their newly admitted baseline counterparts. The previous 1,731-module main snapshot separately passed its 28,825-declaration audit; that is not proof of this expanded cutoff. No local whole-chain replay was performed.
+
+The following sections preserve historical intake states and do not describe current active packets.
+
 # Pending Lean experiments
 
 ## Natural period-to-plane R3 recheck

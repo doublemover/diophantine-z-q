@@ -1,0 +1,38 @@
+{
+  "packet": "forward-target-graph-r4",
+  "status": "PENDING_HOSTED_RECHECK_AFTER_ANALYTIC_TACTIC_FAILURE",
+  "order": [
+    "AnalyticImplicitGraph318",
+    "LiteralThreePlaneImmersion318",
+    "LiteralThreePlaneGraph318"
+  ],
+  "files": {
+    "LiteralThreePlaneImmersion318.lean": {
+      "sha256": "392b7184f6ce298c2d396ecf29f32f86ce6bf2b2e9bf85b2f326ac7d70b518c5",
+      "imports": [
+        "LiteralThreePlanePoints318"
+      ]
+    },
+    "AnalyticImplicitGraph318.lean": {
+      "sha256": "8c62dd62a76a70ca2aa31c598c7847c61fe01e34bb155203a0fa1a9b72f555c7",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ImplicitContDiff",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic"
+      ]
+    },
+    "LiteralThreePlaneGraph318.lean": {
+      "sha256": "05ae558f71bb7a0ad6966bd0bede82ace9b809720681cdaad6efcc14b5659946",
+      "imports": [
+        "LiteralThreePlaneImmersion318",
+        "AnalyticImplicitGraph318",
+        "Mathlib.Analysis.Analytic.Linear"
+      ]
+    }
+  },
+  "scope": "Actual polynomial x derivative and nonvanishing from the literal cubic unit, followed by independently constructed local holomorphic quartic graph with local uniqueness. No target charted-space/analytification or PEL conclusion yet.",
+  "prior_immersion_intake_sha256": "6e107fa45f145b520d7f0650f5b0929c6008795306919c1cc7dca29538be8435",
+  "prior_immersion_source_unchanged": false,
+  "prior_intake_sha256": "df4404dd556d8538680c94b410ba4ec5e5b1cc71db14ea09f96aca97f073b21b",
+  "repair": "Replace final graph Q_analyticAt fun_prop with explicit analyticAt_fst/snd and analytic sub/mul/pow proof, adding explicit Analytic.Linear import. All statements and the first two source files are unchanged; first two strictly compiled in R3, final graph and packet audit remain pending."
+}

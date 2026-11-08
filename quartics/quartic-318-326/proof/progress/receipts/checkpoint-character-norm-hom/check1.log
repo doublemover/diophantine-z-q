@@ -1,0 +1,59 @@
+ACQUIRED:2026-11-08T13:14:38Z
+CHECK:CompletedCharacterLineNormHom318
+CompletedCharacterLineNormHom318.lean:15:78: error(lean.unknownIdentifier): Unknown identifier `Model`
+CompletedCharacterLineNormHom318.lean:19:47: error: Type mismatch
+  c * d
+has type
+  Class Model
+but is expected to have type
+  Class CompletedCharacterNormLine318.Model
+CompletedCharacterLineNormHom318.lean:20:48: error: Application type mismatch: The argument
+  c
+has type
+  Class Model
+but is expected to have type
+  Class CompletedCharacterNormLine318.Model
+in the application
+  CompletedCharacterLineClassNorm318.norm i c
+CompletedCharacterLineNormHom318.lean:20:94: error: Application type mismatch: The argument
+  d
+has type
+  Class Model
+but is expected to have type
+  Class CompletedCharacterNormLine318.Model
+in the application
+  CompletedCharacterLineClassNorm318.norm i d
+CompletedCharacterLineNormHom318.lean:22:73: error: Application type mismatch: The argument
+  L
+has type
+  Line.{u_1} Model
+of sort `Type (u_1 + 1)` but is expected to have type
+  Line.{0} CompletedCharacterNormLine318.Model
+of sort `Type 1` in the application
+  CompletedCharacterNormTensor318.lineIso i L
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 1
+CompletedCharacterLineNormHom318.lean:26:11: error: Type mismatch
+  CompletedCharacterLineClassNorm318.norm i
+has type
+  Class CompletedCharacterNormLine318.Model → Class (Target i)
+but is expected to have type
+  Class Model → Class (Target i)
+CompletedCharacterLineNormHom318.lean:30:57: error: Application type mismatch: The argument
+  c
+has type
+  Class Model
+but is expected to have type
+  Class CompletedCharacterNormLine318.Model
+in the application
+  CompletedCharacterLineClassNorm318.norm i c
+CompletedCharacterLineNormHom318.lean:32:71: error: Application type mismatch: The argument
+  L
+has type
+  Line Model
+but is expected to have type
+  Line CompletedCharacterNormLine318.Model
+in the application
+  CompletedCharacterNormLine318.line i L
+RELEASED:2026-11-08T13:14:43Z

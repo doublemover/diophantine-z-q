@@ -1,0 +1,46 @@
+ACQUIRED:2026-11-08T12:56:53Z
+CHECK:PullbackUnitComposition318
+PullbackUnitComposition318.lean:31:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Adjunction.homEquiv ?adj ?X' ?Y) (CategoryTheory.Functor.map ?m.140 ?f ≫ ?g)
+in the target expression
+  (((Scheme.Modules.pullbackPushforwardAdjunction f).homEquiv
+              ((Scheme.Modules.pullback g).obj (SheafOfModules.unit Z.ringCatSheaf))
+              (SheafOfModules.unit X.ringCatSheaf)).trans
+          ((Scheme.Modules.pullbackPushforwardAdjunction g).homEquiv (SheafOfModules.unit Z.ringCatSheaf)
+            ((Scheme.Modules.pushforward f).obj (SheafOfModules.unit X.ringCatSheaf))))
+        ((Scheme.Modules.pullback f).map (IdentityCotangent318.pullbackUnitIso g).hom ≫
+          (IdentityCotangent318.pullbackUnitIso f).hom) ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app (SheafOfModules.unit X.ringCatSheaf) =
+    StructurePushforwardSplit318.unitMap (f ≫ g)
+
+X Y Z : Scheme
+f : X ⟶ Y
+g : Y ⟶ Z
+⊢ (((Scheme.Modules.pullbackPushforwardAdjunction f).homEquiv
+              ((Scheme.Modules.pullback g).obj (SheafOfModules.unit Z.ringCatSheaf))
+              (SheafOfModules.unit X.ringCatSheaf)).trans
+          ((Scheme.Modules.pullbackPushforwardAdjunction g).homEquiv (SheafOfModules.unit Z.ringCatSheaf)
+            ((Scheme.Modules.pushforward f).obj (SheafOfModules.unit X.ringCatSheaf))))
+        ((Scheme.Modules.pullback f).map (IdentityCotangent318.pullbackUnitIso g).hom ≫
+          (IdentityCotangent318.pullbackUnitIso f).hom) ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app (SheafOfModules.unit X.ringCatSheaf) =
+    StructurePushforwardSplit318.unitMap (f ≫ g)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Z.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑Z.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥Z) RingCat
+  in the application
+    SheafOfModules.unit Z.ringCatSheaf
+PullbackUnitComposition318.lean:30:13: warning: This simp argument is unused:
+  Equiv.trans_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RELEASED:2026-11-08T12:56:56Z

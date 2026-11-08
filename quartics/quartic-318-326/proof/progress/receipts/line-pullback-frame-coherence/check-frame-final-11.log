@@ -1,0 +1,96 @@
+ACQUIRED:2026-11-08T13:12:14Z
+CHECK:PullbackOpenFrameNormalization318
+PullbackOpenFrameNormalization318.lean:45:30: warning: This simp argument is unused:
+  Iso.refl_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.app_hom, Iso.app_inv, NatTrans.comp_app, Iso.trans_hom, Iso.symm_hom,
+    Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom, Functor.mapIso_inv, Functor.map_comp, Category.assoc,
+    Iso.inv_hom_id_app, Category.comp_id, Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_hom, NatTrans.id_app,
+    Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:45:43: warning: This simp argument is unused:
+  NatTrans.id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.app_hom, Iso.app_inv, NatTrans.comp_app, Iso.trans_hom, Iso.symm_hom,
+    Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom, Functor.mapIso_inv, Functor.map_comp, Category.assoc,
+    Iso.inv_hom_id_app, Category.comp_id, Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_hom, Iso.refl_inv,
+    Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:45:59: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.app_hom, Iso.app_inv, NatTrans.comp_app, Iso.trans_hom, Iso.symm_hom,
+    Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom, Functor.mapIso_inv, Functor.map_comp, Category.assoc,
+    Iso.inv_hom_id_app, Category.comp_id, Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_hom, Iso.refl_inv,
+    NatTrans.id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK:OpenFramePullbackRestriction318
+OpenFramePullbackRestriction318.lean:19:51: error: unsolved goals
+X Y Z : Scheme
+f : X ⟶ Y
+g : Y ⟶ Z
+inst✝¹ : IsOpenImmersion f
+inst✝ : IsOpenImmersion g
+M : Z.Modules
+⊢ (Scheme.Modules.restrictFunctor f).map ((Scheme.Modules.restrictFunctorIsoPullback g).hom.app M) ≫
+      (Scheme.Modules.restrictFunctorIsoPullback f).hom.app ((Scheme.Modules.pullback g).obj M) =
+    (Scheme.Modules.restrictFunctor f).map ((Scheme.Modules.restrictFunctorIsoPullback g).hom.app M) ≫
+      (Scheme.Modules.restrictFunctorIsoPullback f).hom.app ((Scheme.Modules.pullback g).obj M) ≫
+        𝟙 ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M)
+OpenFramePullbackRestriction318.lean:21:47: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Category.assoc, Iso.hom_inv_id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+OpenFramePullbackRestriction318.lean:62:2: error: Type mismatch: After simplification, term
+  ha
+ has type
+  @Eq (SheafOfModules.unit (↑W).ringCatSheaf ⟶ (Scheme.Modules.pullback W.ι).obj M)
+    ((Scheme.Modules.restrictUnitIso (X.homOfLE h)).inv ≫
+      (Scheme.Modules.restrictFunctor (X.homOfLE h)).map e.hom ≫
+        (Scheme.Modules.restrictFunctor (X.homOfLE h)).map ((Scheme.Modules.restrictFunctorIsoPullback U.ι).hom.app M) ≫
+          (Scheme.Modules.restrictFunctorIsoPullback (X.homOfLE h)).hom.app ((Scheme.Modules.pullback U.ι).obj M) ≫
+            (Scheme.Modules.pullbackComp (X.homOfLE h) U.ι).hom.app M ≫ (Scheme.Modules.pullbackCongr ⋯).hom.app M)
+    ((IdentityCotangent318.pullbackUnitIso (X.homOfLE h)).inv ≫
+      (Scheme.Modules.pullback (X.homOfLE h)).map e.hom ≫
+        (Scheme.Modules.pullback (X.homOfLE h)).map ((Scheme.Modules.restrictFunctorIsoPullback U.ι).hom.app M) ≫
+          (Scheme.Modules.pullbackComp (X.homOfLE h) U.ι).hom.app M ≫ (Scheme.Modules.pullbackCongr ⋯).hom.app M)
+but is expected to have type
+  @Eq (SheafOfModules.unit (↑W).ringCatSheaf ⟶ (Scheme.Modules.pullback W.ι).obj M)
+    ((Scheme.Modules.restrictUnitIso (X.homOfLE h)).inv ≫
+      (Scheme.Modules.restrictFunctor (X.homOfLE h)).map e.hom ≫
+        (Scheme.Modules.restrictFunctor (X.homOfLE h)).map ((Scheme.Modules.restrictFunctorIsoPullback U.ι).hom.app M) ≫
+          (Scheme.Modules.restrictFunctorIsoPullback (X.homOfLE h)).hom.app ((Scheme.Modules.pullback U.ι).obj M) ≫
+            (Scheme.Modules.pullbackComp (X.homOfLE h) U.ι).hom.app M ≫ (Scheme.Modules.pullbackCongr ⋯).hom.app M)
+    ((IdentityCotangent318.pullbackUnitIso (X.homOfLE h)).inv ≫
+      (Scheme.Modules.pullback (X.homOfLE h)).map e.hom ≫
+        (Scheme.Modules.pullback (X.homOfLE h)).map ((Scheme.Modules.restrictFunctorIsoPullback U.ι).hom.app M) ≫
+          ((Scheme.Modules.pullbackComp (X.homOfLE h) U.ι).hom ≫ (Scheme.Modules.pullbackCongr ⋯).hom).app M)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getLimitCone ↦ 3780
+  inv ↦ 8
+OpenFramePullbackRestriction318.lean:43:29: warning: This simp argument is unused:
+  Iso.app_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OpenLineSectionBasis318.restrictFrame, PullbackChartComposition318.extend,
+    PullbackFrameComposition318.frame, PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.app_hom,
+    Functor.mapIso_hom, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RELEASED:2026-11-08T13:12:36Z

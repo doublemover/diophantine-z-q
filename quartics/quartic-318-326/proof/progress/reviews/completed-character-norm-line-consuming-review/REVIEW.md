@@ -1,0 +1,17 @@
+# Bounded consuming review: four original quotient norm lines
+
+Decision: accept the exact four-source packet at its stated chosen-presentation scope. No correction is requested. This is a non-author source/application review, not a compiler replay or transitive acceptance of all predecessors.
+
+The required original data are an actual finite map, an unchanged source module with a genuine covering family and actual unit frames, and a separately specified actual morphism of pushed-source units to target units. The generic source correctly does not infer the existence of a norm merely from finiteness. Its actual target neighborhoods and frames cover the target and entire source inverse images. sourceIso is the real reconstruction of unchanged M, with both inverse laws and equality of original coordinate maps.
+
+The extracted source cocycle uses actual full inverse images of complete target intersections. targetCocycle applies the specified real unit-sheaf morphism to those units. The target object is an actual coefficient-module sheaf, with genuine canonical frames, both inverse laws, local freeness, exact recovered transferred cocycle and actual coefficient compatibility.
+
+For every original i:Fin4, CompletedCharacterNormLine318 uses literally CompletedCharacterGlobal318.completedMap i, its already checked finiteness, the original Target i, and CompletedCharacterSheafNorm318.norm i. The source line is arbitrary within its supplied actual frame data. No fifth map or alternate model is substituted. The exact original_value predecessor is the all-open regular norm, so norm_original_transition binds the actual target unit value to the actual regular source-section norm.
+
+CompletedCharacterNormTransition318 additionally removes the potential presentation ambiguity: originalUnit is exactly the restriction of the transition appearing in sourceIso's reconstruction, along the literal full preimage-intersection inclusion. originalUnit_eq follows the original scalar restriction theorem; original_norm_transition is then the exact same regular norm of that transported original transition. It does not use field points, a residue-field test, or mere equation agreement.
+
+All nine application obligations were checked against all four full source bodies and the exact consuming maps. Required-proposition and private-inclusive recursive audit47/4 evidence, strict phase exit markers, source/artifact/dependency hashes match. No new compiler invocation or shared source edit was used.
+
+Authorship limits: this reviewer authored earlier original frame/extraction/restriction and some completed-model/module producers. Those are retained under their already recorded distinct reviews, not independently reapproved here. Contact authored these four sources and the actual four-map norm/finite-map predecessors; their separately retained reviews remain dependencies. Geometric's finite target cover/reconstruction and checkpoint's canonical recovery/class definition are likewise retained at their original scopes. This acceptance covers the new application and exact interfaces, not all historical predecessor mathematics.
+
+Not accepted by this packet: independence of source presentation or source isomorphism, a class-level norm homomorphism, norm tensor/unit/pullback laws, any Picard/Jacobian or polarization/PEL identification, or full318/326 closure. Those are explicitly separate consumers, as the producer states.

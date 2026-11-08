@@ -1,0 +1,17 @@
+ACQUIRED 2026-11-08T12:52:49Z fifth-character
+CHECK LinePullbackUnitScalar318 2026-11-08T12:52:49Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LinePullbackUnitScalar318.lean:29:2: error: Type mismatch: After simplification, term
+  Eq.symm h'
+ has type
+  @Eq (ClutchedModule318.unit ↑(f ⁻¹ᵁ U) ⟶ SheafOfModules.unit (↑(f ⁻¹ᵁ U)).ringCatSheaf)
+    ((LinePullbackFrames318.frame f M U e1).hom ≫ (LinePullbackFrames318.frame f M U e0).inv)
+    (ClutchedModule318.multiply
+      ((ConcreteCategory.hom (Scheme.Hom.appTop (LinePullbackFrames318.chartMap f U)))
+        ↑(UnitSheafScalar318.unit (e1 ≪≫ e0.symm))))
+but is expected to have type
+  @Eq (ClutchedModule318.unit ↑(f ⁻¹ᵁ U) ⟶ ClutchedModule318.unit ↑(f ⁻¹ᵁ U))
+    ((LinePullbackFrames318.frame f M U e1).hom ≫ (LinePullbackFrames318.frame f M U e0).inv)
+    (ClutchedModule318.multiply
+      ↑((Units.map ↑(CommRingCat.Hom.hom (Scheme.Hom.appTop (LinePullbackFrames318.chartMap f U))))
+          (UnitSheafScalar318.unit (e1 ≪≫ e0.symm))))
+RELEASED 2026-11-08T12:52:52Z fifth-character

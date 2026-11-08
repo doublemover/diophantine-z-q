@@ -1,0 +1,13 @@
+# Four actual norm-unit sheaf comparisons
+
+Accepted at the exact two-source consuming scope. Both full sources, their nine-obligation application, original source-isomorphism transport, actual target norm-line definition and structure-line reconstruction were read. No replay or source edit was performed.
+
+The generic construction retains f:X -> Y and the supplied actual morphism from pushed-forward source units to target units. It does not infer a norm from finiteness. Identity-coordinate frames for the original source structure module on complete inverse images have transitions literally one. The true multiplicative unit-sheaf morphism sends this to the target constant-one cocycle. Equality transport followed by the inverse of StructureLineCocycleIso gives an isomorphism to the original target structure module, with the true cover hypothesis retained.
+
+For an arbitrary original source module M, actual trivialization e:M isomorphic to O_X, and genuine independent source cover and frames, the construction uses the finite-line producer's original target neighborhoods and whole inverse-image frames. FiniteUnitTransferSourceIso.fixedIso transports those actual frames via e, then compares to the structure-module identity frames. Its direction is from the originally constructed transferred line to the transferred structure line. Composition with the constant-one isomorphism ends at O_Y. No equality of presentations or arbitrary transition labels is assumed.
+
+The specialized consumer quantifies all i in Fin 4 and uses exactly CompletedCharacterGlobal.completedMap i with CompletedCharacterSheafNorm.norm i and its actual finite-map instance. The source and target are the existing original Model and Target i, and the result starts at CompletedCharacterNormLine.object i with the original cover and frames. The bundled lineIso retains that same line record. Both categorical inverse equations refer to the actual composite isomorphism.
+
+The exact two sources pass strict kernel checks, and the fresh required-proposition/private-inclusive recursive audit reports fourteen declarations in two modules with standard roots. Producer and dependency hashes and retained logs were verified. Combined hosted integration remains pending. No complete predecessor replay or new compiler run was performed.
+
+The reviewer authored neither source or its direct producers. Earlier distinct class-function and source/cover consuming reviews are not replaced. Any transitively used own subopen helper is excluded from self-independent acceptance and its separate review is bound. This packet does not yet assert tensor comparison, class map_one or group-hom laws, coherent norm functoriality, Picard/Jacobian representation, PEL or arithmetic closure.

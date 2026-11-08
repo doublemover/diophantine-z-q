@@ -1,0 +1,33 @@
+ACQUIRED:2026-11-08T13:08:31Z
+CHECK:PullbackFrameComposition318
+PullbackFrameComposition318.lean:32:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).map e.hom ≫ (Scheme.Modules.pullbackComp f g).hom.app M
+in the target expression
+  (IdentityCotangent318.pullbackUnitIso f).inv ≫
+      (Scheme.Modules.pullback f).map (IdentityCotangent318.pullbackUnitIso g).inv ≫
+        (Scheme.Modules.pullback f).map ((Scheme.Modules.pullback g).map e.hom) ≫
+          ((Scheme.Modules.pullbackComp f g).app M).hom =
+    (IdentityCotangent318.pullbackUnitIso (f ≫ g)).inv ≫ (Scheme.Modules.pullback (f ≫ g)).map e.hom
+
+X Y Z : Scheme
+f : X ⟶ Y
+g : Y ⟶ Z
+M : Z.Modules
+e : SheafOfModules.unit Z.ringCatSheaf ≅ M
+⊢ (IdentityCotangent318.pullbackUnitIso f).inv ≫
+      (Scheme.Modules.pullback f).map (IdentityCotangent318.pullbackUnitIso g).inv ≫
+        (Scheme.Modules.pullback f).map ((Scheme.Modules.pullback g).map e.hom) ≫
+          ((Scheme.Modules.pullbackComp f g).app M).hom =
+    (IdentityCotangent318.pullbackUnitIso (f ≫ g)).inv ≫ (Scheme.Modules.pullback (f ≫ g)).map e.hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    SheafOfModules X.ringCatSheaf
+RELEASED:2026-11-08T13:08:35Z

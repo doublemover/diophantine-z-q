@@ -1,0 +1,7 @@
+# Actual complementary global differential descent
+
+For each of the four original completed complementary quotient maps, the original canonical pullback on regular global intrinsic differentials is injective and has exactly the source sections fixed by the eight original signs fixing that entire map as its range. The same pullback is bundled as an additive equivalence with that actual invariant subgroup; its inverse identities and specified invariant normalization retain scalar one.
+
+The essential regularity step includes the omitted branch. There, whole-ring sign invariance forces divisibility of the differential coefficient by the literal ramified root before forming any ratio. On the other branches and at infinity the actual pulled invariant has a unit coefficient. The resulting source scalar is glued on the full five-chart cover. Its actual finite-source generic germ lies in the original target pullback range; genuine all-open regular-function trace/8 then produces an everywhere regular target function. The canonical scalar pullback formula gives an actual target differential preimage.
+
+All seventeen sources passed bounded strict checks and a fresh recursive private-inclusive audit. Exact dependency/helper decisions and mixed diagnostic histories are retained. Independent consuming review and hosted integration remain separate. This is not a sheaf-level differential trace, a complete canonical basis or dimension theorem, a Picard/Jacobian correspondence, polarization, PEL/KS identification, metric/height comparison, or final arithmetic closure.

@@ -1,0 +1,23 @@
+ACQUIRED:2026-11-08T13:10:26Z
+CHECK:PullbackChartComposition318
+PullbackChartComposition318.lean:29:9: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (450000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+PullbackChartComposition318.lean:26:58: warning: This simp argument is unused:
+  Iso.app_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Iso.trans_hom, Functor.mapIso_hom, Iso.app_hom, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackChartComposition318.lean:69:56: warning: This simp argument is unused:
+  Iso.app_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart, Iso.trans_hom, Iso.symm_hom, Iso.app_inv, Category.assoc, Iso.inv_hom_id_app,
+    Category.comp_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RELEASED:2026-11-08T13:10:58Z
