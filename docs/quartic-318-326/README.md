@@ -1,6 +1,8 @@
 # 318- and 326-variable quartics
 
-This branch adds a contribution package alongside the existing Version 10 construction. It does not replace or revise the published manuscript, historical inventories, or accepted Lean snapshot.
+This branch adds a contribution package alongside the published Version 13 construction. It does not replace or revise the published manuscript, historical inventories, or accepted Lean snapshot.
+
+Version 11 is the mathematical dependency target for the active restricted-converse application. The repository has merged later upstream releases, but that does not automatically update the contribution's pinned Version 10 consumers. The exact Version 10-to-11 comparison and required consumer changes are being reviewed in the [protocol gap inventory](PROTOCOL-GAPS.md).
 
 | Construction | Total variables | Witnesses | Degree | Monomials | Largest absolute coefficient |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -19,7 +21,7 @@ Both tables include the input as coordinate zero. The 318 table specifies the fi
 
 ## Reproduce
 
-From the repository root, with Python 3.11+ and Node.js 24:
+From the repository root, with Python 3.11+ and Node.js 26 (the current CI pin is 26.13.0):
 
 ```sh
 python -B scripts/check_quartic318_326.py
@@ -36,3 +38,7 @@ The Lean bridge proves equivalence between the exact 318 polynomial and its quad
 This contribution was developed with OpenAI coding assistants. It builds on José Brox’s pinned v3 manuscript, the Version 10 manuscript, and Gabriel Conant’s odd-product and asymmetric-depth construction. Source attribution remains in the package. Historical Lean rebuild receipts are retained. A [fresh kernel-checked rebuild](../../quartics/quartic-318-326/proof/receipts/fresh-rebuild/receipt.json) of the concrete and component packages also audited all local declarations. It does not prove the global `sourceArithmetic` parameter. [Integration provenance](../../quartics/quartic-318-326/INTEGRATION.json) records the upstream base and payload identity.
 
 The package keeps its internally referenced directory structure. Shared Lean modules and proof inputs use relative links, avoiding repeated copies; coefficient tables are linked directly rather than duplicated as top-level downloads.
+
+## New upstream review requirements
+
+The [protocol gap assessment](PROTOCOL-GAPS.md) maps our current evidence to the new contributor protocol and PR template. The contribution is not yet protocol-complete or ready for an unconditional proof acceptance. No PR is being created.
