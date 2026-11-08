@@ -59,6 +59,7 @@ jobs:
       has_stage1: ${{ steps.plan.outputs.has_stage1 }}
       parallel: ${{ steps.plan.outputs.parallel }}
       base: ${{ steps.plan.outputs.base }}
+      snapshot: ${{ steps.plan.outputs.snapshot }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
@@ -82,11 +83,20 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
         with:
           python-version: '3.12.14'
-      - name: Restore prior project artifacts
+      - name: Restore audited whole snapshot
+        id: whole-cache
         if: env.CLEAN != 'true'
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
           path: .cache/progress-ci
+          key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
+          restore-keys: |
+            progress-v2-full-${{ needs.plan.outputs.base }}-
+      - name: Restore independently completed cohort fallback
+        if: env.CLEAN != 'true'
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        with:
+          path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
           restore-keys: |
             progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-
@@ -117,9 +127,8 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py build --cohorts "$COHORTS" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
-      - name: Cache freshly verified clean artifacts
-        if: env.CLEAN == 'true'
+          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --cohorts "$COHORTS" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
+      - name: Cache verified cohort artifacts
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
           path: .cache/progress-ci
@@ -147,11 +156,20 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
         with:
           python-version: '3.12.14'
-      - name: Restore prior project artifacts
+      - name: Restore audited whole snapshot
+        id: whole-cache
         if: env.CLEAN != 'true'
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
           path: .cache/progress-ci
+          key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
+          restore-keys: |
+            progress-v2-full-${{ needs.plan.outputs.base }}-
+      - name: Restore independently completed cohort fallback
+        if: env.CLEAN != 'true'
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        with:
+          path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
           restore-keys: |
             progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-
@@ -187,9 +205,8 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py build --cohorts "$COHORTS" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --bundles "$GITHUB_WORKSPACE/build/foundation-bundles" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
-      - name: Cache freshly verified clean artifacts
-        if: env.CLEAN == 'true'
+          lake env python -B ../../../../scripts/check_progress_lean.py build --fallback-cache "$GITHUB_WORKSPACE/.cache/progress-cohort" --cohorts "$COHORTS" --split-depth "$SPLIT_DEPTH" --cohort '${{ matrix.id }}' --bundles "$GITHUB_WORKSPACE/build/foundation-bundles" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-cohort-${{ matrix.id }}" "${flags[@]}"
+      - name: Cache verified cohort artifacts
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
           path: .cache/progress-ci
@@ -244,7 +261,12 @@ jobs:
           flags=()
           if [[ "$CLEAN" == true ]]; then flags+=(--clean); fi
           cd "$PROGRESS"
-          lake env python -B ../../../../scripts/check_progress_lean.py audit --cohorts "$COHORTS" --split-depth "$SPLIT_DEPTH" --bundles "$GITHUB_WORKSPACE/build/cohort-bundles" --output "$GITHUB_WORKSPACE/build/progress-audit" "${flags[@]}"
+          lake env python -B ../../../../scripts/check_progress_lean.py audit --cache "$GITHUB_WORKSPACE/.cache/progress-full" --cohorts "$COHORTS" --split-depth "$SPLIT_DEPTH" --bundles "$GITHUB_WORKSPACE/build/cohort-bundles" --output "$GITHUB_WORKSPACE/build/progress-audit" "${flags[@]}"
+      - name: Cache complete audited snapshot
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        with:
+          path: .cache/progress-full
+          key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
       - name: Upload exact audit result
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24

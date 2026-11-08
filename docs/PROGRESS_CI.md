@@ -37,6 +37,12 @@ of its local imports, the exact Lean/toolchain and Lake dependency manifests,
 compiler flags, checker version and platform. A cache hit additionally requires
 the expected artifact hashes and the exact artifact hashes of its imported project
 modules. Changes invalidate the affected module and its downstream dependents.
+After the complete audit, a whole-snapshot cache is saved. Each cohort restores it
+first, plus an independently completed cohort cache as fallback. Repartitioning
+therefore does not discard valid modules merely because they moved between jobs.
+For example, moving from 951 to 971 modules would otherwise miss 207 unchanged
+modules under per-cohort-only caching. Only matching source/dependency/artifact
+entries are admitted from either cache.
 The checker never copies an unlisted cache artifact into the fresh build directory
 and never uses an inherited project `LEAN_PATH`.
 
@@ -73,7 +79,10 @@ equivalent clean and incremental builds, and the complete final axiom audit pass
 A second real Lean test used two foundation cohorts and one dependent cohort.
 Cold, warm, source-changed and clean staged builds all passed the complete audit;
 the changed foundation source rebuilt its downstream module but not the independent
-module, and imported prerequisites were not reuploaded. Regression tests also reject disagreement between the replay module list and the
+module, and imported prerequisites were not reuploaded. A further real Lean test
+changed the cohort partition while restoring the complete audited cache: it
+compiled zero unchanged modules. All five cold/warm/repartitioned/changed/clean
+combined audits passed. Regression tests also reject disagreement between the replay module list and the
 authoritative manifest. These small tests validate cache behavior, not the runtime
 or success of the initial full hosted run.
 

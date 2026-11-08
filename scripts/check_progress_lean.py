@@ -220,6 +220,15 @@ def copy_artifacts(source, target, name, expected):
         shutil.copyfile(src[suffix], dst[suffix])
 
 
+def save_cache(cache, lib, receipt):
+    cache = cache.resolve()
+    cache.mkdir(parents=True, exist_ok=True)
+    cached_lib = cache / "lib"
+    if cached_lib.exists(): shutil.rmtree(cached_lib)
+    shutil.copytree(lib, cached_lib)
+    write_json(cache / "receipt.json", receipt)
+
+
 def build_cohort(args, plan):
     cohort = next(c for c in plan["cohorts"] if c["id"] == args.cohort)
     output = args.output.resolve()
@@ -229,13 +238,16 @@ def build_cohort(args, plan):
     env, version = environment(PROJECT, lib)
     ensure_official(PROJECT, env, logs)
     cache = args.cache.resolve()
-    prior = {}
-    if not args.clean and (cache / "receipt.json").is_file():
-        try:
-            old = json.loads((cache / "receipt.json").read_text())
-            if old.get("base") == plan["base"]: prior = old.get("modules", {})
-        except (ValueError, OSError):
-            pass
+    candidates = []
+    if not args.clean:
+        for folder in [cache, getattr(args, "fallback_cache", None)]:
+            if folder is None or not (folder / "receipt.json").is_file(): continue
+            try:
+                old = json.loads((folder / "receipt.json").read_text())
+                if old.get("status") == "PASS" and old.get("base") == plan["base"]:
+                    candidates.append((folder / "lib", old.get("modules", {})))
+            except (ValueError, OSError):
+                pass
     built, commands, hits = {}, [], []
     if cohort["imports"]:
         if args.bundles is None: raise ValueError("Dependent cohort requires earlier-stage bundles")
@@ -247,9 +259,11 @@ def build_cohort(args, plan):
             built[name] = prior_entries[name]
             copy_artifacts(origins[name], lib, name, built[name]["files"])
     for name in cohort["modules"]:
-        entry = prior.get(name)
-        if not args.clean and reusable(entry, name, plan, cache / "lib", built):
-            copy_artifacts(cache / "lib", lib, name, entry["files"])
+        hit = next(((folder, prior[name]) for folder, prior in candidates
+                    if reusable(prior.get(name), name, plan, folder, built)), None)
+        if hit is not None:
+            folder, entry = hit
+            copy_artifacts(folder, lib, name, entry["files"])
             hits.append(name)
             print(json.dumps({"module": name, "cache": "verified-reuse"}), flush=True)
         else:
@@ -270,11 +284,7 @@ def build_cohort(args, plan):
         for path in artifact_paths(lib, name).values():
             if path.exists(): path.unlink()
     # Only successfully validated/compiled files enter the next cache generation.
-    cache.mkdir(parents=True, exist_ok=True)
-    cached_lib = cache / "lib"
-    if cached_lib.exists(): shutil.rmtree(cached_lib)
-    shutil.copytree(lib, cached_lib)
-    write_json(cache / "receipt.json", receipt)
+    save_cache(cache, lib, receipt)
     print(json.dumps({"cohort": args.cohort, "compiled": len(commands), "reused": len(hits)}), flush=True)
 
 
@@ -338,6 +348,11 @@ def merge_and_audit(args, plan):
               "full_arithmetic_theorem_proved": False,
               "cache_trust": "Verified artifacts from repository CI; not independent proof certificates"}
     write_json(output / "RESULT.json", result)
+    if getattr(args, "cache", None) is not None:
+        save_cache(args.cache, lib, {"schema": SCHEMA, "status": "PASS",
+            "base": plan["base"], "snapshot": plan["snapshot"], "modules": entries,
+            "scope": "Complete source coverage and recursive axiom audit",
+            "audit_result_sha256": sha(output / "RESULT.json")})
     print(json.dumps(result), flush=True)
 
 
@@ -351,6 +366,7 @@ def main():
     parser.add_argument("--cohort", type=int)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--cache", type=Path)
+    parser.add_argument("--fallback-cache", type=Path)
     parser.add_argument("--bundles", type=Path)
     parser.add_argument("--clean", action="store_true")
     parser.add_argument("--github-output", type=Path)
@@ -371,6 +387,7 @@ def main():
                 out.write("base=" + plan["base"] + "\nhas_stage1=" +
                           str(bool(matrices[1]["include"])).lower() + "\n")
                 out.write(f"parallel={args.max_parallel}\n")
+                out.write("snapshot=" + plan["snapshot"] + "\n")
     elif args.command == "cache-targets":
         print("\n".join(x for x in plan["upstream"] if x.split(".")[0] not in {"Lean", "Std", "Init"}))
     elif args.command == "build":
