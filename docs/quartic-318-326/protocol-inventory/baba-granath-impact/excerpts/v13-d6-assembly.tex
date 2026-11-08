@@ -1,0 +1,49 @@
+
+The final composition uses the following precise statements.
+\begin{description}[style=nextline,leftmargin=1.8cm]
+\item[$\mathsf G$] Canonical point codes form exactly the infinite cyclic
+group $2E(\Q(\sqrt2))=\Z P_0$. The membership polynomial types arbitrary inputs;
+raw addition describes the group law on canonical codes.
+\item[$\mathsf M$] The actual guarded multiplication template has rational
+witnesses exactly for triples with indices $a,b,ab$.
+\item[$\mathsf H$] The six-contact height theorem holds with the constants
+used by the precision computation and, separately, by multiplication.
+\item[$\mathsf{PC}$] The explicit pole polynomial is soluble for every
+input in Theorem~\ref{hyp:PC}.
+\item[$\mathsf C$] The actual five-input natural polynomial and its
+rational translation have the exact computation and substitution semantics
+of Section~\ref{sec:compiler}, including the power template.
+\item[$\mathsf B$] The templates, fixed constructors and private witness
+substitutions specify the same saved expression $P_*$. The quantitative
+syntax calculation applies to that expression.
+\end{description}
+
+\begin{lemma}[Assembly]\label{lem:assembly}
+Assume $\mathsf G,\mathsf M,\mathsf H,\mathsf{PC},\mathsf C,\mathsf B$.
+Then $P_*$ satisfies Theorem~\ref{thm:target}.
+\end{lemma}
+\begin{proof}
+Section~\ref{sec:bridge} proves the exact ordinary-value relation using
+one shared shift and disjoint private witness blocks. The literal
+substitutions in $\mathsf B$ identify its existential polynomial with
+$P_*$. Section~\ref{sec:size} proves the stated bounds for that same
+expression.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:target}]
+Section~\ref{sec:model}, including Proposition~\ref{prop:generator},
+proves $\mathsf G$ with its canonical membership and addition formulas.
+Theorem~\ref{thm:height} proves $\mathsf H$ for each of the two sets of
+constants used below. Sections~\ref{sec:rc}--\ref{sec:limits}, with
+Appendices~\ref{app:even-source}--\ref{app:endpoints}, prove the restricted
+converse in Theorem~\ref{hyp:RC}. The simultaneous descent in
+Section~\ref{sec:pole} then proves $\mathsf{PC}$. Using these results,
+Section~\ref{sec:mult} proves $\mathsf M$ on all rational input codes,
+including the finite false-triple guard.
+
+Section~\ref{sec:compiler} proves $\mathsf C$ for the fixed five-input
+natural polynomial and its rational model translation. Its witness
+variables remain natural before that translation. Sections~\ref{sec:syntax}
+and~\ref{sec:size} and Appendix~\ref{app:literal} prove $\mathsf B$, including
+the fixed scalars and private witness substitutions. All six statements
+therefore hold, and Lemma~\ref{lem:assembly} applies to the specified $P_*$.

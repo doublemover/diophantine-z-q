@@ -1,0 +1,698 @@
+{
+  "kind": "independent byte-binding replay, not mathematical proof",
+  "all_pass": true,
+  "check_count": 113,
+  "observed_current_head": "94622db7f8d1e072d646c66513e78d168e82911b",
+  "historical_snapshot": {
+    "path": "docs/quartic-318-326/v13-consumer-binding/arithmetic.before.md",
+    "sha256": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518"
+  },
+  "target_observed_head": "09e35ad61946e92561460d93c3e57831ea5e3117",
+  "target_head_arithmetic_blob_sha256": "b2a744f803269c188faa7ec564c37d51ffbde1fa942df989ce5529cd76a09469",
+  "provenance_clarification": "The target arithmetic hash binds the reviewed uncommitted historical snapshot, not the arithmetic blob at its observed HEAD. The exact snapshot is preserved and independently checked.",
+  "current_arithmetic": {
+    "path": "quartics/quartic-318-326/docs/arithmetic.md",
+    "sha256": "069738d42a127a2cd3a476cba9281a77f3cbd23ec81a5a3441090ea8ebab09d0"
+  },
+  "current_delta": "--- docs/quartic-318-326/v13-consumer-binding/arithmetic.before.md\n+++ quartics/quartic-318-326/docs/arithmetic.md\n@@ -1591,9 +1591,11 @@\n \n <a id=\"kato-scope\"></a>\n \n-## Kato applicability and the Version 11 consumer\n-\n-The active Kato dependency for this contribution is the [Version 11 repair](../../../manuscripts/quartic_v11.tex), not the smaller index family in the preserved [historical Version 10 pin](sources/quartic_v10.tex). The [application and consumer record](../../../docs/quartic-318-326/v11-consumer-binding/APPLICATION.json) binds the exact construction, norm identities, limiting class and downstream use. This adopts that specific repaired interface; it does not assert a complete revalidation of the restricted converse or a completed Lean witness-existence proof.\n+## Kato applicability and the Version 13 consumer\n+\n+The active mathematical dependency baseline for this contribution is the [Version 13 manuscript](../../../manuscripts/quartic_v13.tex), which retains the [Version 11 Kato repair](../../../manuscripts/quartic_v11.tex) unchanged. The [Version 13 carry-forward record](../../../docs/quartic-318-326/v13-consumer-binding/APPLICATION.json) binds the current construction, norm identities, limiting class and downstream passages to the previously reviewed [Version 11 application and consumer record](../../../docs/quartic-318-326/v11-consumer-binding/APPLICATION.json). The preserved [historical Version 10 pin](sources/quartic_v10.tex) is not the active smaller-index interface. This adopts the exact repaired interface at the current baseline; it does not assert a complete revalidation of the restricted converse or a completed Lean witness-existence proof.\n+\n+Version 12's 498/514-variable reduction and Version 13's 394/411-variable reduction are distinct from this contribution's literal 318/326 construction. Their new order-12/order-10 and order-40 tests, point-domain changes and scalar reductions are not automatically substituted for the current order-4/order-13, index-8 and height-49/8 source. The carry-forward verifies the retained arithmetic dependencies and leaves those separate new reductions and their application to this source outside its acceptance scope.\n \n The primary source is K. Kato, *Euler systems, Iwasawa theory, and Selmer groups*, Kodai Mathematical Journal 22 (1999), 313–372, [published PDF](https://www.jstage.jst.go.jp/article/kodaimath1978/22/3/22_3_313/_pdf), DOI [10.2996/kmj/1138044090](https://doi.org/10.2996/kmj/1138044090). Its pinned PDF SHA-256 is `483dc18c56b2fe9cfac4e37f2e6594399625c3f0ea98a05bb69116377c67fc06`. Kato 2004, *p-adic Hodge theory and values of zeta functions of modular forms*, Astérisque 295, supplies the original class construction and Proposition 8.12 norm relation; the pinned PDF SHA-256 is `3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d`.\n \n",
+  "checks": [
+    {
+      "check": "target receipt",
+      "actual": "29ce41891589b97b3ab36b129386410d264acc1807908cc322d387cd08aa2a53",
+      "expected": "29ce41891589b97b3ab36b129386410d264acc1807908cc322d387cd08aa2a53",
+      "pass": true
+    },
+    {
+      "check": "target application",
+      "actual": "5440aca3aaf4a39e82cb09635b6855e12bf53e61777a977b7603274a8ab52715",
+      "expected": "5440aca3aaf4a39e82cb09635b6855e12bf53e61777a977b7603274a8ab52715",
+      "pass": true
+    },
+    {
+      "check": "target artifact: APPLICATION.json",
+      "actual": "5440aca3aaf4a39e82cb09635b6855e12bf53e61777a977b7603274a8ab52715",
+      "expected": "5440aca3aaf4a39e82cb09635b6855e12bf53e61777a977b7603274a8ab52715",
+      "pass": true
+    },
+    {
+      "check": "target artifact: PREPARATION-ZERO.md",
+      "actual": "aa19b0e427c5f63f609b12b062d8438430e6431fa94ae1cd13668e81cb9547f4",
+      "expected": "aa19b0e427c5f63f609b12b062d8438430e6431fa94ae1cd13668e81cb9547f4",
+      "pass": true
+    },
+    {
+      "check": "target artifact: REPORT.md",
+      "actual": "544b193c152229e85439465b2b7e2dfcc3c030cf2209f6f2b5b7cea8dd1c67b6",
+      "expected": "544b193c152229e85439465b2b7e2dfcc3c030cf2209f6f2b5b7cea8dd1c67b6",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/bcdt-harvard.pdf",
+      "actual": "bbc43ffc72196381fa3b87f27d8ffd36f285dc87f778340c893bb76fcfd64b33",
+      "expected": "bbc43ffc72196381fa3b87f27d8ffd36f285dc87f778340c893bb76fcfd64b33",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/bcdt-harvard.txt",
+      "actual": "9e051e8f55589591ac50b442ca9b32e129dce2fa0a56364f1059875ee67c6ef2",
+      "expected": "9e051e8f55589591ac50b442ca9b32e129dce2fa0a56364f1059875ee67c6ef2",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/bcdt-literal-author.pdf",
+      "actual": "13043cf6e9043a69dc7988882658cd92595efc88dfd4fd2f326ac3ef3cae8e06",
+      "expected": "13043cf6e9043a69dc7988882658cd92595efc88dfd4fd2f326ac3ef3cae8e06",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/bcdt-literal-author.txt",
+      "actual": "10000b1bc7a81c8a8394297677f8ab39b241900805a8b31c8d86a01f5f0730fb",
+      "expected": "10000b1bc7a81c8a8394297677f8ab39b241900805a8b31c8d86a01f5f0730fb",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/fetch-manifest-2.json",
+      "actual": "e0ed94a8f0f383cd8d41dc7274fc92db3ad1087eedc7072691e58f6df9016de7",
+      "expected": "e0ed94a8f0f383cd8d41dc7274fc92db3ad1087eedc7072691e58f6df9016de7",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/fetch-manifest-3.json",
+      "actual": "4d5924d308c73de7a8f0e3d95f91ceeb7aac025229c8f70cce36c6b3e979ce11",
+      "expected": "4d5924d308c73de7a8f0e3d95f91ceeb7aac025229c8f70cce36c6b3e979ce11",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/fetch-manifest-4.json",
+      "actual": "ac3bafe149cfe642bd7619bca7261f37479c341fa50e8ed70e73f0463af94904",
+      "expected": "ac3bafe149cfe642bd7619bca7261f37479c341fa50e8ed70e73f0463af94904",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/fetch-manifest.json",
+      "actual": "ee5b01f19b32f3d4dd5953a723d12058322fc64b3efd9fa3896d56fada785076",
+      "expected": "ee5b01f19b32f3d4dd5953a723d12058322fc64b3efd9fa3896d56fada785076",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/gross-zagier-published.pdf",
+      "actual": "8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
+      "expected": "8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/gross-zagier-published.txt",
+      "actual": "fb25e600a735cb47a9fc2ccdaa9edfd06526df894a05f4f377204824096afeac",
+      "expected": "fb25e600a735cb47a9fc2ccdaa9edfd06526df894a05f4f377204824096afeac",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/icm1990-volume1.pdf",
+      "actual": "a86ae342133e8f051752bfd26009c38b9c755e8469c46235cef2d35e8c68f75d",
+      "expected": "a86ae342133e8f051752bfd26009c38b9c755e8469c46235cef2d35e8c68f75d",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/kolyvagin-p430.png",
+      "actual": "ceeb86727a55ecd0e3085a625fd9952e35e9565e7f47913f3c5546ae2e14ca41",
+      "expected": "ceeb86727a55ecd0e3085a625fd9952e35e9565e7f47913f3c5546ae2e14ca41",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/kolyvagin-preprint.pdf",
+      "actual": "bacdf23d05d5120defe923c8dcccd7c5bc525fe7b32239552b04fd6567726f2f",
+      "expected": "bacdf23d05d5120defe923c8dcccd7c5bc525fe7b32239552b04fd6567726f2f",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/kolyvagin-preprint.txt",
+      "actual": "5e6d09fa5c2bba599c1abe4c56aa9d8eb7e72043ce1a036f068ef1d2eaeccfc3",
+      "expected": "5e6d09fa5c2bba599c1abe4c56aa9d8eb7e72043ce1a036f068ef1d2eaeccfc3",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/kolyvagin-published-429-436.pdf",
+      "actual": "452aab0388310d28ab2abf9235e093b90d4ddac71a4ae3ebd09dce4f0b2a40fe",
+      "expected": "452aab0388310d28ab2abf9235e093b90d4ddac71a4ae3ebd09dce4f0b2a40fe",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/kolyvagin-published-429-436.txt",
+      "actual": "3b4f149ae7a7826b9d435ebabeebc2c43eae7adc8d4db82229ace77e3076ed05",
+      "expected": "3b4f149ae7a7826b9d435ebabeebc2c43eae7adc8d4db82229ace77e3076ed05",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/poonen-errata.pdf",
+      "actual": "fc5ed2cf8fb275f97f82703122477d4dd1e5889a85508c44709a23623fbf0c23",
+      "expected": "fc5ed2cf8fb275f97f82703122477d4dd1e5889a85508c44709a23623fbf0c23",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/poonen-errata.txt",
+      "actual": "77cbee07b0912c348c7a4c8474e5040698fd52f6faa3fe2f46769cb6e12bb07f",
+      "expected": "77cbee07b0912c348c7a4c8474e5040698fd52f6faa3fe2f46769cb6e12bb07f",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/poonen-stoll-current.pdf",
+      "actual": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "expected": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/poonen-stoll-current.txt",
+      "actual": "75c0a32dde303fede66c25712dadbc0ac39583fed139a06496999bac9705ad6d",
+      "expected": "75c0a32dde303fede66c25712dadbc0ac39583fed139a06496999bac9705ad6d",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/poonen-stoll-published.pdf",
+      "actual": "bfea7cc33da490dad136355d4423437916e441f77f89c0921995adf2bfea0936",
+      "expected": "bfea7cc33da490dad136355d4423437916e441f77f89c0921995adf2bfea0936",
+      "pass": true
+    },
+    {
+      "check": "target artifact: primary/poonen-stoll-published.txt",
+      "actual": "c519153ae52a1ce0a794cd45fd258cc08b1e4dd70fb8d0fa261fe84820d614f7",
+      "expected": "c519153ae52a1ce0a794cd45fd258cc08b1e4dd70fb8d0fa261fe84820d614f7",
+      "pass": true
+    },
+    {
+      "check": "target artifact: sources.json",
+      "actual": "c7b3a95bef1bf6033888d0934fcd6e6d024de96342d6d30c16560d116aefff6d",
+      "expected": "c7b3a95bef1bf6033888d0934fcd6e6d024de96342d6d30c16560d116aefff6d",
+      "pass": true
+    },
+    {
+      "check": "target artifact: version-comparison.json",
+      "actual": "cc3fc8bf9e493a609f857d331cb4866fc9f862b55f57ca72edc7967682090e88",
+      "expected": "cc3fc8bf9e493a609f857d331cb4866fc9f862b55f57ca72edc7967682090e88",
+      "pass": true
+    },
+    {
+      "check": "preserved historical arithmetic snapshot",
+      "actual": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "expected": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "pass": true
+    },
+    {
+      "check": "bound whole: restricted_converse",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: restricted_converse",
+      "actual": "05b893c0810736440ef2b087e9648e1e5e6db000e01efa2bcee532afcaac0978",
+      "expected": "05b893c0810736440ef2b087e9648e1e5e6db000e01efa2bcee532afcaac0978",
+      "pass": true
+    },
+    {
+      "check": "bound whole: two_descent_predecessor",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: two_descent_predecessor",
+      "actual": "02f76358c407834fb63ebe2bbb98c1d9b06687837df521618fddf04cacda4498",
+      "expected": "02f76358c407834fb63ebe2bbb98c1d9b06687837df521618fddf04cacda4498",
+      "pass": true
+    },
+    {
+      "check": "bound whole: corank_and_forward_rank",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: corank_and_forward_rank",
+      "actual": "3b9563c6175ef521419162fa53f79a044b3f31a5966210a69fb08496020c710c",
+      "expected": "3b9563c6175ef521419162fa53f79a044b3f31a5966210a69fb08496020c710c",
+      "pass": true
+    },
+    {
+      "check": "bound whole: simultaneous_realization",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: simultaneous_realization",
+      "actual": "14b96d4db20bf251dc36eb49b896841ff2cff0ce88036000f1ee2a89511f0441",
+      "expected": "14b96d4db20bf251dc36eb49b896841ff2cff0ce88036000f1ee2a89511f0441",
+      "pass": true
+    },
+    {
+      "check": "bound whole: parity_completeness_and_scaling",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: parity_completeness_and_scaling",
+      "actual": "400c2f76a7140e3ce492d6baf1b2c0c829e98c6e554804e3b5b8f5a705c2dbca",
+      "expected": "400c2f76a7140e3ce492d6baf1b2c0c829e98c6e554804e3b5b8f5a705c2dbca",
+      "pass": true
+    },
+    {
+      "check": "bound whole: preparation_zero_internal_proof",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: preparation_zero_internal_proof",
+      "actual": "3a71c008d839a65c3ac4a29ded03e140ae32339914c6b43779c9a5b5d43d366e",
+      "expected": "3a71c008d839a65c3ac4a29ded03e140ae32339914c6b43779c9a5b5d43d366e",
+      "pass": true
+    },
+    {
+      "check": "bound whole: literal_poonen_bibliography",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: literal_poonen_bibliography",
+      "actual": "68b080c66f85aab39ad363ea2d339e4f11fcd25ea42f3444675d25bf93d5160d",
+      "expected": "68b080c66f85aab39ad363ea2d339e4f11fcd25ea42f3444675d25bf93d5160d",
+      "pass": true
+    },
+    {
+      "check": "bound whole: literal_forward_bibliography",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: literal_forward_bibliography",
+      "actual": "29e7b64a366ee277834c3911d7b948268bcba086a775efc27aad5fdf7e727363",
+      "expected": "29e7b64a366ee277834c3911d7b948268bcba086a775efc27aad5fdf7e727363",
+      "pass": true
+    },
+    {
+      "check": "bound whole: current_final_consumer",
+      "actual": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "expected": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: current_final_consumer",
+      "actual": "2954ff8eb2e02c7866430dcba595b8c57a05e9979a4b37e799791cb38c519a3d",
+      "expected": "2954ff8eb2e02c7866430dcba595b8c57a05e9979a4b37e799791cb38c519a3d",
+      "pass": true
+    },
+    {
+      "check": "bound whole: final_scalar_local_inputs",
+      "actual": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "expected": "9737d56476c98677624725fc61bb36433ed008b2636a22d423cef8c1c02ee518",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: final_scalar_local_inputs",
+      "actual": "84d4c0f4bd2d062024d501294e7cfd79b8ea790a0d9b0034c048ceae91b45601",
+      "expected": "84d4c0f4bd2d062024d501294e7cfd79b8ea790a0d9b0034c048ceae91b45601",
+      "pass": true
+    },
+    {
+      "check": "bound whole: actual_pole_builder",
+      "actual": "5a318600ab51418ac51991546ed95badec23e8343933be632026053c803190b5",
+      "expected": "5a318600ab51418ac51991546ed95badec23e8343933be632026053c803190b5",
+      "pass": true
+    },
+    {
+      "check": "bound excerpt: actual_pole_builder",
+      "actual": "2d3cf34a05c7573c31fde60e52ba1bb3ff6a7c3fe4d55563bd8c02649ffed85e",
+      "expected": "2d3cf34a05c7573c31fde60e52ba1bb3ff6a7c3fe4d55563bd8c02649ffed85e",
+      "pass": true
+    },
+    {
+      "check": "v11 whole: restricted_converse",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: restricted_converse",
+      "actual": "05b893c0810736440ef2b087e9648e1e5e6db000e01efa2bcee532afcaac0978",
+      "expected": "05b893c0810736440ef2b087e9648e1e5e6db000e01efa2bcee532afcaac0978",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: restricted_converse",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: restricted_converse",
+      "actual": "05b893c0810736440ef2b087e9648e1e5e6db000e01efa2bcee532afcaac0978",
+      "expected": "05b893c0810736440ef2b087e9648e1e5e6db000e01efa2bcee532afcaac0978",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: restricted_converse",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: two_descent_predecessor",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: two_descent_predecessor",
+      "actual": "02f76358c407834fb63ebe2bbb98c1d9b06687837df521618fddf04cacda4498",
+      "expected": "02f76358c407834fb63ebe2bbb98c1d9b06687837df521618fddf04cacda4498",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: two_descent_predecessor",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: two_descent_predecessor",
+      "actual": "02f76358c407834fb63ebe2bbb98c1d9b06687837df521618fddf04cacda4498",
+      "expected": "02f76358c407834fb63ebe2bbb98c1d9b06687837df521618fddf04cacda4498",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: two_descent_predecessor",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: corank_and_forward_rank",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: corank_and_forward_rank",
+      "actual": "3b9563c6175ef521419162fa53f79a044b3f31a5966210a69fb08496020c710c",
+      "expected": "3b9563c6175ef521419162fa53f79a044b3f31a5966210a69fb08496020c710c",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: corank_and_forward_rank",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: corank_and_forward_rank",
+      "actual": "3b9563c6175ef521419162fa53f79a044b3f31a5966210a69fb08496020c710c",
+      "expected": "3b9563c6175ef521419162fa53f79a044b3f31a5966210a69fb08496020c710c",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: corank_and_forward_rank",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: simultaneous_realization",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: simultaneous_realization",
+      "actual": "14b96d4db20bf251dc36eb49b896841ff2cff0ce88036000f1ee2a89511f0441",
+      "expected": "14b96d4db20bf251dc36eb49b896841ff2cff0ce88036000f1ee2a89511f0441",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: simultaneous_realization",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: simultaneous_realization",
+      "actual": "14b96d4db20bf251dc36eb49b896841ff2cff0ce88036000f1ee2a89511f0441",
+      "expected": "14b96d4db20bf251dc36eb49b896841ff2cff0ce88036000f1ee2a89511f0441",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: simultaneous_realization",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: parity_completeness_and_scaling",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: parity_completeness_and_scaling",
+      "actual": "400c2f76a7140e3ce492d6baf1b2c0c829e98c6e554804e3b5b8f5a705c2dbca",
+      "expected": "400c2f76a7140e3ce492d6baf1b2c0c829e98c6e554804e3b5b8f5a705c2dbca",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: parity_completeness_and_scaling",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: parity_completeness_and_scaling",
+      "actual": "400c2f76a7140e3ce492d6baf1b2c0c829e98c6e554804e3b5b8f5a705c2dbca",
+      "expected": "400c2f76a7140e3ce492d6baf1b2c0c829e98c6e554804e3b5b8f5a705c2dbca",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: parity_completeness_and_scaling",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: preparation_zero_internal_proof",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: preparation_zero_internal_proof",
+      "actual": "3a71c008d839a65c3ac4a29ded03e140ae32339914c6b43779c9a5b5d43d366e",
+      "expected": "3a71c008d839a65c3ac4a29ded03e140ae32339914c6b43779c9a5b5d43d366e",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: preparation_zero_internal_proof",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: preparation_zero_internal_proof",
+      "actual": "3a71c008d839a65c3ac4a29ded03e140ae32339914c6b43779c9a5b5d43d366e",
+      "expected": "3a71c008d839a65c3ac4a29ded03e140ae32339914c6b43779c9a5b5d43d366e",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: preparation_zero_internal_proof",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: literal_poonen_bibliography",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: literal_poonen_bibliography",
+      "actual": "68b080c66f85aab39ad363ea2d339e4f11fcd25ea42f3444675d25bf93d5160d",
+      "expected": "68b080c66f85aab39ad363ea2d339e4f11fcd25ea42f3444675d25bf93d5160d",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: literal_poonen_bibliography",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: literal_poonen_bibliography",
+      "actual": "68b080c66f85aab39ad363ea2d339e4f11fcd25ea42f3444675d25bf93d5160d",
+      "expected": "68b080c66f85aab39ad363ea2d339e4f11fcd25ea42f3444675d25bf93d5160d",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: literal_poonen_bibliography",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "v11 whole: literal_forward_bibliography",
+      "actual": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "expected": "1210d2e6f409e502fc9c95afc248fac16a9df48c760a396143780c20ec80b662",
+      "pass": true
+    },
+    {
+      "check": "v11 excerpt: literal_forward_bibliography",
+      "actual": "29e7b64a366ee277834c3911d7b948268bcba086a775efc27aad5fdf7e727363",
+      "expected": "29e7b64a366ee277834c3911d7b948268bcba086a775efc27aad5fdf7e727363",
+      "pass": true
+    },
+    {
+      "check": "v13 whole: literal_forward_bibliography",
+      "actual": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "expected": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+      "pass": true
+    },
+    {
+      "check": "v13 excerpt: literal_forward_bibliography",
+      "actual": "29e7b64a366ee277834c3911d7b948268bcba086a775efc27aad5fdf7e727363",
+      "expected": "29e7b64a366ee277834c3911d7b948268bcba086a775efc27aad5fdf7e727363",
+      "pass": true
+    },
+    {
+      "check": "cross-version bytes: literal_forward_bibliography",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "check": "related receipt: ../v11-completeness-consumer/receipt.json",
+      "actual": "17735bdda2e5d26efc42fb4dfb6171f41d0cc37045f2d29364630c6fc3f7f4f3",
+      "expected": "17735bdda2e5d26efc42fb4dfb6171f41d0cc37045f2d29364630c6fc3f7f4f3",
+      "pass": true
+    },
+    {
+      "check": "related receipt: ../v11-completeness-consumer/finite-joins-receipt.json",
+      "actual": "6f7b4f1f92a1ed27fb2795e4be75cbe4d31dbee5834ef2c0534ed863fe7e8734",
+      "expected": "6f7b4f1f92a1ed27fb2795e4be75cbe4d31dbee5834ef2c0534ed863fe7e8734",
+      "pass": true
+    },
+    {
+      "check": "finite-join text: FINITE-JOINS.md",
+      "actual": "e7d52734c4295f46011f602270070c4addef6eb241c046591a2c95572c028fc0",
+      "expected": "e7d52734c4295f46011f602270070c4addef6eb241c046591a2c95572c028fc0",
+      "pass": true
+    },
+    {
+      "check": "finite component: quartics/quartic-318-326/proof/components/OrdinaryPoleNormalization.lean",
+      "actual": "f21253f9b0e32c69638fdbabe32958454d1da4198708edf0af7c3ea28e45091d",
+      "expected": "f21253f9b0e32c69638fdbabe32958454d1da4198708edf0af7c3ea28e45091d",
+      "pass": true
+    },
+    {
+      "check": "finite component: quartics/quartic-318-326/proof/components/ThreeHelperPoleNormalization.lean",
+      "actual": "0978f0d41a37e1dd8972e6f579838cdb0e3858caa87a3d1590501aed583bd8a6",
+      "expected": "0978f0d41a37e1dd8972e6f579838cdb0e3858caa87a3d1590501aed583bd8a6",
+      "pass": true
+    },
+    {
+      "check": "finite component: quartics/quartic-318-326/proof/components/FinalComponentsAudit.lean",
+      "actual": "60de4210e89d282d1f62da8eb52a2cec99f741001b543ae7d7573d109a859570",
+      "expected": "60de4210e89d282d1f62da8eb52a2cec99f741001b543ae7d7573d109a859570",
+      "pass": true
+    },
+    {
+      "check": "finite component: quartics/quartic-318-326/construction/318/build_source.cjs",
+      "actual": "5a318600ab51418ac51991546ed95badec23e8343933be632026053c803190b5",
+      "expected": "5a318600ab51418ac51991546ed95badec23e8343933be632026053c803190b5",
+      "pass": true
+    },
+    {
+      "check": "current arithmetic snapshot",
+      "actual": "069738d42a127a2cd3a476cba9281a77f3cbd23ec81a5a3441090ea8ebab09d0",
+      "expected": "069738d42a127a2cd3a476cba9281a77f3cbd23ec81a5a3441090ea8ebab09d0",
+      "pass": true
+    },
+    {
+      "check": "pre-Kato text unchanged",
+      "actual": "02088add5c9cd5e30f21d8f12b4b5296f4cb899c70e1f802e07ef4ad4ad91123",
+      "expected": "02088add5c9cd5e30f21d8f12b4b5296f4cb899c70e1f802e07ef4ad4ad91123",
+      "pass": true
+    },
+    {
+      "check": "post-adoption retained text unchanged",
+      "actual": "40a545e300f8b863755b4b5f79ba98eba3b42ec358ddae3fd56e64393ba75112",
+      "expected": "40a545e300f8b863755b4b5f79ba98eba3b42ec358ddae3fd56e64393ba75112",
+      "pass": true
+    },
+    {
+      "check": "current scalar excerpt unchanged",
+      "actual": "84d4c0f4bd2d062024d501294e7cfd79b8ea790a0d9b0034c048ceae91b45601",
+      "expected": "84d4c0f4bd2d062024d501294e7cfd79b8ea790a0d9b0034c048ceae91b45601",
+      "pass": true
+    },
+    {
+      "check": "exact final 288-row paragraph unchanged",
+      "actual": "3e276d5f71ed1ca96f9a082a8d9a5a4d6c2f369c36f3a19a69249fc57425feb8",
+      "expected": "3e276d5f71ed1ca96f9a082a8d9a5a4d6c2f369c36f3a19a69249fc57425feb8",
+      "pass": true
+    },
+    {
+      "check": "Kolyvagin extracted page count",
+      "actual": 8,
+      "expected": 8,
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 517",
+      "actual": "4dc7fcce3258d8e687237b310e6f95fe96e82c4501b515216b68893abaffb4ac",
+      "expected": "4dc7fcce3258d8e687237b310e6f95fe96e82c4501b515216b68893abaffb4ac",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 518",
+      "actual": "f44742dcabde3fff791d39512ebcab5111f57395b29e90880aaf269630569e93",
+      "expected": "f44742dcabde3fff791d39512ebcab5111f57395b29e90880aaf269630569e93",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 519",
+      "actual": "3e34baca2eaf7c2f7ca7553ee904187c248b4cc8fcf5c97556b4cb0e94d914e9",
+      "expected": "3e34baca2eaf7c2f7ca7553ee904187c248b4cc8fcf5c97556b4cb0e94d914e9",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 520",
+      "actual": "8c2932fc61c32ead32643b13aa7093810a2c09755f6fc8bc3e8db50d03e6c2eb",
+      "expected": "8c2932fc61c32ead32643b13aa7093810a2c09755f6fc8bc3e8db50d03e6c2eb",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 521",
+      "actual": "9cb37f331965d8650e418604d69feb6d71bb094d088d15ffc75682edb3d483fa",
+      "expected": "9cb37f331965d8650e418604d69feb6d71bb094d088d15ffc75682edb3d483fa",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 522",
+      "actual": "1483432de005f7511f99f9e13580d4f42b99771de03773e209d0dc0abb97ac07",
+      "expected": "1483432de005f7511f99f9e13580d4f42b99771de03773e209d0dc0abb97ac07",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 523",
+      "actual": "ae06b24608b07434cd403aceb4e2ece250730f7e0376b466cdd43e01363d1e3d",
+      "expected": "ae06b24608b07434cd403aceb4e2ece250730f7e0376b466cdd43e01363d1e3d",
+      "pass": true
+    },
+    {
+      "check": "ICM source page content: 524",
+      "actual": "aa489096d1115565c45b2f6984ccaa5c1d3c2047cdf9cd92790d59566dfea1a8",
+      "expected": "aa489096d1115565c45b2f6984ccaa5c1d3c2047cdf9cd92790d59566dfea1a8",
+      "pass": true
+    }
+  ]
+}

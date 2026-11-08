@@ -1,0 +1,109 @@
+ S_* =\{p:p\le76176\},\qquad
+ \mathcal D=\{0,1,2401,-343/32\},
+\]
+\[
+ H_*=2(4608^{165888}+6^{100})
+          \left(\prod_{p\le76176}p\right)^{24}+128.
+\]
+For $a\in\Q\setminus\mathcal D$, let $M_5(a)$ be the product of
+the primes outside $S_*$ at which the point $(a:1)$ has positive odd
+contact order with one of $\infty,0,1,2401,-343/32$. Explicitly, choose
+local homogeneous coordinates $(u:v)$ and subtract
+$\min(v_p(u),v_p(v))$ from the valuations of $v$ and of
+$u-\delta v$ for $\delta\in\mathcal D$.
+
+\begin{theorem}[The five-contact height estimate]\label{hyp:o8-height}
+For every $a\in\Q\setminus\mathcal D$,
+\[
+ h(a)\le H_*M_5(a)^{24}.
+\]
+The displayed constant satisfies $\log_2H_*<4783227$.
+\end{theorem}
+\begin{proof}
+Write $s=a$, $M(s)=M_5(a)$, $H=H_*$,
+$B_*=\prod_{p\le76176}p$, and
+$\mathcal C=\{\infty,0,1,2401,-343/32\}$.
+We prove the geometric comparison, the non-CM estimate through the
+modular level, and the CM estimate over the same fiber field.
+All heights use the original stable Faltings normalization.
+\paragraph{Recovering the contact line from published quotients}
+Let $B/\mathbb Q$ be the indefinite quaternion algebra of discriminant $210$,
+$\mathcal O$ a maximal order, $X$ its maximal-level Shimura curve, and $W$
+its Atkin--Lehner group. The standard genus formula gives
+\[
+ g(X)=1+\frac{\varphi(210)}{12}=5,
+\]
+because the elliptic-point terms vanish: $5$ splits in $\mathbb Q(i)$ and
+$7$ splits in $\mathbb Q(\sqrt{-3})$, so neither quadratic field embeds in
+$B$. The group $W$ is $(\mathbb Z/2\mathbb Z)^4$ with involutions $w_m$
+indexed by square classes of divisors of $210$.
+
+The published models of \cite[Theorem 4.2 and Table 2, pp.~938--939]{GonzalezRotger2006} have the following coefficient rows
+$(a,b,c,d,e)$ for $y^2=ax^4+bx^3+cx^2+dx+e$:
+\[
+\begin{array}{c|rrrrr}
+ m&a&b&c&d&e\\\hline
+30&-43&-686&-2915&-1372&-172\\
+42&-43&600&-986&-600&-43\\
+70&-43&256&-130&-768&-387\\
+105&-43&2&505&12&-1548
+\end{array}
+\]
+The cited theorem identifies each with $X/\langle w_m\rangle$.
+The genus formula and the Atkin--Lehner group law used here also appear
+in the same published paper, Proposition 5.2 and the paragraph following
+Proposition 5.3, pp.~940--941.
+
+Here is a deduction of all the required branch information, rather than
+an additional assumption about it. Each of these four genus-one quotients
+has eight fixed points upstairs, by Riemann--Hurwitz. A stabilizer for the
+$W$ action on a characteristic-zero smooth curve is cyclic, and therefore
+has order at most two. Each nonempty fixed set of an involution is a union
+of $W$-orbits of size eight. Riemann--Hurwitz for $X\to X/W$ now gives
+\[
+ 8=16(2g(X/W)-2)+\sum_{1\ne w\in W}\#\operatorname{Fix}(w).
+\]
+The four known fixed sets already contribute $32$. Thus $g(X/W)=0$,
+the total is $40$, and there is exactly one further orbit of eight fixed
+points. Inertia generators around the branch points have product one.
+The four classes $30,42,70,105$ are independent in $W$, and their product
+is the class $210$. Hence there are exactly five branch points, each of
+index two, with distinct labels $30,42,70,105,210$. Since the involutions
+are defined over $\mathbb Q$ and each label occurs only once, each branch
+point is rational. Three of them trivialize the genus-zero quotient.
+
+Normalize $b_{210}=\infty$, $b_{105}=0$, $b_{70}=1$, and write
+$b_{42}=\lambda$, $b_{30}=\mu$. On a genus-one quotient the residual
+group $(\mathbb Z/2)^3$ has translation subgroup of order four, necessarily
+the full two-torsion group after choosing an origin. Its quotient has the
+same Jacobian $j$-invariant: it is multiplication by two over the algebraic
+closure. The remaining double cover of $X/W$ branches at the four points
+other than $b_m$. Therefore the four quartic invariants determine the four
+Legendre invariants of these four-point subsets.
+
+For a quartic put
+\[
+ I=12ae-3bd+c^2,\quad
+ J_q=72ace+9bcd-27ad^2-27b^2e-2c^3,\quad
+ j=\frac{6912I^3}{4I^3-J_q^2}.
+\]
+The exact computation gives the Legendre parameters
+$1/2401,32/375,1/225,5/1029$, in row order. Enumerating the six cross-ratio
+values of each of the first two parameters and testing the last two
+invariants leaves exactly
+\[
+ \lambda=2401,\qquad\mu=-343/32.
+\]
+The script \texttt{check\_height.py} reproduces this rational computation.
+Every nonzero determinant of the five primitive contact forms has prime
+support in $\{2,3,5,7\}$.
+
+\paragraph{Integral geometry and the degree 576 field}
+Choose $\mu_0\in\mathcal O$ with $\mu_0^2=-210$. The embedding criterion
+allows this choice in a maximal order; maximal orders are conjugate here.
+Use the maximal moduli stack $\mathscr X$ and the entire principal-level
+three scheme $Y$, including its geometric components. Yuan's integral
+moduli theorem \cite[Theorem 1.1 and Sections 2.1--2.2]{Yuan2024} makes $\mathscr X$ regular, proper and semistable over
+$\mathbb Z$, with a universal abelian surface, and smooth away from $210$.
+Its generic stabilizer is precisely $\{\pm1\}$. Principal level three is
+fine and gives a universal full three-torsion marking.

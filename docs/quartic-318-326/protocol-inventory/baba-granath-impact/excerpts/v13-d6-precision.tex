@@ -1,0 +1,22 @@
+\section{Exact precision computation and polynomial compilation}\label{sec:compiler}
+Encode a signed integer by
+\[
+ \operatorname{enc}(n)=\begin{cases}2n,&n\ge0,\\-2n-1,&n<0.\end{cases}
+\]
+The five natural inputs decode in the fixed order $(n,\kappa,a,l,j)$.
+The decision predicate rejects unless
+$n\notin\Cset$, $\kappa\ne0$, $a,l\ge1$, and $j=na$.
+For nonzero multiples of $P_0$, $z=-x/y$ is well-defined. Set
+\[
+ z([l]P_0)=u_l+v_ls,\qquad\epsilon_l=|u_l|+|v_l|,
+ \qquad r(a,j)=\tfrac12\Tr_{K_0/\Q}\frac{z([j]P_0)}{z([a]P_0)}.
+\]
+With the fixed constant $A_{\rm ht}^{(0)}=H_6(S_{\rm ht})$, its final
+tests are
+\[
+ |r(a,j)-n|<\epsilon_l,\qquad
+ 4\epsilon_l<4^{-A_{\rm ht}^{(0)}|\kappa F(n)|^{24}}.
+\]
+These are strict tests on exactly computable rationals and integers.
+
+The reference program S21 uses exact quadratic-field arithmetic and capped

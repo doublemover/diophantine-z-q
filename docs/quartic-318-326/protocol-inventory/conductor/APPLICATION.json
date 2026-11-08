@@ -1,0 +1,85 @@
+{
+  "id": "V13-CONDUCTOR-PRIMITIVE-LEVEL-INDEPENDENT",
+  "active_target_sha256": "9db71bbfcefb37db56eabcf40a5f9dd85de9ed58294635da3dbf6d4f5caa8fcd",
+  "reviewer": "/root/restart_modular_curve",
+  "independent_of_target_authors": true,
+  "status": "ACCEPT_BOUNDED_APPLICATION_RELATIVE_TO_NAMED_UPSTREAM_REPRESENTATION",
+  "decision": "The published Carayol and Casselman interfaces yield CL1 and CL2 for the actual weight-two primitive form and compatible r5/r3 system, without losing dyadic primes, nebentypus, wild conductor or monodromy.",
+  "nine_obligations": [
+    {
+      "name": "source_hypotheses",
+      "required": "Carayol: cuspidal automorphic representation over a totally real field with regular algebraic archimedean type; Casselman: irreducible admissible infinite-dimensional local representations.",
+      "constructed": "The constructed finite twist of the Pan form is replaced by its primitive weight-two newform f over Q; Pi_f is its unitary cuspidal representation.",
+      "why_match": "At infinity its type is D_(2,0), satisfying parity and k≥2. Q has odd degree one, so no extra discrete-series finite place is required. Local factors of a cuspidal GL2 representation are infinite-dimensional and generic.",
+      "evidence": "Carayol 0.2–0.3; Casselman Theorem 1; finite-twist-and-same-newform"
+    },
+    {
+      "name": "constructed_objects",
+      "required": "The source theorem must apply to the same actual representation and primitive form used in the height argument.",
+      "constructed": "rho_l=b^-1 a_sigma mu_sigma composed with sigma is the corrected four-dimensional representation; the B splitting gives r_l direct-sum r_l. Pan at 5 yields the form; the finite character is absorbed before taking primitive f of level N.",
+      "why_match": "The scalar correction and actual A remain fixed. No unrelated elliptic family, independently selected form at 3, or artificially enlarged oldform level is substituted.",
+      "evidence": "actual-scalar-and-multiplicity-representations; finite-twist-and-same-newform"
+    },
+    {
+      "name": "domain_index_coverage",
+      "required": "Every rational prime p must be covered with coefficient characteristic different from p, including 2,3,5 and primes with p² dividing N.",
+      "constructed": "Use r5 for p≠5 and r3 for p=5. All are realizations of the same primitive f.",
+      "why_match": "This covers every prime exactly where Carayol’s theorem applies. Theorem A has no dyadic exception; the exceptional dyadic restriction belongs to the weaker Theorem B. No theorem at p=l is invoked.",
+      "evidence": "full-local-compatibility-and-conductor; Carayol pp.410–411"
+    },
+    {
+      "name": "transition_comparison_maps",
+      "required": "Transport modularity from the chosen 5-adic embedding to the 3-adic realization and identify Carayol’s representation.",
+      "constructed": "At good primes outside a finite set, half the trace of reduced mu_sigma composed with relative Frobenius, scaled by b(sigma)^-1 a_sigma, is one algebraic number independent of l. Enlarge the coefficient field to contain f’s coefficients and transport equalities to an embedding at 3.",
+      "why_match": "Injectivity of the embedding turns equality at 5 into an algebraic equality. Chebotarev and Brauer–Nesbitt identify semisimplifications; the known irreducible r_l forces the matching two-dimensional representation itself to be irreducible. No reliance on Carayol’s unpublished Ribet remark is needed.",
+      "evidence": "baseline-compatible-traces; finite-twist-and-same-newform; full-local-compatibility-and-conductor"
+    },
+    {
+      "name": "identity_of_consumed_object",
+      "required": "The minimal primitive level must equal the conductor of the full local Galois/Weil–Deligne object, not an inertia semisimplification.",
+      "constructed": "Casselman gives a(Pi_f,p)=v_p(N); Carayol identifies the full local parameter with the realization of this same f.",
+      "why_match": "The Weil–Deligne monodromy operator is retained. Frobenius semisimplification of a parameter does not discard N. The equality concerns the actual r_l in the Tate convention and is CL2.",
+      "evidence": "primitive-level-newvectors-and-nebentypus; full-local-compatibility-and-conductor"
+    },
+    {
+      "name": "coefficients_normalizations",
+      "required": "Match central character, reciprocity, duality, unramified twists and epsilon-factor conductors.",
+      "constructed": "Nebentypus is arbitrary of conductor dividing N. Casselman’s epsilon(a)^-1 equals epsilon(d) on Gamma0(N). Carayol uses geometric Frobenius and a contragredient plus unramified norm twist.",
+      "why_match": "The conductor is invariant under duality and unramified twisting. Use the same conductor-zero additive character on both epsilon-factor sides. A different additive character would give a common dimension-dependent shift, not a new level. Coefficient extensions preserve conductor.",
+      "evidence": "Casselman pp.302,306–307,309; Carayol 0.4–0.6; REVIEW.md"
+    },
+    {
+      "name": "local_conditions",
+      "required": "Allow arbitrary local type, ramified nebentypus, dyadic wild inertia and nonzero monodromy.",
+      "constructed": "The actual r_l may have all these local behaviors; V13 invokes Theorem A and retains both tame and Swan contributions.",
+      "why_match": "No supercuspidal dyadic or special representation is removed. The rational weight-two trivial-nebentypus corollary in Carayol 0.8 is not used as a substitute for general Theorem A.",
+      "evidence": "full-local-compatibility-and-conductor; Carayol pp.410–411"
+    },
+    {
+      "name": "exceptional_cases",
+      "required": "Avoid applying Pan at 3, using l=p, assuming squarefree N or trivial character, or erasing monodromy.",
+      "constructed": "The 3-adic form is obtained by trace transport; p=5 uses l=3; p=2 and p=3 use l=5; all level exponents are allowed.",
+      "why_match": "A special unramified Weil–Deligne parameter with rank-one N has conductor one, although its inertia-semisimple part has conductor zero. This sanity check distinguishes the object required by CL2.",
+      "evidence": "finite-twist-and-same-newform; full-local-compatibility-and-conductor; REVIEW.md"
+    },
+    {
+      "name": "downstream_consumption",
+      "required": "Convert actual local conductor bounds into a bound on the primitive level N of the same f, then supply that N to the modular-Jacobian height argument.",
+      "constructed": "CL2 feeds LR5, N≤210^300 R², and the following LR6 calculation. The baseline also uses J1(N), whose level must be this primitive N.",
+      "why_match": "This review accepts the conductor/level identification, conditional on the actual modular compatible system. It does not independently certify the ramification bounds, Li/Shimura Jacobian realization, source geometry, Pan final publication match, or final RC/318 conclusion.",
+      "evidence": "local-bound-downstream-consumer; baseline-height-consumer"
+    }
+  ],
+  "prior_audit_relation": "Retained A032 concerns different theta/U_p consumers. Its source pins and earlier source inspection are preserved, but that acceptance alone is not used to certify this actual conductor-height application.",
+  "model_metadata": null,
+  "model_metadata_reason": "No verified runtime model identifier is available to this worker.",
+  "formalization": "Independent source/application review only; no Lean compile or theorem added.",
+  "not_accepted": [
+    "Whole proof of Carayol or Casselman independently reconstructed",
+    "Actual QM surface or scalar-descent producer",
+    "Pan authoritative JAMS final-text comparison",
+    "Numerical ramification bounds LR4 or height bound LR6",
+    "Li and Shimura modular-Jacobian realization",
+    "Whole RC or literal-318 sourceArithmetic"
+  ]
+}
