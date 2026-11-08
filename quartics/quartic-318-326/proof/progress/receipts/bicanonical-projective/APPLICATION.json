@@ -1,0 +1,123 @@
+{
+  "claim": "Actual projective Scheme morphism of global bicanonical q0/q1, rational independence, and exact rank-sixteen t-chart/generic-degree certificate",
+  "author": "/root/restart_hodge_gluing",
+  "date": "2026-11-08",
+  "sources": {
+    "ContactBicanonicalRatios318.lean": "e9c374b524243d52c3404643b7685478bc66a451ff2f78f9c7d543df1da2e1ac",
+    "ContactBicanonicalSectionRatios318.lean": "58c4b75c50f3f44e91de20493c2ea9558c113d263695808d6a460c1f8bfaae7e",
+    "ContactBicanonicalProjectiveMap318.lean": "e46bfa1c85baed5dcf673cc9a014f286710a5e5ee0a089cbb1c1bc4c6c3a50c6",
+    "ContactBicanonicalIndependence318.lean": "7621d76e6a0d3c1718a2be322bcc9722ae684896a76277ed81e6c3b3dc3b6f8d",
+    "ContactBicanonicalDegree318.lean": "dde3ee6cc41fa8866030c674193057171d753be6fc70ab8975997103203558b2"
+  },
+  "predecessor_receipts": {
+    "recovery-hodge-0358/global-bicanonical-sections/receipt.json": "1f748f234a0c394ed78ae05dec7431d59f3ead4740a3cf1ff17c248bc264655f",
+    "recovery-hodge-0358/bicanonical-generation-packet/receipt.json": "536234b95955dd4cfa68bf83e7244bf64c76858a1949623a9886b306775a6e68"
+  },
+  "external_input_scope": "No new literature theorem. Pinned Mathlib open-cover gluing and actual frozen algebra/Scheme/sheaf producers are consumed.",
+  "obligations": [
+    {
+      "name": "Source hypotheses",
+      "required": "A generating pair on an actual rank-one sheaf, actual open-cover gluing, and valid degree/independence inputs are required.",
+      "constructed": "The frozen actual global q0/q1 and every-subopen generation theorems are consumed. All twists remain rational units.",
+      "why_match": "Only the everywhere-unit coefficient is divided out. The Scheme maps are glued on the actual five-chart cover after categorical overlap compatibility is proved.",
+      "evidence": [
+        "ContactBicanonicalSectionRatios318.branch_ratio_unique",
+        "ContactBicanonicalSectionRatios318.infinity_ratio_unique",
+        "ContactBicanonicalProjectiveMap318.local_compatible"
+      ]
+    },
+    {
+      "name": "Constructed objects",
+      "required": "The map must be constructed from the actual global intrinsic bicanonical pair on the actual complete contact normalization.",
+      "constructed": "Ratio sections live in the actual structure sheaf; local polynomial evaluations and projective chart inclusions give Scheme morphisms. projectiveMap is their actual glueMorphisms.",
+      "why_match": "Global ratio equations literally mention ContactGlobalBicanonical318.q0 and q1. The pair is not replaced by a coordinate pair on another model.",
+      "evidence": [
+        "ContactBicanonicalSectionRatios318.global_branch_relation",
+        "ContactBicanonicalSectionRatios318.global_infinity_relation",
+        "ContactBicanonicalProjectiveMap318.projectiveMap"
+      ]
+    },
+    {
+      "name": "Domain and index coverage",
+      "required": "Every chart and point, including all four finite branches and infinity, must be covered.",
+      "constructed": "The localMap index is Option(Fin4), with every some i and none handled; the prior exact cover is reused.",
+      "why_match": "The compatibility proof is for every pair of chart indices on categorical pullbacks, and cover gluing returns a map on the entire source.",
+      "evidence": [
+        "ContactBicanonicalProjectiveMap318.localMap",
+        "ContactBicanonicalProjectiveMap318.local_compatible",
+        "ContactBicanonicalProjectiveMap318.projectiveMap_local"
+      ]
+    },
+    {
+      "name": "Transition and comparison maps",
+      "required": "Signs, scalars, reciprocal conventions and the global map comparison must be exact.",
+      "constructed": "Finite q1/q0 equals t; infinity q0/q1 equals u²/c0. The latter is the literal image of the reciprocal base coordinate under chartMap.",
+      "why_match": "branch_polynomial and infinity_polynomial compare full polynomial ring homomorphisms. Their Scheme squares prove actual map equality by open-cover extensionality, rather than agreement on selected points.",
+      "evidence": [
+        "ContactBicanonicalRatios318.reciprocalCoordinate_base",
+        "ContactBicanonicalProjectiveMap318.branch_polynomial",
+        "ContactBicanonicalProjectiveMap318.infinity_polynomial",
+        "ContactBicanonicalProjectiveMap318.projectiveMap_eq"
+      ]
+    },
+    {
+      "name": "Identity of the consumed object",
+      "required": "The degree and independence assertions must concern the newly constructed map and the actual pair.",
+      "constructed": "The degree module uses projectiveMap in the exact t-chart cartesian square. The independence module uses the literal global q0/q1 and constants from the actual structureMap.",
+      "why_match": "The rank-sixteen SourceOrder is the entire base change of this map, and its specified generic fiber is the existing original full field. Independence is derived by restricting those same global sections.",
+      "evidence": [
+        "ContactBicanonicalDegree318.affine_pullback",
+        "ContactBicanonicalDegree318.genericFiberEquiv",
+        "ContactBicanonicalIndependence318.global_linear_independent"
+      ]
+    },
+    {
+      "name": "Coefficient and normalization conventions",
+      "required": "The scalar field, homogeneous coordinate order and inverse-twist powers must match.",
+      "constructed": "Everything is over Q; twists are Q-units; u=c0/y0; the map has coordinates [q1:q0]. Constants are the structure-map ring homomorphism from Q.",
+      "why_match": "The infinity coefficient identity proves the exact c0 inverse factor before defining the ratio map. The rational independence action is explicit, avoiding an unrelated scalar instance.",
+      "evidence": [
+        "ContactBicanonicalRatios318.infinity_coefficient_relation",
+        "ContactBicanonicalRatios318.infinityRatio_eq",
+        "ContactBicanonicalIndependence318.constants",
+        "ContactBicanonicalIndependence318.constants_restrict"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required": "No zero coordinate may be divided out at ramification or infinity; the degree chart must be the full preimage.",
+      "constructed": "Finite q0 and infinity q1 coefficients are units on the whole respective charts. SourceGlobalAffine318.chartEmbedding_range identifies the full preimage of the t-chart.",
+      "why_match": "The ratio formulas retain z_i=0 and u=0. IsOpenImmersion.isPullback uses the actual range equality, so the degree input is not only a dense map or field heuristic.",
+      "evidence": [
+        "ContactBicanonicalRatios318.branchRatio",
+        "ContactBicanonicalRatios318.infinityRatio",
+        "ContactBicanonicalDegree318.affine_pullback"
+      ]
+    },
+    {
+      "name": "Exceptional cases",
+      "required": "All allowed twists, branch indices, zero-section and constant-ratio possibilities must be handled.",
+      "constructed": "The claims hold for all c:Fin4→Qˣ. Nonzero rational twists exclude exactly the divisions used. Polynomial evaluation is injective on every branch ring.",
+      "why_match": "A relation a*q0+b*q1=0 forces a=b=0, so neither section nor their span degenerates. No assertion in positive characteristic or for zero twists is added.",
+      "evidence": [
+        "ContactBicanonicalIndependence318.branch_polynomial_injective",
+        "ContactBicanonicalIndependence318.ratio_linear_independent",
+        "ContactBicanonicalIndependence318.global_linear_independent"
+      ]
+    },
+    {
+      "name": "Downstream consumption",
+      "required": "The actual base-point-free pair needs a projective map, independence, and an object-bound generic degree statement.",
+      "constructed": "projectiveMap is finite/proper and equals modelMap; actual pair is rationally independent; actual cartesian t-chart is finite free rank16 with specified generic fiber of dimension16.",
+      "why_match": "This closes these intrinsic geometric inputs only. Complete-linear-system, genus, O(1)-pullback identification, Shimura twist selection, PEL, KS and metric/height inputs are not inferred.",
+      "evidence": [
+        "ContactBicanonicalProjectiveMap318.projectiveMap_finite",
+        "ContactBicanonicalProjectiveMap318.projectiveMap_proper",
+        "ContactBicanonicalDegree318.affine_finite_free_rank_sixteen",
+        "ContactBicanonicalDegree318.generic_degree_sixteen"
+      ]
+    }
+  ],
+  "consumer": "Intrinsic section-defined projective map and its specified degree input. Not a PEL/KS, genus, complete-linear-system, or height producer.",
+  "degree_scope": "Exact entire t-chart cartesian square; finite-free rank16 coordinate algebra there; specified Q(t)-generic-fiber algebra equivalence to original Raw field of dimension16. No numeric Scheme-degree API or global all-chart locally-free-rank theorem added."
+}

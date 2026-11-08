@@ -1,0 +1,76 @@
+ACQUIRED 2026-11-08T07:08:05Z
+BUILD AffineFunctionFieldMap318
+RESULT=0
+BUILD OpenFunctionFieldSquare318
+OpenFunctionFieldSquare318.lean:25:74: error(lean.unknownIdentifier): Unknown identifier `square`
+OpenFunctionFieldSquare318.lean:23:69: error: unsolved goals
+X Y : Scheme
+inst✝¹¹ : AlgebraicGeometry.IsIntegral X
+inst✝¹⁰ : AlgebraicGeometry.IsIntegral Y
+R S : Type u
+inst✝⁹ : CommRing R
+inst✝⁸ : CommRing S
+inst✝⁷ : IsDomain R
+inst✝⁶ : IsDomain S
+jX : Spec ↧S ⟶ X
+inst✝⁵ : IsOpenImmersion jX
+inst✝⁴ : IsDominant jX
+jY : Spec ↧R ⟶ Y
+inst✝³ : IsOpenImmersion jY
+inst✝² : IsDominant jY
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+g : R →+* S
+inst✝ : IsDominant (Spec.map (CommRingCat.ofHom g))
+⊢ DominantFunctionField318.map (jX ≫ f) = DominantFunctionField318.map (Spec.map (CommRingCat.ofHom g) ≫ jY)
+OpenFunctionFieldSquare318.lean:33:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+OpenFunctionFieldSquare318.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+OpenFunctionFieldSquare318.lean:37:41: error: Function expected at
+  map_square jX jY f g
+but this term has type
+  DominantFunctionField318.map f ≫ (OpenFunctionField318.fieldIso jX).hom =
+    (OpenFunctionField318.fieldIso jY).hom ≫ DominantFunctionField318.map (Spec.map (CommRingCat.ofHom g))
+
+Note: Expected a function because this term is being applied to the argument
+  square
+OpenFunctionFieldSquare318.lean:32:42: error: unsolved goals
+X Y : Scheme
+inst✝¹¹ : AlgebraicGeometry.IsIntegral X
+inst✝¹⁰ : AlgebraicGeometry.IsIntegral Y
+R S : Type u
+inst✝⁹ : CommRing R
+inst✝⁸ : CommRing S
+inst✝⁷ : IsDomain R
+inst✝⁶ : IsDomain S
+jX : Spec ↧S ⟶ X
+inst✝⁵ : IsOpenImmersion jX
+inst✝⁴ : IsDominant jX
+jY : Spec ↧R ⟶ Y
+inst✝³ : IsOpenImmersion jY
+inst✝² : IsDominant jY
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+g : R →+* S
+inst✝ : IsDominant (Spec.map (CommRingCat.ofHom g))
+a : R
+this✝ : Algebra S ↑X.functionField := ⋯
+this : Algebra R ↑Y.functionField := ⋯
+⊢ (ActualOpenFractionField318.genericEquiv jX)
+      ((ConcreteCategory.hom (DominantFunctionField318.map f)) ((algebraMap R ↑Y.functionField) a)) =
+    (ActualOpenFractionField318.genericEquiv jX) ((algebraMap S ↑X.functionField) (g a))
+RESULT=1
+RELEASED 2026-11-08T07:08:10Z exit=1
