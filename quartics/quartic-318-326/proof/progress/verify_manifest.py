@@ -4,6 +4,8 @@ import hashlib,json,pathlib,re,sys
 root=pathlib.Path(__file__).resolve().parent
 manifest=json.loads((root/'checkpoint-manifest.json').read_text())
 order=manifest['module_order'];seen=set()
+assert json.loads((root/'module-order.json').read_text())==order, 'Replay order differs from manifest'
+assert len(order)==len(set(order)) and set(order)==set(manifest['modules']), 'Manifest coverage mismatch'
 for m in order:
  p=root/(m+'.lean');raw=p.read_bytes()
  assert hashlib.sha256(raw).hexdigest()==manifest['modules'][m]['sha256'],f'Hash mismatch: {m}'
