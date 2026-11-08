@@ -1,0 +1,45 @@
+name: Cached pinned Lean tooling
+description: Cache the checked elan installer and one exact Lean release, never project or Mathlib artifacts.
+runs:
+  using: composite
+  steps:
+    - name: Require the supported runner and unchanged compiler pins
+      shell: bash
+      run: |
+        set -euo pipefail
+        test "$RUNNER_OS" = Linux
+        test "$RUNNER_ARCH" = X64
+        test "${ImageOS:-}" = ubuntu24
+        test "$(cat lean/lean-toolchain)" = leanprover/lean4:v4.35.0
+        test "$(cat quartics/quartic-318-326/proof/progress/lean-toolchain)" = leanprover/lean4:v4.35.0
+    - id: installer
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ~/.cache/pinned-elan/4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+        key: elan-installer-v1-Linux-X64-4.2.4-42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+    - name: Verify cached installer checksum and install pinned elan
+      shell: bash
+      run: bash scripts/setup_pinned_lean.sh installer
+    - name: Save checked installer even if a later toolchain fetch fails
+      if: steps.installer.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ~/.cache/pinned-elan/4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+        key: elan-installer-v1-Linux-X64-4.2.4-42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+    - id: toolchain
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        # One release only. Do not cache ~/.elan wholesale or any .lake tree.
+        path: ~/.elan/toolchains/leanprover--lean4---v4.35.0
+        key: lean-runtime-v1-Linux-X64-ubuntu24-4.35.0-eb6cafb7290e8bd5f2937522d8d804f58f02bafc-${{ hashFiles('.github/actions/setup-pinned-lean/action.yml', 'scripts/setup_pinned_lean.sh') }}
+    - name: Install if absent and verify exact Lean commit
+      shell: bash
+      run: bash scripts/setup_pinned_lean.sh toolchain
+    - name: Save verified compiler before fetching Mathlib or running proof checks
+      if: steps.toolchain.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ~/.elan/toolchains/leanprover--lean4---v4.35.0
+        key: lean-runtime-v1-Linux-X64-ubuntu24-4.35.0-eb6cafb7290e8bd5f2937522d8d804f58f02bafc-${{ hashFiles('.github/actions/setup-pinned-lean/action.yml', 'scripts/setup_pinned_lean.sh') }}

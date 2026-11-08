@@ -1,0 +1,55 @@
+test_import_syntax_and_comments (test_lean_cache_targets.CacheTargetsTests.test_import_syntax_and_comments) ... ok
+test_manifest_binding_and_root_audit_imports (test_lean_cache_targets.CacheTargetsTests.test_manifest_binding_and_root_audit_imports) ... ok
+test_cache_checks_bytes_and_actual_dependency_artifacts (test_progress_lean.ProgressTests.test_cache_checks_bytes_and_actual_dependency_artifacts) ... ok
+test_clean_build_does_not_reuse_valid_cache (test_progress_lean.ProgressTests.test_clean_build_does_not_reuse_valid_cache) ... {"cohort": 0, "compiled": 3, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"module": "B", "cache": "verified-reuse"}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 3}
+{"cohort": 0, "compiled": 3, "reused": 0}
+ok
+test_cohorts_cover_every_module_and_its_dependencies (test_progress_lean.ProgressTests.test_cohorts_cover_every_module_and_its_dependencies) ... ok
+test_complete_cache_survives_cohort_reassignment (test_progress_lean.ProgressTests.test_complete_cache_survives_cohort_reassignment) ... {"cohort": 0, "compiled": 3, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"module": "B", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 2}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+ok
+test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded (test_progress_lean.ProgressTests.test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded) ... {"cohort": 0, "compiled": 1, "reused": 0}
+{"cohort": 1, "compiled": 1, "reused": 0}
+{"cohort": 2, "compiled": 1, "reused": 0}
+ok
+test_dependency_invalidation_is_transitive_and_selective (test_progress_lean.ProgressTests.test_dependency_invalidation_is_transitive_and_selective) ... ok
+test_heavy_independent_chunks_are_distributed (test_progress_lean.ProgressTests.test_heavy_independent_chunks_are_distributed) ... ok
+test_replay_order_must_match_authoritative_manifest (test_progress_lean.ProgressTests.test_replay_order_must_match_authoritative_manifest) ... ok
+test_source_hash_and_audit_coverage_fail_closed (test_progress_lean.ProgressTests.test_source_hash_and_audit_coverage_fail_closed) ... ok
+test_three_stages_selectively_rebuild_transitive_dependents (test_progress_lean.ProgressTests.test_three_stages_selectively_rebuild_transitive_dependents) ... {"cohort": 0, "compiled": 1, "reused": 0}
+{"cohort": 1, "compiled": 1, "reused": 0}
+{"cohort": 2, "compiled": 1, "reused": 0}
+{"cohort": 3, "compiled": 1, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 1}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+{"module": "B", "cache": "verified-reuse"}
+{"cohort": 2, "compiled": 0, "reused": 1}
+{"module": "D", "cache": "verified-reuse"}
+{"cohort": 3, "compiled": 0, "reused": 1}
+{"cohort": 0, "compiled": 1, "reused": 0}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+{"cohort": 2, "compiled": 1, "reused": 0}
+{"cohort": 3, "compiled": 1, "reused": 0}
+{"cohort": 0, "compiled": 1, "reused": 0}
+{"cohort": 1, "compiled": 1, "reused": 0}
+{"cohort": 2, "compiled": 1, "reused": 0}
+{"cohort": 3, "compiled": 1, "reused": 0}
+ok
+test_weights_are_source_bound_and_not_cache_keys (test_progress_lean.ProgressTests.test_weights_are_source_bound_and_not_cache_keys) ... ok
+test_workflow_cache_paths_match_save_and_restore (test_progress_lean.ProgressTests.test_workflow_cache_paths_match_save_and_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 3.566s
+
+OK

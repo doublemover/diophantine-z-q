@@ -2,6 +2,8 @@
 from pathlib import Path
 import importlib.util
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 import check_quartic_consumer_bindings as bindings
@@ -13,6 +15,32 @@ manifest = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(manifest)
 
 class IntegrationTests(unittest.TestCase):
+    def test_source_admission_rejects_kernel_and_axiom_escapes(self):
+        for bad in ['set_option debug.skipKernelTC true', 'set_option skipKernelTC true',
+                    'unsafe def x := 1', '@[implemented_by y] def x := 1',
+                    'axiom x : False', 'public constant x : False',
+                    'private constant x : Nat', 'constant f (a : Nat) : False', 'by native_decide', 'by sorry']:
+            with self.assertRaises(AssertionError, msg=bad):
+                manifest.validate_source(bad, 'negative-control')
+        # Legitimate identifiers, comments and strings are not declarations.
+        for good in ['def constant : Nat := 1', 'constant c (c i : ℚ) * t', 'structure X where\n  constant : Nat',
+                     '/- nested /- unsafe -/ axiom -/ def x := "skipKernelTC"',
+                     '-- public constant x : False\ndef x := 1']:
+            manifest.validate_source(good, 'positive-control')
+        valid = 'module\nimport all A\nimport Lean.Util.CollectAxioms\nlet modules : Array Name := #[`A]\n'
+        with self.assertRaises(AssertionError):
+            manifest.validate_audit(valid + 'set_option debug.skipKernelTC true', ['A'])
+
+    def test_manifest_entrypoint_is_cwd_independent_and_rejects_optimized_python(self):
+        result = subprocess.run([sys.executable, '-B', str(path)], cwd=path.parent,
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn('MANIFEST_PASS modules=', result.stdout)
+        result = subprocess.run([sys.executable, '-O', '-B', str(path)], cwd=path.parent,
+                                capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Run without Python -O', result.stderr)
+
     def test_audit_requires_leading_module_and_private_imports(self):
         valid = 'module\nimport all A\nimport all B\nimport Lean.Util.CollectAxioms\nlet modules : Array Name := #[`A,`B]\n'
         manifest.validate_audit(valid, ['A', 'B'])

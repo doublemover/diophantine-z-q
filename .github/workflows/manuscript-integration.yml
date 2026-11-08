@@ -32,7 +32,7 @@ jobs:
             python: '3.12.10'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: ${{ matrix.python }}
       - run: python -B docs/manuscript-revisions/version13/portability/test_portability.py
@@ -50,10 +50,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-node
         with:
           node-version: '26.13.0'
       - run: python scripts/check_quartic962.py --out build/quartic-962-reproduction
@@ -70,10 +70,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-node
         with:
           node-version: '26.13.0'
       - run: python scripts/check_quartic1272.py --out build/quartic-1272-reproduction
@@ -88,7 +88,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - name: Rebuild source and replay the complete selected certificate
@@ -107,10 +107,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
-      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-tectonic
+      - continue-on-error: true # Optional TeX cache transport; build/hash checks stay fatal.
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:
           path: .cache/tectonic
           key: tectonic-${{ runner.os }}-0.17.0-6ffe055852f8faf66
@@ -118,8 +120,10 @@ jobs:
         run: python scripts/build_paper.py
       - name: Render changed pages for visual review
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y poppler-utils
+          if ! command -v pdftoppm >/dev/null || ! command -v pdfinfo >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y poppler-utils
+          fi
           ulimit -v 2097152
           python scripts/render_quartic_review.py --pdf build/paper/quartic_v13.pdf --edition v13 --pages 1,276-288 --expected-pages 296
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
@@ -135,7 +139,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - name: Check manuscript bindings, historical inventory and archive rejection tests

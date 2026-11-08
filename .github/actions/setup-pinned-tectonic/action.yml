@@ -1,0 +1,22 @@
+name: Cached pinned Tectonic engine
+description: Cache only the checksum-verified engine archive, separately from the TeX bundle cache.
+runs:
+  using: composite
+  steps:
+    - id: engine
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: .tools/tectonic-0.17.0/*.tar.gz
+        key: tectonic-engine-v1-${{ runner.os }}-${{ runner.arch }}-0.17.0-${{ hashFiles('scripts/build_paper.py') }}
+    - name: Recheck archive checksum and exact engine version
+      shell: bash
+      run: |
+        set -euo pipefail
+        python -B -c 'import sys,subprocess; sys.path.insert(0,"scripts"); import build_paper as p; exe=p.install(); version=subprocess.check_output([str(exe),"--version"],text=True).strip(); assert version.lower() == "tectonic " + p.VERSION, version; print("Verified", version)'
+    - name: Save checked archive before TeX rendering
+      if: steps.engine.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: .tools/tectonic-0.17.0/*.tar.gz
+        key: tectonic-engine-v1-${{ runner.os }}-${{ runner.arch }}-0.17.0-${{ hashFiles('scripts/build_paper.py') }}

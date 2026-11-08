@@ -11,6 +11,10 @@ on:
       - 'scripts/check_quartic_consumer_bindings.py'
       - 'scripts/progress_compile_weights.json'
       - '.github/workflows/progress-lean.yml'
+      - '.github/actions/setup-pinned-*/**'
+      - 'scripts/setup_pinned_lean.sh'
+      - 'scripts/test_ci_tooling.py'
+      - 'scripts/normalize_progress_bundles.py'
   pull_request:
     paths:
       - 'quartics/quartic-318-326/proof/progress/**'
@@ -21,6 +25,10 @@ on:
       - 'scripts/check_quartic_consumer_bindings.py'
       - 'scripts/progress_compile_weights.json'
       - '.github/workflows/progress-lean.yml'
+      - '.github/actions/setup-pinned-*/**'
+      - 'scripts/setup_pinned_lean.sh'
+      - 'scripts/test_ci_tooling.py'
+      - 'scripts/normalize_progress_bundles.py'
   workflow_dispatch:
     inputs:
       clean:
@@ -63,7 +71,7 @@ env:
 jobs:
   plan:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     outputs:
       matrix0: ${{ steps.plan.outputs.matrix0 }}
       matrix1: ${{ steps.plan.outputs.matrix1 }}
@@ -75,13 +83,17 @@ jobs:
       snapshot: ${{ steps.plan.outputs.snapshot }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - run: python -B -m unittest discover -s scripts -p 'test_*lean*.py' -v
+      - run: python -B scripts/test_ci_tooling.py
       - run: python -B scripts/test_quartic_integration.py
       - id: plan
         run: python -B scripts/check_progress_lean.py plan --cohorts "$COHORTS" --early-depth "$EARLY_DEPTH" --split-depth "$SPLIT_DEPTH" --max-parallel "$MAX_PARALLEL" --output build/progress-plan.json --github-output "$GITHUB_OUTPUT"
+
+      - name: Warm pinned compiler cache before matrix fan-out
+        uses: ./.github/actions/setup-pinned-lean
 
   foundation:
     needs: plan
@@ -94,7 +106,7 @@ jobs:
       matrix: ${{ fromJSON(needs.plan.outputs.matrix0) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - name: Restore audited whole snapshot
@@ -114,17 +126,7 @@ jobs:
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
           restore-keys: |
             progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-
-      - name: Install pinned elan
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/elan-install"
-          cd "$RUNNER_TEMP/elan-install"
-          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
-          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
-          tar -xzf elan.tar.gz
-          ./elan-init -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - uses: ./.github/actions/setup-pinned-lean
       - name: Fetch pinned upstream artifacts
         shell: bash
         run: |
@@ -147,13 +149,22 @@ jobs:
         with:
           path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
-      - name: Upload verified cohort and failure logs
-        if: always()
+      - name: Upload verified cohort
+        if: success()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: progress-cohort-${{ matrix.id }}
           path: build/progress-cohort-${{ matrix.id }}/
-          retention-days: 2
+          retention-days: 7
+      - name: Preserve failed-attempt logs separately from verified bundles
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: progress-failure-attempt-${{ github.run_attempt }}-cohort-${{ matrix.id }}
+          path: |
+            build/progress-cohort-${{ matrix.id }}/logs/
+            build/progress-cohort-${{ matrix.id }}/commands.json
+          retention-days: 7
 
   middle:
     needs: [plan, foundation]
@@ -167,7 +178,7 @@ jobs:
       matrix: ${{ fromJSON(needs.plan.outputs.matrix1) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - name: Restore audited whole snapshot
@@ -187,17 +198,7 @@ jobs:
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
           restore-keys: |
             progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-
-      - name: Install pinned elan
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/elan-install"
-          cd "$RUNNER_TEMP/elan-install"
-          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
-          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
-          tar -xzf elan.tar.gz
-          ./elan-init -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - uses: ./.github/actions/setup-pinned-lean
       - name: Fetch pinned upstream artifacts
         shell: bash
         run: |
@@ -212,6 +213,8 @@ jobs:
         with:
           pattern: progress-cohort-*
           path: build/foundation-bundles
+      - name: Normalize singleton or multi-cohort artifact layout
+        run: python -B scripts/normalize_progress_bundles.py build/foundation-bundles
       - name: Verify cache and kernel-check invalidated modules
         shell: bash
         run: |
@@ -225,13 +228,22 @@ jobs:
         with:
           path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
-      - name: Upload verified cohort and failure logs
-        if: always()
+      - name: Upload verified cohort
+        if: success()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: progress-cohort-${{ matrix.id }}
           path: build/progress-cohort-${{ matrix.id }}/
-          retention-days: 2
+          retention-days: 7
+      - name: Preserve failed-attempt logs separately from verified bundles
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: progress-failure-attempt-${{ github.run_attempt }}-cohort-${{ matrix.id }}
+          path: |
+            build/progress-cohort-${{ matrix.id }}/logs/
+            build/progress-cohort-${{ matrix.id }}/commands.json
+          retention-days: 7
 
   dependent:
     needs: [plan, foundation, middle]
@@ -245,7 +257,7 @@ jobs:
       matrix: ${{ fromJSON(needs.plan.outputs.matrix2) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - name: Restore audited whole snapshot
@@ -265,17 +277,7 @@ jobs:
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
           restore-keys: |
             progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-
-      - name: Install pinned elan
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/elan-install"
-          cd "$RUNNER_TEMP/elan-install"
-          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
-          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
-          tar -xzf elan.tar.gz
-          ./elan-init -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - uses: ./.github/actions/setup-pinned-lean
       - name: Fetch pinned upstream artifacts
         shell: bash
         run: |
@@ -290,6 +292,8 @@ jobs:
         with:
           pattern: progress-cohort-*
           path: build/foundation-bundles
+      - name: Normalize singleton or multi-cohort artifact layout
+        run: python -B scripts/normalize_progress_bundles.py build/foundation-bundles
       - name: Verify cache and kernel-check invalidated modules
         shell: bash
         run: |
@@ -303,13 +307,22 @@ jobs:
         with:
           path: .cache/progress-cohort
           key: progress-v2-${{ needs.plan.outputs.base }}-${{ matrix.stage }}-${{ matrix.slot }}-${{ matrix.key }}
-      - name: Upload verified cohort and failure logs
-        if: always()
+      - name: Upload verified cohort
+        if: success()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: progress-cohort-${{ matrix.id }}
           path: build/progress-cohort-${{ matrix.id }}/
-          retention-days: 2
+          retention-days: 7
+      - name: Preserve failed-attempt logs separately from verified bundles
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: progress-failure-attempt-${{ github.run_attempt }}-cohort-${{ matrix.id }}
+          path: |
+            build/progress-cohort-${{ matrix.id }}/logs/
+            build/progress-cohort-${{ matrix.id }}/commands.json
+          retention-days: 7
 
   audit:
     needs: [plan, foundation, middle, dependent]
@@ -319,24 +332,16 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0, Node 24
+      - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2, Node 24
         with:
           pattern: progress-cohort-*
           path: build/cohort-bundles
-      - name: Install pinned elan
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/elan-install"
-          cd "$RUNNER_TEMP/elan-install"
-          curl --fail --location --retry 3 -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
-          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum --check -
-          tar -xzf elan.tar.gz
-          ./elan-init -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Normalize singleton or multi-cohort artifact layout
+        run: python -B scripts/normalize_progress_bundles.py build/cohort-bundles
+      - uses: ./.github/actions/setup-pinned-lean
       - name: Fetch pinned upstream artifacts
         shell: bash
         run: |
