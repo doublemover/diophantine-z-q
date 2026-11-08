@@ -1,0 +1,29 @@
+# Bounded non-author review: fifth global differential and five-form independence
+
+Decision: accept the exact fourteen-source packet at its stated application scope. No material map, normalization, inverse, or scope defect was found. This is a source/application review with retained producer checks, not a fresh compiler replay or hosted integration result.
+
+## Exact target and evidence
+
+The target is recovery-hodge-0358/fifth-global-differential, producer receipt 41c244e5bcfc2a28414bd1ad6dab9bbcd4c3225aed96852c83d37f0e281bcacc and application 7029425fbd5c3e0c005218490044266b3ce3bc401c42911ab250df1cf1af029f. All fourteen Lean sources, README, application, and recursive audit source were read in full. The actual chart-naturality, full-intersection, open-frame, old differential-value, fifth-character embedding, and global-section gluing consumers were inspected separately.
+
+All 85 binding comparisons match, covering 57 distinct files. Fourteen final per-source zero-exit markers and the retained recursive target audit of 172 declarations in fourteen modules were checked. The audit imports all target modules, checks all sixteen required endpoints, and recursively collects axioms for every target module declaration, including private/generated declarations. Only propext, Classical.choice, and Quot.sound are admitted. This review ran no Lean compiler.
+
+The raw check-14 and check-15 logs honestly retain errors in then-unfinished later modules. Their earlier successful module markers remain valid evidence for those unchanged sources; the later modules have their separate final success logs. Neither entire mixed log is relabeled successful. Combined hosted integration remains pending.
+
+## Application checks
+
+1. **Actual source and target.** The fifth section lies in the genuine intrinsic differential sheaf on the original fixed contact normalization. The five-chart cover is the existing actual cover. No new object is declared equal to a desired target by naming convention.
+2. **Original roots and normalization.** The full product of the four source roots is identified through the injective original embedding with the actual fifth-character quartic root. The branch coefficients use an invertible root other than the branch root; the infinity coefficient is the regular function u/c0, not an illicit inverse of u. Their common-open values are exactly dt divided by the full root.
+3. **Whole-chart regularity.** Each local section is already a regular intrinsic differential on its entire chart before field comparison. Branch units follow from their actual squared coefficients and localization denominators, and the infinity reciprocal identity is transported through the original whole overlap.
+4. **Actual differential transport.** Restriction is proved through the actual chart maps, structure squares, and universal-derivation naturality. FifthFormAffineRestriction318.affine_restrict is an inferred proposition-valued proof definition applied to those maps, subsequently consumed by a typed equality; it is not an unproved alias.
+5. **Equality detection and full overlaps.** Raw-field coefficient equality is used only after transport to the genuine free dt frame on the whole unbranched overlap and through its injective coefficient embedding. The exact finite/finite and branch/infinity image-intersection theorems identify the full overlaps. All ordered chart pairs, including equal and reversed cases, are covered. No field-point equality is promoted directly to a Scheme or sheaf equality.
+6. **Global construction and restrictions.** ModuleGlobalSections318.gluedTop supplies the actual global section from this compatible family. All five chart restrictions and the common-open restriction are proved. The previous bicanonical construction supplies only its established cover here; the differential sheaf is not renamed from a tensor-square sheaf.
+7. **Scalars and characters.** The existing four invariant pullbacks retain their scaleUnit_i/2 normalization. Multiplication by 2/scaleUnit_i and the appropriate reciprocal root gives the exact full-root expression. Actual original root-sign automorphisms isolate the four complementary-root characters and the full-root character; nonzero roots, characteristic zero, and the injective rational coefficient map justify every cancellation.
+8. **Independence.** The theorem starts with a rational linear relation among the five actual global sections, restricts it to the common open, uses the actual affine section equivalence and dt frame, and applies the original-field character separation. It does not require an unproved global restriction-injectivity principle. Nonvanishing is the corresponding coefficient-one consequence.
+9. **Scope and ownership.** The fifth form is constructed directly, independently of the still-separate completed fifth quotient map. The accepted statement is five rationally independent genuine global forms, with exact normalization and restrictions. It does not claim that they form the whole space of differentials, or identify a Jacobian, polarization, isogeny, Picard norm, PEL family, Kodaira-Spencer map, valuation inertia, or metric.
+
+## Independence boundary
+
+Reviewer: /root/restart_checkpoint. I did not author any of these fourteen source modules. I coordinate integration and have authored separate generic differential functoriality helpers, which have their own distinct review; this report does not independently reaccept those or any whole predecessor closure. The direct imported interfaces listed in the application were checked at their consuming seams. The producer and prior reviewers retain their stated authorship boundaries.
+
+The next completed-fifth-map pullback comparison, any global differential-space dimension/basis theorem, and hosted admission are separate obligations. No frozen producer source was edited.

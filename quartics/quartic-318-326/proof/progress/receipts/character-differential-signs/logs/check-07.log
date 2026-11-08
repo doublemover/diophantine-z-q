@@ -1,0 +1,49 @@
+ACQUIRED 2026-11-08T08:49:21Z
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:31:0: warning: automatically included section variable(s) unused in theorem `WeierstrassAffineFormCancellation318.scalar_apply`:
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+recovery-hodge-0358/character-differential-sign-work/WeierstrassAffineFormCancellation318.lean:35:0: warning: automatically included section variable(s) unused in theorem `WeierstrassAffineFormCancellation318.scalar_injective`:
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+RESULT WeierstrassAffineFormCancellation318 0
+recovery-hodge-0358/character-differential-sign-work/WeierstrassInvariantNegation318.lean:24:37: error(lean.unknownIdentifier): Unknown identifier `hy`
+recovery-hodge-0358/character-differential-sign-work/WeierstrassInvariantNegation318.lean:29:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * -?b
+in the target expression
+  (2 * -ShortAffineJacobian318.y A B) •
+      (AlgHomDifferential318.map (ChartNegation318.affineNeg A B)) (WeierstrassAffineInvariant318.form A B hD) =
+    (D R (WeierstrassOverlap318.Affine A B)) (ShortAffineJacobian318.x A B)
+
+R : Type u
+inst✝¹ : CommRing R
+inst✝ : IsDomain R
+A B : R
+hD : IsUnit (-16 * (4 * A ^ 3 + 27 * B ^ 2))
+he :
+  (2 * -ShortAffineJacobian318.y A B) •
+      (AlgHomDifferential318.map (ChartNegation318.affineNeg A B)) (WeierstrassAffineInvariant318.form A B hD) =
+    (D R (WeierstrassOverlap318.Affine A B)) (ShortAffineJacobian318.x A B)
+⊢ (2 * ShortAffineJacobian318.y A B) •
+      (AlgHomDifferential318.map (ChartNegation318.affineNeg A B)) (WeierstrassAffineInvariant318.form A B hD) =
+    (2 * ShortAffineJacobian318.y A B) • -WeierstrassAffineInvariant318.form A B hD
+recovery-hodge-0358/character-differential-sign-work/WeierstrassInvariantNegation318.lean:33:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (700000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+RESULT WeierstrassInvariantNegation318 1
+RELEASED 2026-11-08T08:50:11Z status=1

@@ -1,0 +1,57 @@
+ACQUIRED 2026-11-08T08:55:46Z fifth-character
+CHECK FifthCharacterDistinct318 2026-11-08T08:55:46Z
+CHECK FifthReciprocalCoordinates318 2026-11-08T08:55:49Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthReciprocalCoordinates318.lean:19:59: error: unsolved goals
+a : Laurent
+⊢ (AdjoinRoot.of (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic))))
+      (↑LaurentPolynomial.invert a) =
+    (AdjoinRoot.of (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic))))
+      (LaurentPolynomial.invert a)
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthReciprocalCoordinates318.lean:33:8: error: don't know how to synthesize implicit argument `a`
+  @Eq.trans (RootRing ((algebraMap ℚ[X] Laurent) reciprocal))
+    ((UnitRootScaling318.hom ?m.78 ((algebraMap ℚ[X] Laurent) reciprocal) inverseSquare ?m.81)
+      (AdjoinRoot.root (polynomial ?m.78)))
+    ((algebraMap Laurent (RootRing ((algebraMap ℚ[X] Laurent) reciprocal))) ↑inverseSquare *
+      AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) reciprocal)))
+    ((algebraMap Laurent CubicOpen) (LaurentPolynomial.T (-2)) *
+      AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) reciprocal)))
+    (UnitRootScaling318.hom_root ?m.78 ((algebraMap ℚ[X] Laurent) reciprocal) inverseSquare ?m.81)
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            (algebraMap Laurent (RootRing ((algebraMap ℚ[X] Laurent) reciprocal))) _a *
+                AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) reciprocal)) =
+              (algebraMap Laurent CubicOpen) (LaurentPolynomial.T (-2)) *
+                AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) reciprocal)))
+          inverseSquare_val))
+      (Eq.refl
+        ((algebraMap Laurent (RootRing ((algebraMap ℚ[X] Laurent) reciprocal))) (LaurentPolynomial.T (-2)) *
+          AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) reciprocal)))))
+context:
+hb :
+  invertBase (AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) quartic))) =
+    AdjoinRoot.root (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic)))
+⊢ RootRing ((algebraMap ℚ[X] Laurent) reciprocal)
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthReciprocalCoordinates318.lean:33:43: error: don't know how to synthesize placeholder for argument `h`
+context:
+hb :
+  invertBase (AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) quartic))) =
+    AdjoinRoot.root (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic)))
+⊢ ?m.78 = (algebraMap ℚ[X] Laurent) reciprocal * ↑inverseSquare ^ 2
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthReciprocalCoordinates318.lean:33:37: error: don't know how to synthesize placeholder for argument `a`
+context:
+hb :
+  invertBase (AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) quartic))) =
+    AdjoinRoot.root (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic)))
+⊢ Laurent
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/FifthReciprocalCoordinates318.lean:26:77: error: unsolved goals
+hb :
+  invertBase (AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) quartic))) =
+    AdjoinRoot.root (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic)))
+⊢ (UnitRootScaling318.equiv (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic))
+        ((algebraMap ℚ[X] Laurent) reciprocal) inverseSquare inversion_relation)
+      (AdjoinRoot.root (polynomial (LaurentPolynomial.invert ((algebraMap ℚ[X] Laurent) quartic)))) =
+    (algebraMap Laurent CubicOpen) (LaurentPolynomial.T (-2)) *
+      AdjoinRoot.root (polynomial ((algebraMap ℚ[X] Laurent) reciprocal))
+RELEASED 2026-11-08T08:55:51Z fifth-character

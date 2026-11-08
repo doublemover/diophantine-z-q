@@ -1,0 +1,25 @@
+ACQUIRED 2026-11-08T09:34:50Z
+RESULT FifthOverlapDifferentialEquation318 0
+RESULT FifthActualDifferential318 0
+RESULT FifthActualDifferentialRestriction318 0
+recovery-hodge-0358/fifth-pullback-work/FifthInvariantScalar318.lean:24:32: error: unsolved goals
+F : Type u_1
+inst✝ : Field F
+m n w r : F
+hn : 2 * n ≠ 0
+hw : w ≠ 0
+h : 2 * n * w * r = -m
+⊢ -m = -(m * 2 * n / (2 * n))
+recovery-hodge-0358/fifth-pullback-work/FifthInvariantScalar318.lean:33:30: error: Application type mismatch: The argument
+  Function.Injective.ne (RingHom.injective (algebraMap ℚ L)) (Units.ne_zero ?m.63)
+has type
+  (algebraMap ℚ L) ↑?m.63 ≠ (algebraMap ℚ L) 0
+but is expected to have type
+  (algebraMap ℚ L) ↑yScale ≠ 0
+in the application
+  mul_ne_zero
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat L (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat L Nat.cast_zero) (Eq.refl false))
+    (Function.Injective.ne (RingHom.injective (algebraMap ℚ L)) (Units.ne_zero ?m.63))
+RESULT FifthInvariantScalar318 1
+RELEASED 2026-11-08T09:36:12Z status=1

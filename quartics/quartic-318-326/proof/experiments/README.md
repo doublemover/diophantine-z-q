@@ -1,5 +1,13 @@
 # Pending Lean experiments
 
+## Latest isolated consumer result and recheck
+
+[Run 42471197658](https://github.com/doublemover/diophantine-z-q/actions/runs/42471197658) passed the five-source ambient closure and its 46-declaration recursive audit, with 211 exact baseline predecessors verified. Its successful evidence is preserved under forward-plane-ambient-closure-r2/hosted-pass. That packet is inactive and will not be rerun; distinct review and baseline promotion remain separate.
+
+The period inverse-section consumer failed only the final local-diffeomorphism application, which omitted the explicit two models and differentiability order required by the public theorem. The exact failed result and logs are preserved under forward-period-sections-r3/hosted-failure. Revision 4 adds those three explicit arguments without changing statements, maps, imports or the successful projection predecessor. Only forward-period-sections-r4 is active for hosted recheck. No local Lean replay or successful-consumer claim is made.
+
+The main 1,494-module checkpoint is separately pending its combined hosted audit; the exact green 1,414 result is preserved in the progress receipts. All analytic experiments remain outside that baseline. The descriptions below are historical intake provenance.
+
 ## Current consumer repairs
 
 Both new consumers failed their first strict check in [run 42470305457](https://github.com/doublemover/diophantine-z-q/actions/runs/42470305457), while their respective four plane predecessors and one period predecessor passed. Exact tested sources, results, strict logs and archive digests are preserved under the old packets’ hosted-failure folders. Neither new consumer reached its recursive audit.

@@ -1,0 +1,11 @@
+--- R3/AdmissibleAnalyticSections318.lean
++++ R4/AdmissibleAnalyticSections318.lean
+@@ -134,7 +134,7 @@
+   intro tau
+   have hm : tau ∈ (localBiholomorph tau).source :=
+     AdmissibleQuotientCover318.localHomeomorph.self_mem_localInverseAt_target
+-  have h := (localBiholomorph tau).isLocalDiffeomorphAt hm
++  have h := (localBiholomorph tau).isLocalDiffeomorphAt 𝓘(ℂ) 𝓘(ℂ) ω hm
+   have he : (localBiholomorph tau : Locus → Source) = sourceProjection :=
+     inverseSection_symm tau
+   rw [he] at h

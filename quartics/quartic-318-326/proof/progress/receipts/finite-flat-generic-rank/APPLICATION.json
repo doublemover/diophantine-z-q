@@ -1,0 +1,119 @@
+{
+  "author": "/root/restart_modular_curve",
+  "claim": "Every-point rank eight of all four original finite flat completed-character morphisms",
+  "observed_repo_head": "8d7ca58063f1825f99bf350f4115f22b1245a7bd",
+  "sources": {
+    "FiniteFlatGenericRank318.lean": "9d62720903bf2b0d9af6edf4f9f0b865c4f6efaae4ce5aa415d680e1a183d3af",
+    "CompletedCharacterRank318.lean": "b44d60c834c44c0e31f5fb333ce2d36d63e1d2b70ce77b16091d9964e7d53da5"
+  },
+  "obligations": [
+    {
+      "name": "Hypotheses",
+      "required_input": "A finite flat dominant map between integral schemes; finite flat affine module over a domain.",
+      "constructed_input": "The generic theorem retains all four morphism/scheme hypotheses. The consumer supplies actual integral model, integral Target i, completedMap_dominant, completedMap_finite and completedMap_flat.",
+      "justification": "No finite presentation, etaleness, smoothness, point-count or local-freeness surrogate is assumed. Finite-flat rank in the pinned Mathlib API is used exactly.",
+      "source_references": "Generic theorem lines 31–83; consumer local instances and completedMap_rank_eight.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Actual objects and coefficient convention",
+      "required_input": "The rank must be that of the actual global completed character map.",
+      "constructed_input": "CompletedCharacterGlobal318.completedMap i : ContactProjectiveModel318.model units ⟶ Target i. The coefficient field is Q through the existing objects.",
+      "justification": "The consumer names the original map literally. Model aliases reduce definitionally, and the conclusion is Scheme.Hom.finrank of that map.",
+      "source_references": "CompletedCharacterRank318.completedMap_rank_eight; CompletedCharacterGlobal318; CompletedCharacterSchemeMaps318 aliases.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Index and point coverage",
+      "required_input": "Every character and every target point, including branch points and infinity.",
+      "constructed_input": "i : Fin 4 and y : Target i are unrestricted. The generic theorem chooses the actual affine-cover member containing an arbitrary y.",
+      "justification": "affineCover.covers supplies membership; dominance supplies nonempty inverse image. The entire affine preimage is used, not an etale locus.",
+      "source_references": "FiniteFlatGenericRank318.finrank_eq_generic_degree; DominantFunctionField318.preimage_nonempty.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Affine comparison and Scheme direction",
+      "required_input": "An actual pullback square transporting morphism rank to the section-ring map.",
+      "constructed_input": "U is the covering affine open, V=f⁻¹U, A=Γ(Y,U), B=Γ(X,V). The affine map is Spec.map(f.app U): Spec B ⟶ Spec A.",
+      "justification": "IsAffineOpen.SpecMap_appLE_fromSpec and exact opensRange identities prove IsPullback. hsquare.flip has the precise orientation consumed by Scheme.Hom.finrank_of_isPullback. hU.fromSpec_primeIdealOf identifies the chosen point with y.",
+      "source_references": "FiniteFlatGenericRank318 hsquare/hr; Mathlib FlatRank.finrank_of_isPullback.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Generic scalar towers",
+      "required_input": "The fraction-field degree must use the actual pullback, not a freely chosen inclusion.",
+      "constructed_input": "Algebra Y.functionField X.functionField is (DominantFunctionField318.map f).hom.toAlgebra; the A→X.functionField action is its composition with the actual germ.",
+      "justification": "DominantFunctionField318.map_germ proves equality with A→B→X.functionField. This supplies the second scalar tower. The nonempty affine opens give the actual function fields as fraction rings.",
+      "source_references": "FiniteFlatGenericRank318 scalar-tower construction; DominantFunctionField318.map_germ; functionField_isFractionRing_of_isAffineOpen.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Rank and field-degree application",
+      "required_input": "Correct ranks and every hypothesis of rankAtStalk_eq, finrank_fiber_eq_finrank and IsFractionRing.finrank_eq.",
+      "constructed_input": "The affine section ring A is a domain because the target is integral; B is finite flat over A via f.app U. Both actual generic stalks carry the checked fraction-ring structures.",
+      "justification": "finrank_SpecMap_algebraMap → rankAtStalk_eq → finrank_fiber_eq_finrank → the symmetric IsFractionRing.finrank_eq gives the exact affine equality. No factor is dropped and no finite geometric point count is used.",
+      "source_references": "FiniteFlatGenericRank318.affine_rank_eq_fraction_degree; pinned FlatRank, FreeLocus and Dimension/Localization sources.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Downstream identity and degree eight",
+      "required_input": "The specific degree-eight theorem must use the same actual pullback algebra.",
+      "constructed_input": "The consumer selects CompletedCharacterDegree318.pullbackAlgebra i, definitionally the same algebra on the actual generic stalks.",
+      "justification": "The two equalities compose directly by trans: generic-rank equality and actual_generic_degree_eight. That predecessor identifies the original rank-16 contact field over the specified degree-two character subfield using its proved full field square.",
+      "source_references": "CompletedCharacterRank318.completedMap_rank_eight; CompletedCharacterDegree318.actual_generic_degree_eight; CompletedCharacterPullback318.pullback/actual_field_square.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Predecessor and change boundary",
+      "required_input": "Distinguish this new join from already constructed models, flatness, degree and arithmetic theorem.",
+      "constructed_input": "Two new modules only; all bound predecessor source bytes remain unchanged.",
+      "justification": "This does not re-prove the predecessor sources or reinterpret their independent reviews. It closes the every-point rank join of the exact completed maps. Historical manuscript/source-review verdicts are not amended.",
+      "source_references": "SOURCE-BINDINGS.json; named predecessor receipts; MODULE_ORDER.txt.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    },
+    {
+      "name": "Validation and excluded conclusions",
+      "required_input": "Separate strict kernel checking, recursive axiom audit, independent review and integrated hosted replay.",
+      "constructed_input": "Both modules strictly compiled with debug.skipKernelTC=false and their nine declarations were recursively audited for only propext, Classical.choice, Quot.sound.",
+      "justification": "This is a bounded local first-elaboration check plus target-only audit, not full-chain replay. Independent source review and hosted integration are pending. No Jacobian construction, norm/pullback on Jacobians, PEL action, polarization, modular-family identification, etaleness or ramification-index claim is made.",
+      "source_references": "check-r3.log; audit.log; receipt.json.",
+      "evidence": [
+        "FiniteFlatGenericRank318.lean",
+        "CompletedCharacterRank318.lean",
+        "audit.log"
+      ]
+    }
+  ]
+}
