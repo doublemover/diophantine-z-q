@@ -1,0 +1,11 @@
+# Actual line-class pullback identity and composition
+
+Accepted at the exact one-source consuming scope after reading its complete source and nine obligations, the original line/class relation and pullback definitions, and the pinned Mathlib Scheme.Modules.pullbackId and pullbackComp interfaces. No compiler replay or source change was made by the reviewer.
+
+identityIso is the actual pullbackId component on L.object; its domain is the underlying module of the same actual identity-pulled line. compositionIso is the actual pullbackComp f g component on L.object. The pinned functor direction is pullback g followed by pullback f, giving f*(g*L)→(f≫g)*L, exactly the two unchanged original objects. Both inverse equations for each isomorphism are the original isomorphism laws, not separately substituted maps.
+
+The existing class relation forgets presentations only through existence of an actual module-sheaf isomorphism. Consequently quotient induction plus classOf_eq proves identity directly and composition using compositionIso.symm in the correct direction. No equality of inverse-image covering data is presumed. Function extensionality gives the asserted identity/composition equalities for the same original class pullback map. All schemes and morphisms are arbitrary in the fixed universe, without finite, flat, dominant, reduced, connected or affine hypotheses.
+
+The producer's pending-at-freeze actual-pullback2 review is now resolved by separate acceptance f14aa32f…c0f7; its source/evidence and authorship boundaries remain distinct. The reviewer authored neither this new source nor its direct pullback/class producers. The earlier transitive own subopen helper remains outside self-independent acceptance under the same prior boundary.
+
+The exact source passed its bounded strict check and fresh private-inclusive recursive target audit10/1 with only standard roots. No predecessor replay or combined hosted pass is claimed here. This accepts only actual pullback identity/composition at the module-isomorphism and original class levels. Tensor compatibility, a bundled group-homomorphism pullback, coherent monoidal laws, norm-pullback degree, represented Picard/Jacobian and final arithmetic closure remain excluded.

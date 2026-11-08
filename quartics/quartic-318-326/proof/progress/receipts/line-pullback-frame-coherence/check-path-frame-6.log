@@ -1,0 +1,96 @@
+ACQUIRED:2026-11-08T13:09:02Z
+CHECK:PullbackFrameComposition318
+CHECK:PullbackChartComposition318
+PullbackChartComposition318.lean:27:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Scheme.Modules.pullback f).map ((iso g j gj hgj).hom.app M) ≫ (iso f gj fgj hr).hom.app M
+in the target expression
+  (PullbackFrameComposition318.frame f (PullbackFrameComposition318.frame g e)).hom ≫
+      (Scheme.Modules.pullback f).map ((iso g j gj hgj).app M).hom ≫ ((iso f gj fgj hr).app M).hom =
+    (PullbackFrameComposition318.frame fg e).hom ≫ ((iso fg j fgj hl).app M).hom
+
+X Y Z T : Scheme
+f : X ⟶ Y
+g : Y ⟶ Z
+j : Z ⟶ T
+fg : X ⟶ Z
+gj : Y ⟶ T
+fgj : X ⟶ T
+hfg : f ≫ g = fg
+hgj : g ≫ j = gj
+hl : fg ≫ j = fgj
+hr : f ≫ gj = fgj
+M : T.Modules
+e : SheafOfModules.unit Z.ringCatSheaf ≅ (Scheme.Modules.pullback j).obj M
+⊢ (PullbackFrameComposition318.frame f (PullbackFrameComposition318.frame g e)).hom ≫
+      (Scheme.Modules.pullback f).map ((iso g j gj hgj).app M).hom ≫ ((iso f gj fgj hr).app M).hom =
+    (PullbackFrameComposition318.frame fg e).hom ≫ ((iso fg j fgj hl).app M).hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    SheafOfModules X.ringCatSheaf
+PullbackChartComposition318.lean:49:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (iso m k mk hmk).hom.app ((Scheme.Modules.pullback p).obj M) ≫ (iso mk p total hkt).hom.app M
+in the target expression
+  (PullbackFrameComposition318.frame m (PullbackFrameComposition318.frame g e ≪≫ (iso g j t hgj).app M)).hom ≫
+      (Scheme.Modules.pullback m).map ((iso k p t hkp).app M).inv ≫
+        ((iso m k mk hmk).app ((Scheme.Modules.pullback p).obj M)).hom ≫ ((iso mk p total hkt).app M).hom =
+    (PullbackFrameComposition318.frame mg e).hom ≫ ((iso mg j total hgt).app M).hom
+
+A B C D E : Scheme
+p : A ⟶ B
+j : C ⟶ B
+k : D ⟶ A
+g : D ⟶ C
+t : D ⟶ B
+hkp : k ≫ p = t
+hgj : g ≫ j = t
+m : E ⟶ D
+mk : E ⟶ A
+mg : E ⟶ C
+total : E ⟶ B
+hmk : m ≫ k = mk
+hmg : m ≫ g = mg
+hmt : m ≫ t = total
+hkt : mk ≫ p = total
+hgt : mg ≫ j = total
+M : B.Modules
+e : SheafOfModules.unit C.ringCatSheaf ≅ (Scheme.Modules.pullback j).obj M
+⊢ (PullbackFrameComposition318.frame m (PullbackFrameComposition318.frame g e ≪≫ (iso g j t hgj).app M)).hom ≫
+      (Scheme.Modules.pullback m).map ((iso k p t hkp).app M).inv ≫
+        ((iso m k mk hmk).app ((Scheme.Modules.pullback p).obj M)).hom ≫ ((iso mk p total hkt).app M).hom =
+    (PullbackFrameComposition318.frame mg e).hom ≫ ((iso mg j total hgt).app M).hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    E.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑E.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥E) RingCat
+  in the application
+    SheafOfModules E.ringCatSheaf
+PullbackChartComposition318.lean:62:9: error: Function expected at
+  cancel_mono ?m.145
+but this term has type
+  ?m.147 ≫ ?m.145 = ?m.148 ≫ ?m.145 ↔ ?m.147 = ?m.148
+
+Note: Expected a function because this term is being applied to the argument
+  M
+PullbackChartComposition318.lean:62:21: error: Application type mismatch: The argument
+  (iso mk p total hkt).hom.app
+has type
+  (X : B.Modules) →
+    (Scheme.Modules.pullback p ⋙ Scheme.Modules.pullback mk).obj X ⟶ (Scheme.Modules.pullback total).obj X
+but is expected to have type
+  ?m.130 ⟶ ?m.129
+in the application
+  @cancel_mono ?m.127 ?m.128 ?m.129 ?m.130 ?m.131 (iso mk p total hkt).hom.app
+RELEASED:2026-11-08T13:09:10Z

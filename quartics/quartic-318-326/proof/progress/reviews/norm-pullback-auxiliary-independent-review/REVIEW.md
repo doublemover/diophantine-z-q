@@ -1,0 +1,15 @@
+# Conditional actual norm-pullback comparison
+
+Accepted only at the explicit-premise scope of the three frozen sources. All three bodies, their exact nine-obligation application and the actual whole-overlap norm, tensor-power reconstruction, canonical pulled-frame cocycle and independent-cover comparison interfaces were read. No replay or source edit was performed.
+
+The unconditional first module sends original target transition units through the actual pullback and whole-overlap norm, obtaining literal eighth powers. Cocycle extensionality identifies these with UnitCocyclePower. Equality transport followed by the inverse of the actual eighth tensor reconstruction gives the stated sheaf isomorphism. Its target is the recursively defined genuine tensor sheaf, not a power of transition labels asserted to be a sheaf. This alone does not identify the actual source module pullback.
+
+FifthNormPullbackAux.Coherent M explicitly quantifies every target V, W <= V and every actual unit frame. It is equality of the original pulled frame restricted to the entire inverse-image W with the original pullback of the restricted target frame. This packet neither proves nor installs that premise. The cocycle comparison applies the previously checked conditional reduction with exactly this hypothesis. Equality transport of its actual extracted inverse-image cocycle and the first module then gives fixedIso.
+
+The chosenIso consumer retains a separately supplied genuine source frame cover. The actual norm object's derived target neighborhood cover is compared to the selected complete target cover using the genuine norm-cover isomorphism, then fixedIso. Both displayed inverse equations are for that composite categorical isomorphism. There is no unproved equality of source presentations.
+
+The class consumer retains the stronger explicit argument that Coherent holds for every target module. Quotient induction uses the actual original line pullback and norm representative and the actual tensor-power class equation to prove norm(pullback c)=c^8. The conditional kernel consequence then uses the existing norm MonoidHom's map_one; it does not assume a tensor-preserving pullback homomorphism. Every actual-source, class and kernel conclusion remains conditional on the visible coherence premise. No unconditional norm-eight theorem is accepted.
+
+Final source bytes match the working copies. The three final strict checks and fresh private-inclusive 23-declaration audit pass. The earlier auxiliary check with the omitted section hypothesis remains historical failure evidence; only corrected check2 is used. Hosted integration is separate and pending, and no predecessor replay is claimed.
+
+The reviewer authored none of these three targets. Earlier consuming reviews of pullback2, scalar6, class-group2 and cover comparison remain distinct. The transitively used own subopen helper is excluded from self-independent acceptance with its separate review bound. No monoidal coherence, Picard/Jacobian representation, polarization, PEL or full arithmetic closure is inferred.

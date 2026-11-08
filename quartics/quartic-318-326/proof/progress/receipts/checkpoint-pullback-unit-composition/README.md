@@ -1,0 +1,1 @@
+The genuine canonical structure-line pullback comparisons compose exactly with the original pullbackComp component. The proof explicitly follows the original adjunction conjugacy and unitMap composition. Final strict1 and target recursive audit4 pass; a first presentation-only failure is retained. Independent consuming review and hosted integration remain separate.

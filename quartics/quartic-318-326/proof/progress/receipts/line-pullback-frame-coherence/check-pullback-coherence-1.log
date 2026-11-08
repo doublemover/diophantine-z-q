@@ -1,0 +1,51 @@
+ACQUIRED:2026-11-08T12:49:07Z
+CHECK:OpenFrameRestrictionComparison318
+OpenFrameRestrictionComparison318.lean:27:2: error: Tactic `rfl` failed: The left-hand side
+  (AddCommGrpCat.Hom.hom
+      (Scheme.Modules.Hom.app
+        ((TopologicalSpace.Opens.sheafOfModulesEquivOverUnit W X.ringCatSheaf).inv ≫
+          (Scheme.Modules.overEquiv W).functor.map
+              ((SheafOfModules.overMapUnitIso (homOfLE h)).inv ≫
+                (SheafOfModules.overMap X.ringCatSheaf (homOfLE h)).map (OpenLineSectionBasis318.overFrame M U e).hom ≫
+                  ((SheafOfModules.overFunctorMap X.ringCatSheaf (homOfLE h)).app M).hom) ≫
+            ((Scheme.Modules.overFunctorEquiv W).app M).hom)
+        Z))
+    s
+is not definitionally equal to the right-hand side
+  (AddCommGrpCat.Hom.hom
+      (Scheme.Modules.Hom.app
+        ((Scheme.Modules.restrictUnitIso (X.homOfLE h)).inv ≫
+          (Scheme.Modules.restrictFunctor (X.homOfLE h)).map e.hom ≫
+            ((Scheme.Modules.restrictFunctorComp (X.homOfLE h) U.ι).symm.app M).hom ≫
+              ((Scheme.Modules.restrictFunctorCongr ⋯).app M).hom)
+        Z))
+    s
+
+X : Scheme
+M : X.Modules
+U : X.Opens
+e : SheafOfModules.unit (↑U).ringCatSheaf ≅ M.restrict U.ι
+W : X.Opens
+h : W ≤ U
+Z : (↑W).Opens
+s : ↑Γ(SheafOfModules.unit (↑W).ringCatSheaf, Z)
+⊢ (AddCommGrpCat.Hom.hom
+        (Scheme.Modules.Hom.app
+          ((TopologicalSpace.Opens.sheafOfModulesEquivOverUnit W X.ringCatSheaf).inv ≫
+            (Scheme.Modules.overEquiv W).functor.map
+                ((SheafOfModules.overMapUnitIso (homOfLE h)).inv ≫
+                  (SheafOfModules.overMap X.ringCatSheaf (homOfLE h)).map
+                      (OpenLineSectionBasis318.overFrame M U e).hom ≫
+                    ((SheafOfModules.overFunctorMap X.ringCatSheaf (homOfLE h)).app M).hom) ≫
+              ((Scheme.Modules.overFunctorEquiv W).app M).hom)
+          Z))
+      s =
+    (AddCommGrpCat.Hom.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.restrictUnitIso (X.homOfLE h)).inv ≫
+            (Scheme.Modules.restrictFunctor (X.homOfLE h)).map e.hom ≫
+              ((Scheme.Modules.restrictFunctorComp (X.homOfLE h) U.ι).symm.app M).hom ≫
+                ((Scheme.Modules.restrictFunctorCongr ⋯).app M).hom)
+          Z))
+      s
+RELEASED:2026-11-08T12:49:10Z

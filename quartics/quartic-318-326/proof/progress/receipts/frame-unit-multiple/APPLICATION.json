@@ -1,0 +1,74 @@
+{
+  "producer": "/root/restart_hodge_gluing",
+  "claim": "Regular divisibility of coefficients yields a regular multiple in an actual framed module",
+  "sources": {
+    "FrameUnitMultiple318.lean": "5d7392a1222736a2b4d30f8e63c503c47b35b30e6525584e7df5bc741bbdcb90"
+  },
+  "exact_dependencies": {
+    "recovery-hodge-0358/fifth-infinity-regular-multiple/RegularUnitMultiple318.lean": "da5b0017ceb9e77981270da64ba06ee2595f9ada4ee2dea9cb9d1d018eaf27bf"
+  },
+  "predecessor_receipts": {
+    "recovery-hodge-0358/fifth-infinity-regular-multiple/receipt.json": "40c0e12749e6e3698a045b2cd2ddff31045937939ccc1c79272c4d6d8cadcf2a",
+    "recovery-modular-0358/fifth-infinity-regular-multiple-independent-review/acceptance.json": "16a5bc215a6050fb205f88d3248e77a8b72632a69cb5e4beae9a61c128fbcd67"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Any commutative K and K-module V in the inferred universes",
+      "constructed_input": "An actual linear equivalence e:V\u2243K, not a selected curve field",
+      "justification": "No domain, field, characteristic or geometry assumption"
+    },
+    {
+      "name": "Regular data",
+      "required_input": "t,k in K and vectors in V",
+      "constructed_input": "Only k is a unit; t may vanish or be a zero divisor",
+      "justification": "No division by t"
+    },
+    {
+      "name": "Coefficient hypothesis",
+      "required_input": "t divides e(\u03c9)",
+      "constructed_input": "Actual K divisibility gives a regular coefficient a",
+      "justification": "No generic or residue substitute"
+    },
+    {
+      "name": "Known vector",
+      "required_input": "e(\u03c9\u2080)=k*t",
+      "constructed_input": "The specified actual vector is retained",
+      "justification": "No choice of a new basis vector"
+    },
+    {
+      "name": "Frame conversion",
+      "required_input": "Use actual inverse frame e.symm1",
+      "constructed_input": "Both vector factorization equalities follow by e injectivity",
+      "justification": "No discarded coefficient"
+    },
+    {
+      "name": "Multiplication",
+      "required_input": "Existing RegularUnitMultiple.of_factorizations",
+      "constructed_input": "It only inverts the given unit k",
+      "justification": "Works over nonreduced and zero-divisor rings"
+    },
+    {
+      "name": "Alternative input",
+      "required_input": "Previously proved \u03c9=(t*a)\u2022d with e(d)=1",
+      "constructed_input": "of_factorization derives coefficient divisibility by e linearity then calls multiple",
+      "justification": "No repeated geometric action proof"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Strict source plus fresh private-inclusive recursive audit2",
+      "constructed_input": "Both required proposition endpoints and standard roots checked",
+      "justification": "No predecessor replay or hosted result"
+    },
+    {
+      "name": "Boundary",
+      "required_input": "Generic linear algebra helper only",
+      "constructed_input": "Actual branch-frame specialization and global differential descent remain separate",
+      "justification": "No canonical-space dimension, Picard/Jacobian or PEL"
+    }
+  ],
+  "endpoints": [
+    "FrameUnitMultiple318.multiple",
+    "FrameUnitMultiple318.of_factorization"
+  ]
+}

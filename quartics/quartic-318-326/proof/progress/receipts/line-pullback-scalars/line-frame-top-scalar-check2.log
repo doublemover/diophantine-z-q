@@ -1,0 +1,25 @@
+ACQUIRED 2026-11-08T12:53:03Z fifth-character
+CHECK LineFrameTopScalar318 2026-11-08T12:53:03Z
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LineFrameTopScalar318.lean:59:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  One ↑Γ(M, U.ι ''ᵁ ⊤)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LineFrameTopScalar318.lean:59:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OneHomClass (↑Γ(X, U.ι ''ᵁ ⊤) ≃ₗ[↑Γ(X, U.ι ''ᵁ ⊤)] ↑Γ(M, U.ι ''ᵁ ⊤)) ↑Γ(X, U.ι ''ᵁ ⊤) ↑Γ(M, U.ι ''ᵁ ⊤)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/2cb21e4e0864/recovery-geometric-0358/fifth-character-work/LineFrameTopScalar318.lean:60:2: error: Type mismatch
+  h
+has type
+  (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op))
+      ((OpenLineFrameCoordinates318.frame M U e0 (U.ι ''ᵁ ⊤) ⋯).symm 1) =
+    (OpenLineFrameCoordinates318.frame M U e0 U ⋯).symm
+      ((OpenLineFrameCoordinates318.frame M U e1 U ⋯) ((ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) 1))
+but is expected to have type
+  (ConcreteCategory.hom (ringTop U).hom)
+      ((ConcreteCategory.hom ((OpenLineSectionBasis318.overFrame M U e0).inv.val.app (op (Over.mk (homOfLE ⋯)))))
+        ((ConcreteCategory.hom ((OpenLineSectionBasis318.overFrame M U e1).hom.val.app (op (Over.mk (homOfLE ⋯)))))
+          1)) =
+    ↑(FrameScalarAlgebra318.scalar (OpenLineFrameCoordinates318.frame M U e0 U ⋯)
+        (OpenLineFrameCoordinates318.frame M U e1 U ⋯))
+RELEASED 2026-11-08T12:53:20Z fifth-character

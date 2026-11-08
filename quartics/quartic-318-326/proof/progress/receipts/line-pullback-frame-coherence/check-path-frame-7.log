@@ -1,0 +1,131 @@
+ACQUIRED:2026-11-08T13:09:57Z
+CHECK:PullbackChartComposition318
+PullbackChartComposition318.lean:26:46: error(lean.unknownIdentifier): Unknown identifier `NatIso.app_hom`
+PullbackChartComposition318.lean:26:61: error(lean.unknownIdentifier): Unknown identifier `NatIso.app_inv`
+PullbackChartComposition318.lean:27:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Scheme.Modules.pullback f).map ((iso g j gj hgj).hom.app M) ≫ (iso f gj fgj hr).hom.app M
+in the target expression
+  (PullbackFrameComposition318.frame f (PullbackFrameComposition318.frame g e)).hom ≫
+      (Scheme.Modules.pullback f).map ((iso g j gj hgj).app M).hom ≫ ((iso f gj fgj hr).app M).hom =
+    (PullbackFrameComposition318.frame fg e).hom ≫ ((iso fg j fgj hl).app M).hom
+
+X Y Z T : Scheme
+f : X ⟶ Y
+g : Y ⟶ Z
+j : Z ⟶ T
+fg : X ⟶ Z
+gj : Y ⟶ T
+fgj : X ⟶ T
+hfg : f ≫ g = fg
+hgj : g ≫ j = gj
+hl : fg ≫ j = fgj
+hr : f ≫ gj = fgj
+M : T.Modules
+e : SheafOfModules.unit Z.ringCatSheaf ≅ (Scheme.Modules.pullback j).obj M
+⊢ (PullbackFrameComposition318.frame f (PullbackFrameComposition318.frame g e)).hom ≫
+      (Scheme.Modules.pullback f).map ((iso g j gj hgj).app M).hom ≫ ((iso f gj fgj hr).app M).hom =
+    (PullbackFrameComposition318.frame fg e).hom ≫ ((iso fg j fgj hl).app M).hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    SheafOfModules X.ringCatSheaf
+PullbackChartComposition318.lean:48:59: error(lean.unknownIdentifier): Unknown identifier `NatIso.app_hom`
+PullbackChartComposition318.lean:48:74: error(lean.unknownIdentifier): Unknown identifier `NatIso.app_inv`
+PullbackChartComposition318.lean:49:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (iso m k mk hmk).hom.app ((Scheme.Modules.pullback p).obj M) ≫ (iso mk p total hkt).hom.app M
+in the target expression
+  (PullbackFrameComposition318.frame m (PullbackFrameComposition318.frame g e ≪≫ (iso g j t hgj).app M)).hom ≫
+      (Scheme.Modules.pullback m).map ((iso k p t hkp).app M).inv ≫
+        ((iso m k mk hmk).app ((Scheme.Modules.pullback p).obj M)).hom ≫ ((iso mk p total hkt).app M).hom =
+    (PullbackFrameComposition318.frame mg e).hom ≫ ((iso mg j total hgt).app M).hom
+
+A B C D E : Scheme
+p : A ⟶ B
+j : C ⟶ B
+k : D ⟶ A
+g : D ⟶ C
+t : D ⟶ B
+hkp : k ≫ p = t
+hgj : g ≫ j = t
+m : E ⟶ D
+mk : E ⟶ A
+mg : E ⟶ C
+total : E ⟶ B
+hmk : m ≫ k = mk
+hmg : m ≫ g = mg
+hmt : m ≫ t = total
+hkt : mk ≫ p = total
+hgt : mg ≫ j = total
+M : B.Modules
+e : SheafOfModules.unit C.ringCatSheaf ≅ (Scheme.Modules.pullback j).obj M
+⊢ (PullbackFrameComposition318.frame m (PullbackFrameComposition318.frame g e ≪≫ (iso g j t hgj).app M)).hom ≫
+      (Scheme.Modules.pullback m).map ((iso k p t hkp).app M).inv ≫
+        ((iso m k mk hmk).app ((Scheme.Modules.pullback p).obj M)).hom ≫ ((iso mk p total hkt).app M).hom =
+    (PullbackFrameComposition318.frame mg e).hom ≫ ((iso mg j total hgt).app M).hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    E.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑E.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥E) RingCat
+  in the application
+    SheafOfModules E.ringCatSheaf
+PullbackChartComposition318.lean:69:9: error: unsolved goals
+A B C D E F : Scheme
+p : A ⟶ B
+j : C ⟶ B
+k : D ⟶ A
+g : D ⟶ C
+t : D ⟶ B
+hkp : k ≫ p = t
+hgj : g ≫ j = t
+m : E ⟶ D
+l : F ⟶ C
+q : E ⟶ F
+mk : E ⟶ A
+lj : F ⟶ B
+r : E ⟶ C
+total : E ⟶ B
+hmk : m ≫ k = mk
+hlj : l ≫ j = lj
+hmg : m ≫ g = r
+hql : q ≫ l = r
+hmt : m ≫ t = total
+hkt : mk ≫ p = total
+hrj : r ≫ j = total
+hqt : q ≫ lj = total
+M : B.Modules
+e : SheafOfModules.unit C.ringCatSheaf ≅ (Scheme.Modules.pullback j).obj M
+ha :
+  (extend m k mk hmk ((Scheme.Modules.pullback p).obj M) (chart p j k g t hkp hgj M e) ≪≫
+        (iso mk p total hkt).app M).hom =
+    (extend r j total hrj M e).hom
+hb : (extend q lj total hqt M (extend l j lj hlj M e)).hom = (extend r j total hrj M e).hom
+⊢ (extend q lj total hqt M (extend l j lj hlj M e)).hom =
+    (extend q lj total hqt M (extend l j lj hlj M e)).hom ≫
+      ((iso mk p total hkt).app M).inv ≫ (iso mk p total hkt).hom.app M
+PullbackChartComposition318.lean:70:6: warning: This simp argument is unused:
+  Iso.inv_hom_id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart, Iso.trans_hom, Iso.symm_hom, Category.assoc, Category.comp_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackChartComposition318.lean:70:25: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart, Iso.trans_hom, Iso.symm_hom, Category.assoc, Iso.inv_hom_id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RELEASED:2026-11-08T13:10:01Z

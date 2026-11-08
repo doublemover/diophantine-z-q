@@ -1,0 +1,17 @@
+# Natural period projection: exact hosted strict and recursive audit PASS
+
+Run 42468452829 at 6915515fea53fc16c83de1bd339bfd2600dc1d6d, job 128693510001, passed the exact revision-2 source and recursive packet audit: eight declarations in one module, standard roots only. The archived RESULT binds intake ccea541a5b78c349ea90f5eda0fde728cfc19dbf07e9019308289042da904eed; source and intake bytes were also compared to that exact Git commit. The archive digest is independently checked. 195 hash-verified predecessors were reused from the 1,386-source snapshot. This is not a full baseline replay or independent application acceptance. Promotion is separate.
+
+The first attempt failed an implicit composition argument; R2 supplies the actual Locus inclusion f and point tau explicitly. No theorem statement, hypothesis, map or source object was changed. The failed attempt and its original evidence remain untouched.
+
+## Nine application obligations
+
+1. Source and version. The pinned Mathlib open-embedding singleton chart construction, analytic inclusion, ContDiffAt.comp_contMDiffAt and contMDiffAt_iff_target are consumed. Project inputs are actual genuine-j surjectivity/analyticity, the original Locus open embedding, the actual quotient map and its exact j identity. No new literature assumption is introduced.
+2. Actual objects. Locus remains the admissible subtype of the genuine upper half-plane with its original topology. Its complex chart structure is defined by its literal inclusion in C, independently of quotient/j-chart transport. Source retains exactly the prior AdmissibleJComplexAtlas318 structure.
+3. Hypotheses. The singleton-chart nonemptiness input is proved by actual j-surjectivity at j=1 and direct checks of both excluded values, not assumed. The proof has no chosen period supplied externally.
+4. Coverage. Every point of the existing admissible period locus is covered. The same j=0 and j=1728 exclusions are retained. This says nothing about those omitted fibers or cusps.
+5. Coordinates. chart_apply is literal tau in C; genuine j is ActualQJ318.jInvariant. The ambient extension through UpperHalfPlane.ofComplex is removed by its exact identity on genuine periods. There is no conjugation, basis substitution or rescaling.
+6. Analytic input. Inclusion is analytic for the independently natural open-subspace atlas; actual ambient j analyticity composes with that exact inclusion. Topological covering alone is not used as a proof of analytic regularity.
+7. Actual map comparison. Continuity comes from the real sourceProjection open quotient map. sourceComplexJ_projection identifies the target extended chart composed with that same projection with the genuine period-j function. The target chart criterion proves analyticity of the original projection, not a replacement map.
+8. Downstream use. The checked endpoints supply the natural-period-to-j-atlas compatibility for the auxiliary level-three comparison and the planned inverse-section consumer. Analytic inverse branches and a local-biholomorphism structure are not proved by this one source and remain separate.
+9. Validation and limits. The retained hosted source and recursive audit both passed. Non-author review and accepted-manifest promotion remain required. No full scheme analytification, compactification, general-level torsion, contact-Jacobian factor, polarization, PEL identification or final arithmetic theorem is asserted. The separate target atlas/biholomorphism PASS is neither repeated nor substituted for this result.

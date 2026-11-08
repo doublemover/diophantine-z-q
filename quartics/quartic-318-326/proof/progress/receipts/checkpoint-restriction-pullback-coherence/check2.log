@@ -1,0 +1,69 @@
+ACQUIRED:2026-11-08T13:07:59Z
+CHECK:RestrictionPullbackCoherence318
+RestrictionPullbackCoherence318.lean:35:42: error: unsolved goals
+X Y : Scheme
+f : X ⟶ Y
+inst✝ : IsOpenImmersion f
+U : Y.Opens
+a : ↑Γ(SheafOfModules.unit Y.ringCatSheaf, U)
+h₀ : Scheme.Hom.app f U ≫ (Scheme.Hom.appIso f (f ⁻¹ᵁ U)).inv = Y.presheaf.map (homOfLE ⋯).op
+⊢ Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f (f ⁻¹ᵁ U)).hom = Scheme.Hom.app f U
+RestrictionPullbackCoherence318.lean:53:52: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.pushforward_map_app,
+    Scheme.Modules.pushforwardComp_hom_app_app, Scheme.Modules.restrictAdjunction_unit_app_app,
+    Scheme.Modules.restrictFunctorComp_hom_app_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RestrictionPullbackCoherence318.lean:65:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Scheme.Modules.pushforwardComp f g).hom.app
+      ((Scheme.Modules.restrictFunctor g ⋙ Scheme.Modules.restrictFunctor f).obj M) ≫
+    (Scheme.Modules.pushforward (f ≫ g)).map q
+in the target expression
+  ((Scheme.Modules.restrictAdjunction g).comp (Scheme.Modules.restrictAdjunction f)).unit.app M ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app
+          ((Scheme.Modules.restrictFunctor f).obj ((Scheme.Modules.restrictFunctor g).obj M)) ≫
+        (Scheme.Modules.pushforward (f ≫ g)).map q =
+    (((Scheme.Modules.restrictAdjunction g).comp (Scheme.Modules.restrictAdjunction f)).unit.app M ≫
+        (Scheme.Modules.pushforward f ⋙ Scheme.Modules.pushforward g).map q) ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app N
+
+X Y Z : Scheme
+f : X ⟶ Y
+inst✝¹ : IsOpenImmersion f
+g : Y ⟶ Z
+inst✝ : IsOpenImmersion g
+M : Z.Modules
+N : X.Modules
+q : (Scheme.Modules.restrictFunctor g ⋙ Scheme.Modules.restrictFunctor f).obj M ⟶ N
+⊢ ((Scheme.Modules.restrictAdjunction g).comp (Scheme.Modules.restrictAdjunction f)).unit.app M ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app
+          ((Scheme.Modules.restrictFunctor f).obj ((Scheme.Modules.restrictFunctor g).obj M)) ≫
+        (Scheme.Modules.pushforward (f ≫ g)).map q =
+    (((Scheme.Modules.restrictAdjunction g).comp (Scheme.Modules.restrictAdjunction f)).unit.app M ≫
+        (Scheme.Modules.pushforward f ⋙ Scheme.Modules.pushforward g).map q) ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app N
+RestrictionPullbackCoherence318.lean:98:2: error: Type mismatch: After simplification, term
+  Eq.symm h
+ has type
+  @Eq
+    ((𝟭 Z.Modules).obj M ⟶
+      (Scheme.Modules.pushforward (f ≫ g)).obj ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M))
+    ((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M ≫
+      (Scheme.Modules.pushforward (f ≫ g)).map ((Scheme.Modules.pullbackComp f g).inv.app M))
+    (((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M ≫
+        (Scheme.Modules.pushforward g).map
+          ((Scheme.Modules.pullbackPushforwardAdjunction f).unit.app ((Scheme.Modules.pullback g).obj M))) ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M))
+but is expected to have type
+  @Eq (M ⟶ (Scheme.Modules.pushforward (f ≫ g)).obj ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M))
+    ((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M ≫
+      (Scheme.Modules.pushforward (f ≫ g)).map ((Scheme.Modules.pullbackComp f g).inv.app M))
+    (((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M ≫
+        (Scheme.Modules.pushforward g).map
+          ((Scheme.Modules.pullbackPushforwardAdjunction f).unit.app ((Scheme.Modules.pullback g).obj M))) ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app
+        ((Scheme.Modules.pullback f).obj ((Scheme.Modules.pullback g).obj M)))
+RELEASED:2026-11-08T13:08:03Z

@@ -1,0 +1,118 @@
+ACQUIRED:2026-11-08T13:11:23Z
+CHECK:PullbackChartComposition318
+PullbackChartComposition318.lean:26:58: warning: This simp argument is unused:
+  Iso.app_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Iso.trans_hom, Functor.mapIso_hom, Iso.app_hom, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackChartComposition318.lean:70:56: warning: This simp argument is unused:
+  Iso.app_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart, Iso.trans_hom, Iso.symm_hom, Iso.app_inv, Category.assoc, Iso.inv_hom_id_app,
+    Category.comp_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECK:PullbackOpenFrameNormalization318
+PullbackOpenFrameNormalization318.lean:25:42: error(lean.unknownIdentifier): Unknown constant `AlgebraicGeometry.Scheme.Modules.id_app`
+PullbackOpenFrameNormalization318.lean:21:73: error: unsolved goals
+X Y : Scheme
+f : X ⟶ Y
+inst✝¹ : IsOpenImmersion f
+M : Y.Modules
+inst✝ : IsOpenImmersion f
+U : X.Opens
+⊢ 𝟙 Γ(M, f ''ᵁ U) = Scheme.Modules.Hom.app (𝟙 ((Scheme.Modules.restrictFunctor f).obj M)) U
+PullbackOpenFrameNormalization318.lean:36:68: error: unsolved goals
+X Y : Scheme
+f : X ⟶ Y
+M : Y.Modules
+U : Y.Opens
+e : SheafOfModules.unit (↑U).ringCatSheaf ≅ M.restrict U.ι
+⊢ (IdentityCotangent318.pullbackUnitIso (LinePullbackFrames318.chartMap f U)).inv ≫
+      (Scheme.Modules.pullback (LinePullbackFrames318.chartMap f U)).map e.hom ≫
+        (Scheme.Modules.pullback (LinePullbackFrames318.chartMap f U)).map
+            ((Scheme.Modules.restrictFunctorIsoPullback U.ι).app M).hom ≫
+          ((Scheme.Modules.pullbackComp (LinePullbackFrames318.chartMap f U) U.ι).app M).hom ≫
+            ((eqToIso ⋯).app M).inv ≫
+              ((Scheme.Modules.pullbackComp (f ⁻¹ᵁ U).ι f).app M).inv ≫
+                ((Scheme.Modules.restrictFunctorIsoPullback (f ⁻¹ᵁ U).ι).app ((Scheme.Modules.pullback f).obj M)).inv ≫
+                  ((Scheme.Modules.restrictFunctorIsoPullback (f ⁻¹ᵁ U).ι).app
+                      ((Scheme.Modules.pullback f).obj M)).hom =
+    (IdentityCotangent318.pullbackUnitIso (LinePullbackFrames318.chartMap f U)).inv ≫
+      (Scheme.Modules.pullback (LinePullbackFrames318.chartMap f U)).map e.hom ≫
+        (Scheme.Modules.pullback (LinePullbackFrames318.chartMap f U)).map
+            ((Scheme.Modules.restrictFunctorIsoPullback U.ι).app M).hom ≫
+          ((Scheme.Modules.pullbackComp (LinePullbackFrames318.chartMap f U) U.ι ≪≫
+                    Iso.refl (Scheme.Modules.pullback (LinePullbackFrames318.chartMap f U ≫ U.ι))).app
+                M).hom ≫
+            ((Scheme.Modules.pullbackComp (f ⁻¹ᵁ U).ι f ≪≫ eqToIso ⋯).app M).inv
+PullbackOpenFrameNormalization318.lean:43:19: warning: This simp argument is unused:
+  Iso.inv_hom_id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom,
+    Functor.mapIso_inv, Functor.map_comp, Category.assoc, Category.comp_id, Scheme.Modules.pullbackCongr, eqToIso_refl,
+    Iso.refl_hom, Iso.refl_inv, NatTrans.id_app, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:43:38: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom,
+    Functor.mapIso_inv, Functor.map_comp, Category.assoc, Iso.inv_hom_id_app, Scheme.Modules.pullbackCongr,
+    eqToIso_refl, Iso.refl_hom, Iso.refl_inv, NatTrans.id_app, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:44:17: warning: This simp argument is unused:
+  Iso.refl_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom,
+    Functor.mapIso_inv, Functor.map_comp, Category.assoc, Iso.inv_hom_id_app, Category.comp_id,
+    Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_inv, NatTrans.id_app, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:44:30: warning: This simp argument is unused:
+  Iso.refl_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom,
+    Functor.mapIso_inv, Functor.map_comp, Category.assoc, Iso.inv_hom_id_app, Category.comp_id,
+    Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_hom, NatTrans.id_app, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:44:43: warning: This simp argument is unused:
+  NatTrans.id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom,
+    Functor.mapIso_inv, Functor.map_comp, Category.assoc, Iso.inv_hom_id_app, Category.comp_id,
+    Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_hom, Iso.refl_inv, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PullbackOpenFrameNormalization318.lean:44:59: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [LinePullbackFrames318.frame, PullbackLineFrames318.frame, PullbackLineFrames318.chartIso,
+    PullbackChartComposition318.chart, PullbackChartComposition318.extend, PullbackFrameComposition318.frame,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_hom,
+    Functor.mapIso_inv, Functor.map_comp, Category.assoc, Iso.inv_hom_id_app, Category.comp_id,
+    Scheme.Modules.pullbackCongr, eqToIso_refl, Iso.refl_hom, Iso.refl_inv, NatTrans.id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+RELEASED:2026-11-08T13:11:39Z

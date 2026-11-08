@@ -1,0 +1,67 @@
+ACQUIRED 2026-11-08T12:09:26Z
+START BranchGlobalDifferentialRestriction318 2026-11-08T12:09:26Z
+recovery-hodge-0358/complementary-regular-descent-work/BranchGlobalDifferentialRestriction318.lean:21:0: warning: Definition `form_restrict` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+recovery-hodge-0358/complementary-regular-descent-work/BranchGlobalDifferentialRestriction318.lean:23:0: warning: Definition `form_action` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+RESULT BranchGlobalDifferentialRestriction318 0
+START CharacterOmittedBranchMultiple318 2026-11-08T12:09:31Z
+recovery-hodge-0358/complementary-regular-descent-work/CharacterOmittedBranchMultiple318.lean:18:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (IntrinsicChartSections318.sectionMap (ContactBranchRepresentation318.j units ?i)
+      (ContactBranchRepresentation318.p units) ⋯)
+    (IntrinsicChartRepresentation318.representation (ContactBranchRepresentation318.p units)
+      (ContactBranchRepresentation318.j units ?i) ⋯ ?s)
+in the target expression
+  (IntrinsicChartSections318.sectionMap (j i) p ⋯) (form i (ContactCharacterDifferentials318.differential i)) =
+    (IntrinsicChartSections318.sectionMap (j i) p ⋯) (CharacterBranchLocalForm318.form i i)
+
+i : Fin 4
+⊢ (IntrinsicChartSections318.sectionMap (j i) p ⋯) (form i (ContactCharacterDifferentials318.differential i)) =
+    (IntrinsicChartSections318.sectionMap (j i) p ⋯) (CharacterBranchLocalForm318.form i i)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ContactCharacterDifferentials318.differential i
+  has type
+    ↑Γ(ContactIntrinsicDifferentials318.omega units, ⊤)
+  but is expected to have type
+    ↑Γ(FamilyIntrinsicDifferentials318.omega (ContactBranchRepresentation318.p units), ⊤)
+  in the application
+    form i (ContactCharacterDifferentials318.differential i)
+recovery-hodge-0358/complementary-regular-descent-work/CharacterOmittedBranchMultiple318.lean:44:21: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  form i s
+in the target expression
+  (IntrinsicChartSections318.sectionMap (ContactBranchRepresentation318.j units i)
+        (ContactBranchRepresentation318.p units) ⋯)
+      (IntrinsicChartRepresentation318.representation (ContactBranchRepresentation318.p units)
+        (ContactBranchRepresentation318.j units i) ⋯ s) =
+    ScaledGlobalSectionRestriction318.scalar (j i) a •
+      (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) (ContactCharacterDifferentials318.differential i)
+
+i : Fin 4
+s : ↑Γ(M, ⊤)
+h : CharacterDifferentialInvariants318.Fixed i s
+a : B i
+ha : form i s = a • form i (ContactCharacterDifferentials318.differential i)
+⊢ (IntrinsicChartSections318.sectionMap (ContactBranchRepresentation318.j units i)
+        (ContactBranchRepresentation318.p units) ⋯)
+      (IntrinsicChartRepresentation318.representation (ContactBranchRepresentation318.p units)
+        (ContactBranchRepresentation318.j units i) ⋯ s) =
+    ScaledGlobalSectionRestriction318.scalar (j i) a •
+      (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) (ContactCharacterDifferentials318.differential i)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ContactCharacterDifferentials318.differential i
+  has type
+    ↑Γ(ContactIntrinsicDifferentials318.omega units, ⊤)
+  but is expected to have type
+    ↑(M.presheaf.obj (op ⊤))
+  in the application
+    (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) (ContactCharacterDifferentials318.differential i)
+RESULT CharacterOmittedBranchMultiple318 1
+RELEASED 2026-11-08T12:09:39Z status=1

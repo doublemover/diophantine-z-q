@@ -1,0 +1,13 @@
+# Four original completed-character line-class norm functions
+
+Accepted at the exact one-source consuming scope. The complete five-declaration source and nine obligations, original line-class quotient, actual norm-line representative and actual independent-presentation/source-isomorphism endpoints were read. Their distinct non-author producer acceptances remain bound rather than being replaced by a blanket re-review.
+
+For every i:Fin4 the source is the original contact Model and target the unchanged completed elliptic Target i. The function on representatives is precisely CompletedCharacterNormLine318.line i. Its underlying module comes from the already constructed actual all-open regular unit norm along completedMap i, with genuine whole-target-neighborhood frames and cover. This consumer does not replace it by a field-only norm, an arbitrary cocycle label or a newly selected target.
+
+Related L K means existence of an actual isomorphism of the original modules, with no requirement that the source covers or frame records coincide. respects destructs that exact witness and applies CompletedCharacterNormIndependence318.lineIso i e. The latter retains both independently chosen original presentations and its endpoints are exactly the constructed norm-line modules. Its actual source-transport/common-cover/gauge isomorphism and both inverse identities are independently accepted by checkpoint. Thus the target relation supplied to Quotient.map is precisely the existing actual module-isomorphism relation; no unproved coherence or class-identification axiom is used.
+
+norm_classOf is the literal representative formula. presentation_independent follows from that same actual lineIso, while eq_of_source_class_eq is congrArg of the already-defined norm function. These are four well-defined functions on the existing original line classes, not a claim that those functions already preserve tensor products, structure units or inverses.
+
+Exact supplied strict source and required-proposition/private-inclusive recursive audit5/1 evidence pass with standard roots only. No reviewer check or predecessor replay was run, and hosted integration remains pending. The independent norm-line4 review93e3e80d…45ae8 and source/presentation-independence4 review523a0239…6455e are distinct actual producer decisions, not assumed future prerequisites.
+
+The reviewer authored neither this source nor either direct norm-line/independence producer. Prior transitive subopen/rank helper authorship and its separate decisions remain excluded from self-independent approval. No unit/tensor/group-hom law, coherent norm functor, pullback-degree identity, represented Picard/Jacobian scheme, PEL or final arithmetic closure is accepted here.

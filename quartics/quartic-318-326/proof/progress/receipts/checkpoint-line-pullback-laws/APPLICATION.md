@@ -1,0 +1,11 @@
+# Actual line-class pullback identity and composition
+
+1. Inputs are arbitrary schemes X,Y,Z in the same universe, actual morphisms f:X→Y and g:Y→Z, and the original LineSheafClass318.Line presentations. No finiteness, dominance or reducedness assumption is introduced.
+2. The line pullback is exactly LineSheafPullback318.line: the original Scheme.Modules.pullback object with unit frames on full inverse images of its original covering opens. The quotient remains the same original module-sheaf isomorphism classes.
+3. identityIso is literally the component of Mathlib Scheme.Modules.pullbackId on the original module. Its domain is the unchanged actual identity pullback, not a replacement presentation or asserted equality of frame records.
+4. compositionIso is literally the component of Scheme.Modules.pullbackComp. Its direction is f*(g*L)→(f≫g)*L, and both endpoints are the original nested/composite module pullbacks. The proof uses the original contravariant order, not a commuted composition.
+5. Both hom-inv and inv-hom equations are exposed for both original module isomorphisms. No map coherence, local transition or scalar formula beyond the official component is silently assumed.
+6. Quotient induction and the original classOf_eq theorem give pullback(identity)c=c and pullback(f≫g)c=pullback(f)(pullback(g)c). No equality of covering presentations is required; actual module isomorphism is exactly the defining relation.
+7. Function equalities follow by extensionality from the two pointwise statements. The class map is the unchanged actual pullback function, not a fresh operation or assumed group homomorphism.
+8. The source passes a bounded strict kernel check and a fresh private-inclusive target recursive audit10/1 with standard roots only. The two-source pullback producer is frozen and pinned; its independent consuming review was pending at this freeze. No predecessor replay or combined hosted validation is claimed.
+9. This is identity/composition functoriality on actual line isomorphism classes. It is not pullback tensor compatibility, a bundled group-homomorphism pullback, a represented Picard/Jacobian functor, a coherent monoidal category, or the norm-pullback degree-eight theorem. Those separate constructions remain unaffected.
