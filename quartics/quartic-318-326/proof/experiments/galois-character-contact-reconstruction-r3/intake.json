@@ -1,0 +1,105 @@
+{
+  "status": "Uncompiled12-source actual Galois character/branch reconstruction candidate. Eight exact reviewed parity/reconstruction sources plus four new genuine normal-basis character, degree and full-action consumers. Original candidate field/Galois action retained; all-prime geometric branch parity still required. PEL curve/branch/model geometry, rational fixed-twist quotient scalings and represented Jacobian remain separate. Hosted and fresh independent acceptance pending. Revision2 guards terminal reflexivity after the original normal-basis action rewrite, as independently requested. Eleven other sources exact, no mathematical change; hosted pending. Revision3 fixes the exact7ebb Field(Raw a) declaration failure by spelling the original complementary root as its literal finite product in the original tensor RING. No Field hypothesis is needed to form this product. All consumers retain the exact same multiplication, factors, order and maps; actual field structure remains invoked only after independence where needed.",
+  "order": [
+    "FourRootEvaluation318",
+    "ComplementRootReconstruction318",
+    "ComplementRootAction318",
+    "LabeledContactFieldReconstruction318",
+    "SquareclassRadicalNormalization318",
+    "PolynomialEvenSquare318",
+    "RationalFunctionEvenSquare318",
+    "ContactDivisorFieldReconstruction318",
+    "NormalBasisCharacterRadicals318",
+    "FourBinaryCharacters318",
+    "ComplementaryFunctionRigidity318",
+    "GaloisCharacterContactReconstruction318"
+  ],
+  "files": {
+    "FourRootEvaluation318.lean": {
+      "sha256": "0e0bead44e352cb2d2690df8707664be10aa66ca8b8db7a918f8586ad0a7586e",
+      "imports": [
+        "FourRootAutomorphisms318",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Basic",
+        "SourceTwistArithmetic318"
+      ]
+    },
+    "ComplementRootReconstruction318.lean": {
+      "sha256": "9fdbda67a9687a845ef684e33299e7feeac16086cbec78ddd331f4f4ef470d94",
+      "imports": [
+        "ComplementSquareclass318",
+        "FourRootEvaluation318"
+      ]
+    },
+    "ComplementRootAction318.lean": {
+      "sha256": "6b3102ebf6db169c6904662fb31f06b6decbcfdddc84a94a73f83f7ac1c83de8",
+      "imports": [
+        "ComplementRootReconstruction318"
+      ]
+    },
+    "LabeledContactFieldReconstruction318.lean": {
+      "sha256": "b02df119a7494966847b78ef56b0dc970b14ae918235127b0e81e82d195c7dbb",
+      "imports": [
+        "ComplementRootAction318",
+        "SourceTwistFieldEquiv318"
+      ]
+    },
+    "SquareclassRadicalNormalization318.lean": {
+      "sha256": "e41d951277ed04f2fa872fbcc0ae7c0f13c15762742135425a4951cab9358920",
+      "imports": [
+        "LabeledContactFieldReconstruction318"
+      ]
+    },
+    "PolynomialEvenSquare318.lean": {
+      "sha256": "e9e5fa85ba44f662ef159590e8a6a46efae7ea65d87feb8197a15e981b99b902",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.FieldDivision",
+        "Mathlib.RingTheory.UniqueFactorizationDomain.Multiplicity",
+        "Mathlib.Tactic"
+      ]
+    },
+    "RationalFunctionEvenSquare318.lean": {
+      "sha256": "33ef1c7a2cedd628f90c49fe83da5d19a60272399ab96ee27116e857d0ff8ad1",
+      "imports": [
+        "Mathlib.FieldTheory.RatFunc.Basic",
+        "PolynomialEvenSquare318"
+      ]
+    },
+    "ContactDivisorFieldReconstruction318.lean": {
+      "sha256": "f26124817afb304bdc20e01d30b19d6fb11d6ec19214adf5ce38de8e5f212c5c",
+      "imports": [
+        "RationalFunctionEvenSquare318",
+        "SquareclassRadicalNormalization318"
+      ]
+    },
+    "NormalBasisCharacterRadicals318.lean": {
+      "sha256": "ce33679d2c020068723dcb7402291d0adb3e1151cec6f59d7c60cf2473ccfd4a",
+      "imports": [
+        "Mathlib.FieldTheory.Galois.NormalBasis",
+        "Mathlib.Tactic"
+      ]
+    },
+    "FourBinaryCharacters318.lean": {
+      "sha256": "e74c3a44a472a5eaca91374ad3c2f11cc4b898d45469c5a8fb4f346209a7ab8b",
+      "imports": [
+        "Mathlib.Algebra.Group.TypeTags.Basic",
+        "Mathlib.Data.ZMod.Basic",
+        "SourceTwistArithmetic318"
+      ]
+    },
+    "ComplementaryFunctionRigidity318.lean": {
+      "sha256": "49d0b16b1da55baa713d223a8c766d78f18efcb1fe101d4bf4dd9d6b4b890d9f",
+      "imports": [
+        "ComplementRootAction318"
+      ]
+    },
+    "GaloisCharacterContactReconstruction318.lean": {
+      "sha256": "bb148445f16d6634f8a929e1ff756655d50fa5c6457fdce640f655a3656df9b9",
+      "imports": [
+        "ComplementaryFunctionRigidity318",
+        "ContactDivisorFieldReconstruction318",
+        "FourBinaryCharacters318",
+        "NormalBasisCharacterRadicals318"
+      ]
+    }
+  }
+}
