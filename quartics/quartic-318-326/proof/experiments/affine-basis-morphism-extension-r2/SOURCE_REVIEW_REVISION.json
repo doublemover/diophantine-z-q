@@ -1,0 +1,14 @@
+{
+  "revision_of": "affine-basis-morphism-extension",
+  "changed_sources": [
+    "AffineBasisModuleIsomorphisms318"
+  ],
+  "reason": "Remove the redundant rfl after all three exact affine-component rewrites in hom_comp. The final equality is definitional and the rewrite tactic may already discharge it. No theorem or construction changes.",
+  "not_a_hosted_failure": true,
+  "additional_evidence": {
+    "primary_source_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Topology/Sheaves/SheafCondition/Sites.lean",
+    "declaration": "TopCat.Sheaf.restrictHomEquivHom",
+    "direction": "((inducedFunctor B).op \u22d9 F \u27f6 (inducedFunctor B).op \u22d9 F'.1) \u2243 (F \u27f6 F'.1)",
+    "component_recovery": "Equiv.left_inv applied to the original basisMap; immediately following extend_hom_app confirms the same exact basis component."
+  }
+}

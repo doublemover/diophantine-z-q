@@ -738,3 +738,7 @@ Run [42456889730](https://github.com/doublemover/diophantine-z-q/actions/runs/42
 ## Continuation batch 31
 
 Queued reviewed source revisions for actual affine coherence, original local chart gluing, the rational original-model isomorphism, and original H1-to-Picard-kernel homomorphisms. The latter retains only four canonical character naturality squares; fifth-cover independence remains open. Exact hosted failures are retained. All new source remains pending hosted checking and recursive axiom audit. Accepted baseline remains 1837.
+
+## Continuation batch 32
+
+The pending experiment matrix now includes actual affine-basis module-map extension, exact two-twist point rescaling and genuine small-prime scalar square preparation, plus the pointwise analytic eventual-equality repair. Original input/prime/index and rational-point producers remain explicit in the arithmetic consumer. No accepted baseline modules or theorem status were changed.
