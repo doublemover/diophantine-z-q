@@ -1,0 +1,1 @@
+Exact hosted run42593535245 at c1d8ad5: NormalizedPointSigns318 timed out at180seconds. The log contains only WALL_CLOCK_LIMIT_EXCEEDED, not a Lean error or failing declaration. Original tested source bytes remain unchanged. The successor adds command milestones without changing any proof or timeout budget.
