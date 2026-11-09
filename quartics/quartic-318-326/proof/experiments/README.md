@@ -16,6 +16,22 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original affine map effectiveness and exact replay repairs, 2026-11-09
+
+Nine active closures now schedule423 source checks. The affine descent chain
+constructs unique maps between the original base line sheaves from genuine
+covering maps satisfying the original categorical-double square. Its
+reconstruction unit returns the original line object with exact covering
+comparison and naturality. Changing-affine-base assembly remains separate.
+
+The H1 endpoint, actual local-chart categorical gluing, real detector exposure,
+analytic two-chart index exposure and three final height consumers carry narrow
+source-reviewed repairs with unchanged mathematical statements and maps. Exact
+hosted failures are retained, including the successful native tensor-scalar
+helper preceding the remaining H1 definitional endpoint. All revised closures
+are pending hosted checking; no new baseline promotion or arithmetic completion
+is claimed.
+
 ## Prepared compact access and actual global kernel, 2026-11-09
 
 Nine active closures now schedule415 source checks. The actual full detector

@@ -1,0 +1,36 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r1/ContactWholePrincipalReduction318.lean:29:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r1/ContactWholePrincipalReduction318.lean:30:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r1/ContactWholePrincipalReduction318.lean:67:15: error: unsolved goals
+c : Fin 4 → ℚˣ
+z : OverlapRing c
+n : ℕ
+a : InfinityRing c
+ha : z = (inclusion c) a * inverseU c ^ n
+R : ThreeIndex → ℚ[X]
+b : ThreeIndex → InfinityRing c
+hR : ∀ (i : ThreeIndex), (R i).degree < ↑n
+hb :
+  ∀ (i : ThreeIndex),
+    (InfinityOverlapLocalization318.toOpen c)
+          ((algebraMap (Base c) (InfinityRing c)) (((ContactHOneOrderBases318.infinityBasis c).repr a) i)) *
+        inverseU c ^ n =
+      principalTerm c (R i) n + (InfinityOverlapLocalization318.toOpen c) (b i)
+i : ThreeIndex
+⊢ principalTerm c (R i) n * (inclusion c) ((ContactHOneOrderBases318.infinityBasis c) i) +
+      (InfinityOverlapLocalization318.toOpen c) (b i) * (inclusion c) ((ContactHOneOrderBases318.infinityBasis c) i) =
+    principalTerm c (R i) n * (inclusion c) ((ContactHOneOrderBases318.infinityBasis c) i) +
+      (inclusion c) (b i) * (inclusion c) ((ContactHOneOrderBases318.infinityBasis c) i)

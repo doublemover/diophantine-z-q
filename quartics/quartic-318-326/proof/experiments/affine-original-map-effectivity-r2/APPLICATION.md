@@ -1,0 +1,23 @@
+# Application contract
+
+1. **Source requirements.** ActualTildeMorphismDescent318.Map takes an original covering sheaf map satisfying the original canonical overlap square on the genuine categorical double. OriginalAffineMorphismDescent318 takes the corresponding ActualAffineDescentData318.Hom between canonical data of arbitrary original lines. The original algebra remains faithfully flat. No scalar-overlap compatibility, coalgebra equation or base map is an added input.
+
+2. **Constructed objects.** moduleMap is the original fully faithful tilde preimage of the original covering map conjugated by the exact TildePullback318 comparison. Scalar descent produces a map between the original base modules. OriginalAffineMorphismDescent318 returns to the unchanged original line objects through their actual canonical tilde-Gamma counits. OriginalAffineReconstructionUnit318.unitIso ends in the same original line object supplied to the canonical datum.
+
+3. **Coverage.** Faithfully flat reconstruction and uniqueness retain Module.FaithfullyFlat R S. The canonical tildeLine uses the unchanged original line cover and frames transported by the original counit. All geometric overlap equations use the full actual categorical double. No arbitrary-base or non-affine fppf cover theorem is inferred.
+
+4. **Transition directions.** step_square uses the actual left/right pullbacks of the original covering map. canonical_square identifies precisely the original scalar overlap through both stepIso endpoint maps. SheafTransportIntertwiner318 transports the original actual-double square and ActualCanonicalOverlap318 identifies both resulting overlaps. The original-line transport is pullback(canonicalIsoL.hom), then the input map, then pullback(canonicalIsoK.inv).
+
+5. **Hypothesis checks.** scalar_square derives, rather than assumes, the canonical scalar-overlap condition. ActualTildeMorphismDescent318.descend_cover proves literal equality with the original covering map. General original-line uniqueness uses the previously proved arbitrary-line faithfully flat map reflection. Inverse compatibility of a covering iso is derived by cancelling its actual pullback isos. The reconstruction forward square is the already established exact original effective comparison theorem.
+
+6. **Consumer identity.** OriginalAffineMorphismDescent318.effective quantifies over all sheaf maps between the original line objects L and K. descendedIso retains the original covering forward and inverse maps. unitIso identifies ActualAffineDescendedMaps318.line(datum L) with L itself, and unitIso_cover identifies its pullback with the exact original reconstruction comparison. unitIso_natural relates the exact existing reconstructed maps to every original base-line map.
+
+7. **Scalars and normalization.** All scalar extensions retain algebraMap R S and the original double-overlap leftMap/rightMap. The actual tilde preimage is fixed by Functor.map_preimage. No original section module, scalar action, counit or pullback path is replaced by a merely abstract isomorphic one. The inherited mate repair ends by an explicit original Category.comp_id equality.
+
+8. **Downstream boundary.** This closes geometric map effectivity between arbitrary original affine lines and the original-line reconstruction unit, including naturality. The remaining join constructs compatible comparisons across changing affine bases and assembles the actual local affine fppf objects with the separately constructed original open-cover categorical descent. Represented Picard/Jacobian and final arithmetic claims remain outside this packet.
+
+9. **Evidence and acceptance.** Sixty-five producers are exact copies of affine-canonical-descent-functor-r2; four new modules implement the original endpoint transport, actual tilde map descent, arbitrary original-line map descent and natural reconstruction unit. Static import/hash/placeholder checks and audit-history self-test are run without local Lean compilation. Full69-source hosted strict compile, recursive axiom audit and independent acceptance remain required. No baseline promotion or manufactured approval is claimed.
+
+## Revision r2: explicit naturality chain
+
+After changing overlap_natural to an explicitly right-associated chain, begin directly with inverse-path naturality. Remove the redundant initial forward associativity rewrite; the actual maps, type, hypotheses and remaining hom-path naturality argument are unchanged. This is a source-level preflight repair, not a claimed hosted failure. All68 other sources remain identical. Hosted validation pending.
