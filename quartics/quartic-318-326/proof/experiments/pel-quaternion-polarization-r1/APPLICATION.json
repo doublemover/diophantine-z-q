@@ -1,0 +1,171 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Construct a concrete rational quaternion carrier with the exact \u03bc\u00b2=\u2212210 positive-involution convention, faithful real matrix action, and an explicit Rosati-stable integral order on which the same alternating trace form is perfect.",
+  "sources": {
+    "PELQuaternionAlgebra318.lean": "522b31006c9bd1e7454abfe6a1cecb35d3fa8ac79a5984060057cae836248fe5",
+    "PELQuaternionAlternatingForm318.lean": "1267195c15d2b7c6fa55d93eb66c89e46f2072eb685c8e09af33c741b620132b",
+    "PELQuaternionRealRepresentation318.lean": "9db0899824163c729ac6f9bcd0cd3551d773f6fc05f3eaa85ef4fa87f8207a8f",
+    "PELQuaternionIntegralOrder318.lean": "39e1994edc732124536e8bed37742fbb1ff418a567f7e80521ea40e2874e06f3",
+    "PELPrincipalOrderCoordinates318.lean": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+    "PELPrincipalOrderPerfect318.lean": "3d3c9185d50db6679fd802267502eac9d364973a312053fa1d8561176c80f04d"
+  },
+  "intake_sha256": "b368e511435922a84a180b87257f48e54c9beeeab4d5427dac2096fc5eaec466",
+  "readme_sha256": "56cc2751b6be777af53b5fc1ba393c781b8ad025257c09331b9e452a1a998b00",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/proof/progress/receipts/maximal-ks-producer/MAXIMAL-KS-PRODUCER.md": "f857ca8b92e329c6e6bd39b2819bb22615554cd691c2cbcfa53c717da41d38c4",
+    "manuscripts/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38"
+  },
+  "obligations": [
+    {
+      "name": "Concrete algebra, not a curve label",
+      "required_input": "The PEL algebra must not be confused with the separate encoding elliptic coefficient or genus-five contact Jacobian.",
+      "constructed_input": "B is literally Mathlib QuaternionAlgebra Q(-210,0,5), with \u03bc=i, j\u00b2=5, ij=-ji and an explicit \u03bc inverse. Its reduced discriminant210 and identification with the named source algebra still require local classification.",
+      "justification": "B is literally Mathlib QuaternionAlgebra Q(-210,0,5), with \u03bc=i, j\u00b2=5, ij=-ji and an explicit \u03bc inverse. Its reduced discriminant210 and identification with the named source algebra still require local classification.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionAlgebra318"
+    },
+    {
+      "name": "Exact positive involution",
+      "required_input": "The source convention is \u03bc^-1*bar(x)*\u03bc, not arbitrary conjugation.",
+      "constructed_input": "The involution is constructed with that formula, its coordinate signs, anti-multiplication and involutivity proved. Its positive trace is exactly2(r\u00b2+210i\u00b2+5j\u00b2+1050k\u00b2) and is strictly positive at every nonzero rational element.",
+      "justification": "The involution is constructed with that formula, its coordinate signs, anti-multiplication and involutivity proved. Its positive trace is exactly2(r\u00b2+210i\u00b2+5j\u00b2+1050k\u00b2) and is strictly positive at every nonzero rational element.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionAlgebra318.rosati; positive_trace"
+    },
+    {
+      "name": "Same alternating trace form",
+      "required_input": "The action and polarization candidate must refer to the same carrier and orientation.",
+      "constructed_input": "E(x,y)=Tr(\u03bc^-1*x*bar(y)) is proved bilinear, alternating, nondegenerate, and E(a*x,y)=E(x,rosati(a)*y). No unrelated elliptic Weil pairing or dimension argument supplies this.",
+      "justification": "E(x,y)=Tr(\u03bc^-1*x*bar(y)) is proved bilinear, alternating, nondegenerate, and E(a*x,y)=E(x,rosati(a)*y). No unrelated elliptic Weil pairing or dimension argument supplies this.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionAlternatingForm318"
+    },
+    {
+      "name": "Faithful real splitting input",
+      "required_input": "The analytic period carrier requires an actual algebra hom and the same adjoint.",
+      "constructed_input": "The explicit rational quaternion ring hom into real2x2 matrices is proved multiplicative and injective. It sends \u03bc to sqrt210 times the rotation and j to diag(sqrt5,-sqrt5); Rosati maps exactly to transpose.",
+      "justification": "The explicit rational quaternion ring hom into real2x2 matrices is proved multiplicative and injective. It sends \u03bc to sqrt210 times the rotation and j to diag(sqrt5,-sqrt5); Rosati maps exactly to transpose.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionRealRepresentation318.representation; representation_injective; rosati_transpose"
+    },
+    {
+      "name": "Actual integral order",
+      "required_input": "A rational pairing alone does not construct a PEL lattice.",
+      "constructed_input": "The basis1,i,(1+j)/2,i/2+k/10 gives a specified subring through an explicit integral multiplication polynomial. The carrier is exactly the range of the four-integer-coordinate embedding, with an additive equivalence. It contains \u03bc and is stable under the same Rosati involution.",
+      "justification": "The basis1,i,(1+j)/2,i/2+k/10 gives a specified subring through an explicit integral multiplication polynomial. The carrier is exactly the range of the four-integer-coordinate embedding, with an additive equivalence. It contains \u03bc and is stable under the same Rosati involution.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "PELPrincipalOrderCoordinates318.order; coordinatesEquiv; mu_mem; rosati_mem"
+    },
+    {
+      "name": "Perfect integral pairing",
+      "required_input": "Principal-lattice compatibility must be proved, not inferred from rank or integrality.",
+      "constructed_input": "The same unrescaled trace form has exact integer Gram[[0,-2,0,-1],[2,0,1,0],[0,-1,0,0],[1,0,0,0]]. Every integral linear functional has an explicitly constructed unique representing coordinate vector. The naive order is separately shown not perfect, preventing substitution of the wrong lattice.",
+      "justification": "The same unrescaled trace form has exact integer Gram[[0,-2,0,-1],[2,0,1,0],[0,-1,0,0],[1,0,0,0]]. Every integral linear functional has an explicitly constructed unique representing coordinate vector. The naive order is separately shown not perfect, preventing substitution of the wrong lattice.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "PELPrincipalOrderPerfect318.perfect; PELQuaternionIntegralOrder318.standard_pairing_not_perfect"
+    },
+    {
+      "name": "Period positivity convention",
+      "required_input": "A positive Rosati trace is not yet positivity of a Riemann form for the chosen complex structure.",
+      "constructed_input": "This packet retains E and \u03bc unchanged. For the standard upper-half-plane right complex structure, E(x,Jx) is negative; the analytic worker explicitly uses -E, equivalently E(Jx,x). Exact period compatibility and positivity are separate consuming proofs, not hidden sign changes here.",
+      "justification": "This packet retains E and \u03bc unchanged. For the standard upper-half-plane right complex structure, E(x,Jx) is negative; the analytic worker explicitly uses -E, equivalently E(Jx,x). Exact period compatibility and positivity are separate consuming proofs, not hidden sign changes here.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "README.md; PELQuaternionAlternatingForm318.pairing"
+    },
+    {
+      "name": "Remaining PEL/Jacobian identification",
+      "required_input": "The abelian surface, maximal order, moduli and original contact source must be constructed or compared.",
+      "constructed_input": "Reduced-discriminant/maximality classification, compact complex torus and algebraization, represented abelian scheme with order action, determinant condition, principal polarization on that scheme, actual PEL moduli/contact identification and integral KS/Hodge theorem remain separate. Perfect lattice does not establish all those conclusions.",
+      "justification": "Reduced-discriminant/maximality classification, compact complex torus and algebraization, represented abelian scheme with order action, determinant condition, principal polarization on that scheme, actual PEL moduli/contact identification and integral KS/Hodge theorem remain separate. Perfect lattice does not establish all those conclusions.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "README.md; source MAXIMAL-KS-PRODUCER section1"
+    },
+    {
+      "name": "Historical application and validation",
+      "required_input": "Classical producer hypotheses and formal implementation must remain distinct.",
+      "constructed_input": "Read original manuscript6862 onward and6934 onward plus exact maximal-KS receipt. The existing classical invocation is not a Lean construction. Six new sources and primary QuaternionAlgebra API are bound. Exact rational closure/Gram/adjoint checks support implementation only; no local Lean or full arithmetic claim.",
+      "justification": "Read original manuscript6862 onward and6934 onward plus exact maximal-KS receipt. The existing classical invocation is not a Lean construction. Six new sources and primary QuaternionAlgebra API are bound. Exact rational closure/Gram/adjoint checks support implementation only; no local Lean or full arithmetic claim.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "README.md"
+      ],
+      "evidence": "verification/consumer-source-pins.json; verification/primary-library-source-pins.json"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "hosted_check": "PENDING",
+    "independent_review": "PENDING",
+    "full_arithmetic_theorem_proved": false
+  }
+}
