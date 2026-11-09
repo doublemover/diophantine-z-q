@@ -1,0 +1,112 @@
+{
+  "claim": "Pending principal-part representatives of every actual original source-H1 class, retaining all eight infinity monomials and an element-dependent pole bound.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Revision r2 aligns original rational-algebra instances in principal fraction and regular lift; hosted checking, axiom audit and independent acceptance pending.",
+  "new_sources": {
+    "ActualSourceHOnePrincipalRepresentatives318.lean": "5569913ded9ff8bae30437c6a2ec377ba02fc908eab2c0be8d8a25faa76a8d40"
+  },
+  "readme_sha256": "10aec67cb39a3a88a9292508bb79d969a1ad7f86c508da426c1fd5f776b66784",
+  "intake_sha256": "e8955cc98c881a9935a9c645c30c4d9d80a3118174bfb66e32743f2fd47ca41d",
+  "copy_bindings_sha256": "2d95039a0c62a7e5e61c6b0469c79a5a04999ba6f82e74bc8cb4154baf074cad",
+  "obligations": [
+    {
+      "name": "Actual H1 carrier",
+      "required": "The consumer must be the same whole H1 group used by actual quotient pullbacks.",
+      "constructed": "HOne abbreviates ActualSourceHOnePullbacks318.SourceHOne.",
+      "justification": "The boundary imported from ActualSourceHOneCoordinates318 has precisely this codomain; no differential-space equivalence or rationalization is introduced.",
+      "evidence": [
+        "ActualSourceHOnePrincipalRepresentatives318.HOne",
+        "ActualSourceHOneCoordinates318.boundary"
+      ]
+    },
+    {
+      "name": "Full representative coverage",
+      "required": "Every H1 class must have an overlap representative.",
+      "constructed": "The argument applies the original boundary_surjective to arbitrary y.",
+      "justification": "That surjectivity is the actual full finite/infinity affine cover, transported by the actual overlap section equivalence.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.boundary_surjective",
+        "ActualSourceHOnePrincipalRepresentatives318.principal_representatives"
+      ]
+    },
+    {
+      "name": "Original chart maps",
+      "required": "The maps consumed must be the original finite and infinity inclusions.",
+      "constructed": "finite_boundary_zero and infinity_boundary_zero name orderToOpen and toOpen directly.",
+      "justification": "Their definitions agree with finiteMap and infinityMap in the original explicit-coordinate presentation.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.finiteMap",
+        "ActualSourceHOneCoordinates318.infinityMap",
+        "ActualSourceHOnePrincipalRepresentatives318.finite_boundary_zero"
+      ]
+    },
+    {
+      "name": "Boundary signs",
+      "required": "The infinity term must vanish with the established finite-minus-infinity convention.",
+      "constructed": "The zero-kernel witnesses for infinity b are finite zero and infinity negative b.",
+      "justification": "The identity zero - infinityMap(-b) = infinityMap b follows from map_neg; no sign is suppressed.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.boundary_eq_zero_iff",
+        "ActualSourceHOnePrincipalRepresentatives318.infinity_boundary_zero"
+      ]
+    },
+    {
+      "name": "Whole-ring producer input",
+      "required": "The overlap reduction must cover the actual original representative ring.",
+      "constructed": "reduction units z is applied to z returned by the original boundary.",
+      "justification": "Both abbreviations reduce to ContactKummerOrder318.OpenOrder SourceTwistArithmetic318.units. The inclusion maps are definitionally the same toOpen.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "ActualSourceHOneCoordinates318.OverlapRing"
+      ]
+    },
+    {
+      "name": "Complete finite index domain",
+      "required": "The full infinity monomial basis must be retained.",
+      "constructed": "principalClass is indexed by ThreeIndex; the sum is over every element.",
+      "justification": "ThreeIndex is exactly the eight-element tensor-product basis domain; no subset is selected.",
+      "evidence": [
+        "RootOrderMonomialBasis318.ThreeIndex",
+        "ContactHOneOrderBases318.infinityBasis",
+        "ActualSourceHOnePrincipalRepresentatives318.principalClass"
+      ]
+    },
+    {
+      "name": "Polynomial bounds and exceptional case",
+      "required": "Each numerator has degree below the actual common pole order, including zero.",
+      "constructed": "The n, R and all degree bounds are copied from the whole-ring reduction.",
+      "justification": "The WithBot degree statement includes zero polynomials and n=0. No nonzero class or positive pole assumption is required.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "ActualSourceHOnePrincipalRepresentatives318.principal_representatives"
+      ]
+    },
+    {
+      "name": "Actual class identity",
+      "required": "The reduced representative must map exactly to y, with scalar one.",
+      "constructed": "The proof applies boundary to the original overlap equality, then map_add and map_sum.",
+      "justification": "The actual infinity remainder is killed using infinity_boundary_zero. The remaining summands are literally principalClass by definition.",
+      "evidence": [
+        "ActualSourceHOnePrincipalRepresentatives318.principal_representatives",
+        "ActualSourceHOnePrincipalRepresentatives318.principalClass"
+      ]
+    },
+    {
+      "name": "Unresolved downstream dimension",
+      "required": "Elementwise finite representatives must not be reported as a uniform finite basis.",
+      "constructed": "The theorem quantifies n after y, with no bound independent of y.",
+      "justification": "Finite-chart pole reduction, independence and exact five quotient-pullback identification remain open. Hosted validation and independent acceptance remain pending.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "modified_dependencies": {
+    "ContactInfinityPrincipalParts318.lean": "96c5e4fb70a520f25272e559834f1b6bee4734935f02170833384717699d0425",
+    "ContactInfinityRegularFractions318.lean": "403b040dc82dd872d821010d8675d4c16fedd8683b215db601b89d3aa4e3390f"
+  },
+  "revision_join": "Both polynomial_coordinate_injective and openEmbedding_on_polynomial use the original RatFunc.instAlgebraOfPolynomial tower. The revised fraction producer and regular lift consumer now select precisely that tower by disabling DivisionRing.toRatAlgebra, following those original modules. No scalar, field or map is changed."
+}
