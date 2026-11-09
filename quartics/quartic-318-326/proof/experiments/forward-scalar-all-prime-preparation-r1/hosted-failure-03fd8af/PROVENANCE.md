@@ -1,0 +1,3 @@
+# Exact hosted failure
+
+Run42626499479, commit03fd8afb, job129192899571. Actual packet forward-scalar-all-prime-preparation-r1, intakeb68c3132378894176c23500f61ac97118c82ba819c87fa40c93fc435d0155b97.30 predecessors passed; RealOvalNormalization318 passed2.019s. First failure NormalizedOvalIndependence318 after103.832s, exit1. Concrete reciprocal-map rewrite exceeded existing2M deterministic heartbeats; two later generator identities retained normalize(n*P). No wallclock/budget diagnosis is substituted. Exact RESULT/log preserved. Failed source bytes unchanged. Fresh172r2 separates generic constructor proof and typed additive scalar maps; same mathematical statements/data and existing budget. No local Lean.
