@@ -1,0 +1,112 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Actual integer-multiple source chart existence and exact first51-row consumer; unconditional finite-prefix existence only.",
+  "source_hashes": {
+    "ActualMultipleCharts318.lean": "a5d7ea8a1706dc85e88698cb0396f61e6336c894bc2ab7e38ae3186a0b8b1ad6",
+    "ActualMultiplePrefix318.lean": "407e5055062ccdbf4dcdf60eb0d37756faec28f99729e2e250d02d3306d1a5b9"
+  },
+  "derivation_sha256": "d2f4872aa4f05ff03ef06dcdc5e41dc9415000e2709bb77be54df7b3f6158695",
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "required_input": "Actual doubled K-point, its nonsingularity and nonzero denominators for coordinate division.",
+      "constructed_input": "The point is in the original E.Point group; finite/identity branches are split explicitly.",
+      "justification": "Nonzero double forces y!=0. Positive real embedding proves x\u00b2+D!=0. The actual nonsingular group-addition equation and actual_doubling_x supply all coordinate facts.",
+      "source_refs": [
+        "ActualMultipleCharts318.lean",
+        "ValuationDuplication318.lean",
+        "RealMultiples318.lean"
+      ],
+      "evidence": "ActualMultipleCharts318.lean"
+    },
+    {
+      "id": "constructed_domain",
+      "required_input": "Every integer multiple of the fixed actual P, not a related curve point or arbitrary square root.",
+      "constructed_input": "chart_multiple applies chart_double to nR using P=R+R.",
+      "justification": "All integers including0 and negative integers are covered. Explicit curve-equality transport preserves the actual additive group.",
+      "source_refs": [
+        "ActualMultipleCharts318.lean",
+        "CompressedGeneratorBridge318.lean",
+        "GlobalGeneratorPoints318.lean"
+      ],
+      "evidence": "ActualMultipleCharts318.lean"
+    },
+    {
+      "id": "index_coverage",
+      "required_input": "Eight chart slots at four labels and one common nonzero h, plus the anchor.",
+      "constructed_input": "Fin.append constructs n_j h and n_j(h-1) in the exact left/right slots; anchor uses h.",
+      "justification": "left_point/right_point cover every Fin4 index through append_left/right; curves covers every Fin8 index. Labels need not be nonzero for the conditional construction.",
+      "source_refs": [
+        "ActualMultiplePrefix318.lean"
+      ],
+      "evidence": "ActualMultiplePrefix318.lean"
+    },
+    {
+      "id": "comparison_maps",
+      "required_input": "Actual oriented chart point equals the actual global multiple.",
+      "constructed_input": "chart_point and left_point/right_point retain both x and signed y.",
+      "justification": "Finite coordinate equality uses the actual addY, rather than only x. Identity branches are explicit. The source curve is transported through curve_eq.",
+      "source_refs": [
+        "ActualMultipleCharts318.lean",
+        "ActualMultiplePrefix318.lean"
+      ],
+      "evidence": "ActualMultipleCharts318.lean"
+    },
+    {
+      "id": "guard_identity",
+      "required_input": "The rational real coefficient guard required by the literal denominator equation.",
+      "constructed_input": "guards_iff identifies that exact guard with guardValue(n_j,hP).",
+      "justification": "Consumes RealGuardTrace318.literal_guard with actual point comparisons; no weakening to K-nonvanishing or an unrelated embedding.",
+      "source_refs": [
+        "ActualMultiplePrefix318.lean",
+        "RealGuardTrace318.lean"
+      ],
+      "evidence": "ActualMultiplePrefix318.lean"
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "One input-preserving assignment satisfies exactly stage0.take51.",
+      "constructed_input": "witness q n h uses the original three compatible fills; witness_input and witness_rows describe that same object.",
+      "justification": "The actual first51_rows theorem is called with constructed charts and the equivalent actual trace guards. The prefix is the literal list prefix, not a surrogate system.",
+      "source_refs": [
+        "ActualMultiplePrefix318.lean",
+        "RealGuardWitness318.lean"
+      ],
+      "evidence": "ActualMultiplePrefix318.lean"
+    },
+    {
+      "id": "existence_and_exceptions",
+      "required_input": "A genuine finite-prefix existence theorem, distinct from a global integer theorem.",
+      "constructed_input": "At h=1 all nonzero-label actual guards are strictly negative; the theorem chooses labels1.",
+      "justification": "Both real embeddings of reciprocal(nP) are positive by proved actual nontorsion/real facts. This yields arbitrary rational input prefix existence, not the later h!=1 or CRT/local constraints.",
+      "source_refs": [
+        "ActualMultiplePrefix318.lean",
+        "RealGuardTrace318.lean"
+      ],
+      "evidence": "ActualMultiplePrefix318.lean"
+    },
+    {
+      "id": "history_and_scope",
+      "required_input": "Preserve historical coherent chart and pre-prime scale requirements.",
+      "constructed_input": "DERIVATION identifies the existing Section3 formula and separates point-chart existence from cross-h coherence.",
+      "justification": "The current choice-based charts do not claim fixed rational-function signs. Actual real orbit/analytic cover, scalar region, remaining237 rows and global arithmetic theorems remain open.",
+      "source_refs": [
+        "DERIVATION.md",
+        "quartics/quartic-318-326/proof/progress/receipts/completeness-work/COMPLETENESS-ASSEMBLY.md"
+      ],
+      "evidence": "DERIVATION.md"
+    },
+    {
+      "id": "verification_and_acceptance",
+      "required_input": "Strict checking, exact frozen dependencies and distinct source review.",
+      "constructed_input": "Final two-module replay,39-declaration private-inclusive recursive audit and hash bindings.",
+      "justification": "Kernel checks and source bindings are bounded evidence. Non-author review remains pending, and no main manifest is changed.",
+      "source_refs": [
+        "VALIDATION.json",
+        "AuditActualMultiples.lean"
+      ],
+      "evidence": "VALIDATION.json"
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

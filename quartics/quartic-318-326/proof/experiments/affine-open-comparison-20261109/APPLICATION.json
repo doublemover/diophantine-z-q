@@ -1,0 +1,131 @@
+{
+  "claim": "The unchanged canonical H1(Y,f_*O_X) to H1(X,O_X) comparison is an additive equivalence for affine maps from an integral source; all five actual completed quotient maps have genuine normalized source-H1 transfers splitting their original pullbacks.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "sources": {
+    "StructureAdditiveSheaf318.lean": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+    "NormalizedStructureTrace318.lean": "abb00761f6802bdacf30b0778c018831ca9647becaac17ba4d849db530a6dbea",
+    "ActualQuotientSheafRetraction318.lean": "f8de85ec9aab887af1883bf5c8a938820085194078af8310ec3712aca18ba16b",
+    "SheafCohomologyRetraction318.lean": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+    "ActualQuotientHOne318.lean": "7f7e23038d11d86190eb0f37d512b434c47e4dd9ae449e0e7da5bccec85a0588",
+    "SheafInverseImageConstants318.lean": "094fc83fdb42d587bf46b38f46bf48fa270fe5c5da0609c4ec1c85de9794ca17",
+    "AdjunctionExtOneInjection318.lean": "94e11868bc24a939e9a504eaf299c907e7020b6db3c93abf18c5f732d890df8f",
+    "SourceCohomologyComparison318.lean": "87d6460435f194a371b665a784153fbd8bde75259cbc54fe30e709a4476b5e63",
+    "SchemeSourceCohomology318.lean": "cf366db605c3b65dff275db82bfd8bccef11728a74b451123016c78c236c243f",
+    "ActualSourceHOnePullbacks318.lean": "aedc5fb77f2afcc12a9b634d0ddd1a3965b5655d8a5500ce4e6f5f53415305c5",
+    "PrincipalFractionClearing318.lean": "a055271d9f1f5b67244e06bb846e0c51872a951ebc10154b7c6e698e6f07c1a7",
+    "PrincipalCocycleSplit318.lean": "ea3425c0d04250a585b8e40227ab6dfa6814c1133e155b1cad2f3f17e33d66f7",
+    "ActualPrincipalSections318.lean": "8a2ac7ba18c671401e03f726833d18c63ca7fe865cca66d0974c0a94b7c1d3df",
+    "ActualPrincipalCocycle318.lean": "18911203bcd8c5df0df3958ab82aab4a0e33620ad8002a8737064d2aef315288",
+    "AffinePrincipalLocalLifts318.lean": "4ff73469a263043051f848ab2f5f5b8206d3d883855a07e48035cf2d7e8c9c90",
+    "AdditiveSheafSections318.lean": "cc2d6d357c8ca15a86459f7a62fbd4b945314a6d5535480c44b3da4ec14507b6",
+    "AffineStructureSectionLifting318.lean": "2ac2e6df2a100c636d2ce4f35bf861cfa44374017b72943d17ec28705b463e3c",
+    "OpenImmersionAdditiveRestriction318.lean": "f8e97119b337406d9c4ec58879a59a014ec7a700ee5dfbe77c870cc26ea20f2f",
+    "AffineOpenSectionLifting318.lean": "63cfd41012771cadf17044259f65e03a8d8693bc52843a4a6fdc9d6fc56806fb",
+    "AdjunctionExtOneSurjection318.lean": "6a49c7ca0ee6fe4ef0d0cecf94fd1532f77e31ecd9518d3e6ba65b1ad37b73c5",
+    "AffineStructureDirectImage318.lean": "1f45cac581ec6f1a519daa21c7961096593470412d128454965f9dcec94b9cb9",
+    "AffineHOneComparison318.lean": "98d173f236d1246fea108178e03f0688ef1200472af322ef13f8c774986182e8",
+    "ActualSourceHOneTransfers318.lean": "681815c8a19d4e096b39299a49335f028a6eec6a8ec35d7447ad8b89c56f8fc4"
+  },
+  "obligations": [
+    {
+      "name": "Original coefficient and cohomology carriers",
+      "required": "Keep actual scheme structure sheaves and the exact predecessor canonical comparison.",
+      "constructed": "AffineHOneComparison318 states bijectivity of SchemeSourceCohomology318.comparison f 1 itself.",
+      "justification": "The predecessor comparison is exact inverse-image transport on Ext, the original counit and canonical integer-sheaf iso. Its source remains genuine target-site direct-image cohomology and its target genuine original source cohomology. equivalence_apply is definitional, not an arbitrary identification.",
+      "evidence": [
+        "AffineHOneComparison318.comparison_bijective",
+        "AffineHOneComparison318.equivalence_apply"
+      ]
+    },
+    {
+      "name": "Exact restriction along actual open immersions",
+      "required": "Transport the affine section-lifting theorem without substituting coefficient sheaves.",
+      "constructed": "OpenImmersionAdditiveRestriction318.restriction is the actual naive pullback along the open embedding, evaluated on original image opens.",
+      "justification": "The pinned isomorphism to exact inverse image proves finite-limit and finite-colimit preservation. structureIso is assembled from the original open-immersion ring-section appIso maps and their original naturality, then multiplication is forgotten. Its component is explicitly bound.",
+      "evidence": [
+        "OpenImmersionAdditiveRestriction318.restriction_limits",
+        "OpenImmersionAdditiveRestriction318.restriction_colimits",
+        "OpenImmersionAdditiveRestriction318.structureIso_hom_app"
+      ]
+    },
+    {
+      "name": "Affine-open transport and unchanged short exact sequence",
+      "required": "Apply the previously proved original Spec-domain section lifting on every source affine open.",
+      "constructed": "surjective_of_kernel_iso transports the actual short complex along the given kernel iso; surjective_image restricts the whole original short exact sequence along Spec R into X.",
+      "justification": "surjective_affine uses the original IsAffineOpen.fromSpec map and exact original image equality. Integral-source section rings on nonempty opens are domains by the existing IsIntegral definition. No isomorphic model is silently identified and no QC assumptions are added.",
+      "evidence": [
+        "AffineOpenSectionLifting318.surjective_of_kernel_iso",
+        "AffineOpenSectionLifting318.surjective_image",
+        "AffineOpenSectionLifting318.surjective_affine"
+      ]
+    },
+    {
+      "name": "Empty opens and actual basis coverage",
+      "required": "Handle every affine inverse image, including empty ones, and cover every target point.",
+      "constructed": "surjective_affine_all handles empty opens by the actual sheaf terminal empty-section condition; map_epi_of_structure_kernel refines each target neighborhood to an actual affine basis member.",
+      "justification": "Affineness of f makes its full inverse-image open affine. The previously proved surjectivity gives a lift there, which is exactly a section of the original direct-image sheaf over the chosen target open. The actual locally-surjective/epi theorem then proves epimorphy.",
+      "evidence": [
+        "AffineOpenSectionLifting318.surjective_affine_all",
+        "AffineStructureDirectImage318.map_epi_of_structure_kernel"
+      ]
+    },
+    {
+      "name": "Specific injective-cokernel bridge",
+      "required": "Do not assert that direct image is exact on all additive sheaves.",
+      "constructed": "injective_cokernel_epi applies the actual O-kernel extension theorem to the chosen injective embedding of original O and its actual cokernel.",
+      "justification": "The right adjoint remains only additive and left exact. This proof establishes epimorphy only for the required extension with original O kernel. No unproved QC-extension closure, derived/Cech comparison or blanket finite-map exactness enters.",
+      "evidence": [
+        "AffineStructureDirectImage318.injective_cokernel_epi",
+        "AffineStructureDirectImage318.map_epi_of_structure_kernel"
+      ]
+    },
+    {
+      "name": "Actual Ext1 mate surjectivity",
+      "required": "Turn the specific epi input into surjectivity of the exact adjunction mate.",
+      "constructed": "AdjunctionExtOneSurjection318 maps the chosen injective-cokernel sequence under the right adjoint, whose left exactness and the specific epi make it short exact.",
+      "justification": "Every source Ext1 class is a connecting image via the injective embedding. Transpose its degree-zero morphism by the actual adjunction, take the mapped-sequence boundary, and use counit short-complex naturality to recover the original class. The right adjoint is never assumed to preserve all cokernels.",
+      "evidence": [
+        "AdjunctionExtOneSurjection318.mate_one_surjective"
+      ]
+    },
+    {
+      "name": "Canonical comparison equivalence and source transfer",
+      "required": "Compose the mate with the original integer-sheaf iso and retain the predecessor maps.",
+      "constructed": "comparison_surjective precomposes with integerIso.hom, applies mate surjectivity, and cancels integerIso.inv; prior injection gives bijectivity.",
+      "justification": "equivalence has the exact canonical forward map. transfer is original cohomological sheaf retraction after the inverse equivalence; transfer_pullback proves its action on the unchanged actual source-cohomology pullback.",
+      "evidence": [
+        "AffineHOneComparison318.comparison_surjective",
+        "AffineHOneComparison318.comparison_bijective",
+        "AffineHOneComparison318.transfer_pullback"
+      ]
+    },
+    {
+      "name": "All five original completed quotient consumers",
+      "required": "Discharge integral-source and affine-map hypotheses for all four complementary maps and the fifth map.",
+      "constructed": "ActualSourceHOneTransfers318 uses original source integrality and existing finiteness of each exact completed quotient map.",
+      "justification": "characterEquivalence and fifthEquivalence target the same existing SourceHOne. Original trace/8 sheaf retractions give characterTransfer/fifthTransfer, their split identities and surjectivity, and idempotent source-H1 projections. Full completed maps include original finite branch points and infinity; no restriction to a smaller curve or only four quotients occurs.",
+      "evidence": [
+        "ActualSourceHOneTransfers318.character_comparison",
+        "ActualSourceHOneTransfers318.fifth_comparison",
+        "ActualSourceHOneTransfers318.character_split",
+        "ActualSourceHOneTransfers318.fifth_split",
+        "ActualSourceHOneTransfers318.character_projection_twice",
+        "ActualSourceHOneTransfers318.fifth_projection_twice"
+      ]
+    },
+    {
+      "name": "Remaining duality and dimension scope",
+      "required": "Do not promote additive H1 comparison and split maps to a Jacobian isogeny.",
+      "constructed": "This packet completes the degree-one direct-image/source comparison and normalized source H1 transfers for the five actual maps.",
+      "justification": "It does not bundle the rational H1 scalar action, prove pairwise orthogonality or fivefold spanning/dimension, identify Picard tangent spaces, prove Serre duality, represent Picard/Jacobian objects or construct an isogeny. It claims no general QC or higher-degree acyclicity. This is a new complete comparison bridge, not a claim about absent historical justification.",
+      "evidence": [
+        "README.md",
+        "ActualSourceHOneTransfers318.character_split",
+        "ActualSourceHOneTransfers318.fifth_split"
+      ]
+    }
+  ],
+  "independent_review": "Pending exact-source-bound non-author review."
+}

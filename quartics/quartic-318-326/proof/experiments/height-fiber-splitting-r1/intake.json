@@ -1,0 +1,85 @@
+{
+  "packet": "height-fiber-splitting-r1",
+  "status": "PASS_SEVEN_FRESH_STRICT_SOURCE_CHECKS_132_DECLARATION_AUDIT_PENDING_DISTINCT_REVIEW",
+  "order": [
+    "RationalFourRootFiber318",
+    "FourRootPointTorsor318",
+    "RationalContactPoint318",
+    "FourRootPointUniversal318",
+    "RationalFourRootSplitting318",
+    "RationalFourRootGalois318",
+    "ContactFieldSection318"
+  ],
+  "files": {
+    "RationalFourRootFiber318.lean": {
+      "sha256": "7508e2ae43346ee6169187d900cb20e0d8607ce96c87eaec2730115d321e7750",
+      "imports": [
+        "FourRootOrderSigns318",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Finrank"
+      ]
+    },
+    "FourRootPointTorsor318.lean": {
+      "sha256": "98f428008b2cd294a1d920d1e7d9b854a71fdaf665deeb822d13bad8e0c27bf1",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "RationalContactPoint318.lean": {
+      "sha256": "b14c45659732280a5df3b6ae1019027ebee58f240ddca1074a6ecee9e91d422a",
+      "imports": [
+        "RationalFourRootFiber318",
+        "FourRootPointTorsor318",
+        "SourceGlobalAffine318",
+        "FiveContactProducer318"
+      ]
+    },
+    "FourRootPointUniversal318.lean": {
+      "sha256": "fa89b94e8c12624cb052c48d4cee6c7be6cde2b2ad7d408b22a4f9f155cb7846",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "RationalFourRootSplitting318.lean": {
+      "sha256": "bda2776c0c8f2be73d0381e7210e44bf6f704a5d4c027a10b80ce65e7fabb719",
+      "imports": [
+        "RationalFourRootFiber318",
+        "FourRootPointUniversal318",
+        "Mathlib.FieldTheory.Normal.Basic",
+        "Mathlib.FieldTheory.Galois.Basic"
+      ]
+    },
+    "RationalFourRootGalois318.lean": {
+      "sha256": "7097676edcff8410ba033ee95c38c6fcf371a69363521ac6c283028f7630e483",
+      "imports": [
+        "RationalContactPoint318",
+        "RationalFourRootSplitting318",
+        "FourRootPointTorsor318",
+        "FourRootOrderSignAction318",
+        "FiberCentralizer318"
+      ]
+    },
+    "ContactFieldSection318.lean": {
+      "sha256": "27f58f0305a470215425dc6f030fbaff8d6dbff18011f4fe6c23009ee6fe24d2",
+      "imports": [
+        "RationalContactPoint318",
+        "Mathlib.RingTheory.Etale.Field",
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+        "Mathlib.AlgebraicGeometry.Pullbacks"
+      ]
+    }
+  },
+  "new_modules": [
+    "FourRootPointUniversal318",
+    "RationalFourRootSplitting318",
+    "RationalFourRootGalois318",
+    "ContactFieldSection318"
+  ],
+  "unchanged_predecessor_modules": [
+    "RationalFourRootFiber318",
+    "FourRootPointTorsor318",
+    "RationalContactPoint318"
+  ],
+  "scope": "Same actual contact field is splitting/Galois, with faithful commuting sign action and degree dividing16 off branch; actual finite-etale fppf cover and original curve section after base change. No PEL level-three or height realization.",
+  "verification": "verification/receipt.json"
+}

@@ -1,0 +1,34 @@
+{
+  "packet": "forward-real-guard-ambient-r1",
+  "status": "ISOLATED_STRICT_PASS_PENDING_DISTINCT_REVIEW",
+  "order": [
+    "RealQuarticAmbient318",
+    "RealGuardAmbient318",
+    "RealGuardCover318"
+  ],
+  "files": {
+    "RealQuarticAmbient318.lean": {
+      "sha256": "7bef67a0c1e5e3bc54800bc915b970a52cb5b1d4f2a3b3c06319f777a8ddefa8",
+      "imports": [
+        "CoherentMultiplePrefix318",
+        "Mathlib.Analysis.Analytic.Constructions",
+        "Mathlib.Topology.MetricSpace.Bounded"
+      ]
+    },
+    "RealGuardAmbient318.lean": {
+      "sha256": "f0fce8caf280289d4f7bfcf8cd0c27894c2e04d04dd541933b647192d9af38c4",
+      "imports": [
+        "RealQuarticAmbient318"
+      ]
+    },
+    "RealGuardCover318.lean": {
+      "sha256": "295bef9d289d39bd6c3f3e22dd3981d15aba969d96cbce38c2e68efad88841d2",
+      "imports": [
+        "RealGuardAmbient318",
+        "AnalyticGuardAvoidance318"
+      ]
+    }
+  },
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false
+}

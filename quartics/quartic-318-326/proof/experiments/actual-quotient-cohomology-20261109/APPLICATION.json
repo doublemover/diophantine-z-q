@@ -1,0 +1,123 @@
+{
+  "claim": "Actual all-open trace/8 sheaf retractions for the five original completed quotient morphisms induce split injections and surjective normalized transfers on genuine derived sheaf H1, with codomain H1(E,f_*O_C); all-degree retractions and exact H0 comparison are included.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "sources": {
+    "StructureAdditiveSheaf318.lean": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+    "NormalizedStructureTrace318.lean": "abb00761f6802bdacf30b0778c018831ca9647becaac17ba4d849db530a6dbea",
+    "ActualQuotientSheafRetraction318.lean": "f8de85ec9aab887af1883bf5c8a938820085194078af8310ec3712aca18ba16b",
+    "SheafCohomologyRetraction318.lean": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+    "ActualQuotientHOne318.lean": "7f7e23038d11d86190eb0f37d512b434c47e4dd9ae449e0e7da5bccec85a0588"
+  },
+  "obligations": [
+    {
+      "name": "Actual sheaf carrier",
+      "required": "Use the original additive structure sheaf and actual direct image, with a genuine sheaf condition.",
+      "constructed": "sheaf X is X.presheaf followed by the actual forgetful functor CommRingCat to AddCommGrpCat. pushed f is the original direct-image presheaf followed by that functor.",
+      "justification": "The original ring-sheaf condition is preserved by the limit-preserving forgetful functor; topological pushforward preserves sheaves. pushed_eq identifies the exact constructed sheaf with ordinary pushforward.",
+      "evidence": [
+        "StructureAdditiveSheaf318.sheaf",
+        "StructureAdditiveSheaf318.pushed",
+        "StructureAdditiveSheaf318.pushed_eq"
+      ]
+    },
+    {
+      "name": "Actual structure map and variance",
+      "required": "The map must be O_E to f_*O_C induced by the original completed curve morphism f:C to E.",
+      "constructed": "pullback is Functor.whiskerRight f.c additiveForget.",
+      "justification": "pullback_component states exact equality to f.app U for every actual target open and every section. No map in the Picard direction is substituted.",
+      "evidence": [
+        "StructureAdditiveSheaf318.pullback",
+        "StructureAdditiveSheaf318.pullback_component"
+      ]
+    },
+    {
+      "name": "Unchanged all-open trace",
+      "required": "Use the existing actual regular-function trace with its original coefficient action and exact degree.",
+      "constructed": "characterTrace and fifthTrace wrap CompletedCharacterOpenTrace318.transfer and FifthOpenTrace318.transfer as genuine sheaf morphisms.",
+      "justification": "Their original source and target presheaves are definitionally the newly sheaf-bundled original structure sheaves. The all-open trace_pullback statements give exactly8*s.",
+      "evidence": [
+        "ActualQuotientSheafRetraction318.characterTrace",
+        "ActualQuotientSheafRetraction318.fifthTrace",
+        "CompletedCharacterOpenTrace318.trace_pullback",
+        "FifthOpenTrace318.trace_pullback"
+      ]
+    },
+    {
+      "name": "Normalization and restriction compatibility",
+      "required": "Division by8 must use original target structural rational constants on every open and commute with restrictions.",
+      "constructed": "scalar q U is the original Spec/global-sections comparison followed by q.appTop and restriction to U. retraction multiplies the actual trace by scalar q U(1/8).",
+      "justification": "scalar_restrict proves the actual restriction square. eighth_mul follows by mapping the rational identity (1/8)*8=1. Naturality combines this exact square with the original trace naturality, without a new scalar action.",
+      "evidence": [
+        "NormalizedStructureTrace318.scalar_restrict",
+        "NormalizedStructureTrace318.eighth_mul",
+        "NormalizedStructureTrace318.retraction_component"
+      ]
+    },
+    {
+      "name": "Coverage and all-five specialization",
+      "required": "The sheaf identity must cover every open and every one of the five completed maps, including branch, infinity and empty opens.",
+      "constructed": "The generic retraction theorem quantifies over all Y.Opens; the four complementary targets are universally indexed by Fin4 and the exact original fifth map is handled separately.",
+      "justification": "No affine/nonempty hypothesis is introduced. character_split and fifth_split instantiate the original complete all-open degree identities. The maps use the publishedA/publishedB and original fifth A/B structures.",
+      "evidence": [
+        "NormalizedStructureTrace318.pullback_retraction",
+        "ActualQuotientSheafRetraction318.character_split",
+        "ActualQuotientSheafRetraction318.fifth_split",
+        "ActualQuotientSheafRetraction318.character_component",
+        "ActualQuotientSheafRetraction318.fifth_component"
+      ]
+    },
+    {
+      "name": "Genuine cohomology and existence",
+      "required": "Use actual derived sheaf cohomology without assuming a desired dimension or defining it as a differential dual.",
+      "constructed": "structureH and pushedH abbreviate Mathlib Sheaf.H of the exact additive sheaves; Sheaf.H is Ext from the constant integral sheaf.",
+      "justification": "Pinned Grothendieck-abelian/HasExt instances supply the existing general cohomology construction on the small site of actual opens. No extra HasExt, Serre-duality, dimension or representability premise appears in the actual five-map theorems.",
+      "evidence": [
+        "SheafCohomologyRetraction318.structureH",
+        "SheafCohomologyRetraction318.pushedH",
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.Basic",
+        "Mathlib.CategoryTheory.Abelian.GrothendieckCategory.HasExt",
+        "Mathlib.Topology.Sheaves.Abelian"
+      ]
+    },
+    {
+      "name": "Functorial maps and degree-zero identity",
+      "required": "The cohomology retraction must be induced by the actual sheaf maps with correct composition order; its normalization must agree with actual functions in degree0.",
+      "constructed": "pullback and transfer are Sheaf.H.map of the actual structure map and normalized trace.",
+      "justification": "H.map_comp_apply and H.map_id_apply transfer the exact sheaf equality to every degree. H.equiv0_naturality explicitly identifies the degree0 maps with the original pullback and actual transfer component.",
+      "evidence": [
+        "SheafCohomologyRetraction318.transfer_pullback",
+        "SheafCohomologyRetraction318.pullback_HZero",
+        "SheafCohomologyRetraction318.transfer_HZero"
+      ]
+    },
+    {
+      "name": "Actual H1 consumers",
+      "required": "Split injectivity and transfer surjectivity must hold on the actual five targets in degree1, not only on abstract retract data.",
+      "constructed": "ActualQuotientHOne318 specializes all-degree equality to every original complementary map and the fifth, then gives explicit H1 injection/surjection endpoints.",
+      "justification": "The general proof retains the actual maps. The composite normalized transfer after pullback is identity; LeftInverse.injective and RightInverse.surjective require exactly this equality. Projection idempotence uses the same maps.",
+      "evidence": [
+        "ActualQuotientHOne318.character_split_all",
+        "ActualQuotientHOne318.fifth_split_all",
+        "ActualQuotientHOne318.character_h1_injective",
+        "ActualQuotientHOne318.fifth_h1_injective",
+        "ActualQuotientHOne318.character_h1_transfer_surjective",
+        "ActualQuotientHOne318.fifth_h1_transfer_surjective"
+      ]
+    },
+    {
+      "name": "Source-versus-pushforward comparison and scope",
+      "required": "Do not identify Hn(E,f_*O_C) with Hn(C,O_C), or assert Serre duality/Jacobian consequences without the required actual comparison.",
+      "constructed": "pushedH is explicitly cohomology on E with the direct-image coefficient sheaf. It is not defined to be cohomology on C.",
+      "justification": "The packet proves split injections and surjections of abelian groups only. Direct-image cohomology comparison, one common-source fivefold H1 decomposition, H1 rational-module packaging, Picard-tangent/duality naturality, degree0 and representation remain separate. Existing differential equivalence is not conflated with tangent Picard pullback.",
+      "evidence": [
+        "README.md",
+        "SheafCohomologyRetraction318.pushedH",
+        "ActualQuotientHOne318.character_h1_injective",
+        "ActualQuotientHOne318.fifth_h1_injective"
+      ]
+    }
+  ],
+  "independent_review": "Pending exact-source-bound non-author review."
+}

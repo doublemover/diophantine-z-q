@@ -1,0 +1,38 @@
+{
+  "packet": "forward-real-guard-selection-r1",
+  "status": "ISOLATED_STRICT_PASS_PENDING_DISTINCT_REVIEW",
+  "order": [
+    "AnalyticGuardAvoidance318",
+    "CompactGuardProgression318",
+    "ActualGuardSelection318"
+  ],
+  "files": {
+    "AnalyticGuardAvoidance318.lean": {
+      "sha256": "0150b77877afcb7bd95cffaddc2aff0660de21ccbe344b82c703ad14b1093247",
+      "imports": [
+        "Mathlib.Analysis.Analytic.Uniqueness",
+        "Mathlib.Topology.Sets.Compacts",
+        "Mathlib.Topology.Order.Compact",
+        "Mathlib.Tactic"
+      ]
+    },
+    "CompactGuardProgression318.lean": {
+      "sha256": "2333b140b42829502a1befaa28e3aad7281b37504db0199e2292a2bbca008d30",
+      "imports": [
+        "AnalyticGuardAvoidance318",
+        "Mathlib.Topology.Algebra.Group.SubmonoidClosure",
+        "Mathlib.Data.Nat.ModEq"
+      ]
+    },
+    "ActualGuardSelection318.lean": {
+      "sha256": "c86c931acf23f923e605c6d0a2d32da2b8f1f6ce31a3034e60b3cab4b418a296",
+      "imports": [
+        "CompactGuardProgression318",
+        "RealGuardTrace318"
+      ]
+    }
+  },
+  "explicit_packet_dependency": "../forward-real-guard-witness-r1",
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false
+}

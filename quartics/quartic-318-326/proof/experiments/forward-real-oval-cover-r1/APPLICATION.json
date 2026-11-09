@@ -1,0 +1,108 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Explicit globally analytic surjection onto every full actual real reciprocal oval and its sixteen-factor product; actual orbit-component cover remains unconstructed.",
+  "sources": {
+    "RealQuarticOvalCover318.lean": "abeb2eb9ef35201d8143a3465fa5b407ba22ad7242f086ec7761fc95aa35cd87",
+    "RealQuarticProductCover318.lean": "08711458513ca53a681da5e6f401cdedf43cc9d5042d4aa2cd3ba73201e80a43"
+  },
+  "derivation_sha256": "025a19b579c416575bdfe64f610b042d0b130ae2ca3056c62a7f386bbeee5f5e",
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "required_input": "The actual positive real square-root branch and primary analytic inverse theorem.",
+      "constructed_input": "Squaring at sqrt(x)>0 has derivative2sqrt(x)!=0; sqrt(t\u00b2)=t on a positive neighborhood.",
+      "justification": "The composition inverse theorem applies at the correct center and identifies the actual sqrt function. No branch or differentiability assumption is added.",
+      "source_refs": [
+        "RealQuarticOvalCover318.lean",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic"
+      ],
+      "evidence": "RealQuarticOvalCover318.lean"
+    },
+    {
+      "id": "constructed_domain",
+      "required_input": "Every real oval v\u00b2=1-du\u2074 for positive d.",
+      "constructed_input": "c=1/sqrt(sqrt(d)), u=c sin(t), v=cos(t)sqrt(1+sin(t)\u00b2).",
+      "justification": "The root identity dc\u2074=1 and positive square-root arguments prove the exact equation and global real analyticity.",
+      "source_refs": [
+        "RealQuarticOvalCover318.lean"
+      ],
+      "evidence": "RealQuarticOvalCover318.lean"
+    },
+    {
+      "id": "index_coverage",
+      "required_input": "All oval points, including both ordinate signs and turning points.",
+      "constructed_input": "For r=a/c, choose arcsin(r) or pi-arcsin(r) according to the sign of b.",
+      "justification": "The source equation forces |r|<=1; exact sine and cosine identities and same-square sign comparison prove both target coordinates. Zero ordinate belongs to the nonnegative branch.",
+      "source_refs": [
+        "RealQuarticOvalCover318.lean"
+      ],
+      "evidence": "RealQuarticOvalCover318.lean"
+    },
+    {
+      "id": "maps_and_topology",
+      "required_input": "The original finite real-coordinate topology and all sixteen actual ovals.",
+      "constructed_input": "The independent-angle map R16->R32 uses actual d(e) from both embeddings in all eight chart slots.",
+      "justification": "Analytic coordinate projections and the one-oval maps give an entire product map; every coordinate pair gets an angle. Its subtype image lies in the original ovals set.",
+      "source_refs": [
+        "RealQuarticProductCover318.lean",
+        "RealQuarticAmbient318.lean"
+      ],
+      "evidence": "RealQuarticProductCover318.lean"
+    },
+    {
+      "id": "center_identity",
+      "required_input": "The exact arithmetic reference point required by the guard identity principle.",
+      "constructed_input": "Surjectivity finds an angle preimage of orbit(n,0); translation recenters the domain.",
+      "justification": "Translation preserves surjectivity and analyticity, and the center is proved equal to the original coherent integer-orbit point. It is not silently replaced by the ambient zero vector.",
+      "source_refs": [
+        "RealQuarticProductCover318.lean"
+      ],
+      "evidence": "RealQuarticProductCover318.lean"
+    },
+    {
+      "id": "guard_consumer",
+      "required_input": "Actual analytic cover premises and arithmetic guard positivity.",
+      "constructed_input": "actual_guards_dense consumes the constructed centered cover for S=the full ovals set.",
+      "justification": "The existing exact literal polynomial guards and real identity positivity supply dense simultaneous nonzero guards on this specific full source product. No extra guard nonvanishing hypothesis is assumed.",
+      "source_refs": [
+        "RealQuarticProductCover318.lean",
+        "RealGuardCover318.lean"
+      ],
+      "evidence": "RealQuarticProductCover318.lean"
+    },
+    {
+      "id": "remaining_domain_boundary",
+      "required_input": "Do not infer zero avoidance on a smaller orbit component from the full product.",
+      "constructed_input": "The source-domain conclusion explicitly remains the entire sixteen-oval product.",
+      "justification": "No homomorphism, closed subgroup/component identification, analytic cover of that component, scalar-region nonemptiness or permitted progression is claimed. These remain needed for the actual integer-selection theorem.",
+      "source_refs": [
+        "DERIVATION.md",
+        "RealQuarticProductCover318.lean"
+      ],
+      "evidence": "DERIVATION.md"
+    },
+    {
+      "id": "historical_comparison",
+      "required_input": "Read and preserve the earlier real compact-Lie-group argument.",
+      "constructed_input": "Current real-progression bridge and completeness assembly remain pinned through the predecessor.",
+      "justification": "Prior justification found. This explicit analytic parameterization is a formal prerequisite, not a revision or absence claim about the prior proof.",
+      "source_refs": [
+        "DERIVATION.md",
+        "quartics/quartic-318-326/docs/sources/quartic_v10.tex"
+      ],
+      "evidence": "DERIVATION.md"
+    },
+    {
+      "id": "verification_acceptance",
+      "required_input": "Exact source replay, recursive private audit and distinct acceptance.",
+      "constructed_input": "Two fresh strict modules; hash-bound logs, artifacts,114 baseline and8 predecessor sources.",
+      "justification": "Only the standard three logical axioms are permitted. Distinct review/admission remain pending, with no global theorem claimed.",
+      "source_refs": [
+        "VALIDATION.json",
+        "AuditRealOvalCover.lean"
+      ],
+      "evidence": "VALIDATION.json"
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

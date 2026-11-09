@@ -1,0 +1,115 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Exact global fixed sign of every guarded emitted root on the actual coherent integer half-orbit.",
+  "sources": {
+    "CoherentSecantPolynomial318.lean": "8e453096aa934e6ebf1a5bb7d0b12c3689f1b734eebdf76e24612c0ac5878be3",
+    "CoherentSecant318.lean": "a3314a1e41ae3954a9b23852f2ae929bd77fd92b32e466575a7114c8a1c23dad",
+    "CoherentOrbit318.lean": "8ddde7b271de007d62d43e61164cce0996655167c5edc1fd6240cf4c28d35b5f",
+    "CoherentRootSign318.lean": "203b89746cd8ee6c75dac98faa0891e0780511669cbf937ea61c3a7e021ea257"
+  },
+  "derivation_sha256": "c104e0a25bd96769212e80c16568b7782d9d4cd274c3afff613b1df33f192c90",
+  "obligations": [
+    {
+      "id": "primary_source_requirements",
+      "required_input": "Actual curve equations, exact secant formulas and every denominator condition.",
+      "constructed_input": "Universal polynomial certificate and actual finite subtraction with distinct x coordinates.",
+      "justification": "Actual slope/addX/addY are normalized to L/d,X/d\u00b2,Y/d\u00b3. All denominators are proved nonzero; no secant conclusion is supplied as an assumption.",
+      "source_refs": [
+        "CoherentSecantPolynomial318.lean",
+        "CoherentSecant318.lean"
+      ],
+      "evidence": "CoherentSecantPolynomial318.lean"
+    },
+    {
+      "id": "actual_domain",
+      "required_input": "Original integer half-orbit and original coherent chart functions.",
+      "constructed_input": "[nh]R and[n(h-1)]R over actual K, with P=2R.",
+      "justification": "The imported explicit chart functions are unchanged; the group and curve are the same original E.Point.",
+      "source_refs": [
+        "CoherentOrbit318.lean",
+        "CoherentRootSign318.lean",
+        "CoherentMultipleCharts318.lean"
+      ],
+      "evidence": "CoherentOrbit318.lean"
+    },
+    {
+      "id": "full_index_and_exception_coverage",
+      "required_input": "Every integer h and every nonzero signed label n.",
+      "constructed_input": "Actual half-orbit injectivity and no adjacent equality/opposition; separate zero-input branches.",
+      "justification": "nR=0 would force nP=0. Opposite adjacent points would force2h-1=0. The finite x exception is excluded by actual xRep equality theorem. Identity inputs are handled directly.",
+      "source_refs": [
+        "CoherentOrbit318.lean",
+        "CoherentRootSign318.lean"
+      ],
+      "evidence": "CoherentOrbit318.lean"
+    },
+    {
+      "id": "comparison_maps",
+      "required_input": "Exact oriented u-subtraction equality, not equality of squares.",
+      "constructed_input": "u(Q-S)(1+D u(Q)\u00b2u(S)\u00b2)=u(Q)v(S)-u(S)v(Q).",
+      "justification": "The rational secant identity is checked against actual group coordinates and transported to the actual difference[n]R. No analytic atlas or sign selection is assumed.",
+      "source_refs": [
+        "CoherentSecant318.lean",
+        "CoherentRootSign318.lean"
+      ],
+      "evidence": "CoherentSecant318.lean"
+    },
+    {
+      "id": "normalization_and_scalar",
+      "required_input": "Source reversed denominator A\u00b2-U\u00b2 and historical negative root sign.",
+      "constructed_input": "Quartic factorization and coherent subtraction give(UB+AV)C=U\u00b2-A\u00b2.",
+      "justification": "The positive-real common factor is canceled with proved nonvanishing. Final division uses actual guard and C!=0, yielding-1/C exactly. Polynomial coefficient2 is retained in the universal identity and the rational normalization proves its cancellation in K.",
+      "source_refs": [
+        "CoherentRootSign318.lean",
+        "CoherentSecant318.lean"
+      ],
+      "evidence": "CoherentRootSign318.lean"
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Literal source root, exact Fin8 slots and existing fixedRoot.",
+      "constructed_input": "emitted_root_fixed uses original root/denominator and CoherentMultiplePrefix318 arrays.",
+      "justification": "Fin.append identities cover each paired slot. The guard is the rational real coefficient, D equality is explicit, and the conclusion is the same fixedRoot(n_j) independent of h.",
+      "source_refs": [
+        "CoherentRootSign318.lean",
+        "CoherentMultiplePrefix318.lean",
+        "RealGuardWitness318.lean"
+      ],
+      "evidence": "CoherentRootSign318.lean"
+    },
+    {
+      "id": "remaining_arithmetic_scope",
+      "required_input": "Do not infer prime choice, stored-scale rows or a full source witness.",
+      "constructed_input": "The exact signed roots are fixed before h; broader arithmetic assembly stays open.",
+      "justification": "Real orbit/analytic cover/scalar region, prime/CRT/local preparation, scale storage and remaining237 rows are not conclusions.",
+      "source_refs": [
+        "DERIVATION.md"
+      ],
+      "evidence": "DERIVATION.md"
+    },
+    {
+      "id": "history_and_changed_route",
+      "required_input": "Read the prior sign-constancy argument and review this alternate application freshly.",
+      "constructed_input": "Existing completeness Section3 supplies the same coherent charts and target sign.",
+      "justification": "Prior justification found; exact secant certificate is a new formal route to that known identity. Earlier frozen sign-boundary packet stays unchanged and its review cannot automatically accept this proof.",
+      "source_refs": [
+        "DERIVATION.md",
+        "quartics/quartic-318-326/proof/progress/receipts/completeness-work/COMPLETENESS-ASSEMBLY.md"
+      ],
+      "evidence": "DERIVATION.md"
+    },
+    {
+      "id": "verification_and_acceptance",
+      "required_input": "Strict checking and exact certificates/dependencies, plus distinct review.",
+      "constructed_input": "Four-source fresh strict replay and34-declaration recursive private-inclusive audit, with included generator.",
+      "justification": "Polynomial coefficients are checked by Lean ring proofs, not trusted external output. Only standard logical axioms pass. Distinct source review and baseline admission remain pending.",
+      "source_refs": [
+        "VALIDATION.json",
+        "AuditCoherentRootSign.lean",
+        "generate_polynomial_certificate.py"
+      ],
+      "evidence": "VALIDATION.json"
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

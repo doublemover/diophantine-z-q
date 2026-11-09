@@ -1,0 +1,124 @@
+{
+  "claim": "Canonical comparison from genuine direct-image sheaf cohomology to genuine source cohomology, natural in source coefficients, bijective in degree zero and injective in degree one; actual H1 pullbacks for all five original completed quotient maps inject into the same original source H1.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "sources": {
+    "StructureAdditiveSheaf318.lean": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+    "NormalizedStructureTrace318.lean": "abb00761f6802bdacf30b0778c018831ca9647becaac17ba4d849db530a6dbea",
+    "ActualQuotientSheafRetraction318.lean": "f8de85ec9aab887af1883bf5c8a938820085194078af8310ec3712aca18ba16b",
+    "SheafCohomologyRetraction318.lean": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+    "ActualQuotientHOne318.lean": "7f7e23038d11d86190eb0f37d512b434c47e4dd9ae449e0e7da5bccec85a0588",
+    "SheafInverseImageConstants318.lean": "094fc83fdb42d587bf46b38f46bf48fa270fe5c5da0609c4ec1c85de9794ca17",
+    "AdjunctionExtOneInjection318.lean": "94e11868bc24a939e9a504eaf299c907e7020b6db3c93abf18c5f732d890df8f",
+    "SourceCohomologyComparison318.lean": "87d6460435f194a371b665a784153fbd8bde75259cbc54fe30e709a4476b5e63",
+    "SchemeSourceCohomology318.lean": "cf366db605c3b65dff275db82bfd8bccef11728a74b451123016c78c236c243f",
+    "ActualSourceHOnePullbacks318.lean": "aedc5fb77f2afcc12a9b634d0ddd1a3965b5655d8a5500ce4e6f5f53415305c5"
+  },
+  "obligations": [
+    {
+      "name": "Original cohomology carriers",
+      "required": "Use actual Ext-derived cohomology on the source and target sites, not differential duals or redefined source groups.",
+      "constructed": "SourceCohomologyComparison318 uses Sheaf.H on the original opens sites; SchemeSourceCohomology318 specializes the exact original additive structure sheaves.",
+      "justification": "The predecessor supplies the actual sheaf condition and pushed_eq; HasExt and enough injectives come from pinned Grothendieck-abelian sheaf instances. ActualSourceHOnePullbacks318.SourceHOne is H1 of the original ContactGlobalSmooth318.Model units.",
+      "evidence": [
+        "StructureAdditiveSheaf318.pushed_eq",
+        "SourceCohomologyComparison318.comparison",
+        "ActualSourceHOnePullbacks318.SourceHOne"
+      ]
+    },
+    {
+      "name": "Inverse-image exactness",
+      "required": "The functor used on Ext must be additive and preserve finite limits and colimits.",
+      "constructed": "inverseImage is the original site sheafPullback along inverse images of opens.",
+      "justification": "Finite-limit preservation is the pinned representably-flat site theorem for Opens.map; colimit preservation comes from the actual inverse-image/direct-image adjunction. Additivity follows from finite products in abelian categories, not an extra target theorem assumption.",
+      "evidence": [
+        "SheafInverseImageConstants318.inverseImage_limits",
+        "SheafInverseImageConstants318.inverseImage_colimits",
+        "SheafInverseImageConstants318.inverseImage_additive"
+      ]
+    },
+    {
+      "name": "Original constant integer sheaf",
+      "required": "Identify the pulled-back constant sheaf used as Ext first argument with the original source constant integer sheaf.",
+      "constructed": "inverseImageConstantIso is the unique left-adjoint comparison of the composite constant-sheaf/inverse-image adjunction with the original source constant-sheaf/global-sections adjunction.",
+      "justification": "directImageGlobalSections is definitionally the source global-sections functor. integerIso is its component at the original ULift integer additive group. No dimension, choice of basis, or arbitrary identification is introduced.",
+      "evidence": [
+        "SheafInverseImageConstants318.directImageGlobalSections",
+        "SheafInverseImageConstants318.inverseImageConstantIso",
+        "SheafInverseImageConstants318.integerIso"
+      ]
+    },
+    {
+      "name": "Canonical comparison and direction",
+      "required": "Construct Hn(Y,f_*F) to Hn(X,F) with correct variance and actual adjunction maps.",
+      "constructed": "comparison applies exact inverse image to Ext, postcomposes with the actual adjunction counit, then precomposes with integerIso.inv.",
+      "justification": "comparison_apply records the exact composition. comparison_naturality proves compatibility with every actual source-sheaf morphism. comparison_mkZero identifies degree zero with the actual inverse adjunction and original integer-sheaf comparison; degree-zero bijectivity follows without direct-image exactness.",
+      "evidence": [
+        "SourceCohomologyComparison318.comparison_apply",
+        "SourceCohomologyComparison318.comparison_mkZero",
+        "SourceCohomologyComparison318.comparison_naturality",
+        "SourceCohomologyComparison318.comparison_zero_bijective"
+      ]
+    },
+    {
+      "name": "Degree-one injectivity without a false exactness premise",
+      "required": "Derive Ext1(A,RB) injection into Ext1(LA,B) when L is exact, R is left exact and D has enough injectives.",
+      "constructed": "mate_one_injective embeds B into an actual chosen injective object, forms the source cokernel and the cokernel after R, and uses the monomorphism from the latter into R of the original cokernel.",
+      "justification": "R preserves the chosen injective object by the exact-left-adjoint theorem. Long exact Ext sequences express each class as a connecting class. Naturality for the actual mapped short exact sequence and adjunction carries a zero mate to a lift; the cokernel monomorphism cancels, giving a lift of the original degree-zero class and hence zero original Ext1 class. R is never assumed to preserve cokernels.",
+      "evidence": [
+        "AdjunctionExtOneInjection318.mate_one_injective",
+        "Mathlib.Algebra.Homology.DerivedCategory.Ext.ExactSequences",
+        "Mathlib.Algebra.Homology.DerivedCategory.Ext.Map",
+        "Mathlib.Algebra.Homology.ShortComplex.Exact"
+      ]
+    },
+    {
+      "name": "Actual site specialization",
+      "required": "Discharge every generic adjunction and injective hypothesis on the actual source and target sheaf categories.",
+      "constructed": "SourceCohomologyComparison318.comparison_one_injective composes the generic mate injection with precomposition by the verified integer-sheaf isomorphism.",
+      "justification": "The actual inverse image is exact, the actual direct image is a right adjoint and left exact/additive, and the actual source category has enough injectives. No unproved affine/finite-map acyclicity premise occurs.",
+      "evidence": [
+        "SheafInverseImageConstants318.directImage_limits",
+        "SheafInverseImageConstants318.directImage_additive",
+        "SourceCohomologyComparison318.comparison_one_injective"
+      ]
+    },
+    {
+      "name": "Actual scheme pullback and predecessor trace",
+      "required": "Retain the exact original O_Y to f_*O_X map, rather than substituting an arbitrary injection into the source.",
+      "constructed": "SchemeSourceCohomology318.pullback is comparison after the predecessor actual sheaf-cohomology pullback.",
+      "justification": "Its factorization is exact. The original all-open trace/8 sheaf retraction gives predecessor H1 injectivity, and comparison_one_injective gives injectivity into source H1 itself. All five predecessor sources are copied byte-for-byte with producer receipt bound.",
+      "evidence": [
+        "SchemeSourceCohomology318.pullback_factorization",
+        "SchemeSourceCohomology318.pullback_one_injective_of_retraction",
+        "ActualQuotientSheafRetraction318.character_split",
+        "ActualQuotientSheafRetraction318.fifth_split"
+      ]
+    },
+    {
+      "name": "Full five-map coverage and common-source consumer",
+      "required": "Specialize every complementary quotient and the fifth quotient on the whole original completed curves.",
+      "constructed": "ActualSourceHOnePullbacks318 has characterPullback for every Fin4 and fifthPullback for the exact original fifth completed map, all targeting the same SourceHOne.",
+      "justification": "The original maps already cover finite and infinity charts and branch points; no additional affine/nonempty restriction appears. character_injective and fifth_injective are the actual downstream endpoints, and factorization lemmas bind them to the predecessor maps.",
+      "evidence": [
+        "ActualSourceHOnePullbacks318.character_injective",
+        "ActualSourceHOnePullbacks318.fifth_injective",
+        "ActualSourceHOnePullbacks318.character_factorization",
+        "ActualSourceHOnePullbacks318.fifth_factorization"
+      ]
+    },
+    {
+      "name": "Surjectivity, duality and historical scope boundary",
+      "required": "Do not promote degree-one injection to comparison isomorphism or Jacobian duality without additional input.",
+      "constructed": "This packet gives the canonical map and injection, not H1 comparison surjectivity or a common-source fivefold decomposition.",
+      "justification": "Finite/affine direct image exactness for quasi-coherent modules does not by itself establish exactness in the all-additive-sheaves category used here. Bounded search found real Ext/sheaf-cohomology support but no affine quasi-coherent vanishing or Picard-tangent/Serre-duality comparison. Full comparison bijectivity, rational H1 module structure, fivefold H1 spanning, representability and Jacobian/isogeny remain open. This is a new connecting argument, not a claim that no historical justification exists.",
+      "evidence": [
+        "README.md",
+        "SourceCohomologyComparison318.comparison_one_injective",
+        "ActualSourceHOnePullbacks318.character_injective"
+      ]
+    }
+  ],
+  "independent_review": "Pending exact-source-bound non-author review."
+}

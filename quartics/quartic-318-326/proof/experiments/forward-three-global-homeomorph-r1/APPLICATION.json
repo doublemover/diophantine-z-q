@@ -1,0 +1,118 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Actual global homeomorphism of the entire original Gamma1(3) quotient with natural C*, by the same holomorphic period parameter; exact original j map and exceptional fibers.",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ActualThreeParameterProper318.lean": "6ee4d60d640faa9bf79585c2195a39f2797687b06157f1a1239d3e815528bcc9",
+    "ActualThreeGlobalParameter318.lean": "55759944767e5f101aaf2bac709f01a0028ba51d61b7273e302860a07165ec60"
+  },
+  "predecessor_receipt_sha256": "d656e2c2401f0afdfa0e3a9eb2759be787ba37bc1848f1ee324fa5d4ecc537ee",
+  "readme_sha256": "3c5c4ce0d4100efd466def2f8696a41aab2ff590e8dc8e0fe1cf9cb1a6e2bb83",
+  "obligations": [
+    {
+      "name": "Exact objects",
+      "required_input": "Actual full Gamma1(3) quotient and independent C* topology.",
+      "constructed_input": "The original Base(image3), natural nonzero subtype and the preceding explicit fullParameter.",
+      "justification": "The forward globalHomeomorph function equals fullParameter by rfl. No chosen orbit bijection or transported topology is used.",
+      "sources": [
+        "ActualThreeGlobalParameter318.globalHomeomorph",
+        "ActualThreeGlobalParameter318.globalHomeomorph_apply",
+        "ActualThreeParameterProper318.lean"
+      ]
+    },
+    {
+      "name": "Open mapping hypotheses",
+      "required_input": "Complex analyticity on a connected open set and exclusion of the constant alternative.",
+      "constructed_input": "Actual periodParameter_analyticAt throughout H; connected half-plane; genuine realized values1 and2.",
+      "justification": "AnalyticOnNhd.is_constant_or_isOpen is applied on H. Surjectivity from the preceding packet supplies two distinct actual images, ruling out constancy.",
+      "sources": [
+        "ActualThreeGlobalParameter318.periodParameter_isOpenMap",
+        "ActualThreeExceptionalParameter318.periodParameter_analyticAt",
+        "ActualThreeParameterProper318.periodParameter_surjective",
+        "Mathlib.Analysis.Complex.OpenMapping"
+      ]
+    },
+    {
+      "name": "Index and exceptional coverage",
+      "required_input": "Injectivity for all original source pairs, including every exceptional orbit.",
+      "constructed_input": "General open+dense injectivity lemma quantifying over every pair; old admissible target is dense in all C*.",
+      "justification": "A hypothetical distinct same-image pair has disjoint neighborhoods whose open image intersection meets the dense subset. Every preimage over that subset is controlled by the old inverse.",
+      "sources": [
+        "ActualThreeGlobalParameter318.injective_of_open_dense",
+        "ActualThreeGlobalParameter318.fullParameter_injective",
+        "ActualThreeParameterProper318.admissible_dense"
+      ]
+    },
+    {
+      "name": "Maps and directions",
+      "required_input": "Openness must pass from H through the actual orbit projection to the same map and then its C* range.",
+      "constructed_input": "Exact image equalities in quotientParameter_isOpenMap and fullParameter_isOpenMap.",
+      "justification": "The continuous orbit projection pulls back open sets; its genuine surjectivity proves image equality. Subtype range restriction is the preimage of the same complex image.",
+      "sources": [
+        "ActualThreeGlobalParameter318.quotientParameter_isOpenMap",
+        "ActualThreeGlobalParameter318.fullParameter_isOpenMap"
+      ]
+    },
+    {
+      "name": "Consumer identity",
+      "required_input": "The dense-locus injectivity input must be for the old original comparison, not an unrelated map.",
+      "constructed_input": "J identity first forces each preimage to be old-admissible; quotientParameter_restrict identifies its value with sourceParameter1.",
+      "justification": "Injectivity is then supplied by the original sourceParameter homeomorphism. This supplies all preimages over the dense subset, not only selected ones.",
+      "sources": [
+        "ActualThreeGlobalParameter318.injective_over_admissible",
+        "ActualThreeExceptionalParameter318.quotientParameter_restrict",
+        "LiteralThreeCompactParameter318.sourceParameter"
+      ]
+    },
+    {
+      "name": "Topological source hypotheses",
+      "required_input": "The open+dense lemma needs Hausdorff source, not freeness; the homeomorphism needs both inverse directions and continuity.",
+      "constructed_input": "Original quotient Hausdorff instance; actual open map; global injectivity; previous full surjectivity and continuity.",
+      "justification": "T2 is already proved by the properly discontinuous action, without5<=3. The old compact cusp-atlas theorem is not instantiated at3. Properness alone is never used to claim injectivity.",
+      "sources": [
+        "ActualThreeGlobalParameter318.lean",
+        "progress/GammaOneAtlas318.quotient_hausdorff",
+        "progress/GammaOneProper318.lean"
+      ]
+    },
+    {
+      "name": "Normalizations and exact fibers",
+      "required_input": "Retain literal J,D and exact old period parameter through all exceptional fibers.",
+      "constructed_input": "Both j identities, j_zero_parameter_iff, j_1728_parameter_iff and two distinct actual inverse-image zero points.",
+      "justification": "The zero fiber is precisely the two inverse images of-27 and-243; the1728 fiber is precisely D=0 in the same global coordinate. No source ramification orders are inferred without an independent quotient analytic atlas.",
+      "sources": [
+        "ActualThreeGlobalParameter318.globalHomeomorph_inverse_j",
+        "ActualThreeGlobalParameter318.j_zero_iff",
+        "ActualThreeGlobalParameter318.zero_points_distinct",
+        "ActualThreeGlobalParameter318.j_1728_parameter_iff"
+      ]
+    },
+    {
+      "name": "Verification",
+      "required_input": "Strict final bytes and private/generated recursive axiom checking.",
+      "constructed_input": "Six-module fresh replay,288 declarations audited,211 exact original baseline pins.",
+      "justification": "Pinned Lean4.35.0/Mathlib, -j1 -M6144 -Ddebug.skipKernelTC=false. Allowed roots only propext, Classical.choice, Quot.sound. Incremental validation, not a clean rebuild.",
+      "sources": [
+        "receipt.json",
+        "ExperimentAudit.lean",
+        "checks/ExperimentAudit.log",
+        "baseline-source-pins.json"
+      ]
+    },
+    {
+      "name": "Scope and history",
+      "required_input": "New changed application needs new non-author acceptance; prior histories must remain intact.",
+      "constructed_input": "Five predecessor files unchanged; new global openness/injectivity source and full consumer bound separately.",
+      "justification": "No whole quotient complex-atlas, actual cusp q-identification, compact-source biholomorphism, arithmetic analytification, PEL, KS or contact-height closure is asserted. No earlier audit or manuscript is rewritten.",
+      "sources": [
+        "README.md",
+        "APPLICATION.json",
+        "../forward-three-exceptional-period-r1/README.md",
+        "progress/AllCuspComplexCurve318.lean"
+      ]
+    }
+  ]
+}

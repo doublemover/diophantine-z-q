@@ -1,0 +1,103 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Genuine actual level-three rotated cusp punctured-disc charts, exact stabilizer widths and source q-coordinate j pole orders, without assuming a high-level cusp atlas at3.",
+  "sources": {
+    "ActualThreeCuspOrbit318.lean": "e6bf9bf67fff5036f9a37658dca81d7fa13203eef195d98ec6d119e7fd358203",
+    "ActualThreeCuspHomeomorph318.lean": "232f16640e23de61a63c79aef3596488ab39ad4e86119fd41a319e1020177842",
+    "ActualThreeCuspWidths318.lean": "88fc1ee17efa7e7b5dc685c506cbbbe5a415f3a7e6ff4fd21008256eb5f7b83a",
+    "ActualThreeCuspJ318.lean": "be3974a0a9a8f15c52bbc7f9cb43478f3ed0dd87d70c0e3ea44ba785c3198eb1"
+  },
+  "readme_sha256": "3dca5b0b3ee6d5ed4c6a0b4cd359c915579cc88ed5d10dafddfe996a5614cdfc",
+  "obligations": [
+    {
+      "name": "Source requirements",
+      "required_input": "Actual integral matrix, Gamma1(3) membership, high-region bounds.",
+      "constructed_input": "Actual original orbit relation supplies all these inputs.",
+      "justification": "The high-region classification requires an actual integral determinant-one matrix, actual conjugate Gamma1(3) membership and both points above height1. These are extracted from the original orbit relation. No freeness assumption at elliptic points is introduced.",
+      "sources": [
+        "ActualThreeCuspOrbit318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Constructed domain",
+      "required_input": "Every SL2(Z) rotation and the original high quotient neighborhood.",
+      "constructed_input": "Actual neighborhood3g and natural punctured width-q disc.",
+      "justification": "The maps use every SL(2,Z) rotation of the original upper-half-plane high region and its original quotient image. The target is the naturally topologized punctured disc with radius exp(-4pi/w). All fields and analytic coefficients remain C, and the width is a positive integer.",
+      "sources": [
+        "ActualThreeCuspHomeomorph318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Coverage",
+      "required_input": "All required rotations and exact declared chart domains.",
+      "constructed_input": "Every integral rotation, height-two neighborhood, distinct identity and S ends.",
+      "justification": "Every rotation is quantified over. The cusp-homeomorphism domain is exactly the actual height-two neighborhood; it is not enlarged silently. Identity and S are proved to give distinct ends, but an exhaustive count of all ends is not asserted by this packet.",
+      "sources": [
+        "ActualThreeCuspHomeomorph318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Maps and directions",
+      "required_input": "Both directions of orbit/translation/q equivalence with exact period subgroup.",
+      "constructed_input": "Actual conjugation, positive-unipotent branch, width divisibility and exponential periodicity.",
+      "justification": "A quotient relation yields a conjugated integral matrix; height inequalities force its lower-left entry to vanish. Trace congruence excludes the negative branch at3. The resulting translation integer lies in the original period subgroup. Conversely every such translation gives the original quotient relation. Exponential equality is equivalent to precisely this width translation, with no omitted factor or sign.",
+      "sources": [
+        "ActualThreeCuspOrbit318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Consumer identity",
+      "required_input": "Actual descended map and its exact inverse used by j consumer.",
+      "constructed_input": "coordinate_projection, cuspHomeomorph_projection and j_in_coordinate.",
+      "justification": "The descended coordinate's projection equation identifies it with the same width-q map on every high point. The inverse cusp chart in the j formula is that exact homeomorphism. Its j map is the original jMap3, not an unrelated holomorphic function having the desired pole order.",
+      "sources": [
+        "ActualThreeCuspJ318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Width application",
+      "required_input": "Actual width and end equality hypotheses at level3.",
+      "constructed_input": "Matrix stabilizer tests, period-subgroup equality and widths1,3.",
+      "justification": "Width divides3 and is positive. The literal standard and S stabilizer tests give1 and3. Equality of actual neighborhoods implies equality of the actual translation subgroups and hence widths, so these ends cannot coincide. Only all-level source lemmas are applied at3; no theorem requiring5<=N is instantiated with3.",
+      "sources": [
+        "ActualThreeCuspWidths318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Analytic order and normalization",
+      "required_input": "Analytic unit leading term and exact pole factorization.",
+      "constructed_input": "G(q^w), value1 at0, positive w and q^-w factorization.",
+      "justification": "ActualQJ318.G is analytic at0 and G(0)=1. Composition with q^w is analytic, and w>0 ensures the same value1 at0. The explicit factorization q^-w G(q^w) supplies the exact integer meromorphic order. This is not a cardinality or asymptotic guess, and q_w^w=q_1 retains the exact normalization.",
+      "sources": [
+        "ActualThreeCuspJ318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "History and scope",
+      "required_input": "Preserved histories and explicit low-level application boundaries.",
+      "constructed_input": "Fresh level3 trace proof; no compactification or actual T/q identification claimed.",
+      "justification": "The existing high-level cusp arguments were read and reused only through their all-level inputs; the level-three trace step is proved separately. Existing compact-source and arithmetic review dispositions are not changed. No claim that an earlier historical proof was absent is made. Actual T/q correspondence, exhaustion of all ends by the two named ones, simultaneous cusp attachment and full compact-source analytic comparison remain separate obligations.",
+      "sources": [
+        "README.md",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Verification and acceptance",
+      "required_input": "Strict bytes, recursive audit and distinct review.",
+      "constructed_input": "Four-source replay,42 declarations and exact original baseline pins.",
+      "justification": "The receipt binds all four exact source files, direct imports, baseline source closure, final strict logs and private-inclusive recursive axiom audit. A distinct source reviewer must check this changed low-level application. Neither producer strict checking nor earlier rational target/global-homeomorphism reviews authorize its acceptance automatically.",
+      "sources": [
+        "receipt.json",
+        "README.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Actual identity cusp T has a simple pole and reciprocal analytic derivative1; actual S cusp T has a simple zero, analytic extension and nonzero derivative, proved using original global injectivity and disjoint cusp neighborhoods.",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ActualThreeParameterProper318.lean": "6ee4d60d640faa9bf79585c2195a39f2797687b06157f1a1239d3e815528bcc9",
+    "ActualThreeGlobalParameter318.lean": "55759944767e5f101aaf2bac709f01a0028ba51d61b7273e302860a07165ec60",
+    "ActualThreeCuspOrbit318.lean": "e6bf9bf67fff5036f9a37658dca81d7fa13203eef195d98ec6d119e7fd358203",
+    "ActualThreeCuspHomeomorph318.lean": "232f16640e23de61a63c79aef3596488ab39ad4e86119fd41a319e1020177842",
+    "ActualThreeCuspWidths318.lean": "88fc1ee17efa7e7b5dc685c506cbbbe5a415f3a7e6ff4fd21008256eb5f7b83a",
+    "ActualThreeCuspJ318.lean": "be3974a0a9a8f15c52bbc7f9cb43478f3ed0dd87d70c0e3ea44ba785c3198eb1",
+    "ActualThreeQParameter318.lean": "1c5b7791e69bedca362bc8af7c7c8b9267c51eed4ad3628277d5982617ebdfb9",
+    "ThreeParameterGrowth318.lean": "e08c95aba6016d0e5d5cdf97e912056dbffc3600e49d2dd8dfcd19070c0fbd93",
+    "ActualThreeQMeromorphic318.lean": "d7eb8928c78fdf993b7e664aa7e9ab16f862c8d7d4278350f524a2870a02723d",
+    "ThreeParameterCompositionOrder318.lean": "02d668c967aef4aaf1a9133fd1791d2f4d85277a46466309c3bf8616513ebafb",
+    "ActualThreeQOrders318.lean": "5dbdf5c2cb06056d319ff3ca324926c10395066f0beaeeb490ca13524adb2289",
+    "ActualThreeInfinityUniformizer318.lean": "321de2b28ed79ed913bdb8a96f0ec122ba153858b3b8b082868e6c5200b2ecde",
+    "ActualThreeCuspAssignment318.lean": "caa7e2e994a756db11374db8bea92e35aead17870ed15aa944246bb79939de79"
+  },
+  "readme_sha256": "ba27525f0cd12e105ed4a0c1f3f7f97ae8ef7e66cb836cb83e47def04f1f910f",
+  "obligations": [
+    {
+      "name": "Source object and germ",
+      "required_input": "Same actual source q-to-T meromorphic germs with finite order.",
+      "constructed_input": "Original qParameter, exact nonzero punctured values and reciprocal.",
+      "justification": "The functions are exactly qParameter g from the prior packet: the original full quotient T evaluated in the inverse genuine width-q cusp homeomorphism. Their established meromorphy and nonvanishing on punctured discs imply finite integer meromorphic order. Their arbitrary total value at zero is explicitly zero, and analyticity at zero is proved only when justified by positive order. The reciprocal is the same function's field inverse.",
+      "sources": [
+        "ActualThreeQOrders318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "All rotations and order comparison",
+      "required_input": "Every rotation, all finite integer order cases and exact rational J composition.",
+      "constructed_input": "Negative, zero and positive order comparisons with actual source j pole.",
+      "justification": "For every integral rotation, the exact identity J(T(q))=G(q^w)/q^w gives source j-order -w with w positive. Orders of multiplication, division and powers are applied to actual meromorphic germs. If T has negative order m, adding either nonzero constant leaves order m, so J(T) has order m. If m is positive, both numerator factors have order zero, so J(T) has order -3m. If m=0, both numerator orders are nonnegative, which contradicts the negative source j-order. Infinite order is excluded by actual punctured nonvanishing. Thus every rotation is covered without assuming a branch, derivative or cusp assignment.",
+      "sources": [
+        "ThreeParameterCompositionOrder318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Exact width specialization",
+      "required_input": "Actual source cusp widths, not guessed rational target labels.",
+      "constructed_input": "Identity width1 forces pole1; S width3 initially leaves two alternatives.",
+      "justification": "The already proved widths are 1 at the identity rotation and 3 at S. The positive-order option is arithmetically impossible at width 1, giving T order -1 there. At S the order calculation initially permits -3 or 1; the subsequent global argument is required and supplied, rather than choosing the desired alternative by the target pole labels.",
+      "sources": [
+        "ActualThreeQOrders318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Reciprocal normalization",
+      "required_input": "Exact reciprocal normalization with genuine G(0)=1.",
+      "constructed_input": "H=qU with U analytic and U(0)=1, hence H derivative1.",
+      "justification": "The identity cusp reciprocal H=1/T has positive order 1 and actual value zero, hence is analytic at the origin. Substituting into the literal reciprocal J formula gives H(q)=q U(q), where U=(1+27H)(1+243H)^3/G(q). The genuine q-j normalization has G(0)=1, so U is analytic and U(0)=1. Eventual equality on the punctured neighborhood is extended using continuity of both germs. Differentiation yields H'(0)=1 exactly.",
+      "sources": [
+        "ActualThreeInfinityUniformizer318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Local inverse and source coverage",
+      "required_input": "Actual local inverse with correct center and right-inverse domain.",
+      "constructed_input": "Inverse of actual H near0 enters actual cusp disc and is nonzero for nonzero inputs.",
+      "justification": "The actual analytic inverse of H near zero exists by that derivative and fixes zero. Its eventual right-inverse identity and continuity ensure small target reciprocals map inside the actual identity cusp disc. A nonzero reciprocal cannot map to the disc origin. If T had a pole at S, its reciprocal would tend to zero, so every sufficiently small nonzero S-cusp q would have the same T-value as an actual point of the identity cusp neighborhood. All these local domains are explicitly intersected before use.",
+      "sources": [
+        "ActualThreeCuspAssignment318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Identity of the global consumer",
+      "required_input": "Equality must concern original quotient points and original cusp regions.",
+      "constructed_input": "Full T injectivity and independently disjoint actual identity/S neighborhoods exclude both poles.",
+      "justification": "Equality of those two T-values is converted to equality of their original quotient points by the previously proved full quotient parameter injectivity. Both points lie in the original identity and S rotated height-two neighborhoods, proved disjoint independently. This gives the contradiction excluding S-order -3. No abstract two-point end set, target compactification, or new topology replaces the source neighborhoods.",
+      "sources": [
+        "ActualThreeCuspAssignment318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Actual uniformizers",
+      "required_input": "Analytic local uniformizers, not just rational target orders.",
+      "constructed_input": "Actual T at S has order1, analytic zero and nonzero derivative; reciprocal at infinity has derivative1.",
+      "justification": "The remaining S-order is 1. Since the original total function's value at zero is zero, positive order proves its analytic extension. A general order-one analytic germ is factored as q times an analytic unit; continuity extends that factorization to the full germ and differentiation gives nonzero derivative. Thus T is a genuine local analytic coordinate at S, and 1/T is one at infinity. No unsupported inverse-analytic conclusion is deduced merely from topological bijectivity.",
+      "sources": [
+        "ActualThreeCuspAssignment318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Dependencies and historical scope",
+      "required_input": "Retain predecessor identities and primary source hypotheses.",
+      "constructed_input": "Thirteen byte-identical prior sources, unchanged rational reciprocal and width conventions.",
+      "justification": "All thirteen preceding sources are byte-identical, including actual meromorphy, actual global homeomorphism and actual cusp orbit/width proofs. The original rational reciprocal formula, Mathlib meromorphic-order conventions, local analytic inverse theorem and actual source-neighborhood disjointness are used as stated. Existing historical target branch orders and high-level quotient atlases remain unchanged; the new result supplies the missing application to actual source-cusp germs.",
+      "sources": [
+        "README.md",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Verification and remaining consumers",
+      "required_input": "Exact final source replay and private-inclusive recursive audit.",
+      "constructed_input": "Seventeen freshly replayed sources; no global filled-map or PEL consumer inferred.",
+      "justification": "Seventeen exact sources are freshly replayed serially with Lean 4.35.0 and kernel checking enabled. The recursive audit includes all private declarations and allows only propext, Classical.choice and Quot.sound. Exact baseline pins and producer hashes bind the packet. Distinct review is required before admission. A global map out of the actual simultaneous filling, full analytic atlas compatibility, compact biholomorphism, arithmetic analytification, PEL identification and final height theorem are not inferred or claimed here.",
+      "sources": [
+        "receipt.json",
+        "README.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "packet": "relative-rigidified-fppf",
+  "status": "STRICT_CLOSURE_CHECK_AND_286_DECLARATION_RECURSIVE_AUDIT_PASS_PENDING_NONAUTHOR_REVIEW",
+  "order": [
+    "TensorPullbackCocycle318",
+    "LineClassPullbackHom318",
+    "RelativeLineClassQuotient318",
+    "RelativeLineClassBaseChange318",
+    "RelativeLineSectionNormalization318",
+    "RelativeRigidifiedLine318",
+    "RelativeSectionBaseChange318",
+    "RelativeSectionNaturality318",
+    "RelativeLineFunctorPullback318",
+    "RelativeFppfLineSheaf318",
+    "RelativeFppfLineLocal318",
+    "RelativeFppfRigidifiedLocal318",
+    "RelativeFppfLineNeutral318",
+    "FourRootPointTorsor318",
+    "RationalFourRootFiber318",
+    "RationalContactPoint318",
+    "ContactFieldSection318",
+    "ContactFieldRigidification318",
+    "ContactFppfRigidifiedLocal318"
+  ],
+  "files": {
+    "TensorPullbackCocycle318.lean": {
+      "sha256": "112c417a26b1ed69cfeea903ddc1ba87a200f5e9ea2eaa08b5a2918fe3d59cf1",
+      "imports": [
+        "FramedLineCocycleIso318",
+        "LinePullbackTransitions318",
+        "TensorLineCocycle318"
+      ]
+    },
+    "LineClassPullbackHom318.lean": {
+      "sha256": "9bc2f115eeaa25bce65d9100a186f59b60b9e4b70a73442ed2cab4953183a8f7",
+      "imports": [
+        "LineClassPullbackLaws318",
+        "LineSheafClassGroup318",
+        "TensorPullbackCocycle318"
+      ]
+    },
+    "RelativeLineClassQuotient318.lean": {
+      "sha256": "51e514655f349abd082dde7a1c28470b0e70ec3cc533309d0d13a6e41d4fc92c",
+      "imports": [
+        "LineClassPullbackHom318",
+        "Mathlib.GroupTheory.QuotientGroup.Defs"
+      ]
+    },
+    "RelativeLineClassBaseChange318.lean": {
+      "sha256": "31bd3d2aa7eef20ab8a8030ece153fe4bdc48936c3016d6a53fa910b8f7918e7",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.CategoryTheory.Comma.Over.Basic",
+        "RelativeLineClassQuotient318"
+      ]
+    },
+    "RelativeLineSectionNormalization318.lean": {
+      "sha256": "fa65a07cc22e66eed415651a158e06bd75c63bd4821115d3dc4e0017368b7f3e",
+      "imports": [
+        "RelativeLineClassQuotient318"
+      ]
+    },
+    "RelativeRigidifiedLine318.lean": {
+      "sha256": "d1918ca7c1b6823e58c6d452318069a08bd255feea7bbafb5c32688bc23fd7b9",
+      "imports": [
+        "RelativeLineSectionNormalization318"
+      ]
+    },
+    "RelativeSectionBaseChange318.lean": {
+      "sha256": "d6b9737a30ba150396e7e08baeaa18e36c4f3f30aadde9ed0eecf163af788cf2",
+      "imports": [
+        "RelativeLineClassBaseChange318",
+        "RelativeRigidifiedLine318"
+      ]
+    },
+    "RelativeSectionNaturality318.lean": {
+      "sha256": "98b9e19c4cae96088469cdf05a1787cdfd033d1d506121b7d568a0894b5adbee",
+      "imports": [
+        "RelativeSectionBaseChange318"
+      ]
+    },
+    "RelativeLineFunctorPullback318.lean": {
+      "sha256": "1ad907e7bda9b171aeb63e1d68ed59ac15a65560bf36120750569adb733eb940",
+      "imports": [
+        "RelativeLineClassBaseChange318"
+      ]
+    },
+    "RelativeFppfLineSheaf318.lean": {
+      "sha256": "e12d4e9c6d1eef3d334c59e7f7cb926ab90dcdd8b3a33e4d71ef66c7fbe9d703",
+      "imports": [
+        "Mathlib.Algebra.Category.Grp.FilteredColimits",
+        "Mathlib.Algebra.Category.Grp.Limits",
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+        "Mathlib.CategoryTheory.Sites.LeftExact",
+        "Mathlib.CategoryTheory.Sites.SubcanonicalOver",
+        "RelativeLineFunctorPullback318"
+      ]
+    },
+    "RelativeFppfLineLocal318.lean": {
+      "sha256": "e4d023d8f2435fd8f25f2cadbb586e20703e73b32679ad21b21b64fa9866daa5",
+      "imports": [
+        "Mathlib.CategoryTheory.Sites.LocallySurjective",
+        "RelativeFppfLineSheaf318"
+      ]
+    },
+    "RelativeFppfRigidifiedLocal318.lean": {
+      "sha256": "24bf7207acf8b4797f5fa0fa8110cbd5c25fce9de4da170814206c25247a9bf9",
+      "imports": [
+        "RelativeFppfLineLocal318",
+        "RelativeSectionNaturality318"
+      ]
+    },
+    "RelativeFppfLineNeutral318.lean": {
+      "sha256": "6459b9692237a0d28411bf758662e13e9f06f8e8462b91fffb9f8f3c6d380292",
+      "imports": [
+        "RelativeFppfLineLocal318"
+      ]
+    },
+    "FourRootPointTorsor318.lean": {
+      "sha256": "98f428008b2cd294a1d920d1e7d9b854a71fdaf665deeb822d13bad8e0c27bf1",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "RationalFourRootFiber318.lean": {
+      "sha256": "7508e2ae43346ee6169187d900cb20e0d8607ce96c87eaec2730115d321e7750",
+      "imports": [
+        "FourRootOrderSigns318",
+        "Mathlib.LinearAlgebra.Dimension.Finrank",
+        "Mathlib.NumberTheory.NumberField.Basic"
+      ]
+    },
+    "RationalContactPoint318.lean": {
+      "sha256": "b14c45659732280a5df3b6ae1019027ebee58f240ddca1074a6ecee9e91d422a",
+      "imports": [
+        "FiveContactProducer318",
+        "FourRootPointTorsor318",
+        "RationalFourRootFiber318",
+        "SourceGlobalAffine318"
+      ]
+    },
+    "ContactFieldSection318.lean": {
+      "sha256": "27f58f0305a470215425dc6f030fbaff8d6dbff18011f4fe6c23009ee6fe24d2",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.AlgebraicGeometry.Sites.Fpqc",
+        "Mathlib.RingTheory.Etale.Field",
+        "RationalContactPoint318"
+      ]
+    },
+    "ContactFieldRigidification318.lean": {
+      "sha256": "1632403ae73d6542c858f153abe80379ca0564aa14d3a102a94561b33febf9e4",
+      "imports": [
+        "ContactFieldSection318",
+        "RelativeSectionBaseChange318"
+      ]
+    },
+    "ContactFppfRigidifiedLocal318.lean": {
+      "sha256": "2a530cef8073f2eeda6fe05a4236621f4fad3f73a5f0105d71e6015dc651ce9e",
+      "imports": [
+        "ContactFieldRigidification318",
+        "RelativeFppfLineNeutral318",
+        "RelativeFppfRigidifiedLocal318"
+      ]
+    }
+  },
+  "new_modules": [
+    "RelativeSectionNaturality318",
+    "RelativeFppfRigidifiedLocal318",
+    "RelativeFppfLineNeutral318",
+    "ContactFppfRigidifiedLocal318"
+  ],
+  "unchanged_producer_modules": [
+    "TensorPullbackCocycle318",
+    "LineClassPullbackHom318",
+    "RelativeLineClassQuotient318",
+    "RelativeLineClassBaseChange318",
+    "RelativeLineSectionNormalization318",
+    "RelativeRigidifiedLine318",
+    "RelativeSectionBaseChange318",
+    "RelativeLineFunctorPullback318",
+    "RelativeFppfLineSheaf318",
+    "RelativeFppfLineLocal318",
+    "FourRootPointTorsor318",
+    "RationalFourRootFiber318",
+    "RationalContactPoint318",
+    "ContactFieldSection318",
+    "ContactFieldRigidification318"
+  ],
+  "scope": "Original normalization naturality, fppf-local actual rigidified lines, exact local base-line neutrality criterion, and actual contact family consumer. No effective object descent, degree-zero or representability claim.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

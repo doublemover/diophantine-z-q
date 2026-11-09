@@ -1,0 +1,111 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Actual compact real guard ambient model, globally analytic literal trace guards and exact integer-orbit comparison; analytic source-component cover remains explicit.",
+  "sources": {
+    "RealQuarticAmbient318.lean": "7bef67a0c1e5e3bc54800bc915b970a52cb5b1d4f2a3b3c06319f777a8ddefa8",
+    "RealGuardAmbient318.lean": "f0fce8caf280289d4f7bfcf8cd0c27894c2e04d04dd541933b647192d9af38c4",
+    "RealGuardCover318.lean": "295bef9d289d39bd6c3f3e22dd3981d15aba969d96cbce38c2e68efad88841d2"
+  },
+  "derivation_sha256": "6966ed36c975174ec21e31270381693303a79ab1c229aa19ddbe820eb4dbff7b",
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "required_input": "Actual two embeddings and oriented reciprocal chart equations.",
+      "constructed_input": "The existing K embeddings, original D and coherent chart u/v functions.",
+      "justification": "Both embedding values of D exceed1. No guessed real roots or redefined elliptic curve are used.",
+      "source_refs": [
+        "RealQuarticAmbient318.lean",
+        "RealMultiples318.lean"
+      ],
+      "evidence": "RealQuarticAmbient318.lean"
+    },
+    {
+      "id": "constructed_domain",
+      "required_input": "All original guard chart coordinates in the ordinary real topology.",
+      "constructed_input": "Ambient=(Fin8 x Fin2 x Fin2)->R and the sixteen-oval polynomial subset.",
+      "justification": "All32 real coordinates are retained; the dimension is not silently reduced to one or two. This is guard-only, not all later anchor coordinates.",
+      "source_refs": [
+        "RealQuarticAmbient318.lean",
+        "DERIVATION.md"
+      ],
+      "evidence": "RealQuarticAmbient318.lean"
+    },
+    {
+      "id": "index_coverage",
+      "required_input": "Four left and four right charts, both embeddings, every integer h and label.",
+      "constructed_input": "The same CoherentMultiplePrefix318.u/v at n_j h and n_j(h-1).",
+      "justification": "orbit_mem applies the exact curve theorem to each Fin8 slot and both real embeddings. Zero and negative indices remain included.",
+      "source_refs": [
+        "RealQuarticAmbient318.lean",
+        "CoherentMultiplePrefix318.lean"
+      ],
+      "evidence": "RealQuarticAmbient318.lean"
+    },
+    {
+      "id": "maps_and_compactness",
+      "required_input": "Actual topology and domain conditions for closed-ball compactness.",
+      "constructed_input": "Polynomial equalities give a closed subset; every coordinate has absolute value at most1.",
+      "justification": "The finite-dimensional ordinary norm has bound1, so closed-ball compactness applies. Closure of the actual integer orbit lies in this same closed compact set. No group topology is transported from a desired target.",
+      "source_refs": [
+        "RealQuarticAmbient318.lean"
+      ],
+      "evidence": "RealQuarticAmbient318.lean"
+    },
+    {
+      "id": "guard_identity",
+      "required_input": "The literal rational real coefficient, including its factor one-half.",
+      "constructed_input": "Globally polynomial guard equals the original real-valued guardValue(n_j,hP).",
+      "justification": "The exact oriented left/right points, literal_guard and real_coefficient identities prove equality for every h. The factor1/2 and both embeddings remain.",
+      "source_refs": [
+        "RealGuardAmbient318.lean",
+        "RealGuardTrace318.lean"
+      ],
+      "evidence": "RealGuardAmbient318.lean"
+    },
+    {
+      "id": "analytic_and_nontrivial",
+      "required_input": "Analytic functions and actual nonzero reference values.",
+      "constructed_input": "Continuous-linear coordinate projections give entire polynomial guards; original identity positivity gives a common positive neighborhood.",
+      "justification": "Nonzero labels are required only for reference positivity. Analyticity and the absolute-value bound1 hold on the stated full domains. No analytic structure on the orbit closure is inferred from ambient analyticity.",
+      "source_refs": [
+        "RealGuardAmbient318.lean"
+      ],
+      "evidence": "RealGuardAmbient318.lean"
+    },
+    {
+      "id": "cover_and_scalar_consumer",
+      "required_input": "A genuine analytic surjection onto the actual chosen source subset, centered correctly.",
+      "constructed_input": "RealGuardCover318 retains S, the surjection, analyticity and its exact center as explicit hypotheses.",
+      "justification": "Only after those premises does analytic uniqueness give dense simultaneous nonzero guards and intersection with a supplied nonempty open scalar region. The cover, real group/component identity, scalar-region nonemptiness and progression inputs are not claimed constructed.",
+      "source_refs": [
+        "RealGuardCover318.lean",
+        "AnalyticGuardAvoidance318.lean",
+        "DERIVATION.md"
+      ],
+      "evidence": "RealGuardCover318.lean"
+    },
+    {
+      "id": "historical_comparison",
+      "required_input": "Read the compact real-group progression argument and preserve its scope.",
+      "constructed_input": "Current v5:real-progression-bridge and completeness assembly are pinned.",
+      "justification": "Prior justification found. This packet formalizes the concrete ambient/guard layer only and leaves its actual Lie-cover identification open. Prior frozen acceptances remain unchanged.",
+      "source_refs": [
+        "DERIVATION.md",
+        "quartics/quartic-318-326/docs/sources/quartic_v10.tex"
+      ],
+      "evidence": "DERIVATION.md"
+    },
+    {
+      "id": "verification_acceptance",
+      "required_input": "Exact strict checks, private-inclusive audit and non-author acceptance.",
+      "constructed_input": "Three fresh strict modules and recursive all-private audit,114 baseline pins and5 frozen source dependencies.",
+      "justification": "The hash-bound evidence covers only this finite ambient/conditional-cover result. Distinct review is pending; no accepted-manifest promotion or global arithmetic theorem is claimed.",
+      "source_refs": [
+        "VALIDATION.json",
+        "AuditRealGuardAmbient.lean"
+      ],
+      "evidence": "VALIDATION.json"
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

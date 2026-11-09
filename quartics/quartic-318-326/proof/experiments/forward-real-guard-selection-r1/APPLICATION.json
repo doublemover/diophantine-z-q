@@ -1,0 +1,113 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Simultaneous four-guard analytic avoidance, compact bounds before progressions, component-aware dense positive-tail selection, and exact actual-rational-guard consumer under explicit real-orbit inputs.",
+  "status": "LOCAL_STRICT_AND_AUDIT_PASS_PENDING_DISTINCT_REVIEW",
+  "sources": {
+    "AnalyticGuardAvoidance318.lean": "0150b77877afcb7bd95cffaddc2aff0660de21ccbe344b82c703ad14b1093247",
+    "CompactGuardProgression318.lean": "2333b140b42829502a1befaa28e3aad7281b37504db0199e2292a2bbca008d30",
+    "ActualGuardSelection318.lean": "c86c931acf23f923e605c6d0a2d32da2b8f1f6ce31a3034e60b3cab4b418a296"
+  },
+  "derivation_sha256": "3366a4c85992849af104f4c3ed60e253ce06434e6314db32f03e2423942d1df4",
+  "obligations": [
+    {
+      "name": "Analytic source theorem",
+      "required_input": "A multivariable real analytic identity principle on a connected covering domain.",
+      "constructed_input": "AnalyticOnNhd \u211d f univ on an arbitrary real normed vector space, with f0\u22600.",
+      "justification": "A nonempty open zero set would give neighborhood equality to zero, then equality on the preconnected whole space, contradicting f0\u22600. No isolated-zero theorem in one variable is misapplied.",
+      "source_references": "Mathlib.Analysis.Analytic.Uniqueness; AnalyticGuardAvoidance318.analytic_nonzero_dense",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Covering and topology",
+      "required_input": "Actual guard functions on the orbit component, with an independent topology.",
+      "constructed_input": "An explicit continuous surjective \u03c0:V\u2192G and continuous g_j, whose pullbacks are analytic.",
+      "justification": "Every nonempty open set in G has nonempty open preimage. Density of nonzeros upstairs descends. No topology is transported and the actual elliptic cover remains a required construction.",
+      "source_references": "covering_nonzero_dense; good_dense; DERIVATION",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Finite index coverage and simultaneous choice",
+      "required_input": "All four rational trace guards must hold at the same point with scalar and pole conditions.",
+      "constructed_input": "Exactly Fin4 is intersected with the supplied nonempty open \u03a9 and open dense A.",
+      "justification": "good_eq enumerates0,1,2,3. Finite intersections of open dense sets remain dense, giving one point satisfying every condition.",
+      "source_references": "good_eq; simultaneous_open; simultaneous_progression",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Compact bounds and choice order",
+      "required_input": "Uniform guard inverse bounds must be fixed before contact primes and resulting progressions.",
+      "constructed_input": "A PositiveCompacts K and four positive \u03b5_j bounding |g_j| below on K are existentially chosen before universally quantified a,b and B.",
+      "justification": "Local compactness gives K with nonempty interior inside the good region. Extreme-value bounds apply to continuous absolute values positive on K. CompactSpace supplies local compactness.",
+      "source_references": "compact_guard_region; compact_uniform_bounds; compact_before_progressions",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Positive progression tails",
+      "required_input": "The chosen positive tail must meet the open good region arbitrarily late, not just contain arbitrarily large indices.",
+      "constructed_input": "positive_tail derives \u2203n>B with b+n\u2022a\u2208U from dense integer cyclic orbit in a compact topological abelian group.",
+      "justification": "The actual compact recurrence theorem supplies a cluster point at x\u2212b of the positive orbit; its neighborhood characterization gives frequently-atTop hits.",
+      "source_references": "Mathlib.Topology.Algebra.Group.SubmonoidClosure; positive_tail; Filter.frequently_atTop'",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Components and step maps",
+      "required_input": "The original generator can lie outside G\u2070; multiplication and component factors must be explicit.",
+      "constructed_input": "component_step_mem derives kG\u2286H from mG\u2286H and m|k; dense_component_multiple uses actual continuous surjective x\u21a6kx into H.",
+      "justification": "No membership of P in H is assumed. Surjectivity on H is an explicit input, and is separately derived from a genuine surjective additive real cover for every k\u22600.",
+      "source_references": "component_step_mem; dense_component_multiple; real_cover_multiplication_surjective; source real-progression lemma",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual rational guard identity",
+      "required_input": "The selected analytic nonzeros must be the literal rational trace coefficients for actual H=[h]P.",
+      "constructed_input": "cover_nonzero consumes RealGuardTrace318.guard_at_identity_positive; select_actual_guards requires the exact along-progression comparison with rational guardValue.",
+      "justification": "Nonzero guard values for selected H are outputs. Exact \u211a\u2192\u211d casting is reflected by injectivity. h>0 gives actual H\u22600 using the original nontorsion theorem.",
+      "source_references": "ActualGuardSelection318; RealGuardTrace318; RealMultiples318.multiple_P_nonzero",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Congruences and remaining arithmetic",
+      "required_input": "The selected h must retain permitted residue classes without claiming the prime-pattern inputs.",
+      "constructed_input": "progression_modEq proves r+kt\u2261r mod d whenever d|k. The consumer explicitly uses h=r+kt with k>0.",
+      "justification": "This combines with the existing CRT progression once supplied. It does not establish prime-pattern coprimalities, the quantitative scalar-region estimate, or coherent chart existence.",
+      "source_references": "progression_modEq; PrimeCRTAssembly; docs/arithmetic.md:974\u20131033",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Verification and bounded scope",
+      "required_input": "Exact final sources and all generated/private declarations must be checked without hiding missing actual structures.",
+      "constructed_input": "Three strict-checked modules, private-inclusive recursive audit, explicit predecessor bindings and primary-source locators.",
+      "justification": "This is an isolated conditional selection packet. The actual real torus/cover, scalar region, orbit comparison, chart preparation and remaining source equations are still open. Fresh non-author review is required.",
+      "source_references": "VALIDATION.json; APPLICATION.json; DERIVATION.md; prior frozen first51 packet",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

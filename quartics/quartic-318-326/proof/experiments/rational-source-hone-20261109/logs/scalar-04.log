@@ -1,0 +1,104 @@
+START_04:24:53
+MODULE=StructureRationalScalar318
+MODULE=CohomologyRationalScalar318
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:25:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a (?r * ?s)
+in the target expression
+  (r * s) • x = r • s • x
+
+X : TopCat
+F : Sheaf (Opens.grothendieckTopology ↑X) AddCommGrpCat
+a : ℚ → (F ⟶ F)
+hzero : a 0 = 0
+hone : a 1 = 𝟙 F
+hadd : ∀ (r s : ℚ), a (r + s) = a r + a s
+hmul : ∀ (r s : ℚ), a (r * s) = a s ≫ a r
+n : ℕ
+r s : ℚ
+x : F.H n
+⊢ (r * s) • x = r • s • x
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:24:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a 1
+in the target expression
+  1 • x = x
+
+X : TopCat
+F : Sheaf (Opens.grothendieckTopology ↑X) AddCommGrpCat
+a : ℚ → (F ⟶ F)
+hzero : a 0 = 0
+hone : a 1 = 𝟙 F
+hadd : ∀ (r s : ℚ), a (r + s) = a r + a s
+hmul : ∀ (r s : ℚ), a (r * s) = a s ≫ a r
+n : ℕ
+x : F.H n
+⊢ 1 • x = x
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:28:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a (?r + ?s)
+in the target expression
+  (r + s) • x = r • x + s • x
+
+X : TopCat
+F : Sheaf (Opens.grothendieckTopology ↑X) AddCommGrpCat
+a : ℚ → (F ⟶ F)
+hzero : a 0 = 0
+hone : a 1 = 𝟙 F
+hadd : ∀ (r s : ℚ), a (r + s) = a r + a s
+hmul : ∀ (r s : ℚ), a (r * s) = a s ≫ a r
+n : ℕ
+r s : ℚ
+x : F.H n
+⊢ (r + s) • x = r • x + s • x
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:29:24: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a 0
+in the target expression
+  0 • x = 0
+
+X : TopCat
+F : Sheaf (Opens.grothendieckTopology ↑X) AddCommGrpCat
+a : ℚ → (F ⟶ F)
+hzero : a 0 = 0
+hone : a 1 = 𝟙 F
+hadd : ∀ (r s : ℚ), a (r + s) = a r + a s
+hmul : ∀ (r s : ℚ), a (r * s) = a s ≫ a r
+n : ℕ
+x : F.H n
+⊢ 0 • x = 0
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:18:0: warning: Definition `CohomologyRationalScalar318.ofAction` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:19:14: error: (kernel) declaration has metavariables 'CohomologyRationalScalar318.ofAction'
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:33:0: warning: Definition `CohomologyRationalScalar318.structureModule` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:39:8: error: (kernel) declaration type mismatch, 'CohomologyRationalScalar318.structure_smul' has type
+  ∀ {S : Scheme} (p : S ⟶ Spec ↧ℚ) (n : ℕ) (a : ℚ) (x : structureH S n), a • x = a • x
+but it is expected to have type
+  ∀ {S : Scheme} (p : S ⟶ Spec ↧ℚ) (n : ℕ) (a : ℚ) (x : structureH S n),
+    a • x = (Sheaf.H.map (StructureRationalScalar318.multiply p a) n) x
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:46:55: error: Type mismatch
+  Functor.map_zero (directImage f.base)
+has type
+  ∀ (X Y : Sheaf (Opens.grothendieckTopology ↥S) AddCommGrpCat), (directImage f.base).map 0 = 0
+but is expected to have type
+  (directImage f.base).map 0 = 0
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:48:71: error: Function expected at
+  Functor.map_add (directImage f.base)
+but this term has type
+  (directImage f.base).map (?m.88 + ?m.89) = (directImage f.base).map ?m.88 + (directImage f.base).map ?m.89
+
+Note: Expected a function because this term is being applied to the argument
+  _
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:43:0: warning: Definition `CohomologyRationalScalar318.pushedModule` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:44:14: error: (kernel) declaration has metavariables 'CohomologyRationalScalar318.pushedModule'
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:51:8: error: (kernel) declaration type mismatch, 'CohomologyRationalScalar318.pushed_smul' has type
+  ∀ {S : Scheme} (p : S ⟶ Spec ↧ℚ) {T : Scheme} (f : S ⟶ T) (n : ℕ) (a : ℚ) (x : pushedH f n), a • x = a • x
+but it is expected to have type
+  ∀ {S : Scheme} (p : S ⟶ Spec ↧ℚ) {T : Scheme} (f : S ⟶ T) (n : ℕ) (a : ℚ) (x : pushedH f n),
+    a • x = (Sheaf.H.map ((directImage f.base).map (StructureRationalScalar318.multiply p a)) n) x
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/CohomologyRationalScalar318.lean:56:8: error: (kernel) declaration type mismatch, 'CohomologyRationalScalar318.structure_HZero_smul' has type
+  ∀ {S : Scheme} (p : S ⟶ Spec ↧ℚ) (a : ℚ) (x : structureH S 0),
+    (Sheaf.H.equiv₀ (sheaf S) Limits.isTerminalTop) ((Sheaf.H.map (StructureRationalScalar318.multiply p a) 0) x) =
+      (ConcreteCategory.hom ((StructureRationalScalar318.multiply p a).hom.app (Opposite.op ⊤)))
+        ((Sheaf.H.equiv₀ (sheaf S) Limits.isTerminalTop) x)
+but it is expected to have type
+  ∀ {S : Scheme} (p : S ⟶ Spec ↧ℚ) (a : ℚ) (x : structureH S 0),
+    (structureHZero S) (a • x) = (NormalizedStructureTrace318.scalar p ⊤) a * (structureHZero S) x

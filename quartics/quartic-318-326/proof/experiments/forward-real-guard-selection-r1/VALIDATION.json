@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-11-09T03:19:03.424900+00:00",
+  "scope": "Three new modules strictly compiled and all private/generated declarations recursively audited. Actual real-orbit inputs remain explicit; not a full fresh baseline rebuild or final integer witness proof.",
+  "compiler": "Lean4.35.0 eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "flags": [
+    "-j1",
+    "-M6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "sources": {
+    "AnalyticGuardAvoidance318.lean": "0150b77877afcb7bd95cffaddc2aff0660de21ccbe344b82c703ad14b1093247",
+    "CompactGuardProgression318.lean": "2333b140b42829502a1befaa28e3aad7281b37504db0199e2292a2bbca008d30",
+    "ActualGuardSelection318.lean": "c86c931acf23f923e605c6d0a2d32da2b8f1f6ce31a3034e60b3cab4b418a296"
+  },
+  "commands": [
+    {
+      "module": "AnalyticGuardAvoidance318",
+      "exit_code": 0
+    },
+    {
+      "module": "CompactGuardProgression318",
+      "exit_code": 0
+    },
+    {
+      "module": "ActualGuardSelection318",
+      "exit_code": 0
+    },
+    {
+      "module": "AuditGuardSelection",
+      "exit_code": 0
+    }
+  ],
+  "audit": {
+    "modules": 3,
+    "declarations": 23,
+    "includes_private_and_generated": true,
+    "recursive": true,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "logs": {
+    "ActualGuardSelection318.log": "5f089d9899567c9c13a478dfa215a58b9e0b7d73bd6ad695f5e98909c48db5a5",
+    "AnalyticGuardAvoidance318.log": "02022460c9641d2a88c01f2d9df125609b4a68535f6b52e8e31e3c0696a4d38e",
+    "AuditGuardSelection.log": "878a89f8820e8127ab5f625b7d58c8f59bd45336a0ee6ee582d1e70ad2747440",
+    "CompactGuardProgression318.log": "8d2526c23d0363ddd97949a78d17a47daacdf54f780c3f24c589462f9db769e3",
+    "audit-history-selftest.log": "7539e0a83103f2656b233dcf98570fb769e636973f4765cd48f04b87a7d5ee0d"
+  },
+  "audit_source_sha256": "9c25ca02f401b3383863409a14bbaa80b0dc8e429ea7a50e33c74c0e4d9356df",
+  "application_sha256": "c4c8ca7337e8fdc73d4cb7ff86b5d73cb5f51840c721506e7872af9f3a29cc3b",
+  "intake_sha256": "359c2db72070f9ac988ecd8c57581b3b544afb85fce34e4b686aec5a0803c4b3",
+  "dependency_pins_sha256": "91f87ddac49bde921675bb04c4fddba9d7f0f6dd9ff949aeb95d3c9aabd07f9e",
+  "baseline_library": "Verified original1837 artifacts plus unchanged first39 and first51 strictly checked packet outputs",
+  "accepted_snapshot_promoted": false,
+  "independent_review": "PENDING_DISTINCT_REVIEW",
+  "full_arithmetic_theorem_proved": false
+}

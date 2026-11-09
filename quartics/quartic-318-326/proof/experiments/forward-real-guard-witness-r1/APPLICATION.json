@@ -1,0 +1,132 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Construct the first51 literal source rows under four explicit rational real guards, prove exact elliptic-difference semantics, and identify the all-integer real-guard selection seam with positive identity values for all nonzero labels.",
+  "status": "LOCAL_STRICT_PASS_PENDING_DISTINCT_REVIEW",
+  "sources": {
+    "RealGuardWitness318.lean": "3b901fe6eba8b05877479d2f028c8d23e077f9e982572f58965fbf31be92e0d6",
+    "RealGuardTrace318.lean": "da4dc35e66edb26bc14e0b99c2d2ca2bee36ebdf6524ab7a4661dd70a382df52"
+  },
+  "audit_source_sha256": "f31c5ee57b19a753966d919f9f474ca772c19a952a16c58a909d2f8f43a1332d",
+  "derivation_sha256": "174ddc9a333f120983ce6c36e88f4bae0b69fa58938236da56d84b2e5ec250f1",
+  "dependency_pins_sha256": "130d6028688bb574f12f9d7cf89a20480d95ea45670f579597a4c32e0c06bd19",
+  "obligations": [
+    {
+      "name": "Required chart and guard inputs",
+      "required_input": "Eight reciprocal charts, a nonzero compressed anchor chart, and four nonzero rational real coefficients.",
+      "constructed_input": "All inputs are explicit arguments of first51_rows; Guards u is exactly \u2200j, ((u[j+4])\u00b2\u2212(u[j])\u00b2).re\u22600.",
+      "justification": "No source solution or global simultaneous choice is assumed hidden in a record; all remaining premises are visible.",
+      "source_references": "RealGuardWitness318.Guards, first51_rows, prefix_hasSolution; frozen predecessor first39_rows",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual coefficient field and original rows",
+      "required_input": "Actual K=Q(sqrt2), D, source coordinates and emitted normalization.",
+      "constructed_input": "The actual Raw318FinalReplayData r39\u2013r50 are consumed, over ConcreteG8Domain.K.",
+      "justification": "block0_rows through block3_rows expand the literal residuals, including chart-2 half-gate coordinate62. No surrogate polynomial is substituted.",
+      "source_references": "construction/318/build_source.cjs:427\u2013444; Raw318FinalReplayData.r39\u2013r50; ReciprocalChartWitness318.fill",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Index coverage and assignment compatibility",
+      "required_input": "Exactly four pairs indexed by Fin4, covering all twelve rows, preserved old rows and input0.",
+      "constructed_input": "left j=Fin.castAdd4 and right j=Fin.natAdd4 cover charts0\u20133 and4\u20137; fill writes78\u201389 only.",
+      "justification": "rows_eq_slice is definitional equality to stage0.drop39.take12; preserves_first39 and anchor_preserves_rows compose the actual assignment. first51_rows uses source take51.",
+      "source_references": "RealGuardWitness318.fill_other, block0_rows\u2013block3_rows, rows_eq_slice, preserves_first39, anchor_preserves_rows",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Division domains and exceptional points",
+      "required_input": "Justify every inverse without discarding identity charts or silently weakening the rational guard.",
+      "constructed_input": "denominator_ne follows from its nonzero real coefficient; root_equation divides in the actual field.",
+      "justification": "The supplied nonzero rational coefficient gives its rational inverse and the K denominator. Existing actual_difference includes U=O or V=O; both O violates the explicit guard.",
+      "source_references": "RealGuardWitness318.denominator_ne, root_equation, actual_difference; ReciprocalDifference318.actual_difference",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Identity and orientation of the consumed point",
+      "required_input": "The quotient squared must be x(U\u2212V) for the original signed reciprocal ordinates.",
+      "constructed_input": "root is (uU vV+uV vU)/(uV\u00b2\u2212uU\u00b2); actual_difference applies to the exact PrimaryFormal318.point charts.",
+      "justification": "Both finite and identity branches use the original existing difference theorem. No same-abscissa replacement or unexplained sign choice is made.",
+      "source_references": "RealGuardWitness318.actual_difference; PrimaryFormal318.point; ReciprocalDifference318.actual_difference",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Rational trace versus real embeddings",
+      "required_input": "The guard is coefficient zero, not either real embedding; identity reciprocal value must be zero.",
+      "constructed_input": "real_coefficient proves re=half(positiveEmbedding+negativeEmbedding); reciprocal is xRep1/xRep0 with homogeneous identity [1:0].",
+      "justification": "reciprocal_chart covers u=0 and nonzero u. literal_guard uses the existing explicit additive curve-equality transport and actual oriented point equalities U=[n]H, V=[n](H\u2212P), then proves exact equality with the literal denominator coefficient. The transport preserves the global generator via generator_eq.",
+      "source_references": "RealGuardTrace318.real_coefficient, reciprocal_zero, reciprocal_chart, guard_eq_trace, literal_guard; CompressedGeneratorBridge318.curve_eq, transport_some, generator_eq; Mathlib Affine.Point.xRep_zero/xRep_some",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Nontriviality for every nonzero integer label",
+      "required_input": "The historical analytic guard needs a nonzero value at the identity for each fixed nonzero n.",
+      "constructed_input": "guard_at_identity_positive proves strict positivity at H=0 for all integers n\u22600.",
+      "justification": "The existing actual multiple_P_abscissa_gt_one and multiple_P_nonzero supply positive finite reciprocal abscissae for \u2212n at both real embeddings. This proves the arithmetic identity-value input, not analyticity or a final choice of H.",
+      "source_references": "RealGuardTrace318.reciprocal_multiple_positive, guard_at_identity_positive, guard_not_identically_zero; RealMultiples318",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Global selection seam and historical coverage",
+      "required_input": "No claim that local row construction alone chooses simultaneous all-integer witnesses.",
+      "constructed_input": "guards_of_actual_points exposes precisely the required four selected nonzero traces and chart point identities.",
+      "justification": "DERIVATION traces actual historical all-integer argument: labels first; torus and scalar region; analytic guard avoidance plus inherited poles; compact bounds before primes; component divisibility and CRT; dense positive-tail selection. These steps remain separately open formalization.",
+      "source_references": "docs/arithmetic.md:821\u20131033; quartic_v10.tex:10632\u201310692,19580\u201319598,19661\u201319698; Brox v3:3249\u20133302; PrimeCRTAssembly; COMPLETENESS-ASSEMBLY Sections2\u20136",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Downstream scope and acceptance limits",
+      "required_input": "Do not promote prefix existence to all288 rows, integer characterization or full global arithmetic.",
+      "constructed_input": "Only first51-row conditional source existence and exact guard arithmetic identities are claimed. 237 rows and simultaneous global construction remain.",
+      "justification": "SourceArithmetic is not changed; the accepted 1837 baseline and distinct-reviewed first39 packet remain exact dependencies. Acceptance must be authored by another reviewer for this frozen new route.",
+      "source_references": "RealGuardWitness318.prefix_hasSolution; DERIVATION; DEPENDENCY-PINS.json; prior packet acceptance",
+      "evidence": [
+        "RealGuardWitness318.lean",
+        "RealGuardTrace318.lean",
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}
