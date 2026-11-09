@@ -1,0 +1,122 @@
+{
+  "claim": "Pending explicit original-ring residue inverse proving unconditional actual structural rational source H1 dimension5 and nonzero original coordinate-character lines; original quotient-pullback identification remains open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled65-source end-to-end continuation; hosted strict checking, recursive axiom audit and independent acceptance pending. Proposed explicit original residue inverse, actual source H1 dimension5 and coordinate-character nonvanishing; original quotient-pullback identification remains open.",
+  "new_sources": {
+    "OriginalInfinityCoefficient318.lean": "11726c3c65938dd961918f33c83b22b094682f43188ac8a01c1c06e6d5f179a2",
+    "OriginalNegativePoleUniqueness318.lean": "40dd795570a1d18b63c4e9022e0491e5486b0070b2969ea533efab892510cefb",
+    "OriginalOverlapResidues318.lean": "1a9f752e5a1078ae93f0a6970a670e805bbc4ec20f34f536cd8e5a6e6a60420e",
+    "OriginalFinitePoleExpansion318.lean": "92290ec0ddd4a6e423ee1430a10e3c5338447143e77f41ee20e7fc437ba8c52d",
+    "OriginalSmallPoleResidues318.lean": "59f428701d815ba10dc914aebfb1c62a832accd2fbbc4699b2c32eb992d7bc7e",
+    "ActualSourceHOneResidueBasis318.lean": "f33f33d264d1412696b8b35e1fe84a9c440145033cae3b9fe895161ef1a6eb34"
+  },
+  "readme_sha256": "2985ec5e6a10f1359768fe4bb3e6db5c370a0447dd8bc9d3cc179637f581a3de",
+  "intake_sha256": "d711b195b51873586795315e1642b9d03ed0febc9836e151c39f9d5e90f5fe7a",
+  "copy_bindings_sha256": "e0a143c9850ac874f9e8b6538cd881ea5484718960df4bbbbff2516440a5d493",
+  "obligations": [
+    {
+      "name": "Actual infinity evaluation and full basis",
+      "required": "Residue extraction must use the original whole infinity ring and its actual u=0 point.",
+      "constructed": "zeroCoordinate composes infinityBasis.repr with InfinityOpenChart318.infinityPoint.",
+      "justification": "The coefficient basis includes all8 original ratio monomials; the point is the original localization lift with denominator nonzero at0. Multiplication by the actual coordinate is proved killed.",
+      "evidence": [
+        "OriginalInfinityCoefficient318.zeroCoordinate",
+        "OriginalInfinityCoefficient318.zeroCoordinate_coordinate_mul",
+        "InfinityOpenChart318.infinityPoint"
+      ]
+    },
+    {
+      "name": "Actual localization injection and clearing",
+      "required": "A field calculation alone cannot establish independence in the original chart quotient.",
+      "constructed": "clear_negativeSum identifies multiplication by original u^N with the inclusion of an explicit infinity-ring clearedSum.",
+      "justification": "inclusion_injective follows from the original two field embeddings and toOpen_embedding. Thus equality of overlap elements gives actual infinity-ring equality before coefficient evaluation.",
+      "evidence": [
+        "OriginalInfinityCoefficient318.inclusion_injective",
+        "OriginalNegativePoleUniqueness318.clear_negativeSum",
+        "OriginalNegativePoleUniqueness318.highest_zero_of_regular"
+      ]
+    },
+    {
+      "name": "All negative coefficients and exceptional cases",
+      "required": "Uniqueness must cover every original basis component and every finite pole, including zero length.",
+      "constructed": "highest_coefficient extracts q n i for every i; negative_coefficients_zero inducts on the whole pole bound.",
+      "justification": "The highest coefficient is removed only after it is proved zero for every basis index. The zero-length case has no omitted coefficients. No leading-term valuation is asserted without the ring identity.",
+      "evidence": [
+        "OriginalNegativePoleUniqueness318.highest_coefficient",
+        "OriginalNegativePoleUniqueness318.negative_coefficients_zero"
+      ]
+    },
+    {
+      "name": "Arbitrary finite support and canonical full residues",
+      "required": "A residue functional must be independent of choices of pole bound or regular remainder.",
+      "constructed": "negativeEvaluation uses Finsupp on all natural negative poles and all8 monomials; evaluation_rectangle bounds the full support.",
+      "justification": "Uniqueness proves a negative evaluation equal to an actual regular image has zero Finsupp. Whole-overlap principal reduction makes presentation surjective, and its kernel lies in the first-projection kernel. liftOfSurjective therefore defines residues with the required exact identities.",
+      "evidence": [
+        "OriginalOverlapResidues318.evaluation_rectangle",
+        "OriginalOverlapResidues318.negative_eq_regular_implies_zero",
+        "OriginalOverlapResidues318.presentation_surjective",
+        "OriginalOverlapResidues318.residues_presentation"
+      ]
+    },
+    {
+      "name": "Complete original finite-chart image",
+      "required": "Vanishing on selected finite monomials is insufficient; every element of the finite ring must be covered.",
+      "constructed": "finite_expansion uses all16 original finite basis indices and full polynomial supports.",
+      "justification": "finite_root_zero, finite_root_other and finite_t use the original maps. Each term has exact scalar q*c0^(m+totalWeight) and pole2m+totalWeight, with no dropped normalization or parity case.",
+      "evidence": [
+        "OriginalFinitePoleExpansion318.finite_root_zero",
+        "OriginalFinitePoleExpansion318.finite_root_other",
+        "OriginalFinitePoleExpansion318.finite_t",
+        "OriginalFinitePoleExpansion318.finite_expansion"
+      ]
+    },
+    {
+      "name": "All five small residues and both chart images",
+      "required": "The residue functionals must kill exactly the relations needed for the actual H1 quotient.",
+      "constructed": "lowResidues selects position(s)=(pole-1,monomial) for the full SmallIndex; position_injective uses positivity.",
+      "justification": "low_high_pole follows from pole>=weight and every small index has pole<weight. low_finite combines the entire finite expansion; low_infinity handles the whole infinity image. The zero-pole case is separately regular.",
+      "evidence": [
+        "OriginalSmallPoleResidues318.position_injective",
+        "OriginalSmallPoleResidues318.low_high_pole",
+        "OriginalSmallPoleResidues318.low_finite",
+        "OriginalSmallPoleResidues318.low_infinity"
+      ]
+    },
+    {
+      "name": "Actual boundary descent and Kronecker pairing",
+      "required": "Functionals must descend to the unchanged actual H1 and recover the exact fiveLinear map.",
+      "constructed": "kernel_le_lowResidues uses the original finite-minus-infinity kernel witnesses; residueMap is the surjective-boundary lift.",
+      "justification": "boundary_fiveRepresentatives identifies the precise earlier fiveLinear values. low_fiveRepresentatives yields residueMap_fiveLinear=identity on every rational coefficient tuple, establishing actual independence.",
+      "evidence": [
+        "ActualSourceHOneResidueBasis318.kernel_le_lowResidues",
+        "ActualSourceHOneResidueBasis318.residueMap_boundary",
+        "ActualSourceHOneResidueBasis318.boundary_fiveRepresentatives",
+        "ActualSourceHOneResidueBasis318.residueMap_fiveLinear"
+      ]
+    },
+    {
+      "name": "Actual dimension and cohomological nonvanishing",
+      "required": "Dimension5 and nonzero character lines must follow from actual H1, not nonzero field representatives.",
+      "constructed": "equivalence combines the explicit residue left inverse with previous whole-H1 spanning, and equivalence_symm identifies its inverse.",
+      "justification": "source_finrank_eq_five uses that rational equivalence and the complete five-index count. character_coordinates_nonzero evaluates residue1 on each actual class, discharging the earlier explicit cohomology nonvanishing input.",
+      "evidence": [
+        "ActualSourceHOneResidueBasis318.equivalence",
+        "ActualSourceHOneResidueBasis318.equivalence_symm",
+        "ActualSourceHOneResidueBasis318.source_finrank_eq_five",
+        "ActualSourceHOneResidueBasis318.character_coordinates_nonzero"
+      ]
+    },
+    {
+      "name": "Remaining quotient-map comparison and validation",
+      "required": "The original five quotient-H1 maps must not be identified by matching character names alone.",
+      "constructed": "This proposed endpoint concerns actual source coordinate classes and their actual quotient-induced projector images.",
+      "justification": "Geometric sheaf-action naturality and exact original target-class pullback comparison remain open. Neither target nonvanishing nor cross-transfer vanishing is inferred from source rank5 alone. The entire65-source closure awaits hosted strict checking, recursive axiom audit and independent acceptance.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json",
+        "intake.json"
+      ]
+    }
+  ]
+}
