@@ -1,0 +1,127 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "open-chart-sheaf-gluing",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Actual over-open sheaf transition data derives all matching-family inputs and glues to a module sheaf with exact original transition recovery. Original local chart modules are recovered through actual direct images and counits. Scheme-local triple-conversion coherence and the affine fppf chart join remain separate.",
+  "bindings": {
+    "README.md": "be83cbd5db5353fefe85923ff0582e7125246d6ef0808183ef7e560d542889e4",
+    "APPLICATION.md": "0080be63fab44be172642f6bf3d2239f4c9587afb391b232a0c2622800767bb7",
+    "intake.json": "9fa4fa565530be7299047ad158a78b2792aaef43cfe347150861fa9f898390f4",
+    "DEPENDENCIES.json": "505a8db04baa1b6e136894b808ba4b72d888818e8b0abe4d149cd7b8b5b2bfdb",
+    "SOURCE_SHA256SUMS": "73cbd670f5a911a1af6cacdb1aecd2ff88906ccbf9fe4594664308cf4f0ad2c6",
+    "MODULE_ORDER.txt": "62bf73ad34dcfd153b63f40ea92652b01cc5ae9b4a5c42de2a17791232f87901",
+    "validation/ExperimentAudit.lean": "35f87bb81ae4ee3c42cadb8cd794c1c81e502514b870d75dd41992ba3eae6754",
+    "OpenModuleTransition318.lean": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+    "OpenModuleChartRecovery318.lean": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+    "OpenModulePresheaf318.lean": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+    "OpenModuleSheafGluing318.lean": "2c3c0f07456c380e1be6e0b0053b3e7d4f35d8545ff3c9013344440a5288fa80",
+    "OpenModuleGluedSheaf318.lean": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0",
+    "OpenSheafTransition318.lean": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+    "OpenSheafGluing318.lean": "ef17173e2af4552cade2393134495b0827036812d237a86985793c21dac1f3ed",
+    "OpenChartModuleImages318.lean": "c885783813d79fb396e84fbca05425abae7518dcd234831f6d426aa50bea441b"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** The unchanged matching-family construction requires\n   linear transitions on every common subopen, original restriction naturality,\n   identity and cocycle. The new source requires instead original sheaf isos on\n   each pair open in the canonical over-open model and their actual triple\n   cocycle after original overFunctorMap normalization. SheafOfModules.overMap,\n   evaluation and Scheme.Modules.overEquiv/overFunctorEquiv use the original\n   sheaves/ring maps. The chart direct-image counit requires the actual open\n   immersion, supplied by each original chart inclusion.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** restrictIso uses the original overMap and both\n   canonical endpoint comparisons. component evaluates those exact original\n   isos at each actual common subopen. sectionData derives the full prior gluing\n   inputs. sheaf/overIso/chartIso are the unchanged matching-family construction.\n   ambient is the actual direct image of each original local module F i;\n   chartRecovery and subchartRecovery use the original counit, composition and\n   inclusion equality. pairTransition explicitly conjugates the original local\n   pair iso through these same comparisons.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** All chart indices, original pair opens and original triple\n   opens are retained. Their sheaf components cover every common subopen by\n   evaluation; no selected frames or smaller overlap family is substituted.\n   The global sheaf construction works for the stated chart family; any claim\n   of a global line from rank-one frames still requires the original top-cover\n   condition. The final chart module recovery is for every original chart.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** Pair isos run from ambient M i to ambient M j\n   over U i intersect U j. On the triple open, restricted i-to-j followed by\n   j-to-k equals i-to-k. The recovered equation is restricted glued-to-i then\n   original i-to-j equals restricted glued-to-j. chartRecovery runs from\n   restriction of the original direct image to F i. pairTransition runs from\n   ambient i via subchartRecovery to the original local transition, then the\n   inverse subchartRecovery for j. No direction is dropped or inferred.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** Evaluation of the original sheaf iso derives linear\n   components. Its original naturality proves all restriction squares. Identity\n   and triple laws are obtained by evaluating the supplied sheaf equations after\n   the actual normalized restrictions. Gluing uses those derived data, and\n   transition_recovered applies the previously proved exact section comparison\n   on all opens to establish equality of actual sheaf isos. Open immersion is\n   available for every chart/subchart inclusion. The final module recovery uses\n   original actual counit isomorphisms, not a new recovery assumption.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** The sheaf is the unchanged explicit matching-family\n   sheaf. overIso and chartIso are the unchanged comparisons built from its\n   actual section evaluations. transition_recovered returns the exact original\n   input pair iso. For original chart modules, ambient is their actual direct\n   image and comparison composes the exact same glued chart iso with the actual\n   counit to recover the unchanged F i. No line class or unrelated presentation\n   replaces these original module-sheaf objects.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** Evaluation is linear over the original\n   \u0393(X,V). Canonical overFunctorMap endpoints preserve the actual ring sheaf,\n   and local-to-ambient comparison uses original restriction composition and\n   Scheme.homOfLE_\u03b9 equality. No scalar correction, frame choice or rational\n   normalization is inserted. The exact input transition is recovered as an\n   actual sheaf isomorphism, not merely up to a unit factor.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** Original coherent over-open sheaf data now feeds\n   object gluing and exact overlap recovery. Original chart direct images and\n   actual local pair-isomorphism conversion are supplied. Coherence of that\n   conversion for an independently specified scheme-local triple datum still\n   needs proof, as do arbitrary local-line frame refinement and changing-base-\n   chart compatibility for affine fppf reconstruction. Prior accepted unit-\n   cocycle line gluing is retained and is not classified as historically absent.\n   General fppf/Picard/Jacobian and arithmetic completion are not claimed.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** Eight sources, five exact predecessor bindings,\n   the actual primary-source interfaces and all nine obligations are bound.\n   Static checks and audit-history self-tests are structural only. No local\n   Lean ran. Full hosted replay, recursive axiom audit and independent acceptance\n   remain pending. Previous frozen sources and approval registers are unchanged.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenSheafTransition318",
+        "OpenSheafGluing318",
+        "OpenChartModuleImages318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

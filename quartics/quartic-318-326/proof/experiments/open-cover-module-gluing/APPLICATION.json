@@ -1,0 +1,142 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "open-cover-module-gluing",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Explicit arbitrary-scheme matching-family module sheaf gluing, actual recovered chart isomorphisms and a global line from covering rank-one frames. Direct-image chart adapters and the affine fppf reconstruction join remain further work.",
+  "bindings": {
+    "README.md": "adb11654197884289267aad7a07a84ec0671d247a1315d63db2cb25d91de6f50",
+    "APPLICATION.md": "2b2180b1d07b09f56cc60e445b3f0c90547af9861f9081c7e7a0109980df1369",
+    "intake.json": "9f6d4ec4fbdb57f39464171fd99c3fb140054c2ffddc80e365767885a75165ef",
+    "DEPENDENCIES.json": "bedc7af829124fa7bce9c843b826bc9b05d53a778e8f9d13150a3007b08ddbc5",
+    "SOURCE_SHA256SUMS": "51fa63d852b9acc4613d6ab12ddd94adc7c53382e34569147813a4a55b9a5e6e",
+    "MODULE_ORDER.txt": "69f0899fca10bce2095bb9828a630f0d12b4f1a46e2e2598b1ca9b2318105fb7",
+    "validation/ExperimentAudit.lean": "c64cbeb69c01fc06773f64babd8db66719c58174291983ec56ea7999bf56d3fb",
+    "OpenModuleTransition318.lean": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+    "OpenModuleChartRecovery318.lean": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+    "OpenModulePresheaf318.lean": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+    "OpenModuleSheafGluing318.lean": "2c3c0f07456c380e1be6e0b0053b3e7d4f35d8545ff3c9013344440a5288fa80",
+    "OpenModuleGluedSheaf318.lean": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** ModuleLocalGluing318.res and res_res are the original\n   restriction maps and their composition. TopCat.Sheaf.existsUnique_gluing' and\n   eq_of_locally_eq' require actual open covers, compatible original sections and\n   the sheaf property of the original local module. The unique-gluing criterion\n   gives the actual sheaf condition. PresheafOfModules.ofPresheaf requires genuine\n   semilinear restriction; isoMk requires linear components natural on all opens.\n   The original overEquiv and overFunctorEquiv identify actual site-over-open\n   modules with actual open-subscheme restrictions. These interfaces are read\n   at pinned Mathlib56a005855ea17e0b0958f73ec801ae140b0a1679.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** Data U M consists of actual ambient module sheaves,\n   every pairwise common-subopen linear transition, and actual naturality,\n   identity and cocycle laws. sections W is the submodule of original local\n   section families satisfying all transitions. Restrictions, the module\n   presheaf, component gluings, the global sheaf, recovered chart isomorphisms\n   and the final covered framed line are constructed explicitly in the five\n   source files. No object gluing result is an input.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** All chart indices, all pairs and triples, every ambient open\n   and every common subopen are quantified. Component sheaf gluing uses the\n   actual cover V k intersect U i of W intersect U i, with coverage proved from\n   the supplied original V cover. The final line requires top \u2264 supremum U;\n   no arbitrary family is treated as a cover. Empty charts and overlaps are\n   retained, and the sheaf construction does not require a finite cover.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** transition i j maps original sections of M i to\n   original sections of M j. Matching families satisfy transition i j applied\n   to restricted i component equals restricted j component. fromChart extends\n   a section through these same transitions; evaluate recovers the i component.\n   Actual chartIso maps the glued restriction to the original M i restriction.\n   The final frame is the original local frame followed by chartIso inverse.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** Matching families form a submodule because original\n   restrictions are semilinear and transitions are linear over the same section\n   ring. Functorial restrictions use res_res. Chart recovery uses original\n   identity/cocycle and naturality laws. Componentwise gluing uses the sheaf law\n   of M i; transition compatibility is checked by local equality on every\n   covering subopen. The resulting matching-family sheaf law is proved by\n   existence and uniqueness, not assumed. Rank-one frames are genuine supplied\n   sheaf isomorphisms, and coverage is checked separately.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** The global sheaf has exactly sections W as its original\n   section module, not an untracked sheafification. chartLinearEquiv has evaluate\n   as its forward map and fromChart as inverse. overIso uses those same natural\n   components; chartIso uses exactly the original overFunctorEquiv. The line\n   object's sheaf is literally the constructed sheaf, with the original U cover\n   and original frames transported through those same chart comparisons.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** Each component retains restriction of the\n   actual \u0393(X,W) action to \u0393(X,W intersect U i). The matching submodule, every\n   presheaf restriction and every chart equivalence have their scalar laws\n   proved. The original structure-sheaf restriction composes without a scalar\n   correction. No field, rationalization, chosen unit or rank-only substitute\n   replaces the original coefficients or transitions.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** This provides actual arbitrary-scheme module\n   object gluing from the stated all-subopen data and a global line from actual\n   covering frames. It does not yet convert arbitrary chart sheaves/direct-image\n   transitions to this input, construct refinements of local line frames, or\n   prove the changing-base-chart compatibility of affine reconstruction.\n   Those are required to apply this construction to the original fppf datum.\n   Full Picard/Jacobian representability and arithmetic completeness remain\n   separate; existing accepted/frozen sources are unchanged.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** The five complete sources, all direct baseline\n   imports and all nine obligations are bound in intake.json/APPLICATION.json.\n   Source/hash/import/placeholder validation and audit-history self-tests are\n   structural checks only. No local Lean ran. Hosted replay, recursive axiom\n   audit and independent acceptance are pending; no approval record or theorem\n   completeness claim is manufactured.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleTransition318",
+        "OpenModuleChartRecovery318",
+        "OpenModulePresheaf318",
+        "OpenModuleSheafGluing318",
+        "OpenModuleGluedSheaf318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

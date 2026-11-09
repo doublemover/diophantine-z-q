@@ -1,0 +1,47 @@
+# Integral infinity neighborhood and original reciprocal bicanonical tensors
+
+Draft only. No local Lean compilation or build was run. Hosted strict compilation, recursive private-inclusive axiom audit and independent source acceptance are pending. The accepted progress snapshot is unchanged.
+
+This seven-source closure constructs the integral infinity neighborhood, its real du frame and the original J-squared-scaled bicanonical pair in one development. It includes five new modules and the two hosted-checked integral cotangent tensor modules.
+
+IntegralInfinityChart318 uses the literal three reciprocal radicands
+c_j times c_0 inverse times (1-a_j times c_0 inverse times u squared).
+Only the four specified twist units are inverted. No contact or contact difference is inverted, including at coefficient primes 3,5,7. The product of the three radicands has a unit value at u=0, so an actual coefficient-base section at infinity exists. This is a section of the coordinate base, not a selected point of the full three-root source. Inverting that product makes the actual three-root order finite free and etale when 2 is a unit. The polynomial du frame transports through that actual localization and order, with normalized derivative one.
+
+IntegralInfinityCoefficients318 constructs the regular pair
+4 C c_0^-5 u^2 / D and 4 C c_0^-4 / D,
+where C is the product of the other three original twists and D is the actual inverted three-radicand denominator. The second coefficient is a unit throughout the entire infinity chart. The powers five and four, the twist product and the squared zero of the first coefficient are all retained.
+
+IntegralInfinityGenericIdentity318 keeps the original convention t=c_0/u^2. It proves c_0^7 D=C u^8 P(t), the actual denominator inverse identity, the exact reciprocal differential factor, and the q1=t q0 coefficient relation. IntegralInfinityTensor318 constructs both genuine whole-chart integral cotangent-square tensors with J=2765952000 squared. For a compatible fraction field of this same infinity order under explicit source-domain hypotheses, their exact generic images equal the original literal q0/q1. Nonvanishing of u is derived from flatness of the actual order over R[u]; nonvanishing of P is derived from the original product identity and actual denominator unit. Neither nonvanishing assertion is supplied as an assumption.
+
+IntegralInfinityOriginalField318 anchors the coordinate and presentation to the existing original contact geometry. The rational specialization has literally the original reciprocal radicands. Their equality constructs an actual Q-algebra equivalence with the original infinity order, preserving the polynomial-coordinate map. Composing with the established original infinity embedding gives an injective map into the same original four-contact function field. The coordinate is proved to be exactly c_0/y_0 there and the reciprocal t is proved to recover the original t. This also derives the domain of the rationally specialized order. No unrelated degree-eight field is substituted.
+
+The regular tensor construction works over arbitrary commutative coefficient rings with unit twists and unit two. The fraction-field comparison explicitly requires R and the named integral infinity order to be domains. Their construction for every arithmetic component is not asserted. The rational embedding and coordinate identity do not alone construct a complete integral model or glue the integral infinity neighborhood to the finite affine cover. Integral overlap attachment, global integral bicanonical sheaf gluing, characteristic-two geometry, nonunit twists, complete component/place coverage and original point specialization remain open. No all-place height bound is claimed.
+
+## Application obligations
+
+1. Objects: the infinity order is the actual three quadratic quotients of the literal reciprocal radicands over the specified polynomial localization. Its cotangent frame and tensors belong to this order. Rational specialization is compared by an actual algebra equivalence with the original infinity order and injected into the original four-contact field.
+2. Indices: all three nonzero original contacts 32,76832,-343 and all four original twists are retained. No contact is omitted to make an etale assertion. The chart includes the actual u=0 coordinate-base section and no complete-model cover is falsely inferred.
+3. Domain: twists and 2 are units for the integral frame and regular coefficient unit. No 3,5,7 or contact-difference inversion is required on this chart. Generic tensor images additionally require the stated domains and compatible fraction field. Characteristic two and complete arithmetic-component coverage remain open.
+4. Coefficients: u is anchored to c_0/y_0 and t to c_0/u^2. The coefficients preserve 4, the complete other-twist product, c_0^-5 and c_0^-4, the u-squared zero, and original J squared. The denominator identity retains c_0^7 and u^8 exactly.
+5. Local conditions: unit value of the denominator at zero, finite freeness and etaleness, normalized du frame, unit second coefficient, generic-coordinate nonvanishing and generic quartic nonvanishing are proved. No supplied smoothness, norm, regular coefficient, nonzero denominator or arbitrary differential frame replaces a construction.
+6. Transition maps: polynomial localization and three-root scalar maps are native maps. Rational coefficient equality induces an actual order equivalence preserving the polynomial map. The original field embedding is composed with that equivalence, and generic tensors use the actual integral-to-fraction differential tensor map.
+7. Identity: tensor_images identifies the two actual J-squared integral tensors with the literal original generic q0/q1 for the specified reciprocal t. The separately proved original-field coordinate identity fixes that convention. Integral global sheaf comparison and overlap attachment are not silently substituted by generic agreement.
+8. Consumers: this supplies the missing integral infinity neighborhood and local bicanonical expressions alongside the finite affine contact-cover and vertical-local constructions. Joining those neighborhoods into a complete model and proving all-place metric bounds remain subsequent work.
+9. Validation: exact source/readme/intake, copied-predecessor and accepted-primary-producer hashes bind this closure. Static import closure and audit-history checks are structural only. Hosted kernel verification and independent source acceptance remain pending. No local Lean execution, self-approval or full arithmetic theorem is claimed.
+
+## Preventative public-module visibility repair
+
+The strict-module visibility failure observed in the related frame packet in hosted run 42579994089 at cee0c58 also applies to this file's public rational-order equivalence referring to private presentation helpers. This revision makes those existing helpers public, exposing the presentation equivalence implementation used in the public polynomial comparison. Their bodies, original ring maps and all mathematical statements are unchanged. The first infinity revision remains immutable; no hosted failure of that revision or successful check of this repair is claimed. No local Lean execution occurred.
+
+## Coefficient-ring numeral normalization repair
+
+Hosted run 42580912976 at e205d32 passed the infinity chart and frame, then exposed a target-tensor algebra normalization failure in the IsUnit4 proof. The corrected proof establishes 2 squared equals 4 and unitness entirely in the abstract coefficient ring R, then maps this established unit with only map_ofNat simplification. It no longer runs numeral conversion inside a nested tensor algebra and does not raise resource limits. The same construction is repaired preventatively in the branch coefficient proof; no branch failure at that declaration is claimed. Prior visibility, prime-frame and source-instance repairs are retained, and all prior sources/evidence remain unchanged. No local Lean execution occurred.
+
+## Versioned hosted repair
+
+Move the unit product calculation to an abstract ring and split independent unit witnesses, preserving all coefficients and hypotheses without raising the heartbeat limit. The c4cd4ae failure and tested predecessor remain preserved. Statements and mathematical assumptions are unchanged. Hosted verification of this revision and independent acceptance remain pending. No local Lean was run.
+
+## Versioned hosted repair
+
+Normalize all mapped literal contact numerals when identifying the actual quartic in the original reciprocal coordinate. The c7d3bc3 failure and tested predecessor remain preserved. Statements and mathematical assumptions are unchanged. Hosted verification of this revision and independent acceptance remain pending. No local Lean was run.

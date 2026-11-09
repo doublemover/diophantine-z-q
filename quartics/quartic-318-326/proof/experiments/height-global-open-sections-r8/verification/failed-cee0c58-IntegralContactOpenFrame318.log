@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r5/IntegralContactOpenFrame318.lean:61:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r5/IntegralContactOpenFrame318.lean:82:2: error(lean.unknownIdentifier): Unknown identifier `nativeCotangentModule`
+
+Note: A private declaration `nativeCotangentModule` (from the current module) exists but would need to be public to access here.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r5/IntegralContactOpenFrame318.lean:89:2: error: Type mismatch
+  LocalizedKaehlerFrame318.localFrame P.primeCompl (frame R c h2)
+has type
+  Ω[?m.38⁄R] ≃ₛₗ[@RingHom.id ?m.38 CommRing.toCommSemiring.toNonAssocSemiring] ?m.38
+but is expected to have type
+  Ω[Localization.AtPrime P⁄R] ≃ₛₗ[@RingHom.id (Localization.AtPrime P) OreLocalization.instSemiring.toNonAssocSemiring]
+    Localization.AtPrime P
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r5/IntegralContactOpenFrame318.lean:94:2: error: Type mismatch
+  LocalizedKaehlerFrame318.localFrame_normalized P.primeCompl (frame R c h2) (coordinate R c) (frame_D R c h2)
+has type
+  (LocalizedKaehlerFrame318.localFrame P.primeCompl (frame R c h2))
+      ((KaehlerDifferential.D R ?m.36) ((algebraMap (Order R c) ?m.36) (coordinate R c))) =
+    1
+but is expected to have type
+  (atPrimeFrame R c h2 P)
+      ((KaehlerDifferential.D R (Localization.AtPrime P))
+        ((algebraMap (Order R c) (Localization.AtPrime P)) (coordinate R c))) =
+    1
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 27

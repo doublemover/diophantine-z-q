@@ -1,0 +1,30 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-infinity-tensors-r4/IntegralInfinityGenericIdentity318.lean:17:0: warning: automatically included section variable(s) unused in theorem `IntegralInfinityGenericIdentity318.reciprocal_relation`:
+  [IsScalarTower R (Order R c) K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsScalarTower R (Order R c) K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-infinity-tensors-r4/IntegralInfinityGenericIdentity318.lean:23:71: error: unsolved goals
+R : Type u_1
+inst✝⁴ : CommRing R
+c : Fin 4 → Rˣ
+K : Type u_2
+inst✝³ : Field K
+inst✝² : Algebra (Order R c) K
+inst✝¹ : Algebra R K
+inst✝ : IsScalarTower R (Order R c) K
+⊢ 843308032 - t R c K * 23905728 - t R c K ^ 2 * 76521 + t R c K ^ 3 =
+      t R c K * (algebraMap R K) 32 * (algebraMap R K) 76832 - t R c K * (algebraMap R K) 32 * (algebraMap R K) 343 -
+                  t R c K * (algebraMap R K) 76832 * (algebraMap R K) 343 -
+                t R c K ^ 2 * (algebraMap R K) 32 -
+              t R c K ^ 2 * (algebraMap R K) 76832 +
+            t R c K ^ 2 * (algebraMap R K) 343 +
+          t R c K ^ 3 +
+        (algebraMap R K) 32 * (algebraMap R K) 76832 * (algebraMap R K) 343 ∨
+    t R c K = 0

@@ -1,0 +1,121 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "open-chart-line-gluing",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Arbitrary original local line frames refine to actual ambient image frames on the unchanged globally glued module sheaf, yielding a genuine global line and recovery of every original local line object. Converted scheme-local triple coherence and the changing-base affine fppf join remain separate.",
+  "bindings": {
+    "README.md": "4ba887db7aad6905ad9514d49b461fe41fbcffb54052fe8375c704b6dfc0c1ef",
+    "APPLICATION.md": "1a3b4ba4f4255bd744a724db537e582863464494d258abc9e10cb05d0ac8b5aa",
+    "intake.json": "2edc73951823d0002a5b6dae9b759c7fb4172f0b309f87110a32a2e70befacd6",
+    "DEPENDENCIES.json": "0f512032eb0810cda5adca2b187dbcce02172e4ae9b5674a3e299803e555bc0f",
+    "SOURCE_REPAIRS.json": "3d7bea580c6b039eb479e3ff6017c356b68586437c983c4f75a894793c14c9f8",
+    "SOURCE_SHA256SUMS": "91735b16a35955ec5785334b3b1a83dd0f758c265c57f398db1172160c536b09",
+    "MODULE_ORDER.txt": "35145f1087c40bfa694ae73576f7475d882aae8334ba8fcd891eb3c73a72c180",
+    "validation/ExperimentAudit.lean": "a51d4b6336b575471723e302f459c5c115413cbb6e736c6f08e7c86f518d245c",
+    "OpenModuleTransition318.lean": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+    "OpenModuleChartRecovery318.lean": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+    "OpenModulePresheaf318.lean": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+    "OpenModuleSheafGluing318.lean": "21b2c1d73051907ba5bcb5cff1fe249146d4afb632b087f608e3017ffa500c56",
+    "OpenModuleGluedSheaf318.lean": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0",
+    "OpenSheafTransition318.lean": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+    "OpenSheafGluing318.lean": "ef17173e2af4552cade2393134495b0827036812d237a86985793c21dac1f3ed",
+    "OpenChartModuleImages318.lean": "931e1b651c2db3159ffec0cc925e0547275a4969bed32e994fe120d021fe96fd",
+    "LocalLineGlobalFrames318.lean": "fa1bfd6186e76e556913d41dc25ba7ab5c5e84e9590b671dcc026760179e6ad7",
+    "OpenChartLineEffectivity318.lean": "d2a7ed68727eeba7bf7ae2149dae546d5e6a49dd9db04404dca2873adef237e1"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** The inherited actual module-sheaf gluing takes\n   original coherent over-open transitions and returns an actual global sheaf\n   with exact chart and pair recovery. Scheme.Hom.isoImage requires an actual\n   open immersion, supplied by the chart inclusion, and satisfies the original\n   isoImage_hom_\u03b9 equality. Original restriction composition, congruence, identity\n   and unit isos transport actual frames. LineSheafClass318.Line requires a\n   genuine full covering frame family. Exact producer sources and consumers\n   are bound, with pinned Mathlib interfaces retained.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** LocalLineGlobalFrames318 builds unitAlongIso from\n   the actual inverse scheme iso and original unit/restriction comparisons.\n   frameOpen indexes every original local frame by the sigma type of chart\n   index and original local-frame index, using its actual ambient image.\n   frame transports the unchanged local frame through the actual local line\n   comparison and isoImage. The resulting line object is literally M. The final\n   consumer uses the unchanged explicit glued sheaf and original counit chart\n   comparisons from OpenChartModuleImages318.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** Both the original chart cover and each local line's entire\n   frame cover are used. For every original point x, the proof chooses an\n   original chart containing x, then an original local frame containing the\n   corresponding chart point. Its actual ambient image contains x. Every chart\n   and local-frame index remains present; no finite selection, generic-point\n   restriction or unstated triviality on a chart is assumed.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** The local line comparison runs from M restricted\n   to the original chart to the original L i object. The local unit frame is\n   followed by the restricted inverse comparison, inverse restriction\n   composition, actual isoImage equality transport, and original composition.\n   unitAlongIso transports this frame to the literal ambient image. Final chart\n   recovery uses the same gluing comparison followed by the same original\n   direct-image counit. The inherited exact original pair transition square\n   remains unchanged.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** Original chart inclusions, frame inclusions and the\n   isoImage maps are open immersions. The isoImage_hom_\u03b9 equality supplies the\n   exact restriction congruence. The unit, composition and inverse equations\n   retain the original sheaf. Coverage uses both supplied covers explicitly.\n   Local lines need not be chartwise trivial: their full original frame families\n   are refined. Source-only repairs retain existing hs and D theorem hypotheses\n   used only in proofs; no new mathematical assumption is introduced.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** The global line's object is exactly the original M\n   in the generic refinement and exactly the prior explicit glued sheaf in the\n   final consumer. Its local comparison returns the unchanged original L i\n   object. Local frames are the original L i.frame, not newly chosen generators\n   or abstract rank witnesses. The inherited pair comparison remains the\n   original sheaf transition equality.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** Frame transport uses actual unit sheaves,\n   actual restriction functors, isoImage and equality/congruence maps. There is\n   no unit correction, scalar rescaling, rationalization or replacement by a\n   line class. The previous matching-family construction retains the original\n   section-ring actions. All normalization maps at both frame endpoints are\n   explicit original comparisons.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** Actual local modules and coherent ambient over-open\n   transitions now give a global module with exact transitions, and arbitrary\n   original local line frames give a genuine global Line recovering all those\n   local objects. Coherence of separately specified scheme-local pair data\n   under pairTransition and changing-base-chart compatibility of affine fppf\n   reconstruction remain further joins. Historical accepted unit-cocycle\n   reconstruction remains valid and is not relabelled as missing. Full fppf,\n   Picard/Jacobian and arithmetic completeness are not claimed.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** All10 sources, six exact predecessor bindings,\n   two narrow source-reviewed hypothesis repairs and both new modules are bound.\n   Static hash/import/placeholder and audit-history checks are structural only.\n   No local Lean ran. Complete hosted replay, recursive axiom audit and\n   independent acceptance remain pending. Earlier frozen packets and acceptance\n   registers are unchanged.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalLineGlobalFrames318",
+        "OpenChartLineEffectivity318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}
