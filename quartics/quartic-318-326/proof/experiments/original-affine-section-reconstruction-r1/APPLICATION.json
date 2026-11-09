@@ -1,0 +1,104 @@
+{
+  "claim": "Construct actual normal-closure chart and both structural squares from original normal integral affine sections, then recover SAME original curve with all old deck actions; genuine PEL geometry and branch/model inputs remain.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled61-source original affine-section reconstruction candidate.58 exact predecessors,3 connected sources. Actual normal integral affine section ring is identified with literal integral closure inside SAME original function field; Spec of this exact equivalence followed by old affine fromSpec constructs monic chart and its actual generic/base squares. Terminal old-curve reconstruction uses this constructed chart. Original algebraic PEL geometry, actual affine coefficient algebra/tower/integrality/base square, normality, quotient coordinate/fixed functions and full branch/model laws remain required. No local Lean or predecessor resource changes; fresh independent review/hosted acceptance pending.",
+  "new_sources": {
+    "OriginalNormalSectionClosure318.lean": "f412b8d53f0a3030c5d0f5832a7273dc0fe307b2bba5077f78818ac84c76081f",
+    "OriginalNormalAffineChart318.lean": "c94b2ef359d5a8da1dea0ff1bf6892152fb87245fcda38ca872a482d53a1911a",
+    "OriginalAffineSectionReconstruction318.lean": "778c9f0f1ae424d8abce22ce5d7d23f818487be58abdc10c45a22a969f9079ca"
+  },
+  "readme_sha256": "2f7ba4ec73882b3d6091c2dbb6cd74e11f5ed06df376bb0472ca856aecdbe705",
+  "intake_sha256": "f5019ac1cadcb95d49acedfca7eb0fc8311cf4a541ce78fa6b5288637f50fde3",
+  "copy_bindings_sha256": "5c0adc3f1c72f8aa0ea18ff59107273a5cd728a2133e1dac1a4c815ea4cf42c5",
+  "pinned_apis_sha256": "4a1531991d86b2f3bcbedb5c99c03a35ea08bf7bc546e8db19db92df7fae738b",
+  "predecessor_application_sha256": "10491407225d44b1e1c0c6c6cc84b2776fe6b483e21e9a2762e11e47bc4d556c",
+  "obligations": [
+    {
+      "name": "Original normal section ring",
+      "required": "Use actual normal integral domain and its specified fraction field.",
+      "constructed": "A=Gamma(Y,U) for genuine nonempty affine U of original integral Y.",
+      "justification": "Original functionField_isFractionRing theorem supplies the germ embedding, not a replacement field.",
+      "evidence": [
+        "OriginalNormalAffineChart318.originalFraction"
+      ]
+    },
+    {
+      "name": "Integral closure criterion",
+      "required": "Need all integrality/normality and scalar tower hypotheses in actual K.",
+      "constructed": "A normal and integral over Q[t], with original Q[t]->A->Y.functionField tower.",
+      "justification": "IsIntegralClosure.of_isIntegrallyClosedIn gives closure inside SAME K.",
+      "evidence": [
+        "OriginalNormalSectionClosure318.isIntegralClosure"
+      ]
+    },
+    {
+      "name": "Exact algebra equivalence",
+      "required": "An arbitrary ring iso does not fix generic/base maps.",
+      "constructed": "Use exact IsIntegralClosure.equiv between A and literal integralClosure R K.",
+      "justification": "algebraMap_equiv and AlgEquiv.commutes prove original embedding and coefficient identities.",
+      "evidence": [
+        "OriginalNormalSectionClosure318.equivalence_embedding",
+        "OriginalNormalSectionClosure318.equivalence_base"
+      ]
+    },
+    {
+      "name": "Constructed actual chart",
+      "required": "Need monic chart into original Y, not an abstract normalization object.",
+      "constructed": "chart is Spec of original section equivalence followed by original affine hU.fromSpec.",
+      "justification": "Spec equivalence is iso; fromSpec is open immersion, so constructed chart is open immersion and mono.",
+      "evidence": [
+        "OriginalNormalAffineChart318.chart",
+        "OriginalNormalAffineChart318.chart_openImmersion"
+      ]
+    },
+    {
+      "name": "Canonical generic square",
+      "required": "Fraction map must land at literal generic morphism of original Y.",
+      "constructed": "Embedding identity gives Spec germ; actual hU.fromSpecStalk formula gives generic Y.",
+      "justification": "No separate generic embedding or arbitrary fraction-field isomorphism is supplied.",
+      "evidence": [
+        "OriginalNormalAffineChart318.germ_fromSpec",
+        "OriginalNormalAffineChart318.fraction_chart"
+      ]
+    },
+    {
+      "name": "Actual base square",
+      "required": "Normal-chart coordinate must equal original t-coordinate.",
+      "constructed": "Given original affine/base square, original section equivalence commutes with Q[t].",
+      "justification": "Exact contravariant Spec composition proves chart_base with unchanged JLineAtlas chart1.",
+      "evidence": [
+        "OriginalNormalAffineChart318.chart_base"
+      ]
+    },
+    {
+      "name": "Full consumer identity",
+      "required": "Constructed chart and squares must replace all corresponding old premises.",
+      "constructed": "Terminal original_curve passes constructed chart, fraction_chart and chart_base to58 consumer.",
+      "justification": "Old original field, curve, base and all scheme/field deck squares remain in output.",
+      "evidence": [
+        "OriginalAffineSectionReconstruction318.original_curve"
+      ]
+    },
+    {
+      "name": "Remaining geometry",
+      "required": "Do not assume arbitrary affine open is integral over full t-chart or infer PEL algebraization.",
+      "constructed": "Actual section algebra/tower/integrality/normality/base square, algebraic PEL maps and branch/model laws remain.",
+      "justification": "No norm-one analytic quotient is silently treated as an algebraic scheme or supplied complete branch law.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required": "Fresh route requires independent and hosted checks.",
+      "constructed": "58 exact predecessor bytes plus3 connected sources; exact primary proofs read and pinned.",
+      "justification": "Structural checks only, no local Lean or budget change; no independent or whole arithmetic acceptance inferred.",
+      "evidence": [
+        "APPLICATION.json",
+        "COPY_BINDINGS.json",
+        "PINNED_APIS.md"
+      ]
+    }
+  ]
+}
