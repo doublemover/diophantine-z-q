@@ -1,0 +1,181 @@
+{
+  "packet": "pel-complex-period-quotient-r2",
+  "status": "DRAFT_HOSTED_CHECK_AND_INDEPENDENT_REVIEW_PENDING",
+  "order": [
+    "QuaternionicRealPeriod318",
+    "QuaternionicHodgeKernel318",
+    "QuaternionicPeriodVariation318",
+    "QuaternionicOrderPeriodQuotient318",
+    "PELQuaternionAlgebra318",
+    "PELQuaternionAlternatingForm318",
+    "PELQuaternionRealRepresentation318",
+    "PELQuaternionIntegralOrder318",
+    "PELPrincipalOrderCoordinates318",
+    "PELPrincipalOrderPerfect318",
+    "QuaternionicPeriodAlternating318",
+    "PELQuaternionPeriodOrientation318",
+    "QuaternionicMatrixCoordinates318",
+    "PELOriginalPeriodLattice318",
+    "PELPeriodRiemannForm318",
+    "DiscreteComplexPeriodAtlas318",
+    "DiscreteComplexPeriodMaps318",
+    "PELComplexPeriodSurface318"
+  ],
+  "new_modules": [
+    "DiscreteComplexPeriodAtlas318",
+    "DiscreteComplexPeriodMaps318",
+    "PELComplexPeriodSurface318"
+  ],
+  "exact_predecessor_modules": [
+    "QuaternionicRealPeriod318",
+    "QuaternionicHodgeKernel318",
+    "QuaternionicPeriodVariation318",
+    "QuaternionicOrderPeriodQuotient318",
+    "PELQuaternionAlgebra318",
+    "PELQuaternionAlternatingForm318",
+    "PELQuaternionRealRepresentation318",
+    "PELQuaternionIntegralOrder318",
+    "PELPrincipalOrderCoordinates318",
+    "PELPrincipalOrderPerfect318",
+    "QuaternionicPeriodAlternating318",
+    "PELQuaternionPeriodOrientation318",
+    "QuaternionicMatrixCoordinates318",
+    "PELOriginalPeriodLattice318",
+    "PELPeriodRiemannForm318"
+  ],
+  "files": {
+    "QuaternionicRealPeriod318.lean": {
+      "sha256": "996fc76819df4867affa9870c6bb24ce5303db9db4f0f6f164070ab922f8ddda",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Data.Matrix.Basic",
+        "Mathlib.LinearAlgebra.Matrix.ToLin",
+        "Mathlib.Tactic"
+      ]
+    },
+    "QuaternionicHodgeKernel318.lean": {
+      "sha256": "744b3124d95cd2cfe546daac5ad2a8248de9995ccec76e6ba104bfcf13cc4d23",
+      "imports": [
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "QuaternionicPeriodVariation318.lean": {
+      "sha256": "0efedfa804859e7380811d4aae4bd17329c16069eb1b31d96b24669ca24adfda",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "QuaternionicHodgeKernel318"
+      ]
+    },
+    "QuaternionicOrderPeriodQuotient318.lean": {
+      "sha256": "2f6728c05db93ea6c9eb2e8e0cf79a6d83a7157fc0b063a299aac32a725ed910",
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Defs",
+        "QuaternionicPeriodVariation318"
+      ]
+    },
+    "PELQuaternionAlgebra318.lean": {
+      "sha256": "522b31006c9bd1e7454abfe6a1cecb35d3fa8ac79a5984060057cae836248fe5",
+      "imports": [
+        "Mathlib.Algebra.Quaternion",
+        "Mathlib.Tactic"
+      ]
+    },
+    "PELQuaternionAlternatingForm318.lean": {
+      "sha256": "1267195c15d2b7c6fa55d93eb66c89e46f2072eb685c8e09af33c741b620132b",
+      "imports": [
+        "Mathlib.LinearAlgebra.BilinearForm.Basic",
+        "PELQuaternionAlgebra318"
+      ]
+    },
+    "PELQuaternionRealRepresentation318.lean": {
+      "sha256": "9db0899824163c729ac6f9bcd0cd3551d773f6fc05f3eaa85ef4fa87f8207a8f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "PELQuaternionAlternatingForm318"
+      ]
+    },
+    "PELQuaternionIntegralOrder318.lean": {
+      "sha256": "39e1994edc732124536e8bed37742fbb1ff418a567f7e80521ea40e2874e06f3",
+      "imports": [
+        "PELQuaternionRealRepresentation318"
+      ]
+    },
+    "PELPrincipalOrderCoordinates318.lean": {
+      "sha256": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+      "imports": [
+        "PELQuaternionIntegralOrder318"
+      ]
+    },
+    "PELPrincipalOrderPerfect318.lean": {
+      "sha256": "3d3c9185d50db6679fd802267502eac9d364973a312053fa1d8561176c80f04d",
+      "imports": [
+        "PELPrincipalOrderCoordinates318"
+      ]
+    },
+    "QuaternionicPeriodAlternating318.lean": {
+      "sha256": "fee32fb294f0181302017499e23baaa282874a31b5587cd28d50ffa7fb5296f6",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "PELQuaternionPeriodOrientation318.lean": {
+      "sha256": "48c07d24d4b71f63b194115c60a766d105600511921ef5f8bc4b56ecc90c90d5",
+      "imports": [
+        "PELQuaternionRealRepresentation318",
+        "QuaternionicPeriodAlternating318"
+      ]
+    },
+    "QuaternionicMatrixCoordinates318.lean": {
+      "sha256": "b5af55c6fab29eff6af8cc5038761b1f19444bd1cfdf5a093c74842591467b77",
+      "imports": [
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "PELOriginalPeriodLattice318.lean": {
+      "sha256": "d78cb72e44bfd50d730afb767123840bbfba63c1b7f91a08096f83f34f63c8ff",
+      "imports": [
+        "Mathlib.Algebra.Module.ZLattice.Basic",
+        "Mathlib.Topology.Algebra.Group.Quotient",
+        "PELPrincipalOrderCoordinates318",
+        "QuaternionicMatrixCoordinates318",
+        "QuaternionicOrderPeriodQuotient318"
+      ]
+    },
+    "PELPeriodRiemannForm318.lean": {
+      "sha256": "6e4c31ce20e8bc8dbe0c5ba8155ba2039a8d768bc9545332e8c54804baf24bf8",
+      "imports": [
+        "PELOriginalPeriodLattice318",
+        "PELPrincipalOrderPerfect318",
+        "PELQuaternionPeriodOrientation318"
+      ]
+    },
+    "DiscreteComplexPeriodAtlas318.lean": {
+      "sha256": "c40ef86526802a1f68ba9c2697a5c95eb6dabbe6c31f07cff5fba539f46f6f2d",
+      "imports": [
+        "Mathlib.Algebra.Module.ZLattice.Basic",
+        "Mathlib.Analysis.Calculus.FDeriv.Analytic",
+        "Mathlib.Geometry.Manifold.Instances.Quotient",
+        "Mathlib.Geometry.Manifold.IsManifold.Basic",
+        "Mathlib.Topology.DiscreteSubset",
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "DiscreteComplexPeriodMaps318.lean": {
+      "sha256": "b86fdd38c97b2ca96c4b99bc73a1ea3929a30183dd93141e0f678d4fd5210651",
+      "imports": [
+        "DiscreteComplexPeriodAtlas318",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas"
+      ]
+    },
+    "PELComplexPeriodSurface318.lean": {
+      "sha256": "7112b4388f17e1d345782a5f190450f19a529a320609685b3097862ad647fbe6",
+      "imports": [
+        "DiscreteComplexPeriodMaps318",
+        "PELPeriodRiemannForm318"
+      ]
+    }
+  }
+}

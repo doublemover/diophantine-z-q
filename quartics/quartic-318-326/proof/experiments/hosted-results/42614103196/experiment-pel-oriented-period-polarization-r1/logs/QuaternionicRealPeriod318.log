@@ -1,0 +1,28 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-oriented-period-polarization-r1/QuaternionicRealPeriod318.lean:44:2: error: unsolved goals
+case «1»
+τ : ℂ
+hτ : τ.im ≠ 0
+r : Fin 2 → ℝ
+⊢ ![r 0, r 1] ⟨1, ⋯⟩ = r ⟨1, ⋯⟩
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-oriented-period-polarization-r1/QuaternionicRealPeriod318.lean:40:4: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [row, LinearMap.coe_mk, AddHom.coe_mk, inverseRow, Matrix.cons_val_one, Complex.add_re,
+    Complex.add_im, Complex.mul_re, Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-oriented-period-polarization-r1/QuaternionicRealPeriod318.lean:40:25: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [row, LinearMap.coe_mk, AddHom.coe_mk, inverseRow, Matrix.cons_val_zero, Complex.add_re,
+    Complex.add_im, Complex.mul_re, Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

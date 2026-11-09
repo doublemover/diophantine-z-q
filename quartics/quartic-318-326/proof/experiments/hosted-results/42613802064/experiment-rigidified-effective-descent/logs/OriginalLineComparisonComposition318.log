@@ -1,0 +1,158 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-effective-descent/OriginalLineComparisonComposition318.lean:28:2: error: Type mismatch: After simplification, term
+  Eq.symm h
+ has type
+  @Eq ((tilde.functor S).obj (extendedSections f L) ⟶ (LineSheafPullback318.line (Spec.map f) L).object)
+    ((tilde.functor S).map (sectionsIso f L).hom ≫
+      tilde.adjunction.counit.app (LineSheafPullback318.line (Spec.map f) L).object)
+    (sheafIso f L).hom
+but is expected to have type
+  @Eq ((tilde.functor S).obj (extendedSections f L) ⟶ (LineSheafPullback318.line (Spec.map f) L).object)
+    ((tilde.functor S).map (sectionsIso f L).hom ≫ (LineSheafPullback318.line (Spec.map f) L).object.fromTildeΓ)
+    (sheafIso f L).hom
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 6
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-effective-descent/OriginalLineComparisonComposition318.lean:37:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (tilde.adjunction.homEquiv ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj (moduleSpecΓFunctor.obj L.object))
+          ((tilde.functor S).obj
+            ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj (moduleSpecΓFunctor.obj K.object))))
+        ((tilde.functor S).map ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).map (moduleSpecΓFunctor.map h))) ≫
+      moduleSpecΓFunctor.map (sheafIso f K).hom =
+    (sectionsIso f L).hom ≫ moduleSpecΓFunctor.map ((Scheme.Modules.pullback (Spec.map f)).map h)
+but is expected to have type
+  (ModuleCat.extendScalars (CommRingCat.Hom.hom f)).map (moduleSpecΓFunctor.map h) ≫ (sectionsIso f K).hom =
+    (sectionsIso f L).hom ≫ moduleSpecΓFunctor.map ((Scheme.Modules.pullback (Spec.map f)).map h)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-effective-descent/OriginalLineComparisonComposition318.lean:61:46: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).map ?f ≫ b.app ?Y
+in the target expression
+  (((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).map (sectionsIso f L).hom ≫
+          b.app (moduleSpecΓFunctor.obj (P.obj L.object))) ≫
+        Q.map (P.obj L.object).fromTildeΓ) ≫
+      c.hom.app L.object =
+    b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫
+      Q.map ((tilde.functor S).map (sectionsIso f L).hom) ≫ Q.map (P.obj L.object).fromTildeΓ ≫ c.hom.app L.object
+
+R S T : CommRingCat
+f : R ⟶ S
+g : S ⟶ T
+L : Line (Spec R)
+N : ModuleCat ↑R := OriginalLineAffineModel318.sections R L
+P : (Spec R).Modules ⥤ (Spec S).Modules := Scheme.Modules.pullback (Spec.map f)
+Q : (Spec S).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map g)
+Z : (Spec R).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map (f ≫ g))
+c : Scheme.Modules.pullback (Spec.map f) ⋙ Scheme.Modules.pullback (Spec.map g) ≅
+  Scheme.Modules.pullback (Spec.map (f ≫ g)) :=
+  AffineComparisonMates318.pullbackComp f g
+b : ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T ⟶
+  tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g) :=
+  (TildePullback318.pullbackIso g).inv
+⊢ (((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).map (sectionsIso f L).hom ≫
+          b.app (moduleSpecΓFunctor.obj (P.obj L.object))) ≫
+        Q.map (P.obj L.object).fromTildeΓ) ≫
+      c.hom.app L.object =
+    b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫
+      Q.map ((tilde.functor S).map (sectionsIso f L).hom) ≫ Q.map (P.obj L.object).fromTildeΓ ≫ c.hom.app L.object
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    b.app (moduleSpecΓFunctor.obj (P.obj L.object))
+  has type
+    @Quiver.Hom (Spec T).Modules Scheme.Modules.instCategory.toQuiver
+      ((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).obj
+        (moduleSpecΓFunctor.obj (P.obj L.object)))
+      ((tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g)).obj (moduleSpecΓFunctor.obj (P.obj L.object)))
+  but is expected to have type
+    @Quiver.Hom (Spec T).Modules Scheme.Modules.instCategory.toQuiver
+      ((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).obj
+        (OriginalLineAffineModel318.sections S (LineSheafPullback318.line (Spec.map f) L)))
+      ((tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g)).obj (moduleSpecΓFunctor.obj (P.obj L.object)))
+  in the application
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).map (sectionsIso f L).hom ≫
+      b.app (moduleSpecΓFunctor.obj (P.obj L.object))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-effective-descent/OriginalLineComparisonComposition318.lean:65:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (tilde.functor ?m.634).map (sectionsIso ?f ?L).hom ≫ (LineSheafPullback318.line (Spec.map ?f) ?L).object.fromTildeΓ
+in the target expression
+  b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫
+      Q.map ((tilde.functor S).map (sectionsIso f L).hom ≫ (P.obj L.object).fromTildeΓ) ≫ c.hom.app L.object =
+    b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫ Q.map (sheafIso f L).hom ≫ c.hom.app L.object
+
+R S T : CommRingCat
+f : R ⟶ S
+g : S ⟶ T
+L : Line (Spec R)
+N : ModuleCat ↑R := OriginalLineAffineModel318.sections R L
+P : (Spec R).Modules ⥤ (Spec S).Modules := Scheme.Modules.pullback (Spec.map f)
+Q : (Spec S).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map g)
+Z : (Spec R).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map (f ≫ g))
+c : Scheme.Modules.pullback (Spec.map f) ⋙ Scheme.Modules.pullback (Spec.map g) ≅
+  Scheme.Modules.pullback (Spec.map (f ≫ g)) :=
+  AffineComparisonMates318.pullbackComp f g
+b : ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T ⟶
+  tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g) :=
+  (TildePullback318.pullbackIso g).inv
+⊢ b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫
+      Q.map ((tilde.functor S).map (sectionsIso f L).hom ≫ (P.obj L.object).fromTildeΓ) ≫ c.hom.app L.object =
+    b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫ Q.map (sheafIso f L).hom ≫ c.hom.app L.object
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (P.obj L.object).fromTildeΓ
+  has type
+    @Quiver.Hom (Spec S).Modules Scheme.Modules.instCategory.toQuiver
+      (tilde ((modulesSpecToSheaf.obj (P.obj L.object)).presheaf.obj (Opposite.op ⊤))) (P.obj L.object)
+  but is expected to have type
+    @Quiver.Hom (Spec S).Modules Scheme.Modules.instCategory.toQuiver
+      ((tilde.functor S).obj (OriginalLineAffineModel318.sections S (LineSheafPullback318.line (Spec.map f) L)))
+      (P.obj L.object)
+  in the application
+    (tilde.functor S).map (sectionsIso f L).hom ≫ (P.obj L.object).fromTildeΓ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-effective-descent/OriginalLineComparisonComposition318.lean:68:64: error: unsolved goals
+R S T : CommRingCat
+f : R ⟶ S
+g : S ⟶ T
+L : Line (Spec R)
+N : ModuleCat ↑R := OriginalLineAffineModel318.sections R L
+P : (Spec R).Modules ⥤ (Spec S).Modules := Scheme.Modules.pullback (Spec.map f)
+Q : (Spec S).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map g)
+Z : (Spec R).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map (f ≫ g))
+c : Scheme.Modules.pullback (Spec.map f) ⋙ Scheme.Modules.pullback (Spec.map g) ≅
+  Scheme.Modules.pullback (Spec.map (f ≫ g)) :=
+  AffineComparisonMates318.pullbackComp f g
+b : ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T ⟶
+  tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g) :=
+  (TildePullback318.pullbackIso g).inv
+⊢ b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫
+      Q.map ((TildePullback318.pullbackIso f).inv.app (OriginalLineAffineModel318.sections R L)) ≫
+        Q.map ((Scheme.Modules.pullback (Spec.map f)).map L.object.fromTildeΓ) ≫ c.hom.app L.object =
+    b.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj N) ≫
+      Q.map ((TildePullback318.pullbackIso f).inv.app N) ≫ Q.map (P.map L.object.fromTildeΓ) ≫ c.hom.app L.object
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-effective-descent/OriginalLineComparisonComposition318.lean:91:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (tilde.adjunction.homEquiv ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj (extendedSections f L))
+          ((tilde.functor T).obj
+            ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj
+              (OriginalLineAffineModel318.sections S (LineSheafPullback318.line (Spec.map f) L)))))
+        ((tilde.functor T).map ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).map (sectionsIso f L).hom)) ≫
+      moduleSpecΓFunctor.map
+        ((sheafIso g (LineSheafPullback318.line (Spec.map f) L)).hom ≫
+          (AffineComparisonMates318.pullbackComp f g).hom.app L.object) =
+    (tilde.adjunction.homEquiv ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj (extendedSections f L))
+          ((tilde.functor T).obj
+            ((ModuleCat.extendScalars ((CommRingCat.Hom.hom g).comp (CommRingCat.Hom.hom f))).obj
+              (OriginalLineAffineModel318.sections R L))))
+        ((tilde.functor T).map
+          ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app
+            (OriginalLineAffineModel318.sections R L))) ≫
+      moduleSpecΓFunctor.map (sheafIso (f ≫ g) L).hom
+but is expected to have type
+  (ModuleCat.extendScalars (CommRingCat.Hom.hom g)).map (sectionsIso f L).hom ≫
+      (sectionsIso g (LineSheafPullback318.line (Spec.map f) L)).hom ≫
+        moduleSpecΓFunctor.map ((AffineComparisonMates318.pullbackComp f g).hom.app L.object) =
+    (ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app
+        (OriginalLineAffineModel318.sections R L) ≫
+      (sectionsIso (f ≫ g) L).hom

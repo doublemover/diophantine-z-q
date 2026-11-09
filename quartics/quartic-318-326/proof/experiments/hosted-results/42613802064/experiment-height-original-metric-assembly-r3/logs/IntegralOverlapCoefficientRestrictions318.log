@@ -1,0 +1,74 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:18:6: error: Failed to rewrite using equation theorems for `IntegralBranchDenominatorCover318.denominator`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:30:59: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  IsUnit.mul_left_cancel (isUnit_iff_exists_inv.mpr (Exists.intro b hb))
+of type
+  a * ?m.31 = a * ?m.32 → ?m.31 = ?m.32
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:31:2: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:39:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OneHomClass (IntegralBranchCoordinates318.B R c 0 →ₐ[R] Overlap R c) (IntegralBranchCoordinates318.B R c 0)
+    (Overlap R c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:41:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OneHomClass (CommonBase R c →ₐ[R] Overlap R c) (CommonBase R c) (Overlap R c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:36:43: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+hf :
+  (commonMap R c) (finiteDenominator R c) *
+      (finiteMap R c) (IsLocalization.Away.invSelf (IntegralBranchDenominatorCover318.denominator R c 0)) =
+    1
+hc : (commonMap R c) (finiteDenominator R c) * (commonMap R c) (finiteInverse R c) = (commonMap R c) 1
+⊢ OneHomClass (CommonBase R c →ₐ[R] Overlap R c) (CommonBase R c) (Overlap R c)
+
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+hf :
+  (finiteMap R c)
+        ((algebraMap (SourceOrder R c) (IntegralBranchCoordinates318.B R c 0))
+          (IntegralBranchDenominatorCover318.denominator R c 0)) *
+      (finiteMap R c) (IsLocalization.Away.invSelf (IntegralBranchDenominatorCover318.denominator R c 0)) =
+    (finiteMap R c) 1
+⊢ OneHomClass (IntegralBranchCoordinates318.B R c 0 →ₐ[R] Overlap R c) (IntegralBranchCoordinates318.B R c 0)
+    (Overlap R c)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:46:57: warning: This simp argument is unused:
+  map_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [IntegralBranchDenominatorCover318.twistUnit, Fin.prod_univ_succ, FourRootPivot318.indices]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:57:2: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:80:2: error: `simp` made no progress
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:78:12: warning: This simp argument is unused:
+  map_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [IntegralInfinityCoefficients318.coefficient0, IntegralInfinityCoefficients318.otherTwists,
+    IntegralInfinityCoefficients318.k0, map_mul, map_ofNat, AlgHom.commutes, infinity_coordinate,
+    infinity_inverse_restriction, infinity0, twists, k]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:78:46: warning: This simp argument is unused:
+  infinity_coordinate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [IntegralInfinityCoefficients318.coefficient0, IntegralInfinityCoefficients318.otherTwists,
+    IntegralInfinityCoefficients318.k0, map_mul, map_pow, map_ofNat, AlgHom.commutes, infinity_inverse_restriction,
+    infinity0, twists, k]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:89:2: error: `simp` made no progress
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r3/IntegralOverlapCoefficientRestrictions318.lean:87:12: warning: This simp argument is unused:
+  map_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [IntegralInfinityCoefficients318.coefficient1, IntegralInfinityCoefficients318.otherTwists,
+    IntegralInfinityCoefficients318.k0, map_mul, map_ofNat, AlgHom.commutes, infinity_inverse_restriction, infinity1,
+    twists, k]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
