@@ -16,9 +16,25 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Actual geometric descent and integral infinity tensors, 2026-11-09
+
+Nine active closures now schedule 320 source checks. The exact original scheme
+fiber-product sheaf diagonal and triple laws now transport through the proved
+nerve isomorphisms into affine reconstruction, yielding an actual base line and
+its pullback isomorphism. The original canonical path comparisons are retained;
+no tensor/coaction law is assumed in place of a geometric law.
+
+The infinity continuation constructs the actual integral three-root chart and
+regular J-squared tensor pair, with exact original reciprocal coordinate and
+rational function-field comparisons. It inverts no contact differences; its
+component/domain hypotheses and missing global integral attachment remain
+explicit. The branch regrouping and affine comonad import failures are repaired
+only in new versioned closures. Round13 records bounded source review, not
+hosted validation or final acceptance. No local Lean or baseline promotion.
+
 ## Actual H1 residues and generic degree, 2026-11-09
 
-Nine active closures now schedule 312 source checks. The original infinity-ring
+The preceding nine closures scheduled 312 source checks. The original infinity-ring
 coefficient evaluation and complete finite-chart expansion construct canonical
 residues on the actual sheaf H1 quotient. Their left-inverse identity supplies
 proposed unconditional five-dimensional rational cohomology and nonzero actual
