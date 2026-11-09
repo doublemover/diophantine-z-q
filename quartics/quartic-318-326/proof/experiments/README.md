@@ -742,3 +742,7 @@ Queued reviewed source revisions for actual affine coherence, original local cha
 ## Continuation batch 32
 
 The pending experiment matrix now includes actual affine-basis module-map extension, exact two-twist point rescaling and genuine small-prime scalar square preparation, plus the pointwise analytic eventual-equality repair. Original input/prime/index and rational-point producers remain explicit in the arithmetic consumer. No accepted baseline modules or theorem status were changed.
+
+## Continuation batch 33
+
+Pending source now joins the original integral model to its actual whole-order proper completion, proves smoothness on the exact good base via genuine etale chart presentations, and retains the same global J² pair. A separate connected consumer identifies all five transported rational chart formulas and their glued global sections with J² times the original q0/q1. These are source-reviewed candidates, not hosted acceptance or bad-prime/height completion.
