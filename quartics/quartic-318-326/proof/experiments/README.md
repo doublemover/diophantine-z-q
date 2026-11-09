@@ -786,3 +786,9 @@ Actual original affine-chart reconstruction comparisons now glue to a specified 
 ## Continuation batch 43
 
 The two connected height chains are consolidated over an explicitly constructed Z[1/δ] with the original signed rational twists. Full base-prime coverage outside δ, original finite-source rational base change, same smooth proper finite-flat pencil, scalar-one line/section comparison and actual codimension-one completion maps are retained. All97 and57 predecessor sources are unchanged. This does not cover excluded denominator primes or establish a numerical height inequality; hosted verification remains pending.
+
+## Continuation batch 44
+
+The actual section ring of every original affine dual-number thickening now has a candidate canonical two-coordinate isomorphism. Every actual unit reducing to one has a unique logarithm through this same map, natural under original thickened scheme morphisms. Global H1 classification remains a separate join; new source stays pending hosted checking.
+
+The connected arithmetic consumer now derives exact local2/3 Anchor square preparation and affine denominator nonvanishing from the specified rational homogeneous zero, retaining literal physical scaling and all remaining global point/prime inputs. The concrete quadratic-field primitive-instance repair preserves original data and finite budgets; hosted outcome remains pending.
