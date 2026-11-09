@@ -16,6 +16,27 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original chart descent, pointed maps and literal source completion, 2026-11-09
+
+Ten active closures now schedule590 source checks. Original affine-flat-surjective
+maps yield faithfully flat maps on the exact sections of every affine base open.
+Reconstructed lines and compatible maps return to the original open schemes,
+with exact nested-chart comparisons. Pair-intersection assembly remains open.
+Original whole-H1 deformation maps commute with all four canonical character
+pullbacks; the fifth uses its actual adapted cover, whose independence is still
+required. Rational overlap comparison preserves all four signed roots and the
+original dt, with u=c0/y0 proved using the original signed root.
+
+The arithmetic source consumer now fills all288 literal rows conditionally on
+four specified simultaneous-twist PointPairs and the explicit ternary Anchor.
+Those arithmetic producers and the remaining theorem joins are not proved.
+A hosted180-second timeout in normalized elliptic-point signs has no Lean error
+location; a diagnostic-only successor retains all mathematical bodies and
+budgets, adding declaration checkpoints. No speculative repair or broader
+resource increase is represented as success. Exact analytic/affine projection
+repairs retain the same maps. Bounded independent reviews and structural checks
+passed; all new closures remain pending hosted checking and recursive audits.
+
 ## Whole-order finite projective projection, 2026-11-09
 
 Nine active closures now schedule526 source checks. The whole finite and
