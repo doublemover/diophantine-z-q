@@ -1,0 +1,17 @@
+# Bounded source review: actual p-adic detector neighborhoods
+
+Reviewer: /root/advance_height_realization. Implementer: /root/construct_integer_witnesses.
+
+I read all three new modules, their nine-obligation APPLICATION and DERIVATION, the actual16 coefficient list and previous detector threshold producers, the exact HTail318.norm_le_iff_valuation theorem and its hypotheses, and historical COMPLETENESS-ASSEMBLY section5. Internal independent source review, ready for hosted checking. No local Lean execution and no full arithmetic claim.
+
+The coefficient space is the genuine product p-adic topology on Fin146→Qp, not a real topology on rational coefficients. The new polynomial map has exactly the32 original coefficient components, with all original signs, indices and large residual constants retained. The member-values lemma identifies every actual rational coefficient pair after the specified cast, including zero coefficients and the four unsquared conjugated v-minus-one leaves. The exact32-expression checker passes and no split square root of2 is needed.
+
+At any center, each genuine WithTop additive valuation admits a finite lower bound. Taking a nonpositive common bound B retains zero center values. The open neighborhood requires all32 polynomial-value differences to have norm less than1; it is a finite intersection of open sets and contains its actual center. The primary norm-versus-valuation theorem is valid at every prime, without the19-bound used by a different H-tail theorem in that file. Thus every difference has nonnegative valuation, and the ultrametric min inequality preserves B uniformly throughout the neighborhood. No compactness or elliptic orbit-continuity premise is smuggled into this construction.
+
+The arithmetic consumer uses the original weights with values6v(d)+{4,64,244}v(c). N=|B|+244|v(c)|+|v(2)|+A+1 is fixed before u,d, before the later assignment in the neighborhood and before the selected contact values. It produces actual weighted depths and the original pole value2v(d)−12v(c)−2v(2) at leastA. The three-scale aggregation retains one common neighborhood and one finite common threshold. Local squares remain inputs on the same five selected integer values.
+
+The source consumer centers this neighborhood at the actual original detector assignment for q,labels,h0. Its later h is still the original coherent index, and the output is the exact stored poles190,241,292. The new theorem is genuinely stronger than fixed-h bounds because its threshold precedes later h. However membership of that later coefficient vector in U remains explicit. ProgressionAccess only names the remaining positive-modulus/full-residue-progression task; it is not a proof of that task.
+
+The historical continuity argument is retained as prior justification requiring a connection to the actual elliptic hR0 orbit and its nonzero denominator domains. This packet incorporates polynomial local boundedness and choice order, but does not prove the index continuity/modulus, compatibility with scalar conditions, selected-prime/ray/depth production, simultaneous rational points or global Anchor. Real density or real compactness is not used to replace these finite-adic requirements.
+
+All nine contract obligations are supported in this bounded scope. I reran the exact32 coefficient and threshold checker and static import/source closure:123 modules/152 baseline dependencies,120 exact predecessor copies. Hosted kernel and recursive axiom validation remain pending.
