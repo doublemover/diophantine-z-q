@@ -1,0 +1,105 @@
+{
+  "claim": "Pending actual refined scheme-boundary naturality and explicit original four quotient-class pullbacks with all scaling factors. Target nonvanishing and fifth class comparison remain open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled82-source continuation. Actual cover-refinement naturality and exact original pullback of specified target overlap class x\u00b2/y implemented for all four complementary quotients. Target class nonvanishing and fifth target-class comparison remain open. Hosted strict checks and independent acceptance pending.",
+  "new_sources": {
+    "MayerVietorisCoverRefinement318.lean": "47bae668c051c6e1d1e90368a8f9a43e3b378e952a4256c0d6711a4e1c73bf24",
+    "RefinedSchemeBoundary318.lean": "2a239f3866627dd7b26f2aee2f51302ffbaf2dae0d7cf5c10eabf14586702944",
+    "WeierstrassBoundaryClass318.lean": "d0ca7c0506af53ba23128dbc7bef12d0519b20e09a5a192b0b9d9605238e35db",
+    "OriginalCharacterClassPullbacks318.lean": "28ad519ca5e1250322013b4887bcb3e5d86bf75681411460d33983c8e559e52a"
+  },
+  "readme_sha256": "0a27dfd0ae7892eb862e3f6f5a6d4f62c4034dcd0de003d757e4af51ab2fe477",
+  "intake_sha256": "21ab1037599a4be7e1a406fb36d65c9fb179120d7d2b7e51dd219791f930afed",
+  "copy_bindings_sha256": "9f7372ffed0e4d294c8954ae8fb77d61559214739ed8cc0bb213814a46364d23",
+  "obligations": [
+    {
+      "name": "Full cover refinement",
+      "required": "Chosen source charts may be strict subopens of inverse images; equality cannot be assumed.",
+      "constructed": "shortComplexMap takes actual U-prime\u2264U and V-prime\u2264V between two exhaustive covers.",
+      "justification": "Both ordered chart generators, their negative second restriction, intersection and terminal generator are explicitly mapped.",
+      "evidence": [
+        "MayerVietorisCoverRefinement318.shortComplexMap"
+      ]
+    },
+    {
+      "name": "Actual refined connecting class",
+      "required": "Restriction of representatives must intertwine the original Ext boundary.",
+      "constructed": "extClass_refinement applies actual short-exact-class naturality; boundary_refinement and sectionBoundary_refinement consume it.",
+      "justification": "No equality of boundary maps is supplied as a hypothesis. Original zeroAddEquiv restriction naturality fixes the literal section map.",
+      "evidence": [
+        "MayerVietorisCoverRefinement318.extClass_refinement",
+        "MayerVietorisCoverRefinement318.sectionBoundary_refinement"
+      ]
+    },
+    {
+      "name": "Original scheme map with refined cover",
+      "required": "The map used downstream must be SchemeSourceCohomology318.pullback.",
+      "constructed": "RefinedSchemeBoundary318.pullback_boundary starts from original global boundary naturality and then refines its full preimage cover.",
+      "justification": "Its representative is the exact original f.appLE on the actual overlap.",
+      "evidence": [
+        "RefinedSchemeBoundary318.pullback_boundary"
+      ]
+    },
+    {
+      "name": "Target intersection identity",
+      "required": "A target class must use functions on the whole actual intersection.",
+      "constructed": "overlap_image identifies the literal old overlapEmbedding image with finiteOpen intersect infinityOpen.",
+      "justification": "Both inclusions are proved pointwise with WeierstrassChartPullback318.exists_overlap and the original pushout equation. The image-top/opensRange distinction is explicit.",
+      "evidence": [
+        "WeierstrassBoundaryClass318.overlap_image"
+      ]
+    },
+    {
+      "name": "Specified actual target class",
+      "required": "The target class must exist in actual sheaf H1, not a function field or formal label.",
+      "constructed": "representative is the original overlap isomorphism inverse applied to x_aff\u00b2/y_aff; cohomologyClass takes its actual section boundary.",
+      "justification": "No nonvanishing hypothesis is hidden in its definition; it exists for every A,B over Q.",
+      "evidence": [
+        "WeierstrassBoundaryClass318.representative",
+        "WeierstrassBoundaryClass318.cohomologyClass"
+      ]
+    },
+    {
+      "name": "Actual four quotient refinements",
+      "required": "All four original quotient maps and full chosen charts must satisfy the refinement inputs.",
+      "constructed": "finite_refinement and infinity_refinement use completedMap on_finite/on_infinity and literal factorizations into target charts.",
+      "justification": "The same original source normalization opens and target short-Weierstrass opens are consumed.",
+      "evidence": [
+        "OriginalCharacterClassPullbacks318.finite_refinement",
+        "OriginalCharacterClassPullbacks318.infinity_refinement"
+      ]
+    },
+    {
+      "name": "Exact original class pullback",
+      "required": "A related rational expression alone cannot identify the H1 pullback.",
+      "constructed": "overlap_square uses source_square, original completedMap and old overlap_finite; pullback_class applies refined naturality and actual affine coordinates.",
+      "justification": "The result is the original characterPullback of cohomologyClass, equal to actual source boundary of sourceRepresentative in the original overlap ring.",
+      "evidence": [
+        "OriginalCharacterClassPullbacks318.overlap_square",
+        "OriginalCharacterClassPullbacks318.pullback_class"
+      ]
+    },
+    {
+      "name": "Normalization and remaining nonvanishing",
+      "required": "No scaling factor or exceptional fifth-chart behavior may be suppressed.",
+      "constructed": "sourceRepresentative_embedding and sourceRepresentative_formula retain rawX\u00b2/rawY, xScale,yScale and centroid.",
+      "justification": "Target nonzero still needs a residue computation. Fifth full-root map needs a separate cover refinement or uniform target nonzero proof; it is not included by analogy.",
+      "evidence": [
+        "OriginalCharacterClassPullbacks318.sourceRepresentative_formula",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Bound source closure and validation",
+      "required": "Exact versions and pending checks must be recorded.",
+      "constructed": "All78 sources copied byte-for-byte from geometric-signs-r2; four new sources bound below.",
+      "justification": "Structural import/hash checks do not imply Lean compilation, independent acceptance, or the missing nonvanishing endpoint.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}
