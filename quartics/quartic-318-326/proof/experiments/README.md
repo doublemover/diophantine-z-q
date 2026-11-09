@@ -762,3 +762,7 @@ The original arithmetic finite source now has candidate constructed domain, norm
 ## Continuation batch 37
 
 Actual translated-index and half-trace calculations now construct the scalar2/3 local-unit inputs using a fixed label and the same later CRT-selected h. Remaining support-prime compatibility, four simultaneous rational-point realizations and the ternary Anchor are explicit. The quadratic-field proof-boundary repair retains all original point data and finite budgets. All new sources remain pending hosted checking.
+
+## Continuation batch 38
+
+The exact finite character computation is performed in integers and transported to the unchanged rational signs by proved casts. Kernel-checked decide is retained; no native evaluation axiom or statement weakening. The previous run passed actual rational exhaustion and then failed only the rational finite computation; the remaining packet is still pending.
