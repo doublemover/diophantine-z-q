@@ -1,0 +1,85 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:15:45: error(lean.unknownIdentifier): Unknown identifier `X`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:37:14: error: Tactic `rfl` failed: The left-hand side
+  coordinate c * b
+is not definitionally equal to the right-hand side
+  (algebraMap (InfinityOpenChart318.OpenBase c) (ThreeRootOrder318.Order (InfinityOrderCoordinates318.coefficient c)))
+      (baseU c) *
+    b
+
+c : Fin 4 → ℚˣ
+i : ThreeIndex
+b : InfinityRing c
+⊢ coordinate c * b =
+    (algebraMap (InfinityOpenChart318.OpenBase c) (ThreeRootOrder318.Order (InfinityOrderCoordinates318.coefficient c)))
+        (baseU c) *
+      b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:34:49: error: unsolved goals
+c : Fin 4 → ℚˣ
+i : ThreeIndex
+b : InfinityRing c
+hs : coordinate c * b = baseU c • b
+⊢ (InfinityOpenChart318.infinityPoint c) sorry *
+      (InfinityOpenChart318.infinityPoint c) (((ContactHOneOrderBases318.infinityBasis c).repr b) i) =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:41:61: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:42:4: warning: This simp argument is unused:
+  InfinityOpenChart318.infinityPoint_on_base
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_smul, Finsupp.smul_apply, smul_eq_mul, map_mul, baseU, Polynomial.eval_X, zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:42:47: warning: This simp argument is unused:
+  Polynomial.eval_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_smul, Finsupp.smul_apply, smul_eq_mul, map_mul, baseU,
+    InfinityOpenChart318.infinityPoint_on_base, zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:42:65: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_smul, Finsupp.smul_apply, smul_eq_mul, map_mul, baseU,
+    InfinityOpenChart318.infinityPoint_on_base, Polynomial.eval_X]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:51:54: error: Tactic `rfl` failed: The left-hand side
+  infinityTerm c q e i
+is not definitionally equal to the right-hand side
+  (algebraMap ℚ (ThreeRootOrder318.Order (InfinityOrderCoordinates318.coefficient c))) q *
+      (algebraMap (InfinityOpenChart318.OpenBase c)
+            (ThreeRootOrder318.Order (InfinityOrderCoordinates318.coefficient c)))
+          (baseU c) ^
+        e *
+    (ContactHOneOrderBases318.infinityBasis c) i
+
+c : Fin 4 → ℚˣ
+q : ℚ
+e : ℕ
+i : ThreeIndex
+⊢ infinityTerm c q e i =
+    (algebraMap ℚ (ThreeRootOrder318.Order (InfinityOrderCoordinates318.coefficient c))) q *
+        (algebraMap (InfinityOpenChart318.OpenBase c)
+              (ThreeRootOrder318.Order (InfinityOrderCoordinates318.coefficient c)))
+            (baseU c) ^
+          e *
+      (ContactHOneOrderBases318.infinityBasis c) i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:54:97: error: unsolved goals
+case neg
+c : Fin 4 → ℚˣ
+i j : ThreeIndex
+q : ℚ
+e : ℕ
+hji : j = i
+he : ¬e = 0
+⊢ q = 0 ∨ (InfinityOpenChart318.infinityPoint c) sorry = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:57:33: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r12/OriginalInfinityCoefficient318.lean:57:39: warning: This simp argument is unused:
+  InfinityOpenChart318.infinityPoint_on_base
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hji, he, map_mul, map_pow, baseU, RingHom.map_rat_algebraMap]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
