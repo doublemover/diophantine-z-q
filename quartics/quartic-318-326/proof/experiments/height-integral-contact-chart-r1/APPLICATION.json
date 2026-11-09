@@ -1,0 +1,143 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Construct actual integral noncontact four-root order, normalized dt frames including every prime localization, and literal integral quadratic tensors. No all-prime or complete-model identification claim.",
+  "sources": {
+    "IntegralContactOpenFrame318.lean": "a739e18ae5bbb9f283e1d56ab6a0e00e9032e5e7d266f1473a3022eaa4271668",
+    "IntegralContactOpenSections318.lean": "9cf6b88bb02c0b412573fab32ffc072ff7ca3def928590ed5892341eb8cbb2a4"
+  },
+  "readme_sha256": "7c06c8ad9b81e496e6432c8090d02ee2b01c2a1704ca067ccce5125e4dcb92d0",
+  "intake_sha256": "d592086d445ac2c585a954a86e0616a0a7e9f121237bb9143790576f90722e35",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38",
+    "quartics/quartic-318-326/proof/progress/FourRootOrder318.lean": "6c51a472e199bcc14b08169914d4c69e417e751046b94cb1b4ace6886944660b",
+    "quartics/quartic-318-326/proof/progress/LocalizedKaehlerFrame318.lean": "65766d2b6b2a163990b39b52325a269ab7751df227a993f0508be4003cb9ca8c",
+    "quartics/quartic-318-326/proof/progress/ContactKummerOrder318.lean": "ce37197fbebc55ff1e4654cbcabe00a97eac9552379ed0f3844393abfcf8fdf1",
+    "quartics/quartic-318-326/proof/progress/ContactUnbranchedDifferentialFrame318.lean": "5fc9d7352fe1f2f79b03f0c0adc879dc231e28137e9260d37dfc622a53be594d"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Objects",
+      "constructed_input": "The base is the literal polynomial localization and the cover is the original four-quadratic tensor construction, now over R. The modules are the actual relative Kahler module and its tensor square, not abstract scalar lines.",
+      "justification": "The base is the literal polynomial localization and the cover is the original four-quadratic tensor construction, now over R. The modules are the actual relative Kahler module and its tensor square, not abstract scalar lines.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 1"
+    },
+    {
+      "name": "Index coverage",
+      "required_input": "Index coverage",
+      "constructed_input": "Every coefficient_unit theorem covers all i in Fin 4. All four factors occur in P. atPrimeFrame covers every actual prime of this same open order, without replacing the prime family by a cardinality statement.",
+      "justification": "Every coefficient_unit theorem covers all i in Fin 4. All four factors occur in P. atPrimeFrame covers every actual prime of this same open order, without replacing the prime family by a cardinality statement.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 2"
+    },
+    {
+      "name": "Domain",
+      "required_input": "Domain",
+      "constructed_input": "P is inverted, and the etale construction requires 2 and all twists to be units. Missing contact and bad-coefficient primes are not claimed covered. Existence of an integral complete-source model is not inferred.",
+      "justification": "P is inverted, and the etale construction requires 2 and all twists to be units. Missing contact and bad-coefficient primes are not claimed covered. Existence of an integral complete-source model is not inferred.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 3"
+    },
+    {
+      "name": "Comparison maps",
+      "required_input": "Comparison maps",
+      "constructed_input": "Localization supplies the polynomial-to-base map; the four-root order has its actual base algebra. The R-algebra and its tower are defined explicitly. The dt frame transports through these maps, and atPrimeFrame uses the actual localization at each prime. No additional field identification is asserted.",
+      "justification": "Localization supplies the polynomial-to-base map; the four-root order has its actual base algebra. The R-algebra and its tower are defined explicitly. The dt frame transports through these maps, and atPrimeFrame uses the actual localization at each prime. No additional field identification is asserted.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 4"
+    },
+    {
+      "name": "Scalars",
+      "required_input": "Scalars",
+      "constructed_input": "All twists remain arbitrary units. Contacts are precisely 0, 32, 76832 and -343. q0 retains J\u00b2 and q1=t q0. coefficient0_image and coefficient1_image preserve these constants after every field-valued ring map.",
+      "justification": "All twists remain arbitrary units. Contacts are precisely 0, 32, 76832 and -343. q0 retains J\u00b2 and q1=t q0. coefficient0_image and coefficient1_image preserve these constants after every field-valued ring map.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 5"
+    },
+    {
+      "name": "Consuming objects",
+      "required_input": "Consuming objects",
+      "constructed_input": "The constructed tensorFrame evaluates the actual q0 and q1 tensors to the actual integral coefficients. These are future local inputs to the tensor-image criterion, not yet values of the complete-source global sections at the original arithmetic point.",
+      "justification": "The constructed tensorFrame evaluates the actual q0 and q1 tensors to the actual integral coefficients. These are future local inputs to the tensor-image criterion, not yet values of the complete-source global sections at the original arithmetic point.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 6"
+    },
+    {
+      "name": "Theorem hypotheses",
+      "required_input": "Theorem hypotheses",
+      "constructed_input": "FourRootOrder318.etale requires unit 2 and all four unit radicands. Unit 2 is transported from R, and each radicand is proved a unit using its twist and the exact inverted contact product. The polynomial frame, localization formal etaleness and etale frame transport then construct the frame. No derivation-preservation assumption is supplied.",
+      "justification": "FourRootOrder318.etale requires unit 2 and all four unit radicands. Unit 2 is transported from R, and each radicand is proved a unit using its twist and the exact inverted contact product. The polynomial frame, localization formal etaleness and etale frame transport then construct the frame. No derivation-preservation assumption is supplied.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 7"
+    },
+    {
+      "name": "Historical and downstream scope",
+      "required_input": "Historical and downstream scope",
+      "constructed_input": "The rational construction and source classical metric paragraph are retained. The new prerequisite is an integral open frame and its actual tensors. No manuscript or previous acceptance record is changed, and all-prime integrality remains open.",
+      "justification": "The rational construction and source classical metric paragraph are retained. The new prerequisite is an integral open frame and its actual tensors. No manuscript or previous acceptance record is changed, and all-prime integrality remains open.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 8"
+    },
+    {
+      "name": "Verification",
+      "required_input": "Verification",
+      "constructed_input": "Source, predecessor and consumer hashes bind the application. Static closure validation does not establish Lean elaboration or semantic identification. Hosted strict compilation, recursive private-inclusive axiom audit and distinct acceptance remain pending; no self-approval is supplied.",
+      "justification": "Source, predecessor and consumer hashes bind the application. Static closure validation does not establish Lean elaboration or semantic identification. Hosted strict compilation, recursive private-inclusive axiom audit and distinct acceptance remain pending; no self-approval is supplied.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "static_packet_validation": "PASS",
+    "hosted_strict_check": "PENDING",
+    "independent_acceptance": "PENDING"
+  }
+}

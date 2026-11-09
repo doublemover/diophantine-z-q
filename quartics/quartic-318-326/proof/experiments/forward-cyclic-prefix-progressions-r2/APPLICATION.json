@@ -1,0 +1,154 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_RECHECK_AND_DISTINCT_REVIEW",
+  "claim": "Actual compact-step recurrence and original prefix witnesses with preselected guard margins, plus an explicit P-centered scalar-good region for one-modulus progressions.",
+  "sources": {
+    "AnalyticGuardAvoidance318.lean": "0150b77877afcb7bd95cffaddc2aff0660de21ccbe344b82c703ad14b1093247",
+    "CompactGuardProgression318.lean": "2333b140b42829502a1befaa28e3aad7281b37504db0199e2292a2bbca008d30",
+    "CompressedAnchorWitness318.lean": "13e1c2c45f7c86da3124fd0fab3ed49a4bab1c71fa43539d5779ed9dabb50b1c",
+    "ReciprocalChartWitness318.lean": "e060cf5acd80b468cf8ad25aa7dcbec76eef562bc912033e89ad8c4d77a90042",
+    "RealGuardWitness318.lean": "3b901fe6eba8b05877479d2f028c8d23e077f9e982572f58965fbf31be92e0d6",
+    "RealGuardTrace318.lean": "da4dc35e66edb26bc14e0b99c2d2ca2bee36ebdf6524ab7a4661dd70a382df52",
+    "CoherentMultipleCharts318.lean": "01443a070ea295862a1c06111e8803651d6766afead3c3918797aa5718ba9bc9",
+    "CoherentMultiplePrefix318.lean": "54c2bffb492db9c8f7ae7ec30a3c6d6f7bab17de617f3f90a5b9a2ac2a63ba46",
+    "CoherentOrbit318.lean": "8ddde7b271de007d62d43e61164cce0996655167c5edc1fd6240cf4c28d35b5f",
+    "CoherentSecantPolynomial318.lean": "8e453096aa934e6ebf1a5bb7d0b12c3689f1b734eebdf76e24612c0ac5878be3",
+    "CoherentSecant318.lean": "a3314a1e41ae3954a9b23852f2ae929bd77fd92b32e466575a7114c8a1c23dad",
+    "CoherentRootSign318.lean": "203b89746cd8ee6c75dac98faa0891e0780511669cbf937ea61c3a7e021ea257",
+    "CoherentAdditionU318.lean": "c7bafab9e4e9d3e1277fb13d64609a7231fa7e95b180d42668bba39f393316de",
+    "CoherentAdditionV318.lean": "8209761de1ab8ed607fbb3b147540599e07aea15b59437eab7738ee8630db961",
+    "RealQuarticAmbient318.lean": "7bef67a0c1e5e3bc54800bc915b970a52cb5b1d4f2a3b3c06319f777a8ddefa8",
+    "RealQuarticOvalCover318.lean": "abeb2eb9ef35201d8143a3465fa5b407ba22ad7242f086ec7761fc95aa35cd87",
+    "RealQuarticAssociativityPolynomial318.lean": "a67ab5e1cb89bc7f494881ffb130b6e62e0ea4dabd76688e3d0053399be26c51",
+    "RealQuarticSumU318.lean": "8a5328252230cc98b016d5f825219b4a608f15092409d7217ed6de3e3f7cd3eb",
+    "RealQuarticSumAnalytic318.lean": "ea24a7ac28d71c2a849a833594b42b171585656654f20eb34c2065155943b5ff",
+    "RealQuarticAssociativity318.lean": "c6f5599a8f888194279ffa8cd503213400e9b0af0c8fd71877cc8576f7359e98",
+    "RealQuarticGroup318.lean": "cefb560753f1d3ae9b62186a170f1b48438d78868b7c2160c7a17cc05877d9e3",
+    "RealQuarticTopologicalGroup318.lean": "8b55134746cfe85d29c9b48705bdfd10e506b85cd0ea60331524ca4f3924f241",
+    "RealCoherentOrbit318.lean": "bd9a28acc4727435a199db75bb8c169ae3a63e7e6643ef5200b8574bd4310211",
+    "ActualCyclicClosure318.lean": "6a17cc953342487a3fd2417ea625aa14a2bc29129268dff2e6359d88308d2389",
+    "RealGuardAmbient318.lean": "f0fce8caf280289d4f7bfcf8cd0c27894c2e04d04dd541933b647192d9af38c4",
+    "ActualCyclicGuards318.lean": "719e7233d9b28a8084933d73da9a316bd36d81c0200186b3cbf5f39666a441f9",
+    "ActualCyclicProgressions318.lean": "ca1ff2ec9acf22ba3728be4aca80bd069a3a79244362dad310d3d74a6d94312e",
+    "CyclicPrefixWitness318.lean": "9bfcc6bb02c173fe17da7c61faa5083525faa15564d2ec92d04a37286db67c02",
+    "GeneratorScalarProgression318.lean": "87ffc924c37aab3aaa2326da7da11c4439394c2497eb501dc18a0c4a3e96f405"
+  },
+  "derivation_sha256": "35693a0026cafc4d1c84c7a1b552d0637393b2dd376af4850a6bb6b74085291d",
+  "obligations": [
+    {
+      "name": "Original carrier and topology",
+      "required_input": "Actual two-real-embedding arithmetic points with inherited topology.",
+      "constructed_input": "ActualCyclicClosure318.Pair and original RealCoherentOrbit318 map.",
+      "justification": "No independent real coordinates, transported topology, or full-product density is substituted.",
+      "source_references": "ActualCyclicClosure318; RealCoherentOrbit318; ActualCyclicProgressions318.guard_value",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Compact recurrence source",
+      "required_input": "A compact topological group and a point in the closed integer orbit of the actual step.",
+      "constructed_input": "Pair is compact and topological; Compatible specifies exactly the required translate.",
+      "justification": "The cluster-point theorem applies to the same step; its neighborhood characterization gives t > B.",
+      "source_references": "Mathlib.Topology.Algebra.Group.SubmonoidClosure; tail_in_region",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Index-set coverage",
+      "required_input": "All four fixed nonzero integer labels simultaneously.",
+      "constructed_input": "The region intersects all j : Fin 4, and the same t satisfies each inequality.",
+      "justification": "Finite open intersection and positivity at the identity, or negativity at P, establish one usable region.",
+      "source_references": "region_open; zero_mem_region; GeneratorScalarProgression318.generator_mem_region",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Transition and progression map",
+      "required_input": "The returned real point must equal the original arithmetic h = r + k t point.",
+      "constructed_input": "progression_point proves pairOrbit r + t times (k generator) equals pairOrbit (r+k*t).",
+      "justification": "Integer/natural casts, multiplication order and the translate are explicit; h-1 is retained downstream.",
+      "source_references": "ActualCyclicProgressions318.progression_point; CoherentMultiplePrefix318.parameters",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Quantifier order and uniform margins",
+      "required_input": "Guard bounds must be chosen before later progression moduli.",
+      "constructed_input": "Both margin functions depend only on labels and their fixed identity/P evaluation.",
+      "justification": "k and r occur only after margin definitions; no modulus-dependent lower bound is introduced.",
+      "source_references": "ActualCyclicProgressions318.margin; GeneratorScalarProgression318.margin",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Component and CRT access",
+      "required_input": "Final mixed residues must meet the component containing a good scalar region.",
+      "constructed_input": "Compatibility with zero or P is explicit. Zero modulo k and one modulo k are proved separately.",
+      "justification": "General CRT compatibility, finite component annihilation and identity-component access are not proved and are not inferred from these special classes.",
+      "source_references": "ActualCyclicProgressions318.Compatible; GeneratorScalarProgression318.Compatible; DERIVATION.md",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Scalar object and normalization",
+      "required_input": "A norm bound on the same coherent u_H used by the literal source.",
+      "constructed_input": "chartU(1)=(8+14 sqrt(2))/41, norm=-8/41; scalarNorm_orbit identifies real product with rational normCoefficient.",
+      "justification": "The P-centered region gives |Norm u_H|>1/100 on the same selected h. It is not asserted to lie in G^0 or avoid inherited poles.",
+      "source_references": "GeneratorScalarProgression318.chartU_one; embedding_product; scalarNorm_orbit; scalar_prefix_in_progression",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Literal consumer identity",
+      "required_input": "The exact original assignment, input and all four root signs must consume the same arithmetic point.",
+      "constructed_input": "witness q labels h; first51 source constraints; witness input equality; emitted_root_fixed for each j.",
+      "justification": "guards_iff converts the actual rational nonzeros, then witness_rows and fixed-root theorem use these exact charts.",
+      "source_references": "CyclicPrefixWitness318.witness_in_progression; GeneratorScalarProgression318.scalar_prefix_in_progression",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Downstream scope and validation",
+      "required_input": "No claim of full sourceArithmetic without all remaining inputs.",
+      "constructed_input": "Only first51 rows and selected guard/scalar bounds; 237 later rows and full theorem remain open.",
+      "justification": "No accepted source or manuscript was changed; all predecessor copies are byte-bound and hosted compilation is pending.",
+      "source_references": "DERIVATION.md; SOURCE-COPIES.json; VALIDATION.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false,
+  "revision": {
+    "previous": "forward-cyclic-prefix-progressions-r1",
+    "changed_module": "CoherentAdditionV318",
+    "statements_changed": false,
+    "reason": "Type-correct comparison through the actual group without mixed-instance rewriting."
+  }
+}

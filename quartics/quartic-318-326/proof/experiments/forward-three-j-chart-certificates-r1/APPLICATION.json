@@ -1,0 +1,100 @@
+{
+  "producer": "/root/complete_analytic_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "The actual degree-four level-three j coordinate pair gives covering target-coordinate opens on both rational affine source charts, has exact overlap scaling and evaluates to the original modular j function, while explicitly failing at a characteristic-three base point.",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ThreeProjectiveJCertificates318.lean": "046535091670974676f72f9d8ce2f5ebc73723336ea165f2e051fb6bf95414fc",
+    "ActualThreeJChartConsumer318.lean": "05dc4f5973c039e3aced144fe550c537949968f40513188739992d5ef4b74287"
+  },
+  "readme_sha256": "1721100db5c37d918c7170a18497ad6e3418775dc43dda072ad478aeda45240f",
+  "obligations": [
+    {
+      "name": "Exact homogeneous pair and degree",
+      "required_input": "The original j formula on T must determine the pair, rather than a merely isomorphic rational function.",
+      "constructed_input": "homogeneousNumerator(x,y)=(x+27y)(x+243y)^3 and homogeneousDenominator(x,y)=x^3y; numerator_scale and denominator_scale prove common degree four.",
+      "justification": "Both scale by exactly a^4. No degree-preserving Proj.map application is made, since the pinned API cannot directly accept this degree-four substitution.",
+      "sources": [
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Full finite source chart over Q",
+      "required_input": "The numerator and denominator must generate the unit ideal on all of Spec Q[T], not only on complex closed points.",
+      "constructed_input": "finite_bezout proves A*F-B*G=3^27 with A=38T^2-972T+19683 and B=38T^3+27756T^2+6764391T+550572876.",
+      "justification": "finite_coprime divides this exact identity by the nonzero rational 3^27. Thus coefficient inversion is explicit; no Z-coprimality is inferred.",
+      "sources": [
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Full reciprocal source chart",
+      "required_input": "Coverage must include the reciprocal origin corresponding to source infinity.",
+      "constructed_input": "reciprocalNumerator=(1+27S)(1+243S)^3, reciprocalDenominator=S; reciprocal_bezout proves F-BG=1.",
+      "justification": "The reciprocal coefficient B is 756+196830S+19131876S^2+387420489S^3. The identity is checked by ring normalization and directly gives reciprocal_coprime.",
+      "sources": [
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Prime-spectrum open coverage",
+      "required_input": "Every prime in both affine source charts must lie in a target-coordinate domain.",
+      "constructed_input": "finite_basicOpen_cover and reciprocal_basicOpen_cover prove D(F) sup D(G)=top in their actual prime spectra.",
+      "justification": "The generic helper applies the exact Bezout equality inside an arbitrary prime ideal. Simultaneous membership of F and G would put 1 in that proper ideal. It does not restrict to maximal ideals, geometric points or a dense open.",
+      "sources": [
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Overlap and scalar compatibility",
+      "required_input": "Finite and reciprocal source expressions must represent the same homogeneous pair with an explicit invertible scalar on the overlap.",
+      "constructed_input": "chart_pair_overlap proves N(T,1)=T^4 N(1,S) and D(T,1)=T^4 D(1,S) under TS=1 over every commutative ring.",
+      "justification": "The two identities specialize the degree-four scaling lemmas. The common T^4 is retained. This provides the ring-level comparison input for later scheme-chart gluing, not the gluing itself.",
+      "sources": [
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Geometric nonvanishing and characteristic restriction",
+      "required_input": "No common projective zero in characteristic zero, without silently extending that claim to all integral fibers.",
+      "constructed_input": "no_common_zero handles every nonzero homogeneous pair over a characteristic-zero field; characteristic_three_base_point exhibits the nonzero pair [0:1] where both coordinates vanish in ZMod 3.",
+      "justification": "The proof splits x^3*y=0 and uses 27 and 243 nonzero only with CharZero. The explicit characteristic-three counterexample prevents treating the same pair as an everywhere-defined Z-model.",
+      "sources": [
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Identity with actual polynomial evaluations",
+      "required_input": "The polynomials reserved for the scheme charts must evaluate to the original complex rational j function.",
+      "constructed_input": "finite_evaluation and reciprocal_evaluation identify both coordinates; finite_J and reciprocal_J identify their quotients with ThreeCompactParameter318.J.",
+      "justification": "The reciprocal formula explicitly requires T nonzero before denominator cancellation. Finite formula includes every T as a field expression; actual quotient inputs separately carry the required nonvanishing.",
+      "sources": [
+        "ActualThreeJChartConsumer318.lean",
+        "ThreeCompactParameter318.lean"
+      ]
+    },
+    {
+      "name": "Original modular consumer and boundary values",
+      "required_input": "The exact original quotient j map must be consumed at all original points, and both boundary source origins must have specified chart values.",
+      "constructed_input": "original_j_finite and original_j_reciprocal consume quotientParameter_j; original_finite_denominator_ne_zero consumes quotientParameter_ne_zero. boundary_chart_values gives (3^18,0) at T=0 and (1,0) at S=0.",
+      "justification": "The original quotient theorem includes elliptic points. No generic-locus identity is substituted. Both boundary coordinate pairs select the target reciprocal chart, but no pole order, morphism or arithmetic descent follows solely from these scalar values.",
+      "sources": [
+        "ActualThreeJChartConsumer318.lean",
+        "ActualThreeExceptionalParameter318.lean"
+      ]
+    },
+    {
+      "name": "Verification and bounded next step",
+      "required_input": "The changed application needs hosted kernel checking and distinct review before acceptance.",
+      "constructed_input": "Four predecessor sources are byte-identical to the frozen atlas-r2 closure; two new modules and all imports are hashed in intake.json.",
+      "justification": "This is an uncompiled inactive candidate. It supplies exact basepoint-free charts over Q and modular scalar comparison, not a global projective j scheme morphism. Next work must construct localization-based scheme maps, prove all overlaps and glue them; no first-batch packet is modified.",
+      "sources": [
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}

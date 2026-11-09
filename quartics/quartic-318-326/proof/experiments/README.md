@@ -16,6 +16,36 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Current hosted revisions and exact successes, 2026-11-09
+
+The active nine-packet matrix now checks 192 modules including unchanged
+predecessors. Four observed elaboration/instance failures are repaired only in
+versioned packets: prefix progressions r2, projective-line points r3,
+bicanonical height r2, and rigidified-overlap descent r2. Failed source bytes
+remain preserved. Their replacement proofs still require hosted checking.
+
+Run [42572477978](https://github.com/doublemover/diophantine-z-q/actions/runs/42572477978)
+at commit `f38f064869e979933fbe42db52b8d3fa85c47c7a` passed the complete strict
+checks and private-inclusive recursive audits of `height-integral-tensor-r1`
+(2 sources, 31 declarations) and `forward-monothetic-component-steps-r1`
+(1 source, 7 declarations). Exact results and logs are preserved under
+`hosted-results/42572477978`. Those standalone packets are deactivated rather
+than checked repeatedly. They are not promoted into the accepted baseline,
+and their explicit geometric hypotheses remain open.
+
+The active matrix adds six-source rational j-chart certificates (including the
+characteristic-three obstruction), a two-source actual integral noncontact
+chart/frame construction, and two-source original four-/three-root monomial
+bases. The latter are bases over the original coefficient rings, not a
+claimed rational basis or dimension computation of source H1. All three new
+packets are pending hosted verification. Review bindings for this revision
+are in `independent-reviews/continuation-batch-20261109/review-round3.json`.
+
+Earlier first-check failures and the cancelled/pending H1 attempt are retained
+under `hosted-results/42572007531`. Passing predecessor modules within a failed
+packet is not a successful packet audit. The sections below describe earlier
+scheduling states; `packets.json` is the current active matrix.
+
 ## Expanded hosted continuation matrix, 2026-11-09
 
 The current eight-packet matrix contains 185 module checks, including exact
