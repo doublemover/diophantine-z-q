@@ -750,3 +750,7 @@ Pending source now joins the original integral model to its actual whole-order p
 ## Continuation batch 34
 
 Pending candidates now prove generation by the SAME actual J² pair on every good-base chart subopen, and cover independence of the original H1-to-pointed-line map via an actual injective structure-sheaf presentation. The latter joins the fifth canonical relative Picard square and five-sum tensor identity, without claiming deformation classification. Exact common-base, local tensor, tilde-component and frame-adjunction hosted failures are preserved and narrowly repaired.
+
+## Continuation batch 35
+
+The actual original section pair now has a candidate finite projective t-pencil, retaining exact whole target-chart pullbacks and the original finite free rank16 four-root algebra rather than the auxiliary rank8 y0 projection. Specified covering-line comparisons now exist on every full inverse-image affine base chart, with original nested calibration. Global source-map gluing and the original double square remain pending. No accepted baseline or hosted proof status changes.
