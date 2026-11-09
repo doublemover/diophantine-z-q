@@ -1,0 +1,114 @@
+{
+  "claim": "Pending unconditional actual whole-source H1 equivalence through the unchanged original five quotient pullbacks, with genuine uniform target residue discharging fifth nonvanishing.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled91-source complete original five-pullback equivalence candidate. Uniform original target residue establishes actual H1 nonvanishing, including the fifth target, then joins the unchanged original five pullbacks, independent character images, and whole-source dimension five. Hosted strict checks and independent acceptance pending. Original normalized-transfer inverse is not asserted.",
+  "new_sources": {
+    "WeierstrassLaurentModel318.lean": "ba4c5c114a71bf49e361ee4f520d827889a97969abb21e7fd412637129ac091e",
+    "WeierstrassLaurentFiltration318.lean": "1000700887948c68de77421627d332042582eb8a7c4ab0c71bfe497b1ed5c7a9",
+    "WeierstrassOriginalResidue318.lean": "8bab850949fd65baa3cd0e3ee3caa6223a40702490bf389c69dd9e4740132566",
+    "WeierstrassHOneNonzero318.lean": "c7c4bbe69f2339e8bbc2b6afef8a71c289a69b4f43c8caf494dbc198276a5a6a",
+    "OriginalFiveHOneEquivalence318.lean": "5d6d47d234bfb01c5ec1314475be1ef8058aca87e7cd14f2c1d7cb34fa2f5a76"
+  },
+  "modified_sources": {
+    "InfinityBasisUnitCoefficients318.lean": "faf7d1d265b648d7023f70e15b3383e4629c6a11972105b63693ddbd1b377a4c"
+  },
+  "readme_sha256": "a12b7872774ee545468a26bfdeafc467800dd5e1c613318ad272b3d1799cc583",
+  "intake_sha256": "b54d23592b407f919ddee4043c6d91dff43987b454b678fb03fcc1a3c9f0c8bc",
+  "copy_bindings_sha256": "00b5c680290d35039240c666ac8da021a341d496c3e6444e19152946c849fbb5",
+  "obligations": [
+    {
+      "name": "Original cubic and power basis",
+      "required": "A new model must retain the actual infinity equation and prove unique coefficients.",
+      "constructed": "polynomial is X^3+C(A*T2)*X+C(B*T3-T1); monic, degree and the original AdjoinRoot power basis give1,x,x\u00b2.",
+      "justification": "Every z exponent is integral and T1 is genuinely invertible in Laurent polynomials; basis reindexing is only the proved natDegree=3 equality.",
+      "evidence": [
+        "WeierstrassLaurentModel318.polynomial",
+        "WeierstrassLaurentModel318.basis_apply"
+      ]
+    },
+    {
+      "name": "Actual original ring maps",
+      "required": "An unrelated cubic or field representative cannot prove actual target H1 nonzero.",
+      "constructed": "infinityMap is the original InfinityChart318.lift on original x,z; overlapMap is its actual localization lift; finiteMap uses old toInfinityBase.",
+      "justification": "Generator identities and overlap inverse are proved. No unproved map injectivity is needed.",
+      "evidence": [
+        "WeierstrassLaurentModel318.infinityMap",
+        "WeierstrassLaurentModel318.overlapMap",
+        "WeierstrassLaurentModel318.finiteMap"
+      ]
+    },
+    {
+      "name": "Complete finite-chart bound",
+      "required": "All finite regular functions, not a selected small subspace, must be annihilated.",
+      "constructed": "finite_generator_x/y preserve n+i<=0 through all three cubic-reduction terms; span induction and actual quotient-polynomial induction give finite_image.",
+      "justification": "The proof covers arbitrary polynomial degrees and both original finite generators.",
+      "evidence": [
+        "WeierstrassLaurentFiltration318.finite_generator_x",
+        "WeierstrassOriginalResidue318.finite_image"
+      ]
+    },
+    {
+      "name": "Complete infinity-chart bound",
+      "required": "All infinity regular functions must be annihilated, including contributions from cubic reduction.",
+      "constructed": "infinity_generator_x/z preserve n>=0; actual quotient-polynomial induction proves infinity_image.",
+      "justification": "No pole bound or missing localization is inserted: the original target infinity chart itself is used.",
+      "evidence": [
+        "WeierstrassLaurentFiltration318.infinity_generator_x",
+        "WeierstrassOriginalResidue318.infinity_image"
+      ]
+    },
+    {
+      "name": "Actual residue and distinguished class",
+      "required": "Nonzero field functions alone do not detect H1.",
+      "constructed": "originalResidue is an additive map on the original overlap, killing both entire chart images; residue_representative is1.",
+      "justification": "The consumed representative is exactly the old overlapEquiv inverse of x_aff\u00b2/y_aff and maps to monomial(-1,2).",
+      "evidence": [
+        "WeierstrassOriginalResidue318.originalResidue",
+        "WeierstrassOriginalResidue318.residue_representative"
+      ]
+    },
+    {
+      "name": "Actual Mayer-Vietoris join",
+      "required": "The ring difference must match the literal regular-section kernel, including signs and opens.",
+      "constructed": "finite_restriction and infinity_restriction identify the original full chart images with actual restrictions; cohomologyClass_nonzero invokes the original sectionBoundary_kernel.",
+      "justification": "Finite-minus-infinity sign is retained. Image-top versus opensRange is transported by explicit equalities, and old full overlap_image is consumed.",
+      "evidence": [
+        "WeierstrassHOneNonzero318.finite_restriction",
+        "WeierstrassHOneNonzero318.infinity_restriction",
+        "WeierstrassHOneNonzero318.cohomologyClass_nonzero"
+      ]
+    },
+    {
+      "name": "Fifth target identity and fivefold exhaustion",
+      "required": "The last target input must concern the original fifth scheme, and exhaustion must use the unchanged maps.",
+      "constructed": "fifth_nonzero uses the actual FifthCharacterShortPolynomial318.A/B target; original_sum_bijective consumes original five-map independence and source dimension five.",
+      "justification": "TargetHOne none is unchanged; no exceptional finite-chart refinement for the fifth map is assumed.",
+      "evidence": [
+        "OriginalFiveHOneEquivalence318.fifth_nonzero",
+        "OriginalFiveHOneEquivalence318.original_sum_bijective"
+      ]
+    },
+    {
+      "name": "Exact equivalence and inverse scope",
+      "required": "A vector-space isomorphism chosen arbitrarily does not identify the original quotient decomposition.",
+      "constructed": "equivalence_apply is definitionally the original five-pullback sum; inverse_component identifies each original pullback with the actual geometric projector.",
+      "justification": "The inverse is not asserted to be the original normalized-transfer vector; cross-transfer identification is still separate.",
+      "evidence": [
+        "OriginalFiveHOneEquivalence318.equivalence_apply",
+        "OriginalFiveHOneEquivalence318.inverse_component"
+      ]
+    },
+    {
+      "name": "Exact revisions and validation",
+      "required": "Source bindings, current failure repairs and remaining checks must be explicit.",
+      "constructed": "85 exact copies, one safe final-tactic refinement, five new connected sources.",
+      "justification": "The prior scalar-transparency repair is retained; structural checks are not hosted elaboration, axiom auditing or independent acceptance.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}

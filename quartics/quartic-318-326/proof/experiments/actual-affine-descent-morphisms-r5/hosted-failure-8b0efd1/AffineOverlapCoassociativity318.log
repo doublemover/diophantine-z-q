@@ -1,0 +1,12 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-affine-descent-morphisms-r4/AffineOverlapCoassociativity318.lean:34:2: error: Type mismatch: After simplification, term
+  hn
+ has type
+  @Eq (↑(twice R S N))
+    ((ConcreteCategory.hom ((comonad R S).map ((homEquiv R S N) τ)))
+      ((ConcreteCategory.hom (component R S S N).hom) ((ConcreteCategory.hom τ) (1 ⊗ₜ[↑S] n))))
+    ((ConcreteCategory.hom ((comonad R S).δ.app N))
+      ((ConcreteCategory.hom (component R S S N).hom) ((ConcreteCategory.hom τ) (1 ⊗ₜ[↑S] n))))
+but is expected to have type
+  @Eq (↑((comonad R S).obj (comonadObject R S N)))
+    ((ConcreteCategory.hom ((comonad R S).map ((homEquiv R S N) τ))) ((ConcreteCategory.hom ((homEquiv R S N) τ)) n))
+    ((ConcreteCategory.hom ((comonad R S).δ.app N)) ((ConcreteCategory.hom ((homEquiv R S N) τ)) n))

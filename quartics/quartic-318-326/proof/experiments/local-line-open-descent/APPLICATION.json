@@ -1,0 +1,135 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "local-line-open-descent",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Original local line sheaves with actual local pair/triple equations produce a genuine global line on the original open cover and displayed comparisons recovering the exact original transitions. Direct-image, over-open and scalar coherence are derived. Categorical maps and changing-affine-base fppf joins remain separate.",
+  "bindings": {
+    "README.md": "66c411202f9765b7e4f69bb9ae9e708c5c28ddb2e5ec87b945a9695710b8bb59",
+    "APPLICATION.md": "e8f516e9cf2fd9841f0aff34403d33e18dd973f54d21d40fdeabf9a0c67c0eb6",
+    "intake.json": "dc62bf64973e3c9b03af898dd6ab269b8d9d25b81c8b224c27835b8fbe767777",
+    "DEPENDENCIES.json": "367232e3959113668785487d1475cd4c84adcf591f6c046045d68b39bad43b34",
+    "SOURCE_SHA256SUMS": "b525ab1869ff99ac2ebca3bcd62ffc6c51822f3d94cb62e67cd1fca41ea223b9",
+    "MODULE_ORDER.txt": "2dec16af03f060ceb0fa7029538726a8b8f3370418c36cd916048754e12a28c7",
+    "validation/ExperimentAudit.lean": "ca92a6934a491a43784eecac0ae6a19d2036c420e9dab3bc5f52fe19af92ac4e",
+    "OpenModuleTransition318.lean": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+    "OpenModuleChartRecovery318.lean": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+    "OpenModulePresheaf318.lean": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+    "OpenModuleSheafGluing318.lean": "21b2c1d73051907ba5bcb5cff1fe249146d4afb632b087f608e3017ffa500c56",
+    "OpenModuleGluedSheaf318.lean": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0",
+    "OpenSheafTransition318.lean": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+    "OpenSheafGluing318.lean": "ef17173e2af4552cade2393134495b0827036812d237a86985793c21dac1f3ed",
+    "OpenChartModuleImages318.lean": "931e1b651c2db3159ffec0cc925e0547275a4969bed32e994fe120d021fe96fd",
+    "LocalLineGlobalFrames318.lean": "fa1bfd6186e76e556913d41dc25ba7ab5c5e84e9590b671dcc026760179e6ad7",
+    "OpenChartLineEffectivity318.lean": "d2a7ed68727eeba7bf7ae2149dae546d5e6a49dd9db04404dca2873adef237e1",
+    "OpenSheafRestrictionCompatibility318.lean": "72a0507bc6059532d574094ca498a0d393acc26e74f786ef29f63bf58d954ff6",
+    "OpenSchemeTransition318.lean": "a64283bb1061f4448da3e3b488022310c4be4ebe8d39aec3907a688e66aa1c73",
+    "OpenSchemeGluing318.lean": "a7a125c60f452b00d4f4eaf0e82bd3e4df4d0ac727506c51b359962dd1c6a2c8",
+    "OpenRestrictionPathCoherence318.lean": "1c5d2d09d7ea8573af9496387a8d610904a95886e74854dac033094a5b7bda60",
+    "LocalChartTransition318.lean": "bf94b151ea5b789ea21660c87d9a489e8d7cf213758dac1ce77399745e062eab",
+    "LocalLineOpenDescent318.lean": "882fdfe192dbddf5d0a9534f2ccffe69029c237651d866fa16b363e0c615dcf0"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** Original local lines provide actual module sheaves\n   on original chart schemes and genuine full covering frames. Their original\n   pair isos are between actual restrictions to pair intersections. The local\n   triple law uses original restriction composition and inclusion equality at\n   both endpoints. The prior ambient scheme/over/gluing route requires actual\n   ambient triple coherence; the new sources derive it, rather than assuming\n   it. All original source definitions and the new consumer are exactly bound.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** collapse is the original restriction composition\n   inverse followed by the actual inclusion equality transport. path_comp proves\n   the original ambient paths coherent. comparison_comp and subchartRecovery_comp\n   apply original naturality to the specified direct-image counit comparisons.\n   LocalChartTransition318.edge is the actual restricted Fi pair iso through\n   those original collapses. ambient_restriction identifies its converted\n   ambient edge exactly. ambientData derives the previous inputs. The final\n   line/comparisons are the unchanged explicit gluing/frame constructions.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** Every chart, local frame index, original pair intersection,\n   whole original triple intersection and every subopen remains in the\n   construction. The original cover and each local line's full frame cover\n   supply the actual global covering proof. No generic-point, finite-frame\n   selection, selected overlapping component or replacement coefficient module\n   is substituted. The source-level theorem is for arbitrary scheme open covers.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** The original local edge uses collapse-i inverse,\n   restriction of eij, then collapse-j. ambientTransition uses original\n   subchartRecovery-i, eij, and inverse subchartRecovery-j. The restriction\n   comparison identifies their compositions on the exact triple open. The final\n   overlapComparison is original global restriction path followed by restriction\n   of the actual displayed local comparison. Its composition with unchanged eij\n   equals the actual j comparison on the whole original pair intersection.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** Inclusion composition is proved by cancelling the\n   original open inclusion and using homOfLE_\u03b9. Original section restrictions\n   prove path_comp. The original collapse naturality derives comparison_comp.\n   Original subchartRecovery is precisely that comparison for the actual counit.\n   Pair restriction compatibility follows by those equations and inverse\n   cancellation. The original Fi-only identity/triple laws then imply ambient\n   identity/triple laws. No ambient/over/scalar law or object gluing is a new input.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** The final line has exactly the explicit glued module\n   sheaf, with the original full local frame covers refined to original ambient\n   images. Every comparison returns the unchanged Fi line object. The final\n   transition_recovered theorem identifies the actual restriction of these\n   displayed comparisons with the unchanged original local eij, not merely\n   with an isomorphic datum, a class, or an unspecified comparison choice.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** Every restriction composition, congruence,\n   direct-image counit and over-open comparison is the original map. The original\n   section rings and matching-family scalar actions remain unchanged. The\n   original local transition appears with no scalar/unit correction. Equality\n   transport is computed on the actual original opens, and inverse factors are\n   cancelled only against their identical original comparisons.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** The source-level object-effectivity and exact\n   original-transition route is now supplied for genuine local-line open data.\n   Categorical morphism gluing/uniqueness and the changing-affine-base comparison\n   required to produce these open data from general fppf reconstruction still\n   need proof. Full fppf/Picard/Jacobian and arithmetic conclusions are not\n   inferred. Historical accepted unit-cocycle gluing and frozen packets remain\n   unchanged and are not described as absent.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** All16 sources,13 exact producer bindings and\n   nine obligations are hash-bound. Static hash/import/placeholder and\n   audit-history checks are structural only. No local Lean ran. Full hosted\n   replay, recursive axiom audit and independent acceptance remain pending.\n   No formal acceptance or arithmetic-completeness record is manufactured.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenRestrictionPathCoherence318",
+        "LocalChartTransition318",
+        "LocalLineOpenDescent318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}
