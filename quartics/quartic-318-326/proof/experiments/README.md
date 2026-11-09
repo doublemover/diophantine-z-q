@@ -16,7 +16,34 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
-## Active continuation batch, 2026-11-09
+## Expanded hosted continuation matrix, 2026-11-09
+
+The current eight-packet matrix contains 185 module checks, including exact
+predecessor copies, not 185 new results. It retains all pending first-batch
+work while replacing the 35-source rigidified-transition packet with its
+38-source `rigidified-overlap-descent` extension. The latter constructs actual
+double/triple-overlap maps and cocycles under explicitly selected path
+comparisons; equality with canonical pullback associators and effective
+gluing remain separate obligations.
+
+The matrix also adds `height-integral-tensor-r1` (2 modules), which constructs
+the actual integral-to-generic cotangent tensor map and its image criterion;
+`source-hone-coordinate-presentation-r1` (36), which includes the unchanged
+34-source kernel stage and identifies source H1 with the quotient of the
+actual overlap ring by the two original localization images; and
+`forward-monothetic-component-steps-r1` (1), a generic finite-quotient argument
+for component-step density, with concrete return multiples and good-region
+access still explicit. The smaller kernel stage is preserved but not checked
+redundantly. No dimension, represented Jacobian, metric existence or complete
+arithmetic theorem follows from these packets.
+
+Exact static review bindings are in
+`independent-reviews/continuation-batch-20261109/review-round2.json`. Hosted
+strict compilation and recursive axiom audits remain pending. New pushes may
+supersede earlier in-flight runs; verify the latest exact commit and its full
+active matrix before claiming a pass.
+
+## First continuation batch, 2026-11-09
 
 Five dependency-closed packets are scheduled for their first hosted check in
 this restoration. They contain 143 module checks in total, including copied

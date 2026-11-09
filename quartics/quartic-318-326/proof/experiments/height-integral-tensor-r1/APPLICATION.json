@@ -1,0 +1,143 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Actual tensor-square integral lattice criterion and tensor preimages of the literal vertical sections, conditional on the original integral Kahler frame and reduced-prime DVR.",
+  "sources": {
+    "IntegralCotangentTensor318.lean": "a91104360277261d6dd328161b59418363e8bcce9560c60d8e4f727fa141c70a",
+    "VerticalCotangentSections318.lean": "1590f4c5839e80b3b715a6829e9176ca2bef6db68d689c25b7c21464b875f98e"
+  },
+  "readme_sha256": "6bb2564ab0a1650a7a513c9e124ac6179995f42c500bf9bef0cc033a1628017f",
+  "intake_sha256": "49cd8b2e9ff9c23bef9957819d7cce0bcab22fdbfb898528c14a5bd8559e6c93",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38",
+    "quartics/quartic-318-326/proof/progress/FractionKaehlerFrame318.lean": "758a758841af70f7cd2d1e1fbac922de41c99d6e29f9d1bb2ef6e7213b3ba86b",
+    "quartics/quartic-318-326/proof/progress/FractionSourceSections318.lean": "60ed90da0ce9c71be4157431a1bbdb6ee0ab438eadc4df64bf02b00b98d565e8",
+    "quartics/quartic-318-326/proof/progress/VerticalSection318.lean": "1affe8ce546f756ed9a80bfe541c68e91cd833b642ea35fe62a4119d035f7b55",
+    "quartics/quartic-318-326/proof/progress/VerticalDerivation318.lean": "be8067559eb376b3c8b509cbf10aa7d99b0df227d8ac83a7fe119a2c8da24061"
+  },
+  "obligations": [
+    {
+      "name": "Objects and coefficients",
+      "required_input": "Objects and coefficients",
+      "constructed_input": "The integral object is \u03a9(B/R) tensor_B \u03a9(B/R); the generic object is \u03a9(K/R) tensor_K \u03a9(K/R), with K the actual fraction field of B. Both use the original relative base R.",
+      "justification": "The integral object is \u03a9(B/R) tensor_B \u03a9(B/R); the generic object is \u03a9(K/R) tensor_K \u03a9(K/R), with K the actual fraction field of B. Both use the original relative base R.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 1"
+    },
+    {
+      "name": "Quantifiers",
+      "required_input": "Quantifiers",
+      "constructed_input": "The map and membership criterion quantify over every integral or generic tensor, not only the two distinguished sections. Frame independence covers every pair of integral frames. The application covers both literal source sections and every t, with the stated totalized-division boundary.",
+      "justification": "The map and membership criterion quantify over every integral or generic tensor, not only the two distinguished sections. Frame independence covers every pair of integral frames. The application covers both literal source sections and every t, with the stated totalized-division boundary.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 2"
+    },
+    {
+      "name": "Domain",
+      "required_input": "Domain",
+      "constructed_input": "The generic frame is constructed by FractionKaehlerFrame318 from the integral frame. B is a domain and K its fraction field. The source DVR application additionally requires a reduced rational-prime uniformizer. No field or integral-model identity is inferred from the arithmetic point cover.",
+      "justification": "The generic frame is constructed by FractionKaehlerFrame318 from the integral frame. B is a domain and K its fraction field. The source DVR application additionally requires a reduced rational-prime uniformizer. No field or integral-model identity is inferred from the arithmetic point cover.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 3"
+    },
+    {
+      "name": "Map directions",
+      "required_input": "Map directions",
+      "constructed_input": "Integral tensors map to generic tensors; map_pure proves compatibility with both original differential maps. Frame independence is proved by tensor induction. Injectivity is deduced from the actual fraction-field embedding, and coefficient membership is equivalent to existence of a tensor preimage.",
+      "justification": "Integral tensors map to generic tensors; map_pure proves compatibility with both original differential maps. Frame independence is proved by tensor induction. Injectivity is deduced from the actual fraction-field embedding, and coefficient membership is equivalent to existence of a tensor preimage.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 4"
+    },
+    {
+      "name": "Scalars",
+      "required_input": "Scalars",
+      "constructed_input": "The tensor frame sends a pure tensor to the product of its two differential coefficients. Hence the derivative enters squared, and the scale is J\u00b2 with J=2765952000. q1=t q0 is retained exactly. No norm or factor 32 is dropped.",
+      "justification": "The tensor frame sends a pure tensor to the product of its two differential coefficients. Hence the derivative enters squared, and the scale is J\u00b2 with J=2765952000. q1=t q0 is retained exactly. No norm or factor 32 is dropped.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 5"
+    },
+    {
+      "name": "Consuming object",
+      "required_input": "Consuming object",
+      "constructed_input": "q0_coefficient and q1_coefficient identify actual generic tensors with precisely VerticalSection318.section0 and section1 for the constructed fraction derivation. The DVR scalar existence theorem is consumed through integral_iff to produce actual integral tensor preimages.",
+      "justification": "q0_coefficient and q1_coefficient identify actual generic tensors with precisely VerticalSection318.section0 and section1 for the constructed fraction derivation. The DVR scalar existence theorem is consumed through integral_iff to produce actual integral tensor preimages.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 6"
+    },
+    {
+      "name": "Required hypotheses",
+      "required_input": "Required hypotheses",
+      "constructed_input": "FractionSourceSections318.vertical_sections requires an actual integral K\u00e4hler frame and a rational-prime uniformizer. Both remain explicit; preservation of the integral ring, the generic frame and the derivative valuation inequality are supplied by prior constructed theorems, not reintroduced as assumptions.",
+      "justification": "FractionSourceSections318.vertical_sections requires an actual integral K\u00e4hler frame and a rational-prime uniformizer. Both remain explicit; preservation of the integral ring, the generic frame and the derivative valuation inequality are supplied by prior constructed theorems, not reintroduced as assumptions.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 7"
+    },
+    {
+      "name": "Historical status",
+      "required_input": "Historical status",
+      "constructed_input": "The original source supplies the classical vertical argument; existing accepted Lean modules supply its scalar local algebra. This packet adds only the intrinsic tensor-lattice consequence. Global model realization and regularity-based extension remain pending, and no historical acceptance record is altered.",
+      "justification": "The original source supplies the classical vertical argument; existing accepted Lean modules supply its scalar local algebra. This packet adds only the intrinsic tensor-lattice consequence. Global model realization and regularity-based extension remain pending, and no historical acceptance record is altered.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 8"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Validation",
+      "constructed_input": "Every packet and consumed source is hash-bound. Static closure and source checks do not prove elaboration or the mathematical application. Hosted strict compilation, recursive private-inclusive axiom checking and distinct source acceptance remain pending. No author-generated independent approval is supplied.",
+      "justification": "Every packet and consumed source is hash-bound. Static closure and source checks do not prove elaboration or the mathematical application. Hosted strict compilation, recursive private-inclusive axiom checking and distinct source acceptance remain pending. No author-generated independent approval is supplied.",
+      "sources": [
+        "IntegralCotangentTensor318",
+        "VerticalCotangentSections318",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "static_packet_validation": "PASS",
+    "hosted_strict_check": "PENDING",
+    "independent_acceptance": "PENDING"
+  }
+}
