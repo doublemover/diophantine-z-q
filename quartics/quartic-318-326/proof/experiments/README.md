@@ -16,9 +16,34 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Rational scheme isomorphism and actual branch tensors, 2026-11-09
+
+Nine active closures now schedule 299 source checks. The rational level3
+continuation constructs a two-sided ring isomorphism from the actual rational
+base change of the original diamond-fixed algebra to the original parameter
+open, preserving j, x and the arithmetic scheme-map factorization. This is
+proved by localization, tensor and AdjoinRoot maps, not complex-point counting.
+The branch continuation constructs actual whole-chart J-squared tensors whose
+generic images are the original bicanonical pair, retaining all twist factors.
+Its ring-domain hypotheses remain explicit, and infinity/bad-prime coverage
+is still separate. Actual categorical double/triple scheme fiber products are
+now identified with the original tensor spectra with every named map retained;
+sheaf descent compatibility across them remains a subsequent obligation.
+
+The original real oval now has a proposed actual additive circle equivalence
+and homeomorphism, from its invariant clock and polynomial ODE uniqueness;
+product-circle density remains separate.
+
+Native local differential-module and explicit localization-hypothesis repairs
+replace the failed versions. Canonical pointed comparison uses exact Iso app
+projection lemmas. Round11 records bounded review and independent exact inverse
+polynomial checks. Downloaded latest failure evidence is retained under
+hosted-results/42578244224. These proposed joins remain pending hosted strict
+checking and recursive audits; no local Lean or baseline promotion occurred.
+
 ## Original characters, moduli and affine morphisms, 2026-11-09
 
-Eight active closures now schedule 278 source checks. The H1 continuation derives
+The preceding eight closures scheduled 278 source checks. The H1 continuation derives
 the actual root-sign quotient action, exact normalized 16-sign projectors and
 whole-source decomposition into their five actual ranges. It still does not
 prove those ranges nonzero or identify them with the original geometric quotient
