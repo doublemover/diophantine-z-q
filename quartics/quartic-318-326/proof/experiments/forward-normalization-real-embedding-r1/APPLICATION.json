@@ -1,0 +1,115 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_CHECK_AND_DISTINCT_REVIEW",
+  "claim": "Actual positive real embedding of the radical tower, exact two-embedding compatibility and integer independence of the specified actual real elliptic points.",
+  "sources": {
+    "NormalizationRealEmbedding318.lean": "ddef68bfc828d450dc71dea9f8130ddbfcd5d309329b10fdaf5ee7e8005023a9",
+    "NormalizationInjection318.lean": "5be6a77f1a00af8de89b8e0fcf3dc5d92d843ce08de135b3e9f46c485d76c786",
+    "NormalizedPointSigns318.lean": "a747d59ec7a4a1beb2892bf67bedd734bc41a4526234d92951e732c8f1aca71d",
+    "NormalizedGeneratorIndependence318.lean": "a0ff121f10d4f2ce7ef02a8cce974534c92e48ed1989ace3a724ac865d530d04",
+    "NormalizingRadicals318.lean": "770d42d1386d1dca36ddd0e6c810c7d9c2b3dd2ac8ca8932b58569661ba52dd1"
+  },
+  "derivation_sha256": "14a7d5322d6056f1d3f9f3a89d1cbad57c7e08eff0192336a9e5c1860672c32f",
+  "obligations": [
+    {
+      "name": "Actual predecessor identity",
+      "required_input": "The real points must come from the literal normalized source generators.",
+      "constructed_input": "Four byte-identical producer sources and realPoint applied to their firstGenerator/secondGenerator.",
+      "justification": "No source P, conjugation, radical or additive normalization is reselected.",
+      "source_references": "SOURCE-COPIES.json; firstRealGenerator; secondRealGenerator",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Quadratic extension map",
+      "required_input": "The target map must preserve addition and multiplication on the entire quadratic algebra.",
+      "constructed_input": "extendRoot is QuadraticAlgebra.lift with the exact base homomorphism algebra structure.",
+      "justification": "The square equation supplies the lift hypothesis and extendRoot_apply proves the coordinate formula.",
+      "source_references": "extendRoot; extendRoot_apply; extendRoot_base",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Positive radicands and roots",
+      "required_input": "Both root choices must exist with specified positive signs.",
+      "constructed_input": "positive_delta and positive_deltaBar; alpha,beta as Real.sqrt, with strict positivity and exact squares.",
+      "justification": "The original positive embedding evaluates the radicands as3-minus-sqrt2 and3-plus-sqrt2; sqrt2<2.",
+      "source_references": "positive_delta; positive_deltaBar; alpha_pos; beta_pos; alpha_square; beta_square",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Nested scalar compatibility",
+      "required_input": "The second extension must use the image of its literal First-valued radicand.",
+      "constructed_input": "firstEmbedding_base identifies that image with positiveEmbedding(deltaBar).",
+      "justification": "beta_square is composed with this exact identity before defining realEmbedding.",
+      "source_references": "firstEmbedding; firstEmbedding_base; realEmbedding; realEmbedding_first",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Two original embeddings",
+      "required_input": "The maps of K must agree with the actual original positive and negative embeddings.",
+      "constructed_input": "realEmbedding_base and realEmbedding_conjugateBase hold for every x:K.",
+      "justification": "The first follows both algebraMap compatibilities; the second is checked on arbitrary quadratic coordinates and the exact source conjugation.",
+      "source_references": "realEmbedding_base; realEmbedding_conjugateBase",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual group base change",
+      "required_input": "The real map must preserve addition and be injective on the actual E_1 group.",
+      "constructed_input": "realPoint composes pointMap with coefficient transport along map_one; realPoint_injective is proved.",
+      "justification": "The source is the constructed field Both, so pointMap_injective applies; transport is an additive equivalence.",
+      "source_references": "realPoint; realPoint_injective",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Result and coordinate identity",
+      "required_input": "The real independence theorem and explicit coordinates must concern the same two points.",
+      "constructed_input": "real_integer_relation transfers the exact predecessor relation; both coordinate lemmas identify these same realPoint images.",
+      "justification": "map_zsmul and injectivity prove the relation result; normalize_some and realPoint_some retain all coordinate factors.",
+      "source_references": "real_integer_relation; firstRealGenerator_coordinates; secondRealGenerator_coordinates",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Topological consumer boundary",
+      "required_input": "Real algebraic points alone cannot supply the closed-oval component and good-region result.",
+      "constructed_input": "The actual oval map, finite-kernel/endpoint comparison, and circle/character argument remain explicit open joins.",
+      "justification": "No component bound or full-product density is stated or assumed.",
+      "source_references": "DERIVATION.md",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "History and validation scope",
+      "required_input": "Formal source progress must not be reported as full proof or new historical gap.",
+      "constructed_input": "Prior compact-Lie justification retained; source-policy passes; hosted Lean and distinct review pending.",
+      "justification": "No accepted manuscript or baseline is changed.",
+      "source_references": "DERIVATION.md; VALIDATION.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

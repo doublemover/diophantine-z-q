@@ -16,9 +16,30 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Connected geometric, integral and real consumers, 2026-11-09
+
+Seven active closures now consolidate 259 scheduled source checks. The new
+affine geometric consumer derives original module cocycle and diagonal laws
+from actual sheaf equations before reconstructing a rank-one line. Good-chart
+vertical integrality constructs its local DVR, differential frame and reduced
+fiber rather than accepting them as inputs. The real same-witness CRT consumer
+now derives component modulus1 and its scalar/guard region from the one explicit
+remaining real premise: density of the literal original two-oval orbit.
+The analytic algebra closure identifies a rank-four Q[j] algebra with the
+original Laurent source, proves the actual scheme-map square, and derives
+global scheme-theoretic finiteness from properness and finite prime-spectrum
+fibers. It does not replace scheme points with complex points.
+
+These are pending source-level continuations, not claimed Lean successes.
+Round9 records exact input identities and remaining scope. The H1 kernel and rigidified comparison repairs are now included as
+separate versioned closures; the exact latest failed results and first-error logs are
+preserved under hosted-results/42576170502. No local Lean execution or main
+baseline promotion occurred. Historical matrix descriptions below record
+their own scheduling state.
+
 ## Joined rational exhaustion and exact branch fibers, 2026-11-09
 
-The next ten-packet matrix includes the 55-source actual rational H1 exhaustion
+The preceding ten-packet matrix included the 55-source actual rational H1 exhaustion
 closure, the 61-source analytic and algebraic complex-point fiber closure, the
 19-source affine coassociativity repair and five-source canonical tilde coherence.
 The H1 chain constructs a structural rational action and dimension at most five
