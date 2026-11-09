@@ -778,3 +778,7 @@ Actual square-zero reduction, projective generator lifting and original affine s
 ## Continuation batch 41
 
 The full original good-base model now has candidate intrinsic codimension-one stalk DVRs, including infinity, and actual completion maps preserving their normalized valuation. The actual finite flat t pencil pulls back the independently constructed target O(1) to the original intrinsic tensor-square sheaf, preserving both original J² sections with scalar one. The exact reverse-localization and final tensor-carrier failures are retained and repaired. New source remains pending hosted verification; no bad-prime or numerical-height conclusion is asserted.
+
+## Continuation batch 42
+
+Actual original affine-chart reconstruction comparisons now glue to a specified global covering-line isomorphism, with exact whole-subopen recovery. Compatibility is proved by affine refinements of base intersections, without assuming those intersections are affine. The original global-double descent square remains separate. Exact tilde identity-tail and elliptic derivative normalization failures are preserved and narrowly repaired; hosted validation remains pending.
