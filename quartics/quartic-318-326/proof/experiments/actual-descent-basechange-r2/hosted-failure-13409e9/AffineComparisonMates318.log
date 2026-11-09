@@ -1,0 +1,21 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-original-map-effectivity-r2/AffineComparisonMates318.lean:54:59: error: unsolved goals
+R S T : CommRingCat
+f : R ⟶ S
+g : S ⟶ T
+⊢ (conjugateEquiv
+        ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom f)).comp
+          (ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom g)))
+        (ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (f ≫ g))))
+      ((conjugateEquiv
+            ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom f)).comp
+              (ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom g)))
+            (ModuleCat.extendRestrictScalarsAdj ((CommRingCat.Hom.hom g).comp (CommRingCat.Hom.hom f)))).symm
+        (ModuleCat.restrictScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv) =
+    (ModuleCat.restrictScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-original-map-effectivity-r2/AffineComparisonMates318.lean:56:18: warning: This simp argument is unused:
+  Equiv.apply_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ModuleCat.extendScalarsComp, conjugateIsoEquiv_symm_apply_hom, Iso.symm_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

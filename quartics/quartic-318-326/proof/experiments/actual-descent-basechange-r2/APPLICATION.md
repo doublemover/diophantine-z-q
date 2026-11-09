@@ -1,0 +1,23 @@
+# Application contract
+
+1. **Source requirements.** ActualDescentBaseChangeDiagram318 takes only an original commuting square a≫f=g≫b of scheme arrows. OriginalSchemeDescentData318 retains an actual line on the covering scheme, an actual overlap on the genuine categorical double, and the original diagonal and triple equations. The affine consumer additionally requires the changed algebra R'→S' faithfully flat. No cartesianness, tensor equation or new overlap law is silently supplied.
+
+2. **Constructed objects.** doubleMap and tripleMap are actual categorical pullback lifts. Rebased line objects are the original LineSheafPullback318.line a objects. Their overlap is the pullback of the original overlap along the actual doubleMap, conjugated by the two exact original endpoint path comparisons. The changed affine reconstruction consumes precisely this datum, not an independently chosen compatible overlap.
+
+3. **Coverage.** Pulling back geometric descent equations requires no covering assertion. Line frames come from the full original inverse-image cover. AffineChangedBaseEffectivity318 invokes reconstruction only under Module.FaithfullyFlat R' S'. General fppf cover effectivity and arbitrary affine chart coverage remain outside the conclusion.
+
+4. **Transition directions.** endpoint compares pullback(a) followed by pullback(newVertex) with pullback(oldVertex) followed by pullback(doubleMap). overlap uses its first hom, the original pulled-back overlap, and its second inv. Actual triple maps preserve pair01, pair12, pair02 and all vertices. diagonal_double retains the original diagonal and the original covering map a. Rebased map squares retain literal pullback(a).map of the original covering sheaf maps.
+
+5. **Hypothesis checks.** endpoint_composition uses two instances of the original PullbackPathComposition318.assoc. successive derives the normalized new edge transport identity. original_successive uses the existing original normalized transport theorem. edge_square combines them using the actual commuting edge square. The rebased triple law follows from these three edge identities, overlap_composition and the original triple equation. The diagonal follows from diagonal_double, original diagonal transport and overlap_identity.
+
+6. **Consumer identity.** ofAffine/toAffine preserve the unchanged original line and overlap, reconciling only Spec.map(identity) with the categorical identity. AffineChangedBaseEffectivity318.datum has the actual original pulled-back line and the exact new double overlap. Its comparison_commutes is the original reconstruction theorem applied to that datum. maps_effective reconstructs the literal original covering map after pullback a with the same displayed comparison on both endpoints.
+
+7. **Scalars and normalization.** No scalar action is modified by the new sources. All geometric paths use the original named scheme morphisms and their equality transports. The inherited69-source closure retains the exact original scalar-extension module action and canonical tilde comparisons. New maps are genuine Scheme.Modules.pullback maps, and naturality is proved at the original sheaf-map level.
+
+8. **Downstream boundary.** This establishes genuine changing-arrow descent-data transport and changed-affine object/map effectivity. It does not yet construct the comparison between the changed reconstruction and pullback(b) of the previous reconstruction, prove that comparison's composition coherence, or assemble arbitrary fppf affine charts into original local open-cover descent data. Picard/Jacobian representability remains a separate boundary.
+
+9. **Evidence and acceptance.** Sixty-nine exact producers come from affine-original-map-effectivity-r2; six new modules implement actual nerve maps, endpoint reassociation, arbitrary-scheme data, law-preserving base change, map base change and the changed-affine consumer. Static import/hash/placeholder checks and the audit-history self-test are run without local Lean. Full75 hosted strict compilation, recursive axiom audit and independent acceptance are required. Frozen tests and failures remain preserved; no baseline admission is manufactured.
+
+## Revision after exact13409e9 hosted replay
+
+Normalize the exact composite ring homomorphism with the original CommRingCat.hom_comp equation before applying conjugateEquiv cancellation. Also expose the newly declared original geometric Diagonal/Cocycle definitions, following the exact opaque-definition failure in the same hosted run. No map, law or hypothesis changes. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.

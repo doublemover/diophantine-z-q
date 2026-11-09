@@ -1,0 +1,114 @@
+{
+  "claim": "Actual original gauge isomorphisms preserve the constructed special-fiber frame; additive coboundary classes map well-definedly to actual pointed line classes.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled18-source actual pointed gauge and additive coboundary quotient candidate; hosted strict elaboration and independent acceptance pending. Original whole H1 classification and norm tangent remain open.",
+  "new_sources": {
+    "PointedFrameMap318.lean": "f4f1c43ac9ede2506fdee5a7a4286067cbf3ffe46d9a2b33897f9013aeb57317",
+    "UnitCocyclePointedGauge318.lean": "42936f1e67e28501d401a4792952e761b5fe63514c7b748d5ce040f3c1c73595",
+    "InfinitesimalPointedGauge318.lean": "793d7e2a575dc8e220618ec286b66625319816f76dd2544715080803eafdb9dc",
+    "AdditiveDeformationClasses318.lean": "4f489d99efe52f045750d9deb7d4537a22d2303adc6bc195704c41bf2dc1deef"
+  },
+  "readme_sha256": "a1538f248014b44840333e3257fc97ac78e67002efa82f61bdafd9e92bcae394",
+  "intake_sha256": "b7c648b045dc7302e9ff37d8ad195d2b163c7759d157a42edfee322423f3a9e2",
+  "copy_bindings_sha256": "4c84f4823f8345f2e3b1b4fd45a6451150d91dc427390a39ad1304c86abb3f62",
+  "obligations": [
+    {
+      "name": "Actual ring and unit carrier",
+      "required": "Use the true square-zero multiplication, not a named additive model.",
+      "constructed": "TrivSqZeroExt R R and explicit actual unit/inverse, with uniqueness at reduction one.",
+      "justification": "Both coordinates and arbitrary coefficient ring maps are checked.",
+      "evidence": [
+        "SquareZeroUnit318.unit_iff",
+        "SquareZeroUnit318.map_unit"
+      ]
+    },
+    {
+      "name": "Whole intersection coverage",
+      "required": "Cocycles require every original pair and triple, including repeats and empty opens.",
+      "constructed": "AdditiveCocycle and cocycle retain the complete supplied index set and complete meets.",
+      "justification": "No dense open or restricted set of indices replaces the required domain.",
+      "evidence": [
+        "InfinitesimalUnitCocycle318.AdditiveCocycle",
+        "InfinitesimalUnitCocycle318.cocycle"
+      ]
+    },
+    {
+      "name": "Original gauge maps and scalars",
+      "required": "The same original gauge iso must be used; an arbitrary pointed replacement is insufficient.",
+      "constructed": "Original gauge coefficient equation is transposed to original local frame equation, then actual chart pullback and unit scalar comparison are applied.",
+      "justification": "Full inverse-image coordinate identities and original reconstruction identify the exact global map.",
+      "evidence": [
+        "PointedFrameMap318.local_equation",
+        "PointedFrameMap318.pulled_coordinate",
+        "UnitCocyclePointedGauge318.compatible"
+      ]
+    },
+    {
+      "name": "Special-fiber framing",
+      "required": "First-order deformation classes must retain the specified special-fiber trivialization.",
+      "constructed": "Deformation carries the actual reduction pullback iso and PointedIso requires its exact commuting square.",
+      "justification": "The relation is proved reflexive/symmetric/transitive, and forgetting lands in the old actual class carrier.",
+      "evidence": [
+        "PointedLineDeformation318.Deformation",
+        "PointedLineDeformation318.PointedIso",
+        "PointedLineDeformation318.special_fiber_trivial"
+      ]
+    },
+    {
+      "name": "Original map and comparison direction",
+      "required": "Pointed pullback must use the genuine original module pullback and composition comparison.",
+      "constructed": "squareComparison composes original pullbackComp, pullbackCongr, inverse pullbackComp.",
+      "justification": "Naturality and the old pointed square prove compatibility; forget_pullback uses the unchanged old pullback.",
+      "evidence": [
+        "PointedLinePullback318.squareComparison",
+        "PointedLinePullback318.pointedIso",
+        "PointedLinePullback318.forget_pullback"
+      ]
+    },
+    {
+      "name": "Actual dual-number geometric test",
+      "required": "The thickening, reduction and epsilon must be constructed, not assumed.",
+      "constructed": "Actual Spec square-zero test and fiber product, literal old baseMap and proved reduction square.",
+      "justification": "GammaSpec inverse naturality and actual projection show epsilon squared and reduction are zero on every open.",
+      "evidence": [
+        "DualNumberScheme318.reduction_map",
+        "DualNumberInfinitesimalLines318.reduction_epsilon_open"
+      ]
+    },
+    {
+      "name": "Constructed special-fiber triviality",
+      "required": "Reduction-one transitions must be connected to the actual pulled sheaf.",
+      "constructed": "Original pullback frames and old cocycle reconstruction construct the actual trivialization.",
+      "justification": "Original full inverse-image/source intersection comparison is retained, with actual coordinate squares.",
+      "evidence": [
+        "UnitCocyclePointedLine318.pulled_cocycle_one",
+        "UnitCocyclePointedLine318.trivialization_coordinate",
+        "DualNumberInfinitesimalLines318.deformation"
+      ]
+    },
+    {
+      "name": "Original five relative Picard consumers",
+      "required": "The next relative-class map must consume the same line and original quotient map.",
+      "constructed": "All four original completed maps and the original fifth map act on pointed classes, then forget through the old relative quotient.",
+      "justification": "character_matches_relative and fifth_matches_relative identify the exact old natural transformation at the dual-number test.",
+      "evidence": [
+        "OriginalFivePointedDeformations318.character_matches_relative",
+        "OriginalFivePointedDeformations318.fifth_matches_relative"
+      ]
+    },
+    {
+      "name": "Actual additive quotient and remaining boundaries",
+      "required": "Coboundary independence must preserve the special-fiber frame, without assuming full H1 classification.",
+      "constructed": "Original infinitesimal gauge is proved pointed; the full additive coboundary equivalence relation gives Quotient.lift to actual pointed classes.",
+      "justification": "No injectivity, surjectivity onto all deformations, original H1 identification or norm-tangent statement is inferred.",
+      "evidence": [
+        "InfinitesimalPointedGauge318.pointedIso",
+        "AdditiveDeformationClasses318.toPointed",
+        "AdditiveDeformationClasses318.dualNumberClasses",
+        "README.md"
+      ]
+    }
+  ],
+  "revision_source": "pointed-dual-number-lines-r1"
+}
