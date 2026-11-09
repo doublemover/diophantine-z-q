@@ -792,3 +792,7 @@ The two connected height chains are consolidated over an explicitly constructed 
 The actual section ring of every original affine dual-number thickening now has a candidate canonical two-coordinate isomorphism. Every actual unit reducing to one has a unique logarithm through this same map, natural under original thickened scheme morphisms. Global H1 classification remains a separate join; new source stays pending hosted checking.
 
 The connected arithmetic consumer now derives exact local2/3 Anchor square preparation and affine denominator nonvanishing from the specified rational homogeneous zero, retaining literal physical scaling and all remaining global point/prime inputs. The concrete quadratic-field primitive-instance repair preserves original data and finite budgets; hosted outcome remains pending.
+
+## Continuation batch 45
+
+The specified global covering-line comparison now satisfies the genuine original categorical double-overlap equation, detected on a proved full cover by actual restricted doubles. This gives candidate object-level effective original line descent for affine flat surjective morphisms over arbitrary bases, with compatible inverse. Full global morphism descent and non-affine covering morphisms remain separate; hosted verification remains pending.
