@@ -1,0 +1,3 @@
+# Same-data let-binder boundary
+
+Frozen217r1 remains unchanged. Its final GaussianRayQuarterPreparation318 proof had one intro list that crossed the let-bound root family into the following natural-index binder. The revised proof introduces only through the orientation bits, reduces that explicit let with dsimp only, then introduces the original h and hypotheses. This avoids accidentally naming the let-bound root family h. No theorem statement, mathematical input, point, index, field, sign or budget changes.216 sources are exact217r1 copies, one source is repaired, with the same217/221 closure. This is source preflight, not a hosted failure or compilation claim.
