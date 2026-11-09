@@ -1,0 +1,227 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Prove that norm-integrality cuts the exact quaternion order trace dual back down to the original perfect lattice, excluding any larger subring with integral reduced trace and norm.",
+  "sources": {
+    "PELQuaternionAlgebra318.lean": "522b31006c9bd1e7454abfe6a1cecb35d3fa8ac79a5984060057cae836248fe5",
+    "PELQuaternionAlternatingForm318.lean": "1267195c15d2b7c6fa55d93eb66c89e46f2072eb685c8e09af33c741b620132b",
+    "PELQuaternionRealRepresentation318.lean": "9db0899824163c729ac6f9bcd0cd3551d773f6fc05f3eaa85ef4fa87f8207a8f",
+    "PELQuaternionIntegralOrder318.lean": "39e1994edc732124536e8bed37742fbb1ff418a567f7e80521ea40e2874e06f3",
+    "PELPrincipalOrderCoordinates318.lean": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+    "PELPrincipalOrderPerfect318.lean": "3d3c9185d50db6679fd802267502eac9d364973a312053fa1d8561176c80f04d",
+    "PELQuaternionAnisotropy318.lean": "4fcc1277b2dd6f3a1d9776b5db8f7dc5ceff279fd52f02359a73d3610ba3e6e2",
+    "PELQuaternionDivision318.lean": "5c810bac3c3e2e2638ef12bd211caaca5f743fa69e97f5e640b54963d8b6d155",
+    "PELOrderTraceDiscriminant318.lean": "8b5072dbd653dbad41c4f8f35d4326d8acd0989121bdad5bd2a8f81f272fd11e",
+    "PELTraceDualResidues318.lean": "35647444e8bd552663ffd2b7e1e198ea839ca01a5f05d6245383ebf814b1ba6a",
+    "PELTraceDualSaturation318.lean": "637a8ccfa2168442d4c6db10f2a190f49600958fd993b856b61441f2165254cf",
+    "PELIntegralOverorder318.lean": "0a983c46a422686542bfef8ab176f9fa84db0ad73fbf295543a94d936e69cae1"
+  },
+  "intake_sha256": "c43bb964d5efcca52c0103b18b835ccb4d0c20abab1b9ca8bbbe488552914630",
+  "readme_sha256": "a56129dbee510fbeea23cdf370eb2aec0c2fdc4310bc3f4d4b7d9f45285b6ce3",
+  "obligations": [
+    {
+      "name": "Same algebra and integral order",
+      "required_input": "The overorder result must concern the actual period lattice.",
+      "constructed_input": "All nine predecessor sources are unchanged. The same subring uses the basis1,i,(1+j)/2,i/2+k/10, the same positive involution and the same unrescaled trace pairing.",
+      "justification": "All nine predecessor sources are unchanged. The same subring uses the basis1,i,(1+j)/2,i/2+k/10, the same positive involution and the same unrescaled trace pairing.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "verification/SOURCE-COPIES.json"
+    },
+    {
+      "name": "Actual trace-dual inversion",
+      "required_input": "An unspecified dual lattice or equal-rank substitute is insufficient.",
+      "constructed_input": "Four literal tests Tr(x*e_i)=a,b,c,d give x=(a/2,\u2212b/420,\u2212a/10+c/5,\u2212b/420+d/210), by the exact quaternion multiplication and same Gram.",
+      "justification": "Four literal tests Tr(x*e_i)=a,b,c,d give x=(a/2,\u2212b/420,\u2212a/10+c/5,\u2212b/420+d/210), by the exact quaternion multiplication and same Gram.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "PELTraceDualSaturation318.trace_coordinates"
+    },
+    {
+      "name": "Norm and local factors",
+      "required_input": "All coefficients and exceptional primes must survive normalization.",
+      "constructed_input": "The exact norm times210 is F=42a\u00b2+42ac\u2212b\u00b2+5bd\u221242c\u00b2\u22125d\u00b2. All primes2,3,5,7 dividing210 are explicitly used.",
+      "justification": "The exact norm times210 is F=42a\u00b2+42ac\u2212b\u00b2+5bd\u221242c\u00b2\u22125d\u00b2. All primes2,3,5,7 dividing210 are explicitly used.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "PELTraceDualSaturation318.norm_dual"
+    },
+    {
+      "name": "Residue coverage",
+      "required_input": "Finite local obstructions must cover every residue and the coupled conditions.",
+      "constructed_input": "Full residue computations force b,d=0 at2,3,7, and b=0,a\u22122c=0 at5. Their combined conclusion is210|b,42|d,5|(a\u22122c). No condition at5 is dropped or replaced by independent coordinate vanishing.",
+      "justification": "Full residue computations force b,d=0 at2,3,7, and b=0,a\u22122c=0 at5. Their combined conclusion is210|b,42|d,5|(a\u22122c). No condition at5 is dropped or replaced by independent coordinate vanishing.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "PELTraceDualResidues318"
+    },
+    {
+      "name": "Constructed lattice membership",
+      "required_input": "Congruences must recover the original integral basis.",
+      "constructed_input": "Writing b=210B,d=42D,a\u22122c=5A explicitly constructs original coordinates(c+3A,2B\u2212D,\u2212A,\u22125B+2D), whose embedding equals the same trace-dual quaternion.",
+      "justification": "Writing b=210B,d=42D,a\u22122c=5A explicitly constructs original coordinates(c+3A,2B\u2212D,\u2212A,\u22125B+2D), whose embedding equals the same trace-dual quaternion.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "PELTraceDualSaturation318.dual_integral_norm_mem"
+    },
+    {
+      "name": "Actual overorder maps",
+      "required_input": "The comparison must use ring closure and the specified inclusion.",
+      "constructed_input": "For S containing the original order, trace-integrality on S applies to each actual product x*e_i. Norm-integrality on the same x then proves x belongs to the original order; antisymmetry gives S=O.",
+      "justification": "For S containing the original order, trace-integrality on S applies to each actual product x*e_i. Norm-integrality on the same x then proves x belongs to the original order; antisymmetry gives S=O.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "PELIntegralOverorder318.no_larger_integral_overorder"
+    },
+    {
+      "name": "Nonvacuous integral order hypotheses",
+      "required_input": "The constructed order must itself satisfy the stated conditions.",
+      "constructed_input": "Reduced trace and reduced norm are proved integer-valued on the original order, using its actual integer coordinates.",
+      "justification": "Reduced trace and reduced norm are proved integer-valued on the original order, using its actual integer coordinates.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "PELIntegralOverorder318.order_trace_integral; order_norm_integral"
+    },
+    {
+      "name": "Remaining maximality/moduli bridge",
+      "required_input": "A conditional overorder theorem is not yet all module-finite orders or an abelian scheme.",
+      "constructed_input": "The bridge from arbitrary module-finite integral orders to reduced trace/norm integrality, exact local ramification classification, PEL scheme algebraization and contact identification remain separate. No generic maximal-order instance or principal polarization of an algebraic scheme is asserted here.",
+      "justification": "The bridge from arbitrary module-finite integral orders to reduced trace/norm integrality, exact local ramification classification, PEL scheme algebraization and contact identification remain separate. No generic maximal-order instance or principal polarization of an algebraic scheme is asserted here.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "README.md"
+    },
+    {
+      "name": "Source review and verification",
+      "required_input": "Exact application and all prior scope boundaries must be independently reviewed.",
+      "constructed_input": "The explicit dual Gram was derived from the prior pinned trace determinant, all187 local residue cases and symbolic reconstruction recomputed. Nine source copies, source-level proofs, static checks and historical controls are bound. Hosted Lean remains pending; no local build.",
+      "justification": "The explicit dual Gram was derived from the prior pinned trace determinant, all187 local residue cases and symbolic reconstruction recomputed. Nine source copies, source-level proofs, static checks and historical controls are bound. Hosted Lean remains pending; no local build.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "PELTraceDualResidues318.lean",
+        "PELTraceDualSaturation318.lean",
+        "PELIntegralOverorder318.lean",
+        "README.md"
+      ],
+      "evidence": "verification/check_saturation.py; verification/primary-library-source-pins.json"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "hosted_check": "PENDING",
+    "independent_review": "PENDING",
+    "full_arithmetic_theorem_proved": false
+  }
+}
