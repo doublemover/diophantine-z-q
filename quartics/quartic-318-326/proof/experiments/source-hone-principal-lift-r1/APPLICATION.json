@@ -1,0 +1,104 @@
+{
+  "claim": "Pending actual infinity-ring regular witnesses and bounded principal-part reduction inside the original overlap ring for every original infinity-base coefficient.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "UNCOMPILED_DRAFT; hosted verification, recursive audit and independent acceptance pending.",
+  "new_sources": {
+    "ContactInfinityRegularFractions318.lean": "9097c47e2dcd1f777c37bd44186cc04738658d8560100e8b9a63fe1d6ed1197f"
+  },
+  "readme_sha256": "d3a58ffc65b77d81dfd551f21def2f9c3f32dcfddd38905612f5f4ef6171620a",
+  "copy_bindings_sha256": "923bf1e2c47d57167c1dc82f52ca927cb2780f8a51ae3530df81b5b8d200188e",
+  "intake_sha256": "307e92e8fef55b1ced194b70360239cbb68f7221462a8723da88c159d995c1c3",
+  "obligations": [
+    {
+      "name": "Original coefficient, infinity and overlap rings",
+      "required": "Use the actual three existing rings.",
+      "constructed": "Base, InfinityRing and OverlapRing abbreviate the original infinity base localization, infinity order and source overlap order.",
+      "justification": "All functions are defined directly on these carriers; no abstract regular subring is substituted.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.Base",
+        "ContactInfinityRegularFractions318.InfinityRing",
+        "ContactInfinityRegularFractions318.OverlapRing"
+      ]
+    },
+    {
+      "name": "Original field embedding",
+      "required": "Coefficient evaluation must be the original infinity-ring embedding in the contact field.",
+      "constructed": "baseEmbedding composes the original infinity embedding and original algebraMap.",
+      "justification": "baseEmbedding_polynomial is exactly ReciprocalInfinityNormalization318.openEmbedding_on_polynomial.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.baseEmbedding",
+        "ContactInfinityRegularFractions318.baseEmbedding_polynomial"
+      ]
+    },
+    {
+      "name": "Denominator normalization",
+      "required": "The inverse denominator must belong to the original localization.",
+      "constructed": "regularCoefficient uses IsLocalization.Away.invSelf of InfinityOpenChart318.denominator c.",
+      "justification": "Its field image is proved from the actual multiplicative inverse identity and nonvanishing, preserving every power and scalar.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.baseEmbedding_inverse",
+        "ContactInfinityRegularFractions318.regularCoefficient_embedding"
+      ]
+    },
+    {
+      "name": "All actual coefficients",
+      "required": "The fraction form must cover every coefficient in the original infinity base ring.",
+      "constructed": "coefficient_fraction quantifies over all a in Base c.",
+      "justification": "IsLocalization.Away.surj supplies a polynomial numerator and denominator exponent, then the original embedding turns that exact multiplication equation into the fraction identity.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.coefficient_fraction"
+      ]
+    },
+    {
+      "name": "Actual principal representatives",
+      "required": "Principal terms must be elements of the original overlap ring.",
+      "constructed": "principalTerm uses the original infinity polynomial map and the inverse of the proved original unit u.",
+      "justification": "inverse_u_embedding checks that its constructed inverse maps to the inverse of the original coordinate; principalTerm_embedding records the complete expression.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.inverseU",
+        "ContactInfinityRegularFractions318.inverse_u_embedding",
+        "ContactInfinityRegularFractions318.principalTerm_embedding"
+      ]
+    },
+    {
+      "name": "Actual regular witness",
+      "required": "A claim of infinity regularity must construct a witness in the infinity ring.",
+      "constructed": "principal_reduction takes the actual algebraMap image of regularCoefficient S m as its witness b.",
+      "justification": "regularCoefficient_embedding and the predecessor exact field decomposition verify that this witness has precisely the required regular remainder image.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.principal_reduction"
+      ]
+    },
+    {
+      "name": "Reflect equality into the original overlap",
+      "required": "The final reduction must be an overlap-ring identity, not only a field equality.",
+      "constructed": "coefficient_principal_reduction concludes an equality in OverlapRing c.",
+      "justification": "It applies SourceOpenFractionField318.openEmbedding_injective and then the original toOpen_embedding identities. No isomorphic field or unproved descent is used.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.coefficient_principal_reduction"
+      ]
+    },
+    {
+      "name": "Retain degree bounds and zero cases",
+      "required": "Preserve degree R<n and cover every natural n.",
+      "constructed": "Both principal_reduction and coefficient_principal_reduction keep the exact remainder bound.",
+      "justification": "They use the predecessor theorem for arbitrary n and m without discarding zero exponents or adding positivity assumptions.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.principal_reduction",
+        "ContactInfinityRegularFractions318.coefficient_principal_reduction"
+      ]
+    },
+    {
+      "name": "Remaining consumers and verification",
+      "required": "Do not overstate a scalar coefficient reduction as the entire H1 calculation.",
+      "constructed": "The eight-monomial assembly, finite-image cancellation and fivefold H1 identification are still separate.",
+      "justification": "The three-source closure is uncompiled and unaccepted. It includes two exact pending predecessors, not previously validated modules. No H1 dimension or spanning is asserted.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json",
+        "intake.json"
+      ]
+    }
+  ]
+}

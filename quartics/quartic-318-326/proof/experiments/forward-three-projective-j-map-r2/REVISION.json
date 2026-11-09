@@ -1,0 +1,19 @@
+{
+  "prior_packet": "forward-three-projective-j-map-r1",
+  "prior_intake_sha256": "a6fc416120bef0bf7c4c0e4e98836d6bce0911a708f21b94b034d82525bc6394",
+  "prior_status": "UNCOMPILED_INHERITS_FAILED_CERTIFICATE",
+  "failed_packet": "forward-three-j-chart-certificates-r1",
+  "run_id": 42573367792,
+  "commit": "272c0fc",
+  "passed_source_count": 4,
+  "failed_module": "ThreeProjectiveJCertificates318",
+  "changed_sources": [
+    "ThreeProjectiveJCertificates318"
+  ],
+  "evidence": {
+    "previous-failure/RESULT.json": "ea883734a8c13e5a4ffd797b167ce5a13b6766d43c1b500b3711d1376b4c9769",
+    "previous-failure/ThreeProjectiveJCertificates318.log": "1fa1694c94253b538e73209545b14f81cb8598fa55677eccf8900d7df667cea9"
+  },
+  "new_status": "PENDING_HOSTED_CI",
+  "repair": "Propagate the two exact hosted certificate repairs into the full eleven-module projective-map closure. The rational polynomial identity now explicitly rewrites map_pow and map_ofNat for C instead of relying on the simp set. The characteristic-three base point now proves the small closed equality 27=0 in ZMod 3 by kernel decide before simplification, rather than asking norm_num to reduce a large residue. All other ten source modules are unchanged. The global gluing modules were not reached by that earlier six-source CI run and remain uncompiled."
+}

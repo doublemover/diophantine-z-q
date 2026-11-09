@@ -1,0 +1,112 @@
+{
+  "producer": "/root/complete_analytic_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "The original degree-four level-three j formula defines an actual global scheme endomorphism of ProjectiveJLine318.scheme Q, by equality of the exact affine scheme maps on the full original Laurent overlap and gluing on the original projective cover, with both chart restrictions and the Q structure map proved.",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ThreeProjectiveJCertificates318.lean": "046535091670974676f72f9d8ce2f5ebc73723336ea165f2e051fb6bf95414fc",
+    "ActualThreeJChartConsumer318.lean": "05dc4f5973c039e3aced144fe550c537949968f40513188739992d5ef4b74287",
+    "RationalPairLocalMaps318.lean": "04d1f0ada3db704b5e5dcb9802d673ddf370339dfe748722ec7dbd21f37732ce",
+    "RationalPairGluing318.lean": "87df94b029a2612a464fd35bf37870df3593bf613dc5ad2519993c95a2f640d7",
+    "ThreeAffineJMaps318.lean": "3630937b00568b228d475e8bd01d0c66e4e3747d481765cf4a5de20202aa0af5",
+    "RationalPairDenominatorEvaluation318.lean": "c48886901caf8c1e94ff9fde465f452a15df91e29fb6ab6b1562159e3004527b",
+    "ThreeProjectiveJMap318.lean": "e5d35fccb69d0afed311111e6cb5497aa6865bc224d16f42dedd2d9d37777477"
+  },
+  "readme_sha256": "0e2d9552f214ea75062f021f83a19e26988994ff8f333c80fb41f3f76c26ee7e",
+  "obligations": [
+    {
+      "name": "Original rational coefficient and source objects",
+      "required_input": "The global source and target must be the existing ProjectiveJLine318.scheme Q with their actual original affine charts.",
+      "constructed_input": "The new map has type ProjectiveJLine318.scheme Q to itself and uses JLineAtlas318.cover Q. Both affine maps are the exact prior ThreeAffineJMaps318 finiteMap and reciprocalMap.",
+      "justification": "No newly glued replacement scheme is substituted for the original Proj. All polynomial rings, affine chart maps and structural maps retain the same rational coefficients.",
+      "sources": [
+        "ThreeProjectiveJMap318.lean",
+        "ThreeAffineJMaps318.lean",
+        "../../progress/JLineAtlas318.lean"
+      ]
+    },
+    {
+      "name": "Exact denominator localization factorization",
+      "required_input": "When a polynomial denominator becomes a unit in an arbitrary Q-algebra, the source scheme morphism must factor through its actual localization.",
+      "constructed_input": "evaluation_formula constructs liftG by IsLocalization.Away.liftAlgHom from a specified inverse v of the actual image of g.",
+      "justification": "hbase identifies the ring map on every original polynomial, and hfac proves the contravariant Spec factorization by ring-hom extensionality. This is not a pointwise or fraction-field argument.",
+      "sources": [
+        "RationalPairDenominatorEvaluation318.lean"
+      ]
+    },
+    {
+      "name": "Inverse coordinate and original local-map identity",
+      "required_input": "The factorization must evaluate the exact original denominator chart, with the right inverse and coefficient map.",
+      "constructed_input": "The image of invSelf g is proved equal to v by the two multiplication-to-one identities. Polynomial.ringHom_ext then checks the composed evaluation on constants and X.",
+      "justification": "The prior denominator_restriction theorem is applied to the same glued affine map. The resulting map is literally Spec of evaluation at phi(f)*v followed by original target chart 1. No alternative projective parameter or unconstrained coefficient map is introduced.",
+      "sources": [
+        "RationalPairDenominatorEvaluation318.lean",
+        "RationalPairGluing318.lean"
+      ]
+    },
+    {
+      "name": "Entire original source overlap",
+      "required_input": "The overlap must be the actual original projective-chart intersection, not a dense generic subset.",
+      "constructed_input": "ProjectiveLineOverlap318.A is the original localization Q[T,T^-1], with finiteInclusion and infinityInclusion and the proved actual_pullback.",
+      "justification": "The exact original elements t and s satisfy ts=1. finite_denominator_inverse proves t^3 has inverse s^3, and reciprocal_denominator_inverse proves s has inverse t. Therefore the entire overlap, including zeroes of the numerator, factors through the finite target chart.",
+      "sources": [
+        "ThreeProjectiveJMap318.lean",
+        "../../progress/ProjectiveLineOverlap318.lean"
+      ]
+    },
+    {
+      "name": "Explicit fourth-power scaling and cancellation",
+      "required_input": "The two affine coordinate expressions must agree using the exact homogeneous scaling, with every canceled factor justified.",
+      "constructed_input": "overlap_coordinate specializes chart_pair_overlap to t,s and retains its t^4 factor before multiplying by s^3.",
+      "justification": "The identity t^4*s^3=t follows solely from ts=1 in the actual Laurent ring, not from a domain or nonzero-field cancellation. The finite and reciprocal rational polynomial evaluations are then equal as elements of that ring.",
+      "sources": [
+        "ThreeProjectiveJMap318.lean",
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Equality of actual overlap scheme maps",
+      "required_input": "The two whole affine scheme maps must agree after precomposition by the original overlap inclusions.",
+      "constructed_input": "affine_overlap applies evaluation_formula to aeval t with inverse s^3 and aeval s with inverse t, and rewrites the exact coordinate identity.",
+      "justification": "evaluation_t identifies aeval t with the original localization algebra map, checking constants and X. Both composites become the same actual polynomial evaluation morphism followed by the same target chart, proving equality of scheme maps on the entire categorical intersection.",
+      "sources": [
+        "ThreeProjectiveJMap318.lean",
+        "RationalPairDenominatorEvaluation318.lean"
+      ]
+    },
+    {
+      "name": "Complete projective gluing compatibility",
+      "required_input": "Every ordered pair of the two original projective chart indices must satisfy the canonical pullback compatibility required by glueMorphisms.",
+      "constructed_input": "localMap sends chart 0 to reciprocalMap and chart 1 to finiteMap. compatible treats all four ordered Fin 2 pairs.",
+      "justification": "Mixed pairs consume the original actual_pullback and its flip, with affine_overlap in the matching direction. Diagonal pairs use chart monomorphism cancellation. The complete original JLineAtlas318.cover supplies source coverage; no chart or special point is omitted.",
+      "sources": [
+        "ThreeProjectiveJMap318.lean",
+        "RationalPairGluing318.lean",
+        "../../progress/JLineAtlas318.lean"
+      ]
+    },
+    {
+      "name": "Exact global consumer and coefficient map",
+      "required_input": "The resulting global morphism must restrict to the exact intended local maps and preserve the same Q structure morphism.",
+      "constructed_input": "map is cover.glueMorphisms on the original source. finite_restriction and reciprocal_restriction are the exact original chart composites. over_Q proves the same rational coefficient map.",
+      "justification": "The original cover hom_ext checks over_Q on both original affine charts. The prior affine over_Q identities and original chart_over_base theorem match those exact restrictions. These identities bind the construction to the actual Proj, not merely a map with matching values on a generic locus.",
+      "sources": [
+        "ThreeProjectiveJMap318.lean",
+        "ThreeAffineJMaps318.lean"
+      ]
+    },
+    {
+      "name": "Verification and excluded downstream conclusions",
+      "required_input": "Every new application needs hosted kernel checking and distinct review; the arithmetic boundary must remain explicit.",
+      "constructed_input": "Nine unchanged local-map-stage sources and two new localization-consumer/projective-gluing modules are hashed in an eleven-source inactive candidate.",
+      "justification": "No local Lean execution or pass receipt is claimed. This source draft constructs the global Q scheme morphism, but the exact compact analytic/scheme-valued j comparison, degree and ramification theorems, integral extension through characteristic 3, universal-family and PEL realization remain separate. The characteristic-three counterexample is retained unchanged.",
+      "sources": [
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}

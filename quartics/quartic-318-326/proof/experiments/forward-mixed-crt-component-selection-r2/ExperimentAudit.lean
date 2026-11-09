@@ -1,0 +1,53 @@
+module
+import all AnalyticGuardAvoidance318
+import all CompactGuardProgression318
+import all CompressedAnchorWitness318
+import all ReciprocalChartWitness318
+import all RealGuardWitness318
+import all RealGuardTrace318
+import all CoherentMultipleCharts318
+import all CoherentMultiplePrefix318
+import all CoherentOrbit318
+import all CoherentSecantPolynomial318
+import all CoherentSecant318
+import all CoherentRootSign318
+import all CoherentAdditionU318
+import all CoherentAdditionV318
+import all RealQuarticAmbient318
+import all RealQuarticOvalCover318
+import all RealQuarticAssociativityPolynomial318
+import all RealQuarticSumU318
+import all RealQuarticSumAnalytic318
+import all RealQuarticAssociativity318
+import all RealQuarticGroup318
+import all RealQuarticTopologicalGroup318
+import all RealCoherentOrbit318
+import all ActualCyclicClosure318
+import all RealGuardAmbient318
+import all ActualCyclicGuards318
+import all ActualCyclicProgressions318
+import all CyclicPrefixWitness318
+import all GeneratorScalarProgression318
+import all MonotheticComponentSteps318
+import all MixedCRTComponentSelection318
+import all ActualMixedCRTPrefix318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`AnalyticGuardAvoidance318,`CompactGuardProgression318,`CompressedAnchorWitness318,`ReciprocalChartWitness318,`RealGuardWitness318,`RealGuardTrace318,`CoherentMultipleCharts318,`CoherentMultiplePrefix318,`CoherentOrbit318,`CoherentSecantPolynomial318,`CoherentSecant318,`CoherentRootSign318,`CoherentAdditionU318,`CoherentAdditionV318,`RealQuarticAmbient318,`RealQuarticOvalCover318,`RealQuarticAssociativityPolynomial318,`RealQuarticSumU318,`RealQuarticSumAnalytic318,`RealQuarticAssociativity318,`RealQuarticGroup318,`RealQuarticTopologicalGroup318,`RealCoherentOrbit318,`ActualCyclicClosure318,`RealGuardAmbient318,`ActualCyclicGuards318,`ActualCyclicProgressions318,`CyclicPrefixWitness318,`GeneratorScalarProgression318,`MonotheticComponentSteps318,`MixedCRTComponentSelection318,`ActualMixedCRTPrefix318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"

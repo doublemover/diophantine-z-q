@@ -1,0 +1,106 @@
+{
+  "producer": "/root/complete_analytic_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "The exact rational numerator/denominator principal-open maps agree on their actual categorical intersection and glue to a whole affine scheme morphism over Q; applying this to each original j coordinate pair constructs both complete affine source maps.",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ThreeProjectiveJCertificates318.lean": "046535091670974676f72f9d8ce2f5ebc73723336ea165f2e051fb6bf95414fc",
+    "ActualThreeJChartConsumer318.lean": "05dc4f5973c039e3aced144fe550c537949968f40513188739992d5ef4b74287",
+    "RationalPairLocalMaps318.lean": "04d1f0ada3db704b5e5dcb9802d673ddf370339dfe748722ec7dbd21f37732ce",
+    "RationalPairGluing318.lean": "87df94b029a2612a464fd35bf37870df3593bf613dc5ad2519993c95a2f640d7",
+    "ThreeAffineJMaps318.lean": "3630937b00568b228d475e8bd01d0c66e4e3747d481765cf4a5de20202aa0af5"
+  },
+  "readme_sha256": "c28d2a5bfdb8f90cf10202f824287c713a1c8a6fc42294dec5530de9c6215a2e",
+  "obligations": [
+    {
+      "name": "Exact source localizations",
+      "required_input": "Actual source rings and maps for numerator and denominator domains, retaining the Q coefficient map.",
+      "constructed_input": "NumeratorRing=Q[T][1/f], DenominatorRing=Q[T][1/g], and Common is the latter localized at the image of f; numeratorBase and denominatorBase are actual Spec maps of their algebra maps.",
+      "justification": "These are the original principal-open inclusions in Spec Q[T]. No field-of-fractions replacement or set of complex points is used. The f and g variables are arbitrary rational polynomials until coprimality is required for coverage.",
+      "sources": [
+        "RationalPairLocalMaps318.lean"
+      ]
+    },
+    {
+      "name": "Localization universal-property comparison",
+      "required_input": "A genuine morphism from the common localization to the numerator chart, with exact common base map.",
+      "constructed_input": "toNumerator is liftAlgHom from Q[T][1/f] to Common; numeratorInclusion is its contravariant Spec map, while denominatorInclusion is the second localization inclusion.",
+      "justification": "The image of f is a unit in Common by its defining localization. toNumerator_on_base proves its exact base-ring action. base_square equates the two Spec composites by ring-hom extensionality, preserving the contravariant direction.",
+      "sources": [
+        "RationalPairLocalMaps318.lean"
+      ]
+    },
+    {
+      "name": "Actual common intersection",
+      "required_input": "Compatibility must hold on the categorical pullback, not an assumed overlap ring.",
+      "constructed_input": "actual_pullback identifies Common with the pullback of numeratorBase and denominatorBase.",
+      "justification": "The common denominator inclusion is an open immersion. The numerator chart range is D(f), whose preimage in the denominator localization is exactly the basic open used to define Common. IsOpenImmersion.isPullback receives both the proved base square and this exact opens-range equality.",
+      "sources": [
+        "RationalPairLocalMaps318.lean"
+      ]
+    },
+    {
+      "name": "Exact inverse coordinate pair",
+      "required_input": "The finite and reciprocal target coordinates must multiply to one on the full common localization.",
+      "constructed_input": "x,y are the two polynomial images; ix,iy are their actual localization inverses. x_ix, y_iy and toNumerator_inv identify the exact inverse images.",
+      "justification": "forward=x*iy and inverse=y*ix satisfy forward*inverse=1 by commutativity and the actual localization identities. No domain, cancellation or nonzero argument is needed. This produces a genuine unit, including over non-field localizations.",
+      "sources": [
+        "RationalPairLocalMaps318.lean"
+      ]
+    },
+    {
+      "name": "Actual target maps and scalar preservation",
+      "required_input": "Each domain needs a morphism to the same original projective scheme, not merely a rational function.",
+      "constructed_input": "numeratorMap evaluates g/f into JLineAtlas318.chart Q 0; denominatorMap evaluates f/g into chart Q 1.",
+      "justification": "Both use literal polynomial evaluation followed by the original algebraic chart. The evaluation_over_Q lemma checks their exact composite with ProjectiveJLine318.structureMap; global over_Q is later proved by the covering hom-ext theorem.",
+      "sources": [
+        "RationalPairLocalMaps318.lean",
+        "RationalPairGluing318.lean",
+        "../../progress/JLineAtlas318.lean"
+      ]
+    },
+    {
+      "name": "Overlap equality of scheme morphisms",
+      "required_input": "The two actual local maps must agree on the entire common localization.",
+      "constructed_input": "projection_compatibility computes the composites of the actual evaluation ring maps with toNumerator and the common algebra map.",
+      "justification": "Polynomial.ringHom_ext checks constants and the coordinate. The resulting two maps are related by the exact unit forward with inverse inverse; JLineOverlap318.unit_chart_overlap applies to that unit and the same original target chart maps. The equality is of scheme morphisms, not equality on points.",
+      "sources": [
+        "RationalPairLocalMaps318.lean",
+        "../../progress/JLineOverlap318.lean"
+      ]
+    },
+    {
+      "name": "Coverage and all gluing pairs",
+      "required_input": "The chosen local maps must cover all source points and agree for every ordered pair of cover indices.",
+      "constructed_input": "cover is an actual Bool-indexed Scheme.OpenCover of Spec Q[T], supplied by IsCoprime f g and exact localization ranges. compatible handles four ordered pairs.",
+      "justification": "The two mixed cases use the proved actual pullback and its flip, transferred to Mathlib canonical pullbacks via isoPullback. Both diagonal cases use monomorphism cancellation. Thus no missing index, diagonal or reverse compatibility is left to inference.",
+      "sources": [
+        "RationalPairGluing318.lean",
+        "ThreeProjectiveJCertificates318.lean"
+      ]
+    },
+    {
+      "name": "Whole affine morphisms and original j pairs",
+      "required_input": "The glued result must be a map on each entire original affine source chart with exact local restrictions and rational scalar map.",
+      "constructed_input": "RationalPairGluing318.map uses cover.glueMorphisms; numerator_restriction and denominator_restriction identify its original local maps. ThreeAffineJMaps318 specializes this to both actual degree-four j coordinate pairs.",
+      "justification": "The two rational Bezout certificates discharge the complete source coverage assumptions. The four concrete restriction identities bind the resulting maps to the exact numerator/denominator charts. Both finite_over_Q and reciprocal_over_Q retain the original coefficient map. The source infinity/zero points lie in these full affine charts, not a deleted dense locus.",
+      "sources": [
+        "RationalPairGluing318.lean",
+        "ThreeAffineJMaps318.lean"
+      ]
+    },
+    {
+      "name": "Verification, prior evidence and remaining global overlap",
+      "required_input": "New applications require hosted kernel checking and distinct review; affine gluing must not be described as the completed projective map.",
+      "constructed_input": "Six unchanged predecessor modules and three new local-map/gluing modules are hashed and ordered for a separate inactive CI candidate.",
+      "justification": "No local Lean run, kernel pass or independent proof acceptance is claimed. The two entire affine maps have been constructed in source code; their mutual agreement on the original projective source overlap and final gluing on ProjectiveJLine318.scheme Q remain to be proved. The characteristic-three obstruction remains explicit; no integral Z-model, degree theorem, PEL realization or final arithmetic theorem is asserted.",
+      "sources": [
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}
