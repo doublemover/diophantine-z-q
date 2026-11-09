@@ -1,0 +1,117 @@
+{
+  "claim": "The five original actual elliptic differential pullbacks form a basis of the original global intrinsic differential space over the original structural Q action; its finrank is five.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "reconstruction": true,
+  "historical_receipt_not_recovered": "e384519c52280a1d974837d24a95980bba233dc068f411e6519c6634f40a3432",
+  "predecessor_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "sources": {
+    "GeometricIntegralConstants318.lean": "438dd9828f3826b5ea744e92d53307ac5ad48ad7d68ae0672b0f9e1d39dd60fe",
+    "ActualFiveRationalIndependent318.lean": "35576d38eb0b2e0e10ab73ba3e43855610b277d7ec678d0856ce0e10bfca4bd2",
+    "ActualSourceRationalConstants318.lean": "549a91d02fa1cf9af2297be2f364b3b4227f261c4ee238bb5afeab69c6550e6f",
+    "SingleFlipInvariantLine318.lean": "6603e0adf5c109ac7701f6707d385bf0bb8a8e445ce755b76af6f48c6eaed18a",
+    "ActualDifferentialSignLinear318.lean": "477abd9d7f03767b57ec8977387fd34bb463566302257c1bb61f7d2a44b2f344",
+    "ActualFiveDifferentialSpanning318.lean": "f4118a495026d0dd84157a701f0171a2794f7483fa3d83efc9328cfb66b56c01",
+    "ActualFiveDifferentialBasis318.lean": "1bf8ae4e94ca35c4b3696598060c5054beaed92d5835ec887597d412a0505c25"
+  },
+  "obligations": [
+    {
+      "name": "Source and carrier",
+      "required": "A basis of actual regular global intrinsic differentials on the complete original source.",
+      "constructed": "G is \u0393(ContactIntrinsicDifferentials318.omega units, top), with fixed SourceTwistArithmetic318.units.",
+      "justification": "No abstract replacement or assumed five-dimensional space is introduced. The five basis entries are original actual quotient pullbacks.",
+      "evidence": [
+        "ActualFiveRationalIndependent318.differential",
+        "ActualFiveDifferentialBasis318.basis_apply"
+      ]
+    },
+    {
+      "name": "Coefficient ring and scalar action",
+      "required": "Use the original rational structural constants throughout.",
+      "constructed": "rationalModule is Module.compHom G ActualQuotientConstantPullback318.sourceConstant.",
+      "justification": "rational_smul and original_constant identify this action with the action in the existing independence and quotient pullback theorems.",
+      "evidence": [
+        "ActualFiveRationalIndependent318.rational_smul",
+        "ActualFiveRationalIndependent318.original_constant"
+      ]
+    },
+    {
+      "name": "Properness and algebraic constants",
+      "required": "Every global regular source function is integral over Q, and no extra algebraic constants occur.",
+      "constructed": "The original structure map is proper; the actual SourceOrder tensor AlgebraicClosure Q is a domain.",
+      "justification": "The proof restricts through the actual finite affine chart, applies the general tensor-domain lemma, and uses generic-germ injectivity to recover equality on the whole source.",
+      "evidence": [
+        "GeometricIntegralConstants318.integral_is_constant",
+        "ActualSourceRationalConstants318.constant_bijective",
+        "SourceScalarExtension318.scalarExtension_domain",
+        "ContactGlobalProper318.proper_integral_extension"
+      ]
+    },
+    {
+      "name": "Local hypothesis and cover coverage",
+      "required": "Single-flip invariance must give a regular ratio on every source chart, not just the common open.",
+      "constructed": "At omitted branch i use BranchDifferentialDivisibility318.fixed_factorization and the original representation_action. At all other branches and the entire infinity chart use the existing unit-frame multiple theorems.",
+      "justification": "The five-chart cover and common-open scalar injectivity glue these ratios as a global regular function. No whole-kernel invariance is assumed at this stage.",
+      "evidence": [
+        "SingleFlipInvariantLine318.factorization",
+        "SingleFlipInvariantLine318.global_multiple",
+        "SingleFlipInvariantLine318.exists_rational_multiple"
+      ]
+    },
+    {
+      "name": "Transition maps and actual action",
+      "required": "The action must be the canonical differential pullback of the original whole-scheme signs, with exact composition and scalar compatibility.",
+      "constructed": "action is a linear packaging of ContactDifferentialCharacters318.action. action_comp uses ContactGlobalSignAction318.composition and IntrinsicDifferentialFunctor318.globalSection_comp.",
+      "justification": "The contravariant order is retained. Boolean xor commutes, but the proof directly matches the actual composition statement and the structural constant pullback.",
+      "evidence": [
+        "ActualDifferentialSignLinear318.action",
+        "ActualDifferentialSignLinear318.action_comp",
+        "ActualDifferentialSignLinear318.involution"
+      ]
+    },
+    {
+      "name": "Projection normalization and separation",
+      "required": "The +1 projection must have factor 1/2 over Q and separate the four complementary characters.",
+      "constructed": "projection i s = (1/2) smul (s + action(flip i)s). Each other actual complementary differential has eigenvalue -1 and its own has +1.",
+      "justification": "projection_fixed, projection_line, projection_sum and sum_flip give the exact cancellation; no scalar or character multiplicity is dropped.",
+      "evidence": [
+        "ActualFiveDifferentialSpanning318.projection_fixed",
+        "ActualFiveDifferentialSpanning318.sum_flip"
+      ]
+    },
+    {
+      "name": "Fifth-kernel index coverage",
+      "required": "The remainder must be invariant for every one of the eight signs in the original fifth-kernel theorem.",
+      "constructed": "Each root flip acts by -1 on the remainder. sign_decomposition expresses all sixteen Boolean signs using the four original flips.",
+      "justification": "full_character_of_flips identifies every sign action with FifthOpenSigns318.epsilon. Membership in FifthFixingSigns318.signs gives epsilon=1 and exactly the existing Fixed predicate.",
+      "evidence": [
+        "ActualDifferentialSignLinear318.sign_decomposition",
+        "ActualDifferentialSignLinear318.full_character_of_flips",
+        "ActualFiveDifferentialSpanning318.exists_coefficients"
+      ]
+    },
+    {
+      "name": "Identity of the downstream object",
+      "required": "The spanning forms and independent forms must be identical to the basis entries consumed downstream.",
+      "constructed": "The four ContactCharacterDifferentials318.differential i and FifthActualDifferential318.differential appear unchanged in independence, spanning, and basis.",
+      "justification": "basis_apply establishes exact equality to differential indexed by Option(Fin4). The fifth -41160 normalization is inherited from the existing actual pullback independence, not redefined.",
+      "evidence": [
+        "ActualFiveRationalIndependent318.independent",
+        "ActualFiveDifferentialSpanning318.exists_coefficients",
+        "ActualFiveDifferentialBasis318.basis_apply"
+      ]
+    },
+    {
+      "name": "Dependencies and scope",
+      "required": "Historical acceptance cannot authorize the new proof route or broader arithmetic conclusions.",
+      "constructed": "Seven newly reconstructed sources depend on source/dependency-verified checkpoint 5e483a2 and pinned Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679.",
+      "justification": "This is an alternative reconstruction, not original-byte recovery. It proves a basis and Q dimension five only. Represented Picard/Jacobian, polarization, PEL, metric/height, and all-integer witnesses remain separate.",
+      "evidence": [
+        "README.md",
+        "MODULE_ORDER.txt",
+        "ActualFiveDifferentialBasis318.finrank_eq_five"
+      ]
+    }
+  ],
+  "independent_review": "pending new-route source-bound review; historical report is not reused"
+}

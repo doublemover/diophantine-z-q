@@ -1,0 +1,36 @@
+{
+  "packet": "height-source-fiber-r1",
+  "status": "PASS_STRICT_CHECKS_AND_43_DECLARATION_RECURSIVE_AUDIT_PENDING_NONAUTHOR_REVIEW",
+  "order": [
+    "RationalFourRootFiber318",
+    "FourRootPointTorsor318",
+    "RationalContactPoint318"
+  ],
+  "files": {
+    "RationalFourRootFiber318.lean": {
+      "sha256": "7508e2ae43346ee6169187d900cb20e0d8607ce96c87eaec2730115d321e7750",
+      "imports": [
+        "FourRootOrderSigns318",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Finrank"
+      ]
+    },
+    "FourRootPointTorsor318.lean": {
+      "sha256": "98f428008b2cd294a1d920d1e7d9b854a71fdaf665deeb822d13bad8e0c27bf1",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "RationalContactPoint318.lean": {
+      "sha256": "b14c45659732280a5df3b6ae1019027ebee58f240ddca1074a6ecee9e91d422a",
+      "imports": [
+        "RationalFourRootFiber318",
+        "FourRootPointTorsor318",
+        "SourceGlobalAffine318",
+        "FiveContactProducer318"
+      ]
+    }
+  },
+  "scope": "Actual bounded number-field points and complete sign orbit on the original four-root contact cover. Not a PEL or Arakelov realization, not FiveContact49Height.",
+  "verification": "verification/receipt.json"
+}

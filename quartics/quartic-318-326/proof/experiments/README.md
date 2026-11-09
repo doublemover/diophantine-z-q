@@ -1,5 +1,23 @@
 # Lean experiment history
 
+## Reviewed 22-source preservation checkpoint, 2026-11-09
+
+Five isolated packets have exact strict local source checks, private-inclusive recursive audits, and distinct non-author bounded source/consumer acceptance:
+
+- `recovered-five-basis-20261109`: 7 sources, 59 declarations. A newly reconstructed basis of the original global intrinsic differentials over the original rational action; finrank five. The older missing packet bytes were not recovered.
+- `relative-picard-pullback`: 6 sources, 114 declarations. Actual naive relative line-class presheaf and pullback transformations for the original five quotient maps. Representability, fppf descent and norm base change are not claimed.
+- `height-source-fiber-r1`: 3 sources, 43 declarations. Actual rational source-fiber/number-field realization and four-root sign torsor. The contact height theorem is not claimed.
+- `forward-three-compact-parameter-r1`: 4 sources, 161 declarations. Original-map rational parameter, biholomorphic open comparison, exceptional orders and cusp poles. Identification with the actual compact modular source is not claimed.
+- `forward-compressed-anchor-witness`: 2 sources, 203 declarations. One compatible witness for the first 39 raw source rows from supplied charts, preserving the input and original H ordinate. The remaining 249 rows and global arithmetic chart selection are not claimed.
+
+The 22 new modules and 580 audited declarations remain outside the unchanged 1,837-source accepted progress snapshot. Producer strict checks reuse exact verified predecessor artifacts; they are not clean whole-chain rebuilds. Independent review scopes and whether a reviewer separately recompiled are stated in each bound acceptance. Analytic acceptance is under `independent-reviews/three-compact-parameter-review`; the other acceptances are inside their packets.
+
+No experimental packet is active for automatic first-time checking at this preservation cutoff. Completed local checks and source acceptance are preserved without repeatedly scheduling them. Accepted-snapshot integration and any combined expanded audit remain separate work. New continuation packets not listed here are not included in this cutoff.
+
+The 1,837-source baseline itself passed [hosted run 42485572755](https://github.com/doublemover/diophantine-z-q/actions/runs/42485572755) and a fresh local private-inclusive recursive audit of 29,571 declarations using restored, source/dependency-verified artifacts. Exact evidence is under `../progress/receipts/restored1837-verification-20261109`. No new baseline source rebuild was performed locally.
+
+The following sections preserve historical intake states and do not describe current active packets.
+
 ## Completed analytic closure promoted
 
 [Run 42479657345](https://github.com/doublemover/diophantine-z-q/actions/runs/42479657345) passed all eight exact R3 sources and the 80-declaration recursive audit, with 211 verified predecessor modules. Its unchanged source closure, the separately successful literal-plane ambient consumer, and their distinct bounded source reviews are now admitted to the 1,837-module main progress cutoff. Shared predecessor bytes are admitted once. Exact hosted success is preserved in ../progress/receipts/period-plane-hosted-pass; earlier failed revisions remain immutable below. The main expanded cutoff still awaits its own combined hosted validation.

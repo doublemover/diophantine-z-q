@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "scope": "Two new source modules strictly compiled; complete private-inclusive recursive axiom audit. Not an end-to-end clean rebuild or a proof of global source arithmetic.",
+  "date_utc": "2026-11-09T02:37:06.172527+00:00",
+  "compiler": "Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "module_order": [
+    "CompressedAnchorWitness318",
+    "ReciprocalChartWitness318"
+  ],
+  "sources": {
+    "CompressedAnchorWitness318.lean": "13e1c2c45f7c86da3124fd0fab3ed49a4bab1c71fa43539d5779ed9dabb50b1c",
+    "ReciprocalChartWitness318.lean": "e060cf5acd80b468cf8ad25aa7dcbec76eef562bc912033e89ad8c4d77a90042"
+  },
+  "audit_source": {
+    "path": "AuditForwardWitness.lean",
+    "sha256": "65761b01f4c13a2f4a8ef04ea25604e3aaa1c9fb6df4580b3136c0ff856672a0"
+  },
+  "commands": [
+    {
+      "module": "CompressedAnchorWitness318",
+      "exit_code": 0,
+      "command": "lean -j1 -M 6144 -Ddebug.skipKernelTC=false -R PACKET -o OUTPUT/CompressedAnchorWitness318.olean PACKET/CompressedAnchorWitness318.lean"
+    },
+    {
+      "module": "ReciprocalChartWitness318",
+      "exit_code": 0,
+      "command": "lean -j1 -M 6144 -Ddebug.skipKernelTC=false -R PACKET -o OUTPUT/ReciprocalChartWitness318.olean PACKET/ReciprocalChartWitness318.lean"
+    },
+    {
+      "module": "AuditForwardWitness",
+      "exit_code": 0,
+      "command": "lean -j1 -M 6144 -Ddebug.skipKernelTC=false -R PACKET PACKET/AuditForwardWitness.lean"
+    }
+  ],
+  "audit": {
+    "modules": 2,
+    "declarations": 203,
+    "includes_private_and_generated": true,
+    "recursively_checks_dependencies": true,
+    "required_endpoints_checked": [
+      "CompressedAnchorWitness318.literal_rows",
+      "CompressedAnchorWitness318.reconstruct_original",
+      "ReciprocalChartWitness318.first39_rows",
+      "ReciprocalChartWitness318.prefix_hasSolution"
+    ],
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "logs": {
+    "AuditForwardWitness.log": "3be090a942c96e81925135ccf03a00998268c927fc85c70ef434fe1bbfd6af89",
+    "CompressedAnchorWitness318.log": "8f4d0dfd2d92bb979c70331b2babd20f35d3f898bcdb7447523f6971899ac6b5",
+    "ReciprocalChartWitness318.log": "43cc4fc2ca3a2aa6ac88ba401c7fb41b013b0a684afdb43ffee8aea7ecd0d714"
+  },
+  "predecessors": {
+    "reused_exact_hosted_modules": 1837,
+    "source_snapshot_sha256": "768c64ba67b1e1901c7492948ef3b1e727f49e38641664e00d435d45d8bc96a8",
+    "hosted_run": "https://github.com/doublemover/diophantine-z-q/actions/runs/42485572755",
+    "local_binding_validation_sha256": "ec88a0648923a5bc2dc55413480d488c6d6cc89e92a465cb2a45c28d13334b6d"
+  },
+  "prior_unchecked_remote_commit": "b68fd86742dd528c1a5eef5657005e47aaaa2d06",
+  "independent_review_status": "PENDING_DISTINCT_REVIEW",
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false
+}

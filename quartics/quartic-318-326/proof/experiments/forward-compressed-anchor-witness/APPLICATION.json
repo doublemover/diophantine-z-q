@@ -1,0 +1,127 @@
+{
+  "author": "/root/advance_integer_witnesses",
+  "claim": "Construct one compatible input-preserving assignment for the first 39 actual raw source rows from nine explicit reciprocal charts, with exact compressed-point reconstruction.",
+  "status": "LOCAL_CHECKED_PENDING_DISTINCT_REVIEW",
+  "sources": {
+    "CompressedAnchorWitness318.lean": "13e1c2c45f7c86da3124fd0fab3ed49a4bab1c71fa43539d5779ed9dabb50b1c",
+    "ReciprocalChartWitness318.lean": "e060cf5acd80b468cf8ad25aa7dcbec76eef562bc912033e89ad8c4d77a90042",
+    "AuditForwardWitness.lean": "65761b01f4c13a2f4a8ef04ea25604e3aaa1c9fb6df4580b3136c0ff856672a0"
+  },
+  "predecessor_sources": {
+    "Raw318FinalReplayData.lean": "c563f76c563192a218c3bdf22714ab73f36d3a0ed9c629a346d7d3bb9fa80457",
+    "CompressedPoint318.lean": "19f28e6cdba51ae88d71d0095313a643bf909283381f85c5eb016e06e8bcf71a",
+    "CompressedOrientation318.lean": "f845f03aa420bfa3a2f271de7528168fe7e2ddd4b15de0e5375d8bfc45010d16",
+    "ActualQuadraticEmbeddings318.lean": "7bfb555af18a7de29612b7775f8b3d3dabb2e95140ea181a8e84fe4e79f0306d",
+    "checkpoint-manifest.json": "e84fae499a4f86245e5d0a1ecdfdb620283ad45d00b522875e08ca47fc32d611"
+  },
+  "obligations": [
+    {
+      "name": "Required chart inputs",
+      "required_input": "The original reciprocal charts over K must satisfy v\u00b2=1\u2212Du\u2074; the compressed H chart must have uH nonzero.",
+      "constructed_input": "Eight charts u,v indexed by Fin 8 and one chart uH,vH are explicit universally quantified inputs.",
+      "justification": "No global existence is assumed in a record field or inferred from curve equations. The theorems construct coordinates from these displayed data.",
+      "source_references": "ReciprocalChartWitness318.first39_rows and prefix_hasSolution; CompressedAnchorWitness318.compression_equation",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual objects and constants",
+      "required_input": "Use the original source field, fixed point and literal rational coordinates.",
+      "constructed_input": "Both modules use ConcreteG8Domain.K and CompressedOrientation318.k,m,D, and import actual Raw318FinalReplayData residuals.",
+      "justification": "The existing constant_equation m\u00b2=k\u2074\u2212D is consumed. Pair projections store the original rational coordinates.",
+      "source_references": "CompressedPoint318.constant_equation; Raw318FinalReplayData.r0 through r38",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Index coverage and normalization",
+      "required_input": "All eight reciprocal charts and all 39 prefix rows must be covered, including gate normalizations.",
+      "constructed_input": "chart0_rows through chart7_rows prove all 32 chart rows; literal_rows in the anchor module proves r32 through r38.",
+      "justification": "The source-specific half normalization at coordinate 62 is built into fill. rows_eq_prefix identifies the chart list with the actual 32-row prefix.",
+      "source_references": "ReciprocalChartWitness318.fill, chart2_rows, rows_eq_prefix, first39_rows",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Division domains and exceptional cases",
+      "required_input": "No rational division may rely on an unavailable source solution or omit exceptional charts.",
+      "constructed_input": "uH\u22600 is explicit. denominator_nonzero proves k\u00b2+D*uH\u00b2\u22600 using the actual real embedding.",
+      "justification": "The image of k\u00b2 is positive and D*uH\u00b2 nonnegative because D=(3\u2212i)\u00b2. Zero vH or shift is allowed. The eight uncompressed charts require no nonzero coordinate.",
+      "source_references": "CompressedAnchorWitness318.denominator_nonzero, ordinate_identity, compression_equation",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Point identity and orientation",
+      "required_input": "The constructed compressed point must be the chosen point, not a same-abscissa or sign-ambiguous replacement.",
+      "constructed_input": "The reconstructed A is k*vH/uH; xH and yH become exactly 1/uH\u00b2 and vH/uH\u00b3.",
+      "justification": "The original source reconstruction functions are used, with exact field identities and the checked k,uH denominators.",
+      "source_references": "CompressedAnchorWitness318.reconstruct_original",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Compatible transitions and preserved input",
+      "required_input": "Combining the two blocks must preserve already established rows and coordinate zero.",
+      "constructed_input": "The eight-chart fill writes coordinates 1\u201332 and 58\u201373; compressed fill writes 33\u201337 and 74\u201377.",
+      "justification": "anchor_preserves_rows checks all original 32 residuals after the compressed fill. fill_input in both modules proves input preservation.",
+      "source_references": "ReciprocalChartWitness318.anchor_preserves_rows, first39_rows, prefix_hasSolution; CompressedAnchorWitness318.fill_other",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Exact downstream consumer",
+      "required_input": "An actual assignment must satisfy the original source prefix.",
+      "constructed_input": "first39_rows constructs the composed fill, while prefix_hasSolution specializes the base assignment to retain q.",
+      "justification": "The target is literally Constraints/HasSolution of (stage0 S).take 39. No alternate polynomial or row system is substituted.",
+      "source_references": "ReciprocalChartWitness318.first39_rows and prefix_hasSolution",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Bound validation and authorship",
+      "required_input": "Exact final source bytes, kernel checks, complete declaration audit and distinct review must remain separately identified.",
+      "constructed_input": "The source hashes below bind this contract. VALIDATION.json records local strict checks and private-inclusive recursive audit; independent review is separately authored.",
+      "justification": "No compiler result is counted as independent mathematical acceptance or as a complete source rebuild. Pinned predecessor artifacts are reused with exact bindings.",
+      "source_references": "intake.json; VALIDATION.json; AuditForwardWitness.lean; validation/*.log",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Conclusion limits and history",
+      "required_input": "Finite forward assembly must not be reported as global completeness or a newly discovered arithmetic gap.",
+      "constructed_input": "The historical argument is identified as prior justification; current forward formalization covers only this prefix.",
+      "justification": "249 remaining source rows and their simultaneous arithmetic witness choice remain open. The theorem applies to arbitrary rational q because this prefix does not restrict q.",
+      "source_references": "APPLICATION-PENDING.md; progress/receipts/completeness-work/COMPLETENESS-ASSEMBLY.md Sections 3\u20134",
+      "evidence": [
+        "CompressedAnchorWitness318.lean",
+        "ReciprocalChartWitness318.lean",
+        "VALIDATION.json"
+      ]
+    }
+  ]
+}

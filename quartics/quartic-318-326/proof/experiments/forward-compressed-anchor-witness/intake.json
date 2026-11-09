@@ -1,18 +1,26 @@
 {
   "packet": "forward-compressed-anchor-witness",
-  "status": "PENDING_FIRST_STRICT_COMPILATION",
+  "status": "LOCAL_STRICT_AND_RECURSIVE_AUDIT_PASS_PENDING_INDEPENDENT_REVIEW",
   "order": [
-    "CompressedAnchorWitness318"
+    "CompressedAnchorWitness318",
+    "ReciprocalChartWitness318"
   ],
   "files": {
     "CompressedAnchorWitness318.lean": {
-      "sha256": "daa342d0f702722363e96903d9761e783c3d857979da34bc19aa3394b3043750",
+      "sha256": "13e1c2c45f7c86da3124fd0fab3ed49a4bab1c71fa43539d5779ed9dabb50b1c",
       "imports": [
         "CompressedPoint318",
         "ActualQuadraticEmbeddings318"
       ]
+    },
+    "ReciprocalChartWitness318.lean": {
+      "sha256": "e060cf5acd80b468cf8ad25aa7dcbec76eef562bc912033e89ad8c4d77a90042",
+      "imports": [
+        "CompressedAnchorWitness318"
+      ]
     }
   },
-  "scope": "Forward construction of compressed-anchor coordinates and exact raw rows 32-38, preserving the original reciprocal point. No global arithmetic completeness or accepted-manifest promotion.",
-  "full_arithmetic_theorem_proved": false
+  "scope": "Forward construction of all first 39 literal source rows from nine supplied reciprocal charts, preserving input and the original compressed-anchor point. No global arithmetic completeness or accepted-manifest promotion.",
+  "full_arithmetic_theorem_proved": false,
+  "local_validation": "VALIDATION.json"
 }
