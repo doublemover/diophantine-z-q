@@ -1,0 +1,107 @@
+{
+  "claim": "Construct whole canonical normal Cartesian chart from original quotient/normal geometry and reconstruct SAME curve from complete original Scheme-point branch data.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled74-source original Scheme-point reconstruction candidate.70 exact predecessors plus4 connected sources. Original normal affine cover yields normality of every actual stalk and nonempty affine section ring. Literal pullback of the actual integral quotient along original finite projective chart is affine, nonempty and integral; canonical isoSpec constructs ring, open chart, actual coefficient and Cartesian square, with normality derived from old cover. Complete branch law on ALL original complex Scheme points over each finite base coordinate transfers to this same chart, then unchanged original curve/field/deck equivalence. Real algebraic PEL Y,p,normal cover, faithful deck/fixed-function law and full branch/model identities remain inputs. No local Lean or budget change; fresh independent and hosted acceptance pending.",
+  "new_sources": {
+    "OriginalNormalCoverSections318.lean": "e7e995cd96d9c14b22edee57997f1f56abfc75e1f0bf66b54f70cfeb9538c835",
+    "OriginalCanonicalAffineChart318.lean": "06abf354b83c78d831446152980aba449c28a89d8705fb38d1a04b29a1b970a5",
+    "OriginalCanonicalAffineReconstruction318.lean": "872f0c33bf5934aec811706a99ccd44bc830a5f3233d6b01620b993af411a2d3",
+    "OriginalSchemeBranchReconstruction318.lean": "fbf91bde552d5664583104091bc3660eeab243b8f3772e4333110048781d9ba8"
+  },
+  "readme_sha256": "cde1579c85d36acf2d74b459a4b2c6398a06df8ab418694c8126dfc45055e27d",
+  "intake_sha256": "8c844adf31f076b262d44146172d94e24b0a9bfb9c4a6e82db4504e7c9405615",
+  "copy_bindings_sha256": "1f2c319fdd250e756f5e799ea2c097ff0a5ac3794afe3d8f9e95765fc33db62d",
+  "pinned_apis_sha256": "43fe467feb4bb5f7931ade5ec72f903575397c02df3ae68276b5cba623825dd9",
+  "predecessor_application_sha256": "eb257b8879637a33ed99b46169418dbc589a1584136bb2024861950b99223fc9",
+  "obligations": [
+    {
+      "name": "Normal cover coverage",
+      "required": "Every original point must lie in a genuinely normal affine chart.",
+      "constructed": "Use full iSup=top cover to choose a member containing each point.",
+      "justification": "Actual point supplies nonempty section ring; original affine germ localization preserves its normality.",
+      "evidence": [
+        "OriginalNormalCoverSections318.stalk"
+      ]
+    },
+    {
+      "name": "All affine normality",
+      "required": "Need normality of every actual nonempty affine section ring.",
+      "constructed": "At every maximal ideal use actual fromSpec point and original germ algebra.",
+      "justification": "Pinned maximal-localization criterion, not a selected generic field or guessed local scalar.",
+      "evidence": [
+        "OriginalNormalCoverSections318.sections_of_stalks",
+        "OriginalNormalCoverSections318.sections"
+      ]
+    },
+    {
+      "name": "Entire Cartesian chart",
+      "required": "Need the WHOLE inverse image of original finite projective chart.",
+      "constructed": "Literal pullback(chart1,p), affine by original p and nonempty by actual base-change surjectivity.",
+      "justification": "Integral dominant p is closed dense hence surjective; original chart is not replaced by a principal subopen.",
+      "evidence": [
+        "OriginalCanonicalAffineChart318.Chart",
+        "OriginalCanonicalAffineChart318.chart_nonempty"
+      ]
+    },
+    {
+      "name": "Original ring and square",
+      "required": "Need exact A,j,f,H consumed by previous reconstruction.",
+      "constructed": "Canonical isoSpec of literal pullback, its exact Spec.preimage coefficient, and original projections.",
+      "justification": "Fully faithful Spec fixes coefficient and of_iso_pullback proves both original square projections.",
+      "evidence": [
+        "OriginalCanonicalAffineChart318.coefficient",
+        "OriginalCanonicalAffineChart318.square"
+      ]
+    },
+    {
+      "name": "Canonical ring normality",
+      "required": "Normality of constructed ring cannot be assumed.",
+      "constructed": "Original open immersion pulls back same normal stalks; maximal-localization criterion gives whole global section ring normal.",
+      "justification": "No new normal chart premise, scalar or algebraic closure is substituted.",
+      "evidence": [
+        "OriginalCanonicalAffineChart318.ring_normal"
+      ]
+    },
+    {
+      "name": "Every original complex point",
+      "required": "Branch law must control actual Scheme points rather than only topological support.",
+      "constructed": "For every z and every q:Spec C->Y over literal basePoint(z), supply complete old stabilizer law.",
+      "justification": "Every canonical chart ring point gives such original q by proved point_over. No rationality restriction on q or z.",
+      "evidence": [
+        "OriginalSchemeBranchReconstruction318.BranchLaw",
+        "OriginalSchemeBranchReconstruction318.point_over"
+      ]
+    },
+    {
+      "name": "Unchanged downstream identity",
+      "required": "The original p, field and deck action must be retained in final isomorphism.",
+      "constructed": "Canonical chart is passed to70 and exact same original point action to its full branch consumer.",
+      "justification": "Terminal retains old Y-to-Contact equivalence, old quotient square and old whole deck intertwining.",
+      "evidence": [
+        "OriginalCanonicalAffineReconstruction318.original_curve",
+        "OriginalSchemeBranchReconstruction318.original_curve"
+      ]
+    },
+    {
+      "name": "Actual PEL geometric boundary",
+      "required": "No constructed Contact model can supply the missing original PEL geometry.",
+      "constructed": "Original integral Y,p,normal cover,faithful deck/fixed functions and full branch/model laws remain inputs.",
+      "justification": "No algebraization, genus/Riemann-Hurwitz, five-orbit uniqueness or published quotient identity inferred from labels.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required": "A new connected normality/chart/point application requires fresh independent and hosted acceptance.",
+      "constructed": "70 exact predecessors plus4 new sources, exact primary bodies read and hashes pinned.",
+      "justification": "No local Lean, no resource change; structural checks are not mathematical or hosted acceptance.",
+      "evidence": [
+        "APPLICATION.json",
+        "COPY_BINDINGS.json",
+        "PINNED_APIS.md"
+      ]
+    }
+  ]
+}
