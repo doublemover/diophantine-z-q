@@ -1,0 +1,275 @@
+{
+  "packet": "original-line-affine-open-acyclicity",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "StructureAdditiveSheaf318",
+    "SheafInverseImageConstants318",
+    "OpenImmersionAdditiveRestriction318",
+    "ExtFiniteRetractVanishing318",
+    "AdditiveSheafSections318",
+    "PrincipalFractionClearing318",
+    "PrincipalCocycleSplit318",
+    "ActualPrincipalSections318",
+    "ActualPrincipalCocycle318",
+    "AffinePrincipalLocalLifts318",
+    "AffineStructureSectionLifting318",
+    "AffineOpenSectionLifting318",
+    "LocalSheafCohomologySections318",
+    "LocalAffineStructureHOne318",
+    "FiniteProjectiveDualFrame318",
+    "OriginalLineAffineModel318",
+    "OriginalAffineLineDualFrame318",
+    "OriginalAffineLineLocalHOne318",
+    "OriginalLineRestrictionAdditive318",
+    "LocalSheafCohomologyAdditive318",
+    "LocalCohomologyRestriction318",
+    "TerminalLocalCohomology318",
+    "OpenMayerVietoris318",
+    "MayerVietorisSectionKernel318",
+    "OriginalAffineLineSectionLifting318",
+    "OriginalLineOpenSectionLifting318",
+    "OriginalLineAffineOpenHOne318",
+    "OriginalLineMayerVietorisQuotient318"
+  ],
+  "files": {
+    "StructureAdditiveSheaf318.lean": {
+      "sha256": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+      "imports": [
+        "Mathlib.Algebra.Category.Ring.Limits",
+        "Mathlib.Topology.Sheaves.Functors",
+        "OpenTraceSheaf318"
+      ]
+    },
+    "SheafInverseImageConstants318.lean": {
+      "sha256": "094fc83fdb42d587bf46b38f46bf48fa270fe5c5da0609c4ec1c85de9794ca17",
+      "imports": [
+        "Mathlib.CategoryTheory.Abelian.GrothendieckCategory.HasExt",
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.Basic",
+        "Mathlib.Topology.Sheaves.Abelian",
+        "StructureAdditiveSheaf318"
+      ]
+    },
+    "OpenImmersionAdditiveRestriction318.lean": {
+      "sha256": "f8e97119b337406d9c4ec58879a59a014ec7a700ee5dfbe77c870cc26ea20f2f",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "SheafInverseImageConstants318"
+      ]
+    },
+    "ExtFiniteRetractVanishing318.lean": {
+      "sha256": "b903251631a869631d80a0351d43e3884271fc0c3f2780d06966b5c9b2920bf9",
+      "imports": [
+        "Mathlib.Algebra.Homology.DerivedCategory.Ext.Basic"
+      ]
+    },
+    "AdditiveSheafSections318.lean": {
+      "sha256": "cc2d6d357c8ca15a86459f7a62fbd4b945314a6d5535480c44b3da4ec14507b6",
+      "imports": [
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Topology.Sheaves.AddCommGrpCat",
+        "StructureAdditiveSheaf318"
+      ]
+    },
+    "PrincipalFractionClearing318.lean": {
+      "sha256": "a055271d9f1f5b67244e06bb846e0c51872a951ebc10154b7c6e698e6f07c1a7",
+      "imports": [
+        "Mathlib.Data.Fintype.Order",
+        "Mathlib.RingTheory.Ideal.Operations",
+        "Mathlib.RingTheory.Localization.AsSubring",
+        "Mathlib.RingTheory.Localization.Away.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "PrincipalCocycleSplit318.lean": {
+      "sha256": "ea3425c0d04250a585b8e40227ab6dfa6814c1133e155b1cad2f3f17e33d66f7",
+      "imports": [
+        "Mathlib.RingTheory.Spectrum.Prime.Topology",
+        "PrincipalFractionClearing318"
+      ]
+    },
+    "ActualPrincipalSections318.lean": {
+      "sha256": "8a2ac7ba18c671401e03f726833d18c63ca7fe865cca66d0974c0a94b7c1d3df",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.AffineScheme",
+        "PrincipalCocycleSplit318"
+      ]
+    },
+    "ActualPrincipalCocycle318.lean": {
+      "sha256": "18911203bcd8c5df0df3958ab82aab4a0e33620ad8002a8737064d2aef315288",
+      "imports": [
+        "ActualPrincipalSections318"
+      ]
+    },
+    "AffinePrincipalLocalLifts318.lean": {
+      "sha256": "4ff73469a263043051f848ab2f5f5b8206d3d883855a07e48035cf2d7e8c9c90",
+      "imports": [
+        "ActualPrincipalCocycle318",
+        "Mathlib.Topology.Sheaves.Abelian",
+        "Mathlib.Topology.Sheaves.LocallySurjective"
+      ]
+    },
+    "AffineStructureSectionLifting318.lean": {
+      "sha256": "2ac2e6df2a100c636d2ce4f35bf861cfa44374017b72943d17ec28705b463e3c",
+      "imports": [
+        "AdditiveSheafSections318",
+        "AffinePrincipalLocalLifts318"
+      ]
+    },
+    "AffineOpenSectionLifting318.lean": {
+      "sha256": "63cfd41012771cadf17044259f65e03a8d8693bc52843a4a6fdc9d6fc56806fb",
+      "imports": [
+        "AffineStructureSectionLifting318",
+        "Mathlib.Algebra.Category.Grp.Zero",
+        "Mathlib.AlgebraicGeometry.Properties",
+        "OpenImmersionAdditiveRestriction318"
+      ]
+    },
+    "LocalSheafCohomologySections318.lean": {
+      "sha256": "bbb3bd5f596dec478d9a5124c3ba9b429696e07aae83be23b2ddad7e1c1865dd",
+      "imports": [
+        "SheafInverseImageConstants318"
+      ]
+    },
+    "LocalAffineStructureHOne318.lean": {
+      "sha256": "b98e203ecd663b4add7aaabbcdbd81b4e0e419b1c6cae21fd3bf2204c4a71d12",
+      "imports": [
+        "AffineOpenSectionLifting318",
+        "LocalSheafCohomologySections318"
+      ]
+    },
+    "FiniteProjectiveDualFrame318.lean": {
+      "sha256": "013225bee5a8e31fe9784e93a378009706492ec10183b67cc1d0c55dc32f10c5",
+      "imports": [
+        "Mathlib.RingTheory.Finiteness.Projective",
+        "Mathlib.RingTheory.Flat.LocallyFree",
+        "Mathlib.RingTheory.LocalProperties.Projective"
+      ]
+    },
+    "OriginalLineAffineModel318.lean": {
+      "sha256": "7038df3c666c5b4230520285f74ed2dfd056ffa661c709bce62fb72995890511",
+      "imports": [
+        "AffineLineFrameCover318",
+        "LineSheafClass318",
+        "Mathlib.AlgebraicGeometry.Modules.Tilde"
+      ]
+    },
+    "OriginalAffineLineDualFrame318.lean": {
+      "sha256": "7eb0e2ca44e95d362b2f13e5ebe25cc4237d910f43f626acf1e4bfb60d53dccc",
+      "imports": [
+        "FiniteProjectiveDualFrame318",
+        "OriginalLineAffineModel318"
+      ]
+    },
+    "OriginalAffineLineLocalHOne318.lean": {
+      "sha256": "17892ebc3187b890f2274c0dbe99eefe6eac8d2729cc7fb3c3970c19533936be",
+      "imports": [
+        "ExtFiniteRetractVanishing318",
+        "LocalAffineStructureHOne318",
+        "OriginalAffineLineDualFrame318"
+      ]
+    },
+    "OriginalLineRestrictionAdditive318.lean": {
+      "sha256": "a0c477a25931ec737ff226e7eb9883954aca220ed113350a7bcc751c2873e55e",
+      "imports": [
+        "LineSheafPullback318",
+        "OpenImmersionAdditiveRestriction318",
+        "OriginalAffineLineLocalHOne318"
+      ]
+    },
+    "LocalSheafCohomologyAdditive318.lean": {
+      "sha256": "020f8caa1351a7c377e53188edd7700924bebf2225cd87d0aa0192ae6dfee275",
+      "imports": [
+        "LocalSheafCohomologySections318"
+      ]
+    },
+    "LocalCohomologyRestriction318.lean": {
+      "sha256": "82f1221761ae4e62b539e0a18217fb6833a35a6bd4ae8eedd4c05ccfcbf06816",
+      "imports": [
+        "LocalSheafCohomologyAdditive318"
+      ]
+    },
+    "TerminalLocalCohomology318.lean": {
+      "sha256": "e5bae9aba9f3398c1a3864362436fd8622074256fa2ac0ae0270367888628b35",
+      "imports": [
+        "LocalSheafCohomologySections318"
+      ]
+    },
+    "OpenMayerVietoris318.lean": {
+      "sha256": "f605cda94cc1e64e4fd7321788d4ba916bce6df0c292cf2e1b8e71965dfe6f87",
+      "imports": [
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.MayerVietoris",
+        "TerminalLocalCohomology318"
+      ]
+    },
+    "MayerVietorisSectionKernel318.lean": {
+      "sha256": "e06780fb67abb7fbd00910628c684acfef3bb8b75964fb70a4d40abc4cfe900a",
+      "imports": [
+        "LocalCohomologyRestriction318",
+        "Mathlib.Algebra.Homology.ShortComplex.Ab",
+        "OpenMayerVietoris318"
+      ]
+    },
+    "OriginalAffineLineSectionLifting318.lean": {
+      "sha256": "f917f8093b398e8559fdb80650dc29fd30da86ee93ca931cfb6d738facd1e5a7",
+      "imports": [
+        "OriginalLineRestrictionAdditive318"
+      ]
+    },
+    "OriginalLineOpenSectionLifting318.lean": {
+      "sha256": "8d19e231017d1cbeb9867c9cd9a150829c189ab497d9b1c40e254c7baeac5181",
+      "imports": [
+        "OriginalAffineLineSectionLifting318"
+      ]
+    },
+    "OriginalLineAffineOpenHOne318.lean": {
+      "sha256": "6fc8c96a20de551a413519e493ea32d4abc8128bdf2a411fe95bb25368cac69d",
+      "imports": [
+        "OriginalLineOpenSectionLifting318"
+      ]
+    },
+    "OriginalLineMayerVietorisQuotient318.lean": {
+      "sha256": "c33d3679250312f1af8b155091bb9da5b747e4f3c27ed3de35a04fa3fe438c70",
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "MayerVietorisSectionKernel318",
+        "OriginalLineAffineOpenHOne318"
+      ]
+    }
+  },
+  "new_modules": [
+    "OriginalLineRestrictionAdditive318",
+    "OriginalLineMayerVietorisQuotient318",
+    "OriginalLineOpenSectionLifting318",
+    "OriginalAffineLineSectionLifting318",
+    "OriginalLineAffineOpenHOne318"
+  ],
+  "unchanged_producer_modules": [
+    "StructureAdditiveSheaf318",
+    "SheafInverseImageConstants318",
+    "OpenImmersionAdditiveRestriction318",
+    "ExtFiniteRetractVanishing318",
+    "AdditiveSheafSections318",
+    "PrincipalFractionClearing318",
+    "PrincipalCocycleSplit318",
+    "ActualPrincipalSections318",
+    "ActualPrincipalCocycle318",
+    "AffinePrincipalLocalLifts318",
+    "AffineStructureSectionLifting318",
+    "AffineOpenSectionLifting318",
+    "LocalSheafCohomologySections318",
+    "LocalAffineStructureHOne318",
+    "FiniteProjectiveDualFrame318",
+    "OriginalLineAffineModel318",
+    "OriginalAffineLineDualFrame318",
+    "OriginalAffineLineLocalHOne318",
+    "LocalSheafCohomologyAdditive318",
+    "LocalCohomologyRestriction318",
+    "TerminalLocalCohomology318",
+    "OpenMayerVietoris318",
+    "MayerVietorisSectionKernel318"
+  ],
+  "scope": "Actual local H1 vanishing for every original global line on every affine open of an integral scheme, and the original global derived H1 as quotient of original overlap sections by original restrictions for any two-affine cover.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}
