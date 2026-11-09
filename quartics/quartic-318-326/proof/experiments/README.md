@@ -766,3 +766,7 @@ Actual translated-index and half-trace calculations now construct the scalar2/3 
 ## Continuation batch 38
 
 The exact finite character computation is performed in integers and transported to the unchanged rational signs by proved casts. Kernel-checked decide is retained; no native evaluation axiom or statement weakening. The previous run passed actual rational exhaustion and then failed only the rational finite computation; the remaining packet is still pending.
+
+## Continuation batch 39
+
+Actual positive odd beta/scalar/Lucas labels and adjustable common2/3 depths are constructed before the eventual real/contact choices, preserving the same later CRT witness and remaining point/prime/Anchor inputs. Original covering-line pasting and calibrated pullback paths advance without claiming global source gluing. Exact CommonOrder, vertical-DVR and tilde-identity failures are preserved and narrowly repaired. All new source remains pending hosted validation.

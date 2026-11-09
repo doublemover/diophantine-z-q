@@ -1,0 +1,46 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-chart-intersection-assembly-r3/TildePullbackIdentity318.lean:69:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (conjugateEquiv ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom ?f)).comp tilde.adjunction)
+      (tilde.adjunction.comp (Scheme.Modules.pullbackPushforwardAdjunction (Spec.map ?f))))
+    (TildePullback318.pullbackIso ?f).hom
+in the target expression
+  (moduleSpecΓFunctor.rightUnitor.inv ≫ moduleSpecΓFunctor.whiskerLeft (ModuleCat.restrictScalarsId ↑R).inv) ≫
+      (conjugateEquiv ((ModuleCat.extendRestrictScalarsAdj (RingHom.id ↑R)).comp tilde.adjunction)
+          (tilde.adjunction.comp (Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (𝟙 R)))))
+        (TildePullback318.pullbackIso (𝟙 R)).hom =
+    moduleSpecΓFunctor.rightUnitor.inv ≫
+      moduleSpecΓFunctor.whiskerLeft (ModuleCat.restrictScalarsId ↑R).inv ≫ (TildePullback318.globalNatIso (𝟙 R)).inv
+
+R : CommRingCat
+⊢ (moduleSpecΓFunctor.rightUnitor.inv ≫ moduleSpecΓFunctor.whiskerLeft (ModuleCat.restrictScalarsId ↑R).inv) ≫
+      (conjugateEquiv ((ModuleCat.extendRestrictScalarsAdj (RingHom.id ↑R)).comp tilde.adjunction)
+          (tilde.adjunction.comp (Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (𝟙 R)))))
+        (TildePullback318.pullbackIso (𝟙 R)).hom =
+    moduleSpecΓFunctor.rightUnitor.inv ≫
+      moduleSpecΓFunctor.whiskerLeft (ModuleCat.restrictScalarsId ↑R).inv ≫ (TildePullback318.globalNatIso (𝟙 R)).inv
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-chart-intersection-assembly-r3/TildePullbackIdentity318.lean:96:2: error: Type mismatch: After simplification, term
+  Eq.symm (congrArg Iso.inv h)
+ has type
+  @Eq
+    (moduleSpecΓFunctor.obj ((𝟭 (Spec R).Modules).obj M) ⟶
+      moduleSpecΓFunctor.obj ((Scheme.Modules.pushforward (Spec.map (𝟙 R))).obj M))
+    (((ModuleCat.restrictScalarsId ↑R).app (moduleSpecΓFunctor.obj M)).inv ≫
+      ((TildePullback318.globalNatIso (𝟙 R)).app M).inv)
+    (moduleSpecΓFunctor.map ((AffineGlobalSectionCoherence318.specId R).app M).inv)
+but is expected to have type
+  @Eq (moduleSpecΓFunctor.obj M ⟶ (Scheme.Modules.pushforward (Spec.map (𝟙 R)) ⋙ moduleSpecΓFunctor).obj M)
+    ((ModuleCat.restrictScalarsId ↑R).inv.app (moduleSpecΓFunctor.obj M) ≫
+      (TildePullback318.globalNatIso (𝟙 R)).inv.app M)
+    (moduleSpecΓFunctor.map ((AffineGlobalSectionCoherence318.specId R).inv.app M))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-chart-intersection-assembly-r3/TildePullbackIdentity318.lean:104:2: error: Type mismatch: After simplification, term
+  congrArg (fun t => t.app M) (identity R)
+ has type
+  @Eq ((Scheme.Modules.pullback (Spec.map (𝟙 R))).obj ((tilde.functor R).obj M) ⟶ (tilde.functor R).obj M)
+    ((TildePullback318.pullbackIso (𝟙 R)).hom.app M ≫
+      (tilde.functor R).map ((ModuleCat.extendScalarsId ↑R).hom.app M) ≫ 𝟙 ((tilde.functor R).obj M))
+    ((pullbackId R).hom.app ((tilde.functor R).obj M) ≫ 𝟙 ((tilde.functor R).obj M))
+but is expected to have type
+  @Eq
+    ((Scheme.Modules.pullback (Spec.map (𝟙 R))).obj ((tilde.functor R).obj M) ⟶
+      (tilde.functor R).obj ((𝟭 (ModuleCat ↑R)).obj M))
+    ((TildePullback318.pullbackIso (𝟙 R)).hom.app M ≫ (tilde.functor R).map ((ModuleCat.extendScalarsId ↑R).hom.app M))
+    ((pullbackId R).hom.app ((tilde.functor R).obj M))
