@@ -1,0 +1,119 @@
+{
+  "claim": "Pending genuine structural rational source-H1 dimension upper bound five and original five-map rational equivalence conditional only on explicit cross terms and target nonvanishing; common transfer kernel exhaustion derived.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Revision r2 makes forward kernel witnesses explicitly U and V; all other54 sources unchanged. Hosted checks, axiom audit and independent acceptance pending.",
+  "new_sources": {
+    "ActualSourceHOneRationalSpanning318.lean": "ad1c1ef5ce90c244559b925e29f12c3e3ae690876245e767e7da7c619f389160",
+    "ActualFiveHOneRationalExhaustion318.lean": "1da8e4f88586012256f3640b5de99f629c9bd912be02c219dea5d1a3c9034ed7"
+  },
+  "readme_sha256": "1ca8a39d8bdb4ac87b71866a2cfae0354bd997d3ff9013c4474b9e33ac6cd0c1",
+  "intake_sha256": "ba97a22afadcf70d9476ab3d09fe13a7aa6f58b34515393148b2fd9409f3e5ea",
+  "copy_bindings_sha256": "27fae2aaa0289d07d884fa8ad231b07789da835b8a440b6cd2dd72a6a326e811",
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "obligations": [
+    {
+      "name": "Structural rational source action",
+      "required": "A genuine Q-module must precede every dimension argument.",
+      "constructed": "sourceRationalModule is the original sheaf-scalar action from ActualHOneRational318.sourceModule.",
+      "justification": "The copied ofAction uses cohomology maps of actual scalar multiplication and proves each module law. No rational action is inferred from a surjective additive map or transported from a different carrier.",
+      "evidence": [
+        "StructureRationalScalar318.multiply",
+        "CohomologyRationalScalar318.ofAction",
+        "ActualHOneRational318.sourceModule",
+        "ActualSourceHOneRationalSpanning318.sourceRationalModule"
+      ]
+    },
+    {
+      "name": "Actual rational quotient and kernel",
+      "required": "The chart-image quotient must be Q-linear and identify the same boundary.",
+      "constructed": "boundaryLinear and differenceLinear are the original additive maps upgraded by toRatLinearMap; kernel_eq_range uses the original exact kernel equality.",
+      "justification": "Unique rational scalar compatibility makes these maps linear. kernelQuotientEquivalence_mk identifies its image with the unchanged actual boundary on every overlap element.",
+      "evidence": [
+        "ActualSourceHOneRationalSpanning318.kernel_eq_range",
+        "ActualSourceHOneRationalSpanning318.kernelQuotientEquivalence_mk",
+        "ActualSourceHOneCoordinates318.kernel_eq_range"
+      ]
+    },
+    {
+      "name": "Full five-coordinate spanning input",
+      "required": "The rational dimension bound requires a surjection from exactly five copies of Q.",
+      "constructed": "fiveLinear is the exact fiveCoefficients map upgraded without changing values.",
+      "justification": "fiveLinear_surjective reuses the full original-coordinate calculation; SmallIndex has cardinal five. FiniteDimensional.of_surjective is applied to this specific map.",
+      "evidence": [
+        "ActualSourceHOneFiveSpanning318.fiveCoefficients_surjective",
+        "ActualSourceHOneSmallPoles318.smallIndex_card",
+        "ActualSourceHOneRationalSpanning318.fiveLinear_apply",
+        "ActualSourceHOneRationalSpanning318.source_finrank_le_five"
+      ]
+    },
+    {
+      "name": "Original target rational carriers",
+      "required": "Every original target and map must have compatible rational structure.",
+      "constructed": "targetRationalModule uses the original characterModule or fifthModule for each Option Fin 4 index.",
+      "justification": "pullbackLinear, transferLinear, sumLinear and transfersLinear upgrade the exact original additive maps. No index, field, trace scaling or comparison is changed.",
+      "evidence": [
+        "ActualFiveHOneRationalExhaustion318.targetRationalModule",
+        "ActualFiveHOneRationalExhaustion318.pullbackLinear",
+        "ActualFiveHOneRationalExhaustion318.transferLinear"
+      ]
+    },
+    {
+      "name": "Individual splittings and target finiteness",
+      "required": "Each target must be finite-dimensional before its finrank is used.",
+      "constructed": "targetFiniteDimensional uses the actual pullback injection derived from splitLinear.",
+      "justification": "splitLinear is the original transfer-after-pullback identity; the codomain already has the new genuine source finite-dimensional structure.",
+      "evidence": [
+        "ActualFiveHOneDecomposition318.split",
+        "ActualFiveHOneRationalExhaustion318.targetFiniteDimensional"
+      ]
+    },
+    {
+      "name": "Five nonzero target dimensions",
+      "required": "The lower bound five requires a nonzero element in every target.",
+      "constructed": "TargetsNonzero is explicitly quantified over all Option Fin 4 targets.",
+      "justification": "finrank positivity follows from those actual witnesses and proven finite-dimensionality; finrank_pi_fintype sums all five contributions. This nonvanishing input remains unproved.",
+      "evidence": [
+        "ActualFiveHOneRationalExhaustion318.TargetsNonzero",
+        "ActualFiveHOneRationalExhaustion318.target_product_finrank_ge_five"
+      ]
+    },
+    {
+      "name": "Cross terms and source exhaustion",
+      "required": "Individual splittings alone cannot imply independence of all five images.",
+      "constructed": "sumLinear_injective explicitly requires the original CrossTermsVanish hypothesis.",
+      "justification": "With that input, rank(product)<=rank(source)<=5 and rank(product)>=5 imply equal finite dimensions. The original sum map is therefore surjective and the source has rank five. Cross-term vanishing remains unproved.",
+      "evidence": [
+        "ActualFiveHOneDecomposition318.CrossTermsVanish",
+        "ActualFiveHOneRationalExhaustion318.sumLinear_surjective",
+        "ActualFiveHOneRationalExhaustion318.source_finrank_eq_five"
+      ]
+    },
+    {
+      "name": "Exact final forward and inverse maps",
+      "required": "The endpoint must identify the original quotient pullbacks and normalized transfers.",
+      "constructed": "actualEquivalence is constructed from the original sumLinear, and its inverse is proved equal to allTransfers.",
+      "justification": "jointly_detect_zero is derived using the original surjectivity iff common-kernel criterion. No common-kernel-zero hypothesis is silently assumed or retained as an extra premise.",
+      "evidence": [
+        "ActualFiveHOneRationalExhaustion318.jointly_detect_zero",
+        "ActualFiveHOneRationalExhaustion318.actualEquivalence_apply",
+        "ActualFiveHOneRationalExhaustion318.actualEquivalence_symm"
+      ]
+    },
+    {
+      "name": "History, open geometry and verification",
+      "required": "Do not report the conditional rank-five endpoint as unconditional acceptance.",
+      "constructed": "Only the proposed structural Q finite-dimensionality and upper bound are unconditional; final rank five/equivalence display cross terms and nonvanishing.",
+      "justification": "Old scalar profiling does not validate their sources. The entire55-source closure, its geometric joins and exact maps await hosted strict checking and independent acceptance. Remaining independence/comparison inputs are stated in README.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json",
+        "intake.json"
+      ]
+    }
+  ],
+  "modified_dependencies": {
+    "MayerVietorisSectionKernel318.lean": "e06780fb67abb7fbd00910628c684acfef3bb8b75964fb70a4d40abc4cfe900a"
+  },
+  "revision_join": "Explicit U and V in the existential witnesses are the exact original Mayer-Vietoris square X2 and X3. The already concrete naturality equality now matches the concrete conclusion. No source-consumer map or sign changes."
+}
