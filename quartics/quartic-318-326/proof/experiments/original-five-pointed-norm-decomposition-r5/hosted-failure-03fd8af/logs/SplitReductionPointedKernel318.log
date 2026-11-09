@@ -1,0 +1,28 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r5/SplitReductionPointedKernel318.lean:22:24: error: unsolved goals
+X₀ X : Scheme
+i : X₀ ⟶ X
+r : X ⟶ X₀
+hr : i ≫ r = 𝟙 X₀
+L M : Deformation i
+e : L.line.object ≅ M.line.object
+δ : SheafOfModules.unit X₀.ringCatSheaf ≅ SheafOfModules.unit X₀.ringCatSheaf :=
+  L.trivialization.symm ≪≫ (Scheme.Modules.pullback i).mapIso e ≪≫ M.trivialization
+u : (↑Γ(X₀, ⊤))ˣ := UnitSheafScalar318.unit δ.symm
+a : (↑Γ(X, ⊤))ˣ := (Units.map ↑(CommRingCat.Hom.hom (Scheme.Hom.appTop r))) u
+⊢ (Scheme.Modules.pullback i).map (𝟙 L.line.object) ≫ L.trivialization.hom = L.trivialization.hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r5/SplitReductionPointedKernel318.lean:37:66: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [δ, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_inv, Category.assoc, Iso.hom_inv_id_assoc,
+    ← Functor.map_comp_assoc, e.hom_inv_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r5/SplitReductionPointedKernel318.lean:37:82: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [δ, Iso.trans_inv, Iso.symm_inv, Functor.mapIso_inv, Category.assoc, Iso.hom_inv_id_assoc,
+    ← Functor.map_comp_assoc, e.hom_inv_id, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
