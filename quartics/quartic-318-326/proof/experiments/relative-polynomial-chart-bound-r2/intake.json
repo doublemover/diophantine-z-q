@@ -1,0 +1,60 @@
+{
+  "packet": "relative-polynomial-chart-bound-r2",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "RelativeLaurentScalar318",
+    "RelativeLaurentClearing318",
+    "RelativeLaurentGeneratorBound318",
+    "RelativePolynomialChartGenerators318",
+    "RelativePolynomialChartBound318"
+  ],
+  "files": {
+    "RelativeLaurentScalar318.lean": {
+      "sha256": "a8d5d24f18f7642e2696321dc5e2789e1b41e21ad83cd9dedc7aa22ef1bea910",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Laurent",
+        "Mathlib.LinearAlgebra.Span.Defs"
+      ]
+    },
+    "RelativeLaurentClearing318.lean": {
+      "sha256": "d940b02ef84881e1afe496c29f7e39d3561fc843acb6700e8f339971ef60d3f9",
+      "imports": [
+        "RelativeLaurentScalar318"
+      ]
+    },
+    "RelativeLaurentGeneratorBound318.lean": {
+      "sha256": "b69d7b48ec6eb0aca8c5ab9fa7ddcb941bbb857c84bd1ac75dff6b873b28643d",
+      "imports": [
+        "Mathlib.Data.Finset.Lattice.Fold",
+        "Mathlib.LinearAlgebra.Quotient.Defs",
+        "Mathlib.Tactic.Choose",
+        "RelativeLaurentClearing318"
+      ]
+    },
+    "RelativePolynomialChartGenerators318.lean": {
+      "sha256": "1d1373409c8918efced5168a05500158ecf30983133cef89bf4aa85777ded965",
+      "imports": [
+        "Mathlib.RingTheory.Finiteness.Defs",
+        "RelativeLaurentGeneratorBound318"
+      ]
+    },
+    "RelativePolynomialChartBound318.lean": {
+      "sha256": "ffa6269277dcbe195bee76519b29de11bc12aaab27502b40a7f63209e4e483a8",
+      "imports": [
+        "RelativePolynomialChartGenerators318"
+      ]
+    }
+  },
+  "new_modules": [
+    "RelativePolynomialChartGenerators318",
+    "RelativePolynomialChartBound318"
+  ],
+  "unchanged_producer_modules": [
+    "RelativeLaurentScalar318",
+    "RelativeLaurentClearing318",
+    "RelativeLaurentGeneratorBound318"
+  ],
+  "scope": "Uniform eventual vanishing of original Laurent two-chart quotients from finitely generated original polynomial chart modules and literal positive/reciprocal scalar actions, over arbitrary commutative coefficient rings.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

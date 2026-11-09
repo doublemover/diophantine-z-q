@@ -1,0 +1,201 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "relative-polynomial-chart-bound-r2",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Uniform eventual vanishing of original Laurent two-chart quotients from finitely generated original polynomial chart modules and literal positive/reciprocal scalar actions, over arbitrary commutative coefficient rings.",
+  "bindings": {
+    "primary-sources/FinitenessDefs.lean.txt": "aa5c6c53c292d0fa6688419fefdd97182605d6dd1bc3bfd898846e9fe8262c36",
+    "primary-sources/FinsetFold.lean.txt": "52a0ba5288cd672a09016061004b397d59fb9185c33f4f833a27082c7f0af863",
+    "primary-sources/Laurent.lean.txt": "97024ee0ef8fa7e3f027576807c1cc31024c69d073510edbcffd43167ffc35f9",
+    "PRIMARY_SOURCES.json": "dd9c478f2158184f1e174737b46027e7a75d9925438d5887f2a2b94c6157a11d",
+    "README.md": "103dbd3710509ee01fe2eaf8a8ea81c878923622773758292677a9d9be830d78",
+    "APPLICATION.md": "f0715309492e49d688a9d2a096bae82b72df47e8adc95ccf109ecfe200c854df",
+    "intake.json": "bf4fee1d6a6e539f804382f325c09f4fa4ff4a7b949e642bd39b6b12843cb902",
+    "DEPENDENCIES.json": "802fc03c9a68dab92589c4622e9c213c61cd91c45d7ebf2259dc5fa29321e170",
+    "SOURCE_SHA256SUMS": "1fa9825278a941743c2aaf76b5abb25b058c7d950bc035707dba4ba794cc9c5c",
+    "MODULE_ORDER.txt": "d218c58c08eb249ee9182474a0bd13500eeed6c4dba2f5e35b687c0ed8a303ad",
+    "validation/ExperimentAudit.lean": "7d0feba663abf8370433bb7ae903e58c00bee3bf6aaf1801bad03485c74fc894",
+    "RelativeLaurentScalar318.lean": "a8d5d24f18f7642e2696321dc5e2789e1b41e21ad83cd9dedc7aa22ef1bea910",
+    "RelativeLaurentClearing318.lean": "d940b02ef84881e1afe496c29f7e39d3561fc843acb6700e8f339971ef60d3f9",
+    "RelativeLaurentGeneratorBound318.lean": "b69d7b48ec6eb0aca8c5ab9fa7ddcb941bbb857c84bd1ac75dff6b873b28643d",
+    "RelativePolynomialChartGenerators318.lean": "1d1373409c8918efced5168a05500158ecf30983133cef89bf4aa85777ded965",
+    "RelativePolynomialChartBound318.lean": "ffa6269277dcbe195bee76519b29de11bc12aaab27502b40a7f63209e4e483a8"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "Actual Laurent module, coefficient restriction, chart submodules, monomial stability and finite localized generators. Actual polynomial chart maps and their positive/reciprocal scalar laws are explicit. Finite generating overlap family and both image-stability properties are now derived; no field/domain/PID/reducedness/free basis.",
+      "required_input": "Actual Laurent module, coefficient restriction, chart submodules, monomial stability and finite localized generators.",
+      "constructed_input": "Actual polynomial chart maps and their positive/reciprocal scalar laws are explicit. Finite generating overlap family and both image-stability properties are now derived; no field/domain/PID/reducedness/free basis.",
+      "justification": "Actual polynomial chart maps and their positive/reciprocal scalar laws are explicit. Finite generating overlap family and both image-stability properties are now derived; no field/domain/PID/reducedness/free basis.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "The bound must apply to the original module and chart images. coefficientModule is the actual restriction of M along C. boundary is the literal P plus Q.map of actual monomial multiplication on M.",
+      "required_input": "The bound must apply to the original module and chart images.",
+      "constructed_input": "coefficientModule is the actual restriction of M along C. boundary is the literal P plus Q.map of actual monomial multiplication on M.",
+      "justification": "coefficientModule is the actual restriction of M along C. boundary is the literal P plus Q.map of actual monomial multiplication on M.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "All coefficient rings, every module element, every finite generator and all n beyond one bound. Laurent span of Q proves clearing for every original x. Finset.sup of generator denominator bounds is one common natural N, including the empty generating family.",
+      "required_input": "All coefficient rings, every module element, every finite generator and all n beyond one bound.",
+      "constructed_input": "Laurent span of Q proves clearing for every original x. Finset.sup of generator denominator bounds is one common natural N, including the empty generating family.",
+      "justification": "Laurent span of Q proves clearing for every original x. Finset.sup of generator denominator bounds is one common natural N, including the empty generating family.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "Negative chart stable under nonpositive powers; positive twist is multiplication T^n. Clearing uses T^-b x in Q. Positive monomials of generators lie in P; negative ones lie in T^n Q once their bounds are dominated. All exponents are proved explicitly.",
+      "required_input": "Negative chart stable under nonpositive powers; positive twist is multiplication T^n.",
+      "constructed_input": "Clearing uses T^-b x in Q. Positive monomials of generators lie in P; negative ones lie in T^n Q once their bounds are dominated. All exponents are proved explicitly.",
+      "justification": "Clearing uses T^-b x in Q. Positive monomials of generators lie in P; negative ones lie in T^n Q once their bounds are dominated. All exponents are proved explicitly.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "No hidden freeness or matrix inversion. Only actual finite generation and localization spanning are used. Arbitrary Laurent scalar closure is a finite monomial induction, valid in nonreduced rings.",
+      "required_input": "No hidden freeness or matrix inversion.",
+      "constructed_input": "Only actual finite generation and localization spanning are used. Arbitrary Laurent scalar closure is a finite monomial induction, valid in nonreduced rings.",
+      "justification": "Only actual finite generation and localization spanning are used. Arbitrary Laurent scalar closure is a finite monomial induction, valid in nonreduced rings.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "Original quotient of M by P+T^n Q. The endpoint applies original Submodule.Quotient.eq_zero_iff_mem to the exact displayed boundary. It is not renamed geometric H1.",
+      "required_input": "Original quotient of M by P+T^n Q.",
+      "constructed_input": "The endpoint applies original Submodule.Quotient.eq_zero_iff_mem to the exact displayed boundary. It is not renamed geometric H1.",
+      "justification": "The endpoint applies original Submodule.Quotient.eq_zero_iff_mem to the exact displayed boundary. It is not renamed geometric H1.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "Original R and Laurent actions must agree. R action is Module.compHom along C; constant_smul is literal equality and shift_constant retains coefficient and Laurent exponents.",
+      "required_input": "Original R and Laurent actions must agree.",
+      "constructed_input": "R action is Module.compHom along C; constant_smul is literal equality and shift_constant retains coefficient and Laurent exponents.",
+      "justification": "R action is Module.compHom along C; constant_smul is literal equality and shift_constant retains coefficient and Laurent exponents.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "State missing geometric family producers. Actual arbitrary-test chart images/localization, finite-family base change, nonreduced affine acyclicity and represented divisor/Picard objects remain separate.",
+      "required_input": "State missing geometric family producers.",
+      "constructed_input": "Actual arbitrary-test chart images/localization, finite-family base change, nonreduced affine acyclicity and represented divisor/Picard objects remain separate.",
+      "justification": "Actual arbitrary-test chart images/localization, finite-family base change, nonreduced affine acyclicity and represented divisor/Picard objects remain separate.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "Exact source/API binding, independent review and hosted validation. Five sources and exact prior-three copy bindings plus primary Laurent/Finset/Finiteness bodies bound; static check only, hosted elaboration/audit and independent acceptance pending. No local compilation or baseline promotion.",
+      "required_input": "Exact source/API binding, independent review and hosted validation.",
+      "constructed_input": "Five sources and exact prior-three copy bindings plus primary Laurent/Finset/Finiteness bodies bound; static check only, hosted elaboration/audit and independent acceptance pending. No local compilation or baseline promotion.",
+      "justification": "Five sources and exact prior-three copy bindings plus primary Laurent/Finset/Finiteness bodies bound; static check only, hosted elaboration/audit and independent acceptance pending. No local compilation or baseline promotion.",
+      "evidence": [
+        "RelativeLaurentScalar318",
+        "RelativeLaurentClearing318",
+        "RelativeLaurentGeneratorBound318",
+        "RelativePolynomialChartGenerators318",
+        "RelativePolynomialChartBound318"
+      ],
+      "sources": [
+        "PRIMARY_SOURCES.json",
+        "DEPENDENCIES.json"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false,
+  "revision_note": "Revision2 retains both original scalar-action hypotheses in exists_bound with include h\u03c6 h\u03c8; they are proof-only inputs and are not omitted. Frozen predecessor5 is unchanged. The exact previous three arbitrary-ring Laurent modules are retained. A finite generating family is now derived from Module.Finite on the ORIGINAL positive polynomial chart, and its actual image spans the common Laurent module by polynomial span induction through the specified original semilinear restriction formula. Positive monomial stability of that actual image is derived by mapping X^a, while negative stability of the original infinity image is derived by mapping X^-a under the literal Laurent inversion. Thus callers no longer supply a free basis, a finite overlap generating family or either stability property: they provide their actual two original polynomial modules, the original coefficient-linear chart maps and their exact polynomial scalar laws, and actual localization-spanning statements. Only the positive polynomial module must be finitely generated. The old clearing/max argument gives one bound for all larger twists and the exact original coefficient quotient vanishes. No field, reducedness, domain, PID or freeness assumption. Geometric arbitrary-base-change chart construction, actual localization comparison, finite-family base-change control, nonreduced affine derived acyclicity and represented relative divisor/Picard machinery remain separate; no relative geometric H1 assertion is made. Hosted validation and independent acceptance remain pending; no local Lean compilation."
+}
