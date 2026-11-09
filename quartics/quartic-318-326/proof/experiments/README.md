@@ -16,6 +16,18 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Verified integral branch tensors, 2026-11-09
+
+At commit1ca04ec, hosted run42595645126 checked all ten modules of
+height-integral-branch-tensors-r11 and the recursive audit of273 declarations.
+Only propext, Classical.choice and Quot.sound occurred. The exact intake
+4e8fd96b35da718269f49cb25e2f5f6b50918fb7d246b9ddec5c03bfe8ab975c
+and103 reused baseline predecessors are recorded with RESULT and logs.
+This verifies the stated actual branch-frame, integral tensor and original
+fraction-field comparison route under its explicit hypotheses, not full
+arithmetic completion or bad-prime/global model existence. The unchanged passed
+packet is retired from active replay; the1837-source accepted baseline is unchanged.
+
 ## Original chart descent, pointed maps and literal source completion, 2026-11-09
 
 Ten active closures now schedule590 source checks. Original affine-flat-surjective
@@ -722,3 +734,7 @@ The j-immersion R3 packet passed its strict check and 38-declaration recursive a
 The next active pair, LiteralThreeBaseEvaluation318 and LiteralThreePlanePoints318, constructs literal target evaluation and the actual algebra-map comparison with the quartic plane locus. It has only unchanged older predecessors, allowing verified cache reuse while the 1,164-module main cutoff runs. These are uncompiled drafts, not accepted results. The separate source j-atlas pair is held until its newly promoted predecessor has a complete baseline cache.
 
 Run [42456889730](https://github.com/doublemover/diophantine-z-q/actions/runs/42456889730) checked LiteralThreeBaseEvaluation318 successfully, then found an instance-elaboration error in LiteralThreePlanePoints318. The new R2 folder changes only that second file to supply the actual evaluation algebra instance. Its statement is unchanged and the full packet remains pending. The unchanged two-source actual j-atlas draft now joins the matrix using the successful 1164 predecessor cache. Both current closures must pass exact source/dependency/artifact validation against that cache; the concurrent 1206 main cutoff is not assumed verified.
+
+## Continuation batch 31
+
+Queued reviewed source revisions for actual affine coherence, original local chart gluing, the rational original-model isomorphism, and original H1-to-Picard-kernel homomorphisms. The latter retains only four canonical character naturality squares; fifth-cover independence remains open. Exact hosted failures are retained. All new source remains pending hosted checking and recursive axiom audit. Accepted baseline remains 1837.

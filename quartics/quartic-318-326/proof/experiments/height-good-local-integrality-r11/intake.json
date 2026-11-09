@@ -1,0 +1,182 @@
+{
+  "packet": "height-good-local-integrality-r11",
+  "status": "DRAFT_VERSIONED_CI_REPAIR_PENDING",
+  "order": [
+    "IntegralCotangentTensor318",
+    "VerticalCotangentSections318",
+    "ReducedVerticalUniformizer318",
+    "ReducedVerticalTensorSections318",
+    "KilledUniformizerSections318",
+    "ReducedBaseTensorSections318",
+    "LocalizedReducedFiber318",
+    "LocalizedBaseTensorSections318",
+    "IntegralContactOpenFrame318",
+    "EtaleFlatReduced318",
+    "IntegralContactReduced318",
+    "EtaleQuotientReduced318",
+    "IntegralContactWholeFiber318",
+    "IntegralContactLocalSections318",
+    "EtaleHeightOneLocal318",
+    "IntegralContactVerticalDVR318",
+    "IntegralContactActualVertical318"
+  ],
+  "new_modules": [],
+  "versioned_repairs": [
+    "IntegralContactOpenFrame318",
+    "LocalizedReducedFiber318",
+    "EtaleFlatReduced318"
+  ],
+  "unchanged_predecessor_modules": [
+    "IntegralCotangentTensor318",
+    "VerticalCotangentSections318",
+    "ReducedVerticalUniformizer318",
+    "ReducedVerticalTensorSections318",
+    "KilledUniformizerSections318",
+    "ReducedBaseTensorSections318",
+    "LocalizedReducedFiber318",
+    "LocalizedBaseTensorSections318",
+    "IntegralContactOpenFrame318",
+    "EtaleFlatReduced318",
+    "IntegralContactReduced318",
+    "EtaleQuotientReduced318",
+    "IntegralContactWholeFiber318",
+    "EtaleHeightOneLocal318",
+    "IntegralContactVerticalDVR318",
+    "IntegralContactActualVertical318"
+  ],
+  "files": {
+    "IntegralCotangentTensor318.lean": {
+      "sha256": "a91104360277261d6dd328161b59418363e8bcce9560c60d8e4f727fa141c70a",
+      "imports": [
+        "FractionKaehlerFrame318",
+        "Mathlib.LinearAlgebra.TensorProduct.Basic"
+      ]
+    },
+    "VerticalCotangentSections318.lean": {
+      "sha256": "1590f4c5839e80b3b715a6829e9176ca2bef6db68d689c25b7c21464b875f98e",
+      "imports": [
+        "FractionSourceSections318",
+        "IntegralCotangentTensor318"
+      ]
+    },
+    "ReducedVerticalUniformizer318.lean": {
+      "sha256": "b1b697408487e0f8d771d5dcf031367c601710e61755241fb420a8c9a9adb17e",
+      "imports": [
+        "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+        "Mathlib.RingTheory.Ideal.Quotient.Defs",
+        "Mathlib.RingTheory.Nilpotent.Defs",
+        "Mathlib.Tactic"
+      ]
+    },
+    "ReducedVerticalTensorSections318.lean": {
+      "sha256": "a3fd01f2a71107e5ebe69636099965181a81d64b40dcd2a6753d3f7dd0a70d4d",
+      "imports": [
+        "ReducedVerticalUniformizer318",
+        "VerticalCotangentSections318"
+      ]
+    },
+    "KilledUniformizerSections318.lean": {
+      "sha256": "050c2d9fa1e75f85e51f45164d0c382102a93557a1631b8c7e258c34bc2fbd84",
+      "imports": [
+        "VerticalSection318"
+      ]
+    },
+    "ReducedBaseTensorSections318.lean": {
+      "sha256": "5b46bc3d72eedfda349ddf6424c28d72821705c8392f58089b9b9939b5a918d4",
+      "imports": [
+        "KilledUniformizerSections318",
+        "ReducedVerticalTensorSections318"
+      ]
+    },
+    "LocalizedReducedFiber318.lean": {
+      "sha256": "9eea11729d7e1bde4f5d3375384b6c1addae69fce130973f735e3565485e0fbb",
+      "imports": [
+        "Mathlib.RingTheory.Ideal.Quotient.Nilpotent",
+        "Mathlib.RingTheory.Localization.Ideal"
+      ]
+    },
+    "LocalizedBaseTensorSections318.lean": {
+      "sha256": "7e6e8413f4284f6d4f784ddfb2c24652c0a2aaafa14339f94adaedc569867771",
+      "imports": [
+        "LocalizedReducedFiber318",
+        "ReducedBaseTensorSections318"
+      ]
+    },
+    "IntegralContactOpenFrame318.lean": {
+      "sha256": "26aaa97bea8f5d9f9b4a6931c4337eaa228756b4ac6049d0c3c0aee1841d5d4d",
+      "imports": [
+        "FourRootOrder318",
+        "LocalizedKaehlerFrame318",
+        "Mathlib.RingTheory.Kaehler.Polynomial",
+        "Mathlib.RingTheory.Localization.Away.Basic"
+      ]
+    },
+    "EtaleFlatReduced318.lean": {
+      "sha256": "1cba65b4b053afc924449fce5fb30605a967ed682c44fe0aab024c675b7a1f79",
+      "imports": [
+        "Mathlib.RingTheory.Etale.Basic",
+        "Mathlib.RingTheory.Localization.FractionRing",
+        "Mathlib.RingTheory.Unramified.Field"
+      ]
+    },
+    "IntegralContactReduced318.lean": {
+      "sha256": "fae2cd8218f6a015f8a0f19360ba80e1e30ea4b4b4e26b3ddb498dab23a148a6",
+      "imports": [
+        "EtaleFlatReduced318",
+        "IntegralContactOpenFrame318"
+      ]
+    },
+    "EtaleQuotientReduced318.lean": {
+      "sha256": "74d7fee597870767cfda90cead097d41b9b00c6a3cc7126e7f86dd0e94121397",
+      "imports": [
+        "EtaleFlatReduced318",
+        "Mathlib.RingTheory.TensorProduct.Quotient"
+      ]
+    },
+    "IntegralContactWholeFiber318.lean": {
+      "sha256": "be492f7ad9f83f96eca08870a6f1560b312e8d3e07c5672c832981692f19f600",
+      "imports": [
+        "EtaleQuotientReduced318",
+        "IntegralContactOpenFrame318",
+        "Mathlib.RingTheory.Localization.Ideal",
+        "Mathlib.RingTheory.Polynomial.Quotient"
+      ]
+    },
+    "IntegralContactLocalSections318.lean": {
+      "sha256": "bb9e4c75c1c8e17866b27516ce8ff4197511f612543b7993ffb83917283ab368",
+      "imports": [
+        "IntegralContactWholeFiber318",
+        "LocalizedBaseTensorSections318"
+      ]
+    },
+    "EtaleHeightOneLocal318.lean": {
+      "sha256": "5bf0ca3d6955a565b4e13bf4e0fc2e06377d068fc28f7cfaa18ac3c2a45a8853",
+      "imports": [
+        "EtaleLocalDVR318",
+        "HeightOneDVR318",
+        "Mathlib.RingTheory.Flat.Localization",
+        "Mathlib.RingTheory.Smooth.Flat"
+      ]
+    },
+    "IntegralContactVerticalDVR318.lean": {
+      "sha256": "5b9f1265333a10be93e82ccf9cf034bd8dfabb307534c0b968ee5aeec3980a86",
+      "imports": [
+        "EtaleHeightOneLocal318",
+        "IntegralContactReduced318",
+        "IntegralContactWholeFiber318",
+        "Mathlib.RingTheory.Ideal.KrullsHeightTheorem",
+        "Mathlib.RingTheory.Polynomial.UniqueFactorization"
+      ]
+    },
+    "IntegralContactActualVertical318.lean": {
+      "sha256": "41e0ae98d199ab7529ba689539c623b24c107f69679c9103fbcb35765ba9d3ec",
+      "imports": [
+        "IntegralContactLocalSections318",
+        "IntegralContactVerticalDVR318"
+      ]
+    }
+  },
+  "revised_modules": [
+    "IntegralContactLocalSections318"
+  ]
+}

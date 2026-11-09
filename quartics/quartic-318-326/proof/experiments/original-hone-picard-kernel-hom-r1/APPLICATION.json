@@ -1,0 +1,110 @@
+{
+  "claim": "The unchanged original whole-H1 deformation map is group-law compatible with actual tensor of original line sheaves, lands in the original restriction kernel, and induces original relative-class naturality and the canonical four-factor sum-to-tensor identity.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled80-source original H1-to-Picard-kernel group homomorphism candidate. Original tensor gluing, exact restriction kernel and old relative quotient; four-factor canonical naturality. H1 classification, fifth cover independence and represented Picard remain open. Hosted elaboration and independent acceptance pending.",
+  "new_sources": {
+    "AdditiveCocycleSum318.lean": "e326856cb3fd1e378f54af177a868d41349cca81a2f60070b66eba6b3c08d58b",
+    "InfinitesimalTensorClass318.lean": "46bf879e0ed2789ae51a0ece07ec37a98a411a60cca9805a19194ddfe0fe236e",
+    "AffineHOnePicardKernelHom318.lean": "13fb408616dcf7cc7e29ffa2d843863c172e5afc23178e8bee3aa57c4eca222c",
+    "OriginalHOneRelativeHom318.lean": "905f5559b9845a7ce0e109e62f5e61f935168c2ceb17fb76c92c6c99c9bf7c29"
+  },
+  "modified_sources": {
+    "InfinitesimalUnitCocycle318.lean": "7ac669c9417edd8245df50f541d105c65e3f6052e3442278ddb6d58f47e68093"
+  },
+  "readme_sha256": "a74db9d022c0956c75e3073328604ea2ec916f1eeb6ad70a7ef5fd0d3d359877",
+  "intake_sha256": "bfa930c5f3f556e9a1b997a666f1df94270935fe5d79b21379011e41779207d8",
+  "copy_bindings_sha256": "c4e506780aea4f69985a6324297457b2b007c9ae1702e64e11d3969ed5eac1e0",
+  "obligations": [
+    {
+      "name": "Original tensor producer",
+      "required": "Multiplication must be the original module-sheaf tensor, not a formal cocycle label.",
+      "constructed": "Read CocycleTensorIso318.tensor_cocycle and iso, supplied actual infinitesimal cocycles and original cover.",
+      "justification": "Exact transition multiplication and original reconstruction supply the iso before quotienting.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "InfinitesimalTensorClass318.tensorIso"
+      ]
+    },
+    {
+      "name": "Every original overlap",
+      "required": "Addition and pullback must cover all pairs/triples including reverse and diagonal.",
+      "constructed": "AdditiveCocycleSum318.add constructs all transitions and checks the triple identity; twoOpen_add checks all Bool pairs.",
+      "justification": "No selected representative or missing reverse sign is used.",
+      "evidence": [
+        "AdditiveCocycleSum318.add",
+        "AdditiveCocycleSum318.pullback_add",
+        "AdditiveCocycleSum318.twoOpen_add"
+      ]
+    },
+    {
+      "name": "Actual infinitesimal multiplication",
+      "required": "1+epsilon(a+b) must equal the original unit product using genuine nilpotence.",
+      "constructed": "cocycle_add uses the original epsilon square-zero theorem on every open.",
+      "justification": "tensorIso consumes that exact identity in the old tensor gluing.",
+      "evidence": [
+        "InfinitesimalTensorClass318.cocycle_add",
+        "InfinitesimalTensorClass318.class_add"
+      ]
+    },
+    {
+      "name": "Whole original H1",
+      "required": "Group law must hold on every original derived cohomology class.",
+      "constructed": "Original boundary_surjective chooses arbitrary representatives, map_boundary eliminates that choice, representative_add computes the actual tensor.",
+      "justification": "No dimension or basis proxy is used.",
+      "evidence": [
+        "AffineHOnePicardKernelHom318.oldClass_add",
+        "AffineHOnePicardKernelHom318.hom"
+      ]
+    },
+    {
+      "name": "Actual restriction kernel",
+      "required": "The target must be the old pullback kernel, not a new named tangent carrier.",
+      "constructed": "kernelHom uses (LineClassPullbackHom318.pullback (reduction R p)).ker.",
+      "justification": "Membership is the previously constructed actual special-fiber trivialization; kernelHom_val identifies exactly the original pointed forgetful image.",
+      "evidence": [
+        "AffineHOnePicardKernelHom318.kernelHom",
+        "AffineHOnePicardKernelHom318.kernelHom_val"
+      ]
+    },
+    {
+      "name": "Original relative quotient",
+      "required": "Pass to the original base-line quotient without asserting representability.",
+      "constructed": "relativeHom composes the actual old classMap with hom.",
+      "justification": "Naturality follows from the exact original pointed pullback square and old relativeMap.",
+      "evidence": [
+        "OriginalHOneRelativeHom318.relativeHom",
+        "OriginalHOneRelativeHom318.naturality"
+      ]
+    },
+    {
+      "name": "Original quotient consumers",
+      "required": "Four canonical character maps must use one source construction; fifth has another cover.",
+      "constructed": "character_sum uses all Fin4 original pullbacks and the same source hom; fifth_naturality keeps sourceForFifth.",
+      "justification": "No five-factor assertion is made before cover independence.",
+      "evidence": [
+        "OriginalHOneRelativeHom318.character_sum",
+        "OriginalHOneRelativeHom318.fifth_naturality"
+      ]
+    },
+    {
+      "name": "Exact hosted carrier repair",
+      "required": "Do not change unit sheaf or ring to bypass elaboration failure.",
+      "constructed": "gauge_equation proves its identical formula in explicitly typed original section-ring Units, then returns to its unchanged statement.",
+      "justification": "75 predecessor copies unchanged; old source and exact log preserved.",
+      "evidence": [
+        "InfinitesimalUnitCocycle318.gauge_equation",
+        "COPY_BINDINGS.json"
+      ]
+    },
+    {
+      "name": "Acceptance and remaining joins",
+      "required": "A homomorphism into the kernel does not establish H1 classification or represented tangent geometry.",
+      "constructed": "H1 bijectivity, cover independence, norm tangent and represented Picard remain open.",
+      "justification": "Hosted validation and independent acceptance pending; no whole-proof claim.",
+      "evidence": [
+        "README.md"
+      ]
+    }
+  ]
+}
