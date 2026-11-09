@@ -16,6 +16,33 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Actual nonzero quotient classes and integral model, 2026-11-09
+
+Ten active closures now schedule 373 source checks. Candidate source proves
+four specified original quotient classes nonzero in actual structure-sheaf H1
+by exact residues after original pullback. Every original scaling factor and
+basis-square unit is retained. Fifth-target nonvanishing is still separate;
+field nonzero alone is never used as a cohomology nonvanishing argument.
+
+The actual integral scheme is now constructed by gluing the whole original
+finite source to the actual infinity order along proved principal localizations.
+The categorical full intersection, chart routes, original tensor compatibility
+and five-chart cotangent frames are constructed. Unit2 and the literal
+separationInteger remain place-coverage inputs. Properness, original rational
+normalization, global section-pair gluing and bad-place regularity remain open.
+Original scheme triple laws now also derive exact over-open transition data
+for the arbitrary module/line gluing route.
+
+A genuine eventual family now fills the first152 literal source rows and puts
+the exact pole input in(0,17), with nonzero trace and original contact squareclass.
+This fixes the original assignment/index first. It is not a uniform bound before
+later prime/index selection, and does not solve rational pole realization.
+Independent exact symbolic checks validate its chain limits and row identities.
+
+Round19 records bounded source review and exact c7 failure repairs. The current
+source baseline remains1837; all new closures are pending hosted strict checks
+and recursive audits. No local Lean was executed.
+
 ## Actual overlap tensors and open-chart line gluing, 2026-11-09
 
 Ten active closures now schedule 357 source checks. The unchanged canonical
