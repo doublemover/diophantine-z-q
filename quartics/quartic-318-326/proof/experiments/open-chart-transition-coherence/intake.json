@@ -1,0 +1,122 @@
+{
+  "packet": "open-chart-transition-coherence",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318",
+    "OpenSheafTransition318",
+    "OpenSheafGluing318",
+    "OpenChartModuleImages318",
+    "LocalLineGlobalFrames318",
+    "OpenChartLineEffectivity318",
+    "OpenSheafRestrictionCompatibility318",
+    "OpenSchemeTransition318",
+    "OpenSchemeGluing318"
+  ],
+  "files": {
+    "OpenModuleTransition318.lean": {
+      "sha256": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+      "imports": [
+        "ModuleLocalGluing318"
+      ]
+    },
+    "OpenModuleChartRecovery318.lean": {
+      "sha256": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+      "imports": [
+        "OpenModuleTransition318"
+      ]
+    },
+    "OpenModulePresheaf318.lean": {
+      "sha256": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+      "imports": [
+        "OpenModuleChartRecovery318"
+      ]
+    },
+    "OpenModuleSheafGluing318.lean": {
+      "sha256": "21b2c1d73051907ba5bcb5cff1fe249146d4afb632b087f608e3017ffa500c56",
+      "imports": [
+        "OpenModulePresheaf318"
+      ]
+    },
+    "OpenModuleGluedSheaf318.lean": {
+      "sha256": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0",
+      "imports": [
+        "LineSheafClass318",
+        "OpenModuleSheafGluing318"
+      ]
+    },
+    "OpenSheafTransition318.lean": {
+      "sha256": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+      "imports": [
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    "OpenSheafGluing318.lean": {
+      "sha256": "ef17173e2af4552cade2393134495b0827036812d237a86985793c21dac1f3ed",
+      "imports": [
+        "OpenSheafTransition318"
+      ]
+    },
+    "OpenChartModuleImages318.lean": {
+      "sha256": "931e1b651c2db3159ffec0cc925e0547275a4969bed32e994fe120d021fe96fd",
+      "imports": [
+        "OpenSheafGluing318"
+      ]
+    },
+    "LocalLineGlobalFrames318.lean": {
+      "sha256": "fa1bfd6186e76e556913d41dc25ba7ab5c5e84e9590b671dcc026760179e6ad7",
+      "imports": [
+        "LineSheafClass318"
+      ]
+    },
+    "OpenChartLineEffectivity318.lean": {
+      "sha256": "d2a7ed68727eeba7bf7ae2149dae546d5e6a49dd9db04404dca2873adef237e1",
+      "imports": [
+        "LocalLineGlobalFrames318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    "OpenSheafRestrictionCompatibility318.lean": {
+      "sha256": "72a0507bc6059532d574094ca498a0d393acc26e74f786ef29f63bf58d954ff6",
+      "imports": [
+        "OpenChartModuleImages318"
+      ]
+    },
+    "OpenSchemeTransition318.lean": {
+      "sha256": "a64283bb1061f4448da3e3b488022310c4be4ebe8d39aec3907a688e66aa1c73",
+      "imports": [
+        "OpenSheafRestrictionCompatibility318"
+      ]
+    },
+    "OpenSchemeGluing318.lean": {
+      "sha256": "a7a125c60f452b00d4f4eaf0e82bd3e4df4d0ac727506c51b359962dd1c6a2c8",
+      "imports": [
+        "OpenChartLineEffectivity318",
+        "OpenSchemeTransition318"
+      ]
+    }
+  },
+  "new_modules": [
+    "OpenSheafRestrictionCompatibility318",
+    "OpenSchemeTransition318",
+    "OpenSchemeGluing318"
+  ],
+  "unchanged_producer_modules": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318",
+    "OpenSheafTransition318",
+    "OpenSheafGluing318",
+    "OpenChartModuleImages318",
+    "LocalLineGlobalFrames318",
+    "OpenChartLineEffectivity318"
+  ],
+  "scope": "Actual original scheme pair/triple transition equations derive the over-open gluing data through proved restriction compatibility, returning a global module with exact original scheme transition recovery and a global line from arbitrary original local frames. Fi-only triple conversion and affine fppf changing-base joins remain separate.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

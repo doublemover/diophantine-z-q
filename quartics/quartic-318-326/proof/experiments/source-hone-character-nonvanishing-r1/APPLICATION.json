@@ -1,0 +1,108 @@
+{
+  "claim": "Pending genuine residue nonvanishing of four actual original quotient H1 classes, reducing five-map exhaustion to explicit fifth-target nonvanishing.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled86-source continuation. Actual original quotient class has a nonzero cohomological residue for each of four complementary-root targets. Fifth target nonvanishing remains explicit in final five-map exhaustion. Hosted strict checks and independent acceptance pending.",
+  "new_sources": {
+    "OriginalSimplePoleResidues318.lean": "bc26cc3b963b12572b3b46a2c985e471f3a19c2e45fe8353683868e2a2cbe097",
+    "InfinityBasisUnitCoefficients318.lean": "a5478dcef997b8a7ee00da2135db8704c53e8ba9cde884c4e10a77fa89dfc2e2",
+    "OriginalCharacterSimplePole318.lean": "37dbee4a7d26d95fc7d228c8d273f9bfa7d122f140837d4bb534c530ab48f244",
+    "OriginalCharacterHOneNonzero318.lean": "5ae3248b8ba12710a63015e77aff48f6178aab7e9ada5143e12ec9fd30534fb1"
+  },
+  "readme_sha256": "23e22df3d9c2323e8f2c55f7fe3e537fbc5c745b23d16d127469b42fe402f2ff",
+  "intake_sha256": "8479334d9c5f3dee406a70850d7f55442fd11fa975f1c9867f715c1f44160c18",
+  "copy_bindings_sha256": "23b16c78cd3309c1fd9cc3e30bfbce2fe5657eba11c2d966a47c58f8e2f75b5a",
+  "obligations": [
+    {
+      "name": "Prescribed actual localization",
+      "required": "A simple pole must retain its prescribed numerator and pole bound.",
+      "constructed": "prescribed_reduction expands all eight original infinity coefficients with pole bound n; simple_reduction specializes n=1.",
+      "justification": "The remainder is an actual element of the entire original infinity ring, including zero-polynomial cases.",
+      "evidence": [
+        "OriginalSimplePoleResidues318.prescribed_reduction",
+        "OriginalSimplePoleResidues318.simple_reduction"
+      ]
+    },
+    {
+      "name": "Actual residue coefficient",
+      "required": "A field expression being nonzero is insufficient to prove an H1 class nonzero.",
+      "constructed": "simple_coefficients multiplies by actual u, reflects equality through the actual inclusion and applies the original zeroCoordinate.",
+      "justification": "simple_residue evaluates the preexisting unique negative-part residue at the first pole.",
+      "evidence": [
+        "OriginalSimplePoleResidues318.simple_coefficients",
+        "OriginalSimplePoleResidues318.simple_residue"
+      ]
+    },
+    {
+      "name": "Index and basis identity",
+      "required": "Four target maps must match the same original named basis indices.",
+      "constructed": "ratioProduct_basis identifies the old complementary root-ratio product with smallIndex(some i).",
+      "justification": "character_position checks all four indices are pole order one, retaining the original SmallIndex convention.",
+      "evidence": [
+        "InfinityBasisUnitCoefficients318.ratioProduct_basis",
+        "OriginalCharacterHOneNonzero318.character_position"
+      ]
+    },
+    {
+      "name": "Original coefficient units",
+      "required": "Inverting a basis vector must include its actual square coefficient.",
+      "constructed": "basis_square computes the product of original coefficient powers; coefficient_unit proves it is invertible in the actual base.",
+      "justification": "denominatorUnit retains yScale*c0^3 and the exact basis-square coefficient.",
+      "evidence": [
+        "InfinityBasisUnitCoefficients318.basis_square",
+        "InfinityBasisUnitCoefficients318.coefficient_unit",
+        "OriginalCharacterSimplePole318.denominatorUnit"
+      ]
+    },
+    {
+      "name": "Literal representative join",
+      "required": "The consumed overlap element must be the one pulled back by the original quotient.",
+      "constructed": "numerator_times_unit proves a whole-infinity identity; representative_simple_pole reflects the exact field formula using original overlap embedding injectivity.",
+      "justification": "The input is OriginalCharacterClassPullbacks318.sourceRepresentative, not a replacement map or cohomology class.",
+      "evidence": [
+        "OriginalCharacterSimplePole318.numerator_times_unit",
+        "OriginalCharacterSimplePole318.representative_simple_pole"
+      ]
+    },
+    {
+      "name": "Nonzero evaluated coefficient",
+      "required": "Nonvanishing must hold at the actual u=0 point with all normalization factors.",
+      "constructed": "numerator_coefficient_nonzero evaluates xScale^2*(c0-centroid*u^2)^2 divided by the full denominatorUnit.",
+      "justification": "Both numerator factors are original rational units; the inverse denominator maps to a unit.",
+      "evidence": [
+        "OriginalCharacterSimplePole318.numerator_coefficient_nonzero"
+      ]
+    },
+    {
+      "name": "Actual H1 nonvanishing",
+      "required": "Nonzero residue must be applied after the correct actual boundary and original pullback.",
+      "constructed": "pullback_residue combines original pullback_class, residueMap_boundary and simple_residue.",
+      "justification": "pullback_nonzero and target_class_nonzero follow from this H1 functional, not nonzero field images.",
+      "evidence": [
+        "OriginalCharacterHOneNonzero318.pullback_residue",
+        "OriginalCharacterHOneNonzero318.target_class_nonzero"
+      ]
+    },
+    {
+      "name": "Remaining fifth input",
+      "required": "Four target classes do not discharge all five nonvanishing inputs.",
+      "constructed": "targets_nonzero_of_fifth requires an explicit nonzero fifth-target class; original_five_bijective consumes it.",
+      "justification": "Unconditional original image independence and source dimension five are reused exactly. Fifth nonvanishing and normalized-transfer inverse are not asserted.",
+      "evidence": [
+        "OriginalCharacterHOneNonzero318.targets_nonzero_of_fifth",
+        "OriginalCharacterHOneNonzero318.original_five_bijective"
+      ]
+    },
+    {
+      "name": "Source closure and validation",
+      "required": "Historical copies and new argument must remain distinguished.",
+      "constructed": "82 sources copied exactly, four new sources bound below.",
+      "justification": "Static checks are not hosted elaboration or independent mathematical acceptance.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}
