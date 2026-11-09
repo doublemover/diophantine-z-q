@@ -1,0 +1,36 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-small-prime-full-source-r1/NormalizationRealEmbedding318.lean:24:4: error: Type mismatch: After simplification, term
+  hr
+ has type
+  @Eq ℝ (r * r) (φ d)
+but is expected to have type
+  @Eq ℝ (r * r) ((algebraMap F ℝ) d)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-small-prime-full-source-r1/NormalizationRealEmbedding318.lean:28:45: error: unsolved goals
+F : Type u_1
+inst✝ : Field F
+φ : F →+* ℝ
+d : F
+r : ℝ
+hr : r ^ 2 = φ d
+z : QuadraticAlgebra F d 0
+⊢ (sorry φ d r hr) z = φ z.re + φ z.im * r
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-small-prime-full-source-r1/NormalizationRealEmbedding318.lean:29:8: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-small-prime-full-source-r1/NormalizationRealEmbedding318.lean:29:19: warning: This simp argument is unused:
+  QuadraticAlgebra.lift_apply_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [extendRoot, Algebra.smul_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-small-prime-full-source-r1/NormalizationRealEmbedding318.lean:29:53: warning: This simp argument is unused:
+  Algebra.smul_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [extendRoot, QuadraticAlgebra.lift_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-small-prime-full-source-r1/NormalizationRealEmbedding318.lean:106:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (E 1).Point (m • firstRealGenerator + n • secondRealGenerator) 0
+but is expected to have type
+  @Eq (E 1).Point (m • realPoint firstGenerator + n • realPoint secondGenerator) 0

@@ -1,0 +1,65 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:14:18: error: unsolved goals
+case «0»
+z w : Vectors
+i : Fin 2
+⊢ 0 = ((fun i => ![0, -z i]) + fun i => ![0, -w i]) i 0
+
+case «1»
+z w : Vectors
+i : Fin 2
+⊢ -w i + -z i = ((fun i => ![0, -z i]) + fun i => ![0, -w i]) i 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:15:19: error: unsolved goals
+case «0»
+a : ℂ
+z : Vectors
+i : Fin 2
+⊢ 0 = (a • fun i => ![0, -z i]) i 0
+
+case «1»
+a : ℂ
+z : Vectors
+i : Fin 2
+⊢ -(a * z i) = (a • fun i => ![0, -z i]) i 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:23:49: error(lean.invalidField): Invalid field `const_mul`: The environment does not contain `HasFDerivAtFilter.const_mul`, so it is not possible to project the field `const_mul` from an expression
+  hasDerivAt_id τ
+of type
+  HasFDerivAtFilter id (ContinuousLinearMap.toSpanSingleton ℂ 1) (nhds τ ×ˢ pure τ)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:26:37: error: unsolved goals
+τ : ℂ
+z : Vectors
+i : Fin 2
+⊢ { toFun := fun z i => ![0, -z i], map_add' := ⋯ } z i 0 * τ +
+      { toFun := fun z i => ![0, -z i], map_add' := ⋯ } z i 1 =
+    -z i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:29:4: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, variation, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_one, zero_mul, zero_add,
+    Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:29:25: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, variation, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, zero_mul, zero_add,
+    Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:29:45: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, variation, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, Matrix.cons_val_one,
+    zero_add, Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-joint-period-family-r2/QuaternionicPeriodVariation318.lean:29:54: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, variation, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, Matrix.cons_val_one,
+    zero_mul, Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
