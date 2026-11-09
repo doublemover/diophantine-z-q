@@ -1,0 +1,113 @@
+{
+  "claim": "Pending explicit original 16-/8-monomial coordinate-ring bases and exact finite/overlap/infinity compatibility, without an H1 dimension or spanning claim.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "UNCOMPILED_DRAFT; hosted strict checking, recursive axiom audit and independent acceptance pending.",
+  "new_sources": {
+    "RootOrderMonomialBasis318.lean": "676d83fb2395b205ec43a3cdacfdac55d25d864dff171c7885ec81ff646a8a2c",
+    "ContactHOneOrderBases318.lean": "efa7e0f633d01a8ebd1d6a7841f347bb2f71ad94a52ce2bac31bdf5fafc3cde9"
+  },
+  "readme_sha256": "7f77f848b5401205b42ac4606b6347f87bc1edc56d8ef443d4ac6dd13f48e2e4",
+  "intake_sha256": "3adfe741325fffa43f5473181ca6eebf73a9740fd406626e75e4949bad356a25",
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "obligations": [
+    {
+      "name": "Original quadratic presentation",
+      "required": "Construct actual one/root basis of RootRing a, not a basis of an unidentified quadratic algebra.",
+      "constructed": "rootBasis maps QuadraticAlgebra.basis a 0 through presentationEquiv a.",
+      "justification": "The existing algebra equivalence sends omega to the actual AdjoinRoot root. rootBasis_apply identifies both indexed entries.",
+      "evidence": [
+        "RootOrderMonomialBasis318.rootBasis",
+        "RootOrderMonomialBasis318.rootBasis_apply",
+        "QuadraticPresentation318.presentationEquiv_generator"
+      ]
+    },
+    {
+      "name": "Full finite index coverage",
+      "required": "Include every tensor monomial once.",
+      "constructed": "FourIndex=(Fin 2 times Fin 2) times (Fin 2 times Fin 2); ThreeIndex=Fin 2 times (Fin 2 times Fin 2).",
+      "justification": "Each factor is the complete quadratic basis. Tensor product of bases produces all sixteen or eight independent coefficients without selecting a subset.",
+      "evidence": [
+        "RootOrderMonomialBasis318.FourIndex",
+        "RootOrderMonomialBasis318.ThreeIndex",
+        "RootOrderMonomialBasis318.fourBasis",
+        "RootOrderMonomialBasis318.threeBasis"
+      ]
+    },
+    {
+      "name": "Original tensor carriers",
+      "required": "The bases must use the existing parenthesization and ring objects.",
+      "constructed": "fourBasis targets FourRootOrder318.Order a; threeBasis targets ThreeRootOrder318.Order a.",
+      "justification": "Their tensor parenthesizations match the existing definitions exactly; no regrouping or implicit coordinate permutation is inserted.",
+      "evidence": [
+        "RootOrderMonomialBasis318.fourBasis_apply",
+        "RootOrderMonomialBasis318.threeBasis_apply"
+      ]
+    },
+    {
+      "name": "Named generator identification",
+      "required": "Basis entries must coincide with the already constructed root generators.",
+      "constructed": "fourBasis_monomial and threeBasis_monomial express every entry as products of original named generators with exponents zero or one.",
+      "justification": "The proofs use tensor multiplication and the explicit one/root factor bases. This supplies a concrete monomial identity, not merely a dimension count.",
+      "evidence": [
+        "RootOrderMonomialBasis318.fourBasis_monomial",
+        "RootOrderMonomialBasis318.threeBasis_monomial"
+      ]
+    },
+    {
+      "name": "Coefficient changes",
+      "required": "Base-changing the order must preserve each original basis monomial.",
+      "constructed": "four_coefficientMap and three_coefficientMap use the existing literal coefficientMap constructions.",
+      "justification": "The earlier generator compatibility theorems apply to every named generator; map_mul and map_pow then give each complete monomial. No additional scalar factor appears.",
+      "evidence": [
+        "RootOrderMonomialBasis318.four_coefficientMap",
+        "RootOrderMonomialBasis318.three_coefficientMap"
+      ]
+    },
+    {
+      "name": "Actual chart rings and bases",
+      "required": "Specialize to the original finite, overlap and infinity orders over their original base rings.",
+      "constructed": "finiteBasis, overlapBasis and infinityBasis target ContactKummerOrder318.SourceOrder c, ContactKummerOrder318.OpenOrder c and InfinityOpenChart318.OpenOrder c.",
+      "justification": "Their coefficient rings remain Q[t], the original contact localization and the original infinity localization, respectively. These are not rational vector-space bases.",
+      "evidence": [
+        "ContactHOneOrderBases318.finiteBasis",
+        "ContactHOneOrderBases318.overlapBasis",
+        "ContactHOneOrderBases318.infinityBasis"
+      ]
+    },
+    {
+      "name": "Actual transition and complete expansion",
+      "required": "The original finite restriction must preserve monomials and the expansions must cover whole rings.",
+      "constructed": "finite_to_overlap uses SourceOpenFractionField318.orderToOpen; three expansion theorems use each actual basis repr.",
+      "justification": "orderToOpen is the exact earlier coefficient-change map. Basis.sum_repr gives all ring elements and all finite indices; no small monomial subspace replaces the carrier.",
+      "evidence": [
+        "ContactHOneOrderBases318.finite_to_overlap",
+        "ContactHOneOrderBases318.finite_expansion",
+        "ContactHOneOrderBases318.overlap_expansion",
+        "ContactHOneOrderBases318.infinity_expansion"
+      ]
+    },
+    {
+      "name": "Infinity normalization and original field",
+      "required": "The infinity basis must embed through the original infinity-to-contact field map with exact scalars.",
+      "constructed": "infinity_embedding sends each basis vector to the product of the original ratios root(j+1)/root(0).",
+      "justification": "It uses InfinityOrderCoordinates318.generator_embedding for all three original generators, preserving the original field and normalization. No guessed field isomorphism or rational scaling is used.",
+      "evidence": [
+        "ContactHOneOrderBases318.infinity_embedding",
+        "InfinityOrderCoordinates318.generator_embedding"
+      ]
+    },
+    {
+      "name": "Consumer boundary, history and verification",
+      "required": "Do not infer H1 dimension or spanning from finite-free ranks of coordinate rings.",
+      "constructed": "This packet supplies explicit coefficient-ring bases for the separately identified source-H1 coordinate quotient.",
+      "justification": "The original sources already proved finite freeness and ranks; this continuation exports concrete monomial bases and exact transition identities. No H1 quotient calculation, Q-linear H1 action, fivefold spanning or isogeny follows yet. Hosted strict checking and independent acceptance are pending; no local Lean run occurred.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "FourRootOrder318.finite_free",
+        "ThreeRootOrder318.finite_free"
+      ]
+    }
+  ]
+}

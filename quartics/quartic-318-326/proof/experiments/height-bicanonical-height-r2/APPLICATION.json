@@ -1,0 +1,133 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Exact original-point section heights and scalar-fixed conditional metric consumer; no geometric metric existence or unconditional arithmetic theorem.",
+  "sources": {
+    "ContactBicanonicalPointValue318.lean": "5632767ff4208b820c6c351963d5c9e9e6f18acbf9363972fd3a2224505526c1",
+    "ContactBranchPoint318.lean": "a4c0c62eeb1e1a8859c3b03a38cd2c39c84b495761c3c04b0a1c84e479db669a",
+    "ContactBicanonicalPointHeight318.lean": "c8ed60f24fd552f46dc88afde480f3f7e79b1db9e724873adbbfe695a51e2cf6",
+    "RationalFourRootFiber318.lean": "7508e2ae43346ee6169187d900cb20e0d8607ce96c87eaec2730115d321e7750",
+    "ContactScaledBicanonicalPoint318.lean": "9a700a1ae82ac7d7d154ef76412e7de22362e7ec2be1c1259eefd400199ba2d4",
+    "IntrinsicTensorFrameValue318.lean": "213c41842426b5a319f3f938e7ab3193e85e7f08f4a5d3ec07c40273118f214c",
+    "RationalContactPoint318.lean": "b14c45659732280a5df3b6ae1019027ebee58f240ddca1074a6ecee9e91d422a",
+    "FourRootPointTorsor318.lean": "98f428008b2cd294a1d920d1e7d9b854a71fdaf665deeb822d13bad8e0c27bf1",
+    "ContactOriginalMetricConsumer318.lean": "036e9f6ff3b4596ddca48909726f90e7bb2ab5ed641b92ed928b94438e0e9a75"
+  },
+  "readme_sha256": "67136972602ec42362c8dba22b87082f136c17739d260fcdbe41e192cf499bc3",
+  "intake_sha256": "6be4823871e062f95d34dbbcd8315abe97b8e4b5412b31c8971046b4ca7e4f2c",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38",
+    "quartics/quartic-318-326/proof/progress/RefinedContactRealization318.lean": "9bed97f0f5ecc44589eab050feb3e4370b3b19b74c1b06a7e83052c845413f83",
+    "quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean": "32131be9b052e0b8c59e3f2e4b6e335c0fb25430c024fc55121bc103178ccbfe",
+    "quartics/quartic-318-326/proof/progress/SectionHeight318.lean": "accfa44bb2fb53ee367c7ec776e6a924f412c80cc3dc96fd490f2abea1dbb712",
+    "quartics/quartic-318-326/proof/progress/ContactMetricSections318.lean": "ee1c19554f5126717b4c0f321426ad96a73b7139a47d63049660ca2101aa4812",
+    "quartics/quartic-318-326/proof/progress/FiveContactProducer318.lean": "7635960162dff1feb9b5c2d0ae88690b39813b363728c62aed06513c136aa435"
+  },
+  "obligations": [
+    {
+      "name": "Actual bicanonical global sections at the same original point.",
+      "required_input": "Actual bicanonical global sections at the same original point.",
+      "constructed_input": "Required objects: the actual `ContactGlobalBicanonical318.tensor` and global sections, evaluated by the original intrinsic branch-frame and original-point maps in the predecessor. The new aliases `a0/a1` use only those values, not arbitrary scalars.",
+      "justification": "Required objects: the actual `ContactGlobalBicanonical318.tensor` and global sections, evaluated by the original intrinsic branch-frame and original-point maps in the predecessor. The new aliases `a0/a1` use only those values, not arbitrary scalars.",
+      "sources": [
+        "ContactBicanonicalPointValue318.lean",
+        "ContactScaledBicanonicalPoint318.lean"
+      ],
+      "evidence": "README.md application contract obligation 1"
+    },
+    {
+      "name": "All four branch indices and all original five forms.",
+      "required_input": "All four branch indices and all original five forms.",
+      "constructed_input": "Index coverage: every `i,j : Fin 4` is covered. The original five-form nonvanishing supplies all four branch denominators; its infinity form excludes `v=0`. No assertion about evaluation at an omitted contact point is made.",
+      "justification": "Index coverage: every `i,j : Fin 4` is covered. The original five-form nonvanishing supplies all four branch denominators; its infinity form excludes `v=0`. No assertion about evaluation at an omitted contact point is made.",
+      "sources": [
+        "ContactBranchPoint318.lean",
+        "RationalContactPoint318.lean"
+      ],
+      "evidence": "README.md application contract obligation 2"
+    },
+    {
+      "name": "The original point field and its actual extension degree.",
+      "required_input": "The original point field and its actual extension degree.",
+      "constructed_input": "Domain and coefficients: the same `RationalContactPoint318.PointField c t` is used throughout, with its original rational algebra and number-field structure. Specialized squareclasses may be dependent; the degree is the actual finrank, never a substituted 16.",
+      "justification": "Domain and coefficients: the same `RationalContactPoint318.PointField c t` is used throughout, with its original rational algebra and number-field structure. Specialized squareclasses may be dependent; the degree is the actual finrank, never a substituted 16.",
+      "sources": [
+        "RationalFourRootFiber318.lean",
+        "ContactBicanonicalPointHeight318.lean"
+      ],
+      "evidence": "README.md application contract obligation 3"
+    },
+    {
+      "name": "Explicit evaluation and frame-comparison directions.",
+      "required_input": "Explicit evaluation and frame-comparison directions.",
+      "constructed_input": "Comparison directions: evaluation goes from global sections to the original field. The common scalar from frame i to frame j is a0(j)/a0(i), with nonvanishing proved. No base extension, norm map or lattice map is inferred from this scalar identity.",
+      "justification": "Comparison directions: evaluation goes from global sections to the original field. The common scalar from frame i to frame j is a0(j)/a0(i), with nonvanishing proved. No base extension, norm map or lattice map is inferred from this scalar identity.",
+      "sources": [
+        "ContactBicanonicalPointHeight318.lean"
+      ],
+      "evidence": "README.md application contract obligation 4"
+    },
+    {
+      "name": "Literal J squared, factor 32, and metric height normalization.",
+      "required_input": "Literal J squared, factor 32, and metric height normalization.",
+      "constructed_input": "Normalizations: J=2765952000 and its square remain in both evaluated values. The projective ratio is t=32u/v. Only the explicitly rescaled pair [a0:a1/32] has height h(u/v). MetricSections still uses [a0:a1] and retains the original log(32) budget.",
+      "justification": "Normalizations: J=2765952000 and its square remain in both evaluated values. The projective ratio is t=32u/v. Only the explicitly rescaled pair [a0:a1/32] has height h(u/v). MetricSections still uses [a0:a1] and retains the original log(32) budget.",
+      "sources": [
+        "ContactScaledBicanonicalPoint318.lean",
+        "ContactOriginalMetricConsumer318.lean"
+      ],
+      "evidence": "README.md application contract obligation 5"
+    },
+    {
+      "name": "The exact values consumed by the existing metric endpoint.",
+      "required_input": "The exact values consumed by the existing metric endpoint.",
+      "constructed_input": "Consumer identity: `metricSections` supplies the exact a0/a1 of this packet to `RefinedContactRealization318.MetricSections`, retaining every original metric hypothesis. It does not replace the section field with an averaging, PEL or isogeny field.",
+      "justification": "Consumer identity: `metricSections` supplies the exact a0/a1 of this packet to `RefinedContactRealization318.MetricSections`, retaining every original metric hypothesis. It does not replace the section field with an averaging, PEL or isogeny field.",
+      "sources": [
+        "ContactOriginalMetricConsumer318.lean"
+      ],
+      "evidence": "README.md application contract obligation 6"
+    },
+    {
+      "name": "All hypotheses of rational_ratio_height and rational_section_height.",
+      "required_input": "All hypotheses of rational_ratio_height and rational_section_height.",
+      "constructed_input": "Source hypotheses: `SectionHeight318.rational_ratio_height` requires a number field, a nonzero first value and rational ratio; the original point-field instances and actual scaled-section theorems supply them. `rational_section_height` additionally requires both all-place bounds; they are explicitly assumed for these very values.",
+      "justification": "Source hypotheses: `SectionHeight318.rational_ratio_height` requires a number field, a nonzero first value and rational ratio; the original point-field instances and actual scaled-section theorems supply them. `rational_section_height` additionally requires both all-place bounds; they are explicitly assumed for these very values.",
+      "sources": [
+        "verification/consumer-source-pins.json",
+        "ContactOriginalMetricConsumer318.lean"
+      ],
+      "evidence": "README.md application contract obligation 7"
+    },
+    {
+      "name": "Primary source comparison separated from formal existence.",
+      "required_input": "Primary source comparison separated from formal existence.",
+      "constructed_input": "History: actual source read at `docs/sources/quartic_v10.tex`, lines 7015\u20137088, gives q1=tq0, J\u00b2 scaling, finite integrality, Petersson bounds, and Yuan's factor 210. This draft formalizes the scalar/height join, not the historical geometric claims. The current manuscript and prior acceptance records remain unchanged.",
+      "justification": "History: actual source read at `docs/sources/quartic_v10.tex`, lines 7015\u20137088, gives q1=tq0, J\u00b2 scaling, finite integrality, Petersson bounds, and Yuan's factor 210. This draft formalizes the scalar/height join, not the historical geometric claims. The current manuscript and prior acceptance records remain unchanged.",
+      "sources": [
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md application contract obligation 8"
+    },
+    {
+      "name": "Bound sources, strict checks and distinct source acceptance.",
+      "required_input": "Bound sources, strict checks and distinct source acceptance.",
+      "constructed_input": "Validation: seven copied sources have byte-for-byte bindings; the source manifest binds all nine modules and their imports. The audit enumerates private/generated declarations recursively. All Lean conclusions remain proposed until hosted checks pass, and independent source acceptance remains pending.",
+      "justification": "Validation: seven copied sources have byte-for-byte bindings; the source manifest binds all nine modules and their imports. The audit enumerates private/generated declarations recursively. All Lean conclusions remain proposed until hosted checks pass, and independent source acceptance remains pending.",
+      "sources": [
+        "intake.json",
+        "verification/ExperimentAudit.lean"
+      ],
+      "evidence": "README.md application contract obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "static_packet_validation": "PASS",
+    "copied_predecessor_equality": "PASS",
+    "hosted_strict_check": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "repair_scope": "Rational cast equality and canonical field-module degree elaboration only; original point field and theorem content retained."
+}
