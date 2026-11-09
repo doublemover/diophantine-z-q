@@ -16,6 +16,34 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Verified global restriction bridge, 2026-11-09
+
+At commit13409e9, hosted run42591009198 checked all four modules of
+height-global-open-sections-r11 and its recursive audit of188 declarations.
+Only propext, Classical.choice and Quot.sound occurred. The exact source intake
+d1cad019a2017ce51722db58f448637e23e1a7a70fbd92fbbc1437686aded523
+and198 reused baseline predecessors are retained with RESULT and logs. This
+proves the scoped original global section/noncontact-open comparison, not
+whole arithmetic completion. The unchanged passed packet is retired from
+repeated active checks; the1837-module accepted baseline is not changed.
+
+## Pointed deformations and actual changing-base laws, 2026-11-09
+
+Nine active closures now schedule443 source checks. A genuine dual-number
+fiber product carries actual square-zero line sheaves with a constructed
+special-fiber trivialization. The original gauge isomorphisms preserve that
+frame, so additive coboundary classes map to actual pointed deformation classes.
+The original five quotient maps commute with the existing relative Picard
+pullbacks. These cocycles live on the thickening; classification by original H1,
+norm tangents and represented Picard statements remain separate joins.
+
+The changing-base descent closure constructs the actual maps of doubles and
+triples and derives new diagonal/cocycle laws along every commuting arrow square.
+The new faithfully flat affine cover reconstructs that datum and its maps.
+Identification with the base pullback of the previously reconstructed line and
+non-affine assembly are not assumed or claimed. Both routes have fresh bounded
+nonauthor source review and structural checks; hosted verification is pending.
+
 ## Original affine map effectiveness and exact replay repairs, 2026-11-09
 
 Nine active closures now schedule423 source checks. The affine descent chain

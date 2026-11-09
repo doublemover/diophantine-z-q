@@ -1,0 +1,36 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r10/GlobalBicanonicalOpenRestriction318.lean:44:11: error: typeclass instance problem is stuck
+  MulAction ?m.39 ?m.44
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, and third type arguments to `MulAction` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r10/GlobalBicanonicalOpenRestriction318.lean:56:2: error: Type mismatch: After simplification, term
+  h'
+ has type
+  (ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+      ((ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+        (ContactGlobalBicanonical318.q0 c)) =
+    dtSection c (originalInverse c)
+but is expected to have type
+  (ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+      (ContactGlobalBicanonical318.q0 c) =
+    dtSection c (originalInverse c)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 8
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r10/GlobalBicanonicalOpenRestriction318.lean:63:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSMul ↑Γ(ContactGlobalSmooth318.Model c, embedding c ''ᵁ ⊤) ↑Γ(ContactGlobalBicanonical318.tensor c, openSet c) ?m.10
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r10/GlobalBicanonicalOpenRestriction318.lean:75:7: error: failed to infer `have` declaration type
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-global-open-sections-r10/GlobalBicanonicalOpenRestriction318.lean:70:94: error: unsolved goals
+c : Fin 4 → ℚˣ
+h :
+  (ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+      ((ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+        (ContactGlobalBicanonical318.q1 c)) =
+    (ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+      (ContactGlobalBicanonical318.localQ1 c (some 0))
+⊢ (ConcreteCategory.hom ((ContactGlobalBicanonical318.tensor c).presheaf.map (homOfLE ⋯).op))
+      (ContactGlobalBicanonical318.q1 c) =
+    dtSection c (ContactUnbranchedDifferentialFrame318.coordinate c * originalInverse c)

@@ -1,0 +1,114 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:33:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:35:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:39:5: error: failed to synthesize
+  FaithfulSMul R[X] (B R c i)
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:43:81: error: unsolved goals
+R : Type u_1
+inst✝⁷ : CommRing R
+c : Fin 4 → Rˣ
+i : Fin 4
+inst✝⁶ : IsDomain R
+inst✝⁵ : IsDomain (B R c i)
+K : Type u_2
+inst✝⁴ : Field K
+inst✝³ : Algebra (B R c i) K
+inst✝² : Algebra R K
+inst✝¹ : IsScalarTower R (B R c i) K
+inst✝ : IsFractionRing (B R c i) K
+hC : ∀ (a : R), (algebraMap R[X] (B R c i)) (C a) = (algebraMap R (B R c i)) a
+hX : (algebraMap R[X] (B R c i)) X = sourceT R c i
+⊢ -((algebraMap (B R c i) K) (sourceT R c i) *
+                          (algebraMap (B R c i) K)
+                            ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail ![32, 76832, -343]))) *
+                        (algebraMap (B R c i) K)
+                          ((algebraMap R (B R c i))
+                            (Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343])))) *
+                      32) +
+                  (algebraMap (B R c i) K) (sourceT R c i) ^ 2 *
+                      (algebraMap (B R c i) K)
+                        ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail ![32, 76832, -343]))) *
+                    32 +
+                (algebraMap (B R c i) K) (sourceT R c i) ^ 2 *
+                    (algebraMap (B R c i) K)
+                      ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail ![32, 76832, -343]))) *
+                  (algebraMap (B R c i) K)
+                    ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343])))) +
+              (algebraMap (B R c i) K) (sourceT R c i) ^ 2 *
+                  (algebraMap (B R c i) K)
+                    ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343])))) *
+                32 -
+            (algebraMap (B R c i) K) (sourceT R c i) ^ 3 * 32 -
+          (algebraMap (B R c i) K) (sourceT R c i) ^ 3 *
+            (algebraMap (B R c i) K) ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail ![32, 76832, -343]))) -
+        (algebraMap (B R c i) K) (sourceT R c i) ^ 3 *
+          (algebraMap (B R c i) K)
+            ((algebraMap R (B R c i)) (Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343])))) +
+      (algebraMap (B R c i) K) (sourceT R c i) ^ 4 =
+    -((algebraMap (B R c i) K) (sourceT R c i) * ↑(Matrix.vecHead (Matrix.vecTail ![32, 76832, -343])) *
+                        ↑(Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343]))) *
+                      32) +
+                  (algebraMap (B R c i) K) (sourceT R c i) ^ 2 * ↑(Matrix.vecHead (Matrix.vecTail ![32, 76832, -343])) *
+                    32 +
+                (algebraMap (B R c i) K) (sourceT R c i) ^ 2 * ↑(Matrix.vecHead (Matrix.vecTail ![32, 76832, -343])) *
+                  ↑(Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343]))) +
+              (algebraMap (B R c i) K) (sourceT R c i) ^ 2 *
+                  ↑(Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343]))) *
+                32 -
+            (algebraMap (B R c i) K) (sourceT R c i) ^ 3 * 32 -
+          (algebraMap (B R c i) K) (sourceT R c i) ^ 3 * ↑(Matrix.vecHead (Matrix.vecTail ![32, 76832, -343])) -
+        (algebraMap (B R c i) K) (sourceT R c i) ^ 3 *
+          ↑(Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![32, 76832, -343]))) +
+      (algebraMap (B R c i) K) (sourceT R c i) ^ 4
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:51:45: warning: This simp argument is unused:
+  map_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [VerticalSection318.denominator, contacts, VerticalSection318.contacts, Fin.prod_univ_four,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.cons_val_three, map_zero, map_ofNat,
+    Int.cast_zero, Int.cast_ofNat, Int.cast_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r9/IntegralBranchGenericTensor318.lean:51:82: warning: This simp argument is unused:
+  Int.cast_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [VerticalSection318.denominator, contacts, VerticalSection318.contacts, Fin.prod_univ_four,
+    Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.cons_val_three, map_zero, map_ofNat, map_neg,
+    Int.cast_zero, Int.cast_ofNat]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

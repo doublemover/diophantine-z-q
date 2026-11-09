@@ -1,0 +1,51 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r2/OpenModuleChartRecovery318.lean:29:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+X : Scheme
+ι : Type u
+U : ι → X.Opens
+M : ι → X.Modules
+D : Data U M
+i : ι
+W : X.Opens
+hi : W ≤ U i
+s : ↑Γ(M i, W)
+⊢ (fun j => (D.transition i j (W ⊓ U j) ⋯ ⋯) (res (M i) ⋯ s)) ∈ sections D W
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r2/OpenModuleChartRecovery318.lean:26:14: error: (kernel) declaration has metavariables 'OpenModuleChartRecovery318.fromChart'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r2/OpenModuleChartRecovery318.lean:32:6: error: (kernel) application type mismatch
+  id
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => res (M i) (le_inf le_rfl hi) _a = s)
+          (D.identity i (W ⊓ U i) (LE.le.trans inf_le_left hi) (res (M i) inf_le_left s))))
+      (Eq.mpr (id (congrArg (fun _a => _a = s) (res_res (M i) inf_le_left (le_inf le_rfl hi) s)))
+        (Eq.mpr (id (congrArg (fun _a => _a = s) (res_self (M i) W s))) (Eq.refl s))))
+argument has type
+  res (M i) ⋯ ((D.transition i i (W ⊓ U i) ⋯ ⋯) (res (M i) ⋯ s)) = s
+but function has type
+  evaluate D i W hi (fromChart D i W hi s) = s → evaluate D i W hi (fromChart D i W hi s) = s
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r2/OpenModuleChartRecovery318.lean:46:12: error: Function expected at
+  s.property
+but this term has type
+  ↑s ∈ sections D W
+
+Note: Expected a function because this term is being applied to the argument
+  i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r2/OpenModuleChartRecovery318.lean:40:52: error: unsolved goals
+X : Scheme
+ι : Type u
+U : ι → X.Opens
+M : ι → X.Modules
+D : Data U M
+i : ι
+W : X.Opens
+hi : W ≤ U i
+s : ↥(sections D W)
+j : ι
+⊢ (D.transition i j (W ⊓ U j) ⋯ ⋯) (res (M i) ⋯ (↑s i)) = ↑s j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r2/OpenModuleChartRecovery318.lean:68:29: error: Function expected at
+  s.property
+but this term has type
+  ↑s ∈ sections D W
+
+Note: Expected a function because this term is being applied to the argument
+  i

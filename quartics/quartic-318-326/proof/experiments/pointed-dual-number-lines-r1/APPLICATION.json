@@ -1,0 +1,116 @@
+{
+  "claim": "Actual pointed dual-number line deformations and original five pullback compatibility with existing relative line classes; H1 classification and represented tangent remain open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled actual pointed dual-number line-sheaf deformation candidate; hosted elaboration and independent acceptance pending. No identification with H1, represented Picard tangent, or isogeny is asserted.",
+  "new_sources": {
+    "SquareZeroUnit318.lean": "1e128653dc6485dba41b2bfa88f19bdebef7c76403ef6cb7f7cfcfd4716585e6",
+    "PointedLineDeformation318.lean": "bf6eca08c9ff9e4882c76302651a9451b09a1306477fcbf31bdb241eca51501f",
+    "PointedLinePullback318.lean": "38153bce299d92b9c55b6550c46901ac9af51ca017fadc992951341b79c4cb1e",
+    "DualNumberScheme318.lean": "b343d636a2dc3f8ef06ef570a73191641d8945f7395c6a02b7859d86ebb5b728",
+    "InfinitesimalUnitCocycle318.lean": "81fa92c57b16a844eeb970ec7f52633108c63ec24257f83114506d1e36d8ec12",
+    "UnitCocyclePointedLine318.lean": "284a85680c7a95dcb408b361558c9ab6b6f790ca9a7b115f9f1cab570995b854",
+    "DualNumberInfinitesimalLines318.lean": "31f9d496c0d0f548e78a42a66b759be499949c5d06949105ee75725279fabb95",
+    "OriginalFivePointedDeformations318.lean": "343fc872dc8a60e9ea6e69adad815f26efdc66a1298e46de4ba559df8dec4287"
+  },
+  "readme_sha256": "fe6eb45d96ad5688f0e54d49f1015c01f986339b422d2eb048e57648cd4407f3",
+  "intake_sha256": "2c31606d690d8da416291c961a5ed48336fcd30eead21890b166f0362b6b60ca",
+  "copy_bindings_sha256": "2a7a7558d8a1d935d0d468ded3305894e83dcf9dabecf7ce2bb7abe41c004032",
+  "obligations": [
+    {
+      "name": "Actual ring and unit carrier",
+      "required": "Use the true square-zero multiplication, not a named additive model.",
+      "constructed": "TrivSqZeroExt R R and explicit actual unit/inverse, with uniqueness at reduction one.",
+      "justification": "Both coordinates and arbitrary coefficient ring maps are checked.",
+      "evidence": [
+        "SquareZeroUnit318.unit_iff",
+        "SquareZeroUnit318.map_unit"
+      ]
+    },
+    {
+      "name": "Whole intersection coverage",
+      "required": "Cocycles require every original pair and triple, including repeats and empty opens.",
+      "constructed": "AdditiveCocycle and cocycle retain the complete supplied index set and complete meets.",
+      "justification": "No dense open or restricted set of indices replaces the required domain.",
+      "evidence": [
+        "InfinitesimalUnitCocycle318.AdditiveCocycle",
+        "InfinitesimalUnitCocycle318.cocycle"
+      ]
+    },
+    {
+      "name": "Actual constructed line",
+      "required": "A unit cocycle is not itself an actual line sheaf.",
+      "constructed": "line uses original CocycleModule318.object and original canonical full-chart frames.",
+      "justification": "original_transitions proves exact extraction; gaugeIso is the original gauge producer.",
+      "evidence": [
+        "InfinitesimalUnitCocycle318.line",
+        "InfinitesimalUnitCocycle318.original_transitions",
+        "InfinitesimalUnitCocycle318.gaugeIso"
+      ]
+    },
+    {
+      "name": "Special-fiber framing",
+      "required": "First-order deformation classes must retain the specified special-fiber trivialization.",
+      "constructed": "Deformation carries the actual reduction pullback iso and PointedIso requires its exact commuting square.",
+      "justification": "The relation is proved reflexive/symmetric/transitive, and forgetting lands in the old actual class carrier.",
+      "evidence": [
+        "PointedLineDeformation318.Deformation",
+        "PointedLineDeformation318.PointedIso",
+        "PointedLineDeformation318.special_fiber_trivial"
+      ]
+    },
+    {
+      "name": "Original map and comparison direction",
+      "required": "Pointed pullback must use the genuine original module pullback and composition comparison.",
+      "constructed": "squareComparison composes original pullbackComp, pullbackCongr, inverse pullbackComp.",
+      "justification": "Naturality and the old pointed square prove compatibility; forget_pullback uses the unchanged old pullback.",
+      "evidence": [
+        "PointedLinePullback318.squareComparison",
+        "PointedLinePullback318.pointedIso",
+        "PointedLinePullback318.forget_pullback"
+      ]
+    },
+    {
+      "name": "Actual dual-number geometric test",
+      "required": "The thickening, reduction and epsilon must be constructed, not assumed.",
+      "constructed": "Actual Spec square-zero test and fiber product, literal old baseMap and proved reduction square.",
+      "justification": "GammaSpec inverse naturality and actual projection show epsilon squared and reduction are zero on every open.",
+      "evidence": [
+        "DualNumberScheme318.reduction_map",
+        "DualNumberInfinitesimalLines318.reduction_epsilon_open"
+      ]
+    },
+    {
+      "name": "Constructed special-fiber triviality",
+      "required": "Reduction-one transitions must be connected to the actual pulled sheaf.",
+      "constructed": "Original pullback frames and old cocycle reconstruction construct the actual trivialization.",
+      "justification": "Original full inverse-image/source intersection comparison is retained, with actual coordinate squares.",
+      "evidence": [
+        "UnitCocyclePointedLine318.pulled_cocycle_one",
+        "UnitCocyclePointedLine318.trivialization_coordinate",
+        "DualNumberInfinitesimalLines318.deformation"
+      ]
+    },
+    {
+      "name": "Original five relative Picard consumers",
+      "required": "The next relative-class map must consume the same line and original quotient map.",
+      "constructed": "All four original completed maps and the original fifth map act on pointed classes, then forget through the old relative quotient.",
+      "justification": "character_matches_relative and fifth_matches_relative identify the exact old natural transformation at the dual-number test.",
+      "evidence": [
+        "OriginalFivePointedDeformations318.character_matches_relative",
+        "OriginalFivePointedDeformations318.fifth_matches_relative"
+      ]
+    },
+    {
+      "name": "Unproved joins and validation boundary",
+      "required": "Actual pointed deformation construction does not by itself identify H1 or a represented tangent.",
+      "constructed": "No H1 classification, pointed gauge, norm tangent, degree-zero representability or isogeny conclusion is declared.",
+      "justification": "README records each remaining join; hosted and independent acceptance pending, six producer copies exact.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json",
+        "intake.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-line-open-descent-r2/OpenModuleTransition318.lean:63:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom ?g) ((ConcreteCategory.hom ?f) ?x)
+in the target expression
+  (D.transition i j V hi hj)
+      ((ConcreteCategory.hom ((M i).presheaf.map (homOfLE ⋯).op))
+        ((ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) a • s i)) =
+    (ConcreteCategory.hom ((M j).presheaf.map (homOfLE ⋯).op))
+      ((ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) a • s j)
+
+X : Scheme
+ι : Type u
+U : ι → X.Opens
+M : ι → X.Modules
+D : Data U M
+W : X.Opens
+a : ↑Γ(X, W)
+s : (i : ι) → ↑(component W i)
+hs : s ∈ {s | Compatible D W s}
+i j : ι
+V : X.Opens
+hW : V ≤ W
+hi : V ≤ U i
+hj : V ≤ U j
+⊢ (D.transition i j V hi hj)
+      ((ConcreteCategory.hom ((M i).presheaf.map (homOfLE ⋯).op))
+        ((ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) a • s i)) =
+    (ConcreteCategory.hom ((M j).presheaf.map (homOfLE ⋯).op))
+      ((ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) a • s j)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    ObjectProperty.FullSubcategory (Presheaf.IsSheaf (Opens.grothendieckTopology ↥X))
+  in the application
+    X.ringCatSheaf.obj
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-line-open-descent-r2/OpenModuleTransition318.lean:46:14: error: (kernel) declaration has metavariables 'OpenModuleTransition318.sections'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-line-open-descent-r2/OpenModuleTransition318.lean:62:20: warning: This simp argument is unused:
+  Scheme.Modules.map_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [res, map_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-line-open-descent-r2/OpenModuleTransition318.lean:62:45: warning: This simp argument is unused:
+  map_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [res, Scheme.Modules.map_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-line-open-descent-r2/OpenModuleTransition318.lean:70:60: error: (kernel) function expected
+  @Subtype.property ((i : ι) → ↑(component W i)) (fun x => x ∈ sections D W) s i
