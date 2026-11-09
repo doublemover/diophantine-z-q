@@ -1,0 +1,26 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-fppf-affine-test-descent/OriginalLineComparisonComposition318.lean:102:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj (extendedSections f L) ⟶
+      moduleSpecΓFunctor.obj ((Scheme.Modules.pullback (Spec.map (f ≫ g))).obj L.object))
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).map (sectionsIso f L).hom ≫
+      (sectionsIso g (LineSheafPullback318.line (Spec.map f) L)).hom ≫
+        moduleSpecΓFunctor.map ((AffineComparisonMates318.pullbackComp f g).hom.app L.object))
+    ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app
+        (OriginalLineAffineModel318.sections R L) ≫
+      (tilde.adjunction.homEquiv
+          ((ModuleCat.extendScalars ((CommRingCat.Hom.hom g).comp (CommRingCat.Hom.hom f))).obj
+            (OriginalLineAffineModel318.sections R L))
+          ((Scheme.Modules.pullback (Spec.map (f ≫ g))).obj L.object))
+        (sheafIso (f ≫ g) L).hom)
+but is expected to have type
+  @Eq
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj (extendedSections f L) ⟶
+      moduleSpecΓFunctor.obj ((Scheme.Modules.pullback (Spec.map (f ≫ g))).obj L.object))
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).map (sectionsIso f L).hom ≫
+      (sectionsIso g (LineSheafPullback318.line (Spec.map f) L)).hom ≫
+        moduleSpecΓFunctor.map ((AffineComparisonMates318.pullbackComp f g).hom.app L.object))
+    ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app
+        (OriginalLineAffineModel318.sections R L) ≫
+      (sectionsIso (f ≫ g) L).hom)
