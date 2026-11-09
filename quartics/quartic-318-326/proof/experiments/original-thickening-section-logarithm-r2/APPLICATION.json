@@ -1,0 +1,111 @@
+{
+  "claim": "The canonical original dual-coordinate global-section map on every actual affine relative thickening is a ring equivalence, giving unique logarithms of all actual units reducing to1, with the original exponential and original scheme-map naturality.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled105-source actual affine thickening section-ring and reduced-unit logarithm candidate.99 exact prior sources and6 new connected sources. Canonical original section map, both projection squares, unique actual reduced-unit logarithms and original-map naturality proved in source. Hosted elaboration and independent acceptance pending; whole-H1 classification and norm tangent still open. Revision2 adds terminal all_goals guards to three normalization tails flagged by reviewer preflight; source statements and original maps unchanged.",
+  "new_sources": {},
+  "readme_sha256": "070d6e81c29f3754dc5220cbbb316f951b22a3c587ce3f88772b5d69bbef88ea",
+  "intake_sha256": "6eae08b5dd8637939be81d578b21cfdc3fef0254ec3dec64a526b49971c1316d",
+  "copy_bindings_sha256": "72af9e8e5d024237004a5e02c47118e1f8513d4d3013c086a57d2d95adcc804a",
+  "pinned_apis_sha256": "e085020fd80a218a38da533b598186fc4a1d7cf17001fc564fc7e3acafe7c5bb",
+  "obligations": [
+    {
+      "name": "Canonical actual section map",
+      "required": "The map must use actual projection sections and actual epsilon, before affine choices.",
+      "constructed": "OriginalDualSectionLift.lift uses first.appTop and existing second-projection epsilon.",
+      "justification": "SquareZeroRingLift proves the ring laws from actual epsilon squared zero.",
+      "evidence": [
+        "OriginalDualSectionLift318.lift",
+        "SquareZeroRingLift318.lift"
+      ]
+    },
+    {
+      "name": "Actual zero-section reduction",
+      "required": "Reduction must be the original morphism on original sections.",
+      "constructed": "reduction_lift uses original reduction_fst and existing reduction_epsilon.",
+      "justification": "The resulting first coordinate is proved by the original composition appTop equality.",
+      "evidence": [
+        "OriginalDualSectionLift318.reduction_lift",
+        "PINNED_APIS.md"
+      ]
+    },
+    {
+      "name": "Both original scheme map squares",
+      "required": "Functoriality must preserve both coefficients and epsilon.",
+      "constructed": "coefficient_naturality uses original first-projection square and epsilon_naturality uses original second-projection square.",
+      "justification": "naturality changes both dual coordinates by actual f.appTop.",
+      "evidence": [
+        "OriginalDualSectionLift318.coefficient_naturality",
+        "OriginalDualSectionLift318.naturality"
+      ]
+    },
+    {
+      "name": "Identity with actual affine tensor inverse",
+      "required": "An unrelated ring equivalence would not identify the canonical lift.",
+      "constructed": "coordinates uses actual Gamma affineIso inverse and GammaSpecIso; coordinates_first and coordinates_epsilon check both generators.",
+      "justification": "coordinates_lift identifies the exact canonical map with the exact prior tensor inverse on every coefficient pair.",
+      "evidence": [
+        "OriginalAffineDualSections318.coordinates_lift",
+        "OriginalAffineDualSections318.coordinates_first",
+        "OriginalAffineDualSections318.coordinates_epsilon"
+      ]
+    },
+    {
+      "name": "Whole affine original section ring",
+      "required": "Bijectivity must cover every affine original X, including empty cases.",
+      "constructed": "Actual scheme-isomorphism naturality transfers bijectivity; original isoSpec and original map recover its literal affine algebra.",
+      "justification": "equivalence is ofBijective of the SAME canonical lift, not a replacement map.",
+      "evidence": [
+        "OriginalAffineDualSectionEquivalence318.bijective_of_iso",
+        "OriginalAffineDualSectionEquivalence318.equivalence"
+      ]
+    },
+    {
+      "name": "Entire actual reduced-unit kernel",
+      "required": "Need every unit reducing to1 and a unique original coefficient.",
+      "constructed": "inverse_fst identifies actual reduction; exp_log and log_exp prove existence and uniqueness on all original units.",
+      "justification": "unit_iff has no chosen-representative or field-level nonvanishing restriction.",
+      "evidence": [
+        "OriginalAffineDualSectionEquivalence318.inverse_fst",
+        "OriginalAffineUnitLogarithm318.unit_iff"
+      ]
+    },
+    {
+      "name": "Old infinitesimal construction retained",
+      "required": "A new exponential label must coincide with the original unit consumed by earlier cocycles.",
+      "constructed": "exp_original proves equality with existing InfinitesimalUnitCocycle.infinitesimal at actual epsilon and actual first pullback coefficient.",
+      "justification": "exp_add/log_mul retain original multiplication and additive signs.",
+      "evidence": [
+        "OriginalAffineUnitLogarithm318.exp_original",
+        "OriginalAffineUnitLogarithm318.exp_add",
+        "OriginalAffineUnitLogarithm318.log_mul"
+      ]
+    },
+    {
+      "name": "Actual logarithm functoriality",
+      "required": "Transition comparison must use original maps, not inferred coordinate restrictions.",
+      "constructed": "exp_naturality and log_naturality use actual thickened map.appTop and original f.appTop.",
+      "justification": "transition_iff retains these maps on all three terms and uses proved exponential injectivity.",
+      "evidence": [
+        "OriginalAffineLogarithmNaturality318.exp_naturality",
+        "OriginalAffineLogarithmNaturality318.log_naturality",
+        "OriginalAffineLogarithmNaturality318.transition_iff"
+      ]
+    },
+    {
+      "name": "Remaining classification and evidence",
+      "required": "Affine units alone do not prove whole-H1 classification or norm tangent.",
+      "constructed": "Original cover-frame/cocycle classification and norm trace joins remain open; all99 prior files exact. Revision2 preserves103 files exactly and guards three terminal normalization tails without changing any statement or map.",
+      "justification": "Hosted and independent acceptance pending; no represented geometric conclusion asserted.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "revision_source": "original-thickening-section-logarithm-r1",
+  "modified_sources": {
+    "OriginalDualSectionLift318.lean": "7a46ce60ab3c0685bcd1f243c453fa5adb7d35b5d8f7617ec3ef7ea6dc4f12ab",
+    "OriginalAffineDualSections318.lean": "eefa4183f24084a8ab045b44daa085d19cac26012c15f94aa34a2cfa7d64c887"
+  }
+}
