@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-glued-model-r2/IntegralReciprocalRootScale318.lean:38:60: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?f (?x * ?y)
+in the target expression
+  (ContactGenericFiber318.rootParameterEquiv ⋯)
+      ((algebraMap S (EvenContactEtale318.RootRing ha.unit)) ↑y * EvenContactEtale318.root ha.unit) =
+    (algebraMap S (RootRing a)) ↑y * AdjoinRoot.root (polynomial a)
+
+S : Type u_1
+inst✝ : CommRing S
+a b : S
+y : Sˣ
+ha : IsUnit a
+h : b = a * ↑y ^ 2
+⊢ (ContactGenericFiber318.rootParameterEquiv ⋯)
+      ((algebraMap S (EvenContactEtale318.RootRing ha.unit)) ↑y * EvenContactEtale318.root ha.unit) =
+    (algebraMap S (RootRing a)) ↑y * AdjoinRoot.root (polynomial a)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (algebraMap S (EvenContactEtale318.RootRing ha.unit)) ↑y * EvenContactEtale318.root ha.unit
+  has type
+    EvenContactEtale318.RootRing ha.unit
+  but is expected to have type
+    RootRing ↑ha.unit
+  in the application
+    (ContactGenericFiber318.rootParameterEquiv ⋯)
+      ((algebraMap S (EvenContactEtale318.RootRing ha.unit)) ↑y * EvenContactEtale318.root ha.unit)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-glued-model-r2/IntegralReciprocalRootScale318.lean:29:16: error: (kernel) deterministic timeout
