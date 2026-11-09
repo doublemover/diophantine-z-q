@@ -1,0 +1,261 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:14:18: error: unsolved goals
+τ : ℂ
+M N : Matrices
+i : Fin 2
+⊢ M i 0 * τ + N i 0 * τ + M i 1 + N i 1 = ((fun i => τ * M i 0 + M i 1) + fun i => τ * N i 0 + N i 1) i
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:15:19: error: unsolved goals
+τ a : ℂ
+M : Matrices
+i : Fin 2
+⊢ a * M i 0 * τ + a * M i 1 = ((RingHom.id ℂ) a • fun i => τ * M i 0 + M i 1) i
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:19:18: error: unsolved goals
+case «0»
+τ : ℂ
+z w : Vectors
+i : Fin 2
+⊢ z i + w i = ((fun i => ![z i, -(z i * τ)]) + fun i => ![w i, -(τ * w i)]) i 0
+
+case «1»
+τ : ℂ
+z w : Vectors
+i : Fin 2
+⊢ -(w i * τ) - z i * τ = ((fun i => ![z i, -(τ * z i)]) + fun i => ![w i, -(τ * w i)]) i 1
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:20:19: error: unsolved goals
+case «0»
+τ a : ℂ
+z : Vectors
+i : Fin 2
+⊢ a * z i = (a • fun i => ![z i, -(z i * τ)]) i 0
+
+case «1»
+τ a : ℂ
+z : Vectors
+i : Fin 2
+⊢ -(a * z i * τ) = (a • fun i => ![z i, -(τ * z i)]) i 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:24:18: error: unsolved goals
+case «0»
+z w : Vectors
+i : Fin 2
+⊢ 0 = ((fun i => ![0, z i]) + fun i => ![0, w i]) i 0
+
+case «1»
+z w : Vectors
+i : Fin 2
+⊢ z i + w i = ((fun i => ![0, z i]) + fun i => ![0, w i]) i 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:25:19: error: unsolved goals
+case «0»
+a : ℂ
+z : Vectors
+i : Fin 2
+⊢ 0 = (a • fun i => ![0, z i]) i 0
+
+case «1»
+a : ℂ
+z : Vectors
+i : Fin 2
+⊢ a * z i = (a • fun i => ![0, z i]) i 1
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:29:87: error: unsolved goals
+τ : ℂ
+z : Vectors
+i : Fin 2
+⊢ τ * { toFun := fun z i => ![z i, -(z i * τ)], map_add' := ⋯ } z i 0 +
+      { toFun := fun z i => ![z i, -(τ * z i)], map_add' := ⋯ } z i 1 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:32:4: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, inclusion, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_one, Pi.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:32:25: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, inclusion, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, Pi.zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:35:85: error: unsolved goals
+τ : ℂ
+z : Vectors
+i : Fin 2
+⊢ { toFun := fun z i => ![0, z i], map_add' := ⋯ } z i 0 * τ + { toFun := fun z i => ![0, z i], map_add' := ⋯ } z i 1 =
+    z i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:38:4: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, splitting, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_one, zero_mul, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:38:25: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, splitting, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, zero_mul, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:38:45: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, splitting, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, Matrix.cons_val_one,
+    zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:38:54: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [projection, splitting, LinearMap.coe_mk, AddHom.coe_mk, Matrix.cons_val_zero, Matrix.cons_val_one,
+    zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:41:65: error: unsolved goals
+case «0»
+τ : ℂ
+M : Matrices
+i : Fin 2
+⊢ { toFun := fun z i => ![z i, -(z i * τ)], map_add' := ⋯ } (fun i => M i 0) i ⟨0, ⋯⟩ +
+      { toFun := fun z i => ![0, z i], map_add' := ⋯ } (fun i => τ * M i 0 + M i 1) i ⟨0, ⋯⟩ =
+    M i ⟨0, ⋯⟩
+
+case «1»
+τ : ℂ
+M : Matrices
+i : Fin 2
+⊢ { toFun := fun z i => ![z i, -(z i * τ)], map_add' := ⋯ } (fun i => M i 0) i ⟨1, ⋯⟩ +
+      { toFun := fun z i => ![0, z i], map_add' := ⋯ } (fun i => τ * M i 0 + M i 1) i ⟨1, ⋯⟩ =
+    M i ⟨1, ⋯⟩
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:44:21: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inclusion, splitting, projection, LinearMap.coe_mk, AddHom.coe_mk, Matrix.add_apply,
+    Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:44:42: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inclusion, splitting, projection, LinearMap.coe_mk, AddHom.coe_mk, Matrix.add_apply,
+    Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:68:52: error: unsolved goals
+case «0»
+τ : ℂ
+g : Matrices
+z : Vectors
+i : Fin 2
+⊢ g i 0 * { toFun := fun z i => ![z i, -(z i * τ)], map_add' := ⋯ } z 0 ⟨0, ⋯⟩ +
+      g i 1 * { toFun := fun z i => ![z i, -(τ * z i)], map_add' := ⋯ } z 1 ⟨0, ⋯⟩ =
+    { toFun := fun z i => ![z i, -(τ * z i)], map_add' := ⋯ } (leftAction g z) i ⟨0, ⋯⟩
+
+case «1»
+τ : ℂ
+g : Matrices
+z : Vectors
+i : Fin 2
+⊢ g i 0 * { toFun := fun z i => ![z i, -(z i * τ)], map_add' := ⋯ } z 0 ⟨1, ⋯⟩ +
+      g i 1 * { toFun := fun z i => ![z i, -(τ * z i)], map_add' := ⋯ } z 1 ⟨1, ⋯⟩ =
+    { toFun := fun z i => ![z i, -(τ * z i)], map_add' := ⋯ } (leftAction g z) i ⟨1, ⋯⟩
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:70:56: warning: This simp argument is unused:
+  AddHom.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inclusion, LinearMap.coe_mk, Matrix.mul_apply, Fin.sum_univ_two, Matrix.cons_val_zero,
+    Matrix.cons_val_one, leftAction]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:71:38: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inclusion, LinearMap.coe_mk, AddHom.coe_mk, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.cons_val_one, leftAction]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:71:59: warning: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inclusion, LinearMap.coe_mk, AddHom.coe_mk, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.cons_val_zero, leftAction]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-period-unit-transport-r2/QuaternionicHodgeKernel318.lean:71:79: warning: This simp argument is unused:
+  leftAction
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inclusion, LinearMap.coe_mk, AddHom.coe_mk, Matrix.mul_apply, Fin.sum_univ_two,
+    Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
