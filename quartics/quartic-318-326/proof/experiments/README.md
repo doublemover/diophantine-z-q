@@ -1,5 +1,53 @@
 # Lean experiment history
 
+## Current restored source baseline, 2026-11-09
+
+The restored working tree currently admits **1,837 modules**, as recorded by
+`../progress/checkpoint-manifest.json`, `../progress/module-order.json`, and the
+private-inclusive `../progress/CheckpointAudit.lean`. The recorded 1,859-module
+admission below survives as historical evidence, but its 22 additional sources
+are not present in those current source manifests. Do not infer their current
+admission or reusable baseline artifacts from that historical receipt.
+
+New continuation packets must therefore include each required source outside the
+actual 1,837-module baseline in their own dependency-closed intake. Their status
+is pending hosted Lean checking until an exact successful result is preserved;
+source-policy checks and review alone do not establish compilation or close the
+remaining global arithmetic inputs. The current scheduled packets are listed in
+`packets.json`. Historical sections below retain their original provenance.
+
+## Active continuation batch, 2026-11-09
+
+Five dependency-closed packets are scheduled for their first hosted check in
+this restoration. They contain 143 module checks in total, including copied
+predecessors outside the current baseline; this is not 143 new results.
+
+- `actual-five-hone-decomposition-20261109` (26): actual source-H1 split
+  decompositions, with cross-term vanishing and common-kernel exhaustion still
+  explicit in the fivefold endpoint.
+- `forward-cyclic-prefix-progressions-r1` (29): arbitrarily late compatible
+  progressions for the first 51 literal source rows, fixed signed roots and
+  guard margins, plus an explicit scalar-good region for h = 1 + k*t.
+  The remaining 237 rows and unrestricted CRT/component joins remain open.
+- `forward-projective-line-points-r2` (44): original compact level-three source
+  and actual complex-valued points of the explicit projective line, with exact
+  algebraic-evaluation charts and cusp values. Its unchanged 38-source
+  `forward-three-complex-atlas-r2` predecessor is preserved but not scheduled
+  again. No general analytification functor or PEL comparison is asserted.
+- `height-bicanonical-height-r1` (9): heights of the actual evaluated scaled
+  bicanonical pair and its original-coordinate/metric consumer. Existence of
+  the required norms, KS equality and all-place bounds remains open.
+- `rigidified-transition-coherence` (35): actual rigidified pullback, unique
+  compatible transitions and their naturality on every scheme test over the
+  original field base. Effective fppf gluing and representability remain open.
+
+The bounded non-author source review and exact intake/contract bindings are in
+`independent-reviews/continuation-batch-20261109/review.json`. It records static
+checks, not compiler success, final mathematical acceptance or manuscript
+incorporation. All new sources and copied draft prerequisites still require
+hosted strict checks and recursive standard-axiom audits. No local Lean build
+or compiler was run for this batch, and the accepted baseline is unchanged.
+
 ## Reviewed 22-source preservation checkpoint, 2026-11-09
 
 Five isolated packets have exact strict local source checks, private-inclusive recursive audits, and distinct non-author bounded source/consumer acceptance:
