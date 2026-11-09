@@ -1,0 +1,103 @@
+{
+  "claim": "Pending actual source-H1 vanishing for all rationally weighted pole monomials outside an exhaustive five-index candidate domain; not a spanning or independence theorem.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled 45-source continuation; hosted checks, axiom audit and independent acceptance pending. Candidate count and high-pole zero classes only, not spanning or independence.",
+  "new_sources": {
+    "ActualSourceHOneSmallPoles318.lean": "41c9ff4ceb5778220d00cc81e485aa361423163059b822474281914a3869714d"
+  },
+  "readme_sha256": "55ecb2c635276649f63a1b058e4b88d86373541b350962913e3d81b88c8e395c",
+  "intake_sha256": "e0a9c7b69464fc93ac446e82adf14a9dd6f009ac2fbfda2979630724f3a00653",
+  "copy_bindings_sha256": "66cc6b65828766470b24b0a5300ba8ef124da099e1cf45d8813a74e44e94a632",
+  "obligations": [
+    {
+      "name": "Actual H1 target",
+      "required": "Every pole class must live in the unchanged actual source H1.",
+      "constructed": "poleClass returns the HOne abbreviation from ActualSourceHOnePrincipalRepresentatives318.",
+      "justification": "Its definition applies the same original boundary directly to an element of the original overlap ring.",
+      "evidence": [
+        "ActualSourceHOneSmallPoles318.poleClass",
+        "ActualSourceHOnePrincipalRepresentatives318.HOne"
+      ]
+    },
+    {
+      "name": "Rational coefficients without assumed H1 scalars",
+      "required": "Rational weighting must have an actual constructed meaning.",
+      "constructed": "q is mapped into the overlap ring with its original algebraMap Q.",
+      "justification": "Multiplication happens inside the ring before the additive boundary; no Module Q H1 instance or unproved scalar compatibility is assumed.",
+      "evidence": [
+        "ActualSourceHOneSmallPoles318.poleClass"
+      ]
+    },
+    {
+      "name": "Original high-pole witness",
+      "required": "High-pole vanishing needs the actual finite chart image.",
+      "constructed": "The witness is algebraMap Q finiteRing q times finiteWitness units i (k-weight i).",
+      "justification": "pole_of_weight_le proves the original ring identity; map_mul and map_rat_algebraMap preserve the full coefficient.",
+      "evidence": [
+        "ContactFinitePoleReduction318.pole_of_weight_le",
+        "ActualSourceHOneSmallPoles318.poleClass_zero_of_weight_le"
+      ]
+    },
+    {
+      "name": "Correct finite boundary",
+      "required": "The finite witness must be killed by the actual kernel.",
+      "constructed": "finite_boundary_zero is applied to the constructed weighted witness.",
+      "justification": "The preceding kernel theorem uses the original finiteMap and original H1; no field regularity assertion substitutes for the ring witness.",
+      "evidence": [
+        "ActualSourceHOnePrincipalRepresentatives318.finite_boundary_zero",
+        "ActualSourceHOneSmallPoles318.poleClass_zero_of_weight_le"
+      ]
+    },
+    {
+      "name": "Zero-pole exception",
+      "required": "The case k=0 must be covered, including positive weights.",
+      "constructed": "The infinity witness is q times the original infinityBasis entry.",
+      "justification": "The actual toOpen map preserves q and multiplication; infinity_boundary_zero consumes its original image with the established sign convention.",
+      "evidence": [
+        "ActualSourceHOneSmallPoles318.poleClass_zero_pole",
+        "ActualSourceHOnePrincipalRepresentatives318.infinity_boundary_zero"
+      ]
+    },
+    {
+      "name": "Complete candidate index domain",
+      "required": "No potentially surviving pole or monomial may be omitted.",
+      "constructed": "SmallIndex consists of every ThreeIndex and k in Fin 3 with 0<k<weight.",
+      "justification": "weight_le_three and small_pole_lt_three prove that every positive pole below its weight fits Fin 3.",
+      "evidence": [
+        "ActualSourceHOneSmallPoles318.SmallIndex",
+        "ActualSourceHOneSmallPoles318.weight_le_three",
+        "ActualSourceHOneSmallPoles318.small_pole_lt_three"
+      ]
+    },
+    {
+      "name": "Finite count only",
+      "required": "The finite count must not silently assert linear independence.",
+      "constructed": "smallIndex_card states Fintype.card SmallIndex=5.",
+      "justification": "The decision proof checks only the explicit finite subtype. This is candidate enumeration, not an H1 rank computation.",
+      "evidence": [
+        "ActualSourceHOneSmallPoles318.smallIndex_card"
+      ]
+    },
+    {
+      "name": "Exhaustive outside-domain vanishing",
+      "required": "All natural pole orders outside the candidate domain need a proof.",
+      "constructed": "poleClass_zero_outside_small splits k=0 and k>0.",
+      "justification": "In the latter case failure of k<weight means weight<=k, exactly the earlier finite witness hypothesis. All indices and rational coefficients remain quantified.",
+      "evidence": [
+        "ActualSourceHOneSmallPoles318.poleClass_zero_outside_small"
+      ]
+    },
+    {
+      "name": "Remaining spanning join and verification",
+      "required": "Do not promote the candidate count to a five-dimensional theorem.",
+      "constructed": "The preceding principal-representative theorem still has polynomial numerators.",
+      "justification": "Polynomial coefficient expansion, collection into five coefficient maps, independence and original quotient-pullback identification remain open. All sources await hosted strict checking and independent acceptance.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ]
+}

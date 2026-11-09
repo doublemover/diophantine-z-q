@@ -1,0 +1,111 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_CHECK_AND_DISTINCT_REVIEW",
+  "claim": "Actual degree-four field of the two original real normalizing radicals, with selective sign automorphism.",
+  "sources": {
+    "NormalizingRadicals318.lean": "770d42d1386d1dca36ddd0e6c810c7d9c2b3dd2ac8ca8932b58569661ba52dd1"
+  },
+  "derivation_sha256": "b9df029e1b6ac6cd7cd0217b08651601ddae616498ed68a3fcd0642ef83d43dc",
+  "obligations": [
+    {
+      "name": "Literal source coefficient",
+      "required_input": "The two normalizers must match the original D and its conjugate.",
+      "constructed_input": "delta = pair 3 (-1), deltaBar = pair 3 1; delta^2 = D.",
+      "justification": "Exact rational coefficient identities, not floating-point approximations.",
+      "source_references": "delta_square; delta_product; norm_delta; norm_deltaBar",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Rational square descent",
+      "required_input": "Nonsquare 7 and 14 over Q must be justified.",
+      "constructed_input": "SquareReflection318.fraction_square_iff descends a rational square to Z.",
+      "justification": "Normality and fraction-field instances are the actual Z and Q instances; integer candidates are bounded and checked.",
+      "source_references": "rat_seven_not_square; rat_fourteen_not_square",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Base-field square-class kernel",
+      "required_input": "7 must remain nonsquare over K = Q(sqrt(2)).",
+      "constructed_input": "The quadratic-square reflection alternatives are 7 and 14 in Q.",
+      "justification": "Both alternatives are excluded by the preceding descent arguments; the radicand 2 is nonzero.",
+      "source_references": "seven_not_square",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "First two radicands",
+      "required_input": "delta and deltaBar must each be nonsquare in K.",
+      "constructed_input": "Both have norm 7 under the actual quadratic norm homomorphism.",
+      "justification": "The norm of a square is a rational square, contradicting the verified nonsquare 7.",
+      "source_references": "delta_not_square; deltaBar_not_square",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Second extension kernel",
+      "required_input": "deltaBar must remain nonsquare after adjoining sqrt(delta).",
+      "constructed_input": "The alternatives are deltaBar and delta*deltaBar = 7 in K.",
+      "justification": "The exact square-reflection theorem is applied with delta nonzero; both alternatives are excluded.",
+      "source_references": "second_not_square",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual field tower and degree",
+      "required_input": "The constructed algebra must be a field, not an assumed Kummer vector space.",
+      "constructed_input": "First and Both are literal QuadraticAlgebra towers with field instances derived after nonsquare proofs.",
+      "justification": "Each extension has finrank two; the actual scalar tower gives degree four.",
+      "source_references": "firstField; bothField; degree_four",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Root maps and selective sign",
+      "required_input": "The involution must fix one specific root and negate the other.",
+      "constructed_input": "firstRoot uses the actual First-to-Both algebra map; secondRoot is the second quadratic generator.",
+      "justification": "flipSecond is an actual First-algebra equivalence and its root actions are proved exactly.",
+      "source_references": "firstRoot_square; secondRoot_square; flipSecond_firstRoot; flipSecond_secondRoot; flipSecond_base",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Real/group consumer boundary",
+      "required_input": "Algebraic signs cannot silently become normalized point maps or real density.",
+      "constructed_input": "No elliptic point, real embedding extension, circle comparison or density assertion is constructed.",
+      "justification": "Those maps and nontorsion comparisons remain next obligations; the packet is only the concrete radical prerequisite.",
+      "source_references": "DERIVATION.md",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "History and validation scope",
+      "required_input": "A new candidate route does not invalidate history or prove the full theorem.",
+      "constructed_input": "Historical compact-Lie route retains its prior-justification status; current packet is pending hosted checks/review.",
+      "justification": "No accepted source or manuscript is modified, and no component modulus or full arithmetic theorem is claimed.",
+      "source_references": "DERIVATION.md; VALIDATION.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

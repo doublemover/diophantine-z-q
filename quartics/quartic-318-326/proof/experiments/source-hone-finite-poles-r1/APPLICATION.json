@@ -1,0 +1,110 @@
+{
+  "claim": "Pending exact original finite-ring witnesses for every infinity monomial pole of order at least its ratio weight.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled seven-source packet; hosted strict checks, axiom audit and independent acceptance pending. Actual finite-ring high-pole witnesses only.",
+  "new_sources": {
+    "ContactFinitePoleReduction318.lean": "7c114f46e8c82c5a0c66b17934f29dbfae303ca939727366171fb6bf3a3c3605"
+  },
+  "readme_sha256": "bedcfd660702461a8beb1206d49967ab1bd446ef897da1f38bf6f17680d8b48b",
+  "intake_sha256": "5d65b4c4794dfd284c5a87f6d554acdeb51d0640bdd5cc8cd72f49ecdc50ae12",
+  "copy_bindings_sha256": "b340c56055f9fd1e1600cc65dcbb3e14d7f207c9781b685e345343a45b282640",
+  "obligations": [
+    {
+      "name": "Actual source generator carrier",
+      "required": "Finite witnesses must be in the original polynomial order.",
+      "constructed": "finiteGenerator and finiteWitness target ContactKummerOrder318.SourceOrder c.",
+      "justification": "The generators are exactly FourRootOrderSigns318.generator for the original coefficients; no element of the fraction field is substituted as a ring witness.",
+      "evidence": [
+        "ContactFinitePoleReduction318.finiteGenerator",
+        "ContactFinitePoleReduction318.finiteWitness"
+      ]
+    },
+    {
+      "name": "Original coefficient-change embedding",
+      "required": "The finite generators must map to the actual original contact roots.",
+      "constructed": "finiteGenerator_embedding invokes coefficientMap_generator at RatFunc Q.",
+      "justification": "The earlier original embedding is that exact generic-fiber coefficient change; the field generator definitions have the same tensor placement.",
+      "evidence": [
+        "FourRootSignBaseChange318.coefficientMap_generator",
+        "ContactKummerOrder318.embedding",
+        "ContactFinitePoleReduction318.finiteGenerator_embedding"
+      ]
+    },
+    {
+      "name": "Complete index and exponent domain",
+      "required": "Every one of the eight infinity monomials and every high pole must be covered.",
+      "constructed": "i ranges over ThreeIndex; e is any natural number, including zero.",
+      "justification": "weight is the sum of all three binary exponent values. pole_of_weight_le covers every k at least that weight by e=k-weight.",
+      "evidence": [
+        "ContactFinitePoleReduction318.weight",
+        "ContactFinitePoleReduction318.pole_at_weight_add",
+        "ContactFinitePoleReduction318.pole_of_weight_le"
+      ]
+    },
+    {
+      "name": "Coordinate normalization",
+      "required": "The identities must use the original u and root ratios with exact constants.",
+      "constructed": "u=c0/y0 and ratio_j=y_(j+1)/y0 are the existing definitions.",
+      "justification": "finiteWitness includes c0 inverse raised to the entire pole order d+e. The generic pole_factor identity retains precisely this factor.",
+      "evidence": [
+        "InfinityFieldCoordinates318.u",
+        "InfinityFieldCoordinates318.ratio",
+        "ContactFinitePoleReduction318.pole_factor"
+      ]
+    },
+    {
+      "name": "Nonzero denominators",
+      "required": "Cancellation requires nonzero y0 and c0.",
+      "constructed": "root_ne_zero c 0 and constant_ne_zero c (c 0).ne_zero supply them.",
+      "justification": "These are original field theorems and the actual unit parameter; no extra condition on other roots or numerators is introduced.",
+      "evidence": [
+        "InfinityFieldCoordinates318.root_ne_zero",
+        "InfinityFieldCoordinates318.constant_ne_zero",
+        "ContactFinitePoleReduction318.pole_at_weight_add"
+      ]
+    },
+    {
+      "name": "Actual overlap inverse and basis image",
+      "required": "The consumed pole monomial must be the previously constructed overlap element.",
+      "constructed": "The left side uses inverseU and toOpen applied to infinityBasis.",
+      "justification": "inverse_u_embedding and infinity_embedding identify these through the original maps with no abstract field isomorphism or scaling.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.inverse_u_embedding",
+        "ContactHOneOrderBases318.infinity_embedding"
+      ]
+    },
+    {
+      "name": "Original finite transition",
+      "required": "The right side must be the image under the same finite restriction used by H1.",
+      "constructed": "The right side is SourceOpenFractionField318.orderToOpen c (finiteWitness c i e).",
+      "justification": "openEmbedding_on_order identifies its original field image with the finite witness embedding. This is the finiteMap of the coordinate H1 presentation.",
+      "evidence": [
+        "SourceOpenFractionField318.openEmbedding_on_order",
+        "ActualSourceHOneCoordinates318.finiteMap",
+        "ContactFinitePoleReduction318.pole_at_weight_add"
+      ]
+    },
+    {
+      "name": "Whole-ring identity reflection",
+      "required": "A field-only identity is insufficient for the actual quotient consumer.",
+      "constructed": "The proof applies openEmbedding_injective to the two actual overlap elements.",
+      "justification": "Both sides were constructed in the original overlap; injectivity proves their literal ring equality, which the H1 boundary can consume.",
+      "evidence": [
+        "SourceOpenFractionField318.openEmbedding_injective",
+        "ContactFinitePoleReduction318.pole_of_weight_le"
+      ]
+    },
+    {
+      "name": "Remaining consumer and verification",
+      "required": "Do not infer five-dimensionality or quotient-pullback spanning from this step alone.",
+      "constructed": "This packet supplies exact original finite witnesses for all poles at least the monomial weight.",
+      "justification": "The additive boundary consumer, polynomial coefficient expansion, five candidate count, independence and pullback comparison require further proof. All current sources remain pending hosted checking and independent acceptance.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ]
+}
