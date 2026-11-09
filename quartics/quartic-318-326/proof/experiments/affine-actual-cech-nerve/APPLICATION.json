@@ -1,0 +1,127 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "affine-actual-cech-nerve",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Explicit actual scheme double/triple fiber-product isomorphisms to the original tensor-spectrum Cech nerve, preserving all pair maps, vertices, base map and diagonal. Sheaf descent-equation transport and non-affine gluing remain separate.",
+  "bindings": {
+    "README.md": "6b8969434cfe527f91a16b2ed37f7e7471bc3b20907a8e337a1ea051e7bcadbf",
+    "APPLICATION.md": "04a18f4a03024c0a8f4ca3559c29b06d8a085d9a0ef181b09852787baa3df83a",
+    "intake.json": "373a5abd56c7277fdb3cd0c514fc3ff9d79d6a00858a60b473e4e7b00b256df2",
+    "DEPENDENCIES.json": "4d71c931ad6deacaeadc2144f3bad8f289db27c7de4ca8a0daee400a7e065627",
+    "SOURCE_SHA256SUMS": "253d9c6bf5f13b40b748cbd1d5d580c2105aa604688c7c98f5a10ed2746ed3ce",
+    "MODULE_ORDER.txt": "3a285a68007a32f6f44ce838d606791efc726fc04280dd4952442e76f4f4f683",
+    "validation/ExperimentAudit.lean": "aa764322bde2f5d385804b6ab3457b32bda43429be30891eb99b05b9c7945e79",
+    "ActualOverlapDiagram318.lean": "53ce066f91290454c66b912a17364658810d0a6494843569c7c1ce8c19c6bbf7",
+    "TensorPushoutModule318.lean": "845cc5fcd23b4d5b103f77b09ce455cef1b161a58b81c632f7cda703f4435ff8",
+    "AffineModuleBaseChange318.lean": "e26233c252ec5cdb98fdeafdb903c7fc148820d2adadc5fb8c68aa0bbed964b4",
+    "AffineModuleMate318.lean": "7c175042e90a396eb83fa1478f9d7866d8ba36d21d2273fb0e5f8df8f6c62749",
+    "AffineCechRings318.lean": "ee500bfca0c88c108228c9871c29ea910000ae0b202cf00de4a6212a61aa99e3",
+    "ActualAffineDoubleNerve318.lean": "8df08efd8be64cb590b8888f79916bf621e477bcb3fbcf548656a1ffcec3763c",
+    "ActualAffineTripleMaps318.lean": "05d9c1734726e7f84d3250d5d56cf7478d24795c6f2730897f0652db330f5410",
+    "ActualAffineTripleNerve318.lean": "5f42934c09e722594515b10f883f6a915590c3e30f7c72392b4a46df9a859028"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Required inputs.** The original pullbackSpecIso applies to commutative\n   R-algebras S and T and identifies the actual categorical scheme pullback\n   with Spec(S tensor_R T), retaining the actual projections. It is applied\n   first with T=S and then with T=S tensor_R S. The original ring endpoint\n   identities are those of AffineCechRings318.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** The double object is ActualOverlapDiagram318.Double\n   of the original Spec algebra map. The triple is its actual adjacent-double\n   pullback, not a replacement product definition. toActual is the actual\n   pullback.lift of12 and23 tensor maps through the same double inverse.\n   toTensor is the actual outer pullback.lift of vertex0 and pair12 followed\n   by the original outer Spec comparison.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** All commutative rings and every given R-algebra S are covered.\n   The result is a scheme isomorphism with inverse equations, not a test only\n   at fields, residue points, closed points or a generic locus. No flatness,\n   finite presentation, reducedness or nontriviality premise is added.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** The original categorical labels01,12,02 match\n   the tensor labels12,23,13 respectively. The three actual vertices0,1,2 match\n   tensor vertices1,2,3. The inverse triple comparison followed by each actual\n   pair map is exactly the corresponding tensor Spec map followed by the\n   inverse double comparison. The actual diagonal is Spec(tensor multiplication)\n   followed by that same double inverse.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** The toActual lift equality is proved from the exact\n   map12-right and map23-left identities. The toTensor lift equality is proved\n   from actual double base projection, edge equality and triple middle equality.\n   Both inverse equations use the actual pullback hom_ext universal property,\n   with their original projections. No isomorphism or descent law is a hidden\n   premise of the constructed triple comparison.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** tripleIso has hom literally toTensor and inv literally\n   toActual. All_pairs simultaneously states the three exact actual pair-map\n   identities using the unchanged ActualOverlapDiagram318 names. The double\n   comparison is literally the original Mathlib pullbackSpecIso, and all\n   tensor ring maps are the unchanged AffineCechRings318 maps consumed by\n   geometric affine line reconstruction.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** Original algebra maps, tensor ring\n   multiplication, inclusion maps and their Spec directions are retained.\n   No scalar sheaf comparison, chosen trivialization, twist or coefficient\n   is inserted. The result is solely an exact scheme-level diagram comparison;\n   it does not silently identify subsequent module-sheaf pullbacks.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** Transport of actual sheaf overlap data and its\n   diagonal/triple equations through this comparison remains further work,\n   requiring canonical module-sheaf pullback coherence. General geometric\n   descent-category identification, reconstruction across base charts,\n   non-affine gluing, rigidification, Picard representation and the full\n   arithmetic theorem are not claimed. No arithmetic premise is replaced.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** Three new sources and five exact producer\n   copies are bound. Static hashes/imports/placeholders and audit-history\n   checks pass. No local Lean ran. Complete eight-source hosted strict replay,\n   recursive axiom audit and independent acceptance remain pending. Earlier\n   producer validation does not approve this new consuming application.",
+      "evidence": [
+        "APPLICATION.md",
+        "ActualAffineDoubleNerve318",
+        "ActualAffineTripleMaps318",
+        "ActualAffineTripleNerve318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}
