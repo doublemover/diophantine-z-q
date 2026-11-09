@@ -16,6 +16,29 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Further strict successes and exact analytic consumers, 2026-11-09
+
+Run [42574563881](https://github.com/doublemover/diophantine-z-q/actions/runs/42574563881)
+at `2cdec4e` passed complete strict checks and private-inclusive audits of
+`height-bicanonical-height-r3` (9 modules,112 declarations) and
+`source-hone-order-bases-r2` (2 modules,34 declarations). Exact results and logs
+are under `hosted-results/42574563881`. The standalone height packet is now
+inactive, not baseline-promoted; original order bases remain checked as exact
+copies in the H1 representative closure.
+
+The current nine-packet matrix checks 212 modules. The analytic chain now
+includes actual manifold holomorphy of the scheme-induced j action and actual
+q-disc expressions with cusp orders1 and3. A separate four-source algebraic normalization packet proves integer independence
+of two exact normalized images of the original generator, retaining the real
+embedding/topological bridge as an open step. Versioned H1 and integral-frame
+repairs retain original maps and scalar actions. Explicit finite/infinity ring
+witnesses kill pole classes outside five possible small-pole indices; spanning
+and independence are not asserted. Picard and real-orbit repairs retain the
+original comparisons and group. A separate good-chart packet
+proves actual noncontact order and field-fiber reducedness, without claiming
+reducedness of every arithmetic special fiber. All these revisions remain
+pending hosted checking; `review-round7.json` records bounded source review.
+
 ## Exact H1 success and joined consumers, 2026-11-09
 
 Run [42573995193](https://github.com/doublemover/diophantine-z-q/actions/runs/42573995193)
@@ -27,7 +50,7 @@ vanishing and zero common kernel. The same run checked the polynomial principal
 parts lemma but failed the original-field consumer's rational-algebra inference;
 the revised representative packet retains the original producers' algebra choice.
 
-The current 8-packet matrix checks 208 modules. Joined supersets avoid duplicate
+The preceding 8-packet matrix checked 208 modules. Joined supersets avoid duplicate
 analytic and H1 predecessor checks: actual compact j point values and all-eight
 principal representatives are now connected to their exact original objects.
 Separate packets add ramified-base tensor integrality and the module-overlap

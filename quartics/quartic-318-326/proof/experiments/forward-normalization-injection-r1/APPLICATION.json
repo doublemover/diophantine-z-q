@@ -1,0 +1,114 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_CHECK_AND_DISTINCT_REVIEW",
+  "claim": "Injective actual normalization and unconditional algebraic integer independence of the two specified normalized images of literal P.",
+  "sources": {
+    "NormalizationInjection318.lean": "5be6a77f1a00af8de89b8e0fcf3dc5d92d843ce08de135b3e9f46c485d76c786",
+    "NormalizedPointSigns318.lean": "a747d59ec7a4a1beb2892bf67bedd734bc41a4526234d92951e732c8f1aca71d",
+    "NormalizedGeneratorIndependence318.lean": "a0ff121f10d4f2ce7ef02a8cce974534c92e48ed1989ace3a724ac865d530d04",
+    "NormalizingRadicals318.lean": "770d42d1386d1dca36ddd0e6c810c7d9c2b3dd2ac8ca8932b58569661ba52dd1"
+  },
+  "derivation_sha256": "c2e39486f72e7721a5c0e056ab3a9c9bc8f7abe3b04dedd9b8c37be1e1faf8c9",
+  "obligations": [
+    {
+      "name": "Literal source and field",
+      "required_input": "The independence statement must concern the original P, not a substituted generic point.",
+      "constructed_input": "Both normalized generators take LocalGenerator318.P itself in the actual Both field.",
+      "justification": "The only difference between the two maps is the specified embedding and normalizing radical; exact producer copies are bound.",
+      "source_references": "firstGenerator; secondGenerator; SOURCE-COPIES.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Scaling theorem hypotheses",
+      "required_input": "ShortScaling318 requires both actual curves short and elliptic, a unit, and coefficient identities.",
+      "constructed_input": "short and elliptic prove these for E_(r^4),E_1; inverseUnit is r^-1; scale_four and scale_six prove the identities.",
+      "justification": "Discriminant64*d^3 is nonzero for nonzero d; r nonzero supplies all necessary inverses.",
+      "source_references": "short; elliptic; inverseUnit; scale_four; scale_six; scale",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Domain coverage and exceptional points",
+      "required_input": "Normalization must act on the whole actual group and retain infinity/zero charts.",
+      "constructed_input": "normalize acts on all Mathlib nonsingular points; normalize_reciprocal splits u=0 from the finite case.",
+      "justification": "The scaling equivalence covers the whole point type and the reciprocal proof does not divide by zero.",
+      "source_references": "normalize; normalize_reciprocal",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Comparison map direction and scalar",
+      "required_input": "The coordinate normalization must have its exact factors and preserve addition.",
+      "constructed_input": "Base change then coefficient transport then r^-1 scaling gives x/r^2,y/r^3 and u maps to r*phi(u).",
+      "justification": "Each component is a proved additive map/equivalence; normalize_some and normalize_reciprocal prove the coordinate identity.",
+      "source_references": "normalize; normalize_some; normalize_reciprocal",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Injectivity and nontorsion transport",
+      "required_input": "Nontorsion of the original point must imply nontorsion of the specific normalized point.",
+      "constructed_input": "normalize_injective composes the existing injection and two equivalences; normalize_nontorsion uses it on integer multiples.",
+      "justification": "No coordinate nonvanishing is used in place of group nontorsion.",
+      "source_references": "normalize_injective; normalize_nontorsion; firstPoint_image; secondPoint_image",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Original conjugate coefficient",
+      "required_input": "The second embedding must land on the coefficient matched by secondRoot.",
+      "constructed_input": "conjugateBase=base composed with SourceContact318.conj; conj(D)=deltaBar^2 and base(deltaBar^2)=secondRoot^4.",
+      "justification": "The coefficient equality is proved by exact quadratic rational arithmetic and the actual root identity.",
+      "source_references": "conjugateBase; conjugate_coefficient",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual generator nontorsion and signs",
+      "required_input": "The final relation theorem needs nontorsion and selective signs of its exact two generators.",
+      "constructed_input": "Both nontorsion theorems consume GeneratorMultiplesTwo318.generator_infinite_order; flipPoint fixes firstGenerator and negates secondGenerator.",
+      "justification": "The signs are computed on the literal source coordinates via actual group base change and Point.neg_some. The source nontorsion theorem has no new assumption.",
+      "source_references": "firstGenerator_nontorsion; secondGenerator_nontorsion; flip_firstGenerator; flip_secondGenerator; integer_relation",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Real topological consumer boundary",
+      "required_input": "Algebraic independence cannot silently be promoted to the real component-good intersection.",
+      "constructed_input": "No real embedding extension, root-sign comparison, oval-to-E_1 group comparison or compact-group character theorem is constructed.",
+      "justification": "These explicit downstream joins remain required before the mixed-CRT component and scalar inputs can be discharged.",
+      "source_references": "DERIVATION.md",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "History and validation scope",
+      "required_input": "Prior justification and current uncompiled progress must remain distinct.",
+      "constructed_input": "Historical compact-Lie justification retained; source policy passes and hosted Lean/distinct review remain pending.",
+      "justification": "No accepted manuscript, baseline or full arithmetic theorem is changed or claimed proved.",
+      "source_references": "DERIVATION.md; VALIDATION.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

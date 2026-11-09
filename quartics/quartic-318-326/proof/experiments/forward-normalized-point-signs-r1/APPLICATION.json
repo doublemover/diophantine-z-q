@@ -1,0 +1,112 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_CHECK_AND_DISTINCT_REVIEW",
+  "claim": "Actual normalized elliptic points with selective additive sign map; integer relation exclusion with explicit exact-point nontorsion inputs.",
+  "sources": {
+    "NormalizingRadicals318.lean": "770d42d1386d1dca36ddd0e6c810c7d9c2b3dd2ac8ca8932b58569661ba52dd1",
+    "NormalizedPointSigns318.lean": "a747d59ec7a4a1beb2892bf67bedd734bc41a4526234d92951e732c8f1aca71d"
+  },
+  "derivation_sha256": "47cd1514b5668adbacc572cd01a6ed758cdcaf58362accffc12e6c61632f092e",
+  "obligations": [
+    {
+      "name": "Actual coefficient and field",
+      "required_input": "The normalizers must use the original coefficient and a genuine field.",
+      "constructed_input": "Unchanged NormalizingRadicals318; delta^2=D and the literal Both field.",
+      "justification": "The copied producer is hash-bound and no root-field assumption replaces its nonsquare proofs.",
+      "source_references": "NormalizingRadicals318; SOURCE-COPIES.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Normalization direction",
+      "required_input": "r^2=base(d) must send v^2=1-d^2*u^4 to the coefficient-one curve.",
+      "constructed_input": "normalized_curve proves u maps to r*base(u), v to base(v).",
+      "justification": "Map the original equation and use (r*u)^4=(r^2)^2*u^4. Reciprocal coordinates therefore divide by r^2 and r^3.",
+      "source_references": "normalized_curve",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Domain and exceptional cases",
+      "required_input": "All specified coordinates and integer indices must be covered, including u=0.",
+      "constructed_input": "firstPoint and secondPoint retain the zero-aware point constructor; v is explicitly nonzero.",
+      "justification": "No inverse of u is formed outside the original zero-aware constructor; every integer m,n is quantified.",
+      "source_references": "firstPoint; secondPoint; normalized_relation_coefficients_zero",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual target group",
+      "required_input": "The target must be the actual elliptic group, not an assumed operation on coordinates.",
+      "constructed_input": "Both points inhabit (ReciprocalDouble318.E (1:Both)).Point.",
+      "justification": "ShortCurveBaseChange318 and ReciprocalDouble318 use Mathlib nonsingular points and its actual addition.",
+      "source_references": "firstPoint; secondPoint; DEPENDENCY-PINS.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Base-change and coefficient transport",
+      "required_input": "The selective field involution must induce an actual additive map on the same curve.",
+      "constructed_input": "flipPoint composes pointMap with transport along flipSecond(1)=1.",
+      "justification": "The existing pointMap is an additive homomorphism; transport_point checks identity of the point after coefficient transport.",
+      "source_references": "flipPoint; transport_point; flipPoint_reciprocal",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Selective group signs",
+      "required_input": "The original fixed/negated roots must become the corresponding actual point signs.",
+      "constructed_input": "flipPoint_first and flipPoint_second fix and negate the exact normalized points.",
+      "justification": "Base coordinates are fixed, the radical signs are known, and point_negative establishes the group-negation identity including u=0.",
+      "source_references": "flipPoint_first; flipPoint_second",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Integer relation elimination",
+      "required_input": "Nontorsion must apply to the very points occurring in the relation.",
+      "constructed_input": "The consumer explicitly takes nontorsion of firstPoint and secondPoint.",
+      "justification": "The additive involution gives (2n)*secondPoint=0; integer nontorsion forces n=0 and then m=0.",
+      "source_references": "relation_coefficients_zero; normalized_relation_coefficients_zero",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Original-to-real consumer boundary",
+      "required_input": "No point-map or density comparison may be inferred from coordinate formulas alone.",
+      "constructed_input": "Original nontorsion transport, real embeddings, circle/character comparison, and the concrete component-good intersection remain open.",
+      "justification": "Only the target involution is proved additive here. No density or m=1 assertion follows from this packet.",
+      "source_references": "DERIVATION.md",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "History and validation scope",
+      "required_input": "Prior justification and new formal progress must be distinguished.",
+      "constructed_input": "Historical compact-Lie justification is retained; source policy passed, hosted Lean and distinct review pending.",
+      "justification": "No accepted source or full arithmetic theorem is modified or claimed proved.",
+      "source_references": "DERIVATION.md; VALIDATION.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

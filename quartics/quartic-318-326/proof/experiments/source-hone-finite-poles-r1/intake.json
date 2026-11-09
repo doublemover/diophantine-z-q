@@ -1,0 +1,69 @@
+{
+  "status": "Uncompiled seven-source packet; hosted strict checks, axiom audit and independent acceptance pending. Actual finite-ring high-pole witnesses only.",
+  "order": [
+    "RootOrderMonomialBasis318",
+    "ContactHOneOrderBases318",
+    "PolynomialPrincipalParts318",
+    "ContactInfinityPrincipalParts318",
+    "ContactInfinityRegularFractions318",
+    "ContactWholePrincipalReduction318",
+    "ContactFinitePoleReduction318"
+  ],
+  "files": {
+    "RootOrderMonomialBasis318.lean": {
+      "sha256": "e0c7ac43bab4837c7d7f123f0f893ddf03645a3392aed8e49ba52696c3682a3d",
+      "imports": [
+        "FourRootSignBaseChange318",
+        "Mathlib.LinearAlgebra.TensorProduct.Basis",
+        "ThreeRootCoordinates318"
+      ]
+    },
+    "ContactHOneOrderBases318.lean": {
+      "sha256": "efa7e0f633d01a8ebd1d6a7841f347bb2f71ad94a52ce2bac31bdf5fafc3cde9",
+      "imports": [
+        "InfinityOrderCoordinates318",
+        "RootOrderMonomialBasis318",
+        "SourceOpenFractionField318"
+      ]
+    },
+    "PolynomialPrincipalParts318.lean": {
+      "sha256": "24f6f72c6555d04e78232447a59b75c3a57ff46a18486ff8449c7cbc600c3745",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.FieldDivision",
+        "Mathlib.RingTheory.Coprime.Lemmas",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    "ContactInfinityPrincipalParts318.lean": {
+      "sha256": "96c5e4fb70a520f25272e559834f1b6bee4734935f02170833384717699d0425",
+      "imports": [
+        "InfinityFieldCoordinates318",
+        "InfinityOpenChart318",
+        "Mathlib.Tactic.FieldSimp",
+        "PolynomialPrincipalParts318"
+      ]
+    },
+    "ContactInfinityRegularFractions318.lean": {
+      "sha256": "403b040dc82dd872d821010d8675d4c16fedd8683b215db601b89d3aa4e3390f",
+      "imports": [
+        "ContactInfinityPrincipalParts318",
+        "ReciprocalInfinityNormalization318",
+        "SourceInfinityOverlap318"
+      ]
+    },
+    "ContactWholePrincipalReduction318.lean": {
+      "sha256": "37e715f22cda4a54944a07264d4f0cacc7487d74063257d4b14670a25f25c1c4",
+      "imports": [
+        "ContactHOneOrderBases318",
+        "ContactInfinityRegularFractions318"
+      ]
+    },
+    "ContactFinitePoleReduction318.lean": {
+      "sha256": "7c114f46e8c82c5a0c66b17934f29dbfae303ca939727366171fb6bf3a3c3605",
+      "imports": [
+        "ContactWholePrincipalReduction318",
+        "Mathlib.Tactic.FieldSimp"
+      ]
+    }
+  }
+}

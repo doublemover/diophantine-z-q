@@ -1,0 +1,162 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_RECHECK_AND_DISTINCT_REVIEW",
+  "claim": "One actual arbitrarily late prefix witness satisfying all three original CRT residues and scalar/guard bounds under explicit concrete component-return and good-region inputs.",
+  "sources": {
+    "AnalyticGuardAvoidance318.lean": "0150b77877afcb7bd95cffaddc2aff0660de21ccbe344b82c703ad14b1093247",
+    "CompactGuardProgression318.lean": "2333b140b42829502a1befaa28e3aad7281b37504db0199e2292a2bbca008d30",
+    "CompressedAnchorWitness318.lean": "13e1c2c45f7c86da3124fd0fab3ed49a4bab1c71fa43539d5779ed9dabb50b1c",
+    "ReciprocalChartWitness318.lean": "e060cf5acd80b468cf8ad25aa7dcbec76eef562bc912033e89ad8c4d77a90042",
+    "RealGuardWitness318.lean": "3b901fe6eba8b05877479d2f028c8d23e077f9e982572f58965fbf31be92e0d6",
+    "RealGuardTrace318.lean": "da4dc35e66edb26bc14e0b99c2d2ca2bee36ebdf6524ab7a4661dd70a382df52",
+    "CoherentMultipleCharts318.lean": "01443a070ea295862a1c06111e8803651d6766afead3c3918797aa5718ba9bc9",
+    "CoherentMultiplePrefix318.lean": "54c2bffb492db9c8f7ae7ec30a3c6d6f7bab17de617f3f90a5b9a2ac2a63ba46",
+    "CoherentOrbit318.lean": "8ddde7b271de007d62d43e61164cce0996655167c5edc1fd6240cf4c28d35b5f",
+    "CoherentSecantPolynomial318.lean": "8e453096aa934e6ebf1a5bb7d0b12c3689f1b734eebdf76e24612c0ac5878be3",
+    "CoherentSecant318.lean": "a3314a1e41ae3954a9b23852f2ae929bd77fd92b32e466575a7114c8a1c23dad",
+    "CoherentRootSign318.lean": "203b89746cd8ee6c75dac98faa0891e0780511669cbf937ea61c3a7e021ea257",
+    "CoherentAdditionU318.lean": "c7bafab9e4e9d3e1277fb13d64609a7231fa7e95b180d42668bba39f393316de",
+    "CoherentAdditionV318.lean": "53087b2210f9f35da2a864d090b4c796b3aac298bd276829020551ee47ca5da2",
+    "RealQuarticAmbient318.lean": "7bef67a0c1e5e3bc54800bc915b970a52cb5b1d4f2a3b3c06319f777a8ddefa8",
+    "RealQuarticOvalCover318.lean": "abeb2eb9ef35201d8143a3465fa5b407ba22ad7242f086ec7761fc95aa35cd87",
+    "RealQuarticAssociativityPolynomial318.lean": "a67ab5e1cb89bc7f494881ffb130b6e62e0ea4dabd76688e3d0053399be26c51",
+    "RealQuarticSumU318.lean": "8a5328252230cc98b016d5f825219b4a608f15092409d7217ed6de3e3f7cd3eb",
+    "RealQuarticSumAnalytic318.lean": "ea24a7ac28d71c2a849a833594b42b171585656654f20eb34c2065155943b5ff",
+    "RealQuarticAssociativity318.lean": "c6f5599a8f888194279ffa8cd503213400e9b0af0c8fd71877cc8576f7359e98",
+    "RealQuarticGroup318.lean": "cefb560753f1d3ae9b62186a170f1b48438d78868b7c2160c7a17cc05877d9e3",
+    "RealQuarticTopologicalGroup318.lean": "8b55134746cfe85d29c9b48705bdfd10e506b85cd0ea60331524ca4f3924f241",
+    "RealCoherentOrbit318.lean": "fe6f7bd65db94321ab63b14a72785abcb2e26600b735c1f85af6bbd7b17b891a",
+    "ActualCyclicClosure318.lean": "6a17cc953342487a3fd2417ea625aa14a2bc29129268dff2e6359d88308d2389",
+    "RealGuardAmbient318.lean": "f0fce8caf280289d4f7bfcf8cd0c27894c2e04d04dd541933b647192d9af38c4",
+    "ActualCyclicGuards318.lean": "719e7233d9b28a8084933d73da9a316bd36d81c0200186b3cbf5f39666a441f9",
+    "ActualCyclicProgressions318.lean": "ca1ff2ec9acf22ba3728be4aca80bd069a3a79244362dad310d3d74a6d94312e",
+    "CyclicPrefixWitness318.lean": "9bfcc6bb02c173fe17da7c61faa5083525faa15564d2ec92d04a37286db67c02",
+    "GeneratorScalarProgression318.lean": "87ffc924c37aab3aaa2326da7da11c4439394c2497eb501dc18a0c4a3e96f405",
+    "MonotheticComponentSteps318.lean": "f5f806fdbd6e8eeb965af404e034075ad313cfde1f24bb2eb1c5c9df6c69900a",
+    "MixedCRTComponentSelection318.lean": "798ab83da218af0e027a092fd20d9fd1aca51752f2c37e1d65751d94cc7826b7",
+    "ActualMixedCRTPrefix318.lean": "8fdc973c4a501bc2caae5bfe2863e445c451ff11e7c9de9d565d133f0ab86602"
+  },
+  "derivation_sha256": "5a1ddaf4e69abfa967bf76327cfe3eaee419f5fd51269b6edf1885d5f4da162c",
+  "obligations": [
+    {
+      "name": "Original CRT source",
+      "required_input": "All original coprimalities, gcd Mminus L = 16, and h0 divisible by 16.",
+      "constructed_input": "PrimeCRTAssembly.compatible_primary_depth is called with those inputs unchanged.",
+      "justification": "No fallback coprimality or altered residue convention is introduced.",
+      "source_references": "MixedCRTComponentSelection318.primary_depth_in_component_region; PrimeCRTAssembly.compatible_primary_depth",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Complete residue coverage",
+      "required_input": "Zero modulo Pi^e Mminus, one modulo Mplus, and h0 modulo L simultaneously.",
+      "constructed_input": "A single CRT seed r and positive step Pi^e Mminus Mplus L.",
+      "justification": "Every modulus divides the common step and progression_modEq retains its distinct original residue.",
+      "source_references": "progression_modEq; primary_depth_in_component_region",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Component-return propagation",
+      "required_input": "The actual seed and step must belong to the same identity component.",
+      "constructed_input": "An explicit m a in G^0, m divides L and h0; the L-congruence forces m divides r.",
+      "justification": "component_step_mem is applied separately to r and k, not inferred from one to the other.",
+      "source_references": "hmr; hkcomp; hrcomp",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Factor 64 and doubling",
+      "required_input": "The source preparation uses 64m and may measure a doubled generator.",
+      "constructed_input": "64m a = 32(m(2a)) in the same group; both 64m divisibilities retained.",
+      "justification": "No silent identification of elliptic/coherent quotient groups is used; concrete return membership remains a displayed hypothesis.",
+      "source_references": "source64_return; primary_depth_source64",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Positive-tail and chosen point",
+      "required_input": "The actual mixed progression must meet a good real region arbitrarily late.",
+      "constructed_input": "The same k and translate r a enter component_positive_tail, and h = r+k t.",
+      "justification": "Step closure equals G^0 by the monothetic theorem; target intersection with G^0 is explicit, not replaced by nonemptiness in the ambient product.",
+      "source_references": "primary_depth_in_component_region; MonotheticComponentSteps318.component_positive_tail",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Exact real carrier and index map",
+      "required_input": "Original coherent orbit topology and original arithmetic point H = [h]P.",
+      "constructed_input": "ActualCyclicClosure318.cyclicClosure, generatorInClosure and coe_integer_multiple.",
+      "justification": "Nat/Int multiples are compared explicitly; both embeddings, one common h and the h-1 translation are retained.",
+      "source_references": "ActualMixedCRTPrefix318.select_prefix; CoherentMultiplePrefix318.parameters",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Scalar and guard normalization",
+      "required_input": "Original |Norm uH| > 1/(100 sqrt(7)) and all four rational trace guards.",
+      "constructed_input": "good uses exact original scalar threshold and epsilon_j < absolute guard on Fin4.",
+      "justification": "scalarNorm_orbit and guard_value identify values at the selected orbit point with the original rational coefficients; all epsilon_j are positive and fixed before prime data.",
+      "source_references": "good; good_open; select_prefix",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Literal source consumer",
+      "required_input": "One assignment preserving q and original signed roots must use the selected h.",
+      "constructed_input": "witness q labels h, first51 rows, H nonzero, all four emitted_root_fixed equalities.",
+      "justification": "guards_iff and witness_rows consume exactly the h selected by CRT/recurrence; no independent charts or sign choices enter.",
+      "source_references": "ActualMixedCRTPrefix318.select_prefix",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    },
+    {
+      "name": "Remaining arithmetic and verification",
+      "required_input": "Full completeness needs concrete return modulus, good component region, prime/local data and all remaining source rows.",
+      "constructed_input": "These remain explicitly open; only the conditional joining theorem is claimed.",
+      "justification": "Unchanged copies are bound; R2 V-addition repair and new sources still await hosted validation. No acceptance or full theorem is inferred from policy checks.",
+      "source_references": "DERIVATION.md; VALIDATION.json; SOURCE-COPIES.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json",
+        "SOURCE-COPIES.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false,
+  "revision": {
+    "changed_module": "CoherentAdditionV318",
+    "public_statements_changed": false,
+    "added_private_helper": "addition_decidableEq_irrel",
+    "reason": "Prove DecidableEq implementation coherence instead of expecting definitional equality."
+  },
+  "orbit_bridge_repair": {
+    "failed_source": "quartics/quartic-318-326/proof/experiments/forward-mixed-crt-component-selection-r2/RealCoherentOrbit318.lean",
+    "evidence": "quartics/quartic-318-326/proof/experiments/forward-mixed-crt-component-selection-r2/hosted-failure-42574563881",
+    "changes": "Definitional zero-pair exposure and correct scalar/point order of the existing homomorphism theorem; no theorem hypotheses or conclusions changed."
+  }
+}
