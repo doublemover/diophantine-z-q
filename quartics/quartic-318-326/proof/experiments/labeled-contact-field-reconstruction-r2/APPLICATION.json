@@ -1,0 +1,118 @@
+{
+  "claim": "Actual all-prime branch parity and original quadratic character functions reconstruct the original labeled four-contact function field, with exact old-function and supplied-action compatibility; PEL geometric inputs remain explicit.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled eight-source labeled contact function-field reconstruction candidate. Actual root evaluation, exact complementary function/sign recovery, original action, all-prime rational-function divisor parity and rational twist recovery retained. Genuine PEL curve/action/branch data, geometric valuation comparison and proper smooth model identification not constructed. Hosted validation and fresh independent acceptance pending. Revision2 explicitly opens BigOperators in all eight sources after independent preflight. No theorem, hypothesis or map changed.",
+  "new_sources": {},
+  "readme_sha256": "ce670336b9353a5a821d8fd2074d3467c2e0d4b9a3d32a0e00de38c65369ff28",
+  "intake_sha256": "9c7bfc8846fb1b4c0e075468334df0cd01ee995548e5b77acfc5be55b6335c82",
+  "copy_bindings_sha256": "793e36e8a1564cf837c28328fdfa743ae88fbef13a4be8bdd25940d5774bcdce",
+  "pinned_apis_sha256": "8698d029580a03666dadc30013c8d7054abecf603442503b8f1fb513a21c2372",
+  "historical_sources": {
+    "quartics/quartic-318-326/proof/progress/receipts/fiber-field-bridge/FIBER-PRODUCER.md": "86f5a70d3a12a235489adc5eefc86d134b2f7e3468ad85c12d65243cdc838171",
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38"
+  },
+  "obligations": [
+    {
+      "name": "Actual source fields",
+      "required": "Identify the original candidate and its original base map, not just a degree tag.",
+      "constructed": "L is a specified field/algebra with actual y_i\u00b2=b_i, nonzero b_i and degree16.",
+      "justification": "The literal tensor evaluation is constructed before any dimension argument.",
+      "evidence": [
+        "FourRootEvaluation318.evaluate",
+        "ContactDivisorFieldReconstruction318.reconstruct"
+      ]
+    },
+    {
+      "name": "All branch indices",
+      "required": "Every closed finite point, including degree>1 polynomial points, must be covered.",
+      "constructed": "Parity is quantified over EVERY prime q in Q[X] for EACH of the FOUR quotients b_i/P_i.",
+      "justification": "Canonical reduced num/denom and prime coprimality convert all parity equations to a global square-times-scalar identity, also valid at infinity.",
+      "evidence": [
+        "RationalFunctionEvenSquare318.orderAt",
+        "RationalFunctionEvenSquare318.scalar_square"
+      ]
+    },
+    {
+      "name": "Actual factorization",
+      "required": "Even finite-place orders must yield a proved square factor, not an assumed Kummer normal form.",
+      "constructed": "Normalized polynomial factors are split using their even counts; actual polynomial unit is identified with a nonzero scalar.",
+      "justification": "Finite multiplicity and count reconstruction are proved; zero polynomials/functions excluded explicitly.",
+      "evidence": [
+        "PolynomialEvenSquare318.square_times_unit",
+        "PolynomialEvenSquare318.scalar_square"
+      ]
+    },
+    {
+      "name": "Complementary character normalization",
+      "required": "Four quotient twist scalars must correspond to one consistent set of four source twists.",
+      "constructed": "c_i=complementaryProduct(d,i); complementing twice gives d_i*allProduct(d)^2.",
+      "justification": "The extra square factor is retained in the actual base-field scaling, never erased by a formal label.",
+      "evidence": [
+        "ContactDivisorFieldReconstruction318.squareclasses_from_branch_parity",
+        "ComplementRootReconstruction318.complementary_recovered"
+      ]
+    },
+    {
+      "name": "Literal hom and degree",
+      "required": "Equal numerical degree alone cannot identify fields.",
+      "constructed": "The genuine original root evaluation is injective using proved original field independence, then equal finrank makes THAT map bijective.",
+      "justification": "AlgEquiv.ofBijective retains its original root formulas and complementary functions exactly.",
+      "evidence": [
+        "ComplementRootReconstruction318.evaluate_bijective",
+        "ComplementRootReconstruction318.evaluate_complementary"
+      ]
+    },
+    {
+      "name": "Original actions and old functions",
+      "required": "The downstream geometric action and quadratic quotient functions must be preserved.",
+      "constructed": "Complement-root action is computed symbolically; normalized original y_i are retained by e(characterGenerator_i)*u_i=y_i.",
+      "justification": "No sign is dropped, all u_i are nonzero in the OLD fixed Q(t), and equivariance requires actual supplied root-action formulas.",
+      "evidence": [
+        "ComplementRootAction318.evaluation_equivariant",
+        "SquareclassRadicalNormalization318.contact_reconstruction"
+      ]
+    },
+    {
+      "name": "Fixed rational twist",
+      "required": "Equal j or isogeny does not give the requisite rational coordinate scalings.",
+      "constructed": "The exact existing SourceTwistRecovery/FieldEquiv inputs are preserved for all four actual rational coefficient scalings.",
+      "justification": "Fixed-model conclusion is conditional on those genuine original-quotient scalings; the general reconstruction retains arbitrary rational twists.",
+      "evidence": [
+        "LabeledContactFieldReconstruction318.fixed_model_of_published_scalings",
+        "SourceTwistFieldEquiv318.source_equiv_of_published_scalings"
+      ]
+    },
+    {
+      "name": "Historical versus constructed PEL",
+      "required": "Read original historical source/application argument without relabeling it as Lean geometry.",
+      "constructed": "Actual FIBER-PRODUCER sections1\u20132 and quartic_v10 branch passage read; primary arithmetic sources pinned separately.",
+      "justification": "PEL curve/action/branch divisor, geometric order comparison, rational degree2-versus-degree8 Jacobian comparison and proper smooth model extension remain unconstructed.",
+      "evidence": [
+        "README.md",
+        "../../progress/receipts/fiber-field-bridge/FIBER-PRODUCER.md"
+      ]
+    },
+    {
+      "name": "Consumer identity and validation",
+      "required": "Contact curve/X and contact Jacobian/universal surface must not be conflated.",
+      "constructed": "Exact original degree16 contact field is consumed; genus5 curve versus Shimura X distinguished from the dimension2 universal abelian family.",
+      "justification": "No represented Jacobian/PEL/universal-family/isogeny claim; no local Lean; hosted and fresh independent acceptance pending.",
+      "evidence": [
+        "README.md",
+        "PINNED_APIS.md"
+      ]
+    }
+  ],
+  "revision_source": "labeled-contact-field-reconstruction-r1",
+  "modified_sources": {
+    "FourRootEvaluation318.lean": "6ecc9dec48e44e470d05bb00d30f505ea744e4df114e884c5c92ed5a1ba1c5cc",
+    "ComplementRootReconstruction318.lean": "45dbd8ada4ccee68e9379f70480f8e259a89ecb09f1163197bdaaea5cbe8ba1c",
+    "ComplementRootAction318.lean": "6b3102ebf6db169c6904662fb31f06b6decbcfdddc84a94a73f83f7ac1c83de8",
+    "LabeledContactFieldReconstruction318.lean": "b02df119a7494966847b78ef56b0dc970b14ae918235127b0e81e82d195c7dbb",
+    "SquareclassRadicalNormalization318.lean": "fe1991f55537b00e4c1fab402b5691c9427abb2c88324be53893826ffe6431a2",
+    "PolynomialEvenSquare318.lean": "e9e5fa85ba44f662ef159590e8a6a46efae7ea65d87feb8197a15e981b99b902",
+    "RationalFunctionEvenSquare318.lean": "33ef1c7a2cedd628f90c49fe83da5d19a60272399ab96ee27116e857d0ff8ad1",
+    "ContactDivisorFieldReconstruction318.lean": "e5352b0a1457a2a96985d620ac8d175ea588708e9deea856aa1764f5a082eb97"
+  }
+}
