@@ -16,6 +16,32 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original five-map equivalence and local line descent, 2026-11-09
+
+Nine active closures now schedule 385 source checks. Candidate source constructs
+a uniform residue on the original completed Weierstrass targets, proves the
+specified fifth target class nonzero, and derives an unconditional equivalence
+by the original five quotient pullbacks. Identification of its inverse with
+the normalized original transfers is not asserted in this intake.
+
+Original local line pair/triple transitions now produce a global line with
+exact recovery of the original transitions. The separate actual affine descent
+route receives a narrow original homEquiv normalization repair. The analytic
+closure joins full cusp Kähler presentations to a closed degree-six datum on
+the genus-zero parameter P1; it does not assert global Fitting-sheaf equality
+or a genus-four contact-curve ramification statement. The uniform real-domain
+consumer reaches first157 conditional on actual compact coefficient access
+and simultaneous pole points; neither input is inferred from the tube lemma.
+
+Four height revisions preserve original objects while repairing the exact
+8b elaboration failures. The unchanged infinity seven-source closure passed
+all strict checks and its 209-declaration recursive audit in run42585228257;
+it is retired from the active matrix, without baseline promotion. Exact
+results/logs are preserved below hosted-results/42585228257. Second-reviewer
+records bind analytic97, real63 and the height repair diffs; the first reviewer
+binds cohomology91, Picard61/16 and prior unchanged integral constructions.
+All newly scheduled sources still require hosted Lean validation.
+
 ## Actual nonzero quotient classes and integral model, 2026-11-09
 
 Ten active closures now schedule 373 source checks. Candidate source proves
