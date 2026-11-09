@@ -1,0 +1,35 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r4/IntegralBranchDenominatorCover318.lean:18:81: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+⊢ X * C 32 * C 76832 * 2470624 - X * C 32 * C 343 * 2700005 - X * C 76832 * C 343 * 229371 - X ^ 2 * C 32 * 2470629 +
+          X ^ 2 * C 76832 * 5 +
+        X ^ 2 * C 343 * 229376 +
+      C 32 * C 76832 * C 343 * 2700000 =
+    C 2276931686400000
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r4/IntegralBranchDenominatorCover318.lean:56:6: error: typeclass instance problem is stuck
+  Algebra (BranchBase R c i) (RegroupedOrder R c i)
+
+Note: Lean will not try to resolve this typeclass instance problem because the fourth type argument to `Algebra` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r4/IntegralBranchDenominatorCover318.lean:72:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (algebraMap R[X] (SourceOrder R c)) (C ↑separationInteger)
+in the target expression
+  (algebraMap R[X] (SourceOrder R c)) ((algebraMap R R[X]) ↑separationInteger) ∈
+    Ideal.span (Set.range (denominator R c))
+
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+hN : IsUnit ↑separationInteger
+h :
+  ∑ x, (algebraMap R[X] (SourceOrder R c)) (C ↑(weight x) * untwisted R x) =
+    (algebraMap R[X] (SourceOrder R c)) (C ↑separationInteger)
+⊢ (algebraMap R[X] (SourceOrder R c)) ((algebraMap R R[X]) ↑separationInteger) ∈
+    Ideal.span (Set.range (denominator R c))

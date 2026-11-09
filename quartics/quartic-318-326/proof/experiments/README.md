@@ -16,6 +16,22 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Whole-order finite projective projection, 2026-11-09
+
+Nine active closures now schedule526 source checks. The whole finite and
+reciprocal orders, including their branch points, glue along the exact original
+Laurent overlap. Their original y0 and u/c0 maps glue to the projective line.
+Each whole affine chart is proved to be the ENTIRE target-chart preimage before
+target-local finiteness is used. The resulting whole-order structure morphism
+is proper and separated. Identification with the earlier restricted pushout,
+its global section pair and the rational normalization remains separate.
+
+The inherited root-scaling repair uses explicit two-sided maps of the same
+quadratic quotients. Other exact hosted repairs expose the same localized
+quotient and sheaf-gluing predicate, and remove a solved-goal tactic. Nonauthor
+review found and corrected missing proof-only gluing hypotheses before replay.
+All source/structural checks passed; hosted proof checking remains pending.
+
 ## Original pointed cocycle pullback, 2026-11-09
 
 Nine active closures now schedule510 source checks. Canonical frames of the

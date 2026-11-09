@@ -1,0 +1,82 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:30:2: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:44:4: error: Type mismatch
+  restrict_self D (unop W) s
+has type
+  restrict D ⋯ s = s
+but is expected to have type
+  ↑((AddCommGrpCat.Hom.hom (AddCommGrpCat.ofHom { toFun := restrict D ⋯, map_zero' := ⋯, map_add' := ⋯ })) s) x✝ =
+    ↑((AddCommGrpCat.Hom.hom (𝟙 ↧↥(sections D (unop W)))) s) x✝
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:47:4: error: Type mismatch
+  Eq.symm (restrict_restrict D (leOfHom f.unop) (leOfHom g.unop) s)
+has type
+  restrict D ⋯ s = restrict D ⋯ (restrict D ⋯ s)
+but is expected to have type
+  ↑((AddCommGrpCat.Hom.hom (AddCommGrpCat.ofHom { toFun := restrict D ⋯, map_zero' := ⋯, map_add' := ⋯ })) s) x✝ =
+    ↑((AddCommGrpCat.Hom.hom
+            (AddCommGrpCat.ofHom { toFun := restrict D ⋯, map_zero' := ⋯, map_add' := ⋯ } ≫
+              AddCommGrpCat.ofHom { toFun := restrict D ⋯, map_zero' := ⋯, map_add' := ⋯ }))
+          s)
+      x✝
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:33:14: error: (kernel) declaration has metavariables 'OpenModulePresheaf318.presheaf'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._aux_1' has type
+  {X : Scheme} →
+    {ι : Type u_1} →
+      {U : ι → X.Opens} →
+        {M : ι → X.Modules} →
+          (D : Data U M) →
+            (W : X.Opensᵒᵖ) → ↑(X.presheaf.obj (op (unop W))) → ↥(sections D (unop W)) → ↥(sections D (unop W))
+but it is expected to have type
+  {X : Scheme} →
+    {ι : Type u_1} →
+      {U : ι → X.Opens} →
+        {M : ι → X.Modules} →
+          (D : Data U M) → (W : X.Opensᵒᵖ) → ↑(X.ringCatSheaf.obj.obj W) → ↑((presheaf D).obj W) → ↑((presheaf D).obj W)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._proof_3' has type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (x y : ↑(X.presheaf.obj (op (unop W)))) (b : ↥(sections D (unop W))), (x * y) • b = x • y • b
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (x y : ↑(X.ringCatSheaf.obj.obj W)) (b : ↑((presheaf D).obj W)), (x * y) • b = x • y • b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._proof_4' has type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (b : ↥(sections D (unop W))), 1 • b = b
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (b : ↑((presheaf D).obj W)), 1 • b = b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._proof_5' has type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (a : ↑(X.presheaf.obj (op (unop W)))), a • 0 = 0
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (a : ↑(X.ringCatSheaf.obj.obj W)), a • 0 = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._proof_6' has type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (a : ↑(X.presheaf.obj (op (unop W)))) (x y : ↥(sections D (unop W))), a • (x + y) = a • x + a • y
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (a : ↑(X.ringCatSheaf.obj.obj W)) (x y : ↑((presheaf D).obj W)), a • (x + y) = a • x + a • y
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._proof_7' has type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (r s : ↑(X.presheaf.obj (op (unop W)))) (x : ↥(sections D (unop W))), (r + s) • x = r • x + s • x
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (r s : ↑(X.ringCatSheaf.obj.obj W)) (x : ↑((presheaf D).obj W)), (r + s) • x = r • x + s • x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:52:2: error: (kernel) declaration type mismatch, 'OpenModulePresheaf318.sectionModule._proof_8' has type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (x : ↥(sections D (unop W))), 0 • x = 0
+but it is expected to have type
+  ∀ {X : Scheme} {ι : Type u_1} {U : ι → X.Opens} {M : ι → X.Modules} (D : Data U M) (W : X.Opensᵒᵖ)
+    (x : ↑((presheaf D).obj W)), 0 • x = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:55:14: error: (kernel) application type mismatch
+  a • s
+argument has type
+  ↑((presheaf D).obj x✝¹)
+but function has type
+  ↥(sections D (unop x✝¹)) → ↥(sections D (unop x✝¹))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:55:14: error: (kernel) incorrect number of universe levels parameters for 'OpenModulePresheaf318.modulePresheaf._proof_3', #0 expected, #1 provided
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r4/OpenModulePresheaf318.lean:59:6: error: (kernel) application type mismatch
+  (ConcreteCategory.hom ((presheaf D).map (homOfLE h).op)) s
+argument has type
+  ↥(sections D W)
+but function has type
+  (a : ↑((presheaf D).obj (op W))) → (fun x => ↑((presheaf D).obj (op V))) a
