@@ -1,0 +1,36 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-injective-cover-comparison-r2/TwoOpenAdditiveCocycle318.lean:33:69: warning: This simp argument is unused:
+  not_false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transition, Bool.false_eq_true, Bool.true_eq_false, ↓reduceDIte, ↓reduceIte, map_zero, map_neg,
+    restrict_trans, zero_add, add_zero, neg_add_cancel, add_neg_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-injective-cover-comparison-r2/TwoOpenAdditiveCocycle318.lean:49:4: error: Type mismatch
+  h
+has type
+  y = (restrict X ⋯) a - (restrict X ⋯) b + x
+but is expected to have type
+  (restrict X ⋯) y = (restrict X ⋯) a - (restrict X ⋯) b + (restrict X ⋯) x
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-injective-cover-comparison-r2/TwoOpenAdditiveCocycle318.lean:50:2: error: unsolved goals
+case true.false
+X : Scheme
+U V : X.Opens
+x y : ↑Γ(X, U ⊓ V)
+a : ↑Γ(X, U)
+b : ↑Γ(X, V)
+h : y = (restrict X ⋯) a - (restrict X ⋯) b + x
+⊢ -(restrict X ⋯) a + (restrict X ⋯) b - (restrict X ⋯) x = -(restrict X ⋯) x + (restrict X ⋯) b - (restrict X ⋯) a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-injective-cover-comparison-r2/TwoOpenAdditiveCocycle318.lean:48:81: warning: This simp argument is unused:
+  restrict_refl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cocycle, transition, Bool.false_eq_true, ↓reduceDIte, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

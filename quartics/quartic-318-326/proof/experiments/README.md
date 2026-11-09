@@ -770,3 +770,7 @@ The exact finite character computation is performed in integers and transported 
 ## Continuation batch 39
 
 Actual positive odd beta/scalar/Lucas labels and adjustable common2/3 depths are constructed before the eventual real/contact choices, preserving the same later CRT witness and remaining point/prime/Anchor inputs. Original covering-line pasting and calibrated pullback paths advance without claiming global source gluing. Exact CommonOrder, vertical-DVR and tilde-identity failures are preserved and narrowly repaired. All new source remains pending hosted validation.
+
+## Continuation batch 40
+
+Actual square-zero reduction, projective generator lifting and original affine sheaf comparisons now give candidate pointed triviality on every actual affine dual-number thickening, retaining its supplied zero-section frame. The literal tensor fiber product and original affine scheme map are preserved. This is local triviality, not global H1 classification. Exact two-open restriction/additive failure is preserved and repaired; all new source remains pending hosted checking.
