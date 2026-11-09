@@ -1,0 +1,105 @@
+{
+  "claim": "Pending actual global scheme pullback boundary naturality using original integer-sheaf Ext comparison; original quotient-map/chart instantiation remains open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled71-source continuation. Original global scheme pullback boundary naturality implemented, including terminal integer-sheaf coherence. Hosted strict Lean, recursive axiom audit and independent acceptance pending. Concrete quotient-map/chart instantiation remains open.",
+  "new_sources": {
+    "InverseImageTerminalCoherence318.lean": "5a1d5eca61099af1b2efe8e533810321923dbf41862ba56f5b3756c769c85485",
+    "SchemeBoundaryNaturality318.lean": "43a0dc105785cad0eb053e7997bbf50d1fe24810430146ef1486d3f434728b18"
+  },
+  "readme_sha256": "0984ce02fef7a3db6ac524ce0a6bd7118d8142eb2c9a92cda71efbcc4df15d1e",
+  "intake_sha256": "018745ad41c28f32254ce08d7fd532159036ef2592457a68b3df84125a084cdb",
+  "copy_bindings_sha256": "9a8107574187b00058d8d1d85cd6056dcc79454b826500700558b3e522f1cf60",
+  "obligations": [
+    {
+      "name": "Original terminal section representation",
+      "required": "The generator at top must have the exact normalization of the original global H1.",
+      "constructed": "terminalHom_sections unfolds the actual uniqueUpToIso between original generatorRepresents and integerRepresents.",
+      "justification": "The section equivalence and integerSectionEquiv determine the morphism on every coefficient sheaf, fixing the normalization.",
+      "evidence": [
+        "InverseImageTerminalCoherence318.terminalHom_sections",
+        "TerminalLocalCohomology318.generatorIso"
+      ]
+    },
+    {
+      "name": "Original integer-sheaf inverse image",
+      "required": "The earlier integerIso cannot be replaced by an arbitrary isomorphism.",
+      "constructed": "integerIso_sections applies leftAdjointUniq_sections to the exact composed constant-sheaf/inverse-image adjunction.",
+      "justification": "The original directImageGlobalSections is the identity comparison, and the same ULift integer evaluation is used on both sides.",
+      "evidence": [
+        "InverseImageTerminalCoherence318.integerIso_sections",
+        "SheafInverseImageConstants318.inverseImageConstantIso"
+      ]
+    },
+    {
+      "name": "All terminal comparison arrows",
+      "required": "The local and integer generator comparisons must agree in the direction consumed by Ext.",
+      "constructed": "terminal_hom_coherence is proved through the original sectionMate injection; terminal_inv_coherence follows from equality of the actual composite isomorphisms.",
+      "justification": "Both hom and inverse have exact source and target identities. There is no unit scalar left unspecified.",
+      "evidence": [
+        "InverseImageTerminalCoherence318.terminal_hom_coherence",
+        "InverseImageTerminalCoherence318.terminal_inv_coherence"
+      ]
+    },
+    {
+      "name": "Original global Ext comparison",
+      "required": "The consumer is the pre-existing SourceCohomologyComparison318.comparison.",
+      "constructed": "comparison_terminal expands the existing mapExactFunctor, counit and integerIso inverse, then uses terminal_inv_coherence.",
+      "justification": "It agrees with the new local-at-top comparison after the original terminal equivalence in every degree.",
+      "evidence": [
+        "InverseImageTerminalCoherence318.comparison_terminal",
+        "SourceCohomologyComparison318.comparison"
+      ]
+    },
+    {
+      "name": "Actual boundary class",
+      "required": "Naturality must use the original Mayer\u2013Vietoris connecting map.",
+      "constructed": "comparison_boundary composes comparison_terminal with actual delta_comparison.",
+      "justification": "The source and target short exact sequence classes and ordered cover arrows remain those already constructed in the copied dependencies.",
+      "evidence": [
+        "SchemeBoundaryNaturality318.comparison_boundary",
+        "InverseImageMayerVietoris318.delta_comparison"
+      ]
+    },
+    {
+      "name": "Literal overlap sections",
+      "required": "The transported degree-zero representative must equal the actual section without a hidden scalar or restriction change.",
+      "constructed": "comparison_sectionBoundary uses comparison_zero_sections and injectivity of zeroAddEquiv.",
+      "justification": "The direct-image section at U intersect V is the source section on its actual inverse image; the same x is consumed by the source boundary.",
+      "evidence": [
+        "SchemeBoundaryNaturality318.comparison_sectionBoundary"
+      ]
+    },
+    {
+      "name": "Actual scheme pullback consumer",
+      "required": "The scheme H1 map must include the original structure-sheaf pullback and original global comparison.",
+      "constructed": "scheme_pullback_sectionBoundary expands SchemeSourceCohomology318.pullback and applies coefficient-boundary naturality followed by comparison_sectionBoundary.",
+      "justification": "Its right side contains the exact f.app(U intersect V) on the original section, with the full inverse-image cover. No abstract replacement map is used.",
+      "evidence": [
+        "SchemeBoundaryNaturality318.scheme_pullback_sectionBoundary",
+        "SchemeSourceCohomology318.pullback"
+      ]
+    },
+    {
+      "name": "Concrete coordinate boundary and remaining application",
+      "required": "The original affine-cover coordinate boundary must be the next consumer; chart-specific identities cannot be presumed.",
+      "constructed": "scheme_pullback_boundary is the same statement for AffineCoverHOnePresentation318.boundary.",
+      "justification": "The original quotient-map/chart instantiation and exact values on five source representatives remain open. No source-to-target dimension or nonvanishing inference is silently added.",
+      "evidence": [
+        "SchemeBoundaryNaturality318.scheme_pullback_boundary",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Source versions and validation",
+      "required": "New theorem applications need exact dependencies and no invented acceptance.",
+      "constructed": "All69 prior sources are exact copies; the two new modules and metadata are hashed.",
+      "justification": "No hosted or independent whole-proof success is asserted. Structural checks are not Lean compilation or a theorem audit.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}
