@@ -1,0 +1,121 @@
+{
+  "claim": "Pending actual source-H1 quotient of the original explicit overlap ring by the difference of the original finite and infinity ring maps, retaining original boundary representatives.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Pending hosted recheck after precise f38f064 failure; unchanged statements/maps, explicit proof-context/elaboration repair only. No local Lean compilation or independent acceptance.",
+  "new_sources": {
+    "AffineChartRingSections318.lean": "558fed5a21ab3f5dc261f2117c7ebac7dac843027f7e3e07cbd86c6b22413e74",
+    "ActualSourceHOneCoordinates318.lean": "ac617b613ef1b255a25de14242bb296f10e5d974cf71b03a97ec141270c6d396"
+  },
+  "readme_sha256": "043c0a076133ed97a2ce15ea9f806a6b3f2009e5a9cda8ab1ee181403b55fc9e",
+  "copy_bindings_sha256": "3ddf6264eeb29e514ab3a4666d1c0628abe815a69769414542ecddde1015dd87",
+  "intake_sha256": "7287d410b3a60724a55d59a5f87b843bf25e12b87eacb258e37ccd8f6ca8f26b",
+  "obligations": [
+    {
+      "name": "Original scheme and cohomology",
+      "required": "Use the actual original contact source H1 group.",
+      "constructed": "Source is ActualSourceHOnePresentation318.Source and the boundary target is ActualSourceHOnePullbacks318.SourceHOne.",
+      "justification": "All chart sections and boundary maps refer to that scheme; the target is unchanged from the original five pullbacks/transfers.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.boundary",
+        "ActualSourceHOnePullbacks318.SourceHOne"
+      ]
+    },
+    {
+      "name": "Full overlap, not a dense substitute",
+      "required": "Identify the entire finite/infinity intersection with the coordinate chart used for overlap functions.",
+      "constructed": "overlapSections uses ContactFullOverlap318.actual_full_intersection units.",
+      "justification": "That theorem proves equality of the two full chart-image intersection with the actual original sourceOpen image. Both affine-to-global routes are the original scheme maps.",
+      "evidence": [
+        "ContactFullOverlap318.actual_full_intersection",
+        "ActualSourceHOneCoordinates318.overlapSections"
+      ]
+    },
+    {
+      "name": "Explicit original rings",
+      "required": "All coordinate rings must be those already constructing the three actual affine schemes.",
+      "constructed": "FiniteRing is SourceOrder units; InfinityRing is InfinityOpenChart318.OpenOrder units; OverlapRing is ContactKummerOrder318.OpenOrder units.",
+      "justification": "These rings are definitionally the domains of SourceGlobalAffine318.chartEmbedding, InfinityGlobalScheme318.chartEmbedding and ContactProjectiveModel318.sourceOpen. No isomorphic-but-unidentified model replaces them.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.FiniteRing",
+        "ActualSourceHOneCoordinates318.InfinityRing",
+        "ActualSourceHOneCoordinates318.OverlapRing"
+      ]
+    },
+    {
+      "name": "Section equivalences and additive structure",
+      "required": "Every section on each entire chart must have a unique coordinate-ring representative, with existing addition.",
+      "constructed": "AffineChartRingSections318.equivalence is the additive equivalence underlying the inverse composite of appIso and GammaSpecIso.",
+      "justification": "Both are actual ring isomorphisms. equivalenceOn only transports across an exact equality of opens. No coefficient-module action, vector-space basis or dimension is postulated.",
+      "evidence": [
+        "AffineChartRingSections318.equivalence",
+        "AffineChartRingSections318.equivalence_apply",
+        "AffineChartRingSections318.equivalenceOn"
+      ]
+    },
+    {
+      "name": "Finite restriction map",
+      "required": "The finite chart restriction must be its original localization map to the original overlap ring.",
+      "constructed": "finiteMap is SourceOpenFractionField318.orderToOpen units.",
+      "justification": "ContactOverlapMaps318.source_square proves the exact scheme route and sourceInclusion_open supplies the open immersion. OpenChartSections318.affine_restriction identifies the induced map on original sections.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.finite_restriction",
+        "ContactOverlapMaps318.source_square",
+        "AffineChartRingSections318.restrict_to_on"
+      ]
+    },
+    {
+      "name": "Infinity restriction map",
+      "required": "The infinity chart restriction must be its original localization map over the same entire overlap.",
+      "constructed": "infinityMap is InfinityOverlapLocalization318.toOpen units.",
+      "justification": "ContactOverlapMaps318.infinity_square and infinityInclusion_open give the original route and open immersion. The same affine restriction theorem supplies compatibility with actual section restriction.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.infinity_restriction",
+        "ContactOverlapMaps318.infinity_square",
+        "AffineChartRingSections318.restrict_to_on"
+      ]
+    },
+    {
+      "name": "All kernel representatives and the sign",
+      "required": "The exact subgroup must contain all finite-minus-infinity restriction differences, with no omitted representatives.",
+      "constructed": "difference is finiteMap composed with fst minus infinityMap composed with snd. boundary_eq_zero_iff quantifies over every a in FiniteRing and b in InfinityRing.",
+      "justification": "Surjectivity of finiteSections and infinitySections turns every actual section-kernel witness into a coordinate pair. Both restriction identities and injectivity of overlapSections prove the converse and equality of the literal additive subgroups.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.difference",
+        "ActualSourceHOneCoordinates318.boundary_eq_zero_iff",
+        "ActualSourceHOneCoordinates318.kernel_eq_range"
+      ]
+    },
+    {
+      "name": "Resulting quotient and downstream object",
+      "required": "The quotient must map to the entire original H1 and retain the actual boundary on every representative.",
+      "constructed": "equivalence uses quotientAddEquivOfEq followed by quotientKerEquivOfSurjective of boundary.",
+      "justification": "boundary is the original checked geometric boundary composed with the coordinate equivalence. Its surjectivity follows from those two exact maps. equivalence_mk states its original representative identity.",
+      "evidence": [
+        "ActualSourceHOneCoordinates318.boundary_surjective",
+        "ActualSourceHOneCoordinates318.equivalence",
+        "ActualSourceHOneCoordinates318.equivalence_mk"
+      ]
+    },
+    {
+      "name": "Remaining hypotheses, history and validation",
+      "required": "Do not substitute this coordinate bridge for the missing finite-dimensional quotient calculation or claim unchecked sources accepted.",
+      "constructed": "This packet contains 34 exact predecessor sources and two new coordinate modules, all pinned. The immediate kernel predecessor is explicitly still pending hosted verification.",
+      "justification": "The earlier kernel draft, accepted surjective-boundary scope and baseline chart geometry remain untouched. This continuation transports that intended quotient to explicit rings; it does not newly discover or close dimension/spanning, rational-linearity, Picard tangent, Serre duality or isogeny obligations. No local Lean run or independent acceptance is claimed.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "README.md",
+        "intake.json",
+        "../source-mayer-vietoris-kernel-r1/APPLICATION.json"
+      ]
+    }
+  ],
+  "revision_of": "source-hone-coordinate-presentation-r1",
+  "modified_sources": {
+    "MayerVietorisSectionKernel318.lean": {
+      "original_sha256": "fe19526c01768f443e84a3c1f42888e22791e9465495c760ceed6f74d8e00f6c",
+      "candidate_sha256": "1de2336dac0ec2ce02aa4033c1b269c2908fa2e4bf55621895e89e9c4fd4d4c2"
+    }
+  },
+  "revision_justification": "Exact hosted failure repair only; all source carrier, full-index/cover, map direction, normalization and consumer-identity obligations remain unchanged. Historical and verification status is reported in the revision README."
+}
