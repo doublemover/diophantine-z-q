@@ -1,0 +1,21 @@
+# Actual compact coefficient access before prime selection
+
+This70-source packet has63 exact predecessor sources from forward-uniform-pole-domain-r2 and seven new modules. It discharges the compact coefficient membership/access premise of the preceding uniform pole-domain construction. The original q and four integer labels are fixed first. The contact threshold is then fixed before every later prime modulus, local precision, CRT translate and final common index.
+
+RealDetectorRatios318 defines primary and alternate chart ratios on the original pair of real quartic ovals. Both embedding coordinates use the same point X, the same integer label multiples and the same X-generator translate. Coefficients are reconstructed by half-sum and difference divided by2sqrt2. At an actual rational orbit point these are the original rational real/imaginary coefficients. All reciprocal and Padé denominators are nonzero at an admissible actual h≠0,1 because the original K-valued denominator is nonzero and both real embeddings are injective.
+
+RealDetectorCoefficients318 explicitly extends all97 pre-detector stored slots, retaining the half-scaled third square gate and original root/ratio order, and all28 subsequent polynomial detector gates. Unwritten slots retain q. RealPadeSourceBridge318 and RealDetectorSourceBridge318 prove equality with the full exact146-coordinate projection of DetectorGateWitness318.witness, not just equality modulo the source rows.
+
+RealDetectorContinuity318 proves continuity at every actual h≠0,1 whose four original guards are nonzero. It does not assert global continuity of totalized division or use compactness of the ambient oval to ignore poles. The field-to-real argument proves each denominator domain at the actual point; continuity is applied only there.
+
+CompactDetectorRegion318 first chooses an actual h>1 in the existing scalar/guard-good region. Continuity gives an open neighborhood whose coefficient image lies inside the radius-one ball about the actual coefficient vector. The closed ball is compact because the coefficient space is finite-dimensional real space. Intersecting the neighborhood with the original scalar/guard region leaves it nonempty. The neighborhood itself need not be compact. This fixes one compact K and one nonempty open U before any later arithmetic moduli.
+
+The proved full density of the original pairOrbit and connectedness of the original two-oval group let the existing mixed CRT theorem hit that same U for every later data set satisfying the original positivity, coprimality, gcd16 and divisibility64 conditions. No new choice of a compact region is made after those data.
+
+PreparedPoleCRTWitness318.prepared_family places the quantifiers explicitly: q and labels, then eventual rational t, then all later CRT data, then one h. That same h has the original scalar/guard margins, fixed signed roots, the original input, literal first152 rows, actual b in(0,17) and the exact contact squareclass. Actual simultaneous-twist points at that same b extend to first157. Prime-pattern/local-preparation production, simultaneous rational-point existence and the remaining131 source rows are not proved here.
+
+Historical justification checked: arithmetic.md821–1033 describes fixed compact comparison-function bounds before primes. This packet formalizes actual stored coefficient transport and that choice order, rather than claiming the historical argument lacked the compact-region step. Static/symbolic checks are not Lean kernel validation; hosted checking remains pending. No local Lean build was run.
+
+## Strict module boundary repair
+
+The exact2c701ff uniform-r2 hosted run passes32 experimental predecessors, including the earlier numeric-norm repair, then rejects construction of Relations in ActualPadeRatios318 because its definition is opaque across a strict module boundary. This revision adds only@[expose] to that existing conjunction definition. Its formula, theorem statements and witnesses are unchanged. Failed source bytes and exact evidence remain under uniform-r2/hosted-failure-2c701ff.69 sources are byte-identical to compact-r1 and one source annotation differs.

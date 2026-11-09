@@ -1,0 +1,32 @@
+# Actual global ramification kernel and literal differential annihilators
+
+This100-source candidate joins the previously constructed global closed ramification scheme to its actual finite-chart IdealSheafData restriction. It computes that restriction under canonical affine coordinates as the full degree-six principal ideal, retaining nilpotent multiplicities. Exact whole-module annihilator criteria are then obtained from the literal relative differential presentations on all three source charts. The actual restricted global ideal, not a proposed surrogate, is identified with the finite-cusp and Laurent annihilators and with the reciprocal polynomial ideal on the entire Laurent intersection.
+
+The map is the original degree-four genus-zero P1 self-map j(T)=(T+27)*(T+243)^3/T^3, not a map from a genus-four contact curve. Source ramification weights2,2,1,1 sum to6; the pushforward branch cycle also has degree6 but is a different cycle.
+
+Still open: formal whole reciprocal-chart restriction of the global kernel, and the resulting global relative-differential/Fitting-sheaf identity. The global scheme and local presentations alone are not mislabeled as that equality. All97 predecessor source bytes are unchanged. This is not the full318/326 arithmetic theorem, a PEL realization, or a Z-model. No local Lean ran; exact hosted elaboration and fresh nonauthor review are required.
+
+## Exact application contract
+
+1. Actual global ideal restriction. Required: A polynomial equation for a closed affine scheme is not automatically the formal restriction of its global kernel ideal. Constructed: The actual global closed immersion is proved to pull back along original finite chart to its literal finiteInclusion, using identity on its source and full image containment. Application: The primary ideal-comap and open-pullback kernel formulas give finite_ideal_restriction as equality of IdealSheafData, before taking coordinates.
+
+2. Canonical affine coordinates. Required: The ideal in global affine sections must be identified via the canonical Spec global-section isomorphism. Constructed: spec_kernel_coordinates retains the original ring homomorphism through the actual GammaSpecIso inverse. Application: Naturality and its injectivity identify the kernel ideal exactly; applying it to AdjoinRoot.mk gives the complete degree-six ideal, with no radical.
+
+3. Full module annihilators. Required: One annihilating scalar is insufficient to determine the entire differential annihilator. Constructed: annihilates_iff_mem proves the exact ideal for any actual linear equivalence from a quotient ring to a module. Application: The forward direction evaluates at the image of1; the converse uses quotient surjectivity and the original ideal multiplication. Thus all differential elements, not merely selected generators, are covered.
+
+4. All actual differential source charts. Required: Both omitted cusp origins and the entire Laurent scheme must have actual relative-module identifications. Constructed: finite_annihilator, infinity_annihilator and laurent_annihilator use the previously constructed literal quotient presentations on the full three-chart source cover. Application: Their target scalar structures remain explicit: reciprocal target1/j on both cusp localizations, and original j pullback on the Laurent chart. The original scheme squares identify each with the global map.
+
+5. Actual global object in local consumers. Required: A matching proposed polynomial ideal must not substitute for the global ideal consumed downstream. Constructed: finiteCoordinateIdeal is defined from the actual global ideal.comap and canonical global-section coordinates, not from a polynomial formula. Application: finiteCoordinateIdeal_eq is then proved from the formal restriction theorem. finite_cusp_join and laurent_join use extensions of this same object as the exact whole-module annihilator.
+
+6. Correct degree-six overlap transition. Required: The reciprocal ideal comparison must hold on the entire original overlap and retain the correct unit factor. Constructed: reciprocal_overlap_join identifies the extension of the actual restricted global kernel with the original reciprocal ideal on the Laurent intersection. Application: The predecessor equation finiteEquation(T)=T^6*infinityEquation(S) and actual TS=1 identity supply the unit; no dense-open or reduced-support argument is used.
+
+7. Indices and genus. Required: The degree-four genus-zero modular parameter map is distinct from genus-four contact curves. Constructed: The exact original P1 to P1 morphism, finite/rational cusp charts, all-prime presentation coverage and source weights2,2,1,1 are retained. Application: No genus-four Riemann-Hurwitz calculation is applied to this source; ramification degree6 and pushforward branch degree6 refer to different cycles.
+
+8. Unchanged predecessors and review binding. Required: New comparisons must not alter prior tested sources or inherit their acceptance blindly. Constructed: All97 predecessor source bytes from cusp-differentials-r2 are unchanged, including its exposed original chart-cover repair and exact failure evidence. Application: The three new consumers have their own nine-obligation contract and independent review; inherited modules remain subject to their exact hosted dependency closure.
+
+9. Remaining global sheaf comparison. Required: A formal finite-chart restriction does not by itself prove an equality of global Fitting or annihilator sheaves. Constructed: The actual global kernel now has its full finite-chart restriction identified and is joined to literal finite-cusp/Laurent annihilators; the reciprocal module annihilator and full-overlap equation are also proved. Application: Formal identification on the whole reciprocal chart and assembly into the global relative-differential/Fitting-sheaf equality remain explicit next steps. No local Lean, PEL realization, integral characteristic3 model or full318/326 claim.
+
+
+## Exact source-cover index repair
+
+The2c701ff hosted run now elaborates the local maps and their compatibility. Typeclass search for the cover index numerals and Fintype still stops at the nonreducible cover definition. This successor makes only the SAME concrete sourceCover an abbrev and supplies explicit Fin2 literals to both chart restriction applications. Its charts, index, coverage proof, local maps and actual scheme morphism are unchanged. The accepted baseline and previous100-source bytes remain frozen.

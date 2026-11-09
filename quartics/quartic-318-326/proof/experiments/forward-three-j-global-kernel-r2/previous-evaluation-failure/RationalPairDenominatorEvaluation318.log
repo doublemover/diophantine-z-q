@@ -1,0 +1,45 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-differentials-r1/RationalPairDenominatorEvaluation318.lean:22:79: error: unsolved goals
+f g : ℚ[X]
+h : IsCoprime f g
+A : Type
+inst✝¹ : CommRing A
+inst✝ : Algebra ℚ A
+φ : ℚ[X] →ₐ[ℚ] A
+v : A
+hv : φ g * v = 1
+liftG : DenominatorRing g →ₐ[ℚ] A := IsLocalization.Away.liftAlgHom g ⋯
+a : ℚ[X]
+⊢ φ.toRingHom a = φ a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-differentials-r1/RationalPairDenominatorEvaluation318.lean:54:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  liftG.comp (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom
+in the target expression
+  Spec.map
+        (CommRingCat.ofHom
+          (liftG.comp
+            (CommRingCat.ofHom
+                (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom).hom')) ≫
+      JLineAtlas318.chart ℚ 1 =
+    Spec.map (CommRingCat.ofHom (aeval (φ f * v)).toRingHom) ≫ JLineAtlas318.chart ℚ 1
+
+f g : ℚ[X]
+h : IsCoprime f g
+A : Type
+inst✝¹ : CommRing A
+inst✝ : Algebra ℚ A
+φ : ℚ[X] →ₐ[ℚ] A
+v : A
+hv : φ g * v = 1
+liftG : DenominatorRing g →ₐ[ℚ] A := IsLocalization.Away.liftAlgHom g ⋯
+hbase : ∀ (a : ℚ[X]), liftG ((algebraMap ℚ[X] (DenominatorRing g)) a) = φ a
+hi : liftG (IsLocalization.Away.invSelf g) = v
+hfac : Spec.map (CommRingCat.ofHom φ.toRingHom) = Spec.map (CommRingCat.ofHom liftG.toRingHom) ≫ denominatorBase g
+heval :
+  liftG.comp (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom =
+    (aeval (φ f * v)).toRingHom
+⊢ Spec.map
+        (CommRingCat.ofHom
+          (liftG.comp
+            (CommRingCat.ofHom
+                (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom).hom')) ≫
+      JLineAtlas318.chart ℚ 1 =
+    Spec.map (CommRingCat.ofHom (aeval (φ f * v)).toRingHom) ≫ JLineAtlas318.chart ℚ 1
