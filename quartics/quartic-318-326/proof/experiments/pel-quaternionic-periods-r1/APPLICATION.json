@@ -1,0 +1,159 @@
+{
+  "producer": "complete_analytic_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Construct the exact split-real quaternionic surface period carrier, Hodge kernel and variation, and descend the supplied original order action to its exact period quotient.",
+  "sources": {
+    "QuaternionicRealPeriod318.lean": "35e37a1a2666eef766d6a0c126dcb6c4ea92360246c8005379579eb41a966f23",
+    "QuaternionicHodgeKernel318.lean": "744b3124d95cd2cfe546daac5ad2a8248de9995ccec76e6ba104bfcf13cc4d23",
+    "QuaternionicPeriodVariation318.lean": "0efedfa804859e7380811d4aae4bd17329c16069eb1b31d96b24669ca24adfda",
+    "QuaternionicOrderPeriodQuotient318.lean": "2f6728c05db93ea6c9eb2e8e0cf79a6d83a7157fc0b063a299aac32a725ed910"
+  },
+  "readme_sha256": "ca084b1f5920eb0e3ed7ca4826439a84fa19def25a5ef6857684524f58ea9fda",
+  "intake_sha256": "3602313d555b1e8d1b3d305df7b7b849a66b3c5636a16d087302ae6d6e670fb4",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Objects",
+      "constructed_input": "The actual matrix period map M\u21a6M(\u03c4,1), its exact real inverse, and its exact complex kernel are constructed. The quotient takes an arbitrary specified ring representation \u03c1 and actual subring O, retaining their identity; it does not silently substitute M\u2082(Z), a Jacobian, or an elliptic j-family.",
+      "justification": "The actual matrix period map M\u21a6M(\u03c4,1), its exact real inverse, and its exact complex kernel are constructed. The quotient takes an arbitrary specified ring representation \u03c1 and actual subring O, retaining their identity; it does not silently substitute M\u2082(Z), a Jacobian, or an elliptic j-family.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 1"
+    },
+    {
+      "name": "Indices",
+      "required_input": "Indices",
+      "constructed_input": "Both matrix rows and columns range over all Fin2 indices. Every order element and every original period is covered by the equivariance and quotient-action theorems. No component or root choice is suppressed.",
+      "justification": "Both matrix rows and columns range over all Fin2 indices. Every order element and every original period is covered by the equivariance and quotient-action theorems. No component or root choice is suppressed.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 2"
+    },
+    {
+      "name": "Domain",
+      "required_input": "Domain",
+      "constructed_input": "Real period invertibility and transported complex structure require Im(\u03c4)>0. Complex kernel and second-fundamental-map statements hold for every complex \u03c4 and do not claim a polarized torus at non-upper-half-plane parameters. Ring/order quotient statements need only the displayed representation and subring.",
+      "justification": "Real period invertibility and transported complex structure require Im(\u03c4)>0. Complex kernel and second-fundamental-map statements hold for every complex \u03c4 and do not claim a polarized torus at non-upper-half-plane parameters. Ring/order quotient statements need only the displayed representation and subring.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 3"
+    },
+    {
+      "name": "Coefficients",
+      "required_input": "Coefficients",
+      "constructed_input": "The inverse divides by Im(\u03c4), justified by strict positivity. Kernel rows are exactly (z_i,\u2212z_i\u03c4), their derivatives are (0,\u2212z_i), and projected derivatives are\u2212z. No scalar rescaling, square root, or210 multiplier is inserted into the Hodge or variation claims.",
+      "justification": "The inverse divides by Im(\u03c4), justified by strict positivity. Kernel rows are exactly (z_i,\u2212z_i\u03c4), their derivatives are (0,\u2212z_i), and projected derivatives are\u2212z. No scalar rescaling, square root, or210 multiplier is inserted into the Hodge or variation claims.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 4"
+    },
+    {
+      "name": "Local conditions",
+      "required_input": "Local conditions",
+      "constructed_input": "The local variation is the actual derivative of the displayed inclusion, not an assumed Kodaira\u2013Spencer map. Discreteness/fullness of the original order's period subgroup and positivity of its trace polarization are separate requirements not asserted here.",
+      "justification": "The local variation is the actual derivative of the displayed inclusion, not an assumed Kodaira\u2013Spencer map. Discreteness/fullness of the original order's period subgroup and positivity of its trace polarization are separate requirements not asserted here.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 5"
+    },
+    {
+      "name": "Transition maps",
+      "required_input": "Transition maps",
+      "constructed_input": "Left matrix multiplication intertwines the real period map, commutes with the constructed complex structure and preserves the entire complex kernel. The original order's action descends through the actual additive subgroup quotient, with its map on representatives proved literally.",
+      "justification": "Left matrix multiplication intertwines the real period map, commutes with the constructed complex structure and preserves the entire complex kernel. The original order's action descends through the actual additive subgroup quotient, with its map on representatives proved literally.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 6"
+    },
+    {
+      "name": "Identity",
+      "required_input": "Identity",
+      "constructed_input": "The period subgroup is O.toAddSubgroup.map(periodHom \u03c1 \u03c4). Each specified original order element maps to zero, and its left action preserves this same subgroup. The constructed Hodge space is the kernel of the same complexified period expression, with explicit inclusion, splitting and inverse frame.",
+      "justification": "The period subgroup is O.toAddSubgroup.map(periodHom \u03c1 \u03c4). Each specified original order element maps to zero, and its left action preserves this same subgroup. The constructed Hodge space is the kernel of the same complexified period expression, with explicit inclusion, splitting and inverse frame.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 7"
+    },
+    {
+      "name": "Consumers",
+      "required_input": "Consumers",
+      "constructed_input": "These constructions provide the period/Hodge/action prerequisite for a concrete quaternionic abelian-surface realization. They do not identify the universal PEL family, prove that the contact curve represents its moduli, or equate any period quotient with the represented Jacobian. The exact polarization/metric orientation and algebraic KS210 comparison remain open.",
+      "justification": "These constructions provide the period/Hodge/action prerequisite for a concrete quaternionic abelian-surface realization. They do not identify the universal PEL family, prove that the contact curve represents its moduli, or equate any period quotient with the represented Jacobian. The exact polarization/metric orientation and algebraic KS210 comparison remain open.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 8"
+    },
+    {
+      "name": "Validation",
+      "required_input": "Validation",
+      "constructed_input": "No local Lean compilation was run. Exact pinned upstream quotient and linear/derivative APIs were read; strict import/hash/placeholder checks and audit-history tests are used for structural validation. Independent source review and hosted elaboration remain separate, and this packet does not prove the full arithmetic theorem.",
+      "justification": "No local Lean compilation was run. Exact pinned upstream quotient and linear/derivative APIs were read; strict import/hash/placeholder checks and audit-history tests are used for structural validation. Independent source review and hosted elaboration remain separate, and this packet does not prove the full arithmetic theorem.",
+      "sources": [
+        "QuaternionicRealPeriod318.lean",
+        "QuaternionicHodgeKernel318.lean",
+        "QuaternionicPeriodVariation318.lean",
+        "QuaternionicOrderPeriodQuotient318.lean",
+        "README.md",
+        "verification/primary-library-source-pins.json"
+      ],
+      "evidence": "README.md obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "hosted_check": "PENDING",
+    "independent_review": "PENDING",
+    "full_arithmetic_theorem_proved": false
+  }
+}

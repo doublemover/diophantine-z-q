@@ -1,0 +1,47 @@
+{
+  "packet": "pel-quaternionic-periods-r1",
+  "status": "DRAFT_HOSTED_CHECK_AND_INDEPENDENT_REVIEW_PENDING",
+  "order": [
+    "QuaternionicRealPeriod318",
+    "QuaternionicHodgeKernel318",
+    "QuaternionicPeriodVariation318",
+    "QuaternionicOrderPeriodQuotient318"
+  ],
+  "new_modules": [
+    "QuaternionicRealPeriod318",
+    "QuaternionicHodgeKernel318",
+    "QuaternionicPeriodVariation318",
+    "QuaternionicOrderPeriodQuotient318"
+  ],
+  "files": {
+    "QuaternionicRealPeriod318.lean": {
+      "sha256": "35e37a1a2666eef766d6a0c126dcb6c4ea92360246c8005379579eb41a966f23",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Data.Matrix.Basic",
+        "Mathlib.LinearAlgebra.Matrix.ToLin",
+        "Mathlib.Tactic"
+      ]
+    },
+    "QuaternionicHodgeKernel318.lean": {
+      "sha256": "744b3124d95cd2cfe546daac5ad2a8248de9995ccec76e6ba104bfcf13cc4d23",
+      "imports": [
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "QuaternionicPeriodVariation318.lean": {
+      "sha256": "0efedfa804859e7380811d4aae4bd17329c16069eb1b31d96b24669ca24adfda",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "QuaternionicHodgeKernel318"
+      ]
+    },
+    "QuaternionicOrderPeriodQuotient318.lean": {
+      "sha256": "2f6728c05db93ea6c9eb2e8e0cf79a6d83a7157fc0b063a299aac32a725ed910",
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Defs",
+        "QuaternionicPeriodVariation318"
+      ]
+    }
+  }
+}
