@@ -1,0 +1,18 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/mixed-cover-refinement-r2/TildePullbackInverseComposition318.lean:29:2: error: Type mismatch: After simplification, term
+  Eq.symm (congrArg Iso.inv h)
+ has type
+  @Eq
+    ((tilde.functor T).obj
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom f) ⋙ ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj M) ⟶
+      (tilde.functor R ⋙ Scheme.Modules.pullback (Spec.map (f ≫ g))).obj M)
+    (e.inv ≫ d.inv ≫ c.inv) (b.inv ≫ a.inv)
+but is expected to have type
+  @Eq
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).obj
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ⟶
+      (Scheme.Modules.pullback (Spec.map (f ≫ g))).obj ((tilde.functor R).obj M))
+    ((TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).inv.app M) ≫
+        (AffineComparisonMates318.pullbackComp f g).hom.app ((tilde.functor R).obj M))
+    ((tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app M) ≫
+      (TildePullback318.pullbackIso (f ≫ g)).inv.app M)
