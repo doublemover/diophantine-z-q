@@ -1,0 +1,108 @@
+{
+  "claim": "Construct same original local DVR, fraction embedding, residue center/characteristic and inertia from actual normal affine height-one geometry and local parameter equations; feed unchanged original field/curve reconstruction. PEL geometric existence remains open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled36-source actual normal affine local model reconstruction candidate.31 exact predecessor sources and5 new sources construct actual DVR/fraction embeddings/residue characteristic and center/local inertia from original affine normal height-one geometry and local parameter equations. Same original whole-field and whole-curve endpoints. Actual PEL algebraization, original affine geometry and branch equations/action still required; arithmetic twists remain arbitrary. Hosted/fresh independent acceptance pending. No local Lean or budget change.",
+  "new_sources": {
+    "PrimeLocalOriginalField318.lean": "f41a3fac3c6149322db7ccfe91f5b12c6e901b58a64a8b98e6a6b9fb1f149585",
+    "AffinePrimeCenter318.lean": "b9e5754d73a31cf8572bc89ef35eeb416299e04fcc236c99d0afdddd7b3ab15e",
+    "AffinePrimeOriginalInertia318.lean": "9a6931e9f7f50a4d03ec6428ea3f31ef0bfc0a3b50d72dd1c0a468fac25ba43d",
+    "LocalBranchEquationOrders318.lean": "910cee8c0a9cd5c33df53e55e0c79b12f7042ca5088348c55523df17a5bfbfda",
+    "OriginalAffineLocalReconstruction318.lean": "a9abf0e1a914e1887268223bd4080a37a3210cce81310fa163be1cafc2a47137"
+  },
+  "readme_sha256": "1ce961b2aa9580f318bfbb7b31790f1f94feb1b684f89c7d19a82c8e1457f1ef",
+  "intake_sha256": "5154c0e91cdc3b1933565a7fca491ae44adffe5589830451dd8e3c747a1ab6fa",
+  "copy_bindings_sha256": "a9f95e5c405b1582e68cf288997070b0e6a4b8226465f457c63e1357f9184305",
+  "pinned_apis_sha256": "dde16682f85c0f2f0a8c6b09253e98d3d144766443dca654dcb5d70840274080",
+  "predecessor_application_sha256": "5c83dab57445cdb3b5e2feb4e1d6d23dbe0dd3eb580c0ee6fa97c96382233952",
+  "obligations": [
+    {
+      "name": "Original affine ring and field",
+      "required": "Local data must inhabit the same original field and coordinate.",
+      "constructed": "Normal Noetherian domain B has its original algebra/fraction structure in L and polynomial coefficient square.",
+      "justification": "The supplied square fixes Q[t]->Q(t)->L; no field equivalence is input.",
+      "evidence": [
+        "OriginalAffineLocalReconstruction318.Model"
+      ]
+    },
+    {
+      "name": "Actual local ring",
+      "required": "The source requires a DVR with L as its fraction field.",
+      "constructed": "Literal Localization.AtPrime P at original height-one P is used.",
+      "justification": "Accepted HeightOneDVR derives DVR; canonical IsLocalization lift and exact scalar tower derive fraction structure in SAME L.",
+      "evidence": [
+        "PrimeLocalOriginalField318",
+        "HeightOneDVR318.localization"
+      ]
+    },
+    {
+      "name": "Actual residue center and characteristic",
+      "required": "The previous center criterion and residue char0 must be established.",
+      "constructed": "Original P.comap(f)=(q) and original Q coefficient map are consumed.",
+      "justification": "Localization maximal membership gives q divisibility; injective Q->residue gives char0 on whole residue field.",
+      "evidence": [
+        "AffinePrimeCenter318.center",
+        "AffinePrimeCenter318.residue_charZero"
+      ]
+    },
+    {
+      "name": "Canonical prime orders",
+      "required": "Do not assume the desired valuation multiplier.",
+      "constructed": "Unramified local parameter equation or quadratic equation with actual unit and actual local parameter.",
+      "justification": "Irreducibility from the actual maximal ideal yields canonical order1; unit times parameter squared yields order2. The equations still require actual geometric proof.",
+      "evidence": [
+        "LocalBranchEquationOrders318"
+      ]
+    },
+    {
+      "name": "Original inertia action",
+      "required": "Do not supply or choose an unrelated local action.",
+      "constructed": "Original affine automorphism a preserves P, has SAME original generic sigma and acts identically modulo P.",
+      "justification": "Accepted lift constructs local action; localization hom_ext proves generic square on every local element; accepted residue equivalence covers every fraction.",
+      "evidence": [
+        "AffinePrimeOriginalInertia318",
+        "PrimeLocalizationInertia318"
+      ]
+    },
+    {
+      "name": "All required primes",
+      "required": "Coverage includes every polynomial prime and every pole downstream.",
+      "constructed": "Model is quantified over all prime q; actual contraction identifies its original prime P.",
+      "justification": "toCentered feeds all-prime previous valuation/normal-basis parity chain. No omitted higher-degree prime or pole.",
+      "evidence": [
+        "OriginalAffineLocalReconstruction318.toCentered",
+        "CenteredDVRRestriction318.restriction"
+      ]
+    },
+    {
+      "name": "Unchanged downstream object",
+      "required": "End result must identify original candidate curve and action.",
+      "constructed": "Existing31 sources copied exactly; same field_reconstruction and original_curve_reconstruction endpoints applied.",
+      "justification": "Original base and generic squares remain; global action consumer remains exact earlier construction, not chosen replacement.",
+      "evidence": [
+        "OriginalAffineLocalReconstruction318.original_curve_reconstruction",
+        "COPY_BINDINGS.json"
+      ]
+    },
+    {
+      "name": "Geometric scope",
+      "required": "Do not infer existence of actual PEL field/model/local equations.",
+      "constructed": "Original candidate Y,p,g, normal cover and real affine branch/action data remain supplied.",
+      "justification": "Historical branch evidence does not manufacture algebraization; arbitrary twists retained pending actual published quotient coefficient comparison.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required": "New actual-source application requires new source review and hosted check.",
+      "constructed": "Five new sources/31 exact copies and exact accepted primary source hashes; full application contract.",
+      "justification": "No local Lean, no resource change, no manufactured approval; structural checks not theorem validation.",
+      "evidence": [
+        "PINNED_APIS.md",
+        "APPLICATION.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ]
+}
