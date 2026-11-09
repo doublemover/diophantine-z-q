@@ -1,0 +1,116 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:26:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f.toRingHom ↑a⁻¹
+in the target expression
+  f (↑(algebraMap R A) ↑c) * f ↑a⁻¹ = ↑(algebraMap R B) ↑c * ↑b⁻¹
+
+R : Type u_1
+A : Type u_2
+B : Type u_3
+inst✝⁴ : CommRing R
+inst✝³ : CommRing A
+inst✝² : CommRing B
+inst✝¹ : Algebra R A
+inst✝ : Algebra R B
+f : A →ₐ[R] B
+c : Rˣ
+a : Aˣ
+b : Bˣ
+h : f ↑a = ↑b
+⊢ f (↑(algebraMap R A) ↑c) * f ↑a⁻¹ = ↑(algebraMap R B) ↑c * ↑b⁻¹
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:25:49: warning: This simp argument is unused:
+  AlgHom.commutes
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Units.val_mul, Units.coe_map, map_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:36:47: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+h :
+  (finiteOverlapMap R c) ↑((Units.map ↑(algebraMap R (CommonBase R c))) (c 0) * (rootUnit R c)⁻¹) =
+    ↑((Units.map ↑(algebraMap R (InfinityOverlap R c))) (c 0) * (finiteUnit R c)⁻¹)
+⊢ (Units.map ↑(algebraMap R (InfinityOverlap R c))) (c 0) * infinityUnit R c *
+      (Units.map ↑(algebraMap R (InfinityOverlap R c))) (c 0) ^ (-1) =
+    infinityUnit R c
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:47:47: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+h :
+  (infinityOverlapMap R c)
+      ↑((Units.map ↑(algebraMap R (Localization.Away ((algebraMap R[X] (IntegralInfinityChart318.Base R c)) X))))
+            (c 0) *
+          (infinityUnit R c)⁻¹) =
+    ↑((Units.map ↑(algebraMap R (CommonBase R c))) (c 0) * (reciprocalUnit R c)⁻¹)
+⊢ (Units.map ↑(algebraMap R (CommonBase R c))) (c 0) * rootUnit R c *
+      (Units.map ↑(algebraMap R (CommonBase R c))) (c 0) ^ (-1) =
+    rootUnit R c
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:69:77: error: Failed to rewrite using equation theorems for `rootOpen`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:88:2: error: Type mismatch
+  AlgHom.congr_fun (finite_polynomial R c) p
+has type
+  ((finiteOverlapMap R c).comp (reciprocalPolynomial R c)) p = (IsScalarTower.toAlgHom R R[X] (InfinityOverlap R c)) p
+but is expected to have type
+  (finiteOverlapMap R c).toRingHom
+      ((infinityOverlapMap R c).toRingHom
+        ((algebraMap R[X] (Localization.Away ((algebraMap R[X] (IntegralInfinityChart318.Base R c)) X))) p)) =
+    (algebraMap R[X] (Localization.Away ((algebraMap R[X] (IntegralInfinityChart318.Base R c)) X))) p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:86:49: warning: This simp argument is unused:
+  infinityOverlapMap_on_base
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RingHom.id_apply, infinityBaseMap_polynomial, ← IsScalarTower.algebraMap_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:87:4: warning: This simp argument is unused:
+  infinityBaseMap_polynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RingHom.id_apply, infinityOverlapMap_on_base, ← IsScalarTower.algebraMap_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:101:2: error: Type mismatch
+  infinity_rootBase R c a
+has type
+  (infinityOverlapMap R c) ((rootBaseMap R c) a) = (algebraMap (BranchBase R c 0) (CommonBase R c)) a
+but is expected to have type
+  (infinityOverlapMap R c).toRingHom
+      ((finiteOverlapMap R c).toRingHom
+        ((algebraMap (IntegralBranchChart318.BranchBase (c 0) (contacts R 0)) (CommonBase R c)) a)) =
+    (algebraMap (IntegralBranchChart318.BranchBase (c 0) (contacts R 0)) (CommonBase R c)) a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:99:49: warning: This simp argument is unused:
+  finiteOverlapMap_on_base
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RingHom.id_apply, finiteBaseMap_on_rootBase, ← IsScalarTower.algebraMap_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:100:4: warning: This simp argument is unused:
+  finiteBaseMap_on_rootBase
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RingHom.id_apply, finiteOverlapMap_on_base, ← IsScalarTower.algebraMap_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:107:12: warning: `ext` did not consume the patterns `x`
+
+Note: This linter can be disabled with `set_option linter.unusedRCasesPattern false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:107:68: error(lean.unknownIdentifier): Unknown identifier `x`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:108:12: warning: `ext` did not consume the patterns `x`
+
+Note: This linter can be disabled with `set_option linter.unusedRCasesPattern false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:108:68: error(lean.unknownIdentifier): Unknown identifier `x`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:105:14: error: (kernel) declaration has metavariables 'IntegralInfinityBaseEquiv318.baseEquiv'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:120:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  (finiteOverlapMap R c).toRingHom
+      ((infinityOverlapMap R c).toRingHom ((algebraMap (IntegralInfinityChart318.Base R c) (InfinityOverlap R c)) a)) =
+    (algebraMap (IntegralInfinityChart318.Base R c) (InfinityOverlap R c)) a
+but is expected to have type
+  (baseEquiv R c).toFun ((algebraMap (IntegralInfinityChart318.Base R c) (CommonBase R c)) a) =
+    (algebraMap (IntegralInfinityChart318.Base R c) (InfinityOverlap R c)) a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:114:14: error: unknown free variable `_fvar.11854`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-explicit-arithmetic-base-r1/IntegralInfinityBaseEquiv318.lean:129:5: error(lean.unknownIdentifier): Unknown identifier `baseEquivOverInfinity`
