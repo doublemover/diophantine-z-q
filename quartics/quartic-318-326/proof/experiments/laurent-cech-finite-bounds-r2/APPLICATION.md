@@ -1,0 +1,23 @@
+# Application contract
+
+1. **Source requirements.** Laurent bounds require an arbitrary field k, arbitrary finite rank n (including n=0), and an actual LaurentPolynomial(k)-linear equivalence of the original free module. PID chart freeness requires genuine finite and flat B over a principal ideal domain R and an actual old Line(Spec B). OriginalLineAffineModel.properties requires exactly that original line with its genuine full local frame cover.
+
+2. **Constructed objects.** The filtration is the ground-field span of literal component Laurent monomials. H1 is the quotient of the original Laurent module by the sum of actual chart images. H0 is the actual intersection of these images. The original line chart module is literally ModuleCat.restrictScalars(algebraMap R B) applied to the old global-section module; its B action and scalar tower retain the original elements and multiplication.
+
+3. **Coverage.** Every Laurent vector is a finite sum of its actual component monomials; the argument includes every exponent and component. Bounds for every transition column are derived from finite support, with no nonempty-rank condition. The Contact finite chart is the whole original t-chart, and its original pullback square is retained. The separate full infinity/base-change join is not asserted.
+
+4. **Transition directions.** The transition e maps infinity-chart coordinates into finite-chart overlap coordinates. The boundary is positive plus e(negative). A bound on e.symm makes each sufficiently negative monomial equal e(e.symm(monomial)); a bound on e controls actual matching sections. Polynomial chart maps are the original toLaurent and inversion T↦T⁻¹, not chosen substitutes.
+
+5. **Hypothesis checks.** Original line sections are finitely presented and flat over B by their exact old principal-frame producer. Module.Finite.trans and Module.Flat.trans use the displayed original scalar tower. Flatness implies torsion-freeness, and the pinned finite-type torsion-free PID theorem produces freeness. ContactKummerOrder.source_finite_free supplies finite and free, hence flat, for the exact original rank-sixteen finite-chart algebra. No arbitrary-line affine acyclicity is inferred.
+
+6. **Consumer identity.** The finite-window surjection is the original quotient map restricted to the displayed window; the H0 injection is the original Laurent coefficient evaluation. finiteMap_range and infinityMap_range identify the actual original polynomial images. The PID coordinate equivalence is the basis equivalence of unchanged original line sections and has its explicit inverse-on-original-elements identity. The Contact consuming algebra is the same one in the original entire affine pullback square.
+
+7. **Scalars and normalization.** All Laurent filtrations and Cech vector spaces use k, while transitions remain linear over the original Laurent ring. Restrictions of scalars are explicit. Infinity inversion changes exponent a to -a. No degree, determinant, Euler factor, trace factor, dimension, or rank of the arbitrary line pushforward is asserted from a formal label.
+
+8. **Downstream boundary.** This packet establishes generic actual free-chart finite Cech algebra and actual original-line freeness on the entire Contact finite chart. It does not yet identify the original arbitrary-line whole infinity chart and overlap with that free-chart model, prove arbitrary-line derived cohomology finite, construct degree/Riemann–Roch, divisor parameter spaces, a representing scheme, or a Jacobian. The previously completed original relative fppf sheaf identification is separate and unchanged.
+
+9. **Evidence and acceptance.** Exact old producer bytes, pinned primary API declarations, source/import/hash closure, and the nine application obligations are bound below. Static checks are structural only. No local Lean was run. Hosted elaboration and recursive allowed-axiom audit are pending; independent review is authored only by the reviewer and is not inferred from a passing structural check.
+
+## Revision after bounded source review
+
+Guard the final reflexivity tactic after the exact original polynomial chart range rewrites, which may already close the definitionally equal boundary goal. No maps, hypotheses, statements, or resource budgets change. Hosted validation remains pending.

@@ -1,0 +1,172 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "laurent-cech-finite-bounds-r2",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Finite-dimensional actual Laurent-chart Cech kernel/cokernel with original chart images and transition; finite-free original line sections over genuine finite-flat PID chart algebras, specialized to the entire original Contact finite chart. Whole infinity/overlap and represented Jacobian remain separate.",
+  "bindings": {
+    "primary-sources/ChangeOfRings.lean.txt": "09cbc9feba4de1928c9d75ebbfec432ebaeaa07f497f13a22531ff60ecca1cec",
+    "primary-sources/Finiteness.lean.txt": "704734b7dbe3ace88c1302bca72a629483a70bff40e210dcbc31e96ba54866ce",
+    "primary-sources/FlatStability.lean.txt": "4849f2050770d7240c22b8f276d8f3012adb865ee90b44842e28876ce62373df",
+    "primary-sources/FlatTorsionFree.lean.txt": "7930da286518d5051e1401aad9d1c80b74c059ebdc7a975573843545aa8ce75f",
+    "primary-sources/Laurent.lean.txt": "97024ee0ef8fa7e3f027576807c1cc31024c69d073510edbcffd43167ffc35f9",
+    "primary-sources/PID.lean.txt": "35a2a5879642467e343b3a2dffac157d3b189b16ee84d8653e426911127eda3b",
+    "PRIMARY_SOURCES.json": "584899d92f2ec523de4b21247bd425f2b7da560375b93d4ba59a968c94275ea4",
+    "README.md": "8764da2c7eef49ec1d8bb58f068d1ed80f62c674a117428b2c69c094c18c322c",
+    "APPLICATION.md": "412e8278fba21172f5821737d8e5dd1206bd293ba0097434c6b47a4e59595896",
+    "intake.json": "36e4feb05a7e4f4791c818a1b0194d3176b5f16325911e87eb8a1410996a918a",
+    "DEPENDENCIES.json": "373b456fe3896a414848a377e3c45206d422b363c3d0fa103af85e2c59754c8f",
+    "SOURCE_SHA256SUMS": "1db350b20f4b8a82f5231987eb2eb3ee9baef0eeeec5c521da691d7d32230eee",
+    "MODULE_ORDER.txt": "665aa041718f2b3dbe4e72df18454cc9959951e7c89b12a42b52c2fbe154d02d",
+    "validation/ExperimentAudit.lean": "91fcf751a3c68dfe7e4ef19bfd33f8c6632c17f5440bf34005f3cb711b354fac",
+    "OriginalLineAffineModel318.lean": "7038df3c666c5b4230520285f74ed2dfd056ffa661c709bce62fb72995890511",
+    "LaurentVectorFiltration318.lean": "94e5ca9d247581f68601de0167ce8487330ff59b7fde0575cc63de338c2b6d22",
+    "LaurentTransitionBounds318.lean": "b9f3e86c1e5160e18bd8529885e8848e4ad8dba1e1daa36364df38e33c126115",
+    "LaurentCechFinite318.lean": "eec687b50dbb2afabae9cb15eda3a998ba8944671b2df3b473a32718fd27aa48",
+    "LaurentCechSectionsFinite318.lean": "43a777a5e6796bf13225e0a2946a0ca315fcefae7160666757138077189fec06",
+    "LaurentOriginalPolynomialCharts318.lean": "b54429b93b89fc6f189c058e8f4d743c9c4ef1d3c0c679a2e388939b07988a0e",
+    "OriginalLineFiniteFlatPID318.lean": "76c89b4a63b6d0cebdf11df390fd671ab3001ddb5955cac4cd9c868ebc210bb9",
+    "ContactOriginalLineFiniteChart318.lean": "740c4f1f993e5122a53114c2764d1c96f400450a72bca2c1740e38dd11b53043",
+    "SOURCE_REVIEW_REVISION.json": "5b71b958f27881205ac62fbcd7dc3fbf2585b459e7cdbe4d7ca32d1c5d6a67c2"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** Laurent bounds require an arbitrary field k, arbitrary finite rank n (including n=0), and an actual LaurentPolynomial(k)-linear equivalence of the original free module. PID chart freeness requires genuine finite and flat B over a principal ideal domain R and an actual old Line(Spec B). OriginalLineAffineModel.properties requires exactly that original line with its genuine full local frame cover.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** The filtration is the ground-field span of literal component Laurent monomials. H1 is the quotient of the original Laurent module by the sum of actual chart images. H0 is the actual intersection of these images. The original line chart module is literally ModuleCat.restrictScalars(algebraMap R B) applied to the old global-section module; its B action and scalar tower retain the original elements and multiplication.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** Every Laurent vector is a finite sum of its actual component monomials; the argument includes every exponent and component. Bounds for every transition column are derived from finite support, with no nonempty-rank condition. The Contact finite chart is the whole original t-chart, and its original pullback square is retained. The separate full infinity/base-change join is not asserted.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** The transition e maps infinity-chart coordinates into finite-chart overlap coordinates. The boundary is positive plus e(negative). A bound on e.symm makes each sufficiently negative monomial equal e(e.symm(monomial)); a bound on e controls actual matching sections. Polynomial chart maps are the original toLaurent and inversion T\u21a6T\u207b\u00b9, not chosen substitutes.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** Original line sections are finitely presented and flat over B by their exact old principal-frame producer. Module.Finite.trans and Module.Flat.trans use the displayed original scalar tower. Flatness implies torsion-freeness, and the pinned finite-type torsion-free PID theorem produces freeness. ContactKummerOrder.source_finite_free supplies finite and free, hence flat, for the exact original rank-sixteen finite-chart algebra. No arbitrary-line affine acyclicity is inferred.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** The finite-window surjection is the original quotient map restricted to the displayed window; the H0 injection is the original Laurent coefficient evaluation. finiteMap_range and infinityMap_range identify the actual original polynomial images. The PID coordinate equivalence is the basis equivalence of unchanged original line sections and has its explicit inverse-on-original-elements identity. The Contact consuming algebra is the same one in the original entire affine pullback square.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** All Laurent filtrations and Cech vector spaces use k, while transitions remain linear over the original Laurent ring. Restrictions of scalars are explicit. Infinity inversion changes exponent a to -a. No degree, determinant, Euler factor, trace factor, dimension, or rank of the arbitrary line pushforward is asserted from a formal label.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** This packet establishes generic actual free-chart finite Cech algebra and actual original-line freeness on the entire Contact finite chart. It does not yet identify the original arbitrary-line whole infinity chart and overlap with that free-chart model, prove arbitrary-line derived cohomology finite, construct degree/Riemann\u2013Roch, divisor parameter spaces, a representing scheme, or a Jacobian. The previously completed original relative fppf sheaf identification is separate and unchanged.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** Exact old producer bytes, pinned primary API declarations, source/import/hash closure, and the nine application obligations are bound below. Static checks are structural only. No local Lean was run. Hosted elaboration and recursive allowed-axiom audit are pending; independent review is authored only by the reviewer and is not inferred from a passing structural check.",
+      "evidence": [
+        "APPLICATION.md",
+        "LaurentVectorFiltration318",
+        "LaurentTransitionBounds318",
+        "LaurentCechFinite318",
+        "LaurentCechSectionsFinite318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalLineFiniteFlatPID318",
+        "ContactOriginalLineFiniteChart318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false,
+  "revision_note": "Guard the final reflexivity tactic after the exact original polynomial chart range rewrites, which may already close the definitionally equal boundary goal. No maps, hypotheses, statements, or resource budgets change."
+}
