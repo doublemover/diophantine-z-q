@@ -1,0 +1,152 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Exact rational-specialization ring and rational-algebra equivalence preserving the original coordinate, both scaled coefficients and universal differential; no complete global sheaf identification yet.",
+  "sources": {
+    "IntegralContactOpenSections318.lean": "9cf6b88bb02c0b412573fab32ffc072ff7ca3def928590ed5892341eb8cbb2a4",
+    "IntegralContactOpenFrame318.lean": "a739e18ae5bbb9f283e1d56ab6a0e00e9032e5e7d266f1473a3022eaa4271668",
+    "IntegralRationalOpenComparison318.lean": "afbef7cf00b67d394db3950d10fb9d3f41ff4cbda702879709fb779d4ec7da71"
+  },
+  "readme_sha256": "5cd551eb55829dc51a12bec2b05b214bbdce97888b0bd5179fb20914b294e48a",
+  "intake_sha256": "2f48d0b41ae2899a2cfdd87a664813c2e84293ba288581dbaa411fe285867ca0",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38",
+    "quartics/quartic-318-326/proof/progress/ContactKummerOrder318.lean": "ce37197fbebc55ff1e4654cbcabe00a97eac9552379ed0f3844393abfcf8fdf1",
+    "quartics/quartic-318-326/proof/progress/ContactUnbranchedDifferentialFrame318.lean": "5fc9d7352fe1f2f79b03f0c0adc879dc231e28137e9260d37dfc622a53be594d",
+    "quartics/quartic-318-326/proof/progress/AlgHomDifferential318.lean": "28d44c44bb2be38ab57c9aa2fd203157e3d01b5925e5f5412bda5fcacb3d34af"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Objects",
+      "constructed_input": "The comparison source is the actual polynomial-localization/four-root order from the integral-chart packet at R=Q. Its target is the original ContactKummerOrder318.OpenOrder with its original coefficient and ring structures, not a newly selected curve.",
+      "justification": "The comparison source is the actual polynomial-localization/four-root order from the integral-chart packet at R=Q. Its target is the original ContactKummerOrder318.OpenOrder with its original coefficient and ring structures, not a newly selected curve.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 1"
+    },
+    {
+      "name": "Indices",
+      "required_input": "Indices",
+      "constructed_input": "contact_eq and coefficient_eq quantify over every i in Fin 4; denominator_eq covers their complete product. No contact label or twist is silently identified or dropped.",
+      "justification": "contact_eq and coefficient_eq quantify over every i in Fin 4; denominator_eq covers their complete product. No contact label or twist is silently identified or dropped.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 2"
+    },
+    {
+      "name": "Domain",
+      "required_input": "Domain",
+      "constructed_input": "Both sides are the same rational noncontact open. This does not cover the complete curve, infinity or integral contact-reduction primes, nor establish general integral-to-rational tensor base change.",
+      "justification": "Both sides are the same rational noncontact open. This does not cover the complete curve, infinity or integral contact-reduction primes, nor establish general integral-to-rational tensor base change.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 3"
+    },
+    {
+      "name": "Maps",
+      "required_input": "Maps",
+      "constructed_input": "The constructed ring equivalence maps the new coordinate, product and inverse into the exact original ones. Its rational-algebra promotion uses uniqueness of the rational scalar homomorphism. The resulting relative differential map has the correct direction from source differentials to target differentials and preserves dt.",
+      "justification": "The constructed ring equivalence maps the new coordinate, product and inverse into the exact original ones. Its rational-algebra promotion uses uniqueness of the rational scalar homomorphism. The resulting relative differential map has the correct direction from source differentials to target differentials and preserves dt.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 4"
+    },
+    {
+      "name": "Scalars",
+      "required_input": "Scalars",
+      "constructed_input": "Contacts are 0, 32, 76832, -343 with arbitrary original rational unit twists. The coefficient identities retain J\u00b2 for J=2765952000, and the second coefficient remains t times the first. No factor 32 or field extension is absorbed.",
+      "justification": "Contacts are 0, 32, 76832, -343 with arbitrary original rational unit twists. The coefficient identities retain J\u00b2 for J=2765952000, and the second coefficient remains t times the first. No factor 32 or field extension is absorbed.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 5"
+    },
+    {
+      "name": "Consumer",
+      "required_input": "Consumer",
+      "constructed_input": "The original rational open order and its actual universal differential are the targets. The theorem supplies the coordinate/coefficient/differential identification needed for a later actual tensor/sheaf comparison; that next comparison is not asserted here.",
+      "justification": "The original rational open order and its actual universal differential are the targets. The theorem supplies the coordinate/coefficient/differential identification needed for a later actual tensor/sheaf comparison; that next comparison is not asserted here.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 6"
+    },
+    {
+      "name": "Hypotheses",
+      "required_input": "Hypotheses",
+      "constructed_input": "The ring comparison uses proved polynomial and denominator equalities, not an assumed isomorphism. Algebra-map and differential compatibility use their actual functorial theorems. All integral-chart hypotheses remain exactly those of its copied producers.",
+      "justification": "The ring comparison uses proved polynomial and denominator equalities, not an assumed isomorphism. Algebra-map and differential compatibility use their actual functorial theorems. All integral-chart hypotheses remain exactly those of its copied producers.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 7"
+    },
+    {
+      "name": "History",
+      "required_input": "History",
+      "constructed_input": "The original rational open and rational dt frame were already constructed. This draft is a formal comparison with the new integral-chart presentation, not a newly claimed historical geometric construction. The manuscript and accepted snapshot remain unchanged.",
+      "justification": "The original rational open and rational dt frame were already constructed. This draft is a formal comparison with the new integral-chart presentation, not a newly claimed historical geometric construction. The manuscript and accepted snapshot remain unchanged.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 8"
+    },
+    {
+      "name": "Verification",
+      "required_input": "Verification",
+      "constructed_input": "The copied predecessor bytes, source imports, consumer sources and all three packet modules are hash-bound. Static checks do not certify Lean elaboration. Hosted strict compilation, recursive private-inclusive axiom audit and distinct source acceptance remain pending.",
+      "justification": "The copied predecessor bytes, source imports, consumer sources and all three packet modules are hash-bound. Static checks do not certify Lean elaboration. Hosted strict compilation, recursive private-inclusive axiom audit and distinct source acceptance remain pending.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "static_packet_validation": "PASS",
+    "hosted_strict_check": "PENDING",
+    "independent_acceptance": "PENDING"
+  }
+}

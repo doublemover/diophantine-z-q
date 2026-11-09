@@ -16,9 +16,26 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Actual-map continuations and second hosted repairs, 2026-11-09
+
+The current ten-packet matrix checks 208 source modules. Eight versioned or
+superset packets replace earlier checks: actual projective points r4, the full
+rational projective j-map r2, bicanonical height r3, actual global-open section
+restriction r2, canonical rigidified pullback composition, and actual infinity-ring
+principal-part lifting, plus the same-index mixed-CRT/component prefix consumer and parenthesized original-order basis formulas. Each new route has a source-bound nine-obligation contract
+and bounded non-author internal review in `review-round5.json`. All are pending
+hosted Lean verification, not accepted progress modules.
+
+The seven newly examined failures from run 42573367792 at `272c0fc` are preserved
+under `hosted-results/42573367792`. Earlier fixes advanced analytic, height and
+rigidified checks to later sources, but those packets did not pass as a whole.
+The new graph preserves original chart maps, full-open equality, actual global
+sections and canonical associators; it does not assert complete arithmetic-model
+existence, effective descent, H1 dimension, or the final 318/326 theorem.
+
 ## H1 repair and principal-parts continuation, 2026-11-09
 
-The active ten-packet matrix checks 194 modules. Two exact failed hosted H1
+The preceding ten-packet matrix checked 194 modules. Two exact failed hosted H1
 packets are superseded by versioned revisions: explicit section hypotheses in
 the split-transfer lemmas, and explicit naturality for the actual Mayer-Vietoris
 square arrows. Original failed source bytes, logs and results are retained in

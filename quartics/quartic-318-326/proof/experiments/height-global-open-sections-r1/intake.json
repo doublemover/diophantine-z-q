@@ -1,0 +1,49 @@
+{
+  "packet": "height-global-open-sections-r1",
+  "status": "DRAFT_HOSTED_CHECK_AND_INDEPENDENT_REVIEW_PENDING",
+  "order": [
+    "IntegralContactOpenFrame318",
+    "IntegralContactOpenSections318",
+    "IntegralRationalOpenComparison318",
+    "GlobalBicanonicalOpenRestriction318"
+  ],
+  "new_modules": [
+    "GlobalBicanonicalOpenRestriction318"
+  ],
+  "unchanged_predecessor_modules": [
+    "IntegralContactOpenFrame318",
+    "IntegralContactOpenSections318",
+    "IntegralRationalOpenComparison318"
+  ],
+  "files": {
+    "IntegralContactOpenFrame318.lean": {
+      "sha256": "a739e18ae5bbb9f283e1d56ab6a0e00e9032e5e7d266f1473a3022eaa4271668",
+      "imports": [
+        "FourRootOrder318",
+        "LocalizedKaehlerFrame318",
+        "Mathlib.RingTheory.Kaehler.Polynomial",
+        "Mathlib.RingTheory.Localization.Away.Basic"
+      ]
+    },
+    "IntegralContactOpenSections318.lean": {
+      "sha256": "9cf6b88bb02c0b412573fab32ffc072ff7ca3def928590ed5892341eb8cbb2a4",
+      "imports": [
+        "IntegralContactOpenFrame318"
+      ]
+    },
+    "IntegralRationalOpenComparison318.lean": {
+      "sha256": "afbef7cf00b67d394db3950d10fb9d3f41ff4cbda702879709fb779d4ec7da71",
+      "imports": [
+        "ContactUnbranchedDifferentialFrame318",
+        "IntegralContactOpenSections318"
+      ]
+    },
+    "GlobalBicanonicalOpenRestriction318.lean": {
+      "sha256": "26f9c31390d1f5678045c77f94a354b191ab31bc84601724b4aa560bd2c4dca8",
+      "imports": [
+        "ContactGlobalBicanonical318",
+        "IntegralRationalOpenComparison318"
+      ]
+    }
+  }
+}
