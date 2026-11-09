@@ -1,0 +1,47 @@
+# Application contract
+
+1. **Source requirements.** Laurent bounds require an arbitrary field k, arbitrary finite rank n (including n=0), and an actual LaurentPolynomial(k)-linear equivalence of the original free module. PID chart freeness requires genuine finite and flat B over a principal ideal domain R and an actual old Line(Spec B). OriginalLineAffineModel.properties requires exactly that original line with its genuine full local frame cover.
+
+2. **Constructed objects.** The filtration is the ground-field span of literal component Laurent monomials. H1 is the quotient of the original Laurent module by the sum of actual chart images. H0 is the actual intersection of these images. The original line chart module is literally ModuleCat.restrictScalars(algebraMap R B) applied to the old global-section module; its B action and scalar tower retain the original elements and multiplication.
+
+3. **Coverage.** Every Laurent vector is a finite sum of its actual component monomials; the argument includes every exponent and component. Bounds for every transition column are derived from finite support, with no nonempty-rank condition. The Contact finite chart is the whole original t-chart, and its original pullback square is retained. The separate full infinity/base-change join is not asserted.
+
+4. **Transition directions.** The transition e maps infinity-chart coordinates into finite-chart overlap coordinates. The boundary is positive plus e(negative). A bound on e.symm makes each sufficiently negative monomial equal e(e.symm(monomial)); a bound on e controls actual matching sections. Polynomial chart maps are the original toLaurent and inversion T↦T⁻¹, not chosen substitutes.
+
+5. **Hypothesis checks.** Original line sections are finitely presented and flat over B by their exact old principal-frame producer. Module.Finite.trans and Module.Flat.trans use the displayed original scalar tower. Flatness implies torsion-freeness, and the pinned finite-type torsion-free PID theorem produces freeness. ContactKummerOrder.source_finite_free supplies finite and free, hence flat, for the exact original rank-sixteen finite-chart algebra. No arbitrary-line affine acyclicity is inferred.
+
+6. **Consumer identity.** The finite-window surjection is the original quotient map restricted to the displayed window; the H0 injection is the original Laurent coefficient evaluation. finiteMap_range and infinityMap_range identify the actual original polynomial images. The PID coordinate equivalence is the basis equivalence of unchanged original line sections and has its explicit inverse-on-original-elements identity. The Contact consuming algebra is the same one in the original entire affine pullback square.
+
+7. **Scalars and normalization.** All Laurent filtrations and Cech vector spaces use k, while transitions remain linear over the original Laurent ring. Restrictions of scalars are explicit. Infinity inversion changes exponent a to -a. No degree, determinant, Euler factor, trace factor, dimension, or rank of the arbitrary line pushforward is asserted from a formal label.
+
+8. **Downstream boundary.** This packet establishes generic actual free-chart finite Cech algebra and actual original-line freeness on the entire Contact finite chart. It does not yet identify the original arbitrary-line whole infinity chart and overlap with that free-chart model, prove arbitrary-line derived cohomology finite, construct degree/Riemann–Roch, divisor parameter spaces, a representing scheme, or a Jacobian. The previously completed original relative fppf sheaf identification is separate and unchanged.
+
+9. **Evidence and acceptance.** Exact old producer bytes, pinned primary API declarations, source/import/hash closure, and the nine application obligations are bound below. Static checks are structural only. No local Lean was run. Hosted elaboration and recursive allowed-axiom audit are pending; independent review is authored only by the reviewer and is not inferred from a passing structural check.
+
+## Revision after bounded source review
+
+Guard the final reflexivity tactic after the exact original polynomial chart range rewrites, which may already close the definitionally equal boundary goal. No maps, hypotheses, statements, or resource budgets change. Hosted validation remains pending.
+
+## Whole-infinity refinement of obligations 2–6 and 8
+
+The new source algebra is the integral closure of ℚ[u] inside the unchanged original open Contact algebra, for the exact reciprocal polynomial map u↦1/t. Finite_normal_model supplies finiteness; injectivity is proved through the actual localization and original reciprocal base equivalence, then inherited by the integral closure. The domain/PID criterion yields flatness and the original finite torsion-free PID theorem yields freeness. The old sectionsEquiv_of_factor and factored_chart_over_base are consumed with the identity algebra equivalence on that SAME integral closure, retaining both scalar map and original normalization open. The whole-cover theorem uses both actual inverse-image opens of the original standard P1 cover. Both finite bases are for actual pullbacks of the SAME arbitrary original line. No equality of their ranks or overlap transition is inferred yet.
+
+## Revision after bounded source review
+
+Guard the final reflexivity tactic after the exact actual infinity-open range rewrite, which may close the definitionally equal entire pullback image goal. No geometric map, domain, premise, or resource budget change. Hosted validation remains pending.
+
+## Exact entire original Laurent-overlap join
+
+The exact original projective overlap localization-at-X is identified with LaurentPolynomial ℚ by its localization universal property. Both original t and inverse-t coordinate maps, full intersection, and actual pullback square are retained. Base-changing the original entire overlap to the Contact normalization constructs its whole affine overlap, actual maps into both full original charts, and exact intersection coverage. For the SAME arbitrary original global line, canonical pullback path comparisons construct the original geometric transition from infinity to finite chart and the corresponding literal affine global-section map. No arbitrary compatibility or transition matrix is supplied. The original finite-coordinate tensor/localization identifications, equality of the two ranks, and their final Laurent transition still remain to be constructed; actual line cohomology and represented Jacobian are not asserted.
+
+## Exact original tensor and section-module base change
+
+Actual pullback pasting cancellation proves both original whole chart squares over the exact finite and reciprocal Laurent maps. Both original overlap schemes are now identified with their literal polynomial-base tensor spectra; inverse comparisons retain the original Laurent projection and original chart inclusion. The reciprocal tensor uses u↦T⁻¹ explicitly, not the finite action. Separately, the original tilde-Gamma affine base-change comparison is extended to arbitrary actual affine maps using the exact original ring map ΓSpec(R).inv followed by appTop. Applied to the SAME global line and original overlap maps, it constructs an isomorphism between scalar extensions of the OLD original line section modules; its covering equation recovers exactly the prior actual geometric transition. Remaining are reconciling tensor push-pull with the original polynomial bases, deriving equal ranks and a single Laurent-coordinate transition, then actual line cohomology and represented Jacobian.
+
+## One original Laurent module and derived matching ranks
+
+The actual scheme-isomorphism restriction unit is proved invertible on every original open; its original pullback comparison and pushforward composition recover the SAME sheaf over its displayed original base. Applied to both actual tensor charts, original tensor push-pull and tilde-Gamma comparisons identify scalar extensions of BOTH old polynomial section modules with ONE actual whole-overlap Laurent module. The finite and reciprocal polynomial scalar maps remain distinct and explicit. Genuine base changes of the original finite polynomial bases supply coordinates, with exact tensor/unit coefficient formulas. Equality of the original two ranks is DERIVED from their actual Laurent-linear equivalence and invariant basis number. This constructs a square Laurent-linear transition for EVERY original global line, and proves its coordinate Cech kernel/cokernel finite-dimensional, without a supplied matrix or rank assumption. Still separate are exact identification of the actual geometric restriction/Čech boundary maps with those coordinate unit images, comparison with derived line cohomology, uniform family bounds, degree/Riemann–Roch, and an actual represented Picard/Jacobian.
+
+## Revision after exact03fd8af hosted replay
+
+Preserve the exact 03fd8af first failure (original affine line model passed). Match the pinned span_induction membership arguments in all four Laurent consumers; specify original coefficient and dependent Pi.single carriers, split actual component equality before Laurent coefficient evaluation, use one directed scalar-commutation rewrite, and expose interval inequalities. Original filtrations, maps, whole charts, common module and derived rank comparison are unchanged. No budget increase or local Lean compilation. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.

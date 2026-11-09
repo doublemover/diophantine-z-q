@@ -1,0 +1,249 @@
+{
+  "packet": "contact-common-laurent-module-r2",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "OriginalLineAffineModel318",
+    "LaurentVectorFiltration318",
+    "LaurentTransitionBounds318",
+    "LaurentCechFinite318",
+    "LaurentCechSectionsFinite318",
+    "LaurentOriginalPolynomialCharts318",
+    "OriginalLineFiniteFlatPID318",
+    "ContactOriginalLineFiniteChart318",
+    "ContactWholeInfinityAlgebra318",
+    "ContactWholeInfinityScheme318",
+    "ContactOriginalLineBothCharts318",
+    "OriginalLaurentProjectiveOverlap318",
+    "ContactOriginalLaurentOverlap318",
+    "ContactOriginalLineOverlap318",
+    "OriginalLineAffineBaseChange318",
+    "OriginalAffineMapSections318",
+    "ContactOverlapTensorCharts318",
+    "ContactOriginalModuleOverlap318",
+    "TensorPushoutModule318",
+    "AffineModuleBaseChange318",
+    "SchemeIsoPushforwardRecovery318",
+    "AffineTensorLinePushforward318",
+    "ContactCommonLaurentModule318",
+    "OriginalFiniteBasisBaseChange318",
+    "ContactOriginalLaurentCoordinates318"
+  ],
+  "files": {
+    "OriginalLineAffineModel318.lean": {
+      "sha256": "7038df3c666c5b4230520285f74ed2dfd056ffa661c709bce62fb72995890511",
+      "imports": [
+        "AffineLineFrameCover318",
+        "LineSheafClass318",
+        "Mathlib.AlgebraicGeometry.Modules.Tilde"
+      ]
+    },
+    "LaurentVectorFiltration318.lean": {
+      "sha256": "742773feecce6ee68848fda54807d49cafcecb7ddca723944141ba00b1d1df5c",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Laurent",
+        "Mathlib.Data.Int.Interval",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Defs"
+      ]
+    },
+    "LaurentTransitionBounds318.lean": {
+      "sha256": "14c3bdd353c40e1c3f91b87ba7b94dd10f23d0c28f85c7581502f602398fe5db",
+      "imports": [
+        "LaurentVectorFiltration318"
+      ]
+    },
+    "LaurentCechFinite318.lean": {
+      "sha256": "3ce3071764277a83a2aafb294b75a6de14fa69fd2ee7df1899459f561ad8511d",
+      "imports": [
+        "LaurentTransitionBounds318",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Basic"
+      ]
+    },
+    "LaurentCechSectionsFinite318.lean": {
+      "sha256": "43a777a5e6796bf13225e0a2946a0ca315fcefae7160666757138077189fec06",
+      "imports": [
+        "LaurentCechFinite318"
+      ]
+    },
+    "LaurentOriginalPolynomialCharts318.lean": {
+      "sha256": "c13d25e15d0b15bc41819d2897ac4cab5949abcf4d63e2e9780eb03c0d1af044",
+      "imports": [
+        "LaurentCechSectionsFinite318"
+      ]
+    },
+    "OriginalLineFiniteFlatPID318.lean": {
+      "sha256": "76c89b4a63b6d0cebdf11df390fd671ab3001ddb5955cac4cd9c868ebc210bb9",
+      "imports": [
+        "Mathlib.LinearAlgebra.FreeModule.PID",
+        "Mathlib.RingTheory.Flat.Stability",
+        "Mathlib.RingTheory.Flat.TorsionFree",
+        "OriginalLineAffineModel318"
+      ]
+    },
+    "ContactOriginalLineFiniteChart318.lean": {
+      "sha256": "740c4f1f993e5122a53114c2764d1c96f400450a72bca2c1740e38dd11b53043",
+      "imports": [
+        "ContactBicanonicalDegree318",
+        "Mathlib.Algebra.Polynomial.FieldDivision",
+        "OriginalLineFiniteFlatPID318"
+      ]
+    },
+    "ContactWholeInfinityAlgebra318.lean": {
+      "sha256": "14c4d26679e7b01ab2d47be36482b9516d12718274d3a5624d6ba913ee7ccd7a",
+      "imports": [
+        "BivariateIntegral318",
+        "ContactGlobalProper318",
+        "Mathlib.LinearAlgebra.FreeModule.PID"
+      ]
+    },
+    "ContactWholeInfinityScheme318.lean": {
+      "sha256": "cae2570b3352773bb071f2ffa5892ed436f76b92cbc228e2ebdbb40f1e611bb5",
+      "imports": [
+        "ContactWholeInfinityAlgebra318",
+        "NormalizationBaseCompatibility318"
+      ]
+    },
+    "ContactOriginalLineBothCharts318.lean": {
+      "sha256": "041d452e80d1f991946fb4a2188c6f66ad737723fe66fd9926809d15cd088678",
+      "imports": [
+        "ContactOriginalLineFiniteChart318",
+        "ContactWholeInfinityScheme318",
+        "LineSheafPullback318"
+      ]
+    },
+    "OriginalLaurentProjectiveOverlap318.lean": {
+      "sha256": "2bc7273ca7310045c7ac7e3bc328a99aac7380bcc5e8f641d49456118ec5bfe3",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Laurent",
+        "ProjectiveLineOverlap318"
+      ]
+    },
+    "ContactOriginalLaurentOverlap318.lean": {
+      "sha256": "22f26822e987925f15d52d3b8ad95e807ded47721c58da063a375737204741d3",
+      "imports": [
+        "ContactOriginalLineBothCharts318",
+        "OriginalLaurentProjectiveOverlap318"
+      ]
+    },
+    "ContactOriginalLineOverlap318.lean": {
+      "sha256": "ea32c9860e7afea0aab6ee693d37f89d5d94bf2474f82f22aa4cfa073856fe1c",
+      "imports": [
+        "ContactOriginalLaurentOverlap318",
+        "PullbackPathComposition318"
+      ]
+    },
+    "OriginalLineAffineBaseChange318.lean": {
+      "sha256": "e42e2fbc191bd13b9b79a166d6790a300d683600239a3b4832e82d6c0e68eda6",
+      "imports": [
+        "LineSheafPullback318",
+        "OriginalLineAffineModel318",
+        "TildePullback318"
+      ]
+    },
+    "OriginalAffineMapSections318.lean": {
+      "sha256": "1988a1ae51a6ff74ea55f163c541bf221737ca89e4131d3e47569dc15da69592",
+      "imports": [
+        "OriginalLineAffineBaseChange318",
+        "PullbackPathComposition318"
+      ]
+    },
+    "ContactOverlapTensorCharts318.lean": {
+      "sha256": "dc9d300238cf57c7bf138c47d22c5946322037780bdecab97cb95b6e647c98b2",
+      "imports": [
+        "ContactOriginalLineOverlap318",
+        "Mathlib.AlgebraicGeometry.Pullbacks"
+      ]
+    },
+    "ContactOriginalModuleOverlap318.lean": {
+      "sha256": "20d85adcbb658f26e4105c6db2a376323e177d32f294966969f51d1a3e474372",
+      "imports": [
+        "ContactOverlapTensorCharts318",
+        "OriginalAffineMapSections318"
+      ]
+    },
+    "TensorPushoutModule318.lean": {
+      "sha256": "845cc5fcd23b4d5b103f77b09ce455cef1b161a58b81c632f7cda703f4435ff8",
+      "imports": [
+        "Mathlib.RingTheory.TensorProduct.Maps"
+      ]
+    },
+    "AffineModuleBaseChange318.lean": {
+      "sha256": "e26233c252ec5cdb98fdeafdb903c7fc148820d2adadc5fb8c68aa0bbed964b4",
+      "imports": [
+        "Mathlib.Algebra.Category.Ring.Basic",
+        "ScalarExtensionTensor318",
+        "TensorPushoutModule318"
+      ]
+    },
+    "SchemeIsoPushforwardRecovery318.lean": {
+      "sha256": "b93ff58c0878b9acb95b34895fd62b8ec8149f15961a72a12fa6de1f8c47d09e",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Modules.Sheaf"
+      ]
+    },
+    "AffineTensorLinePushforward318.lean": {
+      "sha256": "20e6334e391741e832b903fc326c9f54bdfeae47952e52621348dd6dec7a6955",
+      "imports": [
+        "AffineModuleBaseChange318",
+        "OriginalLineAffineBaseChange318",
+        "PushforwardGlobalSections318",
+        "SchemeIsoPushforwardRecovery318"
+      ]
+    },
+    "ContactCommonLaurentModule318.lean": {
+      "sha256": "1b80cce47a3482b8dce6be57a505db4790b402dbe826088b2746db48ae14081f",
+      "imports": [
+        "AffineTensorLinePushforward318",
+        "ContactOriginalModuleOverlap318"
+      ]
+    },
+    "OriginalFiniteBasisBaseChange318.lean": {
+      "sha256": "12ff172720a0ea832adb9bbce6028c5303aff11268ec8e18ddb11b387e066be9",
+      "imports": [
+        "Mathlib.LinearAlgebra.Dimension.Free",
+        "Mathlib.LinearAlgebra.TensorProduct.Basis",
+        "ScalarExtensionTensor318"
+      ]
+    },
+    "ContactOriginalLaurentCoordinates318.lean": {
+      "sha256": "9901c9100add5356b3341edbf6bb63796afffdda67e887286d76100960fd3d26",
+      "imports": [
+        "ContactCommonLaurentModule318",
+        "LaurentOriginalPolynomialCharts318",
+        "OriginalFiniteBasisBaseChange318"
+      ]
+    }
+  },
+  "new_modules": [
+    "SchemeIsoPushforwardRecovery318",
+    "AffineTensorLinePushforward318",
+    "ContactCommonLaurentModule318",
+    "OriginalFiniteBasisBaseChange318",
+    "ContactOriginalLaurentCoordinates318"
+  ],
+  "unchanged_producer_modules": [
+    "OriginalLineAffineModel318",
+    "LaurentVectorFiltration318",
+    "LaurentTransitionBounds318",
+    "LaurentCechFinite318",
+    "LaurentCechSectionsFinite318",
+    "LaurentOriginalPolynomialCharts318",
+    "OriginalLineFiniteFlatPID318",
+    "ContactOriginalLineFiniteChart318",
+    "ContactWholeInfinityAlgebra318",
+    "ContactWholeInfinityScheme318",
+    "ContactOriginalLineBothCharts318",
+    "OriginalLaurentProjectiveOverlap318",
+    "ContactOriginalLaurentOverlap318",
+    "ContactOriginalLineOverlap318",
+    "OriginalLineAffineBaseChange318",
+    "OriginalAffineMapSections318",
+    "ContactOverlapTensorCharts318",
+    "ContactOriginalModuleOverlap318",
+    "TensorPushoutModule318",
+    "AffineModuleBaseChange318"
+  ],
+  "scope": "Actual original line on both full charts yields one common Laurent module, proved equal ranks, and a constructed square Laurent transition with finite coordinate Cech kernel/cokernel; original geometric-boundary/derived cohomology and represented Jacobian remain separate.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false,
+  "revision_of": "contact-common-laurent-module"
+}
