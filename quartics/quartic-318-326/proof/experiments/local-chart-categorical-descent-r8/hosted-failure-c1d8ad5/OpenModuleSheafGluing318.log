@@ -1,0 +1,18 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r5/OpenModuleSheafGluing318.lean:35:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @Eq (↑Γ(M i, Z)) (res (M i) ⋯ (↑(s k) i)) (res (M i) ⋯ (↑(s l) i))
+but is expected to have type
+  @Eq (↑Γ(M i, V k ⊓ U i ⊓ (V l ⊓ U i)))
+    ((ConcreteCategory.hom ((M i).presheaf.map ((V k ⊓ U i).infLELeft (V l ⊓ U i)).op)) (↑(s k) i))
+    ((ConcreteCategory.hom ((M i).presheaf.map ((V k ⊓ U i).infLERight (V l ⊓ U i)).op)) (↑(s l) i))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/local-chart-categorical-descent-r5/OpenModuleSheafGluing318.lean:49:2: error: Type mismatch
+  (Classical.choose_spec
+        (TopCat.Sheaf.existsUnique_gluing' { obj := (M i).presheaf, property := Scheme.Modules.isSheaf (M i) }
+          (fun k => V k ⊓ U i) (W ⊓ U i) (fun k => homOfLE (inf_le_inf_right (U i) (hV k)))
+          (component_cover V W hcover i) (fun k => ?m.91) ?m.98)).left
+    k
+has type
+  (ConcreteCategory.hom ({ obj := (M i).presheaf, property := ⋯ }.obj.map (homOfLE ⋯).op)) (Classical.choose ⋯) = ?m.91
+but is expected to have type
+  res (M i) ⋯ (gluedComponent D V W hV hcover s hs i) = ↑(s k) i

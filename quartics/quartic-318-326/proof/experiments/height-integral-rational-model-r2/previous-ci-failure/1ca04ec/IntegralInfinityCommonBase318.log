@@ -1,0 +1,35 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-rational-overlap-r1/IntegralInfinityCommonBase318.lean:34:82: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ ↑(rootUnit R c) * ↑(algebraMap R (CommonBase R c)) ↑(c 0) * ↑(rootUnit R c)⁻¹ =
+    ↑(rootUnit R c) * ↑(rootUnit R c)⁻¹ * (algebraMap R (CommonBase R c)) ↑(c 0)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-rational-overlap-r1/IntegralInfinityCommonBase318.lean:43:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (CommonBase R c)
+    ((algebraMap (BranchBase R c 0) (CommonBase R c)) ((algebraMap R[X] (LinearRootCoordinate318.Root (c 0) 0)) X))
+    ((algebraMap (BranchBase R c 0) (CommonBase R c)) ((algebraMap R (LinearRootCoordinate318.Root (c 0) 0)) ↑(c 0)⁻¹) *
+      (algebraMap (BranchBase R c 0) (CommonBase R c))
+          (AdjoinRoot.root (QuadraticPresentation318.polynomial (LinearRootCoordinate318.parameter (c 0) 0))) ^
+        2)
+but is expected to have type
+  @Eq (CommonBase R c) ((algebraMap R[X] (CommonBase R c)) X)
+    ((algebraMap R (CommonBase R c)) ↑(c 0)⁻¹ *
+      (algebraMap (BranchBase R c 0) (CommonBase R c))
+          (AdjoinRoot.root (QuadraticPresentation318.polynomial (LinearRootCoordinate318.parameter (c 0) 0))) ^
+        2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-rational-overlap-r1/IntegralInfinityCommonBase318.lean:92:9: error(lean.unknownIdentifier): Unknown identifier `isUnit_mul_iff.mp`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-rational-overlap-r1/IntegralInfinityCommonBase318.lean:114:32: error: don't know how to synthesize placeholder for argument `hg`
+context:
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+p : R[X]
+⊢ IsUnit ((reciprocalPolynomial R c).toRingHom (IntegralInfinityChart318.denominator R c))

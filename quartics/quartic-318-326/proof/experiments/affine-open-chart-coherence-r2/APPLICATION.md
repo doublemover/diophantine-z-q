@@ -1,0 +1,23 @@
+# Application contract: original chart restriction composition
+
+1. **Source requirements.** The exact90-source predecessor constructs each chart line and nested transition with an original faithfully-flat covering equation and uniqueness. CanonicalBaseChangePasting318 supplies original covering-comparison pasting; PullbackPathComposition318 supplies actual associativity. Accepted RestrictionPullbackCoherence318 supplies original adjunction-normalized restriction/pullback composition. These actual sources, not a generic coherence assertion, are consumed.
+
+2. **Constructed objects.** The same affine flat surjective scheme morphism f:X→Y, original global Datum f, all original affine opens U,V,W and whole inverse images are retained. The lines and comparison maps are exactly those of AffineOpenChartDescent318 and AffineOpenChartComparison318. No reconstruction is replaced, nor are new independently compatible transitions chosen.
+
+3. **Coverage.** The theorem quantifies over every nested triple W≤V≤U of affine opens, with each affineness hypothesis explicit. It does not assume that arbitrary intersections of affine opens are affine or that a finite family covers Y. Faithful flatness on W is the exact previously derived property of f.app W, and is used only to reflect the original map equality.
+
+4. **Transition directions.** The reconstructed spectrum equation maps the successive base pullback of the U line to the W line. Its direct side is the original named base pullback-composition map followed by the direct U-to-W comparison. The proof retains the original source restriction composition, canonical cover-square comparisons, original reconstruction maps and source-line paths. Transport to original open schemes uses hU.isoSpec.hom and original homOfLE; the final collapse is the original restriction composition followed by original equality transport.
+
+5. **Hypothesis checks.** Original source/base composition equations are proved by actual sheaf restrictions or monicity of actual open inclusions. Inverse cover pasting is derived algebraically from the retained canonical law. The reconstruction composition proof uses the three proved comparison_cover equations and faithful detection; it does not assume composition on reconstructed lines. The generic transition-pasting lemmas require a transition equation, and their consumers supply the exact equation just proved for the original chart transitions.
+
+6. **Consumer identity.** The first consumer is the identical spectrum reconstruction map. The second is OriginalAffineOpenLines318.pullbackComparison on literal open subschemes. The final consumer is OriginalAffineOpenLines318.restrictionComparison on the actual Scheme.Modules.restrictFunctor, with named original collapse. This is the normalization used by Fi-only open gluing; the construction of whole pair-intersection data remains separate.
+
+7. **Scalars and normalization.** There are no added or discarded scalar factors. The exact f.app algebra, actual inverse image, original pullback associators, naturality squares and equality transports remain unchanged. RestrictionTransitionPasting318 invokes the existing adjunction-normalized restriction-to-pullback comparison rather than postulating coherence of a chosen iso.
+
+8. **Downstream boundary.** Nested-chart composition is now derived, including its final original restriction-functor form. Extending across possibly non-affine pair intersections and proving the resulting whole-cover triple data remain next, followed by global gluing. General non-affine fppf covering sources, represented Picard/Jacobian and the full arithmetic theorem remain outside this packet.
+
+9. **Evidence and acceptance.** The90 predecessor sources are byte-identical to their frozen packet. The six new sources, module order, exact baseline dependency closure and this application are bound in APPLICATION.json. Static checks and audit-history negative controls are not Lean elaboration or mathematical acceptance. No local Lean was run; hosted compilation, recursive axioms and independent acceptance are pending. No baseline or acceptance register is changed.
+
+## Revision after exact1ca04ec hosted replay
+
+After the generated NatTrans.ext reduces to equality of app functions, use funext rather than intro. Pin the tilde component to the exact original bundled coefficient ring R in the component theorem, preventing re-inference of a reconstructed CommRingCat carrier through ModuleCat. Carry the same typed normalization into the following identity theorem. No original map, scalar or statement scope is replaced; retain the entire passing prefix and exact1ca evidence. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.
