@@ -758,3 +758,7 @@ The actual original section pair now has a candidate finite projective t-pencil,
 ## Continuation batch 36
 
 The original arithmetic finite source now has candidate constructed domain, normality, actual height-one DVRs and normalized relative cotangent frames at every prime over the explicit good arithmetic base. Infinity and bad coefficient primes remain outside this span. Exact q-disc index and original restriction-comparison normalization revisions retain all original maps and statements. Hosted verification remains pending; baseline1837 unchanged.
+
+## Continuation batch 37
+
+Actual translated-index and half-trace calculations now construct the scalar2/3 local-unit inputs using a fixed label and the same later CRT-selected h. Remaining support-prime compatibility, four simultaneous rational-point realizations and the ternary Anchor are explicit. The quadratic-field proof-boundary repair retains all original point data and finite budgets. All new sources remain pending hosted checking.

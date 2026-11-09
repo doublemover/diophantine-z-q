@@ -1,0 +1,17 @@
+# Bounded source review: actual scalar index preparation
+
+Reviewer: /root/advance_height_realization. Implementer: /root/construct_integer_witnesses.
+
+Scope: the six new modules in forward-scalar-index-preparation-r1 and their actual producers/consumer. Internal independent source review, ready for hosted validation, not kernel acceptance or proof of the full arithmetic theorem. No local Lean execution.
+
+I read ScalarTranslatedIndex318, ScalarIndexValuations318, ScalarHalfTraceDepth318, ScalarTwoThreePreparation318, ScalarPreparedCongruence318 and PreparedTwoThreeSource318, their nine-obligation APPLICATION and DERIVATION, and the actual original-point multiple producers GeneratorMultiplesTwo318.norm_integer_multiple and GeneratorMultiplesThree318.identified_even_multiple_norm. The historical fixed-index/completeness route supplies prior inputs, not a discharged all-prime preparation theorem.
+
+The source translation uses nR plus minus R and the actual generator coordinates. The minus-compression scalar root is positive reciprocal u(n-1), while fixedRoot is its negative. Norm removes that sign only at the explicit norm comparison. The valuation producers consume the same actual elliptic point and fixed-root square, with nonzero indices retained and the even-index requirement at 3 explicitly supplied. Their inverse/root factors give 3+2v2(n) and 2+2v3(n), not the original abscissa valuations.
+
+The actual leaf33 half-trace a²+2b² has equal norm valuation at 2 by opposite parity, including the zero coefficient cases. At 3 the inert-norm comparison gives a lower bound, not a claimed equality. The literal integer input polynomial has values 2,0,0, obtained by subtracting the exact multiplier values from 4,2,2. The current packed exponent gives coefficient29; translated index depth at least common depth+15 gives strict excess2 at 2. At 3 the strict translated-depth inequality and both even indices give the original packed-unit prerequisites.
+
+The label 1+6^21*d for positive natural d is chosen before the region, threshold and all contact/CRT data. The same h selected by the original family has h=64 modulo384 because the additional explicit conditions384|L and h0=64 modulo384 are preserved by the original continuity congruence. This proves v2(h)=6, v3(h)=0 and thus both actual W units. It does not establish compatibility of that residue with remaining detector/local requirements.
+
+The final consumer retains the same integer input, labels, h, t, fixed roots and all original pole slots. The positive-support-prime split is complete: 2 and3 use constructed units; every other prime still requires the explicit actual leaf inequalities. The square denominator and exact4/2/2 values are consumed unchanged. Four actual simultaneous-twist Realizations and the ternary Anchor remain premises for all288 literal rows. No local-square-to-global-point inference appears.
+
+All nine contract obligations are supported within this bounded scope. I reran the exact symbolic index checker and static packet/import/binding derivation; they passed. Six new sources are byte-identical in r2. The r2 normalization predecessor delta is separately reviewed by the main integrator, not covered by this report. Remaining joins include other scalar/detector support primes, compatible prime/ray and fixed-label choices, actual rational-point realization, Anchor production, and hosted kernel validation.
