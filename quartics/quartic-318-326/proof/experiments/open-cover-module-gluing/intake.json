@@ -1,0 +1,55 @@
+{
+  "packet": "open-cover-module-gluing",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318"
+  ],
+  "files": {
+    "OpenModuleTransition318.lean": {
+      "sha256": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+      "imports": [
+        "ModuleLocalGluing318"
+      ]
+    },
+    "OpenModuleChartRecovery318.lean": {
+      "sha256": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+      "imports": [
+        "OpenModuleTransition318"
+      ]
+    },
+    "OpenModulePresheaf318.lean": {
+      "sha256": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+      "imports": [
+        "OpenModuleChartRecovery318"
+      ]
+    },
+    "OpenModuleSheafGluing318.lean": {
+      "sha256": "2c3c0f07456c380e1be6e0b0053b3e7d4f35d8545ff3c9013344440a5288fa80",
+      "imports": [
+        "OpenModulePresheaf318"
+      ]
+    },
+    "OpenModuleGluedSheaf318.lean": {
+      "sha256": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0",
+      "imports": [
+        "LineSheafClass318",
+        "OpenModuleSheafGluing318"
+      ]
+    }
+  },
+  "new_modules": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318"
+  ],
+  "unchanged_producer_modules": [],
+  "scope": "Explicit arbitrary-scheme matching-family module sheaf gluing, actual recovered chart isomorphisms and a global line from covering rank-one frames. Direct-image chart adapters and the affine fppf reconstruction join remain further work.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

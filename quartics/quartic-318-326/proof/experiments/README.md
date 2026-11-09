@@ -16,6 +16,29 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Actual overlap tensors and open-chart line gluing, 2026-11-09
+
+Ten active closures now schedule 357 source checks. The unchanged canonical
+rigidified-composition closure has passed all 41 strict hosted module checks
+and its recursive audit of 529 declarations, using only propext,
+Classical.choice and Quot.sound. Exact run42584029818 evidence is retained;
+this is not accepted-baseline promotion or full descent completion.
+
+New candidate source compares both original integral tensor sections on the
+same actual algebraic overlap, using literal chart restrictions, every twist
+and J² factor, the signed reciprocal Jacobian and actual Kähler.map naturality.
+The intrinsic sheaf consumer explicitly retains its scheme embeddings and route
+squares. Constructing those embeddings and full intersection coverage remains
+separate; no generic-field comparison is substituted for overlap equality.
+
+Actual matching-family module sheaves now have proposed arbitrary open-chart
+gluing with original transition recovery, direct-image chart recovery and all
+original local line frames. The remaining original scheme triple-to-over
+normalization adapter is explicit. Existing accepted unit-cocycle gluing is
+not misrepresented as absent. Round18 binds bounded review of these sources,
+preemptive proof-hypothesis repairs and exact narrow c7 hosted-failure repairs.
+All new candidates remain pending hosted checking. No local Lean was executed.
+
 ## Original quotient classes, source rows and overlap attachment, 2026-11-09
 
 Ten active closures schedule 379 source checks. Candidate source now carries

@@ -1,0 +1,80 @@
+{
+  "packet": "open-chart-sheaf-gluing",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318",
+    "OpenSheafTransition318",
+    "OpenSheafGluing318",
+    "OpenChartModuleImages318"
+  ],
+  "files": {
+    "OpenModuleTransition318.lean": {
+      "sha256": "a51669bd8a0493e224966347b89324448e5de084a2532db9a084011879b0ce25",
+      "imports": [
+        "ModuleLocalGluing318"
+      ]
+    },
+    "OpenModuleChartRecovery318.lean": {
+      "sha256": "365c4893edfae00864717bfa56aca489e21e49a08770083beb21a60de735d649",
+      "imports": [
+        "OpenModuleTransition318"
+      ]
+    },
+    "OpenModulePresheaf318.lean": {
+      "sha256": "1ca237027525863012b22d4590493845a448f991ab37ea751bb71e8838737225",
+      "imports": [
+        "OpenModuleChartRecovery318"
+      ]
+    },
+    "OpenModuleSheafGluing318.lean": {
+      "sha256": "2c3c0f07456c380e1be6e0b0053b3e7d4f35d8545ff3c9013344440a5288fa80",
+      "imports": [
+        "OpenModulePresheaf318"
+      ]
+    },
+    "OpenModuleGluedSheaf318.lean": {
+      "sha256": "e5f16c41da16aca97b3f57e9708b733a1f8afa37a111605c5fbf72dbde8b03f0",
+      "imports": [
+        "LineSheafClass318",
+        "OpenModuleSheafGluing318"
+      ]
+    },
+    "OpenSheafTransition318.lean": {
+      "sha256": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+      "imports": [
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    "OpenSheafGluing318.lean": {
+      "sha256": "ef17173e2af4552cade2393134495b0827036812d237a86985793c21dac1f3ed",
+      "imports": [
+        "OpenSheafTransition318"
+      ]
+    },
+    "OpenChartModuleImages318.lean": {
+      "sha256": "c885783813d79fb396e84fbca05425abae7518dcd234831f6d426aa50bea441b",
+      "imports": [
+        "OpenSheafGluing318"
+      ]
+    }
+  },
+  "new_modules": [
+    "OpenSheafTransition318",
+    "OpenSheafGluing318",
+    "OpenChartModuleImages318"
+  ],
+  "unchanged_producer_modules": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318"
+  ],
+  "scope": "Actual over-open sheaf transition data derives all matching-family inputs and glues to a module sheaf with exact original transition recovery. Original local chart modules are recovered through actual direct images and counits. Scheme-local triple-conversion coherence and the affine fppf chart join remain separate.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

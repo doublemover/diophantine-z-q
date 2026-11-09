@@ -1,0 +1,47 @@
+# Original scaled bicanonical tensors on integral contact charts
+
+Draft only. No local Lean compilation or build was run. Hosted strict checking, recursive private-inclusive axiom audit, and independent source acceptance are pending. The accepted progress snapshot is unchanged.
+
+This coherent ten-source closure copies the five original finite-affine integral branch-cover sources and the two hosted-checked integral cotangent tensor sources. Three new modules construct actual regular bicanonical tensors on those original branch opens and prove their exact generic images are the original J-squared-scaled q0/q1 expressions in the original source coordinate t. It does not merely assert numerical integrality or choose an unrelated scalar lattice.
+
+IntegralBranchCoordinates318 constructs the actual ramified root coordinate, proves its integral frame is normalized, derives the original equation t-a_i=c_i inverse times z_i squared, and proves the exact Dt frame coefficient 2 times c_i inverse times z_i. No square root of a twist unit is chosen, and the ramified factor is not suppressed.
+
+IntegralBranchBicanonical318 defines the regular first coefficient as 4 times the product of the other three twists times c_i inverse times the inverse of the same original branch denominator. The second coefficient is t times the first. The exact polynomial factorization and ramified square equation prove P times coefficient0 equals the square of the actual Dt frame coefficient on the entire branch chart, including its ramification locus. When 2 is invertible, the first coefficient is a unit throughout that chart.
+
+IntegralBranchGenericTensor318 constructs two genuine integral cotangent-square tensors by applying the inverse of the actual tensor-square frame to the two coefficients multiplied by J squared, where J=2765952000. Under explicit domain hypotheses on R and on this same source principal localization, the actual fraction-field cotangent tensor map sends them to the literal original generic pair J squared times dt squared over P, and t times that expression. The genuine quartic is nonzero because the original source order is free over R[X], its principal localization is flat and nontrivial, and the quartic is monic. No denominator nonvanishing is supplied as an assumption.
+
+The five copied geometry modules identify each chart with the original source principal open and prove the four opens cover the entire finite affine source when 2,3,5,7 are units. Their branchPoint map is only a section of the ramified root-coordinate base; it is not a point of the full three-root source without additional root data. Whole-chart tensor construction and the cleared identities hold over arbitrary commutative coefficient rings with unit twists and unit two. The fraction-field comparison additionally assumes the named domain structures; their construction for every component is not asserted here.
+
+Remaining obligations are comparison with the already-glued global sheaf sections after rational base change, integral tensor transition/gluing over overlaps, infinity, reductions at 2,3,5,7, full component/domain coverage and original point specialization t=32u/v. The established exact generic expression is not substituted for a proof of all those global obligations, and no all-place metric bound is claimed.
+
+## Application obligations
+
+1. Objects: the two integral tensors live in the actual cotangent tensor square of the original source principal localization. Their generic images use the actual fraction field of that same ring and the original integral-to-fraction differential tensor map.
+2. Indices: every original branch index i in Fin 4, every other contact factor, and every arbitrary unit twist are retained. The copied denominator identity proves whole finite affine coverage only when its explicit separation integer is invertible.
+3. Domain: unit two is required for actual etale frames; whole-chart cleared identities and tensor definitions do not require a domain. The generic comparison explicitly requires R and the named branch localization to be domains, together with a compatible fraction field. Those source-component hypotheses are not disguised as constructed geometry.
+4. Coefficients: the exact scalar is 4 times the other-twist product times the inverse chosen twist times the original denominator inverse. The differential coefficient is exactly 2 times the inverse twist times the actual root coordinate. The original J squared and q1=t q0 are unchanged.
+5. Local conditions: root-coordinate normalization, the source square equation, coefficient unitness, the cleared quartic relation and actual quartic nonvanishing are proved. No unit coefficient, nonzero denominator, section norm or supplied local frame is assumed in place of these constructions.
+6. Transition maps: the exact original source-to-branch principal-localization equivalence transports the frame. The generic tensor map is frame-independent and agrees with the original universal differential map on pure tensors. Coefficients are transported by the same original ring maps.
+7. Identity: tensor_images identifies both actual integral tensors with the literal J-squared-scaled original generic q0/q1 in the source coordinate t. It is not merely an equality of heights or an existential alternative section pair. Global sheaf restriction and integral gluing remain separate obligations.
+8. Consumers: this is the connected bicanonical realization on the full finite affine contact cover away from the explicit bad-prime set, supplementing the actual vertical-local good-chart result. Infinity, bad-contact reductions, source component coverage and all-place metric realization remain open.
+9. Validation: all copied-source hashes, exact new-source/readme/intake bindings, primary producer pins and static closure are recorded. Hosted strict kernel checking and independent source acceptance are pending. No local Lean execution, self-approval or full arithmetic theorem is claimed.
+
+## Versioned regrouped tensor instance repair
+
+Hosted run 42579034823 at c2b05cf passed IntegralBranchChart318 and failed while elaborating the second scalar-extension tensor in IntegralSourceBranches318. This revision restores explicit local bindings for the native regrouped CommRing and BranchBase algebra instances, matching the already-checked rational source producer. No new scalar action, algebra map, coefficient, hypothesis or theorem conclusion is introduced. The tested five-source packet and the prior ten-source draft remain unchanged, and the exact failure log/result is preserved. No local Lean execution occurred.
+
+## Versioned prime-local differential module repair
+
+Hosted run 42580912976 at e205d32 passed IntegralBranchChart318 and the repaired IntegralSourceBranches318, then failed canonical Module inference at the branch prime-local frame. This revision resolves the exact native Kaehler module first at abstract rings, supplies it for the actual prime localization, and names that localization explicitly in localFrame. The helper is public under strict module visibility. No scalar action, algebra map or mathematical statement is replaced. Tested ten-source bytes and exact failed log/result remain preserved; no local Lean execution occurred.
+
+## Coefficient-ring numeral normalization repair
+
+Hosted run 42580912976 at e205d32 passed the infinity chart and frame, then exposed a target-tensor algebra normalization failure in the IsUnit4 proof. The corrected proof establishes 2 squared equals 4 and unitness entirely in the abstract coefficient ring R, then maps this established unit with only map_ofNat simplification. It no longer runs numeral conversion inside a nested tensor algebra and does not raise resource limits. The same construction is repaired preventatively in the branch coefficient proof; no branch failure at that declaration is claimed. Prior visibility, prime-frame and source-instance repairs are retained, and all prior sources/evidence remain unchanged. No local Lean execution occurred.
+
+## Versioned hosted repair
+
+Normalize C numerals, cache the native regrouped-order algebra, and identify polynomial C with the actual coefficient algebra map before ideal transport. The c4cd4ae failure and tested predecessor remain preserved. Statements and mathematical assumptions are unchanged. Hosted verification of this revision and independent acceptance remain pending. No local Lean was run.
+
+## Versioned hosted repair
+
+Finish normalization of the two successive genuine algebra maps of one in the localized ramified-coordinate differential frame. The c7d3bc3 failure and tested predecessor remain preserved. Statements and mathematical assumptions are unchanged. Hosted verification of this revision and independent acceptance remain pending. No local Lean was run.
