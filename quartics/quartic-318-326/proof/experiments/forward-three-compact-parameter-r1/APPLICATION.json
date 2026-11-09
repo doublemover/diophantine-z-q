@@ -1,0 +1,112 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Explicit rational analytic equivalence on the original admissible level-three source, with exact original j/x identities, and exact exceptional-fiber and cusp orders for the resulting rational j-map.",
+  "baseline_commit": "5e483a2",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeCompactBranchOrders318.lean": "a3bb7264d55b002bb2d5df1dcb95d1402665a4aeb5705bdd9d1d42cbaabe2ae8",
+    "LiteralThreeParameterBiholomorph318.lean": "64b0e3cfa3ceead96996d39437dca27728a41545c68b43d5e9eeba990a623b90"
+  },
+  "endpoints": [
+    "ThreeCompactParameter318.openHomeomorph",
+    "LiteralThreeCompactParameter318.sourceParameter",
+    "LiteralThreeParameterBiholomorph318.sourceBiholomorph",
+    "ThreeCompactBranchOrders318.order_at_simple_zero",
+    "ThreeCompactBranchOrders318.order_at_triple_zero",
+    "ThreeCompactBranchOrders318.order_at_1728",
+    "ThreeCompactBranchOrders318.order_at_zero_cusp",
+    "ThreeCompactBranchOrders318.order_at_infinity_cusp",
+    "ThreeCompactBranchOrders318.no_projective_basepoint"
+  ],
+  "obligations": [
+    {
+      "name": "Exact objects",
+      "required_input": "Original level-three admissible quotient, literal arithmetic plane and independently constructed atlases.",
+      "constructed_input": "ThreeArithmeticQuotient318.Source, LiteralThreePlanePoints318.Plane and their original comparison; independent open-subspace ParameterOpen atlas.",
+      "justification": "planeEquiv only reassociates nested subtypes; quartic_eq_original is rfl. sourceParameter composes the original comparison with the explicit rational inverse.",
+      "sources": [
+        "LiteralThreeCompactParameter318.lean",
+        "LiteralThreeParameterBiholomorph318.lean",
+        "progress/LiteralPlaneComparison318.lean"
+      ]
+    },
+    {
+      "name": "Hypotheses",
+      "required_input": "Every point has j nonzero and j not 1728; literal Q equation.",
+      "constructed_input": "Exactly the existing JOpen subtype, with no stronger condition or generic-only exception.",
+      "justification": "numerator_ne_zero and denominator_ne_zero derive every division condition from those hypotheses; both inverse laws are checked on the entire domain.",
+      "sources": [
+        "ThreeCompactParameter318.lean"
+      ]
+    },
+    {
+      "name": "Index and exceptional coverage",
+      "required_input": "All admissible points and every exceptional branch in the rational target.",
+      "constructed_input": "Two explicit zero branches, every root of D, finite zero cusp and reciprocal infinity chart.",
+      "justification": "zero_fiber and elliptic_fiber classify complete finite fibers; D_root_simple covers all roots without selecting sqrt(3); pole orders include both projective charts.",
+      "sources": [
+        "ThreeCompactBranchOrders318.lean"
+      ]
+    },
+    {
+      "name": "Maps and directions",
+      "required_input": "Actual forward and inverse maps and exact j/x compatibility.",
+      "constructed_input": "J(T), X(T), T(j,x), sourceParameter and sourceBiholomorph.",
+      "justification": "Both original inverse laws are proved, and sourceParameter_j/x and inverse_j/x retain original coordinate functions.",
+      "sources": [
+        "LiteralThreeCompactParameter318.lean",
+        "ThreeCompactParameter318.lean"
+      ]
+    },
+    {
+      "name": "Downstream identity",
+      "required_input": "The analytic object used downstream must be the original map, not an arbitrary isomorphic copy.",
+      "constructed_input": "sourceBiholomorph.toEquiv is exactly sourceParameter.toEquiv; sourceParameter uses LiteralPlaneComparison318.comparison.",
+      "justification": "The analytic proof consumes the old ambient embedding, not a target topology or complex structure transported from the source.",
+      "sources": [
+        "LiteralThreeParameterBiholomorph318.lean"
+      ]
+    },
+    {
+      "name": "Coefficients and normalization",
+      "required_input": "Original arithmetic j and x conventions, exact scalar factors.",
+      "constructed_input": "T=243((j-1728)x^2-j)/(9j-(j-1728)x^2); J=(T+27)(T+243)^3/T^3; X=3(T+27)(T+243)/D.",
+      "justification": "Polynomial/rational identities are kernel-checked; complex coefficients and characteristic zero are explicit. No q-parameter or period scale is silently identified.",
+      "sources": [
+        "ThreeCompactParameter318.lean"
+      ]
+    },
+    {
+      "name": "Local analytic application",
+      "required_input": "Analyticity in both independently specified atlases and genuine local orders.",
+      "constructed_input": "Analytic ambient rational formula, natural parameter open chart, actual source j charts, Mathlib meromorphicOrderAt.",
+      "justification": "Nonzero denominator is checked at every actual point; orders use explicit analytic nonzero unit factors on punctured neighborhoods.",
+      "sources": [
+        "LiteralThreeParameterBiholomorph318.lean",
+        "ThreeCompactBranchOrders318.lean"
+      ]
+    },
+    {
+      "name": "Verification",
+      "required_input": "Strict checks of exact final source bytes and private-inclusive recursive axiom audit.",
+      "constructed_input": "Four final modules compiled with -j1 -M6144 -Ddebug.skipKernelTC=false; audit passes 161 declarations.",
+      "justification": "checks and receipt bind sources, imports and baseline pins. Allowed roots only propext, Classical.choice, Quot.sound. This is a local incremental check, not a clean rebuild.",
+      "sources": [
+        "checks/ExperimentAudit.log",
+        "ExperimentAudit.lean",
+        "baseline-source-pins.json"
+      ]
+    },
+    {
+      "name": "Scope and history",
+      "required_input": "Preserve actual compact-source, arithmetic and prior-audit boundaries.",
+      "constructed_input": "DERIVATION.md identifies N>=5 restriction of existing all-cusp theorem and failure of same affine x chart at exceptional j.",
+      "justification": "No N=3 compact quotient atlas, compact-source extension, normalization/analytification, PEL, KS, represented Jacobian or FiveContact49Height follows. Focused historical search is described without claiming no earlier argument exists. No admitted baseline file is changed.",
+      "sources": [
+        "DERIVATION.md",
+        "progress/AllCuspComplexCurve318.lean"
+      ]
+    }
+  ]
+}

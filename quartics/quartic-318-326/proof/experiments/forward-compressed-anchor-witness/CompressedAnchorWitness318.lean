@@ -54,7 +54,7 @@ theorem compression_equation (u v : K) (hu : u≠0)
   have ha : u^2*(m+(k^2+D*u^2)*s)^2=k^2*(1-D*(u^2)^2) := by
     rw [ho]
     calc
-      u^2*(k*v/u)^2 = k^2*v^2 := by field_simp [hu]; ring
+      u^2*(k*v/u)^2 = k^2*v^2 := by field_simp [hu]
       _ = k^2*(1-D*(u^2)^2) := by rw [hc]; ring
   have hf : (k^2+D*u^2)*
       (1-(k^2*(u^2+u^2*s^2)+2*m*(u^2*s)+D*(u^2*s)^2))=0 := by
@@ -118,16 +118,14 @@ theorem literal_rows (S : ℚ) (base : Assignment) (u v : K)
   have he := compression_equation u v hu hc
   have hre := congrArg QuadraticAlgebra.re he
   have him := congrArg QuadraticAlgebra.im he
-  have hn := norm_square u
-  have hm : u^2*(shiftWitness u v)^2=(u^2*shiftWitness u v)*shiftWitness u v := by ring
   constructor
   · simp [r32,fill,pow_two]; ring
   constructor
   · simp [r33,fill,pow_two]; ring
   constructor
-  · simp [r34,fill,hm,pow_two]; ring
+  · simp [r34,fill,pow_two]; ring
   constructor
-  · simp [r35,fill,hm,pow_two]; ring
+  · simp [r35,fill,pow_two]; ring
   constructor
   · norm_num [k,m,D,pair,pow_two] at hre
     norm_num [r36,fill,pow_two] 
@@ -136,8 +134,8 @@ theorem literal_rows (S : ℚ) (base : Assignment) (u v : K)
   · norm_num [k,m,D,pair,pow_two] at him
     norm_num [r37,fill,pow_two]
     linear_combination him
-  · norm_num only [r38,fill]
-    linear_combination hn
+  · simp [r38,fill,pow_two]
+    ring
 
 /-- The compressed reconstruction is the original chosen elliptic point,
 not merely some point satisfying the same curve equation. -/
@@ -152,8 +150,8 @@ theorem reconstruct_original (base : Assignment) (u v : K) (hu : u≠0) :
       linear_combination h
     rw [CompressedPoint318.yH,ha,filled_fH]
     field_simp [hu,CompressedPoint318.k_ne]
-    ring
 
 #print axioms literal_rows
 #print axioms reconstruct_original
+end
 end CompressedAnchorWitness318

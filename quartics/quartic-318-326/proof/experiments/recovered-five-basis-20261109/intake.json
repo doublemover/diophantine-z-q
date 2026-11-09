@@ -1,0 +1,77 @@
+{
+  "status": "Seven sources pass strict kernel replay; 59 declarations pass private-inclusive recursive audit; independent acceptance and hosted integration remain separate.",
+  "predecessor_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "order": [
+    "GeometricIntegralConstants318",
+    "ActualFiveRationalIndependent318",
+    "ActualSourceRationalConstants318",
+    "SingleFlipInvariantLine318",
+    "ActualDifferentialSignLinear318",
+    "ActualFiveDifferentialSpanning318",
+    "ActualFiveDifferentialBasis318"
+  ],
+  "files": {
+    "GeometricIntegralConstants318.lean": {
+      "sha256": "438dd9828f3826b5ea744e92d53307ac5ad48ad7d68ae0672b0f9e1d39dd60fe",
+      "imports": [
+        "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+        "Mathlib.LinearAlgebra.Dual.Lemmas",
+        "Mathlib.RingTheory.IntegralClosure.Algebra.Basic",
+        "Mathlib.RingTheory.TensorProduct.Basic"
+      ]
+    },
+    "ActualFiveRationalIndependent318.lean": {
+      "sha256": "35576d38eb0b2e0e10ab73ba3e43855610b277d7ec678d0856ce0e10bfca4bd2",
+      "imports": [
+        "ActualQuotientConstantPullback318",
+        "FiveActualPullbacksIndependent318",
+        "Mathlib.Data.Fintype.Option",
+        "Mathlib.LinearAlgebra.LinearIndependent.Defs"
+      ]
+    },
+    "ActualSourceRationalConstants318.lean": {
+      "sha256": "549a91d02fa1cf9af2297be2f364b3b4227f261c4ee238bb5afeab69c6550e6f",
+      "imports": [
+        "ActualQuotientConstantPullback318",
+        "AffineGlobalFunction318",
+        "GeometricIntegralConstants318",
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper",
+        "SourceScalarExtension318"
+      ]
+    },
+    "SingleFlipInvariantLine318.lean": {
+      "sha256": "6603e0adf5c109ac7701f6707d385bf0bb8a8e445ce755b76af6f48c6eaed18a",
+      "imports": [
+        "ActualFiveRationalIndependent318",
+        "ActualSourceRationalConstants318",
+        "CharacterGlobalRegularRatio318"
+      ]
+    },
+    "ActualDifferentialSignLinear318.lean": {
+      "sha256": "477abd9d7f03767b57ec8977387fd34bb463566302257c1bb61f7d2a44b2f344",
+      "imports": [
+        "ActualFiveRationalIndependent318",
+        "CharacterDifferentialInvariants318",
+        "ContactGlobalCoefficientScalars318",
+        "ContactGlobalSignAction318"
+      ]
+    },
+    "ActualFiveDifferentialSpanning318.lean": {
+      "sha256": "f4118a495026d0dd84157a701f0171a2794f7483fa3d83efc9328cfb66b56c01",
+      "imports": [
+        "ActualDifferentialSignLinear318",
+        "ActualFifthInvariantLine318",
+        "Mathlib.Tactic.Module",
+        "SingleFlipInvariantLine318"
+      ]
+    },
+    "ActualFiveDifferentialBasis318.lean": {
+      "sha256": "1bf8ae4e94ca35c4b3696598060c5054beaed92d5835ec887597d412a0505c25",
+      "imports": [
+        "ActualFiveDifferentialSpanning318",
+        "Mathlib.LinearAlgebra.Basis.Defs",
+        "Mathlib.LinearAlgebra.Dimension.Finite"
+      ]
+    }
+  }
+}

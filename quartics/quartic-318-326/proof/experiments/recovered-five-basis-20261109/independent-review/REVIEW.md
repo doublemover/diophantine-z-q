@@ -1,0 +1,25 @@
+# Independent review of the reconstructed actual five-differential basis
+
+Decision: ACCEPTED for the exact seven sources and nine obligations bound here. This is an internal non-author source/consumer review. The reviewer did not author or edit the proof sources. Producer strict replay and private-inclusive recursive audit are verified as bound evidence, not claimed as a separate reviewer recompilation.
+
+## History and identity
+
+The earlier reported basis receipt and packet bytes were not recovered. This packet is a newly reconstructed route from the exact preserved 1,837-source checkpoint. Acceptance does not inherit the historical receipt's authority. The new proof is reviewed on its own objects and hypotheses.
+
+The carrier is the global intrinsic differential space of the original complete contact source, with the fixed original SourceTwistArithmetic318.units. Its rational module is restriction of scalars through the existing structural sourceConstant. The four complementary actual quotient pullbacks and the original fifth actual differential are unchanged, including the inherited fifth normalization. No abstract five-dimensional space or replacement curve occurs.
+
+## Nine-obligation comparison
+
+1. Source and carrier: the final basis is constructed directly in the original global differential carrier. basis_apply identifies its Option(Fin 4) entries exactly with the four original complementary differentials and the fifth pullback.
+2. Coefficients: rationalModule is Module.compHom through the original sourceConstant. rational_smul and original_constant identify it with the existing action used in independence. The final dimension is over Q, not a larger constant field.
+3. Constants: properness makes each actual global regular function integral over Q. Restriction is to the original finite affine SourceOrder. The established scalarExtension_domain concerns AlgebraicClosure Q tensor this actual order. The new general lemma uses integrality over the algebraically closed field, the tensor domain, and a Q-linear functional taking 1 to 1 to descend the scalar. Generic-germ injectivity then recovers equality on the complete source. This argument does not assume the desired differential dimension.
+4. Cover: for a section fixed by the single omitted-root flip, the omitted branch factorization uses the actual action equation and BranchDifferentialDivisibility318.fixed_factorization. The other three branch charts and the complete infinity chart use the established unit-frame multiple theorems. Common-open injectivity glues all five ratios. Therefore the ratio is a global regular function, not merely rational on the dense open, and the constants theorem supplies the rational scalar.
+5. Maps: action is the original intrinsic pullback of the original whole-scheme signs, packaged linearly. globalSection_comp and ContactGlobalSignAction318.composition preserve the contravariant order; the proof does not substitute an abstract representation. Scalar compatibility uses the original constant pullback.
+6. Projection: the factor 1/2 is in Q. The + projection for flip i lies on exactly complementary line i; the other three original complementary forms have eigenvalue -1. Subtracting the four projected terms leaves a section anti-invariant for every individual root flip. The sum cancellation retains all coefficients.
+7. Fifth kernel: the Boolean decomposition covers all sixteen sign functions, not just generators assumed without proof. Its full-root character agrees with FifthOpenSigns318.epsilon. Every one of the eight actual fifth fixing signs has epsilon 1, so the residual satisfies exactly ActualFifthInvariantLine318.Fixed. The existing actual descent theorem supplies its fifth rational coefficient.
+8. Consumer identity: the independent family and spanning family are literally the same original five forms. Basis.mk uses the newly proved spanning result and prior actual independence. basis_apply and finrank_eq_five are unconditional for this fixed source and scalar action, without a new geometric-realization premise.
+9. Dependencies and scope: the unchanged experiment checker verifies exact source hashes, import order, absence of prohibited proof shortcuts, and a 619-source transitive baseline closure. The producer's seven strict source compilations and recursive audit cover 59 declarations including generated/private ones, with only propext, Classical.choice and Quot.sound. The final successful replay corrects audit-driver counter annotations only; the first harness error remains preserved. This new route establishes an actual differential basis and dimension five, not represented Picard/Jacobian, polarization, isogeny, PEL/Kodaira-Spencer, height control, global integer witnesses or complete arithmetic.
+
+## Disposition
+
+The source-level mathematical application is accepted within the stated basis scope. New-route reconstruction is successful; original-byte recovery is not asserted. The packet remains isolated until a separately validated accepted-snapshot integration. Any changed proof source or application contract requires renewed acceptance.

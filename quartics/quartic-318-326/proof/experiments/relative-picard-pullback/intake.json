@@ -1,0 +1,61 @@
+{
+  "packet": "relative-picard-pullback",
+  "status": "PASS_LOCAL_STRICT_AND_RECURSIVE_AUDIT_PENDING_NONAUTHOR_REVIEW",
+  "order": [
+    "TensorPullbackCocycle318",
+    "LineClassPullbackHom318",
+    "RelativeLineClassQuotient318",
+    "RelativeLineClassBaseChange318",
+    "RelativeLineFunctorPullback318",
+    "ContactRelativeLinePresheaf318"
+  ],
+  "files": {
+    "TensorPullbackCocycle318.lean": {
+      "sha256": "112c417a26b1ed69cfeea903ddc1ba87a200f5e9ea2eaa08b5a2918fe3d59cf1",
+      "imports": [
+        "FramedLineCocycleIso318",
+        "LinePullbackTransitions318",
+        "TensorLineCocycle318"
+      ]
+    },
+    "LineClassPullbackHom318.lean": {
+      "sha256": "9bc2f115eeaa25bce65d9100a186f59b60b9e4b70a73442ed2cab4953183a8f7",
+      "imports": [
+        "LineClassPullbackLaws318",
+        "LineSheafClassGroup318",
+        "TensorPullbackCocycle318"
+      ]
+    },
+    "RelativeLineClassQuotient318.lean": {
+      "sha256": "51e514655f349abd082dde7a1c28470b0e70ec3cc533309d0d13a6e41d4fc92c",
+      "imports": [
+        "LineClassPullbackHom318",
+        "Mathlib.GroupTheory.QuotientGroup.Defs"
+      ]
+    },
+    "RelativeLineClassBaseChange318.lean": {
+      "sha256": "31bd3d2aa7eef20ab8a8030ece153fe4bdc48936c3016d6a53fa910b8f7918e7",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.CategoryTheory.Comma.Over.Basic",
+        "RelativeLineClassQuotient318"
+      ]
+    },
+    "RelativeLineFunctorPullback318.lean": {
+      "sha256": "1ad907e7bda9b171aeb63e1d68ed59ac15a65560bf36120750569adb733eb940",
+      "imports": [
+        "RelativeLineClassBaseChange318"
+      ]
+    },
+    "ContactRelativeLinePresheaf318.lean": {
+      "sha256": "f8fefc23b417544fb63bdf248103ebf0a6350faf2bbe98f8a0451e764b3bf5e1",
+      "imports": [
+        "FifthCompletedGlobal318",
+        "RelativeLineFunctorPullback318"
+      ]
+    }
+  },
+  "scope": "Actual arbitrary-map tensor pullback and naive relative Picard presheaf on actual scheme fiber products, including pullback natural transformations of all five original completed quotient maps. No representability, Jacobian, or norm base-change claim.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}
