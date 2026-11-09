@@ -16,9 +16,25 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original global pullback boundary, 2026-11-09
+
+Nine active closures now schedule 335 source checks. The actual terminal
+integer-sheaf normalization is now identified with the local-at-top generator
+comparison, so the original global scheme-cohomology pullback sends the actual
+boundary of a section to the boundary of its literal f.app pullback. The next
+consumer is the concrete original quotient/chart map, not another replacement
+cohomology action.
+
+Round15 also binds exact prime-local frame and coefficient-ring numeral repairs
+for the integral branch/infinity tensor closures. Exact available e205d32
+failure evidence is retained under hosted-results/42580912976. The first two
+branch sources and the infinity chart/frame have now passed their strict module
+checks, but no new whole-packet audit or baseline admission is claimed. All new
+candidate closures still require hosted validation; no local Lean was executed.
+
 ## Original Ext naturality and algebraic etale open, 2026-11-09
 
-Nine active closures now schedule 333 source checks. The H1 continuation derives
+The preceding nine closures scheduled 333 source checks. The H1 continuation derives
 local inverse-image compatibility of the original two-chart extension class,
 retaining its section adjunction and finite-minus-infinity sign. The terminal
 constant-sheaf alignment and original quotient-map application remain separate.
