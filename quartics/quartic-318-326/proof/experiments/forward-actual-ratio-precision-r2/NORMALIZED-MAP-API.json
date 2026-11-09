@@ -1,0 +1,7 @@
+{
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "path": "Mathlib/Algebra/Group/Hom/Defs.lean",
+  "line": 497,
+  "excerpt": "/-- Group homomorphisms preserve integer power.\n\nSee note [hom simp lemma priority] -/\n@[to_additive (attr := simp mid, grind =) (reorder := g n)\n/-- Additive group homomorphisms preserve integer scaling. -/]\ntheorem map_zpow [Group G] [DivisionMonoid H] [MonoidHomClass F G H]\n    (f : F) (g : G) (n : ℤ) : f (g ^ n) = f g ^ n := map_zpow' f (map_inv f) g n\n\n@[to_additive]\nlemma map_comp_zpow [Group G] [DivisionMonoid H] [MonoidHomClass ",
+  "consequence": "The to_additive reorder := g n attribute changes map_zsmul to argument order f n g, matching the hosted errors and passed RealCoherentOrbit318 producer."
+}

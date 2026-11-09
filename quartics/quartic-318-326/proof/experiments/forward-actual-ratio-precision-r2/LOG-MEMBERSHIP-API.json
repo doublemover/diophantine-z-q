@@ -1,0 +1,6 @@
+{
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "path": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+  "line": 855,
+  "excerpt": "\n\n@[simp]\ntheorem norm_p : ‖(p : ℚ_[p])‖ = (p : ℝ)⁻¹ := by\n  rw [← @Rat.cast_natCast ℝ _ p]\n  rw [← @Rat.cast_natCast ℚ_[p] _ p]\n  simp [hp.1.ne_zero, norm, padicNorm, padicValRat, padicValInt, zpow_neg,\n    -Rat.cast_natCast]\n\ntheorem norm_p_lt_one : ‖(p : ℚ_[p])‖ < 1 := by\n  rw [norm_p]\n  exact inv_lt_one_of_one_lt₀ <| mod_cast hp.1.one_lt\n\n@[simp high] -- Shortcut lemma with higher priority.\ntheorem norm_p_zpow (n : ℤ) : ‖(p : ℚ_[p]) ^ n‖ = (p : ℝ) ^ (-n) := by\n  rw [norm_zpow, norm_p, zpow_neg, inv_zpow]\n\n@[simp high] -- Shortcut lemma with higher priority.\ntheorem norm_p_pow (n "
+}
