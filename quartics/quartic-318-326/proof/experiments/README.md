@@ -16,6 +16,26 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Joined rational exhaustion and exact branch fibers, 2026-11-09
+
+The next ten-packet matrix includes the 55-source actual rational H1 exhaustion
+closure, the 61-source analytic and algebraic complex-point fiber closure, the
+19-source affine coassociativity repair and five-source canonical tilde coherence.
+The H1 chain constructs a structural rational action and dimension at most five
+from the original explicit chart quotient. Original five-map equivalence still
+requires cross-term vanishing and actual target nonzero witnesses; its common
+transfer kernel is now a consequence of these inputs and the dimension bound.
+The analytic chain retains the original compact source and exact j scheme map,
+then proves the stated elliptic orders and finite complex-point fibers.
+Scheme finite-flatness, PEL comparison and the complete arithmetic theorem remain open.
+
+Round8 records the bounded non-author application review and exact hashes. All
+new consumers remain pending hosted strict checks and recursive audits. No local
+Lean was run. Run42576170502 has exposed further localization-module and radical
+simplification errors; those exact source revisions are retained while their
+authors prepare versioned repairs. Earlier exact successes remain separate from
+these pending closures, and the admitted baseline stays at1,837 modules.
+
 ## Further strict successes and exact analytic consumers, 2026-11-09
 
 Run [42574563881](https://github.com/doublemover/diophantine-z-q/actions/runs/42574563881)
@@ -26,7 +46,7 @@ are under `hosted-results/42574563881`. The standalone height packet is now
 inactive, not baseline-promoted; original order bases remain checked as exact
 copies in the H1 representative closure.
 
-The current nine-packet matrix checks 212 modules. The analytic chain now
+The preceding nine-packet matrix checked 212 scheduled modules. The analytic chain now
 includes actual manifold holomorphy of the scheme-induced j action and actual
 q-disc expressions with cusp orders1 and3. A separate four-source algebraic normalization packet proves integer independence
 of two exact normalized images of the original generator, retaining the real
