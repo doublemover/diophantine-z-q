@@ -1,0 +1,120 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:35:52: error: typeclass instance problem is stuck
+  Field ?m.4
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Field` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:48:8: error(lean.unknownIdentifier): Unknown identifier `monomial_shift`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:50:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:52:57: error: Application type mismatch: The argument
+  hy
+has type
+  y ∈ Submodule.span k {v | ∃ i, ∃ a ∈ S, v = monomial i a}
+but is expected to have type
+  ?m.99 ∈ supported T
+in the application
+  Submodule.add_mem (supported T) ?m.100 hy
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:54:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:63:66: error: Application type mismatch: The argument
+  q
+has type
+  k[T;T⁻¹]
+but is expected to have type
+  ?m.55 i
+in the application
+  Pi.single i q
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:72:27: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [monomial, LaurentPolynomial.smul_eq_C_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:73:27: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [monomial, h, Ne.symm h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:73:45: warning: This simp argument is unused:
+  Ne.symm h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [monomial, Pi.single_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:87:2: error: unsolved goals
+case refine_1
+k : Type u
+inst✝ : Field k
+n : ℕ
+S : Set ℤ
+v : V k n
+hv : v ∈ supported S
+i : Fin n
+a : ℤ
+ha : a ∉ S
+j : Fin n
+b : ℤ
+hb : b ∈ S
+hab : b ≠ a
+⊢ (if i = j then T b else 0).coeff a = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:92:32: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ Submodule.span k {v | ∃ i, ∃ a ∈ S, v = monomial i a}
+but is expected to have type
+  ?m.102 = ?m.103
+in the application
+  congrArg₂ (fun x1 x2 => x1 + x2) hx
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:94:44: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ Submodule.span k {v | ∃ i, ∃ a ∈ S, v = monomial i a}
+but is expected to have type
+  ?m.120 = ?m.121
+in the application
+  congrArg (fun z => c * z) hx
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:89:35: warning: This simp argument is unused:
+  LaurentPolynomial.T_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [monomial, Pi.single_apply, hab]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:89:61: warning: This simp argument is unused:
+  hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [monomial, Pi.single_apply, LaurentPolynomial.T_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:105:33: error: Type mismatch
+  add_le_add_left hb a
+has type
+  x✝ + a ≤ b + a
+but is expected to have type
+  a + x✝ ∈ Set.Iic (a + b)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:112:30: error: Application type mismatch: The argument
+  le_rfl
+has type
+  ?m.68 ≤ ?m.68
+but is expected to have type
+  a ∈ Set.Iic a
+in the application
+  monomial_mem i a le_rfl
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:114:15: error: Tactic `rcases` failed: `hx✝ : ∀
+  t ∈ Set.range fun s => ⋂ (_ : s ∈ {p | {v | ∃ i, ∃ a ∈ Set.univ, v = monomial i a} ⊆ ↑p}), ↑s,
+  x ∈ t` is not an inductive datatype
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-whole-infinity-line-charts-r2/LaurentVectorFiltration318.lean:117:15: error: Tactic `rcases` failed: `hx✝ : ∀
+  t ∈ Set.range fun s => ⋂ (_ : s ∈ {p | {v | ∃ i, ∃ a ∈ Set.univ, v = monomial i a} ⊆ ↑p}), ↑s,
+  x ∈ t` is not an inductive datatype
