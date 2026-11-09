@@ -1,0 +1,93 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:26:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ g ≤ 1
+  0 ≤ f ≤ 1
+  0 ≤ e ≤ 1
+  0 ≤ d ≤ 1
+  0 ≤ c ≤ 1
+  0 ≤ b ≤ 1
+  0 ≤ a ≤ 1
+  a + b + c - d - e - f - g ≥ 1
+where
+ a := ↑↑(s.1.2, s.2.1, s.2.2).1
+ b := ↑↑(s.1.2, s.2.1, s.2.2).2.1
+ c := ↑↑(s.1.2, s.2.1, s.2.2).2.2
+ d := ↑↑s.1.1
+ e := ↑↑s.1.2
+ f := ↑↑s.2.1
+ g := ↑↑s.2.2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:34:2: error: Type mismatch: After simplification, term
+  recover_root_zero c
+ has type
+  @Eq (L c) (root c 0) (constant c ↑(c 0) * (u c)⁻¹)
+but is expected to have type
+  @Eq (SourceOpenFractionField318.L c) (root c 0) ((algebraMap ℚ (SourceOpenFractionField318.L c)) ↑(c 0) * (u c)⁻¹)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:44:2: error: Type mismatch: After simplification, term
+  recover_root c j
+ has type
+  @Eq (L c) (root c j.succ) (constant c ↑(c 0) * (u c)⁻¹ * ratio c j)
+but is expected to have type
+  @Eq (SourceOpenFractionField318.L c) (root c j.succ)
+    ((algebraMap ℚ (SourceOpenFractionField318.L c)) ↑(c 0) * (u c)⁻¹ * ratio c j)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:54:2: error: Type mismatch: After simplification, term
+  recover_t c
+ has type
+  @Eq (L c) (t c) (constant c ↑(c 0) * (u c ^ 2)⁻¹)
+but is expected to have type
+  @Eq (SourceOpenFractionField318.L c) ((algebraMap ContactKummerOrder318.K (SourceFractionField318.L c)) RatFunc.X)
+    ((algebraMap ℚ (SourceOpenFractionField318.L c)) ↑(c 0) * (u c ^ 2)⁻¹)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:69:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c (Fin.succ 0))
+in the target expression
+  ((algebraMap ℚ (OverlapRing c)) ↑(c 0) * inverseU c) ^ ↑s.1.1 *
+          (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c 1) ^ ↑s.1.2 *
+        (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c 2) ^ ↑s.2.1 *
+      (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c 3) ^ ↑s.2.2 =
+    poleTerm c (↑(c 0) ^ totalWeight s) (totalWeight s) (dropZero s)
+
+c : Fin 4 → ℚˣ
+s : FourIndex
+⊢ ((algebraMap ℚ (OverlapRing c)) ↑(c 0) * inverseU c) ^ ↑s.1.1 *
+          (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c 1) ^ ↑s.1.2 *
+        (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c 2) ^ ↑s.2.1 *
+      (SourceOpenFractionField318.orderToOpen c) (finiteGenerator c 3) ^ ↑s.2.2 =
+    poleTerm c (↑(c 0) ^ totalWeight s) (totalWeight s) (dropZero s)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:78:87: error: unsolved goals
+c : Fin 4 → ℚˣ
+s : FourIndex
+q : ℚ
+m : ℕ
+⊢ (SourceOpenFractionField318.orderToOpen c) ((algebraMap ℚ[X] (ContactKummerOrder318.SourceOrder c)) (C q)) *
+              (algebraMap ℚ (OverlapRing c)) ↑(c 0) ^ m *
+            (algebraMap ℚ (OverlapRing c)) ↑(c 0) ^ totalWeight s *
+          inverseU c ^ (m * 2) *
+        inverseU c ^ totalWeight s *
+      (InfinityOverlapLocalization318.toOpen c) ((ContactHOneOrderBases318.infinityBasis c) (dropZero s)) =
+    (algebraMap ℚ (OverlapRing c)) ↑(c 0) ^ m * (algebraMap ℚ (OverlapRing c)) ↑(c 0) ^ totalWeight s *
+            inverseU c ^ (m * 2) *
+          inverseU c ^ totalWeight s *
+        (InfinityOverlapLocalization318.toOpen c) ((ContactHOneOrderBases318.infinityBasis c) (dropZero s)) *
+      (algebraMap ℚ (OverlapRing c)) q
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:79:29: warning: This simp argument is unused:
+  RingHom.map_rat_algebraMap
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_mul, map_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r14/OriginalFinitePoleExpansion318.lean:101:6: error: 'change' tactic failed, pattern
+  (SourceOpenFractionField318.orderToOpen c)
+      ((algebraMap ℚ[X] (ContactKummerOrder318.SourceOrder c)) P * (ContactHOneOrderBases318.finiteBasis c) s) =
+    ?m.184
+is not definitionally equal to target
+  (SourceOpenFractionField318.orderToOpen c)
+      (((ContactHOneOrderBases318.finiteBasis c).repr a) s • (ContactHOneOrderBases318.finiteBasis c) s) =
+    ∑ m ∈ (((ContactHOneOrderBases318.finiteBasis c).repr a) s).support,
+      poleTerm c ((((ContactHOneOrderBases318.finiteBasis c).repr a) s).coeff m * ↑(c 0) ^ (m + totalWeight s))
+        (2 * m + totalWeight s) (dropZero s)
