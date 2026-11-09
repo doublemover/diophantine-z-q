@@ -1,0 +1,23 @@
+# Application contract
+
+1. **Source requirements.** AffineBaseChangeNaturality318 uses an original compatible covering sheaf map and the existing two faithfully flat affine reconstructions. CanonicalBaseChangePasting318 takes two original commuting scheme-arrow squares. OriginalDescentBaseChangeComposition318 takes the same original descent datum and these squares. The final comparison requires faithful flatness only of the final affine cover, where reconstruction is invoked. No new overlap or pasting compatibility is an input.
+
+2. **Constructed objects.** Successive and direct data are obtained by the existing original-scheme base-change operation from the same original datum. Their covering line objects are literal successive versus direct pullbacks. The connecting sheaf iso is exactly PullbackPathComposition318.iso on a2 and a1, not an arbitrary iso. The resulting affine base-line iso is the existing actual geometric descent of this exact map and inverse.
+
+3. **Coverage.** Naturality of the prior base-change comparison retains the original and changed faithful-flatness hypotheses. Original scheme-arrow pasting and overlap compatibility do not assert cover properties. The final line comparison requires Module.FaithfullyFlat on the final affine cover. No arbitrary-family or nonaffine fppf coverage is inferred.
+
+4. **Transition directions.** cover_pasting retains the actual covering pullback associator on its left and the actual base pullback associator on its right. endpoint_pasting is the inverse rectangle with the same actual maps. overlap_pasting states successive overlap followed by the right-endpoint pullback of the original source-line associator equals its left-endpoint pullback followed by the direct overlap. This is the original compatible direction used by the subsequent datum morphism.
+
+5. **Hypothesis checks.** comparison_natural is derived from the previously proved covering equations and original descended-map squares. cover_pasting uses three instances of the original named-path associativity theorem. endpoint_pasting follows by inverse cancellation. overlap_pasting additionally uses the naturality of the original double-map pullback associator. double_composition is proved by the original categorical pullback hom-extensionality. The inverse datum map compatibility is derived from the same original covering iso.
+
+6. **Consumer identity.** The final successive/direct affine data retain the unchanged original covering line and overlap, with only the existing Spec identity convention conversion. AffineDescentCompositionComparison318.comparison connects their actual original reconstructed Line.objects. comparison_cover records the literal original covering associator between those exact comparisons. comparison_unique ranges over all maps of the same reconstructed lines.
+
+7. **Scalars and normalization.** Every new equation is an actual scheme module-sheaf equation. No new scalar action, tensor convention or coalgebra premise appears. The original named paths retain both composition/equality normalizations; inherited reconstruction and scalar-extension proofs are copied unchanged from the78-source producer closure.
+
+8. **Downstream boundary.** This proves naturality of the original reconstruction/base-pullback comparison and the actual two-step/direct-change datum and reconstruction comparison. Full higher coherence for arbitrary chains and the original local-chart transition assembly for general fppf gluing remain separate. No represented Picard/Jacobian or final arithmetic statement is concluded.
+
+9. **Evidence and acceptance.** Seventy-eight producers are byte-identical to affine-reconstruction-basechange, with five new sources. Static import/hash/placeholder checks and the audit-history self-test are run without local Lean compilation. Full83-source hosted strict compilation, recursive axiom audit and independent acceptance remain required. Previously tested bytes and exact failures are preserved; no approval or baseline admission is manufactured.
+
+## Revision after exactb08c9b9 hosted replay
+
+Replace the dependent rewrite of the composite ring homomorphism by one typed whole-goal change to the same original g.hom.comp f.hom adjunction. The supplied extendScalarsComp map and both conjugateEquiv adjunctions retain exactly matching original types; no theorem or hypothesis changes. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.

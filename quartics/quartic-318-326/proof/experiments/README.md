@@ -16,6 +16,23 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Actual split-reduction kernel and targeted replay repairs, 2026-11-09
+
+Nine active closures now schedule506 source checks. For a genuine split
+reduction, the exact global-unit discrepancy between two special-fiber frames
+lifts along the retraction and corrects the original line isomorphism. Thus
+pointed line classes are equivalent to the kernel of the EXISTING restriction
+on actual line classes. The actual dual-number projection supplies the split.
+This is not yet H1 classification or represented Picard tangent theory.
+
+Original changed-base comparisons now satisfy naturality and actual successive/direct
+comparison laws through the same covering associators. Full chart assembly remains
+separate. The two height consumers, finite-pole cancellation, elementary square-zero
+producer and original local presheaf receive narrow source-reviewed repairs.
+Exact failures and successful predecessors are preserved. No equations,
+normalizations, underlying sheaves or geometric hypotheses are weakened.
+Hosted strict checking and recursive audits remain pending for these revisions.
+
 ## Original H1 deformations and three-detector assembly, 2026-11-09
 
 Nine active closures now schedule498 source checks. Original whole H1 classes
