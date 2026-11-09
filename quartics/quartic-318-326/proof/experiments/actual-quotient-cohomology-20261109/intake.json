@@ -1,0 +1,52 @@
+{
+  "status": "Five sources pass fresh strict kernel replay; all54 private/generated declarations pass recursive axiom audit; independent acceptance and coordinated admission remain separate.",
+  "order": [
+    "StructureAdditiveSheaf318",
+    "NormalizedStructureTrace318",
+    "ActualQuotientSheafRetraction318",
+    "SheafCohomologyRetraction318",
+    "ActualQuotientHOne318"
+  ],
+  "files": {
+    "StructureAdditiveSheaf318.lean": {
+      "sha256": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+      "imports": [
+        "Mathlib.Algebra.Category.Ring.Limits",
+        "Mathlib.Topology.Sheaves.Functors",
+        "OpenTraceSheaf318"
+      ]
+    },
+    "NormalizedStructureTrace318.lean": {
+      "sha256": "abb00761f6802bdacf30b0778c018831ca9647becaac17ba4d849db530a6dbea",
+      "imports": [
+        "StructureAdditiveSheaf318"
+      ]
+    },
+    "ActualQuotientSheafRetraction318.lean": {
+      "sha256": "f8de85ec9aab887af1883bf5c8a938820085194078af8310ec3712aca18ba16b",
+      "imports": [
+        "CompletedCharacterOpenTrace318",
+        "FifthOpenTrace318",
+        "NormalizedStructureTrace318"
+      ]
+    },
+    "SheafCohomologyRetraction318.lean": {
+      "sha256": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+      "imports": [
+        "Mathlib.CategoryTheory.Abelian.GrothendieckCategory.HasExt",
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.Basic",
+        "Mathlib.Topology.Sheaves.Abelian",
+        "StructureAdditiveSheaf318"
+      ]
+    },
+    "ActualQuotientHOne318.lean": {
+      "sha256": "7f7e23038d11d86190eb0f37d512b434c47e4dd9ae449e0e7da5bccec85a0588",
+      "imports": [
+        "ActualQuotientSheafRetraction318",
+        "SheafCohomologyRetraction318"
+      ]
+    }
+  },
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "new_source_acceptance": false
+}

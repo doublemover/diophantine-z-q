@@ -1,0 +1,134 @@
+{
+  "claim": "For an integral scheme covered by two affine opens, original overlap regular functions surject additively onto the original global H1 of its structure sheaf; this holds for the exact full finite/infinity cover of the original contact source.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "sources": {
+    "StructureAdditiveSheaf318.lean": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+    "NormalizedStructureTrace318.lean": "abb00761f6802bdacf30b0778c018831ca9647becaac17ba4d849db530a6dbea",
+    "ActualQuotientSheafRetraction318.lean": "f8de85ec9aab887af1883bf5c8a938820085194078af8310ec3712aca18ba16b",
+    "SheafCohomologyRetraction318.lean": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+    "ActualQuotientHOne318.lean": "7f7e23038d11d86190eb0f37d512b434c47e4dd9ae449e0e7da5bccec85a0588",
+    "SheafInverseImageConstants318.lean": "094fc83fdb42d587bf46b38f46bf48fa270fe5c5da0609c4ec1c85de9794ca17",
+    "AdjunctionExtOneInjection318.lean": "94e11868bc24a939e9a504eaf299c907e7020b6db3c93abf18c5f732d890df8f",
+    "SourceCohomologyComparison318.lean": "87d6460435f194a371b665a784153fbd8bde75259cbc54fe30e709a4476b5e63",
+    "SchemeSourceCohomology318.lean": "cf366db605c3b65dff275db82bfd8bccef11728a74b451123016c78c236c243f",
+    "ActualSourceHOnePullbacks318.lean": "aedc5fb77f2afcc12a9b634d0ddd1a3965b5655d8a5500ce4e6f5f53415305c5",
+    "PrincipalFractionClearing318.lean": "a055271d9f1f5b67244e06bb846e0c51872a951ebc10154b7c6e698e6f07c1a7",
+    "PrincipalCocycleSplit318.lean": "ea3425c0d04250a585b8e40227ab6dfa6814c1133e155b1cad2f3f17e33d66f7",
+    "ActualPrincipalSections318.lean": "8a2ac7ba18c671401e03f726833d18c63ca7fe865cca66d0974c0a94b7c1d3df",
+    "ActualPrincipalCocycle318.lean": "18911203bcd8c5df0df3958ab82aab4a0e33620ad8002a8737064d2aef315288",
+    "AffinePrincipalLocalLifts318.lean": "4ff73469a263043051f848ab2f5f5b8206d3d883855a07e48035cf2d7e8c9c90",
+    "AdditiveSheafSections318.lean": "cc2d6d357c8ca15a86459f7a62fbd4b945314a6d5535480c44b3da4ec14507b6",
+    "AffineStructureSectionLifting318.lean": "2ac2e6df2a100c636d2ce4f35bf861cfa44374017b72943d17ec28705b463e3c",
+    "OpenImmersionAdditiveRestriction318.lean": "f8e97119b337406d9c4ec58879a59a014ec7a700ee5dfbe77c870cc26ea20f2f",
+    "AffineOpenSectionLifting318.lean": "63cfd41012771cadf17044259f65e03a8d8693bc52843a4a6fdc9d6fc56806fb",
+    "AdjunctionExtOneSurjection318.lean": "6a49c7ca0ee6fe4ef0d0cecf94fd1532f77e31ecd9518d3e6ba65b1ad37b73c5",
+    "AffineStructureDirectImage318.lean": "1f45cac581ec6f1a519daa21c7961096593470412d128454965f9dcec94b9cb9",
+    "AffineHOneComparison318.lean": "98d173f236d1246fea108178e03f0688ef1200472af322ef13f8c774986182e8",
+    "ActualSourceHOneTransfers318.lean": "681815c8a19d4e096b39299a49335f028a6eec6a8ec35d7447ad8b89c56f8fc4",
+    "LocalSheafCohomologySections318.lean": "bbb3bd5f596dec478d9a5124c3ba9b429696e07aae83be23b2ddad7e1c1865dd",
+    "LocalSheafCohomologyAdditive318.lean": "020f8caa1351a7c377e53188edd7700924bebf2225cd87d0aa0192ae6dfee275",
+    "LocalAffineStructureHOne318.lean": "b98e203ecd663b4add7aaabbcdbd81b4e0e419b1c6cae21fd3bf2204c4a71d12",
+    "TerminalLocalCohomology318.lean": "e5bae9aba9f3398c1a3864362436fd8622074256fa2ac0ae0270367888628b35",
+    "OpenMayerVietoris318.lean": "f605cda94cc1e64e4fd7321788d4ba916bce6df0c292cf2e1b8e71965dfe6f87",
+    "AffineCoverHOnePresentation318.lean": "3329efd91265de79439d14021a1ff622dd119c4ed635f6d5d4f37983f9b22fdd",
+    "ActualSourceHOnePresentation318.lean": "1f0e1ae9664f5b1f8db7b731f7feebf05e24efaa601c2ffbfc09fe703b1eaa8b"
+  },
+  "obligations": [
+    {
+      "name": "Original local cohomology generators",
+      "required": "Interpret the actual pinned-library H-prime groups, not a newly defined Cech model.",
+      "constructed": "generator U is the sheafification of the free-abelian representable presheaf at U, exactly the coefficient generator in Mathlib Sheaf.H-prime.",
+      "justification": "sectionLift and presheafEquiv explicitly evaluate the generator at the identity restriction. Free-abelian universal properties and original sheafification adjunction prove a natural section equivalence.",
+      "evidence": [
+        "LocalSheafCohomologySections318.sectionEquiv",
+        "LocalSheafCohomologySections318.sectionEquiv_naturality"
+      ]
+    },
+    {
+      "name": "Degree-zero section comparison",
+      "required": "Retain the additive groups of actual original sections.",
+      "constructed": "Ext.addEquiv-zero followed by additive sheafification adjunction and generator evaluation gives zeroAddEquiv.",
+      "justification": "The separate additive map structure is proved, not inferred from an arbitrary equivalence. Coefficient naturality is proved with original Ext composition.",
+      "evidence": [
+        "LocalSheafCohomologyAdditive318.zeroAddEquiv",
+        "LocalSheafCohomologySections318.zeroEquiv_naturality"
+      ]
+    },
+    {
+      "name": "Local affine H1 vanishing",
+      "required": "Prove local H-prime-one vanishing for the original global structure sheaf on actual affine opens.",
+      "constructed": "LocalAffineStructureHOne318.eq_zero applies the predecessor arbitrary O-kernel section-lifting result to the actual injective embedding and cokernel.",
+      "justification": "Every Ext1 class is a connecting image; the corresponding degree-zero section lifts on the affine open, so exactness kills its boundary. Empty opens are included by the exact predecessor theorem. No local/global or Cech comparison is assumed.",
+      "evidence": [
+        "LocalAffineStructureHOne318.eq_zero",
+        "AffineOpenSectionLifting318.surjective_affine_all"
+      ]
+    },
+    {
+      "name": "Terminal generator comparison",
+      "required": "Bind local top-open cohomology to the original global cohomology definition.",
+      "constructed": "The free-abelian generator at top and original constant integer sheaf both corepresent original global sections.",
+      "justification": "Uniqueness of representing objects supplies their actual isomorphism. Explicit Ext precomposition along its inverse and forward maps gives a two-sided additive equivalence H-prime-n(top) to the unchanged global H-n.",
+      "evidence": [
+        "TerminalLocalCohomology318.generatorIso",
+        "TerminalLocalCohomology318.equivalence"
+      ]
+    },
+    {
+      "name": "Actual two-open Mayer-Vietoris square",
+      "required": "Use the genuine topology and a full cover, not a conditional exactness premise.",
+      "constructed": "square U V is the actual opens-poset square with intersection, U, V and top.",
+      "justification": "Its pullback property is proved by the infimum universal property. The two arrows form a covering sieve from U union V equals top. Mathlib then derives the free-sheaf short exact sequence.",
+      "evidence": [
+        "OpenMayerVietoris318.square_isPullback",
+        "OpenMayerVietoris318.square_cover",
+        "OpenMayerVietoris318.mayerVietoris"
+      ]
+    },
+    {
+      "name": "Derived boundary and surjectivity",
+      "required": "Construct the connecting map from genuine derived cohomology.",
+      "constructed": "boundary composes the original Mayer-Vietoris delta with the proved terminal equivalence.",
+      "justification": "Ext exactness gives preimages because both affine local H1 groups vanish. The argument uses the biproduct Ext equivalence, not a replacement of the target H1 carrier.",
+      "evidence": [
+        "OpenMayerVietoris318.boundary",
+        "OpenMayerVietoris318.boundary_surjective"
+      ]
+    },
+    {
+      "name": "Actual overlap sections",
+      "required": "Supply an actual additive map from original functions to original global H1.",
+      "constructed": "AffineCoverHOnePresentation318.boundary composes the inverse actual degree-zero section equivalence with the derived boundary.",
+      "justification": "For any integral scheme and two affine opens covering it, this map is surjective. No finite-dimensionality or a choice of artificial H1 coordinates is introduced.",
+      "evidence": [
+        "AffineCoverHOnePresentation318.boundary",
+        "AffineCoverHOnePresentation318.boundary_surjective"
+      ]
+    },
+    {
+      "name": "Original contact source consumer",
+      "required": "Keep the original common source, its actual finite chart and its actual infinity chart.",
+      "constructed": "ActualSourceHOnePresentation318 uses SourceGlobalAffine318.chartEmbedding and InfinityGlobalScheme318.chartEmbedding and the previously proved full cover.",
+      "justification": "Their actual opens are affine; source integrality is the original model theorem. The resulting map from original overlap functions targets exactly the same SourceHOne used by all five quotient pullbacks.",
+      "evidence": [
+        "ActualSourceHOnePresentation318.finite_affine",
+        "ActualSourceHOnePresentation318.infinity_affine",
+        "ActualSourceHOnePresentation318.cover",
+        "ActualSourceHOnePresentation318.boundary_surjective"
+      ]
+    },
+    {
+      "name": "Scope and remaining spanning work",
+      "required": "Do not turn an overlap-section presentation into fivefold spanning or duality.",
+      "constructed": "This packet proves a genuine surjective additive boundary from original overlap sections to original H1.",
+      "justification": "It does not yet identify its kernel with an explicit difference of ring restrictions, compute the overlap quotient, prove dimension five or fivefold pullback spanning, or identify Picard tangent/Serre duality/Jacobian maps. The rational scalar continuation is separate and not imported.",
+      "evidence": [
+        "README.md",
+        "ActualSourceHOnePresentation318.boundary_surjective"
+      ]
+    }
+  ],
+  "independent_review": "Pending exact-source-bound non-author review."
+}

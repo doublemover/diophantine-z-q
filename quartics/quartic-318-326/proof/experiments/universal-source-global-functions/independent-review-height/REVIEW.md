@@ -1,0 +1,28 @@
+# Distinct bounded source and application review
+
+Reviewer: advance_height_theorem. Author: resume_relative_picard.
+This is internal model review of the five new modules, not independent validation of the whole arithmetic proof.
+
+## Exact scope and inputs
+
+The final intake, validation receipt, nine-obligation APPLICATION.md and DEPENDENCIES.json are bound in bindings.json. All 26 source copies match the frozen intake. All 21 unchanged producer copies match their specified original paths, with no source edits. The copied RationalFourRootFiber318, FourRootPointTorsor318, RationalContactPoint318 and ContactFieldSection318 were authored by this reviewer and are explicitly excluded from new-source acceptance. Replaying them is dependency checking, not self-review. The 680 original baseline source pins match both the current checkout and commit 5e483a2b186a83500f4b603f3ddfc514ae84a393; their verified artifacts are reused rather than rebuilt.
+
+## Primary theorem and domain comparison
+
+1. I read the pinned Mathlib Morphisms/Flat.lean construction of pushoutSection and its finite affine-cover proof. The theorem isIso_pushoutSection_of_isQuasiSeparated_of_flat_right requires an actual pullback square, affine US and UT, a compact and quasi-separated UX, and flatness of the test map. Its proof covers UX by finitely many actual affine opens and uses every pairwise intersection; flatness preserves the finite equalizer. It is not a cohomology theorem supplied as an unproved premise.
+2. FlatGlobalSections318 supplies the original pullback of p and b. Proper p over affine S supplies CompactSpace X and QuasiSeparatedSpace X. For global sections US, UX and UT are top. For arbitrary affine U in T, US and UX remain top, UT is U and UY is the entire inverse image of U by pullback.snd. The required intersection description reduces exactly to that inverse image, with no removed components or overlaps.
+3. The pushout maps have the correct contravariant direction: p.appTop and b.appTop leave the base global sections; the new structure map is the inr of this square. Thus isIso_inr_of_isIso applies to the original p.appTop, rather than to a different projection or a chosen abstract isomorphism.
+4. UniversalStructurePushforward318 defines its morphism from the actual original p.c into the actual TopCat.Sheaf pushforward. Its component is definitionally p.app U. The pinned sheaf isomorphism criterion uses the full affine-open basis of T. No finiteness or reducedness of T is required by that criterion, and the resulting isomorphism has all open components, including nonquasicompact ones.
+
+## Exact original-source and section consumers
+
+5. ContactUniversalGlobalFunctions318 retains ActualSourceRationalConstants318.X and p, the original normalization and original structural rational map. The unchanged constant_bijective theorem concerns the actual composite GammaSpecIso.inv followed by p.appTop. Cancellation of that genuine isomorphism proves IsIso p.appTop. Properness is the original ContactGlobalProper318 result for SourceTwistArithmetic318.units.
+6. Flatness of every test to Spec Q is genuinely available: the pinned low-priority instance in Flat.lean proves flatness for morphisms to an integral one-point scheme via affine covers and the field criterion. It imposes no affine, reduced, quasicompact, finite-type or field condition on the source test. The same applies to tests to the exact contact field scheme.
+7. UniversalSectionEvaluation318 uses the actual identity e followed by p equals identity. Applying appTop reverses composition, giving p.appTop followed by e.appTop equals identity. The resulting section evaluation is inverse to the structural global-section isomorphism. The base-changed section is the existing pullback.lift with both original projections, not a separately chosen point.
+8. ContactUniversalRigidifiedClass318 applies this to the exact original field family and ContactFieldSection318.pointSection. Its p agrees definitionally with the original structure map used in that section, as the actual section identity checks. Every further test T to Spec L is covered. The final classification uses the unchanged original quotient by the image of base-line pullback and actual RigidifiedLine objects. I inspected the copied consumer interfaces: relativeClass_surjective normalizes actual lines along the actual section; equal classes become equal original line classes; compatible isomorphisms exist by the actual appTop unit correction and are unique by its injectivity. The conclusion quantifies actual compatible module-sheaf isomorphisms, not only a class label.
+
+## Boundary and verdict
+
+All nine application obligations match these sources and consumers. No issue was found in the five-module route. It establishes actual universal structure-sheaf pushforward and all-test classification of the original relative quotient by rigidified lines, under the already constructed source and section. It does not identify that quotient with every associated fppf sheaf value, prove effective fppf descent of objects, or establish degree zero, representability, a Jacobian, norm, polarization, isogeny, integral good reduction, a PEL realization or the final height theorem. The older field-constant and line-isomorphism producer copies are dependencies, not newly accepted author work in this review.
+
+Fresh strict replay and the recursive private-inclusive axiom audit are recorded separately in checks.json and logs. Only the exact new-source bounded result is accepted after those checks finish; compilation and the structural history checker are not whole-proof mathematical acceptance.

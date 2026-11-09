@@ -1,0 +1,121 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Actual holomorphic two-chart period extension through exceptional elliptic values, exact full Gamma1(3) quotient descent and genuine-j identity, and proper surjectivity of this exact coordinate onto the independently topologized punctured complex line.",
+  "baseline_commit": "5e483a2",
+  "preservation_predecessor_commit": "2d147d358d23bba634a7daf34fcdc7fc9d5a4d33",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ActualThreeParameterProper318.lean": "6ee4d60d640faa9bf79585c2195a39f2797687b06157f1a1239d3e815528bcc9"
+  },
+  "obligations": [
+    {
+      "name": "Exact objects",
+      "required_input": "The actual original Gamma1(3) orbit quotient, original marked period 1/3, and natural independent target topology.",
+      "constructed_input": "PeterssonQuotient318.Base (GammaOneFiber318.image 3), MarkedPeriod318.standardPoint 3 tau, and the subtype {t : C // t != 0}.",
+      "justification": "The coordinate is calculated from the original E4,E6 and standardX; Quotient.lift uses the actual Gamma1 modular invariance. No relabeling, transported target topology or chosen root replaces these objects.",
+      "sources": [
+        "ActualThreeExceptionalParameter318.lean",
+        "ActualThreeParameterProper318.lean",
+        "progress/MarkedPeriod318.lean"
+      ]
+    },
+    {
+      "name": "Hypotheses",
+      "required_input": "Two analytic formulas must cover every nonsingular third-division point, with their relation valid on neighborhoods.",
+      "constructed_input": "The genuine third-division polynomial implies R=6912u^4-288au^2-32bu-a^2=0 at every upper-half-plane point; a^3-b^2=1728 discriminant is never zero.",
+      "justification": "denominator_cover excludes simultaneous vanishing. glued_analyticAt consumes the eventual neighborhood relation and nonzero local denominator, proving actual analytic gluing.",
+      "sources": [
+        "ThreeExceptionalParameter318.lean",
+        "ActualThreeExceptionalParameter318.standard_relation",
+        "ActualThreeExceptionalParameter318.discriminant_ne_zero",
+        "progress/AnalyticThreeSignPoints318.lean"
+      ]
+    },
+    {
+      "name": "Index and exceptional coverage",
+      "required_input": "All upper-half-plane points and all full quotient orbits, including both exceptional elliptic j values, must be included.",
+      "constructed_input": "The parameter is defined and analytic on all H; the former primary 0/0 case a=u=0 has explicit value -27; the full quotient parameter realizes every nonzero complex value.",
+      "justification": "No j=0/1728 hypothesis enters the global construction. Full surjectivity uses closed image and dense old admissible image. Actual cusps are not in this domain and are expressly not claimed.",
+      "sources": [
+        "ThreeExceptionalParameter318.primary_zero_iff",
+        "ActualThreeExceptionalParameter318.periodParameter_analyticAt",
+        "ActualThreeParameterProper318.fullParameter_surjective",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Maps and directions",
+      "required_input": "The descended map must agree exactly with the old comparison, and its composite with the rational J map must be the genuine j map.",
+      "constructed_input": "quotientParameter_restrict compares actual source values; periodParameter_j and quotientParameter_j compute exact J composition; fullParameter adds only the proven nonzero subtype property.",
+      "justification": "The old scale E6/(12E4), arithmeticX=12E4 standardX/E6, and the exact old T(j,x) give pointwise equality across the entire prior admissible locus. Surjectivity uses the original sourceParameter inverse, not an arbitrary point count.",
+      "sources": [
+        "ActualThreeExceptionalParameter318.lean",
+        "ActualThreeParameterProper318.admissible_mem_range",
+        "LiteralThreeCompactParameter318.lean"
+      ]
+    },
+    {
+      "name": "Downstream identity",
+      "required_input": "The properness and density arguments must concern the exact same full coordinate and original quotient.",
+      "constructed_input": "parameterJ composed with fullParameter equals QuotientJ318.jMap 3 as functions; admissible_mem_range uses quotientParameter_restrict 1.",
+      "justification": "The topological consumer does not substitute a high-level cover for its source. ActualJAllLevels318.proper 3 is the actual level-three j theorem, whose proof descends compact inverse images from level fifteen.",
+      "sources": [
+        "ActualThreeParameterProper318.parameterJ_fullParameter",
+        "ActualThreeParameterProper318.fullParameter_proper",
+        "progress/ActualJAllLevels318.lean",
+        "progress/GammaOneLevelMap318.lean"
+      ]
+    },
+    {
+      "name": "Coefficients and normalization",
+      "required_input": "Exact factors 12,27,243,1728 and modular weights must be retained.",
+      "constructed_input": "T1=27(144u^2-a)/(a-16u^2), T2=27(b+4au+1152u^3)/(64u^3-b), with weights (4,6,2).",
+      "justification": "The overlap difference is exactly 108uR; discriminant factorization and J_glued are explicit ring/field identities. All coefficients are over C. No q-parameter or cusp width is identified implicitly.",
+      "sources": [
+        "ThreeExceptionalParameter318.cross_multiply",
+        "ThreeExceptionalParameter318.factor_discriminant",
+        "ThreeExceptionalParameter318.J_glued",
+        "ThreeExceptionalParameter318.glued_weight_invariant",
+        "ActualThreeExceptionalParameter318.scale_formula"
+      ]
+    },
+    {
+      "name": "Theorem application",
+      "required_input": "Properness cancellation requires continuous source map, continuous target J, and Hausdorff target; density requires finite excluded roots and the old inverse map.",
+      "constructed_input": "fullParameter_continuous, parameterJ_continuous, the natural complex subtype T2 instance, ActualJAllLevels318.proper 3, and explicit nonzero excludedPolynomial.",
+      "justification": "The exact Mathlib isProperMap_of_comp_of_t2 applies to the exact composition. Finite roots have dense complement in C; open subtype preimage is dense in C*. Properness supplies a closed range, which contains that dense subset. No injectivity follows from properness alone.",
+      "sources": [
+        "ActualThreeParameterProper318.lean",
+        "Mathlib.Topology.Maps.Proper.Basic.isProperMap_of_comp_of_t2",
+        "Mathlib.Topology.Algebra.Module.Cardinality.Set.Countable.dense_compl"
+      ]
+    },
+    {
+      "name": "Verification",
+      "required_input": "Exact final source bytes require strict checking and private/generated recursive axiom audit.",
+      "constructed_input": "Fresh five-module strict replay and audit of 260 declarations, with 211 pinned project predecessors.",
+      "justification": "All compiles use -j1 -M6144 -Ddebug.skipKernelTC=false and the exact pinned Lean/Mathlib toolchain. The audit imports all five modules privately and allows only propext, Classical.choice, Quot.sound. Local incremental validation is not a clean upstream rebuild or independent mathematical review.",
+      "sources": [
+        "receipt.json",
+        "ExperimentAudit.lean",
+        "checks/ExperimentAudit.log",
+        "baseline-source-pins.json"
+      ]
+    },
+    {
+      "name": "Scope and history",
+      "required_input": "Changed applications require new independent acceptance; the accepted predecessor review must not silently authorize this extension.",
+      "constructed_input": "Copied predecessor files stay byte-identical; this new application contract binds five modules and the full-period/quotient/properness consumer.",
+      "justification": "The prior rational chart packet and ActualJAllLevels318 were read at source level. No classification of an earlier historical objection as a newly discovered gap is made. Global injectivity, quotient elliptic charts, actual cusps, compact-source biholomorphism, arithmetic analytification, PEL, KS and final contact height remain excluded.",
+      "sources": [
+        "README.md",
+        "APPLICATION.json",
+        "../forward-three-compact-parameter-r1/DERIVATION.md",
+        "progress/AllCuspComplexCurve318.lean"
+      ]
+    }
+  ]
+}

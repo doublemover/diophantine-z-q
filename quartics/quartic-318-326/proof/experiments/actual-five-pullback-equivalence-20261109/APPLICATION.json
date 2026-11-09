@@ -1,0 +1,133 @@
+{
+  "claim": "The actual sum of all five original completed quotient differential pullbacks is a Q-linear equivalence on genuine global intrinsic differential spaces, with unchanged structural rational actions and exact component identities.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "predecessor_commit": "2d147d358d23bba634a7daf34fcdc7fc9d5a4d33",
+  "sources": {
+    "ActualFivePullbackDirectSum318.lean": "3d41bf880fc560cbb394468465519219b5acfa885373039822da75aaf39299a9",
+    "ActualFivePullbackEquivalence318.lean": "172bc3ababf04e88a1edecd0a18499ec65ee624a14def51b4016381a1e7bed1c",
+    "ActualQuotientDifferentialLinear318.lean": "4e554edc2e58c036fd2cbbfd48f12174145516041655bec39f7a54ee64ef2b30"
+  },
+  "accepted_basis": {
+    "packet": "../recovered-five-basis-20261109",
+    "application_sha256": "d4dedfd136c3e938d08cdd8399c1dc9deabe0aa84b09d23650a4c84f2fb80edb",
+    "receipt_sha256": "849fd5a17af63350924df3d5391557c3796d2db91ae9e004a0ac99c3fde4cc15",
+    "sources": {
+      "GeometricIntegralConstants318.lean": "438dd9828f3826b5ea744e92d53307ac5ad48ad7d68ae0672b0f9e1d39dd60fe",
+      "ActualFiveRationalIndependent318.lean": "35576d38eb0b2e0e10ab73ba3e43855610b277d7ec678d0856ce0e10bfca4bd2",
+      "ActualSourceRationalConstants318.lean": "549a91d02fa1cf9af2297be2f364b3b4227f261c4ee238bb5afeab69c6550e6f",
+      "SingleFlipInvariantLine318.lean": "6603e0adf5c109ac7701f6707d385bf0bb8a8e445ce755b76af6f48c6eaed18a",
+      "ActualDifferentialSignLinear318.lean": "477abd9d7f03767b57ec8977387fd34bb463566302257c1bb61f7d2a44b2f344",
+      "ActualFiveDifferentialSpanning318.lean": "f4118a495026d0dd84157a701f0171a2794f7483fa3d83efc9328cfb66b56c01",
+      "ActualFiveDifferentialBasis318.lean": "1bf8ae4e94ca35c4b3696598060c5054beaed92d5835ec887597d412a0505c25"
+    }
+  },
+  "obligations": [
+    {
+      "name": "Actual source and targets",
+      "required": "The domain consists of regular global intrinsic differential sections of all five original completed quotient schemes; the codomain is the corresponding original complete source space.",
+      "constructed": "CharacterSpace i and FifthSpace are the exact Gamma values of CharacterTargetDifferentialInvariants318.N i and FifthTargetDifferentialInvariants318.N. G is unchanged ActualFiveRationalIndependent318.G.",
+      "justification": "No abstract vector space, function-field substitute or assumed-dimension model replaces any actual section space.",
+      "evidence": [
+        "ActualQuotientDifferentialLinear318.CharacterSpace",
+        "ActualQuotientDifferentialLinear318.FifthSpace",
+        "ActualQuotientDifferentialLinear318.TargetSpace"
+      ]
+    },
+    {
+      "name": "Complete five-index domain",
+      "required": "Every one of the four complementary quotients and the fifth quotient must occur exactly once.",
+      "constructed": "Index is Option(Fin4); none denotes the fifth target and some i denotes complementary target i.",
+      "justification": "Both ProductSpace and SumSpace quantify over the entire Index. The component theorem quantifies over every i and every section in that exact target space.",
+      "evidence": [
+        "ActualQuotientDifferentialLinear318.Index",
+        "ActualFivePullbackDirectSum318.SumSpace",
+        "ActualFivePullbackDirectSum318.equivalence_component"
+      ]
+    },
+    {
+      "name": "Unchanged rational actions",
+      "required": "Linearity must use the original structural Q actions on all six spaces.",
+      "constructed": "characterModule and fifthModule are Module.compHom along ActualTargetRationalInvariants318 characterConstant/fifthConstant; rationalModule is the accepted original source restriction of scalars.",
+      "justification": "StructuralConstantPullback318.globalSection_constant_smul proves the actual pullback respects precisely these structure maps. Dependent targetModule branches are these same instances.",
+      "evidence": [
+        "ActualQuotientDifferentialLinear318.characterModule",
+        "ActualQuotientDifferentialLinear318.fifthModule",
+        "ActualQuotientDifferentialLinear318.targetModule",
+        "ActualQuotientDifferentialLinear318.characterPullback",
+        "ActualQuotientDifferentialLinear318.fifthPullback"
+      ]
+    },
+    {
+      "name": "Entire target frame spaces",
+      "required": "The target invariant must generate all regular global target differentials uniquely over Q, not just a designated line.",
+      "constructed": "characterFrame and fifthFrame are LinearEquiv.ofBijective applications to the actual invariant-multiple maps.",
+      "justification": "ActualTargetRationalInvariants318.character_bijective and fifth_bijective have exactly these Gamma spaces and structural constants, deriving from the original whole completed target invariant frame and scalar section comparison.",
+      "evidence": [
+        "ActualQuotientDifferentialLinear318.characterFrame",
+        "ActualQuotientDifferentialLinear318.fifthFrame",
+        "ActualTargetRationalInvariants318.character_bijective",
+        "ActualTargetRationalInvariants318.fifth_bijective"
+      ]
+    },
+    {
+      "name": "Actual pullback maps and directions",
+      "required": "Maps must be the canonical contravariant differential pullbacks of the given completed curve morphisms C to E_i.",
+      "constructed": "characterPullback.toFun and fifthPullback.toFun are exactly the existing target differential pullback AddMonoidHoms.",
+      "justification": "The only new data are proofs of Q-linearity via the actual over-Q squares. Their domains are target sections and codomain is source sections; no Picard or Jacobian map is substituted.",
+      "evidence": [
+        "ActualQuotientDifferentialLinear318.characterPullback",
+        "ActualQuotientDifferentialLinear318.fifthPullback",
+        "CharacterTargetDifferentialInvariants318.pullback",
+        "FifthTargetDifferentialInvariants318.pullback"
+      ]
+    },
+    {
+      "name": "Normalization and basis comparison",
+      "required": "Each target frame must pull back to the exact accepted basis entry, with every scalar retained.",
+      "constructed": "pullback_frame states pullback i(frame i a)=a smul differential i for every i,a.",
+      "justification": "Both branches use ActualQuotientConstantPullback318 invariant_multiple. The accepted basis_apply then identifies every actual differential. Scalar is exactly one for the specified actual target frame; the fifth auxiliary normalization is not confused with this actual pullback.",
+      "evidence": [
+        "ActualQuotientDifferentialLinear318.pullback_frame",
+        "ActualFivePullbackEquivalence318.pullback_coordinates",
+        "ActualFiveDifferentialBasis318.basis_apply"
+      ]
+    },
+    {
+      "name": "Identity of actual sum map",
+      "required": "The final equivalence must underlie the true sum of the five original pullbacks, including its coproduct universal property.",
+      "constructed": "sumPullback sums pullback i(s i). sumMap is DirectSum.toModule Q Index G pullback.",
+      "justification": "sumPullback_eq compares the first map with target-frame coordinates followed by the exact source basis inverse. sumMap_eq compares the genuine direct-sum map with the finite-product map; equivalence_toLinearMap and equivalence_component identify the final consumer exactly.",
+      "evidence": [
+        "ActualFivePullbackEquivalence318.sumPullback_eq",
+        "ActualFivePullbackDirectSum318.sumMap_eq",
+        "ActualFivePullbackDirectSum318.equivalence_toLinearMap",
+        "ActualFivePullbackDirectSum318.equivalence_component"
+      ]
+    },
+    {
+      "name": "Two-sided inverse and universal sections",
+      "required": "The map must be bijective on all actual global differential sections, not merely the five generators.",
+      "constructed": "coordinates is a pointwise linear equivalence and the accepted basis equivFun inverse is a linear equivalence.",
+      "justification": "sumPullback_bijective follows from exact equality with their composite; inverse_apply identifies every component. existsUnique_decomposition covers every source section. Finite direct sum/product comparison transports this to sumMap_bijective.",
+      "evidence": [
+        "ActualFivePullbackEquivalence318.sumPullback_bijective",
+        "ActualFivePullbackEquivalence318.inverse_apply",
+        "ActualFivePullbackEquivalence318.existsUnique_decomposition",
+        "ActualFivePullbackDirectSum318.sumMap_bijective"
+      ]
+    },
+    {
+      "name": "Historical, dependency and Jacobian scope",
+      "required": "The new application requires fresh review; differential equivalence must not be reported as an already represented Jacobian isogeny.",
+      "constructed": "The unchanged accepted basis packet is imported with its exact source and object receipts; the three new modules package the next curve-differential result.",
+      "justification": "This is a cotangent-side prerequisite for a future Jacobian norm map. Picard presheaf pullback is dual-direction. Representability, tangent H1(O), Serre duality, Jacobian differential identification and the isogeny theorem remain separate. Historical basis acceptance does not independently accept this new application.",
+      "evidence": [
+        "README.md",
+        "ActualFivePullbackDirectSum318.equivalence",
+        "ActualFivePullbackEquivalence318.equivalence"
+      ]
+    }
+  ],
+  "independent_review": "Pending exact-source-bound independent review of this continuation."
+}

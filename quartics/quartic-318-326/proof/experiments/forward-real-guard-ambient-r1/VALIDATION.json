@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-11-09T04:19:42.467090+00:00",
+  "scope": "Actual compact real guard ambient model, globally analytic literal trace guards and exact integer-orbit comparison; analytic source-component cover remains explicit.",
+  "compiler": "Lean4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "module_order": [
+    "RealQuarticAmbient318",
+    "RealGuardAmbient318",
+    "RealGuardCover318"
+  ],
+  "sources": {
+    "RealQuarticAmbient318.lean": "7bef67a0c1e5e3bc54800bc915b970a52cb5b1d4f2a3b3c06319f777a8ddefa8",
+    "RealGuardAmbient318.lean": "f0fce8caf280289d4f7bfcf8cd0c27894c2e04d04dd541933b647192d9af38c4",
+    "RealGuardCover318.lean": "295bef9d289d39bd6c3f3e22dd3981d15aba969d96cbce38c2e68efad88841d2"
+  },
+  "commands": [
+    {
+      "command": "lean-checked -R PACKET -o OUTPUT/RealQuarticAmbient318.olean PACKET/RealQuarticAmbient318.lean",
+      "exit_code": 0
+    },
+    {
+      "command": "lean-checked -R PACKET -o OUTPUT/RealGuardAmbient318.olean PACKET/RealGuardAmbient318.lean",
+      "exit_code": 0
+    },
+    {
+      "command": "lean-checked -R PACKET -o OUTPUT/RealGuardCover318.olean PACKET/RealGuardCover318.lean",
+      "exit_code": 0
+    },
+    {
+      "command": "lean-checked -R PACKET PACKET/AuditRealGuardAmbient.lean",
+      "exit_code": 0
+    }
+  ],
+  "audit": {
+    "modules": 3,
+    "declarations": 36,
+    "includes_private_and_generated": true,
+    "recursively_checks_dependencies": true,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "logs": {
+    "RealGuardCover318.log": "85998613b26245fc003ea5a0cd7f634299891b4418c9534eeefadd2f96f23f01",
+    "RealGuardAmbient318.log": "2d2cd305f4ce11cd7245aecf990f602a220a23580d55d623c0f4c0fe7dcf6feb",
+    "RealQuarticAmbient318.log": "eb2f4acb894df7706a50ecb006830296cf784dc4dadea7c95dc9905acf568524",
+    "AuditRealGuardAmbient.log": "3b67db246017f7eff997699cd718a792440dc7c299e807cb85d665296f6545a2"
+  },
+  "audit_source_sha256": "6831b203cd9f525400ecc699c6e5d0d205140dd1fe5c23bd08cb76ed3c4e58e9",
+  "application_sha256": "02409e606c15b326b114d6a05c605e5f8bb1e819c5a6329f9a36f9680fe1f410",
+  "intake_sha256": "e41d970ebf4a43e0e388f762f7754031c287372c458ee6c8266fbadd8555fbc0",
+  "derivation_sha256": "6966ed36c975174ec21e31270381693303a79ab1c229aa19ddbe820eb4dbff7b",
+  "dependency_pins_sha256": "9d4cf7b2c552e40f3d88f20707d141d1e1ea1c1e8f3a04d600f8657a589fc1c0",
+  "baseline_pins_count": 114,
+  "frozen_predecessor_sources": 5,
+  "artifacts": {
+    "RealGuardAmbient318.ir": "e71fc4fde8bb2b24a7888f5af1b5e3ba068b339a5b80209021e988de7f41df6b",
+    "RealGuardCover318.ir": "aae99535fc879c22e40798cfd844c1dce280ed5265a3d47b36d9c69a4533d844",
+    "RealGuardCover318.ir.sig": "0d29f6bf2962b5a06d9b8397ee5f144cb9279c2718bd6d2a7774048e383c144d",
+    "RealGuardAmbient318.olean": "4f1b7cd070e66ebd6af4a42d4f63e772626d1bc63095567254112811d0324192",
+    "RealGuardCover318.olean.server": "7b65f4c3a0e614c3326762fce66e00809353fba03ced0eb40b24336508d2e8fe",
+    "RealGuardAmbient318.olean.private": "43c4ab9ba46604052db604b754a0b153363b3a7e3426180919fa84782a2ab88f",
+    "RealQuarticAmbient318.ir.sig": "48b455003cd673e7a822cb317a9b0364feff6bdb78fe0e58260d156e5f8e4c64",
+    "RealGuardCover318.olean": "ebbf2f8a10fb6f95f96fe35ed9f257eb652a6b35861998f0f02746eb1e35cc11",
+    "RealQuarticAmbient318.olean.private": "5369e31a8856a6884c2b10f62f32321917ae2b455879821d80f892047580b048",
+    "RealQuarticAmbient318.olean": "b324802062f4b7fc9f6ad1a0f7095b238a97f324a517e63ddf80185cc299a9dc",
+    "RealGuardCover318.olean.private": "94949a71d5e9d7faaeef3a1bfcdc3414953f15d94a0e4999cca09e0f03edef2c",
+    "RealQuarticAmbient318.olean.server": "4a193d35a07c2557e06c63f6652853988fe704cc2e670b7f34904ea08d07cfc5",
+    "RealGuardAmbient318.ir.sig": "f5d3c4cc7367b5f8fc42dea3977d6972a226a5388ddc320f5c38045cca5fddaf",
+    "RealQuarticAmbient318.ir": "bcc89723325713badef9dc73934ae3e751d3568f17e46a06fed6a3e90f48da74",
+    "RealGuardAmbient318.olean.server": "2d0888ae0a20a66aaf194eb56abcdf76bfc044b570c00569c250d96e3a2c5edc"
+  },
+  "independent_review_status": "PENDING_DISTINCT_REVIEW",
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false
+}

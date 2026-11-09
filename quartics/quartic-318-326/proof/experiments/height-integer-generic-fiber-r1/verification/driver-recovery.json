@@ -1,0 +1,8 @@
+{
+  "initial_driver_exit_code": 127,
+  "stage": "After all nineteen fresh source compilations, before the audit command.",
+  "cause": "The running shell script was edited to add a one-second inter-module scheduling gap. Its read offset then reached a partial shell token after the loop. No Lean source was edited; no source compile failed.",
+  "recovery": "The final script passes bash -n. All nineteen fresh source outputs and logs are retained. The exact frozen private-inclusive audit is run separately against those fresh outputs under lean-checked with the same strict flags. The receipt binds that audit result.",
+  "source_compilations_repeated": false,
+  "no_source_bytes_changed_during_replay": true
+}

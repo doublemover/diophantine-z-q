@@ -1,0 +1,112 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Actual original global T in every genuine width-q cusp chart is analytic, injective, nonzero, satisfies the exact rational j identity, and is meromorphic at the actual cusp origin.",
+  "sources": {
+    "ThreeCompactParameter318.lean": "3548d63f8a6f49a1e5b792eb1593dc9c51774019e2d45b60704c497e3b884d77",
+    "LiteralThreeCompactParameter318.lean": "d13d7c9d2779bc7e8093999f2f4f4fd5543b84e6086189d915d7c85ebb40f259",
+    "ThreeExceptionalParameter318.lean": "d511ee86e83af1a67319db3daf0d9258041bbbc8aa5383248976a643589a1a97",
+    "ActualThreeExceptionalParameter318.lean": "79cb15cbbf6b77e756d617da135cf944e5d63ddf96ebc4e130c4c0601f64ab01",
+    "ActualThreeParameterProper318.lean": "6ee4d60d640faa9bf79585c2195a39f2797687b06157f1a1239d3e815528bcc9",
+    "ActualThreeGlobalParameter318.lean": "55759944767e5f101aaf2bac709f01a0028ba51d61b7273e302860a07165ec60",
+    "ActualThreeCuspOrbit318.lean": "e6bf9bf67fff5036f9a37658dca81d7fa13203eef195d98ec6d119e7fd358203",
+    "ActualThreeCuspHomeomorph318.lean": "232f16640e23de61a63c79aef3596488ab39ad4e86119fd41a319e1020177842",
+    "ActualThreeCuspWidths318.lean": "88fc1ee17efa7e7b5dc685c506cbbbe5a415f3a7e6ff4fd21008256eb5f7b83a",
+    "ActualThreeCuspJ318.lean": "be3974a0a9a8f15c52bbc7f9cb43478f3ed0dd87d70c0e3ea44ba785c3198eb1",
+    "ActualThreeQParameter318.lean": "1c5b7791e69bedca362bc8af7c7c8b9267c51eed4ad3628277d5982617ebdfb9",
+    "ThreeParameterGrowth318.lean": "e08c95aba6016d0e5d5cdf97e912056dbffc3600e49d2dd8dfcd19070c0fbd93",
+    "ActualThreeQMeromorphic318.lean": "d7eb8928c78fdf993b7e664aa7e9ab16f862c8d7d4278350f524a2870a02723d"
+  },
+  "readme_sha256": "3c63f4c22a29e03768b91127e25e8474a6463bd6813c8ccdbf3e604c6773436a",
+  "obligations": [
+    {
+      "name": "Source domain and coefficients",
+      "required_input": "Actual full quotient and actual independent cusp q-chart.",
+      "constructed_input": "Exact composite of original quotientParameter with inverse cuspHomeomorph.",
+      "justification": "The source is the original orbit quotient of H by the actual Gamma1(3) image. For every integral SL2 rotation g, its exact conjugate translation width defines the original punctured q-disc at height 2. The function is quotientParameter composed with the actual cusp homeomorphism inverse, not an arbitrarily selected root of the rational j equation. Outside that punctured domain its total complex function is explicitly zero.",
+      "sources": [
+        "ActualThreeQParameter318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Quantified coverage and exceptional points",
+      "required_input": "Every rotation, every punctured q point and each cusp origin.",
+      "constructed_input": "No deleted exceptional j values; eventual punctured neighborhood at each origin.",
+      "justification": "Every rotation and every point in its genuine punctured disc is covered. The analytic proof does not delete j=0 or j=1728, choose a principal logarithm branch on a whole annulus, or use an N>=5 quotient atlas at N=3. Meromorphy is then proved at every disc origin.",
+      "sources": [
+        "ActualThreeQParameter318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Maps and normalization",
+      "required_input": "Exact width and local exponential inverse.",
+      "constructed_input": "Actual high-lift equality and WidthLocalInverse318 center/right-inverse identities.",
+      "justification": "The high-lift identity uses the exact width-q map exp(2 pi i tau/w), actual rotated quotient projection, and the same period T whose global quotient homeomorphism was previously proved. The local analytic inverse of this exponential has its genuine nonzero derivative. Its center value and eventual right-inverse identity are both used, with the local height kept above 2. No reciprocal width, period scale, or root branch is dropped.",
+      "sources": [
+        "ActualThreeQParameter318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Analytic descent argument",
+      "required_input": "Analytic germ with no unsupported quotient atlas.",
+      "constructed_input": "Local logarithm composed with integral action and original analytic period formula.",
+      "justification": "The local logarithm maps a neighborhood of the chosen q-value back into H. Composition with the actual integral Moebius action and the previously constructed globally analytic period T is analytic there. The high-lift identity proves equality with the constructed qParameter germ. This establishes analyticity without postulating holomorphicity of the inverse quotient map or any new quotient charted-space instance.",
+      "sources": [
+        "ActualThreeQParameter318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Identity and injectivity of the consumer",
+      "required_input": "Identity of the full T and exact J consumer.",
+      "constructed_input": "Same qParameter, actual injective global map, exact G(q^w)/q^w.",
+      "justification": "The original fullParameter injectivity and the actual inverse cusp homeomorphism prove injectivity on the entire punctured domain. Nonvanishing follows from the original quotient T. The exact rational identity J(T(q))=G(q^w)/q^w is inherited from those identical objects, with actual G(0)=1 and the same positive integer width w.",
+      "sources": [
+        "ActualThreeQParameter318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Growth and removable singularity",
+      "required_input": "Polynomial growth and punctured holomorphic germ.",
+      "constructed_input": "Uniform rational J estimate; explicit bound518; actual q^(w+1)T removable zero.",
+      "justification": "The independent rational formula J(t)=(t+27)(t+243)^3/t^3 gives |t|<=486+16|J(t)| for every nonzero t. For |t|>486, each numerator factor has norm at least |t|/2; the other case is immediate. Continuity of G(q^w) at zero and |q|<1 then give the explicit bound |q^w T(q)|<=518 on a punctured neighborhood. The proof multiplies once more by q, obtains a continuous zero by squeezing, and applies the weak removable singularity theorem. The resulting MeromorphicAt predicate is for the same actual qParameter germ, not a separately postulated extension.",
+      "sources": [
+        "ActualThreeQMeromorphic318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Boundary values and orders",
+      "required_input": "Germ conclusion must not silently assert a boundary value or exact order.",
+      "constructed_input": "MeromorphicAt only, with target-cusp assignment and analytic compactification excluded.",
+      "justification": "MeromorphicAt is a punctured-germ statement; the arbitrary total value at zero does not assert a holomorphic value or identify which source cusp maps to T=0 or T=infinity. No exact T order, inverse analytic transition at exceptional points, compactified map, or global compact biholomorphism is inferred from this bounded result. The separately proved exact j pole orders remain unchanged.",
+      "sources": [
+        "README.md",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Dependency and history",
+      "required_input": "Preserve predecessor identity and original source restrictions.",
+      "constructed_input": "Ten identical predecessor sources; high-level quotient-atlas theorem not used at3.",
+      "justification": "The ten copied sources from the global-homeomorphism and cusp-charts packets are byte-identical. The original WidthLocalInverse318 logarithm argument and RotatedBiholomorphic318 integral action are used with their exact hypotheses; the latter's high-level quotient-atlas statements are not applied at level three. The already reviewed filling remains the actual topological gluing and is not silently upgraded to a complex curve here.",
+      "sources": [
+        "README.md",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Verification and downstream scope",
+      "required_input": "Strict exact source and recursive all-private audit.",
+      "constructed_input": "Thirteen fresh source checks with pinned predecessor closure.",
+      "justification": "All thirteen sources receive fresh serial strict Lean 4.35.0 checks and a recursive private-inclusive axiom audit, with exact baseline source pins and source/contract hashes. Only propext, Classical.choice, and Quot.sound are allowed. This is an incremental analytic source comparison, not a clean upstream rebuild, arithmetic analytification, PEL identification, or a final height theorem. A distinct reviewer must accept this changed route before baseline admission.",
+      "sources": [
+        "receipt.json",
+        "README.md"
+      ]
+    }
+  ]
+}

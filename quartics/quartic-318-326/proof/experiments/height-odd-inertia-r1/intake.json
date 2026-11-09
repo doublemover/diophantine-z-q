@@ -1,0 +1,129 @@
+{
+  "packet": "height-odd-inertia-r1",
+  "status": "FROZEN_STRICT_PASS_INDEPENDENT_REVIEW_PENDING",
+  "order": [
+    "RationalFourRootFiber318",
+    "FourRootPointTorsor318",
+    "RationalContactPoint318",
+    "FourRootPointUniversal318",
+    "RationalFourRootSplitting318",
+    "IntegralSquareInertia318",
+    "RationalFourRootInertia318",
+    "ContactIntegerRadicands318",
+    "ContactFieldRamification318",
+    "SquareRootInertiaBound318",
+    "RationalFourRootOddInertia318",
+    "ContactOddRamification318"
+  ],
+  "new_modules": [
+    "SquareRootInertiaBound318",
+    "RationalFourRootOddInertia318",
+    "ContactOddRamification318"
+  ],
+  "unchanged_predecessor_modules": [
+    "RationalFourRootFiber318",
+    "FourRootPointTorsor318",
+    "RationalContactPoint318",
+    "FourRootPointUniversal318",
+    "RationalFourRootSplitting318",
+    "IntegralSquareInertia318",
+    "RationalFourRootInertia318",
+    "ContactIntegerRadicands318",
+    "ContactFieldRamification318"
+  ],
+  "files": {
+    "RationalFourRootFiber318.lean": {
+      "sha256": "7508e2ae43346ee6169187d900cb20e0d8607ce96c87eaec2730115d321e7750",
+      "imports": [
+        "FourRootOrderSigns318",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.LinearAlgebra.Dimension.Finrank"
+      ]
+    },
+    "FourRootPointTorsor318.lean": {
+      "sha256": "98f428008b2cd294a1d920d1e7d9b854a71fdaf665deeb822d13bad8e0c27bf1",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "RationalContactPoint318.lean": {
+      "sha256": "b14c45659732280a5df3b6ae1019027ebee58f240ddca1074a6ecee9e91d422a",
+      "imports": [
+        "RationalFourRootFiber318",
+        "FourRootPointTorsor318",
+        "SourceGlobalAffine318",
+        "FiveContactProducer318"
+      ]
+    },
+    "FourRootPointUniversal318.lean": {
+      "sha256": "fa89b94e8c12624cb052c48d4cee6c7be6cde2b2ad7d408b22a4f9f155cb7846",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "RationalFourRootSplitting318.lean": {
+      "sha256": "bda2776c0c8f2be73d0381e7210e44bf6f704a5d4c027a10b80ce65e7fabb719",
+      "imports": [
+        "RationalFourRootFiber318",
+        "FourRootPointUniversal318",
+        "Mathlib.FieldTheory.Normal.Basic",
+        "Mathlib.FieldTheory.Galois.Basic"
+      ]
+    },
+    "IntegralSquareInertia318.lean": {
+      "sha256": "d8e2c12054649b650d3241026f474c658371214d5ba77bb5e6985f980793ada7",
+      "imports": [
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.RingTheory.Ideal.Pointwise",
+        "Mathlib.RingTheory.Ideal.Over",
+        "Mathlib.NumberTheory.Padics.PadicVal.Basic"
+      ]
+    },
+    "RationalFourRootInertia318.lean": {
+      "sha256": "8730f3050798c9a8aa7b732a14220fa7161aeb7332364d31596997ff409b84a1",
+      "imports": [
+        "RationalFourRootSplitting318",
+        "IntegralSquareInertia318",
+        "Mathlib.NumberTheory.RamificationInertia.Galois"
+      ]
+    },
+    "ContactIntegerRadicands318.lean": {
+      "sha256": "f0b4fcd4b5f7a7a504de8a7d99f95d194bc16ebc625182e3bb1ae86c8e691163",
+      "imports": [
+        "RationalContactPoint318",
+        "SourceTwistArithmetic318",
+        "ContactPrimeLimits318"
+      ]
+    },
+    "ContactFieldRamification318.lean": {
+      "sha256": "fa878ca297a7af26761ccd1de794ea90ebd7a9e4228c891824bb9ad49287207c",
+      "imports": [
+        "RationalFourRootInertia318",
+        "ContactIntegerRadicands318",
+        "Mathlib.FieldTheory.Galois.IsGaloisGroup",
+        "Mathlib.RingTheory.Ideal.Int"
+      ]
+    },
+    "SquareRootInertiaBound318.lean": {
+      "sha256": "054003b698395ed9ba9ded5661d251fb5dd170161de3b5d681a5ad4f40aa0a7a",
+      "imports": [
+        "IntegralSquareInertia318"
+      ]
+    },
+    "RationalFourRootOddInertia318.lean": {
+      "sha256": "ff3b4ac54aa25d90cf95a5037c06a89e413f0482ba774e03dd5710cdd44e3a16",
+      "imports": [
+        "RationalFourRootInertia318",
+        "SquareRootInertiaBound318"
+      ]
+    },
+    "ContactOddRamification318.lean": {
+      "sha256": "92eb945be562d73f2c6e8bd1f2512a41507d08d731e2c70dcd2ac347000fdd69",
+      "imports": [
+        "RationalFourRootOddInertia318",
+        "ContactFieldRamification318"
+      ]
+    }
+  },
+  "scope": "Actual inertia cardinality at most two and ramification index one or two at every odd rational prime, in the same constructed contact field. No PEL marking, higher-level extension, discriminant bound or height theorem."
+}

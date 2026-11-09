@@ -1,0 +1,104 @@
+{
+  "producer": "/root/advance_analytic_geometry",
+  "claim": "Exhaustive classification of the original level-three cusp-end object into two distinct actual identity and S ends by integral matrix congruences and exact representative coverage.",
+  "sources": {
+    "ActualThreeCuspOrbit318.lean": "e6bf9bf67fff5036f9a37658dca81d7fa13203eef195d98ec6d119e7fd358203",
+    "ActualThreeCuspHomeomorph318.lean": "232f16640e23de61a63c79aef3596488ab39ad4e86119fd41a319e1020177842",
+    "ActualThreeCuspWidths318.lean": "88fc1ee17efa7e7b5dc685c506cbbbe5a415f3a7e6ff4fd21008256eb5f7b83a",
+    "ActualThreeCuspJ318.lean": "be3974a0a9a8f15c52bbc7f9cb43478f3ed0dd87d70c0e3ea44ba785c3198eb1",
+    "ActualThreeCuspExhaustion318.lean": "cfed9081a972a88bff4c09aa77449654160bfd83a7c656f07b97bf5e103af62e"
+  },
+  "readme_sha256": "f5fe973aa6993db6d610d93eb6679916245a3cbb3924d3b8199be3da03926a76",
+  "obligations": [
+    {
+      "name": "Objects and coefficients",
+      "required_input": "Original integral group, original finite cusp-end object and exact residues.",
+      "constructed_input": "Actual SL2(Z), Gamma1(3), ZMod3 and End3.",
+      "justification": "The source is the original integral SL2 action and original Gamma1(3) orbit quotient. Congruence tests use ZMod3; upper triangular coordinate changes remain actual integral matrices. The final object is literally FiniteCuspEnds318.End 3, not a newly declared two-point set.",
+      "sources": [
+        "ActualThreeCuspExhaustion318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Required hypotheses",
+      "required_input": "Determinant one and the two nonzero F3 residues; no freeness or negative identity membership.",
+      "constructed_input": "gamma1_or_neg and original central-sign action.",
+      "justification": "The determinant-one equation is used to infer matching nonzero diagonal residues when the lower-left residue is0. The two nonzero F3 residues are checked directly. The central-sign action identity is an original modular-action theorem; no false membership of -I in Gamma1(3) or freeness assertion is made.",
+      "sources": [
+        "ActualThreeCuspExhaustion318.gamma1_or_neg",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Index coverage",
+      "required_input": "All rotations and all selected finite representatives.",
+      "constructed_input": "neighborhood_classification, neighborhood_mem_ends and endRegions_eq_range.",
+      "justification": "Every g in SL2(Z) is classified. Both possibilities for its lower-left residue are exhausted, and the nonzero case covers both signs. A separate equality binds the all-rotation range to the existing finite selected representative image, so no missing representative is concealed.",
+      "sources": [
+        "ActualThreeCuspExhaustion318.lean",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Maps and directions",
+      "required_input": "Correct matrix conjugation and high-region intersection direction.",
+      "constructed_input": "S T^n g^-1 with lower-left d-nc; actual Gamma1 left action and upper triangular height preservation.",
+      "justification": "The S-case comparison matrix is S T^n g^-1, and its lower-left entry is d-nc. Left action by this matrix sends g*tau to S*(T^n*tau). Upper triangular transformations preserve height, giving an actual intersection of the two high regions. The existing all-level theorem identifies their neighborhoods from this intersection. The same proof handles a central negative sign because it acts trivially on H.",
+      "sources": [
+        "ActualThreeCuspExhaustion318.neighborhood_eq_of_upper",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Downstream identity",
+      "required_input": "Identity with the actual old finite end consumer.",
+      "constructed_input": "Original rotations_cover plus quotient_smul, exact endRegions pair and exhaustive original End3 values.",
+      "justification": "rotations_cover gives g=gamma*r in the correct left coset direction. The exact quotient_smul equality then proves the selected and all-rotation end sets equal. endRegions_eq_pair, infinityEnd, zeroEnd, ends_distinct and end_exhaustion all refer to the original end object.",
+      "sources": [
+        "ActualThreeCuspExhaustion318.end_exhaustion",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Local conditions and normalization",
+      "required_input": "Exact region height and distinct actual ends.",
+      "constructed_input": "Height2 with required1<=2 and predecessor widths1,3.",
+      "justification": "All high regions use height2; the intersection theorem is supplied its required bounds1<=2. Every upper triangular comparison preserves the same height. The width1/width3 distinction used for noncoincidence is the earlier actual stabilizer-width computation, not a new source ramification or T-coordinate assumption.",
+      "sources": [
+        "ActualThreeCuspExhaustion318.ends_distinct",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Arithmetic and exceptional scope",
+      "required_input": "No use of high-level freeness or unrelated arithmetic hypotheses.",
+      "constructed_input": "Separate direct level3 matrix argument, covering elliptic interior without modification.",
+      "justification": "This is an exact level-three end classification. Elliptic stabilizers inside H do not obstruct the argument and are not removed. No higher-level freeness theorem is instantiated at3. No scheme normalization, PEL structure, integral ramification or field-degree statement is involved or inferred.",
+      "sources": [
+        "README.md",
+        "README.md"
+      ]
+    },
+    {
+      "name": "History and dependencies",
+      "required_input": "Changed route requires distinct review; preserve predecessors and historical dispositions.",
+      "constructed_input": "Four copied predecessor files unchanged and new classification source bound independently.",
+      "justification": "Four predecessor sources and their reviewed application remain unchanged. The new matrix and representative-coverage consumer needs a distinct bounded review. Existing high-level compactification source limitations remain recorded. No earlier historical argument is declared missing and no manuscript/audit verdict is rewritten.",
+      "sources": [
+        "README.md",
+        "README.md"
+      ]
+    },
+    {
+      "name": "Verification and acceptance",
+      "required_input": "Strict exact sources and private-inclusive recursive audit.",
+      "constructed_input": "Five-source fresh replay and59 declarations, original baseline pins.",
+      "justification": "The receipt binds all five sources, final strict replay logs, private-inclusive recursive audit and original baseline source pins. Exact copied predecessors are rechecked. Compiler success is not a substitute for non-author source/application acceptance or a whole-proof audit.",
+      "sources": [
+        "receipt.json",
+        "README.md"
+      ]
+    }
+  ]
+}

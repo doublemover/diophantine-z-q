@@ -1,0 +1,118 @@
+{
+  "status": "Eleven sources (nine new and two exact predecessor copies) pass fresh strict kernel replay; all112 private/generated declarations pass recursive axiom audit; independent acceptance and coordinated admission remain separate.",
+  "order": [
+    "StructureAdditiveSheaf318",
+    "SheafCohomologyRetraction318",
+    "PrincipalFractionClearing318",
+    "PrincipalCocycleSplit318",
+    "ActualPrincipalSections318",
+    "ActualPrincipalCocycle318",
+    "AffinePrincipalLocalLifts318",
+    "AdditiveSheafSections318",
+    "AffineStructureSectionLifting318",
+    "AffineStructureHOne318",
+    "ActualSourceAffineHOne318"
+  ],
+  "files": {
+    "StructureAdditiveSheaf318.lean": {
+      "sha256": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+      "imports": [
+        "Mathlib.Algebra.Category.Ring.Limits",
+        "Mathlib.Topology.Sheaves.Functors",
+        "OpenTraceSheaf318"
+      ]
+    },
+    "SheafCohomologyRetraction318.lean": {
+      "sha256": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+      "imports": [
+        "Mathlib.CategoryTheory.Abelian.GrothendieckCategory.HasExt",
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.Basic",
+        "Mathlib.Topology.Sheaves.Abelian",
+        "StructureAdditiveSheaf318"
+      ]
+    },
+    "PrincipalFractionClearing318.lean": {
+      "sha256": "a055271d9f1f5b67244e06bb846e0c51872a951ebc10154b7c6e698e6f07c1a7",
+      "imports": [
+        "Mathlib.Data.Fintype.Order",
+        "Mathlib.RingTheory.Ideal.Operations",
+        "Mathlib.RingTheory.Localization.AsSubring",
+        "Mathlib.RingTheory.Localization.Away.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "PrincipalCocycleSplit318.lean": {
+      "sha256": "ea3425c0d04250a585b8e40227ab6dfa6814c1133e155b1cad2f3f17e33d66f7",
+      "imports": [
+        "Mathlib.RingTheory.Spectrum.Prime.Topology",
+        "PrincipalFractionClearing318"
+      ]
+    },
+    "ActualPrincipalSections318.lean": {
+      "sha256": "8a2ac7ba18c671401e03f726833d18c63ca7fe865cca66d0974c0a94b7c1d3df",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.AffineScheme",
+        "PrincipalCocycleSplit318"
+      ]
+    },
+    "ActualPrincipalCocycle318.lean": {
+      "sha256": "18911203bcd8c5df0df3958ab82aab4a0e33620ad8002a8737064d2aef315288",
+      "imports": [
+        "ActualPrincipalSections318"
+      ]
+    },
+    "AffinePrincipalLocalLifts318.lean": {
+      "sha256": "4ff73469a263043051f848ab2f5f5b8206d3d883855a07e48035cf2d7e8c9c90",
+      "imports": [
+        "ActualPrincipalCocycle318",
+        "Mathlib.Topology.Sheaves.Abelian",
+        "Mathlib.Topology.Sheaves.LocallySurjective"
+      ]
+    },
+    "AdditiveSheafSections318.lean": {
+      "sha256": "cc2d6d357c8ca15a86459f7a62fbd4b945314a6d5535480c44b3da4ec14507b6",
+      "imports": [
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Topology.Sheaves.AddCommGrpCat",
+        "StructureAdditiveSheaf318"
+      ]
+    },
+    "AffineStructureSectionLifting318.lean": {
+      "sha256": "2ac2e6df2a100c636d2ce4f35bf861cfa44374017b72943d17ec28705b463e3c",
+      "imports": [
+        "AdditiveSheafSections318",
+        "AffinePrincipalLocalLifts318"
+      ]
+    },
+    "AffineStructureHOne318.lean": {
+      "sha256": "05a043da2aafbd50e2575e380bd0e7437e50801d61b5f9518cb1561e4235710c",
+      "imports": [
+        "AffineStructureSectionLifting318",
+        "SheafCohomologyRetraction318"
+      ]
+    },
+    "ActualSourceAffineHOne318.lean": {
+      "sha256": "08ae0d2906987360ee179df60005c0fb1e6c3050dada30e426afb12c7aa904bc",
+      "imports": [
+        "AffineStructureHOne318",
+        "ContactGlobalSmooth318"
+      ]
+    }
+  },
+  "new_modules": [
+    "PrincipalFractionClearing318",
+    "PrincipalCocycleSplit318",
+    "ActualPrincipalSections318",
+    "ActualPrincipalCocycle318",
+    "AffinePrincipalLocalLifts318",
+    "AdditiveSheafSections318",
+    "AffineStructureSectionLifting318",
+    "AffineStructureHOne318",
+    "ActualSourceAffineHOne318"
+  ],
+  "copied_predecessor_packet": "actual-quotient-cohomology-20261109",
+  "copied_predecessor_receipt": "5f3b7dea2d1f53c3ff33cf9dc79522b9719904244dc18b67ecc1b99a636706cb",
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "new_source_acceptance": false
+}

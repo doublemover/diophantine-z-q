@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-11-09T03:01:22.666359+00:00",
+  "scope": "Two new modules strictly checked and 168 private/generated declarations recursively audited. Conditional first51 rows and exact guard trace/positivity only. Not a fresh full rebuild or global integer witness construction.",
+  "compiler": "Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "module_order": [
+    "RealGuardWitness318",
+    "RealGuardTrace318"
+  ],
+  "sources": {
+    "RealGuardWitness318.lean": "3b901fe6eba8b05877479d2f028c8d23e077f9e982572f58965fbf31be92e0d6",
+    "RealGuardTrace318.lean": "da4dc35e66edb26bc14e0b99c2d2ca2bee36ebdf6524ab7a4661dd70a382df52"
+  },
+  "audit_source": {
+    "path": "AuditRealGuards.lean",
+    "sha256": "f31c5ee57b19a753966d919f9f474ca772c19a952a16c58a909d2f8f43a1332d"
+  },
+  "commands": [
+    {
+      "module": "RealGuardWitness318",
+      "exit_code": 0,
+      "command": "lean -j1 -M 6144 -Ddebug.skipKernelTC=false -R PACKET -o OUTPUT/RealGuardWitness318.olean PACKET/RealGuardWitness318.lean"
+    },
+    {
+      "module": "RealGuardTrace318",
+      "exit_code": 0,
+      "command": "lean -j1 -M 6144 -Ddebug.skipKernelTC=false -R PACKET -o OUTPUT/RealGuardTrace318.olean PACKET/RealGuardTrace318.lean"
+    },
+    {
+      "module": "AuditRealGuards",
+      "exit_code": 0,
+      "command": "lean -j1 -M 6144 -Ddebug.skipKernelTC=false -R PACKET PACKET/AuditRealGuards.lean"
+    }
+  ],
+  "audit": {
+    "modules": 2,
+    "declarations": 168,
+    "includes_private_and_generated": true,
+    "recursively_checks_dependencies": true,
+    "required_endpoints_checked": [
+      "RealGuardWitness318.first51_rows",
+      "RealGuardWitness318.actual_difference",
+      "RealGuardTrace318.literal_guard",
+      "RealGuardTrace318.guard_at_identity_positive",
+      "RealGuardTrace318.guards_of_actual_points"
+    ],
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "logs": {
+    "AuditRealGuards.log": "63100418e129501cd95e05cb6e58d98c49d95a865e65ab1db5eb06106e9d4ee5",
+    "RealGuardTrace318.log": "024568401977cbc579767d793b66ae0cf3fd0b3dae3377409932f2c5c5bf0970",
+    "RealGuardWitness318.log": "7af9934cdbe82c505228389c161976f3dee84f479f5cad90bc33e7aea48f3214",
+    "audit-history-selftest.log": "7539e0a83103f2656b233dcf98570fb769e636973f4765cd48f04b87a7d5ee0d"
+  },
+  "predecessors": {
+    "hosted_baseline_modules": 1837,
+    "hosted_run": "https://github.com/doublemover/diophantine-z-q/actions/runs/42485572755",
+    "separately_compiled_frozen_dependency_packet": "../forward-compressed-anchor-witness",
+    "frozen_dependency_preserved_commit": "2d147d358d23bba634a7daf34fcdc7fc9d5a4d33",
+    "exact_transitive_repository_source_pins": 114,
+    "dependency_pins_sha256": "130d6028688bb574f12f9d7cf89a20480d95ea45670f579597a4c32e0c06bd19"
+  },
+  "artifacts": {
+    "RealGuardTrace318.ir": "c998290ef2ade97fe8d196ec71fdfd2973d5c90d1c4e843dc354349b47613baf",
+    "RealGuardTrace318.ir.sig": "ae6a7ddd170fee7f36ca7a0c727106cf637699623b11a5e624d089ce8913b02f",
+    "RealGuardTrace318.olean": "00ab285e0c7d65c15542064f157e5510b7fdb777b60495dc1a05b5255b73fa1d",
+    "RealGuardTrace318.olean.private": "28a24c69d945629643d0935ec86ee7aa410024e3b5a4a795fc137a57c8251150",
+    "RealGuardTrace318.olean.server": "4a4484019c1032c88143dd7da9f163d0f0307ef9cd72823310fc85668ec188e9",
+    "RealGuardWitness318.ir": "87cfadc121409b00c67a3293ec196a9bc56c7c19fca386485f7160cb61ee20fe",
+    "RealGuardWitness318.ir.sig": "ca658c4be0a8e4ea1eddc27fd0276e936f12e6be67e98263dd776e6217b1cf9b",
+    "RealGuardWitness318.olean": "615abc0b0032132d04bf2c2c1abfd75932f34c6a96f4ccb263a69240418292d7",
+    "RealGuardWitness318.olean.private": "21c1c26f7c1984df961c73e4fe633ef29466c1dbfabaa6e1a0359265558eac82",
+    "RealGuardWitness318.olean.server": "1d64d106054e7bb31378be6fbf2924e58c347e48ca7a8aeb2e2b5567f47d1506"
+  },
+  "auxiliary_checks": {
+    "literal_12_row_symbolic": "PASS",
+    "audit_history_selftest": "PASS (structural only)",
+    "static_packet_admission": "PASS (against current1859 manifest)"
+  },
+  "independent_review_status": "PENDING_DISTINCT_REVIEW",
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false,
+  "development_attempts": "Before the final hash-bound pass, a trace draft hit a 240s elaboration timeout. Fin4 binder annotations and map_div\u2080 fixed it. Only final successful logs are the validation evidence."
+}

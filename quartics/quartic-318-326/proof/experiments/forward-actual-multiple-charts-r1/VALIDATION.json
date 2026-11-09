@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-11-09T03:36:26.155374+00:00",
+  "scope": "Two actual-chart/prefix modules; not a global source construction or fresh full rebuild.",
+  "compiler": "Lean4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "module_order": [
+    "ActualMultipleCharts318",
+    "ActualMultiplePrefix318"
+  ],
+  "sources": {
+    "ActualMultipleCharts318.lean": "a5d7ea8a1706dc85e88698cb0396f61e6336c894bc2ab7e38ae3186a0b8b1ad6",
+    "ActualMultiplePrefix318.lean": "407e5055062ccdbf4dcdf60eb0d37756faec28f99729e2e250d02d3306d1a5b9"
+  },
+  "commands": [
+    {
+      "command": "lean-checked -R PACKET -o OUTPUT/ActualMultipleCharts318.olean PACKET/ActualMultipleCharts318.lean",
+      "exit_code": 0
+    },
+    {
+      "command": "lean-checked -R PACKET -o OUTPUT/ActualMultiplePrefix318.olean PACKET/ActualMultiplePrefix318.lean",
+      "exit_code": 0
+    },
+    {
+      "command": "lean-checked -R PACKET PACKET/AuditActualMultiples.lean",
+      "exit_code": 0
+    }
+  ],
+  "audit": {
+    "modules": 2,
+    "declarations": 39,
+    "includes_private_and_generated": true,
+    "recursively_checks_dependencies": true,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "logs": {
+    "AuditActualMultiples.log": "cae00007055efedd7abd51ecb6113e28bed6ddfbd2fa151e3eb89a66ae739860",
+    "ActualMultiplePrefix318.log": "9064558a637f4f5e42c461a9d8fd42ec787c43d2bcada389b2c88f2b03addae4",
+    "ActualMultipleCharts318.log": "0d1eee5953acaae42094311980230184a0291e7550692de069ad08cb60111855"
+  },
+  "audit_source_sha256": "ed279012f67f52720742eea945adad63fc20649c766c87872b68f3e2e913cd22",
+  "application_sha256": "872bef7407085d353589e087d2806a552051bfb7a0ba0851e007db9ce6a69855",
+  "intake_sha256": "ad0a98acd5491c8b67b61e4a42b82776f42d617ff2f684715819b24280560850",
+  "derivation_sha256": "d2f4872aa4f05ff03ef06dcdc5e41dc9415000e2709bb77be54df7b3f6158695",
+  "dependency_pins_sha256": "21ad303331c8168c059daef74c75b5a36fce412e2d4bdcc4704d01c156e18d60",
+  "baseline_pins_count": 114,
+  "frozen_predecessor_sources": 2,
+  "artifacts": {
+    "ActualMultipleCharts318.ir": "126360ed7c168ae7396e4655c1b6a50d5ed5c9f2c6af1b6a263f9e566abbc81b",
+    "ActualMultipleCharts318.olean": "98bb176942c99ed00502bcd1903bee91b5ae6254a83451c14a47b26c77733b90",
+    "ActualMultiplePrefix318.ir.sig": "adcf51ca16993e5b6fb4aa47b31ab284135058b43586bf3ca59183911314af49",
+    "ActualMultiplePrefix318.olean.server": "691163903db45bdea1f1b5318891dbd598a174257069358e912810f4c93300d2",
+    "ActualMultipleCharts318.olean.private": "fc95b46a105396595793d47b96c5b4c28345db9833e4b4aee68b068950ef3cba",
+    "ActualMultiplePrefix318.olean": "55c498bd8159dc34682118803ad7fec5ff131ab350d9407b97966e71ff19c07b",
+    "ActualMultipleCharts318.olean.server": "89adeb2a490d55de440eaaa4660a68a6ab47d211e0034ed197fee2289ff741ce",
+    "ActualMultiplePrefix318.olean.private": "650797f18df7b66addd10165b0fd2fad3620c95575cc17868858fe55cafeb118",
+    "ActualMultiplePrefix318.ir": "7ce7051b8a239246e1682f71867d121a12c720b9c443db1b1074ff77d33bda46",
+    "ActualMultipleCharts318.ir.sig": "f4e91a38b1ee27ef780fd8531247b027c9f437c7e1872caa533d04b6274f631c"
+  },
+  "independent_review_status": "PENDING_DISTINCT_REVIEW",
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false
+}

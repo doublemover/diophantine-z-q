@@ -1,0 +1,120 @@
+{
+  "claim": "Genuine Ext-defined H1(Spec R,O)=0 for every commutative domain R, via actual principal-open cocycle splitting and original sheaf gluing; vanishing on both exact original affine charts of the completed source.",
+  "producer": "/root/restore_differential_basis",
+  "date": "2026-11-09",
+  "baseline_commit": "5e483a2b186a83500f4b603f3ddfc514ae84a393",
+  "sources": {
+    "StructureAdditiveSheaf318.lean": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+    "SheafCohomologyRetraction318.lean": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+    "PrincipalFractionClearing318.lean": "a055271d9f1f5b67244e06bb846e0c51872a951ebc10154b7c6e698e6f07c1a7",
+    "PrincipalCocycleSplit318.lean": "ea3425c0d04250a585b8e40227ab6dfa6814c1133e155b1cad2f3f17e33d66f7",
+    "ActualPrincipalSections318.lean": "8a2ac7ba18c671401e03f726833d18c63ca7fe865cca66d0974c0a94b7c1d3df",
+    "ActualPrincipalCocycle318.lean": "18911203bcd8c5df0df3958ab82aab4a0e33620ad8002a8737064d2aef315288",
+    "AffinePrincipalLocalLifts318.lean": "4ff73469a263043051f848ab2f5f5b8206d3d883855a07e48035cf2d7e8c9c90",
+    "AdditiveSheafSections318.lean": "cc2d6d357c8ca15a86459f7a62fbd4b945314a6d5535480c44b3da4ec14507b6",
+    "AffineStructureSectionLifting318.lean": "2ac2e6df2a100c636d2ce4f35bf861cfa44374017b72943d17ec28705b463e3c",
+    "AffineStructureHOne318.lean": "05a043da2aafbd50e2575e380bd0e7437e50801d61b5f9518cb1561e4235710c",
+    "ActualSourceAffineHOne318.lean": "08ae0d2906987360ee179df60005c0fb1e6c3050dada30e426afb12c7aa904bc"
+  },
+  "obligations": [
+    {
+      "name": "Original affine geometry and coefficient sheaf",
+      "required": "Retain actual Spec structure sheaf, its original sections, restrictions and additive sheaf.",
+      "constructed": "ActualPrincipalSections318 uses (Spec.structureSheaf R).obj on actual basic opens; AffineStructureSectionLifting318.O forgets only ring multiplication.",
+      "justification": "sections_eq_original and O_eq_original are definitional equalities with the existing original scheme carriers. The final theorem is stated on the unchanged structureH carrier. No substitute Cech group is called H1.",
+      "evidence": [
+        "ActualPrincipalSections318.sections_eq_original",
+        "AffineStructureSectionLifting318.O_eq_original",
+        "AffineStructureHOne318.structureH_one_zero"
+      ]
+    },
+    {
+      "name": "Domain and principal localization",
+      "required": "Bind every algebraic fraction calculation to the actual principal-open section localization.",
+      "constructed": "PrincipalFractionClearing318.away is the original Localization.subalgebra.ofField at powers of a nonzero element. ActualPrincipalSections318.embed is the actual localization map to FractionRing R.",
+      "justification": "mem_away_iff proves the denominator presentation. Actual section localization gives injectivity and exact image equal to away; embed_restrict binds original restriction maps. Domain and nonzero hypotheses are explicit, not silently dropped.",
+      "evidence": [
+        "PrincipalFractionClearing318.mem_away_iff",
+        "ActualPrincipalSections318.embed_injective",
+        "ActualPrincipalSections318.range_embed",
+        "ActualPrincipalSections318.embed_restrict"
+      ]
+    },
+    {
+      "name": "Finite denominator contraction",
+      "required": "An arbitrary finite principal-cover additive cocycle must split by regular local sections.",
+      "constructed": "clear_finite chooses one exponent clearing every second denominator. power_coefficients derives a sum a_j f_j^N=1 from the actual cover.",
+      "justification": "Define b_i as sum a_j f_j^N c_ij. The actual localization subalgebra proves regularity; the cocycle equation proves c_ij=b_i-b_j with the chosen sign. The unit-ideal cover follows from the original basic-open cover theorem, not a new assumption.",
+      "evidence": [
+        "PrincipalFractionClearing318.clear_finite",
+        "PrincipalCocycleSplit318.power_coefficients",
+        "PrincipalCocycleSplit318.split_of_principal_cover"
+      ]
+    },
+    {
+      "name": "Actual overlaps and full cocycle equation",
+      "required": "Transport the algebraic contraction back to actual pair/triple overlap sections.",
+      "constructed": "ActualPrincipalCocycle318.Cocycle uses actual restricted sections on D((f_i f_j) f_k).",
+      "justification": "The fraction embeddings commute with restrictions and are injective. split therefore returns original local sections whose actual restrictions have the prescribed difference. Triple and pair opens remain the original ones; the all-indices cocycle equation includes diagonal cases.",
+      "evidence": [
+        "ActualPrincipalCocycle318.Cocycle",
+        "ActualPrincipalCocycle318.split",
+        "ActualPrincipalSections318.exists_section"
+      ]
+    },
+    {
+      "name": "Finite local lifts from an actual sheaf epimorphism",
+      "required": "Obtain a finite principal cover with lifts of a given global quotient section without assuming pointwise epimorphy.",
+      "constructed": "AffinePrincipalLocalLifts318.data uses the actual locally-surjective characterization of epimorphisms, refines each local neighborhood to a basic open, and uses compactness of Spec.",
+      "justification": "Each chosen principal element is nonzero because its open contains the chosen point. The resulting finite index, cover equality and lift images are stored in Data. Empty-index behavior is governed by the actual cover equality; no nonempty-index or omitted-point assumption is introduced.",
+      "evidence": [
+        "AffinePrincipalLocalLifts318.Data",
+        "AffinePrincipalLocalLifts318.data"
+      ]
+    },
+    {
+      "name": "Arbitrary additive-sheaf extension and original gluing",
+      "required": "Prove global lifting with original O kernel even if the middle and quotient sheaves are not quasi-coherent.",
+      "constructed": "AffineStructureSectionLifting318.surjective takes an actual short exact sequence O to F to G.",
+      "justification": "Sectionwise left exactness gives unique kernel sections for pair differences; monicity proves their triple cocycle. Subtracting the constructed local kernel corrections yields compatible sections. Original sheaf gluing yields a global lift; local equality proves its exact image. No extension-closure of QC sheaves or all-sheaves direct-image exactness is assumed.",
+      "evidence": [
+        "AdditiveSheafSections318.app_injective",
+        "AffineStructureSectionLifting318.surjective"
+      ]
+    },
+    {
+      "name": "Genuine Ext-defined degree-one vanishing",
+      "required": "Show H1 itself vanishes, rather than only a disconnected Cech calculation.",
+      "constructed": "AffineStructureHOne318.eq_zero embeds original O into an actual injective additive sheaf and forms its actual cokernel sequence.",
+      "justification": "The original Ext long exact sequence expresses any H1 class as a connecting image of H0 of the cokernel. The proved section-surjectivity lifts that global section; H.equiv0 naturality turns it into a degree-zero lift. Exactness of the connecting class kills the original class. Standard actual HasExt/enough-injectives instances discharge the infrastructure.",
+      "evidence": [
+        "AffineStructureHOne318.eq_zero",
+        "AffineStructureHOne318.structureH_one_zero",
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.Basic"
+      ]
+    },
+    {
+      "name": "Actual original source-cover consumer",
+      "required": "Specialize to both exact charts covering the original completed source, including finite branch points and infinity.",
+      "constructed": "ActualSourceAffineHOne318 uses the actual SourceOrder c and InfinityOpenChart318.OpenOrder c for every c:Fin4 to Q units.",
+      "justification": "Existing original domain theorems discharge both hypotheses. finite_chart_zero uses the full finite chart; infinity_chart_zero uses the unchanged reciprocal infinity neighborhood; cover_chart_zero checks both Bool indices of ContactGlobalSmooth318.cover. No quotient by a removed branch locus or different model is introduced.",
+      "evidence": [
+        "ActualSourceAffineHOne318.finite_chart_zero",
+        "ActualSourceAffineHOne318.infinity_chart_zero",
+        "ActualSourceAffineHOne318.cover_chart_zero"
+      ]
+    },
+    {
+      "name": "Scope and remaining comparison bridge",
+      "required": "Separate the newly proved affine O acyclicity from unproved stronger consequences.",
+      "constructed": "This packet proves genuine H1 of original O on Spec of a domain is zero and applies it to the two exact original source charts.",
+      "justification": "It does not yet prove canonical H1 direct-image comparison surjectivity, transport the affine theorem through every scheme-affine isomorphism, or build the all-affine inverse-image-open epimorphism bridge. It does not prove general QC acyclicity, higher-degree vanishing, H1 dimension/spanning, Picard tangent comparison, Serre duality or Jacobian isogeny. New proof does not assert absence of historical justification.",
+      "evidence": [
+        "README.md",
+        "AffineStructureHOne318.structureH_one_zero",
+        "ActualSourceAffineHOne318.cover_chart_zero"
+      ]
+    }
+  ],
+  "independent_review": "Pending exact-source-bound non-author review."
+}

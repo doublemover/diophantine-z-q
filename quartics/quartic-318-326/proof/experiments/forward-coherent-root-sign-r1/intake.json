@@ -1,0 +1,45 @@
+{
+  "packet": "forward-coherent-root-sign-r1",
+  "status": "ISOLATED_STRICT_PASS_PENDING_DISTINCT_REVIEW",
+  "order": [
+    "CoherentSecantPolynomial318",
+    "CoherentSecant318",
+    "CoherentOrbit318",
+    "CoherentRootSign318"
+  ],
+  "files": {
+    "CoherentSecantPolynomial318.lean": {
+      "sha256": "8e453096aa934e6ebf1a5bb7d0b12c3689f1b734eebdf76e24612c0ac5878be3",
+      "imports": [
+        "Mathlib.Tactic"
+      ]
+    },
+    "CoherentSecant318.lean": {
+      "sha256": "a3314a1e41ae3954a9b23852f2ae929bd77fd92b32e466575a7114c8a1c23dad",
+      "imports": [
+        "CoherentSecantPolynomial318",
+        "CoherentMultipleCharts318"
+      ]
+    },
+    "CoherentOrbit318.lean": {
+      "sha256": "8ddde7b271de007d62d43e61164cce0996655167c5edc1fd6240cf4c28d35b5f",
+      "imports": [
+        "CoherentMultipleCharts318"
+      ]
+    },
+    "CoherentRootSign318.lean": {
+      "sha256": "203b89746cd8ee6c75dac98faa0891e0780511669cbf937ea61c3a7e021ea257",
+      "imports": [
+        "CoherentSecant318",
+        "CoherentOrbit318",
+        "CoherentMultiplePrefix318"
+      ]
+    }
+  },
+  "explicit_packet_dependencies": [
+    "../forward-coherent-multiple-charts-r1",
+    "../forward-real-guard-witness-r1"
+  ],
+  "accepted_snapshot_promoted": false,
+  "full_arithmetic_theorem_proved": false
+}

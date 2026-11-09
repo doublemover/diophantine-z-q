@@ -1,0 +1,187 @@
+START_04:22:59
+MODULE=StructureRationalScalar318
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:26:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (X.presheaf.map j.unop.op)) ((scalar p (unop U)) a)
+in the target expression
+  (scalar p (unop V)) a *
+      (ConcreteCategory.hom (X.presheaf.map j))
+        (have this := s;
+        this) =
+    (CommRingCat.Hom.hom (X.presheaf.map j)) ((scalar p (unop U)) a) *
+      (CommRingCat.Hom.hom (X.presheaf.map j))
+        (have this := s;
+        this)
+
+X : Scheme
+p : X ⟶ Spec ↧ℚ
+a : ℚ
+U V : (Opens ↥X)ᵒᵖ
+j : U ⟶ V
+s : ↑((sheaf X).obj.obj U)
+⊢ (scalar p (unop V)) a *
+      (ConcreteCategory.hom (X.presheaf.map j))
+        (have this := s;
+        this) =
+    (CommRingCat.Hom.hom (X.presheaf.map j)) ((scalar p (unop U)) a) *
+      (CommRingCat.Hom.hom (X.presheaf.map j))
+        (have this := s;
+        this)
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:16:14: error: (kernel) declaration has metavariables 'StructureRationalScalar318.multiply'
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:28:8: error: (kernel) declaration type mismatch, 'StructureRationalScalar318.multiply_component' has type
+  ∀ {X : Scheme} (p : X ⟶ Spec ↧ℚ) (a : ℚ) (U : X.Opens) (s : ↑(X.presheaf.obj (op U))),
+    (ConcreteCategory.hom ((multiply p a).hom.app (op U))) s = (ConcreteCategory.hom ((multiply p a).hom.app (op U))) s
+but it is expected to have type
+  ∀ {X : Scheme} (p : X ⟶ Spec ↧ℚ) (a : ℚ) (U : X.Opens) (s : ↑(X.presheaf.obj (op U))),
+    (ConcreteCategory.hom ((multiply p a).hom.app (op U))) s = (scalar p U) a * s
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:31:8: error: (kernel) application type mismatch
+  id
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            (_a *
+                have this := s;
+                this) =
+              0)
+          (map_zero (scalar p (unop U)))))
+      (Eq.mpr
+        (id
+          (congrArg (fun _a => _a = 0)
+            (zero_mul
+              (have this := s;
+              this))))
+        (Eq.refl 0)))
+argument has type
+  ((scalar p (unop U)) 0 *
+      have this := s;
+      this) =
+    0
+but function has type
+  (AddCommGrpCat.Hom.hom ((multiply p 0).hom.app U)) s = (AddCommGrpCat.Hom.hom ((InducedCategory.Hom.hom 0).app U)) s →
+    (AddCommGrpCat.Hom.hom ((multiply p 0).hom.app U)) s = (AddCommGrpCat.Hom.hom ((InducedCategory.Hom.hom 0).app U)) s
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:37:8: error: (kernel) application type mismatch
+  id
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            (_a *
+                have this := s;
+                this) =
+              s)
+          (map_one (scalar p (unop U)))))
+      (Eq.mpr
+        (id
+          (congrArg (fun _a => _a = s)
+            (one_mul
+              (have this := s;
+              this))))
+        (Eq.refl
+          (have this := s;
+          this))))
+argument has type
+  ((scalar p (unop U)) 1 *
+      have this := s;
+      this) =
+    s
+but function has type
+  (AddCommGrpCat.Hom.hom ((multiply p 1).hom.app U)) s =
+      (AddCommGrpCat.Hom.hom ((CategoryStruct.id (sheaf X)).hom.app U)) s →
+    (AddCommGrpCat.Hom.hom ((multiply p 1).hom.app U)) s =
+      (AddCommGrpCat.Hom.hom ((CategoryStruct.id (sheaf X)).hom.app U)) s
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:43:8: error: (kernel) application type mismatch
+  id
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            (_a *
+                have this := s;
+                this) =
+              ((scalar p (unop U)) a *
+                  have this := s;
+                  this) +
+                (scalar p (unop U)) b *
+                  have this := s;
+                  this)
+          (map_add (scalar p (unop U)) a b)))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              _a =
+                ((scalar p (unop U)) a *
+                    have this := s;
+                    this) +
+                  (scalar p (unop U)) b *
+                    have this := s;
+                    this)
+            (add_mul ((scalar p (unop U)) a) ((scalar p (unop U)) b)
+              (have this := s;
+              this))))
+        (Eq.refl
+          (((scalar p (unop U)) a *
+              have this := s;
+              this) +
+            (scalar p (unop U)) b *
+              have this := s;
+              this))))
+argument has type
+  ((scalar p (unop U)) (a + b) *
+      have this := s;
+      this) =
+    ((scalar p (unop U)) a *
+        have this := s;
+        this) +
+      (scalar p (unop U)) b *
+        have this := s;
+        this
+but function has type
+  (AddCommGrpCat.Hom.hom ((multiply p (a + b)).hom.app U)) s =
+      (AddCommGrpCat.Hom.hom ((multiply p a + multiply p b).hom.app U)) s →
+    (AddCommGrpCat.Hom.hom ((multiply p (a + b)).hom.app U)) s =
+      (AddCommGrpCat.Hom.hom ((multiply p a + multiply p b).hom.app U)) s
+/workspace/scratch/2cb21e4e0864/quartic-proof/quartics/quartic-318-326/proof/experiments/rational-source-hone-20261109/StructureRationalScalar318.lean:50:8: error: (kernel) application type mismatch
+  id
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            (_a *
+                have this := s;
+                this) =
+              (scalar p (unop U)) a *
+                ((scalar p (unop U)) b *
+                  have this := s;
+                  this))
+          (map_mul (scalar p (unop U)) a b)))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              _a =
+                (scalar p (unop U)) a *
+                  ((scalar p (unop U)) b *
+                    have this := s;
+                    this))
+            (mul_assoc ((scalar p (unop U)) a) ((scalar p (unop U)) b)
+              (have this := s;
+              this))))
+        (Eq.refl
+          ((scalar p (unop U)) a *
+            ((scalar p (unop U)) b *
+              have this := s;
+              this)))))
+argument has type
+  ((scalar p (unop U)) (a * b) *
+      have this := s;
+      this) =
+    (scalar p (unop U)) a *
+      ((scalar p (unop U)) b *
+        have this := s;
+        this)
+but function has type
+  (AddCommGrpCat.Hom.hom ((multiply p (a * b)).hom.app U)) s =
+      (AddCommGrpCat.Hom.hom ((CategoryStruct.comp (multiply p b) (multiply p a)).hom.app U)) s →
+    (AddCommGrpCat.Hom.hom ((multiply p (a * b)).hom.app U)) s =
+      (AddCommGrpCat.Hom.hom ((CategoryStruct.comp (multiply p b) (multiply p a)).hom.app U)) s
