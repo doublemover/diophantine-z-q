@@ -16,9 +16,22 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Effective descent on the actual overlap, 2026-11-09
+
+Nine active closures now schedule 339 source checks. The actual reconstructed
+line and its displayed pullback isomorphism now satisfy the original descent
+square on the genuine categorical double fiber product. Canonical sheaf-path
+transport and equality reflection through the exact scheme isomorphism prove
+this compatibility; no extra module-coherence or replacement-datum premise is
+assumed. Actual-datum morphisms and non-affine gluing remain separate.
+
+Round16 binds bounded review of these four new consumers and the exact typed
+tensor repair. All closures still need hosted strict checking and recursive
+audits. No local Lean compilation or accepted-baseline promotion occurred.
+
 ## Original global pullback boundary, 2026-11-09
 
-Nine active closures now schedule 335 source checks. The actual terminal
+The preceding nine closures scheduled 335 source checks. The actual terminal
 integer-sheaf normalization is now identified with the local-at-top generator
 comparison, so the original global scheme-cohomology pullback sends the actual
 boundary of a section to the boundary of its literal f.app pullback. The next
