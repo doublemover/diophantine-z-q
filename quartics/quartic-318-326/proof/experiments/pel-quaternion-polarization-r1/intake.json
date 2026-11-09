@@ -1,0 +1,63 @@
+{
+  "packet": "pel-quaternion-polarization-r1",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "order": [
+    "PELQuaternionAlgebra318",
+    "PELQuaternionAlternatingForm318",
+    "PELQuaternionRealRepresentation318",
+    "PELQuaternionIntegralOrder318",
+    "PELPrincipalOrderCoordinates318",
+    "PELPrincipalOrderPerfect318"
+  ],
+  "new_modules": [
+    "PELQuaternionAlgebra318",
+    "PELQuaternionAlternatingForm318",
+    "PELQuaternionRealRepresentation318",
+    "PELQuaternionIntegralOrder318",
+    "PELPrincipalOrderCoordinates318",
+    "PELPrincipalOrderPerfect318"
+  ],
+  "files": {
+    "PELQuaternionAlgebra318.lean": {
+      "sha256": "522b31006c9bd1e7454abfe6a1cecb35d3fa8ac79a5984060057cae836248fe5",
+      "imports": [
+        "Mathlib.Algebra.Quaternion",
+        "Mathlib.Tactic"
+      ]
+    },
+    "PELQuaternionAlternatingForm318.lean": {
+      "sha256": "1267195c15d2b7c6fa55d93eb66c89e46f2072eb685c8e09af33c741b620132b",
+      "imports": [
+        "Mathlib.LinearAlgebra.BilinearForm.Basic",
+        "PELQuaternionAlgebra318"
+      ]
+    },
+    "PELQuaternionRealRepresentation318.lean": {
+      "sha256": "9db0899824163c729ac6f9bcd0cd3551d773f6fc05f3eaa85ef4fa87f8207a8f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "PELQuaternionAlternatingForm318"
+      ]
+    },
+    "PELQuaternionIntegralOrder318.lean": {
+      "sha256": "39e1994edc732124536e8bed37742fbb1ff418a567f7e80521ea40e2874e06f3",
+      "imports": [
+        "PELQuaternionRealRepresentation318"
+      ]
+    },
+    "PELPrincipalOrderCoordinates318.lean": {
+      "sha256": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+      "imports": [
+        "PELQuaternionIntegralOrder318"
+      ]
+    },
+    "PELPrincipalOrderPerfect318.lean": {
+      "sha256": "3d3c9185d50db6679fd802267502eac9d364973a312053fa1d8561176c80f04d",
+      "imports": [
+        "PELPrincipalOrderCoordinates318"
+      ]
+    }
+  },
+  "full_arithmetic_theorem_proved": false
+}
