@@ -1,0 +1,579 @@
+{
+  "packet": "pel-ramified-residue-fields-r1",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "order": [
+    "PELQuaternionAlgebra318",
+    "PELQuaternionAlternatingForm318",
+    "PELQuaternionRealRepresentation318",
+    "PELQuaternionIntegralOrder318",
+    "PELPrincipalOrderCoordinates318",
+    "PELPrincipalOrderPerfect318",
+    "PELQuaternionAnisotropy318",
+    "PELQuaternionDivision318",
+    "PELOrderTraceDiscriminant318",
+    "PELTraceDualResidues318",
+    "PELTraceDualSaturation318",
+    "PELIntegralOverorder318",
+    "PELQuadraticIntegralInvariants318",
+    "PELQuaternionQuadraticCarrier318",
+    "PELQuaternionIntegralInvariants318",
+    "PELMaximalIntegralOrder318",
+    "PELOrderReductionThree318",
+    "PELReductionResidueField318",
+    "PELActualLevelThreeQuotient318",
+    "QuaternionicRealPeriod318",
+    "QuaternionicHodgeKernel318",
+    "QuaternionicPeriodVariation318",
+    "QuaternionicOrderPeriodQuotient318",
+    "QuaternionicPeriodAlternating318",
+    "PELQuaternionPeriodOrientation318",
+    "QuaternionicMatrixCoordinates318",
+    "PELOriginalPeriodLattice318",
+    "PELPeriodRiemannForm318",
+    "PELOriginalThirdPeriods318",
+    "PELOriginalThreeTorsion318",
+    "PELThreeTorsionOrderAction318",
+    "PELLevelThreeCoordinates318",
+    "PELLevelThreeAlternatingPair318",
+    "PELPeriodTorsionPolarization318",
+    "RegularLeftModuleAutomorphisms318",
+    "PELOriginalLevelMarkings318",
+    "PELLevelThreeSimilitudes318",
+    "PELPrimeNormalizerData318",
+    "PELPrimeOrderConjugation318",
+    "PELPrimeNormalizerRelations318",
+    "PELInertiaNormalizerData318",
+    "PELInertiaOrderInvolutions318",
+    "PELInertiaQuadraticEmbeddings318",
+    "PELInertiaRealFixedPoints318",
+    "PELInertiaPrimeWord318",
+    "PELInertiaFivefoldRelation318",
+    "PELQuaternionNormParity318",
+    "PELActualOrderNormalizer318",
+    "PELPositiveOrderNormalizer318",
+    "PELNormalizerParityQuotient318",
+    "PELPrimeRightLattice318",
+    "PELPrimeLatticeResidues318",
+    "PELPrimeLatticeCokernel318",
+    "PELNormalizerReductionAction318",
+    "PELNormalizerResidueFrobenius318",
+    "PELNormalizerInnerRelations318",
+    "PELNormalizerProjectiveLevel318",
+    "PELGlobalIntegralUnitLifts318",
+    "PELGlobalUnitReductionSurjective318",
+    "PELGlobalNormOneLevelLifts318",
+    "PELIntegralUnitSpan318",
+    "PELNormalizerTraceIntegral318",
+    "PELNormOneNormalizerIntegral318",
+    "PELSquareNormNormalizerKernel318",
+    "PELNormalizerQuadraticCertificates318",
+    "PELPrimitiveIntegerCoordinates318",
+    "PELPrimitiveRationalCoordinates318",
+    "PELPrimitiveNormalizerNorm318",
+    "PELNormalizerPrimitiveRepresentative318",
+    "PELNormalizerDivisorWords318",
+    "PELPositiveNormalizerNormalForm318",
+    "PELOriginalRamifiedResidues318",
+    "PELOriginalRamifiedKernels318",
+    "PELOriginalRamifiedSquare318",
+    "PELOriginalRamifiedDivision318"
+  ],
+  "new_modules": [
+    "PELOriginalRamifiedResidues318",
+    "PELOriginalRamifiedKernels318",
+    "PELOriginalRamifiedSquare318",
+    "PELOriginalRamifiedDivision318"
+  ],
+  "files": {
+    "PELQuaternionAlgebra318.lean": {
+      "sha256": "522b31006c9bd1e7454abfe6a1cecb35d3fa8ac79a5984060057cae836248fe5",
+      "imports": [
+        "Mathlib.Algebra.Quaternion",
+        "Mathlib.Tactic"
+      ]
+    },
+    "PELQuaternionAlternatingForm318.lean": {
+      "sha256": "1267195c15d2b7c6fa55d93eb66c89e46f2072eb685c8e09af33c741b620132b",
+      "imports": [
+        "Mathlib.LinearAlgebra.BilinearForm.Basic",
+        "PELQuaternionAlgebra318"
+      ]
+    },
+    "PELQuaternionRealRepresentation318.lean": {
+      "sha256": "8fd49e02d3327d7354a2e289a156a524d01ad2ca3011d9de1fae6f32b2142eb4",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "PELQuaternionAlternatingForm318"
+      ]
+    },
+    "PELQuaternionIntegralOrder318.lean": {
+      "sha256": "1ddd4849fb7f8405605a4460c1eb9ba5cd36ad0dc3cfd142ecf38cfbe5261744",
+      "imports": [
+        "PELQuaternionRealRepresentation318"
+      ]
+    },
+    "PELPrincipalOrderCoordinates318.lean": {
+      "sha256": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+      "imports": [
+        "PELQuaternionIntegralOrder318"
+      ]
+    },
+    "PELPrincipalOrderPerfect318.lean": {
+      "sha256": "d87dc5726114e1e7aeddac0b2dea093c90ada4087870fcdc96e4a4b1f5bb0d76",
+      "imports": [
+        "PELPrincipalOrderCoordinates318"
+      ]
+    },
+    "PELQuaternionAnisotropy318.lean": {
+      "sha256": "4fcc1277b2dd6f3a1d9776b5db8f7dc5ceff279fd52f02359a73d3610ba3e6e2",
+      "imports": [
+        "Mathlib.Data.ZMod.Basic",
+        "PELQuaternionAlgebra318"
+      ]
+    },
+    "PELQuaternionDivision318.lean": {
+      "sha256": "5c810bac3c3e2e2638ef12bd211caaca5f743fa69e97f5e640b54963d8b6d155",
+      "imports": [
+        "PELQuaternionAnisotropy318"
+      ]
+    },
+    "PELOrderTraceDiscriminant318.lean": {
+      "sha256": "8b5072dbd653dbad41c4f8f35d4326d8acd0989121bdad5bd2a8f81f272fd11e",
+      "imports": [
+        "PELPrincipalOrderPerfect318",
+        "PELQuaternionDivision318"
+      ]
+    },
+    "PELTraceDualResidues318.lean": {
+      "sha256": "35647444e8bd552663ffd2b7e1e198ea839ca01a5f05d6245383ebf814b1ba6a",
+      "imports": [
+        "PELOrderTraceDiscriminant318"
+      ]
+    },
+    "PELTraceDualSaturation318.lean": {
+      "sha256": "637a8ccfa2168442d4c6db10f2a190f49600958fd993b856b61441f2165254cf",
+      "imports": [
+        "PELTraceDualResidues318"
+      ]
+    },
+    "PELIntegralOverorder318.lean": {
+      "sha256": "0a983c46a422686542bfef8ab176f9fa84db0ad73fbf295543a94d936e69cae1",
+      "imports": [
+        "PELTraceDualSaturation318"
+      ]
+    },
+    "PELQuadraticIntegralInvariants318.lean": {
+      "sha256": "7e79a1b915cbf5b9838237571e7df9f4c7512ef860215ce659b0f8aa4b0ef2e5",
+      "imports": [
+        "Mathlib.Algebra.QuadraticAlgebra.Basic",
+        "Mathlib.RingTheory.IntegralClosure.Algebra.Basic",
+        "Mathlib.RingTheory.Polynomial.RationalRoot",
+        "PELIntegralOverorder318"
+      ]
+    },
+    "PELQuaternionQuadraticCarrier318.lean": {
+      "sha256": "9520fcdefd97410940fb229afa97d7f961c65c86f7af0c34fb7a7d291347ca8a",
+      "imports": [
+        "PELQuadraticIntegralInvariants318"
+      ]
+    },
+    "PELQuaternionIntegralInvariants318.lean": {
+      "sha256": "2e26815443ad810ae54b48b13b7b88abd836aabd624e8b356c78aa649c1aef9c",
+      "imports": [
+        "PELQuaternionQuadraticCarrier318"
+      ]
+    },
+    "PELMaximalIntegralOrder318.lean": {
+      "sha256": "efc87fa950aaf14e50f877abba5a8d5b5e040243b6a7eb48118e8d5984b9b26a",
+      "imports": [
+        "PELQuaternionIntegralInvariants318"
+      ]
+    },
+    "PELOrderReductionThree318.lean": {
+      "sha256": "45f6c7a2b9a5e9560865a1f12f0f1795ef1fb5a6a77391126d04c9f141791327",
+      "imports": [
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.RingTheory.Congruence.Hom",
+        "PELMaximalIntegralOrder318"
+      ]
+    },
+    "PELReductionResidueField318.lean": {
+      "sha256": "bc051107f96fe1728eb4365eb277ccdf5df1187afbbf4e896415d660d45713d6",
+      "imports": [
+        "LevelThreeKernel318",
+        "Mathlib.Algebra.QuadraticAlgebra.Basic",
+        "PELOrderReductionThree318"
+      ]
+    },
+    "PELActualLevelThreeQuotient318.lean": {
+      "sha256": "ef584048c43b1f89336a583009ec4bc8c683d272a79e9efd0adbc370d48494f1",
+      "imports": [
+        "PELReductionResidueField318"
+      ]
+    },
+    "QuaternionicRealPeriod318.lean": {
+      "sha256": "996fc76819df4867affa9870c6bb24ce5303db9db4f0f6f164070ab922f8ddda",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Data.Matrix.Basic",
+        "Mathlib.LinearAlgebra.Matrix.ToLin",
+        "Mathlib.Tactic"
+      ]
+    },
+    "QuaternionicHodgeKernel318.lean": {
+      "sha256": "0fe8c5a8f62352545df0208060fcd390c77a48caaa05182a82f85c79af339f4e",
+      "imports": [
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "QuaternionicPeriodVariation318.lean": {
+      "sha256": "2b98d7f09952efd2cc13dfb0a3bbc7d13051f4d808e4e48aed03b0668de8406f",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "QuaternionicHodgeKernel318"
+      ]
+    },
+    "QuaternionicOrderPeriodQuotient318.lean": {
+      "sha256": "62e91f05f2ef54af72b6f568d6d2318a5d73cd36d577a0c41288d162357b0491",
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Defs",
+        "QuaternionicPeriodVariation318"
+      ]
+    },
+    "QuaternionicPeriodAlternating318.lean": {
+      "sha256": "6325322f28ad8d74e844fcb5c0b837691938f8015c9fe555ca1f030af1a0e3f1",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "PELQuaternionPeriodOrientation318.lean": {
+      "sha256": "5a610bee8ef54e00504451612493134ef2280898afd7bba2a5a05c3714cc31f3",
+      "imports": [
+        "PELQuaternionRealRepresentation318",
+        "QuaternionicPeriodAlternating318"
+      ]
+    },
+    "QuaternionicMatrixCoordinates318.lean": {
+      "sha256": "b5af55c6fab29eff6af8cc5038761b1f19444bd1cfdf5a093c74842591467b77",
+      "imports": [
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "QuaternionicRealPeriod318"
+      ]
+    },
+    "PELOriginalPeriodLattice318.lean": {
+      "sha256": "d78cb72e44bfd50d730afb767123840bbfba63c1b7f91a08096f83f34f63c8ff",
+      "imports": [
+        "Mathlib.Algebra.Module.ZLattice.Basic",
+        "Mathlib.Topology.Algebra.Group.Quotient",
+        "PELPrincipalOrderCoordinates318",
+        "QuaternionicMatrixCoordinates318",
+        "QuaternionicOrderPeriodQuotient318"
+      ]
+    },
+    "PELPeriodRiemannForm318.lean": {
+      "sha256": "6e4c31ce20e8bc8dbe0c5ba8155ba2039a8d768bc9545332e8c54804baf24bf8",
+      "imports": [
+        "PELOriginalPeriodLattice318",
+        "PELPrincipalOrderPerfect318",
+        "PELQuaternionPeriodOrientation318"
+      ]
+    },
+    "PELOriginalThirdPeriods318.lean": {
+      "sha256": "0b3d5419c8e1ae479b0dde2b6cf2ec9aedd0b5aebbbf71c1b637991b55d4da1d",
+      "imports": [
+        "PELActualLevelThreeQuotient318",
+        "PELOriginalPeriodLattice318"
+      ]
+    },
+    "PELOriginalThreeTorsion318.lean": {
+      "sha256": "b9cb94b1bd68304afd864c0d54be76d1b1e297ea2750e35d2db883c118e91560",
+      "imports": [
+        "PELOriginalThirdPeriods318"
+      ]
+    },
+    "PELThreeTorsionOrderAction318.lean": {
+      "sha256": "a340ac06ae2827dfcc6555daf7fcaae497dafe53759d70c988f317b730b3bbb4",
+      "imports": [
+        "PELOriginalThreeTorsion318"
+      ]
+    },
+    "PELLevelThreeCoordinates318.lean": {
+      "sha256": "b6e2409ee1082c79a1996497b6df38638cbe9fc44d8f06d2ed718be865410caa",
+      "imports": [
+        "PELThreeTorsionOrderAction318"
+      ]
+    },
+    "PELLevelThreeAlternatingPair318.lean": {
+      "sha256": "925f7ce420cd06ec94d079b370d576eceae33ebdc2e7c72a5585822b2d3eed1c",
+      "imports": [
+        "PELLevelThreeCoordinates318"
+      ]
+    },
+    "PELPeriodTorsionPolarization318.lean": {
+      "sha256": "78d30784009dd3fd6cdb7bbfc416f3764bfd785079d9a6fd72c42c8f59c3f5b7",
+      "imports": [
+        "PELLevelThreeAlternatingPair318",
+        "PELPeriodRiemannForm318"
+      ]
+    },
+    "RegularLeftModuleAutomorphisms318.lean": {
+      "sha256": "fd11a6285861aee363e89115e3b517250c3737e29140f91d1d2f242ce9d43140",
+      "imports": [
+        "Mathlib.Algebra.Group.End",
+        "Mathlib.Algebra.Ring.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    "PELOriginalLevelMarkings318.lean": {
+      "sha256": "eefa8e421c07d1b1096d9f30640765f6dc016d0a7de45791c2914521efced507",
+      "imports": [
+        "PELPeriodTorsionPolarization318",
+        "RegularLeftModuleAutomorphisms318"
+      ]
+    },
+    "PELLevelThreeSimilitudes318.lean": {
+      "sha256": "686fa808a41656a5bcff943a2c9764a7246798f7ce2d2cf205b8807b5366c945",
+      "imports": [
+        "PELOriginalLevelMarkings318"
+      ]
+    },
+    "PELPrimeNormalizerData318.lean": {
+      "sha256": "34aa44ea111a79e61d759133782b368298d6a0672fa9ec33068a5d011eb7601a",
+      "imports": [
+        "PELLevelThreeSimilitudes318"
+      ]
+    },
+    "PELPrimeOrderConjugation318.lean": {
+      "sha256": "92dfdf3c5a5b41508d1d13b03dde86247ea8053b83de565fdd67400fe58e1a8a",
+      "imports": [
+        "PELPrimeNormalizerData318"
+      ]
+    },
+    "PELPrimeNormalizerRelations318.lean": {
+      "sha256": "dbbae0ae76c71933a671026cb74bed75f0d0b726f118c0921125650f911f51d5",
+      "imports": [
+        "PELPrimeOrderConjugation318"
+      ]
+    },
+    "PELInertiaNormalizerData318.lean": {
+      "sha256": "7bbe68d97b05f5e4580e945b5f5bdbc172a4dc71fc98f46cedfc1735312f6093",
+      "imports": [
+        "InertiaLabels318",
+        "PELPrimeNormalizerRelations318"
+      ]
+    },
+    "PELInertiaOrderInvolutions318.lean": {
+      "sha256": "af3b67013ad480d728a63423aeab886b1e68a9777ca4df61863d314bc3404632",
+      "imports": [
+        "PELInertiaNormalizerData318"
+      ]
+    },
+    "PELInertiaQuadraticEmbeddings318.lean": {
+      "sha256": "33eb9da9950dc819a2b6c0efe111e6135c45697d57413f8d6b4c2ddec48ee49b",
+      "imports": [
+        "PELInertiaOrderInvolutions318"
+      ]
+    },
+    "PELInertiaRealFixedPoints318.lean": {
+      "sha256": "b86aba351a94ec3a74b865d041a6299f889c8f5936c2961230962e6dca60450b",
+      "imports": [
+        "PELInertiaQuadraticEmbeddings318"
+      ]
+    },
+    "PELInertiaPrimeWord318.lean": {
+      "sha256": "64b31a21e1003e856ae6a88f522d0aa4070ba0dcbd17afd6122056f7e7b3767f",
+      "imports": [
+        "PELInertiaRealFixedPoints318"
+      ]
+    },
+    "PELInertiaFivefoldRelation318.lean": {
+      "sha256": "4f9c882c7c9a4d7ffb18605aede47e17eba111b1b603f48ac88f2fedae223007",
+      "imports": [
+        "PELInertiaPrimeWord318"
+      ]
+    },
+    "PELQuaternionNormParity318.lean": {
+      "sha256": "c68b6778cab470a6c62f680748579f1d2a32701942159a44e17447118cd48138",
+      "imports": [
+        "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+        "PELInertiaFivefoldRelation318"
+      ]
+    },
+    "PELActualOrderNormalizer318.lean": {
+      "sha256": "8fe62551ec1e115384e3649a44a416e440f5cd4ebbc724abfa19b40030262c24",
+      "imports": [
+        "PELQuaternionNormParity318"
+      ]
+    },
+    "PELPositiveOrderNormalizer318.lean": {
+      "sha256": "57ba114d061cb4ba25f0fc5814b6707e9c125782ebaae9ffd02eba62ae5bedbe",
+      "imports": [
+        "PELActualOrderNormalizer318"
+      ]
+    },
+    "PELNormalizerParityQuotient318.lean": {
+      "sha256": "5cfc5549cf746b9ba1ee97eb040d592832c97e4af92423f8fd5efb47d1cd1758",
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "PELPositiveOrderNormalizer318"
+      ]
+    },
+    "PELPrimeRightLattice318.lean": {
+      "sha256": "6f642ce79ea7a1fa8c47f52e386b2a1ba69f76e764c53f138b9fac36c2c5b1a9",
+      "imports": [
+        "PELNormalizerParityQuotient318"
+      ]
+    },
+    "PELPrimeLatticeResidues318.lean": {
+      "sha256": "52dcfa68c2d1ea3c6d1ee1111116e41cfd1c093951c030382a07501d6653e3bc",
+      "imports": [
+        "PELPrimeRightLattice318"
+      ]
+    },
+    "PELPrimeLatticeCokernel318.lean": {
+      "sha256": "83ad33e5f722fbade9d175a83b159767ed41ad33bfd0f0fae116fc04d95c6847",
+      "imports": [
+        "PELPrimeLatticeResidues318"
+      ]
+    },
+    "PELNormalizerReductionAction318.lean": {
+      "sha256": "b68a867bea980cb5b2f4d7d449c6946ed2dd360196cec6c584d8adb8acaf82aa",
+      "imports": [
+        "PELPrimeLatticeCokernel318"
+      ]
+    },
+    "PELNormalizerResidueFrobenius318.lean": {
+      "sha256": "754cf0930f6deaa6f0c09544badc99f07ff9ecb420f33de711d8df4440e6e404",
+      "imports": [
+        "PELNormalizerReductionAction318"
+      ]
+    },
+    "PELNormalizerInnerRelations318.lean": {
+      "sha256": "07b46c6dbb4adb0c06e1ecf60272c959c06f52f8c8a376a60ccf97ce4e38c67a",
+      "imports": [
+        "PELNormalizerResidueFrobenius318"
+      ]
+    },
+    "PELNormalizerProjectiveLevel318.lean": {
+      "sha256": "7ce3ef62be42f9be6ba8c71bb77e87491ee65ff5ddb4864cdcb80ffcdc6f59c9",
+      "imports": [
+        "Mathlib.Algebra.Group.Subgroup.ZPowers.Basic",
+        "Mathlib.Algebra.Group.Units.Equiv",
+        "PELNormalizerInnerRelations318"
+      ]
+    },
+    "PELGlobalIntegralUnitLifts318.lean": {
+      "sha256": "d64a0d83c4b6cbf888da414f7b6bea54982407c7c070e603a6966f7ea2a4761f",
+      "imports": [
+        "PELNormalizerProjectiveLevel318"
+      ]
+    },
+    "PELGlobalUnitReductionSurjective318.lean": {
+      "sha256": "b049243b42678c9b9234bf58280ebda723bb056c5b7091aaf20f4327cee096ff",
+      "imports": [
+        "PELGlobalIntegralUnitLifts318"
+      ]
+    },
+    "PELGlobalNormOneLevelLifts318.lean": {
+      "sha256": "f61140dda445f96302679781cc68787f5fcc5c33cc54dd00079579c0b7ab4c1a",
+      "imports": [
+        "PELGlobalUnitReductionSurjective318"
+      ]
+    },
+    "PELIntegralUnitSpan318.lean": {
+      "sha256": "1fdc6969578628a7b221f75bc3e1ce18f6244fad692953d6c4db6e3b07d54c5d",
+      "imports": [
+        "PELGlobalNormOneLevelLifts318"
+      ]
+    },
+    "PELNormalizerTraceIntegral318.lean": {
+      "sha256": "7e493a75477abe8942751879c4458386e8af0f4ede5b2a8127f1f983b82ed56c",
+      "imports": [
+        "PELIntegralUnitSpan318"
+      ]
+    },
+    "PELNormOneNormalizerIntegral318.lean": {
+      "sha256": "caf5282d11ad4b73cde0d85d687547fe0db93d8e869db650faa4b1a8002073af",
+      "imports": [
+        "PELNormalizerTraceIntegral318"
+      ]
+    },
+    "PELSquareNormNormalizerKernel318.lean": {
+      "sha256": "e839dfe0edd74d9e344db4e25be592f883b2169b29e3200a7ad4a89406022f87",
+      "imports": [
+        "PELNormOneNormalizerIntegral318"
+      ]
+    },
+    "PELNormalizerQuadraticCertificates318.lean": {
+      "sha256": "9b76b7a18f6e3c58e782509eff4b53c29620d4499ed4c4e0ab34efb59e086544",
+      "imports": [
+        "PELSquareNormNormalizerKernel318"
+      ]
+    },
+    "PELPrimitiveIntegerCoordinates318.lean": {
+      "sha256": "a3003c80a61fc8656ca2d9a459c058b8750896a357c297e88a3d1dc3e5db916a",
+      "imports": [
+        "Mathlib.Data.Int.GCD",
+        "PELNormalizerQuadraticCertificates318"
+      ]
+    },
+    "PELPrimitiveRationalCoordinates318.lean": {
+      "sha256": "458e60477882a85f0e79d554ccec40143f1120d976ded2e6a0680513cfb8fea9",
+      "imports": [
+        "PELPrimitiveIntegerCoordinates318"
+      ]
+    },
+    "PELPrimitiveNormalizerNorm318.lean": {
+      "sha256": "fcf8a74cd86cf6555470e25d66d14991431d21717dd7d8006c9d871c8cc1baf3",
+      "imports": [
+        "PELPrimitiveRationalCoordinates318"
+      ]
+    },
+    "PELNormalizerPrimitiveRepresentative318.lean": {
+      "sha256": "85005f18faae77402f9324d92d78e2a51b351a56c73e471940012430dc2f790d",
+      "imports": [
+        "PELPrimitiveNormalizerNorm318"
+      ]
+    },
+    "PELNormalizerDivisorWords318.lean": {
+      "sha256": "983e8a70b9d4e80613ea71679374edf2038828b9fe6e78b76439f6560634718f",
+      "imports": [
+        "PELNormalizerPrimitiveRepresentative318"
+      ]
+    },
+    "PELPositiveNormalizerNormalForm318.lean": {
+      "sha256": "e70677e755ebd0985dd48d32ef1985b22e0228a002a0b50f494bcab442405de0",
+      "imports": [
+        "PELNormalizerDivisorWords318"
+      ]
+    },
+    "PELOriginalRamifiedResidues318.lean": {
+      "sha256": "7d621ade3ce096a3bd118e5d479507d4b58d6265cb58489f177edbf43bdb6faf",
+      "imports": [
+        "PELPositiveNormalizerNormalForm318"
+      ]
+    },
+    "PELOriginalRamifiedKernels318.lean": {
+      "sha256": "7ed4b161d094b2608be09d2eaf3bdb0ea24ec5f2cc37dde142abc65f2a6da501",
+      "imports": [
+        "PELOriginalRamifiedResidues318"
+      ]
+    },
+    "PELOriginalRamifiedSquare318.lean": {
+      "sha256": "ee12b695d4b83d6546b44d545cc698303491c0ee11a816b8377e56b5b32f4464",
+      "imports": [
+        "PELOriginalRamifiedKernels318"
+      ]
+    },
+    "PELOriginalRamifiedDivision318.lean": {
+      "sha256": "000e98f75bde8a5841b4afdb0923de5c4faa454efc51ba5357c40b71fff75ed4",
+      "imports": [
+        "PELOriginalRamifiedSquare318"
+      ]
+    }
+  },
+  "full_arithmetic_theorem_proved": false
+}
