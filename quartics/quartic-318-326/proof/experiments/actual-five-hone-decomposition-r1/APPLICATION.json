@@ -1,0 +1,139 @@
+{
+  "claim": "Unconditional additive source-H1 decomposition for each original quotient, and an explicitly conditional fivefold decomposition retaining the common transfer kernel.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Pending hosted recheck after precise f38f064 failure; unchanged statements/maps, explicit proof-context/elaboration repair only. No local Lean compilation or independent acceptance.",
+  "new_sources": {
+    "SplitAdditiveRetraction318.lean": "fc7cf66164739c31f0da1bef3067e1245c67d1371fe1514a79079a68334fdf07",
+    "FiniteSplitTransfer318.lean": "c73171930f9509643e4a6b7b62726ffb7412ee858023a003b28e073d3f8f7913",
+    "ActualFiveHOneDecomposition318.lean": "8fbc75e5c90f0a2174449c32e4260b01011dae1751270001b9108f8d0f2ffd2e"
+  },
+  "readme_sha256": "9e018ccf192edd02b033e694530a8840add2a6dc56400aaf09e9c3b5a70e3709",
+  "copy_bindings_sha256": "7c76fd66d8f5576afd9683eb267c13ed34f277e5d2513e4cde3fd6e2c4a9e304",
+  "intake_sha256": "7c97cfa27e57e779722201559be149357ec6776e556e1d0ce85a9d13f360880e",
+  "obligations": [
+    {
+      "name": "Actual carriers and coefficient scope",
+      "required": "The source and each target must be actual structure-sheaf H1 on the original completed schemes, with their existing additive groups.",
+      "constructed": "SourceHOne is ActualSourceHOnePullbacks318.SourceHOne. TargetHOne branches are structureH of the four CompletedCharacterSchemeMaps318.Target i and FifthCompletedGlobal318.Target, in degree 1.",
+      "justification": "No differential section space, formal dimension model, rational module instance or Picard tangent space is substituted. The additive construction requires only the existing AddCommGroup instances.",
+      "evidence": [
+        "ActualSourceHOnePullbacks318.SourceHOne",
+        "ActualFiveHOneDecomposition318.TargetHOne",
+        "ActualFiveHOneDecomposition318.targetAddCommGroup"
+      ]
+    },
+    {
+      "name": "Complete index coverage",
+      "required": "Every complementary quotient and the distinct fifth quotient must appear exactly once.",
+      "constructed": "Index is Option (Fin 4); none denotes the fifth quotient and some i denotes complementary quotient i.",
+      "justification": "TargetHOne, pullback and transfer exhaust both constructors. All simultaneous sums and kernels range over the full Index, not a proper subset.",
+      "evidence": [
+        "ActualFiveHOneDecomposition318.Index",
+        "ActualFiveHOneDecomposition318.pullback",
+        "ActualFiveHOneDecomposition318.transfer"
+      ]
+    },
+    {
+      "name": "Original maps and directions",
+      "required": "The pullback goes from each target H1 to the common source H1; the transfer goes from that same source back to that target.",
+      "constructed": "The wrappers are the unchanged ActualSourceHOnePullbacks318 and ActualSourceHOneTransfers318 maps.",
+      "justification": "The copied producer transfers use the inverse of the actual affine direct-image/source comparison followed by the original cohomological trace. No freely chosen splitting or inverse replaces those concrete maps.",
+      "evidence": [
+        "ActualSourceHOneTransfers318.characterTransfer",
+        "ActualSourceHOneTransfers318.fifthTransfer",
+        "ActualFiveHOneDecomposition318.split"
+      ]
+    },
+    {
+      "name": "Normalization and transition maps",
+      "required": "The scalar in each transfer and the original direct-image comparison must be retained.",
+      "constructed": "The producer transports its original normalized trace/8; the new packet only composes and adds those additive maps.",
+      "justification": "The existing character_split and fifth_split supply transfer(pullback(x))=x. The new inverse is pullback(target coordinate) plus the kernel inclusion, with no extra degree factor. Exact predecessor hashes are recorded in COPY_BINDINGS.json.",
+      "evidence": [
+        "ActualSourceHOneTransfers318.character_split",
+        "ActualSourceHOneTransfers318.fifth_split",
+        "SplitAdditiveRetraction318.equivalence_symm_apply"
+      ]
+    },
+    {
+      "name": "Unconditional source decomposition",
+      "required": "A split additive map must decompose the entire source, including any part outside the pullback image.",
+      "constructed": "equivalence sends x to (t x, x-p(t x)) and its inverse sends (y,z) to p y+z. The second coordinate is in the literal AddMonoidHom kernel.",
+      "justification": "transfer_residual proves the kernel membership; left_inv and right_inv verify both directions. pullback_eq_kernel_iff proves the image/kernel intersection is zero. No surjectivity of the original pullback is assumed.",
+      "evidence": [
+        "SplitAdditiveRetraction318.transfer_residual",
+        "SplitAdditiveRetraction318.equivalence",
+        "SplitAdditiveRetraction318.pullback_eq_kernel_iff",
+        "ActualFiveHOneDecomposition318.quotientDecomposition"
+      ]
+    },
+    {
+      "name": "Off-diagonal compatibility remains explicit",
+      "required": "Assembling the individual splittings requires all off-diagonal composites t_i p_j to vanish for i not equal to j.",
+      "constructed": "CrossTermsVanish states exactly this for the original maps and is an explicit argument of fivefoldDecomposition and fivefoldEquivalence.",
+      "justification": "FiniteSplitTransfer318.transfer_sum uses Finset.sum_eq_single with every off-diagonal term supplied by hcross. The packet supplies no proof of CrossTermsVanish and does not infer it from individual splittings.",
+      "evidence": [
+        "FiniteSplitTransfer318.transfer_sum",
+        "ActualFiveHOneDecomposition318.CrossTermsVanish",
+        "ActualFiveHOneDecomposition318.fivefoldDecomposition"
+      ]
+    },
+    {
+      "name": "Whole-source exhaustion remains explicit",
+      "required": "Even with orthogonality, proving fivefold spanning requires that the intersection of all transfer kernels is zero.",
+      "constructed": "JointlyDetectZero requires every actual source class killed by all transfers to be zero; sumPullback_surjective_iff identifies it with surjectivity under CrossTermsVanish.",
+      "justification": "fivefoldDecomposition retains allTransfers.ker as a separate factor. The conditional equivalence requires JointlyDetectZero. No differential-basis theorem is applied to this different carrier and no dimension hypothesis is inserted.",
+      "evidence": [
+        "FiniteSplitTransfer318.decomposition_second",
+        "FiniteSplitTransfer318.surjective_iff_commonKernel_zero",
+        "ActualFiveHOneDecomposition318.JointlyDetectZero",
+        "ActualFiveHOneDecomposition318.sumPullback_surjective_iff"
+      ]
+    },
+    {
+      "name": "Consumer object and component identity",
+      "required": "Any resulting equivalence must be the sum of the original five pullbacks, with inverse the original five transfers.",
+      "constructed": "fivefoldEquivalence_apply is exactly the finite sum; fivefoldEquivalence_symm is exactly allTransfers.",
+      "justification": "The generic equivalence is AddEquiv.ofBijective on the original sumPullback hom. The inverse identity follows from the already displayed transfer_sum and the equivalence inverse law, not from an arbitrary coordinate choice.",
+      "evidence": [
+        "FiniteSplitTransfer318.equivalence_apply",
+        "FiniteSplitTransfer318.equivalence_symm_apply",
+        "ActualFiveHOneDecomposition318.fivefoldEquivalence_apply",
+        "ActualFiveHOneDecomposition318.fivefoldEquivalence_symm"
+      ]
+    },
+    {
+      "name": "Validation, downstream scope and historical status",
+      "required": "A source-level continuation must not be reported as kernel checked, independently accepted, or as resolving broader arithmetic obligations.",
+      "constructed": "New modules are uncompiled drafts. The 23 producer files, original application and receipt are byte-bound; all earlier sources and receipts remain untouched.",
+      "justification": "The predecessor README already identifies pairwise orthogonality and H1 spanning as open. This packet derives a new explicit algebraic complement from those earlier inputs, rather than claiming a newly discovered gap. Hosted strict checks, recursive axiom audit and independent acceptance remain pending. No H1 dimension, Serre duality, Picard tangent, representability, isogeny or final arithmetic theorem is claimed.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "../affine-open-comparison-20261109/README.md"
+      ]
+    }
+  ],
+  "not_claimed": [
+    "CrossTermsVanish",
+    "JointlyDetectZero",
+    "Rational linearity of these new additive equivalences",
+    "H1 dimension or unconditional fivefold H1 spanning",
+    "Picard tangent identification, Serre duality or Jacobian isogeny",
+    "Independent mathematical acceptance or strict Lean verification"
+  ],
+  "revision_of": "actual-five-hone-decomposition-20261109",
+  "modified_sources": {
+    "FiniteSplitTransfer318.lean": {
+      "original_sha256": "319693d10ecb6047a8a27ec2e1dee3d811cfc65857397111bca015ca2c536c85",
+      "candidate_sha256": "c73171930f9509643e4a6b7b62726ffb7412ee858023a003b28e073d3f8f7913"
+    },
+    "SplitAdditiveRetraction318.lean": {
+      "original_sha256": "9112211d66f2208973a0dfb2d0863304961f2f340b0c946176367173045e9309",
+      "candidate_sha256": "fc7cf66164739c31f0da1bef3067e1245c67d1371fe1514a79079a68334fdf07"
+    }
+  },
+  "revision_justification": "Exact hosted failure repair only; all source carrier, full-index/cover, map direction, normalization and consumer-identity obligations remain unchanged. Historical and verification status is reported in the revision README."
+}

@@ -1,0 +1,98 @@
+{
+  "claim": "Pending bounded polynomial and original-contact-field principal-part identities for the original infinity localization denominator.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "UNCOMPILED_DRAFT; hosted strict verification, recursive audit and independent acceptance pending.",
+  "new_sources": {
+    "PolynomialPrincipalParts318.lean": "24f6f72c6555d04e78232447a59b75c3a57ff46a18486ff8449c7cbc600c3745",
+    "ContactInfinityPrincipalParts318.lean": "0e4487af5cb5da3b45a64bedb8c20a891e717958e5c2681bb8303cf31c3a5111"
+  },
+  "readme_sha256": "5955b5c08aca1cb7e6fbf99dfa3c70413640e89cbac394a0546289634eab3cac",
+  "intake_sha256": "3f9c8916d6ca32d693a5b1dc31a59035f83337d1f0844d1b9bded3ab6e8a6e7e",
+  "obligations": [
+    {
+      "name": "Coefficient field",
+      "required": "Use a genuine field for polynomial Bezout and division.",
+      "constructed": "The generic theorem quantifies over Field K; the contact consumer uses Q.",
+      "justification": "No specialized nonsquare, separability or H1 dimension input is introduced.",
+      "evidence": [
+        "PolynomialPrincipalParts318.decomposition"
+      ]
+    },
+    {
+      "name": "Original denominator",
+      "required": "The concrete D must be the denominator of the actual infinity localization.",
+      "constructed": "denominator c abbreviates InfinityOpenChart318.denominator c.",
+      "justification": "The consumer invokes denominator_at_zero_ne_zero for that same c and D, not a replacement with the same zeros.",
+      "evidence": [
+        "ContactInfinityPrincipalParts318.denominator",
+        "ContactInfinityPrincipalParts318.polynomial_decomposition"
+      ]
+    },
+    {
+      "name": "All exponents",
+      "required": "Cover every natural pole and localization exponent, including zero.",
+      "constructed": "n and m are arbitrary natural numbers.",
+      "justification": "Coprime powers and monic X^n division apply at zero exponents too; degree less than zero forces the zero remainder without a separate omitted case.",
+      "evidence": [
+        "PolynomialPrincipalParts318.decomposition"
+      ]
+    },
+    {
+      "name": "Coprimality input",
+      "required": "X and D must be coprime before raising to powers.",
+      "constructed": "coprime_coordinate derives this from D.eval 0 not equal to zero.",
+      "justification": "Irreducibility of X gives divisibility or coprimality. Evaluating a putative X-divisibility at zero rules out divisibility.",
+      "evidence": [
+        "PolynomialPrincipalParts318.coprime_coordinate"
+      ]
+    },
+    {
+      "name": "Exact polynomial identity and bound",
+      "required": "The principal numerator must have degree below n and the identity must be exact.",
+      "constructed": "The proof takes the monic remainder of P times its Bezout coefficient modulo X^n.",
+      "justification": "modByMonic_add_div and the Bezout equation give P=R D^m+S X^n with the displayed sign and no dropped unit factor.",
+      "evidence": [
+        "PolynomialPrincipalParts318.decomposition"
+      ]
+    },
+    {
+      "name": "Original coordinate and field",
+      "required": "Evaluate at the original infinity coordinate inside the original contact field.",
+      "constructed": "The consumer uses InfinityFieldCoordinates318.u c and L c with its existing Kummer field structure.",
+      "justification": "No unrelated Laurent-series model or newly selected field equivalence replaces the actual coordinate.",
+      "evidence": [
+        "ContactInfinityPrincipalParts318.fraction_decomposition"
+      ]
+    },
+    {
+      "name": "Division is valid",
+      "required": "Every denominator in the actual field identity must be nonzero.",
+      "constructed": "u_ne_zero and denominator_at_u_ne_zero supply both bases; powers inherit nonvanishing.",
+      "justification": "D(u) nonvanishing uses the already proved polynomial_coordinate_injective and the original denominator_ne_zero.",
+      "evidence": [
+        "ContactInfinityPrincipalParts318.denominator_at_u_ne_zero",
+        "InfinityFieldCoordinates318.polynomial_coordinate_injective"
+      ]
+    },
+    {
+      "name": "Identity consumed downstream",
+      "required": "The rational identity must be the evaluation of the exact polynomial decomposition.",
+      "constructed": "fraction_decomposition evaluates P=R D^m+S X^n and clears only proved nonzero denominators.",
+      "justification": "The remaining numerator bound is unchanged. The infinity-regular term has denominator only D(u)^m and the pole term denominator only u^n.",
+      "evidence": [
+        "ContactInfinityPrincipalParts318.fraction_decomposition"
+      ]
+    },
+    {
+      "name": "Scope and validation",
+      "required": "Do not infer an actual overlap quotient computation from a field identity.",
+      "constructed": "Actual overlap-coefficient representation, regular-term lift, finite-image cancellation and fivefold H1 identification remain separate consumers.",
+      "justification": "This is an uncompiled helper continuation with structural checks only. No H1 dimension, spanning, independent acceptance or local Lean success is asserted. Existing denominator and coordinate proofs remain unchanged.",
+      "evidence": [
+        "README.md",
+        "intake.json"
+      ]
+    }
+  ]
+}

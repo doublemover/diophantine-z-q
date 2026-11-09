@@ -16,9 +16,23 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## H1 repair and principal-parts continuation, 2026-11-09
+
+The active ten-packet matrix checks 194 modules. Two exact failed hosted H1
+packets are superseded by versioned revisions: explicit section hypotheses in
+the split-transfer lemmas, and explicit naturality for the actual Mayer-Vietoris
+square arrows. Original failed source bytes, logs and results are retained in
+the respective old packet's `hosted-failure-f38f064` directory. The new two-source
+principal-parts packet proves polynomial and actual-field fraction decomposition;
+it does not yet identify the regular term with the infinity-ring image or prove
+the dimension of H1. All three revisions are pending hosted Lean checks.
+The bounded internal source review is `review-round4.json` in the continuation
+review directory. The experiment workflow now lets running checks finish across
+rapid pushes; GitHub may replace an older pending run with the latest pending run.
+
 ## Current hosted revisions and exact successes, 2026-11-09
 
-The active nine-packet matrix now checks 192 modules including unchanged
+The preceding nine-packet matrix checked 192 modules including unchanged
 predecessors. Four observed elaboration/instance failures are repaired only in
 versioned packets: prefix progressions r2, projective-line points r3,
 bicanonical height r2, and rigidified-overlap descent r2. Failed source bytes
