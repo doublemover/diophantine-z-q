@@ -16,6 +16,19 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original pointed cocycle pullback, 2026-11-09
+
+Nine active closures now schedule510 source checks. Canonical frames of the
+original pulled module sheaf identify its actual unit cocycle on full inverse
+images and every proved complete refinement. The original second projection
+square preserves epsilon, and the actual split-reduction correction turns the
+underlying line comparison into pointed-class naturality. This descends through
+the additive coboundary quotient. Whole-H1 cover independence and classification
+remain separate. Six guarded proof endings retain the original statements;
+the hosted zero-section failure is preserved and addressed by the same revision.
+Bounded nonauthor source review and structural checks passed; hosted strict
+checking and recursive audit remain pending.
+
 ## Actual split-reduction kernel and targeted replay repairs, 2026-11-09
 
 Nine active closures now schedule506 source checks. For a genuine split
