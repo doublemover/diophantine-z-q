@@ -16,9 +16,29 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original characters, moduli and affine morphisms, 2026-11-09
+
+Eight active closures now schedule 278 source checks. The H1 continuation derives
+the actual root-sign quotient action, exact normalized 16-sign projectors and
+whole-source decomposition into their five actual ranges. It still does not
+prove those ranges nonzero or identify them with the original geometric quotient
+pullbacks. The level3 continuation now maps the original rational parameter
+open into the original arithmetic diamond-fixed algebra, with exact family, j,
+x and marked period 1/3 comparisons. No scheme isomorphism is inferred from a
+complex-point bijection. Affine geometric morphisms descend uniquely with their
+original covering square, retaining identities, compositions and cocycles.
+
+A separate genuine four-chart branch cover provides integral differential frames
+on the entire finite affine source away from 2,3,5,7, including its ramification
+contacts. It does not yet supply infinity/bad-prime charts or whole bicanonical
+extension. Round 10 binds the fresh application review; exact two new producer
+failures are under hosted-results/42577530786 and repaired only in the new
+morphism closure. All new source claims remain pending hosted strict checks and
+recursive audits. No local Lean or baseline promotion occurred.
+
 ## Connected geometric, integral and real consumers, 2026-11-09
 
-Seven active closures now consolidate 259 scheduled source checks. The new
+The preceding seven closures consolidated 259 scheduled source checks. The new
 affine geometric consumer derives original module cocycle and diagonal laws
 from actual sheaf equations before reconstructing a rank-one line. Good-chart
 vertical integrality constructs its local DVR, differential frame and reduced
