@@ -1,0 +1,113 @@
+{
+  "claim": "Pending explicit additive surjection from five rational coefficient slots onto the original whole-source H1, without independence or original quotient-pullback identification.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled 47-source continuation; hosted strict checking, recursive axiom audit and independent acceptance pending. Proposed actual-H1 additive surjection from five rational coefficient slots, not independence or quotient-pullback comparison.",
+  "new_sources": {
+    "ContactPrincipalCoefficientExpansion318.lean": "b922e9f4c3b6829b89f83828fb938f5e9ecbcfb2c2d569c819f830e621f38257",
+    "ActualSourceHOneFiveSpanning318.lean": "ad77a3efd430e45a888dc0dd3a7774e1d1e7db5b5c4f6542651eaff59911e3e4"
+  },
+  "readme_sha256": "c959ff9bb2be2e98670ac50dab2c45f16ad656c507af408b8e36ec47daa1d3bb",
+  "intake_sha256": "2350da7e91f173e5647c57c3ac0d40cf7bd40f9efc3223dbec942a0b2137aebd",
+  "copy_bindings_sha256": "40f4c3b984be1899e5f946260e2dbbf9ab0b98430165ae6c98a3f00f0f63511c",
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "obligations": [
+    {
+      "name": "Literal polynomial map",
+      "required": "The polynomial evaluation must occur through the original infinity-to-overlap map.",
+      "constructed": "polynomialMap composes the two original infinity algebraMaps with toOpen.",
+      "justification": "polynomialMap_X is the original u by definition; polynomialMap_C follows rational algebraMap compatibility with the same ring hom.",
+      "evidence": [
+        "ContactPrincipalCoefficientExpansion318.polynomialMap",
+        "ContactPrincipalCoefficientExpansion318.polynomialMap_X",
+        "ContactPrincipalCoefficientExpansion318.polynomialMap_C"
+      ]
+    },
+    {
+      "name": "Complete polynomial support",
+      "required": "Every nonzero coefficient and every zero-polynomial exceptional case must be covered.",
+      "constructed": "polynomialMap_expansion maps sum_C_mul_X_pow_eq through the original ring hom.",
+      "justification": "The sum is over the full actual polynomial support; an empty support gives the correct zero term. No leading-term or truncated approximation is used.",
+      "evidence": [
+        "Polynomial.sum_C_mul_X_pow_eq",
+        "ContactPrincipalCoefficientExpansion318.polynomialMap_expansion"
+      ]
+    },
+    {
+      "name": "Degree-bound application",
+      "required": "Pole cancellation requires j<=n for every support exponent.",
+      "constructed": "support_lt_pole combines le_degree_of_mem_supp with the supplied WithBot degree bound.",
+      "justification": "The conclusion is the stronger j<n; no natDegree assumption incorrectly excludes the zero polynomial or n=0 case.",
+      "evidence": [
+        "Polynomial.le_degree_of_mem_supp",
+        "ContactPrincipalCoefficientExpansion318.support_lt_pole",
+        "ContactPrincipalCoefficientExpansion318.coordinate_pole_cancel"
+      ]
+    },
+    {
+      "name": "Actual principal term identity",
+      "required": "The coefficient expansion must identify the exact earlier overlap representative.",
+      "constructed": "principalTerm_expansion targets ContactInfinityRegularFractions318.principalTerm.",
+      "justification": "Its first factor is literally polynomialMap P and its second is the original inverseU^n. Original u_inverse cancels each coefficient power within the actual ring.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.principalTerm",
+        "ContactWholePrincipalReduction318.u_inverse",
+        "ContactPrincipalCoefficientExpansion318.principalTerm_expansion"
+      ]
+    },
+    {
+      "name": "Rational coefficient maps and actual H1",
+      "required": "The five coefficient maps must land in the unchanged original H1.",
+      "constructed": "poleMap maps Q additively via poleClass; fiveCoefficients sums them over SmallIndex.",
+      "justification": "Rational multiplication is performed in the original overlap ring before the original additive boundary. No unconstructed Q-linear H1 action is assumed.",
+      "evidence": [
+        "ActualSourceHOneFiveSpanning318.poleMap",
+        "ActualSourceHOneFiveSpanning318.fiveCoefficients",
+        "ActualSourceHOneSmallPoles318.poleClass"
+      ]
+    },
+    {
+      "name": "Exhaustive five-index domain",
+      "required": "Every possible surviving weighted pole must be represented by one of the five slots.",
+      "constructed": "pole_in_range constructs SmallIndex for every positive k<weight i; all other poles use poleClass_zero_outside_small.",
+      "justification": "small_pole_lt_three ensures the Fin 3 component excludes no candidate. smallIndex_card counts exactly five complete indices, not five selected examples.",
+      "evidence": [
+        "ActualSourceHOneFiveSpanning318.pole_in_range",
+        "ActualSourceHOneSmallPoles318.small_pole_lt_three",
+        "ActualSourceHOneSmallPoles318.smallIndex_card"
+      ]
+    },
+    {
+      "name": "Identity of the collecting map",
+      "required": "Finite coefficient collection must stay in the range of the same fiveCoefficients map.",
+      "constructed": "small_pole_in_range uses a one-slot coefficient function for the declared map.",
+      "justification": "The map range is an additive subgroup. principal_in_range uses its finite-sum closure, so the input rational coefficients are collected without changing the codomain or map.",
+      "evidence": [
+        "ActualSourceHOneFiveSpanning318.small_pole_in_range",
+        "ActualSourceHOneFiveSpanning318.principalClass_expansion",
+        "ActualSourceHOneFiveSpanning318.principal_in_range"
+      ]
+    },
+    {
+      "name": "Whole-H1 source and surjectivity",
+      "required": "The final application must cover every class of the actual whole source H1.",
+      "constructed": "fiveCoefficients_surjective starts with arbitrary y and applies principal_representatives y.",
+      "justification": "Every returned polynomial satisfies the exact required degree bound. Each resulting principal class belongs to the same map range, and their sum is exactly y under the original boundary.",
+      "evidence": [
+        "ActualSourceHOnePrincipalRepresentatives318.principal_representatives",
+        "ActualSourceHOneFiveSpanning318.fiveCoefficients_surjective"
+      ]
+    },
+    {
+      "name": "Unproved independence and quotient comparison",
+      "required": "Spanning must not be reported as an isomorphism or identification with the five original pullbacks.",
+      "constructed": "The new endpoint is only an additive surjection from five rational coefficient slots.",
+      "justification": "Its kernel is not proved zero. The original quotient-H1 maps have not been identified with these coordinate classes. Hosted strict checking, recursive audit and independent acceptance of this whole closure remain pending.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ]
+}

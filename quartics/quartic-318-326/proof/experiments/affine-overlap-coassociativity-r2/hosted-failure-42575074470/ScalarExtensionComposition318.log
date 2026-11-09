@@ -1,0 +1,59 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-overlap-coassociativity/ScalarExtensionComposition318.lean:24:2: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    1 ⊗ₜ[S] (1 ⊗ₜ[R] n)
+  has type
+    T ⊗[S] (S ⊗[R] ↑N)
+  but is expected to have type
+    ↑((ModuleCat.extendScalars f ⋙ ModuleCat.extendScalars g).obj N)
+  in the application
+    t • 1 ⊗ₜ[S] (1 ⊗ₜ[R] n)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-overlap-coassociativity/ScalarExtensionComposition318.lean:34:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom ((ModuleCat.extendScalarsComp ?f ?g).hom.app ?N)) (?t ⊗ₜ[?m.149] ?n)
+in the target expression
+  (ConcreteCategory.hom ((ModuleCat.extendScalarsComp f g).inv.app N ≫ (ModuleCat.extendScalarsComp f g).hom.app N))
+      (t ⊗ₜ[S] (s ⊗ₜ[R] n)) =
+    ((ModuleCat.extendScalarsComp f g).app N).toLinearEquiv ((t * g s) ⊗ₜ[R] n)
+
+R S T : Type u
+inst✝² : CommRing R
+inst✝¹ : CommRing S
+inst✝ : CommRing T
+f : R →+* S
+g : S →+* T
+N : ModuleCat R
+t : T
+s : S
+n : ↑N
+⊢ (ConcreteCategory.hom ((ModuleCat.extendScalarsComp f g).inv.app N ≫ (ModuleCat.extendScalarsComp f g).hom.app N))
+      (t ⊗ₜ[S] (s ⊗ₜ[R] n)) =
+    ((ModuleCat.extendScalarsComp f g).app N).toLinearEquiv ((t * g s) ⊗ₜ[R] n)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (↧T).isModule
+  has type
+    @Module T (↑↧T) inst✝.toSemiring (↧T).isAddCommGroup.toAddCommMonoid
+  but is expected to have type
+    @Module T (↑((ModuleCat.restrictScalars g).obj ↧T)) CommRing.toCommSemiring.toSemiring
+      ((ModuleCat.restrictScalars g).obj ↧T).isAddCommGroup.toAddCommMonoid
+  in the application
+    @Module.compHom T S (↑((ModuleCat.restrictScalars g).obj ↧T)) CommRing.toCommSemiring.toSemiring
+      ((ModuleCat.restrictScalars g).obj ↧T).isAddCommGroup.toAddCommMonoid (↧T).isModule
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-overlap-coassociativity/ScalarExtensionComposition318.lean:33:37: warning: This simp argument is unused:
+  Iso.inv_hom_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← ModuleCat.comp_apply, ModuleCat.id_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-overlap-coassociativity/ScalarExtensionComposition318.lean:33:53: warning: This simp argument is unused:
+  ModuleCat.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← ModuleCat.comp_apply, Iso.inv_hom_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
