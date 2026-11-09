@@ -1,0 +1,117 @@
+{
+  "claim": "Pending original-coordinate sign action on actual rational source H1, exact root-character representatives, and unconditional decomposition into five actual projector ranges; nonvanishing and original quotient-pullback comparison remain open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled 59-source continuation; hosted checking, recursive axiom audit and independent acceptance pending. Original-coordinate sign action and five actual projector images; their nonvanishing and comparison to geometric quotient pullbacks remain open.",
+  "new_sources": {
+    "SourceHOneCharacterIndices318.lean": "f6277c713d77f41948bb8b31dcc8ed03ab2b43a6ca1ad369f1005e79c8d152e1",
+    "SourceHOneCharacterRepresentatives318.lean": "3cd25208386acc8d8785b2802092e1b41d1481845dc477355ff1c55a17dab430",
+    "ActualSourceHOneCharacterAction318.lean": "f6f12c3ec86d4ee0dbfae57a18befb87e16ed8819c69395e342ee57dd7f817de",
+    "ActualSourceHOneCharacterProjectors318.lean": "49a3cd8b13586c15e5832fa9dfbca73cd19aa37a4ac71acc6d38dc0c5825bf72"
+  },
+  "readme_sha256": "ac6cb55382160f676bac49f43ce5196a84fcb0209854d33d964b75c2e905ff9b",
+  "intake_sha256": "abbdd5e0418a0d87874f12a0fd8a83830ff2440d8b876fe9adbea41eeb50d00e",
+  "copy_bindings_sha256": "aec46e549db3f674e6d28ddc192176a7e6b3c60ceaa11643209bfeb386126537",
+  "obligations": [
+    {
+      "name": "Explicit complete index correspondence",
+      "required": "All five coordinate slots must match the intended original root characters, not an arbitrary cardinality bijection.",
+      "constructed": "smallIndex maps some0 to weight3/pole1; some1..3 to the complementary weight2/pole1 slots; none to weight3/pole2.",
+      "justification": "smallIndex_bijective checks every input and candidate; support some i is exactly the original complement i, support none is all four roots.",
+      "evidence": [
+        "SourceHOneCharacterIndices318.smallIndex",
+        "SourceHOneCharacterIndices318.smallIndex_bijective",
+        "SourceHOneCharacterIndices318.support"
+      ]
+    },
+    {
+      "name": "Original representatives and normalization",
+      "required": "Field matching must preserve the original chart coordinates and every rational factor.",
+      "constructed": "representative is inverseU^k times the original included infinity basis entry.",
+      "justification": "representative_embedding uses u=c0/y0, ratios=yj/y0 and y0^2=c0*t to obtain characterRoot/(c0^2*t) or fullRoot/(c0^3*t). These are exact equalities in the original contact field.",
+      "evidence": [
+        "SourceHOneCharacterRepresentatives318.representative",
+        "SourceHOneCharacterRepresentatives318.representative_embedding",
+        "InfinityFieldCoordinates318.root_zero_square"
+      ]
+    },
+    {
+      "name": "Actual sign maps and rational characters",
+      "required": "The sign identity must use the original automorphism of the actual overlap ring.",
+      "constructed": "representative_sign applies ContactGlobalSigns318.openEquiv.",
+      "justification": "SourceSignFieldComparison318.open_embedding identifies its original field action; CharacterRoot318.sign_action and epsilon_field preserve all16 signs and rational scalars. Injectivity reflects the identity into the actual overlap ring.",
+      "evidence": [
+        "SourceHOneCharacterRepresentatives318.representative_sign",
+        "SourceHOneCharacterRepresentatives318.epsilon_field",
+        "SourceSignFieldComparison318.open_embedding"
+      ]
+    },
+    {
+      "name": "Whole original kernel preservation",
+      "required": "A sign action on H1 requires preservation of both full chart images with their original difference convention.",
+      "constructed": "boundary_kernel_preserved transports actual finite and infinity witnesses.",
+      "justification": "Finite compatibility is sourceEquiv/order_to_open. infinity_sign_square uses the entire original reciprocal integral closure restriction and its original embedding_square. The finite-minus-infinity sign is unchanged.",
+      "evidence": [
+        "ActualSourceHOneCharacterAction318.infinity_sign_square",
+        "ActualSourceHOneCharacterAction318.boundary_kernel_preserved",
+        "InfinityReciprocalAction318.embedding_square"
+      ]
+    },
+    {
+      "name": "Actual H1 action and representative identity",
+      "required": "The descended action must act on the unchanged original H1 and agree with the signed boundary.",
+      "constructed": "action is boundaryLinear.liftOfSurjective of signedBoundary with proved kernel inclusion.",
+      "justification": "action_boundary identifies it on every actual overlap representative; source boundary surjectivity covers all H1. action_twice uses the original ring involution, and action_characterClass derives the eigen-equation through the same boundary.",
+      "evidence": [
+        "ActualSourceHOneCharacterAction318.action",
+        "ActualSourceHOneCharacterAction318.action_boundary",
+        "ActualSourceHOneCharacterAction318.action_characterClass"
+      ]
+    },
+    {
+      "name": "All sign indices and exact projector scalar",
+      "required": "Projection must use all16 signs and retain the normalization.",
+      "constructed": "projector i=(1/16)*sum_b epsilon i b action b.",
+      "justification": "epsilon_orthogonality checks the full Fin4->Bool domain and gives exactly16 on the diagonal and0 off diagonal. The rational action allows division by16; projector_characterClass computes each action rather than assuming projection.",
+      "evidence": [
+        "SourceHOneCharacterIndices318.epsilon_orthogonality",
+        "ActualSourceHOneCharacterProjectors318.projector",
+        "ActualSourceHOneCharacterProjectors318.projector_characterClass"
+      ]
+    },
+    {
+      "name": "Whole-space projector exhaustion",
+      "required": "Projector formulas on five representatives alone are insufficient without a full spanning statement.",
+      "constructed": "character_spanning reindexes the proven concrete fiveLinear surjection through the exact smallIndex bijection.",
+      "justification": "weighted_character identifies rational weighting with the structural source action. The resulting spanning statement proves sum_projector and pairwise projector_orthogonal for every actual H1 element.",
+      "evidence": [
+        "ActualSourceHOneCharacterProjectors318.character_spanning",
+        "ActualSourceHOneCharacterProjectors318.sum_projector",
+        "ActualSourceHOneCharacterProjectors318.projector_orthogonal"
+      ]
+    },
+    {
+      "name": "Exact image decomposition and independence boundary",
+      "required": "The final product must consist of actual projector ranges and retain potentially zero factors.",
+      "constructed": "characterDecomposition maps y to the tuple of projector i y and inversely sums the actual range elements.",
+      "justification": "Both inverse laws use the proved exhaustion and orthogonality. Each range is generated by characterClass i; coordinate injectivity requires the explicit CoordinatesNonzero input. No factor is declared one-dimensional merely from its label.",
+      "evidence": [
+        "ActualSourceHOneCharacterProjectors318.characterDecomposition",
+        "ActualSourceHOneCharacterProjectors318.characterDecomposition_component",
+        "ActualSourceHOneCharacterProjectors318.characterDecomposition_symm",
+        "ActualSourceHOneCharacterProjectors318.CoordinatesNonzero"
+      ]
+    },
+    {
+      "name": "Unresolved geometric comparison and validation",
+      "required": "Do not equate this quotient-induced action with geometric sheaf pullback or the original quotient-H1 images without proof.",
+      "constructed": "The packet proves proposed original-chart action and actual projector-image decomposition only.",
+      "justification": "Actual cohomology nonvanishing and functorial comparison to the global sign action/quotient pullbacks remain open. Field-level nonvanishing is not sufficient. All59 sources await hosted checks and independent acceptance.",
+      "evidence": [
+        "README.md",
+        "COPY_BINDINGS.json",
+        "intake.json"
+      ]
+    }
+  ]
+}
