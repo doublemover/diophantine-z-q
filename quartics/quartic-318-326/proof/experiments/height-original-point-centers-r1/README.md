@@ -1,0 +1,25 @@
+# Original point centers and finite-place section bounds
+
+This continuation combines the explicit original arithmetic base, the actual finite-place integer ring, the whole original valuative point-extension theorem, and the original rational point/section evaluations. It constructs an integral chart center for the original PointField and its specified four signed roots, proves the entire generic-point square and original J² pair ratio on that chart, and derives the common comparison scalar and exact finite-place inequalities for the original evaluated sections.
+
+There are five genuinely new modules. The 127 primitive-norm predecessor modules are unchanged. Eight valuative-center modules are exact copies from height-integral-valuative-point-r2, and nine original point/value modules are exact copies from height-bicanonical-height-r3. These inherited unaccepted proofs remain part of the hosted replay, not assumed accepted theorems.
+
+## Application contract
+
+1. Objects: K is literally RationalContactPoint318.PointField c t. The local ring is the integer ring of its actual FinitePlace valuation. Each local twist is the image of the explicit signed rational twist through Z[1/δ]. The four roots are the original named quotient-field roots, with individual equality to the original sourcePoint generator values.
+2. Indices: Every good finite place and every original rational branch frame i in Fin4 are covered. The integral chart index is Option Fin4: all four original contact charts or the entire original infinity chart. The integral/nonintegral t dichotomy is exhaustive, with no missing reciprocal endpoint or prime-spectrum point.
+3. Domain: The sole place exclusion is v(δ)=1 for the explicit nonzero denominator δ including the separation integer and actual twist numerators/denominators. The original point-value consumer retains nonvanishing of all four specialized radicands. No degree-sixteen assertion is made for the specialized PointField.
+4. Coefficients: All evaluated coefficients are the literal J²-scaled global-pair branchCoefficient or infinityCoefficient. Their exact relations are b1=t*b0 on finite charts and b0=(k0*u²)*b1 on infinity. The proof retains u=c0/y0 and every original signed ratio yj/y0, giving k0*u²=1/t in the nonintegral case.
+5. Local conditions: The actual valuation ring and its fraction field supply the integral point extension. Good-place twist and separation units are constructed rather than assumed. The actual integral chart map makes coefficient norms at most one, and the literal coefficient unit makes their maximum exactly one.
+6. Transition maps: The chart evaluation extends the same whole generic source ring map, with its original signed generators. The finite proof composes the actual localization map; the infinity proof uses the original overlap and whole signed-root extension. Original section values from a fixed rational branch frame are compared using α=a0/b0, and the original pair ratio proves the second section equality with the same α.
+7. Identity: The result retains actual original section values a0/a1 and the original t, including the existing t=32u/v specialization. It constructs α rather than introducing arbitrary FrameNorms or merely asserting existence of a desired norm. The exact original coefficient pair and actual chart center are included in the conclusion. A separate global scheme base-change diagram from the Q model to this V model and an identification with a previously specified adelic metric are not inferred from the pair equalities.
+8. Consumers: OriginalSectionFinitePlaceBounds318.exists_original_bound supplies a genuine chart center, both original section-value equalities, nonzero explicit α, normalized bounds for both sections, and max(v a0,v a1)=v α. Its normalization_unique theorem proves independence among primitive chart comparisons. This is a finite-place coefficient/frame comparison, not an archimedean metric construction, adelic support theorem, bad-place estimate, KS bound or the completed 318/326 theorem.
+9. Validation: No local Lean compilation was run. Structural dependency/hash checks and audit-history self-tests are run on this closure. Independent source review and hosted elaboration remain distinct acceptance steps. All prior failed and frozen revisions are preserved.
+
+## New source map
+
+- OriginalPointFinitePlaceRoots318 identifies the exact original roots and proves the local signed-root equations with original twists.
+- OriginalPointFinitePlaceCenter318 constructs the actual original point's good-place center and contact-chart specialization.
+- IntegralEvaluatedPointCharts318 joins the entire generic-point square to the original coefficient ratio on the actual full chart.
+- OriginalPointPrimitiveChart318 specializes this to the original point field and proves primitive maximum norm one without caller bounds.
+- OriginalSectionFinitePlaceBounds318 constructs the common scalar from actual original section values and proves both equalities and finite-place bounds.
