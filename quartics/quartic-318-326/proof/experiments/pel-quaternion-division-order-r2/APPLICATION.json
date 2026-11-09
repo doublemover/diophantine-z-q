@@ -1,0 +1,197 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Prove division of the specific rational quaternion algebra B=(-210,5) by actual norm anisotropy and compute the exact reduced-trace discriminant of the same perfect integral order.",
+  "sources": {
+    "PELQuaternionAlgebra318.lean": "522b31006c9bd1e7454abfe6a1cecb35d3fa8ac79a5984060057cae836248fe5",
+    "PELQuaternionAlternatingForm318.lean": "1267195c15d2b7c6fa55d93eb66c89e46f2072eb685c8e09af33c741b620132b",
+    "PELQuaternionRealRepresentation318.lean": "9db0899824163c729ac6f9bcd0cd3551d773f6fc05f3eaa85ef4fa87f8207a8f",
+    "PELQuaternionIntegralOrder318.lean": "39e1994edc732124536e8bed37742fbb1ff418a567f7e80521ea40e2874e06f3",
+    "PELPrincipalOrderCoordinates318.lean": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+    "PELPrincipalOrderPerfect318.lean": "3d3c9185d50db6679fd802267502eac9d364973a312053fa1d8561176c80f04d",
+    "PELQuaternionAnisotropy318.lean": "4fcc1277b2dd6f3a1d9776b5db8f7dc5ceff279fd52f02359a73d3610ba3e6e2",
+    "PELQuaternionDivision318.lean": "5c810bac3c3e2e2638ef12bd211caaca5f743fa69e97f5e640b54963d8b6d155",
+    "PELOrderTraceDiscriminant318.lean": "8b5072dbd653dbad41c4f8f35d4326d8acd0989121bdad5bd2a8f81f272fd11e"
+  },
+  "intake_sha256": "b9163ec65a04e2cdccc94f68f0f1c1e1d4f6ecf590871cd0f4798d24dd49ff1a",
+  "readme_sha256": "0a62505df08719e29a17a473742f576f5dcbc6decf124c805794732ad4cc89af",
+  "obligations": [
+    {
+      "name": "Same algebra and lattice",
+      "required_input": "The PEL prerequisites require the concrete quaternion and lattice already constructed, not a replacement with the same dimension.",
+      "constructed_input": "All six preceding sources are byte-identical. The norm is r\u00b2+210i\u00b2\u22125j\u00b2\u22121050k\u00b2 on QuaternionAlgebra Q(-210,0,5), and the lattice basis remains1,i,(1+j)/2,i/2+k/10.",
+      "justification": "All six preceding sources are byte-identical. The norm is r\u00b2+210i\u00b2\u22125j\u00b2\u22121050k\u00b2 on QuaternionAlgebra Q(-210,0,5), and the lattice basis remains1,i,(1+j)/2,i/2+k/10.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "SOURCE-COPIES.json"
+    },
+    {
+      "name": "Exact residue obstruction",
+      "required_input": "A nonzero norm-zero element must be ruled out, not excluded as a premise.",
+      "constructed_input": "The literal mod3 equations first force r,j to vanish, then after division by3 force i,k to vanish. Finite residue checks cover all3^4 tuples in both stages.",
+      "justification": "The literal mod3 equations first force r,j to vanish, then after division by3 force i,k to vanish. Finite residue checks cover all3^4 tuples in both stages.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionAnisotropy318.outer_residues; inner_residues; coordinates_divisible_three"
+    },
+    {
+      "name": "Unbounded integer domain",
+      "required_input": "A bounded coefficient search does not establish anisotropy.",
+      "constructed_input": "Strong induction on the sum of all four integer absolute values gives a strictly smaller tuple after dividing every coordinate by3. Zero and negative coordinates are included.",
+      "justification": "Strong induction on the sum of all four integer absolute values gives a strictly smaller tuple after dividing every coordinate by3. Zero and negative coordinates are included.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionAnisotropy318.integer_descent"
+    },
+    {
+      "name": "Actual rational carrier",
+      "required_input": "Integer anisotropy alone does not cover the rational quaternion algebra.",
+      "constructed_input": "All four rational denominators are multiplied into one explicit nonzero D. The original norm scales by D\u00b2, and the four resulting integer coordinates force each original rational coordinate to vanish.",
+      "justification": "All four rational denominators are multiplied into one explicit nonzero D. The original norm scales by D\u00b2, and the four resulting integer coordinates force each original rational coordinate to vanish.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionAnisotropy318.rational_anisotropic; reducedNorm_ne_zero"
+    },
+    {
+      "name": "Genuine division conclusion",
+      "required_input": "Nondegeneracy of a bilinear form is not division of an algebra.",
+      "constructed_input": "For every actual x\u22600, the displayed reciprocal is Nrd(x)^-1 times bar(x). Both multiplication orders are proved1 and yield an actual IsUnit witness.",
+      "justification": "For every actual x\u22600, the displayed reciprocal is Nrd(x)^-1 times bar(x). Both multiplication orders are proved1 and yield an actual IsUnit witness.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "PELQuaternionDivision318.mul_reciprocal; reciprocal_mul; every_nonzero_isUnit"
+    },
+    {
+      "name": "Exact trace discriminant",
+      "required_input": "A named discriminant must be computed on the specified order, including basis and sign.",
+      "constructed_input": "The reduced-trace Gram is explicitly[[2,0,1,0],[0,-420,0,-210],[1,0,3,0],[0,-210,0,-84]], determinant\u2212210\u00b2. The same order alternating Gram has determinant1.",
+      "justification": "The reduced-trace Gram is explicitly[[2,0,1,0],[0,-420,0,-210],[1,0,3,0],[0,-210,0,-84]], determinant\u2212210\u00b2. The same order alternating Gram has determinant1.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "PELOrderTraceDiscriminant318"
+    },
+    {
+      "name": "Period compatibility retained",
+      "required_input": "The analytic period quotient must retain the exact order and sign.",
+      "constructed_input": "No period source or order coordinate changes. Analytic consumes the same six sources and explicitly uses\u2212E for upper-half-plane positivity; the new division proof does not modify that pairing.",
+      "justification": "No period source or order coordinate changes. Analytic consumes the same six sources and explicitly uses\u2212E for upper-half-plane positivity; the new division proof does not modify that pairing.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "PELPrincipalOrderCoordinates318; README.md"
+    },
+    {
+      "name": "Remaining classification and geometry",
+      "required_input": "Division over Q and an order determinant do not themselves establish maximality or all local invariants.",
+      "constructed_input": "The exact local ramification set, maximal-order theorem, represented/algebraized PEL abelian scheme and original contact/moduli comparison remain explicit separate joins. No identification of genus5 contact Jacobian with dimension2 surface is made.",
+      "justification": "The exact local ramification set, maximal-order theorem, represented/algebraized PEL abelian scheme and original contact/moduli comparison remain explicit separate joins. No identification of genus5 contact Jacobian with dimension2 surface is made.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "README.md"
+    },
+    {
+      "name": "Validation and provenance",
+      "required_input": "The changed application needs source-level review and hosted kernel checking.",
+      "constructed_input": "Read the actual accepted integer/rational descent pattern in AnchorAnisotropy; only the proof pattern is reused, not its ternary statement. Recomputed residue tables and exact symbolic order/Gram/inverse checks support implementation. Hosted Lean and independent bound acceptance remain pending.",
+      "justification": "Read the actual accepted integer/rational descent pattern in AnchorAnisotropy; only the proof pattern is reused, not its ternary statement. Recomputed residue tables and exact symbolic order/Gram/inverse checks support implementation. Hosted Lean and independent bound acceptance remain pending.",
+      "sources": [
+        "PELQuaternionAlgebra318.lean",
+        "PELQuaternionAlternatingForm318.lean",
+        "PELQuaternionRealRepresentation318.lean",
+        "PELQuaternionIntegralOrder318.lean",
+        "PELPrincipalOrderCoordinates318.lean",
+        "PELPrincipalOrderPerfect318.lean",
+        "PELQuaternionAnisotropy318.lean",
+        "PELQuaternionDivision318.lean",
+        "PELOrderTraceDiscriminant318.lean",
+        "README.md"
+      ],
+      "evidence": "verification/descent-pattern-source.json; verification/check_order.py; verification/check_division.py"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "hosted_check": "PENDING",
+    "independent_review": "PENDING",
+    "full_arithmetic_theorem_proved": false
+  }
+}
