@@ -1,0 +1,148 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "open-descent-full-faithfulness",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Original local module and sheaf maps glue uniquely, with a genuine bijection on morphisms, identity and composition preservation, and actual chart isomorphism recovery. General fppf assembly and Picard representability remain separate.",
+  "bindings": {
+    "README.md": "141650774a5cc4abc065718e16e3da757e886359f206b0af491af68126355783",
+    "APPLICATION.md": "0561f046325783634f07efbc06716eed119ecf2c6a53d6a225faad406a6a601c",
+    "intake.json": "035ce25180d21c4fb178de5c593d3d2330a503cdd72683831aaba8cdc391f3ab",
+    "DEPENDENCIES.json": "dcf852228f2d8d0d8fa1547970b29802ea1f9f182a63c64f13d6c5406e3d86b8",
+    "SOURCE_SHA256SUMS": "b098b18cdb9e3373f2b0209c959078e33742a5161582bc60f35a32cfe16fc212",
+    "MODULE_ORDER.txt": "119d33081e2bc608c639a54949f00a0fa091b074dd6457beeb370e1b5ecb3e7d",
+    "validation/ExperimentAudit.lean": "afff644b339f1a28ee9e57583f0eb8ecb7d9031f4b6b7f4f548031fb2995228c",
+    "OpenModuleTransition318.lean": "5dcb598825a5dea41113d5a4cc4712b45af12e269258d01c212b4d18b24fc427",
+    "OpenModuleChartRecovery318.lean": "0b2910a4755a9c47fde958f4fa6776f9fe817bb36e9706f978b3e9444a862119",
+    "OpenModulePresheaf318.lean": "0f9f68d71af7b052d3cb0764e5343642310e755ce13b6e1dd054af22de1ec679",
+    "OpenModuleSheafGluing318.lean": "4312b4d09e58ec1a4d078d95cbc9de434c9c0fccb0e37a2c404f1661638412a5",
+    "OpenModuleGluedSheaf318.lean": "4a44e48d9c3b8ba2564b13c4e4f9e7110a7c4bff384d754dd0246ea3fc58daff",
+    "OpenSheafTransition318.lean": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+    "OpenSheafGluing318.lean": "148e1c79cfb2bc4b8ce99a3d124b96fba82ee87a45db31b1f8479b1370aa316e",
+    "OpenChartModuleImages318.lean": "931e1b651c2db3159ffec0cc925e0547275a4969bed32e994fe120d021fe96fd",
+    "LocalLineGlobalFrames318.lean": "fa1bfd6186e76e556913d41dc25ba7ab5c5e84e9590b671dcc026760179e6ad7",
+    "OpenChartLineEffectivity318.lean": "d2a7ed68727eeba7bf7ae2149dae546d5e6a49dd9db04404dca2873adef237e1",
+    "OpenSheafRestrictionCompatibility318.lean": "72a0507bc6059532d574094ca498a0d393acc26e74f786ef29f63bf58d954ff6",
+    "OpenSchemeTransition318.lean": "a64283bb1061f4448da3e3b488022310c4be4ebe8d39aec3907a688e66aa1c73",
+    "OpenSchemeGluing318.lean": "bc1d3265c6f8ffa39bc86049bbde4d336ad6b23849ac8798b6c58e145cc9160f",
+    "OpenRestrictionPathCoherence318.lean": "1c5d2d09d7ea8573af9496387a8d610904a95886e74854dac033094a5b7bda60",
+    "LocalChartTransition318.lean": "bf94b151ea5b789ea21660c87d9a489e8d7cf213758dac1ce77399745e062eab",
+    "LocalLineOpenDescent318.lean": "0bb2308c31cd2d436dc3051b535b4e082abe701ecbc80e89dbd8731b6aad5c3a",
+    "OpenModuleDescentMaps318.lean": "87f98387aa34b24fced62144872040ac68e59faf84247603d50fdd6cea888cc2",
+    "OpenModuleDescentFullFaithful318.lean": "9452e883136b274de53b5dcb1958a9856612038ee0f51de520c6916c6ffe4ba8",
+    "OpenSheafDescentMaps318.lean": "908e1c3099aa40305c9a9f21b3111527aa40ff216c25532fd2c52dbf9aa3d798",
+    "OpenSheafDescentIsomorphisms318.lean": "f19c262fbba6d5f6b87eda64cd9a402ece1e795fcfa106bdbb1c1337626d9b2c"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** OpenModuleDescentMaps318.Map takes actual linear maps on every subopen of each original chart, original restriction naturality, and the original transition square. OpenSheafDescentMaps318.Map instead takes genuine over-open module-sheaf maps and only their actual pairwise overlap squares. The scalar data and its naturality are derived from this second input.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** The global objects are precisely the matching-family module sheaves already constructed by OpenModuleGluedSheaf318. A new map acts componentwise on the same matching family. Its linearity and restriction naturality produce a genuine module-sheaf morphism. No other representative or replacement sheaf is used.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** Hom reconstruction is between these specific matching-family objects for the same complete original chart index type, including the empty case. No unsupported ambient-cover inference is made. The inherited LocalLineOpenDescent318 global line theorem still requires its explicit top-cover hypothesis, and its local frame refinement uses every original chart and every original local line frame.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** Local maps commute from the source transition D(i,j) to the target transition E(i,j). The actual recovered square is over(gluedMap) followed by the target chart comparison equals the source chart comparison followed by the original local map. Composition uses the same left-to-right categorical convention. Inverse compatibility is derived by cancelling the actual restricted chart isomorphisms.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** Localize reconstructs every local component of a global map using the original chart linear equivalence and its inverse. Its naturality follows from the global map and the actual original restriction identity for fromChart. Its transition square follows from the proved fromChart-transition equation. Hom uniqueness is proved componentwise, using the exact W-intersect-U(i) restriction, not assumed. No proof-only law binders are intended to disappear.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** homEquiv has codomain all actual module-sheaf morphisms between the originally reconstructed sheaves. Its two inverse laws are proved. OpenSheafDescentMaps318.effective gives existence and uniqueness with the exact original overIso comparisons. The isomorphism consumer has exactly the reconstructed forward and inverse maps and satisfies the original chart square.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** Each local map is linear over Gamma(X,W), while the matching-family component on W-intersect-U(i) retains restriction of that original ring action. sectionMap_smul uses the actual original structure-sheaf restriction. restrictHom uses the same overFunctorMap comparisons as restrictIso; componentHom_restrict preserves the original maps on all subopens.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** The inherited original Fi transition data yields object effectivity and a genuine global line. New categorical morphism effectivity directly consumes actual over-open chart maps. This packet does not yet transport arbitrary original Fi morphism squares into that over-open presentation, assemble arbitrary fppf charts across changing affine bases, or establish Picard/Jacobian representability. No full arithmetic conclusion or baseline promotion follows from these sources alone.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** Sixteen producers are exact copies of local-line-open-descent-r2, including the explicit free-function notation repairs. Four new modules implement the morphism construction, full faithfulness, actual sheaf-map consumer, and isomorphism consumer. Static imports, hashes, placeholder checks and audit-history self-test are run without local Lean compilation. Full twenty-source hosted strict compile, recursive axiom audit and independent acceptance remain required. No approval is manufactured.",
+      "evidence": [
+        "APPLICATION.md",
+        "OpenModuleDescentMaps318",
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafDescentMaps318",
+        "OpenSheafDescentIsomorphisms318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

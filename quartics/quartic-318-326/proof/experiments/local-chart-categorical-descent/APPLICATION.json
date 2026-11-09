@@ -1,0 +1,142 @@
+{
+  "schema": "packet-local-application-v1",
+  "packet": "local-chart-categorical-descent",
+  "status": "DRAFT_HOSTED_LEAN_AND_INDEPENDENT_ACCEPTANCE_PENDING",
+  "authors": [
+    "advance_picard_descent"
+  ],
+  "scope": "Original Fi maps and their original overlap squares descend uniquely to the exact reconstructed sheaves and global lines; identities, compositions and actual local isomorphisms are preserved. General fppf assembly and Picard representability remain separate.",
+  "bindings": {
+    "README.md": "b421fe1ca6a013f8927e2eeda720a3a4d99ef4397a41bd3e19080e11594462a0",
+    "APPLICATION.md": "53afa5eff7badaab137a1da76c8bfa1b961365f16d37eb2e140d7dbe6bec185c",
+    "intake.json": "252bc9ac1dbe7ed3b9d8919d773ad2f1b6af11ccb4063e9eadb8e08c86a17ad6",
+    "DEPENDENCIES.json": "a5cf03bba9a6d0daa561623d59a45ef7303f22b09799325345322104f18c0c9b",
+    "SOURCE_SHA256SUMS": "8c2e9d49d468ac64d7e3ba331bb59ce4095e29c11f6fd9d3638837a64cd7e933",
+    "MODULE_ORDER.txt": "1bff16cfabcd2d4b535de6fded88e66467b31e1ca18f55547f33b00754bcb1e3",
+    "validation/ExperimentAudit.lean": "995df7387386c97dd33381c028a60509fe5d60c847fb25b1f88e160e539faa0b",
+    "OpenModuleTransition318.lean": "5dcb598825a5dea41113d5a4cc4712b45af12e269258d01c212b4d18b24fc427",
+    "OpenModuleChartRecovery318.lean": "0b2910a4755a9c47fde958f4fa6776f9fe817bb36e9706f978b3e9444a862119",
+    "OpenModulePresheaf318.lean": "0f9f68d71af7b052d3cb0764e5343642310e755ce13b6e1dd054af22de1ec679",
+    "OpenModuleSheafGluing318.lean": "4312b4d09e58ec1a4d078d95cbc9de434c9c0fccb0e37a2c404f1661638412a5",
+    "OpenModuleGluedSheaf318.lean": "4a44e48d9c3b8ba2564b13c4e4f9e7110a7c4bff384d754dd0246ea3fc58daff",
+    "OpenSheafTransition318.lean": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+    "OpenSheafGluing318.lean": "148e1c79cfb2bc4b8ce99a3d124b96fba82ee87a45db31b1f8479b1370aa316e",
+    "OpenChartModuleImages318.lean": "931e1b651c2db3159ffec0cc925e0547275a4969bed32e994fe120d021fe96fd",
+    "LocalLineGlobalFrames318.lean": "fa1bfd6186e76e556913d41dc25ba7ab5c5e84e9590b671dcc026760179e6ad7",
+    "OpenChartLineEffectivity318.lean": "d2a7ed68727eeba7bf7ae2149dae546d5e6a49dd9db04404dca2873adef237e1",
+    "OpenSheafRestrictionCompatibility318.lean": "72a0507bc6059532d574094ca498a0d393acc26e74f786ef29f63bf58d954ff6",
+    "OpenSchemeTransition318.lean": "a64283bb1061f4448da3e3b488022310c4be4ebe8d39aec3907a688e66aa1c73",
+    "OpenSchemeGluing318.lean": "bc1d3265c6f8ffa39bc86049bbde4d336ad6b23849ac8798b6c58e145cc9160f",
+    "OpenRestrictionPathCoherence318.lean": "1c5d2d09d7ea8573af9496387a8d610904a95886e74854dac033094a5b7bda60",
+    "LocalChartTransition318.lean": "bf94b151ea5b789ea21660c87d9a489e8d7cf213758dac1ce77399745e062eab",
+    "LocalLineOpenDescent318.lean": "0bb2308c31cd2d436dc3051b535b4e082abe701ecbc80e89dbd8731b6aad5c3a",
+    "OpenModuleDescentMaps318.lean": "87f98387aa34b24fced62144872040ac68e59faf84247603d50fdd6cea888cc2",
+    "OpenModuleDescentFullFaithful318.lean": "9452e883136b274de53b5dcb1958a9856612038ee0f51de520c6916c6ffe4ba8",
+    "OpenSheafDescentMaps318.lean": "908e1c3099aa40305c9a9f21b3111527aa40ff216c25532fd2c52dbf9aa3d798",
+    "OpenSheafDescentIsomorphisms318.lean": "f19c262fbba6d5f6b87eda64cd9a402ece1e795fcfa106bdbb1c1337626d9b2c",
+    "LocalChartMorphismNormalization318.lean": "3e489431c43bf9bcfbf4705311c58c72f54bbd768fdb41935d08c887325ff66d",
+    "LocalChartCategoricalDescent318.lean": "c913448ee138ebcc477d3911ccd86d5846af164dbb3b5621711a017d18843895",
+    "LocalLineCategoricalDescent318.lean": "e7c37163ce11aa70731a927a3ca9f18162b753dbcc8c80907ae528747a0918aa"
+  },
+  "obligations": [
+    {
+      "id": "source_requirements",
+      "statement": "1. **Source requirements.** LocalChartMorphismNormalization318.Map takes only the original sheaf maps Fi\u2192Gi on each original chart and the original restriction maps of those morphisms commuting with the original pair-transition isomorphisms. Object data retains the original identity and triple equations. No ambient, over-open, scalar or glued morphism is an input.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "2. **Constructed objects.** The ambientMap is exactly pushforward(Ui.\u03b9).map(fi). The global objects remain the identical matching-family sheaves, and for lines the identical LocalLineOpenDescent318.line objects. The final map is the existing unique glued map applied to the derived overMap, not a separately chosen map with a replacement compatibility assumption.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "coverage",
+      "statement": "3. **Coverage.** All morphism maps and equations quantify over the unchanged original chart index type. General morphism reconstruction is between the actual reconstructed objects. The final global line consumer retains the explicit original top-cover hypothesis and all original local line frames; no coverage is inferred from a family of arbitrary isomorphisms.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "transition_directions",
+      "statement": "4. **Transition directions.** Original chart compatibility is restrict(fi) followed by the target transition equals the source transition followed by restrict(fj). ambient_square conjugates this by the original subchartRecovery maps. toOver_square retains the original overFunctorEquiv endpoint comparisons. chart_square then yields restrict(globalMap) followed by the target original Fi comparison equals the source original Fi comparison followed by fi.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "hypothesis_checks",
+      "statement": "5. **Hypothesis checks.** chart_natural is the naturality of the original restriction/direct-image counit. path_natural is the actual composition and inclusion-equality natural isomorphism. subchart_natural combines them. ambient_square uses these proved identities and only the original local square. toOver_square uses faithfulness of the original equivalence. over_square_of_chart reflects the original Fi square back to the exact existing over-open uniqueness theorem, so uniqueness is derived rather than stipulated.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "statement": "6. **Consumer identity.** effective gives existence and uniqueness among all module-sheaf maps between the exact original reconstructed sheaves. LocalLineCategoricalDescent318.line_maps_effective consumes the same global Line objects from the inherited object theorem. lineIso has the reconstructed forward and inverse maps and lineIso_chart_square records the original local iso hom, not merely an abstract nonempty iso or line-class equality.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "scalars_normalization",
+      "statement": "7. **Scalars and normalization.** The unchanged twenty-source closure supplies the exact original section-ring and matching-family scalar actions. New maps are genuine scheme module-sheaf maps through original pushforward, restrictFunctor and overFunctor. Both endpoint comparisons in every subchart and over-open transport are retained. No tensor or scalar structure is changed by the normalization.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "downstream_boundary",
+      "statement": "8. **Downstream boundary.** This closes the original-Fi morphism-to-over-open adapter and provides categorical object/map/isomorphism effectivity for the original open cover. The remaining fppf join must derive coherent original chart data from the affine reconstruction over changing affine bases. General fppf descent and represented Picard/Jacobian constructions are not conclusions of this packet.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    },
+    {
+      "id": "evidence_acceptance",
+      "statement": "9. **Evidence and acceptance.** Twenty exact producer copies are recorded in DEPENDENCIES.json. Three new sources implement original subchart naturality, the exact unique categorical map, and original local line isomorphism/composition preservation. Static import/hash/placeholder checks and the audit-history self-test are run; no local Lean compilation is performed. All twenty-three sources require hosted strict compilation, recursive axiom audit and independent acceptance. No historical approval is reused for the changed application.",
+      "evidence": [
+        "APPLICATION.md",
+        "LocalChartMorphismNormalization318",
+        "LocalChartCategoricalDescent318",
+        "LocalLineCategoricalDescent318"
+      ]
+    }
+  ],
+  "checks": {
+    "source_hash_import_placeholder_validation": "PASS",
+    "local_lean_compilation": "NOT_RUN_AS_INSTRUCTED",
+    "hosted_lean_compilation": "PENDING",
+    "recursive_axiom_audit": "PENDING",
+    "independent_acceptance": "PENDING"
+  },
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

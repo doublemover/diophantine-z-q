@@ -1,0 +1,174 @@
+{
+  "producer": "complete_analytic_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Actual global J-squared-scaled bicanonical sections restrict on original noncontact open to the actual coefficient and differential expressions transported from the integral chart.",
+  "sources": {
+    "IntegralContactOpenFrame318.lean": "26aaa97bea8f5d9f9b4a6931c4337eaa228756b4ac6049d0c3c0aee1841d5d4d",
+    "IntegralContactOpenSections318.lean": "33ee7adcbb7bb4298aa61aa75c985d2c253ce17db9795a7ef7078b49254db4d1",
+    "IntegralRationalOpenComparison318.lean": "f481c31cdaf2131f542f9a16a4ba268b38ace414fbca30810cca4324d34817a7",
+    "GlobalBicanonicalOpenRestriction318.lean": "26f9c31390d1f5678045c77f94a354b191ab31bc84601724b4aa560bd2c4dca8"
+  },
+  "readme_sha256": "4585538ef5bc137335aec68b6f2925b2960f16f4effb05679040492e47ff9dca",
+  "intake_sha256": "422507df8d979941ce173db217ded36b5d717732237b034e488e4e0c38b35f20",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38",
+    "quartics/quartic-318-326/proof/progress/ContactGlobalBicanonical318.lean": "6f552d28d0db9466a4ed2e656a91cb66e11890226d26a464d317bdf5c1d9fcb8",
+    "quartics/quartic-318-326/proof/progress/ContactFiniteTensorRestrictions318.lean": "73bece839fef6623202253d6fa0f0963ae5892b2cf6043fe599bc92029ddbe01",
+    "quartics/quartic-318-326/proof/progress/ContactOverlapIntrinsic318.lean": "275bdae204fca5b1875ddb0740442a99a80fe20e5c32bbcaf3283e679e47d0f7",
+    "quartics/quartic-318-326/proof/progress/ContactFiniteOverlapDifferential318.lean": "a073f325c603f0e9d7e1cf6805caebf3bc686648fe4517b61499828c1dd8252f",
+    "quartics/quartic-318-326/proof/progress/IntrinsicTensorChartSections318.lean": "8800eee4c40ce5f3f2148b60e690cddfb657a2488fc126ba613a2abc5e0fcd86"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Objects",
+      "constructed_input": "The source is the original global intrinsic bicanonical sheaf and its original glued q0/q1 on the complete contact model. The consuming open is the original ContactProjectiveModel318.sourceOpen, not a newly chosen curve or dense generic subset.",
+      "justification": "The source is the original global intrinsic bicanonical sheaf and its original glued q0/q1 on the complete contact model. The consuming open is the original ContactProjectiveModel318.sourceOpen, not a newly chosen curve or dense generic subset.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 1"
+    },
+    {
+      "name": "Indices",
+      "required_input": "Indices",
+      "constructed_input": "branch_dt covers every original finite branch index i in Fin 4. The global restriction uses branch 0 only as a proved containing chart of the entire noncontact open. Existing all-branch gluing is unchanged and no new coverage assumption is supplied.",
+      "justification": "branch_dt covers every original finite branch index i in Fin 4. The global restriction uses branch 0 only as a proved containing chart of the entire noncontact open. Existing all-branch gluing is unchanged and no new coverage assumption is supplied.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 2"
+    },
+    {
+      "name": "Domain",
+      "required_input": "Domain",
+      "constructed_input": "All equalities hold in the actual sheaf module on the entire original noncontact open. P is a unit throughout this open. Missing integral contact reductions and complete-model extension remain excluded explicitly.",
+      "justification": "All equalities hold in the actual sheaf module on the entire original noncontact open. P is a unit throughout this open. Missing integral contact reductions and complete-model extension remain excluded explicitly.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 3"
+    },
+    {
+      "name": "Maps",
+      "required_input": "Maps",
+      "constructed_input": "Restriction composes the original global-to-branch and branch-to-open sheaf maps. integralExpression transports the actual integral-chart coefficient and universal differential through the verified rational algebra equivalence, then uses the actual ambient intrinsic chart section map. Directions and underlying object identities are retained.",
+      "justification": "Restriction composes the original global-to-branch and branch-to-open sheaf maps. integralExpression transports the actual integral-chart coefficient and universal differential through the verified rational algebra equivalence, then uses the actual ambient intrinsic chart section map. Directions and underlying object identities are retained.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 4"
+    },
+    {
+      "name": "Scalars",
+      "required_input": "Scalars",
+      "constructed_input": "The quartic product and inverse are proved equal to the original overlap P and its literal inverse. The differential factor enters squared. q1=t q0 and J\u00b2 scaling are carried through the sheaf maps; no contact-coordinate factor or twist is discarded.",
+      "justification": "The quartic product and inverse are proved equal to the original overlap P and its literal inverse. The differential factor enters squared. q1=t q0 and J\u00b2 scaling are carried through the sheaf maps; no contact-coordinate factor or twist is discarded.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 5"
+    },
+    {
+      "name": "Consumer",
+      "required_input": "Consumer",
+      "constructed_input": "scaled_global_pair compares the original global pair to both integral-chart weighted differential expressions, in the same ambient sheaf module. It supplies a concrete restriction identity for the future integral extension argument, not a replacement pair with only matching numerical heights.",
+      "justification": "scaled_global_pair compares the original global pair to both integral-chart weighted differential expressions, in the same ambient sheaf module. It supplies a concrete restriction identity for the future integral extension argument, not a replacement pair with only matching numerical heights.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 6"
+    },
+    {
+      "name": "Hypotheses",
+      "required_input": "Hypotheses",
+      "constructed_input": "weightedSquare_agreement requires a unit quartic, both cleared coefficient identities and both actual differential relations. Existing original overlap producers supply the branch identities; the localization inverse supplies P times inverse=1. No unproved generic-point extension or tensor comparison is assumed.",
+      "justification": "weightedSquare_agreement requires a unit quartic, both cleared coefficient identities and both actual differential relations. Existing original overlap producers supply the branch identities; the localization inverse supplies P times inverse=1. No unproved generic-point extension or tensor comparison is assumed.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 7"
+    },
+    {
+      "name": "History",
+      "required_input": "History",
+      "constructed_input": "The global intrinsic sections and all whole-intersection compatibilities were already constructed. This draft adds their exact noncontact dt expression and identification with the new integral-chart presentation. The classical source and accepted manuscript remain unchanged; bad-contact integral geometry remains pending.",
+      "justification": "The global intrinsic sections and all whole-intersection compatibilities were already constructed. This draft adds their exact noncontact dt expression and identification with the new integral-chart presentation. The classical source and accepted manuscript remain unchanged; bad-contact integral geometry remains pending.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 8"
+    },
+    {
+      "name": "Verification",
+      "required_input": "Verification",
+      "constructed_input": "Copied sources and consumed source hashes bind this packet. Static closure and audit-history checks are structural only. Hosted strict compilation, recursive private-inclusive axiom audit and independent source acceptance remain pending. No self-approval is generated.",
+      "justification": "Copied sources and consumed source hashes bind this packet. Static closure and audit-history checks are structural only. Hosted strict compilation, recursive private-inclusive axiom audit and independent source acceptance remain pending. No self-approval is generated.",
+      "sources": [
+        "IntegralContactOpenFrame318.lean",
+        "IntegralContactOpenSections318.lean",
+        "IntegralRationalOpenComparison318.lean",
+        "GlobalBicanonicalOpenRestriction318.lean",
+        "verification/consumer-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "static_packet_validation": "PASS",
+    "hosted_strict_check": "PENDING",
+    "independent_acceptance": "PENDING",
+    "hosted_check": "PENDING",
+    "independent_review": "PENDING"
+  },
+  "repair_scope": "Revision r2 propagates the integral-chart instance repair into this full global-open comparison packet. The original scalar-tower constructor now names all three actual rings explicitly. Prime localization receives its actual composite R-algebra and scalar-tower instances, rather than relying on inference through the nested quotient/localization representation. The four mathematical source modules and their statements retain the same content; copied predecessor status is superseded only for this explicit instance repair.",
+  "versioned_repair": {
+    "reason": "Apply congrArg to the fixed original polynomial-to-order map, preserving localization types while transporting the literal quartic identity.",
+    "trigger_commit": "c7d3bc3",
+    "failed_packet": "height-global-open-sections-r7",
+    "predecessor_packet": "height-global-open-sections-r7",
+    "statements_weakened": false
+  }
+}

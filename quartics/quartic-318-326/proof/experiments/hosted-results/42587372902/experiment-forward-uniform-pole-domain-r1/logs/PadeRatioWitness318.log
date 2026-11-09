@@ -1,0 +1,450 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:95:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+he :
+  (1 -
+          7 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) *
+            (11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76)))) *
+        z.commonPolynomial.re +
+      -(2 *
+            (7 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) *
+              (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77)))) *
+          z.commonPolynomial.im) =
+    1 -
+        61 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) *
+          (11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76))) +
+      16 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) *
+        ((11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76))) *
+            (11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76))) +
+          2 * (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77))) *
+            (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77))))
+⊢ w 76 * w 77 * (-1464 / 65) + w 76 * w 77 * z.commonPolynomial.re * (168 / 13) -
+                                                        w 76 * w 77 * z.commonPolynomial.re *
+                                                            (QuadraticAlgebra.norm 13)⁻¹ *
+                                                          2184 +
+                                                      w 76 * w 77 * z.commonPolynomial.im * (-308 / 13) +
+                                                    w 76 * w 77 * z.commonPolynomial.im * (QuadraticAlgebra.norm 13)⁻¹ *
+                                                      4004 +
+                                                  w 76 * w 77 * (QuadraticAlgebra.norm 65)⁻¹ * 95160 +
+                                                w 76 * w 77 ^ 3 * (11264 / 65) -
+                                              w 76 * w 77 ^ 3 * (QuadraticAlgebra.norm 195)⁻¹ * 6589440 +
+                                            w 76 ^ 2 * (671 / 65) +
+                                          w 76 ^ 2 * w 77 ^ 2 * (-12352 / 65) +
+                                        w 76 ^ 2 * w 77 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 7225920 +
+                                      w 76 ^ 2 * z.commonPolynomial.re * (-77 / 13) +
+                                    w 76 ^ 2 * z.commonPolynomial.re * (QuadraticAlgebra.norm 13)⁻¹ * 1001 +
+                                  w 76 ^ 2 * z.commonPolynomial.im * (84 / 13) -
+                                w 76 ^ 2 * z.commonPolynomial.im * (QuadraticAlgebra.norm 13)⁻¹ * 1092 -
+                              w 76 ^ 2 * (QuadraticAlgebra.norm 65)⁻¹ * 43615 +
+                            w 76 ^ 3 * w 77 * (5632 / 65) -
+                          w 76 ^ 3 * w 77 * (QuadraticAlgebra.norm 195)⁻¹ * 3294720 +
+                        w 76 ^ 4 * (-3088 / 195) +
+                      w 76 ^ 4 * (QuadraticAlgebra.norm 195)⁻¹ * 602160 +
+                    w 77 ^ 2 * (1342 / 65) +
+                  w 77 ^ 2 * z.commonPolynomial.re * (-154 / 13) +
+                w 77 ^ 2 * z.commonPolynomial.re * (QuadraticAlgebra.norm 13)⁻¹ * 2002 +
+              w 77 ^ 2 * z.commonPolynomial.im * (168 / 13) -
+            w 77 ^ 2 * z.commonPolynomial.im * (QuadraticAlgebra.norm 13)⁻¹ * 2184 -
+          w 77 ^ 2 * (QuadraticAlgebra.norm 65)⁻¹ * 87230 +
+        w 77 ^ 4 * (-12352 / 195) +
+      w 77 ^ 4 * (QuadraticAlgebra.norm 195)⁻¹ * 2408640 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:100:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+he :
+  (1 -
+          7 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) *
+            (11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76)))) *
+        z.commonPolynomial.im +
+      -(7 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) *
+            (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77))) *
+          z.commonPolynomial.re) =
+    -(61 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) *
+          (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77)))) +
+      16 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) *
+        ((11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76))) *
+            (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77))) +
+          (11 * (w 76 * w 77 + w 77 * w 76) + -(6 * (w 76 * w 76 + 2 * w 77 * w 77))) *
+            (11 * (w 76 * w 76 + 2 * w 77 * w 77) + -(12 * (w 76 * w 77 + w 77 * w 76))))
+⊢ w 76 * w 77 * (1342 / 65) + w 76 * w 77 * z.commonPolynomial.re * (-154 / 13) +
+                                                        w 76 * w 77 * z.commonPolynomial.re *
+                                                            (QuadraticAlgebra.norm 13)⁻¹ *
+                                                          2002 +
+                                                      w 76 * w 77 * z.commonPolynomial.im * (168 / 13) -
+                                                    w 76 * w 77 * z.commonPolynomial.im * (QuadraticAlgebra.norm 13)⁻¹ *
+                                                      2184 -
+                                                  w 76 * w 77 * (QuadraticAlgebra.norm 65)⁻¹ * 87230 +
+                                                w 76 * w 77 ^ 3 * (-24704 / 195) +
+                                              w 76 * w 77 ^ 3 * (QuadraticAlgebra.norm 195)⁻¹ * 4817280 +
+                                            w 76 ^ 2 * (-366 / 65) +
+                                          w 76 ^ 2 * w 77 ^ 2 * (8448 / 65) -
+                                        w 76 ^ 2 * w 77 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 4942080 +
+                                      w 76 ^ 2 * z.commonPolynomial.re * (42 / 13) -
+                                    w 76 ^ 2 * z.commonPolynomial.re * (QuadraticAlgebra.norm 13)⁻¹ * 546 +
+                                  w 76 ^ 2 * z.commonPolynomial.im * (-77 / 13) +
+                                w 76 ^ 2 * z.commonPolynomial.im * (QuadraticAlgebra.norm 13)⁻¹ * 1001 +
+                              w 76 ^ 2 * (QuadraticAlgebra.norm 65)⁻¹ * 23790 +
+                            w 76 ^ 3 * w 77 * (-12352 / 195) +
+                          w 76 ^ 3 * w 77 * (QuadraticAlgebra.norm 195)⁻¹ * 2408640 +
+                        w 76 ^ 4 * (704 / 65) -
+                      w 76 ^ 4 * (QuadraticAlgebra.norm 195)⁻¹ * 411840 +
+                    w 77 ^ 2 * (-732 / 65) +
+                  w 77 ^ 2 * z.commonPolynomial.re * (84 / 13) -
+                w 77 ^ 2 * z.commonPolynomial.re * (QuadraticAlgebra.norm 13)⁻¹ * 1092 +
+              w 77 ^ 2 * z.commonPolynomial.im * (-154 / 13) +
+            w 77 ^ 2 * z.commonPolynomial.im * (QuadraticAlgebra.norm 13)⁻¹ * 2002 +
+          w 77 ^ 2 * (QuadraticAlgebra.norm 65)⁻¹ * 47580 +
+        w 77 ^ 4 * (2816 / 65) -
+      w 77 ^ 4 * (QuadraticAlgebra.norm 195)⁻¹ * 1647360 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:117:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+he :
+  (1 + 5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * (w 23 - 1)) * (z.alternatePolynomial 1).re +
+      2 * (5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * w 24) * (z.alternatePolynomial 1).im =
+    1 + 12 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) * (w 23 - 1) -
+      2 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) * ((w 23 - 1) * (w 23 - 1) + 2 * w 24 * w 24)
+⊢ 38 / 195 + w 23 * (-8 / 39) + w 23 * (z.alternatePolynomial 1).re * (5 / 13) -
+                              w 23 * (z.alternatePolynomial 1).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                            w 23 * (QuadraticAlgebra.norm 65)⁻¹ * 780 +
+                          w 23 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+                        w 23 ^ 2 * (2 / 195) -
+                      w 23 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 390 +
+                    (z.alternatePolynomial 1).re * (-5 / 13) +
+                  (z.alternatePolynomial 1).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                w 24 * (z.alternatePolynomial 1).im * (10 / 13) -
+              w 24 * (z.alternatePolynomial 1).im * (QuadraticAlgebra.norm 13)⁻¹ * 130 +
+            w 24 ^ 2 * (4 / 195) -
+          w 24 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 780 -
+        (QuadraticAlgebra.norm 65)⁻¹ * 780 -
+      (QuadraticAlgebra.norm 195)⁻¹ * 390 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:122:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+he :
+  (1 + 5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * (w 23 - 1)) * (z.alternatePolynomial 1).im +
+      5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * w 24 * (z.alternatePolynomial 1).re =
+    12 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) * w 24 -
+      2 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) * ((w 23 - 1) * w 24 + w 24 * (w 23 - 1))
+⊢ w 23 * w 24 * (4 / 195) - w 23 * w 24 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+                      w 23 * (z.alternatePolynomial 1).im * (5 / 13) -
+                    w 23 * (z.alternatePolynomial 1).im * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                  w 24 * (-8 / 39) +
+                w 24 * (z.alternatePolynomial 1).re * (5 / 13) -
+              w 24 * (z.alternatePolynomial 1).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+            w 24 * (QuadraticAlgebra.norm 65)⁻¹ * 780 +
+          w 24 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+        (z.alternatePolynomial 1).im * (-5 / 13) +
+      (z.alternatePolynomial 1).im * (QuadraticAlgebra.norm 13)⁻¹ * 65 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:128:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+h58 : r58 S (fill w z) = 0
+e59 : QJ (v w ⟨↑1 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑1 + 1, ⋯⟩ = PJ (v w ⟨↑1 + 5, ⋯⟩ - 1)
+he :
+  (1 + 5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * (w 27 - 1)) * (z.alternatePolynomial 2).re +
+      2 * (5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * w 28) * (z.alternatePolynomial 2).im =
+    1 + 12 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) * (w 27 - 1) -
+      2 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) * ((w 27 - 1) * (w 27 - 1) + 2 * w 28 * w 28)
+⊢ 38 / 195 + w 27 * (-8 / 39) + w 27 * (z.alternatePolynomial 2).re * (5 / 13) -
+                              w 27 * (z.alternatePolynomial 2).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                            w 27 * (QuadraticAlgebra.norm 65)⁻¹ * 780 +
+                          w 27 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+                        w 27 ^ 2 * (2 / 195) -
+                      w 27 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 390 +
+                    (z.alternatePolynomial 2).re * (-5 / 13) +
+                  (z.alternatePolynomial 2).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                w 28 * (z.alternatePolynomial 2).im * (10 / 13) -
+              w 28 * (z.alternatePolynomial 2).im * (QuadraticAlgebra.norm 13)⁻¹ * 130 +
+            w 28 ^ 2 * (4 / 195) -
+          w 28 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 780 -
+        (QuadraticAlgebra.norm 65)⁻¹ * 780 -
+      (QuadraticAlgebra.norm 195)⁻¹ * 390 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:133:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+h58 : r58 S (fill w z) = 0
+e59 : QJ (v w ⟨↑1 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑1 + 1, ⋯⟩ = PJ (v w ⟨↑1 + 5, ⋯⟩ - 1)
+h59 : r59 S (fill w z) = 0
+he :
+  (1 + 5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * (w 27 - 1)) * (z.alternatePolynomial 2).im +
+      5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * w 28 * (z.alternatePolynomial 2).re =
+    12 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) * w 28 -
+      2 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) * ((w 27 - 1) * w 28 + w 28 * (w 27 - 1))
+⊢ w 27 * w 28 * (4 / 195) - w 27 * w 28 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+                      w 27 * (z.alternatePolynomial 2).im * (5 / 13) -
+                    w 27 * (z.alternatePolynomial 2).im * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                  w 28 * (-8 / 39) +
+                w 28 * (z.alternatePolynomial 2).re * (5 / 13) -
+              w 28 * (z.alternatePolynomial 2).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+            w 28 * (QuadraticAlgebra.norm 65)⁻¹ * 780 +
+          w 28 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+        (z.alternatePolynomial 2).im * (-5 / 13) +
+      (z.alternatePolynomial 2).im * (QuadraticAlgebra.norm 13)⁻¹ * 65 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:139:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+h58 : r58 S (fill w z) = 0
+e59 : QJ (v w ⟨↑1 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑1 + 1, ⋯⟩ = PJ (v w ⟨↑1 + 5, ⋯⟩ - 1)
+h59 : r59 S (fill w z) = 0
+h60 : r60 S (fill w z) = 0
+e61 : QJ (v w ⟨↑2 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑2 + 1, ⋯⟩ = PJ (v w ⟨↑2 + 5, ⋯⟩ - 1)
+he :
+  (1 + 5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * (w 31 - 1)) * (z.alternatePolynomial 3).re +
+      2 * (5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * w 32) * (z.alternatePolynomial 3).im =
+    1 + 12 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) * (w 31 - 1) -
+      2 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) * ((w 31 - 1) * (w 31 - 1) + 2 * w 32 * w 32)
+⊢ 38 / 195 + w 31 * (-8 / 39) + w 31 * (z.alternatePolynomial 3).re * (5 / 13) -
+                              w 31 * (z.alternatePolynomial 3).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                            w 31 * (QuadraticAlgebra.norm 65)⁻¹ * 780 +
+                          w 31 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+                        w 31 ^ 2 * (2 / 195) -
+                      w 31 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 390 +
+                    (z.alternatePolynomial 3).re * (-5 / 13) +
+                  (z.alternatePolynomial 3).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                w 32 * (z.alternatePolynomial 3).im * (10 / 13) -
+              w 32 * (z.alternatePolynomial 3).im * (QuadraticAlgebra.norm 13)⁻¹ * 130 +
+            w 32 ^ 2 * (4 / 195) -
+          w 32 ^ 2 * (QuadraticAlgebra.norm 195)⁻¹ * 780 -
+        (QuadraticAlgebra.norm 65)⁻¹ * 780 -
+      (QuadraticAlgebra.norm 195)⁻¹ * 390 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:144:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+h58 : r58 S (fill w z) = 0
+e59 : QJ (v w ⟨↑1 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑1 + 1, ⋯⟩ = PJ (v w ⟨↑1 + 5, ⋯⟩ - 1)
+h59 : r59 S (fill w z) = 0
+h60 : r60 S (fill w z) = 0
+e61 : QJ (v w ⟨↑2 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑2 + 1, ⋯⟩ = PJ (v w ⟨↑2 + 5, ⋯⟩ - 1)
+h61 : r61 S (fill w z) = 0
+he :
+  (1 + 5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * (w 31 - 1)) * (z.alternatePolynomial 3).im +
+      5 * ((QuadraticAlgebra.norm 13)⁻¹ * 13) * w 32 * (z.alternatePolynomial 3).re =
+    12 * ((QuadraticAlgebra.norm 65)⁻¹ * 65) * w 32 -
+      2 * ((QuadraticAlgebra.norm 195)⁻¹ * 195) * ((w 31 - 1) * w 32 + w 32 * (w 31 - 1))
+⊢ w 31 * w 32 * (4 / 195) - w 31 * w 32 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+                      w 31 * (z.alternatePolynomial 3).im * (5 / 13) -
+                    w 31 * (z.alternatePolynomial 3).im * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+                  w 32 * (-8 / 39) +
+                w 32 * (z.alternatePolynomial 3).re * (5 / 13) -
+              w 32 * (z.alternatePolynomial 3).re * (QuadraticAlgebra.norm 13)⁻¹ * 65 +
+            w 32 * (QuadraticAlgebra.norm 65)⁻¹ * 780 +
+          w 32 * (QuadraticAlgebra.norm 195)⁻¹ * 780 +
+        (z.alternatePolynomial 3).im * (-5 / 13) +
+      (z.alternatePolynomial 3).im * (QuadraticAlgebra.norm 13)⁻¹ * 65 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:162:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+h58 : r58 S (fill w z) = 0
+e59 : QJ (v w ⟨↑1 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑1 + 1, ⋯⟩ = PJ (v w ⟨↑1 + 5, ⋯⟩ - 1)
+h59 : r59 S (fill w z) = 0
+h60 : r60 S (fill w z) = 0
+e61 : QJ (v w ⟨↑2 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑2 + 1, ⋯⟩ = PJ (v w ⟨↑2 + 5, ⋯⟩ - 1)
+h61 : r61 S (fill w z) = 0
+h62 : r62 S (fill w z) = 0
+e63 : k * v w (Fin.castAdd 4 0) * z.primaryRatio 0 = u w (Fin.castAdd 4 0) * A w
+h63 : r63 S (fill w z) = 0
+h64 : r64 S (fill w z) = 0
+e65 : z.commonLog * z.alternateRatio 0 = -u w (Fin.natAdd 4 0) * (1 - (v w 4 - 1) / 5)
+he :
+  z.commonLog.re * (z.alternateRatio 0).re + 2 * z.commonLog.im * (z.alternateRatio 0).im =
+    -(w 17 * (1 - (w 19 - 1) * ((QuadraticAlgebra.norm 5)⁻¹ * 5))) +
+      2 * w 18 * (w 20 * ((QuadraticAlgebra.norm 5)⁻¹ * 5))
+⊢ w 17 * (1 / 5) + w 17 * w 19 * (-1 / 5) + w 17 * w 19 * (QuadraticAlgebra.norm 5)⁻¹ * 5 -
+          w 17 * (QuadraticAlgebra.norm 5)⁻¹ * 5 +
+        w 18 * w 20 * (-2 / 5) +
+      w 18 * w 20 * (QuadraticAlgebra.norm 5)⁻¹ * 10 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:167:4: error: ring failed, ring expressions not equal
+S : ℚ
+w : Assignment
+z : Data
+hp : QG (arg w) * z.commonPolynomial = PG (arg w)
+hc : B w * z.commonLog = k * shift w * z.commonPolynomial
+hfirst : z.alternatePolynomial 0 = 1 - (v w 4 - 1) / 5
+hj : ∀ (j : Fin 3), QJ (v w ⟨↑j + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑j + 1, ⋯⟩ = PJ (v w ⟨↑j + 5, ⋯⟩ - 1)
+hl : ∀ (j : Fin 4), k * v w (Fin.castAdd 4 j) * z.primaryRatio j = u w (Fin.castAdd 4 j) * A w
+hr : ∀ (j : Fin 4), z.commonLog * z.alternateRatio j = -u w (Fin.natAdd 4 j) * z.alternatePolynomial j
+h51 : r51 S (fill w z) = 0
+h52 : r52 S (fill w z) = 0
+e53 : QG (arg w) * z.commonPolynomial = PG (arg w)
+h53 : r53 S (fill w z) = 0
+h54 : r54 S (fill w z) = 0
+e55 : B w * z.commonLog = k * shift w * z.commonPolynomial
+h55 : r55 S (fill w z) = 0
+h56 : r56 S (fill w z) = 0
+e57 : QJ (v w ⟨↑0 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑0 + 1, ⋯⟩ = PJ (v w ⟨↑0 + 5, ⋯⟩ - 1)
+h57 : r57 S (fill w z) = 0
+h58 : r58 S (fill w z) = 0
+e59 : QJ (v w ⟨↑1 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑1 + 1, ⋯⟩ = PJ (v w ⟨↑1 + 5, ⋯⟩ - 1)
+h59 : r59 S (fill w z) = 0
+h60 : r60 S (fill w z) = 0
+e61 : QJ (v w ⟨↑2 + 5, ⋯⟩ - 1) * z.alternatePolynomial ⟨↑2 + 1, ⋯⟩ = PJ (v w ⟨↑2 + 5, ⋯⟩ - 1)
+h61 : r61 S (fill w z) = 0
+h62 : r62 S (fill w z) = 0
+e63 : k * v w (Fin.castAdd 4 0) * z.primaryRatio 0 = u w (Fin.castAdd 4 0) * A w
+h63 : r63 S (fill w z) = 0
+h64 : r64 S (fill w z) = 0
+e65 : z.commonLog * z.alternateRatio 0 = -u w (Fin.natAdd 4 0) * (1 - (v w 4 - 1) / 5)
+h65 : r65 S (fill w z) = 0
+he :
+  z.commonLog.re * (z.alternateRatio 0).im + z.commonLog.im * (z.alternateRatio 0).re =
+    w 17 * (w 20 * ((QuadraticAlgebra.norm 5)⁻¹ * 5)) + -(w 18 * (1 - (w 19 - 1) * ((QuadraticAlgebra.norm 5)⁻¹ * 5)))
+⊢ w 17 * w 20 * (-1 / 5) + w 17 * w 20 * (QuadraticAlgebra.norm 5)⁻¹ * 5 + w 18 * (1 / 5) + w 18 * w 19 * (-1 / 5) +
+        w 18 * w 19 * (QuadraticAlgebra.norm 5)⁻¹ * 5 -
+      w 18 * (QuadraticAlgebra.norm 5)⁻¹ * 5 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-uniform-pole-domain-r1/PadeRatioWitness318.lean:89:27: warning: This simp argument is unused:
+  pow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [r52, fill, fV, pair]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
