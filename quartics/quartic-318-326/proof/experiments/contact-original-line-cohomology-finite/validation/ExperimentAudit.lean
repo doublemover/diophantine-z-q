@@ -1,0 +1,98 @@
+module
+import all TensorPushoutModule318
+import all AffineModuleBaseChange318
+import all OriginalLineAffineModel318
+import all OriginalLineAffineBaseChange318
+import all SchemeIsoPushforwardRecovery318
+import all AffineTensorLinePushforward318
+import all OriginalLineFiniteFlatPID318
+import all ContactOriginalLineFiniteChart318
+import all ContactWholeInfinityAlgebra318
+import all ContactWholeInfinityScheme318
+import all ContactOriginalLineBothCharts318
+import all OriginalLaurentProjectiveOverlap318
+import all ContactOriginalLaurentOverlap318
+import all ContactOriginalLineOverlap318
+import all ContactOverlapTensorCharts318
+import all OriginalAffineMapSections318
+import all ContactOriginalModuleOverlap318
+import all ContactCommonLaurentModule318
+import all LaurentVectorFiltration318
+import all LaurentTransitionBounds318
+import all LaurentCechFinite318
+import all LaurentCechSectionsFinite318
+import all LaurentOriginalPolynomialCharts318
+import all OriginalFiniteBasisBaseChange318
+import all ContactOriginalLaurentCoordinates318
+import all AdjunctionOriginalUnitTransport318
+import all AffineGlobalSectionCoherence318
+import all TildePullbackMate318
+import all OriginalLineBaseChangeUnit318
+import all OriginalTensorChartRestriction318
+import all ContactOriginalRestrictionCoordinates318
+import all OriginalOpenLineRestrictionUnit318
+import all OriginalOpenPullbackSections318
+import all ContactWholeOpenSectionRestriction318
+import all OriginalPullbackSectionComposition318
+import all OriginalTensorChartWholeRestriction318
+import all ContactOriginalWholeRestriction318
+import all StructureAdditiveSheaf318
+import all SheafCohomologyRetraction318
+import all SheafInverseImageConstants318
+import all NormalizedStructureTrace318
+import all StructureRationalScalar318
+import all CohomologyRationalScalar318
+import all LocalSheafCohomologySections318
+import all LocalSheafCohomologyAdditive318
+import all LocalCohomologyRestriction318
+import all TerminalLocalCohomology318
+import all OpenMayerVietoris318
+import all MayerVietorisSectionKernel318
+import all OpenImmersionAdditiveRestriction318
+import all ExtFiniteRetractVanishing318
+import all AdditiveSheafSections318
+import all PrincipalFractionClearing318
+import all PrincipalCocycleSplit318
+import all ActualPrincipalSections318
+import all ActualPrincipalCocycle318
+import all AffinePrincipalLocalLifts318
+import all AffineStructureSectionLifting318
+import all AffineOpenSectionLifting318
+import all LocalAffineStructureHOne318
+import all FiniteProjectiveDualFrame318
+import all OriginalAffineLineDualFrame318
+import all OriginalAffineLineLocalHOne318
+import all OriginalLineRestrictionAdditive318
+import all OriginalAffineLineSectionLifting318
+import all OriginalLineOpenSectionLifting318
+import all OriginalLineAffineOpenHOne318
+import all OriginalLineMayerVietorisQuotient318
+import all OriginalLineRationalCohomology318
+import all ContactOriginalCohomologyCoordinates318
+import all ContactOriginalLaurentBoundary318
+import all ContactOriginalLineHOneFinite318
+import all ContactWholeChartRestrictionInjective318
+import all ContactOriginalLineSectionsFinite318
+import all ContactOriginalLineCohomologyFinite318
+import all OriginalModuleTwoOpenGluing318
+import all ContactOriginalLineSectionEquivalence318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`TensorPushoutModule318,`AffineModuleBaseChange318,`OriginalLineAffineModel318,`OriginalLineAffineBaseChange318,`SchemeIsoPushforwardRecovery318,`AffineTensorLinePushforward318,`OriginalLineFiniteFlatPID318,`ContactOriginalLineFiniteChart318,`ContactWholeInfinityAlgebra318,`ContactWholeInfinityScheme318,`ContactOriginalLineBothCharts318,`OriginalLaurentProjectiveOverlap318,`ContactOriginalLaurentOverlap318,`ContactOriginalLineOverlap318,`ContactOverlapTensorCharts318,`OriginalAffineMapSections318,`ContactOriginalModuleOverlap318,`ContactCommonLaurentModule318,`LaurentVectorFiltration318,`LaurentTransitionBounds318,`LaurentCechFinite318,`LaurentCechSectionsFinite318,`LaurentOriginalPolynomialCharts318,`OriginalFiniteBasisBaseChange318,`ContactOriginalLaurentCoordinates318,`AdjunctionOriginalUnitTransport318,`AffineGlobalSectionCoherence318,`TildePullbackMate318,`OriginalLineBaseChangeUnit318,`OriginalTensorChartRestriction318,`ContactOriginalRestrictionCoordinates318,`OriginalOpenLineRestrictionUnit318,`OriginalOpenPullbackSections318,`ContactWholeOpenSectionRestriction318,`OriginalPullbackSectionComposition318,`OriginalTensorChartWholeRestriction318,`ContactOriginalWholeRestriction318,`StructureAdditiveSheaf318,`SheafCohomologyRetraction318,`SheafInverseImageConstants318,`NormalizedStructureTrace318,`StructureRationalScalar318,`CohomologyRationalScalar318,`LocalSheafCohomologySections318,`LocalSheafCohomologyAdditive318,`LocalCohomologyRestriction318,`TerminalLocalCohomology318,`OpenMayerVietoris318,`MayerVietorisSectionKernel318,`OpenImmersionAdditiveRestriction318,`ExtFiniteRetractVanishing318,`AdditiveSheafSections318,`PrincipalFractionClearing318,`PrincipalCocycleSplit318,`ActualPrincipalSections318,`ActualPrincipalCocycle318,`AffinePrincipalLocalLifts318,`AffineStructureSectionLifting318,`AffineOpenSectionLifting318,`LocalAffineStructureHOne318,`FiniteProjectiveDualFrame318,`OriginalAffineLineDualFrame318,`OriginalAffineLineLocalHOne318,`OriginalLineRestrictionAdditive318,`OriginalAffineLineSectionLifting318,`OriginalLineOpenSectionLifting318,`OriginalLineAffineOpenHOne318,`OriginalLineMayerVietorisQuotient318,`OriginalLineRationalCohomology318,`ContactOriginalCohomologyCoordinates318,`ContactOriginalLaurentBoundary318,`ContactOriginalLineHOneFinite318,`ContactWholeChartRestrictionInjective318,`ContactOriginalLineSectionsFinite318,`ContactOriginalLineCohomologyFinite318,`OriginalModuleTwoOpenGluing318,`ContactOriginalLineSectionEquivalence318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"
