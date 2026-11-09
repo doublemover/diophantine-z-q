@@ -782,3 +782,7 @@ The full original good-base model now has candidate intrinsic codimension-one st
 ## Continuation batch 42
 
 Actual original affine-chart reconstruction comparisons now glue to a specified global covering-line isomorphism, with exact whole-subopen recovery. Compatibility is proved by affine refinements of base intersections, without assuming those intersections are affine. The original global-double descent square remains separate. Exact tilde identity-tail and elliptic derivative normalization failures are preserved and narrowly repaired; hosted validation remains pending.
+
+## Continuation batch 43
+
+The two connected height chains are consolidated over an explicitly constructed Z[1/δ] with the original signed rational twists. Full base-prime coverage outside δ, original finite-source rational base change, same smooth proper finite-flat pencil, scalar-one line/section comparison and actual codimension-one completion maps are retained. All97 and57 predecessor sources are unchanged. This does not cover excluded denominator primes or establish a numerical height inequality; hosted verification remains pending.
