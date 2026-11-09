@@ -774,3 +774,7 @@ Actual positive odd beta/scalar/Lucas labels and adjustable common2/3 depths are
 ## Continuation batch 40
 
 Actual square-zero reduction, projective generator lifting and original affine sheaf comparisons now give candidate pointed triviality on every actual affine dual-number thickening, retaining its supplied zero-section frame. The literal tensor fiber product and original affine scheme map are preserved. This is local triviality, not global H1 classification. Exact two-open restriction/additive failure is preserved and repaired; all new source remains pending hosted checking.
+
+## Continuation batch 41
+
+The full original good-base model now has candidate intrinsic codimension-one stalk DVRs, including infinity, and actual completion maps preserving their normalized valuation. The actual finite flat t pencil pulls back the independently constructed target O(1) to the original intrinsic tensor-square sheaf, preserving both original J² sections with scalar one. The exact reverse-localization and final tensor-carrier failures are retained and repaired. New source remains pending hosted verification; no bad-prime or numerical-height conclusion is asserted.
