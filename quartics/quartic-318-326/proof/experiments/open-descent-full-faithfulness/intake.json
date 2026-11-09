@@ -1,0 +1,181 @@
+{
+  "packet": "open-descent-full-faithfulness",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318",
+    "OpenSheafTransition318",
+    "OpenSheafGluing318",
+    "OpenChartModuleImages318",
+    "LocalLineGlobalFrames318",
+    "OpenChartLineEffectivity318",
+    "OpenSheafRestrictionCompatibility318",
+    "OpenSchemeTransition318",
+    "OpenSchemeGluing318",
+    "OpenRestrictionPathCoherence318",
+    "LocalChartTransition318",
+    "LocalLineOpenDescent318",
+    "OpenModuleDescentMaps318",
+    "OpenModuleDescentFullFaithful318",
+    "OpenSheafDescentMaps318",
+    "OpenSheafDescentIsomorphisms318"
+  ],
+  "files": {
+    "OpenModuleTransition318.lean": {
+      "sha256": "5dcb598825a5dea41113d5a4cc4712b45af12e269258d01c212b4d18b24fc427",
+      "imports": [
+        "ModuleLocalGluing318"
+      ]
+    },
+    "OpenModuleChartRecovery318.lean": {
+      "sha256": "0b2910a4755a9c47fde958f4fa6776f9fe817bb36e9706f978b3e9444a862119",
+      "imports": [
+        "OpenModuleTransition318"
+      ]
+    },
+    "OpenModulePresheaf318.lean": {
+      "sha256": "0f9f68d71af7b052d3cb0764e5343642310e755ce13b6e1dd054af22de1ec679",
+      "imports": [
+        "OpenModuleChartRecovery318"
+      ]
+    },
+    "OpenModuleSheafGluing318.lean": {
+      "sha256": "4312b4d09e58ec1a4d078d95cbc9de434c9c0fccb0e37a2c404f1661638412a5",
+      "imports": [
+        "OpenModulePresheaf318"
+      ]
+    },
+    "OpenModuleGluedSheaf318.lean": {
+      "sha256": "4a44e48d9c3b8ba2564b13c4e4f9e7110a7c4bff384d754dd0246ea3fc58daff",
+      "imports": [
+        "LineSheafClass318",
+        "OpenModuleSheafGluing318"
+      ]
+    },
+    "OpenSheafTransition318.lean": {
+      "sha256": "bbeab39ffbd162e65334d14a4dbdcf0d2ffbd94f9cea7edf37b1ce0e5372ca4e",
+      "imports": [
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    "OpenSheafGluing318.lean": {
+      "sha256": "148e1c79cfb2bc4b8ce99a3d124b96fba82ee87a45db31b1f8479b1370aa316e",
+      "imports": [
+        "OpenSheafTransition318"
+      ]
+    },
+    "OpenChartModuleImages318.lean": {
+      "sha256": "931e1b651c2db3159ffec0cc925e0547275a4969bed32e994fe120d021fe96fd",
+      "imports": [
+        "OpenSheafGluing318"
+      ]
+    },
+    "LocalLineGlobalFrames318.lean": {
+      "sha256": "fa1bfd6186e76e556913d41dc25ba7ab5c5e84e9590b671dcc026760179e6ad7",
+      "imports": [
+        "LineSheafClass318"
+      ]
+    },
+    "OpenChartLineEffectivity318.lean": {
+      "sha256": "d2a7ed68727eeba7bf7ae2149dae546d5e6a49dd9db04404dca2873adef237e1",
+      "imports": [
+        "LocalLineGlobalFrames318",
+        "OpenChartModuleImages318"
+      ]
+    },
+    "OpenSheafRestrictionCompatibility318.lean": {
+      "sha256": "72a0507bc6059532d574094ca498a0d393acc26e74f786ef29f63bf58d954ff6",
+      "imports": [
+        "OpenChartModuleImages318"
+      ]
+    },
+    "OpenSchemeTransition318.lean": {
+      "sha256": "a64283bb1061f4448da3e3b488022310c4be4ebe8d39aec3907a688e66aa1c73",
+      "imports": [
+        "OpenSheafRestrictionCompatibility318"
+      ]
+    },
+    "OpenSchemeGluing318.lean": {
+      "sha256": "bc1d3265c6f8ffa39bc86049bbde4d336ad6b23849ac8798b6c58e145cc9160f",
+      "imports": [
+        "OpenChartLineEffectivity318",
+        "OpenSchemeTransition318"
+      ]
+    },
+    "OpenRestrictionPathCoherence318.lean": {
+      "sha256": "1c5d2d09d7ea8573af9496387a8d610904a95886e74854dac033094a5b7bda60",
+      "imports": [
+        "OpenSheafRestrictionCompatibility318"
+      ]
+    },
+    "LocalChartTransition318.lean": {
+      "sha256": "bf94b151ea5b789ea21660c87d9a489e8d7cf213758dac1ce77399745e062eab",
+      "imports": [
+        "OpenRestrictionPathCoherence318",
+        "OpenSchemeTransition318"
+      ]
+    },
+    "LocalLineOpenDescent318.lean": {
+      "sha256": "0bb2308c31cd2d436dc3051b535b4e082abe701ecbc80e89dbd8731b6aad5c3a",
+      "imports": [
+        "LocalChartTransition318",
+        "OpenSchemeGluing318"
+      ]
+    },
+    "OpenModuleDescentMaps318.lean": {
+      "sha256": "87f98387aa34b24fced62144872040ac68e59faf84247603d50fdd6cea888cc2",
+      "imports": [
+        "OpenModuleGluedSheaf318"
+      ]
+    },
+    "OpenModuleDescentFullFaithful318.lean": {
+      "sha256": "9452e883136b274de53b5dcb1958a9856612038ee0f51de520c6916c6ffe4ba8",
+      "imports": [
+        "OpenModuleDescentMaps318"
+      ]
+    },
+    "OpenSheafDescentMaps318.lean": {
+      "sha256": "908e1c3099aa40305c9a9f21b3111527aa40ff216c25532fd2c52dbf9aa3d798",
+      "imports": [
+        "OpenModuleDescentFullFaithful318",
+        "OpenSheafGluing318"
+      ]
+    },
+    "OpenSheafDescentIsomorphisms318.lean": {
+      "sha256": "f19c262fbba6d5f6b87eda64cd9a402ece1e795fcfa106bdbb1c1337626d9b2c",
+      "imports": [
+        "OpenSheafDescentMaps318"
+      ]
+    }
+  },
+  "new_modules": [
+    "OpenModuleDescentMaps318",
+    "OpenModuleDescentFullFaithful318",
+    "OpenSheafDescentMaps318",
+    "OpenSheafDescentIsomorphisms318"
+  ],
+  "unchanged_producer_modules": [
+    "OpenModuleTransition318",
+    "OpenModuleChartRecovery318",
+    "OpenModulePresheaf318",
+    "OpenModuleSheafGluing318",
+    "OpenModuleGluedSheaf318",
+    "OpenSheafTransition318",
+    "OpenSheafGluing318",
+    "OpenChartModuleImages318",
+    "LocalLineGlobalFrames318",
+    "OpenChartLineEffectivity318",
+    "OpenSheafRestrictionCompatibility318",
+    "OpenSchemeTransition318",
+    "OpenSchemeGluing318",
+    "OpenRestrictionPathCoherence318",
+    "LocalChartTransition318",
+    "LocalLineOpenDescent318"
+  ],
+  "scope": "Original local module and sheaf maps glue uniquely, with a genuine bijection on morphisms, identity and composition preservation, and actual chart isomorphism recovery. General fppf assembly and Picard representability remain separate.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

@@ -1,0 +1,94 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r7/IntegralBranchGenericTensor318.lean:32:23: error(lean.unknownIdentifier): Unknown identifier `X`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r7/IntegralBranchGenericTensor318.lean:32:21: error: failed to prove index is valid, possible solutions:
+  - Use `have`-expressions to prove the index is valid
+  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid
+  - Use `a[i]?` notation instead, result is an `Option` type
+  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid
+R : Type u_1
+inst✝² : CommRing R
+c : Fin 4 → Rˣ
+i : Fin 4
+inst✝¹ : IsDomain R
+inst✝ : IsDomain (B R c i)
+⊢ ?m.34 R sorry
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r7/IntegralBranchGenericTensor318.lean:32:47: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (800000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r7/IntegralBranchGenericTensor318.lean:41:81: error: unsolved goals
+R : Type u_1
+inst✝⁷ : CommRing R
+c : Fin 4 → Rˣ
+i : Fin 4
+inst✝⁶ : IsDomain R
+inst✝⁵ : IsDomain (B R c i)
+K : Type u_2
+inst✝⁴ : Field K
+inst✝³ : Algebra (B R c i) K
+inst✝² : Algebra R K
+inst✝¹ : IsScalarTower R (B R c i) K
+inst✝ : IsFractionRing (B R c i) K
+⊢ (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) *
+                        (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 32)) *
+                      (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 76832)) *
+                    (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 343)) +
+                  (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 2 *
+                      (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 32)) *
+                    (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 76832)) -
+                (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 2 *
+                    (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 32)) *
+                  (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 343)) -
+              (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 2 *
+                  (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 76832)) *
+                (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 343)) -
+            (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 3 *
+              (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 32)) -
+          (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 3 *
+            (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 76832)) +
+        (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 3 *
+          (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) (Polynomial.C 343)) +
+      (algebraMap (B R c i) K) ((algebraMap (Polynomial R) (B R c i)) Polynomial.X) ^ 4 =
+    (algebraMap (B R c i) K)
+              ((algebraMap (SourceOrder R c) (B R c i))
+                ((AdjoinRoot.of (QuadraticPresentation318.polynomial (coefficient R c 0))) Polynomial.X ⊗ₜ[Polynomial R]
+                    1 ⊗ₜ[Polynomial R]
+                  1)) *
+            843308032 -
+          (algebraMap (B R c i) K)
+                ((algebraMap (SourceOrder R c) (B R c i))
+                  ((AdjoinRoot.of (QuadraticPresentation318.polynomial (coefficient R c 0)))
+                        Polynomial.X ⊗ₜ[Polynomial R]
+                      1 ⊗ₜ[Polynomial R]
+                    1)) ^
+              2 *
+            23905728 -
+        (algebraMap (B R c i) K)
+              ((algebraMap (SourceOrder R c) (B R c i))
+                ((AdjoinRoot.of (QuadraticPresentation318.polynomial (coefficient R c 0))) Polynomial.X ⊗ₜ[Polynomial R]
+                    1 ⊗ₜ[Polynomial R]
+                  1)) ^
+            3 *
+          76521 +
+      (algebraMap (B R c i) K)
+          ((algebraMap (SourceOrder R c) (B R c i))
+            ((AdjoinRoot.of (QuadraticPresentation318.polynomial (coefficient R c 0))) Polynomial.X ⊗ₜ[Polynomial R]
+                1 ⊗ₜ[Polynomial R]
+              1)) ^
+        4
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-branch-tensors-r7/IntegralBranchGenericTensor318.lean:44:4: warning: This simp argument is unused:
+  ← IsScalarTower.algebraMap_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourceP, quartic, sourceT, VerticalSection318.denominator, contacts, VerticalSection318.contacts,
+    Fin.prod_univ_four]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

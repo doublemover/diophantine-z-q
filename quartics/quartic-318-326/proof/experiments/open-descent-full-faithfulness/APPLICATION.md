@@ -1,0 +1,19 @@
+# Application contract
+
+1. **Source requirements.** OpenModuleDescentMaps318.Map takes actual linear maps on every subopen of each original chart, original restriction naturality, and the original transition square. OpenSheafDescentMaps318.Map instead takes genuine over-open module-sheaf maps and only their actual pairwise overlap squares. The scalar data and its naturality are derived from this second input.
+
+2. **Constructed objects.** The global objects are precisely the matching-family module sheaves already constructed by OpenModuleGluedSheaf318. A new map acts componentwise on the same matching family. Its linearity and restriction naturality produce a genuine module-sheaf morphism. No other representative or replacement sheaf is used.
+
+3. **Coverage.** Hom reconstruction is between these specific matching-family objects for the same complete original chart index type, including the empty case. No unsupported ambient-cover inference is made. The inherited LocalLineOpenDescent318 global line theorem still requires its explicit top-cover hypothesis, and its local frame refinement uses every original chart and every original local line frame.
+
+4. **Transition directions.** Local maps commute from the source transition D(i,j) to the target transition E(i,j). The actual recovered square is over(gluedMap) followed by the target chart comparison equals the source chart comparison followed by the original local map. Composition uses the same left-to-right categorical convention. Inverse compatibility is derived by cancelling the actual restricted chart isomorphisms.
+
+5. **Hypothesis checks.** Localize reconstructs every local component of a global map using the original chart linear equivalence and its inverse. Its naturality follows from the global map and the actual original restriction identity for fromChart. Its transition square follows from the proved fromChart-transition equation. Hom uniqueness is proved componentwise, using the exact W-intersect-U(i) restriction, not assumed. No proof-only law binders are intended to disappear.
+
+6. **Consumer identity.** homEquiv has codomain all actual module-sheaf morphisms between the originally reconstructed sheaves. Its two inverse laws are proved. OpenSheafDescentMaps318.effective gives existence and uniqueness with the exact original overIso comparisons. The isomorphism consumer has exactly the reconstructed forward and inverse maps and satisfies the original chart square.
+
+7. **Scalars and normalization.** Each local map is linear over Gamma(X,W), while the matching-family component on W-intersect-U(i) retains restriction of that original ring action. sectionMap_smul uses the actual original structure-sheaf restriction. restrictHom uses the same overFunctorMap comparisons as restrictIso; componentHom_restrict preserves the original maps on all subopens.
+
+8. **Downstream boundary.** The inherited original Fi transition data yields object effectivity and a genuine global line. New categorical morphism effectivity directly consumes actual over-open chart maps. This packet does not yet transport arbitrary original Fi morphism squares into that over-open presentation, assemble arbitrary fppf charts across changing affine bases, or establish Picard/Jacobian representability. No full arithmetic conclusion or baseline promotion follows from these sources alone.
+
+9. **Evidence and acceptance.** Sixteen producers are exact copies of local-line-open-descent-r2, including the explicit free-function notation repairs. Four new modules implement the morphism construction, full faithfulness, actual sheaf-map consumer, and isomorphism consumer. Static imports, hashes, placeholder checks and audit-history self-test are run without local Lean compilation. Full twenty-source hosted strict compile, recursive axiom audit and independent acceptance remain required. No approval is manufactured.

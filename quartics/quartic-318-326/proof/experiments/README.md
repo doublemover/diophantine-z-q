@@ -16,6 +16,30 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original trace inverse and actual global integral pair, 2026-11-09
+
+Nine active closures schedule 405 source checks. Candidate source now identifies
+the original five-map inverse with the original trace/8 transfers, derives all
+cross terms and the exact unnormalized trace matrix8I, and gives specified
+coordinates on every original target H1. Native tensor scalar compatibility is
+proved by induction rather than asserted as a definitional equality. This is
+not a Picard tangent or isogeny identification.
+
+The actual integral five-chart model now carries both J²-scaled global sections
+with every original local restriction. All twelve distinct finite-chart pairs
+and four finite/infinity pairs use their full proved intersections. The literal
+separation-unit restriction remains; properness, rational-normalization identity
+and bad-place extension remain separate. Original Fi-compatible local maps now
+descend uniquely to the reconstructed global lines with exact chart squares.
+
+The Padé repair only expands the original quadratic norm in existing coefficient
+simplifications. All newly added sources require hosted validation. Exact aa7
+results/logs are retained; its infinity seven-source closure passed again, while
+its native scalar-action and Padé projection failures feed these fresh revisions.
+The remaining observed327 mate identity, opaque cover index, and three height
+consumer failures receive narrowly reviewed fresh revisions in this same batch.
+No failed prior source or artifact is overwritten.
+
 ## Original five-map equivalence and local line descent, 2026-11-09
 
 Nine active closures now schedule 385 source checks. Candidate source constructs
