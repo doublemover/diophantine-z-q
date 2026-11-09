@@ -1,0 +1,111 @@
+{
+  "claim": "The original whole-H1-to-pointed deformation map is independent of two-affine-cover choice, and all five original quotient pullbacks commute with the same canonical source map, via actual injective structure-sheaf presentation and literal original Mayer-Vietoris Ext comparison.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled87-source original H1 cover-independence and canonical five-pullback deformation candidate. Actual injective structure-sheaf presentation, complete common-cover gauge and original Mayer-Vietoris Ext square. H1 classification, norm tangent and represented Picard remain open. Hosted elaboration and independent acceptance pending. Revision2 normalizes right adjunction naturality before left in the exact local gauge-frame equation, preventing greedy left rewriting from hiding the original counit cancellation.",
+  "new_sources": {},
+  "readme_sha256": "af8d8c7ff9eb2b7cdb2c1c71d2e7d5048f848ee1438219df02779859c8bd370c",
+  "intake_sha256": "e39f92e95672541d808b332c8bffcaa01997dfa9599e089e74d56d43670939cd",
+  "copy_bindings_sha256": "512a0b8ae567ce423b4a67bb942d12a15ab73ce0ee55677f70520217e065a376",
+  "pinned_apis_sha256": "80685a526d5e93ad45b251a71b23e78281526c297614113c6b98f982eff38261",
+  "obligations": [
+    {
+      "name": "Actual cover-free cohomology presentation",
+      "required": "Use original derived H1 and original structure sheaf, not a substitute Cech space.",
+      "constructed": "O\u2192Injective.under O\u2192cokernel yields local/global connecting maps, surjectivity and exact section-image kernel.",
+      "justification": "Pinned covariant Ext exactness and injective vanishing give the quotient equivalence.",
+      "evidence": [
+        "OriginalStructureInjectivePresentation318.equivalence",
+        "OriginalStructureInjectivePresentation318.kernel_eq_range",
+        "PINNED_APIS.md"
+      ]
+    },
+    {
+      "name": "All affine charts including empty ones",
+      "required": "Every member of each original affine cover needs an actual local quotient lift.",
+      "constructed": "affine_lift invokes original surjective_affine_all with the literal kernel O and identity iso.",
+      "justification": "No chosen basis, nonempty-only restriction or affine-intersection assumption is inserted.",
+      "evidence": [
+        "OriginalStructureInjectivePresentation318.affine_lift",
+        "InjectiveCoverCocycle318.affine"
+      ]
+    },
+    {
+      "name": "Actual coefficient extraction",
+      "required": "Differences must come from actual O sections on every original overlap.",
+      "constructed": "sections_exact_of_left_exact yields coefficients; inclusion injectivity proves diagonal/triple and refinement identities.",
+      "justification": "The same inclusion and actual restriction maps occur throughout.",
+      "evidence": [
+        "InjectiveCoverCocycle318.coefficient_spec",
+        "InjectiveCoverCocycle318.cocycle",
+        "InjectiveCoverCocycle318.refine_coefficient"
+      ]
+    },
+    {
+      "name": "Original H1 equality gives the full gauge",
+      "required": "Boundary equality must imply a genuine common-cover coboundary, not just field equality.",
+      "constructed": "The actual Q-section difference lifts globally to I; local correction b_i-a_i-res(d) lies in original O.",
+      "justification": "equation proves all pairwise gauge identities using original restrictions; related has no unproved Cech comparison premise.",
+      "evidence": [
+        "InjectiveCoverGauge318.equation",
+        "InjectiveCoverGauge318.related"
+      ]
+    },
+    {
+      "name": "Actual pointed common-cover comparison",
+      "required": "Changing covers must preserve actual sheaf objects and special-fiber framing.",
+      "constructed": "Original CocycleRefinementIso plus proved unit refinement gives actual underlying iso; split reduction corrects the frame.",
+      "justification": "The entire product-index common cover is used, with both projections and all overlaps.",
+      "evidence": [
+        "InjectiveCoverPointed318.refinement",
+        "InjectiveCoverPointed318.common_cover"
+      ]
+    },
+    {
+      "name": "Exact original Ext and sign join",
+      "required": "Match actual Mayer-Vietoris boundary, terminal generator and coefficient boundary.",
+      "constructed": "shortComplexMap has literal section-adjunction components and both commuting squares; extClass_naturality yields boundary_coefficient.",
+      "justification": "Pinned site \u03b4 is extClass.precomp with positive sign, distinct from sign-normalized general Ext.\u03b4. Exact declaration and consumer are bound.",
+      "evidence": [
+        "InjectiveMayerVietorisComparison318.shortComplexMap",
+        "InjectiveMayerVietorisComparison318.boundary_coefficient",
+        "PINNED_APIS.md"
+      ]
+    },
+    {
+      "name": "Identity with existing H1 deformation map",
+      "required": "Do not replace the earlier map by a convenient new construction.",
+      "constructed": "two_cocycle identifies all Bool transitions; map_from_lifts uses original map_boundary and exact boundary_coefficient.",
+      "justification": "independent compares the unchanged actual AffineHOnePointedDeformation.map on arbitrary two-affine covers.",
+      "evidence": [
+        "OriginalHOneCoverIndependence318.two_cocycle",
+        "OriginalHOneCoverIndependence318.map_from_lifts",
+        "OriginalHOneCoverIndependence318.independent"
+      ]
+    },
+    {
+      "name": "Fifth original quotient and five-factor consumer",
+      "required": "Use one canonical source map for all five original quotient diagrams.",
+      "constructed": "Original finite fifth map supplies full preimage affine cover; independence proves sourceForFifth=source.",
+      "justification": "fifth_canonical and five_sum retain actual original H1, pointed and relative pullbacks; no false chart containment.",
+      "evidence": [
+        "OriginalFiveCanonicalDeformation318.fifth_source_eq",
+        "OriginalFiveCanonicalDeformation318.fifth_canonical",
+        "OriginalFiveCanonicalDeformation318.five_sum"
+      ]
+    },
+    {
+      "name": "Remaining classification and acceptance",
+      "required": "Cover independence is not bijectivity onto all deformations or represented tangent geometry.",
+      "constructed": "H1 classification, actual norm tangent and represented Picard remain open; hosted and independent acceptance pending. The only revision is adjunction rewrite order in PointedFrameMap.local_equation; actual original maps and all87r1 new source statements remain unchanged.",
+      "justification": "No isogeny or whole-proof completion claim is made.",
+      "evidence": [
+        "README.md"
+      ]
+    }
+  ],
+  "revision_source": "original-hone-injective-cover-comparison-r1",
+  "modified_sources": {
+    "PointedFrameMap318.lean": "5eae56b67a2e042c9f65d107b1ed150380f9208a40c57d53c3688d28ff6f758f"
+  }
+}

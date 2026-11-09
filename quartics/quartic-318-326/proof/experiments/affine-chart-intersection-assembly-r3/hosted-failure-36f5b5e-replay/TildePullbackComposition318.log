@@ -1,0 +1,27 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/affine-open-chart-coherence-r2/TildePullbackComposition318.lean:136:2: error: Type mismatch: After simplification, term
+  congrArg (fun t => t.app M) (composition f g)
+ has type
+  @Eq
+    ((Scheme.Modules.pullback (Spec.map (f ≫ g))).obj ((tilde.functor R).obj M) ⟶
+      (tilde.functor T).obj
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj
+          ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M)))
+    ((TildePullback318.pullbackIso (f ≫ g)).hom.app M ≫
+      (tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).hom.app M))
+    ((AffineComparisonMates318.pullbackComp f g).inv.app ((tilde.functor R).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).hom.app M) ≫
+        (TildePullback318.pullbackIso g).hom.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M))
+but is expected to have type
+  @Eq
+    ((Scheme.Modules.pullback (Spec.map (f ≫ g))).obj ((tilde.functor R).obj M) ⟶
+      (tilde.functor T).obj
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj
+          ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M)))
+    ((TildePullback318.pullbackIso (f ≫ g)).hom.app M ≫
+      (tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).hom.app M))
+    ((AffineComparisonMates318.pullbackComp f g).inv.app (tilde M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).hom.app M) ≫
+        (TildePullback318.pullbackIso g).hom.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 6
