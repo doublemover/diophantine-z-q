@@ -58,6 +58,19 @@ class ToolingTests(unittest.TestCase):
                 if not action.startswith('./'):
                     self.assertRegex(action, r'^[\w/-]+@[0-9a-f]{40}$', p.name)
 
+    def test_experiment_replay_has_only_two_bounded_non_cancelling_lanes(self):
+        text = (ROOT / '.github/workflows/progress-experiments.yml').read_text()
+        condition = "github.event_name == 'workflow_dispatch' && inputs.validation_lane == 'replay'"
+        self.assertIn('default: main\n        options:\n          - main\n          - replay', text)
+        self.assertIn("group: progress-experiments-${{ github.ref }}${{ " + condition +
+                      " && '-replay' || '' }}", text)
+        self.assertIn('cancel-in-progress: false', text)
+        self.assertIn('max-parallel: ${{ ' + condition + ' && 4 || 16 }}', text)
+        concurrency = text.split('concurrency:\n', 1)[1].split('\njobs:', 1)[0]
+        self.assertNotIn('github.sha', concurrency)
+        self.assertNotIn('github.run_id', concurrency)
+        self.assertNotIn('github.run_number', concurrency)
+
     def test_runtime_restore_transport_failure_does_not_skip_validation(self):
         for name in ['python', 'node', 'lean', 'tectonic']:
             text = (ACTION / f'setup-pinned-{name}/action.yml').read_text()

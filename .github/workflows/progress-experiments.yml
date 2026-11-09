@@ -11,13 +11,24 @@ on:
       - 'scripts/setup_pinned_lean.sh'
       - 'scripts/test_ci_tooling.py'
   workflow_dispatch:
+    inputs:
+      validation_lane:
+        description: 'Use replay only for a newer reviewed head blocked by an older run'
+        type: choice
+        required: true
+        default: main
+        options:
+          - main
+          - replay
 
 permissions:
   contents: read
 
-# Let an admitted packet run finish; rapid pushes update the latest pending run.
+# Keep pushes in the original serialized group and never cancel a running check.
+# An explicit replay occupies one additional fixed lane, capped at four jobs.
+# Do not use a SHA/run-id group: that would allow unbounded rapid-push fan-out.
 concurrency:
-  group: progress-experiments-${{ github.ref }}
+  group: progress-experiments-${{ github.ref }}${{ github.event_name == 'workflow_dispatch' && inputs.validation_lane == 'replay' && '-replay' || '' }}
   cancel-in-progress: false
 
 jobs:
@@ -51,7 +62,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 16
+      max-parallel: ${{ github.event_name == 'workflow_dispatch' && inputs.validation_lane == 'replay' && 4 || 16 }}
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
