@@ -1,0 +1,44 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-canonical-composition-r3/PointedPullbackComposition318.lean:51:4: warning: This simp argument is unused:
+  Iso.refl_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RigidifiedPointedPullback318.restrictionComparison, PullbackPathComposition318.iso,
+    Scheme.Modules.pullbackCongr, Iso.trans_hom, Iso.trans_inv, Iso.symm_hom, eqToIso_refl, Iso.refl_inv,
+    Category.id_comp, Category.comp_id, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-canonical-composition-r3/PointedPullbackComposition318.lean:51:50: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RigidifiedPointedPullback318.restrictionComparison, PullbackPathComposition318.iso,
+    Scheme.Modules.pullbackCongr, Iso.trans_hom, Iso.trans_inv, Iso.symm_hom, eqToIso_refl, Iso.refl_hom, Iso.refl_inv,
+    Category.id_comp, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-canonical-composition-r3/PointedPullbackComposition318.lean:97:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (Scheme.Modules.pullback e₂).map
+        ((Scheme.Modules.pullbackComp a₂ a₁ ≪≫ Iso.refl (Scheme.Modules.pullback (a₂ ≫ a₁))).app M).hom ≫
+      ((Scheme.Modules.pullbackComp e₂ (a₂ ≫ a₁) ≪≫ eqToIso ⋯).app M).hom ≫
+        ((Scheme.Modules.pullbackComp (b₂ ≫ b₁) e₀ ≪≫ Iso.refl (Scheme.Modules.pullback ((b₂ ≫ b₁) ≫ e₀))).app M).inv =
+    ((Scheme.Modules.pullbackComp e₂ a₂ ≪≫ eqToIso ⋯).app ((Scheme.Modules.pullback a₁).obj M)).hom ≫
+      ((Scheme.Modules.pullbackComp b₂ e₁ ≪≫ Iso.refl (Scheme.Modules.pullback (b₂ ≫ e₁))).app
+            ((Scheme.Modules.pullback a₁).obj M)).inv ≫
+        (Scheme.Modules.pullback b₂).map ((Scheme.Modules.pullbackComp e₁ a₁ ≪≫ eqToIso ⋯).app M).hom ≫
+          (Scheme.Modules.pullback b₂).map
+              ((Scheme.Modules.pullbackComp b₁ e₀ ≪≫ Iso.refl (Scheme.Modules.pullback (b₁ ≫ e₀))).app M).inv ≫
+            ((Scheme.Modules.pullbackComp b₂ b₁ ≪≫ Iso.refl (Scheme.Modules.pullback (b₂ ≫ b₁))).app
+                ((Scheme.Modules.pullback e₀).obj M)).hom
+but is expected to have type
+  (Scheme.Modules.pullback e₂).map ((Scheme.Modules.pullbackComp a₂ a₁).hom.app M) ≫
+      (Scheme.Modules.pullbackComp e₂ (a₂ ≫ a₁)).hom.app M ≫
+        (eqToIso ⋯).hom.app M ≫ (Scheme.Modules.pullbackComp (b₂ ≫ b₁) e₀).inv.app M =
+    (Scheme.Modules.pullbackComp e₂ a₂).hom.app ((Scheme.Modules.pullback a₁).obj M) ≫
+      (eqToIso ⋯).hom.app ((Scheme.Modules.pullback a₁).obj M) ≫
+        (Scheme.Modules.pullbackComp b₂ e₁).inv.app ((Scheme.Modules.pullback a₁).obj M) ≫
+          (Scheme.Modules.pullback b₂).map ((Scheme.Modules.pullbackComp e₁ a₁).hom.app M) ≫
+            (Scheme.Modules.pullback b₂).map ((eqToIso ⋯).hom.app M) ≫
+              (Scheme.Modules.pullback b₂).map ((Scheme.Modules.pullbackComp b₁ e₀).inv.app M) ≫
+                (Scheme.Modules.pullbackComp b₂ b₁).hom.app ((Scheme.Modules.pullback e₀).obj M)

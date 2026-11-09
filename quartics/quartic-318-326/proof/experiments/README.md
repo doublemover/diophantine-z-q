@@ -16,6 +16,26 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Actual H1 residues and generic degree, 2026-11-09
+
+Nine active closures now schedule 312 source checks. The original infinity-ring
+coefficient evaluation and complete finite-chart expansion construct canonical
+residues on the actual sheaf H1 quotient. Their left-inverse identity supplies
+proposed unconditional five-dimensional rational cohomology and nonzero actual
+character coordinates. Identifying these with the original geometric quotient
+pullbacks remains separate. The level3 continuation identifies the entire actual
+generic-stalk pullback, proves degree four for its literal scalar action, and
+places the rational arithmetic model densely in the original proper completion.
+Both full target charts then supply flatness and rank four at every scheme
+point. Actual chart-local centered degree certificates exhaust all complex
+points, retaining canonical cusp q-discs; no divisor identity is asserted.
+
+Round12 records bounded non-author source review, not final acceptance. Exact
+latest failure evidence is retained under hosted-results/42579034823. The new
+branch and affine triple-map failures have been routed for versioned repair.
+All new closures remain pending hosted strict checks and recursive audits; no
+local Lean compilation or accepted-baseline promotion occurred.
+
 ## Rational scheme isomorphism and actual branch tensors, 2026-11-09
 
 Nine active closures now schedule 299 source checks. The rational level3
