@@ -1,0 +1,33 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-pointed-surjection-r1/TwoOpenAdditiveCocycle318.lean:34:69: warning: This simp argument is unused:
+  not_false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transition, Bool.false_eq_true, Bool.true_eq_false, ↓reduceDIte, ↓reduceIte, map_zero, map_neg,
+    restrict_trans, zero_add, add_zero, neg_add_cancel, add_neg_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-pointed-surjection-r1/TwoOpenAdditiveCocycle318.lean:49:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSub ↑Γ(X, U ⊓ opens U V true) ↑Γ(X, opens U V false ⊓ V) ↑Γ(X, opens U V false ⊓ opens U V true)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-pointed-surjection-r1/TwoOpenAdditiveCocycle318.lean:49:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd ↑Γ(X, opens U V false ⊓ opens U V true) ↑Γ(X, U ⊓ V) ↑Γ(X, U ⊓ V)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-hone-pointed-surjection-r1/TwoOpenAdditiveCocycle318.lean:53:4: error: 'change' tactic failed, pattern
+  -(restrict X ⋯) y = (restrict X ⋯) b - (restrict X ⋯) a + -(restrict X ⋯) x
+is not definitionally equal to target
+  (cocycle U V y).transition true false =
+    (restrict X ⋯)
+          ((fun k =>
+              match k with
+              | false => a
+              | true => b)
+            true) -
+        (restrict X ⋯)
+          ((fun k =>
+              match k with
+              | false => a
+              | true => b)
+            false) +
+      (cocycle U V x).transition true false
