@@ -16,9 +16,34 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original Ext naturality and algebraic etale open, 2026-11-09
+
+Nine active closures now schedule 333 source checks. The H1 continuation derives
+local inverse-image compatibility of the original two-chart extension class,
+retaining its section adjunction and finite-minus-infinity sign. The terminal
+constant-sheaf alignment and original quotient-map application remain separate.
+The actual j map is now proposed algebraically etale on the unchanged arithmetic
+open through a literal polynomial Bezout certificate and coefficient-preserving
+localization equivalence, rather than inferred from analytic local orders.
+
+The actual real pair orbit now has a proposed full density proof: original
+arithmetic independence passes through genuine same-period oval circle maps,
+and normalized Haar/Fourier character separation rules out proper closed orbit
+closure. The original CRT prefix consumer therefore has no remaining real,
+component or good-region premise. Prime-pattern hypotheses and the remaining
+source rows remain separate. The affine reconstruction comparison also now
+recovers the canonical original sheaf overlap, rather than only its coaction.
+
+Round14 binds bounded source review and an independent exact polynomial
+expansion. It also records versioned native-instance, dependent quotient,
+canonical functor-map and localization-map fixes from the exact cee0c58 hosted
+failures preserved under hosted-results/42579994089. All candidate closures
+still require hosted strict checks and recursive audits. No local Lean execution
+or accepted-baseline promotion occurred.
+
 ## Actual geometric descent and integral infinity tensors, 2026-11-09
 
-Nine active closures now schedule 320 source checks. The exact original scheme
+The preceding nine closures scheduled 320 source checks. The exact original scheme
 fiber-product sheaf diagonal and triple laws now transport through the proved
 nerve isomorphisms into affine reconstruction, yielding an actual base line and
 its pullback isomorphism. The original canonical path comparisons are retained;

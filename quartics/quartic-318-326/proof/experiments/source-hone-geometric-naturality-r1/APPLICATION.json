@@ -1,0 +1,109 @@
+{
+  "claim": "Pending actual local inverse-image Mayer\u2013Vietoris boundary naturality, with terminal integer-sheaf and original quotient-map joins explicitly open.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled69-source naturality continuation. Hosted strict Lean checks, recursive axiom audit and independent acceptance pending. Local inverse-image boundary naturality is implemented; original terminal integer-sheaf alignment and concrete quotient-map instantiation remain open.",
+  "new_sources": {
+    "MayerVietorisCoefficientNaturality318.lean": "a016fdec2197d5895d6428dd11643133cfb53c2177f0af8a1e92d37b360058eb",
+    "InverseImageLocalGenerator318.lean": "de3d6f6188013382ba5d79df34cd750458eec85ecdd6e34418392da128bd9412",
+    "InverseImageLocalCohomology318.lean": "927546967317181e4a063745cf7ec00800c4e1ddc0fcdb90790538c1d55a9308",
+    "InverseImageMayerVietoris318.lean": "be136362e02d49645f0327353b6aea95ff64e0d09879ef25e84333abd72789cd"
+  },
+  "readme_sha256": "9d74f3d7eafade4757a154ab6ec129616f6dd5e5d129d5148cf9ebec3aeb967a",
+  "intake_sha256": "3f09842e5cb37d9aa7a9187a3a30b46540390d3a67f4e08d729480dcfbb690c5",
+  "copy_bindings_sha256": "1f004a09fe1de5df4d0a8e92759f261603c3f9dc3d9d80c03624475b5739d6ee",
+  "obligations": [
+    {
+      "name": "Coefficient boundary naturality",
+      "required": "The same actual boundary and terminal comparison must be used for both sheaves.",
+      "constructed": "sectionBoundary_naturality uses the original zeroAddEquiv, original Ext connecting class, and terminal generatorIso.",
+      "justification": "Ext associativity and the previously constructed section equivalence establish the whole square, without a scalar or sign change.",
+      "evidence": [
+        "MayerVietorisCoefficientNaturality318.sectionBoundary_naturality"
+      ]
+    },
+    {
+      "name": "Inverse-image open coverage",
+      "required": "All original opens and all their restrictions must be included.",
+      "constructed": "sectionMate and generatorIso quantify over every open U; restriction over every U\u2192V.",
+      "justification": "The original Opens.map f supplies objects and arrows, not a replacement cover.",
+      "evidence": [
+        "InverseImageLocalGenerator318.sectionMate",
+        "InverseImageLocalGenerator318.sectionMate_restriction"
+      ]
+    },
+    {
+      "name": "Generator identity",
+      "required": "The inverse-image generator must represent the same literal source sections.",
+      "constructed": "generatorHom and generatorInv are fixed by original section and adjunction equivalences.",
+      "justification": "generatorHom_section and generatorInv_section prove their meanings; injectivity of those equivalences proves the two inverse identities.",
+      "evidence": [
+        "InverseImageLocalGenerator318.generatorIso",
+        "InverseImageLocalGenerator318.generatorInv_section",
+        "InverseImageLocalGenerator318.generatorHom_section"
+      ]
+    },
+    {
+      "name": "Arrow compatibility",
+      "required": "The same generator comparison must respect every edge in the cover sequence.",
+      "constructed": "generatorInv_naturality identifies original preimage restriction followed by generatorInv with generatorInv followed by mapped original restriction.",
+      "justification": "This follows from original section restriction naturality and adjunction left naturality.",
+      "evidence": [
+        "InverseImageLocalGenerator318.generatorInv_naturality"
+      ]
+    },
+    {
+      "name": "Actual derived comparison",
+      "required": "The local cohomology map must use original exact inverse image and counit.",
+      "constructed": "comparison uses mapExtAddHom, original counit and precomposition with generatorInv.",
+      "justification": "comparison_mkZero and comparison_zero_sections identify its section behavior; coefficient and restriction naturality are proved for every degree.",
+      "evidence": [
+        "InverseImageLocalCohomology318.comparison",
+        "InverseImageLocalCohomology318.comparison_zero_sections",
+        "InverseImageLocalCohomology318.comparison_restriction"
+      ]
+    },
+    {
+      "name": "Cover and difference convention",
+      "required": "The mapped short complex must use the entire original two-open cover with original order and signs.",
+      "constructed": "inverseImage_cover proves union top; shortComplexMap maps intersection, both summands and top.",
+      "justification": "comm\u2081\u2082 retains the negative second restriction; comm\u2082\u2083 retains the sum. Both use actual generatorInv_naturality.",
+      "evidence": [
+        "InverseImageMayerVietoris318.inverseImage_cover",
+        "InverseImageMayerVietoris318.shortComplexMap"
+      ]
+    },
+    {
+      "name": "Actual extension and boundary",
+      "required": "A matching square alone is insufficient; its actual extension class must be consumed.",
+      "constructed": "extClass_naturality uses ShortComplex.ShortExact.extClass_naturality and Ext.mapExactFunctor_extClass.",
+      "justification": "delta_comparison then reassociates the same Ext class with the original counit. It assumes no boundary equality.",
+      "evidence": [
+        "InverseImageMayerVietoris318.extClass_naturality",
+        "InverseImageMayerVietoris318.delta_comparison"
+      ]
+    },
+    {
+      "name": "Terminal and quotient consumer boundary",
+      "required": "The local comparison cannot silently replace the original integer-sheaf global comparison.",
+      "constructed": "This packet stops at local boundary compatibility and explicitly leaves terminal coherence open.",
+      "justification": "No theorem asserts equality with SchemeSourceCohomology318.pullback or identifies original quotient images. The next join must compare exact terminal representing isomorphisms and instantiate original scheme maps.",
+      "evidence": [
+        "README.md",
+        "SourceCohomologyComparison318.comparison",
+        "TerminalLocalCohomology318.generatorIso"
+      ]
+    },
+    {
+      "name": "Validation and unchanged history",
+      "required": "The complete dependency closure and independent acceptance must be explicit.",
+      "constructed": "All65 prior sources copied exactly; four new sources bound below.",
+      "justification": "No prior approval or hosted success is transferred to the new naturality argument. Strict compilation and recursive axiom audit remain hosted-only and pending.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ]
+}

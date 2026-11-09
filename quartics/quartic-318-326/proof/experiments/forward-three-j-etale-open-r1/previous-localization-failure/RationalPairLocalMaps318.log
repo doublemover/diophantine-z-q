@@ -1,0 +1,45 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-moduli-iso-r1/RationalPairLocalMaps318.lean:88:2: error: Type mismatch: After simplification, term
+  congrArg (⇑(algebraMap (DenominatorRing g) (Common f g))) (IsLocalization.Away.mul_invSelf g)
+ has type
+  @Eq (Common f g)
+    ((algebraMap (DenominatorRing g) (Common f g)) ((algebraMap ℚ[X] (DenominatorRing g)) g) *
+      (algebraMap (DenominatorRing g) (Common f g)) (IsLocalization.Away.invSelf g))
+    1
+but is expected to have type
+  @Eq (Common f g) (y f g * iy f g) 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-moduli-iso-r1/RationalPairLocalMaps318.lean:152:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (toNumerator f g).comp (aeval ((algebraMap ℚ[X] (NumeratorRing f)) g * IsLocalization.Away.invSelf f)).toRingHom
+in the target expression
+  Spec.map
+        (CommRingCat.ofHom
+          ((toNumerator f g).comp
+            (CommRingCat.ofHom
+                (aeval ((algebraMap ℚ[X] (NumeratorRing f)) g * IsLocalization.Away.invSelf f)).toRingHom).hom')) ≫
+      JLineAtlas318.chart ℚ 0 =
+    Spec.map
+        (CommRingCat.ofHom
+          ((algebraMap (DenominatorRing g) (Common f g)).comp
+            (CommRingCat.ofHom
+                (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom).hom')) ≫
+      JLineAtlas318.chart ℚ 1
+
+f g : ℚ[X]
+hn :
+  (toNumerator f g).comp (aeval ((algebraMap ℚ[X] (NumeratorRing f)) g * IsLocalization.Away.invSelf f)).toRingHom =
+    (aeval (inverse f g)).toRingHom
+hd :
+  (algebraMap (DenominatorRing g) (Common f g)).comp
+      (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom =
+    (aeval (forward f g)).toRingHom
+⊢ Spec.map
+        (CommRingCat.ofHom
+          ((toNumerator f g).comp
+            (CommRingCat.ofHom
+                (aeval ((algebraMap ℚ[X] (NumeratorRing f)) g * IsLocalization.Away.invSelf f)).toRingHom).hom')) ≫
+      JLineAtlas318.chart ℚ 0 =
+    Spec.map
+        (CommRingCat.ofHom
+          ((algebraMap (DenominatorRing g) (Common f g)).comp
+            (CommRingCat.ofHom
+                (aeval ((algebraMap ℚ[X] (DenominatorRing g)) f * IsLocalization.Away.invSelf g)).toRingHom).hom')) ≫
+      JLineAtlas318.chart ℚ 1

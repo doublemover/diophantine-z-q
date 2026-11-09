@@ -1,0 +1,19 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/rigidified-canonical-composition-r4/RigidifiedCanonicalComposition318.lean:38:59: error: unsolved goals
+X₀ X₁ X₂ S₀ S₁ S₂ : Scheme
+e₀ : S₀ ⟶ X₀
+e₁ : S₁ ⟶ X₁
+e₂ : S₂ ⟶ X₂
+a₁ : X₁ ⟶ X₀
+a₂ : X₂ ⟶ X₁
+b₁ : S₁ ⟶ S₀
+b₂ : S₂ ⟶ S₁
+h₁ : e₁ ≫ a₁ = b₁ ≫ e₀
+h₂ : e₂ ≫ a₂ = b₂ ≫ e₁
+L : RigidifiedLine e₀
+ρ : (Scheme.Modules.pullback e₀).obj L.line.object ≅ SheafOfModules.unit S₀.ringCatSheaf := L.trivialization
+⊢ (Scheme.Modules.pullback b₁ ⋙ Scheme.Modules.pullback b₂).map ρ.hom ≫
+      (Scheme.Modules.pullback b₂).map (IdentityCotangent318.pullbackUnitIso b₁).hom ≫
+        (IdentityCotangent318.pullbackUnitIso b₂).hom =
+    (Scheme.Modules.pullback b₂).map ((Scheme.Modules.pullback b₁).map ρ.hom) ≫
+      (Scheme.Modules.pullback b₂).map (IdentityCotangent318.pullbackUnitIso b₁).hom ≫
+        (IdentityCotangent318.pullbackUnitIso b₂).hom
