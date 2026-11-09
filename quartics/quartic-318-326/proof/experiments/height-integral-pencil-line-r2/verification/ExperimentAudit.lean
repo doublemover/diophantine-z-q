@@ -1,0 +1,118 @@
+module
+import all IntegralBranchChart318
+import all IntegralSourceBranches318
+import all IntegralBranchFrames318
+import all IntegralBranchDenominatorCover318
+import all IntegralBranchLocalization318
+import all IntegralInfinityChart318
+import all IntegralReciprocalRootScale318
+import all IntegralInfinityCommonBase318
+import all IntegralInfinityCommonOrder318
+import all IntegralInfinityReverseBase318
+import all IntegralInfinityBaseEquiv318
+import all IntegralInfinityOverlapRealization318
+import all IntegralBranchCoordinates318
+import all IntegralBranchBicanonical318
+import all IntegralInfinityCoefficients318
+import all IntegralReciprocalTensorIdentity318
+import all IntegralOverlapCoefficients318
+import all IntegralOverlapChartMaps318
+import all IntegralOverlapCoefficientRestrictions318
+import all IntegralOverlapTensorCompatibility318
+import all IntegralOverlapSheafCompatibility318
+import all IntegralOverlapOpenImmersions318
+import all IntegralGluedModel318
+import all IntegralGluedChartGeometry318
+import all IntegralGluedTensorSections318
+import all IntegralGluedDifferentialFrames318
+import all IntegralAllBranchOverlapMaps318
+import all IntegralBranchTensorTransport318
+import all IntegralAllBranchChartGeometry318
+import all IntegralFinitePairGeometry318
+import all IntegralGlobalBicanonicalPair318
+import all UnitScaledQuadraticOrder318
+import all IntegralWholeReciprocalOrders318
+import all IntegralWholeReciprocalOverlap318
+import all TensorBaseEquivalence318
+import all ThreeRootBaseEquivalence318
+import all IntegralWholeFiniteComparison318
+import all IntegralWholeReciprocalLocalization318
+import all IntegralWholeOrderOpenMaps318
+import all IntegralWholeReciprocalGluing318
+import all IntegralWholeOrderScalarMaps318
+import all IntegralWholeProjectiveProjection318
+import all IntegralWholeChartFiniteness318
+import all IntegralWholeOpenRanges318
+import all IntegralProjectiveChartIntersection318
+import all IntegralWholeProjectivePreimages318
+import all IntegralWholeProjectiveProper318
+import all IntegralFullOverlapLocalization318
+import all ThreeRootScaledGenerators318
+import all IntegralEveryBranchLocalization318
+import all IntegralOverlapRootGenerators318
+import all IntegralRationalFullOverlap318
+import all IntegralOriginalInfinityEmbedding318
+import all IntegralRationalFiniteAtlas318
+import all IntegralOriginalChartsProperCover318
+import all IntegralOriginalRootCoordinates318
+import all IntegralOtherRootCoordinates318
+import all ThreeRootBaseGeneratorTransport318
+import all IntegralWholeGeneratorComparisons318
+import all IntegralWholeSignedSourceRoots318
+import all LocalizedTensorRestriction318
+import all IntegralOriginalCommonRestriction318
+import all IntegralWholeOverlapGenerators318
+import all IntegralOriginalGluingCompatibility318
+import all IntegralOriginalModelMorphism318
+import all IntegralOriginalFullIntersection318
+import all TwoChartSchemeIsomorphism318
+import all IntegralOriginalProperModel318
+import all IntegralProperBicanonicalModel318
+import all IntegralOriginalSmoothCharts318
+import all IntegralOriginalGlobalSmooth318
+import all IntegralSmoothProperBicanonical318
+import all IntegralScaledCoefficientUnits318
+import all IntegralOriginalPairGenerators318
+import all IntegralGeneratedTensorSheaf318
+import all IntegralOriginalSectionRatios318
+import all IntegralPencilScalarMaps318
+import all IntegralWholePencilMap318
+import all IntegralOriginalContactPencil318
+import all IntegralSectionProjectiveMap318
+import all UnitSquarePolynomialFinite318
+import all IntegralPencilChartFiniteness318
+import all IntegralPencilPreimages318
+import all IntegralPencilFinite318
+import all IntegralSectionPencilDegree318
+import all IntegralPencilChartFlat318
+import all IntegralOriginalFiniteFlatPencil318
+import all IntegralProjectiveLineOverlap318
+import all IntegralProjectiveLineOOne318
+import all IntegralProjectiveLineCoordinates318
+import all IntegralProjectiveCoordinateFrames318
+import all IntegralProjectiveCoordinateGenerators318
+import all IntegralProjectiveCoordinateRelations318
+import all IntegralPencilPulledCoordinates318
+import all IntegralPencilPulledRatios318
+import all IntegralPencilLineComparisonData318
+import all IntegralPencilLineComparison318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`IntegralBranchChart318,`IntegralSourceBranches318,`IntegralBranchFrames318,`IntegralBranchDenominatorCover318,`IntegralBranchLocalization318,`IntegralInfinityChart318,`IntegralReciprocalRootScale318,`IntegralInfinityCommonBase318,`IntegralInfinityCommonOrder318,`IntegralInfinityReverseBase318,`IntegralInfinityBaseEquiv318,`IntegralInfinityOverlapRealization318,`IntegralBranchCoordinates318,`IntegralBranchBicanonical318,`IntegralInfinityCoefficients318,`IntegralReciprocalTensorIdentity318,`IntegralOverlapCoefficients318,`IntegralOverlapChartMaps318,`IntegralOverlapCoefficientRestrictions318,`IntegralOverlapTensorCompatibility318,`IntegralOverlapSheafCompatibility318,`IntegralOverlapOpenImmersions318,`IntegralGluedModel318,`IntegralGluedChartGeometry318,`IntegralGluedTensorSections318,`IntegralGluedDifferentialFrames318,`IntegralAllBranchOverlapMaps318,`IntegralBranchTensorTransport318,`IntegralAllBranchChartGeometry318,`IntegralFinitePairGeometry318,`IntegralGlobalBicanonicalPair318,`UnitScaledQuadraticOrder318,`IntegralWholeReciprocalOrders318,`IntegralWholeReciprocalOverlap318,`TensorBaseEquivalence318,`ThreeRootBaseEquivalence318,`IntegralWholeFiniteComparison318,`IntegralWholeReciprocalLocalization318,`IntegralWholeOrderOpenMaps318,`IntegralWholeReciprocalGluing318,`IntegralWholeOrderScalarMaps318,`IntegralWholeProjectiveProjection318,`IntegralWholeChartFiniteness318,`IntegralWholeOpenRanges318,`IntegralProjectiveChartIntersection318,`IntegralWholeProjectivePreimages318,`IntegralWholeProjectiveProper318,`IntegralFullOverlapLocalization318,`ThreeRootScaledGenerators318,`IntegralEveryBranchLocalization318,`IntegralOverlapRootGenerators318,`IntegralRationalFullOverlap318,`IntegralOriginalInfinityEmbedding318,`IntegralRationalFiniteAtlas318,`IntegralOriginalChartsProperCover318,`IntegralOriginalRootCoordinates318,`IntegralOtherRootCoordinates318,`ThreeRootBaseGeneratorTransport318,`IntegralWholeGeneratorComparisons318,`IntegralWholeSignedSourceRoots318,`LocalizedTensorRestriction318,`IntegralOriginalCommonRestriction318,`IntegralWholeOverlapGenerators318,`IntegralOriginalGluingCompatibility318,`IntegralOriginalModelMorphism318,`IntegralOriginalFullIntersection318,`TwoChartSchemeIsomorphism318,`IntegralOriginalProperModel318,`IntegralProperBicanonicalModel318,`IntegralOriginalSmoothCharts318,`IntegralOriginalGlobalSmooth318,`IntegralSmoothProperBicanonical318,`IntegralScaledCoefficientUnits318,`IntegralOriginalPairGenerators318,`IntegralGeneratedTensorSheaf318,`IntegralOriginalSectionRatios318,`IntegralPencilScalarMaps318,`IntegralWholePencilMap318,`IntegralOriginalContactPencil318,`IntegralSectionProjectiveMap318,`UnitSquarePolynomialFinite318,`IntegralPencilChartFiniteness318,`IntegralPencilPreimages318,`IntegralPencilFinite318,`IntegralSectionPencilDegree318,`IntegralPencilChartFlat318,`IntegralOriginalFiniteFlatPencil318,`IntegralProjectiveLineOverlap318,`IntegralProjectiveLineOOne318,`IntegralProjectiveLineCoordinates318,`IntegralProjectiveCoordinateFrames318,`IntegralProjectiveCoordinateGenerators318,`IntegralProjectiveCoordinateRelations318,`IntegralPencilPulledCoordinates318,`IntegralPencilPulledRatios318,`IntegralPencilLineComparisonData318,`IntegralPencilLineComparison318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"

@@ -1,0 +1,45 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-height-one-model-r2/IntegralInfinityReverseBase318.lean:25:54: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ ↑(algebraMap R (InfinityOverlap R c)) ↑(c 0) = (algebraMap R (InfinityOverlap R c)) ↑(c 0)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-height-one-model-r2/IntegralInfinityReverseBase318.lean:57:57: warning: This simp argument is unused:
+  map_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, map_mul, map_pow, Polynomial.aeval_C, Polynomial.aeval_X,
+    IntegralInfinityChart318.coefficient, map_sub, map_one, map_neg, hC, contacts, Matrix.cons_val_zero, zero_sub]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-height-one-model-r2/IntegralInfinityReverseBase318.lean:96:32: error: don't know how to synthesize placeholder for argument `hg`
+context:
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+a : BranchBase R c 0
+⊢ IsUnit
+    ((rootBaseMap R c).toRingHom
+      (IntegralBranchChart318.denominator (c 0) (contacts R 0) (otherTwist R c 0) (otherContact R 0)))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-height-one-model-r2/IntegralInfinityReverseBase318.lean:106:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (finiteBaseMap ?R ?c) (rootOpen ?R ?c)
+in the target expression
+  IsUnit ((finiteBaseMap R c).toRingHom (rootOpen R c))
+
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ IsUnit ((finiteBaseMap R c).toRingHom (rootOpen R c))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-height-one-model-r2/IntegralInfinityReverseBase318.lean:107:17: error: tactic execution is stuck, goal contains metavariables
+  (↑↑(IsLocalization.Away.lift (rootOpen R c) ?m.29)).toFun ((algebraMap R (CommonBase R c)) r) =
+    (algebraMap R (InfinityOverlap R c)) r
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-integral-height-one-model-r2/IntegralInfinityReverseBase318.lean:115:2: error: Type mismatch
+  IsLocalization.Away.lift_eq ?m.27 ?m.30 ?m.31
+has type
+  (IsLocalization.Away.lift ?m.27 ?m.30) ((algebraMap ?m.20 ?m.22) ?m.31) = ?m.29 ?m.31
+but is expected to have type
+  (finiteOverlapMap R c) ((algebraMap (OpenBase R c 0) (CommonBase R c)) a) = (finiteBaseMap R c) a
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 96
+  instAdd ↦ 16
+  instMul ↦ 181
