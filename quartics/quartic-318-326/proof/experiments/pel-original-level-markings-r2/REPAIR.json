@@ -1,0 +1,13 @@
+{
+  "predecessor": "pel-original-level-markings-r1",
+  "predecessor_intake_sha256": "deb416b395e201a1237d80d6db63cfc8bf159d3dbc781b893301b81c67c4a7d9",
+  "tested_packet": "pel-original-three-torsion-r2",
+  "modified_sources": [
+    "PELQuaternionIntegralOrder318",
+    "QuaternionicPeriodVariation318"
+  ],
+  "unchanged_count": 35,
+  "reason": "The real representation now passes hosted checking. Integral inclusion injectivity explicitly retypes each projected equality as an integer-to-rational cast before exact_mod_cast; the existing product simplifier is followed by simp for its exact residual True-disjunction. Also propagates the independently reviewed authoritative PeriodVariation3b87b558 repair from principal-three-free-r2. All statements, maps and resource limits are unchanged.",
+  "local_lean_run": false,
+  "outcome": "PENDING_HOSTED_CI"
+}
