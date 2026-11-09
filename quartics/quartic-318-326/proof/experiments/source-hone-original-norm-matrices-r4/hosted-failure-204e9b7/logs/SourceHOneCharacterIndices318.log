@@ -1,0 +1,226 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r4/SourceHOneCharacterIndices318.lean:30:2: error: Tactic `decide` failed to reduce
+  @decide (∀ (i : Index) (b : Fin 4 → Bool), epsilon i b ^ 2 = 1) Fintype.decidableForallFintype
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `instDecidableEqRat`, `Finset.decidableDforallFinset`, `Fintype.decidableForallFintype`, `Int.decEq`, `Int.instDecidableEq`, `List.decidableBAll`, `Multiset.decidableDforallMultiset`, `Multiset.decidableForallMultiset`, and `instDecidableEqRat.decEq`, reduction got stuck at
+  match
+    (epsilon ↑⟨none, ⋯⟩
+          ↑⟨{ toFun := fun f a => f a ⋯, inj' := ⋯ }
+                (Multiset.Pi.cons
+                  ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                      ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                  ((fun i => i) ⟨0, ⋯⟩) true
+                  (Multiset.Pi.cons
+                    ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                    ((fun i => i) ⟨1, ⋯⟩) true
+                    (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩) true
+                      (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true (Multiset.Pi.empty fun a => Bool))))),
+              ⋯⟩).num ^
+      2,
+    ↑1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r4/SourceHOneCharacterIndices318.lean:33:65: error: Tactic `decide` failed to reduce
+  @decide (∀ (i j : Index), i ≠ j → ∃ b, epsilon i b = 1 ∧ epsilon j b = -1) Fintype.decidableForallFintype
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `forall_prop_decidable`, `instDecidableAnd`, `instDecidableEqRat`, `instDecidableNot`, `isFalse`, `isTrue`, `Finset.decidableDExistsFinset`, `Finset.decidableDforallFinset`, `Finset.decidableExistsAndFinset`, `Finset.decidableExistsAndFinsetCoe`, `Fintype.decidableExistsFintype`, `Fintype.decidableForallFintype`, `Int.decEq`, `Int.instDecidableEq`, `List.decidableBAll`, `List.decidableBEx`, `Multiset.decidableDexistsMultiset`, `Multiset.decidableDforallMultiset`, `Multiset.decidableExistsMultiset`, `Multiset.decidableForallMultiset`, `Option.instDecidableEq`, and `instDecidableEqRat.decEq`, reduction got stuck at
+  match
+    (((fun j =>
+              if
+                  ↑⟨{ toFun := fun f a => f a ⋯, inj' := ⋯ }
+                            (Multiset.Pi.cons
+                              ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                                  ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                              ((fun i => i) ⟨0, ⋯⟩) true
+                              (Multiset.Pi.cons
+                                ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                                ((fun i => i) ⟨1, ⋯⟩) true
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  true
+                                  (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true
+                                    (Multiset.Pi.empty fun a => Bool))))),
+                          ⋯⟩
+                      j =
+                    true then
+                -1
+              else 1)
+            ((fun i => i) ⟨0, ⋯⟩)).mul
+        (List.foldr (fun x1 x2 => x1 * x2) 1
+          (List.map
+            (fun j =>
+              if
+                  ↑⟨{ toFun := fun f a => f a ⋯, inj' := ⋯ }
+                            (Multiset.Pi.cons
+                              ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                                  ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                              ((fun i => i) ⟨0, ⋯⟩) true
+                              (Multiset.Pi.cons
+                                ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                                ((fun i => i) ⟨1, ⋯⟩) true
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  true
+                                  (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true
+                                    (Multiset.Pi.empty fun a => Bool))))),
+                          ⋯⟩
+                      j =
+                    true then
+                -1
+              else 1)
+            ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+              ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])))))).num,
+    ↑1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r4/SourceHOneCharacterIndices318.lean:39:2: error: Tactic `decide` failed to reduce
+  @decide (∀ (i j : Index), ∑ b, epsilon i b * epsilon j b = if i = j then 16 else 0) Fintype.decidableForallFintype
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `instDecidableEqRat`, `isTrue`, `Finset.decidableDforallFinset`, `Fintype.decidableForallFintype`, `Int.decEq`, `Int.instDecidableEq`, `List.decidableBAll`, `Multiset.decidableDforallMultiset`, `Multiset.decidableForallMultiset`, `Option.instDecidableEq`, and `instDecidableEqRat.decEq`, reduction got stuck at
+  match
+    (((fun b => epsilon (↑⟨none, ⋯⟩) b * epsilon (↑⟨none, ⋯⟩) b)
+            ({ toFun := fun f a => f a ⋯, inj' := ⋯ }
+              (Multiset.Pi.cons
+                ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                ((fun i => i) ⟨0, ⋯⟩) true
+                (Multiset.Pi.cons
+                  ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                  ((fun i => i) ⟨1, ⋯⟩) true
+                  (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩) true
+                    (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true (Multiset.Pi.empty fun a => Bool))))))).add
+        (List.foldr (fun x1 x2 => x1 + x2) 0
+          (List.map (fun b => epsilon (↑⟨none, ⋯⟩) b * epsilon (↑⟨none, ⋯⟩) b)
+            (List.map (⇑{ toFun := fun f a => f a ⋯, inj' := ⋯ })
+              ((List.map
+                    (Multiset.Pi.cons
+                      ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                          ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                            ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                      ((fun i => i) ⟨0, ⋯⟩) true)
+                    ((List.map
+                          (Multiset.Pi.cons
+                            ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                            ((fun i => i) ⟨1, ⋯⟩) true)
+                          ((List.map
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  true)
+                                ((List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true) []).append
+                                  (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                      [Multiset.Pi.empty fun a => Bool] ++
+                                    []))).append
+                            (List.map
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  false)
+                                (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                    [Multiset.Pi.empty fun a => Bool] ++
+                                  (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                      [Multiset.Pi.empty fun a => Bool] ++
+                                    [])) ++
+                              []))).append
+                      (List.map
+                          (Multiset.Pi.cons
+                            ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                            ((fun i => i) ⟨1, ⋯⟩) false)
+                          (List.map
+                              (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                true)
+                              (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                  [Multiset.Pi.empty fun a => Bool] ++
+                                (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                    [Multiset.Pi.empty fun a => Bool] ++
+                                  [])) ++
+                            (List.map
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  false)
+                                (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                    [Multiset.Pi.empty fun a => Bool] ++
+                                  (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                      [Multiset.Pi.empty fun a => Bool] ++
+                                    [])) ++
+                              [])) ++
+                        []))).append
+                (List.map
+                    (Multiset.Pi.cons
+                      ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                          ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                            ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                      ((fun i => i) ⟨0, ⋯⟩) false)
+                    (List.map
+                        (Multiset.Pi.cons
+                          ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                          ((fun i => i) ⟨1, ⋯⟩) true)
+                        (List.map
+                            (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                              true)
+                            (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                [Multiset.Pi.empty fun a => Bool] ++
+                              (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                  [Multiset.Pi.empty fun a => Bool] ++
+                                [])) ++
+                          (List.map
+                              (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                false)
+                              (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                  [Multiset.Pi.empty fun a => Bool] ++
+                                (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                    [Multiset.Pi.empty fun a => Bool] ++
+                                  [])) ++
+                            [])) ++
+                      (List.map
+                          (Multiset.Pi.cons
+                            ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                            ((fun i => i) ⟨1, ⋯⟩) false)
+                          (List.map
+                              (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                true)
+                              (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                  [Multiset.Pi.empty fun a => Bool] ++
+                                (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                    [Multiset.Pi.empty fun a => Bool] ++
+                                  [])) ++
+                            (List.map
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  false)
+                                (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true)
+                                    [Multiset.Pi.empty fun a => Bool] ++
+                                  (List.map (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) false)
+                                      [Multiset.Pi.empty fun a => Bool] ++
+                                    [])) ++
+                              [])) ++
+                        [])) ++
+                  [])))))).num,
+    ↑16 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
