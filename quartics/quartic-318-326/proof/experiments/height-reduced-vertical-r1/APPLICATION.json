@@ -1,0 +1,171 @@
+{
+  "producer": "advance_height_realization",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Reduced principal quotient in a DVR forces original nonzero nonunit parameter irreducible; actual rational-prime reduced fibers produce source integral tensor preimages. No semistable model or ramified-base normalization asserted.",
+  "sources": {
+    "VerticalCotangentSections318.lean": "1590f4c5839e80b3b715a6829e9176ca2bef6db68d689c25b7c21464b875f98e",
+    "IntegralCotangentTensor318.lean": "a91104360277261d6dd328161b59418363e8bcce9560c60d8e4f727fa141c70a",
+    "ReducedVerticalTensorSections318.lean": "a3fd01f2a71107e5ebe69636099965181a81d64b40dcd2a6753d3f7dd0a70d4d",
+    "ReducedVerticalUniformizer318.lean": "72c814524f10ead4e828513242c7e558b92b17b55f47633037f354364a5f82bc"
+  },
+  "readme_sha256": "610ec4ab23e33aa9f032ce8efb98dc32595e34892e74675af57eb5198b56d979",
+  "intake_sha256": "00689d333b0187dc853c158a0c1b274321fc7159d9473dacb005ef5d66358d4e",
+  "consumer_source_bindings": {
+    "quartics/quartic-318-326/docs/sources/quartic_v10.tex": "9559b22cc581346da1b3150fa9b8dfb62cfb048f6aac0b866448ae7ae879ff38",
+    "quartics/quartic-318-326/proof/progress/VerticalDerivation318.lean": "be8067559eb376b3c8b509cbf10aa7d99b0df227d8ac83a7fe119a2c8da24061",
+    "quartics/quartic-318-326/proof/progress/VerticalSection318.lean": "1affe8ce546f756ed9a80bfe541c68e91cd833b642ea35fe62a4119d035f7b55",
+    "quartics/quartic-318-326/proof/progress/FractionSourceSections318.lean": "60ed90da0ce9c71be4157431a1bbdb6ee0ab438eadc4df64bf02b00b98d565e8"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Objects",
+      "constructed_input": "B is the actual local DVR and B/(x) is its actual principal-ideal quotient. The tensor consumer uses the same B and its actual fraction field K with the original relative base R.",
+      "justification": "B is the actual local DVR and B/(x) is its actual principal-ideal quotient. The tensor consumer uses the same B and its actual fraction field K with the original relative base R.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 1"
+    },
+    {
+      "name": "Quantifiers",
+      "required_input": "Quantifiers",
+      "constructed_input": "The reduced-quotient theorem applies to every nonzero nonunit x, not just a chosen generator. The section consumer quantifies over both original tensors, every t, and every p satisfying its actual reducedness hypotheses.",
+      "justification": "The reduced-quotient theorem applies to every nonzero nonunit x, not just a chosen generator. The section consumer quantifies over both original tensors, every t, and every p satisfying its actual reducedness hypotheses.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 2"
+    },
+    {
+      "name": "Domain",
+      "required_input": "Domain",
+      "constructed_input": "Reducedness is assumed for the precise quotient by x or p. It is not inferred for a rational prime from reducedness modulo a ramified base uniformizer. No missing vertical point is silently declared covered.",
+      "justification": "Reducedness is assumed for the precise quotient by x or p. It is not inferred for a rational prime from reducedness modulo a ramified base uniformizer. No missing vertical point is silently declared covered.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 3"
+    },
+    {
+      "name": "Maps",
+      "required_input": "Maps",
+      "constructed_input": "The proof uses the actual quotient map, its kernel membership theorem, and the maximal ideal in the original DVR. The consumer uses the previously verified integral-to-generic cotangent tensor map, preserving its direction and coefficient normalization.",
+      "justification": "The proof uses the actual quotient map, its kernel membership theorem, and the maximal ideal in the original DVR. The consumer uses the previously verified integral-to-generic cotangent tensor map, preserving its direction and coefficient normalization.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 4"
+    },
+    {
+      "name": "Scalars",
+      "required_input": "Scalars",
+      "constructed_input": "The original parameter x is proved irreducible via ideal equality, with no valuation renormalization. The source J\u00b2, contact polynomial and second-section factor t are unchanged. Ramified base factors remain an explicit boundary.",
+      "justification": "The original parameter x is proved irreducible via ideal equality, with no valuation renormalization. The source J\u00b2, contact polynomial and second-section factor t are unchanged. Ramified base factors remain an explicit boundary.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 5"
+    },
+    {
+      "name": "Consumer",
+      "required_input": "Consumer",
+      "constructed_input": "The derived irreducibility of p is fed into VerticalCotangentSections318.integral_sections, whose coefficients are exactly the source scalar sections. The conclusion consists of actual tensor preimages, not supplied valuation or integrality estimates.",
+      "justification": "The derived irreducibility of p is fed into VerticalCotangentSections318.integral_sections, whose coefficients are exactly the source scalar sections. The conclusion consists of actual tensor preimages, not supplied valuation or integrality estimates.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 6"
+    },
+    {
+      "name": "Hypotheses",
+      "required_input": "Hypotheses",
+      "constructed_input": "The DVR decomposition requires x nonzero. Reducedness kills the generator's nilpotent quotient image. Nonunit x gives the reverse maximal-ideal inclusion. The source tensor theorem still requires an actual integral Kahler frame and the actual fraction field; neither is asserted to exist geometrically here.",
+      "justification": "The DVR decomposition requires x nonzero. Reducedness kills the generator's nilpotent quotient image. Nonunit x gives the reverse maximal-ideal inclusion. The source tensor theorem still requires an actual integral Kahler frame and the actual fraction field; neither is asserted to exist geometrically here.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 7"
+    },
+    {
+      "name": "History",
+      "required_input": "History",
+      "constructed_input": "The classical source uses reduced vertical geometry to justify its uniformizer statement. Existing Lean modules already prove the derivative and coefficient implications from a uniformizer. This packet supplies the local reduced-quotient implication and preserves the ramified-base limitation, rather than claiming complete geometric realization.",
+      "justification": "The classical source uses reduced vertical geometry to justify its uniformizer statement. Existing Lean modules already prove the derivative and coefficient implications from a uniformizer. This packet supplies the local reduced-quotient implication and preserves the ramified-base limitation, rather than claiming complete geometric realization.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 8"
+    },
+    {
+      "name": "Verification",
+      "required_input": "Verification",
+      "constructed_input": "Copied sources, source imports, consumer sources and exact upstream versions are hash-bound. Static checks are structural only. Hosted strict checking, recursive private-inclusive audit and distinct acceptance remain pending; no independent approval is fabricated.",
+      "justification": "Copied sources, source imports, consumer sources and exact upstream versions are hash-bound. Static checks are structural only. Hosted strict checking, recursive private-inclusive audit and distinct acceptance remain pending; no independent approval is fabricated.",
+      "sources": [
+        "IntegralCotangentTensor318.lean",
+        "VerticalCotangentSections318.lean",
+        "ReducedVerticalUniformizer318.lean",
+        "ReducedVerticalTensorSections318.lean",
+        "verification/consumer-source-pins.json",
+        "verification/primary-library-source-pins.json",
+        "README.md"
+      ],
+      "evidence": "README.md obligation 9"
+    }
+  ],
+  "validation": {
+    "local_lean_run": false,
+    "static_packet_validation": "PASS",
+    "hosted_strict_check": "PENDING",
+    "independent_acceptance": "PENDING"
+  }
+}

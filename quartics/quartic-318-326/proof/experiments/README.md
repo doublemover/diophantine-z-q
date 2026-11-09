@@ -16,9 +16,29 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Exact H1 success and joined consumers, 2026-11-09
+
+Run [42573995193](https://github.com/doublemover/diophantine-z-q/actions/runs/42573995193)
+at `eed27194` passed all 26 sources of `actual-five-hone-decomposition-r1`
+and its private-inclusive recursive audit (304 declarations). The exact receipt
+is preserved under `hosted-results/42573995193`; that packet is now inactive,
+not baseline-promoted. Its fivefold equivalence still requires cross-term
+vanishing and zero common kernel. The same run checked the polynomial principal
+parts lemma but failed the original-field consumer's rational-algebra inference;
+the revised representative packet retains the original producers' algebra choice.
+
+The current 8-packet matrix checks 208 modules. Joined supersets avoid duplicate
+analytic and H1 predecessor checks: actual compact j point values and all-eight
+principal representatives are now connected to their exact original objects.
+Separate packets add ramified-base tensor integrality and the module-overlap
+cocycle-to-coassociativity conversion. Their source-bound contracts and bounded
+internal review are recorded in `review-round6.json`. Hosted Lean verification
+is pending; no model existence, full fppf descent, H1 dimension, or final theorem
+is inferred from these conditional/local implications.
+
 ## Actual-map continuations and second hosted repairs, 2026-11-09
 
-The current ten-packet matrix checks 208 source modules. Eight versioned or
+The preceding ten-packet matrix checked 208 source modules. Eight versioned or
 superset packets replace earlier checks: actual projective points r4, the full
 rational projective j-map r2, bicanonical height r3, actual global-open section
 restriction r2, canonical rigidified pullback composition, and actual infinity-ring

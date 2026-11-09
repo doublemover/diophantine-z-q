@@ -1,0 +1,186 @@
+{
+  "packet": "affine-overlap-coassociativity",
+  "status": "DRAFT_AWAITING_HOSTED_LEAN_CHECK",
+  "order": [
+    "FaithfullyFlatFinitePresentation318",
+    "OriginalLineAffineModel318",
+    "FaithfullyFlatLineModule318",
+    "AffineRankOneLine318",
+    "AffineCoalgebraModule318",
+    "AffineCoalgebraLine318",
+    "TensorPushoutModule318",
+    "AffineModuleBaseChange318",
+    "AffineModuleMate318",
+    "AffineOverlapCoaction318",
+    "AffineOverlapDiagonal318",
+    "ScalarExtensionCongr318",
+    "ScalarExtensionComposition318",
+    "AffineCechRings318",
+    "AffineTripleCoactionCoordinates318",
+    "AffineTripleOverlapMaps318",
+    "AffineTripleCoordinateLaws318",
+    "AffineOverlapCoassociativity318",
+    "AffineCocycleLine318"
+  ],
+  "files": {
+    "FaithfullyFlatFinitePresentation318.lean": {
+      "sha256": "71432b08a1a9bfae9b8c5d622e42b929f1905b73fe592ecd8e724585951a9ee0",
+      "imports": [
+        "Mathlib.Algebra.Module.FinitePresentation",
+        "Mathlib.RingTheory.Finiteness.Descent",
+        "Mathlib.RingTheory.Flat.Equalizer"
+      ]
+    },
+    "OriginalLineAffineModel318.lean": {
+      "sha256": "7038df3c666c5b4230520285f74ed2dfd056ffa661c709bce62fb72995890511",
+      "imports": [
+        "AffineLineFrameCover318",
+        "LineSheafClass318",
+        "Mathlib.AlgebraicGeometry.Modules.Tilde"
+      ]
+    },
+    "FaithfullyFlatLineModule318.lean": {
+      "sha256": "51889689a014eb384f078255c9aa2b3629397ecdc55fca8f92a1b32a9986e49c",
+      "imports": [
+        "FaithfullyFlatFinitePresentation318",
+        "OriginalLineAffineModel318"
+      ]
+    },
+    "AffineRankOneLine318.lean": {
+      "sha256": "e8e6258aae706423872a64747d4bae9d91a8fd1ab07e8c1fb2bbc58cb4ce93ef",
+      "imports": [
+        "FiniteTargetSheafFrame318",
+        "LineSheafClass318"
+      ]
+    },
+    "AffineCoalgebraModule318.lean": {
+      "sha256": "cdda6d9f03dd3d24a896e2dcb2dd51e7ddebf5431e666a4e86e8d31e4b6ee883",
+      "imports": [
+        "Mathlib.Algebra.Category.ModuleCat.Descent"
+      ]
+    },
+    "AffineCoalgebraLine318.lean": {
+      "sha256": "124d814141734d8d38afd5ea1a48065b1105dfee56d23e6e3fd0bc3fe0c59cc4",
+      "imports": [
+        "AffineCoalgebraModule318",
+        "AffineRankOneLine318",
+        "FaithfullyFlatLineModule318",
+        "LineSheafPullback318",
+        "ScalarExtensionTensor318",
+        "TildePullback318"
+      ]
+    },
+    "TensorPushoutModule318.lean": {
+      "sha256": "845cc5fcd23b4d5b103f77b09ce455cef1b161a58b81c632f7cda703f4435ff8",
+      "imports": [
+        "Mathlib.RingTheory.TensorProduct.Maps"
+      ]
+    },
+    "AffineModuleBaseChange318.lean": {
+      "sha256": "e26233c252ec5cdb98fdeafdb903c7fc148820d2adadc5fb8c68aa0bbed964b4",
+      "imports": [
+        "Mathlib.Algebra.Category.Ring.Basic",
+        "ScalarExtensionTensor318",
+        "TensorPushoutModule318"
+      ]
+    },
+    "AffineModuleMate318.lean": {
+      "sha256": "7c175042e90a396eb83fa1478f9d7866d8ba36d21d2273fb0e5f8df8f6c62749",
+      "imports": [
+        "AffineModuleBaseChange318"
+      ]
+    },
+    "AffineOverlapCoaction318.lean": {
+      "sha256": "792618e4985cdb7c4b2f2c2ac8a3b96bd5df3f1759395bf8dcd85b59a218effc",
+      "imports": [
+        "AffineModuleMate318",
+        "Mathlib.CategoryTheory.HomCongr"
+      ]
+    },
+    "AffineOverlapDiagonal318.lean": {
+      "sha256": "9a961d6c6ffa94ccf35bd014c437714dfb742ec2dd714ca69c42abe0dd37cf4d",
+      "imports": [
+        "AffineOverlapCoaction318"
+      ]
+    },
+    "ScalarExtensionCongr318.lean": {
+      "sha256": "66febd6334670d0513ad034d8e3facd435f6c0c2b9cd529c47e94239d3fd984b",
+      "imports": [
+        "Mathlib.Algebra.Category.ModuleCat.ChangeOfRings"
+      ]
+    },
+    "ScalarExtensionComposition318.lean": {
+      "sha256": "11b506769e50a85d4ad89483f2a0e2bdc9b47a676a55b6b12716b5808fad87de",
+      "imports": [
+        "ScalarExtensionCongr318"
+      ]
+    },
+    "AffineCechRings318.lean": {
+      "sha256": "ee500bfca0c88c108228c9871c29ea910000ae0b202cf00de4a6212a61aa99e3",
+      "imports": [
+        "AffineModuleMate318"
+      ]
+    },
+    "AffineTripleCoactionCoordinates318.lean": {
+      "sha256": "cdd39c296642387fd6c53f3f77c0a04fc2d2e12667387f826e32062a0fec7cb0",
+      "imports": [
+        "AffineCechRings318",
+        "AffineOverlapCoaction318",
+        "ScalarExtensionComposition318"
+      ]
+    },
+    "AffineTripleOverlapMaps318.lean": {
+      "sha256": "1e03fe12a8d0b176b0231ca67f7c8cee2789b0884c42573e0327d7db401b044e",
+      "imports": [
+        "AffineTripleCoactionCoordinates318"
+      ]
+    },
+    "AffineTripleCoordinateLaws318.lean": {
+      "sha256": "781e28912828b163ce4bdaf0d5caf11a776e57c6233de645d90def48c4141983",
+      "imports": [
+        "AffineTripleOverlapMaps318"
+      ]
+    },
+    "AffineOverlapCoassociativity318.lean": {
+      "sha256": "29e04706e2cbb681e6b719b50ef88f5917ff5bfeb0788d4b2460558f9f81c672",
+      "imports": [
+        "AffineCoalgebraModule318",
+        "AffineOverlapDiagonal318",
+        "AffineTripleCoordinateLaws318"
+      ]
+    },
+    "AffineCocycleLine318.lean": {
+      "sha256": "7df14024431e3056612c5a0f379d92a7b1ee53eb7bf9c5339b740b72bac98c6b",
+      "imports": [
+        "AffineCoalgebraLine318",
+        "AffineOverlapCoassociativity318"
+      ]
+    }
+  },
+  "new_modules": [
+    "AffineTripleCoactionCoordinates318",
+    "AffineTripleOverlapMaps318",
+    "AffineTripleCoordinateLaws318",
+    "AffineOverlapCoassociativity318",
+    "AffineCocycleLine318"
+  ],
+  "unchanged_producer_modules": [
+    "FaithfullyFlatFinitePresentation318",
+    "OriginalLineAffineModel318",
+    "FaithfullyFlatLineModule318",
+    "AffineRankOneLine318",
+    "AffineCoalgebraModule318",
+    "AffineCoalgebraLine318",
+    "TensorPushoutModule318",
+    "AffineModuleBaseChange318",
+    "AffineModuleMate318",
+    "AffineOverlapCoaction318",
+    "AffineOverlapDiagonal318",
+    "ScalarExtensionCongr318",
+    "ScalarExtensionComposition318",
+    "AffineCechRings318"
+  ],
+  "scope": "Canonical module-level affine triple-overlap cocycle implies coassociativity of the existing candidate coaction; diagonal plus triple data yields a genuine coalgebra and reuses original faithfully flat rank-one line reconstruction. Geometric sheaf-to-module cocycle compatibility and arbitrary-scheme descent remain separate.",
+  "new_source_acceptance": false,
+  "full_arithmetic_theorem_proved": false
+}

@@ -1,0 +1,112 @@
+{
+  "claim": "Pending whole-original-overlap reduction to all eight bounded principal numerators plus an actual infinity-ring image; no uniform pole bound or H1 dimension claim.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Revision r2 aligns original rational-algebra instances in principal fraction and regular lift; hosted checking, axiom audit and independent acceptance pending.",
+  "new_sources": {
+    "ContactWholePrincipalReduction318.lean": "37e715f22cda4a54944a07264d4f0cacc7487d74063257d4b14670a25f25c1c4"
+  },
+  "readme_sha256": "55be8ae9bf4a599c9d856898ab95cf15a759d4e23946f9547e04f58577aa8479",
+  "copy_bindings_sha256": "a3ca59dd9ab3b8ed12fd1bbe86275c3f64ddd4311a6491ff97450e2e72f2506d",
+  "intake_sha256": "906aa53a76f6a5f9621bab2cde2d97cfae2495d7c8c7722d99abc462c44b5552",
+  "obligations": [
+    {
+      "name": "Original full overlap carrier",
+      "required": "Every element of the full original overlap ring must be covered.",
+      "constructed": "OverlapRing is ContactKummerOrder318.OpenOrder c, with z arbitrary.",
+      "justification": "overlap_fraction applies the existing whole-ring localization, not a subalgebra approximation.",
+      "evidence": [
+        "SourceInfinityOverlap318.whole_localization",
+        "ContactWholePrincipalReduction318.overlap_fraction"
+      ]
+    },
+    {
+      "name": "Actual infinity map and direction",
+      "required": "Localization must be with respect to the original infinity-to-overlap ring map.",
+      "constructed": "inclusion is InfinityOverlapLocalization318.toOpen; its toAlgebra supplies the local algebra instance.",
+      "justification": "The original sourceAlgebra definition is exactly the same map; coordinate maps to the original u.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.inclusion",
+        "SourceInfinityOverlap318.u",
+        "InfinityOverlapLocalization318.toOpen"
+      ]
+    },
+    {
+      "name": "Actual inverse and normalization",
+      "required": "The pole factor must invert the original overlap u with scalar one.",
+      "constructed": "inverseU is the inverse of the unit chosen from u_unit.",
+      "justification": "u_inverse proves u*inverseU=1; powers are canceled multiplicatively in the actual commutative ring.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.inverseU",
+        "ContactWholePrincipalReduction318.u_inverse"
+      ]
+    },
+    {
+      "name": "Full eight-element index set",
+      "required": "Every basis coefficient of the entire infinity numerator must be processed.",
+      "constructed": "ThreeIndex=Fin 2 times (Fin 2 times Fin 2), the original full tensor basis.",
+      "justification": "infinity_expansion is Basis.sum_repr; reduction uses all indices in the finite universal sum.",
+      "evidence": [
+        "RootOrderMonomialBasis318.ThreeIndex",
+        "ContactHOneOrderBases318.infinity_expansion",
+        "ContactWholePrincipalReduction318.reduction"
+      ]
+    },
+    {
+      "name": "Coefficient producer input",
+      "required": "Coefficient reduction requires an element of the original localized infinity base and a natural pole order.",
+      "constructed": "The inputs are infinityBasis.repr a i and the common n from overlap_fraction.",
+      "justification": "The basis coefficient ring is literally InfinityOpenChart318.OpenBase c. No extra regularity or nonzero coefficient assumption is introduced.",
+      "evidence": [
+        "ContactHOneOrderBases318.infinityBasis",
+        "ContactInfinityRegularFractions318.coefficient_principal_reduction"
+      ]
+    },
+    {
+      "name": "Polynomial degree and exceptional case",
+      "required": "Each principal polynomial must have degree below the same n, including n=0.",
+      "constructed": "The witnesses R i and their WithBot degree bounds come from each coefficient reduction.",
+      "justification": "All bounds are preserved by choice without increasing n. Zero polynomial has degree bottom, so the statement includes the zero-pole case.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "PolynomialPrincipalParts318.decomposition"
+      ]
+    },
+    {
+      "name": "Regular remainder in original ring",
+      "required": "The remainder must be the image of a constructed actual infinity-ring element.",
+      "constructed": "b is the finite sum of coefficient witnesses b_i times actual infinity basis vectors.",
+      "justification": "Multiplicativity and additivity of the original inclusion identify its image with the sum of remainders. No field-only regularity assertion substitutes for ring membership.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "ContactInfinityRegularFractions318.coefficient_principal_reduction"
+      ]
+    },
+    {
+      "name": "Identity consumed downstream",
+      "required": "The principal terms must agree exactly with the earlier actual overlap representatives.",
+      "constructed": "The sum uses ContactInfinityRegularFractions318.principalTerm and original included infinityBasis.",
+      "justification": "The source theorem identities are multiplied by original basis images and summed; no signs, units, scalar factors or index permutations are suppressed.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "ContactInfinityRegularFractions318.principalTerm_embedding"
+      ]
+    },
+    {
+      "name": "Scope and verification",
+      "required": "Do not infer finite H1 dimension from elementwise finite pole order.",
+      "constructed": "The packet proves only the proposed whole-ring principal reduction, with n depending on z.",
+      "justification": "Original boundary annihilation and finite-chart reduction are future consumers. Fivefold independence, spanning and actual quotient-pullback identification remain unproved. Hosted strict checks and independent acceptance remain pending.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "modified_dependencies": {
+    "ContactInfinityPrincipalParts318.lean": "96c5e4fb70a520f25272e559834f1b6bee4734935f02170833384717699d0425",
+    "ContactInfinityRegularFractions318.lean": "403b040dc82dd872d821010d8675d4c16fedd8683b215db601b89d3aa4e3390f"
+  },
+  "revision_join": "Both polynomial_coordinate_injective and openEmbedding_on_polynomial use the original RatFunc.instAlgebraOfPolynomial tower. The revised fraction producer and regular lift consumer now select precisely that tower by disabling DivisionRing.toRatAlgebra, following those original modules. No scalar, field or map is changed."
+}

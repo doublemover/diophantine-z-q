@@ -1,0 +1,107 @@
+{
+  "claim": "Pending whole-original-overlap reduction to all eight bounded principal numerators plus an actual infinity-ring image; no uniform pole bound or H1 dimension claim.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "Uncompiled six-source continuation; hosted strict checking, recursive axiom audit and independent acceptance pending. Whole-overlap reduction only, not bounded H1 dimension.",
+  "new_sources": {
+    "ContactWholePrincipalReduction318.lean": "37e715f22cda4a54944a07264d4f0cacc7487d74063257d4b14670a25f25c1c4"
+  },
+  "readme_sha256": "d9b5adb398b7b9842e0c5437a543083977048c860c6294d2b5380a7686113608",
+  "copy_bindings_sha256": "be2c0969324583ddf42e50169ebbfe9a353a6d8dca515f2b680471c250504889",
+  "intake_sha256": "a4d94532bf65523dde3e2017f666071cbc476c25c616c50f8313a2c25beb3377",
+  "obligations": [
+    {
+      "name": "Original full overlap carrier",
+      "required": "Every element of the full original overlap ring must be covered.",
+      "constructed": "OverlapRing is ContactKummerOrder318.OpenOrder c, with z arbitrary.",
+      "justification": "overlap_fraction applies the existing whole-ring localization, not a subalgebra approximation.",
+      "evidence": [
+        "SourceInfinityOverlap318.whole_localization",
+        "ContactWholePrincipalReduction318.overlap_fraction"
+      ]
+    },
+    {
+      "name": "Actual infinity map and direction",
+      "required": "Localization must be with respect to the original infinity-to-overlap ring map.",
+      "constructed": "inclusion is InfinityOverlapLocalization318.toOpen; its toAlgebra supplies the local algebra instance.",
+      "justification": "The original sourceAlgebra definition is exactly the same map; coordinate maps to the original u.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.inclusion",
+        "SourceInfinityOverlap318.u",
+        "InfinityOverlapLocalization318.toOpen"
+      ]
+    },
+    {
+      "name": "Actual inverse and normalization",
+      "required": "The pole factor must invert the original overlap u with scalar one.",
+      "constructed": "inverseU is the inverse of the unit chosen from u_unit.",
+      "justification": "u_inverse proves u*inverseU=1; powers are canceled multiplicatively in the actual commutative ring.",
+      "evidence": [
+        "ContactInfinityRegularFractions318.inverseU",
+        "ContactWholePrincipalReduction318.u_inverse"
+      ]
+    },
+    {
+      "name": "Full eight-element index set",
+      "required": "Every basis coefficient of the entire infinity numerator must be processed.",
+      "constructed": "ThreeIndex=Fin 2 times (Fin 2 times Fin 2), the original full tensor basis.",
+      "justification": "infinity_expansion is Basis.sum_repr; reduction uses all indices in the finite universal sum.",
+      "evidence": [
+        "RootOrderMonomialBasis318.ThreeIndex",
+        "ContactHOneOrderBases318.infinity_expansion",
+        "ContactWholePrincipalReduction318.reduction"
+      ]
+    },
+    {
+      "name": "Coefficient producer input",
+      "required": "Coefficient reduction requires an element of the original localized infinity base and a natural pole order.",
+      "constructed": "The inputs are infinityBasis.repr a i and the common n from overlap_fraction.",
+      "justification": "The basis coefficient ring is literally InfinityOpenChart318.OpenBase c. No extra regularity or nonzero coefficient assumption is introduced.",
+      "evidence": [
+        "ContactHOneOrderBases318.infinityBasis",
+        "ContactInfinityRegularFractions318.coefficient_principal_reduction"
+      ]
+    },
+    {
+      "name": "Polynomial degree and exceptional case",
+      "required": "Each principal polynomial must have degree below the same n, including n=0.",
+      "constructed": "The witnesses R i and their WithBot degree bounds come from each coefficient reduction.",
+      "justification": "All bounds are preserved by choice without increasing n. Zero polynomial has degree bottom, so the statement includes the zero-pole case.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "PolynomialPrincipalParts318.decomposition"
+      ]
+    },
+    {
+      "name": "Regular remainder in original ring",
+      "required": "The remainder must be the image of a constructed actual infinity-ring element.",
+      "constructed": "b is the finite sum of coefficient witnesses b_i times actual infinity basis vectors.",
+      "justification": "Multiplicativity and additivity of the original inclusion identify its image with the sum of remainders. No field-only regularity assertion substitutes for ring membership.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "ContactInfinityRegularFractions318.coefficient_principal_reduction"
+      ]
+    },
+    {
+      "name": "Identity consumed downstream",
+      "required": "The principal terms must agree exactly with the earlier actual overlap representatives.",
+      "constructed": "The sum uses ContactInfinityRegularFractions318.principalTerm and original included infinityBasis.",
+      "justification": "The source theorem identities are multiplied by original basis images and summed; no signs, units, scalar factors or index permutations are suppressed.",
+      "evidence": [
+        "ContactWholePrincipalReduction318.reduction",
+        "ContactInfinityRegularFractions318.principalTerm_embedding"
+      ]
+    },
+    {
+      "name": "Scope and verification",
+      "required": "Do not infer finite H1 dimension from elementwise finite pole order.",
+      "constructed": "The packet proves only the proposed whole-ring principal reduction, with n depending on z.",
+      "justification": "Original boundary annihilation and finite-chart reduction are future consumers. Fivefold independence, spanning and actual quotient-pullback identification remain unproved. Hosted strict checks and independent acceptance remain pending.",
+      "evidence": [
+        "README.md",
+        "intake.json",
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ]
+}

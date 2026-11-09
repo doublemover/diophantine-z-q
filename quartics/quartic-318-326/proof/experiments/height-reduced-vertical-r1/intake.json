@@ -1,0 +1,50 @@
+{
+  "packet": "height-reduced-vertical-r1",
+  "status": "DRAFT_HOSTED_CHECK_AND_INDEPENDENT_REVIEW_PENDING",
+  "order": [
+    "IntegralCotangentTensor318",
+    "VerticalCotangentSections318",
+    "ReducedVerticalUniformizer318",
+    "ReducedVerticalTensorSections318"
+  ],
+  "new_modules": [
+    "ReducedVerticalUniformizer318",
+    "ReducedVerticalTensorSections318"
+  ],
+  "unchanged_predecessor_modules": [
+    "IntegralCotangentTensor318",
+    "VerticalCotangentSections318"
+  ],
+  "files": {
+    "IntegralCotangentTensor318.lean": {
+      "sha256": "a91104360277261d6dd328161b59418363e8bcce9560c60d8e4f727fa141c70a",
+      "imports": [
+        "FractionKaehlerFrame318",
+        "Mathlib.LinearAlgebra.TensorProduct.Basic"
+      ]
+    },
+    "VerticalCotangentSections318.lean": {
+      "sha256": "1590f4c5839e80b3b715a6829e9176ca2bef6db68d689c25b7c21464b875f98e",
+      "imports": [
+        "FractionSourceSections318",
+        "IntegralCotangentTensor318"
+      ]
+    },
+    "ReducedVerticalUniformizer318.lean": {
+      "sha256": "72c814524f10ead4e828513242c7e558b92b17b55f47633037f354364a5f82bc",
+      "imports": [
+        "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+        "Mathlib.RingTheory.Ideal.Quotient.Defs",
+        "Mathlib.RingTheory.Nilpotent.Defs",
+        "Mathlib.Tactic"
+      ]
+    },
+    "ReducedVerticalTensorSections318.lean": {
+      "sha256": "a3fd01f2a71107e5ebe69636099965181a81d64b40dcd2a6753d3f7dd0a70d4d",
+      "imports": [
+        "ReducedVerticalUniformizer318",
+        "VerticalCotangentSections318"
+      ]
+    }
+  }
+}
