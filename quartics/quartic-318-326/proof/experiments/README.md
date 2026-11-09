@@ -16,6 +16,24 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original H1 deformations and three-detector assembly, 2026-11-09
+
+Nine active closures now schedule498 source checks. Original whole H1 classes
+map to actual pointed dual-number lines through original overlap representatives;
+the actual kernel and pointed gauge establish independence of representative.
+This is not yet classification or compatibility of all five maps and norms.
+The changed affine reconstruction is now compared to the literal base pullback
+of the previous original line, with its exact covering equation and uniqueness.
+
+Three actual detector families retain one pre-prime neighborhood, one threshold
+and one mixed-CRT index. Their conditional point certificates give first263 rows;
+actual point/prime producers and25 scalar/final rows remain. The same analytic
+global kernel now has its whole reciprocal ideal equation, including multiplicity,
+from actual all-prime support and quotient-unit saturation, not pointwise equality.
+Global relative differential/Fitting identity remains a separate obligation.
+All new and repaired source routes have bounded nonauthor review and structural
+checks; hosted checking remains pending.
+
 ## Verified global restriction bridge, 2026-11-09
 
 At commit13409e9, hosted run42591009198 checked all four modules of
