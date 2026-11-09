@@ -1,0 +1,84 @@
+{
+  "packet": "height-integral-infinity-tensors-r4",
+  "status": "DRAFT_VERSIONED_CI_REPAIR_PENDING",
+  "order": [
+    "IntegralCotangentTensor318",
+    "VerticalCotangentSections318",
+    "IntegralInfinityChart318",
+    "IntegralInfinityCoefficients318",
+    "IntegralInfinityOriginalField318",
+    "IntegralInfinityGenericIdentity318",
+    "IntegralInfinityTensor318"
+  ],
+  "new_modules": [
+    "IntegralInfinityChart318",
+    "IntegralInfinityCoefficients318",
+    "IntegralInfinityOriginalField318",
+    "IntegralInfinityGenericIdentity318",
+    "IntegralInfinityTensor318"
+  ],
+  "unchanged_predecessor_modules": [
+    "IntegralCotangentTensor318",
+    "VerticalCotangentSections318"
+  ],
+  "files": {
+    "IntegralCotangentTensor318.lean": {
+      "sha256": "a91104360277261d6dd328161b59418363e8bcce9560c60d8e4f727fa141c70a",
+      "imports": [
+        "FractionKaehlerFrame318",
+        "Mathlib.LinearAlgebra.TensorProduct.Basic"
+      ]
+    },
+    "VerticalCotangentSections318.lean": {
+      "sha256": "1590f4c5839e80b3b715a6829e9176ca2bef6db68d689c25b7c21464b875f98e",
+      "imports": [
+        "FractionSourceSections318",
+        "IntegralCotangentTensor318"
+      ]
+    },
+    "IntegralInfinityChart318.lean": {
+      "sha256": "c5fede47e5f22679047c957399902d0c9620d72ffe3ddb1a0a88e02c78465554",
+      "imports": [
+        "LocalizedKaehlerFrame318",
+        "Mathlib.RingTheory.Kaehler.Polynomial",
+        "Mathlib.RingTheory.Localization.Away.Basic",
+        "ThreeRootOrder318"
+      ]
+    },
+    "IntegralInfinityCoefficients318.lean": {
+      "sha256": "cf677ca1c20e59f87dfaeeb86f8e0b696acaa7db8ea86453d56546e0987057fc",
+      "imports": [
+        "InfinityParameters318",
+        "IntegralInfinityChart318"
+      ]
+    },
+    "IntegralInfinityOriginalField318.lean": {
+      "sha256": "b1631792deb403f1a5e28a2065a63186086cbf96102d84fc55fb77ee7538df79",
+      "imports": [
+        "IntegralInfinityCoefficients318",
+        "ReciprocalInfinityNormalization318"
+      ]
+    },
+    "IntegralInfinityGenericIdentity318.lean": {
+      "sha256": "614eb39b549cf20d2b65aad9a3f723012132fe638850a701a378c4d45d61e76c",
+      "imports": [
+        "InfinityDenominatorOverlap318",
+        "IntegralInfinityCoefficients318",
+        "ReciprocalBicanonicalIdentity318",
+        "VerticalCotangentSections318"
+      ]
+    },
+    "IntegralInfinityTensor318.lean": {
+      "sha256": "730bae7e66b450defad3feb569f93d465dfdbc4d4a9f125709b8dafb3a495a9e",
+      "imports": [
+        "IntegralInfinityGenericIdentity318",
+        "Mathlib.RingTheory.Flat.Localization",
+        "ReciprocalCoordinateDifferential318"
+      ]
+    }
+  },
+  "versioned_repairs": [
+    "IntegralInfinityOriginalField318",
+    "IntegralInfinityCoefficients318"
+  ]
+}

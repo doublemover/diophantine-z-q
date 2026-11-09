@@ -16,6 +16,35 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Original quotient classes, source rows and overlap attachment, 2026-11-09
+
+Ten active closures schedule 379 source checks. Candidate source now carries
+literal target cohomology classes through actual cover refinement to their
+original source representatives, after identifying geometric sign pullbacks.
+Target nonvanishing remains separate. Actual affine descent morphisms retain
+the original categorical-double square. The integral infinity attachment is
+proved by explicit two-sided localization maps, not a generic-field match.
+
+The same original CRT-selected index now supports the first 150 of 288 literal
+source rows. The contact parameter remains free for the later prime-pattern
+step; its nonvanishing exclusions are explicit. The remaining 138 rows and
+prime-pattern existence are not claimed. Exact symbolic checks independently
+verified the contact normalization, thirteen weight rows and thirty chain gates.
+
+The analytic packet concerns the genus-zero projective parameter line and its
+explicit degree-four self-map j(T)=(T+27)(T+243)^3/T^3. Its source ramification
+cycle has degree six; its pushforward is 2[infinity]+2[0]+2[1728]. The full
+fibers have local-degree budgets 3+1, 3+1 and 2+2, respectively. This is not the
+ramification divisor of a genus-four contact curve. The new relative Kaehler
+presentation proves the full derivative ideal on the actual Laurent chart;
+a global scheme Cartier-divisor comparison is still separate.
+
+Round17 binds non-author bounded source review, exact symbolic checks and
+narrow repairs from run42582121938. That run had no complete successful packet;
+its first failures and passing predecessor commands are preserved unchanged.
+All candidate closures still require hosted strict checks and recursive audits.
+No local Lean execution or accepted-baseline promotion occurred.
+
 ## Effective descent on the actual overlap, 2026-11-09
 
 Nine active closures now schedule 339 source checks. The actual reconstructed
