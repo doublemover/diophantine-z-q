@@ -1,0 +1,111 @@
+{
+  "author": "/root/construct_integer_witnesses",
+  "status": "PENDING_HOSTED_CHECK_AND_DISTINCT_REVIEW",
+  "claim": "Positive-step orbit closure equals the identity component when the actual step returns to that component, for a dense cyclic topological abelian group.",
+  "sources": {
+    "MonotheticComponentSteps318.lean": "f5f806fdbd6e8eeb965af404e034075ad313cfde1f24bb2eb1c5c9df6c69900a"
+  },
+  "derivation_sha256": "36b0c14bfa02630f947c8a2088e6997b4a8e73d68d68b7b1268873d9d076a276",
+  "obligations": [
+    {
+      "name": "Original topological group",
+      "required_input": "Topological abelian group with a dense integer orbit.",
+      "constructed_input": "The exact G, a, topology and DenseRange input are unchanged throughout.",
+      "justification": "No real chart, independent factor or abstract replacement of G is used.",
+      "source_references": "stepClosure_clopen",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Closed step subgroup",
+      "required_input": "Closure of integer multiples of the actual k a.",
+      "constructed_input": "stepClosure a k is AddSubgroup.zmultiples (k smul a), followed by topologicalClosure.",
+      "justification": "The same step appears in the quotient kernel and final recurrence.",
+      "source_references": "stepClosure",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Quotient separation",
+      "required_input": "T1 quotient so finite subsets are closed.",
+      "constructed_input": "The actual quotient by the closed H has the pinned quotient topology.",
+      "justification": "QuotientAddGroup.instT1Space applies to IsClosed H.",
+      "source_references": "Mathlib.Topology.Algebra.Group.Quotient",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Finite cyclic coverage",
+      "required_input": "The finite orbit must cover the full quotient.",
+      "constructed_input": "k kills q(a), and the quotient orbit is dense via the continuous surjective quotient map.",
+      "justification": "A finite closed dense orbit equals univ; no finite-index premise is assumed.",
+      "source_references": "hkill; horder; hfinite; hfull",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Component inclusion",
+      "required_input": "G^0 lies in the actual step closure.",
+      "constructed_input": "The finite T1 quotient is discrete, making H clopen.",
+      "justification": "IsClopen.connectedComponent_subset applies because zero belongs to H.",
+      "source_references": "component_subset_stepClosure",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Reverse inclusion",
+      "required_input": "The chosen step must belong to the component.",
+      "constructed_input": "Explicit hstep: k a belongs to connectedComponent zero.",
+      "justification": "Integer multiples remain in the identity-component subgroup; closedness retains their limits.",
+      "source_references": "stepClosure_eq_component",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Divisible step and residue",
+      "required_input": "Final progression step/residue must return to G^0.",
+      "constructed_input": "An explicit m a in G^0 passes to k when m divides k; translate membership remains explicit.",
+      "justification": "Existence of a positive m is not assumed proved, and no final CRT residue is silently changed.",
+      "source_references": "component_step_mem; component_multiple_closure; component_positive_tail",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Actual target and positive tails",
+      "required_input": "One target open set must meet G^0, with the same actual translate.",
+      "constructed_input": "U, IsOpen U, and a point in U intersect G^0 remain explicit inputs.",
+      "justification": "Compact recurrence is applied at x-b, using the exact step-closure equality.",
+      "source_references": "component_positive_tail",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Downstream scope and validation",
+      "required_input": "A helper cannot stand in for full arithmetic completeness.",
+      "constructed_input": "No scalar-region construction, actual component modulus, final CRT access, or later source rows is claimed.",
+      "justification": "Source policy passes only; hosted compilation and separate acceptance remain pending.",
+      "source_references": "DERIVATION.md; VALIDATION.json",
+      "evidence": [
+        "DERIVATION.md",
+        "VALIDATION.json"
+      ]
+    }
+  ],
+  "full_arithmetic_theorem_proved": false
+}

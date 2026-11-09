@@ -1,0 +1,118 @@
+{
+  "claim": "Pending actual source-H1 quotient by the image of the original finite/infinity restriction-difference map, with exact boundary representative identities.",
+  "producer": "/root/prove_cohomology_transfer",
+  "date": "2026-11-09",
+  "status": "UNCOMPILED_CONTINUATION; hosted strict compilation, recursive axiom audit and independent acceptance pending.",
+  "continuation_sources": {
+    "LocalCohomologyRestriction318.lean": "82f1221761ae4e62b539e0a18217fb6833a35a6bd4ae8eedd4c05ccfcbf06816",
+    "MayerVietorisSectionKernel318.lean": "fe19526c01768f443e84a3c1f42888e22791e9465495c760ceed6f74d8e00f6c",
+    "AffineCoverHOneQuotient318.lean": "152bf55bc1f287cea867bec24ca3bf4ea0e33763787608f110b8b01688d6af82",
+    "ActualSourceHOneQuotient318.lean": "290c867f1a4eb267cefa9b1544ff2bd234721285fb0f0b810d858dfcd355698a"
+  },
+  "readme_sha256": "360318478f67c8f80b7cda7b6868494899079f6d57e4e558d8a7efabd8dad7d0",
+  "copy_bindings_sha256": "f375e433d5456f1cfe4a7bb0b4533b7858c5d193f5b35b8440195090f8afdbc1",
+  "intake_sha256": "ca642dc406346b90d5bbc9b07633acbbe5006593a8107fac5f06f8a1fb641d75",
+  "pinned_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "obligations": [
+    {
+      "name": "Actual source and sheaf",
+      "required": "Compute H1 of the original source structure sheaf.",
+      "constructed": "The final source is ContactGlobalSmooth318.Model units and the sheaf is StructureAdditiveSheaf318.sheaf Source.",
+      "justification": "The codomain is the original SourceHOne, definitionally the same as the affine comparison and actual five transfers.",
+      "evidence": [
+        "ActualSourceHOnePresentation318.Source",
+        "ActualSourceHOneQuotient318.equivalence"
+      ]
+    },
+    {
+      "name": "Full cover and index coverage",
+      "required": "The two opens must cover the entire source, not only a dense locus.",
+      "constructed": "finiteOpen and infinityOpen are the original chart ranges; cover is ContactGlobalSmooth318.actual_charts_cover units.",
+      "justification": "The predecessor supplies both original affine witnesses and a full union equal to top, including infinity.",
+      "evidence": [
+        "ActualSourceHOnePresentation318.finite_affine",
+        "ActualSourceHOnePresentation318.infinity_affine",
+        "ActualSourceHOnePresentation318.cover"
+      ]
+    },
+    {
+      "name": "Exact sequence position",
+      "required": "Exactness must apply at H0 of the original overlap, between restriction difference and delta.",
+      "constructed": "delta_kernel uses (S.sequence_exact F 0 1 rfl).exact 1.",
+      "justification": "The pinned sequence is toBiprod, fromBiprod, delta, toBiprod, fromBiprod. ExactSequence.Exact.exact indexes adjacent pairs; index 1 is fromBiprod followed by delta.",
+      "evidence": [
+        "MayerVietorisSectionKernel318.delta_kernel",
+        "Mathlib.CategoryTheory.Sites.SheafCohomology.MayerVietoris",
+        "Mathlib.Algebra.Homology.ExactSequence"
+      ]
+    },
+    {
+      "name": "Restriction directions and signs",
+      "required": "The image map must be the first chart restriction minus the second chart restriction.",
+      "constructed": "difference is the first ring restriction composed with fst minus the second ring restriction composed with snd.",
+      "justification": "Pinned fromBiprod_biprodIsoProd_inv_apply proves exactly this minus sign. Both restrictions go from U or V to U inf V.",
+      "evidence": [
+        "MayerVietorisSectionKernel318.delta_kernel",
+        "AffineCoverHOneQuotient318.difference"
+      ]
+    },
+    {
+      "name": "Natural degree-zero comparison",
+      "required": "The local Ext H0 comparison must carry the original cohomology restriction to the original section restriction.",
+      "constructed": "LocalCohomologyRestriction318.zero_naturality is proved through the actual free-abelian representable, sheafification and Ext degree-zero equivalence.",
+      "justification": "sectionBoundary_kernel uses that naturality on both original arrows, preserving the biproduct coordinates and signs.",
+      "evidence": [
+        "LocalCohomologyRestriction318.presheaf_naturality",
+        "LocalCohomologyRestriction318.section_naturality",
+        "LocalCohomologyRestriction318.zero_naturality",
+        "MayerVietorisSectionKernel318.sectionBoundary_kernel"
+      ]
+    },
+    {
+      "name": "Unchanged global boundary",
+      "required": "The kernel being computed must be that of the boundary already used for the actual source.",
+      "constructed": "sectionBoundary composes the original OpenMayerVietoris318.boundary with the inverse of the original additive H0-section equivalence.",
+      "justification": "AffineCoverHOnePresentation318.boundary is definitionally that same map. The terminal comparison is an additive equivalence, hence preserves and reflects zero.",
+      "evidence": [
+        "MayerVietorisSectionKernel318.sectionBoundary",
+        "AffineCoverHOneQuotient318.kernel_eq_range",
+        "AffineCoverHOnePresentation318.boundary"
+      ]
+    },
+    {
+      "name": "Exact kernel and quotient",
+      "required": "The quotient relation must be the actual image of the restriction-difference map, and the target must be the whole H1 group.",
+      "constructed": "kernel_eq_range identifies literal additive subgroups. equivalence composes quotientAddEquivOfEq with quotientKerEquivOfSurjective of the original boundary.",
+      "justification": "Surjectivity is supplied by the unchanged affine-cover boundary theorem. No assumed Cech comparison, extra acyclicity premise or newly endowed group operation replaces it.",
+      "evidence": [
+        "AffineCoverHOneQuotient318.kernel_eq_range",
+        "AffineCoverHOneQuotient318.equivalence",
+        "AffineCoverHOnePresentation318.boundary_surjective"
+      ]
+    },
+    {
+      "name": "Consuming representatives and equality",
+      "required": "The quotient equivalence must send each original overlap function to its original boundary class.",
+      "constructed": "equivalence_mk records the exact representative identity; the actual source wrapper adds zero and equality modulo difference.range criteria.",
+      "justification": "The first-isomorphism map is the original boundary, not an abstract bijection. boundary_eq_iff follows from additive subtraction and the literal computed kernel.",
+      "evidence": [
+        "AffineCoverHOneQuotient318.equivalence_mk",
+        "ActualSourceHOneQuotient318.equivalence_mk",
+        "ActualSourceHOneQuotient318.boundary_eq_zero_iff_mem_range",
+        "ActualSourceHOneQuotient318.boundary_eq_iff"
+      ]
+    },
+    {
+      "name": "Historical and verification scope",
+      "required": "Preserve predecessor acceptance without reinterpreting old drafts as verified.",
+      "constructed": "Thirty checked sources are exact copies. Two kernel drafts are unchanged; one gains an explicit dependency import and one gains two consumer lemmas.",
+      "justification": "COPY_BINDINGS distinguishes original and candidate hashes. The original draft status already identifies the missing kernel and quotient result. This is a continuation, not a newly discovered objection. Hosted compilation/audit and independent acceptance are pending. No H1 dimension, fivefold spanning, Serre duality or Jacobian result follows yet.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "README.md",
+        "intake.json",
+        "../source-mayer-vietoris-kernel-20261109/DRAFT_STATUS.md"
+      ]
+    }
+  ]
+}
