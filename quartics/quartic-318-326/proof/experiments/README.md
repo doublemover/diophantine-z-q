@@ -16,6 +16,24 @@ source-policy checks and review alone do not establish compilation or close the
 remaining global arithmetic inputs. The current scheduled packets are listed in
 `packets.json`. Historical sections below retain their original provenance.
 
+## Prepared compact access and actual global kernel, 2026-11-09
+
+Nine active closures now schedule415 source checks. The actual full detector
+coefficient map produces one compact region before all later prime/CRT moduli;
+the same literal orbit is selected into that region after those choices. The
+resulting first152 family and conditional first157 extension retain the same
+input, pole value and fixed roots. Prime/local preparation and simultaneous
+rational pole points are still arithmetic producer obligations.
+
+The analytic global kernel is now formally restricted to the original finite
+chart, identified in canonical affine coordinates, and joined to the entire
+relative differential annihilator modules on the actual cusp/Laurent charts.
+The whole reciprocal-chart global restriction and global Fitting equality
+remain separate. A typed original-root carrier repair preserves the integral
+global pair construction. All three successors have hash-bound nonauthor
+second-reviewer records and fresh static checks, with hosted checking pending.
+Other fresh2c701ff root failures are preserved and being repaired separately.
+
 ## Original trace inverse and actual global integral pair, 2026-11-09
 
 Nine active closures schedule 405 source checks. Candidate source now identifies
