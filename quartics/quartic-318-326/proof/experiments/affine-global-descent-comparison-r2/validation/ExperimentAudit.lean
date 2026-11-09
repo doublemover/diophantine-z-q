@@ -1,0 +1,154 @@
+module
+import all FaithfullyFlatFinitePresentation318
+import all OriginalLineAffineModel318
+import all FaithfullyFlatLineModule318
+import all AffineRankOneLine318
+import all AffineCoalgebraModule318
+import all AffineCoalgebraLine318
+import all TensorPushoutModule318
+import all AffineModuleBaseChange318
+import all AffineModuleMate318
+import all AffineOverlapCoaction318
+import all AffineOverlapDiagonal318
+import all ScalarExtensionCongr318
+import all ScalarExtensionComposition318
+import all AffineCechRings318
+import all AffineTripleCoactionCoordinates318
+import all AffineTripleOverlapMaps318
+import all AffineTripleCoordinateLaws318
+import all AffineOverlapCoassociativity318
+import all AffineCocycleLine318
+import all AffineGlobalSectionCoherence318
+import all TildePullbackMate318
+import all AffineComparisonMates318
+import all TildePullbackComposition318
+import all TildePullbackIdentity318
+import all OriginalLineAffineBaseChange318
+import all OriginalLineOverlapCoaction318
+import all TildePullbackInverseComposition318
+import all OriginalLineComparisonComposition318
+import all OriginalLineComparisonIdentity318
+import all OriginalLineNamedComparison318
+import all AffineSectionConjugation318
+import all OriginalGeometricEdge318
+import all OriginalGeometricTriple318
+import all OriginalGeometricDiagonal318
+import all AffineSplitDiagonalTranspose318
+import all OriginalGeometricAffineLine318
+import all OverlapMorphismCoaction318
+import all GeometricAffineDescentData318
+import all FaithfullyFlatTildeFaithful318
+import all GeometricAffineDescendedMorphism318
+import all GeometricAffineDescendedFunctor318
+import all ActualOverlapDiagram318
+import all ActualAffineDoubleNerve318
+import all ActualAffineTripleMaps318
+import all ActualAffineTripleNerve318
+import all SheafPathTransport318
+import all ActualAffineSheafData318
+import all ActualAffineTensorTransport318
+import all ActualAffineTensorLaws318
+import all ActualAffineLineReconstruction318
+import all CanonicalScalarOverlap318
+import all CanonicalTildeOverlap318
+import all CanonicalGeometricOverlap318
+import all ReconstructedOverlapCompatibility318
+import all SheafIsoTransport318
+import all CanonicalSheafOverlap318
+import all ActualCanonicalOverlap318
+import all ActualAffineEffectiveComparison318
+import all SheafTransportIntertwiner318
+import all ActualAffineDescentData318
+import all ActualAffineDescendedMaps318
+import all CanonicalActualDescentLaws318
+import all CanonicalActualDescentFunctor318
+import all OriginalAffineLineFaithfulness318
+import all CanonicalScalarMorphismDescent318
+import all CanonicalTildeMorphismTransport318
+import all ActualTildeMorphismDescent318
+import all OriginalAffineMorphismDescent318
+import all OriginalAffineReconstructionUnit318
+import all ActualDescentBaseChangeDiagram318
+import all SheafArrowBaseChange318
+import all OriginalSchemeDescentData318
+import all OriginalSchemeDescentBaseChange318
+import all OriginalSchemeDescentBaseChangeMaps318
+import all AffineChangedBaseEffectivity318
+import all CanonicalBaseChangeEndpoint318
+import all CanonicalDescentBaseChange318
+import all AffineReconstructionBaseChange318
+import all AffineBaseChangeNaturality318
+import all CanonicalBaseChangePasting318
+import all SheafArrowBaseChangePasting318
+import all OriginalDescentBaseChangeComposition318
+import all AffineDescentCompositionComparison318
+import all AffineFaithfullyFlatChart318
+import all AffineOpenChartDescent318
+import all AffineOpenChartRefinement318
+import all OriginalDescentBaseChangePath318
+import all AffineOpenChartComparison318
+import all OriginalAffineOpenLines318
+import all AffineOpenChartNaturality318
+import all CanonicalCoverPastingInverse318
+import all AffineOpenChartComposition318
+import all SheafComparisonPasting318
+import all OriginalOpenPullbackComposition318
+import all RestrictionTransitionPasting318
+import all OriginalOpenRestrictionComposition318
+import all AffineBasisModuleMaps318
+import all AffineBasisModuleIsomorphisms318
+import all OpenModuleTransition318
+import all OpenModuleChartRecovery318
+import all OpenModulePresheaf318
+import all OpenModuleSheafGluing318
+import all OpenModuleGluedSheaf318
+import all OpenSheafTransition318
+import all OpenSheafGluing318
+import all OpenChartModuleImages318
+import all LocalLineGlobalFrames318
+import all OpenChartLineEffectivity318
+import all OpenSheafRestrictionCompatibility318
+import all OpenSchemeTransition318
+import all OpenSchemeGluing318
+import all OpenRestrictionPathCoherence318
+import all LocalChartTransition318
+import all LocalLineOpenDescent318
+import all OpenModuleDescentMaps318
+import all OpenModuleDescentFullFaithful318
+import all OpenSheafDescentMaps318
+import all OpenSheafDescentIsomorphisms318
+import all LocalChartMorphismNormalization318
+import all LocalChartCategoricalDescent318
+import all LocalLineCategoricalDescent318
+import all AffineChartAmbientComparison318
+import all AffineChartLocalPairs318
+import all AffineSubopenIsoExtension318
+import all ActualChartPairExtension318
+import all ActualChartPairRestriction318
+import all AffineMorphismGlobalLine318
+import all ActualAffinePairRecovery318
+import all CalibratedGlobalChartComparison318
+import all AffineOriginalCoverComparison318
+import all OriginalCoverComparisonPasting318
+import all OpenRestrictionPathNormalization318
+import all CalibratedPullbackChartComparison318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`FaithfullyFlatFinitePresentation318,`OriginalLineAffineModel318,`FaithfullyFlatLineModule318,`AffineRankOneLine318,`AffineCoalgebraModule318,`AffineCoalgebraLine318,`TensorPushoutModule318,`AffineModuleBaseChange318,`AffineModuleMate318,`AffineOverlapCoaction318,`AffineOverlapDiagonal318,`ScalarExtensionCongr318,`ScalarExtensionComposition318,`AffineCechRings318,`AffineTripleCoactionCoordinates318,`AffineTripleOverlapMaps318,`AffineTripleCoordinateLaws318,`AffineOverlapCoassociativity318,`AffineCocycleLine318,`AffineGlobalSectionCoherence318,`TildePullbackMate318,`AffineComparisonMates318,`TildePullbackComposition318,`TildePullbackIdentity318,`OriginalLineAffineBaseChange318,`OriginalLineOverlapCoaction318,`TildePullbackInverseComposition318,`OriginalLineComparisonComposition318,`OriginalLineComparisonIdentity318,`OriginalLineNamedComparison318,`AffineSectionConjugation318,`OriginalGeometricEdge318,`OriginalGeometricTriple318,`OriginalGeometricDiagonal318,`AffineSplitDiagonalTranspose318,`OriginalGeometricAffineLine318,`OverlapMorphismCoaction318,`GeometricAffineDescentData318,`FaithfullyFlatTildeFaithful318,`GeometricAffineDescendedMorphism318,`GeometricAffineDescendedFunctor318,`ActualOverlapDiagram318,`ActualAffineDoubleNerve318,`ActualAffineTripleMaps318,`ActualAffineTripleNerve318,`SheafPathTransport318,`ActualAffineSheafData318,`ActualAffineTensorTransport318,`ActualAffineTensorLaws318,`ActualAffineLineReconstruction318,`CanonicalScalarOverlap318,`CanonicalTildeOverlap318,`CanonicalGeometricOverlap318,`ReconstructedOverlapCompatibility318,`SheafIsoTransport318,`CanonicalSheafOverlap318,`ActualCanonicalOverlap318,`ActualAffineEffectiveComparison318,`SheafTransportIntertwiner318,`ActualAffineDescentData318,`ActualAffineDescendedMaps318,`CanonicalActualDescentLaws318,`CanonicalActualDescentFunctor318,`OriginalAffineLineFaithfulness318,`CanonicalScalarMorphismDescent318,`CanonicalTildeMorphismTransport318,`ActualTildeMorphismDescent318,`OriginalAffineMorphismDescent318,`OriginalAffineReconstructionUnit318,`ActualDescentBaseChangeDiagram318,`SheafArrowBaseChange318,`OriginalSchemeDescentData318,`OriginalSchemeDescentBaseChange318,`OriginalSchemeDescentBaseChangeMaps318,`AffineChangedBaseEffectivity318,`CanonicalBaseChangeEndpoint318,`CanonicalDescentBaseChange318,`AffineReconstructionBaseChange318,`AffineBaseChangeNaturality318,`CanonicalBaseChangePasting318,`SheafArrowBaseChangePasting318,`OriginalDescentBaseChangeComposition318,`AffineDescentCompositionComparison318,`AffineFaithfullyFlatChart318,`AffineOpenChartDescent318,`AffineOpenChartRefinement318,`OriginalDescentBaseChangePath318,`AffineOpenChartComparison318,`OriginalAffineOpenLines318,`AffineOpenChartNaturality318,`CanonicalCoverPastingInverse318,`AffineOpenChartComposition318,`SheafComparisonPasting318,`OriginalOpenPullbackComposition318,`RestrictionTransitionPasting318,`OriginalOpenRestrictionComposition318,`AffineBasisModuleMaps318,`AffineBasisModuleIsomorphisms318,`OpenModuleTransition318,`OpenModuleChartRecovery318,`OpenModulePresheaf318,`OpenModuleSheafGluing318,`OpenModuleGluedSheaf318,`OpenSheafTransition318,`OpenSheafGluing318,`OpenChartModuleImages318,`LocalLineGlobalFrames318,`OpenChartLineEffectivity318,`OpenSheafRestrictionCompatibility318,`OpenSchemeTransition318,`OpenSchemeGluing318,`OpenRestrictionPathCoherence318,`LocalChartTransition318,`LocalLineOpenDescent318,`OpenModuleDescentMaps318,`OpenModuleDescentFullFaithful318,`OpenSheafDescentMaps318,`OpenSheafDescentIsomorphisms318,`LocalChartMorphismNormalization318,`LocalChartCategoricalDescent318,`LocalLineCategoricalDescent318,`AffineChartAmbientComparison318,`AffineChartLocalPairs318,`AffineSubopenIsoExtension318,`ActualChartPairExtension318,`ActualChartPairRestriction318,`AffineMorphismGlobalLine318,`ActualAffinePairRecovery318,`CalibratedGlobalChartComparison318,`AffineOriginalCoverComparison318,`OriginalCoverComparisonPasting318,`OpenRestrictionPathNormalization318,`CalibratedPullbackChartComparison318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"
