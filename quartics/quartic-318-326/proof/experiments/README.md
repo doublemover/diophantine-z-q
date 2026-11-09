@@ -746,3 +746,7 @@ The pending experiment matrix now includes actual affine-basis module-map extens
 ## Continuation batch 33
 
 Pending source now joins the original integral model to its actual whole-order proper completion, proves smoothness on the exact good base via genuine etale chart presentations, and retains the same global J² pair. A separate connected consumer identifies all five transported rational chart formulas and their glued global sections with J² times the original q0/q1. These are source-reviewed candidates, not hosted acceptance or bad-prime/height completion.
+
+## Continuation batch 34
+
+Pending candidates now prove generation by the SAME actual J² pair on every good-base chart subopen, and cover independence of the original H1-to-pointed-line map via an actual injective structure-sheaf presentation. The latter joins the fifth canonical relative Picard square and five-sum tensor identity, without claiming deformation classification. Exact common-base, local tensor, tilde-component and frame-adjunction hosted failures are preserved and narrowly repaired.

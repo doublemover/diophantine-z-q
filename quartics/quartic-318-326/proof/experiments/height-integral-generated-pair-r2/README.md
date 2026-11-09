@@ -1,0 +1,23 @@
+# Actual generating pair on the smooth proper integral model
+
+This76-source candidate proves that the SAME original J² pair generates the actual intrinsic tensor-square sheaf over the existing good base. The original separation integer is exactly J*823200, so its invertibility makes the actual J²-scaled finite coefficient0 and infinity coefficient1 units. The existing exact differential frames then prove generation on EVERY subopen of each original chart. The section morphism represented by q0 or q1 is consequently an actual sheaf isomorphism there, not merely a surjection on one module of global sections.
+
+The pair's ratios are also identified in the actual structure sheaf and uniquely characterized by the global sections: q1/q0 is the original t on every finite chart, and q0/q1 is k0*u² on the entire infinity chart. Thus the ratio is not confused with the y0 coordinate of the auxiliary finite projective projection. All original branch points and the infinity locus are included through the existing full five-chart cover.
+
+The72 predecessor sources remain byte-identical, including the exact original-model isomorphism, good-base smoothness, properness and separatedness. This stage adds no prime exclusion. It does not claim generation at excluded primes, a minimal or semistable model, a global numerical height inequality, or the full318/326 theorem. No local Lean was run.
+
+## Exact application contract
+
+1. Objects: The module sheaf is the actual intrinsic relative cotangent tensor square on IntegralGluedModel318.scheme, with its original structure map. The sections are literally IntegralGlobalBicanonicalPair318.q, and the constructed section morphisms are ModuleGlobalSections318.ofTop applied to those exact sections.
+2. Indices: All four original finite charts use q0; the original infinity chart uses q1. The concrete Option Fin4 cover and Fin2 section indexing are retained. The pointwise neighborhood theorem exhausts every actual scheme point using the existing full cover.
+3. Domain: Generation holds on every ambient subopen of each original chart, including all finite branch points and the full infinity chart. This is a sheaf-level assertion, not a generic-fiber, fraction-field, or complex-point test.
+4. Coefficients: The actual J² multiplier is retained. The exact integer identity separationInteger=J*823200 supplies its unit proof under the existing good-base condition. Finite coefficient0 and infinity coefficient1 use their original formulas and original twists; no renormalized pair is substituted.
+5. Local conditions: The only base exclusion remains unit separationInteger. Unit2 is derived by the predecessor theorem. Existing original sourceFrame and infinityFrame normalize the actual coordinate differentials to1, and their original coefficient-unit theorems prove generation of the actual weighted tensors.
+6. Transition maps: q_restrict_subopen composes the actual sheaf restriction maps and the existing five-chart global-section restriction equations. The local generator therefore is the restriction of the exact global q section. SectionGeneratorIsomorphism318 checks all subopens before producing each actual restricted section-map isomorphism.
+7. Identity: The unique structure-sheaf finite ratio is the original t, while the infinity ratio is k0*u². Both are proved first from literal coefficient identities, then from the actual global section restrictions. Uniqueness uses the proven injectivity of multiplication by the actual generating section on that whole chart.
+8. Consumers: IntegralGeneratedTensorSheaf318 proves actual chart section-map isomorphisms, generation around every scheme point and local spanning by both original sections. IntegralOriginalSectionRatios318 supplies exact globally restricted ratio identities and uniqueness. These are prepared inputs for projective/height constructions, not an assertion that a numerical height theorem has already been applied.
+9. Validation: Four new modules extend72 byte-identical predecessors. Static import/hash/closure checks, exact accepted-consumer pins and audit self-test are recorded. Independent source review and hosted elaboration remain separate from structural checks; no local compilation or full arithmetic completion claim is made.
+
+## Exact final CommonBase scalar-tower repair
+
+The original direct-root equivalence passed hosted CI. In the next CommonBase successor, all previous coercion/API failures cleared except the hroot proof, which tried rewriting rootOpen inside the dependent localization carrier. This version replaces only that proof with the exact scalar-tower equation followed by rootUnit_value.symm. No ring, map, unit witness or polynomial identity changes. The other75 sources are unchanged.
