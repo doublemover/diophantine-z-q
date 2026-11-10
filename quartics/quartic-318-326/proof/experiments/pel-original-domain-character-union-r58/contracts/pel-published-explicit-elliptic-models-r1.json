@@ -1,0 +1,35 @@
+{
+  "author": "/root/continue_pel_order",
+  "status": "PUBLISHED_ELLIPTIC_MODELS_REVIEW_REQUESTED",
+  "claim": "Concrete Table3 native elliptic models and exact quartic-coefficient scaling, without original PEL model identification",
+  "new_sources": {
+    "PublishedEllipticModels318.lean": "5d1fd0d58c677b2061a86ba44fe9728bc37abf1561ac98964cdf02063a1cf6bb",
+    "PublishedQuarticCoefficientScaling318.lean": "0a09a007be2e1072ccbb8c5b83a10ef4c11904e630a6ad99e64e9773e84266fc"
+  },
+  "obligations": [
+    {
+      "required": "Native invariant of actual nonsingular model",
+      "constructed": "Literal Table3 coefficients, native Mathlib delta and j, ellipticity",
+      "evidence": [
+        "PublishedEllipticModels318.discriminant",
+        "PublishedEllipticModels318.native_j"
+      ]
+    },
+    {
+      "required": "Correct coefficient scaling rather than isogeny-implies-j",
+      "constructed": "Exact1,1/2,1/2,1 scaling, native quartic invariant equality and genuine pointAddEquiv including infinity",
+      "evidence": [
+        "PublishedQuarticCoefficientScaling318.exact_scaling",
+        "PublishedQuarticCoefficientScaling318.table_j_quartic",
+        "PublishedQuarticCoefficientScaling318.pointAddEquiv"
+      ]
+    }
+  ],
+  "bindings": {
+    "intake.json": "ccc6276c2de7b1d19ddb70e9838d67bb1dbac9a5a7c1a94598882f77ab1b601b",
+    "README.md": "8488560f4952fdb04783203dc755a87788d50d487be9fecfb4e9e0a1e0819263",
+    "PUBLISHED_MODELS_BINDINGS.json": "69f26c7fb4eced52a13233e936fb7700ccb6257698aae1160791060ea33bc252",
+    "verification/check_models.py": "e95a5d6f272df1782ee912086c5c0404959b8cd2c471e161187c73cde15668d3",
+    "verification/IDENTIFICATION-PREREQUISITES.md": "5969965e7b1091b2580ef1ee30665fcd0863da277dd9bc8edc135409441408b1"
+  }
+}
