@@ -1,0 +1,13 @@
+# Exact original ambient Fourier identity and Abel singular-integral recovery
+
+Exact545 is preserved. Four connected modules finish the original ambient-volume and precise Fourier-normalization join, then prove convergence of the explicitly Abel-regularized ORIGINAL oscillatory integral to the same positive graph mass.
+
+ActualOriginalAmbientNormalIntegral318 first identifies the original product volume under the genuine volume-preserving reassociation ((a,b),((c,d),w)) -> (a,(b,(c,d),w)). It produces compact support and integrability for both actual weighted ambient and joint normal integrands. Fubini is then applied with those real integrability proofs, the genuine whole-line original substitution is consumed at every v, and the resulting level integral is identified with the ACTUAL normal marginal. Arbitrary continuous vector-valued phases are retained.
+
+ActualOriginalAmbientFourierIdentity318 defines the exact negative phase exp(-2*pi*i*s*t). With ordinary ORIGINAL five-coordinate volume it proves the actual ambient oscillatory integral equals Mathlib's Fourier transform of the ACTUAL complex normal profile. The source, product measure, sign and factor2pi are all explicit; no unidentified chart mass or quotient curve is used.
+
+ActualOriginalGaussianFourierFlip318 proves the actual Gaussian Fourier pairing for every integrable complex profile and every positive damping parameter. It invokes Fourier duality only for the integrable Gaussian and the integrable actual profile, then uses the exact pinned Fourier transform of that Gaussian. It does NOT assume integrability of the undamped Fourier transform or exchange improper integrals.
+
+ActualOriginalAbelSingularIntegral318 defines the actual Abel-regularized original oscillatory integral by multiplying its frequency integrand by exp(-t²/c). The actual ambient Fourier identity and Gaussian pairing identify this, at every c>0, with the already proved normalized Gaussian recovery of the same graph mass. Hence its limit is exactly the original graph mass. For the SAME constructed normalized compact smooth original weight, the limit is1 and all original prime-form and nonzero-gradient support properties remain in force.
+
+Scope: this establishes the original ambient Fourier identity and its EXPLICIT ABEL singular-integral limit. It does NOT assert undamped Fourier integrability or identify an unqualified improper integral before proving that hypothesis. The full global uniform circle-method lattice count, weighted Gaussian prime main term and arithmetic producers remain separate. No local Lean or new axioms. Pinned volume/Fubini/Fourier/Gaussian APIs are bound in AMBIENT-FOURIER-PRIMARY.

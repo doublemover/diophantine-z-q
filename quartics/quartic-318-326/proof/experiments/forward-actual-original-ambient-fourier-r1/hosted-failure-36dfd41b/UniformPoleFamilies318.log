@@ -1,0 +1,40 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-dyadic-original-involution-r2/UniformPoleFamilies318.lean:59:2: error: unsolved goals
+case refine_2
+S q : ℚ
+labels : Fin 4 → ℤ
+K : Set Coeff
+hK : IsCompact K
+t : ℚ
+ht :
+  ∀ (h : ℤ),
+    h ≠ 0 →
+      h ≠ 1 →
+        (∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0) →
+          project (DetectorGateWitness318.witness q labels h) ∈ K →
+            have w := fill (DetectorGateWitness318.witness q labels h) t;
+            w 0 = q ∧
+              Constraints (List.take 152 (stage0 S)) w ∧
+                0 < w 190 ∧
+                  w 190 < 17 ∧
+                    squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0 ∧
+                      w 190 =
+                        ContactWeightWitness318.contact t *
+                          squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+h : ℤ
+hzero : h ≠ 0
+hone : h ≠ 1
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hK' : project (DetectorGateWitness318.witness q labels h) ∈ K
+P : NormalizedPolePoints318.PointPair (fill (DetectorGateWitness318.witness q labels h) t 190)
+hinput : fill (DetectorGateWitness318.witness q labels h) t 0 = q
+hrows : Constraints (List.take 152 (stage0 S)) (fill (DetectorGateWitness318.witness q labels h) t)
+hpos : 0 < fill (DetectorGateWitness318.witness q labels h) t 190
+hsmall : fill (DetectorGateWitness318.witness q labels h) t 190 < 17
+hs : squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0
+hclass :
+  fill (DetectorGateWitness318.witness q labels h) t 190 =
+    ContactWeightWitness318.contact t * squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+w : Assignment := fill (DetectorGateWitness318.witness q labels h) t
+C : NormalizedPolePoints318.Certificate (fill (DetectorGateWitness318.witness q labels h) t 190) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P
+⊢ w 190 = fill (DetectorGateWitness318.witness q labels h) t 190
