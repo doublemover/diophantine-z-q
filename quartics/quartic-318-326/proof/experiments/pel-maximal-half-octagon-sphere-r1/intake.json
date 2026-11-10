@@ -1,0 +1,75 @@
+{
+  "packet": "pel-maximal-half-octagon-sphere-r1",
+  "status": "DRAFT_HOSTED_CHECK_AND_INDEPENDENT_REVIEW_PENDING",
+  "order": [
+    "SphereInversion318",
+    "ReflectedDiskJoukowski318",
+    "ReflectedDiskJoukowskiTopology318",
+    "ReflectedConvexDisk318",
+    "PELMaximalHalfOctagonShape318",
+    "PELMaximalHalfOctagonSphere318",
+    "PELMaximalHalfOctagonCoordinates318"
+  ],
+  "new_modules": [
+    "ReflectedDiskJoukowski318",
+    "ReflectedDiskJoukowskiTopology318",
+    "ReflectedConvexDisk318",
+    "PELMaximalHalfOctagonShape318",
+    "PELMaximalHalfOctagonSphere318",
+    "PELMaximalHalfOctagonCoordinates318"
+  ],
+  "exact_predecessor_modules": [
+    "SphereInversion318"
+  ],
+  "files": {
+    "SphereInversion318.lean": {
+      "sha256": "5fe748402bd1e838078d2e01ee958dc4b6c9b4aed6011793209d115f3191840f",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Normed.Field.Lemmas",
+        "Mathlib.Topology.Compactification.OnePoint.Basic"
+      ]
+    },
+    "ReflectedDiskJoukowski318.lean": {
+      "sha256": "2d2ba1976a771dc27d892cd1f5ce15f96cea5e53974b5dd68fc023f5f8310f52",
+      "imports": [
+        "Mathlib.Analysis.Complex.Polynomial.Basic",
+        "Mathlib.Tactic",
+        "SphereInversion318"
+      ]
+    },
+    "ReflectedDiskJoukowskiTopology318.lean": {
+      "sha256": "013aa8757340178b2363bd3ebf7a3b410020d75ad6c9160c1ee15b0a9039c49f",
+      "imports": [
+        "Mathlib.Topology.Homeomorph.Lemmas",
+        "ReflectedDiskJoukowski318"
+      ]
+    },
+    "ReflectedConvexDisk318.lean": {
+      "sha256": "04d05ab7936d3537d3d49535a53502c55bb6bbb852f8771bf35891cdbd3b7779",
+      "imports": [
+        "Mathlib.Analysis.Convex.GaugeRescale",
+        "ReflectedDiskJoukowskiTopology318"
+      ]
+    },
+    "PELMaximalHalfOctagonShape318.lean": {
+      "sha256": "c26029417bda3a6129b830778404386b64648684b9d83d55ca401be2a3da1d3e",
+      "imports": [
+        "ReflectedConvexDisk318"
+      ]
+    },
+    "PELMaximalHalfOctagonSphere318.lean": {
+      "sha256": "fa3ebc9a907adacb7063e1e9bcdef5fbf91d9491f1cf6d8e812a1af34dcd5624",
+      "imports": [
+        "Mathlib.Logic.Relation",
+        "PELMaximalHalfOctagonShape318"
+      ]
+    },
+    "PELMaximalHalfOctagonCoordinates318.lean": {
+      "sha256": "af9800b4c5674cfa19f75a87f05704c5ca1c0422d9efad7d8ccd33d937ac0fee",
+      "imports": [
+        "PELMaximalHalfOctagonSphere318"
+      ]
+    }
+  }
+}

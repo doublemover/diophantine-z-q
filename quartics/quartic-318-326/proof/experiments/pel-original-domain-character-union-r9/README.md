@@ -1,0 +1,9 @@
+# Original polygon and character-map validation union
+
+This integration-only317-source packet combines reviewed domain-character union304, whole-normalizer octagon303 and actual involution full-ramification253. Every shared component source is byte-identical except the retained reviewed period-form integer-scalar argument-order repair recorded in PERIOD_FORM_REPAIR.json. The earlier character-branch include-before-doc repair is retained from the published component where an older normalizer predecessor differs. No statement or budget changes.
+
+The component endpoints construct the actual original polygon comparison homeomorphism, the four actual complex character quotients and their holomorphic projections, and all16-word complementary-character kernel identities in exact105/70/42/30 order.
+
+The actual finite CW structure has5vertices,14edges,1face, and the whole original branch locus has5values/40ramification points without genus/RH premises. The actual order-two-involution quotient has a free exponent-two four-element holomorphic residual deck group, with every whole fiber a torsor. Its actual map to the maximal quotient has4/8 full fibers and16 local-sheet-failure points over the four visible values; the omitted fifth value has genuine local sheets. The whole-normalizer octagon domain is constructed, but its quotient is not yet identified with the separate literal folded-disk sphere. No elliptic group law, multiplication-by-two or equal-j claim is inferred. Euler/genus comparison, algebraization, represented Jacobian and PEL/contact geometric identification remain separate. No local Lean was run and no accepted baseline was changed. Source review is not kernel acceptance.
+
+The third explicit source substitution is the reviewed discrete period atlas normalization repair, recorded in DISCRETE_PERIOD_REPAIR.json. It preserves every statement, original carrier and budget.
