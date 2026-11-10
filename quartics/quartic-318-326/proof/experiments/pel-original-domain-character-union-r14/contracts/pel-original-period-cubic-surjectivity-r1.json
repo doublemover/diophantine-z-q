@@ -1,0 +1,91 @@
+{
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ORIGINAL_PERIOD_CUBIC_SURJECTIVITY_REVIEW_REQUESTED",
+  "claim": "Constructed actual Weierstrass finite-value and whole affine cubic surjectivity, descending to original nonorigin torus and actual original involution points.",
+  "revision_source": "pel-original-period-infinity-extension-r1",
+  "predecessor_application_sha256": "bbf00303dc48d18c5f4dad8260359ae0af4fad098b0e7d1074708d24ab92c608",
+  "new_sources": {
+    "WeierstrassReciprocalPole318.lean": "455ddfec676a7384705ed3eb6ab64d0941fe323902c1745170a4735eaadb78eb",
+    "WeierstrassActualCubicSurjectivity318.lean": "4d6dc8bd8c7b21677ea51c2edefd27224a31849c69e9b188ce03f20a70f53d0b",
+    "OriginalPeriodCubicSurjectivity318.lean": "1b969968c962e76bdf4e35d6a8d90a88ef04c3ac1655a3b25c5cb787b8666fc6"
+  },
+  "obligations": [
+    {
+      "required": "Missing-value reciprocal",
+      "constructed": "Actual reciprocal with removable lattice values",
+      "justification": "Explicit analytic regularization, not assumed pole removal",
+      "evidence": [
+        "WeierstrassReciprocalPole318.reciprocal_analytic_zero"
+      ]
+    },
+    {
+      "required": "Every lattice point",
+      "constructed": "Reciprocal entire under missing-value contradiction",
+      "justification": "Actual original periodicity transports origin germ",
+      "evidence": [
+        "WeierstrassReciprocalPole318.reciprocal_entire"
+      ]
+    },
+    {
+      "required": "No omitted finite value",
+      "constructed": "Every a attained off original lattice",
+      "justification": "Periodic compact range and Liouville contradict explicit nonlattice value",
+      "evidence": [
+        "WeierstrassActualCubicSurjectivity318.exists_value"
+      ]
+    },
+    {
+      "required": "Whole cubic",
+      "constructed": "Every actual affine point reached",
+      "justification": "Exact square-root sign split and original negative representative",
+      "evidence": [
+        "WeierstrassActualCubicSurjectivity318.exists_cubic_point"
+      ]
+    },
+    {
+      "required": "Same quotient",
+      "constructed": "Actual nonorigin torus point producer",
+      "justification": "Whole original lattice identity retained",
+      "evidence": [
+        "OriginalPeriodCubicSurjectivity318.affinePoint_surjective"
+      ]
+    },
+    {
+      "required": "Original source points",
+      "constructed": "Original involution point coordinates cover cubic",
+      "justification": "Same specified original uniformization, not new abstract point type",
+      "evidence": [
+        "PELOriginalCubicSurjectivity318.original_cubic_point"
+      ]
+    },
+    {
+      "required": "Pole boundary",
+      "constructed": "Earlier actual infinity extension retained",
+      "justification": "No lattice junk values counted as affine points",
+      "evidence": [
+        "WeierstrassInfinityChart318.cubic_eventually"
+      ]
+    },
+    {
+      "required": "Remaining work",
+      "constructed": "Surjectivity is not isomorphism/algebraization",
+      "justification": "Injectivity/discriminant/globalassembly/uniformization/rational models distinct",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "required": "Preservation",
+      "constructed": "All277 sources exact",
+      "justification": "No local Lean or baseline promotion",
+      "evidence": [
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "readme_sha256": "986639ac793b6a373f20b85d8cb1d83f9aacf3512257fc5fdc45a870df4c409f",
+  "intake_sha256": "bcdea2a84b73a8d9d6721b5a64482fbb9138623a03b314f9ad11021b7c3f56a0",
+  "copy_bindings_sha256": "b2064e02716f0781896d45475600a01a1afdbe0d2c5fbd71dde3577acbbc6562",
+  "pinned_apis_sha256": "d5b817c6dbd336affa39efc93947d69f4a683f186548a7be9af8610ec396ef4b"
+}
