@@ -1,0 +1,157 @@
+# Original five norms and actual first-order tensor-kernel decomposition
+
+This210-source candidate is a connected union of repaired148r2 pointed norm
+and99r9 original H1 matrices plus five new consuming sources. The42 shared
+modules are byte-identical;57 additional H1 modules are exact copies. No source
+is silently replaced across the two closures. Hosted elaboration and fresh
+independent acceptance remain pending; no local Lean build was run.
+
+Latest preserved frontiers: replay485 passed the actual character-action repair
+and next failed projector native scalar/rewriting, repaired in99r9. Pointed134's
+positive two-open edge passed and reverse still exposed mixed opaque carriers,
+repaired in148r2 by proving the literal-ring equation before re-entry into the
+Bool cocycle. Exact RESULT/logs remain in predecessor evidence directories.
+Neither frontier has reached all downstream endpoint modules. Source-level
+union and structural checks do not imply kernel validation or promotion.
+
+CanonicalPointedNorm318 proves the SAME genuine pointed norm intertwines the
+old H1 map on ANY original source affine cover. OriginalFivePointedNorms318
+instantiates all finite/normal/generic/base-square/affine-overlap requirements
+for each of the four character quotients and fifth full-root quotient. Every
+norm uses the SAME canonical contact source classification. Their H1 formulas
+are exactly OLD originalTrace, not normalized trace/8.
+
+ActualPointedKernelMaps318 uses the ORIGINAL subgroup of actual line classes
+whose original special-fiber pullback is trivial, with its EXISTING tensor law.
+Its pullback is the restriction of the OLD line-class pullback along the OLD
+thickened scheme map; kernel membership follows from the actual zero-section
+square. The forward map is not defined by conjugating cohomology.
+
+OriginalFiveKernelCoordinates318 binds the original source/target kernel group
+classifications to the original pointed classifications, and proves each actual
+kernel pullback square. Its kernel norm is the genuine determinant-transition
+pointed norm forgotten into this original subgroup; norm_source identifies it
+with OLD raw H1 trace as a theorem.
+
+OriginalFiveKernelDecomposition318 defines product as the tensor product of the
+FIVE OLD kernel pullbacks. The old H1 bijection and exact original group squares
+prove this actual product is bijective, yielding a MulEquiv on the WHOLE original
+first-order tensor kernel. Inverse components are the old normalized trace/8
+coordinates. The product of pullbacks of the genuine RAW norms is EIGHTH tensor
+power, with no silently lost degree factor.
+
+This closes the source-level first-order Picard-kernel decomposition/norm join,
+not represented Picard/Jacobian geometry. Remaining: identify actual relative
+line functor/deformation kernel with a represented Picard/Jacobian tangent,
+prove any claimed global isogeny and polarization compatibility, and identify
+the relevant object with the discriminant210 quaternionic PEL surface. The
+whole contact curve has five H1 slots and is NOT asserted equal to that distinct
+dimension2 surface. No PEL conclusion follows from a filename or dimension tag.
+
+Revision2 fixes the first genuinely new main216 pointed failure: TwoOpen cocycle
+and original affine pointed map now pass; OriginalHOnePointedMaps cannot infer
+IsAffine through the opaque ShortAffineScheme definition. The actual literal
+Spec of the original short polynomial quotient supplies that proposition,
+exported for the subsequent original target-cover consumers. No chart,
+coefficient, action, comparison, or theorem hypothesis is changed.209 other
+sources byte-identical; new hosted validation remains pending.
+
+Revision3 preserves the exact silent main216 projector timeout after the actual
+character action passed. Bounded stderr declaration/proof-entry markers are
+explicitly flushed. Two additional weighted-character milestones distinguish
+native scalar construction from its endpoint. NO mathematical repair is guessed,
+no theorem/proof tactic is changed, and all memory/time/heartbeat budgets remain
+unchanged.209 other modules exact; original affine repair retained.
+
+Revision4 fixes exact cb6 ModuleScalarPullback carrier metavariables by naming U and the ORIGINAL full inverse image f-preimage(U) in each coefficient restriction and typing its original module sections. All209 other sources exact, including flushed projector diagnostics; no map, proof budget or hypothesis changed.
+
+Revision5 fixes exact776c7ce ModuleScalarPullback namespace shadowing after the original-open carrier repair succeeded. The two local coefficient-ring rewrites explicitly use _root_.map_one and _root_.map_mul, not the namespace lemmas currently being proved about whole sheaf morphisms. Exact original restriction maps, sections, adjunction,209 other sources and all budgets are unchanged. No local Lean run; new hosted validation pending.
+
+Exact65c29 diagnostic repair: weighted_character now supplies the explicit rfl evaluation of its local rational-linear map L before applying map_smul. character_spanning consumes the SAME original additive fiveCoefficients_surjective, retains its equality instead of substituting rfl through the rational-linear wrapper, and exposes only the literal original five-term sum using an explicit application equation. All mathematical statements, maps, instances and budgets unchanged. Flushed milestones retained and expanded around the localized spanning boundary. This addresses observed local-map mismatch and whnf timeout without increasing resources; hosted validation pending.
+
+Exact03fd8af/run42626499479 hosted repair. After exact original scalar correction and inverse normalization, explicitly normalize actual pullback.map_id and identity composition. Guarded all_goals avoids no-goals tail; unchanged pointed iso. Projector99r11 bytes preserved exactly. No statement, map, resource or admitted-input change; hosted validation pending, no local Lean.
+
+Exact692590c8/run42627873790 repair: weighted_character now passes; character_spanning alone hits deterministic whnf heartbeat limit after both concrete sum milestones, followed only by unknown-constant cascades. Move finite-sum reindexing into a theorem over an arbitrary AddCommMonoid with its original rational SMul, then specialize it to the SAME HOne, actual fiveCoefficients, literal pole classes, exact smallIndex bijection and proved weighted_character. This isolates finite-index proof normalization from concrete derived-cohomology carriers. All original statements, instances, mathematical maps, domains and budgets unchanged; new diagnostic milestones distinguish abstract reindexing from its actual specialization. Hosted validation and independent source acceptance pending; no local Lean.
+
+Exactf10bfbc4/run42629223992 hosted repair. Eta-expand original pointed forget injectivity at the fixed a,b via its equality argument. No map or class relation changes. Projector99r12 bytes retained exactly. No statement, mathematical premise or resource change; hosted validation and independent source acceptance pending. No local Lean.
+
+Exact30f117bc/run42632872820 hosted repair: all60 predecessors including the entire ActualSourceHOneCharacterProjectors318 module PASS (123.430 seconds, unchanged budgets). First error OriginalInfinityCoefficient318:15 is unknown X in unqualified polynomial notation. Replace only the domain spelling Q[X] with explicit Polynomial Q in original baseU. Subsequent displayed coordinate/smul/evaluation failures contain the resulting sorry placeholder and are cascading; no speculative mathematical repair. The original coordinate is literally the same algebraMap of Polynomial.X by InfinityOverlapLocalization318.coordinate. All maps, scalar actions, statements, proofs and budgets unchanged. New hosted validation and independent acceptance pending; no local Lean.
+
+Exact4421a9c8/run42636247694 hosted repair. After the three original restriction/appLE naturality rewrites, apply the literal units hom to a typed original triple cocycle equation and use its explicit map_mul. Supply the full-preimage intersection inequality explicitly in refine_full, rather than leaving a proof metavariable behind change. Same old sections, unit maps, all full intersections and refinement maps. All statements, mathematical hypotheses and budgets unchanged. Hosted validation and independent source acceptance pending; no local Lean.
+
+Exact90893838/run42642219295 hosted repair: first60 predecessors PASS, including the repaired original unit-cocycle refinement and original line pullback. InfinitesimalCocyclePullback epsilon_appLE fails the unnecessary appLE(top,top) rewrite through a preimage-top proof and final epsilon/restrict transparency. After the original map_appLE naturality equation, the top appLE is definitionally appTop followed by the SAME restriction, directly by the primary definitions. Use this equality without an intermediate identity restriction. Expose the final original epsilon as its exact restrict definition, then apply the given original global epsilon equation via congrArg. All statements, maps, hypotheses and budgets unchanged; no local Lean. Fresh independent and hosted acceptance pending.
+
+Exact90893838/run42642219295 dedicated99r13 hosted evidence: first62 predecessors PASS, including actual whole H1 projectors113.432s, OriginalInfinityCoefficient4.474s and OriginalNegativePoleUniqueness5.226s. OriginalOverlapResidues fails a native rational scalar rewrite and an implicit Finset product-sum rewrite. Prove native scalar compatibility using map_rat_smul for the original coefficient ring hom and right-multiplication additive hom, not replacing any module instance. Specialize that exact identity to each original pole. Apply the primary sum_product directly with the full rectangle and literal summand, then sum_congr and the proved pole identity. Same all negative coefficients, original overlap, actual scalar map, statements and budgets. No local Lean; fresh independent and hosted acceptance pending.
+
+Exact e36a6803 replay42649103375 repair: first65 predecessors PASS including original epsilon/cocycle naturality and local generator. InverseImageLocalCohomology degree-zero proof rewrites homEquiv inverse under mixed displayed section carriers; isolate the actual zero_sections_mk via pinned homEquiv₀_symm_apply and consume original generatorInv_section directly. Coefficient naturality now states the SAME counit equation with explicit inverseImage.map(directImage.map a), avoiding hidden Functor.comp map during rewrite. Same original Ext, local generators, adjunction, all opens/degrees, statements and budgets. No local Lean; independent/hosted acceptance pending.
+
+Exact e36a6803 replay42649103375 dedicated99r14: first63 predecessors PASS, including original projectors131.495s and newly repaired OriginalOverlapResidues7.383s. New OriginalFinitePoleExpansion failures are tuple projection transparency, original constant/t aliases, literal Fin.succ rewriting, composite polynomial constant map and native finite tensor scalar action. Expose exact natural tuple projections; give typed original rational coefficient/t equations from original field identities; use actual Fin3 successor indices; prove actual composite polynomial map on Cq by map_rat_algebraMap; specialize the already passing NativeTensorScalar.tensor_smul to the SAME original four-root order before coefficient expansion. All original whole finite elements,16 basis indices, coefficients, pole bounds and statements preserved; no local Lean or budget change. Fresh independent/hosted acceptance pending.
+
+
+## Resume repair, 2026-11-10
+
+Exact 226803e8 hosted repair: inverse-image Mayer-Vietoris difference-square simplification left definitionally identical restriction compositions. Explicit reflexivity closes this exact original square after naturality and additive normalization. Also carries the identical dedicated H1 finite-pole repair. Same generator comparison, difference sign, Ext boundary, original pointed classes and budgets. No local Lean compilation; independent source review and hosted verification remain required.
+
+
+## Original terminal normalization repair
+
+Hosted b0d8a09c terminal coherence repair. Normalize the composite adjunction identity in its own hypothesis, then explicitly close the original integer-section equivalence by definitional reflexivity. Expose the inverse image of the terminal open as the actual source terminal open before rewriting the generator-section normalization. No changed source, comparison direction, Ext boundary, hypotheses or local Lean run.
+
+
+## Literal rational coefficient product repair
+
+Exact hosted H199 residual: original infinity-basis localization now expanded successfully, but algebraMap of the expanded c0 product was still opaque to ring. Add map_mul to the same simplification to distribute the actual rational coefficient map across all four factors. Same original coefficient powers, all16 basis monomials, pole orders and assumptions.
+
+
+## Original inverse-image intersection carrier repair
+
+Hosted210r17 SchemeBoundaryNaturality318:50 has image of meet versus meet of images mismatch under rewrite transparency. Explicitly change the zero-cohomology target and inverse section equivalence to the exact inverse-image-of-meet carrier before applying injectivity and comparison_zero_sections. Same map, section and intersection; no hypothesis, statement, sign or boundary change. Preserves all latest210r18 finite-pole repair bytes.
+
+
+## Exact hosted frontier repair
+
+Hosted99r18 stopped at native rational scalar action in fiveRepresentatives. Explicitly identify the ORIGINAL ambient rational module action with the SAME algebraMap multiplication via additive rational linearity, using the exact existing OriginalOverlapResidues rational_scalar proof. Algebra.smul_def cannot rewrite the independently inferred native module. No scalar instance, map, statement or budget changes. Also bind actual hU/hV in extClass_refinement and boundary_refinement rewrites. Hosted210r20 goals were precisely the existing Uprime<=U and Vprime<=V witnesses; rewrite did not infer them. No cover, sign, map, theorem or budget change.
+
+
+## Exact hosted scope batch
+Exact hosted pointed210r21 reaches AffineHOnePointedNaturality318 and reports hw/hz unknown: the actual refinement witnesses are proof-only section variables. Include them BEFORE the doccomment. Inspected direct sibling/consumer OriginalHOneRelativeHom318.naturality and repaired the analogous hu/hv proof-only scope. OriginalFiveHOnePointedNaturality consumers already pass both exact witnesses; FirstProjectionCocycleSquare scope is already correct and RefinedSchemeBoundary has explicit binders. No theorem conclusion, map, witness content or budget changes; all208 other sources exact.
+
+
+## Exact hosted frontier repair
+
+Exact hosted210r22 passed prior proof-only scope repairs and stopped at AdditiveCocycleSum: appLE is a CommRingCat morphism, so use its actual underlying .hom.map_add rather than a missing FunLike instance; remaining true/false case is only commutation of two negative restricted sections, discharged by abel. Same cocycle, actual pullback and signs, no theorem or budget changes; all209 other sources exact.
+
+
+## Exact hosted frontier repair
+
+Exact hosted InfinitesimalTensorClass318:19 square-zero proof placeholder cannot be inferred. Supply actual epsilon on original double intersection U i ⊓ U j and the existing epsilon_square X e he proof plus original c/d transition sections explicitly to infinitesimal_add. No hypotheses, cocycles, original sheaf tensors, theorem statements or budgets change;209 other sources byte-identical.
+
+
+## Exact hosted frontier repair
+
+Exact hosted original structure injective presentation frontier: expose Mono(sequence.f) and Injective(sequence.X2) from SAME chosen Injective.under/inclusion; explicitly compare zeroEquiv via same zeroAddEquiv before inverse cancellation; bind original projection Ext composition to its exact local signature before associativity simplification. Same cokernel, projection, connecting map, signs and Ext class; no new assumptions or budget changes. All209other sources exact.
+
+
+## Exact hosted frontier repair
+
+Exact hosted frontier: expose Epi(sequence.g) from SAME actual cokernel projection; cancel actual target zeroAddEquiv inverse before changing left zeroEquiv to its underlying additive equivalence. No changed sheaf, map, Ext class, sign, assumptions or budgets. All209other sources exact.
+
+
+## Exact hosted frontier repair
+
+Hosted original injective presentation passed. Exact next refinement transition frontier: supply existing original epsilon_square at both proof-only he arguments of InfinitesimalUnitCocycle.unit. Same actual thickening, cocycles, refinement coefficient and pointed class.209other sources exact; no assumptions/budgets changed.
+
+
+## Exact hosted frontier repair
+
+Exact hosted Mayer-Vietoris short-complex source frontier: add explicit post/pre naturality lemmas for SAME sectionAddEquiv and sectionHom, cancel actual AddEquiv inverse before restating value; apply exact original coefficient_spec after explicit sub_eq_add_neg and original restriction/Bool cover definitions. Preserves actual inclusion/projection/Ext signs and all209other sources; resolves first proof failures before kernel cascade, no budget increase.
+
+
+## Exact hosted frontier repair
+
+Exact hosted original cover-independence frontier: instantiate SAME coefficient_spec at both explicit Bool edges before unfolding only actual opens in those equalities. Rewrite with typed original edge equalities rather than generic dependent matching after target was reduced to V intersect U. Original inclusion, reversal sign, restriction and H1 map unchanged; all209 other sources exact, no budget changes.
+
+
+## Exact hosted frontier repair
+
+Hosted pointed29 true.false restriction rewrites mixed concrete V-inter-U with abstract Bool-cover section carriers. Prove exact coefficient reversal first over arbitrary original opens and restriction h using same injective sheaf inclusion, then specialize once. Actual cocycle/sign/cover maps unchanged; all209 other sources exact, no budgets increased.
