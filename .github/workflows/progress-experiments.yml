@@ -50,6 +50,7 @@ jobs:
       - run: python -B scripts/test_endpoint_diagnostic.py
       - run: python -B scripts/test_candidate_endpoint_diagnostic.py
       - run: python -B scripts/test_edge_elaboration_diagnostic.py
+      - run: python -B scripts/test_named_edge_diagnostic.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
 
@@ -126,6 +127,15 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_edge_elaboration.py --packet "$PACKET"
+      - name: Non-admitted named-arrow edge verification
+        if: always() && matrix.packet == 'contact-relative-site-descent-r29'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_named_edge.py --packet "$PACKET"
       - name: Upload bounded results and error logs only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -138,6 +148,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-candidate-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-edge-elaboration/
+            build/progress-experiments/${{ matrix.packet }}/scratch-named-edge-diagnostics/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.
