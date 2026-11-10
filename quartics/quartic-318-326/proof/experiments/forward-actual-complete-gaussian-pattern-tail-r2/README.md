@@ -1,0 +1,30 @@
+# Complete original Gaussian large-prime pattern tail
+
+Exact430 predecessor preserved. Four modules construct the remaining SAME-position adjacent-norm source and join it to the genuine distinct-position/sign/generator pattern bound. The final source is the original (u,w) union, with the original finite product of logarithms, not a replacement lattice or an abstract supplied obstruction tail.
+
+ActualSamePositionDivisors318 proves at every odd prime p the exact equivalence
+ p|(a+1)^2+b^2 and p|(a-1)^2+b^2 iff p|a and p|b^2+1.
+The proof subtracts the two ORIGINAL norm expressions to obtain4a, cancels4 only because p!=2, then derives b^2+1. The converse is checked as well. For the actual bounded triple(a,b,w), the complete common-prime source is covered by the a=0 stratum or by an actual prime divisor of the strictly positive integer b^2+1, a nonzero a multiple of that prime and the original w. The choice map recovers the same triple injectively. b=0 and negative b are retained; no zero-divisor-count estimate is applied to integer0.
+
+ActualSamePositionBoxTail318 uses a short genuine producer instead of assuming a generic box-sieve theorem. The actual number of prime divisors of b^2+1 is bounded by its actual integer divisor count, then by the constructed418 divisorConstant(delta)*(B^2+1)^delta. For a NONZERO a, the earlier exact sign/positive-quotient injection counts at most2B/p<=2B/Y values. There is no additive1 on this nonzero multiple count. The a=0 stratum is separately bounded by(2B+1)^2. Summing the actual finite b/prime/a/w fibers gives
+ #actual same-position source
+ <=(2B+1)^2*[1+(2B/Y)*Ddelta*(B^2+1)^delta].
+This holds for Y>=2 and delta>0, including empty prime sets and all exceptional a=0 points. The constructed cutoff later is at least3. No prime-distribution estimate, missing harmonic bound or generic coprime-polynomial sieve is supplied as a hypothesis.
+
+ActualSamePositionWeightedTail318 carries the original triple form values a^2+b^2+gamma_j*w^2 and their logarithms. Their actual finite-box weight is bounded by the same previously constructed weightCeiling, term by term. The count budget is bounded explicitly by9B^2+18Ddelta*2^delta*B^(3+2delta)/Y. Taking delta=1/1000 and using the earlier exact simultaneous weight absorption with epsilon=1/1000, Y>=cutoff(0,B)>=B^(1/100) gives exponents2.001 and2.993, both <=2.995. The final actual_same_position_growing_tail is an explicit constant timesB^(3-1/200), without any eventual logarithm bound or assumed box-count estimate.
+
+ActualCompleteGaussianPatternTail318 then projects the SAME original triple to(u,w), with u=a^2+b^2-ci*w^2. The chosen generator is injective on patterns and preserves all original values u+c_j*w^2 via gamma_j=c_j-ci. It builds the finite union over actual coefficient positions, joins it with the previous actual distinct-position/sign source, and counts each original pattern once. Overlaps between the two kinds, between positions or between generator choices are safely handled by an injective witness choice, not asserted disjoint.
+
+One actual completeCutoff(c,B)=max(previous finite-pair cutoff,cutoff(0,B)) is selected from the fixed coefficient family and B, before any point, position, sign, generator or prime. The final actual_complete_large_prime_pattern_tail proves
+ complete original weighted large-prime obstruction pattern mass
+ <=completeConstant(c)*B^(3-1/200)
+for every B>=1, injective fixed coefficient family c, and integerY>=completeCutoff(c,B). completeConstant is the exact sum of the previously produced distinct-position constant and the finite family of same-position constants; it is independent ofB,Y. Literal original same-position and distinct-position membership interfaces reach this FINAL consumer. Empty families remain empty without artificial positivity assumptions.
+
+Manuscript locator: quartic_v10.tex lines16875-16910, distinct and same-position large-prime obstruction and vector-to-pattern passage. The same-position implementation uses the already constructed divisor producer rather than importing the manuscript generic box-sieve estimate. The result is the same required growing-cutoff power scale, with honest explicit constants. All earlier source conventions and actual q(t)^2 lattices are unchanged; the true Pprime/K second-chart route remains intact.
+
+Scope: this is the complete LARGE-prime obstruction upper bound on the original bounded generator patterns. It does not supply the medium-prime interval bound, the Gaussian ray-progression weighted main term/lower bound, actual prime-pattern existence, the remaining rational twist realizations or rational Anchor. Those separate producers are not hidden among its hypotheses. No full quartic proof is claimed.
+
+Validation:26896 exact adjacent-norm equivalences;5238 actual complete triple source-cover images;234 exact nonzero-multiple fibers;756 actual divisor/consumer checks;216 full-box/growth checks;162 original weighted source checks;19305 same-pattern injection checks;12 complete distinct/same finite-position union checks;24 explicit growing-cutoff comparisons;2 exact rational exponent allocations. 80digits for logarithmic comparisons. These source/exact checks are not hosted Lean acceptance. Canonical434/222; no local Lean.
+
+## Narrow hosted187 literal two-row membership repair
+Hosted2a3994b2 passed ContactChainLimits and then stopped at PoleInputFamily318.first152: its final simplified list-membership goal retained a universal singleton-row implication for row151, while the supplied term was the direct row151 equality. The repaired proof explicitly introduces the ORIGINAL Row and membership in the same literal list[r150 S,r151 S], splits the cons membership, substitutes the first row or the singleton second row, then uses the exact same row150/row151 witnesses. No stage row, coordinate, assignment, bound, coefficient, hypothesis or witness function changes. All433 other sources, including the four substantive434 modules, remain exact. The full diagnostic is bound. No local Lean.
