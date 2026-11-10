@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Topology/Compactness/Compact.lean",
+    "excerpts": [
+      "theorem IsCompact.elim_nhds_subcover' (hs : IsCompact s) (U : \u2200 x \u2208 s, Set X)\n    (hU : \u2200 x (hx : x \u2208 s), U x \u2039x \u2208 s\u203a \u2208 \ud835\udcdd x) : \u2203 t : Finset s, s \u2286 \u22c3 x \u2208 t, U (x : s) x.2 :=\n  (hs.elim_nhds_subcover_nhdsSet' U hU).imp fun _ \u21a6 subset_of_mem_nhdsSet"
+    ]
+  },
+  {
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Topology/MetricSpace/ProperSpace.lean",
+    "excerpts": [
+      "class ProperSpace (\u03b1 : Type u) [PseudoMetricSpace \u03b1] : Prop where\n  isCompact_closedBall : \u2200 x : \u03b1, \u2200 r, IsCompact (closedBall x r)",
+      "instance prod_properSpace {\u03b1 : Type*} {\u03b2 : Type*} [PseudoMetricSpace \u03b1] [PseudoMetricSpace \u03b2]\n    [ProperSpace \u03b1] [ProperSpace \u03b2] : ProperSpace (\u03b1 \u00d7 \u03b2) where\n  isCompact_closedBall := by\n    rintro \u27e8x, y\u27e9 r\n    rw [\u2190 closedBall_prod_same x y]\n    exact (isCompact_closedBall x r).prod (isCompact_closedBall y r)"
+    ]
+  },
+  {
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+    "excerpts": [
+      "def NormedField.toAbsoluteValue (R : Type*) [NormedField R] : AbsoluteValue R \u211d where\n  toFun     := norm\n  map_mul'  := norm_mul\n  nonneg'   := norm_nonneg\n  eq_zero' _ := norm_eq_zero\n  add_le'   := norm_add_le"
+    ]
+  },
+  {
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/GroupTheory/OrderOfElement.lean",
+    "excerpts": [
+      "lemma isOfFinOrder_of_finite (x : G) : IsOfFinOrder x := by\n  by_contra h; exact infinite_not_isOfFinOrder h <| Set.toFinite _"
+    ]
+  },
+  {
+    "repo_source": "quartics/quartic-318-326/proof/progress/InertQuadratic318.lean",
+    "sha256": "d1600bbf8f8025a482e165f40e1d8108c6240c31a54e329c267be7c10d235df2",
+    "excerpts": [
+      " theorem coordinates_isometry : Isometry (coordinates p nonsquare) := by\n  apply (AddMonoidHomClass.isometry_iff_norm _).mpr\n  intro x\n  exact coordinates_norm p nonsquare x.1 x.2\n\n/-- Every element of the completion has unique two-dimensional Qp coordinates. -/\n theorem coordinates_surjective : Function.Surjective (coordinates p nonsquare) := by\n  have hd:DenseRange (embedding p nonsquare) :=\n    embed_dense (p:\u211d) (prime_gt_one p) (InertPlace318.place p nonsquare)\n  intro x\n  refine hd.induction_on x (coordinates_isometry p nonsquare).isClosedEmbedding.isClosed_range ?_\n  intro k\n  obtain \u27e8a,b\u27e9:=k\n  exact \u27e8((a:\u211a_[p]),(b:\u211a_[p])),coordinates_rat p nonsquare a b\u27e9\n\n"
+    ]
+  }
+]
