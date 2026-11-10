@@ -1,0 +1,82 @@
+{
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ORIGINAL_GLOBAL_SCHEME_POINTS_REVIEW_REQUESTED",
+  "claim": "Constructed global original scheme-valued points with actual localization gluing and whole-pole holomorphic coordinate-ring descriptions.",
+  "revision_source": "pel-original-projective-period-model-r1",
+  "predecessor_application_sha256": "3b712bbd05a2ed0b43d5edc540502e3b7f3320b1c9aef78b7fe8083850f8abab",
+  "new_sources": {
+    "OriginalPeriodSchemePointGluing318.lean": "2c2757c23ee16ddb2e2a2416a7e211a4fd146a64b92fd584434f855e4cb6ca9c",
+    "OriginalPeriodGlobalSchemePoints318.lean": "a333e9d7b0dbc069e985fce1a6abba19817398013b130b30de5c79c0bcbb2a25"
+  },
+  "obligations": [
+    {
+      "required": "Actual overlap evaluation",
+      "constructed": "Constructed original infinity localization map",
+      "justification": "Nonzero nativeV, actual inverse image1/V",
+      "evidence": [
+        "OriginalPeriodSchemePointGluing318.overlap_inverse"
+      ]
+    },
+    {
+      "required": "Full ring map identity",
+      "constructed": "Finite evaluation equals actual overlap composite",
+      "justification": "Both original quotient coordinates retained",
+      "evidence": [
+        "OriginalPeriodSchemePointGluing318.finite_evaluation_square"
+      ]
+    },
+    {
+      "required": "Actual scheme point identity",
+      "constructed": "Finite and infinity points agree",
+      "justification": "Spec contravariance and genuine scheme pushout",
+      "evidence": [
+        "OriginalPeriodSchemePointGluing318.scheme_points_agree"
+      ]
+    },
+    {
+      "required": "Original pole",
+      "constructed": "Actual infinity section",
+      "justification": "Full infinity ring evaluation identity",
+      "evidence": [
+        "OriginalPeriodGlobalSchemePoints318.infinityPoint_zero"
+      ]
+    },
+    {
+      "required": "Global original point map",
+      "constructed": "Every original torus point gives scheme point over base",
+      "justification": "Original finite coordinates and actual algebraic infinity",
+      "evidence": [
+        "OriginalPeriodGlobalSchemePoints318.schemePoint_over_base"
+      ]
+    },
+    {
+      "required": "Whole pole neighborhood",
+      "constructed": "Global map equals actual holomorphic infinity evaluations",
+      "justification": "Includes pole, no puncture omitted",
+      "evidence": [
+        "OriginalPeriodGlobalSchemePoints318.whole_pole_chart"
+      ]
+    },
+    {
+      "required": "Remaining work",
+      "constructed": "Analytification/algebraization not asserted",
+      "justification": "Global point map with local coordinates not a scheme isomorphism",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "required": "Preservation",
+      "constructed": "All290 exact",
+      "justification": "No local Lean or baseline promotion",
+      "evidence": [
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "readme_sha256": "29caf5065ed27eb276309c0719f48739d9187f2ba220a4175cee234649e6c402",
+  "intake_sha256": "d21d47b25961a00260aaa552544b1ba4175b70192cb6b9a6527440e68e65d8f6",
+  "copy_bindings_sha256": "87c3d35979b9f2b57bca8af6c3da7cc42ca9b9cbb11790e577c3da67c753a6c9",
+  "pinned_apis_sha256": "b06521d1626636e0c06201b990f0b4dc4c424a588bb1e548572a5136838e59d8"
+}
