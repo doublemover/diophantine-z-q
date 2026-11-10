@@ -1,0 +1,91 @@
+{
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ORIGINAL_PROJECTIVE_PERIOD_MODEL_REVIEW_REQUESTED",
+  "claim": "Constructed actual smooth proper projective period scheme, correct native infinity germs, and actual original finite/infinity coordinate-ring evaluations.",
+  "revision_source": "pel-original-native-elliptic-doubling-r1",
+  "predecessor_application_sha256": "0facf6cf8ce422598d8e171d6b8fae4ff67b94a34af7d7420cb70c90db946fd0",
+  "new_sources": {
+    "OriginalPeriodProjectiveModel318.lean": "f771c22438ffa00c0413f34bd9f3427dc884765d5473b728d5ce3c708255be8b",
+    "OriginalPeriodNativeChartGerms318.lean": "aba13cb8118f0d47c131b8733eb4c25d770347a572cdee56a0786dffc59b5cad",
+    "OriginalPeriodSchemeChartPoints318.lean": "c2dc769fa40e695ca7f93c026634cf98bf128b504b1461c604708f1d8de7f8ea"
+  },
+  "obligations": [
+    {
+      "required": "Same native coefficients",
+      "constructed": "Projective scheme with actual period sums",
+      "justification": "Independent ring gluing and actual discriminant",
+      "evidence": [
+        "OriginalPeriodProjectiveModel318.smooth"
+      ]
+    },
+    {
+      "required": "Proper projective target",
+      "constructed": "Actual closed projective-plane embedding",
+      "justification": "Existing generic geometric theorem applied to same coefficients",
+      "evidence": [
+        "OriginalPeriodProjectiveModel318.projective_embedding"
+      ]
+    },
+    {
+      "required": "Correct infinity convention",
+      "constructed": "NativeU=2rawU and nativeV=2rawV",
+      "justification": "Original y=Pprime/2 retained",
+      "evidence": [
+        "OriginalPeriodNativeChartGerms318.infinity_equation"
+      ]
+    },
+    {
+      "required": "Actual overlap",
+      "constructed": "Original finite/infinity coordinate formulas",
+      "justification": "Actual nonzero y denominator, no junk values",
+      "evidence": [
+        "OriginalPeriodNativeChartGerms318.overlap"
+      ]
+    },
+    {
+      "required": "Nondegenerate native germ",
+      "constructed": "Derivative -1 in original pole parameter",
+      "justification": "Original analytic regularization, not model label",
+      "evidence": [
+        "OriginalPeriodNativeChartGerms318.native_infinity_derivative"
+      ]
+    },
+    {
+      "required": "Scheme-valued original points",
+      "constructed": "Actual finite ring evaluation and base section",
+      "justification": "Literal equation factored via ideal quotient",
+      "evidence": [
+        "OriginalPeriodSchemeChartPoints318.finitePoint_over_base"
+      ]
+    },
+    {
+      "required": "Whole infinity neighborhood",
+      "constructed": "Actual infinity ring evaluations",
+      "justification": "Original germ discharges equation premise",
+      "evidence": [
+        "OriginalPeriodSchemeChartPoints318.infinity_evaluations"
+      ]
+    },
+    {
+      "required": "Remaining work",
+      "constructed": "Global scheme-point gluing/algebraization separate",
+      "justification": "No smooth target called source identification",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "required": "Preservation",
+      "constructed": "All287 exact",
+      "justification": "No local Lean or baseline promotion",
+      "evidence": [
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "readme_sha256": "64dc6db18bdd6a2a72dbd392e53ea446ce7a03d1f187ae714fee6295271b51d4",
+  "intake_sha256": "029dc4e5ab0964709f63561a8b0519969d2dd0f44dbc7bbfe2df7417d9caf78f",
+  "copy_bindings_sha256": "9dd0e7fb22995b0e2ee2a68a9ceee091b9afda760d99a4d8fb394edccd3fd523",
+  "pinned_apis_sha256": "a929eac9d3dd50ffc416a9854d2dfd2bcdbc58efc04758d30e6abed37759d236"
+}
