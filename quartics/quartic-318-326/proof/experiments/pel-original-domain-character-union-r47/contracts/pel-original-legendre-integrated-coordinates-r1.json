@@ -1,0 +1,42 @@
+{
+  "author": "/root/continue_pel_order",
+  "status": "INTEGRATED_COORDINATES_SOURCE_REVIEW_REQUESTED",
+  "claim": "Constructed integrated analytic local coordinates at every point of SAME completed Legendre curve, with actual inverse and actual translation-germ overlap compatibility",
+  "new_sources": {
+    "LegendreIntegratedCoordinates318.lean": "4f4af2e792defb9de08dd6605d84360457a01f20323e793c5083c381f0cbcc20",
+    "LegendreIntegratedTranslations318.lean": "d601c03c2951434d990a1e3a22613ed41ef2a1cd39355d06c18192d9328a9dc3"
+  },
+  "obligations": [
+    {
+      "required": "Construct local primitives/inverses, do not assume original uniformization",
+      "constructed": "Actual original chart ball inside target, pinned disk primitive, derivative SAME coefficient everywhere, proven nowherezero and analytic inverse",
+      "evidence": [
+        "LegendreIntegratedCoordinates318.exists_integrated_coordinate",
+        "LegendreIntegratedCoordinates318.every_point_integrated"
+      ]
+    },
+    {
+      "required": "Actual gluing of integrals",
+      "constructed": "Original differential derivative cocycle implies actual overlap primitives differ by exact center constant; normalized actual primitive germs agree",
+      "evidence": [
+        "LegendreIntegratedTranslations318.actual_overlap_translation",
+        "LegendreIntegratedTranslations318.exists_compatible_integrated_coordinates"
+      ]
+    },
+    {
+      "required": "Do not infer global lattice from local primitives",
+      "constructed": "Explicit unfinished global integration/developing and period lattice frontier",
+      "evidence": [
+        "README.md"
+      ]
+    }
+  ],
+  "bindings": {
+    "intake.json": "91cd8ec5ecdc5c990430dc2c5ad56c3091bc38e88e676d84fee37ea0721ffe6b",
+    "README.md": "df29ebc35ebbd5ba953a6dd24c338863f34ea3f71e8dace381b5dae47de27c94",
+    "INTEGRATED_COORDINATE_BINDINGS.json": "d74bc83d89b7292c11a6f6231c82c80a6bfc65c8043e9890a769010579c6aeb3",
+    "verification/HasPrimitivesPinned.lean": "b0c933d451e0d334f99bed7b6a619ab2a05fbd641c433a62b7dfa384a185cd69",
+    "verification/MeanValuePinned.lean": "fffaf18cfe01c8271844bdc918f4923d8c7de148835ce0f7c5a8e26506ce9beb"
+  },
+  "pinned_mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+}
