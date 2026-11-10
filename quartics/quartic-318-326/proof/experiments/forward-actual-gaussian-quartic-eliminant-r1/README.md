@@ -1,0 +1,15 @@
+# Actual Gaussian small-prime tail and true quartic eliminant
+
+All381 predecessor sources remain exact, including the bound source-chart audit. Four new modules carry the ACTUAL P'/K source beyond residue fields and begin the genuine large-prime construction. No old unshifted-D second-chart eliminant is used.
+
+ActualGaussianIntegerFibers318 defines integerActual using the original Gaussian P/K or P'/K obstruction at the SAME synthesized integer point. It proves exact reduction and cardinal equivalence. In the first chart it invokes the proved valid D equivalence; in the second it keeps K and consumes the corrected actual8p bound. The exact anisotropic residue-fiber count retains all floor divisions and +1 boundary terms.
+
+ActualGaussianSmallPrimeTail318 derives count*p²<=512ABC up to the FULL width2min(A,B,C), including the prior half-width-to-full-width gap. Its finite actual obstruction union has bound512ABC/Y for Y<p<=2min(A,B,C), using the existing overlap-safe finite union and elementary telescoping. Both original Gaussian charts are covered; t+2 primes are not excluded and q(t)/basis remains unchanged.
+
+ActualQuadraticQuarticEliminant318 constructs an integral pseudo-remainder L*X+M of a genuine quartic modulo a genuine quadratic aX²+bX+c, using a³ times the quartic and an exact polynomial quotient. It then constructs E=aM²-bLM+cL² and an exact linear Bezout identity. Every common integer divisor divides E, with NO division by a and NO leading-coefficient-prime exclusion. E may vanish; nonvanishing is explicitly a separate task. The independent symbolic check also verifies E=a³*resultant(quadratic,quartic), but this resultant identity is a regression check rather than an assumed Lean input.
+
+ActualAffineQuarticEliminant318 expands all FIVE coefficients of the literal K at the actual affine point a+h*d. The quadratic coefficients are the unchanged original P' coefficients with original label t. It produces an actualEliminant on the same fiber and proves every actual source obstruction divides it, including all t+2 primes and t=-2. The final consumer takes an actual original Slice point, its actual projected affine-coordinate equation, and the original two Gaussian norm divisibilities; it constructs the eliminant divisibility from these. This closes the missing actual-source elimination implication, not its nonvanishing or height bounds.
+
+Exact checks:4 symbolic identities (pseudo-division, Bezout, actual quartic coefficient expansion and resultant scaling),520 actual integer common-divisor tests,3 original source witness tests at kappa1,318,326,24 full-width actual Gaussian rectangle counts. Canonical385/222. No local Lean. Independent review required.
+
+Next: construct nonvanishing of the TRUE quartic eliminant after actual successful shears, control its exact coefficient heights and zero cylinders, then restore full actual large-prime and global weighted tails. At t=-2 retain K=kappa²w⁴+4q² on the axes; do not substitute shifted or unshifted D. Original-label Rankin and the first-chart geometric work remain available. Final Gaussian prime-pattern, rational twist-point and Anchor producers remain open.
