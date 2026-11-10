@@ -1,0 +1,123 @@
+{
+  "claim": "Pending exact original unnormalized H1 trace/pullback matrices and specified one-dimensional target coordinates, without claiming a Picard tangent or isogeny theorem.",
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "EXACT_HOSTED_FRONTIER_REPAIR_REVIEW_REQUESTED",
+  "new_sources": {
+    "OriginalCharacterPullbackLines318.lean": "5db77b86db49e143fc47c199764d5b1dd6baf27feab1840ef0f223071282391d"
+  },
+  "modified_sources": {
+    "OriginalFinitePoleExpansion318.lean": "0ea92eee45b0405d77e39fa1101cc65a53d64dce3a1a35397da3e24759bf1df3"
+  },
+  "readme_sha256": "1fdd2562efa3e54a7ac02a89c744c6ba4cb90dfc15585da7720c657a4b128ee9",
+  "intake_sha256": "0521a5421d041a07f2c02deef5f3514712706674683779d3ab318bc58b21ca82",
+  "copy_bindings_sha256": "17890dbe4a444a809989717cc0cfa3117363e447a92f9adf1faba02664a2e025",
+  "obligations": [
+    {
+      "name": "Original unnormalized operator",
+      "required": "An arbitrary multiple of a retraction is not automatically the original trace.",
+      "constructed": "originalTrace uses original characterTrace/fifthTrace and the unchanged inverse comparison.",
+      "justification": "retraction_eq proves the original sheaf map factors by structural1/8 before deriving any scalar relation.",
+      "evidence": [
+        "OriginalHOneTraceNormalization318.originalTrace",
+        "OriginalHOneTraceNormalization318.retraction_eq"
+      ]
+    },
+    {
+      "name": "Structural rational normalization",
+      "required": "The scalar factor must be on the actual rational H1 module.",
+      "constructed": "normalized_transfer uses Sheaf.H.map_comp_apply and the original CohomologyRationalScalar318.structureModule.",
+      "justification": "normalized_formula specializes exactly the actual target structural maps and original retractions.",
+      "evidence": [
+        "OriginalHOneTraceNormalization318.normalized_transfer",
+        "OriginalHOneTraceNormalization318.normalized_formula"
+      ]
+    },
+    {
+      "name": "Canonical original target generators",
+      "required": "Coordinates cannot be chosen independently of the original maps.",
+      "constructed": "generator is original transfer of original characterClass; pullback_generator recovers that same source class.",
+      "justification": "Nonvanishing follows from the actual source residue class, not merely a field element.",
+      "evidence": [
+        "OriginalTargetHOneCoordinates318.generator",
+        "OriginalTargetHOneCoordinates318.pullback_generator"
+      ]
+    },
+    {
+      "name": "Whole target dimension",
+      "required": "A nonzero vector alone does not prove target dimension1.",
+      "constructed": "line_surjective uses original whole-target pullback_line and original split injection; line_injective uses generator_nonzero.",
+      "justification": "The resulting exact Q equivalence proves each target finrank1.",
+      "evidence": [
+        "OriginalTargetHOneCoordinates318.line_surjective",
+        "OriginalTargetHOneCoordinates318.target_finrank_one"
+      ]
+    },
+    {
+      "name": "Original cross-factor matrix",
+      "required": "Off-diagonal vanishing must involve original traces and original pullbacks.",
+      "constructed": "trace_pullback_matrix combines proved original trace normalization and original cross_terms.",
+      "justification": "Dependent target carriers are transported only under index equality.",
+      "evidence": [
+        "OriginalFiveHOneNormMatrices318.trace_pullback_matrix"
+      ]
+    },
+    {
+      "name": "Whole source degree factor",
+      "required": "The summed operator must act as8 on all source H1.",
+      "constructed": "sum_pullback_traces uses rational linearity and the whole-source identity for original normalized projections.",
+      "justification": "No kernel component is omitted; prior whole-H1 equivalence and exact trace inverse are retained.",
+      "evidence": [
+        "OriginalFiveHOneNormMatrices318.sum_pullback_traces"
+      ]
+    },
+    {
+      "name": "Coordinate and geometric sign identity",
+      "required": "Coordinate matrix and sign action must refer to those same geometric maps.",
+      "constructed": "trace_character_matrix has exact matrix8I in specified target generators; sign_trace_character uses original SchemeSourceCohomology318.pullback.",
+      "justification": "No separate representation or relabeled trace operator is used.",
+      "evidence": [
+        "OriginalFiveHOneNormMatrices318.trace_character_matrix",
+        "OriginalFiveHOneNormMatrices318.sign_trace_character"
+      ]
+    },
+    {
+      "name": "Downstream geometric boundary",
+      "required": "Cohomology decomposition alone is not a Picard or Jacobian isogeny theorem.",
+      "constructed": "The deliverable stops at actual H1 maps and matrices, preparing exact inputs for a norm/tangent comparison.",
+      "justification": "Picard representability, degree-zero component and tangent identification remain separate and are not assumed established.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Exact source revisions and checks",
+      "required": "The known scalar repair and all new dependencies must be preserved.",
+      "constructed": "98 exact99r7 sources. Remaining negative native multiplication is identified through the ORIGINAL injective overlap embedding and field ring identities, then original boundary additivity. Same maps, representatives, structural rational module and consumers. Exact replay485 repair: Normalize the post-average nested rational scalar explicitly; prove weighted character via the OLD additive poleMap.toRatLinearMap rather than a false native tensor scalar defeq; remove duplicate projector_sum rewrite and expose rational self-action. Original carriers/maps and budgets unchanged. Temporary independent diagnostic99 route: all98 other sources are byte-identical to99r9. The projector source is exactly the already-reviewed diagnostic bytes from210r4 (unchanged mathematics/tactics/statements/budgets). The union stopped at its earlier pointed ModuleScalarPullback frontier before it could emit projector diagnostics. This separate route is to localize the known silent180s timeout, not to claim a repair or new acceptance. Exact65c29 diagnostic repair: weighted_character now supplies the explicit rfl evaluation of its local rational-linear map L before applying map_smul. character_spanning consumes the SAME original additive fiveCoefficients_surjective, retains its equality instead of substituting rfl through the rational-linear wrapper, and exposes only the literal original five-term sum using an explicit application equation. All mathematical statements, maps, instances and budgets unchanged. Flushed milestones retained and expanded around the localized spanning boundary. This addresses observed local-map mismatch and whnf timeout without increasing resources; hosted validation pending. Exact692590c8/run42627873790 repair: weighted_character now passes; character_spanning alone hits deterministic whnf heartbeat limit after both concrete sum milestones, followed only by unknown-constant cascades. Move finite-sum reindexing into a theorem over an arbitrary AddCommMonoid with its original rational SMul, then specialize it to the SAME HOne, actual fiveCoefficients, literal pole classes, exact smallIndex bijection and proved weighted_character. This isolates finite-index proof normalization from concrete derived-cohomology carriers. All original statements, instances, mathematical maps, domains and budgets unchanged; new diagnostic milestones distinguish abstract reindexing from its actual specialization. Hosted validation and independent source acceptance pending; no local Lean. Exact30f117bc/run42632872820 hosted repair: all60 predecessors including the entire ActualSourceHOneCharacterProjectors318 module PASS (123.430 seconds, unchanged budgets). First error OriginalInfinityCoefficient318:15 is unknown X in unqualified polynomial notation. Replace only the domain spelling Q[X] with explicit Polynomial Q in original baseU. Subsequent displayed coordinate/smul/evaluation failures contain the resulting sorry placeholder and are cascading; no speculative mathematical repair. The original coordinate is literally the same algebraMap of Polynomial.X by InfinityOverlapLocalization318.coordinate. All maps, scalar actions, statements, proofs and budgets unchanged. New hosted validation and independent acceptance pending; no local Lean. Exact90893838/run42642219295 dedicated99r13 hosted evidence: first62 predecessors PASS, including actual whole H1 projectors113.432s, OriginalInfinityCoefficient4.474s and OriginalNegativePoleUniqueness5.226s. OriginalOverlapResidues fails a native rational scalar rewrite and an implicit Finset product-sum rewrite. Prove native scalar compatibility using map_rat_smul for the original coefficient ring hom and right-multiplication additive hom, not replacing any module instance. Specialize that exact identity to each original pole. Apply the primary sum_product directly with the full rectangle and literal summand, then sum_congr and the proved pole identity. Same all negative coefficients, original overlap, actual scalar map, statements and budgets. No local Lean; fresh independent and hosted acceptance pending. Exact e36a6803 replay42649103375 dedicated99r14: first63 predecessors PASS, including original projectors131.495s and newly repaired OriginalOverlapResidues7.383s. New OriginalFinitePoleExpansion failures are tuple projection transparency, original constant/t aliases, literal Fin.succ rewriting, composite polynomial constant map and native finite tensor scalar action. Expose exact natural tuple projections; give typed original rational coefficient/t equations from original field identities; use actual Fin3 successor indices; prove actual composite polynomial map on Cq by map_rat_algebraMap; specialize the already passing NativeTensorScalar.tensor_smul to the SAME original four-root order before coefficient expansion. All original whole finite elements,16 basis indices, coefficients, pole bounds and statements preserved; no local Lean or budget change. Fresh independent/hosted acceptance pending. Exact 226803e8 hosted repair: all previous H1 modules through original overlap residues pass. The finite monomial pole calculation now expands the original infinity basis by an explicit equality before distributing its actual localization map. This exposes all three original generator powers rather than asking simp to rewrite through the opaque Basis coercion. Same full16 finite monomials, native coefficients, pole orders and budgets. No local Lean compilation; independent source review and hosted verification remain required.",
+      "justification": "Static import/hash/audit checks do not certify hosted Lean elaboration or independent mathematical acceptance.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ],
+  "revision_source": "source-hone-original-norm-matrices-r22",
+  "pinned_apis_sha256": "868c516cfd898135f3801959f51d28ec1d19dbdf853eed2dd9df6ba827e74bb2",
+  "predecessor_application_sha256": "23cf40cc8a6bf0f1477fe0b9dcc624d359fdc6c0599c95c02cd4ca9afe69748c",
+  "repair_note": "Exact hosted epsilon_flip rational finite table frontier: split actual Option character into full/omitted cases; expose the proven literal three-element complement; exhaust Fin4 labels and prove each rational product using norm_num (full product via Fin.prod_univ_succ). No decide over rational arithmetic, native_decide, sign or statement change; all98other sources unchanged, no budget increase.",
+  "packet": "source-hone-original-norm-matrices-r18",
+  "revision_note": {
+    "parent": "source-hone-original-norm-matrices-r17",
+    "source": "OriginalSmallPoleResidues318.lean",
+    "before": "59f428701d815ba10dc914aebfb1c62a832accd2fbbc4699b2c32eb992d7bc7e",
+    "after": "5972899bea41945b6e2a54f3b9ebf1ba912a30e23553f0be8a149b31a3510711",
+    "repair": "Normalize actual identity-ring scalar in lowResidues; explicitly distribute actual rational scalar over fiveRepresentatives sum before ring normalization. Same objects/statements/budgets.",
+    "local_lean": false
+  },
+  "bindings": {
+    "RESIDUE_LINEAR_REPAIR.json": "9b5a1715cf0474060b7762b8521edbdff10df690fc455fccf66c3a8150fd633f"
+  },
+  "shared_repair_source": "original-five-pointed-norm-decomposition-r22",
+  "shared_repair_application_sha256": "b164e87c5083cb57e007346a3da5b6d78c741cb73ec599f41b7fae6e6dec0cdd"
+}
