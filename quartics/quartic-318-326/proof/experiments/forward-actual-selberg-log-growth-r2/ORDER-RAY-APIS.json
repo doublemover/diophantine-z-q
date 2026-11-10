@@ -1,0 +1,182 @@
+{
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "pinned_library_sources": [
+    {
+      "path": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem exists_sq_eq_two_iff",
+          "line": 74,
+          "excerpt": "theorem exists_sq_eq_two_iff (hp : p \u2260 2) : IsSquare (2 : ZMod p) \u2194 p % 8 = 1 \u2228 p % 8 = 7 := by\n  rw [FiniteField.isSquare_two_iff, card p]\n  have h\u2081 := (Prime.mod_two_eq_one_iff_ne_two Fact.out).mpr hp\n  lia\n\n/-- `-2` is a square modulo an odd prime `p` iff `p` is congruent to `1` or `3` mod `8`. -/\ntheorem exists_sq_eq_neg_two_iff (hp : p \u2260 2) : IsSquare (-2 : ZMod p) \u2194 p % 8 = 1 \u2228 p % 8 = 3 := by\n  rw [FiniteField.isSquare_neg_two_iff, card p]\n  have h\u2081 := (Prime.mod_two_eq_one_iff_ne_two Fact.out).mpr hp\n  lia\n\nend ZMod\n\nend Values\n\nsection Reciprocity\n\n/-!\n### The Law of Quadratic Reciprocity\n\nSee `jacobiSym.quadratic_reciprocity` and variants for a version of Quadratic Reciprocity\nfor the Jacobi symbol.\n-/\n\n\nvariable {p q : \u2115} [Fact p"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "lemma norm_natCast_eq_one_iff",
+          "line": 313,
+          "excerpt": "lemma norm_natCast_eq_one_iff {n : \u2115} :\n    \u2016(n : \u2124_[p])\u2016 = 1 \u2194 p.Coprime n := by\n  rw [norm_def, coe_natCast, Padic.norm_natCast_eq_one_iff]\n\n@[simp]\nlemma norm_natCast_lt_one_iff {n : \u2115} :\n    \u2016(n : \u2124_[p])\u2016 < 1 \u2194 p \u2223 n := by\n  rw [norm_def, coe_natCast, Padic.norm_natCast_lt_one_iff]\n\n@[simp]\nlemma norm_intCast_eq_one_iff {z : \u2124} :\n    \u2016(z : \u2124_[p])\u2016 = 1 \u2194 IsCoprime z p := by\n  rw [norm_def, coe_intCast, Padic.norm_intCast_eq_one_iff]\n\n@[simp]\nlemma norm_intCast_lt_one_iff {z : \u2124} :\n    \u2016(z : \u2124_[p])\u2016 < 1 \u2194 (p : \u2124) \u2223 z := by\n  rw [norm_def, coe_intCast, Padic.norm_intCast_lt_one_iff]\n\n/-! ### Valuation on `\u2124_[p]` -/\n\nlemma valuation_coe_nonneg : 0 \u2264 (x : \u211a_[p]).valuation := by\n  obtain rfl | hx := eq_or_ne x 0\n  \u00b7 simp\n  have := norm_le_one"
+        },
+        {
+          "name": "lemma norm_intCast_lt_one_iff",
+          "line": 328,
+          "excerpt": "lemma norm_intCast_lt_one_iff {z : \u2124} :\n    \u2016(z : \u2124_[p])\u2016 < 1 \u2194 (p : \u2124) \u2223 z := by\n  rw [norm_def, coe_intCast, Padic.norm_intCast_lt_one_iff]\n\n/-! ### Valuation on `\u2124_[p]` -/\n\nlemma valuation_coe_nonneg : 0 \u2264 (x : \u211a_[p]).valuation := by\n  obtain rfl | hx := eq_or_ne x 0\n  \u00b7 simp\n  have := norm_le_one x\n  rwa [\u2190 norm_coe, Padic.norm_eq_zpow_neg_valuation <| coe_ne_zero.2 hx,\n    zpow_le_one_iff_right\u2080, neg_nonpos] at this\n  exact mod_cast hp.out.one_lt\n\n/-- `PadicInt.valuation` lifts the `p`-adic valuation on `\u211a` to `\u2124_[p]`. -/\ndef valuation (x : \u2124_[p]) : \u2115 := (x : \u211a_[p]).valuation.toNat\n\n@[simp, norm_cast] lemma valuation_coe (x : \u2124_[p]) : (x : \u211a_[p]).valuation = x.valuation := by\n  simp [valuation, valuation_coe_nonneg]\n\n@[simp] lemma valu"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/ZMod/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem val_pos",
+          "line": 976,
+          "excerpt": "theorem val_pos {n : \u2115} {a : ZMod n} : 0 < a.val \u2194 a \u2260 0 := by\n  simp [pos_iff_ne_zero]\n\nset_option backward.isDefEq.respectTransparency false in\ntheorem val_eq_one : \u2200 {n : \u2115} (_ : 1 < n) (a : ZMod n), a.val = 1 \u2194 a = 1\n  | 0, hn, _\n  | 1, hn, _ => by simp at hn\n  | n + 2, _, _ => by simp only [val, ZMod, Fin.ext_iff, Fin.val_one]\n\ntheorem neg_eq_self_iff {n : \u2115} (a : ZMod n) : -a = a \u2194 a = 0 \u2228 2 * a.val = n := by\n  rw [neg_eq_iff_add_eq_zero, \u2190 two_mul]\n  cases n\n  \u00b7 simp\n  conv_lhs =>\n    rw [\u2190 a.natCast_zmod_val, \u2190 Nat.cast_two, \u2190 Nat.cast_mul, natCast_eq_zero_iff]\n  constructor\n  \u00b7 rintro \u27e8m, he\u27e9\n    rcases m with - | m\n    \u00b7 rw [mul_zero, mul_eq_zero] at he\n      rcases he with (\u27e8\u27e8\u27e9\u27e9 | he)\n      exact Or.inl (a.val_eq_zero.1 he)\n    c"
+        },
+        {
+          "name": "theorem val_lt",
+          "line": 61,
+          "excerpt": "theorem val_lt {n : \u2115} [NeZero n] (a : ZMod n) : a.val < n := by\n  cases n\n  \u00b7 cases NeZero.ne 0 rfl\n  exact Fin.is_lt a\n\ngrind_pattern val_lt => a.val\n\ntheorem val_le {n : \u2115} [NeZero n] (a : ZMod n) : a.val \u2264 n :=\n  a.val_lt.le\n\n@[simp]\ntheorem val_zero : \u2200 {n}, (0 : ZMod n).val = 0\n  | 0 => rfl\n  | _ + 1 => rfl\n\n@[simp]\ntheorem val_one' : (1 : ZMod 0).val = 1 :=\n  rfl\n\n@[simp]\ntheorem val_neg' {n : ZMod 0} : (-n).val = n.val :=\n  Int.natAbs_neg n\n\n@[simp]\ntheorem val_mul' {m n : ZMod 0} : (m * n).val = m.val * n.val :=\n  Int.natAbs_mul m n\n\n@[simp]\ntheorem val_natCast (n a : \u2115) : (a : ZMod n).val = a % n := by\n  cases n\n  \u00b7 rw [Nat.mod_zero]\n    exact Int.natAbs_natCast a\n  \u00b7 apply Fin.val_natCast\n\nlemma val_natCast_of_lt {n a : \u2115} (h : a"
+        },
+        {
+          "name": "theorem natCast_zmod_val",
+          "line": 205,
+          "excerpt": "theorem natCast_zmod_val {n : \u2115} [NeZero n] (a : ZMod n) : (a.val : ZMod n) = a := by\n  cases n\n  \u00b7 cases NeZero.ne 0 rfl\n  \u00b7 apply Fin.cast_val_eq_self\n\ntheorem natCast_rightInverse [NeZero n] : Function.RightInverse val ((\u2191) : \u2115 \u2192 ZMod n) :=\n  natCast_zmod_val\n\ntheorem natCast_zmod_surjective [NeZero n] : Function.Surjective ((\u2191) : \u2115 \u2192 ZMod n) :=\n  natCast_rightInverse.surjective\n\nset_option backward.isDefEq.respectTransparency false in\n/-- So-named because the outer coercion is `Int.cast` into `ZMod`. For `Int.cast` into an arbitrary\nring, see `ZMod.intCast_cast`. -/\n@[norm_cast]\ntheorem intCast_zmod_cast (a : ZMod n) : ((cast a : \u2124) : ZMod n) = a := by\n  cases n\n  \u00b7 simp [ZMod.cast, ZMod]\n  \u00b7 dsimp [ZMod.cast]\n    rw [Int.cast_natCast, "
+        },
+        {
+          "name": "theorem intCast_zmod_eq_zero_iff_dvd",
+          "line": 513,
+          "excerpt": "theorem intCast_zmod_eq_zero_iff_dvd (a : \u2124) (b : \u2115) : (a : ZMod b) = 0 \u2194 (b : \u2124) \u2223 a := by\n  rw [\u2190 Int.cast_zero, ZMod.intCast_eq_intCast_iff, Int.modEq_zero_iff_dvd]\n\ntheorem intCast_eq_intCast_iff_dvd_sub (a b : \u2124) (c : \u2115) : (a : ZMod c) = \u2191b \u2194 \u2191c \u2223 b - a := by\n  rw [ZMod.intCast_eq_intCast_iff, Int.modEq_iff_dvd]\n\ntheorem natCast_eq_zero_iff (a b : \u2115) : (a : ZMod b) = 0 \u2194 b \u2223 a := by\n  rw [\u2190 Nat.cast_zero, ZMod.natCast_eq_natCast_iff, Nat.modEq_zero_iff_dvd]\n\nlemma neg_one_eq_one_iff {n : \u2115} : (-1 : ZMod n) = 1 \u2194 n = 1 \u2228 n = 2 := by\n  rw [neg_eq_iff_add_eq_zero, one_add_one_eq_two, \u2190 Nat.cast_ofNat, natCast_eq_zero_iff,\n    Nat.dvd_prime Nat.prime_two]\n\nset_option backward.isDefEq.respectTransparency false in\ntheorem coe_intCast (a : \u2124)"
+        },
+        {
+          "name": "theorem natCast_eq_zero_iff",
+          "line": 519,
+          "excerpt": "theorem natCast_eq_zero_iff (a b : \u2115) : (a : ZMod b) = 0 \u2194 b \u2223 a := by\n  rw [\u2190 Nat.cast_zero, ZMod.natCast_eq_natCast_iff, Nat.modEq_zero_iff_dvd]\n\nlemma neg_one_eq_one_iff {n : \u2115} : (-1 : ZMod n) = 1 \u2194 n = 1 \u2228 n = 2 := by\n  rw [neg_eq_iff_add_eq_zero, one_add_one_eq_two, \u2190 Nat.cast_ofNat, natCast_eq_zero_iff,\n    Nat.dvd_prime Nat.prime_two]\n\nset_option backward.isDefEq.respectTransparency false in\ntheorem coe_intCast (a : \u2124) : cast (a : ZMod n) = a % n := by\n  cases n\n  \u00b7 rw [Int.ofNat_zero, Int.emod_zero, Int.cast_id]; rfl\n  \u00b7 rw [\u2190 val_intCast, val]; rfl\n\nlemma intCast_cast_add (x y : ZMod n) : (cast (x + y) : \u2124) = (cast x + cast y) % n := by\n  rw [\u2190 ZMod.coe_intCast, Int.cast_add, ZMod.intCast_zmod_cast, ZMod.intCast_zmod_cast]\n\nlemma "
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/GCDMonoid/Finset.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem dvd_lcm",
+          "line": 69,
+          "excerpt": "theorem dvd_lcm {b : \u03b2} (hb : b \u2208 s) : f b \u2223 s.lcm f :=\n  lcm_dvd_iff.1 dvd_rfl _ hb\n\n@[simp]\ntheorem lcm_insert [DecidableEq \u03b2] {b : \u03b2} :\n    (insert b s : Finset \u03b2).lcm f = GCDMonoid.lcm (f b) (s.lcm f) := by\n  by_cases h : b \u2208 s\n  \u00b7 rw [insert_eq_of_mem h,\n      (lcm_eq_right_iff (f b) (s.lcm f) (Multiset.normalize_lcm (s.1.map f))).2 (dvd_lcm h)]\n  apply fold_insert h\n\n@[simp]\ntheorem lcm_singleton {b : \u03b2} : ({b} : Finset \u03b2).lcm f = normalize (f b) :=\n  Multiset.lcm_singleton\n\n@[local simp] -- This will later be provable by other `simp` lemmas.\ntheorem normalize_lcm : normalize (s.lcm f) = s.lcm f := by simp [lcm_def]\n\ntheorem lcm_union [DecidableEq \u03b2] : (s\u2081 \u222a s\u2082).lcm f = GCDMonoid.lcm (s\u2081.lcm f) (s\u2082.lcm f) :=\n  Finset.induction_on s\u2081 ("
+        },
+        {
+          "name": "theorem lcm_ne_zero_iff",
+          "line": 113,
+          "excerpt": "theorem lcm_ne_zero_iff [Nontrivial \u03b1] : s.lcm f \u2260 0 \u2194 \u2200 x \u2208 s, f x \u2260 0 := by\n  simp [lcm_eq_zero_iff]\n\nend lcm\n\n/-! ### gcd -/\n\n\nsection gcd\n\n/-- Greatest common divisor of a finite set -/\ndef gcd (s : Finset \u03b2) (f : \u03b2 \u2192 \u03b1) : \u03b1 :=\n  s.fold GCDMonoid.gcd 0 f\n\nvariable {s s\u2081 s\u2082 : Finset \u03b2} {f : \u03b2 \u2192 \u03b1}\n\ntheorem gcd_def : s.gcd f = (s.1.map f).gcd :=\n  rfl\n\n@[simp]\ntheorem gcd_empty : (\u2205 : Finset \u03b2).gcd f = 0 :=\n  rfl\n\ntheorem dvd_gcd_iff {a : \u03b1} : a \u2223 s.gcd f \u2194 \u2200 b \u2208 s, a \u2223 f b := by\n  apply Iff.trans Multiset.dvd_gcd\n  simp only [Multiset.mem_map, and_imp, exists_imp]\n  exact \u27e8fun k b hb \u21a6 k _ _ hb rfl, fun k a' b hb h \u21a6 h \u25b8 k _ hb\u27e9\n\ntheorem gcd_dvd {b : \u03b2} (hb : b \u2208 s) : s.gcd f \u2223 f b :=\n  dvd_gcd_iff.1 dvd_rfl _ hb\n\ntheorem dvd_gcd {a : \u03b1}"
+        },
+        {
+          "name": "theorem lcm_dvd {",
+          "line": 66,
+          "excerpt": "theorem lcm_dvd {a : \u03b1} : (\u2200 b \u2208 s, f b \u2223 a) \u2192 s.lcm f \u2223 a :=\n  lcm_dvd_iff.2\n\ntheorem dvd_lcm {b : \u03b2} (hb : b \u2208 s) : f b \u2223 s.lcm f :=\n  lcm_dvd_iff.1 dvd_rfl _ hb\n\n@[simp]\ntheorem lcm_insert [DecidableEq \u03b2] {b : \u03b2} :\n    (insert b s : Finset \u03b2).lcm f = GCDMonoid.lcm (f b) (s.lcm f) := by\n  by_cases h : b \u2208 s\n  \u00b7 rw [insert_eq_of_mem h,\n      (lcm_eq_right_iff (f b) (s.lcm f) (Multiset.normalize_lcm (s.1.map f))).2 (dvd_lcm h)]\n  apply fold_insert h\n\n@[simp]\ntheorem lcm_singleton {b : \u03b2} : ({b} : Finset \u03b2).lcm f = normalize (f b) :=\n  Multiset.lcm_singleton\n\n@[local simp] -- This will later be provable by other `simp` lemmas.\ntheorem normalize_lcm : normalize (s.lcm f) = s.lcm f := by simp [lcm_def]\n\ntheorem lcm_union [DecidableEq \u03b2] : (s\u2081 "
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Ring/Rat.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "excerpts": [
+        {
+          "line": 78,
+          "text": "lemma num_div_den (r : \u211a) : (r.num : \u211a) / (r.den : \u211a) = r := by\n  rw [\u2190 Int.cast_natCast, \u2190 divInt_eq_div, num_divInt_den]\n\n@[simp] lemma divInt_pow (num : \u2115) (den : \u2124) (n : \u2115) : (num /. den) ^ n = num ^ n /. den ^ n := by"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Data/Rat/Defs.lean",
+      "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "excerpts": [
+        {
+          "line": 68,
+          "text": "@[simp] lemma den_ne_zero (q : \u211a) : q.den \u2260 0 := q.den_pos.ne'\n\n@[simp]\ntheorem divInt_eq_zero {a b : \u2124} (b0 : b \u2260 0) : a /. b = 0 \u2194 a = 0 := by"
+        }
+      ]
+    }
+  ],
+  "actual_producer_bindings": [
+    {
+      "file": "ScalarLocalSquares318.lean",
+      "sha256": "ed729af8fd8c43dea9276d68eb4729b5b3dade88f807b42e37a9477698c77dfa",
+      "declarations": [
+        {
+          "declaration": "lemma square_of_near_square",
+          "line": 14,
+          "excerpt": "lemma square_of_near_square (p : \u2115) [Fact p.Prime] (u v : \u2124_[p])\n    (hnear : \u2016u^2-v\u2016< \u20162*u\u2016^2) : IsSquare v := by\n  let F : Polynomial \u2124_[p] := X^2-C v\n  have hn : \u2016F.aeval u\u2016< \u2016F.derivative.aeval u\u2016^2 := by\n    simpa [F] using hnear\n  obtain \u27e8z,hz,_\u27e9 := hensels_lemma hn\n  have he : z^2=v := sub_eq_zero.mp (by simpa [F] using hz)\n  exact \u27e8z,by simpa only [pow_two] using he.symm\u27e9\n\nlemma square_two_shape (k : \u2124) : IsSquare ((1+8*k:\u2124):\u2124_[2]) := by\n  apply square_of_near_square 2 1\n  have he : (1:\u2124_[2])^2-((1+8*k:\u2124):\u2124_[2])= -(2:\u2124_[2])^3*(k:\u2124_[2]) := by\n    push_cast\n    ring\n  have hb : \u2016(k:\u2124_[2])\u2016\u22641 := PadicInt.norm_le_one _\n  simp only [he,norm_mul,norm_neg,norm_pow,mul_one,PadicInt.norm_p]\n  norm_num\n  nlinarith\n\nlemma square_three_shape (k : \u2124) : IsSquare ((1+3*k:\u2124):\u2124_[3]) := by\n  apply square_of_near_square 3 1\n  have he : (1:\u2124_[3])^2-((1+3*k:\u2124):\u2124_[3])= -(3:\u2124_[3])*(k:\u2124_[3]) := by\n    push_cast\n    ring\n  have hd : \u2016(2:\u2124_[3])\u2016=1 := PadicInt.norm_natCast_eq_one_iff.mpr (by decide)\n  have hb : \u2016(k:\u2124_[3])\u2016\u22641 := PadicInt.norm_le_one _\n  rw [he,norm_mul,norm_neg,mul_one,PadicInt.norm_p,h"
+        }
+      ]
+    },
+    {
+      "file": "SelectedQuotientOrders318.lean",
+      "sha256": "2c82f5dd63554e2f5b8bcd141ef468c547c4d94edd98134a96cea5e135eeb72f",
+      "declarations": [
+        {
+          "declaration": "def generator",
+          "line": 19,
+          "excerpt": "def generator (rho : \u211a_[p]) (hr : rho^2=2) :\n    (E (ConcretePadic318.embedding p rho hr D)).Point \u29f8 subgroup p rho hr :=\n  QuotientAddGroup.mk' (subgroup p rho hr)\n    (ShortCurveBaseChange318.pointMap (ConcretePadic318.embedding p rho hr).toRingHom D R)\n\n@[expose] def order (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 := addOrderOf (generator p rho hr)\n\nlemma order_positive (rho : \u211a_[p]) (hr : rho^2=2) : 0<order p rho hr := by\n  letI := CompactLocalPointCoding318.finite_formal_quotient\n    (ActualSplitOrbitEntry318.nonarchimedean p)\n    (ConcretePadic318.embedding p rho hr D)\n    (ActualSplitOrbitEntry318.coefficient_ne p rho hr)\n    (ActualSplitOrbitEntry318.coefficient_integral p rho hr)\n  exact (isOfFinAddOrder_of_finite (generator p rho hr)).addOrderOf_pos\n\n/-- Any proposed reduction-order modulus must kill this exact half-point\nclass. The comparison with Gaussian CM orders is kept explicit, not assumed\nfrom membership of P=2R in a different doubling-image subgroup. -/\ntheorem entry_of_order_dvd (rho : \u211a_[p]) (hr : rho^2=2) (M : \u2115)\n    (horder : order p rho hr\u2223M) : SelectedFormalEntry318.E"
+        },
+        {
+          "declaration": "def order",
+          "line": 24,
+          "excerpt": "def order (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 := addOrderOf (generator p rho hr)\n\nlemma order_positive (rho : \u211a_[p]) (hr : rho^2=2) : 0<order p rho hr := by\n  letI := CompactLocalPointCoding318.finite_formal_quotient\n    (ActualSplitOrbitEntry318.nonarchimedean p)\n    (ConcretePadic318.embedding p rho hr D)\n    (ActualSplitOrbitEntry318.coefficient_ne p rho hr)\n    (ActualSplitOrbitEntry318.coefficient_integral p rho hr)\n  exact (isOfFinAddOrder_of_finite (generator p rho hr)).addOrderOf_pos\n\n/-- Any proposed reduction-order modulus must kill this exact half-point\nclass. The comparison with Gaussian CM orders is kept explicit, not assumed\nfrom membership of P=2R in a different doubling-image subgroup. -/\ntheorem entry_of_order_dvd (rho : \u211a_[p]) (hr : rho^2=2) (M : \u2115)\n    (horder : order p rho hr\u2223M) : SelectedFormalEntry318.Entry p rho hr M := by\n  have hz : M \u2022 generator p rho hr=0 := addOrderOf_dvd_iff_nsmul_eq_zero.mp horder\n  apply (QuotientAddGroup.eq_zero_iff _).mp\n  change (QuotientAddGroup.mk' (subgroup p rho hr))\n    (ShortCurveBaseChange318.pointMap (ConcretePadic318.embedding "
+        },
+        {
+          "declaration": "lemma order_positive",
+          "line": 26,
+          "excerpt": "lemma order_positive (rho : \u211a_[p]) (hr : rho^2=2) : 0<order p rho hr := by\n  letI := CompactLocalPointCoding318.finite_formal_quotient\n    (ActualSplitOrbitEntry318.nonarchimedean p)\n    (ConcretePadic318.embedding p rho hr D)\n    (ActualSplitOrbitEntry318.coefficient_ne p rho hr)\n    (ActualSplitOrbitEntry318.coefficient_integral p rho hr)\n  exact (isOfFinAddOrder_of_finite (generator p rho hr)).addOrderOf_pos\n\n/-- Any proposed reduction-order modulus must kill this exact half-point\nclass. The comparison with Gaussian CM orders is kept explicit, not assumed\nfrom membership of P=2R in a different doubling-image subgroup. -/\ntheorem entry_of_order_dvd (rho : \u211a_[p]) (hr : rho^2=2) (M : \u2115)\n    (horder : order p rho hr\u2223M) : SelectedFormalEntry318.Entry p rho hr M := by\n  have hz : M \u2022 generator p rho hr=0 := addOrderOf_dvd_iff_nsmul_eq_zero.mp horder\n  apply (QuotientAddGroup.eq_zero_iff _).mp\n  change (QuotientAddGroup.mk' (subgroup p rho hr))\n    (ShortCurveBaseChange318.pointMap (ConcretePadic318.embedding p rho hr).toRingHom D\n      ((M:\u2124) \u2022 R))=0\n  rw [map_zsmul,map_zsmul,natCast_zs"
+        },
+        {
+          "declaration": "theorem entry_of_order_dvd",
+          "line": 37,
+          "excerpt": "theorem entry_of_order_dvd (rho : \u211a_[p]) (hr : rho^2=2) (M : \u2115)\n    (horder : order p rho hr\u2223M) : SelectedFormalEntry318.Entry p rho hr M := by\n  have hz : M \u2022 generator p rho hr=0 := addOrderOf_dvd_iff_nsmul_eq_zero.mp horder\n  apply (QuotientAddGroup.eq_zero_iff _).mp\n  change (QuotientAddGroup.mk' (subgroup p rho hr))\n    (ShortCurveBaseChange318.pointMap (ConcretePadic318.embedding p rho hr).toRingHom D\n      ((M:\u2124) \u2022 R))=0\n  rw [map_zsmul,map_zsmul,natCast_zsmul]\n  exact hz\n\n/-- Specializing the positive actual quotient order gives entry with no\nexistential local-modulus premise. Its arithmetic separation from OTHER\nselected primes remains a separate requirement of the global prime theorem. -/\ntheorem actual_entry (rho : \u211a_[p]) (hr : rho^2=2) :\n    0<order p rho hr \u2227 SelectedFormalEntry318.Entry p rho hr (order p rho hr) :=\n  \u27e8order_positive p rho hr,entry_of_order_dvd p rho hr _ dvd_rfl\u27e9\n\nend SelectedQuotientOrders318\n"
+        }
+      ]
+    },
+    {
+      "file": "MergedContactPrimePattern318.lean",
+      "sha256": "5ef7e7059444c0341c2b5ba57e71199ac92618078364b5def75091f76553ec70",
+      "declarations": [
+        {
+          "declaration": "lemma row_distinct",
+          "line": 40,
+          "excerpt": "lemma row_distinct (hn : \u2200 j, labels j\u22600) (u w : \u2124) (h : Values C u w) (j : Fin 3) :\n    Function.Injective (fun k => value u w (C.coefficient (j,k))) :=\n  (value_injective u w h.nonzero).comp (row_injective C hn j)\n\n/-- Each actual row is attached to a product of its five distinct positive\nprime values, while a single merged product covers all fifteen positions. -/\ntheorem actual_squareclasses (hn : \u2200 j, labels j\u22600) (q : \u211a) (h u w : \u2124)\n    (hp : Values C u w)\n    (hb : \u2200 j : Fin 3, 0<ThreeDetectorUniformFamily318.witness q labels h\n      (parameter C u w) (190+51*j.val)) :\n    0<product C u w \u2227\n    \u2200 j : Fin 3,\n      Function.Injective (fun k => value u w (C.coefficient (j,k))) \u2227\n      (\u2200 k : Fin 5, Nat.Prime (value u w (C.coefficient (j,k))).natAbs \u2227\n        (value u w (C.coefficient (j,k))).natAbs\u2223product C u w) \u2227\n      \u2203 z : \u211a, z\u22600 \u2227\n        ThreeDetectorUniformFamily318.witness q labels h (parameter C u w) (190+51*j.val)=\n          (rowProduct C u w j:\u211a)*z^2 := by\n  refine \u27e8product_pos C u w hp,?_\u27e9\n  intro j\n  refine \u27e8row_distinct C hn u w hp j,?_,\n    ActualContactPrimeSquarecl"
+        }
+      ]
+    },
+    {
+      "file": "ThreeSelectedPolePreparation318.lean",
+      "sha256": "7ccfcbd32724c0f5946cdfca3d93b454e07cf954ab16ded40b67abf91a87071c",
+      "declarations": [
+        {
+          "declaration": "theorem family",
+          "line": 26,
+          "excerpt": "theorem family {labels : Fin 4 \u2192 \u2124} (C : Clearing labels) (hn : \u2200 j, labels j\u22600)\n    (q : \u211a) (h\u2080 L : \u2115) (N\u2082 N\u2083 N\u2081\u2087 : \u2124)\n    (h\u2082 : SourceLocalProgression318.Prepared 2 q labels h\u2080 L N\u2082 3)\n    (h\u2083 : SourceLocalProgression318.Prepared 3 q labels h\u2080 L N\u2083 1)\n    (h\u2081\u2087 : SourceLocalProgression318.Prepared 17 q labels h\u2080 L N\u2081\u2087 2) :\n    \u2203 Q : \u2115, 0<Q \u2227 \u2200 u w : \u2124, \u2200 hp : Values C u w,\n      (Q:\u2124)\u2223w \u2192 (\u2200 k\u2208coefficients C, (408:\u2124)\u2223value u w k-1) \u2192\n      \u2200 h : \u2115, Nat.ModEq L h h\u2080 \u2192\n      (\u2200 j : Fin 3, 0<ThreeDetectorUniformFamily318.witness q labels (h:\u2124)\n        (parameter C u w) (190+51*j.val) \u2227\n        ThreeDetectorUniformFamily318.witness q labels (h:\u2124) (parameter C u w) (190+51*j.val)<17) \u2192\n      SelectedTrace C q (h:\u2124) u w hp \u2192 Prepared q labels (h:\u2124) (parameter C u w) := by\n  obtain \u27e8Q,hQ,hdepth\u27e9 := ContactDenominatorModulus318.common C N\u2082 N\u2083 N\u2081\u2087\n  refine \u27e8Q,hQ,?_\u27e9\n  intro u w hp hw hray h hh hb htrace\n  obtain \u27e8hd\u2082,hd\u2083,hd\u2081\u2087\u27e9 := hdepth w hp.nonzero hw\n  have hlocal (k : \u2124) (hk : k\u2208coefficients C) := ContactSmallPrimeRays318.ray_preparation _ (hray k hk)\n  have hsmall\u2082 := local_preparation C"
+        }
+      ]
+    },
+    {
+      "file": "SelectedTraceFromOrders318.lean",
+      "sha256": "0c0c26c877dfdabbee09e44aa4425577ca2c39d7f72d05e549442db0a97f18d3",
+      "declarations": [
+        {
+          "declaration": "def Orders",
+          "line": 13,
+          "excerpt": "def Orders (u w : \u2124) (hp : Values C u w) (Mminus Mplus : \u2115) : Prop :=\n  \u2200 j : Fin 3, \u2200 i : Fin 5,\n    let p := (row C u w j i).natAbs\n    letI : Fact p.Prime := \u27e8row_prime C u w hp j i\u27e9\n    \u2203 (rho : \u211a_[p]) (hr : rho^2=2),\n      SelectedQuotientOrders318.order p rho hr\u2223Mminus \u2227\n      SelectedQuotientOrders318.order p (-rho) (negative_root p rho hr)\u2223Mplus\n\ntheorem comparison_inputs (a : \u2124) (hn : \u2200 j, labels j\u22600)\n    (hbeta : labels 0=3723*(2*a+1)^2)\n    (hlucas : (labels 2)^2-labels 1*(labels 1-2)*labels 2*labels 3+\n      (labels 1-2)^2*(labels 3)^2=1)\n    (h : \u2115) (u w : \u2124) (hp : Values C u w)\n    (ha : SelectedOppositeGood318.Avoidance C u w hp)\n    (Mminus Mplus : \u2115) (hi : Orders C u w hp Mminus Mplus)\n    (hprimary : Nat.ModEq ((MergedContactPrimePattern318.product C u w)^3*Mminus) h 0)\n    (hopposite : Nat.ModEq Mplus h 1) (hzero : (h:\u2124)\u22600) (hone : (h:\u2124)\u22601) :\n    SelectedSixComparisonTrace318.Inputs C (a:\u211a) (h:\u2124) u w hp Mminus Mplus := by\n  intro j i\n  dsimp only\n  let p := (row C u w j i).natAbs\n  letI : Fact p.Prime := \u27e8row_prime C u w hp j i\u27e9\n  obtain \u27e8rho,hr,hm,hp'\u27e9 := hi j i\n "
+        },
+        {
+          "declaration": "theorem selected_trace",
+          "line": 50,
+          "excerpt": "theorem selected_trace (a : \u2124) (hn : \u2200 j, labels j\u22600)\n    (hbeta : labels 0=3723*(2*a+1)^2)\n    (hlucas : (labels 2)^2-labels 1*(labels 1-2)*labels 2*labels 3+\n      (labels 1-2)^2*(labels 3)^2=1)\n    (h : \u2115) (u w : \u2124) (hp : Values C u w)\n    (ha : SelectedOppositeGood318.Avoidance C u w hp)\n    (Mminus Mplus : \u2115) (hi : Orders C u w hp Mminus Mplus)\n    (hprimary : Nat.ModEq ((MergedContactPrimePattern318.product C u w)^3*Mminus) h 0)\n    (hopposite : Nat.ModEq Mplus h 1) (hzero : (h:\u2124)\u22600) (hone : (h:\u2124)\u22601)\n    (hg : \u2200 j, RealGuardTrace318.guardValue (labels j) ((h:\u2124) \u2022 LocalGenerator318.P)\u22600) :\n    SelectedContactDenominators318.SelectedTrace C (a:\u211a) (h:\u2124) u w hp :=\n  SelectedSixComparisonTrace318.selected_trace C hn (a:\u211a) h u w hp ha Mminus Mplus\n    (comparison_inputs C a hn hbeta hlucas h u w hp ha Mminus Mplus hi hprimary hopposite hzero hone)\n    hprimary hopposite hzero hone hg\n\n/-- Literal source slots190/241/292 now have square reduced denominators\nwithout any selected-place detector, logarithm, or Pad\u00e9-error premise. -/\ntheorem square_denominators (a : \u2124) (hn : \u2200 j, labels j"
+        }
+      ]
+    }
+  ],
+  "witness_direction": "IsSquare a supplies a=z*z; reverse to z^2=a. Rat.num_div_den supplies num/den=q. Norm unit iff p.Coprime n. Lcm positivity requires every actual original-position order nonzero."
+}

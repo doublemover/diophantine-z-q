@@ -1,0 +1,22 @@
+# Actual logarithmic Selberg denominator and original weighted source bound
+
+Exact467 is preserved. Five modules complete a substantial arithmetic join: the actual original full Euler product and the actual strict-divisor Selberg denominator have a produced positive lower bound C*(logN)^k, where k is the ORIGINAL coefficient count. The actual constructed natural Lambda coefficients therefore achieve a reciprocal-logarithmic main term for every original finite weighted quadric source and every single removed prime. No Mertens lower estimate or character-product convergence at exponent1 is supplied as an assumption.
+
+ActualOrdinaryEulerHarmonic318 constructs the finite-prime reciprocal Euler sum at exponent1. Only individual prime-power geometric series are summable; global harmonic summability is neither used nor asserted. Each positive integer n<N injects into the genuine factoredNumbers(rangeN) subtype. The literal integer harmonic sum is bounded by the ordinary finite prime product. A direct induction using log((k+2)/(k+1))<=1/(k+1) proves logN is below that same harmonic sum, hence below the same actual finite product.
+
+ActualFiniteEulerExclusions318 identifies the original selected primes EXACTLY as primesBelowN minus the fixed set formed from exceptionalPrimes(kappa,gamma) and the original cutoff16*(k+2). All removed products are bounded by an explicit finite powerset sum. This is important for the character factors: some are less than1, so indiscriminately deleting them is not monotone. The precise finite factor comparison holds at the actual consumer product and uniformly inN.
+
+ActualSelectedEulerLower318 applies that fixed-factor comparison twice. The ordinary selected product is at least logN/U for a produced U>0. The character selected product is at least a produced c>0, using467's true all-cutoff lower bound for the same chi4 character and the same finite exclusions. Neither statement changes the lattice, coefficients, local density, or original prime range.
+
+ActualOriginalEulerLogGrowth318 combines these with455's proved uniform upper bound V on the actual correction product. The exact original Euler identity yields
+ fullEuler(kappa,gamma,j0,N) >= c^2/(V*U^k) * (logN)^k,
+uniformly for N>=2. The positive coefficient is constructed before N, the removed prime and the original source set. It is not an asymptotic parameter handed to the caller.
+
+ActualSelbergLogDenominator318 consumes the genuine442 integer-divisor denominator bound at the produced polynomial cutoff threshold(J,N). Uniform removal of ANY one prime costs at most the existing factor4. The actual produced natural Lambda coefficients from447 have mainSum <= Cmain/(logN)^k, where Cmain>0 depends only on the original coefficient data. Finally the literal original weighted source sum, retaining all original points rather than deduplicating keys, is bounded by
+ Cmain * (sum original point weights)/(logN)^k + exact original errSum(lambdaSquared(actual coefficients)).
+All source weights, local densities, original key and removed-prime product are unchanged. The exact remainder is deliberately visible. Primitive integer-point congruence asymptotics, the Gaussian ray weighted main term, and actual prime/order production remain separate major inputs; this is not a prime-production theorem.
+
+Validation: exact104 harmonic-versus-Euler comparisons,104 logarithmic harmonic checks,188 positive finite-subproduct comparisons,33 exact original exclusion-set identities,33 original local-density Euler factorizations,194 actual prime-removal comparisons and27 quantitative growth/optimizer joins. Uniform convergence-derived constants are supplied by the source proofs, not inferred from these finite tests. Canonical472/222; no local Lean run.
+
+## Narrow original uniform-domain elaboration repair
+Hosted195 fd8caf63 passed the earlier product-filter and positive-product repairs. The remaining weights_limit mismatch is resolved by an explicit pointwise equality of the SAME actual weights function with its displayed triple, before applying the unchanged three limit facts. In the compact-tube consumer, the exact (project w,weights t) pair is explicitly typed as belonging to U times V before hUV is applied. This prevents unresolved product metavariables; no original coefficient, source assignment, tube, bound, formula or choice-order is changed. All471 other modules, including the five472 logarithmic denominator sources, are exact. Full diagnostic is bound; no local Lean.
