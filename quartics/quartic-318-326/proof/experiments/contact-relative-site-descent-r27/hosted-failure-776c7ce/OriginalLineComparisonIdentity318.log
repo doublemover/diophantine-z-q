@@ -1,0 +1,39 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-zariski-class-gluing/OriginalLineComparisonIdentity318.lean:23:76: error: unsolved goals
+R : CommRingCat
+L : Line (Spec R)
+N : ModuleCat ↑R := OriginalLineAffineModel318.sections R L
+a : (tilde.functor R ⋙ Scheme.Modules.pullback (Spec.map (𝟙 R))).obj N ≅
+  (ModuleCat.extendScalars (CommRingCat.Hom.hom (𝟙 R)) ⋙ tilde.functor R).obj N :=
+  (TildePullback318.pullbackIso (𝟙 R)).app N
+p : Scheme.Modules.pullback (Spec.map (𝟙 R)) ≅ 𝟭 (Spec R).Modules := TildePullbackIdentity318.pullbackId R
+⊢ ((a.inv ≫ (TildePullback318.pullbackIso (𝟙 R)).hom.app N) ≫
+        (tilde.functor R).map ((ModuleCat.extendScalarsId ↑R).hom.app N)) ≫
+      L.object.fromTildeΓ =
+    (tilde.functor R).map ((ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L)) ≫
+      L.object.fromTildeΓ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-zariski-class-gluing/OriginalLineComparisonIdentity318.lean:20:6: error: (kernel) excessive memory consumption detected
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-zariski-class-gluing/OriginalLineComparisonIdentity318.lean:30:31: warning: This simp argument is unused:
+  Iso.inv_hom_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Category.assoc, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-zariski-class-gluing/OriginalLineComparisonIdentity318.lean:30:47: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Category.assoc, Iso.inv_hom_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-zariski-class-gluing/OriginalLineComparisonIdentity318.lean:38:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (sectionsIso (𝟙 R) L).hom ≫ moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object) =
+    (tilde.adjunction.homEquiv (extendedSections (𝟙 R) L)
+          ((tilde.functor R).obj ((𝟭 (ModuleCat ↑R)).obj (OriginalLineAffineModel318.sections R L))))
+        ((tilde.functor R).map ((ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L))) ≫
+      moduleSpecΓFunctor.map L.object.fromTildeΓ
+but is expected to have type
+  (sectionsIso (𝟙 R) L).hom ≫ moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object) =
+    (ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L)
