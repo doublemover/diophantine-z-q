@@ -1,0 +1,85 @@
+{
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ORIGINAL_NATIVE_ELLIPTIC_DOUBLING_REVIEW_REQUESTED",
+  "claim": "Actual original torus bijects with native algebraic elliptic points and respects the independent group law; original residual four-cover equals native doubling under actual original uniformization.",
+  "revision_source": "pel-original-period-cubic-nonsingular-r1",
+  "predecessor_application_sha256": "6d97d4b35f5f97a1c438a71e828f9e7c6196348cdd78f4c8987ac2cfb7e8755d",
+  "new_sources": {
+    "OriginalPeriodAffineBijection318.lean": "de2c96c3a81133e6213fbb8e61f4e18a96d4dbcef5617d67cc6a81403613852a",
+    "OriginalPeriodEllipticPoints318.lean": "a6ca246b7b571c15fbb9e8ef7efcb2971bf36e55d46395f002d056dc51e4a043",
+    "OriginalPeriodEllipticChord318.lean": "ea31a93989836daf14fd783ed71bd416c1d853b6c391f7c3a838b0105ae49a0f",
+    "OriginalPeriodEllipticGroup318.lean": "abf0d73504e5f1cf483a461babbb0e4ad1c1ca1b081f5ab2196a71bbba793396",
+    "PELOriginalAlgebraicDoubling318.lean": "d88a4cd8b622f6fb9c31f699792a52e3c3a3616e1367e92ce5aa5ba80068fb68"
+  },
+  "obligations": [
+    {
+      "required": "Actual point separation",
+      "constructed": "Same original affine cubic map injective",
+      "justification": "Existing pair theorem plus full original lattice equality",
+      "evidence": [
+        "OriginalPeriodAffineBijection318.affinePoint_injective"
+      ]
+    },
+    {
+      "required": "Native algebraic curve",
+      "constructed": "Original period-sum elliptic curve",
+      "justification": "Actual nonzero discriminant, no elliptic premise",
+      "evidence": [
+        "OriginalPeriodEllipticPoints318.curve_isElliptic"
+      ]
+    },
+    {
+      "required": "Full original point carrier",
+      "constructed": "Bijective including actual infinity",
+      "justification": "Original coordinates retained, target native Point type",
+      "evidence": [
+        "OriginalPeriodEllipticPoints318.equivalence"
+      ]
+    },
+    {
+      "required": "Native group law",
+      "constructed": "Actual chord compatibility",
+      "justification": "Uses genuine original P/Pprime addition theorem",
+      "evidence": [
+        "OriginalPeriodEllipticChord318.rawPoint_add_chord"
+      ]
+    },
+    {
+      "required": "All exceptional cases",
+      "constructed": "Same torus AddEquiv to native elliptic points",
+      "justification": "Actual auxiliary arguments and native associativity",
+      "evidence": [
+        "OriginalPeriodEllipticGroup318.addEquiv"
+      ]
+    },
+    {
+      "required": "Original four-cover",
+      "constructed": "Exactly native multiplication by two",
+      "justification": "Same original character/involution maps and original uniformization",
+      "evidence": [
+        "PELOriginalAlgebraicDoubling318.original_algebraic_doubling"
+      ]
+    },
+    {
+      "required": "Remaining work",
+      "constructed": "Uniformization/scheme/rational identification distinct",
+      "justification": "No point-group bijection called a scheme isomorphism",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "required": "Preservation",
+      "constructed": "All282 exact",
+      "justification": "No local Lean or baseline promotion",
+      "evidence": [
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "readme_sha256": "11f237913f371cf0f390ef4a42c889f2ab4ee5d4b07e06a23260045949cb28ae",
+  "intake_sha256": "9408a104d221eae5c6704c0821140ba92ef6c005058bef66c5b55a01d70b2833",
+  "copy_bindings_sha256": "aeba4f963dd23b16c337cb476288ffd0d77f8dd6605c29fe55bf3e271cd67776",
+  "pinned_apis_sha256": "ce022bb6219999ba8522d616b7a126264645244f2424812aa1e365f17d3445cd"
+}
