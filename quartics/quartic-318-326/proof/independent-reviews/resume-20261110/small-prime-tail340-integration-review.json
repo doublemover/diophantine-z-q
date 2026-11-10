@@ -1,0 +1,18 @@
+{
+  "reviewer": "/root/integrate_resumed_work",
+  "verdict": "SOURCE_REVIEW_CLEAR_NOT_HOSTED_ACCEPTANCE",
+  "packet": "forward-original-small-prime-tail-r1",
+  "application_sha256": "d8f740530468363fdbf0b16d07547d7c428c0dd70f11b6a9f504aaaec8b0cff3",
+  "new_sources": {
+    "OriginalReciprocalSquareTail318": "58a52f6673fa38d39732d5331e37942ee82900ad2c26c1a1fd4031fdcfc0dad5",
+    "OriginalFiniteSieveUnion318": "8a46149d68848b87608046850d21048d2146406cd4a8ab233b7aa441742d4349",
+    "OriginalSmallPrimeRectangleTail318": "bc9be1675393138cb193cf15c81cfc69ba579f2fb449d67383fd13c0f3fcbdbd",
+    "OriginalReducedRectangleVolume318": "9f7f90e266a74f9dff5bd45ed39ffbd81a2e25126bfa3d018e77a07b5ab3c4d0"
+  },
+  "checks": [
+    "Read all four full sources and inherited actual residue/interval/count APIs. Reciprocal-square estimate is finite telescoping on integers with upper endpoint correction, then injective finite-set indexing; no prime-distribution assumption. Obstruction union injects into witness-prime sigma type, so overlap never assumed disjoint.",
+    "Actual integer divisibility for each original pair under SAME basis synthesis is equivalent to exact residue obstruction. Full anisotropic (2A/p+1)(2B/p+1)(2C/p+1) factors are absorbed ONLY with p<=each side; count*p\u00b2<=216ABC, then finite tail<=216ABC/Y for actual distinct primes outside kappa*label.",
+    "Exact original whole-basis determinant M\u00b2 and original z<=2w bound give actual floored rectangle volume*M\u00b2<=512R\u00b3. Combined bound count*M\u00b2*Y<=110592R\u00b3 is PER ORIGINAL PAIR (Bool side), not simultaneous union of both pairs without factor2; applies to coefficient-rectangle obstruction, not yet direct original norm-point transport or primes beyond shortest side.",
+    "Independently reran exact checker:1230 telescoping prefixes,210 finite reciprocal sets,216 scaled fibers,162 union tails including9 overlaps,1200 rational-floor volume cases, shortest-side negative control PASS. All336 predecessor bytes exact, canonical340 PASS. No local Lean/profiler."
+  ]
+}
