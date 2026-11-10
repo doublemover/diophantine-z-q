@@ -18,10 +18,33 @@ EXPERIMENTS = ci.ROOT / 'quartics/quartic-318-326/proof/experiments'
 OFFICIAL_PREFIXES = {'Mathlib','Lean','Std','Init','Batteries','Qq','Aesop','Plausible','ProofWidgets','ImportGraph'}
 
 
+
+def check_application_bindings(folder):
+    """Check declared evidence bytes, not the mathematical truth of a contract."""
+    contract = folder / 'APPLICATION.json'
+    if not contract.is_file():
+        return  # Small tooling fixtures and legacy packets may omit a contract.
+    bindings = json.loads(contract.read_text()).get('bindings', {})
+    if not isinstance(bindings, dict):
+        raise ValueError('Invalid application bindings')
+    base = folder.resolve()
+    for relative, digest in bindings.items():
+        if (not isinstance(relative, str) or Path(relative).is_absolute()
+                or not (folder / relative).resolve().is_relative_to(base)
+                or not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest)):
+            raise ValueError('Invalid application evidence binding: ' + str(relative))
+        evidence = folder / relative
+        if not evidence.is_file():
+            raise ValueError('Missing application evidence: ' + relative)
+        if ci.sha(evidence) != digest:
+            raise ValueError('Application evidence hash mismatch: ' + relative)
+
+
 def packet(name, baseline, root=EXPERIMENTS):
     if not re.fullmatch(r'[a-z][a-z0-9-]*', name):
         raise ValueError('Invalid packet name')
     folder = root / name
+    check_application_bindings(folder)
     data = json.loads((folder/'intake.json').read_text())
     order = data['order']
     if not order or len(order) != len(set(order)):

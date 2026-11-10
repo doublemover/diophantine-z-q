@@ -22,6 +22,24 @@ class ExperimentTests(unittest.TestCase):
             root=Path(t);p,d,plan=self.fixture(root)
             _,_,direct,ext=e.packet('sample',plan,root)
             self.assertEqual(e.required_baseline(plan,direct),['A','Base']);self.assertFalse(ext)
+    def test_application_evidence_bindings_fail_closed(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);p,d,plan=self.fixture(root)
+            evidence=p/'SOURCE_SHA256SUMS';evidence.write_text('exact source list\n')
+            digest=ci.sha(evidence)
+            ci.write_json(p/'APPLICATION.json',{'bindings':{'SOURCE_SHA256SUMS':digest}})
+            e.packet('sample',plan,root)
+            evidence.write_text('stale source list\n')
+            with self.assertRaisesRegex(ValueError,'evidence hash mismatch'):
+                e.packet('sample',plan,root)
+            evidence.unlink()
+            with self.assertRaisesRegex(ValueError,'Missing application evidence'):
+                e.packet('sample',plan,root)
+            for bindings in [{'../outside':digest},{'SOURCE_SHA256SUMS':'not-a-digest'},[]]:
+                ci.write_json(p/'APPLICATION.json',{'bindings':bindings})
+                with self.assertRaisesRegex(ValueError,'Invalid application'):
+                    e.packet('sample',plan,root)
+
     def test_source_mutation_and_declared_imports_fail(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);p,d,plan=self.fixture(root)

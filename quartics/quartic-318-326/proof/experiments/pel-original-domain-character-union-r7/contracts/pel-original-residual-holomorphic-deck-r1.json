@@ -1,0 +1,91 @@
+{
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ACTUAL_HOLOMORPHIC_RESIDUAL_DECK_REVIEW_REQUESTED",
+  "claim": "Actual four-element exponent-two holomorphic free residual deck group and full fiber torsors on original involution-to-character maps.",
+  "revision_source": "pel-original-direct-character-branches-r1",
+  "predecessor_application_sha256": "25a0cc6bd276e6d0601fb541c63c44f66d7df7cb0e315345cf91aa6d430c532b",
+  "new_sources": {
+    "PELOriginalResidualDeckAction318.lean": "face41c4fdb44aac51d44d509025e00ee2ca70aded8a02242206c796e9160a4c",
+    "PELOriginalResidualDeckFibers318.lean": "74cbccde10c517bc2c432556335ecd37aa7527638c64d2dea1152a5e033f21b4",
+    "PELOriginalResidualDeckHolomorphy318.lean": "be6f08bc676795c3d96881b00066667c03e699aef2f80e02d12d740dc501d390"
+  },
+  "obligations": [
+    {
+      "required": "Original carriers",
+      "constructed": "Same involution quotient, kernel subgroup and character projection",
+      "justification": "Action descends the literal original group action",
+      "evidence": [
+        "PELOriginalResidualDeckAction318.kernelMap"
+      ]
+    },
+    {
+      "required": "Exact image group",
+      "constructed": "Do not choose an unrelated group of order4",
+      "justification": "Deck is actual kernelAction.range; deckMap produces every element",
+      "evidence": [
+        "PELOriginalResidualDeckAction318.Deck"
+      ]
+    },
+    {
+      "required": "Exact action kernel",
+      "constructed": "Original omitted-label order-two subgroup",
+      "justification": "Kernel equality proven with residual_free at actual points",
+      "evidence": [
+        "PELOriginalResidualDeckAction318.deckMap_kernel"
+      ]
+    },
+    {
+      "required": "Whole free action",
+      "constructed": "No exceptional original fixed points left",
+      "justification": "Every actual deck stabilizer is identity",
+      "evidence": [
+        "PELOriginalResidualDeckAction318.deck_fixed_iff"
+      ]
+    },
+    {
+      "required": "Whole fibers",
+      "constructed": "Explicit orbit equivalence rather than just a degree count",
+      "justification": "Actual fiber equals deck orbit, with evaluation injective and surjective",
+      "evidence": [
+        "PELOriginalResidualDeckFibers318.fiberEquiv"
+      ]
+    },
+    {
+      "required": "Original elementary two structure",
+      "constructed": "Four elements with exponent2, not cyclic4",
+      "justification": "Cardinality from actual fibers; square law from original16labels",
+      "evidence": [
+        "PELOriginalResidualDeckFibers318.nontrivial_deck_involution"
+      ]
+    },
+    {
+      "required": "Holomorphic action",
+      "constructed": "Same existing complex quotient atlas",
+      "justification": "Original continuous quotient map and sheet coordinate identity yield holomorphy in both directions",
+      "evidence": [
+        "PELOriginalResidualDeckHolomorphy318.deck_biholomorphic"
+      ]
+    },
+    {
+      "required": "Remaining producer",
+      "constructed": "No equal-j or elliptic model conclusion from degree alone",
+      "justification": "Elliptic group law and translation/[2] identification remain separate",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "required": "Prior bytes and validation",
+      "constructed": "Preserve244 reviewed sources exactly",
+      "justification": "Canonical static checks only; no local Lean/baseline promotion",
+      "evidence": [
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "readme_sha256": "fd3ec99be3c078d90ede1ccec444db1ba5245d03ec6f0ad6b429cd953a5cc67c",
+  "intake_sha256": "3475a68a8c22f937ee500e1d6137c27368373ea4ee3adb866a0118d3cffa017b",
+  "copy_bindings_sha256": "f0e09d3b6db4f87f05d3dc6fac865b2dac80ed1d36e4b208e7be72c149a620fb",
+  "pinned_apis_sha256": "b17906a4b2e2a5e6987ef7209e66e6c901a2ba2b6a9eb227160767da8fa08f35"
+}
