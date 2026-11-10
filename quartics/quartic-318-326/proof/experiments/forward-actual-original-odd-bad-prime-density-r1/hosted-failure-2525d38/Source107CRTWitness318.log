@@ -1,0 +1,46 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-good-point-sieve-r2/Source107CRTWitness318.lean:47:4: error: linarith failed to find a contradiction
+S q : ℚ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+Pi Mminus Mplus L h₀ e B : ℕ
+hPi : 0 < Pi
+hMm : 0 < Mminus
+hMp : 0 < Mplus
+hL : 0 < L
+hPm : Pi.Coprime Mplus
+hPL : Pi.Coprime L
+hmp : Mminus.Coprime Mplus
+hpL : Mplus.Coprime L
+hmL : Mminus.gcd L = 16
+hdivL : 64 ∣ L
+hdivh₀ : 64 ∣ h₀
+h : ℕ
+hB : B + 1 < h
+hr0 : h ≡ 0 [MOD Pi ^ e * Mminus]
+hr1 : h ≡ 1 [MOD Mplus]
+hrL : h ≡ h₀ [MOD L]
+hpoint : ↑h • P ≠ 0
+hscalar : 1 / (100 * √7) < |↑(normCoefficient (chartU ↑h))|
+hguards : ∀ (j : Fin 4), margin labels j < |↑(RealGuardTrace318.guardValue (labels j) (↑h • P))|
+_hinput : CoherentMultiplePrefix318.witness q labels (↑h) 0 = q
+_hrows :
+  CircuitReplay.Constraints (List.take 51 (Raw318FinalReplay.stage0 S)) (CoherentMultiplePrefix318.witness q labels ↑h)
+hroots :
+  ∀ (j : Fin 4),
+    RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h) (CoherentMultiplePrefix318.v labels ↑h) j =
+      CoherentMultipleCharts318.fixedRoot (labels j)
+hzero : ↑h ≠ 0
+hone : ↑h ≠ 1
+j : Fin 4
+he : RealGuardTrace318.guardValue (labels j) (↑h • P) = 0
+hp : 0 < margin labels j
+ht : margin labels j < |↑(RealGuardTrace318.guardValue (labels j) (h • P))|
+⊢ False
+failed
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-good-point-sieve-r2/Source107CRTWitness318.lean:46:10: warning: This simp argument is unused:
+  he
+
+Hint: Omit it from the simp argument list.
+  [apply] simp at ht
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
