@@ -1,0 +1,199 @@
+{
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "pinned_primary_sources": [
+    {
+      "path": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "def toZMod :",
+          "line": 301,
+          "excerpt": "def toZMod : \u2124_[p] \u2192+* ZMod p :=\n  toZModHom p zmodRepr\n    (by\n      rw [\u2190 maximalIdeal_eq_span_p]\n      exact sub_zmodRepr_mem)\n    (by\n      rw [\u2190 maximalIdeal_eq_span_p]\n      exact zmod_congr_of_sub_mem_max_ideal)\n\n/-- `z - (toZMod z : \u2124_[p])` is contained in the maximal ideal of `\u2124_[p]`, for every `z : \u2124_[p]`.\n\nThe coercion from `ZMod p` to `\u2124_[p]` is `ZMod.cast`,\nwhich coerces `ZMod p` into arbitrary rings.\nThis is unfortunate, but a consequence of the fact that we allow `ZMod p`\nto coerce to rings of arbitrary characteristic, instead of only rings of characteristic `p`.\nThis coercion is only a ring homomorphism if it coerces into a ring whose characteristic divides\n`p`. While this is not the case here we can still make use of the coercion.\n-/\ntheorem toZMod_spec : x - (ZMod.cast (toZMod x) : \u2124_[p]) \u2208 maximalIdeal \u2124_[p] := by\n  convert sub_zmodRepr_mem x using 2\n  dsimp [toZMod, toZModHom]\n  rcases Nat.exists_eq_add_of_lt hp_prime.1.pos with \u27e8p', rfl\u27e9\n  change \u2191((_ : ZMod (0 + p' + 1)).val) = (_ : \u2124_[0 + p' + 1])\n  rw [Nat.cast_inj]\n  apply mod_eq_of_lt\n  simpa only [zero_add]"
+        },
+        {
+          "name": "theorem ker_toZMod",
+          "line": 328,
+          "excerpt": "theorem ker_toZMod : RingHom.ker (toZMod : \u2124_[p] \u2192+* ZMod p) = maximalIdeal \u2124_[p] := by\n  ext x\n  rw [RingHom.mem_ker]\n  constructor\n  \u00b7 intro h\n    simpa only [h, ZMod.cast_zero, sub_zero] using toZMod_spec x\n  \u00b7 intro h\n    rw [\u2190 sub_zero x] at h\n    dsimp [toZMod, toZModHom]\n    convert zmod_congr_of_sub_mem_max_ideal x _ 0 _ h\n    \u00b7 norm_cast\n    \u00b7 apply sub_zmodRepr_mem\n\n@[simp]\nlemma val_toZMod_eq_zmodRepr (x : \u2124_[p]) :\n    (toZMod x).val = x.zmodRepr :=\n  (zmodRepr_unique _ _ (ZMod.val_lt _) <| by simpa using toZMod_spec _).symm\n\nlemma zmodRepr_mul (x y : \u2124_[p]) : (x * y).zmodRepr = x.zmodRepr * y.zmodRepr % p := by\n  simp [\u2190 val_toZMod_eq_zmodRepr, ZMod.val_mul]\n\n/-- The equivalence between the residue field of the `p`-adic integers and `\u2124/p\u2124` -/\ndef residueField : IsLocalRing.ResidueField \u2124_[p] \u2243+* ZMod p :=\n  (Ideal.quotEquivOfEq PadicInt.ker_toZMod.symm).trans <|\n    RingHom.quotientKerEquivOfSurjective (ZMod.ringHom_surjective PadicInt.toZMod)\n\nopen scoped Classical in\n/-- `appr n x` gives a value `v : \u2115` such that `x` and `\u2191v : \u2124_p` are congruent mod `p^n`.\nSee `appr_spe"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem norm_lt_one_iff_dvd",
+          "line": 501,
+          "excerpt": "theorem norm_lt_one_iff_dvd (x : \u2124_[p]) : \u2016x\u2016 < 1 \u2194 \u2191p \u2223 x := by\n  have := norm_le_pow_iff_mem_span_pow x 1\n  rw [Ideal.mem_span_singleton, pow_one] at this\n  rw [\u2190 this, norm_le_pow_iff_norm_lt_pow_add_one]\n  simp only [zpow_zero, Int.ofNat_zero, Int.natCast_succ, neg_add_cancel, zero_add]\n\n@[simp]\ntheorem pow_p_dvd_int_iff (n : \u2115) (a : \u2124) : (p : \u2124_[p]) ^ n \u2223 a \u2194 (p ^ n : \u2124) \u2223 a := by\n  rw [\u2190 Nat.cast_pow, \u2190 norm_int_le_pow_iff_dvd, norm_le_pow_iff_mem_span_pow,\n    Ideal.mem_span_singleton, Nat.cast_pow]\n\nend NormLeIff\n\nsection Dvr\n\n/-! ### Discrete valuation ring -/\n\ninstance : IsLocalRing \u2124_[p] :=\n  IsLocalRing.of_nonunits_add <| by simp only [mem_nonunits]; exact fun x y => norm_lt_one_add\n\ntheorem p_nonunit : (p : \u2124_[p]) \u2208 nonunits \u2124_[p] := by\n  have : (p : \u211d)\u207b\u00b9 < 1 := inv_lt_one_of_one_lt\u2080 <| mod_cast hp.out.one_lt\n  rwa [\u2190 norm_p, \u2190 mem_nonunits] at this\n\ntheorem maximalIdeal_eq_span_p : maximalIdeal \u2124_[p] = Ideal.span {(p : \u2124_[p])} := by\n  apply le_antisymm\n  \u00b7 intro x hx\n    simp only [IsLocalRing.mem_maximalIdeal, mem_nonunits] at hx\n    rwa [Ideal.mem_span_singleton, \u2190 no"
+        },
+        {
+          "name": "theorem maximalIdeal_eq_span_p",
+          "line": 525,
+          "excerpt": "theorem maximalIdeal_eq_span_p : maximalIdeal \u2124_[p] = Ideal.span {(p : \u2124_[p])} := by\n  apply le_antisymm\n  \u00b7 intro x hx\n    simp only [IsLocalRing.mem_maximalIdeal, mem_nonunits] at hx\n    rwa [Ideal.mem_span_singleton, \u2190 norm_lt_one_iff_dvd]\n  \u00b7 rw [Ideal.span_le, Set.singleton_subset_iff]\n    exact p_nonunit\n\ntheorem prime_p : Prime (p : \u2124_[p]) := by\n  rw [\u2190 Ideal.span_singleton_prime, \u2190 maximalIdeal_eq_span_p]\n  \u00b7 infer_instance\n  \u00b7 exact NeZero.ne _\n\ntheorem irreducible_p : Irreducible (p : \u2124_[p]) := Prime.irreducible prime_p\n\ninstance : IsDiscreteValuationRing \u2124_[p] :=\n  IsDiscreteValuationRing.ofHasUnitMulPowIrreducibleFactorization\n    \u27e8p, irreducible_p, fun {x hx} =>\n      \u27e8x.valuation, unitCoeff hx, by rw [mul_comm, \u2190 unitCoeff_spec hx]\u27e9\u27e9\n\ntheorem ideal_eq_span_pow_p {s : Ideal \u2124_[p]} (hs : s \u2260 \u22a5) :\n    \u2203 n : \u2115, s = Ideal.span {(p : \u2124_[p]) ^ n} :=\n  IsDiscreteValuationRing.ideal_eq_span_pow_irreducible hs irreducible_p\n\nopen CauSeq\n\ninstance : IsAdicComplete (maximalIdeal \u2124_[p]) \u2124_[p] where\n  prec' x hx := by\n    simp only [\u2190 Ideal.one_eq_top, smul_eq_mul, mul_one, SModEq.su"
+        },
+        {
+          "name": "theorem norm_def",
+          "line": 208,
+          "excerpt": "theorem norm_def {z : \u2124_[p]} : \u2016z\u2016 = \u2016(z : \u211a_[p])\u2016 := rfl\n\ninstance : NormedCommRing \u2124_[p] where\n  dist_eq := by\n    rintro \u27e8x, hx\u27e9 \u27e8y, hy\u27e9\n    exact dist_eq_norm_neg_add x y\n  norm_mul_le := by simp [norm_def]\n\ninstance : NormOneClass \u2124_[p] :=\n  \u27e8norm_def.trans norm_one\u27e9\n\ninstance : NormMulClass \u2124_[p] := \u27e8fun x y \u21a6 by simp [norm_def]\u27e9\n\ninstance : IsDomain \u2124_[p] := NoZeroDivisors.to_isDomain _\n\nvariable {p}\n\n/-! ### Norm -/\n\n@[bound]\ntheorem norm_le_one (z : \u2124_[p]) : \u2016z\u2016 \u2264 1 := z.2\n\ntheorem nonarchimedean (q r : \u2124_[p]) : \u2016q + r\u2016 \u2264 max \u2016q\u2016 \u2016r\u2016 := Padic.nonarchimedean _ _\n\ntheorem norm_add_eq_max_of_ne {q r : \u2124_[p]} (h : \u2016q\u2016 \u2260 \u2016r\u2016) : \u2016q + r\u2016 = max \u2016q\u2016 \u2016r\u2016 :=\n  Padic.add_eq_max_of_ne h\n\ntheorem norm_eq_of_norm_add_lt_right {z1 z2 : \u2124_[p]} (h : \u2016z1 + z2\u2016 < \u2016z2\u2016) : \u2016z1\u2016 = \u2016z2\u2016 :=\n  by_contra fun hne =>\n    not_lt_of_ge (by rw [norm_add_eq_max_of_ne hne]; apply le_max_right) h\n\ntheorem norm_eq_of_norm_add_lt_left {z1 z2 : \u2124_[p]} (h : \u2016z1 + z2\u2016 < \u2016z1\u2016) : \u2016z1\u2016 = \u2016z2\u2016 :=\n  by_contra fun hne =>\n    not_lt_of_ge (by rw [norm_add_eq_max_of_ne hne]; apply le_max_left) h\n\n@[simp]\ntheorem norm_coe "
+        },
+        {
+          "name": "theorem norm_le_one",
+          "line": 228,
+          "excerpt": "theorem norm_le_one (z : \u2124_[p]) : \u2016z\u2016 \u2264 1 := z.2\n\ntheorem nonarchimedean (q r : \u2124_[p]) : \u2016q + r\u2016 \u2264 max \u2016q\u2016 \u2016r\u2016 := Padic.nonarchimedean _ _\n\ntheorem norm_add_eq_max_of_ne {q r : \u2124_[p]} (h : \u2016q\u2016 \u2260 \u2016r\u2016) : \u2016q + r\u2016 = max \u2016q\u2016 \u2016r\u2016 :=\n  Padic.add_eq_max_of_ne h\n\ntheorem norm_eq_of_norm_add_lt_right {z1 z2 : \u2124_[p]} (h : \u2016z1 + z2\u2016 < \u2016z2\u2016) : \u2016z1\u2016 = \u2016z2\u2016 :=\n  by_contra fun hne =>\n    not_lt_of_ge (by rw [norm_add_eq_max_of_ne hne]; apply le_max_right) h\n\ntheorem norm_eq_of_norm_add_lt_left {z1 z2 : \u2124_[p]} (h : \u2016z1 + z2\u2016 < \u2016z1\u2016) : \u2016z1\u2016 = \u2016z2\u2016 :=\n  by_contra fun hne =>\n    not_lt_of_ge (by rw [norm_add_eq_max_of_ne hne]; apply le_max_left) h\n\n@[simp]\ntheorem norm_coe (z : \u2124_[p]) : \u2016(z : \u211a_[p])\u2016 = \u2016z\u2016 := by simp [norm_def]\n\n@[deprecated (since := \"2026-09-25\")] alias padic_norm_e_of_padicInt := norm_coe\n\ntheorem norm_intCast_eq_padic_norm (z : \u2124) : \u2016(z : \u2124_[p])\u2016 = \u2016(z : \u211a_[p])\u2016 := by simp [norm_def]\n\n@[simp]\ntheorem norm_lift {q : \u211a_[p]} (hq : \u2016q\u2016 \u2264 1) : \u2016lift q hq\u2016 = \u2016q\u2016 := rfl\n\n@[deprecated (since := \"2026-09-25\")] alias norm_eq_padic_norm := norm_lift\n\n@[simp]\ntheorem norm_p : \u2016(p : \u2124_[p])\u2016 = (p"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/NumberTheory/Padics/Hensel.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem hensels_lemma",
+          "line": 460,
+          "excerpt": "theorem hensels_lemma :\n    \u2203 z : \u2124_[p],\n      F.aeval z = 0 \u2227\n        \u2016z - a\u2016 < \u2016F.derivative.aeval a\u2016 \u2227\n          \u2016F.derivative.aeval z\u2016 = \u2016F.derivative.aeval a\u2016 \u2227\n            \u2200 z', F.aeval z' = 0 \u2192 \u2016z' - a\u2016 < \u2016F.derivative.aeval a\u2016 \u2192 z' = z := by\n  classical\n  exact if ha : F.aeval a = 0 then \u27e8a, a_is_soln hnorm ha\u27e9\n  else by\n    exact \u27e8soln_gen hnorm, eval_soln hnorm,\n      soln_dist_to_a_lt_deriv hnorm ha, soln_deriv_norm hnorm, fun z => soln_unique hnorm ha z\u27e9\n"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/GroupTheory/OrderOfElement.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem orderOf_dvd_natCard",
+          "line": 1195,
+          "excerpt": "theorem orderOf_dvd_natCard {G : Type*} [Group G] (x : G) : orderOf x \u2223 Nat.card G := by\n  obtain h | h := fintypeOrInfinite G\n  \u00b7 simp only [Nat.card_eq_fintype_card, orderOf_dvd_card]\n  \u00b7 simp only [card_eq_zero_of_infinite, dvd_zero]\n\n@[to_additive]\nnonrec lemma Subgroup.orderOf_dvd_natCard {G : Type*} [Group G] (s : Subgroup G) {x} (hx : x \u2208 s) :\n    orderOf x \u2223 Nat.card s := by\n  simpa using orderOf_dvd_natCard (\u27e8x, hx\u27e9 : s)\n\n@[to_additive]\nlemma Subgroup.orderOf_le_card {G : Type*} [Group G] (s : Subgroup G) (hs : (s : Set G).Finite)\n    {x} (hx : x \u2208 s) : orderOf x \u2264 Nat.card s :=\n  le_of_dvd (Nat.card_pos_iff.2 \u27e8(OneMemClass.coe_nonempty s).to_subtype, hs.to_subtype\u27e9) <|\n    s.orderOf_dvd_natCard hx\n\n@[to_additive]\nlemma Submonoid.orderOf_le_card {G : Type*} [Group G] (s : Submonoid G) (hs : (s : Set G).Finite)\n    {x} (hx : x \u2208 s) : orderOf x \u2264 Nat.card s := by\n  rw [\u2190 Nat.card_submonoidPowers]; exact Nat.card_mono hs <| powers_le.2 hx\n\n@[to_additive (attr := simp) card_nsmul_eq_zero']\ntheorem pow_card_eq_one' {G : Type*} [Group G] {x : G} : x ^ Nat.card G = 1 :=\n  orderOf_d"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "lemma some_ne_zero",
+          "line": 616,
+          "excerpt": "lemma some_ne_zero {x y : R} (h : W'.Nonsingular x y) : some _ _ h \u2260 0 := by\n  rintro (_ | _)\n\n/-- The negation of a nonsingular point on a Weierstrass curve in affine coordinates.\n\nGiven a nonsingular point `P` in affine coordinates, use `-P` instead of `neg P`. -/\ndef neg : W'.Point \u2192 W'.Point\n  | 0 => 0\n  | some _ _ h => some _ _ <| (nonsingular_neg ..).mpr h\n\ninstance : Neg W'.Point :=\n  \u27e8neg\u27e9\n\nlemma neg_def (P : W'.Point) : -P = P.neg :=\n  rfl\n\n@[simp]\nlemma neg_zero : (-0 : W'.Point) = 0 :=\n  rfl\n\n@[simp]\nlemma neg_some {x y : R} (h : W'.Nonsingular x y) :\n    -some _ _ h = some _ _ ((nonsingular_neg ..).mpr h) :=\n  rfl\n\ninstance : InvolutiveNeg W'.Point where\n  neg_neg := by\n    rintro (_ | _)\n    \u00b7 rfl\n    \u00b7 simp only [neg_some, negY_negY]\n\nlemma X_eq_iff {x\u2081 y\u2081 x\u2082 y\u2082 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} {h\u2082 : W.Nonsingular x\u2082 y\u2082} :\n    x\u2081 = x\u2082 \u2194 some x\u2081 y\u2081 h\u2081 = some x\u2082 y\u2082 h\u2082 \u2228 some x\u2081 y\u2081 h\u2081 = -some x\u2082 y\u2082 h\u2082 := by\n  refine \u27e8fun H \u21a6 ?_, fun H \u21a6 by grind [neg_some]\u27e9\n  simp_rw [neg_some, some.injEq, \u2190 and_or_left]\n  exact \u27e8H, Y_eq_of_X_eq h\u2081.1 h\u2082.1 H\u27e9\n\nvariable [DecidableEq F] [Decid"
+        },
+        {
+          "name": "lemma add_self_of_Y_ne {",
+          "line": 701,
+          "excerpt": "lemma add_self_of_Y_ne {x\u2081 y\u2081 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} (hy : y\u2081 \u2260 W.negY x\u2081 y\u2081) :\n    some _ _ h\u2081 + some _ _ h\u2081 = some _ _ (nonsingular_add h\u2081 h\u2081 fun hxy => hy hxy.right) :=\n  add_of_Y_ne hy\n\nlemma add_self_of_Y_ne' {x\u2081 y\u2081 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} (hy : y\u2081 \u2260 W.negY x\u2081 y\u2081) :\n    some _ _ h\u2081 + some _ _ h\u2081 = -some _ _ (nonsingular_negAdd h\u2081 h\u2081 fun hxy => hy hxy.right) :=\n  add_of_Y_ne hy\n\n@[simp]\nlemma add_of_X_ne {x\u2081 x\u2082 y\u2081 y\u2082 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} {h\u2082 : W.Nonsingular x\u2082 y\u2082}\n    (hx : x\u2081 \u2260 x\u2082) :\n    some _ _ h\u2081 + some _ _ h\u2082 = some _ _ (nonsingular_add h\u2081 h\u2082 fun hxy => hx hxy.left) :=\n  add_some fun hxy => hx hxy.left\n\nlemma add_of_X_ne' {x\u2081 x\u2082 y\u2081 y\u2082 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} {h\u2082 : W.Nonsingular x\u2082 y\u2082}\n    (hx : x\u2081 \u2260 x\u2082) :\n    some _ _ h\u2081 + some _ _ h\u2082 = -some _ _ (nonsingular_negAdd h\u2081 h\u2082 fun hxy => hx hxy.left) :=\n  add_of_X_ne hx\n\n/-- A nonzero affine `2`-torsion point `some x y h` of `W` (that is, `P + P = 0`) has `X`-coordinate\na root of `W.twoTorsionPolynomial`. -/\ntheorem isRoot_twoTorsionPolynomial_of_add_self {x y : F} (h : W.Nonsingular x y)\n    ("
+        },
+        {
+          "name": "lemma add_of_X_ne {",
+          "line": 710,
+          "excerpt": "lemma add_of_X_ne {x\u2081 x\u2082 y\u2081 y\u2082 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} {h\u2082 : W.Nonsingular x\u2082 y\u2082}\n    (hx : x\u2081 \u2260 x\u2082) :\n    some _ _ h\u2081 + some _ _ h\u2082 = some _ _ (nonsingular_add h\u2081 h\u2082 fun hxy => hx hxy.left) :=\n  add_some fun hxy => hx hxy.left\n\nlemma add_of_X_ne' {x\u2081 x\u2082 y\u2081 y\u2082 : F} {h\u2081 : W.Nonsingular x\u2081 y\u2081} {h\u2082 : W.Nonsingular x\u2082 y\u2082}\n    (hx : x\u2081 \u2260 x\u2082) :\n    some _ _ h\u2081 + some _ _ h\u2082 = -some _ _ (nonsingular_negAdd h\u2081 h\u2082 fun hxy => hx hxy.left) :=\n  add_of_X_ne hx\n\n/-- A nonzero affine `2`-torsion point `some x y h` of `W` (that is, `P + P = 0`) has `X`-coordinate\na root of `W.twoTorsionPolynomial`. -/\ntheorem isRoot_twoTorsionPolynomial_of_add_self {x y : F} (h : W.Nonsingular x y)\n    (hP : some x y h + some x y h = 0) : W.twoTorsionPolynomial.toPoly.IsRoot x := by\n  rw [IsRoot.def, eval_toPoly_twoTorsionPolynomial, b\u2082, b\u2084, b\u2086]\n  have hy : y = W.negY x y := by\n    by_contra hne\n    rw [add_self_of_Y_ne hne] at hP\n    exact some_ne_zero _ hP\n  grind [h.left, negY, equation_iff]\n\n/-- `x` is a root of the `2`-torsion polynomial of a Weierstrass curve of characteristic\ndifferent from `2` with "
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/SetTheory/Cardinal/Finite.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem card_congr",
+          "line": 89,
+          "excerpt": "theorem card_congr (f : \u03b1 \u2243 \u03b2) : Nat.card \u03b1 = Nat.card \u03b2 :=\n  Cardinal.toNat_congr f\n\nlemma card_le_card_of_injective {\u03b1 : Type u} {\u03b2 : Type v} [Finite \u03b2] (f : \u03b1 \u2192 \u03b2)\n    (hf : Injective f) : Nat.card \u03b1 \u2264 Nat.card \u03b2 := by\n  simpa using! toNat_le_toNat (lift_mk_le_lift_mk_of_injective hf) (by simp)\n\nlemma card_le_card_of_surjective {\u03b1 : Type u} {\u03b2 : Type v} [Finite \u03b1] (f : \u03b1 \u2192 \u03b2)\n    (hf : Surjective f) : Nat.card \u03b2 \u2264 Nat.card \u03b1 := by\n  have : lift.{u} #\u03b2 \u2264 lift.{v} #\u03b1 := mk_le_of_surjective (ULift.map_surjective.2 hf)\n  simpa using! toNat_le_to"
+        },
+        {
+          "name": "theorem card_eq_fintype_card",
+          "line": 43,
+          "excerpt": "theorem card_eq_fintype_card [Fintype \u03b1] : Nat.card \u03b1 = Fintype.card \u03b1 :=\n  mk_toNat_eq_card\n\n/-- Because this theorem takes `Fintype \u03b1` as a non-instance argument, it can be used in particular\nwhen `Fintype.card` ends up with different instance than the one found by inference -/\ntheorem _root_.Fintype.card_eq_nat_card {_ : Fintype \u03b1} : Fintype.card \u03b1 = Nat.card \u03b1 :=\n  mk_toNat_eq_card.symm\n\nlemma card_eq_finsetCard (s : Finset \u03b1) : Nat.card s = s.card := by\n  simp only [Nat.card_eq_fintype_card, Fintype.card_coe]\n\nlemma card_eq_card_toFinset ("
+        }
+      ]
+    }
+  ],
+  "actual_original_producers": [
+    {
+      "file": "LocalPointDifference318.lean",
+      "sha256": "a12ab61e7c1afe7508df8470991e76c72074e87b78b48a608847528199f1b3b2",
+      "declarations": [
+        {
+          "name": "lemma difference_x",
+          "line": 26,
+          "excerpt": "lemma difference_x (D x\u2081 y\u2081 x\u2082 y\u2082 : F) (hx : x\u2081\u2260x\u2082)\n    (h\u2081 : (E D).Nonsingular x\u2081 y\u2081) (h\u2082 : (E D).Nonsingular x\u2082 y\u2082) :\n    (Point.some x\u2081 y\u2081 h\u2081-Point.some x\u2082 y\u2082 h\u2082).xRep 0=\n      ((y\u2081+y\u2082)/(x\u2081-x\u2082))^2-x\u2081-x\u2082 := by\n  rw [sub_eq_add_neg,Point.neg_some,Point.add_of_X_ne hx]\n  simp only [Point.xRep_some,Matrix.cons_val_zero,addX,slope_of_X_ne hx,\n    negY,E,zero_mul,mul_zero,add_zero,sub_zero,sub_neg_eq_add]\n\nvariable (w : AbsoluteValue F \u211d) (hna : IsNonarchimedean w)\n\n/-- Either exact slope estimate implies actual formal membership of the\nsecant difference, including a nonzero affine output with x-pole. -/\ntheorem secant_formal (D x\u2081 y\u2081 x\u2082 y\u2082 : F) (hD : w D\u22641)\n    (h\u2081 : (E D).Nonsingular x\u2081 y\u2081) (h\u2082 : (E D).Nonsingular x\u2082 y\u2082)\n    (hx : x\u2081\u2260x\u2082) (hx\u2081 : w x\u2081\u22641) (hx\u2082 : w x\u2082\u22641)\n    (hs : w (x\u2081-x\u2082)<w (y\u2081+y\u2082)) :\n    Point.some x\u2081 y\u2081 h\u2081-Point.some x\u2082 y\u2082 h\u2082\u2208\n      AlgebraicFormalSubgroup318.formalSubgroup w hna D hD := by\n  apply Or.inr\n  rw [difference_x D x\u2081 y\u2081 x\u2082 y\u2082 hx h\u2081 h\u2082]\n  apply slope_pole w h"
+        },
+        {
+          "name": "lemma alternative_slope",
+          "line": 16,
+          "excerpt": "lemma alternative_slope (D x\u2081 y\u2081 x\u2082 y\u2082 : F) (hx : x\u2081\u2260x\u2082) (hy : y\u2081\u2260y\u2082)\n    (h\u2081 : y\u2081^2=x\u2081^3-D*x\u2081) (h\u2082 : y\u2082^2=x\u2082^3-D*x\u2082) :\n    (y\u2081+y\u2082)/(x\u2081-x\u2082)= -(x\u2081^2+x\u2081*x\u2082+x\u2082^2-D)/(y\u2082-y\u2081) := by\n  apply (div_eq_div_iff (sub_ne_zero.mpr hx) (sub_ne_zero.mpr hy.symm)).mpr\n  linear_combination difference_curve D x\u2081 y\u2081 x\u2082 y\u2082 h\u2081 h\u2082\n\nlemma derivative_difference (D x\u2081 x\u2082 : F) :\n    (x\u2081^2+x\u2081*x\u2082+x\u2082^2-D)-(3*x\u2081^2-D)=(x\u2082-x\u2081)*(2*x\u2081+x\u2082) := by ring\n\n/-- Exact actual secant abscissa for P\u2212Q, not a detached chord polynomial. -/\nlemma difference_x (D x\u2081 y\u2081 x\u2082 y\u2082 : F) (hx : x\u2081\u2260x\u2082)\n    (h\u2081 : (E D).Nonsingular x\u2081 y\u2081) (h\u2082 : (E D).Nonsingular x\u2082 y\u2082) :\n    (Point.some x\u2081 y\u2081 h\u2081-Point.some x\u2082 y\u2082 h\u2082).xRep 0=\n      ((y\u2081+y\u2082)/(x\u2081-x\u2082))^2-x\u2081-x\u2082 := by\n  rw [sub_eq_add_neg,Point.neg_some,Point.add_of_X_ne hx]\n  simp only [Point.xRep_some,Matrix.cons_val_zero,addX,slope_of_X_ne hx,\n    negY,E,zero_mul,mul_zero,add_zero,sub_zero,sub_neg_eq_add]\n\nvariable (w : AbsoluteValue F \u211d) (hna : IsNonarchimedean w)\n\n/-- Either exact slope estimate im"
+        },
+        {
+          "name": "theorem close_points",
+          "line": 136,
+          "excerpt": "theorem close_points (D x\u2081 y\u2081 x\u2082 y\u2082 : F) (hD : w D\u22641)\n    (h\u2081 : (E D).Nonsingular x\u2081 y\u2081) (h\u2082 : (E D).Nonsingular x\u2082 y\u2082)\n    (hx\u2081 : w x\u2081\u22641) (hx\u2082 : w x\u2082\u22641)\n    (hc : (w (x\u2082-x\u2081)<w (2*y\u2081) \u2227 w (y\u2082-y\u2081)<w (2*y\u2081)) \u2228\n      (w (x\u2082-x\u2081)<w (3*x\u2081^2-D) \u2227 w (y\u2082-y\u2081)<w (3*x\u2081^2-D))) :\n    Point.some x\u2081 y\u2081 h\u2081-Point.some x\u2082 y\u2082 h\u2082\u2208\n      AlgebraicFormalSubgroup318.formalSubgroup w hna D hD := by\n  by_cases hx : x\u2081=x\u2082\n  \u00b7 subst x\u2082\n    have he : y\u2081^2=y\u2082^2 :=\n      (FormalChartDouble.ordinate_equation D x\u2081 y\u2081 h\u2081).trans\n        (FormalChartDouble.ordinate_equation D x\u2081 y\u2082 h\u2082).symm\n    rcases (sq_eq_sq_iff_eq_or_eq_neg).mp he with hy|hy\n    \u00b7 subst y\u2082\n      simp only [sub_self]\n      exact AddSubgroup.zero_mem _\n    \u00b7 have hy' : y\u2082= -y\u2081 := by rw [hy,neg_neg]\n      have hdy : w (y\u2082-y\u2081)=w (2*y\u2081) := by\n        rw [hy',show -y\u2081-y\u2081= -(2*y\u2081) by ring,map_neg_eq_map]\n      by_cases hz : y\u2081=0\n      \u00b7 have hz' : y\u2082=0 := by simpa only [hz,neg_zero] using hy'\n        have heq : Point.some x\u2081 y\u2081 h\u2081=Point.some x\u2081 y\u2082 h\u2082 := by\n"
+        }
+      ]
+    },
+    {
+      "file": "CompactLocalPointCoding318.lean",
+      "sha256": "a4d2c15c39672ca3f893c280ad5b0c89dec91a151e194e38d502855aa7d4c59c",
+      "declarations": [
+        {
+          "name": "lemma curve_nonsingular",
+          "line": 30,
+          "excerpt": "lemma curve_nonsingular (D : F) (hD : D\u22600) (z : integralCurve D) :\n    (E D).Nonsingular z.1.1 z.1.2 := by\n  rw [nonsingular_iff']\n  constructor\n  \u00b7 rw [equation_iff]\n    simpa only [E,zero_mul,mul_zero,add_zero,neg_mul,sub_eq_add_neg] using z.2.2.2\n  \u00b7 rcases derivative_or_ordinate D z.1.1 z.1.2 hD z.2.2.2 with hy|hg\n    \u00b7 right\n      simpa only [E,zero_mul,add_zero] using mul_ne_zero (show (2:F)\u22600 by norm_num) hy\n    \u00b7 left\n      simpa only [E,zero_mul,mul_zero,zero_sub,zero_add,add_zero,\n        neg_ne_zero,sub_eq_add_neg] using hg\n\n@[expose] def curvePoint (D : F) (hD : D\u22600) (z : integralCurve D) : (E D).Point :=\n  Point.some z.1.1 z.1.2 (curve_nonsingular D hD z)\n\n@[expose] def radius (D : F) (z : F\u00d7F) : \u211d :=\n  max \u20162*z.2\u2016 \u20163*z.1^2-D\u2016\n\nlemma radius_pos (D : F) (hD : D\u22600) (z : integralCurve D) : 0<radius D z := by\n  rcases derivative_or_ordinate D z.1.1 z.1.2 hD z.2.2.2 with hy|hg\n  \u00b7 exact (norm_pos_iff.mpr (mul_ne_zero (by norm_num) hy)).trans_le (le_max_left _ _)\n  \u00b7 exact (norm"
+        },
+        {
+          "name": "theorem finite_formal_quotient",
+          "line": 99,
+          "excerpt": "theorem finite_formal_quotient [ProperSpace F]\n    (hna : IsNonarchimedean (NormedField.toAbsoluteValue F))\n    (D : F) (hD : D\u22600) (hDi : \u2016D\u2016\u22641) :\n    let H := AlgebraicFormalSubgroup318.formalSubgroup (NormedField.toAbsoluteValue F) hna D hDi\n    Finite ((E D).Point \u29f8 H) := by\n  dsimp only\n  let H := AlgebraicFormalSubgroup318.formalSubgroup (NormedField.toAbsoluteValue F) hna D hDi\n  let q := QuotientAddGroup.mk' H\n  let codes := Set.range (fun z : integralCurve D => q (curvePoint D hD z))\n  have hc : codes.Finite := finite_affine_codes hna D hD hDi\n  apply Set.finite_univ_iff.mp\n  apply (hc.insert 0).subset\n  intro a _\n  obtain \u27e8P,rfl\u27e9 := QuotientAddGroup.mk'_surjective H a\n  by_cases hp : P\u2208H\n  \u00b7 have he : q P=0 := (QuotientAddGroup.eq_zero_iff _).mpr hp\n    rw [he]\n    exact Set.mem_insert 0 codes\n  \u00b7 apply Set.mem_insert_of_mem\n    cases P with\n    | zero => exact False.elim (hp (AddSubgroup.zero_mem H))\n    | some x y h =>\n      have hx : \u2016x\u2016\u22641 := by\n        by_contra! he\n      "
+        }
+      ]
+    },
+    {
+      "file": "ActualSplitOrbitEntry318.lean",
+      "sha256": "43783972ec92a1815cf12792fb00ed5373a121958492c72cd4ca5f0911a521d4",
+      "declarations": [
+        {
+          "name": "lemma coefficient_eq",
+          "line": 29,
+          "excerpt": "lemma coefficient_eq (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    ConcretePadic318.embedding p \u03c1 h\u03c1 D=(3-\u03c1)^2 := by\n  simp only [D,map_pow,map_sub,map_ofNat,i,ConcretePadic318.embedding_pair,\n    Rat.cast_zero,Rat.cast_one,zero_add,one_mul]\n\nlemma coefficient_ne (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    ConcretePadic318.embedding p \u03c1 h\u03c1 D\u22600 := by\n  rw [coefficient_eq]\n  apply pow_ne_zero\n  intro hz\n  have he : \u03c1=3 := (sub_eq_zero.mp hz).symm\n  rw [he] at h\u03c1\n  norm_num at h\u03c1\n\nlemma coefficient_integral (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    \u2016ConcretePadic318.embedding p \u03c1 h\u03c1 D\u2016\u22641 := by\n  rw [coefficient_eq,norm_pow]\n  apply pow_le_one\u2080 (norm_nonneg _)\n  have h3 := LocalDerivativeSeparation318.nat_le_one (NormedField.toAbsoluteValue \u211a_[p])\n    (nonarchimedean p) 3\n  change \u2016(3:\u211a_[p])\u2016\u22641 at h3\n  simpa only [sub_eq_add_neg,norm_neg] using\n    (Padic.nonarchimedean (3:\u211a_[p]) (-\u03c1)).trans (max_le h3 (by simpa using root_integral p \u03c1 h\u03c1))\n\nlemma positive_depth (x : \u211a_[p]) (hx : \u2016x\u2016<1) :\n    (1:WithTop \u2124)\u2264Padic.addValuation x "
+        },
+        {
+          "name": "lemma coefficient_integral",
+          "line": 43,
+          "excerpt": "lemma coefficient_integral (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    \u2016ConcretePadic318.embedding p \u03c1 h\u03c1 D\u2016\u22641 := by\n  rw [coefficient_eq,norm_pow]\n  apply pow_le_one\u2080 (norm_nonneg _)\n  have h3 := LocalDerivativeSeparation318.nat_le_one (NormedField.toAbsoluteValue \u211a_[p])\n    (nonarchimedean p) 3\n  change \u2016(3:\u211a_[p])\u2016\u22641 at h3\n  simpa only [sub_eq_add_neg,norm_neg] using\n    (Padic.nonarchimedean (3:\u211a_[p]) (-\u03c1)).trans (max_le h3 (by simpa using root_integral p \u03c1 h\u03c1))\n\nlemma positive_depth (x : \u211a_[p]) (hx : \u2016x\u2016<1) :\n    (1:WithTop \u2124)\u2264Padic.addValuation x := by\n  by_cases hz : x=0\n  \u00b7 simp [hz]\n  \u00b7 have hp : (1:\u211d)<p := by exact_mod_cast (Fact.out : p.Prime).one_lt\n    rw [Padic.norm_eq_zpow_neg_valuation hz] at hx\n    have hv : -x.valuation<0 := (zpow_lt_one_iff_right\u2080 hp).mp hx\n    rw [Padic.addValuation.apply hz]\n    exact_mod_cast (show 1\u2264x.valuation by omega)\n\nlemma coefficient_bound (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    Bound (ConcretePadic318.place p \u03c1 h\u03c1) 0 D := by\n  have he := (Padic.norm_le_one_iff_v"
+        },
+        {
+          "name": "lemma root_integral",
+          "line": 21,
+          "excerpt": "lemma root_integral (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) : \u2016\u03c1\u2016\u22641 := by\n  have h2 := LocalDerivativeSeparation318.nat_le_one (NormedField.toAbsoluteValue \u211a_[p])\n    (nonarchimedean p) 2\n  have he := congrArg norm h\u03c1\n  rw [norm_pow] at he\n  change \u2016(2:\u211a_[p])\u2016\u22641 at h2\n  nlinarith [norm_nonneg \u03c1]\n\nlemma coefficient_eq (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    ConcretePadic318.embedding p \u03c1 h\u03c1 D=(3-\u03c1)^2 := by\n  simp only [D,map_pow,map_sub,map_ofNat,i,ConcretePadic318.embedding_pair,\n    Rat.cast_zero,Rat.cast_one,zero_add,one_mul]\n\nlemma coefficient_ne (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    ConcretePadic318.embedding p \u03c1 h\u03c1 D\u22600 := by\n  rw [coefficient_eq]\n  apply pow_ne_zero\n  intro hz\n  have he : \u03c1=3 := (sub_eq_zero.mp hz).symm\n  rw [he] at h\u03c1\n  norm_num at h\u03c1\n\nlemma coefficient_integral (\u03c1 : \u211a_[p]) (h\u03c1 : \u03c1^2=2) :\n    \u2016ConcretePadic318.embedding p \u03c1 h\u03c1 D\u2016\u22641 := by\n  rw [coefficient_eq,norm_pow]\n  apply pow_le_one\u2080 (norm_nonneg _)\n  have h3 := LocalDerivativeSeparation318.nat_le_one (NormedField.toAbsoluteValue \u211a_[p])\n  "
+        }
+      ]
+    },
+    {
+      "file": "ActualReciprocalParameters318.lean",
+      "sha256": "637c082355fbfa72eabcd7d9d258134d445b7d984dc4f1e87778c97ec222a433",
+      "declarations": [
+        {
+          "name": "lemma coefficient_unit",
+          "line": 62,
+          "excerpt": "lemma coefficient_unit (rho : \u211a_[p]) (hr : rho^2=2) (h7 : \u00acp\u222349) :\n    place p rho hr ConcreteG8Domain.D=0 := by\n  have he := SelectedCurveUnits318.conjugate_unit p (-rho) (negative_root p rho hr) h7\n  have hc := SelectedCurveUnits318.place_conjugate p rho hr 11 6\n  have hD : ConcreteG8Domain.D=pair 11 (-6) := by\n    ext <;> norm_num [ConcreteG8Domain.D,i,pair,pow_two]\n  rw [hD,hc]\n  exact he\n\nend ActualReciprocalParameters318\n"
+        }
+      ]
+    },
+    {
+      "file": "SelectedQuotientOrders318.lean",
+      "sha256": "2c82f5dd63554e2f5b8bcd141ef468c547c4d94edd98134a96cea5e135eeb72f",
+      "declarations": [
+        {
+          "name": "def subgroup",
+          "line": 13,
+          "excerpt": "def subgroup (rho : \u211a_[p]) (hr : rho^2=2) :\n    AddSubgroup (E (ConcretePadic318.embedding p rho hr D)).Point :=\n  AlgebraicFormalSubgroup318.formalSubgroup (NormedField.toAbsoluteValue \u211a_[p])\n    (ActualSplitOrbitEntry318.nonarchimedean p) _ (ActualSplitOrbitEntry318.coefficient_integral p rho hr)\n\n/-- The actual half-point residue in the actual local formal quotient. -/\n@[expose] def generator (rho : \u211a_[p]) (hr : rho^2=2) :\n    (E (ConcretePadic318.embedding p rho hr D)).Point \u29f8 subgroup p rho hr :=\n  QuotientAddGroup.mk' (subgroup p rho hr)\n    (ShortCurveBaseChange318.pointMap (ConcretePadic318.embedding p rho hr).toRingHom D R)\n\n@[expose] def order (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 := addOrderOf (generator p rho hr)\n\nlemma order_positive (rho : \u211a_[p]) (hr : rho^2=2) : 0<order p rho hr := by\n  letI := CompactLocalPointCoding318.finite_formal_quotient\n    (ActualSplitOrbitEntry318.nonarchimedean p)\n    (ConcretePadic318.embedding p rho hr D)\n    (ActualSplitOrbitEntry318.coefficient_"
+        },
+        {
+          "name": "def generator",
+          "line": 19,
+          "excerpt": "def generator (rho : \u211a_[p]) (hr : rho^2=2) :\n    (E (ConcretePadic318.embedding p rho hr D)).Point \u29f8 subgroup p rho hr :=\n  QuotientAddGroup.mk' (subgroup p rho hr)\n    (ShortCurveBaseChange318.pointMap (ConcretePadic318.embedding p rho hr).toRingHom D R)\n\n@[expose] def order (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 := addOrderOf (generator p rho hr)\n\nlemma order_positive (rho : \u211a_[p]) (hr : rho^2=2) : 0<order p rho hr := by\n  letI := CompactLocalPointCoding318.finite_formal_quotient\n    (ActualSplitOrbitEntry318.nonarchimedean p)\n    (ConcretePadic318.embedding p rho hr D)\n    (ActualSplitOrbitEntry318.coefficient_ne p rho hr)\n    (ActualSplitOrbitEntry318.coefficient_integral p rho hr)\n  exact (isOfFinAddOrder_of_finite (generator p rho hr)).addOrderOf_pos\n\n/-- Any proposed reduction-order modulus must kill this exact half-point\nclass. The comparison with Gaussian CM orders is kept explicit, not assumed\nfrom membership of P=2R in a different doubling-image subgroup. -/\ntheorem entry_of_order"
+        },
+        {
+          "name": "def order",
+          "line": 24,
+          "excerpt": "def order (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 := addOrderOf (generator p rho hr)\n\nlemma order_positive (rho : \u211a_[p]) (hr : rho^2=2) : 0<order p rho hr := by\n  letI := CompactLocalPointCoding318.finite_formal_quotient\n    (ActualSplitOrbitEntry318.nonarchimedean p)\n    (ConcretePadic318.embedding p rho hr D)\n    (ActualSplitOrbitEntry318.coefficient_ne p rho hr)\n    (ActualSplitOrbitEntry318.coefficient_integral p rho hr)\n  exact (isOfFinAddOrder_of_finite (generator p rho hr)).addOrderOf_pos\n\n/-- Any proposed reduction-order modulus must kill this exact half-point\nclass. The comparison with Gaussian CM orders is kept explicit, not assumed\nfrom membership of P=2R in a different doubling-image subgroup. -/\ntheorem entry_of_order_dvd (rho : \u211a_[p]) (hr : rho^2=2) (M : \u2115)\n    (horder : order p rho hr\u2223M) : SelectedFormalEntry318.Entry p rho hr M := by\n  have hz : M \u2022 generator p rho hr=0 := addOrderOf_dvd_iff_nsmul_eq_zero.mp horder\n  apply (QuotientAddGroup.eq_zero_iff _).mp\n  change (Quotient"
+        }
+      ]
+    }
+  ],
+  "additive_lagrange": "orderOf_dvd_natCard is tagged to_additive and provides addOrderOf_dvd_natCard for the exact existing quotient additive group."
+}

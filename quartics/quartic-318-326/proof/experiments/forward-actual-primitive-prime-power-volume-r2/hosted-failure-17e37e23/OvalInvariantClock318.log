@@ -1,0 +1,49 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-prime-local-density-r2/OvalInvariantClock318.lean:46:68: error(lean.invalidField): Invalid field `continuousAt`: The environment does not contain `HasFDerivAtFilter.continuousAt`, so it is not possible to project the field `continuousAt` from an expression
+  clock_hasStrictDeriv t
+of type
+  HasFDerivAtFilter clock (ContinuousLinearMap.toSpanSingleton ℝ (speed t)) (𝓝 (t, t))
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-prime-local-density-r2/OvalInvariantClock318.lean:86:54: error: unsolved goals
+case e'_8
+t : ℝ
+h :
+  HasDerivAt (fun y => √(1 + (Real.sin ^ 2) y)) (↑2 * Real.sin t ^ (2 - 1) * Real.cos t / (2 * √(1 + (Real.sin ^ 2) t)))
+    t
+⊢ rho = fun y => √(1 + Real.sin y ^ 2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-prime-local-density-r2/OvalInvariantClock318.lean:100:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  HasDerivAt (Real.cos * rho)
+    (-Real.sin t * √(1 + Real.sin t ^ 2) + Real.cos t * (Real.sin t * Real.cos t / √(1 + Real.sin t ^ 2))) t
+but is expected to have type
+  HasDerivAt RealQuarticOvalCover318.v (-2 * Real.sin t ^ 3 * speed t) t
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instAdd ↦ 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-prime-local-density-r2/OvalInvariantClock318.lean:126:2: error: Type mismatch: After simplification, term
+  HasDerivAt.comp s (Real.hasDerivAt_sin (angle s)) (angle_hasDeriv s)
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ
+    DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (Real.sin ∘ angle)
+    (Real.cos (angle s) * √(1 + Real.sin (angle s) ^ 2)) s
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun t => Real.sin (angle t))
+    (Real.cos (angle s) * √(1 + Real.sin (angle s) ^ 2)) s
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-prime-local-density-r2/OvalInvariantClock318.lean:136:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ
+    DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (RealQuarticOvalCover318.v ∘ angle)
+    (-2 * Real.sin (angle s) ^ 3) s
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun t => RealQuarticOvalCover318.v (angle t))
+    (-2 * Real.sin (angle s) ^ 3) s
