@@ -1,0 +1,115 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:47:8: warning: automatically included section variable(s) unused in theorem `_private.TorusCharacterDensity318.0.TorusCharacterDensity318.continuous_integrable`:
+  [CompactSpace Y]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompactSpace Y] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:55:43: error(lean.unknownIdentifier): Unknown identifier `continuous_integrable`
+
+Note: A private declaration `continuous_integrable` (from the current module) exists but would need to be public to access here.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:55:73: error(lean.unknownIdentifier): Unknown identifier `continuous_integrable`
+
+Note: A private declaration `continuous_integrable` (from the current module) exists but would need to be public to access here.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:62:0: warning: automatically included section variable(s) unused in theorem `TorusCharacterDensity318.average_apply`:
+  [CompactSpace X]
+  [BorelSpace X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompactSpace X] [BorelSpace X] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:96:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:108:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ↥H), (UnitAddTorus.mFourier n) (H.subtype x) ∂probabilityHaar ↥H
+in the target expression
+  ∫ (x : ↥H), (UnitAddTorus.mFourier n) ↑x ∂probabilityHaar ↥H =
+    ∫ (x : UnitAddTorus d), (UnitAddTorus.mFourier n) x ∂probabilityHaar (UnitAddTorus d)
+
+case neg
+d : Type u_1
+inst✝ : Fintype d
+a : UnitAddTorus d
+ha : ∀ (n : d → ℤ), n ≠ 0 → (UnitAddTorus.mFourier n) a ≠ 1
+H : AddSubgroup (UnitAddTorus d) := (AddSubgroup.zmultiples a).topologicalClosure
+hH : IsClosed ↑H
+this : CompactSpace ↥H := isCompact_iff_compactSpace.mp (IsClosed.isCompact hH)
+ah : ↥H := ⟨a, ⋯⟩
+inclusion : C(↥H, UnitAddTorus d) := { toFun := Subtype.val, continuous_toFun := ⋯ }
+A : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar ↥H) inclusion
+B : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar (UnitAddTorus d)) (ContinuousMap.id (UnitAddTorus d))
+n : d → ℤ
+hn : ¬n = 0
+⊢ ∫ (x : ↥H), (UnitAddTorus.mFourier n) ↑x ∂probabilityHaar ↥H =
+    ∫ (x : UnitAddTorus d), (UnitAddTorus.mFourier n) x ∂probabilityHaar (UnitAddTorus d)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:116:31: error: Tactic `assumption` failed
+
+case add
+d : Type u_1
+inst✝ : Fintype d
+a : UnitAddTorus d
+ha : ∀ (n : d → ℤ), n ≠ 0 → (UnitAddTorus.mFourier n) a ≠ 1
+H : AddSubgroup (UnitAddTorus d) := (AddSubgroup.zmultiples a).topologicalClosure
+hH : IsClosed ↑H
+this : CompactSpace ↥H := isCompact_iff_compactSpace.mp (IsClosed.isCompact hH)
+ah : ↥H := ⟨a, ⋯⟩
+inclusion : C(↥H, UnitAddTorus d) := { toFun := Subtype.val, continuous_toFun := ⋯ }
+A : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar ↥H) inclusion
+B : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar (UnitAddTorus d)) (ContinuousMap.id (UnitAddTorus d))
+hchar : ∀ (n : d → ℤ), A (UnitAddTorus.mFourier n) = B (UnitAddTorus.mFourier n)
+f x y : C(UnitAddTorus d, ℂ)
+hx : x ∈ Submodule.span ℂ (range UnitAddTorus.mFourier)
+hy : y ∈ Submodule.span ℂ (range UnitAddTorus.mFourier)
+hxy : x ∈ {f | A f = B f}
+hyy : y ∈ {f | A f = B f}
+⊢ x + y ∈ {f | A f = B f}
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:117:24: error: Tactic `assumption` failed
+
+case smul
+d : Type u_1
+inst✝ : Fintype d
+a : UnitAddTorus d
+ha : ∀ (n : d → ℤ), n ≠ 0 → (UnitAddTorus.mFourier n) a ≠ 1
+H : AddSubgroup (UnitAddTorus d) := (AddSubgroup.zmultiples a).topologicalClosure
+hH : IsClosed ↑H
+this : CompactSpace ↥H := isCompact_iff_compactSpace.mp (IsClosed.isCompact hH)
+ah : ↥H := ⟨a, ⋯⟩
+inclusion : C(↥H, UnitAddTorus d) := { toFun := Subtype.val, continuous_toFun := ⋯ }
+A : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar ↥H) inclusion
+B : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar (UnitAddTorus d)) (ContinuousMap.id (UnitAddTorus d))
+hchar : ∀ (n : d → ℤ), A (UnitAddTorus.mFourier n) = B (UnitAddTorus.mFourier n)
+f : C(UnitAddTorus d, ℂ)
+z : ℂ
+x : C(UnitAddTorus d, ℂ)
+hx : x ∈ Submodule.span ℂ (range UnitAddTorus.mFourier)
+he : x ∈ {f | A f = B f}
+⊢ z • x ∈ {f | A f = B f}
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-global-bad-tail-r2/TorusCharacterDensity318.lean:135:58: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Metric.infDist ↑x ↑H
+in the target expression
+  (fun a => ↑(Metric.infDist ↑a ↑H)) x = (fun a => 0) x
+
+d : Type u_1
+inst✝ : Fintype d
+a : UnitAddTorus d
+ha : ∀ (n : d → ℤ), n ≠ 0 → (UnitAddTorus.mFourier n) a ≠ 1
+H : AddSubgroup (UnitAddTorus d) := (AddSubgroup.zmultiples a).topologicalClosure
+hH : IsClosed ↑H
+this : CompactSpace ↥H := isCompact_iff_compactSpace.mp (IsClosed.isCompact hH)
+ah : ↥H := ⟨a, ⋯⟩
+inclusion : C(↥H, UnitAddTorus d) := { toFun := Subtype.val, continuous_toFun := ⋯ }
+A : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar ↥H) inclusion
+B : C(UnitAddTorus d, ℂ) →L[ℂ] ℂ := average (probabilityHaar (UnitAddTorus d)) (ContinuousMap.id (UnitAddTorus d))
+hchar : ∀ (n : d → ℤ), A (UnitAddTorus.mFourier n) = B (UnitAddTorus.mFourier n)
+hspan : ↑(Submodule.span ℂ (range UnitAddTorus.mFourier)) ⊆ {f | A f = B f}
+hclosure : closure ↑(Submodule.span ℂ (range UnitAddTorus.mFourier)) ⊆ {f | A f = B f}
+htop : closure ↑(Submodule.span ℂ (range UnitAddTorus.mFourier)) = univ
+hall : ∀ (f : C(UnitAddTorus d, ℂ)), A f = B f
+f : C(UnitAddTorus d, ℂ) := { toFun := fun x => ↑(Metric.infDist x ↑H), continuous_toFun := ⋯ }
+x : ↥H
+⊢ (fun a => ↑(Metric.infDist ↑a ↑H)) x = (fun a => 0) x
