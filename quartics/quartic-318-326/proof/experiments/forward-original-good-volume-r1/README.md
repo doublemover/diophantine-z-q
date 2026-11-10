@@ -1,0 +1,15 @@
+# Exact original determinant/index and complementary good-lattice volume bound
+
+All320 predecessor sources from forward-original-reciprocal-minima-r2 remain byte-identical. Four new sources connect the actual controlled whole basis to the original exact covolume and consume it in the complementary good-lattice point estimate.
+
+OriginalWholeEuclideanBasis318 constructs the actual integer linear coefficient equivalence (Fin3->Z) to the SAME realModule used in OriginalCovolumeIndex318. Whole integer spanning and real independence prove its bijectivity. Basis.ofEquivFun supplies a genuine Mathlib Z-basis whose three actual ambient vectors are proved exactly embed(u),embed(v),embed(z).
+
+OriginalBasisDeterminantIndex318 computes the determinant in the standard Euclidean orthonormal basis as the literal integer scalar triple product. The standard fundamental parallelepiped has volume1. Pinned ZLattice.covolume_eq_det_mul_measureReal therefore identifies covolume of the entire original lattice with abs(det(u,v,z)). Only then is the existing original odd-squarefree index/covolume=M^2 theorem consumed. Thus the exact determinant used in the inverse-coordinate rectangle really is M^2, not the determinant of a proper sublattice or of the earlier det4 quartic-coordinate map.
+
+OriginalGoodLatticeVolumeBound318 joins the actual determinant upper bound absdet<=|u||v||z|<=2lambda1lambda2lambda3 to the exact index. For R>=lambda3, the integer boundary factors in320's reciprocal rectangle are bounded by17R/lambda1,17R/lambda2,9R/lambda3. Their product is2601R^3/(lambda1lambda2lambda3), so the actual whole norm-ball cardinal satisfies #points*M^2<=5202R^3. This requires only R>=the actual third minimum, not the stronger old R>=M condition.
+
+OriginalGoodMinimumConsumer318 checks the actual dichotomy: not LargeThird is the precise complement of the SAME predicate used in306/312's bad-lattice tail. Its bounded independent triple cannot lie in the span of the two shortest vectors (3 independent vectors versus plane dimension<=2). Actual third minimality gives lambda3<=T; for T<=R the volume-order bound applies. Final specialization consumes the original retained slice primes and their oddness. No alternate good-lattice hypothesis, supplied basis estimate or silent index assumption remains.
+
+Remaining work is the actual reduced-polynomial coefficient/content transport and quantitative geometric-sieve remainder on these rectangles, then optimized Selberg weights and the simultaneous Gaussian prime-pattern producer. Four rational twist pairs and Anchor local-global remain separate. No full arithmetic completeness claim.
+
+Validation:70 original whole bases with exact determinant=M^2;70 Hadamard/minimum inequalities;140 original good norm-ball volume counts;140 exact minimum-complement rank checks. Inherited5060 cofactor inverses,15180 anisotropic bounds,280 reciprocal rectangles and280 weighted identities rerun. Negative controls still distinguish independent proper sublattices. Pinned Mathlib covolume/basis/determinant primary signatures inspected. Static324/222 closure only; no local Lean compilation.
