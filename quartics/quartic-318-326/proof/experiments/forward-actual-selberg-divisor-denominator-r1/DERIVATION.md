@@ -1,0 +1,21 @@
+# Actual original Selberg divisor denominator
+
+Exact438r2 preserved, including the independently requested keyword-safe names partialMass and retainedDensity. Four new modules complete the exact finite arithmetic-function denominator and removed-prime Euler bridge. This connects the previously constructed Euler/Markov estimate to the actual original weighted quadric sieve's standard Selberg terms, not a substitute density or a merely similar finite product.
+
+ActualSelbergDivisorChoices318 constructs squarefreeness of the actual retained product from its distinct original primes. For EVERY integer divisor d of that product, it proves that d.primeFactors is precisely the retained primes dividing d. The actual Boolean choice reconstructed from divisibility has modulus exactly d. Combined with the earlier prime-bit injectivity, this supplies a genuine equivalence between Boolean selections and ALL divisors of the same retained product. Both empty prime sets and the divisor1 are included. Squarefreeness is produced, not an extra assumption about d.
+
+ActualSelbergDivisorWeights318 defines terms as the exact arithmetic function nu.pmul(prodPrimeFactors((1-nu)^-1)). This is definitionally Mathlib BoundingSieve.selbergTerms on OriginalWeightedSelberg318.sieve, for every actual finite source S. The original sieve retains its exact fiber-summed weights and actual nu. Multiplicativity on pairwise coprime optional original primes proves terms(modulus f)=the actual raw odds weight. The Boolean/divisor equivalence then proves the actual standard denominator
+  sum_{d|retainedProduct, d<z} terms(d)
+equals the earlier truncated Euler choice sum EXACTLY, with the same strict cutoff. No repeated divisor mass or missing Euler normalization is possible. The threshold includes d=1 exactly when1<z, with no tacit relaxation to <=.
+
+ActualRemovedEulerFactor318 forms the FULL original Euler product over selected primes before removing the arbitrary named prime. If that prime is present, finite product erasure gives E_full=(1-g(excluded))^-1*E_retained, and the actually constructed g<=1/2 gives E_retained>=E_full/2. If it is absent or ineligible, the products are exactly equal. This comparison is made where the Euler product is consumed, not just where the local density is computed.
+
+ActualSelbergDenominator318 combines the actual strict-divisor identity, internally produced half-Euler truncation and removed-prime bound. For every original coefficient family with its existing injectivity/0/-kappa hypotheses, every N>=1 and every named removed prime:
+  sum_{d|retainedProduct, d<threshold} terms(d) >= E_full/4.
+The final theorem states this with the LITERAL selbergTerms of the original weighted quadric sieve for arbitrary actual finite source S. The cutoff is the same constructed polynomial-scale threshold
+ exp(1+2*(5k+6)*log4)*N^(2*(5k+6)*log4),
+chosen from original coefficient count k and N before the removed prime, divisor or source. No new density, moment or Euler lower bound is assumed.
+
+Application locator: quartic_v10.tex lines16655-16689, normalized Euler weights, expected log divisor, Markov truncation and one-prime removal in the medium-prime sieve. Exact438r2 supplies the genuine elementary Chebyshev moment. This packet proves the genuine arithmetic-function denominator bridge. It does NOT yet claim the Mertens growth E_full>>(log N)^k, optimal Lambda coefficients, a primitive integer-point congruence asymptotic, the Gaussian ray main term or original prime-pattern existence. Those are distinct remaining producers. The prime removal in this packet changes the displayed divisor product; it does not claim the original BoundingSieve object itself has been replaced by a removed-prime sieve.
+
+Validation:30 actual squarefree products,870 exact divisor reconstructions/bijections,870 arithmetic-function/raw-odds identities,276 strict denominator identities including cutoff0/1 and exact divisors,30 removed-factor identities/inequalities,30 actual quarter-Euler consumers,90 original-source independence checks including empty source and literal quadric points. Log comparisons at90digits. Canonical442/222. No local Lean; source and exact checks are not hosted proof acceptance.
