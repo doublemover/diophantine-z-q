@@ -1,0 +1,57 @@
+{
+  "author": "/root/continue_contact",
+  "status": "ACTUAL_BRANCH_CROSSING_PATHS_REVIEW_REQUESTED",
+  "claim": "Explicit complete small branch crossing paths and actual target finite standard square parametrizations with full ambient inverse and exact original projection.",
+  "revision_source": "pel-original-literal-branch-parameters-r1",
+  "predecessor_application_sha256": "e5a833334c3028b15dd649249b9aeda18bdd310573a740ad66f2958b42ccdddc",
+  "new_sources": {
+    "SimpleBranchCrossingPaths318.lean": "9a48e639c9c5f0f0552372e83f4253b4e97249439754e75409119d22244884f2",
+    "LegendreLiteralFiniteBranch318.lean": "e7a97626a950ea90e7f3adeb493945f2f8868577cd6a3fed65414400100e61c0"
+  },
+  "obligations": [
+    {
+      "required": "Actual upper/lower crossing",
+      "constructed": "Explicit polynomial source roots",
+      "justification": "Signed imaginary square formula, strict positivity on full path interior",
+      "evidence": [
+        "SimpleBranchCrossingPaths318.interior_halfplane"
+      ]
+    },
+    {
+      "required": "Opposite branch lifts",
+      "constructed": "Same starting root, distinct opposite endpoints",
+      "justification": "Explicit endpoint identities",
+      "evidence": [
+        "SimpleBranchCrossingPaths318.endpoints_distinct"
+      ]
+    },
+    {
+      "required": "Entire paths in actual charts",
+      "constructed": "One small radius for both lifts",
+      "justification": "Uniform root norm bound and original neighborhood ball",
+      "evidence": [
+        "SimpleBranchCrossingPaths318.exists_small_crossing"
+      ]
+    },
+    {
+      "required": "Target exact t-a square",
+      "constructed": "Actual point and full nearby inverse",
+      "justification": "Unit root of actual cofactor, no shifted coordinate substitution",
+      "evidence": [
+        "LegendreLiteralFiniteBranch318.right_inverse"
+      ]
+    },
+    {
+      "required": "Original full target projection",
+      "constructed": "Literal t=a+w squared",
+      "justification": "Same Scheme-valued finite point",
+      "evidence": [
+        "LegendreLiteralFiniteBranch318.exact_projection"
+      ]
+    }
+  ],
+  "readme_sha256": "008f2b998b8e4986e924d6326a95124283b9167dfaae6dc6e040613e38128ce5",
+  "intake_sha256": "dd801d9375ae94e4a9aeb4080f730480ef844ae32aafd3a6a7bc972f52ad0814",
+  "copy_bindings_sha256": "a6d1034b58dad96c3b97560b11c051158ee3b080f9ab755d808e004439facbd2",
+  "pinned_apis_sha256": "ab7721abdff18464da8bad335e5d4381fc0b4dea74b7d8b0fb3da60c2f61aca9"
+}

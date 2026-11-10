@@ -1,0 +1,22 @@
+[
+  {
+    "path": "Mathlib/Algebra/Ring/Rat.lean",
+    "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "excerpts": [
+      {
+        "line": 78,
+        "text": "lemma num_div_den (r : ℚ) : (r.num : ℚ) / (r.den : ℚ) = r := by\n  rw [← Int.cast_natCast, ← divInt_eq_div, num_divInt_den]\n\n@[simp] lemma divInt_pow (num : ℕ) (den : ℤ) (n : ℕ) : (num /. den) ^ n = num ^ n /. den ^ n := by"
+      }
+    ]
+  },
+  {
+    "path": "Mathlib/Data/Rat/Defs.lean",
+    "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "excerpts": [
+      {
+        "line": 68,
+        "text": "@[simp] lemma den_ne_zero (q : ℚ) : q.den ≠ 0 := q.den_pos.ne'\n\n@[simp]\ntheorem divInt_eq_zero {a b : ℤ} (b0 : b ≠ 0) : a /. b = 0 ↔ a = 0 := by"
+      }
+    ]
+  }
+]
