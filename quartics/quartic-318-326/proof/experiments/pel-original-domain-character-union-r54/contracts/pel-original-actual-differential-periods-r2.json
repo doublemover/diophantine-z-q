@@ -1,0 +1,46 @@
+{
+  "author": "/root/continue_contact",
+  "status": "ACTUAL_ORIGINAL_DIFFERENTIAL_PERIODS_REVIEW_REQUESTED",
+  "claim": "Actual original invariant form has a produced nonzero constant lift coefficient, explicit affine integration coordinates, and complete scaled source-period lattice.",
+  "revision_source": "pel-original-exact-source-legendre-r1",
+  "predecessor_application_sha256": "ce4bc7d81d905a3a29ac3f111c10be305988ea442d1b13044c93c7f1c6b84ddf",
+  "new_sources": {
+    "ComplexPeriodicCoefficient318.lean": "8980e8f895768113fe0d765367e4ac154001f42966acf9f0dc13653f4714e42a",
+    "PELOriginalLiftDifferential318.lean": "daa43c6b442c25f2367dbb2777dbe4664ddfdfdf369d7004f50296f01169dbab",
+    "PELOriginalDifferentialConstant318.lean": "89c0590bbf929210b08b8624f9b49d04b24fb06c16470da963ad8ba827573161",
+    "PELOriginalDifferentialPeriods318.lean": "bb8d91d229c739cc80b3c765bcca488adbfa4d1ff2d9b5281d77c9945872ad15"
+  },
+  "obligations": [
+    {
+      "required": "Original form, not arbitrary torus differential",
+      "constructed": "Coordinate-independent pulled-back density and genuine integrated-chart derivative",
+      "justification": "Exact original cocycle and true chart transitions",
+      "evidence": [
+        "PELOriginalLiftDifferential318.densityIn_eq",
+        "PELOriginalDifferentialPeriods318.integrated_derivative"
+      ]
+    },
+    {
+      "required": "Constant genuinely nonzero coefficient",
+      "constructed": "Actual period identity, covering inverse and compact quotient Liouville",
+      "justification": "Entire coefficient descends to unchanged compact source torus",
+      "evidence": [
+        "PELOriginalDifferentialConstant318.density_constant",
+        "PELOriginalDifferentialConstant318.scalar_ne"
+      ]
+    },
+    {
+      "required": "Complete differential development periods",
+      "constructed": "Exact developed fibers and additive equivalence with full original period subgroup",
+      "justification": "Nonzero explicit scalar and complete original lift fiber relation",
+      "evidence": [
+        "PELOriginalDifferentialPeriods318.developed_fibers",
+        "PELOriginalDifferentialPeriods318.integralCoordinates"
+      ]
+    }
+  ],
+  "readme_sha256": "0e329e52d449e397dfcd26ced5817cd32ce5a62e70c67767c3e42c094fae0cf7",
+  "intake_sha256": "e12c203734b218defbef1086b64988900117993d22a438b5390b4f554ba5e383",
+  "copy_bindings_sha256": "0f73c0892b6e4e263d9bb9a8ea389b4b3185adfc60a325bbabd4e17e96c3a677",
+  "pinned_apis_sha256": "d53a730922d8bed78a9e3656fab0b2d55fca76beebf7923536c387dde3a37c56"
+}
