@@ -1,0 +1,23 @@
+# Actual original Gaussian source: uniform powers and constructed growing cutoff
+
+Exact422 predecessor preserved, including the corrected actual Pprime/K second chart, original q(t)^2 lattices, all zero and both-label strata and the ContactChainLimits repair. Four sources consume the complete original weighted source bound, not a replacement box or assumed asymptotic.
+
+ActualGaussianExceptionalGrowth318 proves the explicit bounds zeroBudget<=Z(kappa,delta)*B^(2+2delta) and valueBudget<=V(kappa,delta)*B^(1+4delta), for B>=1 and delta>0. Z=60Ddelta*(4abs(kappa))^delta+120 and V=20Ddelta^2*4^delta*(4(abs(kappa)+1))^delta+40Ddelta*4^delta. Ddelta is the actual constructed divisorConstant from418, not an assumed divisor estimate. Zero fibers are included in the additive terms and absorbed using B^(2delta)>=1.
+
+ActualGaussianLogWeightAbsorption318 controls the ORIGINAL finite logarithmic weight family and its extra true-quartic height logarithm simultaneously. For an arbitrary finite index type J of cardinal k (including empty J), use eta=epsilon/(k+1). The constants are explicit products of log(2+abs(gamma_j))+2/eta and log(heightConstant(kappa))+74/eta. The pinned theorem Real.log_le_rpow_div supplies each individual logarithm bound. The exact finite product gives W<=CW*B^epsilon and W*logEnvelope<=CW*CE*B^epsilon. No eventual weight estimate, scalar constant or extra boundedness hypothesis is requested.
+
+ActualGaussianUniformPowerTail318 takes a requested epsilon>0 and makes the exponent choices delta=epsilon/8 and e=epsilon/2 internally. It consumes the same complete original source of422, the actual original label Rankin constant, the actual bad-lattice tail constant, both new exceptional growth estimates, and the simultaneous weight/height absorption. Since Y>=3, 1/logY<=1/log3. The final actual_uniform_power_tail is
+  original full weighted Gaussian obstruction mass
+    <= mainConstant(kappa,gamma,epsilon)*B^(3+epsilon)/Y
+       +errorConstant(kappa,gamma,epsilon)*B^(11/4+epsilon).
+Both constants are explicitly defined and proved nonnegative. They depend only on the fixed coefficient, finite original form family and epsilon, not B, Y, the original point or any selected prime. This retains the honest 1/Y route and does not claim 1/(YlogY).
+
+ActualGaussianGrowingCutoff318 selects the ACTUAL integer cutoff
+  cutoff(kappa,B)=max(abs(kappa),max(3,ceil(B^(1/100)))).
+This happens before individual source points or primes. The proof constructs all three needed inequalities, including the coefficient-prime threshold, so the final source equivalence removes the fixed-kappa prime exclusion. With epsilon=1/1000, the main exponent is3+epsilon-1/100=2.991, and the error exponent is11/4+epsilon=2.751; both are <=3-1/200=2.995. The final actual_all_prime_growing_tail bounds the actual original weighted source of ALL primes above this constructed cutoff dividing G=(a+1)^2+b^2 and H=(c+1)^2+d^2 by
+  growingConstant(kappa,gamma)*B^(3-1/200).
+There are no R, label, lattice, parity, selected-prime or coefficient-prime exclusions in this counted source. Both the actual original zero stratum and all nonzero exceptional prime cases are retained. The bound holds for every integer B>=1 and nonzero kappa. The cutoff is deliberately rounded upward and includes the fixed coefficient support; it is not silently identified with the real number B^(1/100).
+
+Source provenance: quartic_v10.tex lines16743-16870 for the actual large-common-prime strata and lines16875-16910 for growing-cutoff weighted obstruction. The current implementation proves an upper-bound route matching that final scale through explicit constants. It does not establish the medium-prime contribution, the same-position adjacent-norm obstruction, the remaining finite sign/pair assembly, the Gaussian ray-progression weighted lower bound, or prime-pattern existence. Four rational twist realizations and rational Anchor remain separate. Earlier unshifted Pprime/D estimates are not consumed for the actual second chart.
+
+Validation: two exact symbolic nonnegative-coefficient certificates;86 exact rational exponent allocations;450 exceptional growth checks;432 simultaneous original weight/height checks;1296 full consuming normalizations;144 constructed cutoff checks at80 digits. Tests cover empty/nonempty finite coefficient families, negative coefficients, B=1 and very large B. Producer constants D,A,T are tested as arbitrary positive values to validate the actual algebra without pretending to evaluate astronomically large small-epsilon Rankin constants. These are source/exact-computation checks, not Lean acceptance. Canonical426/222. No local Lean.
