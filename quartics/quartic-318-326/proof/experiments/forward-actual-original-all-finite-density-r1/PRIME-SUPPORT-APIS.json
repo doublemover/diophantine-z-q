@@ -1,0 +1,14 @@
+{
+  "path": "Mathlib/Data/Nat/Prime/Defs.lean",
+  "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "excerpts": [
+    {
+      "line": 188,
+      "text": "theorem prime_dvd_prime_iff_eq {p q : ℕ} (pp : p.Prime) (qp : q.Prime) : p ∣ q ↔ p = q :=\n  dvd_prime_two_le qp (Prime.two_le pp)\n\ntheorem Prime.not_dvd_one {p : ℕ} (pp : Prime p) : ¬p ∣ 1 :=\n  Irreducible.not_dvd_one pp"
+    },
+    {
+      "line": 417,
+      "text": "theorem Prime.dvd_mul {p m n : ℕ} (pp : Prime p) : p ∣ m * n ↔ p ∣ m ∨ p ∣ n :=\n  ⟨fun H => or_iff_not_imp_left.2 fun h => (pp.coprime_iff_not_dvd.2 h).dvd_of_dvd_mul_left H,\n    Or.rec (fun h : p ∣ m => h.mul_right _) fun h : p ∣ n => h.mul_left _⟩\n\nalias ⟨Prime.dvd_or_dvd, _⟩ := Prime.dvd_mul"
+    }
+  ]
+}
