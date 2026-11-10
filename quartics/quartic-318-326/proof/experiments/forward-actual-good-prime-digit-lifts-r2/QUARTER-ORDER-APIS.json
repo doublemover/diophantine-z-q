@@ -1,0 +1,151 @@
+{
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "pinned_primary_sources": [
+    {
+      "path": "Mathlib/GroupTheory/Index.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "noncomputable def index",
+          "line": 55,
+          "excerpt": "subgroup as a natural number.\nReturns 0 if the index is infinite. -/]\nnoncomputable def index : \u2115 :=\n  Nat.card (G \u29f8 H)\n\n/-- If `H` and `K` are subgroups of a group `G`, then `relIndex H K : \u2115` is the index\nof `H \u2229 K` in `K`. The function returns `0` if the index is infinite. -/\n@[to_additive /-- If `H` and `K` are subgroups of an additive group `G`, then `relIndex H K : \u2115`\nis the index of `H \u2229 K` in `K`. The function returns `0` if the index is infinite. -/]\nnoncomputable def relIndex : \u2115 :=\n  (H.subgroupOf K).index\n\n@[to_additive]\ntheorem index_comap_of_surjective {f : G' \u2192* G} (hf : Function.Surjective f) :\n    (H.comap f).index = H.index := by\n  have key : \u2200 x y : G',\n      QuotientGroup.leftRel (H.comap f) x y \u2194 QuotientGroup.leftRel H (f x) (f y) := by\n    simp only [QuotientGroup.leftRel_apply]\n    exact fun x y => iff_of_eq congr($(by rw [f.map_mul, f.map_inv]) \u2208 H)\n  refine Nat.card_congr (Equiv.ofBijective (Quotient.map' f fun x y => (key x y).mp"
+        },
+        {
+          "name": "theorem card_mul_index",
+          "line": 293,
+          "excerpt": "map, relIndex_bot_left]\n\n@[to_additive (attr := simp) card_mul_index]\ntheorem card_mul_index : Nat.card H * H.index = Nat.card G := by\n  rw [\u2190 relIndex_bot_left, \u2190 index_bot]\n  exact relIndex_mul_index bot_le\n\n@[to_additive card_ker_mul_card_range]\ntheorem card_ker_mul_card_range (f : G \u2192* G') : Nat.card f.ker * Nat.card f.range = Nat.card G := by\n  rw [\u2190 index_ker, card_mul_index]\n\n@[to_additive card_ker_mul_card_of_surjective]\ntheorem card_ker_mul_card_of_surjective (hf : Surjective f) :\n    Nat.card f.ker * Nat.card G' = Nat.card G := by\n  rw [\u2190 card_ker_mul_card_range f, f.range_eq_top_of_surjective hf, card_top]\n\n@[to_additive]\ntheorem card_dvd_of_surjective (hf : Surjective f) : Nat.card G' \u2223 Nat.card G :=\n  Dvd.intro_left (Nat.card f.ker) (card_ker_mul_card_of_surjective hf)\n\n@[to_additive]\ntheorem card_range_dvd (f : G \u2192* G') : Nat.card f.range \u2223 Nat.card G :=\n  card_dvd_of_surjective f.rangeRestrict_surjective\n\n@[to_additive]\ntheorem card_map_dvd "
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Basic.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem inv_eq_iff_mul_eq_one",
+          "line": 669,
+          "excerpt": ": a = b\u207b\u00b9 \u2194 a * b = 1 :=\n  mul_eq_one_iff_eq_inv.symm\n\n@[to_additive]\ntheorem inv_eq_iff_mul_eq_one : a\u207b\u00b9 = b \u2194 a * b = 1 :=\n  mul_eq_one_iff_inv_eq.symm\n\n@[to_additive]\ntheorem eq_mul_inv_iff_mul_eq : a = b * c\u207b\u00b9 \u2194 a * c = b :=\n  \u27e8fun h \u21a6 by rw [h, inv_mul_cancel_right], fun h \u21a6 by rw [\u2190 h, mul_inv_cancel_right]\u27e9\n\n@[to_additive]\ntheorem eq_inv_mul_iff_mul_eq : a = b\u207b\u00b9 * c \u2194 b * a = c :=\n  \u27e8fun h \u21a6 by rw [h, mul_inv_cancel_left], fun h \u21a6 by rw [\u2190 h, inv_mul_cancel_left]\u27e9\n\n@[to_additive]\ntheorem inv_mul_eq_iff_eq_mul : a\u207b\u00b9 * b = c \u2194 b = a * c :=\n  \u27e8fun h \u21a6 by rw [\u2190 h, mul_inv_cancel_left], fun h \u21a6 by rw [h, inv_mul_cancel_left]\u27e9\n\n@[to_additive]\ntheorem mul_inv_eq_iff_eq_mul : a * b\u207b\u00b9 = c \u2194 a = c * b :=\n  \u27e8fun h \u21a6 by rw [\u2190 h, inv_mul_cancel_right], fun h \u21a6 by rw [h, mul_inv_cancel_right]\u27e9\n\n@[to_additive]\ntheorem mul_inv_eq_one : a * b\u207b\u00b9 = 1 \u2194 a = b := by rw [mul_eq_one_iff_eq_inv, inv_inv]\n\n@[to_additive]\ntheorem inv_mul_eq_one : a\u207b\u00b9 * b = 1 \u2194 a = b := by rw"
+        }
+      ]
+    },
+    {
+      "path": "Mathlib/GroupTheory/OrderOfElement.lean",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "declarations": [
+        {
+          "name": "theorem orderOf_dvd_natCard",
+          "line": 1195,
+          "excerpt": " \u2190 Fintype.card_congr groupEquivQuotientProdSubgroup]\n\n@[to_additive]\ntheorem orderOf_dvd_natCard {G : Type*} [Group G] (x : G) : orderOf x \u2223 Nat.card G := by\n  obtain h | h := fintypeOrInfinite G\n  \u00b7 simp only [Nat.card_eq_fintype_card, orderOf_dvd_card]\n  \u00b7 simp only [card_eq_zero_of_infinite, dvd_zero]\n\n@[to_additive]\nnonrec lemma Subgroup.orderOf_dvd_natCard {G : Type*} [Group G] (s : Subgroup G) {x} (hx : x \u2208 s) :\n    orderOf x \u2223 Nat.card s := by\n  simpa using orderOf_dvd_natCard (\u27e8x, hx\u27e9 : s)\n\n@[to_additive]\nlemma Subgroup.orderOf_le_card {G : Type*} [Group G] (s : Subgroup G) (hs : (s : Set G).Finite)\n    {x} (hx : x \u2208 s) : orderOf x \u2264 Nat.card s :=\n  le_of_dvd (Nat.card_pos_iff.2 \u27e8(OneMemClass.coe_nonempty s).to_subtype, hs.to_subtype\u27e9) <|\n    s.orderOf_dvd_natCard hx\n\n@[to_additive]\nlemma Submonoid.orderOf_le_card {G : Type*} [Group G] (s : Submonoid G) (hs : (s : Set G).Finite)\n    {x} (hx : x \u2208 s) : orderOf x \u2264 Nat.card s := by\n  rw [\u2190 Nat.card_"
+        }
+      ]
+    }
+  ],
+  "actual_original_sources": [
+    {
+      "path": "quartics/quartic-318-326/proof/progress/BranchHalving.lean",
+      "sha256": "adc071ed060f213877a91b3ac3e394612c67afa774ebae84334856798431551f",
+      "declarations": [
+        {
+          "name": "theorem epsilon_square_from_roots",
+          "line": 67,
+          "excerpt": "theorem epsilon_square_from_roots (r z t : F) (hr : r^2=2)\n    (hz : z^8 = -1) (ht : t^4=2) (h2 : (2:F) \u2260 0) :\n    \u2203 a : F, a^2=1+r := by\n  have hz0 : z\u22600 := by\n    intro h\n    rw [h, zero_pow (by decide)] at hz\n    exact (neg_ne_zero.mpr one_ne_zero) hz.symm\n  have hr0 : r\u22600 := by intro h; rw [h, zero_pow (by decide)] at hr; exact h2 hr.symm\n  let i := z^4\n  have hi : i^2 = -1 := by dsimp [i]; simpa [\u2190 pow_mul] using hz\n  obtain \u27e8s, hs\u27e9 : \u2203 s : F, s^2=r := by\n    have ht2 : r^2=(t^2)^2 := by rw [hr, \u2190 pow_mul]; exact ht.symm\n    rcases (sq_eq_sq_iff_eq_or_eq_neg.mp ht2) with h | h\n    \u00b7 exact \u27e8t, h.symm\u27e9\n    \u00b7 refine \u27e8i*t, ?_\u27e9\n      rw [mul_pow, hi, neg_one_mul]\n      exact h.symm\n  let q := z^2+1/z^2\n  have hq : q^2=2 := by\n    dsimp [q]\n    field_simp\n    linear_combination hz\n  let bp := z+1/z\n  let bm := i*(z-1/z)\n  have hbp : bp^2=2+q := by\n    dsimp [bp, q]\n    field_simp\n    ring\n  have hbm : bm^2=2-q := by\n    have hv : (z-1/z)^2=q-2 := by\n      dsimp [q]\n      field_simp\n      ring\n    dsimp [bm]\n    rw [mul_pow, hi, hv]\n    ring\n  have hquot (b : F) (hb : b^2=2+r) : (b/s)^2=1+r := by\n    rw [div_pow, hb, hs]\n    apply (div_eq_iff hr0).mpr\n    linear_combination -hr\n  have hqr : q=r \u2228 q= -r := sq_eq_sq_iff_eq_or_eq_neg.mp (hq.trans hr.symm)\n  rcases hqr with h | h\n  \u00b7 exact \u27e8bp/s, hquot bp (by simpa [h] using hbp)\u27e9\n  \u00b7 exact \u27e8bm/s, hquot bm (by simpa [h] using hbm)\u27e9\n\n"
+        },
+        {
+          "name": "theorem explicit_half (",
+          "line": 114,
+          "excerpt": "theorem explicit_half (r a : F) (hr : r^2=2) (ha : a^2=1+r)\n    (h2 : (2:F) \u2260 0) (h7 : (7:F) \u2260 0) :\n    \u2203 x y m : F, y \u2260 0 \u2227\n      y^2=x^3-(3-r)^2*x \u2227 2*y*m=3*x^2-(3-r)^2 \u2227\n      m^2-2*x=1+r \u2227 m*(x-(1+r))-y=2*r := by\n  let u := a+r/a\n  have hu := (half_parameter r a hr ha).2\n  exact \u27e81+2*r-2*u, -2+10*r-(r+4)*u, 2-u,\n    half_y_nonzero r u hr hu h2 h7, half_identities r u hr hu\u27e9\n\n/-- Combined square-root and halving certificate, valid in the selected finite\nresidue fields. No characteristic-zero or analytic hypothesis is hidden here. -/\ntheorem explicit_half_from_roots (r z t : F) (hr : r^2=2)\n    (hz : z^8 = -1) (ht : t^4=2)\n    (h2 : (2:F) \u2260 0) (h7 : (7:F) \u2260 0) :\n    \u2203 x y m : F, y \u2260 0 \u2227\n      y^2=x^3-(3-r)^2*x \u2227 2*y*m=3*x^2-(3-r)^2 \u2227\n      m^2-2*x=1+r \u2227 m*(x-(1+r))-y=2*r := by\n  obtain \u27e8a, ha\u27e9 := epsilon_square_from_roots r z t hr hz ht h2\n  exact explicit_half r a hr ha h2 h7\n\n#print axioms half_parameter\n#print axioms explicit_half\n#print axioms epsilon_square_from_roots\n#print axioms explicit_half_from_roots\nend BranchHalving\n"
+        },
+        {
+          "name": "theorem explicit_half_from_roots",
+          "line": 126,
+          "excerpt": "theorem explicit_half_from_roots (r z t : F) (hr : r^2=2)\n    (hz : z^8 = -1) (ht : t^4=2)\n    (h2 : (2:F) \u2260 0) (h7 : (7:F) \u2260 0) :\n    \u2203 x y m : F, y \u2260 0 \u2227\n      y^2=x^3-(3-r)^2*x \u2227 2*y*m=3*x^2-(3-r)^2 \u2227\n      m^2-2*x=1+r \u2227 m*(x-(1+r))-y=2*r := by\n  obtain \u27e8a, ha\u27e9 := epsilon_square_from_roots r z t hr hz ht h2\n  exact explicit_half r a hr ha h2 h7\n\n#print axioms half_parameter\n#print axioms explicit_half\n#print axioms epsilon_square_from_roots\n#print axioms explicit_half_from_roots\nend BranchHalving\n"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/GlobalGeneratorPoints318.lean",
+      "sha256": "80ff13e0524489f9fbae177ad185358eb1e503cbd378291cbfd53d6d999ea6c6",
+      "declarations": [
+        {
+          "name": "def xR",
+          "line": 12,
+          "excerpt": "def xR : K := pair 1 1\n@[expose] def yR : K := pair 0 2\n@[expose] def slopeR : K := pair 3 (-1/4)\n\ntheorem equationR : E.Equation xR yR := by\n  rw [equation_iff]\n  ext <;> norm_num [E,xR,yR,D,i,pair,pow_succ]\ntheorem yR_ne : yR\u22600 := by\n  intro h\n  have hh := congrArg QuadraticAlgebra.im h\n  norm_num [yR,pair] at hh\n\ntheorem nonsingularR : E.Nonsingular xR yR :=\n  (equation_iff_nonsingular_of_\u0394_ne_zero RootPointAlgebra318.discriminant_nonzero).mp equationR\n@[expose] def R : E.Point := .some xR yR nonsingularR\n\ntheorem slopeR_actual : E.slope xR xR yR yR=slopeR := by\n  rw [slope_of_Y_ne']\n  \u00b7 simp only [E,zero_mul,add_zero,sub_zero,sub_neg_eq_add]\n    apply (div_eq_iff (show yR+yR\u22600 by simpa [two_mul] using mul_ne_zero (show (2:K)\u22600 by norm_num) yR_ne)).mpr\n    ext <;> norm_num [slopeR,xR,yR,D,i,pair,pow_succ]\n  \u00b7 simp only [E,zero_mul,sub_zero]\n    intro h\n    have hh : 2*yR=0 := by linear_combination h\n    exact (mul_ne_zero (by norm_num) yR_ne) hh\n\n/-- The global generator candidate doubles to the exact point used by every\nsource-local label theorem. This is an equality in Mathlib's actual group. -/\ntheorem double_R : R+R=P := by\n  have hy : yR\u2260E.negY xR yR := by\n    simp only [negY,E,zero_mul,sub_zero]\n    intro h\n    have hh : 2*yR=0 := by linear_combination h\n    exact (mul_ne_zero (by norm_num) yR_ne) hh\n  have hx : E.addX xR xR (E.slope xR xR yR yR)=xP := by\n    rw [slope"
+        },
+        {
+          "name": "def yR",
+          "line": 13,
+          "excerpt": "def yR : K := pair 0 2\n@[expose] def slopeR : K := pair 3 (-1/4)\n\ntheorem equationR : E.Equation xR yR := by\n  rw [equation_iff]\n  ext <;> norm_num [E,xR,yR,D,i,pair,pow_succ]\ntheorem yR_ne : yR\u22600 := by\n  intro h\n  have hh := congrArg QuadraticAlgebra.im h\n  norm_num [yR,pair] at hh\n\ntheorem nonsingularR : E.Nonsingular xR yR :=\n  (equation_iff_nonsingular_of_\u0394_ne_zero RootPointAlgebra318.discriminant_nonzero).mp equationR\n@[expose] def R : E.Point := .some xR yR nonsingularR\n\ntheorem slopeR_actual : E.slope xR xR yR yR=slopeR := by\n  rw [slope_of_Y_ne']\n  \u00b7 simp only [E,zero_mul,add_zero,sub_zero,sub_neg_eq_add]\n    apply (div_eq_iff (show yR+yR\u22600 by simpa [two_mul] using mul_ne_zero (show (2:K)\u22600 by norm_num) yR_ne)).mpr\n    ext <;> norm_num [slopeR,xR,yR,D,i,pair,pow_succ]\n  \u00b7 simp only [E,zero_mul,sub_zero]\n    intro h\n    have hh : 2*yR=0 := by linear_combination h\n    exact (mul_ne_zero (by norm_num) yR_ne) hh\n\n/-- The global generator candidate doubles to the exact point used by every\nsource-local label theorem. This is an equality in Mathlib's actual group. -/\ntheorem double_R : R+R=P := by\n  have hy : yR\u2260E.negY xR yR := by\n    simp only [negY,E,zero_mul,sub_zero]\n    intro h\n    have hh : 2*yR=0 := by linear_combination h\n    exact (mul_ne_zero (by norm_num) yR_ne) hh\n  have hx : E.addX xR xR (E.slope xR xR yR yR)=xP := by\n    rw [slopeR_actual,addX]\n    ext <;> norm_n"
+        },
+        {
+          "name": "def R :",
+          "line": 26,
+          "excerpt": "def R : E.Point := .some xR yR nonsingularR\n\ntheorem slopeR_actual : E.slope xR xR yR yR=slopeR := by\n  rw [slope_of_Y_ne']\n  \u00b7 simp only [E,zero_mul,add_zero,sub_zero,sub_neg_eq_add]\n    apply (div_eq_iff (show yR+yR\u22600 by simpa [two_mul] using mul_ne_zero (show (2:K)\u22600 by norm_num) yR_ne)).mpr\n    ext <;> norm_num [slopeR,xR,yR,D,i,pair,pow_succ]\n  \u00b7 simp only [E,zero_mul,sub_zero]\n    intro h\n    have hh : 2*yR=0 := by linear_combination h\n    exact (mul_ne_zero (by norm_num) yR_ne) hh\n\n/-- The global generator candidate doubles to the exact point used by every\nsource-local label theorem. This is an equality in Mathlib's actual group. -/\ntheorem double_R : R+R=P := by\n  have hy : yR\u2260E.negY xR yR := by\n    simp only [negY,E,zero_mul,sub_zero]\n    intro h\n    have hh : 2*yR=0 := by linear_combination h\n    exact (mul_ne_zero (by norm_num) yR_ne) hh\n  have hx : E.addX xR xR (E.slope xR xR yR yR)=xP := by\n    rw [slopeR_actual,addX]\n    ext <;> norm_num [E,xR,xP,slopeR,pair,pow_succ]\n  have hy' : E.addY xR xR yR (E.slope xR xR yR yR)=yP := by\n    rw [addY,negAddY,negY,hx,slopeR_actual]\n    ext <;> norm_num [E,xR,xP,yR,yP,slopeR,pair,pow_succ]\n  rw [R,Point.add_self_of_Y_ne hy]\n  simp only [hx,hy',P]\n\ntheorem two_zsmul_R : (2:\u2124) \u2022 R=P := by simpa [two_zsmul] using double_R\n\n@[expose] def torsionX (i:Fin 3) : K := if i=0 then 0 else if i=1 then pair 3 (-1) else pair (-3) 1\n\ntheorem"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/progress/ShortCurveBaseChange318.lean",
+      "sha256": "0a99d549f21f2861d382ff25473fe4f1931ecf8d858244ec5ed0bf27051b25fb",
+      "declarations": [
+        {
+          "name": "theorem nonsingular_map",
+          "line": 28,
+          "excerpt": "theorem nonsingular_map (\u03c6 : F \u2192+* K) (D x y : F) (h : (E D).Nonsingular x y) :\n    (E (\u03c6 D)).Nonsingular (\u03c6 x) (\u03c6 y) := by\n  rw [\u2190map_curve \u03c6 D]\n  exact ((E D).map_nonsingular \u03c6.injective x y).mpr h\n\n@[expose] def pointMap (\u03c6 : F \u2192+* K) (D : F) : (E D).Point \u2192+ (E (\u03c6 D)).Point := by\n  letI : Algebra F K := \u03c6.toAlgebra\n  exact (transport (map_curve \u03c6 D)).toAddMonoidHom.comp (Point.baseChange F K (W':=E D))\n\ntheorem pointMap_some (\u03c6 : F \u2192+* K) (D x y : F) (h : (E D).Nonsingular x y) :\n    pointMap \u03c6 D (Point.some x y h)=Point.some (\u03c6 x) (\u03c6 y) (nonsingular_map \u03c6 D x y h) := by\n  letI : Algebra F K := \u03c6.toAlgebra\n  change transport (map_curve \u03c6 D) (Point.some (\u03c6 x) (\u03c6 y)\n    (((E D).map_nonsingular \u03c6.injective x y).mpr h)) = _\n  rw [transport_some]\n\n@[simp] theorem pointMap_zero (\u03c6 : F \u2192+* K) (D : F) : pointMap \u03c6 D 0=0 := map_zero _\ntheorem pointMap_add (\u03c6 : F \u2192+* K) (D : F) (P Q : (E D).Point) :\n    pointMap \u03c6 D (P+Q)=pointMap \u03c6 D P+pointMap \u03c6 D Q := map_add _ _ _\ntheorem pointMap_zsmul (\u03c6 : F \u2192+* K) (D : F) (n : \u2124) (P : (E D).Point) :\n    pointMap \u03c6 D (n \u2022 P)=n \u2022 pointMap \u03c6 D P := map_zsmul _ _ _\n\n\ntheorem pointMap_injective (\u03c6 : F \u2192+* K) (D : F) : Function.Injective (pointMap \u03c6 D) := by\n  intro P Q he\n  cases P with\n  | zero =>\n    cases Q with\n    | zero => rfl\n    | some x y h =>\n      change pointMap \u03c6 D 0=pointMap \u03c6 D (Point.some x y h) at he\n      rw [pointMap_zero,pointMa"
+        },
+        {
+          "name": "theorem pointMap_some",
+          "line": 37,
+          "excerpt": "theorem pointMap_some (\u03c6 : F \u2192+* K) (D x y : F) (h : (E D).Nonsingular x y) :\n    pointMap \u03c6 D (Point.some x y h)=Point.some (\u03c6 x) (\u03c6 y) (nonsingular_map \u03c6 D x y h) := by\n  letI : Algebra F K := \u03c6.toAlgebra\n  change transport (map_curve \u03c6 D) (Point.some (\u03c6 x) (\u03c6 y)\n    (((E D).map_nonsingular \u03c6.injective x y).mpr h)) = _\n  rw [transport_some]\n\n@[simp] theorem pointMap_zero (\u03c6 : F \u2192+* K) (D : F) : pointMap \u03c6 D 0=0 := map_zero _\ntheorem pointMap_add (\u03c6 : F \u2192+* K) (D : F) (P Q : (E D).Point) :\n    pointMap \u03c6 D (P+Q)=pointMap \u03c6 D P+pointMap \u03c6 D Q := map_add _ _ _\ntheorem pointMap_zsmul (\u03c6 : F \u2192+* K) (D : F) (n : \u2124) (P : (E D).Point) :\n    pointMap \u03c6 D (n \u2022 P)=n \u2022 pointMap \u03c6 D P := map_zsmul _ _ _\n\n\ntheorem pointMap_injective (\u03c6 : F \u2192+* K) (D : F) : Function.Injective (pointMap \u03c6 D) := by\n  intro P Q he\n  cases P with\n  | zero =>\n    cases Q with\n    | zero => rfl\n    | some x y h =>\n      change pointMap \u03c6 D 0=pointMap \u03c6 D (Point.some x y h) at he\n      rw [pointMap_zero,pointMap_some] at he\n      exact (Point.some_ne_zero _ he.symm).elim\n  | some x y h =>\n    cases Q with\n    | zero =>\n      change pointMap \u03c6 D (Point.some x y h)=pointMap \u03c6 D 0 at he\n      rw [pointMap_some,pointMap_zero] at he\n      exact (Point.some_ne_zero _ he).elim\n    | some x' y' h' =>\n      rw [pointMap_some,pointMap_some] at he\n      have hh:=Point.some.inj he\n      have hx:=\u03c6.injective hh.1\n      have hy"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-selected-quarter-orders-r1/GoodReductionCardinality318.lean",
+      "sha256": "70a056ab47683afc0256cd801fd1d000277dc90f51241cc1390a6a2936aa0f38",
+      "declarations": [
+        {
+          "name": "theorem same_coset_residue",
+          "line": 15,
+          "excerpt": "theorem same_coset_residue (D : \u2124_[p]) (hD : \u2016D\u2016=1) (P Q : IntegralCurve p D)\n    (he : QuotientAddGroup.mk' (subgroup p D) (point p D hD P)=\n      QuotientAddGroup.mk' (subgroup p D) (point p D hD Q)) :\n    reduce p D P=reduce p D Q := by\n  by_contra hr\n  have hsep : \u2016(P.1.1:\u211a_[p])-(Q.1.1:\u211a_[p])\u2016=1 \u2228\n      \u2016(Q.1.2:\u211a_[p])-(P.1.2:\u211a_[p])\u2016=1 := by\n    by_cases hx : PadicInt.toZMod P.1.1=PadicInt.toZMod Q.1.1\n    \u00b7 right\n      have hy : PadicInt.toZMod Q.1.2\u2260PadicInt.toZMod P.1.2 := by\n        intro hy\n        exact hr (Subtype.ext (Prod.ext hx hy.symm))\n      have hu := (residue_unit p (Q.1.2-P.1.2)).mp\n        (by simpa only [map_sub,sub_ne_zero] using hy)\n      simpa only [PadicInt.norm_def,PadicInt.coe_sub] using hu\n    \u00b7 left\n      have hu := (residue_unit p (P.1.1-Q.1.1)).mp\n        (by simpa only [map_sub,sub_ne_zero] using hx)\n      simpa only [PadicInt.norm_def,PadicInt.coe_sub] using hu\n  have hn := IntegralFormalSeparation318.separated_difference\n    (NormedField.toAbsoluteValue \u211a_[p]) (ActualSplitOrbitEntry318.nonarchimedean p)\n    (D:\u211a_[p]) (P.1.1:\u211a_[p]) (P.1.2:\u211a_[p]) (Q.1.1:\u211a_[p]) (Q.1.2:\u211a_[p])\n    D.2 (nonsingular p D hD P) (nonsingular p D hD Q)\n    P.1.1.2 P.1.2.2 Q.1.1.2 Q.1.2.2 hsep\n  apply hn\n  apply (QuotientAddGroup.eq_zero_iff (subgroup p D)).mp\n  change (QuotientAddGroup.mk' (subgroup p D)) (point p D hD P-point p D hD Q)=0\n  simpa only [map_sub,sub_eq_zero]"
+        },
+        {
+          "name": "lemma point_nonformal",
+          "line": 44,
+          "excerpt": "lemma point_nonformal (D : \u2124_[p]) (hD : \u2016D\u2016=1) (P : IntegralCurve p D) :\n    point p D hD P\u2209subgroup p D := by\n  intro he\n  rcases he with hz|hx\n  \u00b7 exact Point.some_ne_zero _ hz\n  \u00b7 change 1< \u2016(P.1.1:\u211a_[p])\u2016 at hx\n    exact not_lt_of_ge P.1.1.2 hx\n\n@[expose] def lift (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) (z : ResidueCurve p D) :\n    IntegralCurve p D := (lift_residue p hp D hD z).choose\nlemma reduce_lift (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) (z : ResidueCurve p D) :\n    reduce p D (lift p hp D hD z)=z := (lift_residue p hp D hD z).choose_spec\n\n@[expose] def code (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) :\n    Option (ResidueCurve p D) \u2192 (E (D:\u211a_[p])).Point \u29f8 subgroup p D\n  | none => 0\n  | some z => QuotientAddGroup.mk' (subgroup p D) (point p D hD (lift p hp D hD z))\n\nlemma code_some_ne_zero (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) (z : ResidueCurve p D) :\n    code p hp D hD (some z)\u22600 := by\n  intro he\n  exact point_nonformal p D hD _ ((QuotientAddGroup.eq_zero_iff (subgroup p D)).mp he)\n\ntheorem code_injective (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) :\n    Function.Injective (code p hp D hD) := by\n  intro a b he\n  cases a with\n  | none =>\n    cases b with\n    | none => rfl\n    | some z => exact False.elim (code_some_ne_zero p hp D hD z he.symm)\n  | some z =>\n    cases b with\n    | none => exact False.elim (code_some_ne_zero p hp D hD z he)\n    | some t =>\n      have hh := same_coset_residue p D "
+        },
+        {
+          "name": "def equivalence",
+          "line": 109,
+          "excerpt": "def equivalence (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) :\n    Option (ResidueCurve p D) \u2243 (E (D:\u211a_[p])).Point \u29f8 subgroup p D :=\n  Equiv.ofBijective (code p hp D hD) \u27e8code_injective p hp D hD,code_surjective p hp D hD\u27e9\n\n/-- Cardinality of the SAME actual formal quotient equals the literal\nfinite residue-curve count, including its identity. No group-law preservation\nof reduction is needed or asserted by this cardinality theorem. -/\ntheorem cardinality (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) :\n    Nat.card ((E (D:\u211a_[p])).Point \u29f8 subgroup p D)=1+Nat.card (ResidueCurve p D) := by\n  classical\n  rw [\u2190Nat.card_congr (equivalence p hp D hD)]\n  rw [Nat.card_eq_fintype_card,Fintype.card_option,Nat.card_eq_fintype_card]\n  omega\n\nend GoodReductionCardinality318\n"
+        },
+        {
+          "name": "theorem cardinality",
+          "line": 116,
+          "excerpt": "theorem cardinality (hp : p\u22602) (D : \u2124_[p]) (hD : \u2016D\u2016=1) :\n    Nat.card ((E (D:\u211a_[p])).Point \u29f8 subgroup p D)=1+Nat.card (ResidueCurve p D) := by\n  classical\n  rw [\u2190Nat.card_congr (equivalence p hp D hD)]\n  rw [Nat.card_eq_fintype_card,Fintype.card_option,Nat.card_eq_fintype_card]\n  omega\n\nend GoodReductionCardinality318\n"
+        }
+      ]
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-selected-quarter-orders-r1/SelectedReductionOrder318.lean",
+      "sha256": "2f96efb6676c3c6ab24d5d066c7291b8c19104d91072c7866a565a17397f927d",
+      "declarations": [
+        {
+          "name": "lemma coefficient_unit",
+          "line": 15,
+          "excerpt": "lemma coefficient_unit (rho : \u211a_[p]) (hr : rho^2=2) (h7 : \u00acp\u222349) :\n    \u2016coefficient p rho hr\u2016=1 := by\n  have he := ActualReciprocalParameters318.coefficient_unit p rho hr h7\n  have hn := ActualSplitOrbitEntry318.coefficient_ne p rho hr\n  change Padic.addValuation (embedding p rho hr ConcreteG8Domain.D)=0 at he\n  rw [Padic.addValuation.apply hn] at he\n  have hv : (embedding p rho hr ConcreteG8Domain.D).valuation=0 := by exact_mod_cast he\n  change \u2016embedding p rho hr ConcreteG8Domain.D\u2016=1\n  rw [Padic.norm_eq_zpow_neg_valuation hn,hv,neg_zero,zpow_zero]\n\n@[expose] def residueRoot (rho : \u211a_[p]) (hr : rho^2=2) : ZMod p :=\n  PadicInt.toZMod (\u27e8rho,ActualSplitOrbitEntry318.root_integral p rho hr\u27e9:\u2124_[p])\n\nlemma residueRoot_square (rho : \u211a_[p]) (hr : rho^2=2) : residueRoot p rho hr^2=2 := by\n  let r : \u2124_[p] := \u27e8rho,ActualSplitOrbitEntry318.root_integral p rho hr\u27e9\n  have he : r^2=2 := by apply Subtype.ext; exact hr\n  have hh := congrArg (PadicInt.toZMod (p:=p)) he\n  simpa only [map_pow,map_ofNat] using hh\n\nlemma residue_coefficient (rho : \u211a_[p]) (hr : rho^2=2) :\n    PadicInt.toZMod (coefficient p rho hr)=(3-residueRoot p rho hr)^2 := by\n  let r : \u2124_[p] := \u27e8rho,ActualSplitOrbitEntry318.root_integral p rho hr\u27e9\n  have he : coefficient p rho hr=(3-r)^2 := by\n    apply Subtype.ext\n    exact ActualSplitOrbitEntry318.coefficient_eq p rho hr\n  have hh := congrArg (PadicInt.toZMod (p:=p)) he\n  sim"
+        },
+        {
+          "name": "lemma residue_coefficient",
+          "line": 34,
+          "excerpt": "lemma residue_coefficient (rho : \u211a_[p]) (hr : rho^2=2) :\n    PadicInt.toZMod (coefficient p rho hr)=(3-residueRoot p rho hr)^2 := by\n  let r : \u2124_[p] := \u27e8rho,ActualSplitOrbitEntry318.root_integral p rho hr\u27e9\n  have he : coefficient p rho hr=(3-r)^2 := by\n    apply Subtype.ext\n    exact ActualSplitOrbitEntry318.coefficient_eq p rho hr\n  have hh := congrArg (PadicInt.toZMod (p:=p)) he\n  simpa only [map_pow,map_sub,map_ofNat] using hh\n\n/-- The finite residue equation is exactly the original normalized model\nwith the same selected sqrt2, not an unrelated curve having a known count. -/\n@[expose] def pointCount (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 :=\n  1+Nat.card {z : ZMod p \u00d7 ZMod p // z.2^2=z.1^3-(3-residueRoot p rho hr)^2*z.1}\n\ntheorem actual_quotient_card (rho : \u211a_[p]) (hr : rho^2=2) (hp : p\u22602) (h7 : \u00acp\u222349) :\n    Nat.card ((E (embedding p rho hr ConcreteG8Domain.D)).Point \u29f8\n      SelectedQuotientOrders318.subgroup p rho hr)=pointCount p rho hr := by\n  have he := GoodReductionCardinality318.cardinality p hp (coefficient p rho hr)\n    (coefficient_unit p rho hr h7)\n  change Nat.card ((E (embedding p rho hr ConcreteG8Domain.D)).Point \u29f8\n    SelectedQuotientOrders318.subgroup p rho hr)=\n      1+Nat.card (ResidueCurve p (coefficient p rho hr)) at he\n  simpa only [pointCount,ResidueCurve,residue_coefficient] using he\n\n/-- A genuine divisibility comparison for the SAME half-point quotient\norde"
+        },
+        {
+          "name": "def pointCount",
+          "line": 45,
+          "excerpt": "def pointCount (rho : \u211a_[p]) (hr : rho^2=2) : \u2115 :=\n  1+Nat.card {z : ZMod p \u00d7 ZMod p // z.2^2=z.1^3-(3-residueRoot p rho hr)^2*z.1}\n\ntheorem actual_quotient_card (rho : \u211a_[p]) (hr : rho^2=2) (hp : p\u22602) (h7 : \u00acp\u222349) :\n    Nat.card ((E (embedding p rho hr ConcreteG8Domain.D)).Point \u29f8\n      SelectedQuotientOrders318.subgroup p rho hr)=pointCount p rho hr := by\n  have he := GoodReductionCardinality318.cardinality p hp (coefficient p rho hr)\n    (coefficient_unit p rho hr h7)\n  change Nat.card ((E (embedding p rho hr ConcreteG8Domain.D)).Point \u29f8\n    SelectedQuotientOrders318.subgroup p rho hr)=\n      1+Nat.card (ResidueCurve p (coefficient p rho hr)) at he\n  simpa only [pointCount,ResidueCurve,residue_coefficient] using he\n\n/-- A genuine divisibility comparison for the SAME half-point quotient\norder and the literal full finite-curve count. The stronger count/4 CM\ncomparison still requires the original doubling-image calculation. -/\ntheorem actual_order_dvd (rho : \u211a_[p]) (hr : rho^2=2) (hp : p\u22602) (h7 : \u00acp\u222349) :\n    SelectedQuotientOrders318.order p rho hr\u2223pointCount p rho hr := by\n  rw [\u2190actual_quotient_card p rho hr hp h7]\n  exact addOrderOf_dvd_natCard (SelectedQuotientOrders318.generator p rho hr)\n\nopen ClearedContactForms318 MergedContactPrimePattern318 ContactPatternSupport318\nopen ActualSelectedOrderModuli318\n\n@[expose] def counts {labels : Fin 4 \u2192 \u2124} (C : Clearing labels) (u w"
+        }
+      ]
+    }
+  ],
+  "additive_names": "to_additive produces AddSubgroup.card_mul_index, addOrderOf_dvd_natCard, and neg_eq_iff_add_eq_zero with the displayed multiplicative statements and directions."
+}
