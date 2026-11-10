@@ -1,0 +1,13 @@
+# Actual finite positive original graph mass and exact normalization
+
+Exact533r2 is preserved. Four connected modules integrate the SAME actual compact smooth ambient weight over the ORIGINAL positive-a quadric graph, with the exact original 1/(2a) Jacobian and product Lebesgue measure in (b,c,d,w).
+
+ActualGraphCompactSupport318 proves compact support of the actual graph pullback. It uses the actual coordinate projection as a left inverse to the graph: the pullback support lies in the projection of the original compact support. It does NOT assume continuous preimages of compact sets are compact.
+
+ActualOriginalGraphDensityRegularity318 handles the apparent square-root denominator singularity globally. It constructs W(graph(v))/max(eta,2sqrt(radicand(v))), continuous because eta is strictly positive. The original ambient support bound proves this equals the ORIGINAL density everywhere: where W is nonzero the denominator is exactly2a, and where W is zero both quotients are zero. The actual graph density is therefore continuous, compactly supported and nonnegative on the whole parameter space.
+
+ActualOriginalPositiveGraphIntegral318 proves genuine Integrable of that exact density with ordinary parameter volume. The produced original point gives a positive density value and hence an actual positive-measure neighborhood. Its Bochner integral is finite and strictly positive, not merely a formal named constant. The same ambient weight remains smooth, compact, nonnegative, equal to1 at the actual point, and wholly supported on the simultaneous original prime-form good region with uniform nonzero normal derivative.
+
+ActualOriginalGraphMassNormalization318 divides the SAME original ambient weight by this actual positive graph mass. The original density and its integral scale exactly; the whole topological support is unchanged, as are the original prime-form and gradient bounds. The resulting actual graph integral is exactly1 and the normalized ambient weight remains smooth, compact and nonnegative with a strictly positive value at the original point.
+
+Scope: this proves the integrated original GRAPH mass, including finiteness, positivity and normalization. Identification with a particular oscillatory singular-integral convention (including Fourier2pi), and the full uniform circle-method lattice-point error remain separate. No global point-count or prime-pattern asymptotic is inferred. Exact pinned support/Bochner/open-positive-measure APIs are bound in GRAPH-INTEGRAL-PRIMARY. The independent polynomial compact-bump integral regression is a normalization cross-check, not a replacement for the actual smooth-weight construction.
