@@ -1,0 +1,21 @@
+{
+  "reviewer": "/root/resume_pel_order",
+  "application_sha256": "d2127f89eaa8e934ce7046e0c9a539d4f1bc2822295d6b24716cfdf9ed657f99",
+  "verdict": "SOURCE_REVIEW_CLEAR_NOT_HOSTED_ACCEPTANCE",
+  "new_sources": {
+    "OriginalReducedBasisData318.lean": "918468b5cd5c3f0b99ffd25465dbad68f61f217f0788f53ab5e453c5e01a3a72",
+    "OriginalSaturatedPlane318.lean": "5208ba4dd4b497c5acf10a790761ef879c0b7fee5a089cd60a68944fc3f81b15",
+    "OriginalControlledIntegralBasis318.lean": "7df0eb2ba5f7d94f1eb9ebb30f26e20c26c509229dcc2e3b41259159f0feb359"
+  },
+  "checks": [
+    "Read all three new modules and actual rounding/decomposition/positive image-generator predecessor statements.",
+    "Sequential shortest actual integer vectors imply |inner(u,v)|<=norm(u)^2/2 from v+u and v-u in the same lattice outside the first line.",
+    "Line saturation uses nearest-integer residual<=norm(u)/2, forcing zero by actual first minimum. Plane saturation uses whole actual normal kernel, actual decomposition and residual squared<=3/4 norm(v)^2; second minimum forces the residual into the already saturated first line.",
+    "Actual positive integer normal-image generator G is attained in the original lattice. Subtracting its multiple from any original point lands in whole normal kernel, giving integer spanning of ALL original points.",
+    "Actual third sequential vector w gives nonzero normal value, hence G<=abs(dot(n,w)); Cauchy-Schwarz controls normal height. Rounding yields norm(z)^2<=norm(w)^2+3/4 norm(v)^2, therefore norm(z)<=2norm(w).",
+    "Independence and whole integer spanning both retained, not confused with full rank or finite-index sublattice. Same original literal lattice and integer coordinates used throughout.",
+    "All theorem hypotheses explicit; no proof-only section hypothesis omitted. All312 predecessors byte exact; canonical315PASS.",
+    "Reran exact checker:70 whole-lattice bases,5060 integral coordinate checks,2539 plane saturation checks,70 length checks,70 nonprimitive negative controls."
+  ],
+  "scope": "A genuine controlled integral basis producer, not by itself the full good-lattice sieve/asymptotic. No local Lean build."
+}

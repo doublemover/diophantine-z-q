@@ -1,0 +1,28 @@
+[
+  {
+    "path": "Mathlib/Algebra/Notation/Prod.lean",
+    "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "sha256": "04b328557e18a8f75955a89484cda74bfeb9bb685e62d0b59ab70f01477dfd4a",
+    "declarations": [
+      {
+        "line": 117,
+        "excerpt": "\n@[to_additive (attr := simp)]\ntheorem fst_div (a b : G \u00d7 H) : (a / b).1 = a.1 / b.1 := rfl\n\n@[to_additive (attr := simp)]\ntheorem snd_div (a b : G \u00d7 H) : (a / b).2 = a.2 / b.2 := rfl\n\n@[to_additive (attr := simp)]\ntheorem mk_div_mk (x\u2081 x\u2082 : G) (y\u2081 y\u2082 : H) : (x\u2081, y\u2081) / (x\u2082, y\u2082) = (x\u2081 / x\u2082, y\u2081 / y\u2082) := rfl\n"
+      },
+      {
+        "line": 120,
+        "excerpt": "\n@[to_additive (attr := simp)]\ntheorem snd_div (a b : G \u00d7 H) : (a / b).2 = a.2 / b.2 := rfl\n\n@[to_additive (attr := simp)]\ntheorem mk_div_mk (x\u2081 x\u2082 : G) (y\u2081 y\u2082 : H) : (x\u2081, y\u2081) / (x\u2082, y\u2082) = (x\u2081 / x\u2082, y\u2081 / y\u2082) := rfl\n\n@[to_additive (attr := simp)]\ntheorem swap_div (a b : G \u00d7 H) : (a / b).swap = a.swap / b.swap := rfl\n"
+      }
+    ]
+  },
+  {
+    "path": "Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+    "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "sha256": "4421898daf1a42c8d753e53008d0eac86ea12ff55f7c5a1da4604c2a5938fa1f",
+    "declarations": [
+      {
+        "line": 482,
+        "excerpt": "/-- The norm on a `NormedField`, as an `AbsoluteValue`. -/\n@[simps]\ndef NormedField.toAbsoluteValue (R : Type*) [NormedField R] : AbsoluteValue R \u211d where\n  toFun     := norm\n  map_mul'  := norm_mul\n  nonneg'   := norm_nonneg\n  eq_zero' _ := norm_eq_zero\n  add_le'   := norm_add_le"
+      }
+    ]
+  }
+]

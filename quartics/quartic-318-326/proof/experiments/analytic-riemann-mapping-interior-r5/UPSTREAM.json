@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/leanprover-community/mathlib4",
+  "pull_request": "https://github.com/leanprover-community/mathlib4/pull/33505",
+  "upstream_head": "d43061d911b1aeae0788591da437a3b115098962",
+  "pinned_mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "license": "Apache-2.0",
+  "authors": [
+    "Yury Kudryashov"
+  ],
+  "upstream_sources": {
+    "RiemannMappingPR33505.lean": "335a97ee3cf41c2f56581b80176decde8de8bb60491a342d3b7eec2146aa8caa",
+    "UnitDiscShiftPR33505.lean": "5892b5e8a85d532b934f481af0900d564fcb76e08a4b58a3667729e4f0eb448e"
+  },
+  "changes": [
+    "Split proof into five explicit modules",
+    "Replace absent UnitDisc.Shift import by attributed vendored RiemannUnitDiscShift318",
+    "Suffix27 helper basenames318 to avoid declaration collision; exact map retained",
+    "Expose each isolated module section and import Ascoli publicly",
+    "Explicit finite heartbeat limits; no local Lean build",
+    "Do not apply PR unrelated CompactOpen public-import change",
+    "Pinned hosted repair: eta-expand shift right_inv and use only neg_neg; same exact inverse law, no proof-content assumption",
+    "Exact second hosted frontier repair: explicit finite set equality, pinned generated pointwise logarithmic derivative lemmas, explicit zero-power point equality. No theorem/domain/statement or budget change.",
+    "Third exact hosted frontier: three deprecated alias binders replaced by registered LocallyPathConnectedSpace class, plus canonical IsOpen producer name. Same class definition, theorem domain and conclusions; no binder-check or budget relaxation."
+  ],
+  "remaining": [
+    "Port may require pinned API repairs; no hosted elaboration accepted yet",
+    "No boundary extension or conformal reflection claimed",
+    "No original-domain instantiation or compact-curve uniformization claimed"
+  ]
+}
