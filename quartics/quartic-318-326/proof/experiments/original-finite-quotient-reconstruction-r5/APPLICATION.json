@@ -1,0 +1,121 @@
+{
+  "claim": "Prove flatness of SAME finite dominant original projective quotient, then original fiber-degree/point-branch reconstruction without supplied Flat p.",
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ORIGINAL_SCOPE_BATCH_REVIEW_REQUESTED",
+  "new_sources": {
+    "GaloisCharacterContactReconstruction318.lean": "ed29c7f95efe2a390058135265e87e95af480f6eaea0274f75964b6748bbeb1e",
+    "OriginalCandidateCurveIso318.lean": "37eab61e484a001565c89c87f43fe273b14f686b12ab1cdc1e712cdb7483ff45",
+    "CenteredContactReconstruction318.lean": "7066bf0663875e82858a7ca43af47c5e00d88e7514f06108ffa730497942329b",
+    "AffinePrimeCenter318.lean": "8c43c15bf9736c02ce3a38cd05a52c86040709f5da88279699e36eb387f64557",
+    "OriginalAffineLocalReconstruction318.lean": "edd48859d487595ff51beabb2402aa8b8f37b7be5ac3ba4d39f8385889ca5206",
+    "OriginalFullInertiaReconstruction318.lean": "b417868c4d0533ef2b3db02a979dfee485052cd97f796ff15ad9ec11e561cee7",
+    "OriginalCurveGeometricStabilizers318.lean": "4ac31cb873a2dfe00e26957adf1756ad5947d702dedfda7c5189db945b799d6d",
+    "OriginalComplexPointReconstruction318.lean": "e2ce0ee1ef249b8694bdeb30d0b5514798eb92fd74924b3c537df6e808bc2016",
+    "OriginalPublishedComplexBranches318.lean": "b037d2ebf81ffa7814441956c1bccc74915a8a80ed27628930606a631c6284f5",
+    "OriginalArithmeticBranchReconstruction318.lean": "a60660e7dde4fea5829e26dacae2510931bc55d8589bec70a5f0f4bcace5dbce",
+    "OriginalDeckCurveReconstruction318.lean": "9fb3959659e66d8a7f1d6f32216f1dda1ab32c486eb8cb8dcd37633f6525b5a0",
+    "OriginalActualDeckEquivariance318.lean": "d7ebfd58a9359b792d3b04d875948e531c4b29e50fc1860dc6d1849c28444c6d",
+    "OriginalCanonicalDeckReconstruction318.lean": "5f5915b21467a66c588a2c7bd68b0d793d0be907ec98a7e2e5b5816fb5b5424f",
+    "OriginalAffineSectionReconstruction318.lean": "2cc2cac4a3a8855f218fbc4abc0cce45b698f65ee00abd4eeb91460a1d81af69",
+    "OriginalCanonicalCoordinateReconstruction318.lean": "8447a1601acb6407a49d6e3b603d202f1a029bcec77dd2f424cff0122902a782",
+    "OriginalCartesianCurveReconstruction318.lean": "83566e0b87ceb512289e9ff7d864522b1482d6b6ceb98b7f47cdaa6de0431ef3",
+    "OriginalIntegralBaseReconstruction318.lean": "60bd2493eec83ebe1854b59bc426659d86368e46792e8463366a159e059f0917"
+  },
+  "readme_sha256": "377dbaa1c251f41da756b3c6306981389e876843f40dced96e8c1a9919ab8902",
+  "intake_sha256": "dbf7f221d426c0ed868c9315269d3710803f0bc92dbe43436de19f580dc5222c",
+  "copy_bindings_sha256": "5b9fa1419960dfa77a6bbc7c4d64579e79a5eb6447e22eb5411f8c821c59b882",
+  "pinned_apis_sha256": "14e4d5a73a1989ba90e516cc467c52eb7a9513a35ba6bcd381e6bafe7df42d28",
+  "predecessor_application_sha256": "824604cc8ec042e723926927255d426bc42760920319fc9dbad563b150de5a11",
+  "obligations": [
+    {
+      "name": "Actual affine coefficient",
+      "required": "Need original polynomial-to-section map, not an arbitrary embedding.",
+      "constructed": "Full faithful Spec.preimage of actual isoSpec.inv followed by original f.",
+      "justification": "Exact map_preimage identity transports actual dominance to the same Spec map.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.affine_flat"
+      ]
+    },
+    {
+      "name": "Injective original map",
+      "required": "Must prove actual scalar coefficient map injective.",
+      "constructed": "Dense actual Spec image implies kernel in actual polynomial nilradical.",
+      "justification": "Polynomial Q is a reduced domain, so kernel elements are zero.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.affine_flat"
+      ]
+    },
+    {
+      "name": "Native module flatness",
+      "required": "Flatness must concern the original algebra action.",
+      "constructed": "Use exact coefficient.toAlgebra, its injectivity gives faithful scalar action on actual domain sections.",
+      "justification": "Domain algebra torsion-freeness and Dedekind Q[t] yield native Module.Flat, then original Spec Flat.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.affine_flat"
+      ]
+    },
+    {
+      "name": "Both entire projective charts",
+      "required": "Must cover full original target, not one dense subopen.",
+      "constructed": "Use original JLineAtlas.cover Q with BOTH Fin2 charts and full literal pullback.snd maps.",
+      "justification": "Target-locality iff_of_openCover has exactly this index coverage.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.flat"
+      ]
+    },
+    {
+      "name": "Nonempty integral sources",
+      "required": "Affine flatness requires actual integral sources of each chart.",
+      "constructed": "Original finite dominant p is surjective; both actual base-change projections are surjective over nonempty Spec Q[t].",
+      "justification": "Actual pullback.fst is an open immersion into integral Y, giving source integrality.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.flat"
+      ]
+    },
+    {
+      "name": "Same morphism descent",
+      "required": "Local flatness must yield Flat of the original p.",
+      "constructed": "Both actual pullback projections are flat and the original target cover is complete.",
+      "justification": "No morphism replacement; local property theorem returns Flat p.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.flat"
+      ]
+    },
+    {
+      "name": "Same terminal endpoint",
+      "required": "Remove supplied Flat p without changing curve/field/action conclusions.",
+      "constructed": "Construct local originalFlat from actual finite dominant p, then exact78 consumer.",
+      "justification": "Same actual fiber points, deck maps, normal cover and full original branch/model laws.",
+      "evidence": [
+        "OriginalFinitePointReconstruction318.original_curve"
+      ]
+    },
+    {
+      "name": "Genuine geometric boundary",
+      "required": "Do not infer actual PEL algebraization, finiteness or branch/fiber laws.",
+      "constructed": "Real integral algebraic Y, finite dominant p, old normal/action and actual unramified16-point fiber remain required.",
+      "justification": "Flatness is the new proved deduction; missing geometric producers stay explicit.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required": "Fresh native-scalar/whole-chart flatness application needs primary/source/hosted checks.",
+      "constructed": "78 exact sources plus2, actual source bodies and primary signatures read and pinned. Exact e36a6803 replay42649103375 repair: first8 predecessors PASS including ContactDivisorFieldReconstruction. The actual normal-basis coordinate requires explicit finite-sum evaluation and single_apply. Qualify \u03c7.map_mul so rewriting cannot treat the ORIGINAL basis as a multiplicative map. Qualify Equiv.sum_comp instead of the different Perm finite-set overload. Supply the exact h\u03c7 to root_square. Same genuine Galois orbit basis, character, square descent, hypotheses, statements and budgets. No local Lean; independent/hosted acceptance pending. Exact 226803e8 hosted repair: the normal-basis predecessor now passes. ComplementaryFunctionRigidity sign_complementary supplies the original Raw generator explicitly to one_mul and neg_one_mul, avoiding an unconstrained ambient ring and aggressive unfolding of tensor units. Same original tensor algebra, complementary functions, map, hypotheses and budgets. No local Lean compilation; independent source review and hosted verification remain required. Hosted b0d8a09c diagnostic: degree used labels only inside its proof, so Lean omitted that section variable, causing both unknown labels.toEquiv and downstream degree labels application errors. Explicit include labels in binds the actual Galois-label isomorphism to the existing degree theorem. No mathematical hypothesis, map, source object or bound changes; no local Lean run.",
+      "justification": "No local Lean, no resource increases, no fabricated independent acceptance.",
+      "evidence": [
+        "APPLICATION.json",
+        "COPY_BINDINGS.json",
+        "PINNED_APIS.md"
+      ]
+    }
+  ],
+  "revision_source": "original-finite-quotient-reconstruction-r4",
+  "modified_sources": {
+    "NormalBasisCharacterRadicals318.lean": "f3be631903008fcf7791c0694a47bd940b52895054aedb5a34daa888d2846b84"
+  },
+  "scope_audit_note": "Batch audit of71 lexical scope candidates:17 sources repaired, preserving all theorem bodies and caller order. Restores actual original-base compatibility and actual normal-cover hypotheses in proof-only curve wrappers; the coefficient map f is explicitly carried into residue characteristic zero. Existing included/dependently carried variables and locally shadowed names were not blanket-added. Moves degree include before its doccomment following exact hosted17e37e23 parser diagnostic. This repairs intended caller interfaces, not a mathematical weakening, invented producer or claim of new kernel acceptance.",
+  "scope_repairs_sha256": "8505179ec066ee67209c4da9a41ca6a61564e8ce246d8dc3bae9f493cf320218"
+}

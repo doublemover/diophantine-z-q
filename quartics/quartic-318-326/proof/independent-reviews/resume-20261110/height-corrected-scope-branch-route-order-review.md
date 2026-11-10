@@ -1,0 +1,8 @@
+# Independent corrected height scope and branch-route review
+
+Reviewer resume_pel_order; source review only, no local Lean. This fresh binding supersedes, and does not revive, the withdrawn r16/r15 scope binding.
+
+- height-original-metric-assembly-r17: APPLICATION SHA256 `72453afef8e13873cfd99797c333819027cd263c54bfca4b3f9a7316200e7927`; changed sources: ['IntegralUnitPairNorm318.lean', 'IntegralAllBranchChartGeometry318.lean', 'ContactFinitePlaceBaseMap318.lean', 'IntegralValuativeInfinityExtension318.lean', 'IntegralOriginalPairGenerators318.lean'].
+- height-normalized-valuative-center-r16: APPLICATION SHA256 `f50105483628bc7825f3ad6808dcb1d7b006371d3dfe57a7ca7fa125fd9fa4e2`; changed sources: ['IntegralAllBranchChartGeometry318.lean', 'IntegralValuativeInfinityExtension318.lean'].
+
+Verified both SCOPE_REPAIR.json before/after hashes against published parents and exact changed-file sets. The nine targeted proof-only includes preserve the intended assumptions and now correctly precede their attached doccomments rather than splitting comment from declaration. Independent lemmas remain unaffected. Read the entire common IntegralAllBranchChartGeometry318 and imageLE signature: the branchLE repair instantiates imageLE with the actual Spec.map(branchMap) and original branchEmbedding, then simplifies their composition by the exact branch_route equation. It preserves the original opens and avoids rewriting the dependent opens type backwards. No weakened map/image condition or alternate chart enters. Both canonical static validators pass. Source-level clearance for these corrected narrow successors; hosted elaboration remains distinct.
