@@ -1,0 +1,84 @@
+CURRENT ENDPOINT: actual original contact projective O(1) identification and universal eventual H1 vanishing are constructed in this candidate. The chronological predecessor sections below retain their former scope boundaries only as history; the final section supersedes the prior open O(1) boundary. Global fp/perfect-complex and represented geometry remain open.
+
+# Arbitrary-coefficient geometric twisting and universal H1 vanishing
+
+173-source candidate,9 new modules. Extends canonical original H1 basechange with genuine arbitrary-R geometric twists and chart finite-presentation control.
+
+## Constructed geometric result
+For every commutative Q-algebra R and every original line L on the complete original contact R-test, construct an actual clutched line with regular transition T^n on its entire finite/infinity cover. Tensor the SAME L with it. The original frames, refined tensor comparisons and real ambient Laurent scalars prove the exact scalar square on EVERY overlap section. The actual twisted restriction-difference image is the old shifted Laurent boundary, including its minus sign.
+
+`ContactRelativeGeometricVanishing318.exists_bound` derives one bound N after which the actual derived H1 of these genuine twists vanishes. No localization span, transition equation, basis, acyclicity or bound is a caller hypothesis. R may be nonreduced and non-Noetherian.
+
+`exists_universal_bound` keeps that SAME N after EVERY further affine coefficient map R→S, on the ACTUAL pullback of the original twisted line. This follows through canonical H1 basechange. It does not assume that the pullback was already identified with a freshly clutched S-twist.
+
+## Finite-presentation control
+`ContactRelativeChartFinitePresentation318.finite_chart` and `infinity_chart` prove both actual whole polynomial chart-section modules finitely presented over R[t] and R[u]. Noetherianity is used only on the fixed rational chart modules BEFORE base change. Actual polynomial tensor pushout preserves finite presentation; original line sections are fp over their actual chart algebra; fp transitivity supplies the result.
+
+## Boundaries still open
+The new relative clutched line must still be explicitly identified with the original relative projective O(1) pullback (the rational fixed-model identification exists but is not silently transported). Global H1 finite presentation/perfect-complex control, H0 control, relative divisor parameter spaces, represented Picard/Jacobian and polarization/PEL identification remain separate. In particular finite chart modules or H1 vanishing do not license finite kernels over an arbitrary noncoherent base. No global H0 finite assertion is made.
+
+Exact existing generic original frame/tensor producers are reused, with narrowly exposed definitions where needed for same-object comparisons. No local Lean; static source validation is not hosted proof acceptance.
+
+
+## Fixed-line powers (177-source successor)
+All173 predecessor sources are unchanged. The exact existing generic binary-frame reconstruction and3 new modules prove that the actual clutched T^n line is the nth iterated tensor power of ONE fixed relative line. The iso is reconstructed from the original full-cover cocycle; it is not chosen by dimensions or line classes. The old arbitrary line L remains the same left tensor factor. Genuine derived H1 vanishing transfers through the actual sheaf isomorphism, and the SAME bound remains valid after EVERY further coefficient pullback. The separate identification of this fixed relative line with the original projective O(1) pullback is still open; do not replace it by an ampleness assertion.
+
+
+## Actual geometric coefficient compatibility (183 sources)
+All177 predecessor sources are unchanged. Six new sources prove equality of the actual full-overlap Laurent monomial functions and transition units after arbitrary coefficient change. Canonical pulled frames are normalized to the genuine whole source opens, with frame-restriction coherence proved rather than assumed. The resulting original module-sheaf isomorphism compares the actual pulled R twist to the freshly constructed S twist, preserving both original coordinate maps. It works for every integer exponent. Actual tensor powers of the fixed relative line and their genuine derived H1 receive the induced comparison. This closes the distinction between pulled twists and freshly clutched target twists. The further identification with original projective O(1), global fp/perfect-complex and represented Picard remain separate. No local Lean acceptance is asserted.
+
+
+## Exact round129 replay corrections
+Exact hosted round129 corrections: algebra reflexivity has implicit parameters, so use explicitly typed AlgEquiv.refl, not function application. Extended tensor recursor returns a restricted B carrier; the standalone tmul_unit takes the original B scalar explicitly, and recursor values are ascribed to B. unit_span induction now isolated from extraneous top-membership implication. No budget change, statements unchanged.
+
+
+## Original projective positivity (218 sources)
+Actual projective O1 identification on every arbitrary coefficient test: original rational whole-overlap function equals tensor-spectrum coordinate via specified affine iso; p-first original projection preserves Laurent monomials; canonical original pulled frames give actual rational-twist/relative-twist iso; original contact projective O1 comparison and genuine associator identify the same fixed relative line. Actual eventual H1 vanishing for powers of that original O1 pullback, same bound after every further coefficient pullback. No j-map frame and no global fp/perfect-complex/representability assumption.
+There are six new modules and 29 exact existing positive-projective producers. The only predecessor change exposes five unchanged definitions in ContactOriginalTwistingLine318 for original-object reductions. Every other predecessor source is byte-identical. The original arbitrary L stays the left tensor factor. Universal vanishing is on actual coefficient pullbacks of the complete original twisted object. This does not separately assert a general tensor-pullback monoidal iso. Whole chart fp is retained; global H0/H1 finite presentation and represented Picard remain separate.
+
+
+## Actual global generators and finite chart relations (223 sources)
+Exact218 predecessors plus5 new sources. Both actual finite chart generator families extend, after one uniform positive bound, to genuine global sections of the original geometric twist. Actual full-open sheaf gluing retains exact finite and infinity coordinates. One combined finite global family gives surjective polynomial presentations of both entire chart modules; kernels finitely generated using target finite presentation, not an invalid finite-kernel assumption. Full original Laurent evaluation maps agree with the genuine T^n factor. Still not global H1 fp/perfect complex or represented Picard.
+The finite/polynomial presentations are the original pushforward chart coordinates of the same global family. No global free-sheaf presentation or kernel base-change/localization assertion is silently claimed. Those coherent kernel-localization and H1 finite-relation joins are the next work.
+
+
+## Actual finite-kernel localization and original finite-relation mechanism (233 sources)
+Exact223 predecessors plus10 new. Actual finite polynomial chart/Laurent ring pushout retains entire original chart arrow; genuine affine section comparison proves actual module localization with original unit. Right exactness proves original finite chart relation images span the same original global-family Laurent evaluation kernel. Separately, actual free projective O(-n) Laurent quotient is the finite coefficient window over any commutative ring, and the genuine two-chart relation quotient surjects onto the actual quotient-map kernel, yielding a precise finite-presentation criterion. Infinity-kernel localization and full actual application of the criterion remain open; no global H1 fp claimed.
+The free source is projective-base O(-n)^r in the finite-map pushforward presentation, not the contact curve structure sheaf. It is analyzed directly by its actual Laurent coefficient window. No inference of finite arbitrary-ring kernels is made. Kernel extension requires surjectivity of the chart evaluation, already constructed for the global families; right exactness suffices, not flatness or a fabricated injective kernel comparison.
+
+
+## Generic original base-square normalization
+One-source performance candidate for hosted walltimeout124 in ContactWholeInfinityScheme318 (180s with no theorem diagnostic). Generic original base square is now proved directly through factored_sections_base before concrete specialization, eliminating the concrete integral-closure trans(refl) AlgEquiv conversion. All mathematical statements and original maps retained; all other source bytes exact predecessor. No budget increase and no claim that timeout proves a mathematical issue or this candidate already resolves it.
+
+
+## Actual reciprocal kernel localization (239 sources)
+Exact233r2 predecessors plus6 sources. Two actual reciprocal coordinate inversions construct the infinity polynomial/Laurent pushout onto the SAME original common overlap, retaining its original infinity arrow. Original affine section comparison constructs infinity section localization and actual unit. The global-section transition T^n identifies infinity evaluation with the same finite overlap evaluation; original infinity kernel relations then enter that same kernel with the O(-n) source factor T^-n and Laurent-span it. No alternative abstract kernel selected. Both chart-localization spans are now constructed; finite coefficient relation quotient and global H1 finite presentation remain to be joined.
+The generic tensor flip has distinct polynomial actions on its source and target. Its inverse and the original infinity-to-finite overlap comparison each invert the Laurent coordinate; their composite preserves the original t-action. Shift by T^-n is retained for the source O(-n) relation lattice. No unproved identification between the two actual chart kernels is assumed.
+
+
+## Actual finite coefficient relation quotient (242 sources)
+Exact239 predecessors plus3 sources. Original free-source unit coordinates prove actual kernel-map coefficient linearity and both polynomial scalar equations. Both kernel images retain the same original overlap evaluation kernel, with actual T^-n reciprocal source shift. Whole finite-chart finite presentation constructs positive kernel finiteness. Actual Laurent bound mechanism then proves the literal coefficient relation quotient finite over every coefficient ring R, and produces a sufficiently-positive original global family with both chart surjections and that finite relation quotient. Joining its boundary to the original H1 presentation remains separate; no global H1 finite presentation or represented Picard claimed.
+This is not a generic finite-kernel inference. Target chart FINITE PRESENTATION gives the positive polynomial kernel finite generation, while actual reciprocal kernel localization proves the second Laurent-span input. The coefficient quotient is constructed from these actual two images, not assumed to be the H1 kernel.
+
+
+## Independent span induction API correction
+Independent review exact pinned API correction: Submodule.span_induction add/smul branches explicitly skip membership hypotheses before using inductive conclusions. Same actual equivalence-span proof; all other source bytes exact predecessor. No mathematical statement change.
+
+
+## Actual original H1 finite-presentation join (249 sources)
+Exact242r2 predecessors plus7 sources. Actual free projective source O(-n) Laurent window works for arbitrary finite family index. Canonical free-unit coordinates preserve the actual positive/reciprocal chart squares and target image submodules. Original relation kernel transfers only through actual Finsupp/Pi coordinates; its two genuine images lie in the appropriate source boundary. A surjective smaller-relation quotient comparison yields finite relations for the actual Cech quotient without assuming equality of comap kernels. The final consumer chooses an existing original global family and concludes finite presentation of actual original derived line H1 over arbitrary coefficient Q-algebra R, with the independently defined structural R action. Candidate source result only; hosted acceptance and independent review separate. Represented Picard/Jacobian is NOT claimed.
+The native coefficient action of the free Pi Laurent source and the actual C-restricted action of the original kernel are compared explicitly with LaurentPolynomial.smul_eq_C_mul. No false definitional scalar identification is used. Original overlap evaluation and actual section-unit squares identify source image boundary with the original whole finite/infinity image boundary. No flatness/kernel-injectivity theorem is assumed.
+
+
+## Precise downstream boundary
+Metadata-only boundary correction, all249 source bytes exact. Global H1 finite presentation is now the candidate source endpoint, not an unresolved input. Remaining next target is a finite projective cohomology complex and H0 control on flat/vanishing loci; unconditional H0 finite presentation over arbitrary noncoherent rings is NOT asserted. Picard representation, polarization and PEL identity remain open.
+A kernel of a finite free map need not be finitely generated over a noncoherent ring. Even a perfect two-term cohomology complex does not imply unconditional H0 finite presentation. Future H0 base-change claims must retain the appropriate flatness/vanishing conditions.
+
+
+## Actual original H0 on the H1-vanishing locus (257 sources)
+Exact249r2 predecessors plus8 new sources. Actual finite/infinity/overlap coefficient sections are projective (NOT finite) via original affine-line projectivity and the free coefficient-tensor algebra. Actual H1 vanishing makes the genuine Cech differential surjective and split. Original whole global sections are structurally R-linearly identified with its actual kernel using genuine binary-cover gluing and separation. Thus original H0 is projective on this locus. Explicit split-kernel tensor equivalence, genuine three chart comparisons and both original restriction squares prove H0 base change to the actual pulled original line for arbitrary R→S on that H1-vanishing locus. Pure tensors retain actual two-chart pullback coordinates. No unconditional H0 basechange, H0 finite generation, finite projective complex or Picard representation claimed.
+Projective does not mean finitely generated here: the actual affine Cech terms are generally infinite over R. The next task is a finite truncation / finite projective cohomology model, not an invalid inference of kernel finiteness. Splitting is used only for bijectivity; the forward tensor map is the original kernel inclusion and the final global map retains actual chart coefficients.
+
+
+## Exact round132 normalization repair
+Hosted deterministic kernel timeout persists at concrete over_base specialization. Abstract the entire unchanged original chart morphism/projection and its range/open/base proofs before specialization. Concrete into/projection are aliases of those exact generic original constructions; over_base is now direct opaque theorem application, with no contact-specific section-ring normalization proof. No budget increase, same mathematical maps/statements, all256other sources exact.
