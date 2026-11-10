@@ -1,0 +1,23 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r29/OriginalGeometricDiagonal318.lean:33:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj (extendedSections f L) ⟶
+      moduleSpecΓFunctor.obj ((𝟭 (Spec S).Modules).obj L.object))
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).map (sectionsIso f L).hom ≫
+      (sectionsIso g (LineSheafPullback318.line (Spec.map f) L)).hom ≫
+        moduleSpecΓFunctor.map ((pullbackAlong f g (𝟙 S) hh).hom.app L.object) ≫
+          moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId S).hom.app L.object))
+    ((ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)
+          (OriginalLineAffineModel318.sections S L) (CommRingCat.Hom.hom (𝟙 S)) hh).hom ≫
+      (ModuleCat.extendScalarsId ↑S).hom.app (OriginalLineAffineModel318.sections S L))
+but is expected to have type
+  @Eq ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj (extendedSections f L) ⟶ moduleSpecΓFunctor.obj L.object)
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).map (sectionsIso f L).hom ≫
+      (sectionsIso g (LineSheafPullback318.line (Spec.map f) L)).hom ≫
+        moduleSpecΓFunctor.map ((pullbackAlong f g (𝟙 S) hh).app L.object).hom ≫
+          moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId S).app L.object).hom)
+    ((ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)
+          (OriginalLineAffineModel318.sections S L) (RingHom.id ↑S) hh).hom ≫
+      ((ModuleCat.extendScalarsId ↑S).app (OriginalLineAffineModel318.sections S L)).hom)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r29/OriginalGeometricDiagonal318.lean:52:6: error: (kernel) excessive memory consumption detected
