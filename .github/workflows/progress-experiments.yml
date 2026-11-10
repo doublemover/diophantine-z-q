@@ -52,6 +52,7 @@ jobs:
       - run: python -B scripts/test_edge_elaboration_diagnostic.py
       - run: python -B scripts/test_named_edge_diagnostic.py
       - run: python -B scripts/test_diagonal_identity_diagnostic.py
+      - run: python -B scripts/test_diagonal_split_diagnostic.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
 
@@ -146,6 +147,15 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_identity.py --packet "$PACKET"
+      - name: Non-admitted opaque diagonal split prefix and full verification
+        if: always() && matrix.packet == 'contact-relative-site-descent-r33'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_split.py "$PACKET"
       - name: Upload bounded results and error logs only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -160,6 +170,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-edge-elaboration/
             build/progress-experiments/${{ matrix.packet }}/scratch-named-edge-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-identity-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-split-diagnostics/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.
