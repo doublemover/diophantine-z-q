@@ -1,0 +1,37 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r4/OriginalLineComparisonIdentity318.lean:58:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (tilde.adjunction.homEquiv ((modulesSpecToSheaf.obj L.object).presheaf.obj (Opposite.op ⊤)) L.object)
+    L.object.fromTildeΓ
+in the target expression
+  (sectionsIso (𝟙 R) L).hom ≫ moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object) =
+    (ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L) ≫
+      (tilde.adjunction.homEquiv (OriginalLineAffineModel318.sections R L) L.object) L.object.fromTildeΓ
+
+R : CommRingCat
+L : Line (Spec R)
+h :
+  (tilde.adjunction.homEquiv (extendedSections (𝟙 R) L) (LineSheafPullback318.line (Spec.map (𝟙 R)) L).object)
+        (sheafIso (𝟙 R) L).hom ≫
+      moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object) =
+    (ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L) ≫
+      (tilde.adjunction.homEquiv ((𝟭 (ModuleCat ↑R)).obj (OriginalLineAffineModel318.sections R L))
+          ((𝟭 (Spec R).Modules).obj L.object))
+        L.object.fromTildeΓ
+h' :
+  (sectionsIso (𝟙 R) L).hom ≫ moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object) =
+    (ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L) ≫
+      (tilde.adjunction.homEquiv (OriginalLineAffineModel318.sections R L) L.object) L.object.fromTildeΓ
+⊢ (sectionsIso (𝟙 R) L).hom ≫ moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object) =
+    (ModuleCat.extendScalarsId ↑R).hom.app (OriginalLineAffineModel318.sections R L)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (TildePullbackIdentity318.pullbackId R).hom.app L.object
+  has type
+    @Quiver.Hom (Spec R).Modules Scheme.Modules.instCategory.toQuiver
+      ((Scheme.Modules.pullback (Spec.map (𝟙 R))).obj L.object) ((𝟭 (Spec R).Modules).obj L.object)
+  but is expected to have type
+    @Quiver.Hom (Spec R).Modules Scheme.Modules.instCategory.toQuiver
+      (LineSheafPullback318.line (Spec.map (𝟙 R)) L).object ((𝟭 (Spec R).Modules).obj L.object)
+  in the application
+    moduleSpecΓFunctor.map ((TildePullbackIdentity318.pullbackId R).hom.app L.object)
