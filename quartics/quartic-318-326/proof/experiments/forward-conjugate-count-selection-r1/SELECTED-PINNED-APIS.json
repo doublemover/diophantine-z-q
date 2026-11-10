@@ -1,0 +1,14 @@
+{
+  "path": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+  "pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "excerpts": [
+    {
+      "line": 119,
+      "text": "theorem eq_zero_of_not_dvd {z : ℤ} (h : ¬(p : ℤ) ∣ z) : padicValInt p z = 0 := by\n  simp [h]\n\nend padicValInt\n\n/-- `padicValRat` defines the valuation of a rational `q` to be the valuation of `q.num` minus the"
+    },
+    {
+      "line": 709,
+      "text": "theorem padicValInt_dvd_iff [hp : Fact p.Prime] (n : ℕ) (a : ℤ) :\n    (p : ℤ) ^ n ∣ a ↔ a = 0 ∨ n ≤ padicValInt p a :=\n  padicValInt_dvd_iff_of_ne_one hp.out.ne_one n a\n\ntheorem padicValInt_dvd (a : ℤ) : (p : ℤ) ^ padicValInt p a ∣ a := by\n  by_cases hp : p = 1"
+    }
+  ]
+}
