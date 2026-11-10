@@ -1,0 +1,21 @@
+{
+  "reviewer": "/root/continue_picard",
+  "verdict": "SOURCE_REVIEW_CLEAR_DIAGNOSTIC_ONLY_NOT_PROOF_ACCEPTANCE",
+  "files": {
+    "scripts/diagnose_original_endpoint.py": "1d9e0fd76754d37372f24995469592a3707fe0d3ebf5c55518752449f80a3c00",
+    "scripts/test_endpoint_diagnostic.py": "2a5fcbfebfcf4c62332f28e602ceb420289ea8524cc06fa6a87faa39b5dc2e5b",
+    ".github/workflows/progress-experiments.yml": "b3fefc0bbf4b058991269c85ab29319ecd5bb80f3a416c5049501e930fc32478"
+  },
+  "source_packet": "contact-relative-site-descent-r26",
+  "source_sha256": "38cdcc5dfaac34c63773b74aaf1537f6a8e638a80942021ce954739c2769f204",
+  "checks": [
+    "Read complete source generator, bounded process runner, hosted guards, workflow and all3 pure tests. Tests pass; only source generation and guard mocking executed locally, no Lean/profiler.",
+    "Six variants: prefix_capture,statement_sorry,comparison_sorry,simplify_comparison_sorry,exact_composition,original_simpa. Exact original endpoint proof verified via source digest; original variant retains original declaration/proof. Earlier declarations and fast sentinel profiled threshold0 with direct stderr to distinguish capture from unfinished declaration.",
+    "All variants truncate before edge_to_module and downstream consumers. Only3 explicit sorry modes contain sorry. No admitted proof source changes; all generated Lean under RUNNER_TEMP, original source digest checked.",
+    "Hosted GITHUB_ACTIONS plus RUNNER_TEMP guard occurs before Lean environment access. ExistingFLAGS retain kernel checking. No-o, no accepted artifact/cache writes, no admission receipt; only bounded logs and diagnostic JSON marked false acceptance.",
+    "90s wall and2MiB log limits per variant, stdout/stderr combined. Workflow step only on r26 after strict experiment stage; uploads scratch diagnostics only, not library/olean.",
+    "Small successful sorry-copy is diagnostic evidence ONLY; zero return must not be called proof acceptance. Pending trace buffering remains possible under wall timeout."
+  ],
+  "local_lean_executed": false,
+  "proof_acceptance": false
+}
