@@ -1,0 +1,6 @@
+# Independent unconditional character branch review
+
+Reviewer resume_pel_order, source review only, no local Lean.
+Application SHA256 25a0cc6bd276e6d0601fb541c63c44f66d7df7cb0e315345cf91aa6d430c532b. Canonical 244-source intake passes. Of the 243 predecessors, only PELOriginalCharacterBranches318 changes: the existing include hupper hRH now precedes its attached doccomment, repairing the known syntax defect. Other 242 source bytes are exact.
+
+Read the new DirectCharacterBranches source completely. It keeps the same CharacterBase, toMaximal and cardinality-defined CharacterBranchValues, not a replacement four-element type. The whole regular-fiber cardinality excludes extra branches away from the full original stabilizer locus. The whole branch-fiber cardinality detects exactly the visible original labels; the new unconditional original_fixed_locus_one_orbit supplies completeness, replacing the old genus/RH consumer. Existing displayed injectivity and that completeness construct an explicit equivalence from the four visible original labels onto the full actual branch-value subtype. The resulting count four is exact for every original character factor. No genus, RH, elliptic model or algebraization hypothesis is added. New theorem binders are explicit. Source-level clearance; hosted elaboration remains separate.

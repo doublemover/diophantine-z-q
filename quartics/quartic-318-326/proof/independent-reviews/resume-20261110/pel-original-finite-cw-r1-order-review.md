@@ -1,0 +1,14 @@
+# Independent actual original finite CW review
+
+Reviewer: resume_pel_order. Source-level mathematical review, no local Lean.
+Application SHA256 a384ad2ad3d2dac834958f371ec4f2f2d49fd833f249e26b431258b63161cb54. All 264 predecessor Lean sources are byte-identical to pel-original-edge-characteristic-r1. Canonical 269-source intake passes. Exact predecessor side/vertex checker rerun successfully.
+
+Read all five new sources in full and checked the pinned mathlib CWComplex.mkFiniteType, CWComplex finite-type/finite-dimensional fields, and characteristic-map requirements.
+
+- CharacteristicPartialEquiv318 retains a continuous closed-ball map and an agreeing homeomorphism on the open ball. Boundary points are allowed to identify; the partial equivalence uses only the open ball as source. Both inverse identities and inverse continuity are proved, not inferred from injectivity. The arbitrary outside-closed-ball extension does not affect the required continuousOn field.
+- StandardCellCoordinates318 uses the SAME maximum norm as classical CW's Fin n → real coordinate spaces. The Fin 1 and Fin 2 evaluation maps preserve norms and transport open/closed balls and spheres exactly. Fin 0 supplies the genuine single-point zero cell.
+- DiskAttachingStrata318 proves strict interior iff original open disk and sphere iff original nonstrict boundary. The entire attaching image is exactly VertexImage union all whole EdgeImage sets, by original full polygon stratification. Both reverse inclusions are proved from actual active side equations; no combinatorial boundary label is substituted.
+- CWCharacteristicMaps318 uses the actual original projections and previously established interval/disk homeomorphisms. Exact endpoint and attaching identities land in the actual zero/one strata. The closed two-cell is the whole original arithmetic curve; this permits the weak-topology field to follow directly from its closed-cell test, not from an assumed CW structure.
+- FiniteCW318 handles all dimension pairs in open-cell separation, proves actual lower-dimensional attachments, supplies continuity, inverse continuity, weak topology and whole union to the real mathlib CW constructor. The cell family is Fin 5, Fin 14, Unit, then Empty. Finite type and eventual emptiness establish an actual finite CW structure. The alternating count is -8 for that structure, not just a detached 28-gon computation.
+
+No proof-only section-variable omission, fresh genus hypothesis, Riemann–Hurwitz input, substitute source curve or assumed cellulation found. Source-level clearance for the actual finite CW construction and 5/14/1 cell counts. Relating the alternating cell count to an analytic/algebraic genus invariant remains explicitly separate. Hosted elaboration and eventual proof acceptance are not certified by this review.

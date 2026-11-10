@@ -1,0 +1,10 @@
+# Independent original fixed-normalizer search review
+
+Reviewer: resume_pel_order. Source-level mathematical review, no local Lean.
+Application SHA256 bfb29d2d151a97a542962c43ebfe78f81830732e9a6b763a1195c8c8d72b665c. Canonical 220-source intake passes; all 216 predecessor sources byte-identical to pel-original-involution-complex-tower-r1.
+
+Read all four new modules in full. The original trace-zero integral basis gives c=-2a and rotation coordinate r=2b+d; its represented real matrix is exactly the claimed traceZeroMatrix. The fixed-line coordinate relations force scaled Klein coordinates A*r=-10a and B*r=-d, with no substitution of j-map charts. The disk-height identity then yields m*H²=210*r². Positive original norm excludes r=0, and the existing original orbit-minimum height bound H≤200 yields the stated finite r bound.
+
+The integral norm equation, parity, and all eight original absolute polygon inequalities are retained in admissible. Each cleared coefficient was compared with the original signed rows. The norm equation forces the Nat.sqrt value; sqrt_eq' was checked against the pinned Nat source. The bounds r<201 and d<334 precede the finite kernel calculation. Independently enumerated the entire 5×201×334 box WITHOUT a primitivity filter: exactly the listed 22 absolute triples are obtained. Independent signs give exactly 77 distinct original coordinate vectors. The finite decide kernel cost is a hosted elaboration performance concern, not a missing mathematical bound or an external oracle.
+
+All theorem assumptions are explicit in the signatures; no proof-only section-variable omission found. The original consumer correctly retains integral trace-zero normalization, one of the five norms, positive r, and an actual original group-minimizing fixed point. Primitive normalization/minimum transport and conjugator orbit identification remain separate producers. No genus, Riemann–Hurwitz, charted replacement curve, or Jacobian hypothesis is silently discharged. Source-level clearance.

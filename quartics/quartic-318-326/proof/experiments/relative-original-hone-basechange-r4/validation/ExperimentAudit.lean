@@ -1,0 +1,122 @@
+module
+import all StructureAdditiveSheaf318
+import all AdditiveSheafSections318
+import all AdjunctionOriginalUnitTransport318
+import all AffineGlobalSectionCoherence318
+import all AffineSpecOriginalRingTransport318
+import all ContactWholeInfinityAlgebra318
+import all ContactWholeInfinityScheme318
+import all OriginalAffineTestOpen318
+import all ContactOriginalAffineTestCover318
+import all SheafInverseImageConstants318
+import all LocalSheafCohomologySections318
+import all LocalSheafCohomologyAdditive318
+import all LocalCohomologyRestriction318
+import all TerminalLocalCohomology318
+import all OpenMayerVietoris318
+import all MayerVietorisSectionKernel318
+import all ExtFiniteRetractVanishing318
+import all OriginalPrincipalLocalization318
+import all OriginalPrincipalUniformClearing318
+import all OriginalPrincipalCocycleRows318
+import all OriginalNonreducedCocycleSplit318
+import all NonreducedAffineLocalLifts318
+import all NonreducedAffineSectionLifting318
+import all OpenImmersionAdditiveRestriction318
+import all NonreducedOpenStructureLifting318
+import all NonreducedLocalStructureHOne318
+import all FiniteProjectiveDualFrame318
+import all OriginalLineAffineModel318
+import all OriginalAffineLineDualFrame318
+import all NonreducedAffineLineHOne318
+import all NonreducedLineRestriction318
+import all NonreducedAffineLineLifting318
+import all NonreducedLineOpenLifting318
+import all NonreducedLineAffineHOne318
+import all NonreducedLineMayerVietoris318
+import all ContactOriginalAffineTestHOne318
+import all OriginalLineFiniteFlatPID318
+import all RelativeOriginalPolynomialAlgebra318
+import all RelativeOriginalChartSections318
+import all RelativeOriginalAffineChart318
+import all ContactOriginalRelativePolynomialCharts318
+import all ContactOriginalLineFiniteChart318
+import all ContactOriginalLineBothCharts318
+import all OriginalLaurentProjectiveOverlap318
+import all ContactOriginalLaurentOverlap318
+import all ContactOriginalLineOverlap318
+import all ContactOverlapTensorCharts318
+import all RelativeOriginalAffineChartMap318
+import all ContactOriginalRelativeOverlap318
+import all RelativeOriginalLaurentAlgebra318
+import all RelativeOriginalOverlapRingMap318
+import all ContactOriginalRelativeOverlapCoordinates318
+import all RelativeLaurentCoefficientTransport318
+import all RelativeLaurentRingSpan318
+import all ContactOriginalFiniteRingSpan318
+import all ContactOriginalInfinityRingSpan318
+import all OriginalLineAffineBaseChange318
+import all TildePullbackMate318
+import all OriginalLineBaseChangeUnit318
+import all OriginalAffineLinePathSections318
+import all ContactOriginalRelativeLineOverlap318
+import all RelativeLaurentScalar318
+import all RelativeLaurentClearing318
+import all RelativeLaurentGeneratorBound318
+import all RelativePolynomialChartGenerators318
+import all RelativePolynomialChartBound318
+import all ScalarRestrictionOriginalSpan318
+import all ContactOriginalRelativeOverlapSpan318
+import all RelativeLaurentFiniteQuotient318
+import all RelativePolynomialChartFinite318
+import all ContactOriginalRelativeFiniteCech318
+import all OriginalOpenLineRestrictionUnit318
+import all OriginalOpenPullbackSections318
+import all OriginalAffinePathWholeSections318
+import all ContactRelativeWholeOpenSections318
+import all OriginalTwoImageBoundary318
+import all ContactRelativeOriginalDerivedQuotient318
+import all MayerVietorisCoefficientNaturality318
+import all OriginalCoefficientCohomology318
+import all OriginalCoefficientBoundary318
+import all OriginalOpenPullbackSectionScalar318
+import all OriginalCoefficientImageScalar318
+import all ContactRelativeStructuralHOne318
+import all TensorPushoutModule318
+import all RelativeCoefficientChange318
+import all ContactRelativeCoefficientChange318
+import all OriginalCoefficientChartLine318
+import all ContactCoefficientLineCharts318
+import all ScalarExtensionQuotient318
+import all OriginalCoefficientTensor318
+import all OriginalCoefficientSections318
+import all TwoChartCokernelBaseChange318
+import all ContactCoefficientSectionEquivalences318
+import all OriginalSectionPullbackComposition318
+import all OriginalPullbackSquarePasting318
+import all OriginalLineSquareSections318
+import all ContactCoefficientRestrictionSquares318
+import all ContactOriginalCoefficientActions318
+import all ContactCoefficientNativeSections318
+import all ContactCoefficientCechBaseChange318
+import all ContactOriginalHOneBaseChange318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`StructureAdditiveSheaf318,`AdditiveSheafSections318,`AdjunctionOriginalUnitTransport318,`AffineGlobalSectionCoherence318,`AffineSpecOriginalRingTransport318,`ContactWholeInfinityAlgebra318,`ContactWholeInfinityScheme318,`OriginalAffineTestOpen318,`ContactOriginalAffineTestCover318,`SheafInverseImageConstants318,`LocalSheafCohomologySections318,`LocalSheafCohomologyAdditive318,`LocalCohomologyRestriction318,`TerminalLocalCohomology318,`OpenMayerVietoris318,`MayerVietorisSectionKernel318,`ExtFiniteRetractVanishing318,`OriginalPrincipalLocalization318,`OriginalPrincipalUniformClearing318,`OriginalPrincipalCocycleRows318,`OriginalNonreducedCocycleSplit318,`NonreducedAffineLocalLifts318,`NonreducedAffineSectionLifting318,`OpenImmersionAdditiveRestriction318,`NonreducedOpenStructureLifting318,`NonreducedLocalStructureHOne318,`FiniteProjectiveDualFrame318,`OriginalLineAffineModel318,`OriginalAffineLineDualFrame318,`NonreducedAffineLineHOne318,`NonreducedLineRestriction318,`NonreducedAffineLineLifting318,`NonreducedLineOpenLifting318,`NonreducedLineAffineHOne318,`NonreducedLineMayerVietoris318,`ContactOriginalAffineTestHOne318,`OriginalLineFiniteFlatPID318,`RelativeOriginalPolynomialAlgebra318,`RelativeOriginalChartSections318,`RelativeOriginalAffineChart318,`ContactOriginalRelativePolynomialCharts318,`ContactOriginalLineFiniteChart318,`ContactOriginalLineBothCharts318,`OriginalLaurentProjectiveOverlap318,`ContactOriginalLaurentOverlap318,`ContactOriginalLineOverlap318,`ContactOverlapTensorCharts318,`RelativeOriginalAffineChartMap318,`ContactOriginalRelativeOverlap318,`RelativeOriginalLaurentAlgebra318,`RelativeOriginalOverlapRingMap318,`ContactOriginalRelativeOverlapCoordinates318,`RelativeLaurentCoefficientTransport318,`RelativeLaurentRingSpan318,`ContactOriginalFiniteRingSpan318,`ContactOriginalInfinityRingSpan318,`OriginalLineAffineBaseChange318,`TildePullbackMate318,`OriginalLineBaseChangeUnit318,`OriginalAffineLinePathSections318,`ContactOriginalRelativeLineOverlap318,`RelativeLaurentScalar318,`RelativeLaurentClearing318,`RelativeLaurentGeneratorBound318,`RelativePolynomialChartGenerators318,`RelativePolynomialChartBound318,`ScalarRestrictionOriginalSpan318,`ContactOriginalRelativeOverlapSpan318,`RelativeLaurentFiniteQuotient318,`RelativePolynomialChartFinite318,`ContactOriginalRelativeFiniteCech318,`OriginalOpenLineRestrictionUnit318,`OriginalOpenPullbackSections318,`OriginalAffinePathWholeSections318,`ContactRelativeWholeOpenSections318,`OriginalTwoImageBoundary318,`ContactRelativeOriginalDerivedQuotient318,`MayerVietorisCoefficientNaturality318,`OriginalCoefficientCohomology318,`OriginalCoefficientBoundary318,`OriginalOpenPullbackSectionScalar318,`OriginalCoefficientImageScalar318,`ContactRelativeStructuralHOne318,`TensorPushoutModule318,`RelativeCoefficientChange318,`ContactRelativeCoefficientChange318,`OriginalCoefficientChartLine318,`ContactCoefficientLineCharts318,`ScalarExtensionQuotient318,`OriginalCoefficientTensor318,`OriginalCoefficientSections318,`TwoChartCokernelBaseChange318,`ContactCoefficientSectionEquivalences318,`OriginalSectionPullbackComposition318,`OriginalPullbackSquarePasting318,`OriginalLineSquareSections318,`ContactCoefficientRestrictionSquares318,`ContactOriginalCoefficientActions318,`ContactCoefficientNativeSections318,`ContactCoefficientCechBaseChange318,`ContactOriginalHOneBaseChange318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"
