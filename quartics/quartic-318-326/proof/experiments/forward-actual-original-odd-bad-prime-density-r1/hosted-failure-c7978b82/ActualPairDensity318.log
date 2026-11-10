@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-controlled-basis-r2/ActualPairDensity318.lean:66:83: error: unsolved goals
+⊢ ↑({
+          toFun :=
+            RealOvalNormalization318.forward (ActualQuadraticEmbeddings318.positiveEmbedding ConcreteG8Domain.D) alpha
+              ⋯,
+          invFun :=
+            RealOvalNormalization318.backward (ActualQuadraticEmbeddings318.positiveEmbedding ConcreteG8Domain.D) alpha
+              ⋯ ⋯,
+          left_inv := ⋯, right_inv := ⋯, map_add' := ⋯ }
+        (RealCoherentOrbit318.orbit ActualQuadraticEmbeddings318.positiveEmbedding 1)) =
+    (alpha * (↑(RealCoherentOrbit318.orbit ActualQuadraticEmbeddings318.positiveEmbedding 1)).1,
+      (↑(RealCoherentOrbit318.orbit ActualQuadraticEmbeddings318.positiveEmbedding 1)).2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-controlled-basis-r2/ActualPairDensity318.lean:74:85: error: unsolved goals
+⊢ ↑({
+          toFun :=
+            RealOvalNormalization318.forward (ActualQuadraticEmbeddings318.negativeEmbedding ConcreteG8Domain.D) beta ⋯,
+          invFun :=
+            RealOvalNormalization318.backward (ActualQuadraticEmbeddings318.negativeEmbedding ConcreteG8Domain.D) beta ⋯
+              ⋯,
+          left_inv := ⋯, right_inv := ⋯, map_add' := ⋯ }
+        (RealCoherentOrbit318.orbit ActualQuadraticEmbeddings318.negativeEmbedding 1)) =
+    (beta * (↑(RealCoherentOrbit318.orbit ActualQuadraticEmbeddings318.negativeEmbedding 1)).1,
+      (↑(RealCoherentOrbit318.orbit ActualQuadraticEmbeddings318.negativeEmbedding 1)).2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-controlled-basis-r2/ActualPairDensity318.lean:113:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun k => pairHomeomorph.symm (k • pairEquiv generator)
+in the target expression
+  DenseRange (⇑pairHomeomorph.symm ∘ fun k => k • pairEquiv generator)
+
+hd : DenseRange fun k => k • pairEquiv generator
+ht : DenseRange (⇑pairHomeomorph.symm ∘ fun k => k • pairEquiv generator)
+he : (fun k => pairHomeomorph.symm (k • pairEquiv generator)) = pairOrbit
+⊢ DenseRange pairOrbit
