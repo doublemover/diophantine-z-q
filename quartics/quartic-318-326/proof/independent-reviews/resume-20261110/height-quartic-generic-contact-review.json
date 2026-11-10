@@ -1,0 +1,22 @@
+{
+  "reviewer": "/root/resume_contact_reconstruction",
+  "status": "INDEPENDENT_NARROW_SOURCE_REVIEW_CLEAR",
+  "packets": [
+    {
+      "packet": "height-normalized-valuative-center-r20",
+      "application_sha256": "640fd4e4cc8ee0995bdd07cd42ed7d48ca48a959691a616ba3d72a36d6fd1309"
+    },
+    {
+      "packet": "height-original-metric-assembly-r21",
+      "application_sha256": "f99c518b725444221cc47fefaf0aca9964c593ba09e918bb3df23e77bf33cfe4"
+    }
+  ],
+  "source": "IntegralFinitePairGeometry318.lean",
+  "source_sha256": "d056fa86f92cd3c89fb32766e7b88a03ab602cd781264089a7b2c38fc1ac5a9b",
+  "checks": [
+    "Exact candidate source diff against published height169r20 read; changes only generic target quartic_unit_of_untwisted plus original algebraMap specialization.",
+    "Actual FourRootPivot indices explicitly checked: each row begins omitted i and remaining entries form complement. Distinct i,j complement union contains all four contact factors.",
+    "Helper captures section arguments R,i,j but not unused c. Caller supplies exact R i j f hij hi hj; original denominator-derived units and original ring map retained.",
+    "All12 nontrivial cases use ordinary commutative-ring factor units. No statement/budget/runtime claim changed; this is a hosted performance candidate, not measured success."
+  ]
+}
