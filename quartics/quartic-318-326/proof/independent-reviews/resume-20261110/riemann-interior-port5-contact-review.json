@@ -1,0 +1,29 @@
+{
+  "packet": "analytic-riemann-mapping-interior-r1",
+  "application_sha256": "51e6a99ff277d7fc17e833e667f26e32ca905471830d82564e4863d69b0fe459",
+  "reviewer": "resume_contact_reconstruction",
+  "status": "source and provenance review clear for initial attributed port; hosted compatibility remains to be checked",
+  "all_sources_read": {
+    "RiemannRootEmbedding318.lean": "33e2c6951871fb4999c5490f134bd55c9c396e7d479850ac2bd43edce94bb613",
+    "RiemannExtremalEmbedding318.lean": "e015207cfb51cbcba0d802eecc22743ebea1c20ee02ffeb0ed675c4677cd56ce",
+    "RiemannUnitDiscShift318.lean": "68aaaa3d5a57ee871b473adb8f582ec056c4161963f34087e87fc8730234fe24",
+    "RiemannNormalFamily318.lean": "8ec7e6bb48e3896ab2578f494b56d5dbfd69b3fefc9ab874278298a9e42bd2e0",
+    "RiemannMappingInterior318.lean": "8a5838e702348eaf786dc5a052a59d08836d3eb18d35e9ad6632c60dc891d776"
+  },
+  "provenance": "Both original source files independently retrieved from official repository exact commit and SHA matched. All proof tokens match upstream after documented27 helper renames and module/import/scope/heartbeat scaffolding. License and authorship retained.",
+  "mathematical_review": [
+    "Unit-disc shifts have actual nonzero denominators and explicit inverses.",
+    "Compact zero factorization gives argument-principle count; local uniform convergence and circle integrals produce actual Hurwitz nonvanishing/injectivity.",
+    "Simply-connected exp covering lifts yield roots; square-root/inversion construction gives injective disk embedding with nonzero derivative.",
+    "A missing disk point yields square-root plus shifts improving derivative norm strictly.",
+    "Arzela-Ascoli gives extremal derivative map; nonconstant Hurwitz limit is injective, maximum-modulus argument stays in open disk, derivative improvement forces onto."
+  ],
+  "scope": "Only open proper simply-connected complex domain interior disk biholomorphism precursor; no boundary extension, compact curve uniformization, genus or PEL model conclusion.",
+  "compatibility_findings": [
+    "Initial concern about LocPathConnectedSpace naming resolved: exact pinned LocallyPathConnected retains deprecated aliases at lines65,188.",
+    "Initial covering-lift signature concern resolved: PR uses IsCoveringMapOn wrapper, whose a\u2080/e\u2080 arguments are implicit; the distinct IsCoveringMap theorem has explicit arguments.",
+    "No concrete compatibility defect remains from this source review; upstream proof preservation is not hosted kernel acceptance."
+  ],
+  "validation": "Canonical5 PASS. No local Lean execution.",
+  "review_correction": "Removed initial unverified API-blocker characterization after author identified retained aliases and exact On-wrapper signature; no source amendment needed."
+}

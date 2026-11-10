@@ -1,0 +1,56 @@
+{
+  "reviewer": "reconcile_review_queue",
+  "status": "AUDITED_BRIDGE_REQUIRED_NOT_YET_ACCEPTED",
+  "manuscript": {
+    "path": "quartics/quartic-318-326/docs/sources/quartic_v10.tex",
+    "R_line": 16750,
+    "modulus_definition": "q product of primes dividing t outside S_R={p:p divides2\u03ba}; actual moduli odd squarefree",
+    "rank_matrix": "original determinant -\u03ba/4, not same determinant as engine"
+  },
+  "engine": "R2(kappa)=kappa*w^2-2*x*z",
+  "required_identity": "R2(2*kappa)=2*(kappa*w^2-x*z)",
+  "scope": [
+    "Prove cancellation at every original odd prime and then actual squarefree q",
+    "Prove p does not divide2\u03ba from p not2 and p does not divide\u03ba",
+    "Reinstantiate actual code-kernel lattice at2\u03ba, not claim same-\u03ba lattice unchanged",
+    "Indexq\u00b2 follows existing theorem at new parameter, not equal quadratic determinants",
+    "Keep even-prime, local bad-place, CM and Anchor objects unchanged"
+  ],
+  "counterexamples": {
+    "same_parameter_mod3": {
+      "kappa": 1,
+      "vector": [
+        1,
+        1,
+        1
+      ],
+      "original_residue": 0,
+      "engine_residue": 2
+    },
+    "even_cancellation_mod2": {
+      "kappa": 1,
+      "vector": [
+        1,
+        0,
+        1
+      ],
+      "original_residue": 1,
+      "scaled_residue": 0
+    }
+  },
+  "independent_checks": {
+    "odd_prime_exact_vectors": 15922,
+    "primes": [
+      3,
+      5,
+      7,
+      11
+    ],
+    "prior263_sources_reference_ternary_successors": [],
+    "prior263_source_deltas": [
+      "OvalInvariantClock318 proof-only normalization"
+    ],
+    "CM_Anchor_impact": "No semantic reverse dependency or data change; ternary modules are later consumers/import successors only."
+  },
+  "remaining": "Await exact original consumer source and independent review; no large-prime tail/minima distribution result inferred from finite-index or box count."
+}
