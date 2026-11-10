@@ -1,0 +1,37 @@
+{
+  "author": "/root/continue_contact",
+  "status": "ACTUAL_WHOLE_AUTOMORPHIC_RECURRENCE_REVIEWED",
+  "claim": "Actual horizontal Fourier integrals of every full level-N holomorphic automorphic function satisfy the exact original lattice recurrence.",
+  "revision_source": "pel-original-level-theta-sections-r1",
+  "predecessor_application_sha256": "1b9ed1f547a13064acefb14b1537d80118d65039dfd3dcc5115d9b1519c164bb",
+  "new_sources": {
+    "EntirePeriodicHorizontalIntegral318.lean": "136b9efd6f7b740c7bb28e6c55c28948afa134655911ac34bbd069070998567b",
+    "EntirePeriodicDoubleIntegral318.lean": "f05a5c04b71759a3142ee42984b8f7b6b1c69fe14341fba5e155b3f3051e79f8",
+    "EntireDoubleFourierTranslation318.lean": "1161c589b865e346e5a8d33c6f9c078f9c3f1096a0a648ea5e3cd0b129fb02b9",
+    "PELOriginalAutomorphicFourierRecurrence318.lean": "2225a0ab04aa987f9c788e6bda6a849fb5f486dacfb7f288f9211faebc0e8c71"
+  },
+  "obligations": [
+    {
+      "required": "Construct actual complex contour-shift law",
+      "constructed": "Cauchy rectangle, periodic real integral and genuine compact Fubini",
+      "justification": "True original entire functions and exact periodic edges; no shift or interchange hypothesis supplied",
+      "evidence": [
+        "EntirePeriodicHorizontalIntegral318.complex_shift",
+        "EntirePeriodicDoubleIntegral318.period_shift",
+        "EntireDoubleFourierTranslation318.coefficient_translation"
+      ]
+    },
+    {
+      "required": "Whole automorphic recurrence, not selected-span relation",
+      "constructed": "Automorphic structure contains all entire functions with exact full integer and Omega periods",
+      "justification": "Multiply original exact multiplier by actual Fourier weight and use derived translate coefficient law",
+      "evidence": [
+        "PELOriginalAutomorphicFourierRecurrence318.full_recurrence"
+      ]
+    }
+  ],
+  "readme_sha256": "74ae2530cdc06a1ffb2039d5336aa34c198888551573cd53fd6e064990a45ef0",
+  "intake_sha256": "a523d20cc6f095899b383a8474fffbe9370a384a86114be9f282b76a766ac28a",
+  "copy_bindings_sha256": "169d97074ac8f6ee3241f3fdfabdb738a6809a93eaf198759ba4a1cb952e0bf5",
+  "pinned_apis_sha256": "ed4f5c62b7998e9e2d94aa863b8d798d44088666ecb377ebf3caf063ca664bab"
+}
