@@ -1,0 +1,149 @@
+{
+  "producer": "resume_pel_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Constructed global rectangle primitive and bounded-derivative uniform closure extension, independent of Riemann mapping and without assumed boundary values.",
+  "sources": {
+    "HolomorphicRectanglePrimitive318.lean": "bfc6c839dc813dab53171a8c4ac2ad40698cc9e39e509e9655841d3ba6bf7fc6",
+    "BoundedRectanglePrimitiveClosure318.lean": "5b492a00352fee49b6d9e5dcc8780defb4e83b189908ca9631a93f1afc1b3627"
+  },
+  "readme_sha256": "42456e66771f09afce17dd7d98edb3762649b28018f11a2ae3790a7346c5e0fe",
+  "intake_sha256": "b3eab53a09e1a195a6c9e66575f1c31cfc8ee8b859206232954d96c2910088d2",
+  "consumer_source_bindings": {
+    "HolomorphicRectanglePrimitive318.lean": "bfc6c839dc813dab53171a8c4ac2ad40698cc9e39e509e9655841d3ba6bf7fc6",
+    "BoundedRectanglePrimitiveClosure318.lean": "5b492a00352fee49b6d9e5dcc8780defb4e83b189908ca9631a93f1afc1b3627"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Construct primitives on actual complex open rectangles.",
+      "constructed_input": "The function is complex differentiable on Ioo(a,b)\u00d7Ioo(c,d). Its primitive is the actual two-segment wedge integral imported from pinned mathlib HasPrimitives, not a supplied primitive or formal symbol.",
+      "justification": "The function is complex differentiable on Ioo(a,b)\u00d7Ioo(c,d). Its primitive is the actual two-segment wedge integral imported from pinned mathlib HasPrimitives, not a supplied primitive or formal symbol.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Indices",
+      "required_input": "Cover all points and all intermediate horizontal/vertical segments.",
+      "constructed_input": "Every interval integral between coordinate endpoints inside the open rectangle is integrable by continuity and exact coordinate interval containment, regardless of endpoint orientation.",
+      "justification": "Every interval integral between coordinate endpoints inside the open rectangle is integrable by continuity and exact coordinate interval containment, regardless of endpoint orientation.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Domain",
+      "required_input": "Prove global rectangle path independence.",
+      "constructed_input": "Cauchy-Goursat on the actual rectangle between mixed-coordinate corners and exact adjacent integral identities give wedge_difference at every triple of original points.",
+      "justification": "Cauchy-Goursat on the actual rectangle between mixed-coordinate corners and exact adjacent integral identities give wedge_difference at every triple of original points.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Coefficients",
+      "required_input": "Keep the correct complex contour factors.",
+      "constructed_input": "Horizontal integrals and imaginary-unit times vertical integrals retain the original wedge definition. The global/local primitive join is an exact equality, not a path homotopy assumption.",
+      "justification": "Horizontal integrals and imaginary-unit times vertical integrals retain the original wedge definition. The global/local primitive join is an exact equality, not a path homotopy assumption.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required_input": "Construct the derivative of the same global primitive.",
+      "constructed_input": "At every original point an actual contained disk supplies the pinned local wedge derivative. Global wedge_difference identifies the global primitive locally with that local primitive plus its original constant, yielding derivative f.",
+      "justification": "At every original point an actual contained disk supplies the pinned local wedge derivative. Global wedge_difference identifies the global primitive locally with that local primitive plus its original constant, yielding derivative f.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Transition maps",
+      "required_input": "Construct boundary extension through genuine uniform completion.",
+      "constructed_input": "The original subtype embeds uniformly and densely in its closure. Uniformly continuous complex-valued functions extend through completeness of the complex target, with exact agreement on the original domain.",
+      "justification": "The original subtype embeds uniformly and densely in its closure. Uniformly continuous complex-valued functions extend through completeness of the complex target, with exact agreement on the original domain.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Identity",
+      "required_input": "Derive bounded primitive extension without pre-assumed boundary values.",
+      "constructed_input": "For a bounded holomorphic f, the constructed primitive has bounded derivative. Convex mean value gives its Lipschitz bound, then the uniform extension produces continuous values on the whole closure.",
+      "justification": "For a bounded holomorphic f, the constructed primitive has bounded derivative. Convex mean value gives its Lipschitz bound, then the uniform extension produces continuous values on the whole closure.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Consumers",
+      "required_input": "Separate primitive extension from holomorphic extension of f.",
+      "constructed_input": "No Riemann port, conformal boundary value, vanishing-jump hypothesis, compact P1 or algebraization is used. Matching upper/lower primitive traces and differentiating their glued extension remain subsequent analytic work.",
+      "justification": "No Riemann port, conformal boundary value, vanishing-jump hypothesis, compact P1 or algebraization is used. Matching upper/lower primitive traces and differentiating their glued extension remain subsequent analytic work.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required_input": "Use pinned public analytic/topological APIs and independent review.",
+      "constructed_input": "The proof extends the pinned HasPrimitives wedge method to rectangles and uses pinned MeanValue and UniformEmbedding completion. No local Lean build, new axiom, assumed primitive or empirical limit is introduced.",
+      "justification": "The proof extends the pinned HasPrimitives wedge method to rectangles and uses pinned MeanValue and UniformEmbedding completion. No local Lean build, new axiom, assumed primitive or empirical limit is introduced.",
+      "sources": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ],
+      "evidence": [
+        "HolomorphicRectanglePrimitive318.lean",
+        "BoundedRectanglePrimitiveClosure318.lean"
+      ]
+    }
+  ],
+  "validation": {
+    "local_lean": "NOT_RUN_USER_FORBIDS",
+    "hosted_lean": "NOT_RUN",
+    "independent_review": "PENDING",
+    "canonical_intake": "PASS"
+  }
+}

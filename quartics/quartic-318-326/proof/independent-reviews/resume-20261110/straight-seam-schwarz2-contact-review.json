@@ -1,0 +1,20 @@
+{
+  "packet": "complex-straight-seam-reflection-r1",
+  "application_sha256": "a5473c9773ca812e7329789ccc33abe7f76e2602577cedb7fee392232bc4a17c",
+  "reviewer": "resume_contact_reconstruction",
+  "status": "independent source review clear; no local Lean",
+  "sources": {
+    "SchwarzReflectionReal318.lean": "e94f5d5faf778f5e20757e43196acb7b9c78e9be80561819dc8174f498a2a5cc",
+    "HolomorphicGluingAcrossReal318.lean": "2fff3be106dd75c86e387634e3491ef7d0134ae43efb311e4bc627f0dda1d951"
+  },
+  "review": [
+    "Read both modules completely and exact pinned Cauchy rectangle, Morera, ContinuousOn.if, and conjugate-conjugate derivative APIs.",
+    "Same-side rectangle interior stays strictly off real seam; continuity retained on full closed rectangle, including degenerate cases.",
+    "Crossing rectangles split at height0; actual side integrability from original rectangle continuity permits adjacent-integral cancellation. Swapped endpoints preserve the two-wedge sum.",
+    "Morera receives every actual contained rectangle, so seam differentiability is produced rather than supplied.",
+    "Reflected extension continuity is built with closed-side gluing; seam equality follows from real values and conjugation-fixed source points.",
+    "Lower-side holomorphy is genuine conjugate-conjugate holomorphy. Upper/lower formulas hold on whole open sides and Morera fills the real seam."
+  ],
+  "boundary": "No Caratheodory boundary-extension producer, conformal boundary chart, or PEL sphere identification is asserted. Input includes original upper closed-side continuity and real seam values.",
+  "validation": "Canonical2 PASS. Source/API review only, not hosted elaboration."
+}

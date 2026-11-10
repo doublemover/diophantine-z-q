@@ -1,0 +1,149 @@
+{
+  "producer": "resume_pel_geometry",
+  "status": "PENDING_HOSTED_CI_AND_INDEPENDENT_REVIEW",
+  "claim": "Constructed Morera holomorphic seam gluing and Schwarz reflection, with no assumed seam differentiability or reflected-extension continuity.",
+  "sources": {
+    "HolomorphicGluingAcrossReal318.lean": "2fff3be106dd75c86e387634e3491ef7d0134ae43efb311e4bc627f0dda1d951",
+    "SchwarzReflectionReal318.lean": "e94f5d5faf778f5e20757e43196acb7b9c78e9be80561819dc8174f498a2a5cc"
+  },
+  "readme_sha256": "4cf3469f45751428823d74a8384aca02aa41bbe29eeaa2439b154d7d59388d4a",
+  "intake_sha256": "4ed0c6bdf19385ee410487e436bc073d2ba3af369b34207f16c11b1fd1c3aa70",
+  "consumer_source_bindings": {
+    "HolomorphicGluingAcrossReal318.lean": "2fff3be106dd75c86e387634e3491ef7d0134ae43efb311e4bc627f0dda1d951",
+    "SchwarzReflectionReal318.lean": "e94f5d5faf778f5e20757e43196acb7b9c78e9be80561819dc8174f498a2a5cc"
+  },
+  "obligations": [
+    {
+      "name": "Objects",
+      "required_input": "Prove an analytic gluing theorem on actual complex open subsets.",
+      "constructed_input": "The source and target are complex numbers with their original complex derivative. No alternate complex structure is transported through a topological homeomorphism.",
+      "justification": "The source and target are complex numbers with their original complex derivative. No alternate complex structure is transported through a topological homeomorphism.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Indices",
+      "required_input": "Cover every rectangle and every point on both sides of the real seam.",
+      "constructed_input": "IsConservativeOn is constructed for arbitrary rectangle endpoints, including reversed heights and seam edges. Ordered crossing rectangles split at imaginary height zero.",
+      "justification": "IsConservativeOn is constructed for arbitrary rectangle endpoints, including reversed heights and seam edges. Ordered crossing rectangles split at imaginary height zero.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Domain",
+      "required_input": "Retain all domain and continuity hypotheses visibly.",
+      "constructed_input": "The straight-seam gluing theorem takes an open U, continuous f on U, and actual complex differentiability off the real axis. The reflection theorem instead constructs this continuity from upper closed-side continuity and matching real boundary values.",
+      "justification": "The straight-seam gluing theorem takes an open U, continuous f on U, and actual complex differentiability off the real axis. The reflection theorem instead constructs this continuity from upper closed-side continuity and matching real boundary values.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Coefficients",
+      "required_input": "Keep exact contour signs and original integrals.",
+      "constructed_input": "The rectangle integral uses both horizontal integrals and both vertical integrals with exact imaginary-unit factors. Adjacent vertical interval integrals are justified by continuity on the original rectangle, then cancel exactly.",
+      "justification": "The rectangle integral uses both horizontal integrals and both vertical integrals with exact imaginary-unit factors. Adjacent vertical interval integrals are justified by continuity on the original rectangle, then cancel exactly.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Local conditions",
+      "required_input": "Construct seam holomorphy rather than assume it.",
+      "constructed_input": "Cauchy-Goursat is applied only on rectangles with open interiors off the seam. Crossing rectangles split into two such rectangles. Pinned HasPrimitives Morera then supplies complex differentiability on the whole open set.",
+      "justification": "Cauchy-Goursat is applied only on rectangles with open interiors off the seam. Crossing rectangles split into two such rectangles. Pinned HasPrimitives Morera then supplies complex differentiability on the whole open set.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Transition maps",
+      "required_input": "Construct reflected extension and its continuity.",
+      "constructed_input": "extension f uses f on the closed upper side and conjugate(f(conjugate z)) on the lower side. Conjugation invariance of U, real seam values and closed-side continuity imply continuous gluing through ContinuousOn.if.",
+      "justification": "extension f uses f on the closed upper side and conjugate(f(conjugate z)) on the lower side. Conjugation invariance of U, real seam values and closed-side continuity imply continuous gluing through ContinuousOn.if.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Identity",
+      "required_input": "Prove actual Schwarz reflection.",
+      "constructed_input": "Genuine conjugate-conjugate differentiation proves lower-side holomorphy. The new Morera gluing result proves the extension holomorphic at the seam. Exact upper agreement and full lower reflected formula are retained.",
+      "justification": "Genuine conjugate-conjugate differentiation proves lower-side holomorphy. The new Morera gluing result proves the extension holomorphic at the seam. Exact upper agreement and full lower reflected formula are retained.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Consumers",
+      "required_input": "Keep the remaining polygon conformal tasks separate.",
+      "constructed_input": "This is a generic straight-seam reflection producer needed for the actual original half-cut. It does not construct a Riemann map, Caratheodory boundary extension, circle flattening, maximal complex P1 or algebraization.",
+      "justification": "This is a generic straight-seam reflection producer needed for the actual original half-cut. It does not construct a Riemann map, Caratheodory boundary extension, circle flattening, maximal complex P1 or algebraization.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required_input": "Use pinned mathlib and independent source/hosted verification.",
+      "constructed_input": "The two-source packet imports pinned HasPrimitives, CauchyIntegral and Deriv.Star. No extra axioms, sorry, local Lean build, external theorem assumption or budget increase is introduced. Source review is separate from kernel acceptance.",
+      "justification": "The two-source packet imports pinned HasPrimitives, CauchyIntegral and Deriv.Star. No extra axioms, sorry, local Lean build, external theorem assumption or budget increase is introduced. Source review is separate from kernel acceptance.",
+      "sources": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ],
+      "evidence": [
+        "HolomorphicGluingAcrossReal318.lean",
+        "SchwarzReflectionReal318.lean"
+      ]
+    }
+  ],
+  "validation": {
+    "local_lean": "NOT_RUN_USER_FORBIDS",
+    "hosted_lean": "NOT_RUN",
+    "independent_review": "PENDING",
+    "canonical_intake": "PASS"
+  }
+}
