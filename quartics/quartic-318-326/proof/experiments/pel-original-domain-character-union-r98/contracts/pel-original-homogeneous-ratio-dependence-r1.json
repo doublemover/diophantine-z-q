@@ -1,0 +1,46 @@
+{
+  "author": "/root/continue_contact",
+  "status": "ACTUAL_HOMOGENEOUS_RATIO_DEPENDENCE_REVIEWED",
+  "claim": "Actual H0 growth forces a nonzero polynomial relation among any three actual same-positive-degree homogeneous ratios in a field image of the genuine section ring.",
+  "revision_source": "pel-original-coordinate-domain-growth-r1",
+  "predecessor_application_sha256": "661ee78e06f22b2307ff977544caa21d36cb21650cdd2da01c73b1c24bbfa14c",
+  "new_sources": {
+    "CubicBoxMonomials318.lean": "ef9761bb6b8b54baa4c089ee22e58da12402394b3eeeec385daeaa5255f45111",
+    "HomogeneousRatioBox318.lean": "bc125afa32465e528efd9dfbb0279b2d7b9906904dbce4319a87182e910ce748",
+    "PELOriginalHomogeneousRatioDependence318.lean": "87d7490a613eb02754627f87f456480a739d97ae53090b10d3c5250bfcc4787a"
+  },
+  "obligations": [
+    {
+      "required": "Distinct complete box monomials",
+      "constructed": "Actual exponent injection and coefficient recovery",
+      "justification": "No fictitious independent formal variables inside original section space",
+      "evidence": [
+        "CubicBoxMonomials318.polynomial_injective",
+        "CubicBoxMonomials318.card"
+      ]
+    },
+    {
+      "required": "Correct actual ratio homogenization",
+      "constructed": "Same common denominator to exact total degree3dm and field evaluation identity",
+      "justification": "Only actual nonzero denominator canceled; all numerator zeros retained",
+      "evidence": [
+        "HomogeneousRatioBox318.cleared_homogeneous",
+        "HomogeneousRatioBox318.cleared_evaluation"
+      ]
+    },
+    {
+      "required": "Genuine dependence from proved H0 growth",
+      "constructed": "Hypothetical aeval injectivity forces impossible box dimension with m81d\u00b2",
+      "justification": "No algebraic dimension or Chow assumption",
+      "evidence": [
+        "PELOriginalHomogeneousRatioDependence318.boxImage_injective",
+        "PELOriginalHomogeneousRatioDependence318.not_algebraicIndependent",
+        "PELOriginalHomogeneousRatioDependence318.exists_relation"
+      ]
+    }
+  ],
+  "readme_sha256": "332ce18d2727aeeab6c2525bcc2f0762cdc28638ecec8e7af4880e06691e200b",
+  "intake_sha256": "8053655044274ee5d2eaf46dd9b0396e2918ac1d8fcb438ba7d3f8ee4ad03155",
+  "copy_bindings_sha256": "f5c82b423881b3688fe2ac99c6593143a0faddf5818a468ea1b44d6586d36752",
+  "pinned_apis_sha256": "367917b584e78e1ffe25bd5b959950f4a6a1a6e7ef0c3eee0ee4f570e3a06878"
+}
