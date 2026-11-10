@@ -1,0 +1,58 @@
+{
+  "author": "/root/continue_contact",
+  "status": "ORIGINAL_LEGENDRE_ANALYTIC_SHEETS_REVIEW_REQUESTED",
+  "claim": "Actual globally distinct and exhaustive holomorphic Legendre sheets on both halfplanes for same original real branch parameter; source comparison/gluing open.",
+  "revision_source": "pel-original-legendre-whole-fibers-r1",
+  "predecessor_application_sha256": "0cf8248f590b30068abf57c49e3fb943da4753ce4e5383e338074540358beb57",
+  "new_sources": {
+    "AnalyticNonzeroSquareRoot318.lean": "18fdf214ded1dc6bafbc814ab5ca80bcc56de6b75310c88902fd3ca27f28913c",
+    "LegendreHalfPlaneAnalyticSheets318.lean": "236fd46c4d6b2746a3a847d88a614248e7a1aededded6bb85a8171826eded486",
+    "PELOriginalLegendreAnalyticSheets318.lean": "41a8ec36605a0a1acf2df1a94badebd431fc04c970c87f6c4734ef9f4090245a"
+  },
+  "obligations": [
+    {
+      "required": "Continuous-to-holomorphic root",
+      "constructed": "Same continuous lifted square root",
+      "justification": "Derived nonzero derivative of squaring and actual local analytic inverse",
+      "evidence": [
+        "AnalyticNonzeroSquareRoot318.analytic_root"
+      ]
+    },
+    {
+      "required": "Both full halfplanes",
+      "constructed": "Open nonempty convex simplyconnected domains",
+      "justification": "Actual side-linear inequalities; nonreal excludes all polynomial roots",
+      "evidence": [
+        "LegendreHalfPlaneAnalyticSheets318.exists_sheet"
+      ]
+    },
+    {
+      "required": "Exact target sheets",
+      "constructed": "Whole signed fibers exhaustive and distinct with analytic coordinates",
+      "justification": "Same Legendre t,y equation and actual full Scheme projection",
+      "evidence": [
+        "LegendreHalfPlaneAnalyticSheets318.original_scheme_sections"
+      ]
+    },
+    {
+      "required": "Original parameter",
+      "constructed": "Same branchParameter and actual Scheme-valued base",
+      "justification": "Reviewed actual reality theorem and exact projection equations",
+      "evidence": [
+        "PELOriginalLegendreAnalyticSheets318.exact_original_base"
+      ]
+    },
+    {
+      "required": "Open boundary",
+      "constructed": "Original source sheet comparison and branch-cut gluing",
+      "justification": "Not inferred from same base/fiber sizes",
+      "evidence": [
+        "README.md"
+      ]
+    }
+  ],
+  "readme_sha256": "6bf54491afcc2cbbbf886854241f0d1fc79cd902a44fb0bfccc0da980d78bfc9",
+  "intake_sha256": "e88f81d2e0ed9a917c18df9ec3470e85b3ebf28bcb47da74ab550277334f7a11",
+  "copy_bindings_sha256": "5055f27cea9fdd81ffa0e48838b8367471e577df81f633d2a557c0c226c04f49",
+  "pinned_apis_sha256": "234c9cf0808c7ced59e38f292dcc82da666a4306f5ade37488d7da4b189941f8"
+}
