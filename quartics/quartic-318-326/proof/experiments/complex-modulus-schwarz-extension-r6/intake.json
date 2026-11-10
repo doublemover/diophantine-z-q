@@ -1,0 +1,104 @@
+{
+  "packet": "complex-modulus-schwarz-extension-r6",
+  "status": "EXACT_HOSTED_API_REPAIR_PENDING_CHECK",
+  "order": [
+    "ConformalBoundaryModulus318",
+    "CompactBoundaryJump318",
+    "VanishingDerivativeTrace318",
+    "HolomorphicRectanglePrimitive318",
+    "BoundedRectanglePrimitiveClosure318",
+    "HolomorphicGluingAcrossReal318",
+    "SchwarzReflectionReal318",
+    "ActualBoundedPrimitiveTraces318",
+    "BoundedVanishingJumpGluing318",
+    "ModulusSchwarzExtension318"
+  ],
+  "new_modules": [
+    "ConformalBoundaryModulus318",
+    "CompactBoundaryJump318",
+    "VanishingDerivativeTrace318",
+    "HolomorphicRectanglePrimitive318",
+    "BoundedRectanglePrimitiveClosure318",
+    "HolomorphicGluingAcrossReal318",
+    "SchwarzReflectionReal318",
+    "ActualBoundedPrimitiveTraces318",
+    "BoundedVanishingJumpGluing318",
+    "ModulusSchwarzExtension318"
+  ],
+  "files": {
+    "ConformalBoundaryModulus318.lean": {
+      "sha256": "a252e4a175cfc115c60fd16976eb965c973a4dac308d641f780c67e1c8229b84",
+      "imports": [
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.Tactic",
+        "Mathlib.Topology.Homeomorph.Lemmas",
+        "Mathlib.Topology.Instances.Complex"
+      ]
+    },
+    "CompactBoundaryJump318.lean": {
+      "sha256": "98a44c15ef421aad6eaac51cea01e70221ec48dbd7f1ba86b2120c7286eadaa5",
+      "imports": [
+        "ConformalBoundaryModulus318",
+        "Mathlib.Topology.MetricSpace.Thickening"
+      ]
+    },
+    "VanishingDerivativeTrace318.lean": {
+      "sha256": "346b6576a5c746eac264820ab06ca92414d30d2cf2c3a25784ffed3d828700ff",
+      "imports": [
+        "CompactBoundaryJump318",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ]
+    },
+    "HolomorphicRectanglePrimitive318.lean": {
+      "sha256": "c74ac93793faa7c02e8f6c9c8b5fd7545c2c26546490f73956a4bf00b1fb51c6",
+      "imports": [
+        "Mathlib.Analysis.Complex.HasPrimitives",
+        "Mathlib.Tactic"
+      ]
+    },
+    "BoundedRectanglePrimitiveClosure318.lean": {
+      "sha256": "0518c59c1565f0249f18aa5b1bb12ed0fcaddd72502a85b1a764f26a60a9c811",
+      "imports": [
+        "HolomorphicRectanglePrimitive318",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Topology.UniformSpace.UniformEmbedding"
+      ]
+    },
+    "HolomorphicGluingAcrossReal318.lean": {
+      "sha256": "2fff3be106dd75c86e387634e3491ef7d0134ae43efb311e4bc627f0dda1d951",
+      "imports": [
+        "Mathlib.Analysis.Complex.HasPrimitives",
+        "Mathlib.Tactic"
+      ]
+    },
+    "SchwarzReflectionReal318.lean": {
+      "sha256": "73629650eefdc45d879e4c37c1fe9566209e0cd4855ec1639ebfbd9ed080f11b",
+      "imports": [
+        "HolomorphicGluingAcrossReal318",
+        "Mathlib.Analysis.Calculus.Deriv.Star",
+        "Mathlib.Topology.Piecewise"
+      ]
+    },
+    "ActualBoundedPrimitiveTraces318.lean": {
+      "sha256": "3a773b9ddd317875eef35a65a7c1f4b360a44e3e7196cdacdadfb60b2b0fc931",
+      "imports": [
+        "BoundedRectanglePrimitiveClosure318",
+        "Mathlib.Analysis.Complex.RealDeriv",
+        "VanishingDerivativeTrace318"
+      ]
+    },
+    "BoundedVanishingJumpGluing318.lean": {
+      "sha256": "29e5d107187ddf25c8c702630a93b80e58988b3f8aff4d586a683496b10cabe3",
+      "imports": [
+        "ActualBoundedPrimitiveTraces318",
+        "SchwarzReflectionReal318"
+      ]
+    },
+    "ModulusSchwarzExtension318.lean": {
+      "sha256": "cd51efa6f3d34c33462f7defb688902e3e9d8757b6b0ccd5959d423530231429",
+      "imports": [
+        "BoundedVanishingJumpGluing318"
+      ]
+    }
+  }
+}

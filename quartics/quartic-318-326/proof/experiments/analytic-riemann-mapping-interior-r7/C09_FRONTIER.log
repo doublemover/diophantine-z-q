@@ -1,0 +1,56 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/analytic-riemann-mapping-interior-r6/RiemannExtremalEmbedding318.lean:71:6: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/analytic-riemann-mapping-interior-r6/RiemannExtremalEmbedding318.lean:72:4: error: unsolved goals
+case e'_9
+U : Set ℂ
+hUo : IsOpen U
+hUc : IsSimplyConnected U
+hU : U ≠ univ
+x : ℂ
+hx : x ∈ U
+f : ℂ → UnitDisc
+hdf : DifferentiableOn ℂ (UnitDisc.coe ∘ f) U
+hf₀ : f x = 0
+hf_inj : InjOn f U
+hsurj : ¬SurjOn f U univ
+hdf₀ : ¬deriv (UnitDisc.coe ∘ f) x = 0
+c : UnitDisc
+hc : ∀ z ∈ U, f z ≠ c
+hcf : ContinuousOn f U
+g : ℂ → UnitDisc
+hgc : ContinuousOn g U
+hgf : ∀ (x : ℂ), g x ^ 2 = (⇑(-c).shift ∘ f) x
+hg₀ : ∀ z ∈ U, g z ≠ 0
+z : ℂ
+hz : z ∈ U
+⊢ (1 - ↑‖↑c‖ ^ 2) / (2 * ↑(g z) * (1 - (starRingEnd ℂ) ↑c * ↑(f z)) ^ 2) * deriv (fun x => ↑(f x)) z =
+    (1 - ↑‖↑c‖ ^ 2) / (1 + -((starRingEnd ℂ) ↑c * ↑(f z))) ^ 2 * deriv (UnitDisc.coe ∘ f) z / (2 * ↑(g z))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/analytic-riemann-mapping-interior-r6/RiemannExtremalEmbedding318.lean:64:95: error: unsolved goals
+U : Set ℂ
+hUo : IsOpen U
+hUc : IsSimplyConnected U
+hU : U ≠ univ
+x : ℂ
+hx : x ∈ U
+f : ℂ → UnitDisc
+hdf : DifferentiableOn ℂ (UnitDisc.coe ∘ f) U
+hf₀ : f x = 0
+hf_inj : InjOn f U
+hsurj : ¬SurjOn f U univ
+hdf₀ : ¬deriv (UnitDisc.coe ∘ f) x = 0
+c : UnitDisc
+hc : ∀ z ∈ U, f z ≠ c
+hcf : ContinuousOn f U
+g : ℂ → UnitDisc
+hgc : ContinuousOn g U
+hgf : ∀ (x : ℂ), g x ^ 2 = (⇑(-c).shift ∘ f) x
+hg₀ : ∀ z ∈ U, g z ≠ 0
+z : ℂ
+hz : z ∈ U
+⊢ ↑2 * (UnitDisc.coe ∘ g) z ^ (2 - 1) ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/analytic-riemann-mapping-interior-r6/RiemannExtremalEmbedding318.lean:72:12: warning: This simp argument is unused:
+  hg₀ z hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
