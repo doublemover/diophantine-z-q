@@ -1,0 +1,51 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-good-volume-r1/MixedCRTComponentSelection318.lean:50:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  k • t • ?a
+in the target expression
+  r • a + t • (Pi ^ e * Mminus * Mplus) • L • a = r • a + (k * t) • a
+
+G : Type u_1
+inst✝³ : AddCommGroup G
+inst✝² : TopologicalSpace G
+inst✝¹ : IsTopologicalAddGroup G
+inst✝ : CompactSpace G
+a : G
+hd : DenseRange fun n => n • a
+m : ℕ
+hm : m • a ∈ connectedComponent 0
+Pi Mminus Mplus L h₀ e B : ℕ
+hPi : 0 < Pi
+hMm : 0 < Mminus
+hMp : 0 < Mplus
+hL : 0 < L
+hPm : Pi.Coprime Mplus
+hPL : Pi.Coprime L
+hmp : Mminus.Coprime Mplus
+hpL : Mplus.Coprime L
+hmL : Mminus.gcd L = 16
+hh₀ : 16 ∣ h₀
+hmdivL : m ∣ L
+hmdivh₀ : m ∣ h₀
+U : Set G
+ho : IsOpen U
+hne : ∃ x ∈ U, x ∈ connectedComponent 0
+r : ℕ
+hrA : r ≡ 0 [MOD Pi ^ e * Mminus]
+hrP : r ≡ 1 [MOD Mplus]
+hrL : r ≡ h₀ [MOD L]
+k : ℕ := Pi ^ e * Mminus * Mplus * L
+hk : 0 < k
+hmk : m ∣ k
+hmr : m ∣ r
+hkcomp : k • a ∈ connectedComponent 0
+hrcomp : r • a ∈ connectedComponent 0
+t : ℕ
+ht : B < t
+hU : r • a + t • k • a ∈ U
+hkt : t ≤ k * t
+⊢ r • a + t • (Pi ^ e * Mminus * Mplus) • L • a = r • a + (k * t) • a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-good-volume-r1/MixedCRTComponentSelection318.lean:63:0: warning: automatically included section variable(s) unused in theorem `MixedCRTComponentSelection318.source64_return`:
+  [CompactSpace G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompactSpace G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
