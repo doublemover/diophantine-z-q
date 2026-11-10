@@ -1,0 +1,45 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r8/IntegralGluedChartGeometry318.lean:58:2: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r8/IntegralGluedChartGeometry318.lean:65:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a ''ᵁ ⊤ ≤ branchChart R c ''ᵁ ⊤
+Error: Application type mismatch: The argument
+  overlapChart_open R c
+has type
+  IsOpenImmersion (overlapChart R c)
+but is expected to have type
+  IsOpenImmersion _a
+in the application
+  @Scheme.Hom.opensFunctor (commonScheme R c) (scheme R c) _a ⋯
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  getColimitCocone ↦ 108
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+R : Type u
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ overlapChart R c ''ᵁ ⊤ ≤ branchChart R c ''ᵁ ⊤
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r8/IntegralGluedChartGeometry318.lean:68:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a ''ᵁ ⊤ ≤ infinityChart R c ''ᵁ ⊤
+Error: Application type mismatch: The argument
+  overlapChart_open R c
+has type
+  IsOpenImmersion (overlapChart R c)
+but is expected to have type
+  IsOpenImmersion _a
+in the application
+  @Scheme.Hom.opensFunctor (commonScheme R c) (scheme R c) _a ⋯
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  getColimitCocone ↦ 108
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+R : Type u
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ overlapChart R c ''ᵁ ⊤ ≤ infinityChart R c ''ᵁ ⊤
