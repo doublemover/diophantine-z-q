@@ -1,0 +1,15 @@
+# Same original reduced basis: residue content, rational polynomial equivalence, coprimality and geometry
+
+All324 predecessors remain byte-identical. Four new sources connect the controlled whole basis to actual arithmetic sieve inputs without switching bases between primes, fields or consumers.
+
+OriginalReducedBasisResidues318 constructs residue surjectivity of the actual integer synthesis map at every prime not dividing the original modulus. Given a residue vector y, multiply its coordinates by M inverse modulo p, lift to integers, multiply by M to land in the actual original lattice, and use whole integer spanning to obtain actual integer basis coefficients. Reducing their synthesis returns exactly y. The original slice specialization uses M|label, so every prime outside label is covered. No unconstructed matrix inverse or new content prime is assumed.
+
+OriginalReducedContentProducer318 transports the original explicit K-nonvanishing residue witness through that exact map. This includes label=-2 modulo p, where the witness is (1,0,0), not the vanishing constant term. The chosen reduced whole basis is fixed BEFORE all primewise content witnesses.
+
+OriginalReducedPolynomialEquiv318 constructs the actual rational polynomial substitution on Q[X0,X1,X2] using the three original basis rows. Its inverse uses the three literal cofactors divided by the scalar triple determinant. Both polynomial-algebra compositions are checked on all three generators, not only evaluated on sample points. The resulting actual AlgEquiv preserves relative primality through its inverse, which supplies IsLocalHom; a bare substitution hom is not misused. Its evaluation theorem returns exactly the original linear coordinate combination.
+
+OriginalReducedPolynomialProducer318 proves the rational determinant is the cast of the existing original integer determinant and identifies evaluation at integer coefficients with the same integer synthesis map. It applies the existing original first and second rational coprime-pair theorems, including the exceptional label=-2 case already handled there. The final producer chooses ONE original whole reduced basis and returns both rational coprime pairs, all primewise K-content witnesses, and the324 whole-point volume estimate with that same third minimum. No prime-dependent basis, changed polynomial or wrong source curve/lattice is substituted.
+
+Still open: quantitative coefficient-height bounds and resultant/elimination estimates in the anisotropic rectangles; actual geometric-sieve remainder and optimized Selberg weights; simultaneous Gaussian prime-pattern production. Four rational twist pairs and Anchor local-global remain separate. This supplies genuine arithmetic/geometry prerequisites, not the global prime theorem.
+
+Validation:26198 exact residue inverses,352 actual K-content witnesses,96 explicit same-basis rational polynomial gcd checks (regular and label=-2); both symbolic3x3 adjugate compositions checked identically. All324 geometric exact checks rerun. Static328/222 closure only, no local Lean compilation.
