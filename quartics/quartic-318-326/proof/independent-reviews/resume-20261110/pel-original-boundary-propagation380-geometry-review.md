@@ -1,0 +1,5 @@
+# Independent boundary propagation / comparison review
+
+CLEAR for the two boundary-density and unit-trace comparison sources only. APPLICATION SHA256: eac99c82052bd0f1ae4968b9084a47eb110d2fe0fc1748f6d3be878c65787301
+
+Read both entire sources and checked exact frozen bytes. All361 predecessors unchanged; canonical380 passes. The six actual outgoing segments satisfy the original six affine constraints, with exactly the selected edge active and the other five strict. Actual segment limits and compact closed-subtype transport propagate closed-set membership through every literal corner. Pinned Mathlib Topology/Order/DenselyOrdered.lean confirms closure_Ioo requires the supplied endpoint inequality. The exhaustive original regular-or-corner result then constructs whole-boundary exclusion from continuity and actual unit edge values. The final comparison uses the SAME original complex atlas; no corner values, boundary homeomorphism, filled map, or original uniformization are assumed to be produced. The other two compact-core/bounded-seam sources are independently reviewed by contact, not claimed reviewed here. No local Lean.
