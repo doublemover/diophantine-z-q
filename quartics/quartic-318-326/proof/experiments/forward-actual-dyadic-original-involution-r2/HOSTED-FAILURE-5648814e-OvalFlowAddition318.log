@@ -1,0 +1,76 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-ternary-lattice-cover-r3/OvalFlowAddition318.lean:69:2: error: ring failed, ring expressions not equal
+u v a b : ℝ
+hc : v ^ 2 = 1 - u ^ 4
+hb : b ^ 2 = 1 - a ^ 4
+⊢ a ^ 2 * b * u ^ 5 * 2 - a ^ 2 * b ^ 3 * u ^ 5 * 2 - a ^ 3 * v * b ^ 2 * u ^ 4 * 6 + a ^ 3 * v * u ^ 4 * 6 +
+                a ^ 5 * v * u ^ 2 * 2 -
+              a ^ 5 * v * u ^ 6 * 2 -
+            a ^ 5 * v ^ 3 * u ^ 2 * 2 -
+          a ^ 6 * v ^ 2 * b * u ^ 5 * 2 -
+        a ^ 6 * b * u ^ 9 * 2 -
+      a ^ 7 * v * u ^ 4 * 6 =
+    0
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-ternary-lattice-cover-r3/OvalFlowAddition318.lean:95:42: error: unsolved goals
+case e'_9
+f : ℝ → Oval 1
+q : Oval 1
+t : ℝ
+hf : HasDerivAt (fun s => ↑(f s)) (vectorField ↑(f t)) t
+u : ℝ → ℝ := fun s => (↑(f s)).1
+v : ℝ → ℝ := fun s => (↑(f s)).2
+a : ℝ := (↑q).1
+b : ℝ := (↑q).2
+hu : HasDerivAt u (v t) t
+hv : HasDerivAt v (-2 * u t ^ 3) t
+hc : v t ^ 2 = 1 - u t ^ 4
+hb : b ^ 2 = 1 - a ^ 4
+hd : HasDerivAt (fun s => 1 + u s ^ 2 * a ^ 2) (2 * u t * v t * a ^ 2) t
+hnumU : HasDerivAt (fun s => u s * b + a * v s) (v t * b + a * (-2 * u t ^ 3)) t
+hU : HasDerivAt ((fun s => u s * b + a * v s) / fun s => 1 + u s ^ 2 * a ^ 2) (sumV 1 (u t) (v t) a b) t
+⊢ -(a * v t * u t ^ 2 * 6) - a ^ 2 * v t ^ 2 * b * u t * 2 + a ^ 2 * b * u t ^ 5 * 2 - a ^ 3 * v t * 2 -
+      b * u t ^ 3 * 2 =
+    -(a * v t * u t ^ 2 * 4) - a * v t * (u ^ 2) t * 2 - a ^ 2 * v t ^ 2 * b * u t * 2 +
+          a ^ 2 * b * u t ^ 3 * (u ^ 2) t * 2 -
+        a ^ 3 * v t * 2 -
+      b * u t ^ 3 * 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-ternary-lattice-cover-r3/OvalFlowAddition318.lean:105:2: error: Type mismatch: After simplification, term
+  HasFDerivAtFilter.prodMk hU hV
+ has type
+  HasFDerivAtFilter
+    (fun x =>
+      (((fun s => u s * b + a * v s) / fun s => 1 + u s ^ 2 * a ^ 2) x,
+        ((fun s => v s * b * (1 - u s ^ 2 * a ^ 2) - 2 * u s * a * (u s ^ 2 + a ^ 2)) / fun s =>
+            (1 + u s ^ 2 * a ^ 2) ^ 2)
+          x))
+    ((ContinuousLinearMap.toSpanSingleton ℝ
+          ((v t * b * (1 - u t ^ 2 * a ^ 2) - 2 * 1 * u t * a * (u t ^ 2 + a ^ 2)) / (1 + u t ^ 2 * a ^ 2) ^ 2)).prod
+      (ContinuousLinearMap.toSpanSingleton ℝ (-2 * ((u t * b + a * v t) / (1 + u t ^ 2 * a ^ 2)) ^ 3)))
+    (nhds t ×ˢ pure t)
+but is expected to have type
+  HasDerivAt
+    (fun s =>
+      ((u s * b + a * v s) / (1 + u s ^ 2 * a ^ 2),
+        (v s * b * (1 - u s ^ 2 * a ^ 2) - 2 * 1 * u s * a * (u s ^ 2 + a ^ 2)) / (1 + u s ^ 2 * a ^ 2) ^ 2))
+    ((v t * b * (1 - u t ^ 2 * a ^ 2) - 2 * 1 * u t * a * (u t ^ 2 + a ^ 2)) / (1 + u t ^ 2 * a ^ 2) ^ 2,
+      -2 * ((u t * b + a * v t) / (1 + u t ^ 2 * a ^ 2)) ^ 3)
+    t
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instMul ↦ 6
+  Real.instOne ↦ 2
+  Real.instAdd ↦ 8
+  Real.instNeg ↦ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-ternary-lattice-cover-r3/OvalFlowAddition318.lean:113:6: error: Application type mismatch: The argument
+  flow_hasDeriv (x + t)
+has type
+  HasDerivAt (fun t => ↑(flow t)) ((↑(flow (x + t))).2, -2 * (↑(flow (x + t))).1 ^ 3) (x + t)
+but is expected to have type
+  HasDerivAt ?m.46 ?m.48 (id x + t)
+in the application
+  HasDerivAt.comp x (flow_hasDeriv (x + t))

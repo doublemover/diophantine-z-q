@@ -1,0 +1,52 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:50:4: error: Type mismatch: After simplification, term
+  AnalyticAt.comp_of_eq reciprocal_cusp_germ.left (endCoordinate_analytic infinityEnd) (endCoordinate_zero infinityEnd)
+ has type
+  AnalyticAt ℂ (reciprocalPole ∘ endCoordinate infinityEnd) 0
+but is expected to have type
+  AnalyticAt ℂ (qGerm infinityEnd) 0
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:53:4: error: Type mismatch: After simplification, term
+  AnalyticAt.comp_of_eq finite_cusp_germ.left (endCoordinate_analytic zeroEnd) (endCoordinate_zero zeroEnd)
+ has type
+  AnalyticAt ℂ (finitePole ∘ endCoordinate zeroEnd) 0
+but is expected to have type
+  AnalyticAt ℂ (qGerm zeroEnd) 0
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:78:4: error: 'change' tactic failed, pattern
+  meromorphicOrderAt (endCoordinate c / reciprocalN ∘ endCoordinate c) 0 = 1
+is not definitionally equal to target
+  meromorphicOrderAt (qGerm infinityEnd) 0 = ↑↑1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:81:4: error: 'change' tactic failed, pattern
+  meromorphicOrderAt (endCoordinate c ^ 3 / finiteN ∘ endCoordinate c) 0 = 3
+is not definitionally equal to target
+  meromorphicOrderAt (qGerm c) 0 = ↑↑3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:77:15: warning: This simp argument is unused:
+  qGerm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qOrder, hc, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:80:15: warning: This simp argument is unused:
+  qGerm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qOrder, hc, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r4/ActualThreeJQDiscGerms318.lean:103:41: error: Application type mismatch: The argument
+  hRq
+has type
+  reciprocalN (endCoordinate c q) ≠ 0
+but is expected to have type
+  reciprocalN (endCoordinate infinityEnd q) ≠ 0
+in the application
+  reciprocal_numerator_formula (endCoordinate infinityEnd q) hRq
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 18
+  Real.instAdd ↦ 1
