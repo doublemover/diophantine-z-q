@@ -1,0 +1,72 @@
+Source: quartics/quartic-318-326/docs/sources/quartic_v10.tex lines16733–16802, preserving text exactly.
+
+largest successive minima are at most $q$.
+
+\begin{lemma}[Large common divisors on the quadric]\label{lem:v5-large-sieve}
+Fix the implied constant in the box of size $O(B)$.
+For fixed $\kappa\ne0$ and $\epsilon,\eta\in\{1,-1\}$, uniformly for
+$B,L\geq2$, the number of integral vectors in this box satisfying
+$Q_\kappa=0$ and
+$\ell\mid G_\epsilon,H_\eta$ for some prime $\ell>L$ is
+\begin{equation}\label{eq:v5-large-sieve}
+ O_{\kappa,\alpha}\left(
+    \frac{B^{3+\alpha}}{L\log L}+B^{11/4+\alpha}\right)
+ \qquad(\alpha>0).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Sign changes of $a,c$ reduce to $\epsilon=\eta=1$.
+Put $x_0=a+c$, $x_1=a-c$, $x=b-d$, $z=b+d$, and
+$R=\kappa w^2-xz$. Then $x_0x_1=R$.
+Parity restrictions can be discarded in an upper bound.
+For a fixed nonzero value of either $x_0$ or $x_1$, the triple $(x,z,w)$
+determines the other coordinate uniquely whenever it gives an integral
+solution. We shall use this injection when discarding divisibility
+conditions.
+
+First suppose that $\ell\mid x_0,x_1$. Then $\ell^2\mid R$.
+For each fixed integer $v=O(B^2)$, the equation $R=v$ has
+$O_{\kappa,\alpha}(B^{1+\alpha})$ triples: for each $w$, count the
+factorizations $xz=\kappa w^2-v$ by the divisor bound; the zero right-hand
+side occurs for at most two $w$ and contributes $O(B)$ each.
+If $R\ne0$, it has $O_\alpha(B^\alpha)$ factorizations $x_0x_1=R$.
+Since $0<|h|\ll B^2/\ell^2$ and $\ell\ll B$, summation gives
+\[
+ O_{\kappa,\alpha}\left(
+ B^{3+2\alpha}\sum_{\ell>L}\ell^{-2}\right)
+ =O_{\kappa,\alpha}(B^{3+2\alpha}/(L\log L)).
+\]
+The same bound for triples with $R=0$, followed by the $O(B)$ choices
+with $x_0x_1=0$, gives $O_{\kappa,\alpha}(B^{2+\alpha})$.
+We may discard all these $R=0$ solutions before proceeding.
+
+In the remaining cases choose $t=x_1$ or $t=x_0$ such that $\ell\nmid2t$.
+Take $t=x_1$ first. Here
+$G_1-H_1=\kappa w^2+2t$ and $4t^2G_1=K$.
+Thus the two norm congruences are equivalent to divisibility of
+\[
+ P=\kappa w^2+2t,\qquad
+ K=(\kappa w^2-xz+t^2+2t)^2+t^2(x+z)^2.
+\]
+The identity
+\[
+ K-(t^2+x^2)(t^2+z^2)=P(P+2t^2-2xz)
+\]
+shows that it suffices to sieve the coprime pair
+$P,(t^2+x^2)(t^2+z^2)$. They have no common nonconstant factor over
+$\mathbb Q$, because the first depends nontrivially only on $w$, whereas
+the second is independent of $w$. Their contents have no common prime,
+since the second has coefficient $1$ on $x^2z^2$.
+For $t=x_0$ we still have $4t^2G_1=K$, whereas
+$t(G_1-H_1)=\kappa(t+2)w^2-2xz$. The pair is therefore
+\[
+ P'=\kappa(t+2)w^2-2xz,\qquad K.
+\]
+If $t\ne-2$, $P'$ is an irreducible ternary quadratic form of rank three
+and $K$ has nonzero constant term $t^2(t+2)^2$; homogeneity rules out
+divisibility. If $t=-2$, neither $x$ nor $z$ divides $K$.
+The coefficient $1$ of $x^2z^2$ in $K$ excludes every common content
+prime. In both charts the fixed value $t$ is nonzero.
+
+In either chart, $t\mid R$. Put
+\[
