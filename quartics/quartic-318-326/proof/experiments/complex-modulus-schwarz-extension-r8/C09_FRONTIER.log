@@ -1,0 +1,44 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/complex-modulus-schwarz-extension-r7/ActualBoundedPrimitiveTraces318.lean:28:17: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/complex-modulus-schwarz-extension-r7/ActualBoundedPrimitiveTraces318.lean:36:10: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/complex-modulus-schwarz-extension-r7/ActualBoundedPrimitiveTraces318.lean:37:6: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/complex-modulus-schwarz-extension-r7/ActualBoundedPrimitiveTraces318.lean:140:52: error: unsolved goals
+f_plus f_minus g_plus g_minus : ℂ → ℂ
+a b r u v : ℝ
+hr : 0 < r
+hau : a < u
+huv : u ≤ v
+hvb : v < b
+hc_plus : ContinuousOn g_plus (closure (openRectangle a b 0 r))
+hc_minus : ContinuousOn g_minus (closure (openRectangle a b (-r) 0))
+hd_plus : ∀ z ∈ openRectangle a b 0 r, HasDerivAt g_plus (f_plus z) z
+hd_minus : ∀ z ∈ openRectangle a b (-r) 0, HasDerivAt g_minus (f_minus z) z
+hjump : ∀ x ∈ Icc u v, Tendsto (fun z => f_plus z - f_minus ((starRingEnd ℂ) z)) (𝓝[openRectangle a b 0 r] ↑x) (𝓝 0)
+hinside : ∀ x ∈ Icc u v, x ∈ Ioo a b
+htr : ∀ᶠ (t : ℝ) in 𝓝[>] 0, t < r
+hp_plus : ∀ x ∈ Icc u v, ∀ᶠ (t : ℝ) in 𝓝[>] 0, upperPath x t ∈ openRectangle a b 0 r
+hp_minus : ∀ x ∈ Icc u v, ∀ᶠ (t : ℝ) in 𝓝[>] 0, lowerPath x t ∈ openRectangle a b (-r) 0
+F : ℝ → ℝ → ℂ := fun t x => g_plus (upperPath x t) - g_minus (lowerPath x t)
+D : ℝ → ℝ → ℂ := fun t x => f_plus (upperPath x t) - f_minus (lowerPath x t)
+ε : ℝ
+hε : 0 < ε
+K : Set ℂ := Complex.ofReal '' Icc u v
+δ : ℝ
+hδ : δ > 0
+hbound : ∀ z ∈ thickening δ K, z ∈ openRectangle a b 0 r → ‖f_plus z - f_minus ((starRingEnd ℂ) z)‖ < ε
+htδ : ∀ᶠ (t : ℝ) in 𝓝[>] 0, t < δ
+t : ℝ
+ht : t ∈ Ioi 0
+hrt : t < r
+hdt : t < δ
+x : ℝ
+hx : x ∈ Icc u v
+hx_plus : upperPath x t ∈ openRectangle a b 0 r
+hx_minus : lowerPath x t ∈ openRectangle a b (-r) 0
+hnear : upperPath x t ∈ thickening δ K
+⊢ ↑x + -(Complex.I * ↑t) = ↑x - Complex.I * ↑t
