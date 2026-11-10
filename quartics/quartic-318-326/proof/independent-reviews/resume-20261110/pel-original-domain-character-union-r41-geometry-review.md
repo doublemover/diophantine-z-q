@@ -1,0 +1,4 @@
+# Independent integration byte review r41
+
+Application SHA256 `f8f2a593813d828f937c9823d0b795f2d3f71d47f732e577e4e64d6050b1c98d`. Reviewer /root/continue_pel_analytic.
+All522 source origins and component APPLICATION/intake bindings verified; canonical parser passes. All515 previous source bytes preserved except exactly two independently integrator-reviewed narrow hosted repairs: RiemannExtremalEmbedding318 from Riemann7 and SchwarzReflectionReal318 from modulus6. Exact source512 and order439 reviewed additions are used without substitutions. Prior RiemannRoot, sphere8, primitive closure and unit-biholomorphism repairs preserved. This is byte integration review, not independent mathematical review of my authored repairs (integrator supplies that). Source/target halfplane comparison does not yet assert crosscut gluing. No local Lean.
