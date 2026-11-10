@@ -1,0 +1,5 @@
+# Reviewed original analytic and character integration
+
+Integration-only union: actual original MaximalBase topological sphere, actual same-complex-coordinate half-cut interior normalized Riemann map and mirror, genuine geodesic charts, and conditional original uniformization-to-doubling/Weierstrass coordinate route, actual infinity-chart analytic extension and whole affine-cubic surjectivity. Original biholomorphic C/L uniformization remains an explicit input to the latter; period rank and affine deck lifts are constructed. No boundary extension, compact holomorphic P1, discriminant, global projective algebraization, represented Jacobian or published model is inferred.
+
+All shared source differences are explicitly recorded in UNION.json. Four prior reviewed fixes are retained: period-form scalar argument order, CharacterBranches include-before-doc, discrete period atlas normalization, and Joukowski conjugation. The prior convex-disk and disk-shift repairs and latest discrete-period projection normalization are retained byte-for-byte from r13. No other source is edited. Source review is not kernel acceptance.
