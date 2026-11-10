@@ -1,0 +1,92 @@
+{
+  "producer": "/root/resume_contact_reconstruction",
+  "date": "2026-11-10",
+  "status": "ORIGINAL_PERIOD_CUBIC_COORDINATES_REVIEW_REQUESTED",
+  "claim": "Constructed actual full-period Weierstrass coordinates descend to original torus and uniformized involution/character curves with genuine cubic relation, holomorphy and exact original four-cover square.",
+  "revision_source": "pel-original-uniformization-only-r1",
+  "predecessor_application_sha256": "7579f1d000ec579c846235ee235a56bc6591d047e4536a10c3485ce2e3587ed9",
+  "new_sources": {
+    "OriginalComplexPeriodPair318.lean": "4ca10fd7e0133e23b44e4ccbe63f87407db78230193e342eab477c38b31d7095",
+    "OriginalPeriodWeierstrassCoordinates318.lean": "d904e1aae85f15bd98a3d953eb75bf743d6734fa677cf849cb8123bdfb26a7c6",
+    "OriginalPeriodWeierstrassHolomorphy318.lean": "db01f72726f7a1dfa27e51bb91240e162e633a4790f2c93622f76c5505be3d3c",
+    "PELOriginalWeierstrassCoordinates318.lean": "7cbed86d03bcd4a64661dcb50b1b4a018cecae8aa03acf0e6745fab2409a4810"
+  },
+  "obligations": [
+    {
+      "required": "Actual period pair",
+      "constructed": "Real independent pair from proved full integer basis",
+      "justification": "No supplied period pair or finite-index lattice",
+      "evidence": [
+        "OriginalComplexPeriodPair318.pair"
+      ]
+    },
+    {
+      "required": "Whole lattice identity",
+      "constructed": "Library period lattice equals ALL original L",
+      "justification": "Original basis span theorem",
+      "evidence": [
+        "OriginalComplexPeriodPair318.pair_lattice"
+      ]
+    },
+    {
+      "required": "Actual quotient functions",
+      "constructed": "Weierstrass x/y descend through same L",
+      "justification": "Exact original relation and library periodicity",
+      "evidence": [
+        "OriginalPeriodWeierstrassCoordinates318.descend"
+      ]
+    },
+    {
+      "required": "Genuine cubic",
+      "constructed": "Every actual nonorigin point satisfies lattice-sum equation",
+      "justification": "Pole origin explicitly excluded",
+      "evidence": [
+        "OriginalPeriodWeierstrassCoordinates318.cubic"
+      ]
+    },
+    {
+      "required": "Holomorphy",
+      "constructed": "Original quotient inverse charts produce coordinate holomorphy",
+      "justification": "No cubic atlas substituted",
+      "evidence": [
+        "OriginalPeriodWeierstrassHolomorphy318.x_holomorphicAt"
+      ]
+    },
+    {
+      "required": "Original source",
+      "constructed": "Same original involution and character curves",
+      "justification": "Genuine uniformization remains explicit",
+      "evidence": [
+        "PELOriginalWeierstrassCoordinates318.original_cubic"
+      ]
+    },
+    {
+      "required": "Original residual cover",
+      "constructed": "Exact coordinate square with same-torus doubling",
+      "justification": "No independent isogeny or published j premise",
+      "evidence": [
+        "PELOriginalWeierstrassCoordinates318.original_cover_coordinate_square"
+      ]
+    },
+    {
+      "required": "Boundary",
+      "constructed": "Not yet complete algebraization or published model",
+      "justification": "Pole extension/discriminant/bijectivity/rational descent distinct",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "required": "Preservation",
+      "constructed": "All271 predecessor sources exact",
+      "justification": "No local Lean or baseline promotion",
+      "evidence": [
+        "COPY_BINDINGS.json"
+      ]
+    }
+  ],
+  "readme_sha256": "cd700d56616dd7df4212436b2e9f09f3f89a0262b29e647b78f531de68b24d6a",
+  "intake_sha256": "eb1e08df6b514482204d1ea1ce2051a3338941d7f760b90ba3ecdaaa2138e1c7",
+  "copy_bindings_sha256": "595637f7ba485814d9d91501ae0ec1f59ae056a19fd267bbd5a37eb65745585b",
+  "pinned_apis_sha256": "318e3b8315f4d0642a789a37f4a1d2075b293bf45faf3033668395de6e5eca11"
+}
