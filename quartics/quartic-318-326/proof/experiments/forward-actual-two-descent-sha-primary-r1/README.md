@@ -1,0 +1,13 @@
+# Actual full2-primary Sha and finite-quotient algebra
+
+Twenty connected sources preserve all1000 predecessors exactly. The actual full2-primary subgroup of the independently constructed elliptic Sha is now defined using Mathlib primaryComponent. Its actual2-torsion is explicitly identified with the previously constructed Sha[2], not just counted by analogy.
+
+A literal fiber encoding proves finiteness/cardinality bounds from kernel and target. Applied recursively to actual squaring maps between power levels, finite2-torsion gives finite Sha[2^k] for every k, with sharp bound2^k when Sha[2] has at most two elements. Finite abelian2-groups with that kernel bound are proved cyclic by comparing their actual exponent and cardinality. Every actual level is therefore cyclic. Every finite image of the full primary group is reached from a single actual power level, so every finite quotient of actual Sha2-primary is cyclic.
+
+Bimultiplicative alternating pairings on cyclic groups vanish identically, over any abelian target. Consequently any genuine nondegenerate alternating pairing on an actual finite quotient forces that quotient trivial. This proves the needed finite-quotient algebra without making the invalid claim that the pairing restricted to F[2] is nondegenerate.
+
+An infinite primary group with these finite levels contains elements beyond every bounded order. Inside a sufficiently large actual finite cyclic level, each lower-order element has a square root. Thus the infinite actual primary group is genuinely2-divisible. Compatible successive roots are explicitly constructed after this surjectivity theorem. The actual full primary Sha is therefore finite cyclic OR infinite2-divisible. Its triviality is equivalent to trivial actual Sha[2].
+
+The final conditional theorem exposes the precise missing finite-primary pairing producer and proves zero OR infinite2-divisible under that hypothesis. It does not infer the hypothesis, full Selmer corank, restricted analytic converse, forward rank theorem, positive rank, or four rational points. GLOBAL-THEOREM-AUDIT.md binds and explains the exact manuscript route and these remaining substantial formalization obligations.
+
+Pinned primary Git/SHA sources retain actual primary components, P-groups, cyclic/exponent APIs, finite cardinalities, chosen fiber bounds, and natural/integer powers. Exact regression checks84 finite primary groups,98566 level elements,21844 fiber encodings,247 root cases,254 cyclic pairing cases and90 compatible dyadic towers. These are supplementary arithmetic tests, not Lean or Cassels-Tate verification. No local Lean/profiling or resource changes.

@@ -1,0 +1,56 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:18:2: error: Type mismatch: After simplification, term
+  forward_natural R σ ι B S f (AlgHom.id R B)
+ has type
+  @Eq (Data σ ι S) (forward R σ ι S f) (mapData R σ ι B S f (forward R σ ι B (AlgHom.id R B)))
+but is expected to have type
+  @Eq (Data σ ι S) (forward R σ ι S f) (mapData R σ ι B S f (universal R σ ι))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:31:44: error: Type mismatch
+  IsScalarTower.of_algebraMap_eq' ?m.22
+has type
+  @IsScalarTower ?m.11 ?m.12 ?m.13 Algebra.toSMul Algebra.toSMul Algebra.toSMul
+but is expected to have type
+  @IsScalarTower R B H (Submodule.Quotient.instSMul' (ideal R σ ι)) OreLocalization.instSMulOfIsScalarTower
+    OreLocalization.instSMulOfIsScalarTower
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:32:39: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:46:4: error: Type mismatch
+  IsUnit.map (↑a.toRingHom) (Units.isUnit (determinantUnit R σ ι w))
+has type
+  IsUnit (↑a.toRingHom ↑(determinantUnit R σ ι w))
+but is expected to have type
+  IsUnit ((a.comp (inclusion R σ ι w)) (delta R σ ι w))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:43:14: error: (kernel) declaration has metavariables 'VaryingWordDeterminantOpen318.toPoint'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:49:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:58:2: error: Type mismatch
+  IsLocalization.Away.lift_eq ?m.38 ?m.41 z
+has type
+  (IsLocalization.Away.lift ?m.38 ?m.41) ((algebraMap B ?m.33) z) = ?m.40 z
+but is expected to have type
+  (fromPoint R σ ι S w d) ((algebraMap B H) z) = (backward R σ ι S ↑d) z
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 24
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:73:4: error: Type mismatch
+  congrArg (fun f => f z) (Equiv.symm_apply_apply (points R σ ι S) (a.comp (inclusion R σ ι w)))
+has type
+  ((points R σ ι S).symm ((points R σ ι S) (a.comp (inclusion R σ ι w)))) z = (a.comp (inclusion R σ ι w)) z
+but is expected to have type
+  (backward R σ ι S ↑(toPoint R σ ι S w a)) z = ((↑a).comp (algebraMap B H)) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:80:6: error: Type mismatch
+  fromPoint_include R σ ι S w d z
+has type
+  (fromPoint R σ ι S w d) ((algebraMap B H) z) = (backward R σ ι S ↑d) z
+but is expected to have type
+  ((fromPoint R σ ι S w d).comp (inclusion R σ ι w)) z = (backward R σ ι S ↑d) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:75:17: error: (kernel) application type mismatch
+  id (Eq.mpr (id (congrArg (fun _a => forward R σ ι S _a = ↑d) h)) (Equiv.apply_symm_apply (points R σ ι S) ↑d))
+argument has type
+  forward R σ ι S ((fromPoint R σ ι S w d).comp (inclusion R σ ι w)) = ↑d
+but function has type
+  ↑(toPoint R σ ι S w (fromPoint R σ ι S w d)) = ↑d → ↑(toPoint R σ ι S w (fromPoint R σ ι S w d)) = ↑d
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r15/VaryingWordDeterminantOpen318.lean:63:14: error: (kernel) declaration has metavariables 'VaryingWordDeterminantOpen318.pointsOnOpen'
