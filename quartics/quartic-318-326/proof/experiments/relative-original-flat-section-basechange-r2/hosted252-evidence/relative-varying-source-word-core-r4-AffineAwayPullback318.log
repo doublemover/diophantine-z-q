@@ -1,0 +1,22 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r4/AffineAwayPullback318.lean:20:2: error: Type mismatch: After simplification, term
+  IsLocalization.Away.lift_eq x
+    (have this := IsLocalization.Away.algebraMap_isUnit ((CommRingCat.Hom.hom f) x);
+    this)
+    a
+ has type
+  @Eq (Localization.Away ((CommRingCat.Hom.hom f) x))
+    ((IsLocalization.Away.lift x ⋯) ((algebraMap (↑A) (Localization.Away x)) a))
+    (((algebraMap (↑B) (Localization.Away ((CommRingCat.Hom.hom f) x))).comp (CommRingCat.Hom.hom f)) a)
+but is expected to have type
+  @Eq (Localization.Away ((CommRingCat.Hom.hom f) x))
+    ((IsLocalization.Away.lift x ⋯) ((algebraMap (↑A) (Localization.Away x)) a))
+    ((algebraMap (↑B) (Localization.Away ((CommRingCat.Hom.hom f) x))) ((CommRingCat.Hom.hom f) a))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r4/AffineAwayPullback318.lean:46:40: error: don't know how to synthesize placeholder for argument `hg`
+context:
+A B : CommRingCat
+f : A ⟶ B
+x : ↑A
+descend : (s : PushoutCocone f (sourceMap x)) → target f x ⟶ s.pt := ⋯
+s : PushoutCocone f (sourceMap x)
+b : ↑B
+⊢ IsUnit ((CommRingCat.Hom.hom s.inl) ((CommRingCat.Hom.hom f) x))

@@ -1,0 +1,13 @@
+# Actual rank-one primary Prüfer classification
+
+Fourteen connected sources preserve all 1020 predecessor sources exactly. This batch proves the missing elementary classification in this rank-one primary setting instead of supplying a cofinite-classification premise.
+
+Actual squaring surjectivity in a primary group implies all nonzero natural-power surjectivity: split each integer into a power of two and an odd factor, use the compatible half tower and the actual odd-power equivalence. Under the additive type tag this gives integer divisibility. Pinned Baer injectivity over the integers then extends an actual homomorphism from the involution subgroup into the actual divisible target.
+
+Every nonidentity primary element has a nonidentity involution among its powers. Hence an extension injective on involutions is injective on the entire group. In an infinite primary group with at most two involutions, each actual power level has exactly 2^k elements: unbounded orders give a sufficiently large finite cyclic level and the cyclic power-kernel formula supplies the lower bound. An injective homomorphism between two such groups is surjective on every finite power level and therefore on the whole group. Extending the actual involution isomorphism now produces an actual group isomorphism between any two infinite rank-one primary groups.
+
+The standard model is literally the 2-primary subgroup of Multiplicative(AddCircle(1:ℚ)), the dyadic subgroup of ℚ/ℤ. Its actual elements 1/2^(k+1) have the displayed orders, proving infinitude. Its involution subgroup injects into the actual circle 2-torsion, which has cardinality at most two by the pinned AddCircle theorem. The abstract classification is applied to this explicit model.
+
+The actual full primary Sha is consequently isomorphic either to a finite cyclic group of order 2^k or to this standard Prüfer group. Under the still explicitly quantified genuine finite-primary alternating/nondegenerate pairing, the finite branch is trivial. No global duality pairing is constructed or inferred. The actual Selmer cohomology, all local conditions and maps, and actual rational image are preserved from the predecessor. No restricted analytic converse, forward analytic-to-rational rank theorem, rank-positive branch selection, or four rational points is claimed.
+
+Regression checks exercise actual dyadic orders and transition maps, involution detection, odd-power maps, finite-level counts, and power-map injectivity on cyclic approximants. These supplementary exact arithmetic checks are not hosted Lean validation or a proof of global duality. No local Lean, profiling, or resource changes.

@@ -1,0 +1,40 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r69/AffineIdealLocalization318.lean:40:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Y.presheaf.map (homOfLE ⋯).op
+in the target expression
+  Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f ⊤).hom = Scheme.Hom.appTop f
+
+X Y : Scheme
+inst✝² : IsAffine X
+inst✝¹ : IsAffine Y
+I : Y.IdealSheafData
+f : X ⟶ Y
+inst✝ : IsOpenImmersion f
+hm : Ideal.map (CommRingCat.Hom.hom (Y.presheaf.map (homOfLE ⋯).op)) (I.ideal ⟨⊤, ⋯⟩) = I.ideal ⟨f ''ᵁ ⊤, ⋯⟩
+⊢ Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f ⊤).hom = Scheme.Hom.appTop f
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r69/AffineIdealLocalization318.lean:41:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f ⊤).hom
+in the target expression
+  Ideal.map (CommRingCat.Hom.hom (Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f ↑⟨⊤, ⋯⟩).hom)) (I.ideal ⟨⊤, ⋯⟩) =
+    Ideal.map (CommRingCat.Hom.hom (Scheme.Hom.appTop f)) (I.ideal ⟨⊤, ⋯⟩)
+
+X Y : Scheme
+inst✝² : IsAffine X
+inst✝¹ : IsAffine Y
+I : Y.IdealSheafData
+f : X ⟶ Y
+inst✝ : IsOpenImmersion f
+hm : Ideal.map (CommRingCat.Hom.hom (Y.presheaf.map (homOfLE ⋯).op)) (I.ideal ⟨⊤, ⋯⟩) = I.ideal ⟨f ''ᵁ ⊤, ⋯⟩
+he : Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f ⊤).hom = Scheme.Hom.appTop f
+⊢ Ideal.map (CommRingCat.Hom.hom (Y.presheaf.map (homOfLE ⋯).op ≫ (Scheme.Hom.appIso f ↑⟨⊤, ⋯⟩).hom)) (I.ideal ⟨⊤, ⋯⟩) =
+    Ideal.map (CommRingCat.Hom.hom (Scheme.Hom.appTop f)) (I.ideal ⟨⊤, ⋯⟩)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    isAffineOpen_top X
+  has type
+    IsAffineOpen ⊤
+  but is expected to have type
+    ⊤ ∈ X.affineOpens
+  in the application
+    ⟨⊤, ⋯⟩

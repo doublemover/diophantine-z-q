@@ -1,0 +1,7 @@
+# Original order lattice index and kernel count
+
+The actual original order left-multiplication lattice has determinant equal to the square of its literal integral reduced norm. For every nonzero reduced norm, the full original torus kernel and ALL complex points of the actual whole scheme kernel have cardinality norm.natAbs squared, through a genuine both-inverse quotient by the actual original lattice image.
+
+The explicit integral 4 by 4 matrix is proved to be the original half-integral order product in the original basis. Its determinant is calculated symbolically. Standard quaternion conjugation gives an actual invertible complex-linear cover map. Exact period coordinates identify the FULL original period subgroup, and the quotient first-isomorphism theorem identifies its actual lattice-image quotient with the original torus kernel. The native integer determinant-index theorem computes that quotient. The actual theta additive equivalence and original whole scheme-kernel representation then identify every Spec(C) point.
+
+All703 predecessor sources, native finite-etale results, original primary and protected-baseline provenance remain exact. This checkpoint does NOT infer scheme length or generic degree from point cardinality. That requires the separate actual finite-etale algebra splitting/rank bridge. No represented dual, theta smoothness, genus or Jacobian claim. Static/source acceptance is not hosted Lean validation.

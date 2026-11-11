@@ -1,0 +1,1 @@
+Successor69 corrects the literal notation typo caught in independent68 review: restore the two apostrophes in the actual image-open expression in the explicit subtype-order change. The categorical naturality repair, all statements/maps and105 other source files are exact copies of68. Hosted295 evidence retained. No local Lean.
