@@ -1,0 +1,7 @@
+# Actual algebraic degree-one line symmetry
+
+The SAME original algebraic degree-one line is genuinely symmetric: its actual module-sheaf pullback by the independently constructed scheme negation is isomorphic to the original line. Actual regular gauges, whole extracted cocycles and inverse sheaf maps are produced; all tensor powers and the actual cubic/quadratic hyperplane sheaves inherit genuine isomorphisms.
+
+The source mixed chart and inverse-image target mixed chart give a true covering family. Cubic and quadratic theta-characteristic negation produces actual regular ratios on the entire source open. Their nonvanishing at genuine complex points is upgraded to whole regular units at all primes using the genuine Jacobson criterion. The resulting target(-z)/source(z) gauge satisfies the complete original structure-sheaf cocycle relation, proved by reduced-scheme function separation. Real cocycle reconstruction produces actual inverse module-sheaf maps, not merely a class or point-level equality. Tensor-power isomorphisms are chosen from the genuine sheaf-isomorphism quotient relation; no canonical fiber normalization or involutive coherence is asserted.
+
+This does not assume that analytic bundle isomorphisms algebraize. The theorem of square, represented dual/Picard scheme, principal dual isomorphism, Rosati dual identification and Jacobian comparison remain separate. All543 predecessor targets and protected baseline evidence retained. Hosted kernel validation pending; no local Lean.
