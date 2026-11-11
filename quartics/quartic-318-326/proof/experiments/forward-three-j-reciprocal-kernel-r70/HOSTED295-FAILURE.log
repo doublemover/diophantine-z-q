@@ -1,0 +1,38 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r67/AffineIdealLocalization318.lean:34:32: error: Application type mismatch: The argument
+  le_top
+has type
+  ?m.69 ≤ ⊤
+but is expected to have type
+  ⟨f ''ᵁ ⊤, ⋯⟩ ≤ ⟨⊤, ⋯⟩
+in the application
+  Scheme.IdealSheafData.map_ideal I le_top
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r67/AffineIdealLocalization318.lean:56:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (CommRingCat.Hom.hom ?g).comp (CommRingCat.Hom.hom ?f)
+in the target expression
+  Ideal.map (CommRingCat.Hom.hom (Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom φ)) ≫ (Scheme.ΓSpecIso ↧B).hom))
+      (I.ideal ⟨⊤, ⋯⟩) =
+    Ideal.map (φ.comp (CommRingCat.Hom.hom (Scheme.ΓSpecIso ↧A).hom)) (I.ideal ⟨⊤, ⋯⟩)
+
+A B : Type u
+inst✝² : CommRing A
+inst✝¹ : CommRing B
+φ : A →+* B
+inst✝ : IsOpenImmersion (Spec.map (CommRingCat.ofHom φ))
+I : (Spec ↧A).IdealSheafData
+he :
+  Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom φ)) ≫ (Scheme.ΓSpecIso ↧B).hom =
+    (Scheme.ΓSpecIso ↧A).hom ≫ CommRingCat.ofHom φ
+⊢ Ideal.map (CommRingCat.Hom.hom (Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom φ)) ≫ (Scheme.ΓSpecIso ↧B).hom))
+      (I.ideal ⟨⊤, ⋯⟩) =
+    Ideal.map (φ.comp (CommRingCat.Hom.hom (Scheme.ΓSpecIso ↧A).hom)) (I.ideal ⟨⊤, ⋯⟩)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    isAffineOpen_top (Spec ↧A)
+  has type
+    IsAffineOpen ⊤
+  but is expected to have type
+    ⊤ ∈ (Spec ↧A).affineOpens
+  in the application
+    ⟨⊤, ⋯⟩

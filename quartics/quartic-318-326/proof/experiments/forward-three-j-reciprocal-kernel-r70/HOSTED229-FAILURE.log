@@ -1,0 +1,48 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:51:24: error(lean.unknownIdentifier): Unknown identifier `g`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:51:28: error(lean.unknownIdentifier): Unknown identifier `u`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:51:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:52:2: error: Tactic `apply` failed: could not unify the conclusion of `@IsScalarTower.of_algebraMap_eq`
+  @IsScalarTower ?R ?S ?A Algebra.toSMul Algebra.toSMul Algebra.toSMul
+with the goal
+  @IsScalarTower ℚ ℚ[X] (Ring h) algebraOfAlgebra.toSMul OreLocalization.instSMulOfIsScalarTower
+    OreLocalization.instSMulOfIsScalarTower
+
+Note: The full type of `@IsScalarTower.of_algebraMap_eq` is
+  ∀ {R : Type ?u.17} {S : Type ?u.16} {A : Type ?u.15} [inst : CommSemiring R] [inst_1 : CommSemiring S]
+    [inst_2 : Semiring A] [inst_3 : Algebra R S] [inst_4 : Algebra S A] [inst_5 : Algebra R A],
+    (∀ (x : R), (algebraMap R A) x = (algebraMap S A) ((algebraMap R S) x)) → IsScalarTower R S A
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  instMul ↦ 4
+
+h : ℚ[X]
+this : Algebra ℚ[X] (Ring h) := targetAlgebra sorry h sorry
+⊢ IsScalarTower ℚ ℚ[X] (Ring h)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:60:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:73:10: error: Function expected at
+  targetTower g
+but this term has type
+  IsScalarTower ℚ ℚ[X] (Ring g)
+
+Note: Expected a function because this term is being applied to the argument
+  h
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r50/LocalizedRationalDifferentials318.lean:71:43: error: unsolved goals
+f g h : ℚ[X]
+u : Ring h
+hu : (value h) f * u = 1
+this : Algebra ℚ[X] (Ring h) := targetAlgebra g h u
+⊢ (Ring h ⧸ Ideal.span {(value h) (derivative g * f - g * derivative f) * u ^ 2}) ≃ₗ[Ring h] Ω[Ring h⁄ℚ[X]]

@@ -1,0 +1,27 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r61/CanonicalGeometricOverlap318.lean:63:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (tilde.adjunction.homEquiv (extendedSections (leftMap R S S) L)
+          (LineSheafPullback318.line (Spec.map (leftMap R S S)) L).object)
+        (sheafIso (leftMap R S S) L).hom ≫
+      moduleSpecΓFunctor.map (overlap R S M L e) =
+    (tilde.adjunction.homEquiv (extendedSections (leftMap R S S) L) (tilde (extendedSections (rightMap R S S) L)))
+        ((tilde.functor (ring R S S)).map (CanonicalScalarOverlap318.conjugated R S M e)) ≫
+      moduleSpecΓFunctor.map (sheafIso (rightMap R S S) L).hom
+but is expected to have type
+  (OriginalLineOverlapCoaction318.moduleHomEquiv R S L) (overlap R S M L e) ≫ (sectionsIso (rightMap R S S) L).hom =
+    CanonicalScalarOverlap318.conjugated R S M e ≫ (sectionsIso (rightMap R S S) L).hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r61/CanonicalGeometricOverlap318.lean:60:13: warning: This simp argument is unused:
+  Adjunction.homEquiv_naturality_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Adjunction.homEquiv_naturality_right, OriginalLineComparisonComposition318.sheafIso_adjoint] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r61/CanonicalGeometricOverlap318.lean:61:4: warning: This simp argument is unused:
+  OriginalLineComparisonComposition318.sheafIso_adjoint
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Adjunction.homEquiv_naturality_left, Adjunction.homEquiv_naturality_right] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
