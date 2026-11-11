@@ -1,0 +1,7 @@
+# Arbitrary-open regular holomorphy and actual complex-linear H0 comparison
+
+EVERY regular function on EVERY algebraic open of the actual original candidate specializes holomorphically on its genuine original analytic preimage, with exact structural point values, restrictions, period invariance and arbitrary morphism pullback squares. The full H0 comparison is additionally complex-linear for the ORIGINAL structural scalar action.
+
+Actual affine structure-sheaf localization produces a fixed fraction on a true basic neighborhood of every prime. Actual ringTop, GammaSpec and resLE scalar squares evaluate it. A genuine nearby family of full chart algebra evaluations gives local differentiability and open preimages on the original complex cover. Every open regular unit is nowhere zero there. Period, restriction and full scheme-morphism pullback laws are literal structural identities. This supplies actual regular unit analyticity for translation-line comparison, without assuming analytification or local fractions. The separate complex-linear section equivalence restricts actual global structure scalars through each original whole affine chart, never transporting scalars through a bijection.
+
+No represented dual, principal-polarization or Jacobian conclusion is asserted in this packet. All527 targets and exact hosted289 repair retained. No local Lean; hosted kernel validation pending.
