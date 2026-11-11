@@ -15,14 +15,18 @@ class PrefixTests(unittest.TestCase):
         cases = d.variants(SOURCE)
         self.assertEqual(len(cases),4)
         for name,text in cases.items():
-            suffix = '' if name == 'imports_only' else '\nend IntegralOverlapRootGenerators318\n'
-            prefix = text[:-len(suffix)] if suffix else text
+            suffix = '\nend IntegralOverlapRootGenerators318\n'
+            prefix = text[:-len(suffix)]
             self.assertTrue(SOURCE.startswith(prefix))
             self.assertNotIn('sorry',text)
-            if name != 'imports_only': self.assertIn('set_option maxHeartbeats 1200000',text)
-        self.assertNotIn('theorem finiteBaseChange_generator',cases['concrete_generators'])
-        self.assertIn('theorem finiteBaseChange_generator',cases['first_concrete_theorem'])
-        self.assertNotIn('theorem infinityBaseChange_generator',cases['first_concrete_theorem'])
+            self.assertIn('set_option maxHeartbeats 1200000',text)
+            self.assertNotIn('theorem finiteBaseChange_generator',text)
+        self.assertNotIn('local instance infinityAlgebra',cases['concrete_context'])
+        self.assertIn('local instance infinityAlgebra',cases['infinity_algebra'])
+        self.assertNotIn('def finiteGenerator',cases['infinity_algebra'])
+        self.assertIn('def finiteGenerator',cases['finite_generator'])
+        self.assertNotIn('def infinityGenerator',cases['finite_generator'])
+        self.assertIn('def infinityGenerator',cases['all_generators'])
     def test_mutation_rejected(self):
         with self.assertRaises(ValueError): d.variants(SOURCE+'\n')
     def test_hosted_guard(self):
