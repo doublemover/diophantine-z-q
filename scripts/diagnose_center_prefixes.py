@@ -26,12 +26,15 @@ def require(condition, message):
 def variants(source):
     require(hashlib.sha256(source.encode()).hexdigest() == SOURCE_SHA, 'Frozen source changed')
     end = '\nend IntegralOverlapRootGenerators318\n'
+    # Exact281 passed imports/helpers and stalled before any concrete theorem.
+    # Keep four bounded probes, now isolate the actual context/instance/definitions.
     cuts = {
-        'imports_only': (source.index('public section\n'), ''),
-        'abstract_helpers': (source.index('\nvariable (R : Type*)'), end),
-        'concrete_generators': (source.index('#check ("FRONTIER before finiteBaseChange_generator"'), end),
-        'first_concrete_theorem': (source.index('#check ("FRONTIER before infinityBaseChange_generator"'), end),
+        'concrete_context': (source.index('#check ("FRONTIER before infinityAlgebra"'), end),
+        'infinity_algebra': (source.index('#check ("FRONTIER before finiteGenerator"'), end),
+        'finite_generator': (source.index('#check ("FRONTIER before infinityGenerator"'), end),
+        'all_generators': (source.index('#check ("FRONTIER before finiteBaseChange_generator"'), end),
     }
+
     result = {name: source[:cut] + suffix for name, (cut, suffix) in cuts.items()}
     for text in result.values():
         require('sorry' not in text and 'axiom ' not in text, 'Unexpected unproved declaration')

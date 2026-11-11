@@ -9,13 +9,13 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-original-local-projective-classification-r2'
-CORE='relative-varying-source-word-core-r11'
-PARENT_INTAKE='f3c374fbc67167305299e73662804b7c66e123e3d1e015753bc81267af8d8086'
-PARENT_APPLICATION='6d99e2e4a91a112a46c9edd2792dd52626ed9d163e2eb7acb6df814359aa4e7a'
-CORE_INTAKE='935e0e6a7aa8ae3c1d7b013d8dc244032d99a352b1395a5f9b5e74ef07dc2117'
-CORE_APPLICATION='78b0de33bb6d77f2edb1f908da946b0d55edd24b48a77f415ac3b8a19254a2c9'
-CLOSURE_SHA='0d8f182ebb573780663b5cc5b0d80fbd0d68eb02b9d167b2e00f05fefd8433d9'
+PARENT='relative-original-quotient-chart-transitions-r1'
+CORE='relative-varying-source-word-core-r12'
+PARENT_INTAKE='0e5accc05bd02b61bf1730b901115b9e090718a74dcc2a8779a49a43fddca7bb'
+PARENT_APPLICATION='fcb81d6c3f2fe667ce133a13b9f3b579538c8cdfa81588e28a94810935d37a2e'
+CORE_INTAKE='7e9db9721edcfc4e8067d6e0c3784ca6d90219804c8b17cc8f0adb44108d0290'
+CORE_APPLICATION='dd2a3499992883860c8176856a890cf369ff18eb346ec8edd813350b6722acfa'
+CLOSURE_SHA='134d2c4bdf2a5542ddeba63fd37e27999e953f080939e1b08351ff846531d938'
 TARGETS=['VaryingWordIdealChartClassifier318', 'VaryingNormalizedIdealBaseChange318', 'VaryingWordGlobalFamilyProjection318', 'VaryingWordGlobalClosedQuotient318', 'VaryingBoundedFreeIdealMap318', 'VaryingGlobalFreeQuotientEquiv318', 'VaryingBoundedQuotientRecovery318', 'SchemeClosedOpenPushout318', 'SchemeTwoOpenClosedDescent318', 'AffineClosedRestrictionIso318', 'VaryingLocalFreeQuotientNaturality318', 'VaryingProjectiveQuotientFamily318']
 SECONDS=180
 
@@ -71,7 +71,7 @@ def main():
     # Never change the full result, source registry, cache or accepted manifest.
     output.mkdir(parents=True,exist_ok=True)
     (output/'SMOKE_SCOPE.json').write_text(json.dumps({
-        'scope':'EXACT_155_MODULE_CORE_ONLY_NOT_FULL_785_ACCEPTANCE',
+        'scope':'EXACT_155_MODULE_CORE_ONLY_NOT_FULL_PACKET_ACCEPTANCE',
         'parent':PARENT,'parent_intake_sha256':PARENT_INTAKE,
         'parent_result_sha256':sha(parent_result),'parent_status':full.get('status'),
         'core':CORE,'core_intake_sha256':CORE_INTAKE,'targets':TARGETS,
