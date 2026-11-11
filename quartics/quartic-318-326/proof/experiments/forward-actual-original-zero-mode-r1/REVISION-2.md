@@ -1,0 +1,5 @@
+# Poisson r2: hosted240 Pade output-slot normalization
+
+Hosted240 confirms earlier raw slots76/77 now pass. Only slots90/91 remain: the RHS Pade fill reveals fV(base)^2 and fV(base).re*fV(base).im only during the second simplification, which unfolds base before the earlier base_fV rule can consume it. A new isolated simp-only stage unfolds the actual witness and outer Pade fill, then consumes the already proved base_fV identity while its exact base argument remains visible. Only afterward does the existing base/coordinate normalization run. This covers both squared and mixed output slots without altering the fill, coefficients or witness.
+
+Only RealPadeSourceBridge318 differs among591 sources; all590 other modules, including the three Poisson constructions, remain exact. Exact hosted240 evidence is retained. No resource increase, local Lean or profiling. Independent review of the Poisson r1 mathematical extension and this separate narrow repair, followed by hosted validation, remain required.
