@@ -1,0 +1,62 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:51:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Membership ℂ (Set (OnePoint ℂ))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:67:6: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:90:20: error: Ambiguous term
+  ∞
+Possible interpretations:
+  ∞ : ℕ∞ω
+  
+  ∞ : OnePoint ?m.10
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:92:4: error: Tactic `split_ifs` failed: no if-then-else conditions to split
+
+p : OnePoint ℂ
+⊢ p ∈ sorry.source
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:97:20: error: Ambiguous term
+  ∞
+Possible interpretations:
+  ∞ : ℕ∞ω
+  
+  ∞ : OnePoint ?m.24
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:98:18: error: unsolved goals
+p : OnePoint ℂ
+hp : p = sorry
+⊢ reciprocal = sorry ()
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:99:19: error: unsolved goals
+p : OnePoint ℂ
+hp : ¬p = sorry
+⊢ affine = sorry ()
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:88:33: error: (kernel) declaration has metavariables 'ComplexSphereCharts318.sphereCharts'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:98:33: warning: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [chart]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:99:34: warning: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [chart]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:104:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r1/ComplexSphereCharts318.lean:103:8: error: (kernel) application type mismatch
+  Exists.casesOn (motive := fun x =>
+    f ∈ atlas ℂ (OnePoint ℂ) →
+      ContDiffOn ℂ ⊤ (↑(modelWithCornersSelf ℂ ℂ) ∘ ↑(e.symm.trans f) ∘ ↑(modelWithCornersSelf ℂ ℂ).symm)
+        (↑(modelWithCornersSelf ℂ ℂ).symm ⁻¹' (e.symm.trans f).source ∩ range ↑(modelWithCornersSelf ℂ ℂ)))
+argument has type
+  e ∈ atlas ℂ (OnePoint ℂ) → Prop
+but function has type
+  ∀ {motive : (∃ y, chart y = e) → Prop} (t : ∃ y, chart y = e),
+    (∀ (w : Bool) (h : (fun y => chart y = e) w), motive ⋯) → motive t
