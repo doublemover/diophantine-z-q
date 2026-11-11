@@ -1,0 +1,33 @@
+{
+  "reviewer": "/root/advance_theta_identification",
+  "producer": "/root/advance_contact_geometry",
+  "verdict": "BOUNDED_INDEPENDENT_SOURCE_ACCEPTANCE_HOSTED_LEAN_PENDING",
+  "packet": "pel-original-global-relative-cotangent-r1",
+  "application_sha256": "5697fdb01f178807f637428fc8793388c2acb2aac5bcfe531948fd4593f65012",
+  "intake_sha256": "50e19ee7c074333ae4711732d3f49b0d0d8faa277cb9fde97b301cce29f7b3c8",
+  "new_sources": {
+    "RelativeIntrinsicCotangent318.lean": "dfdb9a1eb0c4e056ff590561301d47aa09304f40dbbb91f88c151d3bef22ebde",
+    "FourRootGlobalRelativeCotangent318.lean": "d2b9f71814a8c04b3dad5265f4b35cadcc705bc6fb6ef3e6561f862d3273578f"
+  },
+  "closure_verification": "89 intake source hashes checked;87 inherited packet sources byte-identical to union-r114.",
+  "sources_read": [
+    "Both full new source files",
+    "Baseline progress IntrinsicDifferentialPullback318: actual coefficients, derivation, map_D, adjoint construction",
+    "Baseline progress UniversalSheafDifferentials318: sheafification universal equivalence, desc_fac, postcomp_comp and hom_ext",
+    "Baseline progress FamilyIntrinsicDifferentials318: structure-map coefficient presheaf and actual omega",
+    "FourRootProjectiveDifferential318: actual original derivative and structure maps",
+    "Pinned mathlib56a005855ea17e0b0958f73ec801ae140b0a1679 CategoryTheory/Limits/Shapes/Kernels.lean cokernel condition, desc and projection factorization",
+    "Same mathlib CategoryTheory/Adjunction/Basic.lean homEquiv unit/naturality"
+  ],
+  "findings": [
+    "KillsBase is independently formulated on ALL actual target opens and their actual pullbacks, not as the cokernel annihilation conclusion. Restrictions to every smaller source open are derived from derivation naturality.",
+    "The equivalence between this condition and annihilating the actual derivative follows through the exact pullback-pushforward adjunction and original absolute universal derivation. All section-generating equalities use original map_D.",
+    "The cokernel is in actual sheaves of source modules. Existence factors the original absolute universal map; uniqueness follows from cokernel projection epimorphy and absolute universal hom_ext, against EVERY sheaf, not a fixed affine cover.",
+    "The four-root specialization uses literally the existing whole projective derivative; omega_eq_cokernel is definitional and neither the finite base nor u replaces the original reciprocal/projective map."
+  ],
+  "limits": [
+    "This does not compare restrictions to affine relative Kaehler modules or identify stalk lengths with earlier local quotient computations.",
+    "No numerical or PEL/arithmetic conclusion inferred.",
+    "No local Lean run; hosted elaboration/kernel/audit remains required."
+  ]
+}
