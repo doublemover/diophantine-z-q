@@ -1,0 +1,20 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-sextic-localized-rationality-r3/ActualLocalizationCartesian318.lean:19:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-sextic-localized-rationality-r3/ActualLocalizationCartesian318.lean:27:2: error: Type mismatch
+  IsPullback.map Scheme.Spec
+    (IsPushout.op (CommRingCat.isPushout_of_isLocalization f (Localization.awayMap f r) h (Submonoid.powers r)))
+has type
+  IsPullback (Scheme.Spec.map (CommRingCat.ofHom (Localization.awayMap f r)).op)
+    (Scheme.Spec.map (CommRingCat.ofHom (algebraMap S (Localization.Away (f r)))).op)
+    (Scheme.Spec.map (CommRingCat.ofHom (algebraMap R (Localization.Away r))).op)
+    (Scheme.Spec.map (CommRingCat.ofHom f).op)
+but is expected to have type
+  IsPullback (Spec.map (CommRingCat.ofHom (algebraMap S (Localization.Away (f r)))))
+    (Spec.map (CommRingCat.ofHom (Localization.awayMap f r))) (Spec.map (CommRingCat.ofHom f))
+    (Spec.map (CommRingCat.ofHom (algebraMap R (Localization.Away r))))
