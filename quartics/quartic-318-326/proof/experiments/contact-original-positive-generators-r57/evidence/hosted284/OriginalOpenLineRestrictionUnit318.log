@@ -1,0 +1,64 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r49/OriginalOpenLineRestrictionUnit318.lean:31:58: error: unsolved goals
+X Y : Scheme
+f : X ⟶ Y
+inst✝ : IsOpenImmersion f
+M : Y.Modules
+⊢ (Scheme.Modules.restrictAdjunction f).unit.app M ≫
+      (Scheme.Modules.pushforward f).map (𝟙 ((Scheme.Modules.restrictFunctor f).obj M)) =
+    (Scheme.Modules.restrictAdjunction f).unit.app M
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r49/OriginalOpenLineRestrictionUnit318.lean:33:33: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Iso.hom_inv_id_app, Category.comp_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r49/OriginalOpenLineRestrictionUnit318.lean:33:49: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Iso.hom_inv_id_app, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r49/OriginalOpenLineRestrictionUnit318.lean:59:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.pullback (Spec.map f)).obj L.object) ≫
+    (moduleSpecΓFunctor ⋙ ModuleCat.restrictScalars (CommRingCat.Hom.hom f)).map
+      ((Scheme.Modules.restrictFunctorIsoPullback (Spec.map f)).inv.app L.object)
+in the target expression
+  moduleSpecΓFunctor.map ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map f)).unit.app L.object) ≫
+      (TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.pullback (Spec.map f)).obj L.object) ≫
+        (ModuleCat.restrictScalars (CommRingCat.Hom.hom f)).map
+          (moduleSpecΓFunctor.map ((Scheme.Modules.restrictFunctorIsoPullback (Spec.map f)).app L.object).inv) =
+    moduleSpecΓFunctor.map ((Scheme.Modules.restrictAdjunction (Spec.map f)).unit.app L.object) ≫
+      (TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.restrictFunctor (Spec.map f)).obj L.object)
+
+R S : CommRingCat
+f : R ⟶ S
+inst✝ : IsOpenImmersion (Spec.map f)
+L : Line (Spec R)
+⊢ moduleSpecΓFunctor.map ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map f)).unit.app L.object) ≫
+      (TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.pullback (Spec.map f)).obj L.object) ≫
+        (ModuleCat.restrictScalars (CommRingCat.Hom.hom f)).map
+          (moduleSpecΓFunctor.map ((Scheme.Modules.restrictFunctorIsoPullback (Spec.map f)).app L.object).inv) =
+    moduleSpecΓFunctor.map ((Scheme.Modules.restrictAdjunction (Spec.map f)).unit.app L.object) ≫
+      (TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.restrictFunctor (Spec.map f)).obj L.object)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.pullback (Spec.map f)).obj L.object)
+  has type
+    @Quiver.Hom (ModuleCat ↑R) (ModuleCat.moduleCategory ↑R).toQuiver
+      ((Scheme.Modules.pushforward (Spec.map f) ⋙ moduleSpecΓFunctor).obj
+        ((Scheme.Modules.pullback (Spec.map f)).obj L.object))
+      ((moduleSpecΓFunctor ⋙ ModuleCat.restrictScalars (CommRingCat.Hom.hom f)).obj
+        ((Scheme.Modules.pullback (Spec.map f)).obj L.object))
+  but is expected to have type
+    @Quiver.Hom (ModuleCat ↑R) (ModuleCat.moduleCategory ↑R).toQuiver
+      (moduleSpecΓFunctor.obj
+        ((Scheme.Modules.pullback (Spec.map f) ⋙ Scheme.Modules.pushforward (Spec.map f)).obj L.object))
+      ((ModuleCat.restrictScalars (CommRingCat.Hom.hom f)).obj
+        (OriginalLineAffineModel318.sections S (LineSheafPullback318.line (Spec.map f) L)))
+  in the application
+    CategoryStruct.comp
+      ((TildePullback318.globalNatIso f).hom.app ((Scheme.Modules.pullback (Spec.map f)).obj L.object))
