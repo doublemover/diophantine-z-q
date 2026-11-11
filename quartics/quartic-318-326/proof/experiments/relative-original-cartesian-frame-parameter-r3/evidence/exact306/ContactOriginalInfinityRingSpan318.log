@@ -1,0 +1,57 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-field-trivialization-smooth-r3/ContactOriginalInfinityRingSpan318.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-field-trivialization-smooth-r3/ContactOriginalInfinityRingSpan318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-field-trivialization-smooth-r3/ContactOriginalInfinityRingSpan318.lean:101:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (transport ?c) ((ContactOverlapTensorCharts318.infinityRight ?c) ?b)
+in the target expression
+  (↑↑(algebraMap ℚ[T;T⁻¹] ↑(oldRing c))).toFun l *
+      (transport c)
+        ((ContactOverlapTensorCharts318.tensorRight (↧(Polynomial ℚ)) (↧ℚ[T;T⁻¹])
+            (↧↥(ContactWholeInfinityAlgebra318.Ring c)) OriginalLaurentProjectiveOverlap318.infinityHom)
+          b) =
+    (↑↑(algebraMap ℚ[T;T⁻¹] ↑(oldRing c))).toFun l * (infinityMap c) b
+
+c : Fin 4 → ℚˣ
+l : ℚ[T;T⁻¹]
+b : ↥(ContactWholeInfinityAlgebra318.Ring c)
+ht :
+  tensorTmul (↧(Polynomial ℚ)) (↧ℚ[T;T⁻¹]) (↧↥(ContactWholeInfinityAlgebra318.Ring c))
+      OriginalLaurentProjectiveOverlap318.infinityHom l b =
+    (algebraMap ↑↧ℚ[T;T⁻¹]
+          ↑(ContactOverlapTensorCharts318.tensorRing (↧(Polynomial ℚ)) (↧ℚ[T;T⁻¹])
+              (↧↥(ContactWholeInfinityAlgebra318.Ring c)) OriginalLaurentProjectiveOverlap318.infinityHom))
+        l *
+      (ContactOverlapTensorCharts318.tensorRight (↧(Polynomial ℚ)) (↧ℚ[T;T⁻¹])
+          (↧↥(ContactWholeInfinityAlgebra318.Ring c)) OriginalLaurentProjectiveOverlap318.infinityHom)
+        b
+⊢ (↑↑(algebraMap ℚ[T;T⁻¹] ↑(oldRing c))).toFun l *
+      (transport c)
+        ((ContactOverlapTensorCharts318.tensorRight (↧(Polynomial ℚ)) (↧ℚ[T;T⁻¹])
+            (↧↥(ContactWholeInfinityAlgebra318.Ring c)) OriginalLaurentProjectiveOverlap318.infinityHom)
+          b) =
+    (↑↑(algebraMap ℚ[T;T⁻¹] ↑(oldRing c))).toFun l * (infinityMap c) b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-field-trivialization-smooth-r3/ContactOriginalInfinityRingSpan318.lean:128:55: error: unsolved goals
+c : Fin 4 → ℚˣ
+P : Submodule ℚ[T;T⁻¹] ↑↧(ContactOverlapTensorCharts318.finiteRing c) :=
+  Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(infinityMap c))
+z : ↑↧(ContactOverlapTensorCharts318.infinityRing c)
+a✝ : (AffineSpecOriginalRingTransport318.hom (comparison c)) z ∈ ⊤
+hz : z ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+l : ℚ[T;T⁻¹]
+x : ↑↧(ContactOverlapTensorCharts318.infinityRing c)
+hx✝ : x ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+hx : (transport c) x ∈ P
+⊢ (↑↑(algebraMap ℚ[T;T⁻¹] ↑(oldRing c))).toFun l * (transport c) x = l • (transport c) x
