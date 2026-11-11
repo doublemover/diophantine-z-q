@@ -1,0 +1,13 @@
+# Actual p-adic roots for the original descent squareclasses
+
+Six connected sources construct genuine roots in the p-adic fields. These are not formal residue classes or a rephrased square-symbol premise.
+
+The first theorem applies the pinned Hensel theorem to the literal polynomial X²-A over the p-adic integers. It explicitly identifies the evaluation and derivative, checks the strict norm inequality, and extracts an actual root. For odd primes, an integer root modulo p with unit derivative gives residual norm<1 and derivative norm1. A Jacobi-symbol1 unit supplies a finite-field square root; its literal integer representative has nonzero residue and the required divisible residual. The root is lifted and coerced into Q_p. Nonzero input gives a nonzero root.
+
+At2, the original1mod8 condition supplies residual norm≤1/8 at the approximate root1, while the derivative norm² is1/4. This proves an actual Q_2 square root and applies to both beta17mod24 and theta1mod24. At3, a unit1mod3 is lifted at1. For beta17mod24 and either actual twist11mod12, beta times the twist is1mod3. Dividing its actual Q_3 root by the nonzero twist proves beta=twist*r² with r nonzero, precisely the first-torsion coordinate comparison.
+
+The mutual product-square conditions now produce actual nonzero Q_p roots at every original beta and theta prime, using disjointness to prove coprimality of the whole opposite product. The same original products have actual roots at2 and positive real roots. The final consumer invokes the simultaneous actual prime construction and supplies the Q_3 torsion comparison for BOTH final twists on the SAME support, retaining all original prime values, exclusions, product factorization and finite conclusions.
+
+Scope boundary: this establishes the specified local square witnesses. It does not identify the complete elliptic local Kummer images, prove the local beta class at every remaining place, identify the comparison space with a Selmer group, or supply global rational curve points. The global Cassels-Tate/restricted-converse/forward-rank/Kummer existence bridge remains separate. No four same-index PointPair conclusion is asserted.
+
+All669 predecessor Lean sources are byte-identical. Seven pinned primary API blobs are SHA/Git-verified. Finite-precision exact checks cover48 actual twists,1728 odd-prime Newton/Hensel steps,1344 two-adic steps,168 mutual roots,96 two-adic roots and48 first-torsion comparisons at3. These checks corroborate the formulas, not the infinite p-adic proof or hosted compilation. No local Lean, profiling or resource changes. Independent review and hosted validation remain required.

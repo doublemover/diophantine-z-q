@@ -1,0 +1,15 @@
+# Construct original quotient avoidance charts
+
+776-source candidate: exact763 plus13 modules.
+
+The first seven modules construct the actual parameter open where an entire finite family lies in a chosen source open: the complement of the finite closed image of the source complement. The proof uses every underlying fiber point. The true surjectivity of scheme pullbacks onto compatible point pairs proves arbitrary base-change compatibility, including nonflat maps. Actual factorization through this open, uniqueness, two-sided representation on ALL scheme tests, naturality, exact intersection behavior and the genuine restricted universal family are constructed. No norm-coordinate formula, reducedness assumption or selected rational-point test replaces the original family.
+
+The affine finite-projective quotient classifier is an actual consumer: avoidance is equivalent to support of its literal full original quotient, via the proved original universal-family comparison. Thus overlap avoidance conditions are represented by actual opens of the affine quotient parameter scheme.
+
+The second part constructs arbitrary homogeneous degree-one affine opens of the SAME ContactProjectiveModel318.model. It pulls the literal Proj homogeneous-localization chart back through the proved finite original normalization map. This is affine by actual finiteness, not an assumed polynomial coordinate identification. Its full function ring receives the exact rational coefficient map from the actual source structural morphism. Rational linear forms supply concrete fiber-complement charts. Existing p-first arbitrary-coefficient tensor-chart comparison places these charts inside the unchanged original relative projective family.
+
+A literal finite-projective quotient on such an affine chart is finite flat over the coefficient base. Since the entire original source is separated, its locally closed insertion is universally closed and therefore a genuine closed immersion in the ENTIRE original projective curve. Its full original finite/infinity ideals are extracted using the earlier whole-ideal classifier. The reconstructed projective quotient is proved isomorphic to the original literal affine quotient, preserving the original source embedding, entire ideal sheaf and coefficient projection, hence finite flatness.
+
+This is original-source avoidance-chart and family machinery, not yet a covering of bounded projective quotient moduli. The N+1-fiber avoidance cover, transition equivalences between different affine source quotient parameter schemes, global represented bounded projective Hilbert functor, Cartier-from-flat-family criterion, Picard quotient and Jacobian remain open. In particular no finiteness of the old fixed finite/infinity restrictions is assumed. No finite parameter atlas or projective representation is inferred from individual chart constructions.
+
+No local Lean or profiler executed. Static checks and independent source review are separate from hosted Lean/kernel/axiom acceptance. Active hosted lanes and immutable prior packets are managed separately by the integrator.
