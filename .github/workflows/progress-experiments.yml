@@ -63,6 +63,7 @@ jobs:
       - run: python -B scripts/test_diagonal_final_diagnostic.py
       - run: python -B scripts/test_diagonal_final_steps_diagnostic.py
       - run: python -B scripts/test_diagonal_opaque_final_diagnostic.py
+      - run: python -B scripts/test_diagonal_concrete_witnesses_diagnostic.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
 
@@ -248,6 +249,14 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_opaque_final.py "$PACKET"
+      - name: Non-admitted typed concrete diagonal witness diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r45'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_concrete_witnesses.py "$PACKET"
       - name: Upload bounded results and error logs only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -273,6 +282,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-final-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-final-step-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-opaque-final-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-concrete-witness-diagnostics/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.
