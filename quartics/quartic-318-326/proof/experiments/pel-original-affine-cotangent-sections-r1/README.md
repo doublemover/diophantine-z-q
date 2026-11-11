@@ -1,0 +1,13 @@
+# Actual affine sheaf cokernel comparison
+
+Two new modules identify the restriction of the SAME global intrinsic relative cotangent sheaf to every original finite root chart and the canonical infinity chart with tilde of the quotient by the range of the ACTUAL derivative on affine sections. The scalar ring is the literal original chart ring and the section map is obtained by applying the actual restriction and affine-section functors to the original sheaf derivative. No algebraic surrogate map is substituted.
+
+The comparison does not assume that affine sections preserve arbitrary sheaf cokernels. Instead the proof constructs actual source/target sheaf frames, uses them to prove that the actual tilde-section counits are isomorphisms, uses the counit's naturality square to compare the same two maps, and uses the tilde functor's LEFT adjunction to preserve the cokernel. The final module quotient is the ordinary quotient by the range of the literal affine section map. Independently, the actual open restriction functor is a LEFT adjoint and preserves the whole derivative cokernel before the affine comparison is applied.
+
+The actual source frame is pulled back from the existing frame on the chart's genuine ambient open image through the original open-immersion isomorphism and its proved square. The target frame is the previously constructed actual intrinsic differential frame. All finite indices and the entire canonical infinity chart are retained. Infinity still uses the original derivative with base v=u².
+
+Boundary: this establishes a genuine affine sheaf comparison with the actual section quotient. It does not yet identify that quotient with the earlier coefficient quotient by the trace different, or transport the comparison to actual sheaf stalk modules and prove their total length40. Those require the next exact frame/range and localization comparisons. No PEL/Jacobian identification follows from this packet alone.
+
+Primary source APIs read at mathlib56a005855ea17e0b0958f73ec801ae140b0a1679: AlgebraicGeometry/Modules/Tilde.lean (actual fromTildeGamma counit and naturality, essential-image criterion, tilde left adjunction); AlgebraicGeometry/Modules/Sheaf.lean (actual restriction left adjunction and comparison functors); CategoryTheory/Limits/Shapes/Kernels.lean (cokernel.mapIso and its exact square orientation); Algebra/Category/ModuleCat/Kernels.lean (cokernelIsoRangeQuotient).
+
+Dependencies are byte-identical copies from reviewed global-relative-cotangent-r1 and repaired union-r114. Frozen predecessors are untouched. No local Lean compilation, replay or profiling ran. Static checks are not kernel verification. Independent source review and hosted elaboration remain pending.

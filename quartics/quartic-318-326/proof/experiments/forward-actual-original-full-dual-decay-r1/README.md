@@ -1,0 +1,11 @@
+# Full original dual Fourier decay
+
+The predecessor normal Fourier bound controls only one frequency direction. This successor constructs full dual decay without replacing the original product norm or volume by an unverified Euclidean normalization.
+
+For every continuous real functional on a finite dimensional nontrivial real normed space, compactness of the actual unit sphere supplies a vector of norm1 attaining the dual norm. This includes the zero functional. The original Haar Fourier derivative bound, applied to the evaluation pairing and derivative order k=0, then gives every polynomial decay order in the FULL dual norm. All weighted input derivative integrability hypotheses are supplied by the literal Schwartz function. The pairing operator-norm factor is raised to k=0, so no additional norm estimate is assumed.
+
+The actual original real W, smooth and compactly supported, is multiplied by exp(2pi i beta Q_kappa). Its support stays inside the same W support and it remains smooth, hence is a produced Schwartz function for every fixed real beta. Its dual Fourier transform is definitionally the original integral of exp(-2pi i xi(x)) times that twisted weight, with unchanged original product volume.
+
+Five explicit continuous coordinate projections construct xi_y(x)=a_y a_x+b_y b_x+c_y c_x+d_y d_x+w_y w_x. The five actual coordinate unit vectors show max-coordinate norm(y) <= operator-norm(xi_y). Consequently the original coordinate Fourier transform has every polynomial decay order over the entire five-coordinate dual. No changing metric/measure or dropped determinant appears.
+
+The bound is for fixed beta. Its constant MAY depend on beta, kappa, W and the order. No uniform beta estimate, lattice summability, Poisson periodization identity, major/minor-arc estimate or final count is claimed. Those are downstream obligations, not hypotheses quietly supplied here. All561 predecessor sources are byte-identical. Pinned primary APIs were fetched from mathlib56a005855ea17e0b0958f73ec801ae140b0a1679 and their Git blob hashes verified. The finite coordinate norm/phase regression is supplemental only. No local Lean or profiling; hosted compilation and independent review remain required.
