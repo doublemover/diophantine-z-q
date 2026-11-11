@@ -1,0 +1,22 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r14/VaryingMatrixWords318.lean:31:16: error: unsolved goals
+case cons
+σ ι S : Type u
+inst✝⁶ : CommRing S
+inst✝⁵ : Fintype ι
+inst✝⁴ : DecidableEq ι
+R : Type u
+inst✝³ : CommRing R
+inst✝² : Algebra R S
+T : Type u
+inst✝¹ : CommRing T
+inst✝ : Algebra R T
+f : S →ₐ[R] T
+d : Data σ ι S
+s : σ
+l : List σ
+ih : ∀ (i : ι), f (wordVector d l i) = wordVector (mapData R σ ι S T f d) l i
+i j : ι
+a✝ : j ∈ Finset.univ
+⊢ f (d.matrices s i j) * wordVector (mapData R σ ι S T f d) l j =
+    (fun j => (fun i j => f (d.matrices s i j)) i j) j *
+      wordVector { matrices := fun s i j => f (d.matrices s i j), marked := fun i => f (d.marked i), commute := ⋯ } l j

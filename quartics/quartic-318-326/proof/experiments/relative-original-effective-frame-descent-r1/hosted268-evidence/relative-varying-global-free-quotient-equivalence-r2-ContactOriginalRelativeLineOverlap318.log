@@ -1,0 +1,33 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-global-free-quotient-equivalence-r2/ContactOriginalRelativeLineOverlap318.lean:68:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  OriginalAffineLinePathSections318.restriction ?f ?L ?M ?e (?a • ?m)
+in the target expression
+  finiteRestriction R c L ((RelativeOriginalPolynomialAlgebra318.polynomialMap ℚ ↑R ↑(finiteRing c)) p • m) =
+    (ContactOriginalRelativeOverlapCoordinates318.laurentMap R c) (Polynomial.toLaurent p) • finiteRestriction R c L m
+
+R : CommRingCat
+inst✝ : Algebra ℚ ↑R
+c : Fin 4 → ℚˣ
+L : Line (curve R c)
+p : Polynomial ↑R
+m : ↑(finiteSections R c L)
+⊢ finiteRestriction R c L ((RelativeOriginalPolynomialAlgebra318.polynomialMap ℚ ↑R ↑(finiteRing c)) p • m) =
+    (ContactOriginalRelativeOverlapCoordinates318.laurentMap R c) (Polynomial.toLaurent p) • finiteRestriction R c L m
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (RelativeOriginalPolynomialAlgebra318.polynomialMap ℚ ↑R ↑(finiteRing c)) p • m
+  has type
+    ↑(finiteSections R c L)
+  but is expected to have type
+    ↑(OriginalLineAffineModel318.sections (↧(TensorProduct ↑↧ℚ ↑R ↑(finiteRing c))) (finiteLine R c L))
+  in the application
+    finiteRestriction R c L ((RelativeOriginalPolynomialAlgebra318.polynomialMap ℚ ↑R ↑(finiteRing c)) p • m)
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    RelativeOriginalAffineChart318.into ↦ 48
+    RelativeOriginalPolynomialAlgebra318.polynomialMap ↦ 15
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-global-free-quotient-equivalence-r2/ContactOriginalRelativeLineOverlap318.lean:77:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsScalarTower ℚ (Polynomial ℚ) ↑(infinityRing c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
