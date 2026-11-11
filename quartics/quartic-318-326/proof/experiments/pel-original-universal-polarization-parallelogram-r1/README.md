@@ -1,0 +1,7 @@
+# Construct universal polarization line identities
+
+The SAME original algebraic degree-one line satisfies an actual whole-product parallelogram isomorphism, with genuine pullback to every scheme test including nonreduced tests. The actual universal translation-line family also defines a natural transformation into the existing relative fppf line-class sheaf on ALL tests, with actual base-line normalization.
+
+Twenty connected sources retain all569 exact predecessors and add eleven actual product-parallelogram producers, two actual relative-family consumers and seven exact independently reviewed Picard sheafification dependencies. Constant double theta expansion is algebraized through the full cubic/quartic coefficient producers. The genuine four-map product cover carries regular unit gauges and a full overlap equation; actual sheaf reconstruction gives m*L tensor d*L isomorphic to (pr1*L tensor pr2*L)^2 on the entire product. This is not merely a separate choice at every complex parameter.
+
+The relative transformation uses the actual family m*L tensor inverse(pr1*L) and the existing quotient by base pullbacks before fppf sheafification. Its full naturality and base-line normalization are proved without assuming representability. No universal theorem-of-cube, all-test additivity or injectivity after sheafification, represented dual, dual isomorphism, or Jacobian identification is asserted. No canonical axis rigidification is asserted. Source/API review and static validation are not hosted kernel acceptance.

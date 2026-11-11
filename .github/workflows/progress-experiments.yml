@@ -123,7 +123,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-original-cartier-affine-basechange-r3'
+        if: always() && matrix.packet == 'relative-original-cartier-scheme-basechange-r3'
         shell: bash
         run: |
           set -euo pipefail
@@ -322,7 +322,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_tensor_transport_faces.py "$PACKET"
       - name: Non-admitted exact center prefix diagnostics
-        if: always() && matrix.packet == 'height-normalized-valuative-center-r46'
+        if: always() && matrix.packet == 'height-normalized-valuative-center-r47'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
