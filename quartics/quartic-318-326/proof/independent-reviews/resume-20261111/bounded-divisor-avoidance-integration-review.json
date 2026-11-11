@@ -1,0 +1,44 @@
+{
+  "reviewer": "reconcile_proof_queue",
+  "verdict": "SOURCE_APPLICATION_ACCEPTED_HOSTED_CHECK_PENDING",
+  "packets": [
+    {
+      "packet": "relative-original-bounded-divisor-avoidance-r1",
+      "application_sha256": "14cfba4792c5793a40ba022b9eb01d806bf1dea095b39ffb62282a231d912bdc",
+      "intake_sha256": "82ead85312bd1f986e9855a4f556a6f793f905923ebc464ce66c24439d5295b7"
+    },
+    {
+      "packet": "relative-original-bounded-divisor-avoidance-r2",
+      "application_sha256": "e2d3acde73b1de6f6a994c6e29c97b3f37593ad507cbc6a4cb278a0c71d3f789",
+      "intake_sha256": "e0a6078e71ba9ab11a5d5f6350a89f268006109afa8bb6ea97631da34ce75108"
+    }
+  ],
+  "new_sources": {
+    "BoundedFiniteFamilyAvoidance318.lean": "8d9d20ac76bbe85b50ed059e7a4f148c9d67bea44b6a78337956df1bb112f0b1",
+    "ContactBoundedAvoidanceFamily318.lean": "b282db86b22fb62e655ca36361f5f8643049b96ff523c37607354b6e8f616534",
+    "ContactBoundedDivisorAvoidance318.lean": "8ae48f852add73f8988a5f932eb2d45642d1668206a2cecf5b9047c0e0c5fa5f",
+    "ContactLinearFiberDisjoint318.lean": "b7f95abf2db4e464c6806b52b84a2bc60c1e03207027955908b41905b5489958",
+    "ContactLinearOpenChartRange318.lean": "b0a0a8f706097486621129bf6f3153e4442afb5bbd1f9272a31caccafcd8f3f2",
+    "FiniteAffineRankComparison318.lean": "3f3a7a6ef8a76a9f3ddd851d1bd6ceb97c9865366beb21f4b4618b52604b82ce",
+    "FiniteAlgebraSpectrumBound318.lean": "8077b995fa12450cf4f4fd2ffc76022718bbcd2b9770a2534a17f16480c51bc4",
+    "FiniteFlatFiberPointBound318.lean": "023eaf54664ca654267e700d02c83a230c1db6cc15b18ed73d20838fad6cb40a",
+    "FiniteSchemePointBound318.lean": "8d500871d9faafdf817d659bb0708c92ac42c9b1744388aabff9768e7dde8783"
+  },
+  "r2_changed_sources": {
+    "FiniteAffineAlgebra318.lean": "c05210d06bd423aae9743e80ecdb7efb433ac71048f8edcd973eb750e9c7439a",
+    "FiniteSchemePointBound318.lean": "8d500871d9faafdf817d659bb0708c92ac42c9b1744388aabff9768e7dde8783",
+    "FiniteAffineRankComparison318.lean": "3f3a7a6ef8a76a9f3ddd851d1bd6ceb97c9865366beb21f4b4618b52604b82ce"
+  },
+  "review": [
+    "Read all nine full new bodies and actual whole-family finite affine algebra/degree/avoidance producers. Checked pinned CRT quotient surjectivity, maximal ideal coprimality, sum of dimensions, actual finite-flat rank/base-change, scheme residue-fiber homeomorphism and original linear Proj chart APIs.",
+    "Finite algebra point count is bounded by rank via the actual surjection to the product of all residue fields. It does not assume reducedness, etaleness, split points or an algebraically closed field.",
+    "Actual scheme residue-field fibers transfer the bound to ALL topological fiber points with the precise finite-flat rank. N+1 pairwise disjoint excluded source fibers then give a whole coefficient open cover by a genuine pigeonhole argument.",
+    "Explicit rational linear forms have disjoint vanishing fibers on the actual projective line; pulling back through the SAME original normalization produces the source charts. Entire restricted divisor families factor through these affine charts with exact source and coefficient squares.",
+    "The three r2 additions explicitly DERIVE source affineness from the existing finite structural morphism before isoSpec. No additional source hypothesis, altered family, coefficient map or theorem statement. Historical r1 and original730 producer history remain immutable.",
+    "Verified785 pins in both packets,776 exactr1 predecessors and782 exactr2 predecessors; every application/intake/source/primary binding checked."
+  ],
+  "limits": [
+    "No local Lean or hosted acceptance.",
+    "Actual bounded avoidance coverage is not yet inter-chart parameter gluing or projective Hilbert/Picard/Jacobian representation."
+  ]
+}
