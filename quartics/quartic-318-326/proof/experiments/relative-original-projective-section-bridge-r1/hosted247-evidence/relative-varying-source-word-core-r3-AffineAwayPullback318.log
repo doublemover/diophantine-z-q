@@ -1,0 +1,21 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r3/AffineAwayPullback318.lean:19:73: error: don't know how to synthesize placeholder for argument `hg`
+context:
+A B : CommRingCat
+f : A ⟶ B
+x a : ↑A
+⊢ IsUnit (((algebraMap ↑B ↑(target f x)).comp (CommRingCat.Hom.hom f)) x)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r3/AffineAwayPullback318.lean:36:2: error: Tactic `apply` failed: could not unify the conclusion of `@IsPushout.of_isColimit`
+  IsPushout ?f ?g (PushoutCocone.inl ?c) (PushoutCocone.inr ?c)
+with the goal
+  IsPushout f (sourceMap x) (targetMap f x) (arrow f x)
+
+Note: The full type of `@IsPushout.of_isColimit` is
+  ∀ {C : Type ?u.79} [inst : Category.{?u.80, ?u.79} C] {Z X Y : C} {f : Z ⟶ X} {g : Z ⟶ Y} {c : PushoutCocone f g}
+    (h : IsColimit c), IsPushout f g c.inl c.inr
+
+A B : CommRingCat
+f : A ⟶ B
+x : ↑A
+descend : (s : PushoutCocone f (sourceMap x)) → target f x ⟶ s.pt :=
+  fun s => CommRingCat.ofHom (IsLocalization.Away.lift ((CommRingCat.Hom.hom f) x) ⋯)
+⊢ IsPushout f (sourceMap x) (targetMap f x) (arrow f x)
