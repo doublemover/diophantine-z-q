@@ -1,0 +1,15 @@
+# Actual original reciprocal canonical extensions at odd places
+
+This connected336-module packet preserves every320 repaired predecessor target and adds16 independently reviewed sources. It replaces no frozen history and includes the exact latest IntegralOverlapRootGenerators carrier repair.
+
+The SAME original whole reciprocal order maps into an actual smooth integral three-root chart, with original coordinate S=rho*u0^-1*Z² and all original marked roots rho*Z and rho*Z*rj. The general integral construction permits rho=pi (common-odd twists) or rho=1 (all-even twists). No uniformizer or Z is inverted in this integral chart. The three signed ratios are units produced by the chart, not assumed abstract nonzero field ratios.
+
+The actual relative Kaehler module has its produced smooth coordinate frame. The literal integral canonical tensor coefficients are k1=4*rho*(product ui)*u0^-5*(product rj)^-2 and k0=k1*S. The exact integral identities k_i*(16 product original roots)^2=c*S^(3 or4)*(dS/dZ)^2 retain the original different, powers and derivative. Only on the genuine different-unit localization is the different inverted. The structural algebra and scalar tower are explicit.
+
+An actual balanced map on the ENTIRE original finite-dual tensor square then agrees on both original sections with the actual balanced pullback of integral Kaehler tensor sections. This is not a comparison of pure presentations alone. The SAME actual global intrinsic tensor sections restrict through the already established whole-model tilde map to those sections. For common-odd original centers the actual generic point lies on this localization, and its entire original order RingHom and generic scheme point are recovered with all signed roots and base maps.
+
+The genuine balanced fiber functional in the actual smooth coordinate frame evaluates the J²-scaled common-odd sections to integral coefficients b0,b1 with b0 nonzero, b1=t*b0 over the original point field, and both finite valuation bounds. No arbitrary local lattice is substituted for this canonical frame.
+
+The all-even branch is also constructed from the original reciprocal roots: square_preimage yields integral signed ratios, their square units give unit ratios, and the distinguished original root is the smooth coordinate. The final original-point theorem produces both parity alternatives internally and gives genuine smooth-chart canonical tensor extensions at EVERY odd place where the actual contact coordinate is nonintegral. It imposes no contact-separation premise and no unit assumption on original twist representatives.
+
+Remaining boundaries: finite-coordinate bad centers, residue characteristic2, a global proper regular model and its relative dualizing comparison, global Hodge degree, exact KS210 and archimedean estimates. The old whole proper order model is not declared regular or globally dualizing. This packet does not prove contact_metric or GeometricRealization. Source/API review and static checks are distinct from hosted Lean; no local Lean was run.

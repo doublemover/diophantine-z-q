@@ -1,0 +1,15 @@
+# Actual elliptic group, halving kernel and torsion addition
+
+Ten connected sources connect the original cubic and its literal Kummer coordinates to the ACTUAL Mathlib elliptic group. Every743 predecessor source remains byte-identical.
+
+The Weierstrass model has coefficients(0,2n,0,-3n^2,0), equation y^2=x(x-n)(x+3n), and discriminant2304n^6. For n nonzero every point of this cubic is nonsingular and defines a genuine affine point in the existing Mathlib additive group. No alternative abstract group is postulated.
+
+Identity Kummer class supplies nonzero square roots b^2=x-n,c^2=x+3n. Setting a=-y/(bc) produces a^2=x and abc=-y. The actual half is X=x+ab+ac+bc,Y=-(a+b)(a+c)(b+c). All three pairwise sums are nonzero because n is nonzero. Exact factor identities prove its original cubic equation. The actual tangent slope equals-(a+b+c); the actual Mathlib addition formulas prove Q+Q=P for the SAME original point P, including its original y coordinate.
+
+Conversely, the actual doubling x coordinate has three explicit square roots with denominator2y: x^2+3n^2, (x-n)^2-4n^2 and(x+3n)^2-12n^2. For a non-two-torsion target the two Kummer roots are nonzero. An arbitrary candidate half is split into infinity, a two-torsion point, and the genuine tangent branch. Infinity and two-torsion cannot double to the nonzero target. Therefore identity Kummer class is equivalent to existence of an actual half in the elliptic group over ANY characteristic-zero field, and in particular over the rationals. This is an actual kernel statement, not a global local-solubility assertion.
+
+The earlier rational torsion translation is now identified with actual group addition by T=(-3n,0). The source constructs T in the same Mathlib curve, proves T is nonzero and T+T=0, and computes the actual secant slope and both actual addition coordinates. They agree exactly with the predecessor translatedX and translatedY. The final rational consumer uses the SAME RationalPoint structure from the rational normalization theorem, with its original rational x,y and curve equation, rather than changing the point or source model.
+
+Four exact pinned primary API blobs are Git/SHA verified: Weierstrass, affine basic equations, affine formulas and affine point/group law. Static regression independently checks ten polynomial identities plus114 actual rational doubles,90 explicit rational halves and114 actual rational torsion additions. These test points are not claimed to realize beta on the production family.
+
+Boundary: this constructs the actual elliptic model and identifies the identity Kummer kernel with doubling for non-two-torsion points, plus actual torsion translation. It does not yet define the full Kummer homomorphism at all exceptional points, prove the full Selmer exact sequence, Cassels-Tate pairing/parity, RC or rank-to-beta existence. It does not produce any of the four requested same-index rational beta-class points. No local Lean, builds, profiling or resource changes. Distinct review and hosted validation remain required.
