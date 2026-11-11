@@ -1,0 +1,14 @@
+{
+  "reviewer": "/root/advance_period_models",
+  "producer": "/root/reconcile_proof_queue",
+  "verdict": "NARROW_INSTANCE_PRIORITY_REPAIR_ACCEPTED_HOSTED_LEAN_PENDING",
+  "packet": "original-finite-quotient-reconstruction-r30",
+  "application_sha256": "265b89f2ae21486d3734c4601cd682252d8b4f565c957b60d3fb52bb52c11caa",
+  "intake_sha256": "2bd383e9db03fc3cd343969f89b162e0df1742e6e609d5df735ff7cd68d4fd77",
+  "copy_bindings_sha256": "f9cac887c243fd5aa4830e3e299f339fa840e60c6e5d8e50966338adb40fa415",
+  "changed_source_sha256": {
+    "OriginalNormalClosureGalois318.lean": "b24d076ebb57e5365b6ce54a101a40d9ee593e0749d9a618fa8cbfc14e0d04d5"
+  },
+  "review": "Read full exact source and sole diff, exact hosted216 log and pinned RatFuncBasic algebra instance at line493. The log explicitly shows composite baseAlgebra(RatFunc) incorrectly replacing the native polynomial fraction-ring scalar action. Lowering only the generic composite instance priority to100 allows the default-priority native RatFunc algebra to take precedence while retaining the composite action on abstract L. Public definitions, integral closure, group action, scalar square and theorem statements remain unchanged. Verified all application source/binding hashes and all unchanged Lean copies against r29. This repair does not prove the resulting elaboration succeeds.",
+  "limits": "Independent bounded source comparison only. Hosted kernel/elaboration remains pending. No local Lean or profiling."
+}
