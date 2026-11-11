@@ -1,0 +1,15 @@
+# Actual q0 replacement realizes simultaneous core selection
+
+This connected seven-source span turns the constructive diagonal choice into an actual prime replacement while preserving the literal old core and every other prime value. It is not a formal edit of a matrix or a separate choice of two unrelated supports.
+
+The recursive Schur-complement index is explicitly identified with old-support plus arbitrary finite theta-support, preserving every old embedding pointwise. The ring-equivalence transport proves the earlier diagonal-choice theorem for the actual old/theta matrix. It returns a toggle supported only on theta coordinates and proves the enlarged matrix is a unit.
+
+For actual prime supports differing only at q0, every retained core-core symbol and lambda coordinate agrees. Prescribing the new q0-column bits changes the deleted K and K-sharp matrices by exactly the prescribed diagonal. An actual fresh prime realizes all these bits using the proved CRT/Dirichlet producer, outside both the previous q0 and any requested forbidden set, beyond any bound, with the same type7mod12. Every other prime value is unchanged. Primality, pairwise distinctness and actual product11mod12 are retained.
+
+For an actual baseline enlarged support whose original deleted subcore is a unit, the finite theta-diagonal choice is realized by this new actual q0. The final enlarged deleted core is a unit, every old-core entry is identical to the baseline, and every old q0-column bit is identical. The supplied unit premise is on the same actual old subcore, not an unrelated matrix. The separate old-core preservation theorem identifies it with the earlier small core when the actual old/theta cross-row sums vanish. The literal product splitting full-product=old-product*theta-product is also proved, including q0 exactly once.
+
+The beta-kernel equation is preserved by a toggle disjoint from its support. All retained rows follow from the literal diagonal change; the q0 row follows from the actual zero-column normalization, avoiding an extra unproved reverse-symbol constraint. In the old/theta partition it suffices that the old q0 bits are retained and the beta vector is zero on theta slots.
+
+The next remaining connection is to construct the baseline enlarged prime family with all required mutual-square/theta-zero patterns from the original beta/theta data, and then apply this same-support selection and beta preservation to that family. The complete local two-descent/Selmer interpretation and global Cassels-Tate/rank/restricted-converse/forward-rank/Kummer bridge remain separate. No rational-point existence or four same-index PointPair conclusion is asserted.
+
+All646 predecessor Lean modules, including the exact hosted268 FixedDetectorScales repair, are byte-identical. Seven new modules and eight verified pinned primary API blobs. Exact regressions perform18 actual q0 replacements, verify72 fixed prime values,348 full-core and210 old-core entries, and1176 kernel vectors. Static checks only; no local Lean, profiling or resource changes. Independent bounded review and hosted validation remain required.
