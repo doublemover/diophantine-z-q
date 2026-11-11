@@ -1,0 +1,56 @@
+module
+import all CyclicQuotientEvaluation318
+import all CyclicQuotientKernel318
+import all CyclicQuotientMatrices318
+import all OriginalFreeQuotientAction318
+import all CyclicQuotientIntertwiner318
+import all CyclicQuotientFiniteFlat318
+import all VaryingCommutingMatrixRing318
+import all VaryingCommutingMatrixPoints318
+import all VaryingQuotientMatrixCoordinates318
+import all LinearEvaluationDeterminant318
+import all VaryingMatrixWords318
+import all OriginalWordBasisCyclicity318
+import all VaryingWordDeterminantOpen318
+import all VaryingSourceActionEquations318
+import all VaryingSourceActionParameter318
+import all VaryingSourceActionClassifier318
+import all VaryingSourceTensorAction318
+import all VaryingSourceWordQuotient318
+import all VaryingSourcePointNaturality318
+import all VaryingSourceWordOpen318
+import all VaryingSourceGeneratorSpan318
+import all VaryingSourceLocalWordCover318
+import all VaryingSourceSurjectiveCoefficient318
+import all VaryingSourceGlobalWordCover318
+import all CyclicQuotientCanonicalFrame318
+import all FreeQuotientFramedClassifier318
+import all VaryingSourceFreeQuotientClassifier318
+import all CyclicFrameTransport318
+import all CyclicWordNormalization318
+import all CyclicNormalizedFrameUniqueness318
+import all VaryingNormalizedWordParameter318
+import all VaryingNormalizedWordFrame318
+import all CyclicNormalizedIdealClassifier318
+import all VaryingNormalizedFrameEquiv318
+import all VaryingWordIdealChartClassifier318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`CyclicQuotientEvaluation318,`CyclicQuotientKernel318,`CyclicQuotientMatrices318,`OriginalFreeQuotientAction318,`CyclicQuotientIntertwiner318,`CyclicQuotientFiniteFlat318,`VaryingCommutingMatrixRing318,`VaryingCommutingMatrixPoints318,`VaryingQuotientMatrixCoordinates318,`LinearEvaluationDeterminant318,`VaryingMatrixWords318,`OriginalWordBasisCyclicity318,`VaryingWordDeterminantOpen318,`VaryingSourceActionEquations318,`VaryingSourceActionParameter318,`VaryingSourceActionClassifier318,`VaryingSourceTensorAction318,`VaryingSourceWordQuotient318,`VaryingSourcePointNaturality318,`VaryingSourceWordOpen318,`VaryingSourceGeneratorSpan318,`VaryingSourceLocalWordCover318,`VaryingSourceSurjectiveCoefficient318,`VaryingSourceGlobalWordCover318,`CyclicQuotientCanonicalFrame318,`FreeQuotientFramedClassifier318,`VaryingSourceFreeQuotientClassifier318,`CyclicFrameTransport318,`CyclicWordNormalization318,`CyclicNormalizedFrameUniqueness318,`VaryingNormalizedWordParameter318,`VaryingNormalizedWordFrame318,`CyclicNormalizedIdealClassifier318,`VaryingNormalizedFrameEquiv318,`VaryingWordIdealChartClassifier318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"

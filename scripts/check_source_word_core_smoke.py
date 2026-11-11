@@ -9,14 +9,14 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-varying-source-word-charts-r1'
-CORE='relative-varying-source-word-core-r1'
-PARENT_INTAKE='898f70a0252fdf5ae922d8e7fb812c1fe8dac109eb5a743cd252dec32c50ed29'
-PARENT_APPLICATION='b8e9afd028ffb48275bf8bfc1962fabfe39587b2ec617e892e28ac147d06c728'
-CORE_INTAKE='0f536bc63b7c8b4bdd6a4e803c1c2d0f19089e5d8ddd6cc6c23748ba3e81b1b2'
-CORE_APPLICATION='c4e116564988b8cdccbc163141fdd86b0af2713f5c5e1fcec17a328ea6bb05e8'
-CLOSURE_SHA='c9dd9de9b5674acb9089dbc16450ff3b91ccaddb00b02856781d64f0d31c666c'
-TARGETS=['VaryingSourceUniversalQuotient318']
+PARENT='relative-varying-word-ideal-classifier-r2'
+CORE='relative-varying-source-word-core-r2'
+PARENT_INTAKE='56e576451ceec1f5eda22a374172abd67c42cb0f02d9402160002dc7c2ac2c65'
+PARENT_APPLICATION='f13e231a61bcfa1c7d2ad541f11cb42605bd25df5f9b5a2723dfdfcb30f2e48f'
+CORE_INTAKE='f28bb79955c4a5ecbe72089c9d68e212271a53328f8ac2a391bc8c471687910e'
+CORE_APPLICATION='73215799d27966dcb90ad6c5178c0f476e74830f99ecc76abbb032fd24251c2e'
+CLOSURE_SHA='412cf8d32c6c6c965d63d0959780a74b713f74083ba4ea680219ea5b24389633'
+TARGETS=['VaryingWordIdealChartClassifier318']
 SECONDS=180
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -43,7 +43,7 @@ def validate(root=c.EXPERIMENTS):
             if dep in available:stack.append(dep)
             else:require(dep.split('.')[0] in c.OFFICIAL_PREFIXES,'Unbound project producer: '+dep)
     order=[n for n in parent['order'] if n in visited]
-    require(len(order)==21 and order==core['order']==closure['order'],'Missing, reordered or excess core producer')
+    require(len(order)==35 and order==core['order']==closure['order'],'Missing, reordered or excess core producer')
     require(set(core['files'])=={n+'.lean' for n in order},'Core file/order mismatch')
     for name in order:
         a=p/(name+'.lean');b=k/(name+'.lean');digest=sha(a)
@@ -71,11 +71,11 @@ def main():
     # Never change the full result, source registry, cache or accepted manifest.
     output.mkdir(parents=True,exist_ok=True)
     (output/'SMOKE_SCOPE.json').write_text(json.dumps({
-        'scope':'EXACT_21_MODULE_CORE_ONLY_NOT_FULL_598_ACCEPTANCE',
+        'scope':'EXACT_35_MODULE_CORE_ONLY_NOT_FULL_613_ACCEPTANCE',
         'parent':PARENT,'parent_intake_sha256':PARENT_INTAKE,
         'parent_result_sha256':sha(parent_result),'parent_status':full.get('status'),
         'core':CORE,'core_intake_sha256':CORE_INTAKE,'targets':TARGETS,
-        'source_modules':21,'same_bytes_as_full_parent':True,'seconds_per_module':SECONDS,
+        'source_modules':35,'same_bytes_as_full_parent':True,'seconds_per_module':SECONDS,
         'standard_checker_exit_code':result.returncode,'full_packet_accepted':False,
         'new_source_acceptance':False,'full_arithmetic_theorem_proved':False},indent=2)+'\n')
     raise SystemExit(result.returncode)
