@@ -1,0 +1,13 @@
+# Exact original affine and residue-parameter Poisson formula
+
+Starting from the independently source-reviewed original Poisson theorem, this packet derives all affine scale, translation, phase and quadratic-weight normalizations. No lattice or Haar convention is changed.
+
+For a smooth compact complex f, affineInput f c R is literally f(c+R*x). Smoothness follows by composition. Compact support is transported first by the actual translation homeomorphism and then by nonzero scalar multiplication. The real dimension of the original 2+2+1 product is proved to be5. The pinned additive-Haar scaling theorem and translation-invariance theorem give the exact positive-scale Jacobian R^-5 in this original volume.
+
+The Fourier phase is expanded using the actual coordinate linear pairing. This produces the positive translation factor e((y/R).c), inverse frequency y/R and Jacobian R^-5 in the transformed integral. Applying original Poisson to the actual affine input then gives shifted/dilated lattice Poisson. Absolute summability of these SAME transformed Fourier terms is separately inherited from the actual smooth compact affine input and exact coefficient identity, rather than presumed after an infinite formal rewrite.
+
+The concrete residue-parameter theorem takes q a positive natural, B positive real and r any original integer vector. Its primal side is the full z-sum of W((r+q*z)/B)*exp(2*pi*i*beta*Q(r+q*z)), with the unchanged original quadratic form. Quadratic homogeneity and B nonzero prove that this is the same twisted weight with parameter beta*B^2 evaluated at r/B+(q/B)*z. The affine theorem yields the actual dual formula: positive character e(m.r/q), scalar factor (B/q)^5 and originalCoordinateFourier(kappa,beta*B^2,W,(B/q)*m). The signs, dimension, beta scaling and original product volume are explicitly derived.
+
+This is one residue-parameter sum, not yet its identification with a modular fiber or the combined q^5 rational-arc sum. It does not assume r ranges over a chosen complete residue system. No unit-frequency average, major/minor arc bound, uniform beta decay or final global asymptotic is claimed.
+
+All591 predecessor source bytes remain exact; four new modules. Six pinned primary API files are checked against actual git blobs.735 exact rational cases check affine coordinates, frequency translation and the dimension-five scale. Three finite numerical residue-Poisson regressions retain the same smooth compact bump and forms318/326; all observed errors are below2.4e-10. Numerical truncation is not certified and these checks do not replace the infinite source proof or hosted Lean. No local Lean or profiling was run.
