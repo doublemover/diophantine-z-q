@@ -1,0 +1,15 @@
+# Actual finite reduced derivative-zero scheme and its global sections
+
+The SAME original derivative-zero scheme is finite and reduced over C. Its closed inclusion, actual finite/infinity quotient rings and structural morphism are unchanged. Four new modules retain the entire628 sheaf-stalk-length and106 all-prime reducedness closures; repaired predecessors are copied exactly, and unrelated union118 files are included only where imported.
+
+FourRootZeroFiniteAlgebras318 applies the actual regularity of the ORIGINAL generator to a regular principal quotient of each whole Dedekind coordinate ring. OrderOfVanishing.Basic proves finite length over that original ring using Noetherianity and dimension at most one. The quotient is consequently Artinian; Jacobson.Artinian proves finite-dimensionality over C from its actual finite-type scalar action. This avoids replacing the ideal by its radical or assuming geometric-point finiteness implies finite morphism.
+
+FourRootDerivativeZeroFinite318 defines the original zero scheme structural map as its existing closed inclusion followed by the existing proper whole-curve structure map. It computes BOTH quotient-chart structural maps as the actual Spec algebra maps. Each is finite from the just-proved Module.Finite. Local quasi-finiteness descends from the actual Bool-indexed two-chart open cover, and properness follows from the closed inclusion. The pinned Zariski main theorem then proves the SAME structural morphism finite, hence the SAME zero scheme affine. Finiteness itself is not incorrectly asserted local on the source.
+
+FiniteReducedComplexAlgebra318 proves any finite reduced complex algebra etale using its actual Artinian decomposition into all maximal quotient fields. Each quotient is finite over C and separable since C is perfect. The pinned etale theorem then splits the actual algebra as a product of C indexed by ALL its primes.
+
+FourRootDerivativeZeroSections318 defines H0 to be the existing structure sheaf global-section ring. Its C scalar map is exactly structural appTop composed with the canonical ΓSpecIso inverse. Finite_appTop plus the actual base-ring isomorphism gives Module.Finite for this precise scalar action. Actual scheme reducedness gives reduced H0. The generic decomposition then yields etale H0 and a C-algebra equivalence with the product indexed by all primes of H0.
+
+Boundary: this checkpoint does NOT yet count the global primes as40, identify cotangent global sections with these functions, construct a global cotangent frame, algebraize the original analytic source map, identify Picard/Jacobian components, or prove the final PEL theorem. The existing actual sheaf-stalk length40 theorem remains intact. H0 here means O_Z global sections, not Ω global sections. No local Lean was run. Independent source review and hosted checking are required.
+
+Primary sources are exact copies at Mathlib commit56a005855ea17e0b0958f73ec801ae140b0a1679 under PRIMARY/. Hosted failures and preceding repairs remain immutable historical evidence in predecessor packets.
