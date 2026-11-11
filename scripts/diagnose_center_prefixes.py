@@ -8,12 +8,12 @@ from pathlib import Path
 import tempfile
 import diagnose_diagonal_identity as runner
 ci = runner.ci
-PACKET = 'height-normalized-valuative-center-r49'
+PACKET = 'height-normalized-valuative-center-r50'
 SOURCE = 'IntegralOverlapRootGenerators318'
 DEPENDENCY = 'ThreeRootScaledGenerators318'
-SOURCE_SHA = '78dbd9cc6e44b56cde6b749ed96c88ee0617b2361d491f457eb9a485db041caa'
-INTAKE_SHA = 'aea77ff3d50443180ff51f5bc1a1ed18be26563495ff3fe8baf67f80192dc314'
-APPLICATION_SHA = '3dc863340c6c0d7246df911f127264d1e6fe65dba9e5d73e635ff9bcc03f52e4'
+SOURCE_SHA = 'b768789396da85d6a76fc9b46ae5de57b9b32d00db03c1346df0e9a7d5410373'
+INTAKE_SHA = '8b257b718d44f238be6fc361e9fc5c78dff3a146f81a2100e74f1b4c6ec7afc4'
+APPLICATION_SHA = 'e774b57a2f241d341163bbf379be86d317d04ca3da8a03838419b1c1a48c4822'
 SECONDS = 90  # Existing bounded diagnostic runner cap, below standard module cap180.
 
 def sha(path):
