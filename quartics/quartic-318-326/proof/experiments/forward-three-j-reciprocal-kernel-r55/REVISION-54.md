@@ -1,0 +1,3 @@
+# Kernel r54: explicit polynomial C normalization
+
+Hosted247 confirms both cusp evaluation repairs from r53 pass. Only the two Wronskians remain, with C3 still treated symbolically; the generic map_ofNat simplifier was unused. The successor consumes the actual Polynomial.C_eq_natCast and C_ofNat lemmas explicitly before ring. The pinned derivative_pow produces C(n : R); the pinned polynomial Basic source defines C_eq_natCast and C_ofNat for exactly this representation. All Wronskian statements, factors, charts and105 other modules are unchanged. Exact hosted247 log and pinned primary API copies are retained. No local Lean, profiling or resource increases. Independent narrow review and hosted validation remain required.
