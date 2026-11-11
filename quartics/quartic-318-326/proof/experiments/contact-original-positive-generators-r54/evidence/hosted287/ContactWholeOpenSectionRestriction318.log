@@ -1,0 +1,100 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r51/ContactWholeOpenSectionRestriction318.lean:42:14: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a ''ᵁ ⊤ ≤ SourceGlobalAffine318.chartEmbedding c ''ᵁ ⊤
+Error: Application type mismatch: The argument
+  instIsOpenImmersionInto c
+has type
+  IsOpenImmersion (into c)
+but is expected to have type
+  IsOpenImmersion _a
+in the application
+  @Scheme.Hom.opensFunctor
+    (Limits.pullback (ContactProjectiveModel318.modelMap c) OriginalLaurentProjectiveOverlap318.embedding)
+    (ContactProjectiveModel318.model c) _a ⋯
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getLimitCone ↦ 17
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(finiteSections c L)
+⊢ into c ''ᵁ ⊤ ≤ SourceGlobalAffine318.chartEmbedding c ''ᵁ ⊤
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r51/ContactWholeOpenSectionRestriction318.lean:44:2: error: Type mismatch
+  OriginalOpenPullbackSections318.nested_path (finiteEdge c) (SourceGlobalAffine318.chartEmbedding c) (into c)
+    (finiteEdge_into c) L.object m
+has type
+  (OriginalOpenPullbackSections318.sectionsEquiv (into c) L.object)
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app
+            ((PullbackPathComposition318.iso (finiteEdge c) (SourceGlobalAffine318.chartEmbedding c) (into c) ⋯).hom.app
+              L.object)
+            ⊤))
+        ((OriginalOpenPullbackSections318.sectionPull (finiteEdge c)
+            ((Scheme.Modules.pullback (SourceGlobalAffine318.chartEmbedding c)).obj L.object))
+          m)) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op))
+      ((OriginalOpenPullbackSections318.sectionsEquiv (SourceGlobalAffine318.chartEmbedding c) L.object) m)
+but is expected to have type
+  (overlapSectionsEquiv c L) (finiteDirect c L m) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((finiteSectionsEquiv c L) m)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getLimitCone ↦ 48240
+  inv ↦ 9450
+  ContactOriginalLineOverlap318.finiteComparison ↦ 58
+  OriginalOpenPullbackSections318.sectionsEquiv ↦ 18
+  Limits.getColimitCocone ↦ 3015
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r51/ContactWholeOpenSectionRestriction318.lean:38:6: error: (kernel) declaration has metavariables 'ContactWholeOpenSectionRestriction318.finite_square'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r51/ContactWholeOpenSectionRestriction318.lean:53:14: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a ''ᵁ ⊤ ≤ ContactWholeInfinityScheme318.into c ''ᵁ ⊤
+Error: Application type mismatch: The argument
+  instIsOpenImmersionInto c
+has type
+  IsOpenImmersion (into c)
+but is expected to have type
+  IsOpenImmersion _a
+in the application
+  @Scheme.Hom.opensFunctor
+    (Limits.pullback (ContactProjectiveModel318.modelMap c) OriginalLaurentProjectiveOverlap318.embedding)
+    (ContactProjectiveModel318.model c) _a ⋯
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getLimitCone ↦ 17
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(infinitySections c L)
+⊢ into c ''ᵁ ⊤ ≤ ContactWholeInfinityScheme318.into c ''ᵁ ⊤
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r51/ContactWholeOpenSectionRestriction318.lean:55:2: error: Type mismatch
+  OriginalOpenPullbackSections318.nested_path (infinityEdge c) (ContactWholeInfinityScheme318.into c) (into c)
+    (infinityEdge_into c) L.object m
+has type
+  (OriginalOpenPullbackSections318.sectionsEquiv (into c) L.object)
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app
+            ((PullbackPathComposition318.iso (infinityEdge c) (ContactWholeInfinityScheme318.into c) (into c) ⋯).hom.app
+              L.object)
+            ⊤))
+        ((OriginalOpenPullbackSections318.sectionPull (infinityEdge c)
+            ((Scheme.Modules.pullback (ContactWholeInfinityScheme318.into c)).obj L.object))
+          m)) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op))
+      ((OriginalOpenPullbackSections318.sectionsEquiv (ContactWholeInfinityScheme318.into c) L.object) m)
+but is expected to have type
+  (overlapSectionsEquiv c L) (infinityDirect c L m) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((infinitySectionsEquiv c L) m)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getLimitCone ↦ 60345
+  OriginalOpenPullbackSections318.sectionsEquiv ↦ 18
+  ContactOriginalLineOverlap318.infinityComparison ↦ 58
+  Limits.getColimitCocone ↦ 3015
+  ContactWholeInfinityScheme318.into ↦ 29250
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r51/ContactWholeOpenSectionRestriction318.lean:49:6: error: (kernel) declaration has metavariables 'ContactWholeOpenSectionRestriction318.infinity_square'

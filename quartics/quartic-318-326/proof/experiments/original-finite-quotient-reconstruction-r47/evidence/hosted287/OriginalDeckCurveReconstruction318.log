@@ -1,0 +1,65 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r44/OriginalDeckCurveReconstruction318.lean:32:29: error: Ambiguous term
+  Group
+Possible interpretations:
+  _root_.Group L : Type
+  
+  OriginalNormalClosureGalois318.Group L : Type
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r44/OriginalDeckCurveReconstruction318.lean:35:24: error: Ambiguous term
+  Group
+Possible interpretations:
+  _root_.Group L : Type
+  
+  OriginalNormalClosureGalois318.Group L : Type
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r44/OriginalDeckCurveReconstruction318.lean:36:44: error: unsolved goals
+L : Type
+inst✝⁴ : Field L
+inst✝³ : Algebra (RatFunc ℚ) L
+ρ : ArithmeticGroup →* Gal(L/RatFunc ℚ)
+hfaithful : Function.Injective ⇑ρ
+hfixed : ∀ (x : L), (∀ (w : ArithmeticGroup), (ρ w) x = x) → ∃ r, (algebraMap (RatFunc ℚ) L) r = x
+inst✝² : FiniteDimensional (RatFunc ℚ) L
+inst✝¹ : IsGalois (RatFunc ℚ) L
+Y : Scheme
+j : Spec ↧↥(Order L) ⟶ Y
+inst✝ : Mono j
+b : ArithmeticGroup → (Y ⟶ Y)
+hchart : ∀ (w : ArithmeticGroup), schemeMap L (ρ w) ≫ j = j ≫ b w
+σ : sorry
+h : schemeMap L (ρ ((labels ρ hfaithful hfixed) sorry)) ≫ j = j ≫ b ((labels ρ hfaithful hfixed) sorry)
+⊢ schemeMap L sorry ≫ j = j ≫ reindexed ρ hfaithful hfixed b σ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r44/OriginalDeckCurveReconstruction318.lean:61:16: error: Ambiguous term
+  Group
+Possible interpretations:
+  _root_.Group L : Type
+  
+  OriginalNormalClosureGalois318.Group L : Type
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r44/OriginalDeckCurveReconstruction318.lean:68:18: error(nested.lean.propRecLargeElim): Tactic `cases` failed with a nested error:
+Tactic `induction` failed: recursor `Or.casesOn` can only eliminate into `Prop`
+
+case refine_1
+L : Type
+inst✝⁴ : Field L
+inst✝³ : Algebra (RatFunc ℚ) L
+ρ : ArithmeticGroup →* Gal(L/RatFunc ℚ)
+hfaithful : Function.Injective ⇑ρ
+hfixed : ∀ (x : L), (∀ (w : ArithmeticGroup), (ρ w) x = x) → ∃ r, (algebraMap (RatFunc ℚ) L) r = x
+inst✝² : FiniteDimensional (RatFunc ℚ) L
+inst✝¹ : IsGalois (RatFunc ℚ) L
+Y : Scheme
+j : Spec ↧↥(Order L) ⟶ Y
+inst✝ : Mono j
+b : ArithmeticGroup → (Y ⟶ Y)
+l m : ℂ
+h : BranchLocus j b l m
+p : ↥(Order L) →+* ℂ
+x✝ :
+  ((∀ (k : Fin 4), coordinate L p ≠ OriginalPublishedComplexBranches318.branchValues l m k) ∧
+      ∀ (w : ArithmeticGroup),
+        OriginalCurveGeometricStabilizers318.point j p ≫ b w = OriginalCurveGeometricStabilizers318.point j p ↔ w = 1) ∨
+    ∃ k,
+      coordinate L p = OriginalPublishedComplexBranches318.branchValues l m k ∧
+        ∀ (w : ArithmeticGroup),
+          OriginalCurveGeometricStabilizers318.point j p ≫ b w = OriginalCurveGeometricStabilizers318.point j p ↔
+            w = 1 ∨ w = Multiplicative.ofAdd (InertiaLabels318.labels (OriginalContactInertiaBasis318.reverse k))
+⊢ sorry → OfNat sorry 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r44/OriginalDeckCurveReconstruction318.lean:88:8: warning: declaration uses `sorry`

@@ -1,0 +1,11 @@
+# Actual all-power section equivalence and original theta
+
+For EVERY n including zero, the full original H0(n) is genuinely complex-linearly equivalent to global sections of the actual degree-one algebraic line to its nth tensor power, over the ORIGINAL structural complex scalars. The SAME algebraic line has a nonzero original theta section and full H0 dimension one.
+
+Pad an arbitrary original section s of degree n by theta2_s^n to degree3n. Existing whole cubic-chart regularization produces the exact regular mixed coefficient s/(theta3_j/theta2_s)^n. Whole original frame-cocycle equality glues actual L^n sections. Conversely, coefficients of ANY global algebraic section are genuine regular functions; their previously proved arbitrary-open holomorphy and the exact original degree-one gauge glue to an entire function satisfying the original multiplier, including all semicharacter data. Genuine original descent and whole regular-function separation prove both inverses. Structural scalar action is Module.compHom of the original C-base map, not transported along the equivalence. For n>0 the dimension is n^2. The actual tensor-unit isomorphism removes L^1 and gives a nonzero original theta global section of SAME L spanning its one-dimensional full algebraic H0.
+
+No theta-divisor smoothness, irreducibility, genus, represented dual, principal dual isomorphism or Jacobian identification is inferred. All562 predecessor targets and protected baseline provenance retained. Hosted kernel validation pending; no local Lean.
+
+## Exact hosted291 elaboration successor
+
+The sole revised source is ComplexPolynomialOpenPoints318. The pinned eval_C API takes only its explicit constant, and the original-evaluation categorical square now explicitly passes through CommRingCat.hom_ext and RingHom.ext, retaining an arbitrary whole polynomial rather than letting ext recurse into polynomial generators. Statements, scalars, module targets and budgets unchanged. Exact diagnostic and predecessor sources are bound. No local Lean.
