@@ -1,0 +1,50 @@
+{
+  "reviewer": "/root/advance_period_models",
+  "producer": "/root/reconcile_proof_queue",
+  "verdict": "NARROW_EXACT229_SOURCE_REPAIRS_ACCEPTED_HOSTED_LEAN_PENDING",
+  "packets": [
+    {
+      "packet": "height-normalized-valuative-center-r41",
+      "application_sha256": "b7fe678135d3244f4dd16ad2304fff75eec6cef2d7ce41690f2ba83a61e972b4",
+      "intake_sha256": "c905221ef5fd19f0b0b7a45a80e5773d0aebbec75a1744eb8dd0ba35326d167e",
+      "copy_bindings_sha256": "91cfa7803ccdaeb2baff7c91fad593182fa4e3dd10d0e0e6da751b96cdbe38df",
+      "changed_sources": {
+        "ThreeRootScaledGenerators318.lean": "3239fedb11948eb48f753f56aa8089e5860f62e0bed4a6caed968fb396549de5"
+      }
+    },
+    {
+      "packet": "height-original-metric-assembly-r52",
+      "application_sha256": "71c456d9041c5dd7161387611102e2ec988a5b1054ec6ef7b1f8fd3950df8efa",
+      "intake_sha256": "2e5b0a4c134b134abb3395c6f6a7c7036ca5272109e7012d317cf78dcfd03516",
+      "copy_bindings_sha256": "2598a3263f78d860fce44253e08a3ec796d2a90f56eb1a9cd9ba1cce93f44b76",
+      "changed_sources": {
+        "ThreeRootScaledGenerators318.lean": "3239fedb11948eb48f753f56aa8089e5860f62e0bed4a6caed968fb396549de5"
+      }
+    },
+    {
+      "packet": "contact-original-positive-generators-r40",
+      "application_sha256": "87a87c5528f41d9512e2e2b38afbe292cbf74a63a59e80034374c4c3d013ebe1",
+      "intake_sha256": "203839b2e01537dd03b88f6704a346d7b0328502ae2f0df0f28146929aed6c83",
+      "copy_bindings_sha256": "a3cb0c94dba998aa76c68b3f9384a765ada4c5ebea2c3d530b9b5a8264f96ece",
+      "changed_sources": {
+        "LaurentTransitionBounds318.lean": "e4dd509fefcb698b9443c972ba92127fc6e78ea5cf161487adbc319984cc7f9b"
+      }
+    },
+    {
+      "packet": "original-finite-quotient-reconstruction-r32",
+      "application_sha256": "3129935533f16ae1ecaa5928652cc76b4c201c811459e01618739041987ca7f9",
+      "intake_sha256": "2371e2934d3164c4f4b25c9393956aab32dac9ddba1e2237b28e5e5bac9e5ca1",
+      "copy_bindings_sha256": "297f83aa2b5b25a12a2383088f28eb55699d293b20937e43155c6e552d34dff5",
+      "changed_sources": {
+        "OriginalFullInertiaReconstruction318.lean": "00bccfc6bf3aff75596b25d68509bebd8b23d7a3d2779781180ec7d2e19591aa"
+      }
+    }
+  ],
+  "review": [
+    "Read all three full changed sources, all four predecessor diffs and exact hosted229 center/contact/finite logs. Verified every source, intake/evidence and immediate predecessor copy binding. The tensor repair is identical in center41 and metric52.",
+    "ThreeRootScaledGenerators explicitly exposes the original root in each of the three fixed tensor positions after finite cases. It preserves the same order equivalence, original root signs and scalar y. The existing root_scale_smul and tensor scalar commutation then act on literal tensors rather than unreduced finite-vector applications. No hypothesis, statement or budget changed.",
+    "LaurentTransitionBounds adds the definitional equality of the original Laurent-linear transition and its ground-field restricted map. Rewriting the final target before consuming the established span/comap inclusion avoids the prior whnf expansion. The same actual filtration, column bound, monomial generators and negative-tail consumer remain.",
+    "OriginalFullInertiaReconstruction normalizes the image of zero before using the original field-map injectivity. Its local coefficient square explicitly exposes PrimeLocalOriginalField.embedding, which is definitionally the installed originalAlgebra map. The original integral closure, chosen prime, fixed field, inertia hypotheses and downstream local/field reconstruction are retained. The complete branch-locus hypothesis is not proved by this repair."
+  ],
+  "limits": "Independent bounded source/application/provenance repair review. No local Lean/profiling, no hosted success assertion. Exact hosted compilation must still establish elaboration and budgets."
+}

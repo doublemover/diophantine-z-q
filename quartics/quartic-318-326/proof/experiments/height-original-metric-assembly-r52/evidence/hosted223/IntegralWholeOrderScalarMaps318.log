@@ -1,0 +1,76 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:30:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:34:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring (Laurent R ⊗[R[X]] InfinityOrder R c)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:29:72: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+p : R[X]
+this : Algebra R[X] (Laurent R) := (reciprocalMap R c).toAlgebra
+⊢ (fullOverlap R c).symm
+      ((infinityBaseChange R c)
+        ((algebraMap R[X] (Laurent R ⊗[R[X]] ThreeRootOrder318.Order (IntegralInfinityChart318.coefficient R c))) p)) =
+    (algebraMap (Laurent R) (CommonOrder R c)) ((reciprocalMap R c) p)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:52:45: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) (C ?r)
+in the target expression
+  (algebraMap (Laurent R) (CommonOrder R c)) ((algebraMap R[X] (Laurent R)) (C r)) =
+    (aeval ↑(commonY R c)).toRingHom (C r)
+
+case h₁
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+r : R
+⊢ (algebraMap (Laurent R) (CommonOrder R c)) ((algebraMap R[X] (Laurent R)) (C r)) =
+    (aeval ↑(commonY R c)).toRingHom (C r)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:54:45: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) X
+in the target expression
+  (algebraMap (Laurent R) (CommonOrder R c)) ((algebraMap R[X] (Laurent R)) X) = (aeval ↑(commonY R c)).toRingHom X
+
+case h₂
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ (algebraMap (Laurent R) (CommonOrder R c)) ((algebraMap R[X] (Laurent R)) X) = (aeval ↑(commonY R c)).toRingHom X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:63:2: error: unsolved goals
+case h₁
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+r : R
+⊢ (algebraMap R (CommonOrder R c)) r = (aeval ↑(commonY R c)⁻¹).toRingHom (C r)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:75:78: error(lean.unknownIdentifier): Unknown constant `Units.map_inv`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:69:2: error: unsolved goals
+case h₂
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ (algebraMap (Laurent R) (CommonOrder R c)) ↑(y R)⁻¹ =
+    (aeval ↑((Units.map ↑(algebraMap (Laurent R) (CommonOrder R c))) (y R))⁻¹).toRingHom X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:74:69: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [reciprocalMap, Polynomial.aeval_C, Polynomial.aeval_X, u, ← mul_assoc, ← map_mul, Units.inv_mul,
+    map_one, one_mul, commonY, Units.coe_map, Units.map_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r48/IntegralWholeOrderScalarMaps318.lean:75:64: warning: This simp argument is unused:
+  Units.coe_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [reciprocalMap, Polynomial.aeval_C, Polynomial.aeval_X, u, map_mul, ← mul_assoc, ← map_mul,
+    Units.inv_mul, map_one, one_mul, commonY, Units.map_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
