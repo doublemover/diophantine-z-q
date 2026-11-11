@@ -1,0 +1,37 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r8/CyclicQuotientMatrices318.lean:44:2: error: unsolved goals
+case mpr
+R A M ι : Type u
+inst✝⁶ : CommRing R
+inst✝⁵ : CommRing A
+inst✝⁴ : Algebra R A
+inst✝³ : AddCommGroup M
+inst✝² : Module R M
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+ρ : A →ₐ[R] Module.End R M
+v : M
+b : Module.Basis ι R M
+a : A
+h : (evaluation ρ v) a = 0
+⊢ ⇑0 = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r8/CyclicQuotientMatrices318.lean:55:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  matrix ?ρ ?b ?a *ᵥ vector ?v ?b
+in the target expression
+  (fun a => matrix ρ b a *ᵥ vector v b) a = w
+
+R A M ι : Type u
+inst✝⁶ : CommRing R
+inst✝⁵ : CommRing A
+inst✝⁴ : Algebra R A
+inst✝³ : AddCommGroup M
+inst✝² : Module R M
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+ρ : A →ₐ[R] Module.End R M
+v : M
+b : Module.Basis ι R M
+h : Function.Surjective ⇑(evaluation ρ v)
+w : ι → R
+a : A
+ha : (evaluation ρ v) a = b.equivFun.symm w
+⊢ (fun a => matrix ρ b a *ᵥ vector v b) a = w

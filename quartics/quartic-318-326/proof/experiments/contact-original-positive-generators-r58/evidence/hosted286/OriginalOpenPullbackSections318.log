@@ -1,0 +1,39 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r50/OriginalOpenPullbackSections318.lean:98:32: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r50/OriginalOpenPullbackSections318.lean:98:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r50/OriginalOpenPullbackSections318.lean:107:12: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a ''ᵁ ⊤ ≤ g ''ᵁ ⊤
+Error: Application type mismatch: The argument
+  inst✝
+has type
+  IsOpenImmersion k
+but is expected to have type
+  IsOpenImmersion _a
+in the application
+  @Scheme.Hom.opensFunctor X Z _a ⋯
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+X Y Z : Scheme
+f : X ⟶ Y
+inst✝² : IsOpenImmersion f
+g : Y ⟶ Z
+inst✝¹ : IsOpenImmersion g
+k : X ⟶ Z
+inst✝ : IsOpenImmersion k
+h : f ≫ g = k
+M : Z.Modules
+s : ↑Γ((Scheme.Modules.pullback g).obj M, ⊤)
+⊢ k ''ᵁ ⊤ ≤ g ''ᵁ ⊤
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r50/OriginalOpenPullbackSections318.lean:101:0: warning: automatically included section variable(s) unused in theorem `OriginalOpenPullbackSections318.nested_path`:
+  [IsOpenImmersion f]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsOpenImmersion f] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r50/OriginalOpenPullbackSections318.lean:101:6: error: (kernel) declaration has metavariables 'OriginalOpenPullbackSections318.nested_path'
