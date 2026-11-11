@@ -1,0 +1,31 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r2/CyclicQuotientEvaluation318.lean:28:38: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?f (?x + ?y)
+in the target expression
+  a + b ∈ {a | (evaluation ρ v) a = 0}
+
+R A M : Type u
+inst✝⁴ : CommRing R
+inst✝³ : CommRing A
+inst✝² : Algebra R A
+inst✝¹ : AddCommGroup M
+inst✝ : Module R M
+ρ : A →ₐ[R] Module.End R M
+v : M
+a b : A
+ha : a ∈ {a | (evaluation ρ v) a = 0}
+hb : b ∈ {a | (evaluation ρ v) a = 0}
+⊢ a + b ∈ {a | (evaluation ρ v) a = 0}
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r2/CyclicQuotientEvaluation318.lean:25:14: error: (kernel) declaration has metavariables 'CyclicQuotientEvaluation318.ideal'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r2/CyclicQuotientEvaluation318.lean:34:6: error: (kernel) declaration type mismatch, 'CyclicQuotientEvaluation318.mem_ideal' has type
+  ∀ {R A M : Type u} [inst : CommRing R] [inst_1 : CommRing A] [inst_2 : Algebra R A] [inst_3 : AddCommGroup M]
+    [inst_4 : Module R M] (ρ : A →ₐ[R] Module.End R M) (v : M) (a : A), a ∈ ideal ρ v ↔ a ∈ ideal ρ v
+but it is expected to have type
+  ∀ {R A M : Type u} [inst : CommRing R] [inst_1 : CommRing A] [inst_2 : Algebra R A] [inst_3 : AddCommGroup M]
+    [inst_4 : Module R M] (ρ : A →ₐ[R] Module.End R M) (v : M) (a : A), a ∈ ideal ρ v ↔ (ρ a) v = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r2/CyclicQuotientEvaluation318.lean:37:6: error: (kernel) application type mismatch
+  Submodule.ext fun a => Iff.rfl
+argument has type
+  ∀ (a : A), a ∈ Submodule.restrictScalars R (ideal ρ v) ↔ a ∈ Submodule.restrictScalars R (ideal ρ v)
+but function has type
+  (∀ (x : A), x ∈ Submodule.restrictScalars R (ideal ρ v) ↔ x ∈ (evaluation ρ v).ker) →
+    Submodule.restrictScalars R (ideal ρ v) = (evaluation ρ v).ker

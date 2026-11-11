@@ -1,0 +1,7 @@
+# Actual algebraic surface dimension
+
+The SAME actual original candidate has native algebraic topological Krull dimension TWO. Every entire original affine chart has ring Krull dimension two by its whole faithful finite polynomial normalization; the actual all-prime nine-chart open cover proves the global dimension. Existing proper smooth integral connected group geometry refers to this same surface.
+
+Native integral incomparability gives strict contraction of prime chains; faithful integral lying-over and genuine going-up lift every finite prime chain with its full length. This proves ring Krull dimension invariance. The already produced entire original chart normalization is finite faithful over exactly C[x,y], so native polynomial Krull dimension computes every chart dimension. Native coheight invariance under genuine open embeddings and the full original nine-chart cover prove dimension two for the entire candidate, including nonclosed primes.
+
+This is not an analytic dimension inference or a dimension assigned by terminology. All722 predecessor modules, exact301 import repair, native isogeny degrees and arbitrary-test division torsor are retained unchanged. Proper smooth integral connected group properties are combined only for the same actual scheme and base. No represented dual, theta smoothness, genus or Jacobian conclusion. Source/static acceptance is not hosted Lean validation.

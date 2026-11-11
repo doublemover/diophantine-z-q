@@ -1,0 +1,23 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-projective-module-quotient-r3/RelativeCoefficientChange318.lean:79:4: error: Type mismatch: After simplification, term
+  ho
+ has type
+  @Eq (Spec ↧(↑S ⊗[↑k] ↑B) ⟶ X)
+    (Spec.map (ringMap k R S B f) ≫ Spec.map (RelativeOriginalAffineChartMap318.originalB k R B) ≫ j)
+    (Spec.map (RelativeOriginalAffineChartMap318.originalB k S B) ≫ j)
+but is expected to have type
+  @Eq (Spec ↧(↑S ⊗[↑k] ↑B) ⟶ X)
+    (Spec.map (ringMap k R S B f) ≫ Spec.map (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom) ≫ j)
+    (Spec.map (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom) ≫ j)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-projective-module-quotient-r3/RelativeCoefficientChange318.lean:80:4: error: Type mismatch: After simplification, term
+  Eq.trans hc (Eq.symm hs)
+ has type
+  Spec.map (ringMap k R S B f) ≫ Spec.map (CommRingCat.ofHom (algebraMap (↑R) (↑R ⊗[↑k] ↑B))) =
+    Spec.map (CommRingCat.ofHom (algebraMap (↑S) (↑S ⊗[↑k] ↑B))) ≫ Spec.map (CommRingCat.ofHom f.toRingHom)
+but is expected to have type
+  Spec.map (ringMap k R S B f) ≫ Spec.map (CommRingCat.ofHom (algebraMap (↑R) (↑R ⊗[↑k] ↑B))) =
+    RelativeOriginalAffineChart318.into k S B p j hj ≫
+      pullback.snd p (RelativeOriginalAffineChart318.baseMap k S) ≫ Spec.map (CommRingCat.ofHom f.toRingHom)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  getLimitCone ↦ 511
+  RelativeOriginalAffineChart318.into ↦ 26

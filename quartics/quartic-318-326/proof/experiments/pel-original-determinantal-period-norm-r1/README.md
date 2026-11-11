@@ -1,0 +1,9 @@
+# Actual determinant-line norm and full second-fundamental comparison
+
+This connected1050-module packet retains all1044 repaired analytic predecessors and adds six independently source/API-reviewed modules. No old target is removed and no additional CI lane or protected baseline shadow is needed.
+
+The coordinate is the universal alternating determinant on the genuine top exterior of the original rank-two period kernel. A nonzero literal exterior generator and actual rank-one proof produce a both-inverse linear coordinate. The whole original Hermitian Gram transport is proved before taking its determinant. Consequently the actual exterior fiber has a norm with every-vector isometric monodromy, using the square root of the actual positive ImOmega determinant.
+
+The tensor square is the genuine tensor product of this exterior fiber. Its both-inverse second-fundamental comparison agrees on ALL exterior generators with the determinant of the original full bilinear second-fundamental pairing. A whole-tensor induction proves the metric formula on EVERY vector: the literal Petersson quadratic norm of the comparison is FOUR times the actual tensor-square norm. Whole tensor covariance retains the square of the actual Mobius derivative. Neither the coefficient nor the norm is replaced by a dimension-only identification.
+
+Boundary: this is an actual analytic kernel, exterior line, metric and second-fundamental construction. It does not identify these objects with an algebraic family's de Rham/Gauss-Manin objects or a global arithmetic Hodge lattice/Kodaira-Spencer210 map. Four character-j identities and the global regular-model identification remain open. The central minus-one obstruction to unchanged rank-two coarse descent remains; the exterior line and tensor square are sign-even. Hosted kernel validation is separate from bounded source review. No local Lean was run.

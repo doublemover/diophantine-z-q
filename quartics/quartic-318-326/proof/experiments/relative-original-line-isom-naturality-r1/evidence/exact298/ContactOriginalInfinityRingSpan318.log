@@ -1,0 +1,95 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:67:2: error: Type mismatch
+  congrArg CommRingCat.Hom.hom h
+has type
+  CommRingCat.Hom.hom
+      (CommRingCat.ofHom (algebraMap ℚ[T;T⁻¹] (ContactOverlapTensorCharts318.infinityRing c)) ≫
+        Spec.preimage (comparison c).hom) =
+    CommRingCat.Hom.hom (CommRingCat.ofHom (algebraMap ℚ[T;T⁻¹] ↑(oldRing c)))
+but is expected to have type
+  (transport c).comp (algebraMap ℚ[T;T⁻¹] (ContactOverlapTensorCharts318.infinityRing c)) =
+    algebraMap ℚ[T;T⁻¹] ↑(oldRing c)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  AffineSpecOriginalRingTransport318.hom ↦ 22
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:77:4: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:78:37: error: Application type mismatch: The argument
+  h
+has type
+  CommRingCat.ofHom (ContactOverlapTensorCharts318.infinityRight c) ≫ Spec.preimage (comparison c).hom =
+    CommRingCat.ofHom (infinityMap c).toRingHom
+but is expected to have type
+  {
+      hom' :=
+        { toFun := fun x => (transport c) ((ContactOverlapTensorCharts318.infinityRight c) x), map_one' := ⋯,
+          map_mul' := ⋯, map_zero' := ⋯, map_add' := ⋯ } } =
+    Spec.preimage (oldInfinityEdge c)
+in the application
+  congrArg CommRingCat.Hom.hom h
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  AffineSpecOriginalRingTransport318.hom ↦ 22
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:83:6: error: typeclass instance problem is stuck
+  Algebra ℚ[T;T⁻¹] ↑(oldRing c)
+
+Note: Lean will not try to resolve this typeclass instance problem because the fourth type argument to `Algebra` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:97:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Submodule.span (↑?A) (Set.range ⇑(ContactOverlapTensorCharts318.tensorRight ?P ?A ?B ?f))
+in the target expression
+  z ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+
+c : Fin 4 → ℚˣ
+P : Submodule ℚ[T;T⁻¹] ↑↧(ContactOverlapTensorCharts318.finiteRing c) :=
+  Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(infinityMap c))
+z : ↑↧(ContactOverlapTensorCharts318.infinityRing c)
+a✝ : (AffineSpecOriginalRingTransport318.hom (comparison c)) z ∈ ⊤
+⊢ z ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:101:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((transport c).comp (ContactOverlapTensorCharts318.infinityRight c)) b
+in the target expression
+  (transport c) ((ContactOverlapTensorCharts318.infinityRight c) b) ∈ P
+
+case refine_1
+c : Fin 4 → ℚˣ
+P : Submodule ℚ[T;T⁻¹] ↑↧(ContactOverlapTensorCharts318.finiteRing c) :=
+  Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(infinityMap c))
+z : ↑↧(ContactOverlapTensorCharts318.infinityRing c)
+a✝ : (AffineSpecOriginalRingTransport318.hom (comparison c)) z ∈ ⊤
+hz : z ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+b : ↥(ContactWholeInfinityAlgebra318.Ring c)
+⊢ (transport c) ((ContactOverlapTensorCharts318.infinityRight c) b) ∈ P
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-difference-fppf-epimorphism-r2/ContactOriginalInfinityRingSpan318.lean:109:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((transport c).comp (algebraMap ℚ[T;T⁻¹] (ContactOverlapTensorCharts318.infinityRing c))) l
+in the target expression
+  (transport c) ((algebraMap ℚ[T;T⁻¹] (ContactOverlapTensorCharts318.infinityRing c)) l) * (transport c) x =
+    l • (transport c) x
+
+c : Fin 4 → ℚˣ
+P : Submodule ℚ[T;T⁻¹] ↑↧(ContactOverlapTensorCharts318.finiteRing c) :=
+  Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(infinityMap c))
+z : ↑↧(ContactOverlapTensorCharts318.infinityRing c)
+a✝ : (AffineSpecOriginalRingTransport318.hom (comparison c)) z ∈ ⊤
+hz : z ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+l : ℚ[T;T⁻¹]
+x : ↑↧(ContactOverlapTensorCharts318.infinityRing c)
+hx✝ : x ∈ Submodule.span ℚ[T;T⁻¹] (Set.range ⇑(ContactOverlapTensorCharts318.infinityRight c))
+hx : (transport c) x ∈ P
+⊢ (transport c) ((algebraMap ℚ[T;T⁻¹] (ContactOverlapTensorCharts318.infinityRing c)) l) * (transport c) x =
+    l • (transport c) x
