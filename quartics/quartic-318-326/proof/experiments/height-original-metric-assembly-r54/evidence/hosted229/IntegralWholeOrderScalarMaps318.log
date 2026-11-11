@@ -1,0 +1,66 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r50/IntegralWholeOrderScalarMaps318.lean:43:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r50/IntegralWholeOrderScalarMaps318.lean:47:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?e ((algebraMap ?m.77 ?m.78) ?r)
+in the target expression
+  (fullOverlap R c).symm
+      ((algebraMap (Laurent R)
+          (ThreeRootOrder318.Order fun i => (algebraMap R[X] (Laurent R)) (IntegralInfinityChart318.coefficient R c i)))
+        ((algebraMap R[X] (Laurent R)) p)) =
+    (algebraMap (Laurent R) (CommonOrder R c)) ((reciprocalMap R c) p)
+
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+p : R[X]
+this : Algebra R[X] (Laurent R) := (reciprocalMap R c).toAlgebra
+⊢ (fullOverlap R c).symm
+      ((algebraMap (Laurent R)
+          (ThreeRootOrder318.Order fun i => (algebraMap R[X] (Laurent R)) (IntegralInfinityChart318.coefficient R c i)))
+        ((algebraMap R[X] (Laurent R)) p)) =
+    (algebraMap (Laurent R) (CommonOrder R c)) ((reciprocalMap R c) p)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (algebraMap (Laurent R)
+        (ThreeRootOrder318.Order fun i => (algebraMap R[X] (Laurent R)) (IntegralInfinityChart318.coefficient R c i)))
+      ((algebraMap R[X] (Laurent R)) p)
+  has type
+    @ThreeRootOrder318.Order (Laurent R) OreLocalization.instCommRing fun i =>
+      (algebraMap R[X] (Laurent R)) (IntegralInfinityChart318.coefficient R c i)
+  but is expected to have type
+    @ThreeRootOrder318.Order (Laurent R) OreLocalization.instCommRing (infinityParameter R c)
+  in the application
+    (fullOverlap R c).symm
+      ((algebraMap (Laurent R)
+          (ThreeRootOrder318.Order fun i => (algebraMap R[X] (Laurent R)) (IntegralInfinityChart318.coefficient R c i)))
+        ((algebraMap R[X] (Laurent R)) p))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r50/IntegralWholeOrderScalarMaps318.lean:91:69: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [reciprocalMap, Polynomial.aeval_C, Polynomial.aeval_X, u, ← mul_assoc, ← map_mul, Units.inv_mul,
+    map_one, one_mul, commonY, Units.coe_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r50/IntegralWholeOrderScalarMaps318.lean:92:64: warning: This simp argument is unused:
+  Units.coe_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [reciprocalMap, Polynomial.aeval_C, Polynomial.aeval_X, u, map_mul, ← mul_assoc, ← map_mul,
+    Units.inv_mul, map_one, one_mul, commonY]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r50/IntegralWholeOrderScalarMaps318.lean:92:79: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-metric-assembly-r50/IntegralWholeOrderScalarMaps318.lean:92:79: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
