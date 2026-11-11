@@ -1,0 +1,143 @@
+module
+import all AffineAwayPullback318
+import all CyclicQuotientEvaluation318
+import all CyclicQuotientKernel318
+import all CyclicQuotientMatrices318
+import all OriginalFreeQuotientAction318
+import all CyclicQuotientIntertwiner318
+import all CyclicQuotientFiniteFlat318
+import all VaryingCommutingMatrixRing318
+import all VaryingCommutingMatrixPoints318
+import all VaryingQuotientMatrixCoordinates318
+import all LinearEvaluationDeterminant318
+import all VaryingMatrixWords318
+import all OriginalWordBasisCyclicity318
+import all VaryingWordDeterminantOpen318
+import all VaryingSourceActionEquations318
+import all VaryingSourceActionParameter318
+import all VaryingSourceActionClassifier318
+import all VaryingSourceTensorAction318
+import all VaryingSourceWordQuotient318
+import all VaryingSourcePointNaturality318
+import all VaryingSourceWordOpen318
+import all VaryingSourceGeneratorSpan318
+import all VaryingSourceLocalWordCover318
+import all VaryingSourceSurjectiveCoefficient318
+import all VaryingSourceGlobalWordCover318
+import all CyclicQuotientCanonicalFrame318
+import all FreeQuotientFramedClassifier318
+import all VaryingSourceFreeQuotientClassifier318
+import all CyclicFrameTransport318
+import all CyclicWordNormalization318
+import all CyclicNormalizedFrameUniqueness318
+import all VaryingNormalizedWordParameter318
+import all VaryingNormalizedWordFrame318
+import all CyclicNormalizedIdealClassifier318
+import all VaryingNormalizedFrameEquiv318
+import all VaryingWordIdealChartClassifier318
+import all CyclicWordFrameOverlap318
+import all CyclicWordFrameCocycle318
+import all VaryingNormalizedWordNaturality318
+import all VaryingNormalizedWordOverlap318
+import all VaryingNormalizedOverlapFrames318
+import all VaryingNormalizedOverlapScheme318
+import all CyclicNormalizationMatrixFormula318
+import all VaryingWordTransitionNaturality318
+import all VaryingWordOverlapIso318
+import all VaryingWordOverlapSelf318
+import all VaryingWordTriplePoints318
+import all VaryingWordTripleAlgebra318
+import all VaryingWordTripleMaps318
+import all VaryingWordTripleCocycle318
+import all VaryingWordTriplePullback318
+import all VaryingWordChartGluing318
+import all VaryingNormalizedUniversalFamily318
+import all VaryingWordIdealOverlap318
+import all VaryingNormalizedIdealGenerators318
+import all VaryingNormalizedIdealBaseChange318
+import all AffineQuotientPushout318
+import all VaryingNormalizedFamilyBaseChange318
+import all VaryingSourceCoefficientPullback318
+import all VaryingQuotientCoefficientPullback318
+import all VaryingWordOverlapFamily318
+import all VaryingWordFamilyTransition318
+import all VaryingWordTripleFamily318
+import all VaryingWordTripleFamilyMaps318
+import all VaryingWordFamilyCocycle318
+import all VaryingWordFamilyTriplePullback318
+import all VaryingWordFamilySelf318
+import all VaryingWordFamilyGluing318
+import all VaryingWordGlobalFamilyProjection318
+import all VaryingWordGlobalFamilyCartesian318
+import all VaryingWordGlobalFiniteFlat318
+import all VaryingWordParameterStructure318
+import all VaryingWordGlobalOriginalMap318
+import all VaryingWordGlobalAmbient318
+import all VaryingWordGlobalClosedQuotient318
+import all VaryingSplitIdealGenerators318
+import all VaryingCyclicCoefficientSections318
+import all VaryingCyclicIdealBaseChange318
+import all VaryingCyclicNormalizedChart318
+import all VaryingCyclicDeterminantCover318
+import all VaryingCyclicPointNaturality318
+import all VaryingCyclicCoefficientComposition318
+import all VaryingCyclicWordIndependence318
+import all VaryingCyclicChartIntersections318
+import all VaryingCyclicGlobalClassifyingMap318
+import all VaryingCyclicGlobalNaturality318
+import all VaryingCyclicFrameIndependence318
+import all VaryingFreeIdealClassifyingMap318
+import all VaryingBoundedDegreeFamily318
+import all VaryingBoundedFreeIdealMap318
+import all VaryingCyclicFamilyBaseChange318
+import all VaryingCyclicUniversalChartFamily318
+import all SchemeMonoLocalLift318
+import all VaryingCyclicFamilyCover318
+import all VaryingCyclicGlobalFamilyLift318
+import all VaryingCyclicGlobalFamilyRecovery318
+import all AffineQuotientFactorRigidity318
+import all VaryingGlobalClassifierInjective318
+import all AffineIdealEqualityIso318
+import all VaryingFreeIdealFamilyRecovery318
+import all VaryingParameterPoint318
+import all VaryingParameterPointFamily318
+import all AffineClosedQuotientExtraction318
+import all VaryingParameterPointIdeal318
+import all VaryingClassifiedIdealRecovery318
+import all VaryingFreeParameterPoints318
+import all VaryingPointFamilyBaseChange318
+import all AffineClosedIdealBaseChange318
+import all VaryingPointIdealNaturality318
+import all VaryingNormalizedGlobalPoint318
+import all VaryingFreePointChartInverse318
+import all AffineSchemeAlgebraMap318
+import all VaryingFreePointAffineTests318
+import all VaryingFreePointGlobalInverse318
+import all VaryingGlobalFreeQuotientEquiv318
+import all VaryingBoundedFamilyComponents318
+import all VaryingBoundedQuotientRecovery318
+import all SchemeOpenPushout318
+import all SchemeClosedOpenPushout318
+import all SchemeTwoOpenClosedDescent318
+import all AffineClosedRestriction318
+import all AffineClosedRestrictionIso318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`AffineAwayPullback318,`CyclicQuotientEvaluation318,`CyclicQuotientKernel318,`CyclicQuotientMatrices318,`OriginalFreeQuotientAction318,`CyclicQuotientIntertwiner318,`CyclicQuotientFiniteFlat318,`VaryingCommutingMatrixRing318,`VaryingCommutingMatrixPoints318,`VaryingQuotientMatrixCoordinates318,`LinearEvaluationDeterminant318,`VaryingMatrixWords318,`OriginalWordBasisCyclicity318,`VaryingWordDeterminantOpen318,`VaryingSourceActionEquations318,`VaryingSourceActionParameter318,`VaryingSourceActionClassifier318,`VaryingSourceTensorAction318,`VaryingSourceWordQuotient318,`VaryingSourcePointNaturality318,`VaryingSourceWordOpen318,`VaryingSourceGeneratorSpan318,`VaryingSourceLocalWordCover318,`VaryingSourceSurjectiveCoefficient318,`VaryingSourceGlobalWordCover318,`CyclicQuotientCanonicalFrame318,`FreeQuotientFramedClassifier318,`VaryingSourceFreeQuotientClassifier318,`CyclicFrameTransport318,`CyclicWordNormalization318,`CyclicNormalizedFrameUniqueness318,`VaryingNormalizedWordParameter318,`VaryingNormalizedWordFrame318,`CyclicNormalizedIdealClassifier318,`VaryingNormalizedFrameEquiv318,`VaryingWordIdealChartClassifier318,`CyclicWordFrameOverlap318,`CyclicWordFrameCocycle318,`VaryingNormalizedWordNaturality318,`VaryingNormalizedWordOverlap318,`VaryingNormalizedOverlapFrames318,`VaryingNormalizedOverlapScheme318,`CyclicNormalizationMatrixFormula318,`VaryingWordTransitionNaturality318,`VaryingWordOverlapIso318,`VaryingWordOverlapSelf318,`VaryingWordTriplePoints318,`VaryingWordTripleAlgebra318,`VaryingWordTripleMaps318,`VaryingWordTripleCocycle318,`VaryingWordTriplePullback318,`VaryingWordChartGluing318,`VaryingNormalizedUniversalFamily318,`VaryingWordIdealOverlap318,`VaryingNormalizedIdealGenerators318,`VaryingNormalizedIdealBaseChange318,`AffineQuotientPushout318,`VaryingNormalizedFamilyBaseChange318,`VaryingSourceCoefficientPullback318,`VaryingQuotientCoefficientPullback318,`VaryingWordOverlapFamily318,`VaryingWordFamilyTransition318,`VaryingWordTripleFamily318,`VaryingWordTripleFamilyMaps318,`VaryingWordFamilyCocycle318,`VaryingWordFamilyTriplePullback318,`VaryingWordFamilySelf318,`VaryingWordFamilyGluing318,`VaryingWordGlobalFamilyProjection318,`VaryingWordGlobalFamilyCartesian318,`VaryingWordGlobalFiniteFlat318,`VaryingWordParameterStructure318,`VaryingWordGlobalOriginalMap318,`VaryingWordGlobalAmbient318,`VaryingWordGlobalClosedQuotient318,`VaryingSplitIdealGenerators318,`VaryingCyclicCoefficientSections318,`VaryingCyclicIdealBaseChange318,`VaryingCyclicNormalizedChart318,`VaryingCyclicDeterminantCover318,`VaryingCyclicPointNaturality318,`VaryingCyclicCoefficientComposition318,`VaryingCyclicWordIndependence318,`VaryingCyclicChartIntersections318,`VaryingCyclicGlobalClassifyingMap318,`VaryingCyclicGlobalNaturality318,`VaryingCyclicFrameIndependence318,`VaryingFreeIdealClassifyingMap318,`VaryingBoundedDegreeFamily318,`VaryingBoundedFreeIdealMap318,`VaryingCyclicFamilyBaseChange318,`VaryingCyclicUniversalChartFamily318,`SchemeMonoLocalLift318,`VaryingCyclicFamilyCover318,`VaryingCyclicGlobalFamilyLift318,`VaryingCyclicGlobalFamilyRecovery318,`AffineQuotientFactorRigidity318,`VaryingGlobalClassifierInjective318,`AffineIdealEqualityIso318,`VaryingFreeIdealFamilyRecovery318,`VaryingParameterPoint318,`VaryingParameterPointFamily318,`AffineClosedQuotientExtraction318,`VaryingParameterPointIdeal318,`VaryingClassifiedIdealRecovery318,`VaryingFreeParameterPoints318,`VaryingPointFamilyBaseChange318,`AffineClosedIdealBaseChange318,`VaryingPointIdealNaturality318,`VaryingNormalizedGlobalPoint318,`VaryingFreePointChartInverse318,`AffineSchemeAlgebraMap318,`VaryingFreePointAffineTests318,`VaryingFreePointGlobalInverse318,`VaryingGlobalFreeQuotientEquiv318,`VaryingBoundedFamilyComponents318,`VaryingBoundedQuotientRecovery318,`SchemeOpenPushout318,`SchemeClosedOpenPushout318,`SchemeTwoOpenClosedDescent318,`AffineClosedRestriction318,`AffineClosedRestrictionIso318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"
