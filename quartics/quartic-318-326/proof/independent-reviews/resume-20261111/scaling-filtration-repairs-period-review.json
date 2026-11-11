@@ -1,0 +1,40 @@
+{
+  "reviewer": "/root/advance_period_models",
+  "producer": "/root/reconcile_proof_queue",
+  "verdict": "NARROW_PROOF_REFACTORS_ACCEPTED_HOSTED_LEAN_PENDING",
+  "packets": [
+    {
+      "packet": "height-normalized-valuative-center-r40",
+      "application_sha256": "3fe12912cf00126e34fb1aa3d69a9baa668502ed3653127a10bdc0fb2129fe8f",
+      "intake_sha256": "9cabbb0b44dc23549b725581f30f845fe3f2ab1349d6c61ae5d4f040caa728bb",
+      "copy_bindings_sha256": "8435d4e427cafff3c33f30522b49fa35815687395ed2cae18594980c732eb4ae",
+      "modified_source_hashes": {
+        "ThreeRootScaledGenerators318.lean": "d8f66a234dd2e00b8c40d49aea6c70c763073b0e78d0ed9437faf01640c996db"
+      }
+    },
+    {
+      "packet": "height-original-metric-assembly-r49",
+      "application_sha256": "36c31228d76aa4caff43bc97510eecda06c7eceec0e18d2e2a5c218eb539ac7c",
+      "intake_sha256": "44e29ed87bea287154b9c40aa4564a200e20417116c7174c5330b065071d87f9",
+      "copy_bindings_sha256": "f8adfd0399e73e2511c896b3f9afd1338edacc266a6411f4be0b3ab3d3f43c8c",
+      "modified_source_hashes": {
+        "ThreeRootScaledGenerators318.lean": "d8f66a234dd2e00b8c40d49aea6c70c763073b0e78d0ed9437faf01640c996db"
+      }
+    },
+    {
+      "packet": "contact-original-positive-generators-r39",
+      "application_sha256": "63921de8bb401e16dbac7c0245c25467b3a1131ad1a6b886625e4ee39e53b311",
+      "intake_sha256": "e0b8d9e29a108e6640d442c62a8e648f3009627c6114bc71480a8fd36d026344",
+      "copy_bindings_sha256": "c376509d815db037811d33ad62768ad168613350d1076fabaadfaba5019e53f3",
+      "modified_source_hashes": {
+        "LaurentTransitionBounds318.lean": "8de83687031d4a5e7aaf0c87fc0aac4425b80f2de63e296a4acfa77e8f72c336"
+      }
+    }
+  ],
+  "review": [
+    "Read both exact hosted216 failures and each full changed source. Verified every source/binding hash and all unchanged source bodies against immediate predecessor.",
+    "ThreeRootScaledGenerators has the identical one-proof delta in both height packets. Explicit Fin.cases normalization and simp only prevent the global rootEquiv_root simp lemma from rewriting the root before the exact root_scale_smul lemma can retain the scalar action. Read actual orderEquiv tensor construction and original generator vector; all three literal generator indices and same unit scaling are retained. Existing tensor scalar identities move that same scalar through the two tensor factors. Statements and budget unchanged.",
+    "Laurent map_upper now proves containment of the same original exponent-span submodule in the comap of the same upper filtration under underlying e. Read actual supported/upper definitions, shift_upper and map_monomial. Span_le covers every original monomial with exponent at most a; its image is bounded by c+b and then a+b. The linear preimage enforces addition and ground-field scalar closure, avoiding repeated coercion elaboration without assuming a new bound. Same all-vector result and budget."
+  ],
+  "limits": "Independent bounded mathematical/API source review, not a claim the elaborator now succeeds. Hosted kernel/elaboration remains required. No local Lean, timing or profiling. No downstream arithmetic completeness claim."
+}
