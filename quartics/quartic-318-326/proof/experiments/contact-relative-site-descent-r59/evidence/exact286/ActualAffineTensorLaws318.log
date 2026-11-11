@@ -1,0 +1,40 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r57/ActualAffineTensorLaws318.lean:36:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  OriginalGeometricEdge318.edge L (leftMap R S S) (rightMap R S S) (map12 R S) (vertex1 R S) (vertex2 R S) ⋯ ⋯
+    (overlap R S L τ)
+in the target expression
+  OriginalGeometricTriple318.edge12 R S L (overlap R S L τ) ≫
+      OriginalGeometricTriple318.edge23 R S L (overlap R S L τ) =
+    OriginalGeometricTriple318.edge13 R S L (overlap R S L τ)
+
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+L : Line (Spec S)
+τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L
+hτ : ActualAffineSheafData318.Cocycle R S L τ
+h01 :
+  SheafPathTransport318.transport L.object (tripleIso R S).inv (ActualOverlapDiagram318.vertex0 (baseMap R S))
+      (ActualOverlapDiagram318.vertex1 (baseMap R S)) (Spec.map (vertex1 R S)) (Spec.map (vertex2 R S)) ⋯ ⋯
+      (SheafPathTransport318.transport L.object (ActualOverlapDiagram318.pair01 (baseMap R S))
+        (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+        (ActualOverlapDiagram318.vertex0 (baseMap R S)) (ActualOverlapDiagram318.vertex1 (baseMap R S)) ⋯ ⋯ τ) =
+    OriginalGeometricEdge318.edge L (leftMap R S S) (rightMap R S S) (map12 R S) (vertex1 R S) (vertex2 R S) ⋯ ⋯
+      (overlap R S L τ)
+h12 :
+  SheafPathTransport318.transport L.object (tripleIso R S).inv (ActualOverlapDiagram318.vertex1 (baseMap R S))
+      (ActualOverlapDiagram318.vertex2 (baseMap R S)) (Spec.map (vertex2 R S)) (Spec.map (vertex3 R S)) ⋯ ⋯
+      (SheafPathTransport318.transport L.object (ActualOverlapDiagram318.pair12 (baseMap R S))
+        (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+        (ActualOverlapDiagram318.vertex1 (baseMap R S)) (ActualOverlapDiagram318.vertex2 (baseMap R S)) ⋯ ⋯ τ) =
+    OriginalGeometricEdge318.edge L (leftMap R S S) (rightMap R S S) (map23 R S) (vertex2 R S) (vertex3 R S) ⋯ ⋯
+      (overlap R S L τ)
+h02 :
+  SheafPathTransport318.transport L.object (tripleIso R S).inv (ActualOverlapDiagram318.vertex0 (baseMap R S))
+      (ActualOverlapDiagram318.vertex2 (baseMap R S)) (Spec.map (vertex1 R S)) (Spec.map (vertex3 R S)) ⋯ ⋯
+      (SheafPathTransport318.transport L.object (ActualOverlapDiagram318.pair02 (baseMap R S))
+        (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+        (ActualOverlapDiagram318.vertex0 (baseMap R S)) (ActualOverlapDiagram318.vertex2 (baseMap R S)) ⋯ ⋯ τ) =
+    OriginalGeometricEdge318.edge L (leftMap R S S) (rightMap R S S) (map13 R S) (vertex1 R S) (vertex3 R S) ⋯ ⋯
+      (overlap R S L τ)
+⊢ OriginalGeometricTriple318.edge12 R S L (overlap R S L τ) ≫
+      OriginalGeometricTriple318.edge23 R S L (overlap R S L τ) =
+    OriginalGeometricTriple318.edge13 R S L (overlap R S L τ)

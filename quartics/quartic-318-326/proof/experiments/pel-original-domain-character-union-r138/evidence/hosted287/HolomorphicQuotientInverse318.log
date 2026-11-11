@@ -1,0 +1,36 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r136/HolomorphicQuotientInverse318.lean:14:0: error: This instance has 2 arguments that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 14: `(q : M → Q)`
+  argument 15: `(hq : IsQuotientCoveringMap q G)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r136/HolomorphicQuotientInverse318.lean:15:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ChartedSpace E Q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r136/HolomorphicQuotientInverse318.lean:22:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ChartedSpace E Q
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r136/HolomorphicQuotientInverse318.lean:22:59: error: unsolved goals
+E : Type u_1
+M : Type u_2
+Q : Type u_3
+G : Type u_4
+inst✝⁸ : NormedAddCommGroup E
+inst✝⁷ : NormedSpace ℂ E
+inst✝⁶ : TopologicalSpace M
+inst✝⁵ : TopologicalSpace Q
+inst✝⁴ : Group G
+inst✝³ : MulAction G M
+inst✝² : ContinuousConstSMul G M
+inst✝¹ : ChartedSpace E M
+inst✝ : IsManifold 𝓘(ℂ, E) ω M
+q : M → Q
+hq : IsQuotientCoveringMap q G
+hhol : ∀ (g : G), ContMDiff 𝓘(ℂ, E) 𝓘(ℂ, E) ω fun x => g • x
+a : M
+p : Q
+hp : p ∈ (quotientChart q hq a).source
+ht : ↑(quotientChart q hq a) p ∈ (chartAt E a).target
+⊢ sorry

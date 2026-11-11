@@ -1,0 +1,49 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r58/CanonicalScalarOverlap318.lean:38:64: error: Application type mismatch: The argument
+  n
+has type
+  ↑M
+but is expected to have type
+  ↑(coverModule R S M)
+in the application
+  (ModuleCat.Hom.hom ((homEquiv R S (coverModule R S M)) (overlap R S M))) n
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r58/CanonicalScalarOverlap318.lean:40:78: error: Application type mismatch: The argument
+  n
+has type
+  ↑M
+but is expected to have type
+  ↑((ModuleCat.extendScalars (algebraMap ↑R ↑S)).obj ((𝟭 (ModuleCat ↑R)).obj M))
+in the application
+  (ModuleCat.Hom.hom
+      ((ModuleCat.extendScalars (algebraMap ↑R ↑S)).map
+        ((ModuleCat.extendRestrictScalarsAdj (algebraMap ↑R ↑S)).unit.app M)))
+    n
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r58/CanonicalScalarOverlap318.lean:68:86: error: unsolved goals
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+M : ModuleCat ↑R
+N : ModuleCat ↑S
+e : coverModule R S M ≅ N
+⊢ overlap R S M ≫ (ModuleCat.extendScalars (CommRingCat.Hom.hom (rightMap R S S))).map e.hom =
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map (𝟙 (coverModule R S M)) ≫
+      overlap R S M ≫ (ModuleCat.extendScalars (CommRingCat.Hom.hom (rightMap R S S))).map e.hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r58/CanonicalScalarOverlap318.lean:69:27: warning: This simp argument is unused:
+  Category.assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [conjugated, ← Functor.map_comp_assoc, Iso.hom_inv_id, Functor.map_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r58/CanonicalScalarOverlap318.lean:70:22: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [conjugated, Category.assoc, ← Functor.map_comp_assoc, Iso.hom_inv_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r58/CanonicalScalarOverlap318.lean:70:38: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [conjugated, Category.assoc, ← Functor.map_comp_assoc, Iso.hom_inv_id, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

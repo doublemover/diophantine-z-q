@@ -1,0 +1,3 @@
+# Kernel r52: fully typed source-algebra instance terms
+
+Hosted234 reaches the explicit target-action tower and reports only six inferInstanceAs elaboration failures. inferInstanceAs is an instance-translation tactic requiring an expected target type, but its result here is immediately projected through .toSMul before that expected type is available. Each of the six source-algebra terms is replaced by the fully annotated (inferInstance : Algebra ...) recommended by the compiler. The actual targetAlgebra g h u term, all three pinned SMul actions, tower compatibility proof, relative presentation and105 other modules remain unchanged. Exact hosted234 log is retained. No resource increase, local Lean or profiling. Source review and hosted compilation remain required.
