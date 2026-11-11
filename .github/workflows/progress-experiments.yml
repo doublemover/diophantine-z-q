@@ -71,6 +71,7 @@ jobs:
       - run: python -B scripts/test_diagonal_consumer_carriers_diagnostic.py
       - run: python -B scripts/test_overlap_morphism_carriers_diagnostic.py
       - run: python -B scripts/test_overlap_morphism_coherence_diagnostic.py
+      - run: python -B scripts/test_tensor_transport_faces_diagnostic.py
       - run: python -B scripts/test_center_prefixes_diagnostic.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
@@ -122,7 +123,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-original-projective-quotient-parameter-r2'
+        if: always() && matrix.packet == 'relative-original-global-classifier-coherence-r2'
         shell: bash
         run: |
           set -euo pipefail

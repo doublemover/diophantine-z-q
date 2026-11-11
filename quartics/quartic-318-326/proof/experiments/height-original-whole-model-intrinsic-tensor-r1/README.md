@@ -1,0 +1,11 @@
+# Actual global intrinsic tensor and original model sections
+
+All298 predecessor modules are unchanged. Eight connected sources close the previous intrinsic-tensor-square gap on the SAME original proper four-root model.
+
+Actual open-restriction tensor frames are constructed from the genuine tensor/sheafification comparison. Their adjoint coordinate maps multiply the exact original coefficients on every open. The full original clutched intersection equation then constructs a morphism FROM the intrinsic tensor product to the product-transition sheaf, by actual categorical pullback. Pure-tensor tests use the true sheafification adjunction and whole tensor induction. Both whole-chart restrictions are proved isomorphisms and local descent proves the SAME global multiplication is an isomorphism.
+
+The original canonical candidate uses coefficient transition minus t squared. Its actual product is the already constructed t fourth-power transition, with literal equality transport retaining both charts and projections. The two unchanged global bicanonical sections therefore give genuine global sections of the actual intrinsic square of the original candidate line.
+
+Their restrictions use the genuine tilde isomorphism of the entire balanced finite-dual tensor module, followed by canonical inverse tilde.isoTop. The actual GammaSpec scalar identity and tilde naturality prove that this is exactly the original whole-module coefficient/frame map. Both finite and infinity values equal the original modelSection0 and modelSection1. For every original Data/Input and coordinate mode, the full composite into the produced generic smooth neighborhood sends these GLOBAL intrinsic sections to the same original branch q0 and q1, with unchanged signed roots and actual old coordinate.
+
+Boundary: this whole reciprocal order is generically nonnormal at infinity. No identification of this candidate with the genus-five canonical/dualizing sheaf on a normalized or regular model is claimed. The actual normalized-order conductor factor, global relative dualizing comparison, regular arithmetic model and lattice/discrepancy comparison, Hodge degree, KS210 and archimedean estimates remain separate. In particular no contact_metric or GeometricRealization is asserted. Source review and static checks are not hosted Lean validation. No local Lean was run.
