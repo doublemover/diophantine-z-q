@@ -1,0 +1,16 @@
+# Invert the global free quotient classifier
+
+694-source candidate: exact686 plus8 modules.
+
+This connected eight-module batch proves the previously missing right inverse. A normalized point has its original full ideal, so normalizing it again gives the same represented point; the genuine global classifier therefore equals its original chart inclusion. The intrinsic free-point recovery/classification maps are inverse on every parameter chart. For a general intrinsic free point, the entire pullback of the parameter chart cover is refined by actual affine covers. The coefficient algebra on each affine test is induced by the actual Spec preimage of the test map, and the chart coordinate is recovered as an R-algebra map from its actual R-structure square. Naturality of classification and recovery proves the right inverse on those tests, and cover hom_ext proves it globally.
+
+VaryingGlobalFreeQuotientEquiv318 supplies the two-sided equivalence and both naturality directions over every commutative coefficient R-algebra. Its target is the independently defined intrinsic global-free locus of the actual universal quotient, NOT all scheme points and NOT a subtype defined as the map image. The original full-ideal quotient remains the actual pulled-back universal family. Two final modules connect this result to the previously built bounded-degree parameter: recursive degree component inclusions are open immersions, and their actual family squares are Cartesian by coproduct pullbacks. The bounded classifier of a degree-d free ideal (d at most n) recovers the actual original quotient family and is injective at fixed d.
+
+Exact686 predecessor sources are preserved. This does not yet represent all locally free quotients or arbitrary locally varying rank by a functor equivalence, prove finite presentation/numerical degree, identify the projective curve Hilbert/Picard space, or identify its Jacobian. Fixed degree injectivity is not promoted to injectivity of degree-labelled coproduct sets on empty test schemes.
+
+No local Lean or profiler executed. Static checks and independent source review are separate from hosted Lean/kernel/axiom acceptance. Active hosted lanes and immutable prior packets are managed separately by the integrator.
+
+
+## Exact263 immutable successor
+
+Exact263 passes the prior original coordinate maps and OriginalLineBaseChangeUnit. The next original path restriction needs its existing native B-module action exposed on the same underlying restricted scalar-extension carrier, not a different action. Add that local instance. Core90 reveals quotEquivOfEq_mk has explicit p,p-prime arguments and the pinned basis type is Module.Basis, not root Basis. Supply the two explicit submodule arguments and qualify every unqualified Basis occurrence in the16 affected packet files by the actual Module namespace. No definition, theorem statement, carrier, hypothesis or intended basis type changes beyond resolving those formerly unknown names. This mechanism-wide namespace fix avoids repeating the same hosted failure one source at a time. All other677 files are exact694r1, including actual right inverse, natural equivalence and bounded Cartesian consumers. Hosted checking remains decisive; no local Lean/profiler or budget change.

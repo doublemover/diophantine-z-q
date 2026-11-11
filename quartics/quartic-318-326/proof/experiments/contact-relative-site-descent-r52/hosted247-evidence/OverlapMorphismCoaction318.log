@@ -1,0 +1,78 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r48/OverlapMorphismCoaction318.lean:24:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Adjunction.homEquiv ?adj ?X ?Y) ?f ≫ CategoryTheory.Functor.map ?m.165 ?g
+in the target expression
+  (((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv N (second R S N)) a ≫
+        (pushPull R S S).map h) ≫
+      (naturalIso R S S).hom.app M =
+    h ≫
+      ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b ≫
+        (component R S S M).hom
+
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+N M : ModuleCat ↑S
+h : N ⟶ M
+a : first R S N ⟶ second R S N
+b : first R S M ⟶ second R S M
+hab :
+  a ≫ (ModuleCat.extendScalars (CommRingCat.Hom.hom (rightMap R S S))).map h =
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map h ≫ b
+⊢ (((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv N (second R S N)) a ≫
+        (pushPull R S S).map h) ≫
+      (naturalIso R S S).hom.app M =
+    h ≫
+      ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b ≫
+        (component R S S M).hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r48/OverlapMorphismCoaction318.lean:42:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map (moduleSpecΓFunctor.map h) ≫
+    (sectionsIso (leftMap R S S) K).hom ≫ ?h
+in the target expression
+  (OriginalLineOverlapCoaction318.moduleHomEquiv R S L) a ≫
+      (sectionsIso (rightMap R S S) L).hom ≫
+        moduleSpecΓFunctor.map ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).map h) =
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map (moduleSpecΓFunctor.map h) ≫
+      (OriginalLineOverlapCoaction318.moduleHomEquiv R S K) b ≫ (sectionsIso (rightMap R S S) K).hom
+
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+L K : Line (Spec S)
+h : L.object ⟶ K.object
+a : OriginalLineOverlapCoaction318.first R S L ⟶ OriginalLineOverlapCoaction318.second R S L
+b : OriginalLineOverlapCoaction318.first R S K ⟶ OriginalLineOverlapCoaction318.second R S K
+hab :
+  a ≫ (Scheme.Modules.pullback (Spec.map (rightMap R S S))).map h =
+    (Scheme.Modules.pullback (Spec.map (leftMap R S S))).map h ≫ b
+⊢ (OriginalLineOverlapCoaction318.moduleHomEquiv R S L) a ≫
+      (sectionsIso (rightMap R S S) L).hom ≫
+        moduleSpecΓFunctor.map ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).map h) =
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map (moduleSpecΓFunctor.map h) ≫
+      (OriginalLineOverlapCoaction318.moduleHomEquiv R S K) b ≫ (sectionsIso (rightMap R S S) K).hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (Scheme.Modules.pullback (Spec.map (rightMap R S S))).map h
+  has type
+    @Quiver.Hom (Spec (ring R S S)).Modules Scheme.Modules.instCategory.toQuiver
+      ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj L.object)
+      ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj K.object)
+  but is expected to have type
+    @Quiver.Hom (Spec (ring R S S)).Modules Scheme.Modules.instCategory.toQuiver
+      (LineSheafPullback318.line (Spec.map (rightMap R S S)) L).object
+      ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj K.object)
+  in the application
+    moduleSpecΓFunctor.map ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).map h)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r48/OverlapMorphismCoaction318.lean:39:13: warning: This simp argument is unused:
+  OriginalLineOverlapCoaction318.moduleHomEquiv_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r48/OverlapMorphismCoaction318.lean:41:13: warning: This simp argument is unused:
+  Iso.inv_hom_id_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

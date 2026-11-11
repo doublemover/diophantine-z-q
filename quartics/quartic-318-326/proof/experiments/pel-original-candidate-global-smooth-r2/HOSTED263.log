@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-finite-first-jet-comparison-r1/ActualPrimitiveOrderGeneration318.lean:28:68: error: unsolved goals
+C : Type u_1
+R : Type u_2
+A : Type u_3
+inst✝⁴ : CommRing C
+inst✝³ : CommRing R
+inst✝² : CommRing A
+inst✝¹ : Algebra C R
+inst✝ : Algebra C A
+f : R →ₐ[C] A
+d : R
+s : Finset A
+hs : Algebra.adjoin C ↑s = ⊤
+β : Localization.Away (f d)
+hg : ∀ a ∈ s, ∃ P, eval₂ (Localization.awayMap f.toRingHom d) β P = (algebraMap A (Localization.Away (f d))) a
+B : Type u_2 := Localization.Away d
+L : Type u_3 := Localization.Away (f.toRingHom d)
+g : B →+* L := Localization.awayMap f.toRingHom d
+E : B[X] →+* L := eval₂RingHom g β
+a : R
+⊢ (algebraMap A (Localization.Away (f.toRingHom d))) (f.toRingHom a) =
+    (algebraMap A (Localization.Away (f.toRingHom d))) (f a)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-finite-first-jet-comparison-r1/ActualPrimitiveOrderGeneration318.lean:29:24: warning: This simp argument is unused:
+  Localization.awayMap
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [B, L, g, IsLocalization.Away.map, IsLocalization.map_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
