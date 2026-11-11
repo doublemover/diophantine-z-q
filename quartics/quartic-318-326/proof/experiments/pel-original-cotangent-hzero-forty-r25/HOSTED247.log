@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r1/FramedCokernelQuotient318.lean:11:69: error: unsolved goals
+R : Type u_1
+M : Type u_2
+N : Type u_3
+inst✝⁴ : CommRing R
+inst✝³ : AddCommGroup M
+inst✝² : AddCommGroup N
+inst✝¹ : Module R M
+inst✝ : Module R N
+e : R ≃ₗ[R] M
+f : R ≃ₗ[R] N
+d : M →ₗ[R] N
+x : M
+hx : x = e.symm x • e 1
+⊢ e.symm x * f.symm (d (e 1)) = e.symm (e.symm x • e 1) * f.symm (d (e 1))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r1/FramedCokernelQuotient318.lean:24:34: error: typeclass instance problem is stuck
+  Semiring ?m.183
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Semiring` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r1/FramedCokernelQuotient318.lean:28:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f.symm (d ?x)
+in the target expression
+  ↑f.symm (d (e r)) = y
+
+case mpr
+R : Type u_1
+M : Type u_2
+N : Type u_3
+inst✝⁴ : CommRing R
+inst✝³ : AddCommGroup M
+inst✝² : AddCommGroup N
+inst✝¹ : Module R M
+inst✝ : Module R N
+e : R ≃ₗ[R] M
+f : R ≃ₗ[R] N
+d : M →ₗ[R] N
+y : R
+hy : y ∈ Ideal.span {f.symm (d (e 1))}
+r : R
+hr : r • f.symm (d (e 1)) = y
+⊢ ↑f.symm (d (e r)) = y

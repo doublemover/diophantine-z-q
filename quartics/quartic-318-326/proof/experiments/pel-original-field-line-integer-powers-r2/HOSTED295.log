@@ -1,0 +1,68 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:13:0: warning: automatically included section variable(s) unused in theorem `AlgebraicFiniteTypeFiniteOpen318.localizedMap_source`:
+  [IsDomain R]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsDomain R] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:28:32: error: Type mismatch
+  IsScalarTower.of_algebraMap_eq' ?m.119
+has type
+  @IsScalarTower ?m.108 ?m.109 ?m.110 Algebra.toSMul Algebra.toSMul Algebra.toSMul
+but is expected to have type
+  @IsScalarTower R A L inst✝².toSMul OreLocalization.instSMulOfIsScalarTower OreLocalization.instSMulOfIsScalarTower
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:53:68: error: unsolved goals
+R A : Type
+inst✝⁶ : CommRing R
+inst✝⁵ : IsDomain R
+inst✝⁴ : CommRing A
+inst✝³ : Algebra R A
+inst✝² : Algebra.FiniteType R A
+inst✝¹ : Algebra.IsAlgebraic R A
+P : Type
+inst✝ : CommRing P
+e : P ≃+* R
+p : P
+hr : e p ≠ 0
+hf : (localizedMap R A (e p)).Finite
+g : Localization.Away p ≃+* Localization.Away (e p) :=
+  IsLocalization.ringEquivOfRingEquiv (Localization.Away p) (Localization.Away (e p)) e ⋯
+a : P
+⊢ (IsLocalization.map (Localization.Away ((algebraMap R A) (e p))) (algebraMap R A) ⋯)
+      ((IsLocalization.ringEquivOfRingEquiv (Localization.Away p) (Localization.Away (e p)) e ⋯).toRingHom
+        ((algebraMap P (Localization.Away p)) a)) =
+    ((IsLocalization.map (Localization.Away ((algebraMap R A) (e.toRingHom p))) ((algebraMap R A).comp e.toRingHom)
+            ⋯).comp
+        (algebraMap P (Localization.Away p)))
+      a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:56:36: warning: This simp argument is unused:
+  IsLocalization.ringEquivOfRingEquiv_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, g, localizedMap_source, Localization.awayMap, IsLocalization.Away.map,
+    IsLocalization.map_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:57:6: warning: This simp argument is unused:
+  localizedMap_source
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, g, IsLocalization.ringEquivOfRingEquiv_eq, Localization.awayMap,
+    IsLocalization.Away.map, IsLocalization.map_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-theta-zero-scheme-r1/AlgebraicFiniteTypeFiniteOpen318.lean:58:6: warning: This simp argument is unused:
+  IsLocalization.map_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, g, IsLocalization.ringEquivOfRingEquiv_eq, localizedMap_source,
+    Localization.awayMap, IsLocalization.Away.map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
