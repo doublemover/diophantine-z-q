@@ -1,0 +1,47 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-integer-action-kernels-r1/ActualPrimitiveRestriction318.lean:20:9: error: overloaded, errors 
+  20:38 Ambiguous term
+    map_dvd
+  Possible interpretations:
+    ?m.86 : ?m.60 ∣ ?m.66
+    
+    ?m.84 : ?m.60 ∣ ?m.66
+  
+  Function expected at
+    Polynomial.restriction ?m.60
+  but this term has type
+    (↥(Subring.closure ↑(coeffs ?m.60)))[X]
+  
+  Note: Expected a function because this term is being applied to the argument
+    (f (d * q))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-integer-action-kernels-r1/ActualPrimitiveRestriction318.lean:23:12: error: overloaded, errors 
+  23:41 Ambiguous term
+    map_dvd
+  Possible interpretations:
+    ?m.104 : ?m.78 ∣ ?m.84
+    
+    ?m.102 : ?m.78 ∣ ?m.84
+  
+  Function expected at
+    Polynomial.restriction ?m.78
+  but this term has type
+    (↥(Subring.closure ↑(coeffs ?m.78)))[X]
+  
+  Note: Expected a function because this term is being applied to the argument
+    (f (d * q))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-integer-action-kernels-r1/ActualPrimitiveRestriction318.lean:20:86: error: unsolved goals
+C : Type u_1
+R : Type u_2
+A : Type u_3
+inst✝⁵ : CommRing C
+inst✝⁴ : CommRing R
+inst✝³ : CommRing A
+inst✝² : Algebra C R
+inst✝¹ : Algebra C A
+inst✝ : Algebra.FiniteType C A
+f : R →ₐ[C] A
+d q : R
+β : Localization.Away (f d)
+hs : Function.Surjective ⇑(eval₂RingHom (Localization.awayMap f.toRingHom d) β)
+s : Finset A
+hsgen : Algebra.adjoin C ↑s = ⊤
+⊢ Function.Surjective ⇑(eval₂RingHom (Localization.awayMap f.toRingHom (d * q)) sorry)

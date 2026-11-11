@@ -1,0 +1,14 @@
+{
+  "reviewer": "/root/advance_period_models",
+  "producer": "/root/reconcile_proof_queue",
+  "verdict": "BOUNDED_ARTIFACT_RETENTION_TOOLING_ACCEPTED",
+  "files": {
+    ".github/workflows/progress-experiments.yml": "e68b9cf244e06a43263ab1294954a2b12777745d09c79f4606c153897f508f2f",
+    "scripts/test_core_artifact_paths.py": "c7b92f09f97fa951fecd2a18d6fb0a22c1712040ad46da7cbdcdae420cdc3958"
+  },
+  "review": [
+    "Read exact workflow diff and complete regression source. Four stale core-r8 artifact paths replaced by single-prefix core-r* patterns for only RESULT, logs, audit and smoke scope. No new execution, concurrency or budget; no recursive broad upload.",
+    "Regression reads actual installed CORE constant through Python AST and ensures all four retained artifacts match the workflow, forbids recursive wildcards and verifies its own plan invocation. Independently ran both tests: PASS."
+  ],
+  "limits": "Tooling/source review only; not proof/kernel acceptance."
+}

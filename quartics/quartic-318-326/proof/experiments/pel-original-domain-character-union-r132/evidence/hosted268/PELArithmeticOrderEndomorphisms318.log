@@ -1,0 +1,26 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r125/PELArithmeticOrderEndomorphisms318.lean:21:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?u • jointOrder ?a ?p
+in the target expression
+  (fun m => m • jointOrder a q) u = jointOrder a p
+
+a : ↥order
+p q : Total
+u : ↥principalThree
+hu : (fun m => m • q) u = p
+⊢ (fun m => m • jointOrder a q) u = jointOrder a p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r125/PELArithmeticOrderEndomorphisms318.lean:17:14: error: (kernel) declaration has metavariables 'PELArithmeticOrderEndomorphisms318.arithmeticOrder'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r125/PELArithmeticOrderEndomorphisms318.lean:23:8: error: (kernel) declaration type mismatch, 'PELArithmeticOrderEndomorphisms318.arithmeticOrder_square' has type
+  ∀ (a : ↥order) (p : Total), arithmeticOrder a (totalQuotient p) = arithmeticOrder a (totalQuotient p)
+but it is expected to have type
+  ∀ (a : ↥order) (p : Total), arithmeticOrder a (totalQuotient p) = totalQuotient (jointOrder a p)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r125/PELArithmeticOrderEndomorphisms318.lean:26:8: error: (kernel) application type mismatch
+  @Eq.ndrec ArithmeticTotal (totalQuotient x)
+    (fun p => arithmeticProjection (arithmeticOrder a p) = arithmeticProjection p)
+    (Eq.refl (arithmeticProjection (arithmeticOrder a (totalQuotient x))))
+argument has type
+  arithmeticProjection (arithmeticOrder a (totalQuotient x)) =
+    arithmeticProjection (arithmeticOrder a (totalQuotient x))
+but function has type
+  (fun p => arithmeticProjection (arithmeticOrder a p) = arithmeticProjection p) (totalQuotient x) →
+    ∀ {b : ArithmeticTotal},
+      totalQuotient x = b → (fun p => arithmeticProjection (arithmeticOrder a p) = arithmeticProjection p) b

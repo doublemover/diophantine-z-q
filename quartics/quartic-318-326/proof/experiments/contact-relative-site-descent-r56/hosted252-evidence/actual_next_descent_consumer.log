@@ -1,0 +1,50 @@
+/home/runner/work/_temp/overlap-morphism-carriers-nonadmitted-ynbcq2nr/actual_next_descent_consumer.lean:20:72: error: unsolved goals
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+N M : ModuleCat ↑S
+h : N ⟶ M
+a : first R S N ⟶ second R S N
+b : first R S M ⟶ second R S M
+hab :
+  a ≫ (ModuleCat.extendScalars (CommRingCat.Hom.hom (rightMap R S S))).map h =
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map h ≫ b
+hm :
+  ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv N (second R S N)) a ≫
+      (pushPull R S S).map h =
+    h ≫ ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b
+⊢ h ≫
+      ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b ≫
+        (naturalIso R S S).hom.app M =
+    h ≫
+      ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b ≫
+        (component R S S M).hom
+/home/runner/work/_temp/overlap-morphism-carriers-nonadmitted-ynbcq2nr/actual_next_descent_consumer.lean:44:13: warning: This simp argument is unused:
+  Category.assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Iso.inv_hom_id_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/_temp/overlap-morphism-carriers-nonadmitted-ynbcq2nr/actual_next_descent_consumer.lean:136:17: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (Scheme.Modules.pullback (Spec.map (rightMap R S S))).map (𝟙 D.line.object)
+  has type
+    @Quiver.Hom (Spec (ring R S S)).Modules Scheme.Modules.instCategory.toQuiver
+      ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj D.line.object)
+      ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj D.line.object)
+  but is expected to have type
+    @Quiver.Hom (Spec (ring R S S)).Modules Scheme.Modules.instCategory.toQuiver
+      (OriginalLineOverlapCoaction318.second R S D.line)
+      ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj D.line.object)
+  in the application
+    D.overlap ≫ (Scheme.Modules.pullback (Spec.map (rightMap R S S))).map (𝟙 D.line.object)
+/home/runner/work/_temp/overlap-morphism-carriers-nonadmitted-ynbcq2nr/actual_next_descent_consumer.lean:134:14: error: (kernel) declaration has metavariables 'GeometricAffineDescentData318.Hom.id'
+/home/runner/work/_temp/overlap-morphism-carriers-nonadmitted-ynbcq2nr/actual_next_descent_consumer.lean:161:6: error: (kernel) application type mismatch
+  Comonad.Coalgebra.Hom.ext (moduleSpecΓFunctor.map_id D.line.object)
+argument has type
+  moduleSpecΓFunctor.map (CategoryStruct.id D.line.object) = CategoryStruct.id (moduleSpecΓFunctor.obj D.line.object)
+but function has type
+  (id D).coalgebraHom.f = (CategoryStruct.id (coalgebra D)).f → (id D).coalgebraHom = CategoryStruct.id (coalgebra D)
