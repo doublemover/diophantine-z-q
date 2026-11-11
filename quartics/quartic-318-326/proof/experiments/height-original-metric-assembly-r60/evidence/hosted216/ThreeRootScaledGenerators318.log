@@ -1,0 +1,59 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r39/ThreeRootScaledGenerators318.lean:24:31: error: unsolved goals
+case «0»
+S : Type u_1
+inst✝ : CommRing S
+a b : Fin 3 → S
+y : Sˣ
+ha : ∀ (j : Fin 3), IsUnit (a j)
+h : ∀ (j : Fin 3), b j = a j * ↑y ^ 2
+⊢ ((AdjoinRoot.of (polynomial (a 0))) ↑y * AdjoinRoot.root (polynomial (a 0))) ⊗ₜ[S] 1 =
+    ↑y • AdjoinRoot.root (polynomial (a 0)) ⊗ₜ[S] 1
+
+case «1»
+S : Type u_1
+inst✝ : CommRing S
+a b : Fin 3 → S
+y : Sˣ
+ha : ∀ (j : Fin 3), IsUnit (a j)
+h : ∀ (j : Fin 3), b j = a j * ↑y ^ 2
+⊢ 1 ⊗ₜ[S] (((AdjoinRoot.of (polynomial (a 1))) ↑y * AdjoinRoot.root (polynomial (a 1))) ⊗ₜ[S] 1) =
+    ↑y • 1 ⊗ₜ[S] (AdjoinRoot.root (polynomial (a 1)) ⊗ₜ[S] 1)
+
+case «2»
+S : Type u_1
+inst✝ : CommRing S
+a b : Fin 3 → S
+y : Sˣ
+ha : ∀ (j : Fin 3), IsUnit (a j)
+h : ∀ (j : Fin 3), b j = a j * ↑y ^ 2
+⊢ 1 ⊗ₜ[S] (1 ⊗ₜ[S] ((AdjoinRoot.of (polynomial (a 2))) ↑y * AdjoinRoot.root (polynomial (a 2)))) =
+    ↑y • 1 ⊗ₜ[S] (1 ⊗ₜ[S] AdjoinRoot.root (polynomial (a 2)))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r39/ThreeRootScaledGenerators318.lean:29:6: warning: This simp argument is unused:
+  root_scale_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IntegralReciprocalRootScale318.orderEquiv, generator, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.cons_val_two, Algebra.TensorProduct.congr_apply, Algebra.TensorProduct.map_tmul, map_one,
+    ← TensorProduct.smul_tmul', TensorProduct.tmul_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r39/ThreeRootScaledGenerators318.lean:29:22: warning: This simp argument is unused:
+  ← TensorProduct.smul_tmul'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IntegralReciprocalRootScale318.orderEquiv, generator, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.cons_val_two, Algebra.TensorProduct.congr_apply, Algebra.TensorProduct.map_tmul, map_one, root_scale_smul,
+    TensorProduct.tmul_smul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r39/ThreeRootScaledGenerators318.lean:29:48: warning: This simp argument is unused:
+  TensorProduct.tmul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IntegralReciprocalRootScale318.orderEquiv, generator, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.cons_val_two, Algebra.TensorProduct.congr_apply, Algebra.TensorProduct.map_tmul, map_one, root_scale_smul,
+    ← TensorProduct.smul_tmul']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
