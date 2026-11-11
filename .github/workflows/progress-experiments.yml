@@ -65,6 +65,7 @@ jobs:
       - run: python -B scripts/test_diagonal_opaque_final_diagnostic.py
       - run: python -B scripts/test_diagonal_concrete_witnesses_diagnostic.py
       - run: python -B scripts/test_source_word_core_smoke.py
+      - run: python -B scripts/test_core_artifact_paths.py
       - run: python -B scripts/test_diagonal_split_map_carriers_diagnostic.py
       - run: python -B scripts/test_diagonal_consumer_transpose_diagnostic.py
       - run: python -B scripts/test_diagonal_consumer_carriers_diagnostic.py
@@ -121,7 +122,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-original-bounded-divisor-avoidance-r2'
+        if: always() && matrix.packet == 'relative-original-local-projective-classification-r2'
         shell: bash
         run: |
           set -euo pipefail
@@ -327,10 +328,10 @@ jobs:
           name: experiment-${{ matrix.packet }}
           path: |
             build/progress-experiments/${{ matrix.packet }}/RESULT.json
-            build/progress-experiments/relative-varying-source-word-core-r8/RESULT.json
-            build/progress-experiments/relative-varying-source-word-core-r8/logs/
-            build/progress-experiments/relative-varying-source-word-core-r8/ExperimentAudit.lean
-            build/progress-experiments/relative-varying-source-word-core-r8/SMOKE_SCOPE.json
+            build/progress-experiments/relative-varying-source-word-core-r*/RESULT.json
+            build/progress-experiments/relative-varying-source-word-core-r*/logs/
+            build/progress-experiments/relative-varying-source-word-core-r*/ExperimentAudit.lean
+            build/progress-experiments/relative-varying-source-word-core-r*/SMOKE_SCOPE.json
             build/progress-experiments/${{ matrix.packet }}/logs/
             build/progress-experiments/${{ matrix.packet }}/ExperimentAudit.lean
             build/progress-experiments/${{ matrix.packet }}/scratch-diagnostics/

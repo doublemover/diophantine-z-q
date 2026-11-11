@@ -1,0 +1,204 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:68:2: error: Type mismatch
+  OriginalTensorChartRestriction318.overlap_unit ?m.28 ?m.29 (↧(ContactKummerOrder318.SourceOrder c)) (finiteLine c L)
+    ?m.35 ?m.36 ?m.37 ?m.38 ?m.39 ?m.40 ?m.41 m
+has type
+  (ConcreteCategory.hom
+        (AffineTensorLinePushforward318.sectionsIso ?m.28 ?m.29 ↧(ContactKummerOrder318.SourceOrder c) ?m.35 ?m.36 ?m.37
+            ?m.38 ?m.39 (finiteLine c L) ?m.40 ?m.41).hom)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj (algebraMap ↑?m.28 ↑?m.29)).unit.app
+            ((ModuleCat.restrictScalars (algebraMap ↑?m.28 ↑↧(ContactKummerOrder318.SourceOrder c))).obj
+              (OriginalLineAffineModel318.sections (↧(ContactKummerOrder318.SourceOrder c)) (finiteLine c L)))))
+        m) =
+    (ConcreteCategory.hom
+        (OriginalTensorChartRestriction318.chartRecovery ?m.28 ?m.29 (↧(ContactKummerOrder318.SourceOrder c))
+            (finiteLine c L) ?m.35 ?m.36 ?m.37 ?m.38 ?m.39 ?m.40 ?m.41).hom)
+      ((ConcreteCategory.hom
+          ((TildePullback318.globalNatIso
+                  (AffineModuleBaseChange318.rightMap ?m.28 ?m.29 ↧(ContactKummerOrder318.SourceOrder c))).hom.app
+            (LineSheafPullback318.line
+                (Spec.map (AffineModuleBaseChange318.rightMap ?m.28 ?m.29 ↧(ContactKummerOrder318.SourceOrder c)))
+                (finiteLine c L)).object))
+        ((ConcreteCategory.hom
+            (moduleSpecΓFunctor.map
+              ((Scheme.Modules.pullbackPushforwardAdjunction
+                      (Spec.map
+                        (AffineModuleBaseChange318.rightMap ?m.28 ?m.29
+                          ↧(ContactKummerOrder318.SourceOrder c)))).unit.app
+                (finiteLine c L).object)))
+          m))
+but is expected to have type
+  (ConcreteCategory.hom (ContactCommonLaurentModule318.finiteIso c L).hom)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.finiteHom).unit.app
+            (finiteSections c L)))
+        m) =
+    finiteRestriction c L m
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  SchemeIsoPushforwardRecovery318.overBase ↦ 61
+  ContactCommonLaurentModule318.finiteIso ↦ 242
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:74:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:75:8: error: typeclass instance problem is stuck
+  Algebra ↑?m.36 ↑↧↥(ContactWholeInfinityAlgebra318.Ring c)
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and third type arguments to `Algebra` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:87:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (LinearEquiv.symm ?e) (?e ?b)
+in the target expression
+  (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+      ((ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv.symm
+        ((ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv
+          ((ConcreteCategory.hom
+              ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.finiteHom).unit.app
+                (finiteSections c L)))
+            m))) =
+    LaurentOriginalPolynomialCharts318.finiteMap ((Module.finBasis (Polynomial ℚ) ↑(finiteSections c L)).equivFun m)
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(finiteSections c L)
+⊢ (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+      ((ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv.symm
+        ((ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv
+          ((ConcreteCategory.hom
+              ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.finiteHom).unit.app
+                (finiteSections c L)))
+            m))) =
+    LaurentOriginalPolynomialCharts318.finiteMap ((Module.finBasis (Polynomial ℚ) ↑(finiteSections c L)).equivFun m)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (ConcreteCategory.hom
+        ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.finiteHom).unit.app
+          (finiteSections c L)))
+      m
+  has type
+    ↑((ModuleCat.extendScalars OriginalLaurentProjectiveOverlap318.finiteHom ⋙
+            ModuleCat.restrictScalars OriginalLaurentProjectiveOverlap318.finiteHom).obj
+        (finiteSections c L))
+  but is expected to have type
+    ↑((ModuleCat.extendScalars OriginalLaurentProjectiveOverlap318.finiteHom).obj (finiteSections c L))
+  in the application
+    (ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.finiteHom).unit.app
+            (finiteSections c L)))
+        m)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:106:4: error: Type mismatch
+  OriginalFiniteBasisBaseChange318.coordinates_unit OriginalLaurentProjectiveOverlap318.infinityHom
+    (infinitySections c L) m i
+has type
+  (OriginalFiniteBasisBaseChange318.coordinates OriginalLaurentProjectiveOverlap318.infinityHom (infinitySections c L))
+      (1 ⊗ₜ[Polynomial ℚ] m) i =
+    OriginalLaurentProjectiveOverlap318.infinityHom
+      (((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).repr m) i)
+but is expected to have type
+  (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+            (infinitySections c L)))
+        m)
+      i =
+    LaurentOriginalPolynomialCharts318.infinityMap ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun m)
+      i
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  ContactOriginalLaurentCoordinates318.infinityCoordinates ↦ 22
+  OriginalFiniteBasisBaseChange318.coordinates ↦ 22
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:109:26: error: Invalid simp theorem `ContactOriginalLaurentCoordinates318.rawTransition`: Expected a definition with an exposed body
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:111:4: error: Invalid simp theorem `ContactCommonLaurentModule318.transition`: Expected a definition with an exposed body
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:98:83: error: unsolved goals
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(infinitySections c L)
+hi :
+  (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+            (infinitySections c L)))
+        m) =
+    LaurentOriginalPolynomialCharts318.infinityMap ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun m)
+⊢ (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+      ((ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv.symm
+        ((ConcreteCategory.hom (ContactCommonLaurentModule318.infinityIso c L).hom)
+          ((ConcreteCategory.hom
+              ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+                (infinitySections c L)))
+            m))) =
+    (ContactOriginalLaurentCoordinates318.rawTransition c L)
+      ((ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+        ((ConcreteCategory.hom
+            ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+              (infinitySections c L)))
+          m))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:110:29: warning: This simp argument is unused:
+  LinearEquiv.symm_apply_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    ContactCommonLaurentModule318.transition, Iso.trans_hom, Iso.symm_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:111:46: warning: This simp argument is unused:
+  Iso.trans_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    LinearEquiv.symm_apply_apply, ContactCommonLaurentModule318.transition, Iso.symm_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:111:61: warning: This simp argument is unused:
+  Iso.symm_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    LinearEquiv.symm_apply_apply, ContactCommonLaurentModule318.transition, Iso.trans_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:116:4: error: Type mismatch
+  LaurentVectorFiltration318.positive
+has type
+  Submodule ?m.9 (LaurentVectorFiltration318.V ?m.9 ?m.11)
+but is expected to have type
+  Set (LaurentVectorFiltration318.V ℚ (ContactOriginalLaurentCoordinates318.finiteRank c L))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:141:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (coordinates ?c ?L) (infinityRestriction ?c ?L ?m)
+in the target expression
+  (fun m => (coordinates c L) (infinityRestriction c L m)) m ∈
+    ↑(Submodule.map (↑ℚ ↑(ContactOriginalLaurentCoordinates318.rawTransition c L)) LaurentVectorFiltration318.negative)
+
+case mp
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(infinitySections c L)
+⊢ (fun m => (coordinates c L) (infinityRestriction c L m)) m ∈
+    ↑(Submodule.map (↑ℚ ↑(ContactOriginalLaurentCoordinates318.rawTransition c L)) LaurentVectorFiltration318.negative)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r46/ContactOriginalRestrictionCoordinates318.lean:150:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (coordinates ?c ?L) (infinityRestriction ?c ?L ?m)
+in the target expression
+  (fun m => (coordinates c L) (infinityRestriction c L m))
+      ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun.symm p) =
+    v
+
+case mpr
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+v : Fin (Module.finrank (Polynomial ℚ) ↑(finiteSections c L)) → OriginalLaurentProjectiveOverlap318.Ring
+w : Fin (ContactOriginalLaurentCoordinates318.infinityRank c L) → ContactOriginalLaurentCoordinates318.A
+hv : (↑ℚ ↑(ContactOriginalLaurentCoordinates318.rawTransition c L)) w = v
+p : Fin (ContactOriginalLaurentCoordinates318.infinityRank c L) → Polynomial ℚ
+hp : LaurentOriginalPolynomialCharts318.infinityMap p = w
+⊢ (fun m => (coordinates c L) (infinityRestriction c L m))
+      ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun.symm p) =
+    v

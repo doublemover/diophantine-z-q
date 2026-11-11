@@ -1,0 +1,96 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r11/FourRootInfinityExtension318.lean:40:54: error: unsolved goals
+b : Fin 4 → ℂ
+z : Fin 4 → ℂ → ℂ
+hd : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝[≠] 0, DifferentiableAt ℂ (z k) w
+he : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝[≠] 0, z k w ^ 2 = (w ^ 2)⁻¹ - b k
+k : Fin 4
+hkd : ∀ᶠ (w : ℂ) in 𝓝[≠] 0, DifferentiableAt ℂ (fun w => w * z k w) w
+w : ℂ
+hw : z k w ^ 2 = (w ^ 2)⁻¹ - b k
+hn : w ∈ {0}ᶜ
+⊢ w ^ 2 * w⁻¹ ^ 2 - w ^ 2 * b k = 1 - w ^ 2 * b k
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r11/FourRootInfinityExtension318.lean:60:6: error: `simp` made no progress
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r11/FourRootInfinityExtension318.lean:93:4: error: unsolved goals
+case left
+b : Fin 4 → ℂ
+z : Fin 4 → ℂ → ℂ
+hd : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝[≠] 0, DifferentiableAt ℂ (z k) w
+he : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝[≠] 0, z k w ^ 2 = (w ^ 2)⁻¹ - b k
+r : Fin 4 → ℂ → ℂ
+hr : ∀ (k : Fin 4), AnalyticAt ℂ (r k) 0
+hrz : ∀ (k : Fin 4), r k =ᶠ[𝓝[≠] 0] fun w => w * z k w
+hr0 : ∀ (k : Fin 4), r k 0 ^ 2 = 1
+hrsq : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝 0, r k w ^ 2 = 1 - b k * w ^ 2
+hne : r 0 0 ≠ 0
+hunit : ∀ᶠ (w : ℂ) in 𝓝 0, r 0 w ≠ 0
+hu : AnalyticAt ℂ (parameter r) 0
+hu0 : parameter r 0 = 0
+hud : HasDerivAt (parameter r) (1 / r 0 0) 0
+hud2 : deriv (parameter r) 0 ^ 2 = 1
+hudne : deriv (parameter r) 0 ≠ 0
+inv : ℂ → ℂ
+hi : AnalyticAt ℂ inv 0
+hi0 : inv 0 = 0
+hleft : (fun w => inv (parameter r w)) =ᶠ[𝓝 0] id
+hright : (fun w => parameter r (inv w)) =ᶠ[𝓝 0] id
+hratio : ∀ (k : Fin 4), AnalyticAt ℂ (ratio r k) 0 ∧ ratio r k 0 ^ 2 = 1
+heq : ∀ᶠ (w : ℂ) in 𝓝 0, ratio r 0 w = 1 ∧ ∀ (k : Fin 4), ratio r k w ^ 2 = 1 + (b 0 - b k) * parameter r w ^ 2
+w : ℂ
+h0 : r 0 w = w * z 0 w
+h1 : r 1 w = w * z 1 w
+h2 : r 2 w = w * z 2 w
+h3 : r 3 w = w * z 3 w
+hn : r 0 w ≠ 0
+hw : w ∈ {0}ᶜ
+hall : ∀ (k : Fin 4), r k w = w * z k w
+hz : z 0 w ≠ 0
+⊢ w / w = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r11/FourRootInfinityExtension318.lean:96:4: error: unsolved goals
+case right
+b : Fin 4 → ℂ
+z : Fin 4 → ℂ → ℂ
+hd : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝[≠] 0, DifferentiableAt ℂ (z k) w
+he : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝[≠] 0, z k w ^ 2 = (w ^ 2)⁻¹ - b k
+r : Fin 4 → ℂ → ℂ
+hr : ∀ (k : Fin 4), AnalyticAt ℂ (r k) 0
+hrz : ∀ (k : Fin 4), r k =ᶠ[𝓝[≠] 0] fun w => w * z k w
+hr0 : ∀ (k : Fin 4), r k 0 ^ 2 = 1
+hrsq : ∀ (k : Fin 4), ∀ᶠ (w : ℂ) in 𝓝 0, r k w ^ 2 = 1 - b k * w ^ 2
+hne : r 0 0 ≠ 0
+hunit : ∀ᶠ (w : ℂ) in 𝓝 0, r 0 w ≠ 0
+hu : AnalyticAt ℂ (parameter r) 0
+hu0 : parameter r 0 = 0
+hud : HasDerivAt (parameter r) (1 / r 0 0) 0
+hud2 : deriv (parameter r) 0 ^ 2 = 1
+hudne : deriv (parameter r) 0 ≠ 0
+inv : ℂ → ℂ
+hi : AnalyticAt ℂ inv 0
+hi0 : inv 0 = 0
+hleft : (fun w => inv (parameter r w)) =ᶠ[𝓝 0] id
+hright : (fun w => parameter r (inv w)) =ᶠ[𝓝 0] id
+hratio : ∀ (k : Fin 4), AnalyticAt ℂ (ratio r k) 0 ∧ ratio r k 0 ^ 2 = 1
+heq : ∀ᶠ (w : ℂ) in 𝓝 0, ratio r 0 w = 1 ∧ ∀ (k : Fin 4), ratio r k w ^ 2 = 1 + (b 0 - b k) * parameter r w ^ 2
+w : ℂ
+h0 : r 0 w = w * z 0 w
+h1 : r 1 w = w * z 1 w
+h2 : r 2 w = w * z 2 w
+h3 : r 3 w = w * z 3 w
+hn : r 0 w ≠ 0
+hw : w ∈ {0}ᶜ
+hall : ∀ (k : Fin 4), r k w = w * z k w
+hz : z 0 w ≠ 0
+k : Fin 4
+⊢ w * z k w / w = z k w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r11/FourRootInfinityExtension318.lean:60:12: warning: This simp argument is unused:
+  parameter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
