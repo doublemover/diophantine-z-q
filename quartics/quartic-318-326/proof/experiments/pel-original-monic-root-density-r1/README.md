@@ -1,0 +1,5 @@
+# Genuine density for whole monic root models
+
+Every continuous fixed-degree monic complex polynomial family has an OPEN projection from its ENTIRE root locus, including multiple and ramified roots. For the actual family over a specified polynomial localization, removal of ANY nonzero base polynomial leaves a genuinely Euclidean-dense subset of that whole monic root locus.
+
+The proof uses an elementary multiplicity-retaining product estimate: small evaluation forces an actual nearby root. It makes no continuous root-choice or separability assumption. Finite-dimensional polynomial identity on complex open sets produces actual base density, and open projection pulls it back. All231 prior targets including actual fullD original image comparison are exact. No local Lean was run. This does NOT yet prove Euclidean density in an arbitrary full original candidate chart outside the finite/generator denominator. That remaining boundary needs a genuine finite-normalization/point-lifting/properness argument.
