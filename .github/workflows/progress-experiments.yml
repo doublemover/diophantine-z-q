@@ -322,7 +322,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_tensor_transport_faces.py "$PACKET"
       - name: Non-admitted exact center prefix diagnostics
-        if: always() && matrix.packet == 'height-normalized-valuative-center-r48'
+        if: always() && matrix.packet == 'height-normalized-valuative-center-r49'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}

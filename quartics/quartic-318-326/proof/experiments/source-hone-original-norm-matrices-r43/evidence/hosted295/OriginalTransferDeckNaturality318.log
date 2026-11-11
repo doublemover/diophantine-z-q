@@ -1,0 +1,44 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r41/OriginalTransferDeckNaturality318.lean:57:24: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (AffineHOneComparison318.transfer ?f ?r)
+    ((sectionBoundary (StructureAdditiveSheaf318.sheaf ?m.278) (?f ⁻¹ᵁ ?U) (?f ⁻¹ᵁ ?V) ⋯) ?s)
+in the target expression
+  (sectionBoundary (StructureAdditiveSheaf318.sheaf Y) U V ?h✝)
+      ((ConcreteCategory.hom (r.hom.app (op (U ⊓ V))))
+        ((ConcreteCategory.hom (Scheme.Hom.appLE e.hom (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) ⋯)) s)) =
+    (AffineHOneComparison318.transfer f r) ((AffineCoverHOnePresentation318.boundary (f ⁻¹ᵁ U) (f ⁻¹ᵁ V) ⋯) s)
+
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+f : X ⟶ Y
+inst✝² : IsAffineHom f
+inst✝¹ : AlgebraicGeometry.IsIntegral Y
+inst✝ : IsDominant f
+r : StructureAdditiveSheaf318.pushed f ⟶ StructureAdditiveSheaf318.sheaf Y
+e : X ≅ X
+he : e.hom ≫ f = f
+hr :
+  ∀ (W : Y.Opens) (s : ↑Γ(X, f ⁻¹ᵁ W)),
+    (ConcreteCategory.hom (r.hom.app (op W)))
+        ((ConcreteCategory.hom (Scheme.Hom.appLE e.hom (f ⁻¹ᵁ W) (f ⁻¹ᵁ W) ⋯)) s) =
+      (ConcreteCategory.hom (r.hom.app (op W))) s
+U V : Y.Opens
+hU : IsAffineOpen U
+hV : IsAffineOpen V
+h : U ⊔ V = ⊤
+s : ↑Γ(X, f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V)
+⊢ (sectionBoundary (StructureAdditiveSheaf318.sheaf Y) U V ?h✝)
+      ((ConcreteCategory.hom (r.hom.app (op (U ⊓ V))))
+        ((ConcreteCategory.hom (Scheme.Hom.appLE e.hom (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) ⋯)) s)) =
+    (AffineHOneComparison318.transfer f r) ((AffineCoverHOnePresentation318.boundary (f ⁻¹ᵁ U) (f ⁻¹ᵁ V) ⋯) s)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (ConcreteCategory.hom (Scheme.Hom.appLE e.hom (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) ⋯)) s
+  has type
+    ↑Γ(X, f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V)
+  but is expected to have type
+    ↑((StructureAdditiveSheaf318.pushed f).obj.obj (op (U ⊓ V)))
+  in the application
+    (ConcreteCategory.hom (r.hom.app (op (U ⊓ V))))
+      ((ConcreteCategory.hom (Scheme.Hom.appLE e.hom (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) (f ⁻¹ᵁ U ⊓ f ⁻¹ᵁ V) ⋯)) s)

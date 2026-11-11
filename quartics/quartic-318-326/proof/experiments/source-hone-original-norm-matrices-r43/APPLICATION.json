@@ -1,0 +1,246 @@
+{
+  "claim": "Pending exact original unnormalized H1 trace/pullback matrices and specified one-dimensional target coordinates, without claiming a Picard tangent or isogeny theorem.",
+  "producer": "reconcile_proof_queue",
+  "date": "2026-11-10",
+  "status": "PENDING_DISTINCT_REVIEW_AND_HOSTED_CHECK",
+  "new_sources": {
+    "OriginalSimplePoleResidues318.lean": "0f968d5fdadd38ab793e945a3e6b44f7c4be343909ff4c22a10c2561e210b0ec"
+  },
+  "modified_sources": {
+    "OriginalFinitePoleExpansion318.lean": "0ea92eee45b0405d77e39fa1101cc65a53d64dce3a1a35397da3e24759bf1df3"
+  },
+  "readme_sha256": "3d5174b7f87fe805ce4c5c5a3c2fa8d61c46a86fb48d8a542d2a2fe2d94d4aad",
+  "intake_sha256": "ef0f26950affd481d4f4a09ad7fae9122d962e319fd72271f2a4af8e89adfa83",
+  "copy_bindings_sha256": "aeb4f0f8c647ff70dd2bab1db355cff5cb4dc67707b1a8f0bd46cf6c1763a7b5",
+  "obligations": [
+    {
+      "name": "Original unnormalized operator",
+      "required": "An arbitrary multiple of a retraction is not automatically the original trace.",
+      "constructed": "originalTrace uses original characterTrace/fifthTrace and the unchanged inverse comparison.",
+      "justification": "retraction_eq proves the original sheaf map factors by structural1/8 before deriving any scalar relation.",
+      "evidence": [
+        "OriginalHOneTraceNormalization318.originalTrace",
+        "OriginalHOneTraceNormalization318.retraction_eq"
+      ]
+    },
+    {
+      "name": "Structural rational normalization",
+      "required": "The scalar factor must be on the actual rational H1 module.",
+      "constructed": "normalized_transfer uses Sheaf.H.map_comp_apply and the original CohomologyRationalScalar318.structureModule.",
+      "justification": "normalized_formula specializes exactly the actual target structural maps and original retractions.",
+      "evidence": [
+        "OriginalHOneTraceNormalization318.normalized_transfer",
+        "OriginalHOneTraceNormalization318.normalized_formula"
+      ]
+    },
+    {
+      "name": "Canonical original target generators",
+      "required": "Coordinates cannot be chosen independently of the original maps.",
+      "constructed": "generator is original transfer of original characterClass; pullback_generator recovers that same source class.",
+      "justification": "Nonvanishing follows from the actual source residue class, not merely a field element.",
+      "evidence": [
+        "OriginalTargetHOneCoordinates318.generator",
+        "OriginalTargetHOneCoordinates318.pullback_generator"
+      ]
+    },
+    {
+      "name": "Whole target dimension",
+      "required": "A nonzero vector alone does not prove target dimension1.",
+      "constructed": "line_surjective uses original whole-target pullback_line and original split injection; line_injective uses generator_nonzero.",
+      "justification": "The resulting exact Q equivalence proves each target finrank1.",
+      "evidence": [
+        "OriginalTargetHOneCoordinates318.line_surjective",
+        "OriginalTargetHOneCoordinates318.target_finrank_one"
+      ]
+    },
+    {
+      "name": "Original cross-factor matrix",
+      "required": "Off-diagonal vanishing must involve original traces and original pullbacks.",
+      "constructed": "trace_pullback_matrix combines proved original trace normalization and original cross_terms.",
+      "justification": "Dependent target carriers are transported only under index equality.",
+      "evidence": [
+        "OriginalFiveHOneNormMatrices318.trace_pullback_matrix"
+      ]
+    },
+    {
+      "name": "Whole source degree factor",
+      "required": "The summed operator must act as8 on all source H1.",
+      "constructed": "sum_pullback_traces uses rational linearity and the whole-source identity for original normalized projections.",
+      "justification": "No kernel component is omitted; prior whole-H1 equivalence and exact trace inverse are retained.",
+      "evidence": [
+        "OriginalFiveHOneNormMatrices318.sum_pullback_traces"
+      ]
+    },
+    {
+      "name": "Coordinate and geometric sign identity",
+      "required": "Coordinate matrix and sign action must refer to those same geometric maps.",
+      "constructed": "trace_character_matrix has exact matrix8I in specified target generators; sign_trace_character uses original SchemeSourceCohomology318.pullback.",
+      "justification": "No separate representation or relabeled trace operator is used.",
+      "evidence": [
+        "OriginalFiveHOneNormMatrices318.trace_character_matrix",
+        "OriginalFiveHOneNormMatrices318.sign_trace_character"
+      ]
+    },
+    {
+      "name": "Downstream geometric boundary",
+      "required": "Cohomology decomposition alone is not a Picard or Jacobian isogeny theorem.",
+      "constructed": "The deliverable stops at actual H1 maps and matrices, preparing exact inputs for a norm/tangent comparison.",
+      "justification": "Picard representability, degree-zero component and tangent identification remain separate and are not assumed established.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Exact source revisions and checks",
+      "required": "The known scalar repair and all new dependencies must be preserved.",
+      "constructed": "98 exact99r7 sources. Remaining negative native multiplication is identified through the ORIGINAL injective overlap embedding and field ring identities, then original boundary additivity. Same maps, representatives, structural rational module and consumers. Exact replay485 repair: Normalize the post-average nested rational scalar explicitly; prove weighted character via the OLD additive poleMap.toRatLinearMap rather than a false native tensor scalar defeq; remove duplicate projector_sum rewrite and expose rational self-action. Original carriers/maps and budgets unchanged. Temporary independent diagnostic99 route: all98 other sources are byte-identical to99r9. The projector source is exactly the already-reviewed diagnostic bytes from210r4 (unchanged mathematics/tactics/statements/budgets). The union stopped at its earlier pointed ModuleScalarPullback frontier before it could emit projector diagnostics. This separate route is to localize the known silent180s timeout, not to claim a repair or new acceptance. Exact65c29 diagnostic repair: weighted_character now supplies the explicit rfl evaluation of its local rational-linear map L before applying map_smul. character_spanning consumes the SAME original additive fiveCoefficients_surjective, retains its equality instead of substituting rfl through the rational-linear wrapper, and exposes only the literal original five-term sum using an explicit application equation. All mathematical statements, maps, instances and budgets unchanged. Flushed milestones retained and expanded around the localized spanning boundary. This addresses observed local-map mismatch and whnf timeout without increasing resources; hosted validation pending. Exact692590c8/run42627873790 repair: weighted_character now passes; character_spanning alone hits deterministic whnf heartbeat limit after both concrete sum milestones, followed only by unknown-constant cascades. Move finite-sum reindexing into a theorem over an arbitrary AddCommMonoid with its original rational SMul, then specialize it to the SAME HOne, actual fiveCoefficients, literal pole classes, exact smallIndex bijection and proved weighted_character. This isolates finite-index proof normalization from concrete derived-cohomology carriers. All original statements, instances, mathematical maps, domains and budgets unchanged; new diagnostic milestones distinguish abstract reindexing from its actual specialization. Hosted validation and independent source acceptance pending; no local Lean. Exact30f117bc/run42632872820 hosted repair: all60 predecessors including the entire ActualSourceHOneCharacterProjectors318 module PASS (123.430 seconds, unchanged budgets). First error OriginalInfinityCoefficient318:15 is unknown X in unqualified polynomial notation. Replace only the domain spelling Q[X] with explicit Polynomial Q in original baseU. Subsequent displayed coordinate/smul/evaluation failures contain the resulting sorry placeholder and are cascading; no speculative mathematical repair. The original coordinate is literally the same algebraMap of Polynomial.X by InfinityOverlapLocalization318.coordinate. All maps, scalar actions, statements, proofs and budgets unchanged. New hosted validation and independent acceptance pending; no local Lean. Exact90893838/run42642219295 dedicated99r13 hosted evidence: first62 predecessors PASS, including actual whole H1 projectors113.432s, OriginalInfinityCoefficient4.474s and OriginalNegativePoleUniqueness5.226s. OriginalOverlapResidues fails a native rational scalar rewrite and an implicit Finset product-sum rewrite. Prove native scalar compatibility using map_rat_smul for the original coefficient ring hom and right-multiplication additive hom, not replacing any module instance. Specialize that exact identity to each original pole. Apply the primary sum_product directly with the full rectangle and literal summand, then sum_congr and the proved pole identity. Same all negative coefficients, original overlap, actual scalar map, statements and budgets. No local Lean; fresh independent and hosted acceptance pending. Exact e36a6803 replay42649103375 dedicated99r14: first63 predecessors PASS, including original projectors131.495s and newly repaired OriginalOverlapResidues7.383s. New OriginalFinitePoleExpansion failures are tuple projection transparency, original constant/t aliases, literal Fin.succ rewriting, composite polynomial constant map and native finite tensor scalar action. Expose exact natural tuple projections; give typed original rational coefficient/t equations from original field identities; use actual Fin3 successor indices; prove actual composite polynomial map on Cq by map_rat_algebraMap; specialize the already passing NativeTensorScalar.tensor_smul to the SAME original four-root order before coefficient expansion. All original whole finite elements,16 basis indices, coefficients, pole bounds and statements preserved; no local Lean or budget change. Fresh independent/hosted acceptance pending. Exact 226803e8 hosted repair: all previous H1 modules through original overlap residues pass. The finite monomial pole calculation now expands the original infinity basis by an explicit equality before distributing its actual localization map. This exposes all three original generator powers rather than asking simp to rewrite through the opaque Basis coercion. Same full16 finite monomials, native coefficients, pole orders and budgets. No local Lean compilation; independent source review and hosted verification remain required.",
+      "justification": "Static import/hash/audit checks do not certify hosted Lean elaboration or independent mathematical acceptance.",
+      "evidence": [
+        "COPY_BINDINGS.json",
+        "intake.json",
+        "README.md"
+      ]
+    }
+  ],
+  "revision_source": "source-hone-original-norm-matrices-r29",
+  "pinned_apis_sha256": "868c516cfd898135f3801959f51d28ec1d19dbdf853eed2dd9df6ba827e74bb2",
+  "predecessor_application_sha256": "fee0c276c366168fb377113ddee9fa4cece6183d722ab5c66d99eb452c60ea9c",
+  "repair_note": "Exact hosted replay203 frontier: expose only the existing inclusion := InfinityOverlapLocalization.toOpen at the two original pole-clearing computations, then use pinned Finsupp.finsetSum_apply and single_apply instead of an opaque applyAddHom coercion change. Same original infinity inclusion, residue functional, coefficients and pole equations; all198 other source bytes and limits unchanged. No local Lean run.",
+  "packet": "source-hone-original-norm-matrices-r43",
+  "revision_note": {
+    "parent": "source-hone-original-norm-matrices-r17",
+    "source": "OriginalSmallPoleResidues318.lean",
+    "before": "59f428701d815ba10dc914aebfb1c62a832accd2fbbc4699b2c32eb992d7bc7e",
+    "after": "5972899bea41945b6e2a54f3b9ebf1ba912a30e23553f0be8a149b31a3510711",
+    "repair": "Normalize actual identity-ring scalar in lowResidues; explicitly distribute actual rational scalar over fiveRepresentatives sum before ring normalization. Same objects/statements/budgets.",
+    "local_lean": false
+  },
+  "bindings": {
+    "RESIDUE_LINEAR_REPAIR.json": "9b5a1715cf0474060b7762b8521edbdff10df690fc455fccf66c3a8150fd633f",
+    "intake.json": "ef0f26950affd481d4f4a09ad7fae9122d962e319fd72271f2a4af8e89adfa83",
+    "COPY_BINDINGS.json": "aeb4f0f8c647ff70dd2bab1db355cff5cb4dc67707b1a8f0bd46cf6c1763a7b5",
+    "evidence/hosted216/InfinityBasisUnitCoefficients318.log": "e4c421de7ff7e2fc9c553543254e795f2bf1a7f934ceee418bd0dbdde011eaf7",
+    "evidence/primary/FinLemmas.lean": "f00755157b6915ad4ff73f0ff86143576dcf9d89a0d0a31a8f0d9401b0a45bd0",
+    "evidence/hosted234/InfinityBasisUnitCoefficients318.log": "2009bd9080e45b4876ba2b33910996d64ee07f4b19e047c1e45d22d919877b7d",
+    "evidence/hosted247/OriginalCharacterSimplePole318.log": "36d8e6343ef07416e127642fefe81d08ac858f8289937e5213a7c7ba941f718e",
+    "evidence/hosted259/WeierstrassLaurentModel318.log": "1e8433bfdeeccf6e894f5e9cf54adc14aca59a94a37de05514b8bbfabbaba7cb",
+    "evidence/hosted268/WeierstrassLaurentFiltration318.log": "268a92fc7c0c33d6cce2c852d05c86fb7f81e5c0cec2ca52de9f7fc9e3c289e1",
+    "evidence/hosted277/WeierstrassHOneNonzero318.log": "16d9cd7cf9d92f051eaf89d0c46c8262d5526d6cbe5985fcdd2e80bf78a4e2ea",
+    "evidence/hosted284/OriginalOpenTraceDeck318.log": "4cfbedb22c12715b9142c668046eef8a290ca85743919a744410b78cb971bba3",
+    "evidence/hosted287/OriginalOpenTraceDeck318.log": "eccfdaced48b8e3cafb81bcaa157d9271da31bfc7f9a7dcd346c880767f18bad",
+    "evidence/hosted291/OriginalOpenTraceDeck318.log": "d07446578296787875b9d6041191b4ca6219b59da88ed56c5ef33addc283c479",
+    "evidence/hosted295/OriginalTransferDeckNaturality318.log": "ecbe839137a833f2c85706ca28f87176c7585965969d7311451b902e74b9439f",
+    "evidence/hosted299/OriginalTransferDeckNaturality318.log": "4f0cf6ed292d4e91c1e4bbec461134dc779d4b98eff895f6b2aa521ada018e3d"
+  },
+  "shared_repair_source": "original-five-pointed-norm-decomposition-r22",
+  "shared_repair_application_sha256": "b164e87c5083cb57e007346a3da5b6d78c741cb73ec599f41b7fae6e6dec0cdd",
+  "recovery_delta": {
+    "predecessor": "source-hone-original-norm-matrices-r42",
+    "changed_sources": [
+      "OriginalTransferDeckNaturality318.lean"
+    ],
+    "scope": "Exact replay299: both original transfer_boundary rewrites leave only the explicit same cover proof U sup V equals top. Supply literal f,r,U,V,h to both rewrites. Same source and target sheaves, boundary, deck/trace maps, hypotheses and budget; no new premise.",
+    "local_lean_run": false
+  },
+  "sources": {
+    "SchemeSourceCohomology318.lean": "cf366db605c3b65dff275db82bfd8bccef11728a74b451123016c78c236c243f",
+    "AffineChartRingSections318.lean": "558fed5a21ab3f5dc261f2117c7ebac7dac843027f7e3e07cbd86c6b22413e74",
+    "MayerVietorisCoefficientNaturality318.lean": "a016fdec2197d5895d6428dd11643133cfb53c2177f0af8a1e92d37b360058eb",
+    "ActualQuotientHOne318.lean": "7f7e23038d11d86190eb0f37d512b434c47e4dd9ae449e0e7da5bccec85a0588",
+    "ContactWholePrincipalReduction318.lean": "bccc43e2b7468050da7b8e78d4bf64abcf139400da0d0954970c46f4c70cfa25",
+    "RefinedSchemeBoundary318.lean": "2a239f3866627dd7b26f2aee2f51302ffbaf2dae0d7cf5c10eabf14586702944",
+    "SourceCohomologyComparison318.lean": "87d6460435f194a371b665a784153fbd8bde75259cbc54fe30e709a4476b5e63",
+    "ActualSourceHOneCoordinates318.lean": "8c5680553c64b931c03338924d8358666f20cd073382578ebe06dd77f29b28f4",
+    "NormalizedStructureTrace318.lean": "abb00761f6802bdacf30b0778c018831ca9647becaac17ba4d849db530a6dbea",
+    "OriginalCharacterSimplePole318.lean": "1538e41e012ded685b68df52df5930e918290baee92af813862303013b2fe936",
+    "ActualSourceHOneQuotient318.lean": "290c867f1a4eb267cefa9b1544ff2bd234721285fb0f0b810d858dfcd355698a",
+    "AdjunctionExtOneInjection318.lean": "94e11868bc24a939e9a504eaf299c907e7020b6db3c93abf18c5f732d890df8f",
+    "InverseImageLocalCohomology318.lean": "59e43867bbf8e9cc09b7e7ade044cd7e0c9f4515f5493cf3b8d771ac762b8352",
+    "InverseImageMayerVietoris318.lean": "9b86ead714fb6eaaa11d4dc6afb370c31d4a5f2a6de4663cd9d9403215815641",
+    "LocalAffineStructureHOne318.lean": "b98e203ecd663b4add7aaabbcdbd81b4e0e419b1c6cae21fd3bf2204c4a71d12",
+    "AffinePrincipalLocalLifts318.lean": "4ff73469a263043051f848ab2f5f5b8206d3d883855a07e48035cf2d7e8c9c90",
+    "OriginalCharacterHOneNonzero318.lean": "5ae3248b8ba12710a63015e77aff48f6178aab7e9ada5143e12ec9fd30534fb1",
+    "OriginalHOneTraceNormalization318.lean": "930002bee3c7c02368c552a670d197e87f7d1e01ecf4c7c906ae9542ca87f3a9",
+    "OriginalOpenTraceDeck318.lean": "da71979a2e4fb710e3ef913b8a1716ac5b49fd116ad5c7d5ea196b46e4898816",
+    "ActualPrincipalSections318.lean": "8a2ac7ba18c671401e03f726833d18c63ca7fe865cca66d0974c0a94b7c1d3df",
+    "OriginalFiveTransferInvariance318.lean": "502a657629aa3e8e12d6ad90d05d102213da34bb2489d6451403692ae4e3cbc4",
+    "ActualSourceHOnePrincipalRepresentatives318.lean": "e6063e383c21a4a51f836f6a80617861f11a65118e878297eed67b81b06aab6a",
+    "WeierstrassLaurentModel318.lean": "f4e84fd13cd0515db80c0f11b074e15814cc5bc543d10ee76f174688f806d0c8",
+    "OriginalOverlapResidues318.lean": "501607d2c96fc5411d18d78b94d2bf3878aca461ef5b0584cf019f83e331b5a5",
+    "OriginalInfinityCoefficient318.lean": "16230635d36cdd37cc364b79eb48fa26c0e03231a6a2fb9cb9275d7149b39752",
+    "SchemeBoundaryNaturality318.lean": "650420fd62c1fcd3a2e55ef8ac3f7037f2625627640eb6e94dee6d0496fcc5d2",
+    "ContactPrincipalCoefficientExpansion318.lean": "b922e9f4c3b6829b89f83828fb938f5e9ecbcfb2c2d569c819f830e621f38257",
+    "OriginalSimplePoleResidues318.lean": "0f968d5fdadd38ab793e945a3e6b44f7c4be343909ff4c22a10c2561e210b0ec",
+    "ActualPrincipalCocycle318.lean": "18911203bcd8c5df0df3958ab82aab4a0e33620ad8002a8737064d2aef315288",
+    "OriginalFiveHOneTraceEquivalence318.lean": "bb14f9c8362ff24d9dd7c6f1dc80206936aeaa153eda42aa59e253ec2b3662d1",
+    "InverseImageTerminalCoherence318.lean": "eefeee0a7fce1a3f1328539750febe080daa5f02d79b9715db2ae54e690206a6",
+    "PolynomialPrincipalParts318.lean": "24f6f72c6555d04e78232447a59b75c3a57ff46a18486ff8449c7cbc600c3745",
+    "AffineCoverHOnePresentation318.lean": "3329efd91265de79439d14021a1ff622dd119c4ed635f6d5d4f37983f9b22fdd",
+    "WeierstrassOriginalResidue318.lean": "8bab850949fd65baa3cd0e3ee3caa6223a40702490bf389c69dd9e4740132566",
+    "OriginalSmallPoleResidues318.lean": "fca544163c7a347a876f4d8a1db52374e13e9709e5d19ea0be64e62800daad18",
+    "OriginalSignChartPreservation318.lean": "8c9e52b4eb6e00467571249e398afb471743656408d24ce69a3d12cb74b1787d",
+    "AffineStructureSectionLifting318.lean": "2ac2e6df2a100c636d2ce4f35bf861cfa44374017b72943d17ec28705b463e3c",
+    "StructureAdditiveSheaf318.lean": "efd79f28709b0bd98a0a4cf6828025247a3dd5c28f290174838c87346ce0c749",
+    "OriginalFiveHOneEquivalence318.lean": "5d6d47d234bfb01c5ec1314475be1ef8058aca87e7cd14f2c1d7cb34fa2f5a76",
+    "SourceHOneCharacterIndices318.lean": "5df26c447d853134e7be593debee56353690a95bf3a5dc49208acf7dd1324719",
+    "AdjunctionExtOneSurjection318.lean": "6a49c7ca0ee6fe4ef0d0cecf94fd1532f77e31ecd9518d3e6ba65b1ad37b73c5",
+    "ActualSourceHOneResidueBasis318.lean": "f33f33d264d1412696b8b35e1fe84a9c440145033cae3b9fe895161ef1a6eb34",
+    "OpenMayerVietoris318.lean": "f605cda94cc1e64e4fd7321788d4ba916bce6df0c292cf2e1b8e71965dfe6f87",
+    "AffineCoverHOneQuotient318.lean": "40b44437fe69e934fbf9851659716da9a840f227b809476a461060a78c39ab67",
+    "AffineStructureDirectImage318.lean": "1f45cac581ec6f1a519daa21c7961096593470412d128454965f9dcec94b9cb9",
+    "SheafCohomologyRetraction318.lean": "7aee8a9e5b7e3308d42041e1d73af3ac588a322bb1f79d7055a489129434b3ec",
+    "AffineOpenSectionLifting318.lean": "63cfd41012771cadf17044259f65e03a8d8693bc52843a4a6fdc9d6fc56806fb",
+    "MayerVietorisCoverRefinement318.lean": "d7de2c1ff7ba819365c997dc44178565e3ea15b24cc34d85e013228de9c32a89",
+    "ActualSourceHOneFiveSpanning318.lean": "ad77a3efd430e45a888dc0dd3a7774e1d1e7db5b5c4f6542651eaff59911e3e4",
+    "PrincipalFractionClearing318.lean": "a055271d9f1f5b67244e06bb846e0c51872a951ebc10154b7c6e698e6f07c1a7",
+    "TerminalLocalCohomology318.lean": "e5bae9aba9f3398c1a3864362436fd8622074256fa2ac0ae0270367888628b35",
+    "OriginalCharacterPullbackLines318.lean": "5db77b86db49e143fc47c199764d5b1dd6baf27feab1840ef0f223071282391d",
+    "ActualHOneRationalStructures318.lean": "fdf10e8ff73e6c252290672c53501f245e37067db53889a08a4ba6c375b73577",
+    "LocalSheafCohomologyAdditive318.lean": "020f8caa1351a7c377e53188edd7700924bebf2225cd87d0aa0192ae6dfee275",
+    "ActualSourceHOneCharacterAction318.lean": "3869bb870f9f88c8b97c464dcd6decca8e57d0476d9f85ff2be1ebfae01fce0c",
+    "StructureRationalScalar318.lean": "9bd5b0d58e259dcd909eea0cf6ff010de21b7bf16770ce0d632d2aae8c3186b6",
+    "CohomologyRationalScalar318.lean": "7bb578ea8baef196e042db8172d3f75cdbc5855e0f91afdd29e4812c54e635e2",
+    "WeierstrassLaurentFiltration318.lean": "4ebf6cb6e5c98c523bd0bbbacd121ccec5ab4dd61d5a0632b426b5ce7e55f87b",
+    "ActualSourceHOneGeometricSigns318.lean": "8f57deaca70f8b7e970a8c4bd28dd4ffceea2d579c3860626b0860be9b49da7c",
+    "StableCoverBoundary318.lean": "648eb483327efc86e108c61112c504e259343b0e2b40244a4e0aa3f1dea40a98",
+    "SheafInverseImageConstants318.lean": "094fc83fdb42d587bf46b38f46bf48fa270fe5c5da0609c4ec1c85de9794ca17",
+    "ActualSourceHOneSmallPoles318.lean": "41c9ff4ceb5778220d00cc81e485aa361423163059b822474281914a3869714d",
+    "OriginalCharacterClassPullbacks318.lean": "28ad519ca5e1250322013b4887bcb3e5d86bf75681411460d33983c8e559e52a",
+    "LocalCohomologyRestriction318.lean": "82f1221761ae4e62b539e0a18217fb6833a35a6bd4ae8eedd4c05ccfcbf06816",
+    "ContactFinitePoleReduction318.lean": "a9720b14b8b9a85c1b50b8d4f9bb78046b9890a830529438a5d2f914718021e2",
+    "AdditiveSheafSections318.lean": "cc2d6d357c8ca15a86459f7a62fbd4b945314a6d5535480c44b3da4ec14507b6",
+    "WeierstrassBoundaryClass318.lean": "57929fc3e7809ab37f4b8790d651e2e1129b6e213c7342746b8bec5b0eb3f7d5",
+    "RootOrderMonomialBasis318.lean": "e0c7ac43bab4837c7d7f123f0f893ddf03645a3392aed8e49ba52696c3682a3d",
+    "WeierstrassHOneNonzero318.lean": "249a8ac012866beccd94c29460ab78989e8d02baf81a386457917670e8e9174d",
+    "ActualFiveHOneRationalExhaustion318.lean": "72c3f5db8e24ccc486c06a29df6b003babedb76981b71f6cf5438eca1c14fa43",
+    "ContactInfinityRegularFractions318.lean": "403b040dc82dd872d821010d8675d4c16fedd8683b215db601b89d3aa4e3390f",
+    "OpenImmersionAdditiveRestriction318.lean": "f8e97119b337406d9c4ec58879a59a014ec7a700ee5dfbe77c870cc26ea20f2f",
+    "PrincipalCocycleSplit318.lean": "ea3425c0d04250a585b8e40227ab6dfa6814c1133e155b1cad2f3f17e33d66f7",
+    "NativeTensorScalar318.lean": "169a954e4ccf75b0bd7748867db3816a559c2e185203ec560204e3191372da6e",
+    "ActualSourceHOnePresentation318.lean": "1f0e1ae9664f5b1f8db7b731f7feebf05e24efaa601c2ffbfc09fe703b1eaa8b",
+    "ActualSourceHOnePullbacks318.lean": "aedc5fb77f2afcc12a9b634d0ddd1a3965b5655d8a5500ce4e6f5f53415305c5",
+    "MayerVietorisSectionKernel318.lean": "e06780fb67abb7fbd00910628c684acfef3bb8b75964fb70a4d40abc4cfe900a",
+    "ActualSourceHOneCharacterProjectors318.lean": "d0b34020cae957f85586b8b7bcb7bf6c288fdff845f3493cf909c3bedeec4ce0",
+    "OriginalNegativePoleUniqueness318.lean": "40dd795570a1d18b63c4e9022e0491e5486b0070b2969ea533efab892510cefb",
+    "SplitAdditiveRetraction318.lean": "fc7cf66164739c31f0da1bef3067e1245c67d1371fe1514a79079a68334fdf07",
+    "ActualFiveHOneDecomposition318.lean": "8fbc75e5c90f0a2174449c32e4260b01011dae1751270001b9108f8d0f2ffd2e",
+    "AffineHOneComparison318.lean": "98d173f236d1246fea108178e03f0688ef1200472af322ef13f8c774986182e8",
+    "ContactInfinityPrincipalParts318.lean": "96c5e4fb70a520f25272e559834f1b6bee4734935f02170833384717699d0425",
+    "OriginalFinitePoleExpansion318.lean": "95171cf9375294116556802286303b9396872cd9f565e09a305eabf1682bdcee",
+    "InfinityBasisUnitCoefficients318.lean": "23cd45d323c9e243473f2c72dd7efa71e2c5e976717a326f24662658538b96f2",
+    "ContactHOneOrderBases318.lean": "efa7e0f633d01a8ebd1d6a7841f347bb2f71ad94a52ce2bac31bdf5fafc3cde9",
+    "OriginalFiveHOneNormMatrices318.lean": "46bc22bb3c5ee1859310db8b600aa766ebc36a610fee51c4a30dee74e16d1faf",
+    "ActualSourceHOneRationalSpanning318.lean": "ad1c1ef5ce90c244559b925e29f12c3e3ae690876245e767e7da7c619f389160",
+    "FiniteSplitTransfer318.lean": "c73171930f9509643e4a6b7b62726ffb7412ee858023a003b28e073d3f8f7913",
+    "OriginalFifthPullbackLine318.lean": "659a9f5f503e8fdd425e15aca5163485feadd3530db27c719f5a68cc84891531",
+    "ActualSourceHOneTransfers318.lean": "681815c8a19d4e096b39299a49335f028a6eec6a8ec35d7447ad8b89c56f8fc4",
+    "OriginalFivePullbackIndependence318.lean": "4a1f200527bd6f899d8ca6ff2ac0a9fd4db2343463db9d54e1c1651002e109dd",
+    "ActualQuotientSheafRetraction318.lean": "f8de85ec9aab887af1883bf5c8a938820085194078af8310ec3712aca18ba16b",
+    "TwoChartHOneFunctoriality318.lean": "46b1c0b1ff3de05e9bc1ede38252cc9e7fdfc2d97e5a4a63825fd97c067d02e5",
+    "InverseImageLocalGenerator318.lean": "de3d6f6188013382ba5d79df34cd750458eec85ecdd6e34418392da128bd9412",
+    "LocalSheafCohomologySections318.lean": "bbb3bd5f596dec478d9a5124c3ba9b429696e07aae83be23b2ddad7e1c1865dd",
+    "OriginalTransferDeckNaturality318.lean": "659985f4706fba1795d93c092252c815c23defa4a730c7be063a0a8bed3f8f57",
+    "SourceHOneCharacterRepresentatives318.lean": "a0685275b198f0bb0a60f7ee3d2fff9c6c941bbcd8ab8327d4b3003995490b46",
+    "OriginalTargetHOneCoordinates318.lean": "704196a65ce629ca76be12ca9c4ec61d62849c13f540192c3c72cb0252392642"
+  }
+}
