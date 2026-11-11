@@ -1,0 +1,34 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r61/ThreeJGlobalKernelChart318.lean:50:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom ((Scheme.ΓSpecIso ↧A).inv ≫ Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom f)))) a
+in the target expression
+  (ConcreteCategory.hom (Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom f))))
+        ((ConcreteCategory.hom (Scheme.ΓSpecIso ↧A).inv) a) =
+      0 ↔
+    f a = 0
+
+A B : Type u
+inst✝¹ : CommRing A
+inst✝ : CommRing B
+f : A →+* B
+a : ↑↧A
+hn :
+  (ConcreteCategory.hom (CommRingCat.ofHom f ≫ (Scheme.ΓSpecIso ↧B).inv)) a =
+    (ConcreteCategory.hom ((Scheme.ΓSpecIso ↧A).inv ≫ Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom f)))) a
+⊢ (ConcreteCategory.hom (Scheme.Hom.appTop (Spec.map (CommRingCat.ofHom f))))
+        ((ConcreteCategory.hom (Scheme.ΓSpecIso ↧A).inv) a) =
+      0 ↔
+    f a = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r61/ThreeJGlobalKernelChart318.lean:49:13: warning: This simp argument is unused:
+  CommRingCat.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [CommRingCat.ofHom_apply] at hn
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r61/ThreeJGlobalKernelChart318.lean:49:36: warning: This simp argument is unused:
+  CommRingCat.ofHom_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [CommRingCat.comp_apply] at hn
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
