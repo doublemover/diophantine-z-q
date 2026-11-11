@@ -1,0 +1,13 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-full-scheme-points-r1/BasePreservingAffinePoints318.lean:52:17: error: unsolved goals
+case hRoot
+R L : Type
+inst✝¹ : CommRing R
+inst✝ : CommRing L
+g : R →+* L
+v : R →+* ℂ
+Q : R[X]
+e : AdjoinRoot Q ≃+* L
+he : ∀ (a : R), e ((AdjoinRoot.of Q) a) = g a
+f : AdjoinRootSpecializedPoints318.Points Q v
+⊢ ↑((fun f => ⟨(↑f).comp e.toRingHom, ⋯⟩) ((fun f => ⟨(↑f).comp e.symm.toRingHom, ⋯⟩) f)) (AdjoinRoot.root Q) =
+    ↑f (AdjoinRoot.root Q)
