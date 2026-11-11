@@ -1,0 +1,92 @@
+# Application contract: unchanged naive relative Picard sheaf identification
+
+1. **Source requirements.** Presieve.isSheafFor_arrows_iff requires compatibility against every common test arrow; the existing original open-intersection matching follows by specializing these arrows, not conversely assuming unproved compatibility. Presieve.isSheafFor_singleton likewise requires every pair over the original target, which supplies the old actual double equation. IsSheafFor.of_singleton requires a member covering arrow and, for every other sieve arrow, a commuting square with a separated covering leg. We construct that leg by the actual scheme pullback and use the newly proved all-test singleton descent. Sheaf.finestTopologySingle requires the sheaf condition after EVERY pullback of the sieve. The pinned exact declarations are stored and bound under primary-sources; required direction and domains are checked in the corresponding new sources.
+
+2. **Constructed objects.** OriginalRelativeSite.presheaf is literally the old RelativeLineClassBaseChange.presheaf followed by forget CommGrpCat. Its objects are the old TestClass on actual fiber products, and map_apply is the old testMap definition. OriginalRelativeOpenBaseChange constructs the actual morphismRestrict square on inverse-image opens. OriginalRelativePullback constructs the actual scheme pullback as an object of Over(FieldBase), with both original projections. ContactNaiveFppfIdentification.naiveSheaf packages the unchanged old group presheaf with the newly proved property. Its inverse is the OLD sheafification lift of the identity, not a new quotient or abstract replacement object.
+
+3. **Coverage.** All original tests are permitted, including non-affine and nonreduced schemes. All affine opens are used with iSup_affineOpens_eq_top; inverse_image_cover covers the entire source. Intersections need not be affine: their equality is detected through independently proved all-test separatedness. Covering families are arbitrary small families, possibly infinite, and their FULL original coproduct is used. The pinned mem_grothendieckTopology_iff guarantees such a small actual covering family inside every covering sieve; this is why the family construction covers the entire big-site sheaf condition without treating an arbitrary presieve as finite. No affine-source or quasi-compactness premise is added to fppf covering arrows.
+
+4. **Transition directions.** OriginalRelativeOpenBaseChange.square proves restrictedArrow followed by the original target inclusion equals the original source inclusion followed by the old arrow. nested proves its exact smaller-open naturality. PresheafSingletonSquares applies contravariance in this direction to original sections. Local solutions recover the original covering section on whole inverse images, and their restrictions agree after the original restricted f-cover. Sieve comparison uses the literal first and second scheme pullback projections. OriginalRelativeSite.sieve_mem_left transports an arbitrary relative arrow through the pinned sieve equivalence without dependent replacement of its source test. The family step retains Sigma.ι_desc on each original component.
+
+5. **Hypothesis checks.** Local singleton descent over affine bases consumes the already constructed Contact fppf matching theorem. Restriction and pullback preserve the original flatness, surjectivity and local finite presentation, with the actual IsPullback witnesses retained. All-test separatedness precedes local-solution matching, avoiding a circular global descent premise. The full coproduct covering morphism is flat and locally of finite presentation by the actual sigma-cover map_prop and is surjective by the original covering-family property. Open-cover sieve membership uses the actual isoOpensRange and exact inverse factorization, not a hypothesis that the source is a literal open. Proof-only hypotheses are explicitly included before declarations.
+
+6. **Consumer identity.** The type sheaf theorem is on Scheme.fppfTopology.over(FieldBase t), the same topology used by RelativeFppfLineSheaf.topology. The forgetful criterion returns a sheaf property for exactly the old CommGrpCat-valued presheaf, preserving its tensor product/group operation. The old unit_lift proves unit followed by the constructed inverse is identity. The old sheafify_hom_ext, applied to that same old associated sheaf, proves the other inverse equation. Therefore presheafIso.hom is definitionally the OLD unit, and testIso_hom exposes this exact identity for every test. No unrelated natural equivalence or hypothetical represented object is consumed downstream.
+
+7. **Scalars and normalization.** No scalar rescaling, tensor power, trace normalization or change of original quotient is introduced. The forgetful functor changes only the proof presentation, and the final comparison is a CommGrpCat isomorphism. The finest topology is the pinned universal-sheaf construction, not a topology defined to be fppf. Actual fppf covering sieves are proved to belong to it using singleton covers and open component covers; evaluating its universal sheaf condition at the identity then gives the desired original fppf condition. The exact 269-source predecessor, including its narrow cb6 composite-adjoint repair, is byte-for-byte unchanged.
+
+8. **Downstream boundary.** This establishes the naive/associated-fppf-sheaf identification for the Contact family over its constructed ContactFieldBase. It does not construct the degree-zero component, a representing scheme or algebraic space, a Poincare bundle, smooth/proper group geometry, a represented Jacobian, an isogeny or the PEL curve identification. The existing first-order H1/pointed-kernel and determinant-norm results remain separate and can be compared with a represented tangent only after representability and its deformation interface are proved. General arbitrary-family Picard representability is not inferred from effective descent.
+
+9. **Evidence and acceptance.** APPLICATION.json binds this contract, README, exact sources, intake/order/hash files, dependency copies, audit driver, and pinned primary-source evidence. The exact 269 producer sources and the two old relative sheafification producers are independently identified in DEPENDENCIES.json. Static source/import/placeholder validation and audit-history self-test are not Lean elaboration or mathematical acceptance. Hosted compile and recursive axiom audit remain pending, and independent bounded source review is authored only by the reviewer. No baseline promotion, retrospective approval or complete arithmetic theorem claim is made.
+
+## Revision after exact776c7ce hosted replay
+
+The exact 776c7ce run passes the repaired composite-adjoint producer and first fails at the original identity comparison. Normalize the actual NatIso component explicitly to the same let-bound iso before cancellation; use its generic inverse-hom reassociation lemma instead of broad simplification. Apply left adjunction naturality before right naturality so the original counit adjoint is retained. No map, statement, hypothesis, or resource budget changes. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.
+
+## Revision after exact03fd8af hosted replay
+
+After the exact 03fd8af hosted first failure (28 predecessors passed), factor original identity sheaf comparison cancellation through a generic categorical lemma, and normalize literal identity-functor objects before the unchanged counit-adjoint identity. No original map, hypothesis, theorem conclusion or resource budget changes. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.
+
+## Revision after exact30f117bc-replay hosted replay
+
+After exact 30f117bc replay (28 producers passed), normalize the actual identity-functor map and categorical association in generic cancellation. Expose the original counit homEquiv in a typed intermediate equation before applying its proved right-triangle identity. Preserve all maps, hypotheses, conclusions and resource limits; no local Lean compilation. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.
+
+## Revision after exact4421a9c8 hosted replay
+
+Exact4421a9c8 replay:28 predecessors passed; generic identity cancellation and original sheaf identity now pass. Only final rewrite through the section equation fails because its unrelated left side has semireducible pullback-line object instances under implicit rewrite transparency. Keep the entire original equation unchanged and compose it with a separately typed congrArg of the original counit-adjoint identity, followed by literal comp_id. No dependent rewrite through that left side, no mathematical or resource changes. Frozen predecessors and exact failure bytes are preserved. Hosted validation pending.
+
+## Exact114 hosted repair
+
+Exact run42642219295 first28 modules passed; sections_identity alone hit kernel excessive memory at33.98s. The entire unchanged adjunction calculation is now proved for generic categories, retaining its explicit original counit and sheaf comparison as premises, then specialized once using the same actual sectionsIso, sheafIso, pullback identity and scalar-extension identity. No mathematical input, map, theorem or budget change. Frozen286r5 and exact failure retained.
+
+## Exact118 hosted repair
+
+Exact replay42649103375/e36a6803 first28 modules PASS. The generic original adjunction identity proof now checks without the earlier kernel memory failure; the specialization alone fails field projection because the categorical identity lacks a CommRingCat hom type annotation. Add the explicit original type (𝟙 R : R ⟶ R) before .hom. Same map, same statement, no budget change. Frozen286r6 and exact failure retained.
+
+## Exact121 hosted repair
+
+Exact replay42654444580/68796d4 first28 modules PASS. OriginalLineComparisonIdentity generic cancellation, sheaf identity and generic adjunction lemma elaborate, but final sections_identity homEquiv specialization triggers kernel excessive memory (30.793 seconds). Replace only that proof route by generic faithful-tilde detection after postcomposition with the SAME original counit: use the already-proved original sectionsIso_counit, actual counit naturality, and unchanged sheaf_identity. The final section equation and all actual objects/maps are unchanged. No resource-budget changes. Frozen286r7 and exact failure retained.
+
+## Explicit theorem-scope batch
+Batch proof-only section-hypothesis repair after direct declaration/body inspection: eight required include clauses, no body or conclusion changes. Explicit original square, factorization and reconstruction hypotheses retained. False positives from existing includes or dependent parameter types left untouched.
+278 exact source files retained;8 source files change only include clauses.
+
+## Round124 normalization
+Explicit NatIso.app_inv normalization; move3 include clauses before their doccomments.282 exact r10 source files and4 repaired source files.
+
+
+## Exact round131 elaboration normalization
+Normalize Iso.app_hom/Iso.app_inv and the actual pulled-line object at three equality joins. Same original normalized edge, actual pullback path and scalar comparison. No budgets raised; no local Lean.
+
+
+## Narrow object-projection normalization
+Exact hosted kernel memory diagnostic at OriginalGeometricEdge318.edge_to_module. Replace simp unfolding the entire LineSheafPullback.line record (including transported cover/frame proofs) with a tiny generic pulled_object projection lemma. Same object normalization, actual edge, statement and budgets;285other source bytes unchanged. Performance candidate, not yet confirmed by hosted kernel.
+
+
+## Opaque edge coherence specialization
+Exact hosted r16 kernel-memory frontier at edge_to_module: the object-projection lemma alone did not suffice. Add a generic normalized_map theorem which substitutes the middle comparison BEFORE concrete geometric specialization. The two actual endpoint squares are separate opaque named lemmas. Final edge_to_module is now a single direct generic theorem application with opaque endpoint/pulled-morphism certificates; it performs no simplification or rewrite of a huge specialized equality. Same original edge, named comparisons, theorem statement and budgets.284other sources exact.
+
+
+## Pinned hosted-only edge profiling
+Diagnostic-only successor for exact OriginalGeometricEdge wall timeout124. Lean v4.35.0 src/Lean/Util/Profile.lean registers profiler Bool and profiler.threshold Nat milliseconds; enable profiler=true/threshold=0 only in this source. It prints component/declaration timings for completed components, not a guarantee of a begun-but-unfinished declaration. No broad trace, budget, statement, proof or map changes;285other sources exact. No runtime or mathematical fix claimed.
+
+
+## Direct stderr and separate same-import probe
+Diagnostic-only: pinned Lean run_cmd AND async command wrappers capture stderr by default into messages. Set stderrAsMessages false before flushed stderr checkpoints, and insert one separate import-only checkpoint module with EXACT same mathematical imports to isolate import/command runtime. No mathematical declarations changed, no budgets increased. Empty earlier captured logs do not identify a proof frontier.
+
+
+## User-requested exact endpoint_square profiler
+USER-REQUESTED hosted-only diagnostic: exact r22 original untouched endpoint_square statement and proof, with ONLY set_option profiler true in scoped to that declaration. Existing direct stderr markers and same-import probe retained. Unpublished r23 proof rewrite is NOT selected and NOT inherited. No mathematical changes, no budgets changed; await GitHub CI profiling evidence before touching endpoint_square.
+
+
+## Scoped unchanged-proof rewrite tracing
+Root-authorized follow-up hosted-only diagnostic after scoped profiler timeout180s without completed profile output. Exact r24 original endpoint_square statement/proof and direct stderr markers preserved; ONLY trace.Meta.Tactic.simp.rewrite true scoped to same declaration added. No proof/math/budget edits; no broad tracing. Pinned Lean Trace.addTrace stores messages in TraceState; addTraceAsMessages flushes after command completion, so wall kill may still lose pending traces. Empty output must NOT be treated as evidence of no simplifier work. Unpublished proof-rewrite r23 remains excluded.
+
+
+## Diagnostic-only bounded trace flush
+ROOT-AUTHORIZED DIAGNOSTIC ONLY: exact r25 scoped profiler+rewrite trace around original untouched endpoint_square. Add maxHeartbeats10000 scoped ONLY to same declaration to force a Lean diagnostic/trace flush before180s wall kill. This is a throwaway diagnostic run, NOT an accepted production proof budget or mathematical repair. Mathematical proof and statement bytes unchanged;286other modules exact. r23 rewrite remains excluded. Pending traces are buffered per pinned Lean Trace.addTrace; smaller bound is intended to return control and flush evidence. No absence-of-trace diagnosis if still killed.
+
+
+## Profile-guided opaque reassociation candidate
+Profile-guided endpoint kernel-conversion candidate after hosted167 scratch evidence: original simpa17ms, actual type-check deterministic timeout10k, statement/comparison/simplification-only scratch declarations around2s. Adds opaque abstract categorical associate_endpoint lemma; endpoint_square applies it to EXACT original section comparison and exact original arrows. Explicit propositional reassociation avoids asking kernel for concrete-map associativity by reduction. Same endpoint signature, original endpoint definition, actual comparisons, maps and edge consumer. Existing profiler/rewrite trace and diagnostic10k cap retained to compare hosted behavior; no proof acceptance or performance improvement claimed. No local Lean. Originalr24/r26 immutable and evidence preserved. Existing scratch harness intentionally exact-SHA-bound to originalr26 and is NOT repurposed for this candidate.
+
+Diagnostic-only successor: no mathematical application changes from r42. All production declarations, maps, hypotheses, consumers and budgets are unchanged. See FINAL_DIAGNOSTIC.json for the exact hosted failure and separate scratch scope.
