@@ -1,0 +1,16 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r49/LocalizedRationalDifferentials318.lean:46:0: error: This instance has 2 arguments that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 1: `(g : ℚ[X])`
+  argument 3: `(u : Ring h)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r49/LocalizedRationalDifferentials318.lean:50:4: error: Type mismatch
+  Eq.symm (AlgHom.commutes (aeval (targetCoordinate g h u)) q)
+has type
+  (algebraMap ℚ (Ring h)) q = (aeval (targetCoordinate g h u)) ((algebraMap ℚ ℚ[X]) q)
+but is expected to have type
+  (algebraMap ℚ (Ring h)) q = (algebraMap ℚ[X] (Ring h)) ((algebraMap ℚ ℚ[X]) q)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-three-j-reciprocal-kernel-r49/LocalizedRationalDifferentials318.lean:55:2: error: 'change' tactic failed, pattern
+  (frame h) ((D ℚ (Ring h)) ((aeval (targetCoordinate g h u)) X)) = ?m.69
+is not definitionally equal to target
+  (frame h) ((D ℚ (Ring h)) ((algebraMap ℚ[X] (Ring h)) X)) = (value h) (derivative g * f - g * derivative f) * u ^ 2
