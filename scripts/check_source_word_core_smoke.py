@@ -9,14 +9,14 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-varying-word-ideal-classifier-r2'
-CORE='relative-varying-source-word-core-r2'
-PARENT_INTAKE='56e576451ceec1f5eda22a374172abd67c42cb0f02d9402160002dc7c2ac2c65'
-PARENT_APPLICATION='f13e231a61bcfa1c7d2ad541f11cb42605bd25df5f9b5a2723dfdfcb30f2e48f'
-CORE_INTAKE='f28bb79955c4a5ecbe72089c9d68e212271a53328f8ac2a391bc8c471687910e'
-CORE_APPLICATION='73215799d27966dcb90ad6c5178c0f476e74830f99ecc76abbb032fd24251c2e'
-CLOSURE_SHA='412cf8d32c6c6c965d63d0959780a74b713f74083ba4ea680219ea5b24389633'
-TARGETS=['VaryingWordIdealChartClassifier318']
+PARENT='relative-varying-normalized-ideal-basechange-r2'
+CORE='relative-varying-source-word-core-r3'
+PARENT_INTAKE='3ac233b2b28f1bff6b34c316fd576e58c5670b2e3829322e18541aa400c0dc95'
+PARENT_APPLICATION='ea6f8240e951ae860956b1df319cea78557e7b123867331f1d152ba8d98118f9'
+CORE_INTAKE='c5eda3a5fab5feaa6aa453cda45ce3081ab87a9b69eed7338ebebccedf5de06d'
+CORE_APPLICATION='b7d0027e553b4d795c228b70f5527f546faf718175de3d5c97812c01818f56cc'
+CLOSURE_SHA='aa9b95a2c01d2f00d074c3d19bfdf856abd52be17232185fdef1943102068019'
+TARGETS=['VaryingWordIdealChartClassifier318','VaryingNormalizedIdealBaseChange318']
 SECONDS=180
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -43,7 +43,7 @@ def validate(root=c.EXPERIMENTS):
             if dep in available:stack.append(dep)
             else:require(dep.split('.')[0] in c.OFFICIAL_PREFIXES,'Unbound project producer: '+dep)
     order=[n for n in parent['order'] if n in visited]
-    require(len(order)==35 and order==core['order']==closure['order'],'Missing, reordered or excess core producer')
+    require(len(order)==56 and order==core['order']==closure['order'],'Missing, reordered or excess core producer')
     require(set(core['files'])=={n+'.lean' for n in order},'Core file/order mismatch')
     for name in order:
         a=p/(name+'.lean');b=k/(name+'.lean');digest=sha(a)
@@ -71,11 +71,11 @@ def main():
     # Never change the full result, source registry, cache or accepted manifest.
     output.mkdir(parents=True,exist_ok=True)
     (output/'SMOKE_SCOPE.json').write_text(json.dumps({
-        'scope':'EXACT_35_MODULE_CORE_ONLY_NOT_FULL_613_ACCEPTANCE',
+        'scope':'EXACT_56_MODULE_CORE_ONLY_NOT_FULL_633_ACCEPTANCE',
         'parent':PARENT,'parent_intake_sha256':PARENT_INTAKE,
         'parent_result_sha256':sha(parent_result),'parent_status':full.get('status'),
         'core':CORE,'core_intake_sha256':CORE_INTAKE,'targets':TARGETS,
-        'source_modules':35,'same_bytes_as_full_parent':True,'seconds_per_module':SECONDS,
+        'source_modules':56,'same_bytes_as_full_parent':True,'seconds_per_module':SECONDS,
         'standard_checker_exit_code':result.returncode,'full_packet_accepted':False,
         'new_source_acceptance':False,'full_arithmetic_theorem_proved':False},indent=2)+'\n')
     raise SystemExit(result.returncode)
