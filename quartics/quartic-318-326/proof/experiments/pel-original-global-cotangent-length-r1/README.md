@@ -1,0 +1,15 @@
+# Actual global cotangent total stalk length40 over every scheme point
+
+The actual canonical local-ring cotangent-stalk length function is now defined on EVERY point of the whole original algebraic curve, including nonclosed and generic points. Its exact support is the image of the SAME derivative-zero closed immersion, and the finsum over the ENTIRE scheme is40. This strengthens the earlier sum indexed only by original Ramification; it does not redefine length as an indicator or assume the support computation.
+
+FourRootZeroAllPoints318 uses the actual finite zero-scheme structure map to prove locally Artinian and hence discrete topology. Every actual scheme point is therefore closed. The upstream residue-field pointEquivClosedPoint is a genuine equivalence between all underlying points and all base-preserving complex-valued points. Composition with the647 original Ramification equivalence gives an equivalence of EVERY zero-scheme topological point with original Ramification, with the original closed inclusion point computed exactly, and actual cardinality40.
+
+LocalQuotientLengthSupport318 proves at every prime that the image of the exact ideal quotient is precisely ideal containment. Outside that image, a literal ideal member outside the prime becomes a unit in the canonical prime localization, so the mapped full ideal is top and the actual quotient module has length0.
+
+FourRootCotangentWholeSupport318 applies that all-prime criterion through BOTH actual open preimage squares. The existing all-prime canonical frame cover covers the whole curve, including generic points and all infinity components. The actual finite and canonical-infinity sheaf-stalk/local-ideal comparisons then prove length0 off the whole closed zero scheme. The infinity localization range supplies the required true denominator condition; no infinity prime is silently omitted.
+
+PELOriginalGlobalCotangentLength318 defines length by the genuine canonical sheaf-stalk Module.length. On every zero-scheme point, the actual point-preserving original equivalence gives length1 from the previously proved actual cotangent branch-stalk theorem. Outside the image, the all-prime vanishing theorem applies. Only now is its support identified, proved finite, and finsum reduced using the injective original closed immersion to all40 original zero-scheme points.
+
+Boundary: total_length_forty is the finite total of actual stalk lengths over the entire scheme. It is NOT a proof of categorical composition length in the sheaf category, an isomorphism with a globally chosen generator, or H0 of the cotangent sheaf. The preceding actual H0(O_Z) dimension40 theorem is retained and kept distinct. Analytic source algebraization and final PEL/Picard/Jacobian identification remain open. No local Lean was run; source review and hosted elaboration remain separate.
+
+Complete647 predecessor closure is retained exactly. Six pinned primary Mathlib sources from56a005855ea17e0b0958f73ec801ae140b0a1679 are under PRIMARY/. Existing application review is historical for copied arguments; these four new connecting arguments require fresh independent review.
