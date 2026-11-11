@@ -1,0 +1,85 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:18:0: warning: automatically included section variable(s) unused in theorem `RelativeOriginalOverlapRingMap318.map_tmul`:
+  [Algebra (Polynomial k) B]
+  [IsScalarTower k (Polynomial k) B]
+  [Algebra k[T;T⁻¹] O]
+  [IsScalarTower k k[T;T⁻¹] O]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Algebra (Polynomial k)
+  B] [IsScalarTower k (Polynomial k) B] [Algebra k[T;T⁻¹] O] [IsScalarTower k k[T;T⁻¹] O] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:32:2: error: unsolved goals
+case h₁
+k R B O : Type u
+inst✝¹⁰ : CommRing k
+inst✝⁹ : CommRing R
+inst✝⁸ : CommRing B
+inst✝⁷ : CommRing O
+inst✝⁶ : Algebra k R
+inst✝⁵ : Algebra k B
+inst✝⁴ : Algebra k O
+inst✝³ : Algebra (Polynomial k) B
+inst✝² : IsScalarTower k (Polynomial k) B
+inst✝¹ : Algebra k[T;T⁻¹] O
+inst✝ : IsScalarTower k k[T;T⁻¹] O
+g : B →ₐ[k] O
+s : Polynomial R →+* R[T;T⁻¹]
+hC : ∀ (r : R), s (Polynomial.C r) = C r
+n : ℤ
+hX : s Polynomial.X = T n
+hg : g ((algebraMap (Polynomial k) B) Polynomial.X) = (algebraMap k[T;T⁻¹] O) (T n)
+r : R
+⊢ (map k R B O g).toRingHom (r ⊗ₜ[k] 1) = r ⊗ₜ[k] 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:35:2: error: unsolved goals
+case h₂
+k R B O : Type u
+inst✝¹⁰ : CommRing k
+inst✝⁹ : CommRing R
+inst✝⁸ : CommRing B
+inst✝⁷ : CommRing O
+inst✝⁶ : Algebra k R
+inst✝⁵ : Algebra k B
+inst✝⁴ : Algebra k O
+inst✝³ : Algebra (Polynomial k) B
+inst✝² : IsScalarTower k (Polynomial k) B
+inst✝¹ : Algebra k[T;T⁻¹] O
+inst✝ : IsScalarTower k k[T;T⁻¹] O
+g : B →ₐ[k] O
+s : Polynomial R →+* R[T;T⁻¹]
+hC : ∀ (r : R), s (Polynomial.C r) = C r
+n : ℤ
+hX : s Polynomial.X = T n
+hg : g ((algebraMap (Polynomial k) B) Polynomial.X) = (algebraMap k[T;T⁻¹] O) (T n)
+⊢ (map k R B O g).toRingHom (1 ⊗ₜ[k] (algebraMap (Polynomial k) B) Polynomial.X) = 1 ⊗ₜ[k] (algebraMap k[T;T⁻¹] O) (T n)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:34:56: warning: This simp argument is unused:
+  map_tmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RelativeOriginalPolynomialAlgebra318.polynomialMap_C, hC,
+    RelativeOriginalLaurentAlgebra318.laurentMap_C, map_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:34:65: warning: This simp argument is unused:
+  map_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RelativeOriginalPolynomialAlgebra318.polynomialMap_C, hC,
+    RelativeOriginalLaurentAlgebra318.laurentMap_C, map_tmul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:36:56: warning: This simp argument is unused:
+  map_tmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RelativeOriginalPolynomialAlgebra318.polynomialMap_X, hX,
+    RelativeOriginalLaurentAlgebra318.laurentMap_T, hg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-positive-abel-presentation/RelativeOriginalOverlapRingMap318.lean:36:65: warning: This simp argument is unused:
+  hg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, RelativeOriginalPolynomialAlgebra318.polynomialMap_X, hX,
+    RelativeOriginalLaurentAlgebra318.laurentMap_T, map_tmul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
