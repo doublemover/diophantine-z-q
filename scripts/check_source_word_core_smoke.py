@@ -9,13 +9,13 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-varying-projective-module-quotient-r3'
-CORE='relative-varying-source-word-core-r9'
-PARENT_INTAKE='077e1bac918f6522bf2a7008eca0d7274fd309a05b27bcd184576569d84b8256'
-PARENT_APPLICATION='0daecf4a477081daca0e785fa551837897e2cf4c999e395e32bc2e5f7eaa8186'
-CORE_INTAKE='caf6e1a14c6942578aeab649899213809ab63f2be135b6dce750d0e40737c535'
-CORE_APPLICATION='0af50786b81bb67091a5bb5f7cf5170c5552bb46c092e6525ad6c5cc1dcd442b'
-CLOSURE_SHA='4ff5fe42f1670b139077d77e43312cd3adc8899a1ef480f4184d9141a08cb11d'
+PARENT='relative-original-bounded-divisor-avoidance-r2'
+CORE='relative-varying-source-word-core-r10'
+PARENT_INTAKE='e0a6078e71ba9ab11a5d5f6350a89f268006109afa8bb6ea97631da34ce75108'
+PARENT_APPLICATION='e2d3acde73b1de6f6a994c6e29c97b3f37593ad507cbc6a4cb278a0c71d3f789'
+CORE_INTAKE='32a0f705728da116e80c526eeb4c6cc1dc9088ab58da31d17e360c432c20f765'
+CORE_APPLICATION='785dc6aaa11b0580f850036b8433f96455ec3fadb28fd0e9f3d64f9c7edb7cfa'
+CLOSURE_SHA='acce8e19511850207c16aa1041bfbf66be28e8f6eac6a1b8da8596f3ad62463c'
 TARGETS=['VaryingWordIdealChartClassifier318', 'VaryingNormalizedIdealBaseChange318', 'VaryingWordGlobalFamilyProjection318', 'VaryingWordGlobalClosedQuotient318', 'VaryingBoundedFreeIdealMap318', 'VaryingGlobalFreeQuotientEquiv318', 'VaryingBoundedQuotientRecovery318', 'SchemeClosedOpenPushout318', 'SchemeTwoOpenClosedDescent318', 'AffineClosedRestrictionIso318', 'VaryingLocalFreeQuotientNaturality318', 'VaryingProjectiveQuotientFamily318']
 SECONDS=180
 
@@ -71,7 +71,7 @@ def main():
     # Never change the full result, source registry, cache or accepted manifest.
     output.mkdir(parents=True,exist_ok=True)
     (output/'SMOKE_SCOPE.json').write_text(json.dumps({
-        'scope':'EXACT_155_MODULE_CORE_ONLY_NOT_FULL_763_ACCEPTANCE',
+        'scope':'EXACT_155_MODULE_CORE_ONLY_NOT_FULL_785_ACCEPTANCE',
         'parent':PARENT,'parent_intake_sha256':PARENT_INTAKE,
         'parent_result_sha256':sha(parent_result),'parent_status':full.get('status'),
         'core':CORE,'core_intake_sha256':CORE_INTAKE,'targets':TARGETS,
