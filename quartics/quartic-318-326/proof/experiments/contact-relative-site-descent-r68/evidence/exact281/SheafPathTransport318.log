@@ -1,0 +1,73 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r55/SheafPathTransport318.lean:24:45: error: unsolved goals
+U X Y : Scheme
+M : U.Modules
+q : Y ⟶ X
+p : X ⟶ U
+v : Y ⟶ U
+h : q ≫ p = v
+⊢ (PullbackPathComposition318.iso q p v h).inv.app M ≫
+      (Scheme.Modules.pullback q).map (𝟙 ((Scheme.Modules.pullback p).obj M)) ≫
+        (PullbackPathComposition318.iso q p v h).hom.app M =
+    𝟙 ((Scheme.Modules.pullback v).obj M)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r55/SheafPathTransport318.lean:25:24: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transport, Category.id_comp, Iso.inv_hom_id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r55/SheafPathTransport318.lean:25:40: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transport, Functor.map_id, Iso.inv_hom_id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r55/SheafPathTransport318.lean:25:58: warning: This simp argument is unused:
+  Iso.inv_hom_id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transport, Functor.map_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r55/SheafPathTransport318.lean:63:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Scheme.Modules.pullback q ⋙ Scheme.Modules.pullback r).map a ≫ c.hom.app ((Scheme.Modules.pullback p₁).obj M) ≫ ?h
+in the target expression
+  d₀.inv ≫
+      c.inv.app ((Scheme.Modules.pullback p₀).obj M) ≫
+        F.map ((Scheme.Modules.pullback q).map a) ≫ c.hom.app ((Scheme.Modules.pullback p₁).obj M) ≫ d₁.hom =
+    d₀.inv ≫ (Scheme.Modules.pullback rq).map a ≫ d₁.hom
+
+U X Y Z : Scheme
+M : U.Modules
+q : Y ⟶ X
+r : Z ⟶ Y
+rq : Z ⟶ X
+hrq : r ≫ q = rq
+p₀ p₁ : X ⟶ U
+v₀ v₁ : Y ⟶ U
+w₀ w₁ : Z ⟶ U
+hq₀ : q ≫ p₀ = v₀
+hq₁ : q ≫ p₁ = v₁
+hr₀ : r ≫ v₀ = w₀
+hr₁ : r ≫ v₁ = w₁
+hc₀ : rq ≫ p₀ = w₀
+hc₁ : rq ≫ p₁ = w₁
+a : (Scheme.Modules.pullback p₀).obj M ⟶ (Scheme.Modules.pullback p₁).obj M
+F : Y.Modules ⥤ Z.Modules := Scheme.Modules.pullback r
+c : Scheme.Modules.pullback q ⋙ Scheme.Modules.pullback r ≅ Scheme.Modules.pullback rq :=
+  PullbackPathComposition318.iso r q rq hrq
+x₀ : F.obj ((Scheme.Modules.pullback p₀ ⋙ Scheme.Modules.pullback q).obj M) ≅ (Scheme.Modules.pullback w₀).obj M :=
+  F.mapIso ((PullbackPathComposition318.iso q p₀ v₀ hq₀).app M) ≪≫ (PullbackPathComposition318.iso r v₀ w₀ hr₀).app M
+x₁ : F.obj ((Scheme.Modules.pullback p₁ ⋙ Scheme.Modules.pullback q).obj M) ≅ (Scheme.Modules.pullback w₁).obj M :=
+  F.mapIso ((PullbackPathComposition318.iso q p₁ v₁ hq₁).app M) ≪≫ (PullbackPathComposition318.iso r v₁ w₁ hr₁).app M
+d₀ : (Scheme.Modules.pullback p₀ ⋙ Scheme.Modules.pullback rq).obj M ≅ (Scheme.Modules.pullback w₀).obj M :=
+  (PullbackPathComposition318.iso rq p₀ w₀ hc₀).app M
+d₁ : (Scheme.Modules.pullback p₁ ⋙ Scheme.Modules.pullback rq).obj M ≅ (Scheme.Modules.pullback w₁).obj M :=
+  (PullbackPathComposition318.iso rq p₁ w₁ hc₁).app M
+hx₀ : x₀ = c.app ((Scheme.Modules.pullback p₀).obj M) ≪≫ d₀
+hx₁ : x₁ = c.app ((Scheme.Modules.pullback p₁).obj M) ≪≫ d₁
+⊢ d₀.inv ≫
+      c.inv.app ((Scheme.Modules.pullback p₀).obj M) ≫
+        F.map ((Scheme.Modules.pullback q).map a) ≫ c.hom.app ((Scheme.Modules.pullback p₁).obj M) ≫ d₁.hom =
+    d₀.inv ≫ (Scheme.Modules.pullback rq).map a ≫ d₁.hom

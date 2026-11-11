@@ -1,0 +1,9 @@
+# Literal original major/minor circle-domain decomposition
+
+Three connected sources preserve all 1161 predecessor modules exactly. The actual rational-arc indices are the finite Sigma of the original denominator indices and unit numerators. Their canonical integer code is injective. Every actual center satisfies 0≤c≤1−1/N. The existing explicit scale ensures 2δ<1/N, where δ=N/B². Consequently all actual arcs (c−δ,c+δ] lie inside the genuine shifted fundamental interval (−δ,1−δ]. The entire modulus-one arc around zero is retained. Existing all-integer-lift separation proves pairwise disjointness, with no assumption of a surrogate arc collection.
+
+Native integral_iUnion_fintype applies to the actual finite measurable disjoint interval family, with continuity of the original full circle sum supplying every integrability hypothesis. Actual translation of each interval integral proves that integration over the literal major-domain union is EXACTLY the indexed majorArcIntegral from the previous batch.
+
+Original finite Fourier orthogonality at arbitrary starting point proves the actual compact lattice count over any length-one fundamental interval. Native integral_inter_add_sdiff then gives count=major+minor, where minor is independently defined as integration over the actual measurable set difference, NOT as count minus a proposed main term. Thus an explicit negligible-minor-integral hypothesis would imply the full count asymptotic. That hypothesis is deliberately not produced here.
+
+The remaining gap is the actual complementary-domain oscillation estimate and, separately, prime-weighted/as-prime-pattern arguments. No full-count positivity, same-index prime/ray/order existence, or Anchor local-global theorem follows solely from this packet. Source/API acceptance remains distinct from hosted Lean checking.
