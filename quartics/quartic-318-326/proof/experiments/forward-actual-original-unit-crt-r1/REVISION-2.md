@@ -1,0 +1,3 @@
+# Unit-frequency r2: explicit cast multiplication
+
+The independent review of frozen r1 identified a likely elaboration blocker in scaledFrequency_val. A product of two natural casts in a symbolic ZMod is propositionally, not definitionally, the cast of their product. The proof now rewrites scaledFrequency and reverse Nat.cast_mul explicitly before applying val_natCast_of_lt. The mathematical representative bound, inverse frequency map, all coefficient statements and all other575 modules remain identical. This is a review-driven source hardening, not a hosted failure or kernel acceptance. Frozen r1 remains unchanged. No local Lean or profiling.
