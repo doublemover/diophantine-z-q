@@ -1,0 +1,12 @@
+{
+  "reviewer": "reconcile_proof_queue",
+  "scope": "WORKFLOW_WIRING_ONLY_NON_ADMITTED_HOSTED_PREFIX_DIAGNOSTIC",
+  "files": {
+    ".github/workflows/progress-experiments.yml": "220e2ff94b5410367ca8e9735b215ee094807798c0d19be055a8cac95f66d27f"
+  },
+  "review": [
+    "Exact workflow diff contains only static test invocation, conditional sequential center45 diagnostic after mandatory full check, and bounded logs artifact path. Removing those three additions recovers byte-exact prior workflow.",
+    "No matrix, parallelism, concurrency, job timeout, standard checker, acceptance, cache or proof budget changes. Same fixed replay/main lanes remain.",
+    "Independent period review binds exact source/test/reused runner; seven diagnostic static tests and15 CI tooling tests pass. No local Lean invocation."
+  ]
+}
