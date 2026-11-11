@@ -1,0 +1,138 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-scalar-galois-r2/DetectorWeightPreparation318.lean:73:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat ?m.478
+    (c ^ ?m.486 * (delta c (u / d ^ 2) ^ ?m.495 / ContactWeightWitness318.contact (parameter c (u / d ^ 2))))
+in the target expression
+  padicValRat p
+      (c ^ 10 * ((parameter c (u / d ^ 2) - 1) ^ 2 / ContactWeightWitness318.contact (parameter c (u / d ^ 2)))) =
+    6 * padicValRat p d + 4 * padicValRat p c
+
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+c u d : ℚ
+hc : c ≠ 0
+hd : d ≠ 0
+k : Fin 5 → ℤ
+hk : ∀ (j : Fin 5), linear c u d j = ↑(k j)
+hkn : ∀ (j : Fin 5), k j ≠ 0
+hku : ∀ (j : Fin 5), padicValRat p ↑(k j) = 0
+hdeep : padicValRat p c < padicValRat p d
+hu : u = ↑(k 0)
+hu0 : u ≠ 0
+huv : padicValRat p u = 0
+hdelta : delta c (u / d ^ 2) ≠ 0
+hdel : padicValRat p (delta c (u / d ^ 2)) = 2 * padicValRat p c - 2 * padicValRat p d
+hF : ContactWeightWitness318.contact (parameter c (u / d ^ 2)) = c ^ 10 / d ^ 10 * ↑(product k)
+hN : ↑(product k) ≠ 0
+hF0 : ContactWeightWitness318.contact (parameter c (u / d ^ 2)) ≠ 0
+hFval :
+  padicValRat p (ContactWeightWitness318.contact (parameter c (u / d ^ 2))) =
+    10 * padicValRat p c - 10 * padicValRat p d
+hq : scaledWeight c (u / d ^ 2) ≠ 0
+⊢ padicValRat p
+      (c ^ 10 * ((parameter c (u / d ^ 2) - 1) ^ 2 / ContactWeightWitness318.contact (parameter c (u / d ^ 2)))) =
+    6 * padicValRat p d + 4 * padicValRat p c
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-scalar-galois-r2/DetectorWeightPreparation318.lean:141:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MulHomClass (AddValuation ℚ (WithTop ℤ)) ℚ (WithTop ℤ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-scalar-galois-r2/DetectorWeightPreparation318.lean:144:30: error: Application type mismatch: The argument
+  add_le_add_left hx ?m.198
+has type
+  ↑B + ?m.198 ≤ (ConcretePadic318.rationalPlace p) x + ?m.198
+but is expected to have type
+  ↑(padicValRat p (weights c t b.1)) + ↑B ≤ ↑(padicValRat p (weights c t b.1)) * (ConcretePadic318.rationalPlace p) x
+in the application
+  lt_of_lt_of_le hpos (add_le_add_left hx ?m.198)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-scalar-galois-r2/DetectorWeightPreparation318.lean:170:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat p (weights c (u / d ^ 2) 0)
+in the target expression
+  -B < padicValRat p (weights c (u / d ^ 2) ((fun i => i) ⟨0, ⋯⟩))
+
+case «0»
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : Assignment
+c : ℚ
+hc : c ≠ 0
+B : ℤ
+hB :
+  ∀ a ∈ coefficients w, ↑B ≤ (ConcretePadic318.rationalPlace p) a.2.re ∧ ↑B ≤ (ConcretePadic318.rationalPlace p) a.2.im
+u d : ℚ
+hd : d ≠ 0
+hN : |B| + 244 * |padicValRat p c| + 1 ≤ padicValRat p d
+k : Fin 5 → ℤ
+hk : ∀ (j : Fin 5), linear c u d j = ↑(k j)
+hkn : ∀ (j : Fin 5), k j ≠ 0
+hku : ∀ (j : Fin 5), padicValRat p ↑(k j) = 0
+hB₁ : B ≤ |B|
+hB₂ : -B ≤ |B|
+hc₁ : padicValRat p c ≤ |padicValRat p c|
+hc₂ : -padicValRat p c ≤ |padicValRat p c|
+hdeep : padicValRat p c < padicValRat p d
+hq : ∀ (j : Fin 3), weights c (u / d ^ 2) j ≠ 0
+h0 : padicValRat p (weights c (u / d ^ 2) 0) = 6 * padicValRat p d + 4 * padicValRat p c
+h1 : padicValRat p (weights c (u / d ^ 2) 1) = 6 * padicValRat p d + 64 * padicValRat p c
+h2 : padicValRat p (weights c (u / d ^ 2) 2) = 6 * padicValRat p d + 244 * padicValRat p c
+⊢ -B < padicValRat p (weights c (u / d ^ 2) ((fun i => i) ⟨0, ⋯⟩))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-scalar-galois-r2/DetectorWeightPreparation318.lean:171:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat p (weights c (u / d ^ 2) 1)
+in the target expression
+  -B < padicValRat p (weights c (u / d ^ 2) ((fun i => i) ⟨1, ⋯⟩))
+
+case «1»
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : Assignment
+c : ℚ
+hc : c ≠ 0
+B : ℤ
+hB :
+  ∀ a ∈ coefficients w, ↑B ≤ (ConcretePadic318.rationalPlace p) a.2.re ∧ ↑B ≤ (ConcretePadic318.rationalPlace p) a.2.im
+u d : ℚ
+hd : d ≠ 0
+hN : |B| + 244 * |padicValRat p c| + 1 ≤ padicValRat p d
+k : Fin 5 → ℤ
+hk : ∀ (j : Fin 5), linear c u d j = ↑(k j)
+hkn : ∀ (j : Fin 5), k j ≠ 0
+hku : ∀ (j : Fin 5), padicValRat p ↑(k j) = 0
+hB₁ : B ≤ |B|
+hB₂ : -B ≤ |B|
+hc₁ : padicValRat p c ≤ |padicValRat p c|
+hc₂ : -padicValRat p c ≤ |padicValRat p c|
+hdeep : padicValRat p c < padicValRat p d
+hq : ∀ (j : Fin 3), weights c (u / d ^ 2) j ≠ 0
+h0 : padicValRat p (weights c (u / d ^ 2) 0) = 6 * padicValRat p d + 4 * padicValRat p c
+h1 : padicValRat p (weights c (u / d ^ 2) 1) = 6 * padicValRat p d + 64 * padicValRat p c
+h2 : padicValRat p (weights c (u / d ^ 2) 2) = 6 * padicValRat p d + 244 * padicValRat p c
+⊢ -B < padicValRat p (weights c (u / d ^ 2) ((fun i => i) ⟨1, ⋯⟩))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-scalar-galois-r2/DetectorWeightPreparation318.lean:172:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat p (weights c (u / d ^ 2) 2)
+in the target expression
+  -B < padicValRat p (weights c (u / d ^ 2) ((fun i => i) ⟨2, ⋯⟩))
+
+case «2»
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : Assignment
+c : ℚ
+hc : c ≠ 0
+B : ℤ
+hB :
+  ∀ a ∈ coefficients w, ↑B ≤ (ConcretePadic318.rationalPlace p) a.2.re ∧ ↑B ≤ (ConcretePadic318.rationalPlace p) a.2.im
+u d : ℚ
+hd : d ≠ 0
+hN : |B| + 244 * |padicValRat p c| + 1 ≤ padicValRat p d
+k : Fin 5 → ℤ
+hk : ∀ (j : Fin 5), linear c u d j = ↑(k j)
+hkn : ∀ (j : Fin 5), k j ≠ 0
+hku : ∀ (j : Fin 5), padicValRat p ↑(k j) = 0
+hB₁ : B ≤ |B|
+hB₂ : -B ≤ |B|
+hc₁ : padicValRat p c ≤ |padicValRat p c|
+hc₂ : -padicValRat p c ≤ |padicValRat p c|
+hdeep : padicValRat p c < padicValRat p d
+hq : ∀ (j : Fin 3), weights c (u / d ^ 2) j ≠ 0
+h0 : padicValRat p (weights c (u / d ^ 2) 0) = 6 * padicValRat p d + 4 * padicValRat p c
+h1 : padicValRat p (weights c (u / d ^ 2) 1) = 6 * padicValRat p d + 64 * padicValRat p c
+h2 : padicValRat p (weights c (u / d ^ 2) 2) = 6 * padicValRat p d + 244 * padicValRat p c
+⊢ -B < padicValRat p (weights c (u / d ^ 2) ((fun i => i) ⟨2, ⋯⟩))

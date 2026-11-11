@@ -1,0 +1,40 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r18/VaryingSourceActionEquations318.lean:41:16: error: unsolved goals
+case add
+R A ι : Type u
+inst✝⁸ : CommRing R
+inst✝⁷ : CommRing A
+inst✝⁶ : Algebra R A
+inst✝⁵ : Fintype ι
+inst✝⁴ : DecidableEq ι
+S : Type u
+inst✝³ : CommRing S
+inst✝² : Algebra R S
+T : Type u
+inst✝¹ : CommRing T
+inst✝ : Algebra R T
+f : S →ₐ[R] T
+d : Data A ι S
+a b : A
+i j : ι
+⊢ f (d.matrices a i j) + f (d.matrices b i j) =
+    ((fun i j => f (d.matrices a i j)) + fun i j => f (d.matrices b i j)) i j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r18/VaryingSourceActionEquations318.lean:42:16: error: unsolved goals
+case mul
+R A ι : Type u
+inst✝⁸ : CommRing R
+inst✝⁷ : CommRing A
+inst✝⁶ : Algebra R A
+inst✝⁵ : Fintype ι
+inst✝⁴ : DecidableEq ι
+S : Type u
+inst✝³ : CommRing S
+inst✝² : Algebra R S
+T : Type u
+inst✝¹ : CommRing T
+inst✝ : Algebra R T
+f : S →ₐ[R] T
+d : Data A ι S
+a b : A
+i j : ι
+⊢ ∑ x, f (d.matrices a i x) * f (d.matrices b x j) =
+    ((fun i j => f (d.matrices a i j)) * fun i j => f (d.matrices b i j)) i j

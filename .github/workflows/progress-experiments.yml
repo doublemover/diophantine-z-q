@@ -123,7 +123,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-original-difference-fppf-epimorphism-r2'
+        if: always() && matrix.packet == 'relative-original-arbitrary-section-parameter-r2'
         shell: bash
         run: |
           set -euo pipefail
