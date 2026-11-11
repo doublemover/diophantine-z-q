@@ -1,0 +1,9 @@
+# Whole finite first-jet comparison
+
+At EVERY original complex point in every nonzero chart, construct a WHOLE finite faithful two-variable polynomial normalization with identity analytic derivative and a genuine centered local inverse. Produce exact chosen-normalization finite fraction/primitive/smooth-derivative-open consumers, and prove the full-root-model local-injectivity/simple-root boundary bridge. The final actual boundary derivative nonvanishing and global candidate smoothness remain explicit downstream joins.
+
+This connected21-source batch preserves all294 repaired predecessor targets. Pure-power total-degree reduction proves finite generation over the actual new base. Old integral coefficients receive one numerical degree bound BEFORE the new scalar structure exists. Polynomial shifts and high powers give literal whole finite normalizations centered at the specified evaluation. Their first jets are verified against ALL actual point derivations and the original analytic derivative left inverse. Genuine IFT image openness proves faithfulness of the SAME new normalization.
+
+The chosen-g fraction map and scalar tower are produced internally; an actual ratio primitive element separates the entire finite fiber. Its exact derivative localization is a genuine smooth original candidate open containing each specified point where the derivative is nonzero. Independently, continuous division by a root branch, multiple-root approximation, dense separable fibers and closed-surjection local-injectivity transfer prove the boundary simple-root criterion on the WHOLE root model. No point-set equality is promoted to a scheme isomorphism, no arbitrary analytic local-ring comparison is assumed, and no global smoothness/line-bundle/group-law conclusion is claimed yet.
+
+No local Lean run; hosted elaboration and kernel validation pending.
