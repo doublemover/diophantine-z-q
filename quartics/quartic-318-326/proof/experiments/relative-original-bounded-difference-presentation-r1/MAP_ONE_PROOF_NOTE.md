@@ -1,0 +1,1 @@
+Two same-equality helpers in CyclicQuotientCanonicalFrame318.equiv_marked now use congrArg evaluation of map_one directly instead of rw[map_one];rfl. This avoids redundant tactic completion risk. No statement, hypothesis, map or later proof changes. No hosted failure was claimed for the former helpers. Exact609 other predecessor sources and all new modules are separately hashed.
