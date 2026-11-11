@@ -1,0 +1,30 @@
+{
+  "reviewer": "/root/reconcile_proof_queue",
+  "producer": "/root/resume_arithmetic",
+  "verdict": "NARROW_EXACT262_SOURCE_ACCEPTED_HOSTED_PENDING",
+  "packets": [
+    {
+      "packet": "forward-actual-two-descent-primes-r2",
+      "application_sha256": "acef405bbcee566925d5ebd9aecd85fb2c40183362d3b83fb5be95ccdd40638a",
+      "intake_sha256": "ce2d650716921f309526222f8bc35e7ab0d97ad6f2685be5fa430a8b735919c2",
+      "changed_source": {
+        "PreparedPoleCRTWitness318.lean": "9f0f9e71ad4f10572aeddd78209f215a4610445a3b782b540b259b260f382326"
+      }
+    },
+    {
+      "packet": "forward-three-j-reciprocal-kernel-r57",
+      "application_sha256": "acf5fa4281522ec79f2bb43ecf9e31614c57922b3525f74fce4ffb21c180878a",
+      "intake_sha256": "9544a1095b80fb1efd2462efee9a199c84ba7486cd19efd98318ced2aea01b7c",
+      "changed_source": {
+        "ThreeJGlobalRamificationScheme318.lean": "34e68fbe343e8e1c5e9260ae310b2d16f1e84460ca3aa24de976ab1b90ae8503"
+      }
+    }
+  ],
+  "checks": [
+    "Read both complete changed sources, exact262 logs and complete predecessor diffs. All628/106 source pins627/105 exact copies and all application bindings checked.",
+    "Prepared witness retains the same final Assignment. Literal PoleCertificateFill at190 selects the unchanged input, and local w is definitionally that input; rfl closes the exact remaining equality without altering any arithmetic premise.",
+    "Global ramification source renames invalid reserved identifier structure to structureMap, retaining the actual rational structural morphism. Checked no remaining qualified use of old name. Both source-cover chart equalities reduce to the actual original chart map. X^3 membership follows from submodule scalar closure applied to X^2 and the original X membership, rather than a nonexistent Submodule.pow_mem.",
+    "Degree-six nonreduced source, proper closed immersion, full ideal and all source-prime coverage statements retained. No change to budgets or acceptance rules."
+  ],
+  "limits": "No local Lean. Error-recovery sorry warnings in failed predecessor are not accepted proof artifacts; strict hosted rerun and recursive axiom audit remain required."
+}
