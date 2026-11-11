@@ -1,0 +1,15 @@
+# Actual relative cotangent stalks and the same local ideal quotient
+
+Four new modules take the accepted affine sheaf comparisons to the actual stalk modules. The original global relative cotangent sheaf, actual additive sheaf stalks, and canonical actions of the actual structure-sheaf local rings are retained. No module action is transported from a desired quotient onto the original stalk.
+
+CanonicalStalkModule318 proves that actual sheaf morphisms induce maps linear for the upstream canonical stalk action from Mathlib.Algebra.Category.ModuleCat.Stalk. Both scalar and module germs are restricted to a common neighborhood before applying section linearity. Actual sheaf isomorphisms therefore preserve module length. A full submodule-lattice equivalence also proves length invariance for semilinear isomorphisms over a ring isomorphism.
+
+OpenImmersionStalkLength318 proves semilinearity of the actual restriction stalk isomorphism. The scalar map is the inverse of the original open immersion's structure-sheaf stalk map. Its effect on every section germ is computed through the actual appIso, including the preimage-image restriction. The upstream additive stalk comparison alone is not treated as linear without this check.
+
+AffineTildeQuotientStalk318 uses the actual tilde.toStalk localization map and Submodule.toLocalizedQuotient'. Its full localized submodule equals the image of the SAME original ideal, by localized'_eq_span and the actual definition of Ideal.map. The resulting base-ring linear equivalence is extended to the existing canonical localized-ring actions via extendScalarsOfIsLocalization. This yields actual tilde stalk isomorphisms to the local ring modulo the mapped whole ideal.
+
+FourRootCotangentStalkQuotient318 consumes these maps and the previously accepted actual affine ideal comparisons. It defines length using the actual global relative cotangent stalk and its actual local ring, then proves equality to the original ideal quotient length at EVERY finite canonical chart prime and EVERY prime of the canonical infinity chart. Multiplicities, all finite indices, and all infinity centers remain present. This is not merely a closed-point or generic comparison.
+
+Boundary: comparison to the previously computed original evaluation-point quotient lengths and their total40 still requires the point/prime and iterated-localization identifications. This packet does not yet claim total sheaf length40, gluing a normalized generator, or final PEL/Jacobian identification. The preceding143-module affine-ideal closure is byte-identical. No local Lean was run; independent source review and hosted checking remain pending.
+
+Primary sources read at mathlib56a005855ea17e0b0958f73ec801ae140b0a1679: Algebra/Category/ModuleCat/Stalk.lean; Topology/Sheaves/Stalks.lean; AlgebraicGeometry/Modules/Sheaf.lean; AlgebraicGeometry/StructureSheaf.lean; AlgebraicGeometry/Modules/Tilde.lean; Algebra/Module/LocalizedModule/Submodule.lean; RingTheory/Localization/Module.lean; RingTheory/Length.lean. Exact local copies and hashes are under PRIMARY/.
