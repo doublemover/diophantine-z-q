@@ -1,0 +1,30 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r42/OriginalAffineDualSections318.lean:29:23: error: Application type mismatch: The argument
+  DualNumberScalarExtension318.sectionMap R S
+has type
+  @RingHom S (DualNumberScalarExtension318.Tensor R S) CommRing.toCommSemiring.toNonAssocSemiring
+    (@Semiring.toNonAssocSemiring (DualNumberScalarExtension318.Tensor R S) Algebra.TensorProduct.instSemiring)
+but is expected to have type
+  @RingHom S ?m.106 CommRing.toCommSemiring.toNonAssocSemiring
+    (@Semiring.toNonAssocSemiring ?m.106 CommRing.toCommSemiring.toSemiring)
+in the application
+  CommRingCat.ofHom (DualNumberScalarExtension318.sectionMap R S)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r42/OriginalAffineDualSections318.lean:50:6: error: Application type mismatch: The argument
+  Algebra.TensorProduct.includeRight.toRingHom
+has type
+  @RingHom (DualNumber R) (S ⊗[R] DualNumber R) (@Semiring.toNonAssocSemiring (DualNumber R) TrivSqZeroExt.semiring)
+    Algebra.TensorProduct.instSemiring.toNonAssocSemiring
+but is expected to have type
+  @RingHom (R × R) ?m.89 (@Semiring.toNonAssocSemiring (R × R) CommRing.toCommSemiring.toSemiring)
+    CommRing.toCommSemiring.toNonAssocSemiring
+in the application
+  CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r42/OriginalAffineDualSections318.lean:69:66: error: Application type mismatch: The argument
+  mul_comm ?m.185 ?m.186
+has type
+  @HMul.hMul ?m.183 ?m.183 ?m.183 (@instHMul ?m.183 CommMagma.toMul) ?m.185 ?m.186 = ?m.186 * ?m.185
+but is expected to have type
+  @HMul.hMul (Tensor R S) (Tensor R S) (Tensor R S) (@instHMul (Tensor R S) instDistribOfSemiring.toMul)
+      (DualNumberScalarExtension318.epsilon R S) ((baseCoordinates S) (TrivSqZeroExt.snd x) ⊗ₜ[R] 1) =
+    (baseCoordinates S).toRingHom (TrivSqZeroExt.snd x) ⊗ₜ[R] 1 * 1 ⊗ₜ[R] DualNumber.eps
+in the application
+  congrArg (fun z => (baseCoordinates S) (TrivSqZeroExt.fst x) ⊗ₜ[R] 1 + z) (mul_comm ?m.185 ?m.186)

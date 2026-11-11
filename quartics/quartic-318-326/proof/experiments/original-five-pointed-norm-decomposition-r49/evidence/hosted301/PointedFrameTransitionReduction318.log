@@ -1,0 +1,57 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r48/PointedFrameTransitionReduction318.lean:25:51: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun x => id <$> x
+in the target expression
+  (Scheme.Modules.pullback i).map (𝟙 (PointedLineDeformation318.trivial i).line.object) ≫
+      (PointedLineDeformation318.trivial i).trivialization.hom =
+    t.hom
+
+X₀ X : Scheme
+i : X₀ ⟶ X
+L : Deformation i
+e₀ e₁ : PointedIso i L (PointedLineDeformation318.trivial i)
+t : (Scheme.Modules.pullback i).obj (PointedLineDeformation318.trivial i).line.object ≅
+  SheafOfModules.unit X₀.ringCatSheaf :=
+  (PointedLineDeformation318.trivial i).trivialization
+⊢ (Scheme.Modules.pullback i).map (𝟙 (PointedLineDeformation318.trivial i).line.object) ≫
+      (PointedLineDeformation318.trivial i).trivialization.hom =
+    t.hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X₀.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X₀.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X₀) RingCat
+  in the application
+    SheafOfModules.unit X₀.ringCatSheaf
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r48/PointedFrameTransitionReduction318.lean:31:4: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @Eq ((Scheme.Modules.pullback i).obj (SheafOfModules.unit X.ringCatSheaf) ⟶ SheafOfModules.unit X₀.ringCatSheaf)
+    (t.hom ≫
+      ClutchedModule318.multiply
+        ((ConcreteCategory.hom (Scheme.Hom.appTop i)) ↑(UnitSheafScalar318.unit (transition i L e₀ e₁))))
+    t.hom
+but is expected to have type
+  @Eq ((Scheme.Modules.pullback i).obj (PointedLineDeformation318.trivial i).line.object ⟶ ClutchedModule318.unit X₀)
+    (t.hom ≫ ClutchedModule318.multiply ((ConcreteCategory.hom (Scheme.Hom.appTop i)) ↑(scalar i L e₀ e₁))) t.hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r48/PointedFrameTransitionReduction318.lean:33:2: error: Type mismatch: After simplification, term
+  hv
+ has type
+  1 * (ConcreteCategory.hom (Scheme.Hom.appTop i)) ↑(scalar i L e₀ e₁) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app (𝟙 (ClutchedModule318.unit X₀)) ⊤)) 1
+but is expected to have type
+  (ConcreteCategory.hom (Scheme.Hom.appTop i)) ↑(scalar i L e₀ e₁) = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r48/PointedFrameTransitionReduction318.lean:35:96: error: unsolved goals
+X : Scheme
+e f : SheafOfModules.unit X.ringCatSheaf ≅ SheafOfModules.unit X.ringCatSheaf
+⊢ ClutchedModule318.multiply (↑(UnitSheafScalar318.unit e) * ↑(UnitSheafScalar318.unit f)) =
+    ClutchedModule318.multiply ↑(UnitSheafScalar318.unit e * UnitSheafScalar318.unit f)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-pointed-norm-decomposition-r48/PointedFrameTransitionReduction318.lean:42:62: error: unsolved goals
+X₀ X : Scheme
+i : X₀ ⟶ X
+L : Deformation i
+e₀ e₁ e₂ : PointedIso i L (PointedLineDeformation318.trivial i)
+⊢ e₀.iso.inv ≫ e₂.iso.hom = (transition i L e₀ e₂).hom

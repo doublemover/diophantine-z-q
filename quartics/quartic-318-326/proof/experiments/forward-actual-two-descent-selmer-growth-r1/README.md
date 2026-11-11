@@ -1,0 +1,11 @@
+# Actual higher Selmer finiteness, growth and transitions
+
+Nineteen connected sources preserve all 1077 predecessors exactly. The higher rational quotient is evaluated from an ACTUAL free/finite Mordell-Weil decomposition: its cardinality is m^r times the actual m-torsion cardinality of the same finite factor. This produces finiteness of every actual E(ℚ)/2^k E(ℚ), and then finiteness of every independently defined actual higher Selmer group. Finiteness is explicitly proved before any finite growth interpretation.
+
+The actual2^k-torsion cardinality of the finite factor is a bounded monotone natural sequence. A literal finite maximum of value witnesses proves eventual stabilization at a positive constant. Combining this with the actual zero/Prüfer Sha classification and the exact higher Selmer sequence gives |Sel_(2^k)|=|T[2^k]|*2^(k(r+t)). Under the still-explicit missing actual reduced duality pairing, the already-produced r+t=1 yields eventual EXACT C*2^k order. This does not choose the rational rank branch or supply the pairing.
+
+The second half constructs the actual coefficient inclusions E[2^k]→E[2^(k+1)], their crossed-cocycle and cohomology transitions, and the actual all-place Selmer transitions. These commute with the native closure/Galois restrictions and actual Sha maps. On the rational term the transition is multiplication by TWO, not the identity, and the exact square is proved using the SAME geometric division point.
+
+The higher cohomology/Selmer transitions are NOT presumed injective. Their exact kernels are proved to be the higher connecting images of rational TWO-torsion, using actual fixed-point descent. This tracks the obstruction to treating the system as a naive ascending union.
+
+This is actual finite-level growth and a genuine compatible system, not yet an identification of the direct limit with a full continuous Selmer group or a Pontryagin-dual corank theorem. Global duality, restricted analytic converse, forward analytic-to-rational rank and four rational points remain unresolved. Supplementary exact tests of finite factors, stabilization, nontrivial-action transition kernels and scalar-two compatibility do not replace hosted Lean. No local Lean, profiling or resource changes.
