@@ -64,6 +64,7 @@ jobs:
       - run: python -B scripts/test_diagonal_final_steps_diagnostic.py
       - run: python -B scripts/test_diagonal_opaque_final_diagnostic.py
       - run: python -B scripts/test_diagonal_concrete_witnesses_diagnostic.py
+      - run: python -B scripts/test_source_word_core_smoke.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
 
@@ -113,6 +114,13 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
+      - name: Separate exact source-word core smoke check
+        if: always() && matrix.packet == 'relative-varying-source-word-charts-r1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/check_source_word_core_smoke.py
       - name: Non-admitted endpoint scratch diagnostics
         if: always() && matrix.packet == 'contact-relative-site-descent-r26'
         shell: bash
@@ -264,6 +272,10 @@ jobs:
           name: experiment-${{ matrix.packet }}
           path: |
             build/progress-experiments/${{ matrix.packet }}/RESULT.json
+            build/progress-experiments/relative-varying-source-word-core-r1/RESULT.json
+            build/progress-experiments/relative-varying-source-word-core-r1/logs/
+            build/progress-experiments/relative-varying-source-word-core-r1/ExperimentAudit.lean
+            build/progress-experiments/relative-varying-source-word-core-r1/SMOKE_SCOPE.json
             build/progress-experiments/${{ matrix.packet }}/logs/
             build/progress-experiments/${{ matrix.packet }}/ExperimentAudit.lean
             build/progress-experiments/${{ matrix.packet }}/scratch-diagnostics/
