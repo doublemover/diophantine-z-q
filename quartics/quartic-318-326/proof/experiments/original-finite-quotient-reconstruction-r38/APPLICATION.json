@@ -1,0 +1,210 @@
+{
+  "claim": "Prove flatness of SAME finite dominant original projective quotient, then original fiber-degree/point-branch reconstruction without supplied Flat p.",
+  "producer": "reconcile_proof_queue",
+  "date": "2026-11-10",
+  "status": "PENDING_DISTINCT_REVIEW_AND_HOSTED_CHECK",
+  "new_sources": {
+    "LocalBranchEquationOrders318.lean": "df1441329507d2d92780a954370bb8e1a0dfe75c69bdd279fe519a9e59ecd4d5"
+  },
+  "readme_sha256": "607c5edef0ec25171219f9e083277009b0b688a253af779f10b468538598c74d",
+  "intake_sha256": "2096d2d8966d6b27c6c74c64544e3f2e7baf960b5cc7584915e6e3c370a07a37",
+  "copy_bindings_sha256": "676307ff7c3b855afff91afe2e3c8c7407b779ed319c7d38e1b99d1a59c9ed32",
+  "pinned_apis_sha256": "14e4d5a73a1989ba90e516cc467c52eb7a9513a35ba6bcd381e6bafe7df42d28",
+  "predecessor_application_sha256": "e080dd118ec1a7b7d290905f79da7d52ab5f45e0171bc63ad0cc3cdb3254155e",
+  "obligations": [
+    {
+      "name": "Actual affine coefficient",
+      "required": "Need original polynomial-to-section map, not an arbitrary embedding.",
+      "constructed": "Full faithful Spec.preimage of actual isoSpec.inv followed by original f.",
+      "justification": "Exact map_preimage identity transports actual dominance to the same Spec map.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.affine_flat"
+      ]
+    },
+    {
+      "name": "Injective original map",
+      "required": "Must prove actual scalar coefficient map injective.",
+      "constructed": "Dense actual Spec image implies kernel in actual polynomial nilradical.",
+      "justification": "Polynomial Q is a reduced domain, so kernel elements are zero.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.affine_flat"
+      ]
+    },
+    {
+      "name": "Native module flatness",
+      "required": "Flatness must concern the original algebra action.",
+      "constructed": "Use exact coefficient.toAlgebra, its injectivity gives faithful scalar action on actual domain sections.",
+      "justification": "Domain algebra torsion-freeness and Dedekind Q[t] yield native Module.Flat, then original Spec Flat.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.affine_flat"
+      ]
+    },
+    {
+      "name": "Both entire projective charts",
+      "required": "Must cover full original target, not one dense subopen.",
+      "constructed": "Use original JLineAtlas.cover Q with BOTH Fin2 charts and full literal pullback.snd maps.",
+      "justification": "Target-locality iff_of_openCover has exactly this index coverage.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.flat"
+      ]
+    },
+    {
+      "name": "Nonempty integral sources",
+      "required": "Affine flatness requires actual integral sources of each chart.",
+      "constructed": "Original finite dominant p is surjective; both actual base-change projections are surjective over nonempty Spec Q[t].",
+      "justification": "Actual pullback.fst is an open immersion into integral Y, giving source integrality.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.flat"
+      ]
+    },
+    {
+      "name": "Same morphism descent",
+      "required": "Local flatness must yield Flat of the original p.",
+      "constructed": "Both actual pullback projections are flat and the original target cover is complete.",
+      "justification": "No morphism replacement; local property theorem returns Flat p.",
+      "evidence": [
+        "OriginalFiniteProjectiveFlat318.flat"
+      ]
+    },
+    {
+      "name": "Same terminal endpoint",
+      "required": "Remove supplied Flat p without changing curve/field/action conclusions.",
+      "constructed": "Construct local originalFlat from actual finite dominant p, then exact78 consumer.",
+      "justification": "Same actual fiber points, deck maps, normal cover and full original branch/model laws.",
+      "evidence": [
+        "OriginalFinitePointReconstruction318.original_curve"
+      ]
+    },
+    {
+      "name": "Genuine geometric boundary",
+      "required": "Do not infer actual PEL algebraization, finiteness or branch/fiber laws.",
+      "constructed": "Real integral algebraic Y, finite dominant p, old normal/action and actual unramified16-point fiber remain required.",
+      "justification": "Flatness is the new proved deduction; missing geometric producers stay explicit.",
+      "evidence": [
+        "README.md"
+      ]
+    },
+    {
+      "name": "Validation",
+      "required": "Fresh native-scalar/whole-chart flatness application needs primary/source/hosted checks.",
+      "constructed": "78 exact sources plus2, actual source bodies and primary signatures read and pinned. Exact e36a6803 replay42649103375 repair: first8 predecessors PASS including ContactDivisorFieldReconstruction. The actual normal-basis coordinate requires explicit finite-sum evaluation and single_apply. Qualify \u03c7.map_mul so rewriting cannot treat the ORIGINAL basis as a multiplicative map. Qualify Equiv.sum_comp instead of the different Perm finite-set overload. Supply the exact h\u03c7 to root_square. Same genuine Galois orbit basis, character, square descent, hypotheses, statements and budgets. No local Lean; independent/hosted acceptance pending. Exact 226803e8 hosted repair: the normal-basis predecessor now passes. ComplementaryFunctionRigidity sign_complementary supplies the original Raw generator explicitly to one_mul and neg_one_mul, avoiding an unconstrained ambient ring and aggressive unfolding of tensor units. Same original tensor algebra, complementary functions, map, hypotheses and budgets. No local Lean compilation; independent source review and hosted verification remain required. Hosted b0d8a09c diagnostic: degree used labels only inside its proof, so Lean omitted that section variable, causing both unknown labels.toEquiv and downstream degree labels application errors. Explicit include labels in binds the actual Galois-label isomorphism to the existing degree theorem. No mathematical hypothesis, map, source object or bound changes; no local Lean run.",
+      "justification": "No local Lean, no resource increases, no fabricated independent acceptance.",
+      "evidence": [
+        "APPLICATION.json",
+        "COPY_BINDINGS.json",
+        "PINNED_APIS.md"
+      ]
+    }
+  ],
+  "revision_source": "original-finite-quotient-reconstruction-r27",
+  "modified_sources": {
+    "NormalBasisCharacterRadicals318.lean": "f3be631903008fcf7791c0694a47bd940b52895054aedb5a34daa888d2846b84"
+  },
+  "scope_audit_note": "Batch audit of71 lexical scope candidates:17 sources repaired, preserving all theorem bodies and caller order. Restores actual original-base compatibility and actual normal-cover hypotheses in proof-only curve wrappers; the coefficient map f is explicitly carried into residue characteristic zero. Existing included/dependently carried variables and locally shadowed names were not blanket-added. Moves degree include before its doccomment following exact hosted17e37e23 parser diagnostic. This repairs intended caller interfaces, not a mathematical weakening, invented producer or claim of new kernel acceptance.",
+  "scope_repairs_sha256": "8505179ec066ee67209c4da9a41ca6a61564e8ce246d8dc3bae9f493cf320218",
+  "repair_note": "Exact hosted207 LocalBranchEquationOrders quadratic frontier: the actual unit-times-square DVR calculation already reduced to the sole numeric WithTop cast goal \u21912=2. Normalize this remaining numeral with norm_num. Same original ring, parameter, actual addVal, local equation and index; all79 other source bytes and limits unchanged. No local Lean.",
+  "recovery_delta": {
+    "predecessor": "original-finite-quotient-reconstruction-r37",
+    "changed_sources": [
+      "OriginalGeometricBranchLocus318.lean"
+    ],
+    "scope": "Exact262: qualify both original normal-closure Galois group binders; eliminates ambiguity with the Group typeclass. Same actual branch locus, stabilizers, full inertia, fields, maps and budgets.",
+    "local_lean_run": false
+  },
+  "sources": {
+    "OriginalDeckCurveReconstruction318.lean": "9fb3959659e66d8a7f1d6f32216f1dda1ab32c486eb8cb8dcd37633f6525b5a0",
+    "NormalClosureGeometricPoints318.lean": "27881d452af9d9cc3a77b326f33478d194bc71e0c6db1f4002f32fae47be5310",
+    "OriginalNormalSectionClosure318.lean": "f412b8d53f0a3030c5d0f5832a7273dc0fe307b2bba5077f78818ac84c76081f",
+    "PolynomialEvenSquare318.lean": "c641aca240e945b5f5565035631b93ce00e4fbb61f9bd22833d649987761b418",
+    "OriginalPublishedComplexBranches318.lean": "b037d2ebf81ffa7814441956c1bccc74915a8a80ed27628930606a631c6284f5",
+    "OriginalSchemeBranchReconstruction318.lean": "fbf91bde552d5664583104091bc3660eeab243b8f3772e4333110048781d9ba8",
+    "SquareclassRadicalNormalization318.lean": "599c9804dce188dda6a753a9b1850e16808de56fd41731765c4cc44b9252666b",
+    "OriginalAffineLocalReconstruction318.lean": "edd48859d487595ff51beabb2402aa8b8f37b7be5ac3ba4d39f8385889ca5206",
+    "InertiaTangentUniformizer318.lean": "437c0f52761e3ab816821375852fddeb0ab164d7b482e9787a7f2172148c79c1",
+    "ComplementRootReconstruction318.lean": "9fdbda67a9687a845ef684e33299e7feeac16086cbec78ddd331f4f4ef470d94",
+    "ReconstructedFieldNormalization318.lean": "d217c29f9ecd80d7422026cefb945d9c230145c569d548ab24943d493b11b163",
+    "DVRInertiaCharacterParity318.lean": "747c270e50a4a10cf214d9a706f41589fc184f1018a08e120e308c3bf0c8774f",
+    "AffinePrimeCenter318.lean": "f317dc11cb8fa9f178aacd13c8cce021571bcdaf93eb302afddb085dbe933c7a",
+    "GaloisCharacterContactReconstruction318.lean": "ed29c7f95efe2a390058135265e87e95af480f6eaea0274f75964b6748bbeb1e",
+    "OriginalFinitePointReconstruction318.lean": "b0db4aa5b0b295f9577f6b60daf53d2dfe01503e8a6ee4c57f4756566368fe8a",
+    "OriginalNormalClosureGalois318.lean": "b24d076ebb57e5365b6ce54a101a40d9ee593e0749d9a618fa8cbfc14e0d04d5",
+    "OriginalClosedResiduePoints318.lean": "0fb77f6e58a8d9e0cbef9ded7b271baa16ae1576fd1c1ed24e14b5f418dcd571",
+    "OriginalPrimeOrderInertia318.lean": "3b2cd5817feb815eb563572a9d7d50a3a205774c5a649b8f54a02c194a56a9d9",
+    "OriginalProjectiveFunctionCoordinate318.lean": "6caa7792fcbf2fa1ff2bc29aff4eca3c578132727e2113b795ef70a62f20d4ac",
+    "ContactFieldNormalization318.lean": "244d307047283687cd88257b7d5233f248050d4ad230198c45980efbe68dbaca",
+    "OriginalCanonicalAffineReconstruction318.lean": "872f0c33bf5934aec811706a99ccd44bc830a5f3233d6b01620b993af411a2d3",
+    "OriginalFiberPointReconstruction318.lean": "0bb1cad824c387e04893b6aafdfc1a1f767ff4f7bdfe8ca8a70d8bbfad138473",
+    "OriginalCanonicalDeckReconstruction318.lean": "5f5915b21467a66c588a2c7bd68b0d793d0be907ec98a7e2e5b5816fb5b5424f",
+    "ComplementaryFunctionRigidity318.lean": "15c9819ed23f2249da1bc12443705e3c72e9ea54d36b948b5e20262dff2be11d",
+    "AffineFractionGeneric318.lean": "2b16bf96b41b002512041d4074506e5572dfb0da9c5926ffbe7d0c3392e7bda5",
+    "OriginalCartesianCurveReconstruction318.lean": "83566e0b87ceb512289e9ff7d864522b1482d6b6ceb98b7f47cdaa6de0431ef3",
+    "OriginalComplexPointReconstruction318.lean": "e2ce0ee1ef249b8694bdeb30d0b5514798eb92fd74924b3c537df6e808bc2016",
+    "OriginalCurveGeometricStabilizers318.lean": "4ac31cb873a2dfe00e26957adf1756ad5947d702dedfda7c5189db945b799d6d",
+    "LabeledContactInertiaSigns318.lean": "9d87374c8fd9867bce33a04c4ee189a43d12049a3bdf4887a6778a7004e0e6e6",
+    "OriginalFiniteDeckGalois318.lean": "a17e5eea85658ab9bc3dd0777c0823d07f3c6d415095f91020d3ea75e88037c5",
+    "AffinePrimeOriginalInertia318.lean": "9a6931e9f7f50a4d03ec6428ea3f31ef0bfc0a3b50d72dd1c0a468fac25ba43d",
+    "FourRootEvaluation318.lean": "0e0bead44e352cb2d2690df8707664be10aa66ca8b8db7a918f8586ad0a7586e",
+    "CenteredDVRRestriction318.lean": "3af4c4e12257201b3b77a447a6dd01368efffd0828ec50d6100c218d84228215",
+    "OriginalUnramifiedFiberRank318.lean": "847e1cd25f8e5f2e9e358695ed8cfd44185378fcc6fe04de9f5936ae4125bffd",
+    "NormalizationBirationalComparison318.lean": "5bb23ebd92b8d7c3d8816c625a15a0272a1a440715956346a2554153fe9f2ea1",
+    "OriginalCanonicalAffineChart318.lean": "06abf354b83c78d831446152980aba449c28a89d8705fb38d1a04b29a1b970a5",
+    "OriginalIntegralBaseReconstruction318.lean": "60bd2493eec83ebe1854b59bc426659d86368e46792e8463366a159e059f0917",
+    "OriginalSchemeDeckFieldAction318.lean": "5720498b66279e00b1101ef06dd57f83051f00aaa91f946cc73e263fdc6767e2",
+    "OriginalNormalCoverSections318.lean": "e7e995cd96d9c14b22edee57997f1f56abfc75e1f0bf66b54f70cfeb9538c835",
+    "OriginalArithmeticBranchReconstruction318.lean": "a60660e7dde4fea5829e26dacae2510931bc55d8589bec70a5f0f4bcace5dbce",
+    "OriginalQuotientRankFixed318.lean": "7bc5e13f3837abfbac691c6edaa6e147ae5938ebf5d22d1b3bc674c58b51d466",
+    "RationalFunctionEvenSquare318.lean": "b9ffa835e27b8ca762eb2c4d06cbdd496293b6276bf2718bff628bfa33a9ada1",
+    "OriginalFiniteDeckDegree318.lean": "fcf1d8e126ba7cdbf7a1f762e35f52a468b0324149948cd3212cbfe5c08081ce",
+    "LabeledFullInertiaCardinality318.lean": "153e09dbe828918cbf6145e2a14dbc8ab23338c002c75e7d19c39197599d7114",
+    "OriginalNormalAffineChart318.lean": "c94b2ef359d5a8da1dea0ff1bf6892152fb87245fcda38ca872a482d53a1911a",
+    "OriginalTangentFieldReconstruction318.lean": "dcd53a53b6b62973bd56a5bbd04584f33bdc548473da6176b607b60a3773dff7",
+    "OriginalCurveActionComparison318.lean": "0f9af9d3b410985f0c0d0ff1daf8a2e0d3c1979f3830edf810a51b93a718a6cd",
+    "DVRFractionCharacterParity318.lean": "089925a297e68061ffda6f082c42336b439645ae77f8146441ffdb82fca14cce",
+    "OriginalFullInertiaReconstruction318.lean": "42891d8b85ec05fea8246a62c48c2582993c21df64b7f54275a9a9def69f5d9c",
+    "PolynomialPrimeValuation318.lean": "83bec6034896c921349d3f5c1c24ad29cc9cbbe6b3904ba3cdde7d0f3916a33f",
+    "CanonicalDVRQuotientLength318.lean": "13e4eb52e7d61e12211ffa2510a046c9ee42e9d72b48f65cf642f03d68120a2d",
+    "QuadraticLocalCharacterOrders318.lean": "f9b09df29ed7c1887ed22d58d7e55a2a409e225f6b8dd5cc78598e0f4b2a10b9",
+    "ContactDivisorFieldReconstruction318.lean": "fdc88472efb6700364a85478b4f2a246db0df75b58ab1894946c3ea819e6bb9b",
+    "OriginalNormalClosureChartAction318.lean": "c11579d6357489de8591204c214e88595494d9853c0ef0b82f1d7729fbe0936e",
+    "ComplementRootAction318.lean": "0af420f2f7a8e6e3bc066c8dbd4a3215722df24d3a61c7e4d823a68983736983",
+    "LabeledContactFieldReconstruction318.lean": "61b71171850e7712d299121010c5be271d60557808cf27420113f897bccbe57e",
+    "OriginalCartesianChartCoefficients318.lean": "b93963e77353e6c8eb31bec250b8be525a115e6c1f6816cc325779de6bcdbbd9",
+    "CenteredContactReconstruction318.lean": "7066bf0663875e82858a7ca43af47c5e00d88e7514f06108ffa730497942329b",
+    "OriginalAffineSectionReconstruction318.lean": "2cc2cac4a3a8855f218fbc4abc0cce45b698f65ee00abd4eeb91460a1d81af69",
+    "OriginalOpenChartGeneric318.lean": "40f0065cc71d5ddf11fafaf9086ce39f440f00625c42fc4340f16191d0345aed",
+    "OriginalCartesianNormalChart318.lean": "204f0246c0dd3a264c226a167edd607961842f14e61a3fded9925202c91a6ecc",
+    "OriginalInertiaFieldReconstruction318.lean": "9f7e62b81c8493c5177afe15c3bae795763ca649644f8813933b9cbc9fef4d57",
+    "NormalBasisCharacterRadicals318.lean": "f3be631903008fcf7791c0694a47bd940b52895054aedb5a34daa888d2846b84",
+    "ContactPrimeOrderParity318.lean": "6f312fdf227e72ff0f3908a30960c9d72696a828e321b24769ead16bafa7e3ef",
+    "NormalizationSourceIso318.lean": "933de5586909c8a99faa5606aaf7b10b296946ade9fa68cebada757f9dc866b8",
+    "OriginalFiniteProjectiveFlat318.lean": "dfcf6cd2cb5707e35da4596a81fcc683794c3c72664d6cea47f53c92ce32af09",
+    "OriginalCanonicalQuotientBase318.lean": "fa7f8fbdb93255912f21c0bcd83c1c13083ab9a50aa06bdd28f0caa6844477fa",
+    "OriginalCanonicalCoordinateReconstruction318.lean": "8447a1601acb6407a49d6e3b603d202f1a029bcec77dd2f424cff0122902a782",
+    "OriginalContactInertiaBasis318.lean": "585d370703f75e436fc035605d94d2bb09ca8b522669332d0cadb5560a5addbb",
+    "OriginalDeckArithmeticLabels318.lean": "0b2432607353198390ddae6c105320fb01415eaea09b070f2ffb73a97c5e6123",
+    "OriginalGenericStalkNaturality318.lean": "c20c8ff4288c2dd0a33385c77d8c58f2327017846c64cfe5a408284134761e67",
+    "OriginalActualDeckEquivariance318.lean": "d7ebfd58a9359b792d3b04d875948e531c4b29e50fc1860dc6d1849c28444c6d",
+    "OriginalCandidateCurveIso318.lean": "753354ad8758bd1a6edc62a12bd1fa997d7226345937133c5b8408f2853adaeb",
+    "TameInvolutionUniformizer318.lean": "0b1c2bcec5cb26caab340f91efd6f482b80ed8c389813f6cbf5afea91f4f8fc6",
+    "OriginalGeometricBranchLocus318.lean": "dae86c627ac410143fd932add827bd2b09af42ffacc0e35e344de1f7ad71386b",
+    "LocalBranchEquationOrders318.lean": "df1441329507d2d92780a954370bb8e1a0dfe75c69bdd279fe519a9e59ecd4d5",
+    "ComplexLegendreCoordinates318.lean": "432fdaee00cabdce5f9ac05ffcaee4c951f725ec1abfdc1dab413c5959bdccfb",
+    "PrimeLocalOriginalField318.lean": "f45bcc8c32c5d27a4b8105c9159849d5016fc6b191237309b1ebfd8ea2d597cf",
+    "FourBinaryCharacters318.lean": "e74c3a44a472a5eaca91374ad3c2f11cc4b898d45469c5a8fb4f346209a7ab8b",
+    "OriginalProjectiveBaseIntegral318.lean": "293b77ce03bae3a05b6bd5db62156679c3f5b2024b1203d41b7f5bea3729d50e"
+  },
+  "bindings": {
+    "intake.json": "2096d2d8966d6b27c6c74c64544e3f2e7baf960b5cc7584915e6e3c370a07a37",
+    "COPY_BINDINGS.json": "676307ff7c3b855afff91afe2e3c8c7407b779ed319c7d38e1b99d1a59c9ed32",
+    "evidence/hosted216/OriginalNormalClosureGalois318.log": "f4a65108d1d62b5a40db6228d9da4c15e12992d030128e03242a38ff7a1d7b19",
+    "evidence/hosted223/OriginalFullInertiaReconstruction318.log": "b5f2268d6e4e7da9f8aedc9be6693fd3ed3dde8c0a587d9b5fba78754396087a",
+    "evidence/hosted229/OriginalFullInertiaReconstruction318.log": "d9160c8c34b55d2f8bfc61ac8edde74463e664f99867cb73ea3ec69655a06eb8",
+    "evidence/hosted234/OriginalFullInertiaReconstruction318.log": "59445e251ff857989e55f01475a389b990e09f8e8c3419ae402cd53bb3aacdd0",
+    "evidence/hosted240/OriginalFullInertiaReconstruction318.log": "4bf0f09222f6cfb74942bb89b01be8af4de0b3722fefde0a373ea07401d2cc85",
+    "evidence/hosted247/OriginalFullInertiaReconstruction318.log": "19fa0df9175c255dc9dedd24cdfb7f26e69bf31f964362d79daea0c44bc34d11",
+    "evidence/hosted252/NormalClosureGeometricPoints318.log": "f4daf6a6464b1e28537dc418e10871ec9ba8ca1e4e08304ffbd11840ed7b8865",
+    "evidence/hosted259/NormalClosureGeometricPoints318.log": "5164f88fa676be8f43945b2126ac636a9afb9c6928572a8cfcc55c9154f45c7f",
+    "evidence/hosted262/OriginalGeometricBranchLocus318.log": "03376254e2769bb037c7950f2c44a272874259b9c2e093a0a1261059442b59e9"
+  },
+  "packet": "original-finite-quotient-reconstruction-r38"
+}
