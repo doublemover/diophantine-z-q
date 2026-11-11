@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 import check_source_word_core_smoke as s
 class CoreSmokeTests(unittest.TestCase):
  def test_exact_transitive_closure(self):
-  order=s.validate();self.assertEqual(len(order),69);self.assertEqual(order[-1],s.TARGETS[-1]);self.assertTrue(set(s.TARGETS).issubset(order))
+  order=s.validate();self.assertEqual(len(order),75);self.assertEqual(order[-1],s.TARGETS[-1]);self.assertTrue(set(s.TARGETS).issubset(order))
  def test_upstream_is_subset_of_full_fetch(self):
   def imports(name):
    p=s.c.EXPERIMENTS/name;i=json.loads((p/"intake.json").read_text())
