@@ -1,0 +1,158 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:91:58: error: unsolved goals
+case «90»
+q : ℚ
+labels : Fin 4 → ℤ
+h : ℤ
+⊢ (chartU h ^ 4 * CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 4).re =
+    (CompressedOrientation318.fV
+          (RealGuardWitness318.fill
+            (CompressedAnchorWitness318.fill
+              (ReciprocalChartWitness318.fill (fun x => q) (CoherentMultiplePrefix318.u labels h)
+                (CoherentMultiplePrefix318.v labels h))
+              (chartU h) (chartV h))
+            (CoherentMultiplePrefix318.u labels h) (CoherentMultiplePrefix318.v labels h)) ^
+        2).re
+
+case «91»
+q : ℚ
+labels : Fin 4 → ℤ
+h : ℤ
+⊢ ↑(chartU h ^ 2).re * ↑(CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 2).re ^ 2 *
+            ↑(chartU h ^ 2).im +
+          ↑(chartU h ^ 2).re * ↑(chartU h ^ 2).im *
+              ↑(CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 2).im ^ 2 *
+            2 +
+        ↑(chartU h ^ 2).re ^ 2 * ↑(CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 2).re *
+          ↑(CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 2).im +
+      ↑(CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 2).re * ↑(chartU h ^ 2).im ^ 2 *
+          ↑(CompressedAnchorWitness318.shiftWitness (chartU h) (chartV h) ^ 2).im *
+        2 =
+    ↑(CompressedOrientation318.fV
+            (RealGuardWitness318.fill
+              (CompressedAnchorWitness318.fill
+                (ReciprocalChartWitness318.fill (fun x => q) (CoherentMultiplePrefix318.u labels h)
+                  (CoherentMultiplePrefix318.v labels h))
+                (chartU h) (chartV h))
+              (CoherentMultiplePrefix318.u labels h) (CoherentMultiplePrefix318.v labels h))).re *
+      ↑(CompressedOrientation318.fV
+            (RealGuardWitness318.fill
+              (CompressedAnchorWitness318.fill
+                (ReciprocalChartWitness318.fill (fun x => q) (CoherentMultiplePrefix318.u labels h)
+                  (CoherentMultiplePrefix318.v labels h))
+                (chartU h) (chartV h))
+              (CoherentMultiplePrefix318.u labels h) (CoherentMultiplePrefix318.v labels h))).im
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:96:21: warning: This simp argument is unused:
+  anchor_v_orbit
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RealDetectorCoefficients318.raw, primary_orbit q labels, alternate_orbit q labels,
+    alternatePolynomial_orbit q labels, polynomial_orbit q labels, common_orbit_source q labels, root_orbit,
+    guard_orbit, u_orbit, v_orbit, shift_orbit, fV_orbit_source q labels, ActualPadeRatios318.base_fV, anchor_u_orbit,
+    ← map_pow, ← map_mul, re_embedding, im_embedding]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:101:6: warning: This simp argument is unused:
+  RealDetectorRatios318.re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.im, pairOrbit,
+    RealCoherentOrbit318.orbit, embedding, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.negativeEmbedding, ActualQuadraticEmbeddings318.realEmbedding_pair,
+    CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:101:31: warning: This simp argument is unused:
+  RealDetectorRatios318.im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, pairOrbit,
+    RealCoherentOrbit318.orbit, embedding, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.negativeEmbedding, ActualQuadraticEmbeddings318.realEmbedding_pair,
+    CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:101:56: warning: This simp argument is unused:
+  pairOrbit
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, RealDetectorRatios318.im,
+    RealCoherentOrbit318.orbit, embedding, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.negativeEmbedding, ActualQuadraticEmbeddings318.realEmbedding_pair,
+    CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:101:66: warning: This simp argument is unused:
+  RealCoherentOrbit318.orbit
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, RealDetectorRatios318.im,
+    pairOrbit, embedding, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.negativeEmbedding, ActualQuadraticEmbeddings318.realEmbedding_pair,
+    CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:102:6: warning: This simp argument is unused:
+  embedding
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, RealDetectorRatios318.im,
+    pairOrbit, RealCoherentOrbit318.orbit, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.negativeEmbedding, ActualQuadraticEmbeddings318.realEmbedding_pair,
+    CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:102:16: warning: This simp argument is unused:
+  ActualQuadraticEmbeddings318.positiveEmbedding
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, RealDetectorRatios318.im,
+    pairOrbit, RealCoherentOrbit318.orbit, embedding, ActualQuadraticEmbeddings318.negativeEmbedding,
+    ActualQuadraticEmbeddings318.realEmbedding_pair, CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:103:6: warning: This simp argument is unused:
+  ActualQuadraticEmbeddings318.negativeEmbedding
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, RealDetectorRatios318.im,
+    pairOrbit, RealCoherentOrbit318.orbit, embedding, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.realEmbedding_pair, CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-global-series-r1/RealPadeSourceBridge318.lean:103:53: warning: This simp argument is unused:
+  ActualQuadraticEmbeddings318.realEmbedding_pair
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ActualPadeRatios318.witness, PadeRatioWitness318.fill, ActualPadeRatios318.base,
+    CoherentMultiplePrefix318.witness, RealGuardWitness318.fill, CompressedAnchorWitness318.fill,
+    ReciprocalChartWitness318.fill, ActualPadeRatios318.construct, RealDetectorRatios318.re, RealDetectorRatios318.im,
+    pairOrbit, RealCoherentOrbit318.orbit, embedding, ActualQuadraticEmbeddings318.positiveEmbedding,
+    ActualQuadraticEmbeddings318.negativeEmbedding, CoherentMultiplePrefix318.u, CoherentMultiplePrefix318.v]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
