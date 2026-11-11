@@ -1,0 +1,33 @@
+{
+  "reviewer": "/root/advance_contact_geometry",
+  "producer": "/root/advance_theta_identification",
+  "verdict": "BOUNDED_MATHEMATICAL_SOURCE_ACCEPTED_HOSTED_CHECK_PENDING",
+  "packet": "pel-original-polynomial-growth-inputs-r3",
+  "module_count": 203,
+  "exact_predecessor_count": 201,
+  "application_sha256": "9a32abd5781d571f92bbac72098c24336d9cd5794576714493fb004bb462580e",
+  "intake_sha256": "5cb321690659150e5fac01a1f5c147a9c47694a7d49cbbaa613d6b2ce4bbb873",
+  "new_sources_read": [
+    "ComplexPolynomialGrowth318.lean",
+    "ComplexFiniteHolePolynomial318.lean"
+  ],
+  "checks": [
+    "Read both full new sources and actual BoundedVertexExtension318 construction. Checked pinned Liouville Cauchy n-factorial radius estimate and entire Taylor formula; inverse-factorial/derivative/power order matches polynomial monomial evaluation exactly.",
+    "For every n>N and epsilon>0, radius max(1,K/epsilon)+1 is positive and greater than1; R^(N+1)<=R^n and K>=0 give K/R<epsilon. No assumed polynomial representation.",
+    "Taylor terms vanish for every index outside range(N+1), and every retained monomial has natDegree<=N, including zero coefficients and N=0.",
+    "Finite holes are removed by avoiding S minus the current center; every chosen local extension agrees with the same off-hole function. Uniqueness of punctured limits proves agreement off S; eventual agreement proves global entire extension.",
+    "Continuous pointwise bound is retained at holes by norm-minus-bound limit inequality. Sphere estimate C*2^N*R^N is uniform and nonnegative. No assumed values or continuity at holes.",
+    "Read newly copied bounded_extension helper in full. Actual norm difference is bounded by B+norm(f(c)); pinned bounded punctured removable theorem gives the limit; update constructs g, continuousAt_update_same and eventual off-center equality prove analyticity and actual limit. No continuity at center assumed.",
+    "Confirmed same growth source as earlier draft. Finite-hole module now contains direct checked helper and direct Mathlib.RemovableSingularity import, no inherited sphere/Joukowski inputs. All203 source hashes,201 exact clopen predecessor copies and3 contract bindings verified.",
+    "Independently fetched exact pinned mathlib Liouville, TaylorSeries and RemovableSingularity sources and compared bytes to reviewed primary copies. All nine obligations read and accepted for the stated analytic-input scope."
+  ],
+  "limits": [
+    "No local Lean compilation/profiling; hosted elaboration/kernel remains required.",
+    "201 inherited sources are provenance checked, not independently re-proved by this review.",
+    "No bivariate numerator, selected-factor rationality, irreducibility join or original theta image exhaustion follows yet."
+  ],
+  "new_source_sha256": {
+    "ComplexPolynomialGrowth318.lean": "7b4fb6cf6c66b72965099ea0b916a8dc7bd916798d741cc7f63d167f5b95b80b",
+    "ComplexFiniteHolePolynomial318.lean": "67116b17435c5b1da19686c36a30441a9d341e2a3449e99b29b99cbaf3fd6006"
+  }
+}
