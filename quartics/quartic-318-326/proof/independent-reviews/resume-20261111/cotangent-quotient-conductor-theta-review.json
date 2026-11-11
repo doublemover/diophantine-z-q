@@ -1,0 +1,38 @@
+{
+  "reviewer": "/root/advance_theta_identification",
+  "producer": "/root/advance_contact_geometry",
+  "verdict": "BOUNDED_EXACT_REPAIR_SOURCE_ACCEPTED_HOSTED_CHECK_PENDING",
+  "packets": [
+    {
+      "packet": "pel-original-cotangent-sheaf-length-r3",
+      "predecessor": "pel-original-cotangent-sheaf-length-r2",
+      "application_sha256": "7cc3aae73ac13075ccc02195391325ad3eccb979573673707ad23f5775c1435b",
+      "intake_sha256": "e8e4c2dc7a9b36d84de091214e762101dad96a04628cac42dfbf561cd61d1160",
+      "module_count": 628,
+      "changed_sources": {
+        "ActualLinearRootDifferent318.lean": "aeefda7601262fd94b0ccb46b62c46dcf404c34faf605f63a89ca506ae4949d2",
+        "PolynomialRelativeCotangentQuotient318.lean": "a80d0de8a15c5a1b011993848a8a4102a25dd543f884c8b2b8b61f17bbfec929"
+      }
+    },
+    {
+      "packet": "pel-original-zero-scheme-reduced-r4",
+      "predecessor": "pel-original-zero-scheme-reduced-r3",
+      "application_sha256": "ecd3a4dcf66fad5c782bc2a5caf10fbc6f67b04b8af093c4ffae289bb8a06c2b",
+      "intake_sha256": "97535f684d3fe263ccf86237110f3508a9e4af4cf3bf12c6efb9725efb98a9c0",
+      "module_count": 106,
+      "changed_sources": {
+        "ActualLinearRootDifferent318.lean": "aeefda7601262fd94b0ccb46b62c46dcf404c34faf605f63a89ca506ae4949d2"
+      }
+    }
+  ],
+  "scope": [
+    "Read both complete changed sources, all exact hosted229 diagnostics and predecessor diffs.",
+    "Two self-algebraMap normalization steps prove the same actual differential equations. coefficientEquiv_mk exposes the actual same quotient representative; pinned Submodule.quotEquivOfEq is Quotient.congr with identity representative and its mk lemma is rfl.",
+    "PowerBasis.gen is definitionally the actual signed root; change exposes exactly that before the conductor equality rewrites. No abstract substituted generator or different ideal is introduced.",
+    "All628/106 hashes and application bindings verified. Exactly2/1 source deltas,626/105 byte-identical predecessors, same conductor repair bytes across both. All theorem statements and resource budgets unchanged."
+  ],
+  "limits": [
+    "No local Lean compilation, replay or profiling. Hosted elaboration and kernel acceptance remain pending.",
+    "Bounded repair review does not independently reprove every inherited result."
+  ]
+}

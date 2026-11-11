@@ -1,0 +1,31 @@
+# Hosted229 quotient and conductor elaboration repair
+
+Only PolynomialRelativeCotangentQuotient318 and ActualLinearRootDifferent318 change from frozen sheaf-length-r2. Exact hosted229 quotient94 and reduced106 logs are retained. The differential identities explicitly simplify the self algebra map after map_D. The literal-coefficient quotient comparison changes to its definitionally identical original quotient representative, then applies the already-proved quotientEquiv_mk. The conductor proof names the existing power-basis theorem and explicitly changes its definitionally identical generator to the original root before rewriting.
+
+All statements, mathematical inputs, original quotient and trace different, scalar actions and final actual sheaf stalk length40 consumer are unchanged.626 files are exact predecessor copies, including the independently reviewed frame repair. The full143/147 closures and628 targets remain present. No local Lean, no budget increase. Prior review remains historical; this delta requires independent review and hosted checking.
+
+## Historical scope
+
+# Hosted229 narrow coefficient proof repair
+
+Only FramedMorphismCoefficientAssociates318 changes from frozen sheaf-length-r1. The actual hosted229 ideal143 log is retained as HOSTED-PREDECESSOR.log. coefficient_relation now simplifies all nested linear-map scalar actions recursively with simp only after substituting the actual source-generator equation. The old fixed rewrite list consumed only two of three map_smul redexes and then attempted a duplicate unavailable smul_eq_mul rewrite. Both singleton membership substitutions now use rw instead of rcases with rfl, preserving the named literal coefficient a in the reverse ideal inclusion.
+
+Statements, hypotheses, source and target frames, extracted coefficient, explicit unit construction, exact full principal ideal comparison, actual sheaf quotient and original length40 consumer are unchanged. No new axiom, sorry, budget increase or numerical shortcut. All other627 source files are exact predecessor copies; complete143/147 closures and all628 targets remain present. Previous acceptance is historical. New independent delta review and hosted verification are required. No local Lean was run.
+
+## Historical mathematical scope
+
+# Actual original relative cotangent sheaf stalk lengths sum to40
+
+Four new modules complete the point and local-ring identifications needed after the canonical stalk-quotient comparison. The result is a sum of Module.length of the ACTUAL original global relative cotangent sheaf stalks over their ACTUAL structure-sheaf local rings with canonical module action. It is not a divisor coefficient defined from a desired ramification count.
+
+LocalIdealLengthTransport318 proves quotient-module semilinearity over an actual ring equivalence and preserves full submodule lattice length. For a genuine affine open immersion Spec(S)→Spec(R), its original stalk map and canonical Spec stalk isomorphisms produce an equivalence of the two prime localizations. The value on EVERY original coefficient is computed from the pinned localRingHom_comp_stalkIso and localRingHom_to_map. Consequently the FULL original ideal maps identically through the two localization paths, including multiplicity.
+
+AffineStalkLocalizationLength318 identifies the actual structure-sheaf local quotient length with the canonical prime-localization quotient length. The map is the upstream R-algebra stalk equivalence and its commutes equation proves identity of the ideal, not just an abstract local-ring isomorphism.
+
+FourRootActualSheafLengths318 covers EVERY prime of the whole original finite affine chart by a produced canonical principal root chart. It also covers every infinity prime in the actual canonical infinity open, in particular ALL eight infinity centers by their already-proved denominator nonvanishing. It uses the original chart localization maps and whole derivative-zero ideals. Complex-point evaluation kernels are identified with the underlying points of the SAME original Scheme-valued maps from Spec(C); the unique prime of C is explicitly identified with zero. Thus the actual sheaf lengths agree with the previously computed exact original finite/infinity local quotient lengths.
+
+PELOriginalCotangentSheafLength318 defines length directly from the actual sheaf stalk at PELOriginalContactSchemePoints318.comparison p. Only after proving equality with the original local quotient length does it derive regular length0, branch length1, equality with the independently constructed different coefficient, and total_sheaf_stalk_length_forty on the SAME original Ramification carrier. This retains the original completedMap, original finite signed roots, all infinity signs, and reciprocal base v=u².
+
+Boundary: the theorem sums actual stalk lengths over all original forty ramification points and proves their actual original regular complements have length0. It does not assert a globally chosen generator, identify a Picard/Jacobian component, algebraize the original analytic source as a Scheme morphism, or claim the final PEL theorem complete. Earlier all-prime zero-scheme reducedness is a separate accepted route. All predecessors are copied byte-identically from stalk147, repaired zero-local-length-r3 and repaired union116. No local Lean was run. Independent review and hosted elaboration remain pending.
+
+Pinned primary APIs: mathlib56a005855ea17e0b0958f73ec801ae140b0a1679 AlgebraicGeometry/AffineScheme.lean (actual stalk square); RingTheory/Localization/AtPrime/Basic.lean (localRingHom source compatibility); RingTheory/Ideal/Quotient/Operations.lean (exact quotientEquiv); StructureSheaf.lean (R-algebra stalk equivalence). Source copies and hashes are retained under PRIMARY/.
