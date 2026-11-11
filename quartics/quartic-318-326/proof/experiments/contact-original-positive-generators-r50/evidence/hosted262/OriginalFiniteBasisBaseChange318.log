@@ -1,0 +1,64 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:27:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:26:80: error: unsolved goals
+R A : Type u
+inst✝⁴ : CommRing R
+inst✝³ : Nontrivial R
+inst✝² : CommRing A
+f : R →+* A
+M : ModuleCat R
+inst✝¹ : Module.Finite R ↑M
+inst✝ : Module.Free R ↑M
+a : A
+m : ↑M
+i : Fin (Module.finrank R ↑M)
+this : Algebra R A := f.toAlgebra
+⊢ ((ScalarExtensionTensor318.tensorEquiv M).trans (Module.Basis.baseChange A (Module.finBasis R ↑M)).equivFun)
+      (a ⊗ₜ[R] m) i =
+    f (((Module.finBasis R ↑M).repr m) i) * a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:28:25: warning: This simp argument is unused:
+  LinearEquiv.trans_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ScalarExtensionTensor318.tensorEquiv_tmul, Module.Basis.equivFun_apply,
+    Module.Basis.baseChange_repr_tmul, Algebra.smul_def, RingHom.algebraMap_toAlgebra]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:28:49: warning: This simp argument is unused:
+  ScalarExtensionTensor318.tensorEquiv_tmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, LinearEquiv.trans_apply, Module.Basis.equivFun_apply,
+    Module.Basis.baseChange_repr_tmul, Algebra.smul_def, RingHom.algebraMap_toAlgebra]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:29:4: warning: This simp argument is unused:
+  Module.Basis.equivFun_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, LinearEquiv.trans_apply, ScalarExtensionTensor318.tensorEquiv_tmul,
+    Module.Basis.baseChange_repr_tmul, Algebra.smul_def, RingHom.algebraMap_toAlgebra]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:29:32: warning: This simp argument is unused:
+  Module.Basis.baseChange_repr_tmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, LinearEquiv.trans_apply, ScalarExtensionTensor318.tensorEquiv_tmul,
+    Module.Basis.equivFun_apply, Algebra.smul_def, RingHom.algebraMap_toAlgebra]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r45/OriginalFiniteBasisBaseChange318.lean:29:66: warning: This simp argument is unused:
+  Algebra.smul_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, LinearEquiv.trans_apply, ScalarExtensionTensor318.tensorEquiv_tmul,
+    Module.Basis.equivFun_apply, Module.Basis.baseChange_repr_tmul, RingHom.algebraMap_toAlgebra]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

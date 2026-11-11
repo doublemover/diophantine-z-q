@@ -1,0 +1,77 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:18:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.inverseChart_symm`:
+  [ContinuousConstSMul G M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [ContinuousConstSMul G M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:46:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.quotientChart_apply`:
+  [NormedSpace ℂ E]
+  [ContinuousConstSMul G M]
+  [IsManifold 𝓘(ℂ, E) ω M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℂ E] [ContinuousConstSMul G M] [IsManifold 𝓘(ℂ, E) ω M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:49:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.quotientChart_symm`:
+  [NormedSpace ℂ E]
+  [IsManifold 𝓘(ℂ, E) ω M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℂ E] [IsManifold 𝓘(ℂ, E) ω M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:54:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.quotientChart_center`:
+  [NormedSpace ℂ E]
+  [ContinuousConstSMul G M]
+  [IsManifold 𝓘(ℂ, E) ω M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℂ E] [ContinuousConstSMul G M] [IsManifold 𝓘(ℂ, E) ω M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:72:4: error: Type mismatch: After simplification, term
+  hz.right
+ has type
+  Membership.mem.{u_1, u_1} (↑(quotientChart q hq a).symm.symm.symm ⁻¹' (quotientChart q hq b).source) z
+but is expected to have type
+  Membership.mem.{u_3, u_3} (quotientChart q hq b).source (q p)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:68:97: error: unsolved goals
+E : Type u_1
+M : Type u_2
+Q : Type u_3
+G : Type u_4
+inst✝⁸ : NormedAddCommGroup E
+inst✝⁷ : NormedSpace ℂ E
+inst✝⁶ : TopologicalSpace M
+inst✝⁵ : TopologicalSpace Q
+inst✝⁴ : Group G
+inst✝³ : MulAction G M
+inst✝² : ContinuousConstSMul G M
+inst✝¹ : ChartedSpace E M
+inst✝ : IsManifold 𝓘(ℂ, E) ω M
+q : M → Q
+hq : IsQuotientCoveringMap q G
+hhol : ∀ (g : G), ContMDiff 𝓘(ℂ, E) 𝓘(ℂ, E) ω fun x => g • x
+a b : M
+z : E
+hz : z ∈ ((quotientChart q hq a).symm ≫ₕ quotientChart q hq b).source
+p : M := ↑(chartAt E a).symm z
+ha : z ∈ (chartAt E a).target
+hb : q p ∈ (quotientChart q hq b).source
+g : G
+hg : ↑(inverseChart q hq b) (q p) = g • p
+he : (fun x => ↑(inverseChart q hq b) (q x)) =ᶠ[𝓝 p] fun x => g • x
+hgb : g • p ∈ (chartAt E b).source
+⊢ ContDiffAt ℂ ω (↑((quotientChart q hq a).symm ≫ₕ quotientChart q hq b)) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:94:18: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r116/HolomorphicQuotientCoverCharts318.lean:102:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

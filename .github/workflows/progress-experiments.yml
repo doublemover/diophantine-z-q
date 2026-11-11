@@ -122,7 +122,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-original-quotient-chart-transitions-r1'
+        if: always() && matrix.packet == 'relative-original-projective-quotient-parameter-r2'
         shell: bash
         run: |
           set -euo pipefail
@@ -312,6 +312,14 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_overlap_morphism_coherence.py "$PACKET"
+      - name: Non-admitted actual tensor transport diagnostics
+        if: failure() && matrix.packet == 'contact-relative-site-descent-r57'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_tensor_transport_faces.py "$PACKET"
       - name: Non-admitted exact center prefix diagnostics
         if: always() && matrix.packet == 'height-normalized-valuative-center-r45'
         shell: bash
@@ -356,6 +364,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-consumer-carriers-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-overlap-morphism-carriers-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-overlap-morphism-coherence-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-tensor-transport-faces-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-center-prefix-diagnostics/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof
