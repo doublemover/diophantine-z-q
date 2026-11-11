@@ -1,0 +1,13 @@
+# Global intrinsic relative cotangent universal property
+
+This reconstructs the genuine global relative derivation problem on the original projective morphism. The coefficient ring remains the original R, the source and base are arbitrary entire R-schemes, and the input is their actual over-R square. Relative derivations are defined independently: actual sheaf-valued R-derivations killing the pullback of EVERY regular function on EVERY base open. A restriction theorem proves the same vanishing on all smaller source opens, hence on the germs of inverse-image base functions.
+
+The essential comparison theorem proves that the ORIGINAL universal derivative annihilates a sheaf morphism if and only if its associated derivation kills those actual base functions. The proof uses the actual pullback-pushforward adjunction and the existing universal absolute derivations; it is not an assumed factorization or a definition of the condition using the desired cokernel.
+
+The sheaf cokernel of the original derivative therefore represents this full relative derivation problem. Its universal derivation kills all base functions, and every such derivation into EVERY sheaf of modules factors uniquely. The original four-root specialization uses the SAME projective projection and actual existing derivative. Equality with that derivative's cokernel is literal. There is no generic localization or chosen cover in this universal property.
+
+This is a global intrinsic construction and universal property, not yet the affine-chart compatibility, global identification as a line on the derivative-zero scheme, or comparison of actual sheaf stalks with the earlier local quotient lengths. It does not establish the total sheaf length40 or complete PEL/Jacobian identification. Those are subsequent comparison gates. Earlier missing packet847 remains unrecovered and is not evidence.
+
+Primary APIs were read at mathlib56a005855ea17e0b0958f73ec801ae140b0a1679: CategoryTheory/Adjunction/Basic.lean (homEquiv_unit and naturality), CategoryTheory/Limits/Shapes/Kernels.lean (cokernel condition, descent and factorization), AlgebraicGeometry/Modules/Sheaf.lean (actual module category has colimits, actual pushforward/pullback adjunction and additive functors). Exact application maps retain all original objects and the direction of the adjunction.
+
+Two new modules with exact minimal dependency closure from union-r114. Frozen predecessors remain untouched. No local Lean compilation, replay or profiling was run. Independent source review and hosted elaboration are pending. Static checks do not establish kernel acceptance.
