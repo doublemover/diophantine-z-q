@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r62/CanonicalGeometricOverlap318.lean:85:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (tilde.adjunction.homEquiv (extendedSections (leftMap R S S) L)
+      ((Scheme.Modules.pullback (Spec.map (leftMap R S S))).obj L.object))
+    (sheafIso (leftMap R S S) L).hom
+in the target expression
+  (tilde.adjunction.homEquiv (extendedSections (leftMap R S S) L)
+          (LineSheafPullback318.line (Spec.map (leftMap R S S)) L).object)
+        (sheafIso (leftMap R S S) L).hom ≫
+      moduleSpecΓFunctor.map (overlap R S M L e) =
+    CanonicalScalarOverlap318.conjugated R S M e ≫
+      (tilde.adjunction.homEquiv (extendedSections (rightMap R S S) L)
+          (LineSheafPullback318.line (Spec.map (rightMap R S S)) L).object)
+        (sheafIso (rightMap R S S) L).hom
+
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+M : ModuleCat ↑R
+L : Line (Spec S)
+e : (ModuleCat.extendScalars (algebraMap ↑R ↑S)).obj M ≅ OriginalLineAffineModel318.sections S L
+h :
+  (sheafIso (leftMap R S S) L).hom ≫ overlap R S M L e =
+    (tilde.functor (ring R S S)).map (CanonicalScalarOverlap318.conjugated R S M e) ≫ (sheafIso (rightMap R S S) L).hom
+hh :
+  (tilde.adjunction.homEquiv (extendedSections (leftMap R S S) L)
+          (LineSheafPullback318.line (Spec.map (leftMap R S S)) L).object)
+        (sheafIso (leftMap R S S) L).hom ≫
+      moduleSpecΓFunctor.map (overlap R S M L e) =
+    CanonicalScalarOverlap318.conjugated R S M e ≫
+      (tilde.adjunction.homEquiv (extendedSections (rightMap R S S) L)
+          (LineSheafPullback318.line (Spec.map (rightMap R S S)) L).object)
+        (sheafIso (rightMap R S S) L).hom
+hl :
+  (tilde.adjunction.homEquiv (extendedSections (leftMap R S S) L)
+        ((Scheme.Modules.pullback (Spec.map (leftMap R S S))).obj L.object))
+      (sheafIso (leftMap R S S) L).hom =
+    (sectionsIso (leftMap R S S) L).hom
+hr :
+  (tilde.adjunction.homEquiv (extendedSections (rightMap R S S) L)
+        ((Scheme.Modules.pullback (Spec.map (rightMap R S S))).obj L.object))
+      (sheafIso (rightMap R S S) L).hom =
+    (sectionsIso (rightMap R S S) L).hom
+⊢ (OriginalLineOverlapCoaction318.moduleHomEquiv R S L) (overlap R S M L e) =
+    CanonicalScalarOverlap318.conjugated R S M e

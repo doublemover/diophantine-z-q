@@ -9,13 +9,13 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-original-categorical-frame-descent-r1'
-CORE='relative-varying-source-word-core-r25'
-PARENT_INTAKE='b35693621afa35a9612d69ca42dcdeb2235e1b1ee77cef5c40e9b16fdc4e2f63'
-PARENT_APPLICATION='88f8fb0dd788a06669f7e55c4f0486de90a2e15aea7b5f95c0252f1894b14df4'
-CORE_INTAKE='c5b867f05bfdfc0039f74141afcb82104de86dffb937011bedbbf03b8f7e981f'
-CORE_APPLICATION='a2793cf22b2c412d263fee30f690adeed7b81aed71c229290109591fa2be0457'
-CLOSURE_SHA='9410bcb01754622a61c7403a82ea10c210cc5e3c16251bebb63c4a365e15e90b'
+PARENT='relative-original-family-frame-equivalence-r1'
+CORE='relative-varying-source-word-core-r26'
+PARENT_INTAKE='81a671968200ef832dc3c745446a01defbb5cfb2db8eb54b83a70e263adade45'
+PARENT_APPLICATION='1ab467a7c7069b94ad1a7e40b66eb26404f10a411e6c5111852e450749de9ba7'
+CORE_INTAKE='f8f35fc681057d9847998b3ee98606c131fe1a9b24a8bea1b59c7e5b3a62f2d7'
+CORE_APPLICATION='bfa57a499b08c25bb7cf853242418b5a56f81f12a28f90bc6bd7e155d2a0ff26'
+CLOSURE_SHA='5ecf93040313269583d750a0851b083458f8da815322898d3ada309964627e4d'
 TARGETS=['VaryingWordIdealChartClassifier318', 'VaryingNormalizedIdealBaseChange318', 'VaryingWordGlobalFamilyProjection318', 'VaryingWordGlobalClosedQuotient318', 'VaryingBoundedFreeIdealMap318', 'VaryingGlobalFreeQuotientEquiv318', 'VaryingBoundedQuotientRecovery318', 'SchemeClosedOpenPushout318', 'SchemeTwoOpenClosedDescent318', 'AffineClosedRestrictionIso318', 'VaryingLocalFreeQuotientNaturality318', 'VaryingProjectiveQuotientFamily318']
 SECONDS=180
 

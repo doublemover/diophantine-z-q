@@ -1,0 +1,187 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:21:0: warning: Definition `OriginalSchemeDeckFieldAction318.baseAlgebra` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:30:0: warning: automatically included section variable(s) unused in theorem `OriginalSchemeDeckFieldAction318.ringEquiv_hom`:
+  [Group G]
+  [Finite G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Group G] [Finite G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:38:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => DominantFunctionField318.map _a = DominantFunctionField318.map p ≫ DominantFunctionField318.map (b w).hom
+Error: Application type mismatch: The argument
+  instIsDominantCompScheme (b w).hom p
+has type
+  IsDominant ((b w).hom ≫ p)
+but is expected to have type
+  IsDominant _a
+in the application
+  @DominantFunctionField318.map X B ⋯ ⋯ _a ⋯
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+G F : Type
+inst✝⁶ : Group G
+inst✝⁵ : Finite G
+inst✝⁴ : Field F
+X B : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral B
+p : X ⟶ B
+inst✝¹ : IsDominant p
+inst✝ : IsSeparated p
+κ : F →+* ↑B.functionField
+b : G → (X ≅ X)
+hover : ∀ (w : G), (b w).hom ≫ p = p
+w : G
+r : F
+h :
+  DominantFunctionField318.map ((b w).hom ≫ p) = DominantFunctionField318.map p ≫ DominantFunctionField318.map (b w).hom
+⊢ (ringEquiv b w) ((CommRingCat.Hom.hom (DominantFunctionField318.map p)) (κ r)) =
+    (CommRingCat.Hom.hom (DominantFunctionField318.map p)) (κ r)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:61:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => DominantFunctionField318.map _a = 𝟙 X.functionField
+Error: Application type mismatch: The argument
+  IsIso.id X
+has type
+  IsIso (𝟙 X)
+but is expected to have type
+  IsIso _a
+in the application
+  @instIsSchemeTheoreticallyDominantOfIsIsoScheme X X _a (IsIso.id X)
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case refine_1
+G F : Type
+inst✝⁶ : Group G
+inst✝⁵ : Finite G
+inst✝⁴ : Field F
+X B : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral B
+p : X ⟶ B
+inst✝¹ : IsDominant p
+inst✝ : IsSeparated p
+κ : F →+* ↑B.functionField
+b : G → (X ≅ X)
+bone : (b 1).hom = 𝟙 X
+bmul : ∀ (v w : G), (b (v * w)).hom = (b v).hom ≫ (b w).hom
+hover : ∀ (w : G), (b w).hom ≫ p = p
+this : Algebra F ↑X.functionField := baseAlgebra p κ
+x : ↑X.functionField
+h : DominantFunctionField318.map (𝟙 X) = 𝟙 X.functionField
+⊢ (algEquiv p κ b hover 1) x = 1 x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:67:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    DominantFunctionField318.map _a = DominantFunctionField318.map (b w).hom ≫ DominantFunctionField318.map (b v).hom
+Error: Application type mismatch: The argument
+  instIsDominantCompScheme (b v).hom (b w).hom
+has type
+  IsDominant ((b v).hom ≫ (b w).hom)
+but is expected to have type
+  IsDominant _a
+in the application
+  @DominantFunctionField318.map X X ⋯ ⋯ _a ⋯
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case refine_2
+G F : Type
+inst✝⁶ : Group G
+inst✝⁵ : Finite G
+inst✝⁴ : Field F
+X B : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral B
+p : X ⟶ B
+inst✝¹ : IsDominant p
+inst✝ : IsSeparated p
+κ : F →+* ↑B.functionField
+b : G → (X ≅ X)
+bone : (b 1).hom = 𝟙 X
+bmul : ∀ (v w : G), (b (v * w)).hom = (b v).hom ≫ (b w).hom
+hover : ∀ (w : G), (b w).hom ≫ p = p
+this : Algebra F ↑X.functionField := baseAlgebra p κ
+v w : G
+x : ↑X.functionField
+h :
+  DominantFunctionField318.map ((b v).hom ≫ (b w).hom) =
+    DominantFunctionField318.map (b w).hom ≫ DominantFunctionField318.map (b v).hom
+⊢ (algEquiv p κ b hover (v * w)) x = (algEquiv p κ b hover v * algEquiv p κ b hover w) x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:75:45: error: Application type mismatch: The argument
+  bone
+has type
+  (b 1).hom = 𝟙 X
+but is expected to have type
+  ∀ (w : G), (b w).hom ≫ p = p
+in the application
+  representation p κ b bone
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:89:25: error: Application type mismatch: The argument
+  bone
+has type
+  (b 1).hom = 𝟙 X
+but is expected to have type
+  ∀ (w : G), (b w).hom ≫ p = p
+in the application
+  representation p κ b bone
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:98:56: error: Application type mismatch: The argument
+  bone
+has type
+  (b 1).hom = 𝟙 X
+but is expected to have type
+  ∀ (w : G), (b w).hom ≫ p = p
+in the application
+  representation p κ b bone
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:100:24: error(lean.unknownIdentifier): Unknown identifier `κ`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:99:55: error: unsolved goals
+G : Type
+inst✝⁵ : Group G
+inst✝⁴ : Finite G
+X B : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral B
+p : X ⟶ B
+inst✝¹ : IsDominant p
+inst✝ : IsSeparated p
+b : G → (X ≅ X)
+bone : (b 1).hom = 𝟙 X
+bmul : ∀ (v w : G), (b (v * w)).hom = (b v).hom ≫ (b w).hom
+hover : ∀ (w : G), (b w).hom ≫ p = p
+w : G
+⊢ OriginalGenericStalkNaturality318.generic X ≫ (b w).hom =
+    Spec.map (CommRingCat.ofHom sorry) ≫ OriginalGenericStalkNaturality318.generic X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:113:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:114:32: error: Application type mismatch: The argument
+  bone
+has type
+  (b 1).hom = 𝟙 X
+but is expected to have type
+  ∀ (w : G), (b w).hom ≫ p = p
+in the application
+  representation p κ b bone
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:115:36: error(lean.unknownIdentifier): Unknown identifier `representation_injective`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r47/OriginalSchemeDeckFieldAction318.lean:115:31: error: Application type mismatch: The argument
+  ρ
+has type
+  ↑X.functionField
+but is expected to have type
+  ?m.131 → ?m.132
+in the application
+  Function.Injective ρ
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 4

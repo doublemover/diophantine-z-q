@@ -1,0 +1,17 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r19/AffineQuotientPullback318.lean:41:2: error: Tactic `apply` failed: could not unify the conclusion of `@IsPushout.of_isColimit`
+  IsPushout ?f ?g (PushoutCocone.inl ?c) (PushoutCocone.inr ?c)
+with the goal
+  IsPushout f (CommRingCat.ofHom (Ideal.Quotient.mk I)) (CommRingCat.ofHom (Ideal.Quotient.mk J)) (arrow f I J hJ)
+
+Note: The full type of `@IsPushout.of_isColimit` is
+  ∀ {C : Type ?u.98} [inst : Category.{?u.99, ?u.98} C] {Z X Y : C} {f : Z ⟶ X} {g : Z ⟶ Y} {c : PushoutCocone f g}
+    (h : IsColimit c), IsPushout f g c.inl c.inr
+
+A B : CommRingCat
+f : A ⟶ B
+I : Ideal ↑A
+J : Ideal ↑B
+hJ : J = Ideal.map (CommRingCat.Hom.hom f) I
+descend : (s : PushoutCocone f (CommRingCat.ofHom (Ideal.Quotient.mk I))) → ↧(↑B ⧸ J) ⟶ s.pt :=
+  fun s => CommRingCat.ofHom (Ideal.Quotient.lift J (CommRingCat.Hom.hom s.inl) ⋯)
+⊢ IsPushout f (CommRingCat.ofHom (Ideal.Quotient.mk I)) (CommRingCat.ofHom (Ideal.Quotient.mk J)) (arrow f I J hJ)

@@ -1,0 +1,17 @@
+{
+  "reviewer": "reconcile_proof_queue",
+  "verdict": "BOUNDED_SOURCE_API_ACCEPTED_HOSTED_PENDING",
+  "sources": {
+    "PELOriginalPeriodMatrixDerivative318.lean": "26a23b10212414a6e3da558f2040cc9d45abe3942bfd8c9cd041cf78b25c915c",
+    "PELOriginalPeriodDerivativeCongruence318.lean": "d2f393c09ebac784946abaee66a69cb39b1e078652b69d4f93fc11ec08b52d19",
+    "PELOriginalPeriodMetricDeterminant318.lean": "d9f24c64e50ccba274119d5301383506dd3e86d42647fcc9f0660ce543dcb35b"
+  },
+  "review": [
+    "Read all three complete sources and exact retained omega, normalized original a-period matrix, Hermitian gram and inverse-imaginary-matrix producers. Checked pinned HasDerivAt.inv and scalar-vector derivative APIs.",
+    "The derivative is of the actual full matrix omega. Original coordinate convention gives A*OmegaDerivative*A.transpose=sqrt210*I, not a transposed substitute. Independently checked this exact matrix identity and determinant42/tauSquared symbolically with SymPy.",
+    "Actual Hermitian determinant and full inverse relation give the original imaginary-period determinant and derivative-to-metric ratio1/imTauSquared. Same original period lattice convention retained."
+  ],
+  "limits": [
+    "This is an analytic period derivative calculation, not yet a relative de Rham/Gauss-Manin morphism or integral arithmetic KS/Hodge identification. No local Lean."
+  ]
+}
