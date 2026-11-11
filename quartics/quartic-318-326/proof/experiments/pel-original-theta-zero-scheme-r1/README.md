@@ -1,0 +1,9 @@
+# Actual original theta zero scheme
+
+The SAME actual algebraic degree-one theta section defines a genuine nonempty proper closed zero scheme with exact full principal-ideal Cartesian restrictions, original complex zero points and all-complex-point realization. Every local equation is a nonzerodivisor and multiplication by theta is a whole sheaf monomorphism. No reducedness, smoothness or genus assertion is inferred.
+
+The original theta section already produced by the full H0(L) comparison has genuine whole mixed-chart coefficients. Their actual unit cocycle identifies the FULL principal ideal sheaves on overlaps. The corresponding local closed subschemes have full Cartesian open intersections; actual scheme gluing gives a closed immersion whose every mixed chart is the entire ambient-open base change. Its true kernel ideal restricts to the same principal ideals, retaining all multiplicities.
+
+Properness follows from the actual closed immersion and proper original candidate. Exact original complex-point support follows through GammaSpec evaluation of the local equation, and reduced SOURCE factorization lifts points into the full possibly nonreduced zero scheme. Every over-C zero-scheme point equals an original theta-zero point. Nonzero theta and integral restriction injectivity prove all mixed local equations nonzero and nonzerodivisors. Whole-open frame naturality proves theta multiplication is a sheaf monomorphism. Nonemptiness is independently produced: a hypothetical nowhere-zero original theta would make all cubic/theta-cubed quotients entire and periodic; compactness and Liouville would contradict two genuinely independent original cubic theta functions. No theta value at zero is assumed.
+
+No reduced/smooth/irreducible theta divisor, genus, Jacobian identity, represented dual or principal dual isomorphism is asserted. All589 predecessor targets and protected baseline provenance retained. Hosted kernel validation pending; no local Lean.

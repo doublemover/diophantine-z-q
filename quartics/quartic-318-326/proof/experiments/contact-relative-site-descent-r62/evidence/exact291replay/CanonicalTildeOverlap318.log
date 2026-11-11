@@ -1,0 +1,91 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:27:2: error: Type mismatch: After simplification, term
+  TildePullbackInverseComposition318.composition f g M
+ has type
+  @Eq
+    ((tilde.functor T).obj
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj
+          ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M)) ⟶
+      (Scheme.Modules.pullback (Spec.map (f ≫ g))).obj ((tilde.functor R).obj M))
+    ((TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).inv.app M) ≫
+        (AffineComparisonMates318.pullbackComp f g).hom.app ((tilde.functor R).obj M))
+    ((tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app M) ≫
+      (TildePullback318.pullbackIso (f ≫ g)).inv.app M)
+but is expected to have type
+  @Eq
+    (tilde
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj
+          ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M)) ⟶
+      (Scheme.Modules.pullback (Spec.map (f ≫ g))).obj (tilde M))
+    ((TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).inv.app M) ≫
+        (AffineComparisonMates318.pullbackComp f g).hom.app (tilde M))
+    ((tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app M) ≫
+      (TildePullback318.pullbackIso (f ≫ g)).inv.app M)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 6
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:52:4: error: Type mismatch: After simplification, term
+  congrArg (fun k => P.map k) (Iso.inv_hom_id_app (TildePullback318.pullbackIso f) M)
+ has type
+  P.map ((TildePullback318.pullbackIso f).inv.app M) ≫ P.map ((TildePullback318.pullbackIso f).hom.app M) =
+    P.map (𝟙 ((ModuleCat.extendScalars (CommRingCat.Hom.hom f) ⋙ tilde.functor S).obj M))
+but is expected to have type
+  P.map ((TildePullback318.pullbackIso f).inv.app M) ≫ P.map ((TildePullback318.pullbackIso f).hom.app M) =
+    𝟙 (P.obj ((ModuleCat.extendScalars (CommRingCat.Hom.hom f) ⋙ tilde.functor S).obj M))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:87:58: error: unsolved goals
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+M : ModuleCat ↑R
+hl :
+  (stepIso (ringMap R S) (leftMap R S S) M).hom ≫
+      (pullbackAlong (ringMap R S) (leftMap R S S) (base R S) ⋯).hom.app (tilde M) =
+    (tilde.functor (ring R S S)).map
+        (ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom (ringMap R S))
+            (CommRingCat.Hom.hom (leftMap R S S)) M (CommRingCat.Hom.hom (base R S)) ⋯).hom ≫
+      (TildePullback318.pullbackIso (base R S)).inv.app M
+hr :
+  (stepIso (ringMap R S) (rightMap R S S) M).hom ≫
+      (pullbackAlong (ringMap R S) (rightMap R S S) (base R S) ⋯).hom.app (tilde M) =
+    (tilde.functor (ring R S S)).map
+        (ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom (ringMap R S))
+            (CommRingCat.Hom.hom (rightMap R S S)) M (CommRingCat.Hom.hom (base R S)) ⋯).hom ≫
+      (TildePullback318.pullbackIso (base R S)).inv.app M
+⊢ (tilde.functor (ring R S S)).map
+        (ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom (ringMap R S))
+            (CommRingCat.Hom.hom (leftMap R S S)) M (CommRingCat.Hom.hom (base R S)) ⋯).hom ≫
+      (TildePullback318.pullbackIso (base R S)).inv.app M =
+    (tilde.functor (ring R S S)).map
+        ((leftComparison R S M).hom ≫
+          (rightComparison R S M).inv ≫
+            (ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom (ringMap R S))
+                (CommRingCat.Hom.hom (rightMap R S S)) M (CommRingCat.Hom.hom (base R S)) ⋯).hom) ≫
+      (TildePullback318.pullbackIso (base R S)).inv.app M
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:100:30: warning: This simp argument is unused:
+  tilde.functor_obj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Functor.comp_obj] at hl hr ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:103:39: warning: This simp argument is unused:
+  Iso.inv_hom_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Functor.map_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:103:55: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.inv_hom_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r60/CanonicalTildeOverlap318.lean:103:71: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.inv_hom_id, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
