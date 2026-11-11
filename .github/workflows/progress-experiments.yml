@@ -120,7 +120,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-varying-global-quotient-family-r2'
+        if: always() && matrix.packet == 'relative-varying-global-original-quotient-r2'
         shell: bash
         run: |
           set -euo pipefail
@@ -317,10 +317,10 @@ jobs:
           name: experiment-${{ matrix.packet }}
           path: |
             build/progress-experiments/${{ matrix.packet }}/RESULT.json
-            build/progress-experiments/relative-varying-source-word-core-r4/RESULT.json
-            build/progress-experiments/relative-varying-source-word-core-r4/logs/
-            build/progress-experiments/relative-varying-source-word-core-r4/ExperimentAudit.lean
-            build/progress-experiments/relative-varying-source-word-core-r4/SMOKE_SCOPE.json
+            build/progress-experiments/relative-varying-source-word-core-r5/RESULT.json
+            build/progress-experiments/relative-varying-source-word-core-r5/logs/
+            build/progress-experiments/relative-varying-source-word-core-r5/ExperimentAudit.lean
+            build/progress-experiments/relative-varying-source-word-core-r5/SMOKE_SCOPE.json
             build/progress-experiments/${{ matrix.packet }}/logs/
             build/progress-experiments/${{ matrix.packet }}/ExperimentAudit.lean
             build/progress-experiments/${{ matrix.packet }}/scratch-diagnostics/
