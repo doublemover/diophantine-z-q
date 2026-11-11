@@ -1,0 +1,27 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r49/OverlapMorphismCoaction318.lean:20:72: error: unsolved goals
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+N M : ModuleCat ↑S
+h : N ⟶ M
+a : first R S N ⟶ second R S N
+b : first R S M ⟶ second R S M
+hab :
+  a ≫ (ModuleCat.extendScalars (CommRingCat.Hom.hom (rightMap R S S))).map h =
+    (ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).map h ≫ b
+hm :
+  ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv N (second R S N)) a ≫
+      (pushPull R S S).map h =
+    h ≫ ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b
+⊢ h ≫
+      ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b ≫
+        (naturalIso R S S).hom.app M =
+    h ≫
+      ((ModuleCat.extendRestrictScalarsAdj (CommRingCat.Hom.hom (leftMap R S S))).homEquiv M (second R S M)) b ≫
+        (component R S S M).hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r49/OverlapMorphismCoaction318.lean:44:13: warning: This simp argument is unused:
+  Category.assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Iso.inv_hom_id_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
