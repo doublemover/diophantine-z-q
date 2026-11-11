@@ -1,0 +1,7 @@
+# Prove the original algebraic theorem of square
+
+The SAME original algebraic polarization line satisfies the genuine whole-sheaf theorem of square for every pair of original complex points. Its translation-difference map is an injective group homomorphism into actual line-sheaf classes; every such difference has genuine whole-sheaf translation-invariance isomorphisms.
+
+Eight connected sources retain all554 exact predecessors. Literal opposite-translation theta products have the exact original degree2N factor, including the semicharacter. Full H0(6) algebraization and genuine H0(4) padding supply regular coefficients for actual cubic and quadratic sheaf squares. On the genuine shifted triple chart cover, the selected coefficient is a whole regular unit; actual tensor/pullback/power frames and reduced-scheme function separation give a full regular cocycle equation. Real sheaf reconstruction produces both hyperplane square isomorphisms and their quotient for the SAME degree-one line. Original quotient midpoint representatives then give theorem of square for arbitrary original complex parameters, allowing the previously twisted line-class cocycle to untwist.
+
+The resulting chosen whole-sheaf isomorphisms are not claimed canonically rigidified or coherent in the parameter. No universal family additivity, represented Picard/dual scheme, dual isomorphism, or Jacobian identification is asserted. Hosted kernel validation remains pending; no local Lean.
