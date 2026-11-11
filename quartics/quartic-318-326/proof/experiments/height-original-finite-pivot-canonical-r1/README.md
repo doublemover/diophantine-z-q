@@ -1,0 +1,13 @@
+# Actual finite-pivot canonical extensions
+
+This connected344-module packet retains all336 predecessor targets. Eight new independently reviewed sources are added. Three inherited files receive only four scoped include declarations retaining proof-only parameters already supplied by the actual callers;333 other predecessor modules remain exact.
+
+A genuine explicit permutation moves any chosen original root to the pivot and restores ALL original root indices before constructing the whole original finite-order map. The original twist at that pivot is u*rho, the chart coordinate satisfies T=a_i+rho*u^-1*Z², and the distinguished root is rho*Z. The three remaining original roots are genuine units on the produced chart. No rho or Z is inverted integrally.
+
+The actual smooth-chart Kaehler frame gives D(T)=2*rho*u^-1*Z dZ. Literal integral canonical tensor coefficients are k0=4*rho*u^-1*(product other d)*(product other roots)^-2 and k1=T*k0. Exact different-cleared identities use the actual different16 times ALL original roots, retaining the permutation-invariant full product rather than changing the original model. On the genuine different-unit localization, the ENTIRE balanced original finite-dual square realization equals the actual balanced pullback of these integral Kaehler tensor sections.
+
+The SAME global intrinsic tensor sections restrict through the actual whole-model tilde comparison and realize as those integral canonical tensors. For actual original arithmetic data, an integral contact coordinate, an odd normalized pivot twist and separation from the remaining contacts produce all other exponents zero, all other unit roots, and an actual smooth integral chart center. Its whole generic SCHEME point is the unchanged D.genericPoint with all original signed indices restored. The J²-scaled actual tensor fibers have nonzero first coefficient, exact original coordinate ratio and literal valuation-ring bounds.
+
+No original pivot-index0 shortcut is used. No unit assumption is imposed on the distinguished original twist. Contact separation remains explicit for this finite-coordinate producer. The previous reciprocal producer covers both parity branches at every odd nonintegral place without contact separation.
+
+Remaining: finite-coordinate contact-collision places, characteristic2, full proper regular-model and relative dualizing comparison, global arithmetic Hodge degree, actual KS210 and archimedean estimates. Local canonical extensions do not identify a global Hodge lattice by themselves. No GeometricRealization or contact_metric is claimed. No local Lean was run; source/API review and static checks are distinct from hosted Lean.

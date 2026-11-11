@@ -1,0 +1,19 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r34/WeierstrassLaurentModel318.lean:46:73: error: unsolved goals
+A B : ℚ
+m n : ℤ
+⊢ (algebraMap Coeff (Model A B)) (LaurentPolynomial.T m) * (algebraMap Coeff (Model A B)) (LaurentPolynomial.T n) =
+    zpow A B m * zpow A B n
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r34/WeierstrassLaurentModel318.lean:64:2: error: 'change' tactic failed, pattern
+  x A B ^ 3 +
+      ((algebraMap ℚ (Model A B)) A * zpow A B 2 * x A B + ((algebraMap ℚ (Model A B)) B * zpow A B 3 - zpow A B 1)) =
+    0
+is not definitionally equal to target
+  x A B ^ 3 +
+      ((algebraMap ℚ (Model A B)) A * (algebraMap Coeff (Model A B)) (LaurentPolynomial.T 2) * x A B +
+        eval₂ (algebraMap Coeff (Model A B)) (x A B)
+          (C (LaurentPolynomial.C B) * C (LaurentPolynomial.T 3) - C (LaurentPolynomial.T 1))) =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r34/WeierstrassLaurentModel318.lean:90:87: error: unsolved goals
+A B : ℚ
+a : InfinityChart318.Ring A B
+⊢ (infinityMap A B).toRingHom a = (infinityMap A B) a

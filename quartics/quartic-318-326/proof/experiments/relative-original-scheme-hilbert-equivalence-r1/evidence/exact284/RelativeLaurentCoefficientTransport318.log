@@ -1,0 +1,13 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-local-projective-classification-r2/RelativeLaurentCoefficientTransport318.lean:24:15: error: typeclass instance problem is stuck
+  TensorProduct.CompatibleSMul ?m.82 k[T;T⁻¹] R[T;T⁻¹] B
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, third, tenth, and 11th type arguments to `TensorProduct.CompatibleSMul` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-local-projective-classification-r2/RelativeLaurentCoefficientTransport318.lean:26:2: error: 'change' tactic failed, pattern
+  (RelativeOriginalLaurentAlgebra318.comparison k R B)
+      ((algebraMap R[T;T⁻¹] (R[T;T⁻¹] ⊗[k[T;T⁻¹]] B)) ((algebraMap k[T;T⁻¹] R[T;T⁻¹]) l)) =
+    ?m.129
+is not definitionally equal to target
+  (RelativeOriginalLaurentAlgebra318.laurentMap k R B) ((algebraMap k[T;T⁻¹] R[T;T⁻¹]) l) =
+    1 ⊗ₜ[k] (algebraMap k[T;T⁻¹] B) l

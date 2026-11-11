@@ -26,13 +26,13 @@ def require(condition, message):
 def variants(source):
     require(hashlib.sha256(source.encode()).hexdigest() == SOURCE_SHA, 'Frozen source changed')
     end = '\nend IntegralOverlapRootGenerators318\n'
-    # Exact281 passed imports/helpers and stalled before any concrete theorem.
-    # Keep four bounded probes, now isolate the actual context/instance/definitions.
+    # Exact288 passes both generator definitions. Isolate the successive
+    # concrete theorems with the same four bounded exact-prefix probes.
     cuts = {
-        'concrete_context': (source.index('#check ("FRONTIER before infinityAlgebra"'), end),
-        'infinity_algebra': (source.index('#check ("FRONTIER before finiteGenerator"'), end),
-        'finite_generator': (source.index('#check ("FRONTIER before infinityGenerator"'), end),
-        'all_generators': (source.index('#check ("FRONTIER before finiteBaseChange_generator"'), end),
+        'finite_basechange': (source.index('#check ("FRONTIER before infinityBaseChange_generator"'), end),
+        'infinity_basechange': (source.index('#check ("FRONTIER before actualOverlap_generator"'), end),
+        'actual_overlap': (source.index('#check ("FRONTIER before infinityMap_generator"'), end),
+        'all_theorems': (source.index('#check ("FRONTIER all declarations complete"'), end),
     }
 
     result = {name: source[:cut] + suffix for name, (cut, suffix) in cuts.items()}

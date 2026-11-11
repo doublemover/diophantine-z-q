@@ -1,0 +1,22 @@
+{
+  "reviewer": "reconcile_proof_queue",
+  "verdict": "BOUNDED_SOURCE_API_PROVENANCE_ACCEPTED_HOSTED_PENDING",
+  "packet": "relative-original-bounded-hilbert-equivalence-r2",
+  "application_sha256": "aff3a4e6e7dc9cdbad4841c5fd74af81dc8bd731ea5ea0b215cc423b4c2caddb",
+  "intake_sha256": "b571792c19b891ef79127d847e17fd528aedb86d4159c86f3c6c5634f7d9b4a2",
+  "source_count": 928,
+  "exact_predecessor_copies": 926,
+  "changed_or_new_sources": {
+    "RelativeOriginalLaurentAlgebra318.lean": "06e9d52671ae58c390069761ffce7a4009214c1c960a3302b24d751922dc7cdf",
+    "VaryingWordDeterminantOpen318.lean": "74f3df6758be67b872fe1d3247bd82a85425a67b9ca68c4596dbf4e0c7f118d6"
+  },
+  "review": [
+    "Read both complete revised sources and exact289 full/core diagnostics, actual localization and Laurent producers. Laurent proof applies the two actual Algebra.smul_def equations before exposing multiplication.",
+    "Determinant localization retains the native Ore localization R-action, whose algebraMap is the original numerator map composed with the base algebraMap, and its native scalar tower. This replaces a competing toAlgebra instance rather than changing the underlying ring or geometric map. Checked pinned OreLocalization/Ring native Algebra and Away liftAlgHom/lift_eq APIs. Explicit universal, unit, lift and inverse computations preserve the same whole-ring equivalence.",
+    "Verified all928 source pins,926 exact predecessor copies and every application/evidence binding. No extra hypothesis or budget."
+  ],
+  "limits": [
+    "Native elaboration and cost remain for hosted validation; no full Hilbert kernel acceptance.",
+    "No local Lean or hosted acceptance claimed."
+  ]
+}

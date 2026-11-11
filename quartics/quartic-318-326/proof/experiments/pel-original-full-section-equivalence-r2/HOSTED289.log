@@ -1,0 +1,47 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-order-scheme-endomorphisms-r1/ComplexPolynomialOpenPoints318.lean:29:6: error: typeclass instance problem is stuck
+  IsScalarTower ℂ PolynomialBase (Localization.Away p)
+
+Note: Lean will not try to resolve this typeclass instance problem because the second, fourth, and fifth type arguments to `IsScalarTower` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-order-scheme-endomorphisms-r1/ComplexPolynomialOpenPoints318.lean:34:70: error: Application type mismatch: The argument
+  p
+has type
+  PolynomialBase
+of sort `Type u_1` but is expected to have type
+  ?m.12
+of sort `Type` in the application
+  Localization.Away p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-order-scheme-endomorphisms-r1/ComplexPolynomialOpenPoints318.lean:41:4: error: Function expected at
+  point
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  p
+
+Hint: The identifier `point` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-order-scheme-endomorphisms-r1/ComplexPolynomialOpenPoints318.lean:42:6: error: Application type mismatch: The argument
+  algebraMap ℂ (Localization.Away p)
+has type
+  RingHom.{0, u_1} ℂ (Localization.Away p)
+but is expected to have type
+  RingHom.{u_1, u_1} ?m.18 ?m.19
+in the application
+  CommRingCat.ofHom (algebraMap ℂ (Localization.Away p))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-order-scheme-endomorphisms-r1/ComplexPolynomialOpenPoints318.lean:50:4: error: Function expected at
+  point
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  p
+
+Hint: The identifier `point` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-order-scheme-endomorphisms-r1/ComplexPolynomialOpenPoints318.lean:52:4: error: Type mismatch
+  Spec.map (CommRingCat.ofHom (MvPolynomial.eval₂Hom (RingHom.id ℂ) ?m.41))
+has type
+  Quiver.Hom.{0, 1} (Spec ↧ℂ) (Spec ↧(MvPolynomial ?m.36 ℂ))
+of sort `Type` but is expected to have type
+  Quiver.Hom.{u_1, u_1 + 1} ?m.12 (Spec ↧PolynomialBase)
+of sort `Type u_1`

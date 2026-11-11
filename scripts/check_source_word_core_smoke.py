@@ -9,13 +9,13 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-original-fixed-rank-hilbert-equivalence-r2'
-CORE='relative-varying-source-word-core-r15'
-PARENT_INTAKE='30fec16bc43df1249057bba5419283737cb454de4eba62a74e40813e1bc66c4d'
-PARENT_APPLICATION='ec31a4c50cfc15a592f2cf5855505aae438497da16c29926f8f8ba43225412b0'
-CORE_INTAKE='55fdf313c5077718dc8dbaf7a5dd4e04fbb4e619419a13ce30b41e58ad6bd0a7'
-CORE_APPLICATION='2b82368d755afc98ad0600f0f358d2158dee43fdc10745297861b0e1dfe244ff'
-CLOSURE_SHA='8851b467e1aeb6e51b494c0c5b1976f0cf941adc536c3a12370bfe944e8da1c7'
+PARENT='relative-original-bounded-hilbert-equivalence-r2'
+CORE='relative-varying-source-word-core-r16'
+PARENT_INTAKE='b571792c19b891ef79127d847e17fd528aedb86d4159c86f3c6c5634f7d9b4a2'
+PARENT_APPLICATION='aff3a4e6e7dc9cdbad4841c5fd74af81dc8bd731ea5ea0b215cc423b4c2caddb'
+CORE_INTAKE='a1819f6f2b8a4f2ae8a0be6c318b33029678527187caa7c4c22425f65f08a514'
+CORE_APPLICATION='347b5bbbed81096f622cab9d1221f864aecf525162ded66163dbf40697f61482'
+CLOSURE_SHA='3eec963afeef3bfb4c4ba00338b06b13c07ebd3a95f6a8a4c2183788a3a052b9'
 TARGETS=['VaryingWordIdealChartClassifier318', 'VaryingNormalizedIdealBaseChange318', 'VaryingWordGlobalFamilyProjection318', 'VaryingWordGlobalClosedQuotient318', 'VaryingBoundedFreeIdealMap318', 'VaryingGlobalFreeQuotientEquiv318', 'VaryingBoundedQuotientRecovery318', 'SchemeClosedOpenPushout318', 'SchemeTwoOpenClosedDescent318', 'AffineClosedRestrictionIso318', 'VaryingLocalFreeQuotientNaturality318', 'VaryingProjectiveQuotientFamily318']
 SECONDS=180
 
