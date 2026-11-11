@@ -1,0 +1,11 @@
+# Actual original archimedean frame realization
+
+Connected1380 source packet: BOTH exact active analytic1021 and arithmetic355-r2 target sets,1375 distinct unchanged sources, one byte-identical shared source, and five independently full-source/API-reviewed new modules. No protected baseline shadows, local Lean or new CI slot. The old streams remain separately scheduled until integrator verifies consolidation.
+
+For every infinite place of the actual original point field, the original signed quotient-field roots are mapped through its actual complex embedding. Only constant twist square roots are chosen; dividing by them gives a point of the SAME literal completed four-root curve. Original t and all marked signs are retained, and avoidance makes this an actual regular point.
+
+The actual localized branch coefficient of the TRUE original J-squared global quadratic section is evaluated through the original branch point. Full denominator and exact pivot identities prove that multiplication by (c_i/(2*y_i)) squared gives exactly the literal analytic J-squared q0; the same original t-ratio gives q1. This is not a replacement point or a free coefficient chosen to satisfy a bound.
+
+A genuine local t chart of that literal point produces analytic signed-root functions. Differentiating their exact whole marked square equations proves the multiplier is their ACTUAL derivative. The norm of the original branch-coordinate differential square is therefore the Poincare quadratic norm of that derivative square, with the actual original uniformizer density. It is positive. The exact complex embedding/absolute-value identity transfers the produced all-point analytic theorem to BOTH actual original number-field section values at EVERY infinite place.
+
+The connected final consumer fills the entire archimedean estimate argument of OriginalConstructedMetricSections. It retains original good finite lattices. It still requires the explicit original numerical lambda/mu identifications (or the four character-j identities), original excluded finite-place generators, actual Hodge degree and the literal induced canonical210 equals square Hodge identity. No global regular-model, Hodge lattice, KS comparison or unconditional GeometricRealization is inferred. All records preserve these boundaries.
