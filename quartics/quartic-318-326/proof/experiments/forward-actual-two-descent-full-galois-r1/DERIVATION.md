@@ -1,0 +1,13 @@
+# Full actual elliptic Kummer and Galois compatibility
+
+Eleven connected sources preserve all897 predecessors exactly and close EVERY exceptional case in the actual elliptic Kummer/Galois comparison. The original curve, root order(-3n,n), squareclass definitions and actual half-point cocycle are unchanged.
+
+The(n,0) point is halved using roots(a,0,2a) with a2=n. Its half-difference has signs(character(n),1), exactly the original adjusted Kummer value. The(-3n,0) point is halved using roots(uv,2v,0), where u2=3 and v2=-n. All four actual Galois sign patterns are checked through the original torsion translation identities. Its half-difference has signs(character(3),character(-n)), exactly the original adjusted value at the vanished first coordinate. These are actual geometric halves with the original group doubling proved, not arbitrary squareclass representatives.
+
+Both the actual Galois-coordinate map and the scalar Kummer-coordinate map are bundled homomorphisms. The actual relation(n,0)+(-3n,0)=(0,0) proves the remaining torsion comparison without assuming a nonexceptional rational point exists. Infinity follows from the actual homomorphism identities. The final proof covers every actual rational point: all three roots force y=0, and the remaining branch is the previously proved nonexceptional calculation.
+
+Consequently the actual entire continuous half-point cocycle, transformed through the actual torsion and scalar Galois equivalences, equals the original literal rational Kummer squareclass pair for every point. The image of the actual rational connecting map is then mapped EXACTLY onto the original actual Kummer image subgroup. This is the genuine global elliptic cohomological compatibility, not merely an abstract equivalence between groups of equal size.
+
+Three pinned primary Git/SHA blobs retain the actual point/group, product homomorphism and subgroup-map APIs. Exact regression covers12 twists over4 finite quadratic fields:464 full comparisons including every adjusted exceptional coordinate,24 explicit(n,0) halves and48 explicit(-3n,0) halves, with all previous416 root triples/1248 translations/192 torsion products checked as well.
+
+Boundary: the entire GLOBAL continuous-cocycle comparison is now constructed. The corresponding local-field comparison and actual restriction naturality still need to be connected before the existing all-place squareclass intersection is identified with a cohomological Selmer group. No Sha/Cassels-Tate pairing, global rank selection or actual rational beta-point existence is inferred. The possible order-two obstruction branch remains. No local Lean/build/profiling or resource changes; source review and hosted checks remain required.
