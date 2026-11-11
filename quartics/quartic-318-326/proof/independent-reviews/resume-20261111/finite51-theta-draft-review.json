@@ -1,0 +1,21 @@
+{
+  "reviewer": "/root/advance_theta_identification",
+  "producer": "/root/reconcile_proof_queue",
+  "verdict": "BOUNDED_NARROW_SOURCE_REPAIR_ACCEPTED_HOSTED_PENDING",
+  "source": "build/reconcile-repairs/finite51/OriginalNormalAffineChart318.lean",
+  "source_sha256": "d4a62aec7f55b22b9a9fcbfc5d31ec8cb19bb56efc45ea6cc4b87c87e1ee9083",
+  "predecessor": "quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r50/OriginalNormalAffineChart318.lean",
+  "predecessor_sha256": "c94b2ef359d5a8da1dea0ff1bf6892152fb87245fcda38ca872a482d53a1911a",
+  "hosted_log": "build/ci303/original-finite-quotient-reconstruction-r50/original-finite-quotient-reconstruction-r50/logs/OriginalNormalAffineChart318.log",
+  "hosted_log_sha256": "7018e7e0fa7faf893a707e9daa58fa51c93e2d94dd1bd2b0bdddeb8c7e52cae4",
+  "actual_dependency": "quartics/quartic-318-326/proof/experiments/original-finite-quotient-reconstruction-r50/OriginalNormalSectionClosure318.lean",
+  "actual_dependency_sha256": "f412b8d53f0a3030c5d0f5832a7273dc0fe307b2bba5077f78818ac84c76081f",
+  "review": [
+    "Read the full proposed source, exact sole delta against frozen50 and entire exact303 diagnostic. The first failure is an uninferable non-instance hU binder of the local IsFractionRing instance; downstream missing instance and missing hU parameter errors follow.",
+    "The repair removes that invalid local-instance registration and installs the identical actual affine-open function-field IsFractionRing proof explicitly inside sections and fraction_chart. The sections definition now directly uses hU, so its intended parameter is retained.",
+    "Read actual OriginalNormalSectionClosure equivalence and equivalence_embedding consumers: they require exactly this fraction-ring class. No different ring action, fraction field, embedding or equivalence is introduced. Proof irrelevance preserves the class across the definition and its embedding proof.",
+    "All chart/spec/germ/base morphisms and remaining proof bodies are unchanged. Existing heartbeat/depth/transparency settings are unchanged. No independent downstream error was guessed or patched."
+  ],
+  "local_lean_run": false,
+  "limits": "Narrow source repair acceptance only, not hosted kernel validation or broader predecessor source review."
+}

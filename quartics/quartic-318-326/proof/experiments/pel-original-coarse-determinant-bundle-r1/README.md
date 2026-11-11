@@ -1,0 +1,9 @@
+# Actual coarse determinant bundle and continuous descended metric
+
+This connected1055-module packet preserves all1050 exact predecessor modules and adds five independently source/API-reviewed bodies. Every analytic target is retained, no protected baseline module is shadowed and no additional CI lane or local Lean is used.
+
+Actual local inverses of the ORIGINAL effective quotient covering produce chart lifts. Freeness gives a unique deck transformation on every full overlap, and genuine local covering uniqueness proves this transformation locally constant. The literal determinant coefficient of original integral exterior monodromy is continuous, derived from the actual differentiable period matrix and constant integral transport. Its inverse supplies the correctly oriented genuine VectorBundleCore coordinate changes on the SAME coarse original base.
+
+The resulting complex line bundle has actual rank-one fibers and genuine local trivializations. Every local frame is a both-inverse map to the full exterior power of the original kernel at its actual covering lift. A whole-vector identity compares those frames with the true integral exterior monodromy. The actual polarized determinant metric descends to every whole fiber; every chart computes the same norm and its continuity is proved on the actual total space using genuine local trivializations. No continuity of arbitrary global gauge choices is assumed.
+
+Boundary: this is a genuine continuous complex line bundle with continuous norm, not yet a claimed holomorphic or algebraic line-bundle identification. The central minus-one rank-two obstruction is preserved; only the sign-even determinant line descends here. No algebraic Gauss-Manin, global arithmetic regular model, Hodge lattice or KS210 comparison is inferred. Numerical character-j inputs remain separate. Source review is not hosted kernel validation.
