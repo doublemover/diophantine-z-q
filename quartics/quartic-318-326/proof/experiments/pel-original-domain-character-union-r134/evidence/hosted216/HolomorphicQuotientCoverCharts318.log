@@ -1,0 +1,107 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:18:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.inverseChart_symm`:
+  [ContinuousConstSMul G M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [ContinuousConstSMul G M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:32:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun m => m • w) g
+in the target expression
+  g • w ∈ (inverseChart q hq b).target
+
+M : Type u_2
+Q : Type u_3
+G : Type u_4
+inst✝⁴ : TopologicalSpace M
+inst✝³ : TopologicalSpace Q
+inst✝² : Group G
+inst✝¹ : MulAction G M
+inst✝ : ContinuousConstSMul G M
+q : M → Q
+hq : IsQuotientCoveringMap q G
+b w : M
+hw : q w ∈ (inverseChart q hq b).source
+hv : q (↑(inverseChart q hq b) (q w)) = q w
+g : G
+hg : (fun m => m • w) g = ↑(inverseChart q hq b) (q w)
+⊢ g • w ∈ (inverseChart q hq b).target
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:45:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.quotientChart_apply`:
+  [NormedSpace ℂ E]
+  [ContinuousConstSMul G M]
+  [IsManifold 𝓘(ℂ, E) ω M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℂ E] [ContinuousConstSMul G M] [IsManifold 𝓘(ℂ, E) ω M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:48:0: warning: automatically included section variable(s) unused in theorem `HolomorphicQuotientCoverCharts318.quotientChart_symm`:
+  [NormedSpace ℂ E]
+  [IsManifold 𝓘(ℂ, E) ω M]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℂ E] [IsManifold 𝓘(ℂ, E) ω M] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:56:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(inverseChart q hq a) (q a)
+in the target expression
+  q a ∈ ↑(inverseChart q hq a).symm.symm ⁻¹' (chartAt E a).source
+
+E : Type u_1
+M : Type u_2
+Q : Type u_3
+G : Type u_4
+inst✝⁸ : NormedAddCommGroup E
+inst✝⁷ : NormedSpace ℂ E
+inst✝⁶ : TopologicalSpace M
+inst✝⁵ : TopologicalSpace Q
+inst✝⁴ : Group G
+inst✝³ : MulAction G M
+inst✝² : ContinuousConstSMul G M
+inst✝¹ : ChartedSpace E M
+inst✝ : IsManifold 𝓘(ℂ, E) ω M
+q : M → Q
+hq : IsQuotientCoveringMap q G
+a : M
+h : ↑(inverseChart q hq a) (q a) = a
+⊢ q a ∈ ↑(inverseChart q hq a).symm.symm ⁻¹' (chartAt E a).source
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:65:55: error: typeclass instance problem is stuck
+  ChartedSpace ?m.91 M
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and second type arguments to `ChartedSpace` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:90:18: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:98:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:103:17: error(lean.unknownIdentifier): Unknown identifier `transition_contDiffAt`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-domain-character-union-r113/HolomorphicQuotientCoverCharts318.lean:97:29: error: unsolved goals
+E : Type u_1
+M : Type u_2
+Q : Type u_3
+G : Type u_4
+inst✝⁸ : NormedAddCommGroup E
+inst✝⁷ : NormedSpace ℂ E
+inst✝⁶ : TopologicalSpace M
+inst✝⁵ : TopologicalSpace Q
+inst✝⁴ : Group G
+inst✝³ : MulAction G M
+inst✝² : ContinuousConstSMul G M
+inst✝¹ : ChartedSpace E M
+inst✝ : IsManifold 𝓘(ℂ, E) ω M
+q : M → Q
+hq : IsQuotientCoveringMap q G
+hhol : ∀ (g : G), ContMDiff 𝓘(ℂ, E) 𝓘(ℂ, E) ω fun x => g • x
+this : ChartedSpace E Q := quotientCharts q hq
+a b : M
+⊢ ContDiffOn ℂ ω (↑𝓘(ℂ, E) ∘ ↑((quotientChart q hq a).symm ≫ₕ quotientChart q hq b) ∘ ↑𝓘(ℂ, E).symm)
+    (↑𝓘(ℂ, E).symm ⁻¹' ((quotientChart q hq a).symm ≫ₕ quotientChart q hq b).source ∩ Set.range ↑𝓘(ℂ, E))
