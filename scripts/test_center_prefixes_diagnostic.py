@@ -20,13 +20,16 @@ class PrefixTests(unittest.TestCase):
             self.assertTrue(SOURCE.startswith(prefix))
             self.assertNotIn('sorry',text)
             self.assertIn('set_option maxHeartbeats 1200000',text)
-            self.assertNotIn('theorem finiteBaseChange_generator',text)
-        self.assertNotIn('local instance infinityAlgebra',cases['concrete_context'])
-        self.assertIn('local instance infinityAlgebra',cases['infinity_algebra'])
-        self.assertNotIn('def finiteGenerator',cases['infinity_algebra'])
-        self.assertIn('def finiteGenerator',cases['finite_generator'])
-        self.assertNotIn('def infinityGenerator',cases['finite_generator'])
-        self.assertIn('def infinityGenerator',cases['all_generators'])
+            self.assertIn('theorem finiteBaseChange_generator',text)
+        self.assertNotIn('theorem infinityBaseChange_generator',cases['finite_basechange'])
+        self.assertIn('theorem infinityBaseChange_generator',cases['infinity_basechange'])
+        self.assertNotIn('theorem actualOverlap_generator',cases['infinity_basechange'])
+        self.assertIn('theorem actualOverlap_generator',cases['actual_overlap'])
+        self.assertNotIn('theorem infinityMap_generator',cases['actual_overlap'])
+        self.assertIn('theorem infinityMap_generator',cases['all_theorems'])
+        for name, marker in [('finite_basechange','infinityBaseChange_generator'),
+            ('infinity_basechange','actualOverlap_generator'),('actual_overlap','infinityMap_generator')]:
+            self.assertNotIn('FRONTIER before '+marker,cases[name])
     def test_mutation_rejected(self):
         with self.assertRaises(ValueError): d.variants(SOURCE+'\n')
     def test_hosted_guard(self):

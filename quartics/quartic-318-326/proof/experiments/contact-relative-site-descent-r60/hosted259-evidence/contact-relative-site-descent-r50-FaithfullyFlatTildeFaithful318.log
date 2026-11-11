@@ -1,0 +1,26 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r50/FaithfullyFlatTildeFaithful318.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r50/FaithfullyFlatTildeFaithful318.lean:21:2: error: Tactic `apply` failed: could not unify the conclusion of `Functor.map_injective F`
+  Eq.{u + 1} ?a₁ ?a₂
+with the goal
+  Eq.{u_1 + 1} h k
+
+Note: The full type of `Functor.map_injective F` is
+  Function.Injective F.map
+
+R S : CommRingCat
+inst✝¹ : Algebra ↑R ↑S
+inst✝ : Module.FaithfullyFlat ↑R ↑S
+M N : ModuleCat ↑R
+h k : M ⟶ N
+hh : (ModuleCat.extendScalars (algebraMap ↑R ↑S)).map h = (ModuleCat.extendScalars (algebraMap ↑R ↑S)).map k
+F : ModuleCat ↑R ⥤ (AffineCoalgebraModule318.adjunction (algebraMap ↑R ↑S)).toComonad.Coalgebra :=
+  Comonad.comparison (AffineCoalgebraModule318.adjunction (algebraMap ↑R ↑S))
+this : F.IsEquivalence := ComonadicLeftAdjoint.eqv
+⊢ h = k
