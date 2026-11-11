@@ -1,0 +1,13 @@
+# Actual infinity-order dual discrepancy and original sections
+
+This connected batch preserves all306 predecessor modules and adds14 independently reviewed sources. The previous intrinsic global tensor-square comparison is retained without change.
+
+For an arbitrary commutative coefficient ring, the actual original four-root order with equations y0²=q and yi²=q*ri maps finitely to the actual ratio order w²=q, vi²=ri by y0=w, yi=w*vi. The whole polynomial/marked-root map is constructed; on the q-unit open it has a genuine whole-algebra inverse. Literal highest-coefficient duality on all16 basis monomials proves epsilon_ratio(map x)=epsilon_original(y0³*x), without a unit or characteristic hypothesis. Whole finite-dual transport and balanced tensor transport therefore have exact cubic/sixth-power discrepancy. The actual16-root trace different transforms compatibly.
+
+The original reciprocal model coefficients are not replaced by abstract parameters. Its actual polynomial base is localized only at h=d0*(1-a0*S), retaining the ramified coordinate S. The exact entire tensor base change of the original order, literal root reparameterization and original source map are constructed. Actual integral ratio-order tensor coefficients c*h^-3*S and c*h^-3 exist on this integral base without inverting S or2. Their products with q³ are the original c*S4/c*S3.
+
+Both sides are then genuinely scalar-extended to Localization.Away q, where the required q unit is produced. Actual whole balanced dual-tensor maps and the full original-order inverse identify their images. The SAME previously constructed GLOBAL intrinsic q0/q1 sections restrict through the canonical tilde top map to the original whole model tensors and then to these exact integral ratio-order extensions. Original Data specialization at every finite place retains this precise pivot-open statement.
+
+Closed-infinity coverage is proved by an actual evaluation lift when d0 is a unit, and over a generic field when d0 is nonzero. The localization is NOT claimed to contain an arithmetic center with nonunit pivot. Nor is the ratio order declared normal or regular from this algebra comparison. The original first contact is0, permitting a subsequent polynomial-coordinate/smooth-chart comparison, but that is not part of this packet.
+
+Remaining: full normalized/regular arithmetic model coverage, genuine global relative dualizing identification, comparison with regular canonical lattices at excluded primes including2, actual Hodge degree, KS210 and archimedean bounds. No contact_metric or GeometricRealization is claimed. Source review and static checks remain separate from hosted Lean. No local Lean run.

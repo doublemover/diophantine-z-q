@@ -1,0 +1,35 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-projective-ideal-abel-r2/RelativeCoefficientChange318.lean:68:2: error: unsolved goals
+case h₀
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+X : Scheme
+p : X ⟶ Spec k
+j : Spec B ⟶ X
+hj : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap ↑k ↑B))
+⊢ Spec.map (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom ≫ ringMap k R S B f) ≫ j =
+    Spec.map (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom) ≫ j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-projective-ideal-abel-r2/RelativeCoefficientChange318.lean:70:2: error: unsolved goals
+case h₁
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+X : Scheme
+p : X ⟶ Spec k
+j : Spec B ⟶ X
+hj : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap ↑k ↑B))
+⊢ Spec.map (CommRingCat.ofHom f.toRingHom ≫ CommRingCat.ofHom (algebraMap (↑S) (↑S ⊗[↑k] ↑B))) =
+    RelativeOriginalAffineChart318.into k S B p j hj ≫
+      pullback.snd p (RelativeOriginalAffineChart318.baseMap k S) ≫ Spec.map (CommRingCat.ofHom f.toRingHom)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-projective-ideal-abel-r2/RelativeCoefficientChange318.lean:69:47: warning: This simp argument is unused:
+  original_square
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Category.assoc, RelativeOriginalAffineChart318.over_original, familyMap_original,
+    ← Spec.map_comp_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
