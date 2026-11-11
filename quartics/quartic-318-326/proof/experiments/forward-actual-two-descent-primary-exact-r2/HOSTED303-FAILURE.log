@@ -1,0 +1,87 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:16:2: error: Type mismatch
+  Tendsto.prodMk (Tendsto.comp he (weight_limit c hc))
+    (Tendsto.prodMk (Tendsto.comp he (weight7_limit c hc)) (Tendsto.comp he (weight25_limit c hc)))
+has type
+  Tendsto
+    (fun x =>
+      ((Rat.cast ∘ scaledWeight c) x, (Rat.cast ∘ fun t => scaledWeight c t ^ 7 * delta c t ^ 18) x,
+        (Rat.cast ∘ fun t => scaledWeight c t ^ 25 * delta c t ^ 72) x))
+    atTop (𝓝 ↑0 ×ˢ 𝓝 ↑0 ×ˢ 𝓝 ↑0)
+but is expected to have type
+  Tendsto (weights c) atTop (𝓝 (0, 0, 0))
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:30:73: error: unsolved goals
+c : ℚ
+hc : c ≠ 0
+ht : Tendsto (fun x => (c ^ 10)⁻¹ * ((fun t => contact t / (t - 1) ^ 6) ∘ parameter c) x) atTop (𝓝 ((c ^ 10)⁻¹ * 0))
+t : ℚ
+⊢ contact (parameter c t) *
+      (c ^ 10 - c ^ 10 * parameter c t * 6 + c ^ 10 * parameter c t ^ 2 * 15 - c ^ 10 * parameter c t ^ 3 * 20 +
+              c ^ 10 * parameter c t ^ 4 * 15 -
+            c ^ 10 * parameter c t ^ 5 * 6 +
+          c ^ 10 * parameter c t ^ 6)⁻¹ =
+    contact (parameter c t) * c⁻¹ ^ 10 *
+      (1 - parameter c t * 6 + parameter c t ^ 2 * 15 - parameter c t ^ 3 * 20 + parameter c t ^ 4 * 15 -
+            parameter c t ^ 5 * 6 +
+          parameter c t ^ 6)⁻¹
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:33:15: warning: This simp argument is unused:
+  div_mul_eq_div_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:43:6: error: Application type mismatch: The argument
+  3 / 4 < realChain w c t ∧ realChain w c t < 5 / 4 ∧ -(1 / 4)
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.21
+of sort `Type (?u.21 + 1)` in the application
+  @PrincipalSeg (3 / 4 < realChain w c t ∧ realChain w c t < 5 / 4 ∧ -(1 / 4))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:44:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Neg Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:44:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HDiv ℕ ℕ Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:44:16: error: Function expected at
+  magChain
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  w
+
+Hint: The identifier `magChain` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:64:8: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+x✝ : Sort u_1
+magChain : x✝
+c : ℚ
+hc : c ≠ 0
+K : Set Coeff
+hK : IsCompact K
+S : Set (Coeff × ℝ × ℝ × ℝ) :=
+  {p | 3 / 4 < (chain p).1 ∧ (chain p).1 < 5 / 4 ∧ -(1 / 4) < (chain p).2 ∧ (chain p).2 < 1 / 4}
+hS : IsOpen S
+hKS : K ×ˢ {(0, 0, 0)} ⊆ S
+U : Set Coeff
+V : Set (ℝ × ℝ × ℝ)
+hU : IsOpen U
+hV : IsOpen V
+hKU : K ⊆ U
+h0V : {(0, 0, 0)} ⊆ V
+hUV : U ×ˢ V ⊆ S
+hz : (0, 0, 0) ∈ V
+t : ℚ
+ht : V (weights c t)
+⊢ sorry
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-higher-kummer-r2/UniformScaledPoleDomain318.lean:83:9: error: Tactic `rcases` failed: `x✝ : ?m.108` is not an inductive datatype

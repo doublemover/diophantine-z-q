@@ -1,0 +1,95 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:16:0: warning: automatically included section variable(s) unused in theorem `OriginalOpenTraceDeck318.preimage`:
+  [AlgebraicGeometry.IsIntegral X]
+  [AlgebraicGeometry.IsIntegral Y]
+  [IsDominant f]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [AlgebraicGeometry.IsIntegral X] [AlgebraicGeometry.IsIntegral Y] [IsDominant f] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:29:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => DominantFunctionField318.map _a = DominantFunctionField318.map f ≫ DominantFunctionField318.map e.hom
+Error: Application type mismatch: The argument
+  instIsDominantCompScheme e.hom f
+has type
+  IsDominant (e.hom ≫ f)
+but is expected to have type
+  IsDominant _a
+in the application
+  @DominantFunctionField318.map X Y ⋯ ⋯ _a ⋯
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+X Y : Scheme
+inst✝² : AlgebraicGeometry.IsIntegral X
+inst✝¹ : AlgebraicGeometry.IsIntegral Y
+f : X ⟶ Y
+inst✝ : IsDominant f
+e : X ≅ X
+h : e.hom ≫ f = f
+this : Algebra ↑Y.functionField ↑X.functionField := AffineDominantNorm318.fieldAlgebra f
+y : ↑Y.functionField
+hc : DominantFunctionField318.map (e.hom ≫ f) = DominantFunctionField318.map f ≫ DominantFunctionField318.map e.hom
+⊢ (OpenFunctionField318.fieldEquiv e.hom).toFun ((algebraMap ↑Y.functionField ↑X.functionField) y) =
+    (algebraMap ↑Y.functionField ↑X.functionField) y
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:41:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:61:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:62:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:63:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:66:4: error: Type mismatch
+  Algebra.trace_eq_of_algEquiv (fieldEquiv f e h) ?m.208
+has type
+  (Algebra.trace ↑Y.functionField ↑X.functionField) ((fieldEquiv f e h) ?m.208) =
+    (Algebra.trace ↑Y.functionField ↑X.functionField) ?m.208
+but is expected to have type
+  (Algebra.trace ↑Y.functionField ↑X.functionField)
+      ((OpenFunctionField318.fieldEquiv e.hom) ((ConcreteCategory.hom (X.germToFunctionField (f ⁻¹ᵁ U))) s)) =
+    (Algebra.trace ↑Y.functionField ↑X.functionField) ((ConcreteCategory.hom (X.germToFunctionField (f ⁻¹ᵁ U))) s)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 928
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r37/OriginalOpenTraceDeck318.lean:67:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
