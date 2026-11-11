@@ -1,0 +1,15 @@
+# Actual full elliptic H1 and Tate-Shafarevich2-torsion
+
+Twenty connected sources retain all980 predecessors, including exact298 arithmetic repairs. The representation is now the ACTUAL nontrivial Galois action on the ENTIRE original geometric elliptic group, bundled over integers. Locally constant full elliptic cocycles live inside Mathlib actual cocycles1, and their classes live in Mathlib actual H1 of this representation. The exact zero criterion is an actual geometric coboundary.
+
+The literal inclusion of E[2] into E induces the actual full H1 class map. Its kernel is proved equal to the existing actual rational connecting image: a geometric coboundary with2-torsion values has a fixed doubled point, which descends to an actual base-field point. Conversely every actual connecting image is the coboundary of its actual geometric half.
+
+Surjectivity onto continuous full H1[2] is constructed, not assumed. If twice a cocycle is the coboundary of Q, choose an ACTUAL geometric half R of Q and subtract its coboundary. The result is genuinely E[2]-valued and locally constant, with the same full H1 class. This retains the actual group law and actual fixed-field descent.
+
+Actual closure point base change is constructed on BOTH affine coordinates and intertwines the genuine nontrivial Galois actions. Full cocycle restriction is the literal composition with the native absolute-Galois map and this geometric base change. Coboundaries restrict to the corresponding actual geometric coboundaries. The result is independent of the chosen cohomology representative.
+
+The Tate-Shafarevich subgroup is defined independently inside actual full elliptic H1: continuous classes with zero actual local cohomology restriction at the real place and EVERY prime. Its2-torsion is then taken literally. The actual Selmer group maps to this subgroup, and the exact kernel and surjectivity are proved using the full cocycle constructions. Consequently the existing Selmer quotient/concrete obstruction is isomorphic to ACTUAL elliptic Sha[2], not renamed as such by definition.
+
+The exact unresolved alternative is now genuine Sha[2] of order2 with finite rational group, or trivial Sha[2] with infinite rational group. The original beta-point criterion and SAME-index four-label/two-twist consumer are connected to actual Sha[2] vanishing, explicitly and conditionally. No finiteness of full Sha, Cassels-Tate pairing, parity theorem, rank-branch selection or rational beta-point existence is assumed or proved. In particular finite2-torsion does not imply full Sha is finite, and a pairing on Sha modulo its divisible part would not by itself settle the remaining branch.
+
+Nine pinned primary Git/SHA sources bind actual representation, integer linearization, H1 zero/equality, local constancy, quotient and type-tag APIs. Exact finite quadratic-field regression checks12 curves,1248 geometric points,124 cocycles and coboundaries,48 torsion-kernel lifts,1440 actual halved-cocycle reductions and9984 nontrivial-action/coboundary squares. These are supplementary finite tests, not Lean or rational Sha verification. No local Lean, profiling or resource changes.
