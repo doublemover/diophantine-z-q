@@ -1,0 +1,5 @@
+# Original primitive analytic root charts
+
+Every element of the actual localized polynomial coefficient ring is now proved analytic on its own principal open. Every simple root of the same produced original primitive equation has a complex analytic local graph and an open chart on the independently induced whole ambient root locus, in the same two projected coordinates. This applies to every root, not only points known to lie in the theta image. Candidate-order identification, original-sheet exhaustion, analytic-image equality, rational descent and represented Jacobian identification remain separate.
+
+This is a new reconstruction from retained mathematical sources, not acceptance based on a lost-work report. The source is submitted for independent review and hosted compilation. The inherited union and its contracts remain retained historical evidence. This successor changes only five added modules and one explicit Complex.Basic import; all predecessor mathematical declarations remain unchanged.

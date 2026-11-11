@@ -1,0 +1,35 @@
+{
+  "reviewer": "/root/advance_theta_identification",
+  "producer": "/root/advance_contact_geometry",
+  "verdict": "BOUNDED_INDEPENDENT_SOURCE_ACCEPTANCE_HOSTED_LEAN_PENDING",
+  "packet": "pel-original-relative-cotangent-quotient-r1",
+  "application_sha256": "2e6e8a9fac671c424bf0484b6d380ee82198e82b392686a1fe65d1c7f5765a8f",
+  "readme_sha256": "215d82f9d82d75915b5e43e71e110aa86454b13981de210091b68444161dea78",
+  "intake_sha256": "f61a0834e52f9484df61442880be503d43f98ea14e7fe8ee7621d2edc5b04e89",
+  "new_sources": {
+    "PolynomialRelativeCotangentQuotient318.lean": "d71c20bcc9da0526c35a39ef7341704d8f28a37c5c3aad2b9492ecf65b75d1be",
+    "FourRootRelativeCotangentQuotient318.lean": "167ec53a48212ada215592d836bcba622d0059652dd13f25f4960f19c19233a1",
+    "FourRootDerivativeZeroCotangent318.lean": "7f51a2f8eb1e317414a5c691500906516dd236613ab616d94a57cdb45c5cbaa3"
+  },
+  "copied_source_check": "All 91 predecessor Lean files byte-identical to remote r112 baseline. All 94 application source hashes match.",
+  "reviewed_primary_sources": [
+    "mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679 Mathlib/LinearAlgebra/Isomorphisms.lean lines 46-59",
+    "same commit Mathlib/LinearAlgebra/Quotient/Defs.lean lines 251-267",
+    "PolynomialRelativeCotangentFrame318.lean, whole argument including quotientMap, surjectivity, transitivity kernel",
+    "FourRootActualBranchKaehler318.lean source_normalized and parameter_coefficient",
+    "FourRootActualInfinityKaehler318.lean coordinate_normalized, reciprocalParameter, exact_square and reciprocal_coefficient",
+    "FourRootDerivativeFiniteIdeal318.lean and FourRootDerivativeInfinityIdeal318.lean, full original ideal restriction arguments"
+  ],
+  "findings": [
+    "The ideal-to-kernel equality is oriented correctly before composing with the first-isomorphism equivalence of the very same quotientMap.",
+    "The map and inverse formulas retain actual differentials. The coefficient reindexing quotient map is the identity on representatives, not an arbitrary cyclic-module equivalence.",
+    "Finite b,i coverage is universal and no signed-root nonzero premise excludes ramification. Infinity retains injectivity of b and the original reciprocalParameter v=u squared.",
+    "Each actual whole derivative ideal is restricted through its actual algebraMap before comparing to the span of the computed derivative coefficient. Equality of supports or annihilators is not substituted.",
+    "Unit normalization is inherited from sourceFrame dz_i=1 and frame du=1, hence quotient class 1 maps to the actual relative dz_i or du. Factor two remains in the quotient ideal."
+  ],
+  "limits": [
+    "No local Lean compilation or profiling. Elaboration, kernel checking and recursive declaration audit remain pending hosted CI.",
+    "Affine module equivalences do not yet glue a global relative-cotangent sheaf or establish reducedness, stalk lengths or total length 40.",
+    "No whole PEL, rational branch parameter or arithmetic completeness acceptance. Historical later packet unavailable; this reviews a reconstruction only."
+  ]
+}
