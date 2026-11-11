@@ -9,14 +9,14 @@ import subprocess
 import sys
 # Installed beside the existing checker by the integrator.
 import check_progress_experiment as c
-PARENT='relative-varying-bounded-global-classifying-map-r2'
-CORE='relative-varying-source-word-core-r6'
-PARENT_INTAKE='0f4c23821673f84c6dcc89bdaa13af83ca0d3791dd0f1a07ab67409192d6754c'
-PARENT_APPLICATION='ba026d9591b62144f91ae5d84336fa020371c316cb90b6f0194e6dbf5b323613'
-CORE_INTAKE='2bc6dea9bae1e012b6550d33d84b973f29f8a19854f594c0d131421bc761784f'
-CORE_APPLICATION='ecd63198ccf7beb9e8c03808e8265f113fdd3eebdeaa16a1056d95c8f910fb80'
-CLOSURE_SHA='615c51fc7ad3637e6877a0d07f5a31843ffa7b62201f5daa075f0b4f264b8c9e'
-TARGETS=['VaryingWordIdealChartClassifier318', 'VaryingNormalizedIdealBaseChange318', 'VaryingWordGlobalFamilyProjection318', 'VaryingWordGlobalClosedQuotient318', 'VaryingBoundedFreeIdealMap318']
+PARENT='relative-varying-global-free-quotient-equivalence-r2'
+CORE='relative-varying-source-word-core-r7'
+PARENT_INTAKE='e1dfc6f8cb15626183c51d7c4b672fd0d969134bfb2703c189d23bb00b74ddc2'
+PARENT_APPLICATION='0b7e501f17d1b23853640109dafc0d4431cc702a88b69a3dd3d31d083cfd70ec'
+CORE_INTAKE='6b66e76a8903cd6575cdbada8ef8bc000e0311b471f8b3c614c40b8e13f48d4e'
+CORE_APPLICATION='7495a339737cd93206b647daaf8af71398d9ee12c36cd389b5cfc61b90424103'
+CLOSURE_SHA='78cc3022951c8bd59cbabcecaa3e30b87b1eb5f62b6e9b556e31ae908153613e'
+TARGETS=['VaryingWordIdealChartClassifier318', 'VaryingNormalizedIdealBaseChange318', 'VaryingWordGlobalFamilyProjection318', 'VaryingWordGlobalClosedQuotient318', 'VaryingBoundedFreeIdealMap318', 'VaryingGlobalFreeQuotientEquiv318', 'VaryingBoundedQuotientRecovery318']
 SECONDS=180
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -43,7 +43,7 @@ def validate(root=c.EXPERIMENTS):
             if dep in available:stack.append(dep)
             else:require(dep.split('.')[0] in c.OFFICIAL_PREFIXES,'Unbound project producer: '+dep)
     order=[n for n in parent['order'] if n in visited]
-    require(len(order)==90 and order==core['order']==closure['order'],'Missing, reordered or excess core producer')
+    require(len(order)==117 and order==core['order']==closure['order'],'Missing, reordered or excess core producer')
     require(set(core['files'])=={n+'.lean' for n in order},'Core file/order mismatch')
     for name in order:
         a=p/(name+'.lean');b=k/(name+'.lean');digest=sha(a)
@@ -71,11 +71,11 @@ def main():
     # Never change the full result, source registry, cache or accepted manifest.
     output.mkdir(parents=True,exist_ok=True)
     (output/'SMOKE_SCOPE.json').write_text(json.dumps({
-        'scope':'EXACT_90_MODULE_CORE_ONLY_NOT_FULL_667_ACCEPTANCE',
+        'scope':'EXACT_117_MODULE_CORE_ONLY_NOT_FULL_694_ACCEPTANCE',
         'parent':PARENT,'parent_intake_sha256':PARENT_INTAKE,
         'parent_result_sha256':sha(parent_result),'parent_status':full.get('status'),
         'core':CORE,'core_intake_sha256':CORE_INTAKE,'targets':TARGETS,
-        'source_modules':90,'same_bytes_as_full_parent':True,'seconds_per_module':SECONDS,
+        'source_modules':117,'same_bytes_as_full_parent':True,'seconds_per_module':SECONDS,
         'standard_checker_exit_code':result.returncode,'full_packet_accepted':False,
         'new_source_acceptance':False,'full_arithmetic_theorem_proved':False},indent=2)+'\n')
     raise SystemExit(result.returncode)
