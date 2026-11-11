@@ -1,0 +1,11 @@
+# Absolute original lattice Fourier summability
+
+The preceding fixed-beta full-coordinate decay estimates are now consumed on the actual original integer dual lattice. This packet does not assume summability as a Poisson input.
+
+The literal integerEmbed map is bundled as a Z-linear map into the same five-coordinate real product space. Its range is the actual lattice used in integer tiling, not a changed Euclidean lattice. The already established closed embedding induces a homeomorphism onto this range, proving discrete topology. The actual injective linear map gives a Z-linear equivalence from the original integer coordinates to the range. Finrank of the five product factors is exactly5.
+
+The pinned ZLattice inverse-power theorem therefore applies with exponent6 strictly greater than5. Reindexing through the produced linear equivalence gives absolute summability of the sixth inverse power of the original max norm. At zero this inverse power is0, so the Fourier transform is NOT falsely bounded by it there. The Fourier argument excludes exactly the zero vector, proves positive norm elsewhere using actual embedding injectivity, and divides the produced degree6 full-coordinate decay estimate by that positive sixth power. The finite-exception comparison theorem then proves summability of the Fourier norms, followed by complex summability.
+
+The weight remains the SAME smooth compact W times the positive quadratic phase, and the transform retains the negative full coordinate character in the original product Haar volume. Constants depend on fixed beta; no uniform-beta estimate is asserted. This supplies a previously missing absolute dual-lattice summability input for eventual Poisson inversion. It does not construct a torus quotient realization, prove torus Fourier inversion of the periodization, or claim a completed Poisson/global count theorem.
+
+All576 predecessor sources unchanged; two new modules. Seven pinned primary API copies cover actual lattice convergence, topology transport, linear range equivalence, exact rank and finite-exception norm comparison. Finite regressions enumerate3125 original lattice vectors, verify200 exact five-dimensional shell bounds and199 telescoping-tail inequalities; zero is handled separately. These checks are not Lean compilation. No local Lean or profiling was performed.
