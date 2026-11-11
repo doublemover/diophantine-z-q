@@ -68,6 +68,7 @@ jobs:
       - run: python -B scripts/test_diagonal_split_map_carriers_diagnostic.py
       - run: python -B scripts/test_diagonal_consumer_transpose_diagnostic.py
       - run: python -B scripts/test_diagonal_consumer_carriers_diagnostic.py
+      - run: python -B scripts/test_overlap_morphism_carriers_diagnostic.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
 
@@ -292,6 +293,14 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_consumer_carriers.py "$PACKET"
+      - name: Non-admitted actual overlap morphism diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r49'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_overlap_morphism_carriers.py "$PACKET"
       - name: Upload bounded results and error logs only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -325,6 +334,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-split-map-carrier-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-consumer-transpose-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-consumer-carriers-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-overlap-morphism-carriers-diagnostics/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.
