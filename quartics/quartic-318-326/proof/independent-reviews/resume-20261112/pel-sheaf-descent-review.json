@@ -1,0 +1,29 @@
+{
+  "reviewer": "restore_and_integrate",
+  "author": "advance_pel_identification",
+  "packet": "pel-original-character-sheaf-descent-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "1fefaef5e425288bc8c03471d5cfc9bbbc6945a35e47cc5f8cdd275bba0a7db2",
+  "intake_sha256": "801ae8163e606b1476b47faea27078b479541c7271c3afa4d70eb813ad49da94",
+  "new_source_hashes": {
+    "FiniteNormalAllOpenImage318.lean": "53b6fb5898cc658bf3bf9b0409e77ec7149495c622761616c4fe5ad321f1b9c4",
+    "PELOriginalCharacterNormalBasis318.lean": "fdc540fef55501d09d85328ce81c9ddc9424ec0f356192a15da91b8326c31817",
+    "PELOriginalCharacterAllOpenInvariants318.lean": "ed06868785d7ee0734cc80d0682abad60a72c3960a0182930f901409e03d44fe",
+    "PELOriginalCharacterInvariantSections318.lean": "50544b04a25f6c8e0ce9bebec5024e23cffa51e83afa301388051db858f6f017",
+    "PELOriginalCharacterAllOpenDescent318.lean": "4674905139e0d87136dca3c349c2be5af1f6c6dddd04e765bbca96dc02aa500b",
+    "PELOriginalCharacterInvariantPresheaf318.lean": "5b3d172deac0c3bd2acd0a07d414ff4b8ff10ecad05fc4ac570b20ea8149fcb2"
+  },
+  "unchanged_predecessor_sources": 1100,
+  "structural_sources": 1106,
+  "review": [
+    "Read all six new sources and actual NormalAffineBasis, FunctionFieldGluing, FiniteNormalOpenImage and original field/germ consumers.",
+    "Normal affine neighborhoods cover the actual arbitrary target open. Local lift generic germs agree by injectivity of the same native function-field map, and actual sheaf gluing produces the global section; full source inverse images are retained.",
+    "Empty opens are treated separately by subsingleton sections; no empty-open generic germ is used.",
+    "Original character kernel condition is on actual original function-field germs; exact native fixed-field image identifies range. This does not yet identify the regular section action with the glued scheme deck action.",
+    "Invariant subrings use literal full-preimage sections. Restrictions preserve original germs and commute with the original scheme pullback. Verified opposite-category map composition and natural-isomorphism orientations against original presheaf laws.",
+    "Actual injective pullback yields unique RingHom factorization on every open for every commutative test ring. This is not arbitrary scheme-valued categorical descent.",
+    "Independently verified all 1100 inherited sources byte-identical, 1106 source admission, exact application and intake bindings. No Lean was run."
+  ],
+  "local_lean_run": false,
+  "validation_boundary": "Bounded source/object/map/API review only; inherited and new elaboration, kernel acceptance, deck-action identification and global categorical quotient remain unproved by this review."
+}

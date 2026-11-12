@@ -1,0 +1,14 @@
+# All-open original character invariants and structure-presheaf descent
+
+Six connected modules extend the exact normal-affine image theorem to every actual target open, including the empty open, then retain every restriction map in a bundled natural isomorphism.
+
+- FiniteNormalAllOpenImage uses a normal affine basis around every point of an arbitrary nonempty target open. Local target sections are obtained by the previous finite-normal affine theorem and shown to have one common native generic germ. Existing FunctionFieldGluing glues them to an actual section, and actual generic pullback/naturality identifies its image with the whole original source section.
+- The normal affine basis of each original ordered target is CONSTRUCTED from the actual finite/infinity chart images, their established section normality and cover. It is not a new assumption on the original target.
+- All-open image membership is equivalent to original-kernel invariance of the actual original-field germ. Empty opens are handled by their unique sections and a vacuous invariance condition; no germ of an empty open is defined. Pullback is injective on every open. Restriction preserves invariance by the exact native germ restriction identity.
+- Literal invariant subrings in the full source inverse-image section rings are isomorphic to actual target section rings through the SAME global map's app. Their restriction homomorphisms are actual source restrictions, not transported replacements. The ring identifications commute with every restriction, including empty targets.
+- Every invariant test-ring homomorphism factors uniquely on every target open. The global-section specialization is explicit, but global functions alone are NOT called a global scheme quotient.
+- The literal invariant rings and actual restrictions form invariantPresheaf. structureIso is a bundled NatIso from the SAME target structure presheaf to this invariant presheaf; its components retain the original whole section pullbacks after inclusion.
+
+Boundary: the all-open invariance predicate uses actual injective generic germs and all original kernel labels. A direct identification with the induced scheme-deck action on each stable-open section ring, topological orbit/fiber quotient, and the global arbitrary-scheme-target categorical quotient still require their own arguments. Four numerical j equalities and the full PEL classification remain unresolved. No numerical branch normalization is assumed.
+
+History: existing NormalAffineBasis, FunctionFieldGluing and the earlier OpenDominantNorm gluing route are read and reused. The new input being glued is exact pullback IMAGE membership, not norm values. No prior method is presented as newly invented. All1100 predecessor sources are byte-identical to corrected/source-reviewed open-descent-r1. No local Lean compilation/profiling, cap changes or silent binder repairs. Static/source/kernel verification remain separate.

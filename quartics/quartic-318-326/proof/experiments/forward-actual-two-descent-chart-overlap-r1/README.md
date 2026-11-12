@@ -1,0 +1,7 @@
+# Original affine/infinity punctured-chart equivalence
+
+Six new modules extend all1205 exact predecessor sources. The earlier native original infinity DVR is retained unchanged. This batch constructs the missing ring-level coordinate transition between the actual original affine Weierstrass quotient and original infinity quotient, not merely a pointwise rational identity.
+
+The original affine quotient is localized at y and the original infinity quotient at v. Exact quotient homomorphisms send x to u/v,y to1/v and u to x/y,v to1/y using only produced localization inverses. They lift to both native punctured-chart rings. Both composites equal the identity on ALL localized elements, proved by native localization, AdjoinRoot and polynomial ring-hom ext. The coordinate-ring maps are injective using original denominator nonvanishing and the proved overlap equivalence.
+
+No arbitrary field embedding or assumed generic-point map replaces these constructions. This is nevertheless not yet the equivalence of the earlier original affine FunctionField and the native fraction field of the actual infinity LOCAL DVR. Extension/identification of those exact field maps and root functions remains explicit next work. Projective divisor gluing,O(2O) theta group,geometric Weil pairing,Brauer/local invariants/reciprocity,Cassels–Tate/rank/four-point conclusions remain open. No local Lean or profiling; source admission and finite exact regressions are not kernel verification.

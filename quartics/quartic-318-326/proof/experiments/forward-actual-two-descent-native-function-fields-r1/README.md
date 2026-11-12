@@ -1,0 +1,9 @@
+# Original native function fields and root-function identification
+
+Five connected new modules identify the EARLIER original affine Weierstrass FunctionField with the native FractionRing of the ACTUAL original infinity DVR. This is a constructed ring equivalence through the literal punctured-chart maps, not an assumed abstract field isomorphism. Exact coefficient,x,y and all old rootFunction images are proved. The earlier arbitrary-field-map pole normalization now applies to the original named root functions under this explicit equivalence.
+
+A generic injective-localization producer constructs both fraction-field maps and proves both inverse laws. Its injectivity premise is discharged at every actual use: original affine Away y,infinity Away v,and the actual origin localization. The punctured ring equivalence transports between the middle fraction fields. The final composite preserves the actual original coefficients and sends x to u/v,y to1/v. Each original x−a function therefore satisfies the produced unit-normalized identity (x−a)*u²=d/e in the actual infinity-DVR fraction field.
+
+This closes the specific native function-field interface. It does NOT yet produce a glued projective Cartier divisor,O(2O) theta group,geometric Weil pairing,Brauer/local invariants/reciprocity,Cassels–Tate,rank or four-point conclusion. Native local orders and affine ideal-square facts remain distinct until gluing is constructed. No local Lean execution or resource cap increase.
+
+1210 predecessor sources are exact; one inherited ActualInertOrbitEntry error_bounds declaration explicitly includes the intended ns premise already supplied by its actual AllPrimeSourceProgression caller. This is source-level binder alignment, not a claim to have observed its elaborated signature. Frozen predecessors are untouched. All new claims remain subject to independent source review and hosted kernel checking.
