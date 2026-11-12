@@ -1,0 +1,20 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "restore_and_integrate",
+  "status": "ACCEPTED_HOSTED_DIAGNOSTIC_DRIVER_SOURCE_SCOPE",
+  "driver_sha256": "199ed4a45d4f4cc35c9f8ffa5819d12c551ddc0f1dd8c09078657b8b7f2848cb",
+  "workflow_sha256": "635d3072e1be8c7073abd14ae16723ae2c95be1e72504f584b33af08b3a09076",
+  "checks": [
+    "No Lean executed locally; Python source AST parsed only. GITHUB_ACTIONS guard rejects ordinary local invocation.",
+    "Exactly two named diagnostic packets, separate output directories,180-second existing module cap and600-second checker cap each; two control invocations separately capped180 seconds. No new matrix lane or production admission path.",
+    "Reviewed corrected timeout isolation: checker starts a new process session; timeout kills its process group and waits, including active Lean descendants, before starting next probe.",
+    "Separate driver logs retain stdout/stderr even if strict checker fails before writing RESULT.json. Control logs and SUMMARY.json plus packet RESULT/log directories are uploaded by existing always artifact step.",
+    "Failures are recorded rather than treated as successful binder classification; expected-negative controls are marked and raw exits preserved. No automatic token-to-elaborated-premise matcher is claimed.",
+    "Existing30-minute job wall remains unchanged. If it exhausts before diagnostics finish, complete diagnostics/artifact availability is not guaranteed; this driver does not claim otherwise.",
+    "Read and independently ran pure-Python mocked regression: local guard, two controls, process-group timeout cleanup+wait, subsequent included probe and4 output logs PASS. All subprocess calls mocked; no Lean or actual subprocess invoked by test.",
+    "Final workflow order verified: same diagnostic step now immediately follows pinned cache fetch and precedes strict full packet checks. This prioritizes signature evidence without increasing caps or matrix lanes."
+  ],
+  "local_lean_run": false,
+  "validation_boundary": "Source review of scheduling/isolation/evidence retention; not execution validation or confirmation of Lean signatures.",
+  "mock_test_sha256": "807384eb22c403bcdbe36f99879b199e13a9e306213724441e5d886744830910"
+}

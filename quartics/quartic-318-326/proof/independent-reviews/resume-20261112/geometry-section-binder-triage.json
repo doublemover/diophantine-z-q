@@ -1,0 +1,452 @@
+{
+  "reviewer": "advance_point_geometry",
+  "kind": "Source-only targeted binder triage; not Lean elaboration or kernel validation",
+  "input_sha256": "8c50ad7bf0e58617f2b6c465fee2eb6f6668c0b650cc5e43513d92d3bb7b1acb",
+  "scope": "First ten geometry candidate source families, read with exact definitions/local instances/internal consumers. Eight source-confirmed proof-only-reference families (16 declarations), pending hosted binder/signature confirmation; two entirely false-positive families, and explicit false candidates separated within IntegralZoomGenericOpen.",
+  "entries": [
+    {
+      "blob": "1459b33e91c49326ca1a2bb0a81b8f1550d51b12",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/IntegralValuativeChartPoints318.lean",
+      "sha256": "13f4ad89ac85740eeb58ad685f2e497b9d0eaa20f60e8f6a128bd91f6e7ee4dd",
+      "status": "false_positive_local_algebra_dependency",
+      "targeted_includes": {},
+      "reason": "hu is carried by infinityEvaluationAlgebra in the statement algebraMap. Existing include hz is appropriate; no hu edit recommended.",
+      "candidates": [
+        {
+          "declaration": "infinity_root_relation",
+          "line": 67,
+          "variable": "hu",
+          "variable_type": "IsUnit (Polynomial.eval u (IntegralInfinityChart318.denominator V c))",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "infinity_root_relation (j : Fin 3) :\n    (z j)^2=algebraMap (IntegralInfinityChart318.Base V c) V\n      (algebraMap V[X] (IntegralInfinityChart318.Base V c) (IntegralInfinityChart318.coefficient V c j))"
+        }
+      ]
+    },
+    {
+      "blob": "855fd7a9c7e0fea737572de5c474b00b2a95a499",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ActualLineRationalEquations318.lean",
+      "sha256": "b3fbaca3501bb7d7292184fb5f77e6b62894465305151d70a196475fb82ea15e",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "equation depends on f₀ but not hf₀; both proofs use nonvanishing. Internal equation_ratio application already supplies hf₀.",
+      "candidates": [
+        {
+          "declaration": "equation_ne",
+          "line": 56,
+          "variable": "hf₀",
+          "variable_type": "f₀≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "equation_ne(i:ι):equation M U frames reference f₀ i≠0"
+        },
+        {
+          "declaration": "equation_ratio",
+          "line": 60,
+          "variable": "hf₀",
+          "variable_type": "f₀≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "equation_ratio(i j:ι):\n    equation M U frames reference f₀ i/equation M U frames reference f₀ j=\n      X.germToFunctionField (U i⊓U j)\n        (LineFrameTransitions318.scalar M U frames i j (U i⊓U j) inf_le_left inf_le_right).val"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "equation_ne": [
+          "hf₀"
+        ],
+        "equation_ratio": [
+          "hf₀"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "748ec2c7fad8d7477b9b1e8a6c6a83e0793f4494",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ActualPrincipalStalkDifferentialFrame318.lean",
+      "sha256": "16d148e4ea4c3d27d3dab1c79d0ab2868a1f273efca28fee14e36a27cd52ae69",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "d≠0 has no dependency on prime p or hd; proof uses hd. Existing internal calls supply R p d hd.",
+      "candidates": [
+        {
+          "declaration": "denominator_ne",
+          "line": 14,
+          "variable": "hd",
+          "variable_type": "d∉p",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "denominator_ne:d≠0"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "denominator_ne": [
+          "hd"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "10554b6955f250392ef1825d15614ae5c32c9da2",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/DVRRootParityComparison318.lean",
+      "sha256": "35e3d857d6880fd4253688296c6ad4b76b79aa2d77d431538212512450007831",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "Irreducibility of the chosen uniformizer is used only in proofs, and internal callers already supply hp.",
+      "candidates": [
+        {
+          "declaration": "uniformizer_unit_not_square",
+          "line": 11,
+          "variable": "hp",
+          "variable_type": "Irreducible pi",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "uniformizer_unit_not_square (u : Vˣ) (x : K)\n    (hx : x^2=algebraMap V K ((u : V)*pi)) : False"
+        },
+        {
+          "declaration": "odd_even_impossible",
+          "line": 23,
+          "variable": "hp",
+          "variable_type": "Irreducible pi",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "odd_even_impossible (u v : Vˣ) (b : V) (hb : b≠0) (y z : K)\n    (hy : y^2=algebraMap V K ((u : V)*pi*b))\n    (hz : z^2=algebraMap V K ((v : V)*b)) : False"
+        },
+        {
+          "declaration": "parity_eq",
+          "line": 39,
+          "variable": "hp",
+          "variable_type": "Irreducible pi",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "parity_eq (u v : Vˣ) (b : V) (hb : b≠0) (e f : Fin 2) (y z : K)\n    (hy : y^2=algebraMap V K ((u : V)*pi^(e : ℕ)*b))\n    (hz : z^2=algebraMap V K ((v : V)*pi^(f : ℕ)*b)) : e=f"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "uniformizer_unit_not_square": [
+          "hp"
+        ],
+        "odd_even_impossible": [
+          "hp"
+        ],
+        "parity_eq": [
+          "hp"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "bbcfcc124d29d45dd05adae75d6203fb34f4084c",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/EntirePeriodicDoubleIntegral318.lean",
+      "sha256": "f05a5c04b71759a3142ee42984b8f7b6b1c69fe14341fba5e155b3f3051e79f8",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "Differentiability and periodicity are absent from the stated period-integral equalities. swap_continuous is unaffected.",
+      "candidates": [
+        {
+          "declaration": "first_entire",
+          "line": 12,
+          "variable": "hf",
+          "variable_type": "Differentiable ℂ f",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "first_entire(y:ℂ):Differentiable ℂ (fun x:ℂ=>f ![x,y])"
+        },
+        {
+          "declaration": "second_entire",
+          "line": 19,
+          "variable": "hf",
+          "variable_type": "Differentiable ℂ f",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "second_entire(x:ℂ):Differentiable ℂ (fun y:ℂ=>f ![x,y])"
+        },
+        {
+          "declaration": "period_shift",
+          "line": 40,
+          "variable": "h0",
+          "variable_type": "∀x y:ℂ,f ![x+1,y]=f ![x,y]",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "period_shift (w:ComplexVectors):periodIntegral f w=periodIntegral f 0"
+        },
+        {
+          "declaration": "period_shift",
+          "line": 40,
+          "variable": "h1",
+          "variable_type": "∀x y:ℂ,f ![x,y+1]=f ![x,y]",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "period_shift (w:ComplexVectors):periodIntegral f w=periodIntegral f 0"
+        },
+        {
+          "declaration": "period_shift",
+          "line": 40,
+          "variable": "hf",
+          "variable_type": "Differentiable ℂ f",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "period_shift (w:ComplexVectors):periodIntegral f w=periodIntegral f 0"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "first_entire": [
+          "hf"
+        ],
+        "second_entire": [
+          "hf"
+        ],
+        "period_shift": [
+          "hf",
+          "h0",
+          "h1"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "724fd6df86d2640fbb91bd0f58a496701fa39557",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/EntirePeriodicHorizontalIntegral318.lean",
+      "sha256": "136b9efd6f7b740c7bb28e6c55c28948afa134655911ac34bbd069070998567b",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "The integral/coefficient definitions do not carry differentiability or periodicity. weighted_periodic needs only hp, not hf.",
+      "candidates": [
+        {
+          "declaration": "imaginary_shift",
+          "line": 9,
+          "variable": "hf",
+          "variable_type": "Differentiable ℂ f",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "imaginary_shift (y:ℝ):\n    (∫x:ℝ in 0..1,f ((x:ℂ)+(y:ℂ)*Complex.I))=\n      ∫x:ℝ in 0..1,f (x:ℂ)"
+        },
+        {
+          "declaration": "imaginary_shift",
+          "line": 9,
+          "variable": "hp",
+          "variable_type": "Function.Periodic f 1",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "imaginary_shift (y:ℝ):\n    (∫x:ℝ in 0..1,f ((x:ℂ)+(y:ℂ)*Complex.I))=\n      ∫x:ℝ in 0..1,f (x:ℂ)"
+        },
+        {
+          "declaration": "complex_shift",
+          "line": 28,
+          "variable": "hf",
+          "variable_type": "Differentiable ℂ f",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "complex_shift (w:ℂ):\n    (∫x:ℝ in 0..1,f ((x:ℂ)+w))=∫x:ℝ in 0..1,f (x:ℂ)"
+        },
+        {
+          "declaration": "complex_shift",
+          "line": 28,
+          "variable": "hp",
+          "variable_type": "Function.Periodic f 1",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "complex_shift (w:ℂ):\n    (∫x:ℝ in 0..1,f ((x:ℂ)+w))=∫x:ℝ in 0..1,f (x:ℂ)"
+        },
+        {
+          "declaration": "weighted_periodic",
+          "line": 53,
+          "variable": "hp",
+          "variable_type": "Function.Periodic f 1",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "weighted_periodic (k:ℤ):Function.Periodic\n    (fun z:ℂ=>f z*Complex.exp (-2*(Real.pi:ℂ)*Complex.I*(k:ℂ)*z)) 1"
+        },
+        {
+          "declaration": "coefficient_shift",
+          "line": 65,
+          "variable": "hf",
+          "variable_type": "Differentiable ℂ f",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "coefficient_shift (k:ℤ) (w:ℂ):\n    coefficient f k w=Complex.exp (2*(Real.pi:ℂ)*Complex.I*(k:ℂ)*w)*coefficient f k 0"
+        },
+        {
+          "declaration": "coefficient_shift",
+          "line": 65,
+          "variable": "hp",
+          "variable_type": "Function.Periodic f 1",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "coefficient_shift (k:ℤ) (w:ℂ):\n    coefficient f k w=Complex.exp (2*(Real.pi:ℂ)*Complex.I*(k:ℂ)*w)*coefficient f k 0"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "imaginary_shift": [
+          "hf",
+          "hp"
+        ],
+        "complex_shift": [
+          "hf",
+          "hp"
+        ],
+        "weighted_periodic": [
+          "hp"
+        ],
+        "coefficient_shift": [
+          "hf",
+          "hp"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "ed9cf0bc27d4538df907e636602b721d14df64d1",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/FieldQuadraticZoomEquiv318.lean",
+      "sha256": "73b3a95d3bab66d65ec27a58c3f52bf8f0f1d40eb8c56a048bc11fc0735c9e0a",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "Both actual root equations hy and nonzero roots hn are needed; scanner found only hn. Include both, which also retains y. Existing equivalence construction supplies y hy hn.",
+      "candidates": [
+        {
+          "declaration": "scale_ne",
+          "line": 11,
+          "variable": "hn",
+          "variable_type": "∀ i,y i≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "scale_ne : IntegralQuadraticPointZoom318.scale α β γ t≠0"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "scale_ne": [
+          "hy",
+          "hn"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "4452fd1e5f1172fcaa9ba4124ec2a131a0272e0e",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/IntegralModelDualRealization318.lean",
+      "sha256": "14253e7925958bbfeda1df2aff2f26f827857cf88e37b8f97a8302de5a6442d1",
+      "status": "false_positive_explicit_statement_dependencies",
+      "targeted_includes": {},
+      "reason": "sourceMap_polynomial/sourceMap_root explicitly mention sourceMap (K:=K) ... hy; section0_image/section1_image explicitly mention realization (K:=K) ... hy hn. Scanner first := delimiter truncates named arguments and loses these real signature dependencies.",
+      "candidates": [
+        {
+          "declaration": "sourceMap_polynomial",
+          "line": 44,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value (alpha d a m) d (gamma d a m) t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "sourceMap_polynomial (p : V[X]) : sourceMap (K"
+        },
+        {
+          "declaration": "sourceMap_root",
+          "line": 49,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value (alpha d a m) d (gamma d a m) t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "sourceMap_root (i : Fin 4) : sourceMap (K"
+        },
+        {
+          "declaration": "section0_image",
+          "line": 83,
+          "variable": "hn",
+          "variable_type": "∀ i,algebraMap V K (y i)≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "section0_image : realization (K"
+        },
+        {
+          "declaration": "section0_image",
+          "line": 83,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value (alpha d a m) d (gamma d a m) t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "section0_image : realization (K"
+        },
+        {
+          "declaration": "section1_image",
+          "line": 92,
+          "variable": "hn",
+          "variable_type": "∀ i,algebraMap V K (y i)≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "section1_image : realization (K"
+        },
+        {
+          "declaration": "section1_image",
+          "line": 92,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value (alpha d a m) d (gamma d a m) t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "section1_image : realization (K"
+        }
+      ]
+    },
+    {
+      "blob": "fb74458de150e8865122986ff9c70aa8c8dd3400",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/IntegralZoomGenericOpen318.lean",
+      "sha256": "0872e2004ee8ac1387c0cc5c8d588456f99bbc45ec00e009cf3fe1cf13fc4bad",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "mapped_root_equation truly omits hy; its mapped coefficients and mapped y do not depend on the root-equation proof. Existing equivalence caller passes hy. root/coordinate/scalar candidates are false positives: all explicitly apply equivalence (K:=K) ... y hy hn in their full signatures; named-argument := truncation caused the scanner to miss these dependencies.",
+      "candidates": [
+        {
+          "declaration": "mapped_root_equation",
+          "line": 19,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value α β γ t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "mapped_root_equation (i : Fin 4) : (mapped (K"
+        },
+        {
+          "declaration": "root",
+          "line": 34,
+          "variable": "hn",
+          "variable_type": "∀ i,algebraMap V K (y i)≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "root (i : Fin 4) : equivalence (K"
+        },
+        {
+          "declaration": "root",
+          "line": 34,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value α β γ t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "root (i : Fin 4) : equivalence (K"
+        },
+        {
+          "declaration": "coordinate",
+          "line": 45,
+          "variable": "hn",
+          "variable_type": "∀ i,algebraMap V K (y i)≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "coordinate : equivalence (K"
+        },
+        {
+          "declaration": "coordinate",
+          "line": 45,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value α β γ t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "coordinate : equivalence (K"
+        },
+        {
+          "declaration": "scalar",
+          "line": 55,
+          "variable": "hn",
+          "variable_type": "∀ i,algebraMap V K (y i)≠0",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "scalar (k : K) : equivalence (K"
+        },
+        {
+          "declaration": "scalar",
+          "line": 55,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value α β γ t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "scalar (k : K) : equivalence (K"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "mapped_root_equation": [
+          "hy"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    },
+    {
+      "blob": "500dca54600e51c6e9cfd19ec80f0f63f0865c73",
+      "source": "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/IntegralZoomNeighborhood318.lean",
+      "sha256": "303b5d9f34a13d5a1285eafa7997dfd4aca3670037c42c8dbe357cf21fcf289b",
+      "status": "source_confirmed_proof_only_reference_pending_hosted_signature",
+      "reason": "oldRoot/oldScalar/oldCoefficient definitions do not depend on hy; original_root_equation proof uses hy. Existing sourceMap applies original_root_equation ... y hy and already expects this input.",
+      "candidates": [
+        {
+          "declaration": "original_root_equation",
+          "line": 66,
+          "variable": "hy",
+          "variable_type": "∀ i,(y i)^2=IntegralQuadraticPointZoom318.value α β γ t i",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "original_root_equation (i : Fin 4) : (oldRoot V α β γ t y i)^2=\n    oldScalar V α β γ t (oldCoefficient V α β γ i)"
+        }
+      ],
+      "suggested_scoped_includes_if_hosted_confirms": {
+        "original_root_equation": [
+          "hy"
+        ]
+      },
+      "kernel_confirmed_omission": false
+    }
+  ],
+  "action": "No frozen sources changed. Focused hosted signatures/controls must distinguish actual omitted inputs from elaborated local-instance dependencies before repairs; apply targeted annotations only in bounded successors if confirmed. Existing explicit proof arguments in consumers reduce hidden-premise severity. No mass edits.",
+  "scanner_limit": "Lexical candidates are advisory. First := may be inside (K:=K), and local instance/definition dependencies may retain an otherwise implicit hypothesis. Source proof-only reference is not a kernel-confirmed omission or error."
+}

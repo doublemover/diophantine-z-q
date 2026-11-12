@@ -1,0 +1,36 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "advance_global_arithmetic",
+  "packet": "forward-actual-two-descent-infinity-chart-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "2c3e1a140a81e4a589bafab3c2bed95ee09950c1dbd83d117cf6d177c45b9134",
+  "intake_sha256": "4c3680c22a999bf72b480b64c55bbd87967611449de25b69f0c2e5fcd855c15c",
+  "new_source_hashes": {
+    "ActualTwoDescentInfinityProjectiveChart318.lean": "1b5b933d75b1e470f82574bb070728cdc2c71884d974c59c42725699e41a9b4b",
+    "ActualTwoDescentInfinityChartRing318.lean": "60478c93f5b8908bbdad6db0ee169ce3eaa622361da99594b378060d0d09c1b1",
+    "ActualTwoDescentInfinityLocalParameter318.lean": "4346c606c6017397946385ef2af04c3bd8dac73a9e8adeab9e3054f7c1b194cd",
+    "ActualTwoDescentInfinityMaximalGenerator318.lean": "82f72b47567384479dfadf7b52fb24f3ba6efac11eb87d753ec0f7f3849a35bd",
+    "ActualTwoDescentInfinityRootUnitFactors318.lean": "b7b49ebf1b131c553a56aad70ce627cf9b855af024fb42b5505c6c7069181bf0",
+    "ActualTwoDescentInfinityFieldPoleComparison318.lean": "9887db69d82a5e08aba70eddc5867542a2f756c748d3ba1ef04387f17671d5fc"
+  },
+  "unchanged_predecessor_sources": 1192,
+  "review": [
+    "Read all six final sources and DERIVATION. Projective [u:1:v] relation has correct signs for original a2=2n,a4=-3n\u00b2; O has v-derivative1 even n=0. Affine overlap requires v\u22600, reverse coordinates y\u22600.",
+    "Read exact pinned AdjoinRoot.ringHom_ext and eval\u2082-root usage: coefficient-u and v generators determine origin kernel; quotient map comparison proves kernel=(u,v) on entire ring.",
+    "Read exact pinned IsLocalization.AtPrime.isUnit_to_map_iff,to_map_mem_maximal_iff and Localization.AtPrime.map_eq_maximalIdeal. All are applied to same origin evaluation kernel/localization. Factor evaluates1, so native unit follows without domain or DVR hypothesis.",
+    "Native cubic relation yields v=e*u\u00b3; native maximal ideal maps from exact chart origin ideal, hence m=(u). For every a the root numerator is u times produced unit1\u2212a*e*u\u00b2. Correct unit orientation and no root exception.",
+    "FieldPoleComparison keeps \u03c6:actual local ring\u2192field and \u03c6(u)\u22600 as explicit theorem binders. Unit images are nonzero, yielding both displayed normalized identities without hidden pole cancellation.",
+    "No source silently claims native fraction embedding, local domain, DVR, valuation normalization, global Cartier divisor, theta action or Weil/Cassels\u2013Tate comparison. All remain explicit obligations.",
+    "Checked new theorem binders: nonzero, equation and field-map hypotheses are in direct declarations; no proof-only section hypothesis omission found.",
+    "Re-read final tightened LocalParameter unit-cube calc: first cancels adjacent e inverse times e by simp, then reassociates/commutes v by ring. Same statement and scalar map,5 other new sources and all primary APIs unchanged. Rechecked final claim and9 obligations; latest application2c3e1a14 bound. Earlier3285781b acceptance superseded, preserved separately."
+  ],
+  "primary_api_hashes": {
+    "LocalMaximalIdeal.lean": "8f5770a00a7ea607e9c897d289a7fa212a4ba61c54d3df2e9ba6f9d0ade241b7",
+    "LocalizationAtPrimeBasic.lean": "ad2f533fd4f20be6b0350a2c5e23bac21e273c7c50f471cb818c67daeea8e934",
+    "AdjoinRoot.lean": "51432e606471ffb8331b637394b693b4ddf5214d17182f44556dd182fbd7339d",
+    "ProjectiveBasic.lean": "25e95502ddd035ccccdc551757e007dd82cd6e9804225063df26c38f4ffc22ab"
+  },
+  "local_lean_run": false,
+  "validation_boundary": "Independent source/API/object-map review plus exact1192 byte comparison; not hosted elaboration, kernel acceptance, or proof of DVR/divisor interpretation.",
+  "supersedes_review_sha256": "d83fa521460804d8a3cf366f11ea3c866ddf5809d4eb40d2435b620a14fa3e01"
+}
