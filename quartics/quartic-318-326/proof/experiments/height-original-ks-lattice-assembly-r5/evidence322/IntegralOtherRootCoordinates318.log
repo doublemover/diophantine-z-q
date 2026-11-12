@@ -1,0 +1,53 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r53/IntegralOtherRootCoordinates318.lean:25:84: error: unsolved goals
+case «0»
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ (AlgEquiv.refl.trans
+        (Algebra.TensorProduct.assoc R[X] R[X] R[X]
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 0)))
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 1)))
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 2)) ⊗[R[X]]
+            QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 3)))))
+      (1 ⊗ₜ[R[X]] AdjoinRoot.root (QuadraticPresentation318.polynomial (coefficient R c 1)) ⊗ₜ[R[X]] (1 ⊗ₜ[R[X]] 1)) =
+    1 ⊗ₜ[R[X]]
+      (AdjoinRoot.root
+          (QuadraticPresentation318.polynomial
+            (IntegralBranchChart318.other (otherTwist R c 0) (otherContact R 0) 0)) ⊗ₜ[IntegralBranchChart318.Base]
+        (1 ⊗ₜ[IntegralBranchChart318.Base] 1))
+
+case «1»
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ (AlgEquiv.refl.trans
+        (Algebra.TensorProduct.assoc R[X] R[X] R[X]
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 0)))
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 1)))
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 2)) ⊗[R[X]]
+            QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 3)))))
+      (1 ⊗ₜ[R[X]] 1 ⊗ₜ[R[X]] (AdjoinRoot.root (QuadraticPresentation318.polynomial (coefficient R c 2)) ⊗ₜ[R[X]] 1)) =
+    1 ⊗ₜ[R[X]]
+      (1 ⊗ₜ[IntegralBranchChart318.Base]
+        (AdjoinRoot.root
+            (QuadraticPresentation318.polynomial
+              (IntegralBranchChart318.other (otherTwist R c 0) (otherContact R 0) 1)) ⊗ₜ[IntegralBranchChart318.Base]
+          1))
+
+case «2»
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+⊢ (AlgEquiv.refl.trans
+        (Algebra.TensorProduct.assoc R[X] R[X] R[X]
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 0)))
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 1)))
+          (QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 2)) ⊗[R[X]]
+            QuadraticPresentation318.RootRing (coefficient R c (FourRootPivot318.indices 0 3)))))
+      (1 ⊗ₜ[R[X]] 1 ⊗ₜ[R[X]] (1 ⊗ₜ[R[X]] AdjoinRoot.root (QuadraticPresentation318.polynomial (coefficient R c 3)))) =
+    1 ⊗ₜ[R[X]]
+      (1 ⊗ₜ[IntegralBranchChart318.Base]
+        (1 ⊗ₜ[IntegralBranchChart318.Base]
+          AdjoinRoot.root
+            (QuadraticPresentation318.polynomial
+              (IntegralBranchChart318.other (otherTwist R c 0) (otherContact R 0) 2))))
