@@ -1,0 +1,13 @@
+# Exact source route
+
+Historical arguments already present: LaurentUnitPoints318 proves the literal Laurent algebra parametrizes a coefficient point and a unit on affine algebra tests; LaurentProjectionSmooth318 proves native algebra smoothness by localization of R[X] at X; ContactOriginalStabilizerUnitPresheaf318 represents base units by the original stabilizer on all whole tests; ContactOriginalIsomTorsorOver318 proves the actual geometric shear with original full module composition/inversion. These are retained byte-for-byte,not called new proofs.
+
+New WholeAffineTargetFunctions uses the native Gamma/Spec adjunction to define realize and proves its structural ringMap inverse by the actual adjunction identity. Its left inverse is exact ext_to_Spec. Source naturality is actual appTop composition; target naturality is the exact GammaSpecIso_inv_naturality. No test-affineness assumption is introduced.
+
+New LaurentCoefficientUnitPoints fixes a literal ring map R->S as an explicit subtype equation; eval2 is its inverse from units. The two inverse proofs use C,T1 and localization extensionality over all negative powers. This avoids accidental scalar-instance inference. Applying whole-target functions converts actual Over morphisms into precisely this subtype. Both inverse laws retain the original scheme map and its over-base equation. AppTop naturality then assembles the entire literal Laurent representation.
+
+Yoneda full faithfulness converts the composite of the two full natural representations into an actual Over scheme isomorphism. The forgetful functor gives schemeIso with exact hom_base and inv_base. Native smoothness of the literal Laurent projection transfers along this actual isomorphism;affineness transfers similarly. There is no pointwise-only geometry inference.
+
+PullbackSourceIso explicitly constructs both maps using the actual first-factor scheme isomorphism and unchanged second projection;native pullback ext proves both inverse identities. Apply this to the original stabilizer and compose its inverse with the existing original shear. Both forward projections and the inverse second projection are proved. Thus the self-pullback is literally the trivial Laurent group bundle over Isom.
+
+Smoothness/affineness of the unchanged second projection follows from the actual shear inverse and native basechange of Laurent geometry. The explicit pullback diagonal has composite identity with the second projection,producing actual topological surjectivity. The old FppfSingleCover318 theorem now consumes exactly these instances and creates a covering sieve in the ACTUAL relative fppf topology. Its target is the original Isom space,NOT the coefficient base. No effective quotient or Picard representation conclusion follows yet.

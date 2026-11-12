@@ -1,0 +1,11 @@
+--- before/GoodReductionLifting318.lean
++++ after/GoodReductionLifting318.lean
+@@ -82,7 +82,7 @@
+     · right
+       have hd : ‖3*(P.1.1:ℚ_[p])^2-(D:ℚ_[p])‖=1 := by exact_mod_cast hu
+       simpa only [hd,←PadicInt.coe_sub,←PadicInt.norm_def] using And.intro hx hy
+-  have hz := (QuotientAddGroup.eq_zero_iff (subgroup p D)).mpr hc
++  have hz := (QuotientAddGroup.eq_zero_iff (N := subgroup p D) _).mpr hc
+   simpa only [map_sub,sub_eq_zero] using hz
+ 
+ end GoodReductionLifting318

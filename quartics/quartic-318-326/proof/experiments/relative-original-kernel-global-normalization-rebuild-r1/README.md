@@ -1,0 +1,7 @@
+# Original global kernel normalization reconstruction
+
+Five fresh Lean source modules reconstruct the next dependency after the surviving normalized-kernel gluing packet. They are not claimed to be recovered historical bytes. The literal nonzero open of the original full kernel parameter maps to the same glued normalized-kernel scheme. Full principal source charts are Cartesian, the map agrees with the old local Laurent normalization, and actual coordinate-one sections produce smooth surjectivity and hence fppf.
+
+The endpoint covers the normalized kernel TARGET, not the coefficient base. It does not yet identify the nowhere-zero original-line locus, descend that open, identify orbit sheaves, or prove varying Picard/Jacobian effectivity. Only the original finite-projective two-term presentation is used; projectivity of H0 or the differential kernel is not assumed. Full quotient ideals and nilpotents are retained. The raw norm factor 8 is unchanged.
+
+There are 1303 source modules: 1296 unchanged predecessor copies, one scoped theorem-binder correction and one reviewed delimiter repair, and five new modules. No local Lean or profiling is run. Static and exact finite algebra checks are ancillary, not elaboration or kernel validation. The independently reviewed exact delimiter correction in OriginalOpenLineRestrictionUnit318 is explicitly included as a second bounded inherited delta; full diagnostic and review provenance are preserved in proof/recovery/jacobian-audit-repairs-20261112.

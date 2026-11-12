@@ -1,0 +1,1 @@
+Other copied ancillary directories/records belong to historical predecessor packets. Only current APPLICATION.json bindings certify this reconstruction checkpoint. A source reconstruction is not a recovered commit. No frozen predecessor was edited.

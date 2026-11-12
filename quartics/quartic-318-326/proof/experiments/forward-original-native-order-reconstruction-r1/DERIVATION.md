@@ -1,0 +1,9 @@
+# Exact producer chain and conventions
+
+The native quotient equality theorem has subgroup N implicit and original point explicit. The reconstructed Entry/order equivalence uses that exact signature and map_zsmul twice. The previous denominator producer at M=1 plus D(1)=1 rules out the zero quotient class; positivity and the native addOrderOf_eq_one_iff give order>1. Prime upper divisor then forces exact order without a residue group identification.
+
+Generic doubling proves slope through m*(2y)=3x²-D with y nonzero. Native slope_of_Y_ne' requires the not-negative ordinate condition; div_eq_iff uses the symmetric multiplication equality. Subtraction is normalized explicitly. Native nonsingular_add and add_self_of_Y_ne produce the actual point equality, not only the equation. Existing LocalGenerator.actual_double_coordinates and GlobalGeneratorPoints.two_zsmul_R identify the input as4R. The new8R and16R certificates use exact canonical rational arithmetic, preserving the original coefficient11−6sqrt2.
+
+The concrete ray is (a,b)=(57,80); its minus/plus neighbors are9536/9764. The old canonical_from_ray produces CM, actual_count gives those two possibilities, and count_sum_from_ray relates the exact opposite root. Selecting the plus root is existential only at this one prime. Native halving roots work for either sign. Quarter counts are2384 and2441, not full counts. The latter is prime and the actual class is nonzero, giving exact2441. Coprimality follows from coprimality2441/2384 and divisor inheritance.
+
+The opposite149 divisor is a separate genuine native step:149|2384,2384/149=16, and9649 does not divide the canonical global denominator of x(16R). The denominator foundation therefore excludes order dividing16 and forces149 to divide order. This does not exclude a factor2,4,8 or16. The exhaustive residue-curve count regression independently checks old CM count values but is not used as a native group-order proof.
