@@ -1,0 +1,51 @@
+module
+public import ActualTwoDescentInfiniteRankPrimarySelmerEquivalence318
+public section
+noncomputable section
+namespace ActualTwoDescentInfiniteRankSelmerPruefer318
+set_option maxHeartbeats 16000000
+open ActualTwoDescentEllipticModel318 ActualTwoDescentFieldAlgebraicClosureHalving318
+open ActualTwoDescentFieldGaloisPointAction318 ActualTwoDescentFieldGaloisFixedRational318
+open ActualTwoDescentFieldHalvingCocycle318 ActualTwoDescentContinuousEllipticCocycles318
+open ActualTwoDescentFullEllipticRepresentation318 ActualTwoDescentFullEllipticHOneKernel318
+open groupCohomology
+open ActualTwoDescentPowerTorsionBoundaries318 ActualTwoDescentHigherKummerHom318
+open ActualTwoDescentHigherFullClassMap318 ActualTwoDescentHigherFullKernel318
+open ActualTwoDescentPrimaryGeometricBoundary318 ActualTwoDescentFiniteLevelIntoPrimary318
+open ActualTwoDescentPrimaryFullClass318 ActualTwoDescentActualPrimarySelmer318
+open ActualTwoDescentActualHigherSelmer318 ActualTwoDescentHigherSelmerIntoPrimary318
+open ActualTwoDescentPrimarySelmerFiniteLevels318 ActualTwoDescentHigherRationalImage318
+
+open ActualTwoDescentActualPrimaryRationalImage318 ActualTwoDescentRationalPrimaryDivision318
+open ActualTwoDescentFullPrimarySelmerTorsion318 ActualTwoDescentPrimaryAllRoots318
+
+
+open ActualTwoDescentPrimaryAllRoots318 ActualTwoDescentFullPrimarySelmerTorsion318
+
+open ActualTwoDescentRestrictedRationalPrimaryImage318
+open ActualTwoDescentRestrictedRationalPrimaryDivision318
+open ActualTwoDescentFiniteFactorPrimaryVanishing318
+open ActualTwoDescentRankOneRationalCoordinates318
+open ActualTwoDescentRankOnePrimaryJointCyclic318
+open ActualTwoDescentJointCyclicPrimaryInvolutions318
+open ActualTwoDescentRationalPrimaryTwoBound318
+open ActualTwoDescentRankOnePrimaryNonzero318
+open ActualTwoDescentRankOnePrimaryInfinite318
+open ActualTwoDescentRankOneRationalPruefer318
+open ActualTwoDescentInfiniteRationalRankOneDecomposition318
+open ActualTwoDescentInfiniteRankPrimarySelmerEquivalence318
+
+open ActualTwoDescentDyadicPrueferModel318 ActualTwoDescentEllipticDoubleQuotient318
+open ActualTwoDescentAllPlacesIntersection318
+
+theorem actual_infinite_rank_selmer_pruefer (n : ℚ) (hn : n ≠ 0)
+    (hf : Finite (DoubleQuotient n)) (hb : Nat.card (DoubleQuotient n) ≤ 8)
+    (hS : Nat.card (allPlacesImage n hn)=8) [Infinite (Point n)] :
+    Nonempty (actualPrimarySelmer n hn ≃+ Additive PrueferTwo) := by
+  obtain ⟨T,hT,hfin,⟨e⟩⟩ := actual_infinite_rank_one_decomposition n hn hf hb
+  letI := hT
+  letI := hfin
+  obtain ⟨a⟩ := actual_rank_one_rational_pruefer n hn e
+  exact ⟨(infiniteRankPrimarySelmerEquiv n hn hf hb hS).trans a⟩
+
+end ActualTwoDescentInfiniteRankSelmerPruefer318

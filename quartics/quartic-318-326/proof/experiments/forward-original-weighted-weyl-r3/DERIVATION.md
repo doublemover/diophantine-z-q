@@ -1,0 +1,21 @@
+# Source applications, index coverage and exact consumers
+
+## Constants are produced before scale or slicing
+A continuous compactly supported function has a bound on its compact support by compactness of the image norm. Outside the support it is exactly zero. Apply this once to W and once to fderiv W. The pinned HasCompactSupport.fderiv and ContDiff.continuous_fderiv supply the derivative hypotheses. Since W is C-infinity, the required differentiability order is nonzero. The global mean-value theorem on the actual convex whole five-coordinate real space gives |W(x)-W(y)|<=L|x-y|. Neither L nor A depends on the later scale or slices.
+
+The original integer line has successive difference v, and the original integerEmbed preserves this addition. Scaling yields step norm |v|/B for B>0. The complex lattice weight is literally the real W-value cast to C, so its norm differences are unchanged. Summing N steps gives (N/B)L|v|; under N<=RB this is RL|v|. The actual translated endpoint h+linePoint(y,v,j) equals linePoint(h+y,v,j). Consequently both weight factors use the same A,L bounds, giving paired endpoint-plus-variation A²+2ARL|v|. The original-line cancellation theorem consumes that exact paired weight and retains the actual frequency 2B_k(h,v).
+
+## Every finite ordered pair is accounted for
+The map y -> (h+y,y) is a bijection from {y in s | h+y in s} to {(x,y) in s×s | x-y=h}; inverse is the second projection. This is proved by Finset.sum_bij, including every diagonal and empty fiber. No independent choices of endpoints occur.
+
+For s an original five-coordinate Cartesian box, membership of y and h+y is coordinatewise membership in the five overlap sets. Weight w is not split into factors. For integer interval [lo,hi], overlap is precisely [max(lo,lo-h),min(hi,hi-h)]. The interval is parameterized by lo+j for 0<=j<(hi-lo+1).toNat; when hi<lo both are empty. Exact product summation, followed by finite commutations, gives all first-coordinate slices indexed by the other FOUR actual overlap sets. The subsequent inequality applies triangle inequality on exactly those sets, not a smaller unproved covering.
+
+An actual first-axis line in the original coordinates identifies each interval slice with originalLineCorrelation. The only extra factor is e(Q_k(h)), whose norm is one. Both ambient weights, actual base point, original five-coordinate quadratic form and frequency remain identical. The produced scale-uniform line estimate therefore applies to these exact slices when their lengths satisfy the displayed scale bound and the frequency is nonresonant. Resonant lengths and empty intervals retain the predecessor universal bounds.
+
+## Actual minor-integral bridge, with honest boundary
+The existing minorDomain is the literal complement of the major union inside its original length-one fundamental interval. Its measure is finite by inclusion in that interval. If the actual sum of the actual correlation norms is bounded by C² on this entire domain, the predecessor square bound and C>=0 imply |scaledCircleSum|<=C. The pinned norm_setIntegral_le_of_norm_le_const gives |minorArcIntegral|<=C*volume.real(minorDomain). The support assumption in this theorem is exactly the existing latticeWeight-zero-outside-s condition, and actual_circle_eq_finite identifies the original integrand. No major/minor error is redefined by subtraction.
+
+This last theorem does not produce C, any decay of C/B³, or an optimal mixed-coordinate aggregation. First-coordinate slicing alone does not supply the needed five-dimensional power saving. The first-derivative scale-uniform slice variation and exact coverage obligations are now proved in source; mixed/higher variation, rational-approximation sums, a uniform containing lattice box and final minor decay remain open. No manuscript acceptance, full proof or prime producer follows.
+
+## Evidence limits
+The rational tent model in finite checks is Lipschitz but not smooth. It tests exact increment/variation arithmetic, not the smooth mean-value producer. Exact group-ring tests check finite pair/basepoint/slice identities including endpoints and negative controls. None is a Lean kernel run, a proof of derivative compactness or minor asymptotics. Hosted elaboration and independent source review remain separate.
