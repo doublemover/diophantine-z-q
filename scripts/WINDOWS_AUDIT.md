@@ -17,3 +17,53 @@ Each run creates a new `audit-results/windows-...` folder without overwriting ea
 The scheduler runs up to the number of logical processors in parallel, with one Lean thread per compilation, and specifies no process memory cap or wall-clock deadline. Dependency ordering means not every core is busy throughout. Lean's own source options and operating-system resource limits still apply. A full run may consume substantial memory and disk.
 
 The adapter's focused Python tests can be run without Lean using `py -3 scripts\test_windows_audit.py`. These tests do not establish native Windows end-to-end compatibility or audit success.
+
+## Share every recorded failure without the artifact cache
+
+Do not zip the entire audit run: it includes compiled libraries and caches. The
+collector below reads every `.log` plus `summary.json`, `RESULT.json`,
+`commands.json` and `plan.json` recursively. It does **not** invoke Lean, rerun
+the audit, change its results, or copy build artifacts.
+
+From the repository root in PowerShell, after obtaining this script:
+
+```powershell
+py -3 scripts\collect_windows_audit_failures.py --latest
+```
+
+For an explicitly selected run (recommended if several audits are running):
+
+```powershell
+py -3 scripts\collect_windows_audit_failures.py --run ".\audit-results\windows-YOUR-RUN"
+```
+
+Upload only the printed `audit-failures.zip`. It contains `failures.txt` and
+`failures.json`, not raw logs or `.olean` files. Each recorded failure/candidate
+has its original relative file path and, when available, line-numbered excerpts.
+Nonzero stage/module exits are retained even without an `error:` line. Orphaned
+logs, timeouts, Python/tool failures and runner exceptions are scanned too.
+No failure-record count cap is applied. Markers in quoted text can be false
+positives and are labelled as candidates.
+
+By default, excerpts are limited to 8,192 characters per log, with initial
+error context and the log tail. The report explicitly marks excerpts as partial
+and reports the full diagnostic-fragment count; only the first 40 matching line
+numbers are retained. For fuller context use `--excerpt-chars 32768` (maximum
+65,536). Original logs are left untouched. Missing/unreadable logs, corrupt
+metadata, skipped symlinks, changed-while-reading logs and decoding replacements
+are reported rather than hidden. Exit code 2 means collection had problems;
+its ZIP can still be shared, together with the listed missing originals.
+
+The collector covers **recorded** failures, not hypothetical errors in modules
+blocked by an earlier failure. A packet stops at its first failing module. A
+`RUNNING` summary may represent an interrupted or still-running audit; stop/wait
+for the audit and collect again for a stable snapshot. A toolchain failure before
+the runner creates a results folder exists only in the terminal output, so share
+that terminal error separately. Reports can contain local paths and source
+excerpts; review before sharing outside this debugging conversation.
+
+Collector tests (synthetic fixtures only, no Lean):
+
+```powershell
+py -3 scripts\test_collect_windows_audit_failures.py
+```
