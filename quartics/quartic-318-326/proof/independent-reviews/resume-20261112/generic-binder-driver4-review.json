@@ -1,0 +1,16 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "restore_and_integrate",
+  "status": "ACCEPTED_SOURCE_SCOPED_STABLE_SINGLE_SLOT_ACTIVATION",
+  "predecessor_review_sha256": "90c5916817ad7ce7b9ba012e6649078ec2be67c77550644839dca3b513248769",
+  "driver_sha256": "4763e823f9db5a1f747731652c5d272468385d385bfc59112ce43d9b4e54f43a",
+  "test_sha256": "b7f3a6358e6e559d0b80fe070d0e45ed3e80d90f1a73bcb34622001ff6a5a169",
+  "workflow_sha256": "52559ca8c18749f6887ef87cd5cce29f55d16bd215ed56c824b87e8fdd3d5ce4",
+  "review": [
+    "Read exact source diff: workflow uses pel-original-character- prefix; same literal prefix checked against actual active_packets by plan test and again in hosted driver before subprocesses. Exactly one active matching slot verified.",
+    "Plan test rejects zero and two matching slots. first-check needs successful plan, so preflight failure prevents fan-out rather than merely annotating duplicated diagnostics.",
+    "Independent pure-Python mocked test PASS: local guard, zero/two negative controls, timeout process-group kill and wait, second probe execution, four log files. No subprocess or Lean executed by review.",
+    "No module, probe, job, concurrency or runtime cap increase; existing two probes, controls, logging and non-admission scope preserved. Prefix stability is not a theorem-signature validation result."
+  ],
+  "local_lean_run": false
+}

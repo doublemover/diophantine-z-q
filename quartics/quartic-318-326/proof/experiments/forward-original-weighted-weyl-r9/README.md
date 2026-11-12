@@ -1,0 +1,9 @@
+# Produced smooth paired mixed variation and actual two-axis cancellation
+
+1216 predecessor Lean sources remain byte-identical. One inherited UniformScaledPoleDomain proof takes the exact shared hosted319 Rat.cast_lt repair already independently reviewed in the infinity-DVR packet. Six new modules give1223 total. No statements or resource caps change; hosted verification remains pending.
+
+Smooth compact W now PRODUCES global amplitude A, first Lipschitz constant L and derivative-Lipschitz/Hessian constant D. A second mean-value argument gives the genuine mixed difference bound D*|u|*|v|. The exact four-corner product identity retains both mixed-factor terms AND both cross-products of first differences. Consequently the actual translated paired weight W(x+h)W(x) has mixed cost(2AD+2L²)|u||v|, uniformly in h.
+
+The complex actual lattice paired weight is identified with that real pair after scaling. Its first increments are O(1/B), mixed increments O(1/B²), with constants chosen before ALL scales, shifts and slice points. These produced increments are consumed by the literal planePairedWeight mixedVariation from r8, giving A²+4RAL+R²(2AD+2L²) whenever both step counts are at most RB. The final actual two-axis cancellation theorem now has NO supplied Hessian/mixed-increment bound: both actual frequencies2h0 and2h1 cancel multiplicatively, with all resonances retained.
+
+Remaining: extend mixed cancellation to enough of the five original directions and aggregate all retained displacement/slice multiplicities; produce a power-saving full correlation budget, harmonic/log estimates and rational-approximation denominator selection throughout the actual minorDomain; conclude integrated o(B³) minor decay. No full theorem, prime/ray/order/Anchor or rank claim. Finite C2 model tests are not C-infinity witnesses or Lean checks. Structural admission and distinct source review are separate from hosted kernel validation. No local Lean.

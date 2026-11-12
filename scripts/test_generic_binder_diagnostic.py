@@ -9,6 +9,14 @@ from unittest.mock import Mock, patch
 import diagnose_generic_binders as driver
 
 def main():
+    registry = Path(__file__).resolve().parents[1] / 'quartics/quartic-318-326/proof/experiments/packets.json'
+    driver.require_unique_slot(json.loads(registry.read_text())['active_packets'])
+    for invalid in ([], ['pel-original-character-a', 'pel-original-character-b']):
+        try:
+            driver.require_unique_slot(invalid)
+            raise AssertionError('invalid duplicate/missing diagnostic slot accepted')
+        except ValueError:
+            pass
     with patch.dict(os.environ, {'GITHUB_ACTIONS': 'false'}):
         try:
             driver.main()
@@ -17,6 +25,9 @@ def main():
             assert 'Hosted diagnostic only' in str(e)
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
+        registry = root / 'quartics/quartic-318-326/proof/experiments/packets.json'
+        registry.parent.mkdir(parents=True)
+        registry.write_text(json.dumps({'active_packets': ['pel-original-character-test']}))
         original = Mock(pid=123)
         original.wait.side_effect = [subprocess.TimeoutExpired('checker', 600), -9]
         included = Mock(pid=124)
@@ -38,7 +49,7 @@ def main():
         assert data['packets'][2]['status'] == 'DIAGNOSTIC_TOTAL_LIMIT_600_SECONDS'
         assert data['packets'][3]['exit_code'] == 0
         assert len(list(out.glob('*.log'))) == 4
-    print('PASS: local guard, isolated timeout cleanup, both probes and all logs; no Lean invoked')
+    print('PASS: exact-one active slot and negative controls, local guard, isolated timeout cleanup, both probes and all logs; no Lean invoked')
 
 if __name__ == '__main__':
     main()

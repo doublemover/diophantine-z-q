@@ -1,0 +1,102 @@
+{
+  "reviewer": "advance_pel_identification",
+  "producer": "restore_and_integrate",
+  "status": "ACCEPTED_SEVEN_SOURCE_FALSE_POSITIVES_NOT_SEMANTIC_AUDIT",
+  "scope": "Independent exact-source review of seven lexical candidate names in currently written ordered-Legendre import cone, not automated source/type comparison or kernel acceptance",
+  "bindings": {
+    "quartics/quartic-318-326/proof/independent-reviews/resume-20261112/section-binder-audit/critical-import-cones.json": "1d02f9601c238b84521a3b70da59d0a849f2c085354ba40fd4060403edc3562b",
+    "quartics/quartic-318-326/proof/independent-reviews/resume-20261112/section-binder-audit/critical-cone-lexical-inventory.json": "6a6434e5b3db818577dd4e1e4d116bc6c60f874e435526127eafca6777abf555",
+    "quartics/quartic-318-326/proof/independent-reviews/resume-20261112/section-binder-audit/critical-cone-source-triage.json": "9403ac2606f306cd08710e5886315d9b9aef1aad6da7e3155d7d9d0daa64f8ce"
+  },
+  "sources": {
+    "JLineOverlap318": {
+      "path": "quartics/quartic-318-326/proof/progress/JLineOverlap318.lean",
+      "sha256": "2c132d888629bc5a63e2e00908037adce5b874ef2bdee73dc4057a33026e2d0a",
+      "imports": [
+        "JLineEvaluation318",
+        "OpenJModel318"
+      ]
+    },
+    "ProjectiveLineGradedPointAction318": {
+      "path": "quartics/quartic-318-326/proof/experiments/pel-original-character-affine-descent-r1/ProjectiveLineGradedPointAction318.lean",
+      "sha256": "dbfca33626dde4f1440be5867fdf3d61a5694fbbde993e2859a3f14823a556e1",
+      "imports": [
+        "JLineOverlap318",
+        "ProjectiveSwapCharts318"
+      ]
+    },
+    "TameCoordinate318": {
+      "path": "quartics/quartic-318-326/proof/progress/TameCoordinate318.lean",
+      "sha256": "76afbaab98f7744ea74da724458fc3f0ab5f1cd02970b1c011e61f5795834bb6",
+      "imports": [
+        "Mathlib.RingTheory.PowerSeries.Derivative",
+        "Mathlib.Tactic"
+      ]
+    },
+    "PELDescendedInertiaChart318": {
+      "path": "quartics/quartic-318-326/proof/experiments/pel-original-character-affine-descent-r1/PELDescendedInertiaChart318.lean",
+      "sha256": "978292c7c5a235cf187c078c5ad804cad3b8fd4d906c82f967b437ee2a5f142a",
+      "imports": [
+        "OpenSquaredChart318"
+      ]
+    },
+    "PELOriginalOrderedLegendreInvariants318": {
+      "path": "quartics/quartic-318-326/proof/experiments/pel-original-character-affine-descent-r1/PELOriginalOrderedLegendreInvariants318.lean",
+      "sha256": "e7c809dc6e22f387f549daa5898486e80cd48145e549ad81cdd0684a04807bcd",
+      "imports": [
+        "ComplexLegendreCoordinates318",
+        "PELOriginalCharacterAlgebraicRelabeling318"
+      ]
+    }
+  },
+  "verified_import_cone_source_hashes": 445,
+  "generic_field_absent_from_written_import_cone": true,
+  "findings": [
+    {
+      "module": "JLineOverlap318",
+      "declaration": "openJ_chart_overlap",
+      "candidate": "R",
+      "classification": "NAMED_ARGUMENT_LABEL_FALSE_POSITIVE",
+      "reason": "The proof token R occurs as the parameter label (R:=\u2124) in unit_chart_overlap. The theorem is concretely over \u2124 and does not require the unrelated section R. No include proposed."
+    },
+    {
+      "module": "ProjectiveLineGradedPointAction318",
+      "declaration": "evaluatedPoint_action",
+      "candidate": "R",
+      "classification": "LOCAL_NOTATION_HEADER_DEPENDENCY_FALSE_POSITIVE",
+      "reason": "Written f:G\u2192+*\u1d4dG and \u03c6:P\u2192+*S use local G=grading R and P=MvPolynomial(Fin2)R. R is already a parameter of actual header objects, not proof-only."
+    },
+    {
+      "module": "TameCoordinate318",
+      "declarations": [
+        "coeff_one_subst",
+        "sigma_constant"
+      ],
+      "candidate": "k",
+      "count": 2,
+      "classification": "POWER_SERIES_NOTATION_HEADER_FALSE_POSITIVE",
+      "reason": "Both headers explicitly bind F P:k\u27e6X\u27e7. Scanner identifier regex obscures the k parameter inside notation; the named (R:=k) proof use is not evidence of a missing source parameter."
+    },
+    {
+      "module": "PELDescendedInertiaChart318",
+      "declaration": "exists_original_descended_chart",
+      "candidates": [
+        "hU",
+        "hsub",
+        "hfib"
+      ],
+      "count": 3,
+      "classification": "OBTAIN_LOCAL_SHADOWS_FALSE_POSITIVE",
+      "reason": "obtain \u27e8U,hU,hpU,hsub,hfib\u27e9 := original_squared_quotient_fibers i \u03c4 hp constructs all three local proofs, shadowing earlier section names. The endpoint passes these freshly constructed proofs to source_open/target_open/descendedChart/descended_value."
+    }
+  ],
+  "endpoint_boundary": "Read exact manuscript_parameters_of_published_invariants: h30,h42,h70,h105 are explicit theorem arguments used in coordinates_of_original_models. Their numerical equalities are not established by this consumer or by absence of GenericField from its current import cone.",
+  "no_new_confirmed_semantic_defects": true,
+  "local_lean_run": false,
+  "limitations": [
+    "No actual elaborated signature or body checked here. Lexical false-positive classification does not certify entire theorem correctness.",
+    "The written import cone overapproximates constant dependencies; this is not an elaborated environment constant cone.",
+    "Generic-field probe remains required independently and must not be demoted by present consumer-side import absence.",
+    "Prepared-witness ns candidate belongs to separate arithmetic review, not these seven."
+  ]
+}

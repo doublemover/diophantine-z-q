@@ -1,0 +1,33 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "advance_pel_identification",
+  "packet": "pel-original-character-open-descent-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "499f83aeeb6ab9f9ca58323b09bf02521622aefcc95060857a5ba8113e9e896d",
+  "intake_sha256": "231acac4ae006e4572c879d331419a31f7b794cecaea9035f317ebfdd31b99c7",
+  "new_source_hashes": {
+    "FiniteNormalOpenImage318.lean": "1a259fa8ed3bb6350d2035c13cd88f4e6b630e4e5c9a8b3f188e284eb4b6ad48",
+    "InjectiveRingHomDescent318.lean": "ffbc069eebcd5f927b07c731f5532c43b3fb8fd14104421906900774c8de9736",
+    "PELOriginalCharacterNormalOpens318.lean": "5c5dbd8ac6f25abf86cae32368b89bcd215b36607c341731d5f8733bc5e6f421",
+    "PELOriginalCharacterSectionInvariants318.lean": "047ac3862d8a906608ae0206e3c52c027aa3f6288dee9222573ab664bdbfaa4d",
+    "PELOriginalCharacterOpenDescent318.lean": "c224e20198df052ef49712ca9230499897d8cd1fad002a37dd833d50de472917"
+  },
+  "unchanged_predecessor_sources": 1095,
+  "structural_sources": 1100,
+  "primary_api_hashes": {
+    "FunctionField.lean": "639ccf75145b26b61d7ce21edd14544a61703dd6f3a50a3853e34c68d1438463",
+    "Finite.lean": "0474a1fb9c6ce2ece71adb617bdfea3e97be3baa172fe5c8b1c66163d1cf7d11"
+  },
+  "review": [
+    "Read all five final sources plus NormalFiniteImageDetection, actual DominantFunctionField.map_germ/preimage_nonempty, NormalAffineOpen.sections_normal, original sourceEquiv/native_image_iff and original label exhaustion/fixing-kernel producers.",
+    "Confirmed f.finite_app applies to the entire inverse image of the actual affine open. Pinned functionField_isFractionRing_of_isAffineOpen uses the same section ring and actual generic stalk; no smaller source chart is substituted.",
+    "Found hidden-f local-instance hazard in initial nativeAlgebra declaration. Required explicit algebra definitions and letI scopes. Final sectionGerm/fieldMap types AND bodies plus range_iff install the identical actual algebra structures; no inference of f from a class output that omits it remains.",
+    "Native germ compatibility has correct orientation: target germ then actual field pullback equals actual section pullback then source germ. Section-map injectivity follows from both genuine germ injections and field-map injection.",
+    "Finite-normal image detection and sourceEquiv transfer characterize whole regular sections via membership in the specified old character field. Original kernel invariance is tested on actual native section germs, using exhaustion of all original labels, not an arbitrary equal-cardinality subgroup.",
+    "Both actual target affine charts have proved normal section rings and nonempty opens. Dominance produces nonempty full inverse images. Infinity endpoint includes every source point over the target infinity chart, not merely the earlier small local neighborhood.",
+    "InjectiveRingHomDescent constructs a genuine ring hom from valuewise image membership; injectivity proves all operations, exact factorization and uniqueness for every commutative test ring. No global arbitrary-scheme-target descent follows yet.",
+    "No native open sheaf-action comparison,naturality of descended restriction maps,global categorical quotient,numerical j or final PEL claim is asserted. Independent1100 static admission and1095 exact predecessor byte comparison PASS; inherited elaboration risks remain hosted obligations."
+  ],
+  "local_lean_run": false,
+  "validation_boundary": "Independent source/API/scalar/object/index review and static preservation. Not hosted elaboration/kernel acceptance or a global categorical quotient proof."
+}
