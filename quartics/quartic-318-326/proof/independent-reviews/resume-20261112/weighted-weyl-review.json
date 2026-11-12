@@ -1,0 +1,44 @@
+{
+  "reviewer": "advance_point_geometry",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "ACCEPTED_FOR_SCOPED_FINITE_IDENTITIES_AND_HOSTED_REPLAY_NOT_KERNEL_ACCEPTANCE",
+  "packet": "forward-original-weighted-weyl-r1",
+  "intake_sha256": "8cceb28b9d4cf4e1d9e7b0fd389fec0660ee44f0096aec10d70e5ca740cafa9c",
+  "application_sha256": "f34e4c37fa5af908a2bf6b355c797db645c1ea7e39aaa77888d908a58f845518",
+  "readme_sha256": "e5fd0848ea684855d09e618d450102fb76a1c559faa9c94f4c3c35cdcb157603",
+  "source_copy_record_sha256": "7ab480d38861c9cf22a469e216471f20ab7dcc3971c54e756a2ff0ad2a06ca2b",
+  "new_sources": {
+    "ActualOriginalQuadraticPolarization318.lean": "eff31376d23b8b3511698b6637164e42d599a3fe8391d69172dad2988a6c8307",
+    "ActualOriginalWeightedWeylIdentity318.lean": "2e6d810d3d1de928527371e92366de8c53c523600fb203b8100ea1a400909002",
+    "ActualOriginalWeightedWeylBound318.lean": "c2e4a48917df84ba0b04dde3d2add48fb981115d9320272c4f9f28cf81a4112a",
+    "ActualOriginalFiniteBoxProduct318.lean": "b905d8ea8ac69f003463029431769519adafe3cabd5f20dd2b06b95884d493c4",
+    "ActualOriginalLinearIntervalCancellation318.lean": "f19801c2a071353aabd7a935fdd5eafe5cc2176fd46beeda68620d263cf786d6",
+    "ActualOriginalQuadraticShiftCancellation318.lean": "12d31dab73a7aa7feda7962062bf97c099dafd1b03d69019d9bb98e38d269ba4"
+  },
+  "read_consumers": {
+    "ActualOriginalFiniteCircleIdentity318.lean": "935c90926c4d29ecad9e6cff044d67b7e0d4b972b5fc6853cf05f38767a9457a",
+    "ActualOriginalCompactCircleCount318.lean": "beccba47b580b09585807b58130dee55fa60b512403d4db96c397747c6647d59",
+    "ActualOriginalCircleMinorArcIdentity318.lean": "a0167abb784eb301362ae13d7554be94c3fdad73d797aa50628c746cc39a9bbd"
+  },
+  "scope_checks": [
+    "The literal five-variable integer quadric and coefficients 1,1,-1,-1,-kappa are retained in polarization and product decomposition.",
+    "The finite squared sum covers all ordered original pairs, partitioned by actual displacement x-y; both original complex weights and conjugation are retained. No independent replacement points or separability assumption.",
+    "Triangle inequality gives norms of actual weighted correlations. The compact-support producer supplies one finite set independent of circle theta, and the consumer uses exactly the original scaledCircleSum integrated by the existing minorArcIntegral.",
+    "The rectangular product theorem is explicitly unweighted. It is not applied to general smooth weights.",
+    "Geometric telescoping is proved by induction without division; the reciprocal estimate is used only under explicit nonresonance. Empty intervals, zero coefficients, resonant frequencies and arbitrary integer interval starts are retained.",
+    "Quadratic shift frequency is exactly 2*c*h and constant phase c*h^2 has unit norm. No coprimality surrogate for nonresonance.",
+    "Checked pinned fourier_add/fourier_neg source and finite fiberwise summation source; read the exact original finite-sum, compact-support and minor-integral consumers.",
+    "Independently verified all 1172 inherited source files byte-identical to named predecessor and all 1178-file intake admission passes."
+  ],
+  "remaining": [
+    "No arbitrary-weight rational-approximation Weyl bound or transfer from the unweighted product.",
+    "No integrated o(B^3) minor-arc estimate, diagonal major/minor compatibility, simultaneous prime/ray/order witnesses or Anchor production.",
+    "Hosted Lean elaboration and recursive axiom audit remain pending; no local Lean compilation or profiling run.",
+    "This scope is not a new review of all 1172 predecessor proofs or full arithmetic theorem."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false,
+  "regression_sha256": "416f93215ebfb345d3de167770e9ab948f807224bf7794fb0ca62656ff89cf83",
+  "regression_script_sha256": "245009db46d96c5fefb2e025a827a3b953a542b268b7944d81264fcf9d1d4778",
+  "binding_update": "Reviewed regression-only additions detecting missing factor 2, wrong kappa sign, changed original paired weight and missing phase conjugation. Independently reran exact integer cyclic group-ring regression with all four negative controls passing. This is not a Lean run or analytic asymptotic test. Application binding updated; Lean source and intake hashes unchanged."
+}
