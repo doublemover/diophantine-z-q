@@ -1,0 +1,47 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r51/GeometricAffineDescendedMorphism318.lean:23:76: error: unsolved goals
+R S : CommRingCat
+inst✝¹ : Algebra ↑R ↑S
+inst✝ : Module.FaithfullyFlat ↑R ↑S
+D : Datum R S
+⊢ ((TildePullback318.pullbackIso (AffineCoalgebraLine318.ringMap R S)).app
+          (AffineCoalgebraLine318.baseModule R S (coalgebra D))).hom ≫
+      (tilde.functor S).map
+          (AffineCoalgebraModule318.moduleIso (CommRingCat.Hom.hom (AffineCoalgebraLine318.ringMap R S)) ⋯
+              (coalgebra D)).hom ≫
+        D.line.object.fromTildeΓ =
+    (TildePullback318.pullbackIso (AffineCoalgebraLine318.ringMap R S)).hom.app (descended D) ≫
+      (tilde.functor S).map (moduleIso D).hom ≫ D.line.object.fromTildeΓ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r51/GeometricAffineDescendedMorphism318.lean:51:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (moduleSpecΓFunctor ⋙ tilde.functor S).map h.sheafHom ≫ Scheme.Modules.fromTildeΓNatTrans.app E.line.object
+in the target expression
+  a.app (descended D) ≫
+      (tilde.functor S).map (moduleIso D).hom ≫
+        (tilde.functor S).map (moduleSpecΓFunctor.map h.sheafHom) ≫ E.line.object.fromTildeΓ =
+    (TildePullback318.pullbackIso (AffineCoalgebraLine318.ringMap R S)).hom.app (descended D) ≫
+      (tilde.functor S).map (moduleIso D).hom ≫ D.line.object.fromTildeΓ ≫ h.sheafHom
+
+R S : CommRingCat
+inst✝¹ : Algebra ↑R ↑S
+inst✝ : Module.FaithfullyFlat ↑R ↑S
+D E : Datum R S
+h : Hom D E
+a : tilde.functor R ⋙ Scheme.Modules.pullback (Spec.map (AffineCoalgebraLine318.ringMap R S)) ⟶
+  ModuleCat.extendScalars (CommRingCat.Hom.hom (AffineCoalgebraLine318.ringMap R S)) ⋙ tilde.functor S :=
+  (TildePullback318.pullbackIso (AffineCoalgebraLine318.ringMap R S)).hom
+⊢ a.app (descended D) ≫
+      (tilde.functor S).map (moduleIso D).hom ≫
+        (tilde.functor S).map (moduleSpecΓFunctor.map h.sheafHom) ≫ E.line.object.fromTildeΓ =
+    (TildePullback318.pullbackIso (AffineCoalgebraLine318.ringMap R S)).hom.app (descended D) ≫
+      (tilde.functor S).map (moduleIso D).hom ≫ D.line.object.fromTildeΓ ≫ h.sheafHom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    moduleSpecΓFunctor.map h.sheafHom
+  has type
+    @Quiver.Hom (ModuleCat ↑S) (ModuleCat.moduleCategory ↑S).toQuiver (moduleSpecΓFunctor.obj D.line.object)
+      (moduleSpecΓFunctor.obj E.line.object)
+  but is expected to have type
+    @Quiver.Hom (ModuleCat ↑S) (ModuleCat.moduleCategory ↑S).toQuiver (coalgebra D).A (coalgebra E).A
+  in the application
+    (tilde.functor S).map (moduleSpecΓFunctor.map h.sheafHom)
