@@ -1,0 +1,35 @@
+{
+  "reviewer": "advance_point_geometry",
+  "status": "BOUNDED_SOURCE_ACCEPTANCE_HOSTED_PENDING",
+  "packet": "pel-original-character-affine-target-descent-r1",
+  "intake_sha256": "d1d48e92b0a16d4e0a5f11e4741fa0b993f51a39ac8012ce9974b5dc6c434dd7",
+  "application_sha256": "da60a1b23de2fcccd222d6e2258b2ff8b7c3ed2cb050396e3d58173bbbc3fa12",
+  "new_sources": {
+    "AffineTargetCoordinates318.lean": "c33dba1d2b62a1985fad4b0dc22bc4ea45206ca5abe94d0a04272a7d42a3c9f6",
+    "AffineTargetSchemeDescent318.lean": "5164db96b48d816f02cd1f1784fde396415237f5209776807e8450ac63c9bd42",
+    "PELOriginalAffineTargetInvariance318.lean": "61016c8c566b5988aabc843f18b0d2519b99409843c519484bbc64155b88d2f8",
+    "PELOriginalAffineTargetSchemeDescent318.lean": "4478b531065f219eff9ddae58d3eaac7408c9f508e6975373f9d428ecd2df498"
+  },
+  "unchanged_predecessor_sources": 1111,
+  "static_admission": "PASS1115_CURRENT_BINDINGS",
+  "local_lean_run": false,
+  "kernel_acceptance": false,
+  "read_scope": [
+    "All four new sources, README and all nine application obligations.",
+    "Pinned GammaSpecAdjunction primary: adjunction definition, ext_to_Spec, GammaSpecIso_inv_GammaSpec_adjunction_homEquiv; exact arbitrary-source/affine-target orientation.",
+    "Actual predecessor DeckSectionDescent, DeckFixedSections and KernelStableOpens definitions and top restriction; predecessor action5 independently reviewed by integrator."
+  ],
+  "findings": [
+    "Coordinates retain canonical GammaSpecIso.inv and actual g.appTop; native adjunction constructs a scheme map for every coordinate ring map from R. Neither source nor intermediate scheme is assumed affine.",
+    "Unique coordinate-ring descent gives unique actual scheme factorization by the same coordinate injectivity and exact appTop composition, with no replacement morphism.",
+    "SectionAction at the whole source is the actual original schemeDeck.appTop, so all original kernel labels fix every coordinate precisely when they fix the scheme map.",
+    "Actual endpoint consumes global_existsUnique_factor for SAME original Curve i and morphism i; converse uses unchanged original whole_deck_square.",
+    "No concrete mathematical or new binder-instance defect detected. Definitional reductions through preimage_top, section restriction and Gamma.map/appTop remain hosted-elaboration pending."
+  ],
+  "accepted_scope": "Unique factorization of original-kernel-invariant scheme maps through the original whole character morphism for every target Spec R in the stated universe.",
+  "excluded_claims": [
+    "Unrestricted arbitrary-scheme target categorical quotient or gluing local target factors.",
+    "Orbit/fiber identification, new numerical j, final PEL classification or full arithmetic theorem."
+  ],
+  "primary_source_sha256": "abcd6481c647bc05c6a5fa576ff40a5b3cde378f69eefbfec9f5c0cebe8f0c66"
+}

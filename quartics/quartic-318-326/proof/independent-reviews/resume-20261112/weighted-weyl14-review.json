@@ -1,0 +1,45 @@
+{
+  "reviewer": "advance_point_geometry",
+  "status": "BOUNDED_SOURCE_ACCEPTANCE_HOSTED_PENDING",
+  "packet": "forward-original-weighted-weyl-r14",
+  "application_sha256": "239c8dc26ba12a19bcc39ceb209c19d6a6dc36307bf68b9c0cc38df84f40e155",
+  "intake_sha256": "2a59cecd15af0e979dd8d435548aa7613da16fc4b00296bd32fad34d43241158",
+  "new_sources": {
+    "ActualOriginalBinHarmonicBudget318.lean": "595d95772bb0465188648a7bc05fffa1ea59f4ca8fe760669a89099df2749639",
+    "ActualOriginalCompleteLogKernel318.lean": "2962e11a73129bce0fbd3d14abab082039c3d8cc4fd8fc92b67f675a3bb7be87",
+    "ActualOriginalFullFiveLogarithmicBound318.lean": "4c560d606d813c5bd25eb78f054395cfbe7fceba210ff5c0a76716e10f1f4960",
+    "ActualOriginalReciprocalLogBudget318.lean": "bbe04da3213b85a1d567ed0b8051e99274b8acc7bdc0f2a4648869d819654920"
+  },
+  "unchanged_predecessor_sources": 1247,
+  "static_admission": "PASS1251_CURRENT_BINDINGS",
+  "local_lean_run": false,
+  "kernel_acceptance": false,
+  "read_scope": [
+    "All four new sources, README and all nine obligations.",
+    "Literal old binCost/reciprocalBlockBudget and complete five rational-bound endpoint consumed with unchanged constants and coefficient hypotheses.",
+    "Pinned native harmonic_eq_sum_Icc/harmonic_le_one_add_log and finite sum/reindexing APIs; exact regression implementation."
+  ],
+  "findings": [
+    "Full interval [-q,q] is disjointly partitioned into negative tail [-q,-2], BOTH central bins {-1,0}, and positive [1,q]. q=1 has empty negative tail and still both N terms.",
+    "Negative-tail b maps to -b-1, injectively into positive interval. The omitted positive endpoint is only an upper enlargement, not lost mass. This gives 2N+2q times actual reciprocal sum.",
+    "Exact natural/integer positive-index bijection identifies the sum with harmonic(q.toNat); the pinned native real logarithm bound applies, with positive q giving exact real cast.",
+    "The bound is substituted into the complete even-displacement kernel and then all five original frequency factors, four of radius H and one of radius |kappa|H. Nonzero kappa and actual coprime rational approximation remain explicit; no gcd(kappa,q) requirement appears.",
+    "Support/weight constants precede scale/rational approximant variables. The result is a pointwise bound on the same actual full smooth scaledCircleSum, not integrated minor-arc saving.",
+    "No concrete mathematical or source-scope concern found; exact Lean elaboration remains hosted pending."
+  ],
+  "regressions": {
+    "rerun_without_mutating_packet": true,
+    "matches_frozen_report": true,
+    "exact_partitions": 128,
+    "negative_tail_injections": 128,
+    "bin_harmonic_bounds": 512,
+    "rational_series_sanity": 128,
+    "complete_rational_kernel_bounds": 4608,
+    "negative_controls": 4
+  },
+  "accepted_scope": "Explicit logarithmic complete-bin budget 2N+2q(1+log q), consumed by actual complete kernel and full original five-variable pointwise sum.",
+  "excluded_claims": [
+    "Uniform minor-domain power saving or integrated o(B^3).",
+    "Denominator/error distribution on minor arcs, arithmetic local-global/prime/ray/order/Anchor/rank conclusions."
+  ]
+}
