@@ -1,0 +1,26 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r24/VaryingSourceWordOpen318.lean:70:4: error: Tactic `rfl` failed: The left-hand side
+  (IsLocalization.Away.lift (delta R A ι w) ⋯) ((↑↑(algebraMap B H)).toFun z)
+is not definitionally equal to the right-hand side
+  (VaryingSourceActionParameter318.fromPoint R A ι S ↑d) z
+
+R A ι : Type u
+inst✝⁶ : CommRing R
+inst✝⁵ : CommRing A
+inst✝⁴ : Algebra R A
+inst✝³ : Fintype ι
+inst✝² : DecidableEq ι
+S : Type u
+inst✝¹ : CommRing S
+inst✝ : Algebra R S
+w : ι → List A
+d : Point R A ι S w
+z : B
+⊢ (IsLocalization.Away.lift (delta R A ι w) ⋯) ((↑↑(algebraMap B H)).toFun z) =
+    (VaryingSourceActionParameter318.fromPoint R A ι S ↑d) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r24/VaryingSourceWordOpen318.lean:69:62: warning: This simp argument is unused:
+  IsLocalization.Away.lift_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fromPoint, IsLocalization.Away.liftAlgHom_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

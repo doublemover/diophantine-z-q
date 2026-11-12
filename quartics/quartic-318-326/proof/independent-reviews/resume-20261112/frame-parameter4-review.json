@@ -1,0 +1,27 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "ACCEPTED_FOR_BOUNDED_PRODUCER_REPAIR_AND_HOSTED_REPLAY_NOT_KERNEL_ACCEPTANCE",
+  "packet": "relative-original-cartesian-frame-parameter-r4",
+  "application_sha256": "800a92f0911595e92c09799d545e0637a74f5461003ffd064aad159013556770",
+  "intake_sha256": "ad49db30c1c3acfda971756935cd3f740556d61c3648c56e990c32aebe27850a",
+  "repair_record_sha256": "59ae343ee6b666c9dc9cb326901ca59adb32db52c66e193002299202865ebbce",
+  "changed_sources": {
+    "ScalarRestrictionOriginalSpan318.lean": "0f5cbcef92b16041944500bcdcb1915a1ea9e121629dc606eeb6935daef3e1de"
+  },
+  "read_consumers_or_primary": {
+    "primary-sources/ChangeOfRings.lean.txt": "09cbc9feba4de1928c9d75ebbfec432ebaeaa07f497f13a22531ff60ecca1cec"
+  },
+  "scope_checks": [
+    "Pinned ChangeOfRings.semilinearMapAddEquiv sends f-semilinear maps to morphisms into restriction of scalars; its inverse retains the actual underlying function. Composing the actual unit with restrictScalars.map e.hom gives exactly the original rho by the unchanged h-rho premise.",
+    "Using q.map_smul_s-linear therefore proves the original semilinearity equation with the SAME native B action, not a replacement scalar module.",
+    "Tensor induction now explicitly interprets the underlying restricted scalar coefficient as native B. The original scalar-extension tensor, e map, generating span, coefficient tower and conclusion remain unchanged. No freeness or finiteness assumption is added.",
+    "Byte comparison confirms only ScalarRestrictionOriginalSpan318 changed; static packet admission passed."
+  ],
+  "remaining": [
+    "Native carrier elaboration and kernel acceptance still require the next hosted run. No new parameter representability, nonaffine frame classifying map or Picard/Jacobian statement is established by this repair.",
+    "No local Lean, profiling, whole-predecessor review or full-arithmetic proof claim."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}

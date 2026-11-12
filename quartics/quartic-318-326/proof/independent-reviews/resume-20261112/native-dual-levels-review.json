@@ -1,0 +1,49 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "ACCEPTED_FOR_SCOPED_SOURCE_ARGUMENT_AND_HOSTED_REPLAY_NOT_KERNEL_ACCEPTANCE",
+  "packet": "forward-actual-two-descent-native-dual-levels-r1",
+  "application_sha256": "ff1ac95dbe59932de84ecf401f6cca4112d1f6733ebd0d8684713095c2b0ce51",
+  "intake_sha256": "1d0b5bb485b96b4d84ebb4bf0ce153a4d412dfd5b4b6041913370c1d8631f3ef",
+  "readme_sha256": "ebf3f50c84b1809541dcb5c9aeafd6f7e978cfb976b8e5a0223e8b9b39e26fd1",
+  "derivation_sha256": "6982dec5ae3eff0ed1bed2f71f0022b12b20f0acd9fbda78afe4d7b3ecb7d479",
+  "new_sources": {
+    "ActualTwoDescentNativeScalarContinuity318.lean": "d66777e9b62e6fbe8972c098386b166ccc9948dab66ca1bb36f4cb06cefcc48e",
+    "ActualTwoDescentNativeLevelRestriction318.lean": "450c39e1a077159660ef35e371c4defd8775d6b20256d12398f40fe84e998605",
+    "ActualTwoDescentNativeScalarResidues318.lean": "ad6f564c3bbfcf737ca713738512420378243340f6e86b878de85ca1b61305d1",
+    "ActualTwoDescentNativeCompatibleCharacters318.lean": "c212068b45fc4cd4f6279643aa64f79dc844a7448201c96bf76e955846811b30",
+    "ActualTwoDescentNativeInverseLimitTopology318.lean": "0354a616ebb1291b888154b9d8f0594a9bcf72a3a15478457678d822f2013b08",
+    "ActualTwoDescentNativeFiniteLevels318.lean": "bb754fb8032ae943f10b8fca6eef0b55cb84b07a303fd8f817bd97b6746663db"
+  },
+  "changed_sources": {
+    "UniformScaledPoleDomain318.lean": "8c006cb0a7ebcfc9b8f01e88efa3bdd7ade42f3eb3c2d4d19c68ffaf3c5bb587"
+  },
+  "read_producers": {
+    "ActualTwoDescentDiscreteSelmerDual318.lean": "bb1972843412671190d7f214d30f6d3f31b84891cbc94b3a7034e88424d0968d",
+    "ActualTwoDescentPontryaginFreeRankOne318.lean": "c3743c8d20b64e1d111b04c03924a11f0e9a482f8d95a6f9834ed909f7296081",
+    "ActualTwoDescentAdditivePrimaryLevels318.lean": "5055f9ca3a23af9cafb0b712d405159a2f77d35df91126b18399d61bc0d93141",
+    "ActualTwoDescentPrueferLevelCoordinates318.lean": "1eb8dadac6f992539fd4b9bedf787165274cef9691a7798d9a68cc0f0c1bfa3e",
+    "ActualTwoDescentPrimaryPadicScalar318.lean": "a120bcee5ceb82cf2553b50055e2563c01dc26904f3803c0bb7e4927174475fb"
+  },
+  "primary_apis": {
+    "PONTRYAGIN-PRIMARY/Mathlib__Topology__Algebra__PontryaginDual.lean": "0c03f15cce9b3cecc262e32e3fe7bc6a8ec853798c7150691f0025de5ed4712f",
+    "LATTICE-PRIMARY/Mathlib-Topology-Homeomorph-Defs.lean": "289a69e255e77827d0cd3dd24965546425185fce94291828e1178b5dcd33fbb9"
+  },
+  "scope_checks": [
+    "All k including zero and every i <= j use the actual killed-by-2^k subgroups and literal subtype inclusions. Characters restrict contravariantly.",
+    "Every original Selmer element has an annihilating level. Max of two levels proves choice independence, both inverse laws and additivity of the reconstructed Circle character. No bounded global exponent is assumed.",
+    "The source is the original native compact-open Pontryagin dual. The target is the actual compatible subgroup of the product of native level duals, not a transported topology. Native compactness and product Hausdorffness justify continuous closed inverse.",
+    "Actual scalar continuity is for each fixed padic scalar only. Residue powers follow the original scalar-at-level theorem and character map_pow. No joint continuity or standard Z_2 topology claim is smuggled in.",
+    "Finite-stage card 2^k and finite native dual retain hf,hb,hS,hdual. The Pruefer equivalence and its inverse restrict to the SAME original killed subgroup; no global reduced pairing or rational-rank selection is claimed.",
+    "Read actual primary library declarations for PontryaginDual map, native compactness, Hausdorffness, finite dual of finite discrete source and toHomeomorphOfContinuousClosed.",
+    "The sole inherited proof edit simplifies existing tuple projections before the unchanged exact_mod_cast. Independently compared all 1172 predecessor files: exactly that source changed.",
+    "Static 1178-source packet import/hash/placeholder check passed. Author finite dyadic regression is supplementary only; not independently rerun or treated as a topology/Lean check."
+  ],
+  "remaining": [
+    "Hosted Lean elaboration and recursive axiom audit pending. No local Lean or profiling.",
+    "No Cassels-Tate duality construction, analytic-to-rational rank theorem, fixed rational twist witnesses, standard Z_2 topological identification or joint scalar continuity.",
+    "This is a bounded review of the six new sources and specified producer joins, not fresh whole-predecessor or full-arithmetic proof validation."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}
