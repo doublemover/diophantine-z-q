@@ -16,10 +16,20 @@ PACKETS = (
     'pel-original-generic-binder-included-probe-r2',
 )
 
+SLOT_PREFIX = 'pel-original-character-'
+
+def require_unique_slot(packets):
+    selected = [name for name in packets if name.startswith(SLOT_PREFIX)]
+    if len(selected) != 1:
+        raise ValueError('Binder diagnostic requires exactly one active PEL character slot')
+    return selected[0]
+
 def main():
     if os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Hosted diagnostic only; do not compile locally.')
     root = Path(__file__).resolve().parents[1]
+    registry = root / 'quartics/quartic-318-326/proof/experiments/packets.json'
+    require_unique_slot(json.loads(registry.read_text())['active_packets'])
     output = root / 'build/generic-binder-diagnostics'
     output.mkdir(parents=True, exist_ok=True)
     rows = []
