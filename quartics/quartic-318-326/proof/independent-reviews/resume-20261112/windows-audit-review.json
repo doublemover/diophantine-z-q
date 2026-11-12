@@ -1,0 +1,22 @@
+{
+  "reviewer": "restore_and_integrate",
+  "author": "prepare_windows_audit_command",
+  "status": "SOURCE_REVIEW_AND_SIX_MOCKED_TESTS_PASS_NATIVE_WINDOWS_END_TO_END_UNTESTED",
+  "bindings": {
+    "scripts/windows_audit.py": "c753d637f0101cc72ece4fe14f174c72a1d2c0176be79bcc36735c2bf4c1d9a4",
+    "scripts/windows_audit_worker.py": "6cf5e042e26d04eeef155d663f112504a36110a031d0d41dfcad03102ba9a041",
+    "scripts/test_windows_audit.py": "29c2ac1551c3f1cd9593b8aed3fa9b71a546867bec97057127e9f5032007c80c",
+    "scripts/WINDOWS_AUDIT.md": "abe146de72c3096b73f1e1c746e4dfd8d9bea5b4fb26c0d11619b18f27a515c6"
+  },
+  "review": [
+    "Read orchestrator, worker adapter, tests and documentation against existing baseline cohort planning/build/audit/receipt and active packet checker code.",
+    "Verified clean per-cohort independent output/cache directories, stage dependency ordering, combined recursive axiom audit before active packet checks, independent packet outputs, failure propagation and durable logs/summary. Baseline snapshot identity is independent of cohort partition count; experiment restore remains compatible.",
+    "Windows adapter identity changes platform and binds adapter bytes; kernel checking remains enabled. Hosted checker code/defaults are unchanged. No explicit process memory or wall-clock cap; logical-CPU cohort count and scheduler are uncapped by former32 limit, with one Lean thread per compilation. Existing source options and OS limits remain.",
+    "Initial/final HEAD, tracked cleanliness and active packet-list/intake hashes prevent reporting PASS for persistent checkout changes; documentation forbids concurrent edits. Upstream pinned artifacts remain trusted, not independently rebuilt.",
+    "Selected installed pinned toolchain is resolved directly without Elan shim; missing toolchain fails. Absolute lean.exe substitution covers both run and check_output, avoiding Windows current-directory/PATH ambiguity. Package missing artifacts fail, no automatic cache build/fetch.",
+    "Independent six focused tests passed: source identity/flags, >32 cohort parser, no-timeout adapter, absolute Lean selection including check_output, installed/missing toolchain resolver, missing upstream rejection. AST parsing passed for three Python files.",
+    "No Lean build, profiler, native Windows execution or user-computer access occurred. This is reviewed source plus mocked tests, not a verified native Windows end-to-end run or full arithmetic theorem proof."
+  ],
+  "local_lean_run": false,
+  "user_computer_access": false
+}
