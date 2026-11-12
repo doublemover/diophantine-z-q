@@ -1,0 +1,30 @@
+{
+  "reviewer": "restore_and_integrate",
+  "author": "advance_pel_identification",
+  "status": "ACCEPTED_BOUNDED_SOURCE_REPLAY_HOSTED_PENDING",
+  "packets": [
+    {
+      "packet": "pel-original-zero-local-length-r28",
+      "application_sha256": "eac6e7eb8783c37ade9f86ea4898283fbf63414273480d3f3d08d38f49aaae87",
+      "intake_sha256": "f0bf9ce801e04de2262d28c017d9e7da2740b38efddcdd47a537471f92d93d57",
+      "changed_source_sha256": "958416901846eebe760fbc535625cbf63ec850a48cf697d524acb2744458a20c",
+      "structural_sources": 580,
+      "unchanged_predecessor_sources": 579
+    },
+    {
+      "packet": "pel-original-cotangent-hzero-forty-r34",
+      "application_sha256": "b3053e0c307f4b7d68451abd52056888c4db436be8f5a9123b82aab4b6e8e621",
+      "intake_sha256": "8bf972053970fa98ab438ae7f4aaf084daa25c382e2766fd4a92b51434fa0493",
+      "changed_source_sha256": "958416901846eebe760fbc535625cbf63ec850a48cf697d524acb2744458a20c",
+      "structural_sources": 660,
+      "unchanged_predecessor_sources": 659
+    }
+  ],
+  "review": [
+    "Read exact hosted323 FourRootInfinityGraph failures for both packets and full parametrization proof. Old Prod.ext rfl incorrectly instantiated identical pair endpoints before subtype coercion unfolded.",
+    "Explicit change exposes the actual pair (q.1,fun k=>g k q.1); Prod.ext now produces both endpoint equalities, first reflexive and four second-coordinate equalities remain precisely the same analytic local uniqueness statements with same orientations.",
+    "The sole source bytes are exactly the previously reviewed probe3 repair. No hypotheses, maps, branch signs, domain, options or caps changed. Both source sets identical with579/659 unchanged modules; independent structural admissions580/660 passed.",
+    "Acceptance only covers this bounded repair propagation, not inherited mathematical/kernel acceptance or generic-field binder signatures. No local Lean."
+  ],
+  "local_lean_run": false
+}
