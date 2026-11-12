@@ -1,0 +1,53 @@
+{
+  "reviewer": "advance_point_geometry",
+  "author": "advance_pel_identification",
+  "packet": "pel-original-character-ordered-point-comparison-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "6a4abf1197988f9a607fc2c213cba7412cd68fc8353b607839a66b2c3eb3d1de",
+  "intake_sha256": "2d1c534b9f76019bd786c901b3c6f8180d69beffbf8e0cfa4b1eb623aacd8ef4",
+  "new_sources": {
+    "PELOriginalOrderedCharacterPointMap318.lean": "38db47483e5dea399270613dd4c508bb5b7fe7d94d4b870888902e79aca1267a",
+    "PELOriginalOrderedPointProjection318.lean": "700258e245964cfb7bc387b332372ffa789d665264e706bd05462e5ab6d95c13",
+    "PELOriginalOrderedPointDeck318.lean": "fb00f2c7340ec38ceee13c1cdba5b4ac632cbe7a175738c0ea23f4d8bcb4ef69",
+    "PELOriginalOrderedPointFixedLoci318.lean": "504aeb4d2d4652b6e58ddadd4b6c66e2c39ae65b1209ee75cccd847fc0a2fbb6",
+    "PELOriginalOrderedCharacterPointEquivalence318.lean": "48475ebd279cbfb3760472bea54a424f72e3f933000e8d5e4ef9a101a0543d0d"
+  },
+  "read_ancestors": {
+    "PELOriginalContactSchemePoints318.lean": "02f2e70c3a5525ecef821e9f9a8fde8cc5ab4bbc15a2d7b62707424e50cd1756",
+    "FourRootSchemePointEquivariance318.lean": "eb1bd0e19b245ee128bbca0e3355ad387e07f3f5d6d61605eba3cdb4b7993712",
+    "FourRootProjectivePointComparison318.lean": "66543a1eae6b7ddbb2bcb3263c457879b8b38ceada68cf5a9dafdd9f118c5af5",
+    "PELOriginalCharacterQuotient318.lean": "4cc6e9291bf1e4f5dfcd2bf838a05d91b63b8b2ef930905c4909d3019d9b556c",
+    "PELOriginalCharacterDeck318.lean": "ef9f89532f48470f1e29fcae98df5c82eb3f9a0b4067e5d5b240bd977316bce5",
+    "PELOriginalFourBranchCoordinate318.lean": "b4972edc689794fbe117704f67d6cb7b3ae1ce7dacf4609ed8d11f7f1d0a1dce",
+    "PELOriginalOrderedCharacterCoordinate318.lean": "a6f2e4d6d5fdc58293293c18bca861ccbafd518e55af81eeb432b06bf826b14a",
+    "PELOriginalResidualBranchPoints318.lean": "f0d0c10eed34e597350bb2aa028c5f29b0b9da07968a640b5895e640eaef75de",
+    "NormalizedLegendreWholeProjection318.lean": "c21363c618a712e97d3c4eb34b1feab633434a71897acfcf6fad0cbb46bc1aae",
+    "PELOriginalOrderedBaseSchemeNormalization318.lean": "7b2775146201e86c837576cf6ca279d843d16710c79f1962c3e201ab7e3f7374",
+    "PELOriginalNormalizedBaseSchemeSquare318.lean": "8a02588fdad06d69191e8f571635141710404d3f19f43b93c037d57aafc0b465",
+    "PELOriginalDescendedLabelMaps318.lean": "b474d6cf3747f16d62809c49613a4daa9a82d1e51886304379e5a76c0380b8b6",
+    "PELOriginalDescendedCharacterKernel318.lean": "909309ef97d6f3a83b1770bd3feb7f80515e2a896c03ad2a2723ff4ed4f0f8eb"
+  },
+  "checks": {
+    "structural": "PASS1157 via imported packet admission, not compiler",
+    "exact_predecessor": "All1152 byte-identical to normalized-base-comparison-r1",
+    "obligations_read": 9,
+    "local_lean_run": false,
+    "kernel_acceptance": false
+  },
+  "findings": [
+    "Literal sourceMap composes full original source SchemePoints comparison with the actual ordered whole morphism; no new choice of a point in each fiber. Original scheme-point equivariance plus actual whole kernel square supplies Quotient.lift well-definedness with correct orbit-relation orientation.",
+    "Projection_square consumes the exact original completed projective point comparison and preceding normalized whole Scheme square, then literal fixed-order base normalization. same_base uses actual sphere-point injection and original coordinate homeomorphism injection, not surjectivity of the desired point map.",
+    "Deck_square retains the ORIGINAL Quotient.map toggle and same descended residual, with correct source association and descended_square direction. same_base_pair comes from the existing exhaustive original full_fiber_pair, not matching abstract counts.",
+    "Checked original_fixed via old branch characterization followed by exact fixed-order branch characterization. Target_fixed exhausts all actual Spec-C-valued points through independent completed schemeEquiv, including infinity. Reflected fixedness is proved before new injectivity and uses only projection and actual source/target fixed loci. Thus there is no circular assumption preventing collapse of two regular sheets.",
+    "Injectivity uses same_base_pair then reflected fixedness in the second case; surjectivity chooses the actual normalized base coordinate, an original point above it, then consumes the previously proved actual residual-orbit target fiber. Singleton branch fibers and true infinity are included without separate unproved lifting.",
+    "Final equivalence has exactly pointMap as function, preserving literal source_square and ordered projection. No topology, holomorphy, Scheme structure on analytic CharacterBase, or group structure is installed by this equivalence.",
+    "All new binders explicit and no concrete mathematical source concern detected. Quotient/Spec-point definitional reductions and simp elaboration remain hosted-pending. Historical compact old-parameter comparison and native/ordered j transport are credited, not claimed absent."
+  ],
+  "accepted_scope": "Exact point equivalence from each ORIGINAL analytic CharacterBase to all base-preserving complex SchemePoints of the fixed ordered algebraic quotient, using the original whole source map and preserving exact normalized projection/deck/source squares.",
+  "excluded_claims": [
+    "Continuity, holomorphy or inverse regularity of this exact fixed-ordered point map in the independent target atlas.",
+    "Scheme isomorphism from the analytic quotient or categorical universal property inferred from point bijection.",
+    "Published rational quartic identification, four numerical j equalities, group/polarization or universal basechange quotient conclusion.",
+    "Hosted kernel or full arithmetic theorem acceptance."
+  ]
+}

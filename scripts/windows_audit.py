@@ -28,6 +28,20 @@ def installed_toolchain_bin(project, elan_home):
         raise RuntimeError('Pinned Lean is not installed at ' + str(toolchain_bin) + '; install it before auditing')
     return toolchain_bin
 
+def resolve_toolchain_bin(project, repo, explicit_home=None, user_home=None):
+    """Honor explicit configuration, then this checkout, then Elan's default."""
+    if explicit_home:
+        return installed_toolchain_bin(project, Path(explicit_home)).resolve()
+    homes = [repo / 'audit-tools' / 'elan', (user_home or Path.home()) / '.elan']
+    failures = []
+    for home in homes:
+        try:
+            return installed_toolchain_bin(project, home).resolve()
+        except RuntimeError as exc:
+            failures.append(str(exc))
+    raise RuntimeError('No installed pinned Lean found. Set ELAN_HOME to its actual location. '
+                       + ' | '.join(failures))
+
 def main():
     if sys.platform != 'win32' or platform.machine().lower() not in {'amd64', 'x86_64'} or sys.maxsize <= 2**32:
         raise RuntimeError('This adapter requires native x86-64 Windows and 64-bit Python')
@@ -35,8 +49,7 @@ def main():
     env = os.environ.copy()
     # Resolve the installed toolchain directly, never through an auto-installing shim.
     # Elan's toolchain directory names escape '/' as '--' and ':' as '---'.
-    elan_home = Path(os.environ.get('ELAN_HOME') or Path.home() / '.elan')
-    toolchain_bin = installed_toolchain_bin(PROJECT, elan_home).resolve()
+    toolchain_bin = resolve_toolchain_bin(PROJECT, ROOT, os.environ.get('ELAN_HOME'))
     env['QUARTIC_WINDOWS_LEAN_EXE'] = str(toolchain_bin / 'lean.exe')
     env['PATH'] = str(toolchain_bin) + os.pathsep + env['PATH']
     os.environ['PATH'] = env['PATH']  # Windows executable lookup uses parent PATH.
@@ -48,6 +61,7 @@ def main():
     lock = threading.RLock()
     summary = {'status': 'RUNNING', 'stages': {}, 'packets': {},
                'logical_processors': os.cpu_count() or 1,
+               'lean_executable': env['QUARTIC_WINDOWS_LEAN_EXE'],
                'upstream_trust': 'Downloaded upstream artifacts reused; not independently rebuilt.',
                'full_arithmetic_theorem_proved': False}
     def save():

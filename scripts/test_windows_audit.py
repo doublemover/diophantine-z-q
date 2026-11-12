@@ -26,6 +26,33 @@ class ToolchainTests(unittest.TestCase):
             (bindir / 'lean.exe').write_bytes(b'fixture')
             self.assertEqual(audit.installed_toolchain_bin(root, root), bindir)
 
+    def test_discovery_precedence_and_explicit_failure(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            project, repo, user = root / 'project', root / 'repo', root / 'user'
+            project.mkdir()
+            (project / 'lean-toolchain').write_text('leanprover/lean4:v4.35.0\n')
+            def install(home):
+                b = home / 'toolchains/leanprover--lean4---v4.35.0/bin'
+                b.mkdir(parents=True)
+                (b / 'lean.exe').write_bytes(b'fixture')
+                return b.resolve()
+            default = install(user / '.elan')
+            self.assertEqual(audit.resolve_toolchain_bin(project, repo, user_home=user), default)
+            local = install(repo / 'audit-tools/elan')
+            self.assertEqual(audit.resolve_toolchain_bin(project, repo, user_home=user), local)
+            explicit = install(root / 'custom')
+            self.assertEqual(audit.resolve_toolchain_bin(project, repo, root / 'custom', user), explicit)
+            with self.assertRaisesRegex(RuntimeError, 'not installed'):
+                audit.resolve_toolchain_bin(project, repo, root / 'missing', user)
+
+    def test_discovery_missing_reports_locations(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / 'lean-toolchain').write_text('leanprover/lean4:v4.35.0\n')
+            with self.assertRaisesRegex(RuntimeError, 'Set ELAN_HOME'):
+                audit.resolve_toolchain_bin(root, root / 'repo', user_home=root / 'user')
+
 class WorkerTests(unittest.TestCase):
     def setUp(self):
         self.original_digest, self.original_flags = ci.digest, ci.FLAGS

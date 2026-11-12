@@ -1,0 +1,23 @@
+{
+  "reviewer": "advance_pel_identification",
+  "scope": "Independent cloud source review of exact three-file toolchain discovery delta; no user PC access, no Lean invoked.",
+  "files": {
+    "scripts/windows_audit.py": "6341b8d4c96d7e06745c8f2cbb881c8bf88cbca8f1e4739e4b6cd7472eb7a0b2",
+    "scripts/test_windows_audit.py": "42c4f8374da9b138dcb61a3101165c9f1852bb13b9d6bad4d2c1ccec49e3b502",
+    "scripts/WINDOWS_AUDIT.md": "7530da885d26cb7656024b85feb2b68c373a0a80cc09e3bc0ca10697281c0c94"
+  },
+  "decision": "ACCEPTED_BOUNDED_SOURCE_AND_PYTHON_TEST_REVIEW",
+  "checks": [
+    "Nonempty explicit ELAN_HOME has unconditional precedence; invalid explicit location raises without fallback. Empty string is treated as unset, matching former behavior.",
+    "Without explicit home, searches current checkout audit-tools/elan before current user default .elan; no other checkout or shim search.",
+    "Pinned name remains restricted to leanprover/lean4:v4.35.0; existing lean.exe required; selected path resolved absolute and recorded in summary.",
+    "main passes actual ELAN_HOME to resolver and uses selected path in worker environment and PATH.",
+    "Executed python -B scripts/test_windows_audit.py in cloud: all 8 tests PASS, including precedence, invalid explicit setting with valid fallbacks present, and missing locations. Fixtures are inert bytes; no Lean run.",
+    "Tests cover supplied home arguments rather than live Windows home lookup; docs accurately describe discovery and no installer behavior."
+  ],
+  "limitations": [
+    "Not a Windows runtime audit or executable authenticity check. Existing worker and audit-wide correctness beyond this delta not reapproved."
+  ],
+  "local_lean_run": false,
+  "user_computer_access": false
+}
