@@ -1,0 +1,19 @@
+# Actual differential-valued affine duality and reciprocal frame
+
+1489 sources: 1484 exact predecessors plus five new modules. No local Lean/profiling and no new resource options. Structural/source review is not hosted kernel acceptance.
+
+IntegralNormalDifferentialDuality318 transports the existing ENTIRE actual native affine Hom duality to the genuine polynomial-base Kaehler differential sheaf. The transport is the native tilde map of polynomialEquiv.symm; its literal coefficient is p dT. Every module input and every base differential-sheaf morphism has the unique normal trace-dual lift. This does not enlarge the input category beyond native tilde modules.
+
+IntegralNormalTraceForms318 embeds the FULL normal trace-codifferent, N-semi-linearly along the literal N->B inclusion, into actual relative Kaehler differentials on SAME original source B. The original etale dT frame proves injection, the exact whole range criterion, and form(z)=z dT. No rank-one or freeness premise on the integral codifferent is inserted.
+
+ReciprocalUnitDifferentialFrame318 reuses the prior UnitReciprocalDifferential318.differential, not a new derivative theorem, and constructs the FULL inverse-coordinate frame from it. Its coefficient is exactly -t^2 times the dT coefficient. Reconstruction and both inverse laws are proved over any commutative base; no division by2 is inserted.
+
+IntegralNormalReciprocalForms318 produces t as the SAME unit in the arithmetic source, shows its inverse is the literal reciprocal polynomial map used by IntegralReciprocalNormalClosures318, and applies the whole frame transition to EVERY actual normal trace form. Both differential expressions are equal in the SAME Kaehler module, not only in a point fiber. This is an actual common-source overlap transition prerequisite, not an assertion that the full integral reciprocal codifferent has already been identified.
+
+OriginalNormalDualDifferential318 applies this to ALL actual affine dual-sheaf sections. Each is realized as a source differential and then tensor-specialized at the SAME original signed fieldPoint (not Omega of the number field). Its coefficient is exactly the prior section value. The reciprocal coefficient is literally -t^2 times that value, with sign/square retained. The original normal-chart duality now targets actual polynomial differentials, and the previously proved different-corrected full cotangent-dual estimate holds for these actual fiber forms.
+
+## History and boundary
+
+Read predecessor full finite dual, counit, affine Hom duality and original sections; read original normalized generic source frame and SAME source field-polynomial identities. PolynomialEquiv and its D formula are pinned native Mathlib APIs. Prior UnitReciprocalDifferential318 already proves the unit inverse derivative and tensor-square factor; this batch consumes that prior producer to build the entire inverse-coordinate frame and apply it to actual normal trace forms. IntegralReciprocalNormalClosures318 already constructs finite normal closures for the literal inverse base map. Prior FourRootIntrinsicOverlapDifferential318 supplies actual complex-scheme overlap identities for its different squared-infinity coordinate; it is not the arithmetic normal-model codifferent gluing theorem sought here.
+
+Still OPEN: identifying the full normal infinity integral dual lattice and both normal-chart dualizing sheaf restrictions on the complete integral overlap, gluing relative duality globally on the proper model, identifying a regular resolution's dualizing/Hodge lattice, and numerical discrepancy/KS210/metric bounds. No inference from common generic-source forms to equality of integral lattices. The old raw different and ht=w(t)<=1 remain in the integral estimate. The original t inverse is on the specified arithmetic source open; no extension over t=0 is claimed by reciprocal coefficient formulas.

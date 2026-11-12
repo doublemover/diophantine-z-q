@@ -1,0 +1,9 @@
+# Actual three old square charts agree
+
+Six new modules preserve all1280 predecessor Lean sources. Actual pushed structure restrictions compose through a refinement,retaining the original ambient equality transport. Generic native source/value refinement maps have explicit all-open section,pure-tensor and adjoint formulas. They transport an actual old square-product identity,not an abstract rank-one isomorphism.
+
+For each of the two OLD principal affine charts,the old inclusion value restricted through the actual localization factor map is exactly the canonical affineValue on the original complete overlap. The proof uses the exact old projection adjoint and pushed structure refinement. The old root function pulls back to the SAME rootSection through the literal localization ring lift and native GammaSpec naturality.
+
+The old all-subopen affine square-product formula now pulls back to rootSection times the restriction of affineSquareChart equals the product of the same canonical inclusion values. Only on this complete overlap is rootSection a produced unit. Multiplying by its actual inverse therefore identifies both OLD affine square restrictions with matchedSquareIso.hom. The previous packet identifies the OLD infinity square with that same map. Thus actual_three_old_square_compatibility proves all three pairwise equalities,with no matching hypothesis left to the caller.
+
+These are exact whole native sheaf morphism identities on the complete common chart;the predecessor proves this chart is every distinct pairwise intersection of the three old cover charts. The next step is actual global map and inverse gluing on that cover (whose coverage requires n!=0). It is NOT claimed here. Global tensor-square trivialization,divisor interpretation,theta/geometric Weil and Cassels--Tate remain open. No local Lean or option/cap changes;hosted kernel pending.
