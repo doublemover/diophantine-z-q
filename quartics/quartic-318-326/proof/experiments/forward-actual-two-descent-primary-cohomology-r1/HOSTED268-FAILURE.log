@@ -1,0 +1,124 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:39:30: error: unexpected token '|*'; expected '|' or '|ₘ'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:31:16: error: linarith failed to find a contradiction
+σ : K →+* ℝ
+n : ℤ
+hn : n ≠ 0
+hu : chartU n ≠ 0
+huR : σ (chartU n) ≠ 0
+hc : σ (chartV n) ^ 2 = 1 - σ CompressedOrientation318.D * σ (chartU n) ^ 4
+hd : 1 < σ D
+hu4 : 0 < σ (chartU n) ^ 4
+a✝ : σ CompressedOrientation318.D - 1 ≤ 0
+⊢ False
+failed
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:39:15: error: Application type mismatch: The argument
+  σ (fixedRoot n)
+has type
+  ℝ
+but is expected to have type
+  Prop
+in the application
+  |σ (fixedRoot n)|
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:39:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddGroup Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:21:28: error: unsolved goals
+case habs
+σ : K →+* ℝ
+n : ℤ
+hn : n ≠ 0
+hu : chartU n ≠ 0
+huR : σ (chartU n) ≠ 0
+hc : σ (chartV n) ^ 2 = 1 - σ CompressedOrientation318.D * σ (chartU n) ^ 4
+hd : 1 < σ D
+hu4 : 0 < σ (chartU n) ^ 4
+hd4 : 0 < (σ CompressedOrientation318.D - 1) * σ (chartU n) ^ 4
+hsmall : σ (chartU n) ^ 2 < 1
+huabs : |σ (chartU n)| < 1
+he : σ (fixedRoot n) * σ (chartU n) = -1
+⊢ sorry
+
+σ : K →+* ℝ
+n : ℤ
+hn : n ≠ 0
+hu : chartU n ≠ 0
+huR : σ (chartU n) ≠ 0
+hc : σ (chartV n) ^ 2 = 1 - σ CompressedOrientation318.D * σ (chartU n) ^ 4
+hd : 1 < σ D
+hu4 : 0 < σ (chartU n) ^ 4
+hd4 : 0 < (σ CompressedOrientation318.D - 1) * σ (chartU n) ^ 4
+hsmall : σ (chartU n) ^ 2 < 1
+huabs : |σ (chartU n)| < 1
+he : σ (fixedRoot n) * σ (chartU n) = -1
+habs : sorry
+⊢ 1 < |σ (fixedRoot n)|
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:50:41: error: unexpected token '|*'; expected '|' or '|ₘ'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:45:31: error: unsolved goals
+case h01
+σ : K →+* ℝ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+h0 : 1 < |σ (fixedRoot (labels 0))|
+h1 : 1 < |σ (fixedRoot (labels 1))|
+h2 : 1 < |σ (fixedRoot (labels 2))|
+h3 : 1 < |σ (fixedRoot (labels 3))|
+⊢ 1 < |σ (fixedRoot (labels 0))|
+
+σ : K →+* ℝ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+h0 : 1 < |σ (fixedRoot (labels 0))|
+h1 : 1 < |σ (fixedRoot (labels 1))|
+h2 : 1 < |σ (fixedRoot (labels 2))|
+h3 : 1 < |σ (fixedRoot (labels 3))|
+h01 : 1 < |σ (fixedRoot (labels 0))|
+⊢ 1 < |σ (product labels)|
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-family-r1/FixedDetectorScales318.lean:123:63: error: unsolved goals
+q : ℚ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+h : ℤ
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hre : DetectorGateWitness318.witness q labels h 143 = (product labels).re
+him : DetectorGateWitness318.witness q labels h 144 = (product labels).im
+⊢ (match 145 with
+    | 118 => DetectorGateWitness318.value118 (ActualPadeRatios318.witness q labels h)
+    | 119 => DetectorGateWitness318.value119 (ActualPadeRatios318.witness q labels h)
+    | 120 => DetectorGateWitness318.value120 (ActualPadeRatios318.witness q labels h)
+    | 121 => DetectorGateWitness318.value121 (ActualPadeRatios318.witness q labels h)
+    | 122 => DetectorGateWitness318.value122 (ActualPadeRatios318.witness q labels h)
+    | 123 => DetectorGateWitness318.value123 (ActualPadeRatios318.witness q labels h)
+    | 124 => DetectorGateWitness318.value124 (ActualPadeRatios318.witness q labels h)
+    | 125 => DetectorGateWitness318.value125 (ActualPadeRatios318.witness q labels h)
+    | 126 => DetectorGateWitness318.value126 (ActualPadeRatios318.witness q labels h)
+    | 127 => DetectorGateWitness318.value127 (ActualPadeRatios318.witness q labels h)
+    | 128 => DetectorGateWitness318.value128 (ActualPadeRatios318.witness q labels h)
+    | 129 => DetectorGateWitness318.value129 (ActualPadeRatios318.witness q labels h)
+    | 130 => DetectorGateWitness318.value130 (ActualPadeRatios318.witness q labels h)
+    | 131 => DetectorGateWitness318.value131 (ActualPadeRatios318.witness q labels h)
+    | 132 => DetectorGateWitness318.value132 (ActualPadeRatios318.witness q labels h)
+    | 133 => DetectorGateWitness318.value133 (ActualPadeRatios318.witness q labels h)
+    | 134 => DetectorGateWitness318.value134 (ActualPadeRatios318.witness q labels h)
+    | 135 => DetectorGateWitness318.value135 (ActualPadeRatios318.witness q labels h)
+    | 136 => DetectorGateWitness318.value136 (ActualPadeRatios318.witness q labels h)
+    | 137 => DetectorGateWitness318.value137 (ActualPadeRatios318.witness q labels h)
+    | 138 => DetectorGateWitness318.value138 (ActualPadeRatios318.witness q labels h)
+    | 139 => DetectorGateWitness318.value139 (ActualPadeRatios318.witness q labels h)
+    | 140 => DetectorGateWitness318.value140 (ActualPadeRatios318.witness q labels h)
+    | 141 => DetectorGateWitness318.value141 (ActualPadeRatios318.witness q labels h)
+    | 142 => DetectorGateWitness318.value142 (ActualPadeRatios318.witness q labels h)
+    | 143 => DetectorGateWitness318.value143 (ActualPadeRatios318.witness q labels h)
+    | 144 => DetectorGateWitness318.value144 (ActualPadeRatios318.witness q labels h)
+    | 145 =>
+      DetectorGateWitness318.value143 (ActualPadeRatios318.witness q labels h) ^ 2 -
+        DetectorGateWitness318.value144 (ActualPadeRatios318.witness q labels h) ^ 2 * 2
+    | i => ActualPadeRatios318.witness q labels h i) =
+    DetectorGateWitness318.value143 (ActualPadeRatios318.witness q labels h) ^ 2 -
+      DetectorGateWitness318.value144 (ActualPadeRatios318.witness q labels h) ^ 2 * 2

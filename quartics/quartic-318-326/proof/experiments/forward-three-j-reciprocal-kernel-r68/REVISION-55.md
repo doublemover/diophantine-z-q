@@ -1,0 +1,3 @@
+# Kernel r55: explicit singleton constructor
+
+Hosted252 passes both cusp Wronskians and the next ramification ideal charts. The Laurent differential join fails parsing its two multiline singleton expressions, with expected vertical bar at the closing brace and cascading placeholder/elaboration errors. Replace both brace singleton expressions by the definitionally identical Set.singleton application with explicit parentheses. The actual coefficient, ideal equality, Laurent algebra and differential presentation are unchanged. All105 other modules remain exact. No local Lean or resource changes. Hosted compilation remains required after independent source review.

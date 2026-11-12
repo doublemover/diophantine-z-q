@@ -1,0 +1,25 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-uniform-phase-r1/CompactDetectorRegion318.lean:28:51: error: linarith failed to find a contradiction
+q : ℚ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+t : ℕ
+ht : 2 < t
+hregion : pairOrbit ↑(1 + 1 * t) ∈ region labels
+h : ℤ := ↑(1 + 1 * t)
+h0 : h ≠ 0
+h1 : h ≠ 1
+j : Fin 4
+hj : ↑(RealGuardTrace318.guardValue (labels j) (↑(1 + 1 * t) • LocalGenerator318.P)) < -margin labels j
+hp : 0 < margin labels j
+a✝ : 0 ≤ ↑(RealGuardTrace318.guardValue (labels j) ((1 + 1 * ↑t) • LocalGenerator318.P))
+⊢ False
+failed
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-original-uniform-phase-r1/CompactDetectorRegion318.lean:51:4: error: Type mismatch: After simplification, term
+  ActualPairDensity318.pairOrbit_dense
+ has type
+  DenseRange pairOrbit
+but is expected to have type
+  DenseRange fun n => n • generator
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instAdd ↦ 8
