@@ -1,0 +1,36 @@
+--- before/ActualCanonicalOverlap318.lean
++++ after/ActualCanonicalOverlap318.lean
+@@ -11,6 +11,19 @@
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
+ universe u
++/-- Normalize affine path components before substituting the large actual nerve. -/
++private lemma affine_overlap {A B C : CommRingCat.{u}}
++    (f : A ⟶ B) (g₀ g₁ : B ⟶ C) (h : A ⟶ C)
++    (h₀ : g₀.hom.comp f.hom = h.hom) (h₁ : g₁.hom.comp f.hom = h.hom)
++    (N : (Spec A).Modules) :
++    CanonicalSheafOverlap318.overlap N (Spec.map f)
++      (Spec.map g₀) (Spec.map g₁) (Spec.map h)
++      (spec_path f g₀ h h₀) (spec_path f g₁ h h₁) =
++      (OriginalLineNamedComparison318.pullbackAlong f g₀ h h₀).hom.app N ≫
++        (OriginalLineNamedComparison318.pullbackAlong f g₁ h h₁).inv.app N := by
++  rw [ActualAffineTensorTransport318.affine_path f g₀ h h₀,
++    ActualAffineTensorTransport318.affine_path f g₁ h h₁] <;> rfl
++
+ variable (R S : CommRingCat.{u}) [Algebra R S] (M : ModuleCat R)
+ 
+ /-- The actual categorical-double canonical overlap pulls back to exactly
+@@ -40,9 +53,8 @@
+     (Spec.map (leftMap R S S)) (Spec.map (rightMap R S S))
+     (Spec.map (CanonicalScalarOverlap318.base R S))
+     (inverse_first R S) (inverse_second R S) hl hr hb
+-  simpa only [CanonicalSheafOverlap318.actual, CanonicalSheafOverlap318.overlap,
+-    CanonicalTildeOverlap318.sheafOverlap, CanonicalTildeOverlap318.leftPath,
+-    CanonicalTildeOverlap318.rightPath, ActualAffineTensorTransport318.affine_path,
+-    Iso.app_hom, Iso.app_inv, ActualAffineDoubleNerve318.baseMap,
+-    CanonicalTildeOverlap318.ringMap, tilde.functor] using h
++  exact h.trans (affine_overlap (CanonicalTildeOverlap318.ringMap R S)
++    (leftMap R S S) (rightMap R S S) (CanonicalScalarOverlap318.base R S)
++    (CanonicalScalarOverlap318.left_path R S) (CanonicalScalarOverlap318.right_path R S)
++    ((tilde.functor R).obj M))
+ end ActualCanonicalOverlap318

@@ -1,0 +1,40 @@
+--- before/OriginalThickenedOpenSections318.lean
++++ after/OriginalThickenedOpenSections318.lean
+@@ -19,14 +19,16 @@
+   (thickening R p).presheaf.mapIso (eqToIso (image R p V)).op ≪≫ (inclusion R p V).appIso ⊤
+ lemma baseIso_hom : (baseIso V).hom = V.ι.appLE V ⊤ (by simp) := by
+   simp [baseIso, Scheme.Hom.appIso_hom', Scheme.Hom.map_appLE]
++  apply congrArg X.presheaf.map
++  exact Subsingleton.elim _ _
+ lemma sectionsIso_hom : (sectionsIso R p V).hom =
+     (inclusion R p V).appLE (π R p ⁻¹ᵁ V) ⊤ (inclusion_preimage R p V) := by
+   simp [sectionsIso, Scheme.Hom.appIso_hom', Scheme.Hom.map_appLE]
+ lemma coefficient_square : (π R p).app V ≫ (sectionsIso R p V).hom =
+     (baseIso V).hom ≫ (π R (localBase R p V)).appTop := by
+-  rw [sectionsIso_hom, baseIso_hom, Scheme.Hom.app_eq_appLE,
+-    Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE, Scheme.Hom.appLE_comp_appLE,
+-    inclusion_fst]
++  rw [sectionsIso_hom, baseIso_hom]
++  simp only [Scheme.Hom.appTop, Scheme.Hom.app_eq_appLE]
++  rw [Scheme.Hom.appLE_comp_appLE, Scheme.Hom.appLE_comp_appLE, inclusion_fst]
+ lemma reduction_preimage : reduction R p ⁻¹ᵁ (π R p ⁻¹ᵁ V) = V := by
+   rw [← Scheme.Hom.comp_preimage, reduction_fst]
+   all_goals rfl
+@@ -34,7 +36,8 @@
+   (reduction R p).appLE (π R p ⁻¹ᵁ V) V (le_of_eq (reduction_preimage R p V).symm)
+ lemma reduction_square : (sectionsIso R p V).hom ≫ (reduction R (localBase R p V)).appTop =
+     reduce R p V ≫ (baseIso V).hom := by
+-  rw [sectionsIso_hom, baseIso_hom, Scheme.Hom.app_eq_appLE]
++  rw [sectionsIso_hom, baseIso_hom]
++  simp only [Scheme.Hom.appTop, Scheme.Hom.app_eq_appLE]
+   dsimp only [reduce]
+   rw [Scheme.Hom.appLE_comp_appLE, Scheme.Hom.appLE_comp_appLE,
+     reduction_map R (localBase R p V) p V.ι rfl]
+@@ -49,5 +52,6 @@
+     (inclusion R p V).appLE (π R p ⁻¹ᵁ V) ⊤ (inclusion_preimage R p V))
+       (DualNumberInfinitesimalLines318.epsilon R p) = _
+   rw [Scheme.Hom.map_appLE]
+-  exact DualNumberCocycleNaturality318.epsilon_naturality (R := R) (localBase R p V) p V.ι rfl
++  simpa only [Scheme.Hom.appTop, Scheme.Hom.app_eq_appLE, inclusion] using
++    DualNumberCocycleNaturality318.epsilon_naturality (R := R) (localBase R p V) p V.ι rfl
+ end OriginalThickenedOpenSections318
