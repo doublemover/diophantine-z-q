@@ -1,0 +1,65 @@
+{
+  "reviewer": "/root/advance_global_arithmetic",
+  "author": "/root/advance_point_geometry",
+  "status": "ACCEPTED_FRESH_SCOPED_SOURCE_REVIEW_HOSTED_PENDING",
+  "packet": "height-original-normal-dual-order-linearity-rebuild-r1",
+  "application_sha256": "b43f65e88acc900ee99f54494f27bc600c56b5841ba600686036d17517bd6bee",
+  "intake_sha256": "7c97a76eda8fc07b95a1ea48cb1e570f175bea8cb7915687c3cbc2c1bb5d14cc",
+  "new_sources": {
+    "ValuedDualPrecomposition318.lean": "ca8dbbf8bbcc14577fe99fa956d59bd3daf28625e2d234e77bf7ffdf47a9cb63",
+    "IntegralClosureDualOrderLinearity318.lean": "6bb2887c0164be383e21768394c373a0c316a11ebf10ca126b833d9638a27225",
+    "IntegralClosureDualOrderBaseChange318.lean": "4be5241250fa5dd88eb38687153b2b49e34d843bb1e7674c673e963387aa7813",
+    "IntegralNormalFiniteDualOrder318.lean": "49e666b54a7c3d5a7df2a803c1b637026cd7c425d7be0355a8168a32452114b3",
+    "IntegralNormalInfinityDualOrder318.lean": "7d0d4ef052a052abc15df9372d9f19a93177337dab184ae777f7745d7657bc2e",
+    "OriginalNormalDualOrderLocalization318.lean": "f476d6d8ebb7ffa24f8619c0788e64bac0a406ac21e4df3218de92238a2cbc87"
+  },
+  "actual_producers_read": {
+    "FiniteDualModuleAction318.lean": "f2683ec07c5adc8c08a86f16c8dc3160f2144b76721a58e3485556244bb306e3",
+    "IntegralClosureDualRestrictionSeparation318.lean": "f36f339de61ba620a7c7cac8c3b388d257d30fcecc43f0b253109d131d62c672",
+    "IntegralClosureFullDualLocalization318.lean": "95a747ac8c442553fff29d488e350ce320515c4322b0f45db51b0abbc3a8f224",
+    "IntegralClosureModuleLocalization318.lean": "f2a1890a7ca5545abc185fa5543830de47240c35413b46e94722acc6a837b309",
+    "IntegralClosureLocalizationMap318.lean": "52ebb5339603c87acb05d61a314210cf4f1e7a14f70501e1e320beb37f0e2fe0",
+    "IntegralClosurePrincipalLocalization318.lean": "39b4bd6d3832e6374a9fe9f70277c6925d5e5ac38559bb526e43b16c529e51ec",
+    "NormalOverlapFinitePresentation318.lean": "5c3503f7365f7b9491c7a706f71767da322cbf00a5159022e8d94bcbf8ec5a48",
+    "OriginalNormalOverlapOrderLocalization318.lean": "e5a5aafed4ca0fcf6bcb10edb98ef6cb6c6a90ded38213a9f1b258786ec4f670"
+  },
+  "primary_read": {
+    "ORDER-LINEARITY-PRIMARY/IsTensorProduct.lean": "9ae2a096cf9b8ad2dec62aeea9ff8f88c86c629d6f3b3153f08e20c599a3225b",
+    "ORDER-LINEARITY-PRIMARY/LocalizationBaseChange.lean": "cb49a43c99226b82f2b5bb6731925c529b16caba6f8844b7214007a63a3c1093",
+    "ORDER-LINEARITY-PRIMARY/LocalizedModuleBasic.lean": "55815f70993143ff44c55255c0f4e5f612972bc40ac5657bace4c715c13a2813"
+  },
+  "obligations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "findings": [
+    "Read all six complete new modules and all nine obligations. Valued precomposition is genuinely on the input A, not scalar multiplication by codomain values. Commutativity of A proves the left module law with correct multiplication order.",
+    "Compared old finite dual definition and action line by line. oldDual uses literal identity functions and exact matching precomposition scalar action, not a type-only identification.",
+    "P/N source tower, P/N target tower and N/O target tower explicitly retain multiplication precomposition. Underlying P action is the earlier pointwise action through actual P-linearity.",
+    "map_action is proved on every old integral input with the accepted full localization separation; product inclusion is exact. restrictScalars is equality with the actual old Hom extension.",
+    "Pinned IsLocalizedModule.of_restrictScalars requires exactly the two scalar towers supplied here and the old localized restrictScalars map. Its output denominator set is algebraMapSubmonoid N(powers s), rewritten to powers(algebraMap P N s).",
+    "Actual normalAlgebra and principal localization supply the SAME O over N; native isBaseChange and equiv_tmul then produce full O-linear tensor equivalence and literal one/integral-tensor values.",
+    "Both finite and reciprocal consumers keep independent original polynomial/Laurent actions, produced finite presentation, and original finite-place c,t,w,D. No coefficient path or reciprocal action is silently identified.",
+    "No concrete source correction requested. All1516 inherited sources are byte-exact and all APPLICATION source/evidence pins verified; structural admission1522 independently passed."
+  ],
+  "independent_finite_regression": {
+    "algebra": "F5[e]/(e^2), entire25-element algebra and all25 base-linear functionals",
+    "action_evaluations": 15625,
+    "composition_checks": 15625,
+    "base_scalar_checks": 3125,
+    "input_action_distinct_from_output_control": 1,
+    "scope": "Exact independent action-orientation regression, not proof of localization or Lean elaboration."
+  },
+  "historical_disposition": "Fresh generalization of surviving FiniteDualModuleAction and newly reviewed full Hom reconstruction, with explicit source credit. Lost later approvals not reused.",
+  "limitations": [
+    "No local Lean, kernel check, or claimed successful audit replay.",
+    "No native tilde/pullback restriction, finite-reciprocal full dual comparison, differential gluing, or global dualizing/Hodge inference."
+  ]
+}

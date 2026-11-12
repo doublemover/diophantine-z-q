@@ -1,0 +1,9 @@
+# Reconstructed actual-order orientation certificates
+
+Eight modules restore the finite orientation reduction on the SAME original fifteen positions and the SAME actual quotient orders. The existing oriented/all_orientations producer is reused and credited. Explicit new swap identities join both original LCMs to finite Boolean side choices; negating a selected root swaps primary/opposite rather than introducing an independent opposite root.
+
+The generic theorem is stronger than a chosen arithmetic label: given ANY orientation in which a prime q divides every chosen left order, every orientation with coprime left/right LCMs is that choice or its GLOBAL flip. Zero orders and repeated positions are permitted. Additional continuity and product/order tests can only remove candidates. No candidate is guaranteed to survive.
+
+At the actual source, the denominator tests from the preceding packet choose the known-divisor orientation without assuming actual-order divisibility as an input. Successful tests at all15 positions PRODUCE that divisibility. The finite candidate set then has cardinality at most2 and is nonempty exactly when the explicit choice or its flip passes the full retained compatibility predicate. Every actual root assignment in that compatibility class is covered, using the old all_orientations theorem. A successful candidate supplies the same original CRT residues and Orders object.
+
+This is not tuple existence: Values, native halving roots, successful denominator tests and success of one candidate remain unproduced arithmetic requirements. Candidate predicates use actual native orders; no bounded evaluator or general method to compute those orders is supplied. Noncomputable finite filtering is not an executable simultaneous-prime search. No local Lean was run; independent review and kernel replay pending.

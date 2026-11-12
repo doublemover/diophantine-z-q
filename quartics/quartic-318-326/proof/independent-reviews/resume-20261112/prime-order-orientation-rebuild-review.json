@@ -1,0 +1,55 @@
+{
+  "reviewer": "/root/restore_and_integrate",
+  "author": "/root/advance_prime_witnesses",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_KERNEL_PENDING",
+  "packet": "forward-original-order-orientation-reconstruction-r1",
+  "application_sha256": "0411d39ee963271d104cce8a4c8e267692da375e4ee8249135d7363e139a99ac",
+  "intake_sha256": "e4ab86fa034ca6c31393634323f486d4beae2121371b392e9e7a68f476a3d990",
+  "structural_sources": 1337,
+  "exact_predecessor_sources": 1329,
+  "new_source_hashes": {
+    "ActualCommonPrimeCandidates318.lean": "354093001feda0fb3201aa68de43d6efffcd2bff84a9431de49d7338054c7728",
+    "ActualDenominatorCandidateReduction318.lean": "4b39899d735737f2e9bc716d6e432dde2d95784d2a7544b5183501ac0242f33e",
+    "ActualDenominatorOrientationChoice318.lean": "d143759f73978260df9dfae39bd10c0150a7d4265b3bc01e5886321cf81dac0e",
+    "ActualOrderOrientationCandidates318.lean": "793fe870635bf0088d64803c6782ddfa8de9072004d311a5f3b22921cfec615a",
+    "ActualRootCandidateCompleteness318.lean": "2c6f3f6ac5dcb39bf1f44cd79f3ed884afaebfb886cb0d4ef00ca586a73d1057",
+    "ActualRootSwapOrders318.lean": "09441faced20f97017bc261750095fb6a2adb4cf3048e89f9631dd69076739cc",
+    "FiniteOrderSignCandidates318.lean": "2a749cfd3db12ce55488d1d5e5acf0e13f897c70cd401f117a13dc0bd23286d4",
+    "FiniteOrderSignChoices318.lean": "0b66b360f35df87afa1f91b8f18fbae9f8c7e8a84d3a1d14e901f4787394ddb4"
+  },
+  "bounded_inherited_deltas": {},
+  "primary_evidence": {
+    "ORIENTATION-PRIMARY/ActualOrderContinuityCRT318.lean": "75e23a7f9cff5d6a8887ad6685d7fde187262e538a1fb8a67c051a95a43c8f36",
+    "ORIENTATION-PRIMARY/ActualQuarterDenominatorCoverage318.lean": "9dcc53c8a99cbcd6c9431e79e206d8e2b32e6aa500f04d7bd30e04758b704efb",
+    "ORIENTATION-PRIMARY/ActualSelectedOrderModuli318.lean": "7d8bd996eada81083dd8605a85f7e002ab20d0691a04dbdeaf2cec9a4cccd575",
+    "ORIENTATION-PRIMARY/BoolBasic.lean": "182702f903573fe03983e39b23f2af383692e356ad50463eb7264c0152316c3a",
+    "ORIENTATION-PRIMARY/ExactContinuityDivisibilityCRT318.lean": "c7845c1ed342bd4ee43b0fbf7cd20f2a401d5d3b81c5189cfff9f0ed1cd37035",
+    "ORIENTATION-PRIMARY/FinsetCard.lean": "300b99474dc58cca9b8724362a1a4673a217b2c66a0a7153ccc8eeb684ab51fa",
+    "ORIENTATION-PRIMARY/GCDFinset.lean": "704ce6ba175171a561d3624346c46df7bf6271baf11b27e982eadc6d0ef5420b",
+    "ORIENTATION-PRIMARY/NatGCD.lean": "0320a5e9c4af0c1d785e281315c12e56002fa74cbbf45f91bd18284a744e9893",
+    "ORIENTATION-PRIMARY/NatPrimeDefs.lean": "5d27fa24d32aa6e8aad251239417bb50051489ca00b40eac4ac8a43916b7748d",
+    "ORIENTATION-PRIMARY/PROVENANCE.json": "9bf9435ac6e9ed6ff2f884c42ee4fe56ab12d9a3fffe04b18d8243c2dac9867a",
+    "ORIENTATION-PRIMARY/SelectedCountDenominatorFactors318.lean": "d281c7771da2404b064b0c53f292ebbfb18c6421d928781e8fdc4e9f5616b1a2",
+    "ORIENTATION-PRIMARY/SelectedQuotientOrders318.lean": "2c82f5dd63554e2f5b8bcd141ef468c547c4d94edd98134a96cea5e135eeb72f",
+    "ORIENTATION-PRIMARY/SelectedRayEmbeddings318.lean": "424090dc3a8b745b8a1663f418248db6a595212c46570dc429e64e7333bcc97c"
+  },
+  "findings": [
+    "Read all eight sources, exact old actual root/order/LCM producers and pinned native finite-set/Boolean/divisibility APIs.",
+    "Known common-prime divisibility in one side assignment forces every coprime-LCM assignment to be that assignment or its global flip. No positivity, distinct-index or nonempty-index premise is silently added.",
+    "Exact original root negation swaps both native quotient orders and their full fifteen-position LCMs; the prior all_orientations producer is explicitly credited.",
+    "Actual candidate predicate retains all product, continuity and order coprimality requirements. Successful membership feeds the exact original CRT/Orders consumer.",
+    "Successful literal quarter-count/denominator tests produce the known-divisor orientation; conditional two-candidate completeness does not prove either candidate succeeds."
+  ],
+  "checks": [
+    "All source/application bindings verified and static import check passed",
+    "All 1329 predecessor sources byte-identical",
+    "Independent regression rerun matches54000 known-divisor orientations,53456 empty controls,544 nonempty cases and50 full fifteen-bit enumerations",
+    "Read exact native Finset.card_le_two and dvd_lcm declarations and all original oriented/all_orientations proofs"
+  ],
+  "limitations": [
+    "The candidate predicate is noncomputable; no executable native-order search supplied.",
+    "No simultaneous-prime Values tuple, successful denominator coverage, compatible orientation or distribution theorem produced.",
+    "Finite regression orders are synthetic, not evaluations of original quotient orders.",
+    "No Lean compilation or kernel replay performed."
+  ]
+}

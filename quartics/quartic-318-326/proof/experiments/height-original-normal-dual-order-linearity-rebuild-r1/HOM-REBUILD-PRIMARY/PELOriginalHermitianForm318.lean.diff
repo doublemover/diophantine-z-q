@@ -1,0 +1,41 @@
+--- height-original-normal-overlap-orders-rebuild-r1/PELOriginalHermitianForm318.lean
++++ height-original-normal-overlap-hom-rebuild-r1/PELOriginalHermitianForm318.lean
+@@ -19,8 +19,7 @@
+ lemma I_move (z w:ComplexVectors):E (Complex.I • z) w= -E z (Complex.I • w):=by
+   have h:=I_invariant τ hτ z (Complex.I • w)
+   have hh:Complex.I • (Complex.I • w)=(-1:ℝ) • w:=by
+-    ext i
+-    simp [smul_smul]
++    simp only [← mul_smul,Complex.I_mul_I,neg_one_smul]
+   rw [hh,smul_right] at h
+   linarith
+ 
+@@ -45,7 +44,13 @@
+   ring
+ lemma form_I (z w:ComplexVectors):
+     form τ hτ (Complex.I • z) w=Complex.I*form τ hτ z w:=by
+-  apply Complex.ext <;> simp [form,I_invariant,I_move] <;> ring
++  apply Complex.ext
++  · rw [real_part,I_invariant]
++    simp only [Complex.mul_re,Complex.I_re,Complex.I_im,imaginary_part,
++      zero_mul,one_mul,zero_sub,neg_neg]
++  · rw [imaginary_part,I_move]
++    simp only [Complex.mul_im,Complex.I_re,Complex.I_im,real_part,
++      zero_mul,one_mul,zero_add,neg_neg]
+ lemma form_smul (a:ℂ) (z w:ComplexVectors):
+     form τ hτ (a • z) w=a*form τ hτ z w:=by
+   have ha:a • z=a.re • z+a.im • (Complex.I • z):=by
+@@ -58,11 +63,9 @@
+ lemma hermitian (z w:ComplexVectors):form τ hτ w z=star (form τ hτ z w):=by
+   apply Complex.ext
+   · simp only [real_part,Complex.star_def,Complex.conj_re]
+-    rw [skew,I_move]
+-    ring
++    rw [skew,I_move] <;> ring
+   · simp only [imaginary_part,Complex.star_def,Complex.conj_im]
+-    rw [skew τ hτ w z]
+-    ring
++    rw [skew τ hτ w z] <;> ring
+ lemma diagonal (z:ComplexVectors):form τ hτ z z=(E z (Complex.I • z):ℂ):=by
+   simp [form,alternating]
+ lemma positive (z:ComplexVectors) (hz:z≠0):0<(form τ hτ z z).re:=by

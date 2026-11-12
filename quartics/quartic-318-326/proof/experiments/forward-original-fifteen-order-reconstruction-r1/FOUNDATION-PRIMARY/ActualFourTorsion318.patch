@@ -1,0 +1,11 @@
+--- before/ActualFourTorsion318.lean
++++ after/ActualFourTorsion318.lean
+@@ -22,7 +22,7 @@
+ lemma class_nonzero (D : ℤ_[p]) (hD : ‖D‖=1) (P : IntegralCurve p D) :
+     QuotientAddGroup.mk' (subgroup p D) (point p D hD P)≠0 := by
+   intro he
+-  exact point_nonformal p D hD P ((QuotientAddGroup.eq_zero_iff (subgroup p D)).mp he)
++  exact point_nonformal p D hD P ((QuotientAddGroup.eq_zero_iff (N := subgroup p D) _).mp he)
+ 
+ /-- The actual0 and+a affine2-torsion points have distinct nonzero classes
+ in the SAME formal quotient. Unit a excludes all residue collisions. -/
