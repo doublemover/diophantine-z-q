@@ -1,0 +1,7 @@
+# Actual global root-ideal sheaf affine restriction and frames
+
+Five new sources preserve all1235 predecessors exactly. The original overlap is now proved to be the full categorical and open-set intersection of the original affine/infinity charts. Restricting the infinity matching map to the whole affine chart is an isomorphism, using that full intersection and the produced inverse-u unit. Preservation of the actual module pullback gives an isomorphism from the restriction of the PRODUCED global ideal sheaf onto the ORIGINAL affine tilde(rootIdeal).
+
+A native localized-submodule universal property produces the scalar-extension equivalence S tensor I ≃ Ideal.map(algebraMap) I, with exact pure-tensor formula s tensor x maps to s*image(x). No arbitrary frame or flatness assumption is supplied. The canonical tilde/restriction comparison then identifies actual affine-root-sheaf restrictions with the actual previously constructed localized ideal sheaves. Composing with their produced frames gives genuine frames of the SAME GLOBAL sheaf on both original affine principal opens, including the root locus.
+
+Remaining: the infinity restriction/frame of the global object,global invertibility,global tensor-square compatibility and gluing,and divisor/theta/Weil identification. The two affine frames alone do not cover infinity. The standard O(D) sign distinction in the predecessor is retained. No Brauer/reciprocity/Cassels–Tate/rank completion. No local Lean or profiling; structural admission and pinned API source review are not hosted kernel acceptance.
