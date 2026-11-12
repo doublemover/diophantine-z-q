@@ -1,0 +1,57 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r32/InfinityBasisUnitCoefficients318.lean:44:76: error: unsolved goals
+case «0»
+c : Fin 4 → ℚˣ
+hb :
+  (ContactHOneOrderBases318.infinityBasis c) (↑(smallIndex (some ((fun i => i) ⟨0, ⋯⟩)))).1 =
+    InfinityOrderCoordinates318.generator c 0 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨0, ⋯⟩)))).1.1 *
+        InfinityOrderCoordinates318.generator c 1 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨0, ⋯⟩)))).1.2.1 *
+      InfinityOrderCoordinates318.generator c 2 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨0, ⋯⟩)))).1.2.2
+⊢ Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 1 ⋯ *
+      (Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 2 ⋯ *
+        Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 3 ⋯) =
+    InfinityCharacterUnits318.ratio c 0 * (InfinityCharacterUnits318.ratio c 1 * InfinityCharacterUnits318.ratio c 2)
+
+case «1»
+c : Fin 4 → ℚˣ
+hb :
+  (ContactHOneOrderBases318.infinityBasis c) (↑(smallIndex (some ((fun i => i) ⟨1, ⋯⟩)))).1 =
+    InfinityOrderCoordinates318.generator c 0 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨1, ⋯⟩)))).1.1 *
+        InfinityOrderCoordinates318.generator c 1 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨1, ⋯⟩)))).1.2.1 *
+      InfinityOrderCoordinates318.generator c 2 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨1, ⋯⟩)))).1.2.2
+⊢ Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 0 ⋯ *
+      (Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 2 ⋯ *
+        Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 3 ⋯) =
+    InfinityCharacterUnits318.ratio c 1 * InfinityCharacterUnits318.ratio c 2
+
+case «2»
+c : Fin 4 → ℚˣ
+hb :
+  (ContactHOneOrderBases318.infinityBasis c) (↑(smallIndex (some ((fun i => i) ⟨2, ⋯⟩)))).1 =
+    InfinityOrderCoordinates318.generator c 0 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨2, ⋯⟩)))).1.1 *
+        InfinityOrderCoordinates318.generator c 1 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨2, ⋯⟩)))).1.2.1 *
+      InfinityOrderCoordinates318.generator c 2 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨2, ⋯⟩)))).1.2.2
+⊢ Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 0 ⋯ *
+      (Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 1 ⋯ *
+        Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 3 ⋯) =
+    InfinityCharacterUnits318.ratio c 0 * InfinityCharacterUnits318.ratio c 2
+
+case «3»
+c : Fin 4 → ℚˣ
+hb :
+  (ContactHOneOrderBases318.infinityBasis c) (↑(smallIndex (some ((fun i => i) ⟨3, ⋯⟩)))).1 =
+    InfinityOrderCoordinates318.generator c 0 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨3, ⋯⟩)))).1.1 *
+        InfinityOrderCoordinates318.generator c 1 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨3, ⋯⟩)))).1.2.1 *
+      InfinityOrderCoordinates318.generator c 2 ^ ↑(↑(smallIndex (some ((fun i => i) ⟨3, ⋯⟩)))).1.2.2
+⊢ Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 0 ⋯ *
+      (Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 1 ⋯ *
+        Fin.induction.go 1 (fun i x => InfinityCharacterUnits318.ratio c i) 2 ⋯) =
+    InfinityCharacterUnits318.ratio c 0 * InfinityCharacterUnits318.ratio c 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/source-hone-original-norm-matrices-r32/InfinityBasisUnitCoefficients318.lean:55:56: warning: This simp argument is unused:
+  Fin.prod_univ_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [InfinityCharacterUnits318.ratioProduct, SourceCharacterFields318.complement_eq,
+    SourceTwistArithmetic318.complement, InfinityCharacterUnits318.indexedRatio, smallIndex, Fin.cases, Fin.induction,
+    mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

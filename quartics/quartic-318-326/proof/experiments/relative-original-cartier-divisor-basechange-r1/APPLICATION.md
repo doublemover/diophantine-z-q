@@ -1,0 +1,56 @@
+# Application contract: Connect actual divisor lines and all-test Abel
+
+1. **source_requirements.** Required: Construct the actual canonical divisor section.
+
+Constructed: The actual invertible full-ideal inclusion produces a genuine global section of its actual inverse O(D) line.
+
+Justification and boundary: Neither an arbitrary line-class representative nor a matching coordinate section is substituted.
+
+2. **constructed_objects.** Required: Recover the whole original closed quotient.
+
+Constructed: A produced full framed affine cover identifies the section evaluation ideal with the actual extracted closed quotient ideal and gives full Cartesian quotient maps.
+
+Justification and boundary: Nilpotents and the literal source inclusion are retained, not just support.
+
+3. **index_coverage.** Required: Transport section zeros under arbitrary maps.
+
+Constructed: Actual geometric pullback units and associators imply literal full affine ideal extension on the entire pulled cover.
+
+Justification and boundary: No flatness or reducedness of coefficient changes is assumed for zero-scheme transport.
+
+4. **transition_maps.** Required: Use actual new Cartier regularity.
+
+Constructed: The independently proved whole-flat-family coefficient theorem supplies genuine regular quotient charts of the same new family.
+
+Justification and boundary: Regularity is not inferred from equal supports or old nonzerodivisors alone.
+
+5. **hypothesis_checks.** Required: Recover the actual new kernel sheaf.
+
+Constructed: The inverse of the pulled original O(D) line is isomorphic to the actual new kernel, with inclusion equal to contraction by the actual pulled section.
+
+Justification and boundary: A stronger literal pullback-inclusion compatibility is not claimed without its comparison.
+
+6. **consumer_identity.** Required: Prove actual O(D) coefficient compatibility.
+
+Constructed: The same original divisor line pulls to the actual new divisor line, as an actual sheaf isomorphism and class equality on every coefficient scheme.
+
+Justification and boundary: No independent polarization or alternative source is introduced.
+
+7. **normalizations.** Required: Consume the bounded original Cartier classifier.
+
+Constructed: The exact bounded full-ideal comap operation has the same divisor-line comparison and naive relative class on every scheme test.
+
+Justification and boundary: The actual relative base-line quotient is used before sheafification.
+
+8. **downstream_boundary.** Required: Prove all-test original Abel naturality.
+
+Constructed: The new original Abel value equals evaluation of the same original transformation, and these values commute with every scheme coefficient morphism.
+
+Justification and boundary: No represented Picard/Jacobian, automatic Cartier or sheafification injectivity follows by assertion.
+
+9. **evidence_acceptance.** Required: Keep complete producer and validation provenance.
+
+Constructed: Fourteen connected sources with actual original affine/kernel/section and bounded consumers, exact965r3 predecessor bodies.
+
+Justification and boundary: Source/API review and hosted kernel checking remain distinct, with no local Lean or CI changes.
+

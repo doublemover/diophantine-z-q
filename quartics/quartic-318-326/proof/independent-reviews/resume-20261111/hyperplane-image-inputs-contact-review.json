@@ -1,0 +1,22 @@
+{
+  "reviewer": "/root/advance_contact_geometry",
+  "status": "BOUNDED_SOURCE_API_ACCEPTED_HOSTED_PENDING",
+  "sources": {
+    "OpenRestrictionImages318.lean": "83e28a526e8bc46b9c4cbba9cab4aebe2ad87d1d714b5656ab3e38933b0898f5",
+    "LocallyPrincipalImageFrame318.lean": "e1b82ab86b9383e35c4dfa667d5816f0142c2adfeba525c47f43d8f520568a84"
+  },
+  "primary_sources": {
+    "ModulesSheaf.lean": "8badaa98b48210f93dec51390327d334f3efc40a99dd16b7c8200901ecbb7e7a",
+    "PullbackContinuous.lean": "9e110c27d8e5707439949b0f5bd84fd1802ea6cc013578bf3b42d3f93b7417ae",
+    "PushforwardContinuous.lean": "c270163651171113c9dae0750dce31a69406def2684ed52c4651fe65bab1f3c6",
+    "PreservesImages.lean": "5e5544140341d8e286ae1a22c83ddbd8e0c7aec31b26a38be4126979c557b25f",
+    "Images.lean": "c5ecdabe69b856a2f59092a42e33931e653bc2d83ddf7850e9fe19abff09aa4f"
+  },
+  "findings": [
+    "Read both full sources. Actual Scheme.Modules.restrictFunctor is the displayed SheafOfModules.pushforward for the continuous open-image functor and inverse actual structure map. Pinned PullbackContinuous supplies pushforward right adjunction via presheaf pullback/sheafification; Scheme.Modules separately supplies actual restriction left adjunction. These preserve cospan limits and span colimits required by CategoryTheory.PreservesImage.iso.",
+    "Image iso orientation and exact inclusion/factor compatibility agree with pinned PreservesImages API. This is genuine whole sheaf image preservation, not sectionwise image exactness.",
+    "Pinned image.isoStrongEpiMono gives local unit-to-image frame from actual epi-row/mono-generator factorization in this abelian category; strong epi follows from epi. Inclusion, coefficient row and whole transition follow by actual mono cancellation, with matching arrow orientations.",
+    "The displayed input is Epi b, not a sectionwise surjectivity or split epimorphism claim. Actual original row/generator producers and projective hyperplane interpretation remain separate. No local Lean was run."
+  ],
+  "local_lean_run": false
+}

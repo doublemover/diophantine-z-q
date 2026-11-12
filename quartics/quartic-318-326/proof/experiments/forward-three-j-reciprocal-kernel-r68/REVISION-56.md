@@ -1,0 +1,3 @@
+# Kernel r56: canonical singleton notation before ideal rewrite
+
+Hosted259 parses and proves the Laurent coefficient equality from r55, then fails only to match Ideal.span_singleton_mul_right_unit against the explicitly named Set.singleton. This successor keeps the parser-safe Set.singleton statements but, after the actual coefficient rewrite, changes the goal to canonical singleton notation around one parenthesized product before applying the same unit-ideal theorem. The set definition is unchanged; pinned Set.Defs defines Set.singleton(b) as the same equality predicate used by the Singleton instance. All105 other modules remain exact. No local Lean, profiling or resource changes. Independent narrow review and hosted validation remain required.

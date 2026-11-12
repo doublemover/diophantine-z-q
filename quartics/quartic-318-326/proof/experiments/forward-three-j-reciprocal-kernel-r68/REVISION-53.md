@@ -1,0 +1,5 @@
+# Kernel r53: cusp polynomial and evaluation normalization
+
+Hosted240 passed LocalizedRationalDifferentials318, including the actual target-action scalar tower and relative presentation. The next source reports two polynomial Wronskian goals with C 3 left symbolic, one reciprocal evaluation whose denominator was unfolded before the evaluation-value lemma matched, and one finite cusp value with the image of numeral243 unreduced.
+
+This successor adds map_ofNat to the two derivative normalization lists, reducing the constant polynomial C 3 before ring normalization. It explicitly maps the multiplication and consumes infinityEvaluation_value before unfolding reciprocalNumerator. Both final cusp value simplifiers now map numeral constants explicitly. The same polynomials, localizations, relative differential presentations, scheme maps, cofactor and numerical conclusions are retained. Only ThreeJCuspDifferentialCharts318 differs among106 modules; all105 other source bytes remain exact. The exact hosted240 log is retained. No budgets increased; no local Lean or profiling. Independent source review and hosted validation are required.

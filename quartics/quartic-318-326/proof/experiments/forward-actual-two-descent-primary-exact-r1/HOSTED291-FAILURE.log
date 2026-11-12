@@ -1,0 +1,50 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-mordell-weil-r2/DetectorDenominatorPreparation318.lean:17:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-mordell-weil-r2/DetectorDenominatorPreparation318.lean:52:11: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-mordell-weil-r2/DetectorDenominatorPreparation318.lean:52:11: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-mordell-weil-r2/DetectorDenominatorPreparation318.lean:68:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-mordell-weil-r2/DetectorDenominatorPreparation318.lean:70:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat p (DetectorPrimeProduct318.squareFactor w c u d)
+in the target expression
+  0 ≤ padicValRat p (traceQuotient w c (u / d ^ 2) / (d ^ 5 * delta c (u / d ^ 2) ^ 3))
+
+w : Assignment
+c u d : ℚ
+hc : c ≠ 0
+hd : d ≠ 0
+hdelta : delta c (u / d ^ 2) ≠ 0
+hq : traceQuotient w c (u / d ^ 2) ≠ 0
+k : Fin 5 → ℤ
+hk : ∀ (j : Fin 5), linear c u d j = ↑(k j)
+hkn : ∀ (j : Fin 5), k j ≠ 0
+hsupport :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      0 < padicValInt p (product k) →
+        padicValRat p (traceQuotient w c (u / d ^ 2)) = 0 ∧
+          padicValRat p d = 0 ∧ padicValRat p (delta c (u / d ^ 2)) = 0
+p : ℕ
+hp : Nat.Prime p
+hs : 0 < padicValInt p (product k)
+this : Fact (Nat.Prime p) := { out := hp }
+hqt : padicValRat p (traceQuotient w c (u / d ^ 2)) = 0
+hdt : padicValRat p d = 0
+hdel : padicValRat p (delta c (u / d ^ 2)) = 0
+⊢ 0 ≤ padicValRat p (traceQuotient w c (u / d ^ 2) / (d ^ 5 * delta c (u / d ^ 2) ^ 3))
