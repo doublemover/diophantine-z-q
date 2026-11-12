@@ -1,0 +1,64 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/HomogeneousRatioBox318.lean:27:17: error: unsolved goals
+ι : Type u_1
+B : MvPolynomial ι ℂ
+A : Fin 3 → MvPolynomial ι ℂ
+m : ℕ
+c : ℂ
+e : Box m → ℂ
+⊢ ∑ x, (c • e x) • numerator B A m x = ∑ x, (c * e x) • numerator B A m x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/HomogeneousRatioBox318.lean:47:3: error: unknown tactic
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/HomogeneousRatioBox318.lean:39:72: error: unsolved goals
+ι : Type u_1
+B : MvPolynomial ι ℂ
+A : Fin 3 → MvPolynomial ι ℂ
+m : ℕ
+K : Type u_2
+inst✝¹ : Field K
+inst✝ : Algebra ℂ K
+F : MvPolynomial ι ℂ →ₐ[ℂ] K
+hB : F B ≠ 0
+a : Box m
+hp : F B ^ (3 * m - total a) * F B ^ total a = F B ^ (3 * m)
+⊢ F B ^ (3 * m - total a) * ∏ i, F (A i) ^ ↑(a i) =
+    F B ^ (3 * m - total a) * F B ^ total a * ((∏ i, F (A i) ^ ↑(a i)) / F B ^ total a)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/HomogeneousRatioBox318.lean:56:2: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
+  Finset.sum ?m.75 ?m.72 = Finset.sum ?m.75 ?m.73
+with the goal
+  F
+      ({ toFun := fun c => ∑ x, (algebraMap ℂ (MvPolynomial ι ℂ)) (c x) * numerator B A m x, map_add' := ⋯,
+          map_smul' := ⋯ }
+        c) =
+    ∑ i, F B ^ (3 * m) * ((algebraMap ℂ K) (c i) * ∏ i_1, (F (A i_1) / F B) ^ ↑(i i_1))
+
+Note: The full type of `Finset.sum_congr rfl` is
+  (∀ x ∈ ?m.75, ?m.72 x = ?m.73 x) → Finset.sum ?m.75 ?m.72 = Finset.sum ?m.75 ?m.73
+
+ι : Type u_1
+B : MvPolynomial ι ℂ
+A : Fin 3 → MvPolynomial ι ℂ
+m : ℕ
+K : Type u_2
+inst✝¹ : Field K
+inst✝ : Algebra ℂ K
+F : MvPolynomial ι ℂ →ₐ[ℂ] K
+hB : F B ≠ 0
+c : Box m → ℂ
+⊢ F
+      ({ toFun := fun c => ∑ x, (algebraMap ℂ (MvPolynomial ι ℂ)) (c x) * numerator B A m x, map_add' := ⋯,
+          map_smul' := ⋯ }
+        c) =
+    ∑ i, F B ^ (3 * m) * ((algebraMap ℂ K) (c i) * ∏ i_1, (F (A i_1) / F B) ^ ↑(i i_1))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/HomogeneousRatioBox318.lean:54:21: warning: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cleared, map_smul, Algebra.smul_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/HomogeneousRatioBox318.lean:54:29: warning: This simp argument is unused:
+  map_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cleared, map_sum, Algebra.smul_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,7 @@
+# Native original infinity DVR and normalized orders
+
+Seven new modules construct the actual original infinity chart as an integral domain, its native origin localization as a DVR, and exact normalized orders ord(u)=1, ord(v)=3, ord(u−a*v)=1 for every scalar a. All1197 unchanged predecessor files are byte-identical; one inherited UniformScaledPoleDomain proof receives the bounded hosted319 cast repair. No local Lean is run. Source admission and finite arithmetic checks are not kernel acceptance.
+
+The decisive producer swaps the literal two variables in the infinity equation. The resulting monic cubic u³+2n*v*u²−3n²*v²*u−v is Eisenstein at(v), including n=0. Explicit inverse native quotient ring maps identify the Eisenstein domain with the original infinity chart. No domain, nonzero parameter, Noetherianity, nonfieldness or DVR premise is left as an arbitrary interface. The existing actual maximal ideal m=(u) and produced units supply the normalized valuations.
+
+The former field-map normalization is instantiated with the native fraction field of THIS local ring. Its identification with the earlier original affine FunctionField remains open, as do projective divisor gluing, the O(2O) theta group and genuine geometric Weil pairing. The field is NOT silently identified by notation. No global reciprocity, Brauer/local invariant, Cassels–Tate, rank or four-point result is claimed. Infinity remains smooth at n=0; this does not imply the whole cubic is smooth.

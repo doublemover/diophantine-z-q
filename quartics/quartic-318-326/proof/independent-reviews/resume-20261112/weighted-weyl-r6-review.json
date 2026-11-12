@@ -1,0 +1,38 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "advance_prime_witnesses",
+  "packet": "forward-original-weighted-weyl-r6",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "508b358a1ef114e41b11f51e9e2d9731c6b70b1c43d34967e70c71c1bdbe064f",
+  "intake_sha256": "d15cadac7695c00c0b66b1f1a6dd96c0fd529007f37f9bc7cdd1d3ad597e05b7",
+  "new_source_hashes": {
+    "ActualOriginalCenteredFrequencyBins318.lean": "3af27c2314fabc058d959d1a535ab7153c7db8aef20ed52c9bfd5a73687738cc",
+    "ActualOriginalReciprocalBinBudget318.lean": "283de0a0a5007c741d5d1132160e4c1be3643a78b3c5a436e45ac2743b269cf0",
+    "ActualOriginalRationalBlockReciprocalSum318.lean": "b796fc1f90a2201ff6c927fc40b7a0c10a7e1d44b22802e0dc6415800d50f02d",
+    "ActualOriginalWeightedBlockReciprocalBudget318.lean": "24699ecd5016f8eb4abe4b620214a4fc7239fbf4c28488f88218185be0044e38"
+  },
+  "unchanged_predecessor_sources": 1202,
+  "structural_sources": 1206,
+  "review": [
+    "Read all four new sources and exact rational short-block spacing, centered chord reciprocal bound, finite Abel variation, and weighted interval producers. All hypotheses occur in explicit declaration binders.",
+    "The actual complete short integer interval injects into floor(2q*centered(c*t)) using pair separation 1/(2q). The retained bin interval [-q,q] includes a harmless unused endpoint. Exact resonance is included.",
+    "Both central bins cost N; negative bins use q/(-b-1), with correct strict endpoint orientation. Nonnegative unused-bin costs justify extending the injective image sum to the full bin interval.",
+    "Fourier cap has explicit full length at resonance, then consumes the actual period-one chord estimate. Arbitrary frequency-dependent complex weights and interval starts are retained with their real uniform variation bound.",
+    "No complete displacement partition, approximation-existence theorem, global minor-domain denominator range, multidimensional mixed-weight variation bound, or integrated power saving is claimed. The Lean conclusion keeps the finite harmonic-shaped bin sum, not a logarithmic simplification.",
+    "Independently reran exact finite regression from a copy outside the frozen packet: 1395 injections,26340 pointwise bins,5580 complete sums,5580 harmonic identities,2652 resonances and4 negative controls. This is supplemental finite evidence, not a Lean proof."
+  ],
+  "regression": {
+    "status": "PASS",
+    "scope": "Exact centered-frequency packing and resonance-aware reciprocal sums; not Lean or global minor decay.",
+    "checks": {
+      "full_short_block_injections": 1395,
+      "pointwise_bins": 26340,
+      "complete_reciprocal_sums": 5580,
+      "harmonic_bin_identity": 5580,
+      "resonant_terms_retained": 2652,
+      "negative_controls": 4
+    }
+  },
+  "local_lean_run": false,
+  "validation_boundary": "Independent source/consumer review,1202 exact predecessor byte comparisons and1206 static admission. Hosted elaboration/kernel acceptance remains pending."
+}
