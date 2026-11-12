@@ -1,0 +1,44 @@
+{
+  "reviewer": "advance_point_geometry",
+  "status": "BOUNDED_SOURCE_ACCEPTANCE_HOSTED_PENDING",
+  "packet": "relative-original-tensor-pullback-naturality-r1",
+  "intake_sha256": "6051bed1ec60cc470d53fde48fa7f49734b53bf875b01cbfc432a4097e059052",
+  "application_sha256": "6daba562572777c66ca63dd6d0950bc199fd0ef2644a9b38a5cdf30d8fd3a42b",
+  "new_sources": {
+    "OriginalModulePullbackScalar318.lean": "5af0d146cacd4b2a07b171b10e2eed3d756d807c08bc50c4aaef5945ab101117",
+    "OriginalLineIsomPullbackUnits318.lean": "0bb62f2cd945f116657a1ef64966077f9a9eacd054866bd83b2201518b874b1b",
+    "OriginalChartPullbackFrameNaturality318.lean": "d7b52e5019ceb84ea2e3f25da91278e84257ba84a0d975ccad52a584543b0a40",
+    "OriginalTensorOpenNaturality318.lean": "64b042f296376a97a77c6aa69c49e5618ff609a7ad57f6a70f3fa47c5b4a5ed6",
+    "OriginalTensorChartFrameNaturality318.lean": "36aad15aebeb33a26ac4a19a38454caaa3eafd5683bc4c64f47510e4fac420d7",
+    "OriginalFramedComparisonNormalization318.lean": "cd99b391130896d3ec85d2122452689c0b317d623eab19fcddd2017121f57f1c",
+    "OriginalTensorPullbackFrameNormalization318.lean": "3eb7e35403038cdaca2fc5b1a9adae9fc803936b68e16cd585e9eff59ae47f44",
+    "OriginalTensorPullbackNaturality318.lean": "dd0843f02251857476dd31f6fc3ac177c9551a81e99719dce7b1480261101162",
+    "OriginalLineTensorPullbackNormalization318.lean": "016d35ac24ed600326f83c8f566bc4c84cd878d927361a0fa693de43d92b869f"
+  },
+  "unchanged_predecessor_sources": 1183,
+  "static_admission": "PASS1192_CURRENT_BINDINGS",
+  "local_lean_run": false,
+  "kernel_acceptance": false,
+  "read_scope": [
+    "All nine new modules, README and all nine current application obligations.",
+    "Actual ModuleScalar map/naturality; original line-Isom unit torsor actions and ratios; original pulled frame construction and native chart NatIso.",
+    "Original all-open tensor pure_ext, TensorOpenRestriction and normalization formulas, full framed reconstruction coordinate map and restriction adjunction.",
+    "Actual TensorPullbackCocycle comparison, LineClassPullbackHom.tensorIso and its literal common-refinement frame inputs.",
+    "Pinned Mathlib AlgebraicGeometry/Modules/Sheaf.lean at 56a005855ea17e0b0958f73ec801ae140b0a1679: pushforward object/maps, pullbackPushforwardAdjunction, native restriction functor, restriction adjunction and pullback composition."
+  ],
+  "findings": [
+    "Arbitrary-module scalar pullback follows through actual adjunction unit naturality from exact native pushforward scalar action. No global frame or flatness premise is silently used.",
+    "Unit-action and ratio transport use original full line-isomorphism torsors, not only line-class equality.",
+    "Tensor/open naturality cancels the actual inverse then tests all pure sections on every open through original sheafification universal map. It does not assume global pure generation.",
+    "Framed comparison normalization transposes the exact old coordinate equality by actual restriction adjunction. The hom_ext cover premise and hom_ext_restrict frame/cover premises are explicitly retained with scoped includes before doc comments.",
+    "The reconstructed tensor-pullback comparison is normalized on entire inverse-image frames. The final equality is detected on the actual pulled cover, and uses both source and target chart frame naturality with correctly oriented comparison squares.",
+    "The final consumer is exactly the pre-existing tensorIso with its common refined charts and old frame terms. Target frames are transported original frames on the SAME cover. Independent-frame or cover invariance is not supplied.",
+    "No concrete mathematical source defect found; native coercion/definitional reduction acceptance remains for hosted Lean."
+  ],
+  "accepted_scope": "Native arbitrary-module scalar pullback; original full line-Isom unit action/ratio pullback; actual reconstructed tensor-pullback frame normalization and naturality for the same cover with transported frames, including exact old tensorIso consumer.",
+  "excluded_claims": [
+    "Independent-frame/common-refinement invariance or coefficient-composition coherence.",
+    "Full coefficient naturality of actual point/Isom bijection or represented Isom.",
+    "Picard/Jacobian or quotient representability, effective descent, global norm isogeny."
+  ]
+}
