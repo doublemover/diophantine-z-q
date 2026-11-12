@@ -1,0 +1,111 @@
+{
+  "scope": "Source-written metadata and exact consumers; elaborated signatures unknown until hosted output",
+  "local_lean_run": false,
+  "generic_source_sha256": "3522dee8f74dbf4f3b78af2e74c94d84c5e52fa813ed372e7b556dafaf72e4ac",
+  "section_parameters": {
+    "b": "Fin4\u2192Complex",
+    "hb": "Function.Injective b"
+  },
+  "direct_proof_reference_candidates": [
+    "product_nonsquare",
+    "independent",
+    "tensor_domain",
+    "affine_domain"
+  ],
+  "local_instance_capture_questions": [
+    "actual_field",
+    "actual_degree"
+  ],
+  "unchanged_unconditional_helpers": [
+    "parameter",
+    "genericFiber",
+    "embedding",
+    "embedding_injective",
+    "affineEmbedding",
+    "affineEmbedding_injective"
+  ],
+  "probe_commands": [
+    "#check @FourRootActualGenericField318.product_nonsquare",
+    "#check @FourRootActualGenericField318.independent",
+    "#check @FourRootActualGenericField318.actual_field",
+    "#check @FourRootActualGenericField318.actual_degree",
+    "#check @FourRootActualGenericField318.tensor_domain",
+    "#check @FourRootActualGenericField318.affine_domain"
+  ],
+  "consumer_examples": [
+    "actual_field b hb",
+    "actual_degree b hb"
+  ],
+  "chain": [
+    {
+      "file": "FourRootActualGenericField318.lean",
+      "sha256": "3522dee8f74dbf4f3b78af2e74c94d84c5e52fa813ed372e7b556dafaf72e4ac",
+      "declarations": "product_nonsquare -> independent -> local independentFact -> actual_field/actual_degree",
+      "source_hypothesis_trace": "Arbitrary b; proof source uses hb. Exact retained binder/implicit capture is the hosted probe question."
+    },
+    {
+      "file": "PELOriginalCommonContactBase318.lean",
+      "sha256": "22de0331c3d5b411c489825a52ab1d6758b05d81fe50283adf96394dd34e5f7f",
+      "declarations": "branches_injective",
+      "source_hypothesis_trace": "Original b=![0,1,lambda,mu]; injectivity proved from labels_injective, branchPoint_injective, coordinate.injective and branch_values. No numeric branch assumption."
+    },
+    {
+      "file": "PELOriginalActualCharacterFields318.lean",
+      "sha256": "6d4593127cdeecffe32b708a752ec2dbff3804e7a325f8a03ce31b96e34357a4",
+      "declarations": "local independentFact, field, original_kernel, actual_fixed_field, degree_two",
+      "source_hypothesis_trace": "Passes branches and branches_injective explicitly into generic independence and field producer. Actual original character labels retained."
+    },
+    {
+      "file": "FourRootCharacterPolynomialOrder318.lean",
+      "sha256": "a7f7c913a396808624caacec1942ad1375642a6312f780a69f70132cd7e06145",
+      "declarations": "genericFiber, embedding, fractionField",
+      "source_hypothesis_trace": "Generic hb/hs/non-square facts consumed in actual character field and polynomial order; some dependencies appear in field types."
+    },
+    {
+      "file": "FourRootCharacterWholeAffineMap318.lean",
+      "sha256": "e70423a97bbb1a27137c4f977bd53d4a80c6074bb660909720595f2509501c45",
+      "declarations": "relative_degree",
+      "source_hypothesis_trace": "Consumes actual character field degree8, with generic b hb s hs present in field type."
+    },
+    {
+      "file": "PELOriginalWholeCharacterOrders318.lean",
+      "sha256": "2383b4113f7197cfeace846de6ea12edc6e324a93ea524d206743d549be070ae",
+      "declarations": "degree_eight",
+      "source_hypothesis_trace": "Original branches_injective and omitted_nonempty are supplied internally. Statement has only i:Fin4 plus original fixed objects."
+    },
+    {
+      "file": "PELOriginalCharacterNativeDegree318.lean",
+      "sha256": "172945ed9355fa7c13af370da66b0c67eabfcaf8e2f8a60418ef9a22b337849c",
+      "declarations": "actual_generic_degree_eight",
+      "source_hypothesis_trace": "Actual generic-stalk pullback algebra, coefficient-preserving field square, original old degree8. No external injectivity premise."
+    },
+    {
+      "file": "PELOriginalCharacterNativeRank318.lean",
+      "sha256": "4e3ee6fc871c9a5d0bcc0fd98ecaf7336888673c181bd29b7acab57c5c919e87",
+      "declarations": "rank_eight",
+      "source_hypothesis_trace": "Same original finite-flat map; native degree8 at every point; source integral instances use branches_injective internally."
+    },
+    {
+      "file": "PELOriginalNativeLegendreIdentification318.lean",
+      "sha256": "ee12337aac941d24c638cd07915b551646e213ffe2427fc2f8b6372d80896df9",
+      "declarations": "coefficients,native_j",
+      "source_hypothesis_trace": "Earlier actual period/Legendre j bridge; uses native2*u coefficient scaling and original parameter nonexceptionality. No published numeric j result."
+    },
+    {
+      "file": "PELOriginalEnumerationInvariant318.lean",
+      "sha256": "91309375496c23f747b8869fe05c42fe59813c051d2c1fae031361636d098bf4",
+      "declarations": "ordered_invariant_eq_original",
+      "source_hypothesis_trace": "Actual ordering permutation/global normalization cancel in j."
+    },
+    {
+      "file": "PELOriginalOrderedLegendreInvariants318.lean",
+      "sha256": "e7c809dc6e22f387f549daa5898486e80cd48145e549ad81cdd0684a04807bcd",
+      "declarations": "manuscript_parameters_of_published_invariants",
+      "source_hypothesis_trace": "Four published numeric j equalities h30,h42,h70,h105 are EXPLICIT undischarged inputs of the solver. Generic branch injectivity/degree16 does not supply them."
+    }
+  ],
+  "verdict": "PENDING_HOSTED_ELABORATION; neither lexical absence nor explicit include alone proves hidden premise or existing elaboration failure",
+  "source_metadata_kind": "Original frozen generic source inventory and actual downstream chain; current diagnostic source separately pinned below",
+  "current_probe_source_sha256": "3522dee8f74dbf4f3b78af2e74c94d84c5e52fa813ed372e7b556dafaf72e4ac",
+  "shared_graph_parser_correction_sha256": "2086aa23682c687b11da41b249fa79c207bb53e3f5bf376a137177034264e975"
+}

@@ -1,0 +1,9 @@
+# Actual affine principal refinement and local tensor-square multiplication
+
+Seven new modules extend the original cubic geometry with an actual principal-generator affine refinement. The complementary quadratics Qa satisfy y²=(x−a)Qa and an explicit Bezout identity with constant −3n²,4n²,12n² at the three original roots. For n≠0 these give a genuine native affine open cover D(x−a) and D(Qa). Neither the root-containing open nor non-rational scheme points are omitted.
+
+On D(x−a), the actual extended root ideal is the unit ideal. On D(Qa), it equals(y), because x−a=y²/Qa. The two ideals remain literal native ideals in the literal original localization rings. Native module equivalences send a scalar to its product with the actual generator1 ory. They produce a native tensor-square equivalence onto the principal ideal of the SAME original x−a; the exact pure-tensor formula is multiplication of the two actual ideal elements, not merely agreement up to an unspecified scalar. The correction units are explicitly (x−a)⁻¹ and Qa.
+
+The affine refinement maps into the earlier original scheme, with open immersions and all-point joint coverage together with the whole infinity chart. This is concrete local module and tensor-square data. The O-module sheaf descent across these charts, its global tensor-square identity, and identification with a projective divisor Ta−O are still NOT constructed. The earlier infinity unit supplies the other chart data but is not silently promoted to sheaf descent. No Proj comparison,theta-group/geometric Weil pairing,Brauer/local invariant/reciprocity,Cassels–Tate,rank or four-point theorem is claimed.
+
+All1222 unchanged predecessor sources are exact. One inherited source has the bounded six-site hosted322 list-tail repair documented with the exact log. Structural/regression checks are not Lean acceptance; no local Lean or profiling is run and no cap is increased.

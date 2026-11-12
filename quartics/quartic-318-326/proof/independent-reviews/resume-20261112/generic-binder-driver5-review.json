@@ -1,0 +1,16 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "restore_and_integrate",
+  "status": "ACCEPTED_SOURCE_SCOPED_DRIVER_UPDATE",
+  "predecessor_review_sha256": "b2e9b11f0a5ee22ccc73991fa9be1b527927f9a6080c3624fb2009faff7d19f5",
+  "driver_sha256": "e4397da1a088482a7bc2a71a4ea7d67695ab435f44f4715b0949546d2b2e4c14",
+  "test_sha256": "fccb82cf0df80c09f7aedc93c2020aa34c54352d30ce831303bf6bd800280239",
+  "workflow_sha256": "52559ca8c18749f6887ef87cd5cce29f55d16bd215ed56c824b87e8fdd3d5ce4",
+  "review": [
+    "Read exact diff: two probe names advance r2 to r3. Third separately logged control adds local-instance expected-failure case; positive/negative exit expectations recorded per control and aggregated.",
+    "Expected outcome matching is ONLY zero/nonzero exit matching, not matching a specific Lean error/signature. In particular a nonzero infrastructure/compiler error could satisfy a negative exit expectation. Raw logs remain required evidence; this is not an automatic binder matcher or kernel acceptance.",
+    "Timeout controls explicitly record unmatched outcome. Existing one-slot plan/runtime registry guards, process-group checker cleanup and second-probe isolation preserved. No cap/job/concurrency change; one extra control invocation remains under existing180second control and30minute job caps.",
+    "Independently ran pure mocked test: positive0/negative1/negative1,5logs, original timeout cleanup, second probe completion, exact-one and zero/two negative registry controls PASS. No actual subprocess or Lean run."
+  ],
+  "local_lean_run": false
+}

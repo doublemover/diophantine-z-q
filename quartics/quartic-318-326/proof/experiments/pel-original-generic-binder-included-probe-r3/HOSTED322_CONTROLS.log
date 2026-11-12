@@ -1,0 +1,20 @@
+proof : ∀ (p : Prop), p → p
+reflexive : ∀ (x : Nat), @Eq.{1} Nat x x
+proof : ∀ (p : Prop) [Fact p], p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-generic-binder-original-probe-r2/diagnostic-controls/BinderControls318.lean:23:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 2: `(hp : p)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-generic-binder-original-probe-r2/diagnostic-controls/BinderControls318.lean:24:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fact p
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+proof : ∀ (p : Prop), p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-generic-binder-original-probe-r2/diagnostic-controls/BinderControls318.lean:29:0: warning: Definition `witness` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+identity : ∀ (p : Prop) (hp : p), @Eq.{0} p ⋯ hp
+proof : ∀ (p : Prop), p → p
+proof : ∀ (p : Prop), p → p
+noPremise : True

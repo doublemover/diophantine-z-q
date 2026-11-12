@@ -1,0 +1,26 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-generic-binder-original-probe-r2/FourRootInfinityGraph318.lean:51:2: error: Tactic `apply` failed: could not unify the conclusion of `Prod.ext rfl`
+  ?m.868 = ?m.868
+with the goal
+  ↑(Z q.1) = q
+
+Note: The full type of `Prod.ext rfl` is
+  ?m.868.2 = ?m.868.2 → ?m.868 = ?m.868
+
+b : Fin 4 → ℂ
+s : InfinitySigns
+g : Fin 4 → ℂ → ℂ
+hg : ∀ (k : Fin 4), AnalyticAt ℂ (g k) 0
+hg0 : ∀ (k : Fin 4), g k 0 = ↑s k
+hgs : ∀ (k : Fin 4) (u : ℂ), g k u ^ 2 = 1 + (b 0 - b k) * u ^ 2
+hgzero : ∀ (k : Fin 4), k = 0 → ∀ (u : ℂ), g k u = 1
+hgu :
+  ∀ (k : Fin 4),
+    ∀ᶠ (q : ℂ × (Fin 4 → ℂ)) in 𝓝 ↑(center b s), q.2 0 = 1 ∧ q.2 k ^ 2 = 1 + (b 0 - b k) * q.1 ^ 2 → q.2 k = g k q.1
+Z : ℂ → InfinityPoints b := fun u => ⟨(u, fun k => g k u), ⋯⟩
+q : ℂ × (Fin 4 → ℂ)
+h0 : q.2 0 = 1 ∧ q.2 0 ^ 2 = 1 + (b 0 - b 0) * q.1 ^ 2 → q.2 0 = g 0 q.1
+h1 : q.2 0 = 1 ∧ q.2 1 ^ 2 = 1 + (b 0 - b 1) * q.1 ^ 2 → q.2 1 = g 1 q.1
+h2 : q.2 0 = 1 ∧ q.2 2 ^ 2 = 1 + (b 0 - b 2) * q.1 ^ 2 → q.2 2 = g 2 q.1
+h3 : q.2 0 = 1 ∧ q.2 3 ^ 2 = 1 + (b 0 - b 3) * q.1 ^ 2 → q.2 3 = g 3 q.1
+he : q.2 0 = 1 ∧ ∀ (k : Fin 4), q.2 k ^ 2 = 1 + (b 0 - b k) * q.1 ^ 2
+⊢ ↑(Z q.1) = q

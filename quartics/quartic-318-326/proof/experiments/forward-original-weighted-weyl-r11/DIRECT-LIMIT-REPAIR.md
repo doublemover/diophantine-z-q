@@ -1,0 +1,3 @@
+# Independent pinned API repair of genuine direct limits
+
+The independent full1114 source review found that pinned DirectLimit.exists_eq_mk takes its transition family f explicitly before x. Supply higherCohomologyMap n hn in the actual primary H1 proof and higherSelmerMap n hn in the actual Selmer proof. These are precisely the maps defining each DirectLimit and the same maps consumed by eventual-zero. Both actual group isomorphism statements and all mathematical arguments are unchanged. All1127 other modules, including the exact303 uniform-pole repair, remain byte-identical. No local Lean or budget/lane changes; hosted verification pending.
