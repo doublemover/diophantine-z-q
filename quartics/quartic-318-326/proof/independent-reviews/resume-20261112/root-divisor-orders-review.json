@@ -1,0 +1,41 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "advance_global_arithmetic",
+  "packet": "forward-actual-two-descent-root-divisor-orders-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "cefb41a1d6c7b7783aeb1d49ba004eaefc000a9c36b98d161611ccd125a2a16d",
+  "intake_sha256": "5511f31406addb9af3b551e05974788df0fffc7433b70d3d7f02eb696db8fdf0",
+  "new_source_hashes": {
+    "ActualTwoDescentOriginalRootEvaluation318.lean": "39719ba04b395a67e5087295fe0855ad32e1926b54a08e4c8a99181500df5b4a",
+    "ActualTwoDescentOriginalRootMaximalIdeal318.lean": "bd7b541e7630ceb083d8dcd78d8cc35cd905dd1cbbc0e2d72e07b347371df9e0",
+    "ActualTwoDescentOriginalRootLocalParameter318.lean": "51c50c6f6d6580c216d50067dc3740b9241299428893a4d0f011b3a1d77d1058",
+    "ActualTwoDescentOriginalRootNativeDVR318.lean": "a739b06e682e29e42d0604b52ded98c5dad9650064f36de7fce55f6620af8ac4",
+    "ActualTwoDescentOriginalRootNormalizedOrders318.lean": "fd39b55ce3af824879e89a325119475abdfa8b0ea3c05c50e5c15b80a3b7b892",
+    "ActualTwoDescentOriginalRootAffineSupport318.lean": "8a92f665fe847fb2d343c1ea52aa832022c8259bafec8b8eb0abf9f368875ba8",
+    "ActualTwoDescentOriginalRootFunctionLocalDivisorData318.lean": "2e1c4148e01c2f9a679b7f063424a8acc0dfa28f9bc325c6a6a5fffdc120fc10"
+  },
+  "actual_predecessor_sources_read": {
+    "ActualTwoDescentOriginalRootIdeals318.lean": "6a5fc0dbd3f393eff7bb7826075aecc450c73f187a38dacf8bb1e00a0ab18902",
+    "ActualTwoDescentRootCofactorData318.lean": "5683b5a24c45054f9394fe5410677035e77eb41aa3c7d36c67c76b88673d47ec",
+    "ActualTwoDescentAffineChartCoordinates318.lean": "93b3e5021d8d7d239162a269706ffd56fd59551ea2227c0701a7f8317722d62c",
+    "ActualTwoDescentInfinityNativeDVR318.lean": "6d59dec8581ac4dd326f41c99705f0d566f803a8a6acfa44b45b953b5926251e",
+    "ActualTwoDescentOriginalFunctionFieldTheta318.lean": "bb14e528673fac5f14edfbaa6da488458d181657919eed04db52bfdebc889228",
+    "ActualTwoDescentLocalizationFractionEquivalence318.lean": "3a4ec1c013b785d8db94bda0d380566294c58b4a911833ec2e0aab61572156a6",
+    "ActualTwoDescentOriginalNativeRootFunctionIdentity318.lean": "2a76a5e9739926709b51dd2bafec09463a64e6cdf188e7f55f6483036654e167"
+  },
+  "primary_sources_sha256": "2d4bf06603e52968d5af6224a94634d44c12263d1322e0872557fd0bd01d0ef7",
+  "structural_sources": 1299,
+  "unchanged_predecessor_sources": 1292,
+  "review": [
+    "Read all seven new sources, all nine obligations and exact original root ideals, affine coordinates/cofactor identities, existing infinity DVR, named original rootFunction, original localization-fraction equivalence and exact named infinity-root identity. Checked pinned native AdjoinRoot extensionality, localization units/maximal ideal/domain, Noetherian localization, DVR TFAE indices and additive valuation normalization APIs.",
+    "Actual evaluation is at each literal root (0,n,-3n), with y=0, in the original AdjoinRoot coordinate ring. The quotient extensionality proof establishes equality of the OLD root ideal with the complete evaluation kernel; surjectivity through actual coefficients proves maximality, rather than inferring it only from rational point notation.",
+    "The original complementary quadratic evaluates to the exact derivative (-3n^2,4n^2,12n^2). Its local unit proof retains n!=0. The old cubic equation gives f=q_inverse*y^2 with the inverse-unit orientation correct. Localization injectivity and the actual old y nonzero proof give a nonzero local y.",
+    "Maximal ideal equality is produced by localization of the literal old generators (f,y), then unit-times-y^2 reduces it to (y). Noetherianity comes from the actual polynomial quotient and localization. The native nonfield condition follows from nonzero y in the maximal ideal; native TFAE.out 5 1 converts principal maximal ideal to DVR. Native addVal_def then yields exactly order2, and addVal_uniformizer yields order1 for y.",
+    "Affine support covers EVERY prime ideal: f in P forces y^2 and y in P, hence the entire original maximal root ideal lies in P and maximality gives equality. This is valid even at n=0; only the DVR/order branches require Fact(n!=0). The off-support unit theorem uses the actual localized original function, not an abstract support set.",
+    "The native original function field is retained via the exact fraction-field equivalence of an injective localization. The named rootFunction maps to the local original numerator. Its root-unit-square formula joins the previously established exact named-function infinity pole normalization; the endpoint is not a newly renamed function or arbitrary field map.",
+    "Accepted scope is actual root DVRs, exact local zero coefficient2, all-prime affine support, and same named-function zero/pole normalization. It does not yet construct a native global projective Cartier/Weil divisor or identify its associated section sheaf with the old global tensor-square sheaf. The stated conventional sign O(O-Ta) for that old sheaf is retained as a boundary, not proved here. Theta-group, geometric Weil pairing and global duality remain open.",
+    "Independent1299 structural admission,1292 exact predecessor comparisons, all application source/binding hashes and all primary metadata hashes verified. No local Lean or profiling; source acceptance is not hosted kernel validation."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}

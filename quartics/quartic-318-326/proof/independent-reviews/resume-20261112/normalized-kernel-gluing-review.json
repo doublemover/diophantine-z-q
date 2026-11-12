@@ -1,0 +1,53 @@
+{
+  "reviewer": "/root/restore_and_integrate",
+  "author": "/root/advance_jacobian_descent",
+  "packet": "relative-original-normalized-kernel-gluing-r1",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_HOSTED_PENDING",
+  "application_sha256": "b775f8bfcfa85449032ecb2cd838fba48b002f87abe485c31f0a0bc1023a6b5e",
+  "intake_sha256": "8f27c36c9f8adaadcf1b09c8e92c064783eb557d0966503e74e94d36041e9d21",
+  "new_source_hashes": {
+    "ProjectiveKernelOverlapAlgebras318.lean": "c2aded8ff8bc30b00f3440cfbe187a666924ac97c877134aefb40ee715a5e1b7",
+    "ProjectiveKernelOverlapTransitions318.lean": "3729bdb080f84c0bfdc721fbc97664a26d8a9320f8efa4efc89589c5291e8a61",
+    "ProjectiveKernelOverlapSchemes318.lean": "1315558d41d62e73efaa96e123a6fb518a1ec52846890b4b9d570bee98f426d3",
+    "CompatibleClosedChartIntersection318.lean": "a45fbba99f032ddbb31324e41e79be53fe68dcfbc4a23f8503a1615375929a30",
+    "ProjectiveKernelAmbientIntersection318.lean": "7952e42f5a9aa6d4292dd370887aa8a45dbaf7abdfdb59c243b5ed4f2329f5ca",
+    "ProjectiveKernelNormalizedGluing318.lean": "dc8f647d38a54a9d2331123e0c7997de36d5283c9ca0e2ad56c783ccd740d76d",
+    "ProjectiveKernelNormalizationAmbient318.lean": "320721e18ea5525df3517500cae60ca95553a2e2252a18d10103c6691d824ec6",
+    "ContactOriginalNormalizedKernelScheme318.lean": "c5a1ba4abf9070962379bddc90f221bcfac78d41d92c2dc4a413eb1892cdb66a"
+  },
+  "structural_sources": 1298,
+  "unchanged_predecessor_sources": 1289,
+  "inherited_source_repair": {
+    "source": "SchemeClosedCoverGluing318.lean",
+    "before_sha256": "618d15425a41019f8e23afddb1463a6e1d8055affdff39a4578ea3e4cbb5f282",
+    "after_sha256": "ca38c95ba2e9b984aa70c242ee0769651a4a8798e6901d83792132724faeae56",
+    "scope": "Only two scoped include H annotations before docs, preserving intended supplied Cartesian-square proofs. Source-level binder risk, not kernel-confirmed failure."
+  },
+  "actual_sources_read": {
+    "MonoFactorPullback318.lean": "08a9248e48d919d401bbc8aa172a0dd45ddde5f5077270c858ec84945929d313",
+    "MonoFamilyGlueData318.lean": "00127ae48a6e0e07425d4127846f1c7d6d966556f9fb80a7ff011e8b662edbad",
+    "SchemeClosedCoverGluing318.lean": "ca38c95ba2e9b984aa70c242ee0769651a4a8798e6901d83792132724faeae56",
+    "ProjectiveParameterSliceGluing318.lean": "cc2236c56d5d5d597b22556d94f5b6c049c180a208d78e88e22220b151bf50f8",
+    "ProjectiveKernelPrincipalCartesian318.lean": "6b06913e19c867df82dd70d9a6fca023d7f42bc3540651b70056ea019ae98ec1",
+    "ProjectiveParameterSliceLocalization318.lean": "98db9b7e2e7ba3de319f9b6ed5b4602319179085ee517fcce671c64fb035c3bd",
+    "ProjectiveParameterSliceLocalizationIso318.lean": "7770d6bbfe69af11838d1f38aace7c34f14fbfe78861aa5b21af9a279c7ee335",
+    "ProjectiveKernelNormalizedLaurent318.lean": "5406e6951a7d88387d1888ab7ef750cdfc77efc7b1093a3ee7b9c5b145c63a1b",
+    "ProjectiveKernelNormalizedAlgebras318.lean": "85e52e0b2557d188954e108381959602ecf1b69ec62beef54a954e3fd285e1e9"
+  },
+  "primary": {
+    "path": "kernel-gluing-primary/IsPullbackBasic.lean.txt",
+    "sha256": "6287b1c3da1992451717a2b6453ac70bf33ec9d49b166137c14621fd5b6a55ad",
+    "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+  },
+  "review": [
+    "Read all eight new modules, nine obligations, exact prior quotient/localization/normalization producers and full categorical/closed-cover gluing sources. Verified all current application/source/evidence hashes and exact1289 predecessor copies plus sole bounded inherited correction. Structural1298 passed; no local Lean.",
+    "The overlap ideal is the FULL extension of the normalized kernel equations. Old localization transitions multiply each equation by the actual invertible scalar, so quotient maps are defined on all rings, retaining nilpotents. Both inverse laws follow by quotient surjectivity from exact old transition composition.",
+    "The Spec transition square uses the actual quotient ring homomorphisms and contravariant composition. Both local closed-family pullback squares are constructed. Checked native of_horiz_isIso, paste_horiz, paste_vert and of_iso at the pinned Mathlib commit. In restriction, hr.paste_vert ha.flip gives b,w>>l,s>>j,i; hl.w changes w>>l to a>>q. The monomorphic-factor lemma then yields the true ambient fiber product.",
+    "Review caught three NEW proof-only section dependencies in CompatibleClosedChartIntersection restriction/intersection/actual_restriction. Author added scoped include ha hl hr before docs. Existing consumers already supply all three exact squares; no new mathematical premise introduced. first_open already retained them. Final source reviewed after repair.",
+    "Review separately caught inherited SchemeClosedCoverGluing cartesian/closed using H only in their proofs. The current unaccepted successor adds only include H before each doc, leaving frozen predecessor unchanged. Calls already pass H; metadata explicitly records1289 exact plus one inherited change. This is not a claim that hosted elaboration established omission, nor a declaration of unconditional closedness.",
+    "Actual ambient fiber products now give the MonoFamilyGlueData scheme and categorical triple rotations/cocycle, not a pointwise relation. Closed-cover descent uses the produced restriction squares to prove the glued map into the OLD normalized projective-term scheme is closed; its actual slice inclusions give a genuine open cover.",
+    "Exact coefficient quotient equality identifies local normalization with the OLD principal parameter normalization modulo the complete kernel ideal. The original arbitrary-line consumer retains the old finite-projective complex terms, boundary map and principal chart, rather than assuming H0 projective or H1 of the line vanishing.",
+    "Accepted source scope is a genuine globally glued normalized-kernel scheme closed in the old term parameter with exact local normalization maps. No global smooth quotient of the full kernel, nowhere-vanishing cover, effective Picard quotient, algebraic-space or Jacobian representation is inferred. Hosted kernel/recursive-axiom validation remains pending."
+  ],
+  "local_lean_run": false
+}
