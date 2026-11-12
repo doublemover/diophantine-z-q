@@ -1,0 +1,132 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:27:2: error: Type mismatch: After simplification, term
+  TildePullbackInverseComposition318.composition f g M
+ has type
+  @Eq
+    ((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).obj
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ⟶
+      (Scheme.Modules.pullback (Spec.map (f ≫ g))).obj ((tilde.functor R).obj M))
+    ((TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).inv.app M) ≫
+        (AffineComparisonMates318.pullbackComp f g).hom.app ((tilde.functor R).obj M))
+    ((tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app M) ≫
+      (TildePullback318.pullbackIso (f ≫ g)).inv.app M)
+but is expected to have type
+  @Eq
+    (tilde
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom g)).obj
+          ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M)) ⟶
+      (Scheme.Modules.pullback (Spec.map (f ≫ g))).obj (tilde M))
+    ((TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).inv.app M) ≫
+        (AffineComparisonMates318.pullbackComp f g).hom.app (tilde M))
+    ((tilde.functor T).map ((ModuleCat.extendScalarsComp (CommRingCat.Hom.hom f) (CommRingCat.Hom.hom g)).inv.app M) ≫
+      (TildePullback318.pullbackIso (f ≫ g)).inv.app M)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 6
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:51:75: error: unsolved goals
+R S T : CommRingCat
+f : R ⟶ S
+g : S ⟶ T
+M : ModuleCat ↑R
+L : Line (Spec S)
+e : (ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M ≅ OriginalLineAffineModel318.sections S L
+P : (Spec S).Modules ⥤ (Spec T).Modules := Scheme.Modules.pullback (Spec.map g)
+hn :
+  (ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).map e.hom ≫
+      (TildePullback318.pullbackIso g).inv.app (OriginalLineAffineModel318.sections S L) =
+    (TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g)).map e.hom
+h :
+  ((ModuleCat.extendScalars (CommRingCat.Hom.hom g) ⋙ tilde.functor T).map e.hom ≫
+        (TildePullback318.pullbackIso g).inv.app (OriginalLineAffineModel318.sections S L)) ≫
+      P.map L.object.fromTildeΓ =
+    ((TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+        (tilde.functor S ⋙ Scheme.Modules.pullback (Spec.map g)).map e.hom) ≫
+      P.map L.object.fromTildeΓ
+⊢ (TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      (Scheme.Modules.pullback (Spec.map g)).map ((TildePullback318.pullbackIso f).inv.app M) ≫
+        P.map ((TildePullback318.pullbackIso f).hom.app M ≫ (tilde.functor S).map e.hom) ≫ P.map L.object.fromTildeΓ =
+    (TildePullback318.pullbackIso g).inv.app ((ModuleCat.extendScalars (CommRingCat.Hom.hom f)).obj M) ≫
+      P.map ((tilde.functor S).map e.hom) ≫ P.map L.object.fromTildeΓ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:53:52: warning: This simp argument is unused:
+  Functor.mapIso_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [stepIso, coverComparison, Iso.trans_hom, Iso.symm_hom, Iso.app_hom, Iso.app_inv,
+    Functor.mapIso_hom, OriginalLineAffineModel318.canonicalIso_hom, Functor.map_comp, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:55:41: warning: This simp argument is unused:
+  Iso.inv_hom_id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, NatTrans.id_app, Functor.map_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:55:61: warning: This simp argument is unused:
+  NatTrans.id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.inv_hom_id_app, Functor.map_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:56:6: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.inv_hom_id_app, NatTrans.id_app, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:56:22: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.inv_hom_id_app, NatTrans.id_app, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r59/CanonicalTildeOverlap318.lean:85:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (stepIso (ringMap R S) (leftMap R S S) M).hom ≫
+    (pullbackAlong (ringMap R S) (leftMap R S S) (base R S) ⋯).hom.app (tilde M)
+in the target expression
+  (stepIso (ringMap R S) (leftMap R S S) M).hom ≫ (leftPath R S M).hom =
+    (tilde.functor (ring R S S)).map (overlap R S M) ≫
+      (stepIso (ringMap R S) (rightMap R S S) M).hom ≫ (rightPath R S M).hom
+
+R S : CommRingCat
+inst✝ : Algebra ↑R ↑S
+M : ModuleCat ↑R
+hl :
+  (stepIso (ringMap R S) (leftMap R S S) M).hom ≫
+      (pullbackAlong (ringMap R S) (leftMap R S S) (base R S) ⋯).hom.app (tilde M) =
+    (tilde.functor (ring R S S)).map
+        (ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom (ringMap R S))
+            (CommRingCat.Hom.hom (leftMap R S S)) M (CommRingCat.Hom.hom (base R S)) ⋯).hom ≫
+      (TildePullback318.pullbackIso (base R S)).inv.app M
+hr :
+  (stepIso (ringMap R S) (rightMap R S S) M).hom ≫
+      (pullbackAlong (ringMap R S) (rightMap R S S) (base R S) ⋯).hom.app (tilde M) =
+    (tilde.functor (ring R S S)).map
+        (ScalarExtensionComposition318.comparison (CommRingCat.Hom.hom (ringMap R S))
+            (CommRingCat.Hom.hom (rightMap R S S)) M (CommRingCat.Hom.hom (base R S)) ⋯).hom ≫
+      (TildePullback318.pullbackIso (base R S)).inv.app M
+⊢ (stepIso (ringMap R S) (leftMap R S S) M).hom ≫ (leftPath R S M).hom =
+    (tilde.functor (ring R S S)).map (overlap R S M) ≫
+      (stepIso (ringMap R S) (rightMap R S S) M).hom ≫ (rightPath R S M).hom
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (tilde.functor (ring R S S)).map (overlap R S M)
+  has type
+    @Quiver.Hom (Spec (ring R S S)).Modules Scheme.Modules.instCategory.toQuiver
+      ((tilde.functor (ring R S S)).obj (AffineOverlapCoaction318.first R S (coverModule R S M)))
+      ((tilde.functor (ring R S S)).obj (AffineOverlapCoaction318.second R S (coverModule R S M)))
+  but is expected to have type
+    @Quiver.Hom (Spec (ring R S S)).Modules Scheme.Modules.instCategory.toQuiver
+      (tilde
+        ((ModuleCat.extendScalars (CommRingCat.Hom.hom (leftMap R S S))).obj
+          ((ModuleCat.extendScalars (CommRingCat.Hom.hom (ringMap R S))).obj M)))
+      ((tilde.functor (ring R S S)).obj (AffineOverlapCoaction318.second R S (coverModule R S M)))
+  in the application
+    CategoryStruct.comp ((tilde.functor (ring R S S)).map (overlap R S M))
