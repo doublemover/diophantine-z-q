@@ -14,7 +14,7 @@ import zipfile
 MARKER = re.compile(r'(?i)(\berror\b|\bfatal\b|traceback|\b\w*(?:Error|Exception)\b|WALL_CLOCK_LIMIT_EXCEEDED|timed?\s*out|\btimeout\b|out of memory|\bkilled\b|\bpanic\b|\bfailed\b|segmentation fault|access violation)')
 MAX_JSON = 16 * 1024 * 1024
 
-def collect(run, output, excerpt_chars=8192):
+def collect(run, output, excerpt_chars=32768):
     run = Path(run).resolve()
     output = Path(output).resolve()
     if not run.is_dir():
@@ -224,13 +224,50 @@ def collect(run, output, excerpt_chars=8192):
                 row.update(excerpt=list(tail), excerpt_is_partial=True)
             except OSError as exc:
                 row['error'] = str(exc)
-    result = {'schema': 1, 'audit_root': str(run), 'created_utc': datetime.now(timezone.utc).isoformat(),
+    # Preserve complete multi-line Lean goals and types for small logs. This final
+    # pass also covers silent failures discovered only in a later stage log.
+    for key, row in records.items():
+        if key not in present:
+            continue
+        row['full_text_included'] = False
+        row['excerpt'] = sorted(row.get('excerpt', []), key=lambda item: item['line'])
+        try:
+            path = run / key
+            before = path.stat()
+            if before.st_size > excerpt_chars:
+                row['omission_reason'] = 'Log exceeds per-log byte budget; bounded diagnostic context and tail only'
+                if 'sha256' not in row:
+                    digest = hashlib.sha256()
+                    with path.open('rb') as stream:
+                        for block in iter(lambda: stream.read(1024 * 1024), b''):
+                            digest.update(block)
+                    row.update(size_bytes=before.st_size, sha256=digest.hexdigest())
+                    after = path.stat()
+                    if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
+                        problems.append({'path': key, 'error': 'Log changed during late hash read; rerun after audit stops'})
+                continue
+            with path.open('rb') as stream:
+                raw = stream.read(excerpt_chars + 1)
+            after = path.stat()
+            if len(raw) > excerpt_chars or (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
+                problems.append({'path': key, 'error': 'Log changed during full-text read; rerun after audit stops'})
+                continue
+            encoding = 'utf-16' if raw[:2] in (b'\xff\xfe', b'\xfe\xff') else 'utf-8-sig'
+            decoded = raw.decode(encoding, errors='replace')
+            row.update(excerpt=[{'line': i, 'text': text} for i, text in enumerate(decoded.splitlines(), 1)],
+                       excerpt_is_partial=False, full_text_included=True, encoding=encoding,
+                       size_bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest())
+            row['full_text_decoding_replacements'] = decoded.count('\ufffd')
+        except OSError as exc:
+            problems.append({'path': key, 'error': str(exc)})
+    result = {'schema': 2, 'audit_root': str(run), 'created_utc': datetime.now(timezone.utc).isoformat(),
         'scope': 'Every recorded structured failure and every marker-bearing log; not failures in blocked/unrun modules.',
         'collector_complete': not problems, 'collection_problems': problems,
         'logs_scanned': len(log_paths), 'metadata_files_scanned': len(metadata),
         'summary_inventory': inventory, 'records': [records[k] for k in sorted(records)],
         'excerpt_character_budget_per_log': excerpt_chars,
-        'notice': 'Excerpts and marker line indexes are bounded; original logs are unchanged and are NOT included. No failure record count cap. Markers are candidates, not proof of failure. Collection does not run Lean.'}
+        'full_log_byte_budget': excerpt_chars,
+        'notice': 'Complete decoded text of logs within the per-log byte budget is included, with line numbers. Larger logs retain bounded diagnostic context and tail; omissions and original paths/hashes are explicit. No failure record count cap. Markers are candidates, not proof of failure. Collection does not run Lean or modify audit logs.'}
     (output / 'failures.json').write_text(json.dumps(result, indent=2, ensure_ascii=True) + '\n', encoding='utf-8')
     with (output / 'failures.txt').open('w', encoding='utf-8') as report:
         report.write(result['scope'] + '\n' + result['notice'] + '\nAudit root: ' + str(run) + '\n')
@@ -245,6 +282,8 @@ def collect(run, output, excerpt_chars=8192):
                 report.write(str(item['line']) + ': ' + item['text'] + '\n')
             if row.get('excerpt_is_partial'):
                 report.write('[Bounded excerpt; consult original file for omitted content.]\n')
+            elif row.get('full_text_included'):
+                report.write('[Complete decoded log text included.]\n')
         report.write('\nCollection problems: ' + json.dumps(problems, ensure_ascii=True) + '\n')
     archive = output / 'audit-failures.zip'
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as bundle:
@@ -259,7 +298,7 @@ def main():
     group.add_argument('--latest', action='store_true')
     parser.add_argument('--audit-root', type=Path, default=Path(__file__).resolve().parents[1] / 'audit-results')
     parser.add_argument('--output', type=Path)
-    parser.add_argument('--excerpt-chars', type=int, default=8192)
+    parser.add_argument('--excerpt-chars', type=int, default=32768)
     args = parser.parse_args()
     if not 1024 <= args.excerpt_chars <= 65536:
         parser.error('--excerpt-chars must be between 1024 and 65536')

@@ -67,3 +67,14 @@ Collector tests (synthetic fixtures only, no Lean):
 ```powershell
 py -3 scripts\test_collect_windows_audit_failures.py
 ```
+
+### Complete small-log diagnostics (collector schema 2)
+
+The collector now includes the entire decoded text of every selected log up to
+32 KiB by default, preserving multi-line Lean goals, types and long lines. Logs
+above the limit still have bounded diagnostic context and tail, explicit
+`excerpt_is_partial`, original path and SHA-256. `full_text_included` distinguishes
+complete logs from excerpts. Use `--excerpt-chars 65536` to raise the small-log
+threshold and excerpt budget to 64 KiB. There is no failure-record count limit.
+Duplicate module names remain separate under their packet paths. The original
+audit is not modified; the ZIP still contains only the JSON and text reports.

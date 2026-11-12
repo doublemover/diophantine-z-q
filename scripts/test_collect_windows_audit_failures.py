@@ -84,6 +84,48 @@ class CollectorTests(unittest.TestCase):
         self.assertIn('summary.json',rows)
         self.assertEqual(rows['cohort-x.log']['excerpt'],[])
         self.assertTrue(result['collection_problems'])
+    def test_complete_small_multiline_goal_and_unclipped_long_line(self):
+        content = 'X.lean:1:1: error: Type mismatch\n' + ''.join('goal detail %d\n' % i for i in range(90))
+        content += 'huge identifier: ' + 'x' * 2500 + '\nfinal expected type\n'
+        self.write('logs/Small.log', content)
+        result, _ = self.collect()
+        row = result['records'][0]
+        self.assertFalse(row['excerpt_is_partial'])
+        self.assertTrue(row['full_text_included'])
+        self.assertEqual([x['text'] for x in row['excerpt']], content.splitlines())
+        self.assertEqual(row['size_bytes'], len(content.encode()))
+    def test_small_silent_failure_discovered_late_is_complete(self):
+        self.write('summary.json', {'status':'FAILED','packets':{'a':1}})
+        self.write('packet-a.log', '{"module":"M","exit_code":3}\n')
+        content = ''.join('silent detail %d\n' % i for i in range(70))
+        self.write('packet-output-a/logs/M.log', content)
+        self.write('packet-output-b/logs/M.log', 'success\n')
+        result, _ = self.collect()
+        rows = {r['source']:r for r in result['records']}
+        row = rows['packet-output-a/logs/M.log']
+        self.assertTrue(row['full_text_included'])
+        self.assertEqual([x['text'] for x in row['excerpt']], content.splitlines())
+        self.assertNotIn('packet-output-b/logs/M.log', rows)
+    def test_large_silent_failure_has_hash_and_pointer(self):
+        self.write('summary.json', {'status':'FAILED','packets':{'a':1}})
+        self.write('packet-a.log', '{"module":"M","exit_code":3}\n')
+        raw = ('silent\n' * 10000).encode()
+        self.write('packet-output-a/logs/M.log', raw.decode())
+        result, _ = self.collect(excerpt_chars=1024)
+        row = next(r for r in result['records'] if r['source'].endswith('/M.log'))
+        self.assertFalse(row['full_text_included'])
+        self.assertEqual(row['size_bytes'], len(raw))
+        self.assertEqual(row['sha256'], hashlib.sha256(raw).hexdigest())
+
+    def test_large_log_omission_is_explicit(self):
+        self.write('large.log', 'error: problem\n' + 'detail\n' * 5000)
+        result, _ = self.collect(excerpt_chars=1024)
+        row = result['records'][0]
+        self.assertFalse(row['full_text_included'])
+        self.assertTrue(row['excerpt_is_partial'])
+        self.assertIn('exceeds', row['omission_reason'])
+        self.assertLessEqual(sum(len(x['text']) + 32 for x in row['excerpt']),1024)
+
     def test_no_overwrite_or_inside_input(self):
         with self.assertRaises(ValueError):
             collect(self.run,self.run/'report')
