@@ -1,0 +1,31 @@
+{
+  "reviewer": "/root/restore_and_integrate",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "BOUNDED_SOURCE_ACCEPTANCE_HOSTED_PENDING",
+  "packet": "height-original-ks-lattice-assembly-r1",
+  "predecessor": "height-original-metric-assembly-r60",
+  "application_sha256": "80ef50d98b6d8b054cac793d09fe507df060deef0f4262124f6a706a52721cbb",
+  "intake_sha256": "42035acd2bdd9bbf6e270b01c4a534dbc523f4060a9a1822021e91519d5a7824",
+  "source_count": 173,
+  "exact_predecessor_sources": 168,
+  "changed_sources": {
+    "IntegralOverlapRootGenerators318.lean": "66ccbe2eef3c43ddfbc1250a3aefd62ea8fa415fd804aac3798159bb7335d927"
+  },
+  "new_sources": {
+    "FinitePlacePrincipalImage318.lean": "85273d296be312b73ac3369456414f6f8021430e6a9c2a8c0016890199a20f69",
+    "OriginalCanonicalFiniteLattices318.lean": "d3584b169da91892cd406bf30d679c4b45cf68d5b9cf1debfc7db0f6b3699d45",
+    "KSImageFrameNorms318.lean": "c9e62af02d09e32ace0a18754cd15029a06801ad7850c7e9ad078ef1da3ef667",
+    "OriginalKSLatticeMetricSections318.lean": "6df2a1e325f9c053789346eff4a49bfae487e9865ca005798612a365ad6aeaa5"
+  },
+  "review": [
+    "Read all four new modules, original principal lattice membership/norm equivalence, FrameNorms fields, OriginalConstructedMetricSections and original consumers. Equality concerns embedded submodules of the SAME field over its actual valuation ring, not abstract rank-one line isomorphism.",
+    "Both directions of lattice equality versus norm are valid for nonzero generators. scalar_image is actual Submodule.map along multiplication by k; product_lattice is actual integral span of products. Their equality yields inverse(v alpha)/v k=inverse(v beta)^2, retaining all factors at primes dividing 210.",
+    "The good/bad split ranges over all actual finite places. Good lattice is literally the existing cotangent lattice; bad generator remains explicit input. The two original sections lie in this assembled family. FrameNorms equality uses every infinite-place equality plus every finite-place equality before degree or height consumers.",
+    "Hodge metric is independently specified and never manufactured as a square root. Bad-place geometric provenance, regularity, genuine Hodge lattice/degree, local KS images and archimedean bounds remain explicit obligations. This is conditional algebraic integration, not unconditional GeometricRealization.",
+    "Reviewed final binder-only correction: original_height explicitly includes harchPos, so the unchanged metric constructor retains its required positivity proof. No new semantic premise or result change; final pins refreshed after inspection."
+  ],
+  "static_admission": "PASS",
+  "local_lean_run": false,
+  "hosted_successor": "PENDING",
+  "full_arithmetic_theorem_proved": false
+}
