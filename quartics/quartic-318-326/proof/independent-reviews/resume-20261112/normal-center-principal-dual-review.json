@@ -1,0 +1,31 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "advance_point_geometry",
+  "packet": "height-original-normal-center-principal-dual-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "43bc402d84b1ccd119387ac861939b3db1a84d591c2a7887446f16d817d125b7",
+  "intake_sha256": "fb68ff6cffe134cdf23aa12b488097da1a79d3ed024e0b9ec38c197aec6a8337",
+  "new_source_hashes": {
+    "FinitePlaceFiniteLatticeGenerator318.lean": "a011648c82121b09473a01e9f42c07efd10ff928b8ed18c3162f704897c9bc0c",
+    "FinitePlaceMultiplicativeDual318.lean": "86bbccc938e681ea258d485f3fca1acf6bf610333a517a2dab45fe732aec1d61",
+    "OriginalNormalCenterPrincipalImage318.lean": "63ed5e0f55497cf97dba87b0b7504acd643a91efdd893fec1cc8995a062ee640",
+    "OriginalNormalCenterDualImage318.lean": "636e5c125b9c3c0e0f9f39afcc4a0cdf6bf9ede007778cfb1c7c3c0a7ebecbba"
+  },
+  "primary_api_hashes": {
+    "FinitenessBasic.lean.txt": "704734b7dbe3ace88c1302bca72a629483a70bff40e210dcbc31e96ba54866ce",
+    "FinsetMax.lean.txt": "620b0e39a5a7d623087b9e9777d85281321f99c501600048c9154d42aaf01a7d"
+  },
+  "unchanged_predecessor_sources": 1422,
+  "structural_sources": 1426,
+  "review": [
+    "Read all four new sources plus exact OriginalNormalCenterCoordinateLattice,FinitePlacePrincipalLattice and ActualFinitePlaceIntegers producers. The scalar image is literally coordinateMap.range, finite by range surjection and nonzero by generic spanning.",
+    "Read pinned FG.of_finite and exists_max_image APIs. A maximal norm element in a finite spanning set is nonzero; every generator has integral quotient by that element in the SAME valuation integer ring. Both lattice inclusions are supplied, not a principal-image premise.",
+    "Dual is the intersection of all multiplication-integrality tests over every element of the actual embedded lattice. For a nonzero principal generator, testing the generator proves necessity and valuation-ring scalar closure proves sufficiency for the inverse-generator lattice. Bidual uses those actual equalities.",
+    "Integral pairing is the literal field product and is not represented as a geometric dualizing pairing. Original consumers test every original cotangent specialization, preserving the source-dt coefficient map and its actual integral image.",
+    "The source-dt membership equivalence uses the actual source frame injectivity and frame_dt=1. It characterizes integrality rather than inferring it; radius uniqueness concerns generator choices for one fixed image only.",
+    "No freeness/torsion-freeness of the entire integral cotangent, Hodge/canonical/dualizing identification, chart independence, numerical valuation, excluded-place regularity or final metric estimate is asserted. All remain explicit boundaries.",
+    "Found and requested correction of stale intake.new_modules metadata before binding. Final intake now lists exactly the four additions; Lean sources unchanged. Independently confirmed1422 exact predecessor bytes and1426 structural admission."
+  ],
+  "local_lean_run": false,
+  "validation_boundary": "Independent source/API/object/scalar review and static admission only. Hosted elaboration/kernel acceptance remains pending."
+}

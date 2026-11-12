@@ -1,0 +1,60 @@
+{
+  "reviewer": "/root/advance_global_arithmetic",
+  "author": "/root/advance_point_geometry",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_HOSTED_KERNEL_PENDING",
+  "packet": "height-original-normalization-conductor-r1",
+  "application_sha256": "067d21b4bafde4df2b0abb4d2003f47fb46fad6637f0b09bedeaab844a4c21f9",
+  "intake_sha256": "c5512840423da88e73b8eef833100260c800fc53c7fb122df487781bcbc58d59",
+  "scope": "Independent bounded source review of all five conductor/normalization/different/specialization modules, actual trace-dual and normalized-point consumers, native closure and baseline normalization chart interfaces, and nine application obligations. Not full-closure or kernel acceptance.",
+  "new_sources": {
+    "FiniteOrderConductorTraceDual318.lean": "bb827107b3d9d2471087882d56955a7bd7aedb47650d7fe5c8dd9f42c8558272",
+    "IntegralFourRootNormalizationConductor318.lean": "f3d720cf7fa008ec076be539fc8b06a9cbb1e24881a84d0d7fc804b17e91a381",
+    "IntegralNormalizationConductorChart318.lean": "c401f515f88f80f21ec01acb131e9da4255df187a36ef23822382917db4d1baa",
+    "OriginalNormalizationDifferentValue318.lean": "d11996d9f87d5a5b930e812c84ee26649f6c6b26cb0bbb100092a6832d8b3285",
+    "OriginalNormalizationConductorSpecialization318.lean": "a9f7bf0dad653bafed68b6c509e4a6e3725a35aacac000ac3407cc631023a642"
+  },
+  "consumers": {
+    "FiniteTraceDualLattice318.lean": "0d0b8cab9be79e824576690d5478f1e9a53d30eb7a8fc8e0cb62fa778efcc8aa",
+    "FourRootTraceDualLattice318.lean": "0236e0d648e2f74875728909cda0b86fc1c339ee083d9f3ab835ee6e102915f3",
+    "OriginalNormalCenterDualImage318.lean": "636e5c125b9c3c0e0f9f39afcc4a0cdf6bf9ede007778cfb1c7c3c0a7ebecbba",
+    "FinitePlaceMultiplicativeDual318.lean": "86bbccc938e681ea258d485f3fca1acf6bf610333a517a2dab45fe732aec1d61",
+    "IntegralReciprocalNormalClosures318.lean": "c8a646427164451bc3da3488547ce649115c9d1c6be4e1152f865483845562dc",
+    "IntegralTwoChartNormalization318.lean": "cb8e14a0ba8026854456b9ecc3c4c5b958307b7edf964b88b7fb6a73e06ae489",
+    "OriginalAllPlaceNormalModel318.lean": "b7b0c337ea6defa394c06b6ee9dce52b59a39f5b57de5516f019521831ec10e5"
+  },
+  "application_evidence": {
+    "README.md": "0b6bf8c23ea9fcbbefd68eea805be2a507f34c976c7938013f1e29eae296ea40",
+    "APPLICATION.md": "e1bf141a4b27281150757fb2b7159c00d7330a600ceb303b5a663749b0bc98ce",
+    "INHERITANCE.json": "da7a6a0c30e0532d04c16b46706f674a4199e86e677c66ac9ccf922bcba23a5a",
+    "intake.json": "c5512840423da88e73b8eef833100260c800fc53c7fb122df487781bcbc58d59",
+    "SECTION_BINDER_SCAN.json": "a761121f22aa6a3e6b04217fc9bafee71089224cf2f2367047251d6287cf3f06",
+    "MODULE_ORDER.txt": "a008bd9f5ce2711c81f7d7f997d5bbe6fcae289d619d42fc2be608e9ab3288c5",
+    "SOURCE_SHA256SUMS": "2427b7e471e3cbc5842b1b93c47570ea2e93bc7a6473d680dc8a9465e9b76abf",
+    "PRIMARY/IntegralClosureNative.lean.txt": "138b0f6665c4fc97d3568159c7f7af98fab4d6a54a1691d805530705ff862516",
+    "PRIMARY/IntegralClosureSquare318.lean": "c9b99ac43d5eb246e6b26364545fd422aa19868b1a6f19ae9073424a4f3a968f",
+    "PRIMARY/NormalizationChart318.lean": "0090704e2c8269f4b00f08477a4d5ede8f21707072cad941a485ea301feabe95",
+    "PRIMARY/NormalChart318.lean": "5e1914c977254217dd9f45cc1086017bd84a5f0cbfe40defcd6a0d02945e02f7",
+    "FiniteOrderConductorTraceDual318.lean": "bb827107b3d9d2471087882d56955a7bd7aedb47650d7fe5c8dd9f42c8558272",
+    "IntegralFourRootNormalizationConductor318.lean": "f3d720cf7fa008ec076be539fc8b06a9cbb1e24881a84d0d7fc804b17e91a381",
+    "IntegralNormalizationConductorChart318.lean": "c401f515f88f80f21ec01acb131e9da4255df187a36ef23822382917db4d1baa",
+    "OriginalNormalizationDifferentValue318.lean": "d11996d9f87d5a5b930e812c84ee26649f6c6b26cb0bbb100092a6832d8b3285",
+    "OriginalNormalizationConductorSpecialization318.lean": "a9f7bf0dad653bafed68b6c509e4a6e3725a35aacac000ac3407cc631023a642"
+  },
+  "checks": [
+    "Generic conductor tests every element of N against the actual old-order image. Taking n=1 proves conductor lies in the normal order when hN holds; multiplication stability uses closure of N. No injectivity or finiteness is silently needed for these abstract statements.",
+    "Normal trace dual iff all N multiples lie in old trace dual is proved both ways by actual products with e(a) and a=1. The exact raw \u03b4 criterion then yields \u03b4 times normal trace dual equals conductor as membership, without cancellation assumptions.",
+    "Concrete old four-root order membership in integral closure is produced via finite-module integrality and the actual inclusion. Raw codifferent input is discharged by existing coefficientMap theorem with literal16-root product. Inverse formula uses a unit only on the specified localized generic source.",
+    "Canonical finite normalization sections equivalence uses the actual finite_factor and NormalChart.sectionsEquiv. Polynomial scalar equality is checked explicitly. The claim stays about the canonical chart and does not identify arbitrary Realization or equate normal with regular.",
+    "Original evaluation is precisely M.fieldPoint promoted using field_polynomial on constants. Signed different value preserves16, every normalized root and the product of original multipliers. No squareclass-only substitution occurs.",
+    "Specialization maps actual conductor/codifferent submodules under that same evaluation; images of inverse-different multiples are justified using the mapped unit and its nonzero field value. No finiteness of these image submodules is asserted outside the finite chart.",
+    "Cotangent comparison is an iff exposing the missing equality, not a proof of it. Integral pairing uses actual full cotangent dual/bidual to detect the original image; differential and tangent-dual coefficients remain distinct.",
+    "All1426 predecessor Lean sources independently byte-compared identical.1431-source structural admission independently passes with134 baseline dependencies and271 external imports. Application/source/evidence hashes independently recomputed. No local Lean or finite computation is represented as a semantic proof."
+  ],
+  "remaining_obligations": [
+    "Hosted Lean elaboration and recursive kernel checking pending.",
+    "No codifferent/cotangent-image inclusion or equality produced by these comparison iff statements.",
+    "Reciprocal/infinity correction and whole-section gluing remain open.",
+    "No numerical conductor/different/discrepancy, relative dualizing/Hodge identification, regular-model modification, KS210/metrics or final arithmetic conclusion."
+  ],
+  "history": "Fresh source review of changed mathematical application and exact original consumers, separate from earlier source acceptance."
+}

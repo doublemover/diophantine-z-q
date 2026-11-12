@@ -12,8 +12,8 @@ import subprocess
 import sys
 
 PACKETS = (
-    'pel-original-generic-binder-original-probe-r1',
-    'pel-original-generic-binder-included-probe-r1',
+    'pel-original-generic-binder-original-probe-r2',
+    'pel-original-generic-binder-included-probe-r2',
 )
 
 def main():

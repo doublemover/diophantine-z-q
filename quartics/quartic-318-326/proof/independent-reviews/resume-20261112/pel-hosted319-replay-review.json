@@ -1,0 +1,72 @@
+{
+  "reviewer": "restore_and_integrate",
+  "author": "advance_pel_identification",
+  "status": "ACCEPTED_BOUNDED_SOURCE_AND_DIAGNOSTIC_SCOPE_HOSTED_PENDING",
+  "packets": [
+    {
+      "packet": "pel-original-character-chart-gluing-r3",
+      "application_sha256": "d43718f82eb3691f5d89ec751f9435401558f71548191733e8d84afa7e85a6f9",
+      "intake_sha256": "8d434289e9625d91ffce11efd29ffc9177fde8ff58504d9708b3020d34e654de",
+      "unchanged_predecessor_sources": 1072,
+      "changed_sources": {
+        "FourRootRegularGraph318.lean": "2086aa23682c687b11da41b249fa79c207bb53e3f5bf376a137177034264e975",
+        "WeierstrassActualChartComparison318.lean": "74047283d695853eb2b9ff62b00bf8c5e48d094a7b9e31ae10dc02b8ed2c750b",
+        "ThreeBranchLegendreReciprocalComparison318.lean": "dfac08be19411a0556d4a0d1f8c4e85962cd374026d998e64d3d9d425085d899"
+      }
+    },
+    {
+      "packet": "pel-original-zero-local-length-r27",
+      "application_sha256": "161b136f6a729b3db6889b790ae0d5c647c355e5a3320c3113e38102529fee91",
+      "intake_sha256": "fd974a85e585fba4f61be9b9bcde68847c66a71c2696272264b0c8d076d4064b",
+      "unchanged_predecessor_sources": 579,
+      "changed_sources": {
+        "FourRootRegularGraph318.lean": "2086aa23682c687b11da41b249fa79c207bb53e3f5bf376a137177034264e975"
+      }
+    },
+    {
+      "packet": "pel-original-cotangent-hzero-forty-r33",
+      "application_sha256": "0f250f060f90eee23e9e7bdd05edd2244d42b869c4d19672af52e3ecb93a85a8",
+      "intake_sha256": "c72104f40211be67d1b9b70004007206c6dbbbe8bb074100f6b00cff1d49f575",
+      "unchanged_predecessor_sources": 659,
+      "changed_sources": {
+        "FourRootRegularGraph318.lean": "2086aa23682c687b11da41b249fa79c207bb53e3f5bf376a137177034264e975"
+      }
+    },
+    {
+      "packet": "pel-original-torsion-towers-r7",
+      "application_sha256": "a7cfb4c85a617220ccc9328095e11efc140e5ce80dcd431ffd71a8edd2c9e883",
+      "intake_sha256": "4f8f3255d47624204ca77e970b2da096653f281938dce5e404d1b82dbf1701b8",
+      "unchanged_predecessor_sources": 734,
+      "changed_sources": {
+        "HomogeneousRatioBox318.lean": "c9ad49f3b6a2a2ba7c277b3861868f623c92bb868023ebaf6821dbd45a0746f4"
+      }
+    },
+    {
+      "packet": "pel-original-generic-binder-original-probe-r2",
+      "application_sha256": "2e725e0dbb1316767c5cde433f585e4eb155175629b5df1ef3d917b15c936773",
+      "intake_sha256": "a1b05f9a44e4c54fd230a84f553100e9d96c8938b47abb9d8e97414af8f6f5d1",
+      "unchanged_predecessor_sources": 26,
+      "changed_sources": {
+        "FourRootRegularGraph318.lean": "2086aa23682c687b11da41b249fa79c207bb53e3f5bf376a137177034264e975"
+      }
+    },
+    {
+      "packet": "pel-original-generic-binder-included-probe-r2",
+      "application_sha256": "0306d145d435fa85a7a7dd1e437652599535867a23d5ed639668aedfd63178dd",
+      "intake_sha256": "c017c69ac45cad547f9fcc6f39255f4d10850cc1fb388df51a60eba0bb44f8d6",
+      "unchanged_predecessor_sources": 25,
+      "changed_sources": {
+        "FourRootRegularGraph318.lean": "2086aa23682c687b11da41b249fa79c207bb53e3f5bf376a137177034264e975",
+        "FourRootActualGenericField318.lean": "c5eb7003a66c8e8ef7bee1a84abbb19b5c3f15068b8aff4e557fa0900249c932"
+      }
+    }
+  ],
+  "findings": [
+    "Read exact319 graph and homogeneous-box failures and complete changed producers. Doc comment must remain adjacent to the declaration it documents: scoped include moved before it, rather than leaving include between comment and theorem. This corrects prior source-review miss, not a change to theorem premise scope.",
+    "Gluing3 changes only the positions of3 previously included proof directives; zero27/cotangent33 use the exact same graph fix. No map, coordinate, geometric conclusion or budget changes.",
+    "Torsion7 explicit FieldSimp/Ring imports supply already used tactics; smul_eq_mul normalizes scalar multiplication of complex coefficients; explicit finite-sum change exposes the same cleared LinearMap body before map_sum. Original denominator and nonzero hypothesis unchanged.",
+    "Original generic-field probe keeps its producer byte-identical; both probes use identical corrected graph prefix. Included probe moves its two documented include directives before docs, preserving its four intended explicit includes and leaving two local Fact capture questions unchanged.",
+    "Controls and original consumer classifications retained; a failed producer may prevent signatures from printing. Signature output from failed declaration elaboration is not accepted theorem evidence. No automatic source Syntax/type comparator claimed."
+  ],
+  "local_lean_run": false
+}

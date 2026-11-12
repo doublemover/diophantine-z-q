@@ -1,0 +1,44 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r48/ContactOriginalRestrictionCoordinates318.lean:84:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r48/ContactOriginalRestrictionCoordinates318.lean:124:4: error: Type mismatch
+  OriginalFiniteBasisBaseChange318.coordinates_unit OriginalLaurentProjectiveOverlap318.infinityHom
+    (infinitySections c L) m i
+has type
+  (OriginalFiniteBasisBaseChange318.coordinates OriginalLaurentProjectiveOverlap318.infinityHom (infinitySections c L))
+      (1 ⊗ₜ[Polynomial ℚ] m) i =
+    OriginalLaurentProjectiveOverlap318.infinityHom
+      (((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).repr m) i)
+but is expected to have type
+  (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+            (infinitySections c L)))
+        m)
+      i =
+    LaurentOriginalPolynomialCharts318.infinityMap ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun m)
+      i
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  LaurentOriginalPolynomialCharts318.inversion ↦ 29
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r48/ContactOriginalRestrictionCoordinates318.lean:129:46: warning: This simp argument is unused:
+  Iso.trans_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    LinearEquiv.symm_apply_apply, ContactCommonLaurentModule318.transition, Iso.symm_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r48/ContactOriginalRestrictionCoordinates318.lean:129:61: warning: This simp argument is unused:
+  Iso.symm_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    LinearEquiv.symm_apply_apply, ContactCommonLaurentModule318.transition, Iso.trans_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

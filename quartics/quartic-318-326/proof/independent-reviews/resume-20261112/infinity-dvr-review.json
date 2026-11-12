@@ -1,0 +1,49 @@
+{
+  "reviewer": "advance_prime_witnesses",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "SCOPED_SOURCE_ACCEPTED_HOSTED_KERNEL_PENDING",
+  "packet": "forward-actual-two-descent-infinity-dvr-r1",
+  "application_sha256": "2c1d2e33f0df69e2d8eb8a4bda9ed4bcc0a533298f0f61df73acf2088968a301",
+  "intake_sha256": "ad00be00c664df089728bcf4eef0c4df2c797ca5d674ab0ea6c761635bf51356",
+  "readme_sha256": "98e80f7f5c195d6cdc63924c32c0bfb6a708016f3baa4a2bc89a20de9fbd81d0",
+  "derivation_sha256": "3778761702dae26f1cac01f396859e25499c5e6bfbd46e9b82a325fc60922f2c",
+  "source_copy_record_sha256": "086c418045d95d90d103a2c2e265db6e83f4faf9990ec9c3ed8e1a19cc4df97f",
+  "new_sources": {
+    "ActualTwoDescentInfinitySwappedCubic318.lean": "1bf4892106596d2e4c2ccfd98274c0664c60f9d4c180d72f0d9f9fd2590d2a3c",
+    "ActualTwoDescentInfinityEisenstein318.lean": "a34bc3090a812b8bf0200d441291e0fb512c0f3983f3826cbca7b7a5ac56a52e",
+    "ActualTwoDescentInfinitySwapEquivalence318.lean": "18fecfe5a5e10e0282c7ba46de3710f6806b52affaa796a360dcdb262bd09d01",
+    "ActualTwoDescentInfinityNativeDomain318.lean": "23867510424454201055d7b9b097bc5df93f9d2b8e7b43ce2f72a5727193a74b",
+    "ActualTwoDescentInfinityNativeDVR318.lean": "6d59dec8581ac4dd326f41c99705f0d566f803a8a6acfa44b45b953b5926251e",
+    "ActualTwoDescentInfinityNormalizedOrders318.lean": "4fbbbb630b56f01b97a450ee57bc8446dbe372ceaea250c652ade4c033c36b48",
+    "ActualTwoDescentInfinityNativeFractionFunctions318.lean": "8b8a005a8d604d8f25baff6541cf8a629fcf3724228b63d3d989b56a6f391347"
+  },
+  "changed_sources": {
+    "UniformScaledPoleDomain318.lean": {
+      "before_sha256": "8c006cb0a7ebcfc9b8f01e88efa3bdd7ade42f3eb3c2d4d19c68ffaf3c5bb587",
+      "after_sha256": "2a0e571e8b799a78e30532220d66c583858f259e35721c2ec6247fedff541fa1",
+      "reason": "Hosted319 aggregate rational-cast failure; explicit Rat.cast_lt transport matching inherited UniformPoleDomain. No statement/cap changes."
+    }
+  },
+  "unchanged_predecessor_sources_verified": 1197,
+  "source_admission": "PASS_1205_MODULES",
+  "regression_script_sha256": "b062b1ec55238e22551a23d91e7bdd2e8042b5f17ce81f2ac97cd08142209e98",
+  "regression_result_sha256": "bb6063428a9da62ae9ceb2f2447b707b61575c19787c985be116ffd92da4d12b",
+  "scope_checks": [
+    "Read all seven new modules, README/DERIVATION, all nine application obligations, and actual predecessor InfinityChartRing,LocalParameter,MaximalGenerator,RootUnitFactors,FieldPoleComparison consumers. Original carrier and coefficients remain fixed.",
+    "Compared pinned Eisenstein criterion with constructed inputs: coefficient prime ideal(X), leading coefficient1 outside it, all three lower coefficients inside it, degree3 positive, constant -X outside(X)^2 and monicity/primitivity. The coefficient-one contradiction checks the actual square-ideal condition. Applies also at n=0; no whole-curve smoothness claim.",
+    "Read native AdjoinRoot generator/extensionality and monic coefficient-injection APIs. Both quotient maps consume actual polynomial relations and both composites are proved identity on constants and the two generators. IsDomain transfers to the original infinity chart through an explicit ring equivalence, not a renamed substitute.",
+    "Read native localization-at-prime domain/injectivity APIs and Noetherian quotient/localization APIs. Actual origin kernel is prime/maximal by original evaluation; u,v nonzero transfer from Eisenstein quotient through exact maps. Original m=(u) and u in m with u nonzero prove nonfieldness.",
+    "Checked pinned DVR TFAE property5-to1 orientation: Noetherian local domain and nonfield with principal maximal ideal imply native DVR. Actual irreducible_of_span_eq_maximalIdeal takes maximalIdeal=span{u}, matching predecessor identity. No DVR or regularity premise is left unproduced.",
+    "Checked native addVal_uniformizer and addVal_def requirements. Actual u gives normalized value1; produced unit factorizations give v value3 and every numerator u-a*v value1. Coefficients, units, arbitrary scalar a and actual local carrier are retained.",
+    "Native FractionRing map instantiates the preceding field-map interface with injectivity/nonzero u produced. It is NOT silently identified with the earlier affine Weierstrass FunctionField, and no glued projective divisor or geometric Weil pairing is inferred.",
+    "Independently reviewed the isolated UniformScaledPoleDomain cast repair against the hosted319 error and exact inherited UniformPoleDomain method: explicit real conjunction followed by four Rat.cast_lt transports; no statement,hypothesis or budget changes. All1197 other predecessor sources verified byte-identical, all application bindings verified.",
+    "Independently reran exact finite regression:1352 swapped equations,32 Eisenstein coefficient checks,8 constant-square controls. This is arithmetic sanity only, not irreducibility/localization/DVR or Lean proof.1205 source admission passed; no local Lean/profile."
+  ],
+  "remaining": [
+    "Original affine/infinity punctured-chart and function-field-map equivalence, projective Cartier divisor gluing, O(2O) theta construction and genuine geometric Weil identification remain open.",
+    "Local Brauer invariants/isotropy, continuous H2/Brauer comparison, global reciprocity,Cassels-Tate/Sha duality,rational rank and four-point production remain open.",
+    "Hosted kernel/axiom audit remains pending, including the isolated cast repair. Source acceptance and finite tests do not establish the complete arithmetic theorem."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}

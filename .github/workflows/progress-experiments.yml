@@ -116,7 +116,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake exe cache get "${targets[@]}"
       - name: Non-admitted original generic-field binder signatures
-        if: always() && matrix.packet == 'pel-original-whole-character-native-rank-r1'
+        if: always() && matrix.packet == 'pel-original-character-affine-descent-r1'
         shell: bash
         run: |
           set -euo pipefail

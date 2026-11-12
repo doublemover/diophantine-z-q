@@ -1,0 +1,35 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/SplitOpenUnitLift318.lean:18:51: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => (ConcreteCategory.hom (Scheme.Hom.appLE _a (i ⁻¹ᵁ W) (i ⁻¹ᵁ W) ⋯)) a = a
+Error: Application type mismatch: The argument
+  Quiver.Hom.le ((TopologicalSpace.Opens.map i.base).map (homOfLE hW))
+has type
+  (TopologicalSpace.Opens.map i.base).obj W ≤ (TopologicalSpace.Opens.map i.base).obj (r ⁻¹ᵁ i ⁻¹ᵁ W)
+but is expected to have type
+  i ⁻¹ᵁ W ≤ _a ⁻¹ᵁ i ⁻¹ᵁ W
+in the application
+  LE.le.trans le_rfl (Quiver.Hom.le ((TopologicalSpace.Opens.map i.base).map (homOfLE hW)))
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+X₀ X : Scheme
+i : X₀ ⟶ X
+r : X ⟶ X₀
+hr : i ≫ r = 𝟙 X₀
+W : X.Opens
+hW : W ≤ r ⁻¹ᵁ i ⁻¹ᵁ W
+a : ↑Γ(X₀, i ⁻¹ᵁ W)
+⊢ (ConcreteCategory.hom (Scheme.Hom.appLE (i ≫ r) (i ⁻¹ᵁ W) (i ⁻¹ᵁ W) ⋯)) a = a
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Quiver.Hom.le ((TopologicalSpace.Opens.map i.base).map (homOfLE hW))
+  has type
+    @LE.le (TopologicalSpace.Opens ↥X₀) TopologicalSpace.Opens.instPartialOrder.toLE
+      ((TopologicalSpace.Opens.map i.base).obj W) ((TopologicalSpace.Opens.map i.base).obj (r ⁻¹ᵁ i ⁻¹ᵁ W))
+  but is expected to have type
+    @LE.le X₀.Opens TopologicalSpace.Opens.instPartialOrder.toLE (i ⁻¹ᵁ W) ((i ≫ r) ⁻¹ᵁ i ⁻¹ᵁ W)
+  in the application
+    LE.le.trans le_rfl (Quiver.Hom.le ((TopologicalSpace.Opens.map i.base).map (homOfLE hW)))
