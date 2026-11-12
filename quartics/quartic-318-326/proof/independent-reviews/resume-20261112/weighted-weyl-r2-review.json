@@ -1,0 +1,39 @@
+{
+  "reviewer": "advance_point_geometry",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "SCOPED_SOURCE_ACCEPTED_HOSTED_KERNEL_PENDING",
+  "packet": "forward-original-weighted-weyl-r2",
+  "intake_sha256": "791818d002fa26747940f715d0bf0859c793c719de31180282deeccfdcac7fb9",
+  "application_sha256": "8daf08ea3b4bb2f36c1ca99349aa6859fd391f3a1a11287ad840bf8ba423ba68",
+  "readme_sha256": "e61aeb544cae918112169784e76f66acf76d980c2ddc786986510fed2453ec50",
+  "source_copy_record_sha256": "ebee51899afdea5d227a85c0dd8ad5ec1571d6d2e7c94805897df6fdbca15daf",
+  "new_sources": {
+    "ActualOriginalFiniteAbel318.lean": "4ce8d343d688e79682b83d8d45ffd48e8d834e040d79f39cc1c7bc94a2f3377e",
+    "ActualOriginalWeightedLinearCancellation318.lean": "9e778d7716e01a6fdc5ec8c789152e1c55d28aa64a587d5ad322d5e832545d70",
+    "ActualOriginalPairedWeightVariation318.lean": "d94398f3507fd1ce8fe8d08e0947d6486b8f18ead5a8b56f180a430fc7e4b221",
+    "ActualOriginalWeightedQuadraticShift318.lean": "a31c39ed6cdd1ee5ef5f84837c341e0b1dbf8e139de96e4a17684b8c7e01abb3",
+    "ActualOriginalLineCorrelation318.lean": "45b8b3522cdfe397fa4887e2a4ef4386430c242de71a29d94842f99a7a9d6fa8",
+    "ActualOriginalReciprocalDistance318.lean": "c5141356d3d67fc46cfa7e30f5e7dc19b29dcf52159d413a7e25c4ca87561e41"
+  },
+  "regression_sha256": "b1dbb72834c0c0d71d2fd12b62ae0a745925dceb934ebc7c02837ad86064c5d5",
+  "regression_script_sha256": "5687013df1be3d27de20b06363fcd5c7d0a30b61e4dbdaf3f1a96174c66eeef8",
+  "unchanged_predecessor_sources_verified": 1178,
+  "source_admission": "PASS_1184_MODULES",
+  "scope_checks": [
+    "Read all six new modules. Abel summation includes the endpoint g(N) prefix(N+1), and the bound requires every initial prefix up to N+1; arbitrary complex weights are allowed.",
+    "Paired variation includes both original and translated weights, with endpoint bounds over the closed range j<=N. No separable-weight inference.",
+    "Weighted quadratic shifts retain exact frequency 2*c*h. Original ambient line correlations retain both evaluations of the SAME w and the original five-coordinate quadric, signs, base point, displacement and direction.",
+    "Read pinned Real.mul_abs_le_abs_sin and Complex.norm_exp_I_mul_ofReal_sub_one. Applying Jordan at pi*x yields exact factor 4 on |x|<=1/2. The real-to-circle period and integer-frequency subtraction retain period one.",
+    "Reviewed corrected explicit period argument in AddCircle.coe_eq_zero_iff against pinned source; all integer frequencies including zero are allowed, but division requires an explicitly nonzero centered distance.",
+    "The reciprocal inequality uses strictly positive distance and correct denominator monotonicity, giving 1/(2*|c*t-a|). It does not supply integer a or rational-approximation distribution.",
+    "Independently reran exact finite Abel/paired-variation/line checks and two negative controls. The 5050 chord tests are numerical sanity only, explicitly separate from exact checks and proof."
+  ],
+  "remaining": [
+    "No full displacement-fiber slice decomposition or compatible endpoint aggregation.",
+    "No scale-uniform smooth-weight variation estimate, rational-approximation reciprocal-sum bound, minor-domain o(B^3), or major/minor common diagonal.",
+    "No simultaneous prime/ray/order witnesses or Anchor production.",
+    "All 1178 inherited Lean sources verified unchanged but not re-reviewed as a whole; hosted elaboration and recursive axiom audit remain pending."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}
