@@ -45,11 +45,11 @@ logs, timeouts, Python/tool failures and runner exceptions are scanned too.
 No failure-record count cap is applied. Markers in quoted text can be false
 positives and are labelled as candidates.
 
-By default, excerpts are limited to 8,192 characters per log, with initial
-error context and the log tail. The report explicitly marks excerpts as partial
-and reports the full diagnostic-fragment count; only the first 40 matching line
-numbers are retained. For fuller context use `--excerpt-chars 32768` (maximum
-65,536). Original logs are left untouched. Missing/unreadable logs, corrupt
+By default, complete selected logs up to 32,768 characters are included.
+Larger logs have bounded error context and tail, explicitly marked as partial,
+with the full diagnostic-fragment count; only the first 40 matching line numbers
+are retained. Use `--excerpt-chars 65536` for a 65,536-character budget.
+Original logs are left untouched. Missing/unreadable logs, corrupt
 metadata, skipped symlinks, changed-while-reading logs and decoding replacements
 are reported rather than hidden. Exit code 2 means collection had problems;
 its ZIP can still be shared, together with the listed missing originals.

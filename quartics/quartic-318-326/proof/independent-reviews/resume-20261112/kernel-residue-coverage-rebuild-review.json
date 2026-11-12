@@ -1,0 +1,52 @@
+{
+  "reviewer": "/root/restore_and_integrate",
+  "author": "/root/advance_jacobian_descent",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_KERNEL_PENDING",
+  "packet": "relative-original-kernel-residue-coverage-rebuild-r1",
+  "application_sha256": "a84d64a65f9df4389195d86311d34a2bab37abc8b12472fc9f0bee14563bb783",
+  "intake_sha256": "6a4e3fef1bfef6a1fab611cb2533ffb1ccce3b5a6c7a160464b0cf6f08d1cdce",
+  "structural_sources": 1315,
+  "exact_predecessor_sources": 1309,
+  "new_source_hashes": {
+    "ContactNowhereZeroNormalizationRebuild318.lean": "28028439fbf1752d83dddfed8ddafcfb789dfefd44a8456dad2a74211c7095af",
+    "ContactNowhereZeroResidueSourceRebuild318.lean": "c3152c3d8fc614323fe88afc1a79aed18009d465a0c32004c12c51c48f9a7744",
+    "ContactNowhereZeroSourceOpenRebuild318.lean": "74aa6f65b5106c43c5e4a9d7020e0e8e81d6474030793d75ec09fc08e2eeeabd",
+    "ContactNowhereZeroSourceTestsRebuild318.lean": "e61d37fa425477f7755bd425a35a1fa523a54819b1cbf324732ff776bdd0ccbc",
+    "ContactRationalFieldSourceRebuild318.lean": "3d272f2ccee7a2a8f784b41e99a79049075141173287e69f2b7754fe64980a2f",
+    "SchemeResidueOpenLiftRebuild318.lean": "27958fd5dbb86cce7ca115ec10dfbb016b4fde7891a10e2187bafd286350259d"
+  },
+  "actual_producers_read": {
+    "ContactOriginalRelativeOverlap318.lean": "3bc29c418d407a075a03e3515502eac8484c1ff7166797ae48d6a69fca6ef94a",
+    "ContactArbitraryZeroSpecialization318.lean": "6ca324e06292bf05d96e05bbb689400bffc73c4383d116ab3a595c5076af7378",
+    "ContactNowhereZeroFieldNormalizationRebuild318.lean": "128de9b966c449637500295a85c96121da49ae0e3f63f1c7e413f0ec4e5f0ef2",
+    "ContactArbitraryKernelCoordinateRebuild318.lean": "69fd452e305949f1c954ee67b262f12de90d9595762a9fe820e4e117bc254272",
+    "ContactArbitraryNowhereZeroOpen318.lean": "3e6dd44b1682fe68adf237fafc46bd30d141b4b23a0ed9bd6906b79bbdf3a707",
+    "ContactHZeroCoefficientFunctor318.lean": "4c7198653f4e0344769c8dd30e053222608a7f5c808359dd8691bbe5ae0ba3d4",
+    "ContactOriginalGlobalKernelNormalizationRebuild318.lean": "145242f4f39368c112a289cca1dc16be6f30256cce5e09a47eb7c160834ad69a"
+  },
+  "primary_evidence": {
+    "RESIDUE-COVERAGE-PRIMARY/SOURCES.json": "34e11d95296111006c3bf7df27b0a02e9c3c428e123317f5594b3d3f774338e9",
+    "RESIDUE-COVERAGE-PRIMARY/ResidueField.lean": "64dad23c5143d90d93ce5c99e0ea9059d8b65e9a7f78529599bd34249e9fde00",
+    "RESIDUE-COVERAGE-PRIMARY/OpenImmersion.lean": "e6ef208c555f44692fe28963ad0f9a04faf0f051e8d0fc4a041c35474b6585c1",
+    "RESIDUE-COVERAGE-PRIMARY/Smooth.lean": "c547e32c9245e50a7b40034971893b29f1d729e004084ca1a11f9e82f97940e9"
+  },
+  "findings": [
+    "All six full new sources and nine application obligations read with exact original field-lift, zero-specialization, open and normalization producers.",
+    "Evaluating the actual residue-field morphism at its native point proves range containment at every scheme point; native IsOpenImmersion.lift yields a whole scheme arrow, including empty source.",
+    "The rational residue-field structure is induced by the exact Spec.preimage ring map. Named R-actions and coefficientArrow match the original classified section and geometric zero-specialization by their definitions.",
+    "Every point of the old nowhere-zero open supplies the necessary empty universal-zero fiber; no independent nonzero or projective H0 premise is supplied.",
+    "Mono cancellation gives exact original inclusion, uniqueness and residue comparison. All-test equivalence remains inside the same kernel source, with literal precomposition naturality.",
+    "Open immersion into the source composed with the accepted smooth normalization is smooth, hence flat and locally finitely presented. This does not establish surjectivity of the restricted normalization."
+  ],
+  "checks": [
+    "All source and evidence bindings checked",
+    "All1309 predecessor source bytes identical",
+    "Independent static source/import validation1315 passed",
+    "Independent regression rerun722 dual-number cases389 finite whole-factorization cases3 nilpotent negative controls matches"
+  ],
+  "limitations": [
+    "No descended target open, scalar saturation, orbit identification or global Picard effectivity.",
+    "The finite regression is not a proof of scheme statements.",
+    "No Lean compilation or kernel replay."
+  ]
+}

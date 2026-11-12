@@ -1,0 +1,71 @@
+{
+  "reviewer": "/root/advance_prime_witnesses",
+  "author": "/root/advance_jacobian_descent",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_KERNEL_PENDING",
+  "packet": "relative-original-kernel-field-nonzero-rebuild-r1",
+  "application_sha256": "a2c053892d72d49c74a84089e6c5eb76c9082faea03423d4dfda7a2213e6bfbf",
+  "intake_sha256": "dd48a54f79ef60f0804783b08bd42fcd35891790bb0624aa40718db4275ba0ac",
+  "structural_sources": 1309,
+  "exact_predecessor_sources": 1303,
+  "new_source_hashes": {
+    "ProjectiveKernelCoordinateDetectionRebuild318.lean": "87884a6682694ef106a32b1aff421b0a923bc7571b005954f190cbbf73ea62ae",
+    "ProjectiveKernelFieldSourceRebuild318.lean": "4c13e0fde8abcf9f2b79afa110afb87b0b23a455ad8f3331c7cf14089043d0b2",
+    "ContactZeroSectionNonemptyRebuild318.lean": "c7446197daf8786a6bc24ed1df2bbcaf1229d6b9e469bbf14d436d9326b2a0bf",
+    "ContactArbitraryKernelCoordinateRebuild318.lean": "69fd452e305949f1c954ee67b262f12de90d9595762a9fe820e4e117bc254272",
+    "ContactArbitraryFieldSourceRebuild318.lean": "0380d3c073d348b677d656ddc69bc1ae32dc61ab190c9553e61e75e922dcfb58",
+    "ContactNowhereZeroFieldNormalizationRebuild318.lean": "128de9b966c449637500295a85c96121da49ae0e3f63f1c7e413f0ec4e5f0ef2"
+  },
+  "read_predecessor_sources": {
+    "ProjectiveKernelParameter318.lean": "d37ac09bcf949e0ee31c6e75fea172f5346b653e28f67bacabef42589002702c",
+    "ProjectiveParameterZeroCoordinates318.lean": "1deecbdb33f90971bf03bcbe960a740142831c1495f974fe0a1fc07f4961d86d",
+    "ProjectiveKernelNonzeroSourceRebuild318.lean": "89e72a834725018e2a05b5e998bfa8ad7a911d016571c217d4e1946a03a07c09",
+    "ProjectiveParameterNonzeroOpen318.lean": "20186fff16f74441e649ddb5390810e7ea810c3a8a76758ef26bdec2ae11ca75",
+    "ContactGlobalZeroEmptyIdeals318.lean": "1889c758e8aca2e28b5113d7e0b0795f5481317b47fd44a020640dd1b7922c30",
+    "ContactOriginalSectionZeros318.lean": "9d7231d6ae4a6cb991604c9fc729c1ceac445dbfb3c5f47f9ca6e119e0a15f14",
+    "OriginalAffineSectionZero318.lean": "904a00e6f7e1e17bce3c5332b8686e3e39d066ac9ffdd3e662c6ee59d6d3c4b9",
+    "ContactArbitrarySectionParameter318.lean": "fe1594e8e12c3fde4ff32413c3f713fb8985a4cb69c5c26803d59d4933706dda",
+    "ContactOriginalGlobalKernelNormalizationRebuild318.lean": "145242f4f39368c112a289cca1dc16be6f30256cce5e09a47eb7c160834ad69a",
+    "ContactOriginalSectionKernel318.lean": "40efaddb163793e0098ef6b9f379ce652cd1ac937b7b3dad17eec5cc80efdd2c",
+    "ProjectiveSectionIdeal318.lean": "f0dc92b0a6cd4e4a65c21c8f3c493b0bbbb676ae1c4789da6bb9a2955241ea51"
+  },
+  "baseline_source": {
+    "proof/progress/SourceScalarExtension318.lean": "eb9a050eee280ac8d5ed98ef67e036e0b953d9163564f92a781b2063741de667"
+  },
+  "primary_evidence": {
+    "field-nonzero-review-primary/OpenImmersion.lean": "e6ef208c555f44692fe28963ad0f9a04faf0f051e8d0fc4a041c35474b6585c1",
+    "field-nonzero-review-primary/PROVENANCE.json": "42d00c87ca72c5ffdd697b46e6b612c49d43a8cd77b6d1ae30d377abbac62df6"
+  },
+  "additional_native_read": {
+    "RELATION-PRIMARY/HasPullback.lean.txt": "145cc6ab399afaeffd0d108ee918debb82ab3cd5c6219371c67bf532e4bab5b0"
+  },
+  "findings": [
+    "All six new sources and actual full quotient, dual frame, section equivalence, zero ideals, original field scalar extension and pullback consumers read.",
+    "Full quotient coordinates detect zero over arbitrary coefficient rings, retaining all equations and original finite projective ambient terms, without kernel or H0 projectivity.",
+    "A nonzero coordinate over a FIELD is invertible. Every prime of K excludes it, so the whole Spec K map lands in the nonzero open. The exact native open lift and pullback projection preserve the original map.",
+    "The actual zero finite-chart section has bottom evaluation ideal. Original geometric integrality supplies a nontrivial scalar extended finite chart over every Q-field. Empty whole zero scheme therefore forces section nonzero.",
+    "Named coefficient action is installed explicitly in public letI telescopes and proof bodies. The original section comparison transports nonzero, and the final lift receives emptiness rather than an assumed nonzero section."
+  ],
+  "checks": [
+    "Application and all source/metadata bindings independently verified",
+    "All 1303 predecessor Lean source bytes verified identical",
+    "Static packet admission independently passed with 1309 modules",
+    "Finite regression independently rerun and matched frozen result"
+  ],
+  "regression": {
+    "kernel_coordinate_cases": 1727,
+    "field_inverse_cases": 486,
+    "negative_controls": 2,
+    "scope": "Finite algebra model only, not geometry or kernel validation"
+  },
+  "limits": [
+    "No local Lean compilation or profiling performed; hosted kernel replay pending",
+    "No global source-open coverage, descended target open, quotient effectivity or Picard conclusion",
+    "Nonzero over arbitrary rings need not produce a unit coordinate; field hypothesis essential"
+  ],
+  "source_changes_requested": [],
+  "metadata_rebinding": {
+    "previous_application_sha256": "b69ab5405174e6076a7e424870b535a686b031a4f3638fd3bb764c4480e46b72",
+    "verified_change": "Sole application JSON change removes a private durable recovery receipt binding. Direct comparison with retained original application parsed JSON confirmed no other change. Source and intake bytes unchanged.",
+    "mathematical_scope_changed": false
+  }
+}
