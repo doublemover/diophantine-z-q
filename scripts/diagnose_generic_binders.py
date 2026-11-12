@@ -12,8 +12,8 @@ import subprocess
 import sys
 
 PACKETS = (
-    'pel-original-generic-binder-original-probe-r2',
-    'pel-original-generic-binder-included-probe-r2',
+    'pel-original-generic-binder-original-probe-r3',
+    'pel-original-generic-binder-included-probe-r3',
 )
 
 SLOT_PREFIX = 'pel-original-character-'
@@ -34,16 +34,20 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     rows = []
     controls = root / 'quartics/quartic-318-326/proof/experiments' / PACKETS[0] / 'diagnostic-controls'
-    for name in ('BinderControls318.lean', 'BinderExpectedFailure318.lean'):
+    for name in ('BinderControls318.lean', 'BinderExpectedFailure318.lean',
+                 'BinderLocalInstanceExpectedFailure318.lean'):
+        expected_failure = name != 'BinderControls318.lean'
         with (output / (name + '.log')).open('w') as log:
             try:
                 result = subprocess.run(['lean', str(controls / name)],
                                         stdout=log, stderr=subprocess.STDOUT,
                                         timeout=180, check=False)
                 rows.append({'control': name, 'exit_code': result.returncode,
-                             'expected_failure': name == 'BinderExpectedFailure318.lean'})
+                             'expected_failure': expected_failure,
+                             'expected_outcome_matched': (result.returncode != 0) == expected_failure})
             except subprocess.TimeoutExpired:
-                rows.append({'control': name, 'status': 'CONTROL_LIMIT_180_SECONDS'})
+                rows.append({'control': name, 'status': 'CONTROL_LIMIT_180_SECONDS',
+                             'expected_failure': expected_failure, 'expected_outcome_matched': False})
     for packet in PACKETS:
         command = [sys.executable, '-B', str(root / 'scripts/check_progress_experiment.py'),
                    'check', '--packet', packet, '--cache', str(root / '.cache/progress-ci'),
@@ -63,6 +67,8 @@ def main():
     (output / 'SUMMARY.json').write_text(json.dumps({
         'scope': 'Signature evidence or exact first blocking error, not production admission.',
         'source_syntax_vs_elaborated_type_automatic_matcher_implemented': False,
+        'controls_all_as_expected': all(r.get('expected_outcome_matched', False)
+                                        for r in rows if 'control' in r),
         'packets': rows,
     }, indent=2) + '\n')
 

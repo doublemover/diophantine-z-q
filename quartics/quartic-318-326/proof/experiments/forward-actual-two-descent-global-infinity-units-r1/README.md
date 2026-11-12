@@ -1,0 +1,9 @@
+# Whole original infinity chart units and actual cubic scheme cover
+
+Seven new modules extend all1216 predecessor sources unchanged. The new key fact is GLOBAL, not just local at infinity: the original chart factor f=1−2nu²+3n²uv is a unit on the entire Y=1 chart. Write f=1+u*b and use u³=v*f. Its explicit inverse is1−ub+u²b²−v*b³. Thus v=e*u³ globally. For the three actual original roots, u−a*v=u*d with d also a GLOBAL chart unit: the two nontrivial factors multiply to e. This does not assert global invertibility for arbitrary a.
+
+Consequently the actual whole-chart origin ideal is(u), every root numerator ideal is the same origin ideal, and(v)=(u³). The earlier original named rootFunction, under the produced native field equivalence, satisfies rootFunction*u²=image(rootPoleUnit), where rootPoleUnit belongs to the ENTIRE chart unit group. This supplies genuine whole-chart data needed for the projective divisor calculation.
+
+The actual affine/infinity coordinate rings are glued through their literal overlap equivalence using the native SCHEME pushout. Both chart maps are open immersions, cover every scheme point, and preserve the original base. The original infinity evaluation defines a section. Both the actual affine root ideal and actual infinity origin ideal become the unit ideal in the SAME overlap ring, with explicit original y/v witnesses.
+
+The module-sheaf descent and Ta−O tensor-square identity are NOT yet constructed, so no completed projective Cartier-divisor theorem is claimed. No separate Proj(P² cubic) comparison,properness/smoothness theorem,O(2O) theta group or geometric Weil pairing is inferred merely from this gluing. Brauer/local invariants/global reciprocity,Cassels–Tate/rank/four-point conclusions remain open. All statements retain actual original rings/maps; no local Lean or profiling and no cap increases.

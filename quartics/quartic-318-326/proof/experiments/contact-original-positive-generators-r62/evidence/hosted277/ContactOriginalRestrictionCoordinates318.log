@@ -1,0 +1,89 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r47/ContactOriginalRestrictionCoordinates318.lean:84:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r47/ContactOriginalRestrictionCoordinates318.lean:107:2: error: Type mismatch
+  OriginalFiniteBasisBaseChange318.coordinates_unit OriginalLaurentProjectiveOverlap318.finiteHom (finiteSections c L) m
+    i
+has type
+  (OriginalFiniteBasisBaseChange318.coordinates OriginalLaurentProjectiveOverlap318.finiteHom (finiteSections c L))
+      (1 ⊗ₜ[Polynomial ℚ] m) i =
+    OriginalLaurentProjectiveOverlap318.finiteHom (((Module.finBasis (Polynomial ℚ) ↑(finiteSections c L)).repr m) i)
+but is expected to have type
+  (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.finiteHom).unit.app
+            (finiteSections c L)))
+        m)
+      i =
+    LaurentOriginalPolynomialCharts318.finiteMap ((Module.finBasis (Polynomial ℚ) ↑(finiteSections c L)).equivFun m) i
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  LaurentOriginalPolynomialCharts318.finiteMap ↦ 25
+  OriginalFiniteBasisBaseChange318.coordinates ↦ 13
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r47/ContactOriginalRestrictionCoordinates318.lean:124:4: error: Type mismatch
+  OriginalFiniteBasisBaseChange318.coordinates_unit OriginalLaurentProjectiveOverlap318.infinityHom
+    (infinitySections c L) m i
+has type
+  (OriginalFiniteBasisBaseChange318.coordinates OriginalLaurentProjectiveOverlap318.infinityHom (infinitySections c L))
+      (1 ⊗ₜ[Polynomial ℚ] m) i =
+    OriginalLaurentProjectiveOverlap318.infinityHom
+      (((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).repr m) i)
+but is expected to have type
+  (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+            (infinitySections c L)))
+        m)
+      i =
+    LaurentOriginalPolynomialCharts318.infinityMap ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun m)
+      i
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  LaurentOriginalPolynomialCharts318.infinityMap ↦ 36
+  OriginalFiniteBasisBaseChange318.coordinates ↦ 13
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r47/ContactOriginalRestrictionCoordinates318.lean:116:83: error: unsolved goals
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(infinitySections c L)
+hi :
+  (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+      ((ConcreteCategory.hom
+          ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+            (infinitySections c L)))
+        m) =
+    LaurentOriginalPolynomialCharts318.infinityMap ((Module.finBasis (Polynomial ℚ) ↑(infinitySections c L)).equivFun m)
+⊢ (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+      ((ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv.symm
+        ((ConcreteCategory.hom (ContactCommonLaurentModule318.infinityIso c L).hom)
+          ((ConcreteCategory.hom
+              ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+                (infinitySections c L)))
+            m))) =
+    (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+      ((ContactCommonLaurentModule318.infinityIso c L ≪≫
+            (ContactCommonLaurentModule318.finiteIso c L).symm).toLinearEquiv
+        ((ConcreteCategory.hom
+            ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+              (infinitySections c L)))
+          m))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r47/ContactOriginalRestrictionCoordinates318.lean:129:46: warning: This simp argument is unused:
+  Iso.trans_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    LinearEquiv.symm_apply_apply, ContactCommonLaurentModule318.transition, Iso.symm_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r47/ContactOriginalRestrictionCoordinates318.lean:129:61: warning: This simp argument is unused:
+  Iso.symm_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition, LinearEquiv.trans_apply,
+    LinearEquiv.symm_apply_apply, ContactCommonLaurentModule318.transition, Iso.trans_hom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

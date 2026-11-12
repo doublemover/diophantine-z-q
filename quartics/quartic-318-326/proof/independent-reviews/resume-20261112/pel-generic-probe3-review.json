@@ -1,0 +1,74 @@
+{
+  "reviewer": "advance_point_geometry",
+  "status": "BOUNDED_DIAGNOSTIC_REPLAY_SOURCE_ACCEPTED_HOSTED_PENDING",
+  "packets": [
+    {
+      "packet": "pel-original-generic-binder-original-probe-r3",
+      "intake_sha256": "f9bf4c580a5b3ee0b9893e5aad997be75d490312e8b91b21b9a665daa74011e2",
+      "application_sha256": "b7da2e0077ebb6dd471e72a0e41ec6182f31e7bb6680f11210761dc74a5b4c1e",
+      "sole_changed_source": {
+        "FourRootInfinityGraph318.lean": {
+          "before": "2b7ade5fae884a5f8f7e55cb50bea606870de3edd9b15b331e013f55e158f49e",
+          "after": "958416901846eebe760fbc535625cbf63ec850a48cf697d524acb2744458a20c"
+        }
+      },
+      "unchanged_predecessor_sources": 26,
+      "static_admission": "PASS27",
+      "generic_field_sha256": "3522dee8f74dbf4f3b78af2e74c94d84c5e52fa813ed372e7b556dafaf72e4ac",
+      "control_files": {
+        "diagnostic-controls/BinderExpectedFailure318.lean": "eab67891a04fb15161be800845f87979a3e3069ee8a94af31879b8b6c45df36e",
+        "diagnostic-controls/BinderControls318.lean": "e71f1cc1aefa3d767f5459b6bf40b842b9a9ef0a95cb2d77caa743351f0dd928",
+        "diagnostic-controls/BinderLocalInstanceExpectedFailure318.lean": "3095ba33507f6a605fa9e38d271155f4404b0dc3722ff93a5d6ab23ec6ce5683",
+        "diagnostic-controls/EXPECTED_SOURCE_BINDERS.json": "40b4cff4f5780a321a093b4d1dc25bc196066be3a0c25267ad8012d6a626616e"
+      },
+      "diagnostics": {
+        "HOSTED322_NEGATIVE.log": "95f9c2817ab57d59d93afe072164ea201c43e44701fd8c99f327cb7a02124e7f",
+        "HOSTED322_CONTROLS.log": "ebaf924258331ecd2dc3563a33f6724a7eb4f14ee10a74e445c07ac6e4e7d541",
+        "HOSTED322_REPAIR.json": "f7ce611f5f151073e0284955b15798e9cf09163884acd93dcc79f077404e9a92",
+        "HOSTED322_GRAPH.log": "0606469a956e412756a1cc2dda53a6b6539f1eade4775ae806d8408e2a5c5400"
+      }
+    },
+    {
+      "packet": "pel-original-generic-binder-included-probe-r3",
+      "intake_sha256": "e25db877e8d9753556508234e59623d275483a9398bd985f0a1f8724f0e08cea",
+      "application_sha256": "780c94b70039e0013eba18b2ddd250749bb526da276af8d7a4e87d7576e5957b",
+      "sole_changed_source": {
+        "FourRootInfinityGraph318.lean": {
+          "before": "2b7ade5fae884a5f8f7e55cb50bea606870de3edd9b15b331e013f55e158f49e",
+          "after": "958416901846eebe760fbc535625cbf63ec850a48cf697d524acb2744458a20c"
+        }
+      },
+      "unchanged_predecessor_sources": 26,
+      "static_admission": "PASS27",
+      "generic_field_sha256": "c5eb7003a66c8e8ef7bee1a84abbb19b5c3f15068b8aff4e557fa0900249c932",
+      "control_files": {
+        "diagnostic-controls/BinderExpectedFailure318.lean": "eab67891a04fb15161be800845f87979a3e3069ee8a94af31879b8b6c45df36e",
+        "diagnostic-controls/BinderControls318.lean": "e71f1cc1aefa3d767f5459b6bf40b842b9a9ef0a95cb2d77caa743351f0dd928",
+        "diagnostic-controls/BinderLocalInstanceExpectedFailure318.lean": "3095ba33507f6a605fa9e38d271155f4404b0dc3722ff93a5d6ab23ec6ce5683",
+        "diagnostic-controls/EXPECTED_SOURCE_BINDERS.json": "40b4cff4f5780a321a093b4d1dc25bc196066be3a0c25267ad8012d6a626616e"
+      },
+      "diagnostics": {
+        "HOSTED322_NEGATIVE.log": "95f9c2817ab57d59d93afe072164ea201c43e44701fd8c99f327cb7a02124e7f",
+        "HOSTED322_CONTROLS.log": "ebaf924258331ecd2dc3563a33f6724a7eb4f14ee10a74e445c07ac6e4e7d541",
+        "HOSTED322_REPAIR.json": "d62cecdfce5a5fb9ce04d00bebd9dfbe2085b626c68a942612bf9c5a8a398cc6",
+        "HOSTED322_GRAPH.log": "39e01e968edb7ac5f3add3f8b03bfc7cad4af5f28aa827a97a4aaa74e03653e9"
+      }
+    }
+  ],
+  "local_lean_run": false,
+  "kernel_acceptance": false,
+  "read_scope": [
+    "Exact two graph diffs, whole InfinityGraph parametrization and exact322 Prod.ext failure.",
+    "All three separated control source files, source binder expectations and exact322 mixed-positive/control diagnostic logs.",
+    "Current README/application interpretations and all bindings; independent source-byte comparison for both27-module closures."
+  ],
+  "findings": [
+    "Explicit change to (q.1, fun k => g k q.1)=q is the definitional target from Z, retaining original four coordinate equations and same near-center statement. Separate Prod.ext then rfl avoids premature first-coordinate elaboration. No premise/map/cap change.",
+    "Both respective GenericField files are byte-identical to their r2 versions. The included variant is not evidence of accepted hidden binder capture.",
+    "Exact322 errors stop both probes at InfinityGraph. No GenericField signatures were obtained; no conclusion about those inferred signatures can be drawn.",
+    "Mixed positive control exited1 because suppliedFact hp was an invalid instance with uninferable argument, then Fact synthesis failed. The printed forall p,p is not a kernel-accepted theorem or unsoundness evidence.",
+    "Separating that local-instance test as an expected-failure file is accurate. Seven other positive controls remain in their own file; direct proof-only and explicit-omit negatives remain unchanged. Exit statuses and logs must be recorded separately.",
+    "No automated source-syntax/elaborated-type matcher is implemented or claimed. No local Lean run."
+  ],
+  "accepted_scope": "Bounded graph coercion replay plus corrected diagnostic control classification, not mathematical acceptance or GenericField signature evidence."
+}
