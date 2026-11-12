@@ -1,0 +1,52 @@
+{
+  "reviewer": "advance_prime_witnesses",
+  "author": "advance_jacobian_descent",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "SCOPED_SOURCE_ACCEPTED_HOSTED_KERNEL_PENDING",
+  "packet": "relative-original-isom-whole-basechange-r1",
+  "application_sha256": "af6d3fc4556172b294dc7137a2bdbfe65d34f438229890b78b235dc71ba6a965",
+  "intake_sha256": "b6737c4f1591af875b22803a6e6bcd4767aecdb79c4d765e94171d9506cc3b8f",
+  "new_sources": {
+    "WholeSchemeFiberParameterPoints318.lean": "541cc303e3e95e9aaca6ba07ad56b53d22cfbee4f0b6969df5863d0669eac589",
+    "ContactOriginalIsomBaseChangedParameter318.lean": "98c113c561d5651444fb659408f0d6521626dd478da8a516dcd5dddd712c7d8c",
+    "ContactOriginalIsomBaseChangeNaturality318.lean": "f19548ce7b964ce2fa26b26ec399b0b498ca269616ee99e64134ee359971db2f",
+    "ContactOriginalIsomBaseChangedUniversal318.lean": "d8aafa155db0cfd4b48c862f2c7aa0c51373fb456a41d087e237926da6067367"
+  },
+  "metadata": {
+    "README.md": "13d430045be927c69bf616dd1ae6fb13348f05a0043be1e949ed79b8cb3c89ab",
+    "APPLICATION.md": "8f19baa693217e698801c710c892b5b571afa427c7fa6a8f9e0f2afa4796e728",
+    "COPY_BINDINGS.json": "ebebb1a4b2af2844c0294cb510ddadac8269be4c6186e08e84d4ada11b5db0c1",
+    "INHERITED-METADATA.md": "48d31f5b6bb32a13f842de299c92309e5868a914c2199128900b0851d792d867"
+  },
+  "actual_consumer_sources": {
+    "ContactWholeIsomNaturality318.lean": "e7f4bb92c9168a25978769835e2768fa5b0eda4c164a5c587889db7cf851f588",
+    "ContactWholeIsomPointEquivalence318.lean": "ea91d88348eefcf85866f1d99ff135520809015551756f9595a3a2f65131a36e",
+    "ContactUniversalOriginalIsom318.lean": "5dd7cc59d33b0974435625b640368efa796cf9b9a2460e34c2bbb26d2682fedb",
+    "OriginalPulledDifferencePath318.lean": "5ec207a11d2f3a7a7b281737e5149b01f954483768d3db01488a0412d7e98565",
+    "ContactGeometricIsomRelationWitness318.lean": "451d272b5c38b085c4fc46af38a7358be773e4bd9088c2cbee2cd7e729fc89e6"
+  },
+  "native_pullback_primary": {
+    "groupoid8-primary/HasPullback.lean.txt": "145cc6ab399afaeffd0d108ee918debb82ab3cd5c6219371c67bf532e4bab5b0",
+    "groupoid8-primary/PRIMARY-SOURCES.json": "dfd965253a4801232cffff9d4b7d9117450fcff34e74350d950ce862cbdc6bd6"
+  },
+  "unchanged_predecessor_sources_verified": 1228,
+  "source_admission": "PASS_1232_MODULES",
+  "scope_checks": [
+    "Read all four new modules, all nine application obligations and README, together with the exact old whole-Isom equivalence, native coefficient pullIso/classify/recovery, original pointOfIso parameter and universal full Isom. Verified the entire corrected groupoid predecessor is unchanged; this is fresh review of the new base-change application, not reuse of prior acceptance for a changed route.",
+    "The generic point equivalence uses the actual scheme pullback q times t. ToFun is first projection; inverse is native pullback.lift with the original structural equation. Both inverse laws use full pullback.hom_ext/lift_fst/lift_snd, including the second projection equation in the correct orientation. Naturality is actual composition, not an inferred field-point equivalence.",
+    "The new parameter is literally P(L,K) times_SpecR T and its structure is the second projection. Its full Isom equivalence composes the geometric point equivalence with the SAME old whole-scheme full line-Isom equivalence over s composed with t. First projection of classify is exactly old pointOfIso and second is exactly s. No new classifying premise or surrogate line module is introduced.",
+    "For every actual h:S-prime to S over T, the coefficient equality h composed with (s composed with t)=s-prime composed with t is supplied explicitly. New pullIso is the existing native module pullback along that original coefficient curve map. Classifier naturality is proved by both geometric pullback projections; recovery follows from the exact inverse equivalence. No affine, reduced, flat or nonempty-test restriction is smuggled in.",
+    "The universal full isomorphism is recovered from the identity point of the SAME pulled parameter. universal_is_original_pullback identifies it with native pullback of the old universal along the actual first projection and native pullback.condition. The identity-first-projection calculation uses the exact old equivalence; it does not assert equality of unrelated universal objects.",
+    "For every whole S over T, recovery naturality specializes to the parameter map to prove full universal pullback equality. The exact bijection gives existence and uniqueness with the original classifier, so all full original isomorphisms are represented after arbitrary whole coefficient base change.",
+    "Scope remains the fixed original pair after base change. This does not say every varying line on the new nonaffine family descends from the original pair, construct a represented object space, prove an effective/flat/smooth Picard quotient or a Jacobian/norm globalization. Named Over-presheaf packaging remains separate.",
+    "Independently checked all final source/application/binding hashes, all 1228 exact predecessor files and 1232 static admission. Read pinned native pullback lift/projection/condition/hom_ext APIs. No local Lean/profiling or finite numerical surrogate was used. Known inherited restriction-unit and Iso spelling repairs are separate successor work and not silently included in this frozen packet."
+  ],
+  "remaining": [
+    "Hosted elaboration/kernel and axiom validation remain pending, including exact projection/path definitional reductions and universal pullback rewrite.",
+    "Known inherited hosted323 and native spelling repairs belong to separate bounded successor; static source review does not assert this frozen inherited closure compiles.",
+    "No arbitrary varying-line descent, global atlas/effective quotient, Picard/Jacobian representability or complete quartic/arithmetic theorem."
+  ],
+  "finite_regression": "Not applicable to abstract scheme/module base change; none claimed.",
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}
