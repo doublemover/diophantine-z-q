@@ -1,0 +1,68 @@
+{
+  "reviewer": "/root/advance_global_arithmetic",
+  "author": "/root/advance_pel_identification",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_HOSTED_KERNEL_PENDING",
+  "packet": "pel-original-character-ordered-biholomorph-r1",
+  "application_sha256": "d033747e9d698b4c148ece6acbf35b324ae5dee6ad5c935957dfb0de943b9b02",
+  "intake_sha256": "034a5583f67b0250d4e5627cb732af84eaa8e7083543944831a8c4ee1904ae25",
+  "scope": "Biholomorphism from original CharacterBase to independently completed FIXED ordered Legendre curve, with actual whole Scheme source square and original atlases. No numerical j or published quartic identification.",
+  "new_sources": {
+    "LegendreCurveFiniteGermHolomorphy318.lean": "218103a1b3f41db7ce113ba5f1eb73d635c0297b09f586595ff40b3c6208565a",
+    "PELOriginalOrderedRegularHolomorphy318.lean": "2721f4a98e3ac193009748472ae9c771609b031905318d943dd49868b56dca21",
+    "PELOriginalCharacterRegularLocalHomeomorph318.lean": "ea2045dac3e58f00471c0b152b3673f1a487f54ae6984b995e336721e85e7edd",
+    "ComplexCurveHolomorphicDescent318.lean": "23688a12e3ab311e580f27cf457c8ae358ad720dfdaf02ae0514f5dcf731a53a",
+    "PELOriginalOrderedCharacterBiholomorph318.lean": "f0503db99d776a23133839b1ddae446215662a66f7875002f0d2a62a75633aa0"
+  },
+  "changed_sources": {},
+  "actual_consumers": {
+    "PELOriginalOrderedCharacterPointEquivalence318.lean": "48475ebd279cbfb3760472bea54a424f72e3f933000e8d5e4ef9a101a0543d0d",
+    "PELOriginalOrderedCharacterPointMap318.lean": "38db47483e5dea399270613dd4c508bb5b7fe7d94d4b870888902e79aca1267a",
+    "PELOriginalWholeCharacterMorphisms318.lean": "d531dbc1b7fbe6458281e7ecb95a378264797906de153eb7b823063193bd07d0",
+    "PELOriginalCharacterInfinityMaps318.lean": "a671a181b96d9814a154ec9833540ab6e30c1180b31ff2b175f90a5c2ae6af96",
+    "PELOriginalCharacterTopology318.lean": "8f147029e4057553daf37f0cd9033b9d7b121088d974428bd7f4d24d7482a793"
+  },
+  "primary_sources": {
+    "HOLOMORPHY-PRIMARY/PELOriginalCharacterComplexAtlas318.lean": "8742f5cb294fd83369abf5555118606e498d2079362f5e4f3c6a7a094b8b4c15",
+    "HOLOMORPHY-PRIMARY/ComplexCurveOpenMapping318.lean": "8f5d416f4e4d6701922c9964383aa7e19523084ede1af33f7a93f0e8e337d041",
+    "HOLOMORPHY-PRIMARY/PELOriginalContactRootHolomorphy318.lean": "4d4bd461308430d0059311730eb2173d2cbc7586ed616514cbd1f15c2c613c38",
+    "HOLOMORPHY-PRIMARY/ComplexCurvePartialInverse318.lean": "032ac3ef1a2fd2c266ea069a518295eb79dae74bb186efc3b9d1a5e3e14bc8ab",
+    "HOLOMORPHY-PRIMARY/LegendreNativeGermHolomorphy318.lean": "5b1308d17a0bd1de2ac067d2df96f5b0b61dda9fb716589daba663347e0f6f5a",
+    "HOLOMORPHY-PRIMARY/ComplexCurveHomeomorphInverse318.lean": "d733011f5fed167cba8f34d2c79ff293b74edc51fbfaf484923ef8bd9889ca6f",
+    "HOLOMORPHY-PRIMARY/PELOriginalCompletedContactContinuity318.lean": "840d197622afa0f64d64c1d21467ae05b61a209c4d4541884b74cfcc9da59ba4",
+    "HOLOMORPHY-PRIMARY/IsLocalHomeomorph.lean": "8496e09f532c252aeea27b6ce9b406377694248df9baf3b6b6dd64f2d57edb06",
+    "HOLOMORPHY-PRIMARY/PELOriginalCharacterLocalSquare318.lean": "2db2bec33e4d3d464eca11577b78c5bd516fbea7e301ff03e63d31a0fcb260a3",
+    "HOLOMORPHY-PRIMARY/FourRootNativeGermHolomorphy318.lean": "c5d3a35c995a3c811ba1d6e7afb631be68415583728cf76c801995443abe8aeb",
+    "HOLOMORPHY-PRIMARY/DenseTargetOpenComparison318.lean": "a4ae3dd859f8a74dd8c6adb2c7c848ebd0d83fa60e70117907e86624f38c7b6f",
+    "HOLOMORPHY-PRIMARY/PELOriginalCharacterChartLift318.lean": "70bca6c590cccdfc215ab4f004236291a0d339fa32add9222e8abbf1ac7d8101",
+    "HOLOMORPHY-PRIMARY/ComplexCurveRemovablePoints318.lean": "8bdd3494ecb51612226b52c80e91cfc8f0f39ea10e0b2b15e2fc00f13328a350"
+  },
+  "evidence": {
+    "README.md": "8bf304e18bae917816a8ad8e738be4d995d9ae81c7bb59d51a6568ee2c58e6ee",
+    "DERIVATION.md": "3128f1cc74be154c387d022d24acc6d854c2548b6d9c6010284c24eae69a10b2",
+    "intake.json": "034a5583f67b0250d4e5627cb732af84eaa8e7083543944831a8c4ee1904ae25",
+    "COPY_BINDINGS.json": "4fa59c70ee48294ee87e44e576ff7aa40070998f811f86c74887849892f7569e"
+  },
+  "checks": [
+    "Finite holomorphic coordinates are proved in the unchanged native maximal atlas using both coordinate germs; original regular source germs retain the same ordered polynomial map. Actual regular source quotient composite is identified through the prior finite chart square.",
+    "On the actual regular source, the old free chart proves local injectivity of the original character quotient; continuity and openness give the native local homeomorphism. Pinned IsLocalHomeomorphOn explicitly supplies global forward-function equality with each partial homeomorphism, so the heq rewrites in holomorphic descent are valid.",
+    "Holomorphic inverse of the local partial homeomorphism is produced using the existing analytic chart inverse theorem, not assumed from nonvanishing derivative. This descends the holomorphic composite to the same character comparison.",
+    "Every point outside the actual exceptionalImage has a regular source representative. The exact finite exceptionalImage includes visible and omitted inertia; the inherited T2 source gives the T1 condition needed for finite-exception removability. The independently proved full continuity supplies all exceptional points, including infinity.",
+    "The resulting map is the exact prior point equivalence. Actual injectivity excludes locally constant germs, the existing complex open-mapping producer gives openness, and the existing inverse theorem gives holomorphy of the inverse. The final whole-source square retains literal composition with the original Scheme morphism.",
+    "All new source declarations and proofs, all nine application obligations, README and DERIVATION read. Actual predecessor producers and native API statements checked, not merely import names.",
+    "All source/evidence/primary hashes independently verified, predecessor closure compared byte for byte, structural admission and audit self-tests passed. Structural admission is not elaboration or mathematical proof.",
+    "Requested three bounded proof-only hardenings: final rewrites followed by unconditional rfl are now rw [...] <;> rfl in finite_square, infinity_square and actual_source_square. Corrected chart-square source is copied identically into the second closure. No statement or hypothesis changed.",
+    "No local Lean build, elaboration or profiling. Acceptance is scoped source review only; hosted kernel verification remains pending."
+  ],
+  "structural": {
+    "sources": 1169,
+    "unchanged_predecessors": 1164,
+    "direct_baseline_dependencies": 87,
+    "external_imports": 256
+  },
+  "remaining_boundaries": [
+    "No published quartic/numerical j identity established by this batch.",
+    "No group law, polarization or algebraization comparison inferred.",
+    "No whole arithmetic theorem or kernel acceptance claimed."
+  ],
+  "local_lean_run": false
+}

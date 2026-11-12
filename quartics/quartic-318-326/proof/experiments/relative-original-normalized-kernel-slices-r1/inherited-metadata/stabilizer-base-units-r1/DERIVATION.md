@@ -1,0 +1,15 @@
+# Existing source arguments and new exact applications
+
+ProperChartConstants318 is the historical generic producer: a proper integral source with a genuine open affine chart whose scalar extension to the algebraic closure is a domain has exactly structural field constants. Its proof uses actual appTop integrality,actual chart restriction injectivity and GeometricIntegralConstants318. The new application supplies the SAME original normalization and chart for every c,using model_integral,source_domain,proper_integral_extension and SourceScalarExtension.scalarExtension_domain. It does not replace the source by a component or impose a rational section.
+
+UniversalStructurePushforward318 is also historical. It uses the library's actual global-section pushout under a flat coefficient map,then the full affine basis and sheaf isomorphism criterion. Its source is affine and proper;its coefficient morphism is flat. Here the source base is Spec Q,so EVERY whole coefficient scheme is a permitted flat test. The input appTop is the one just proved,not a cohomological dimension heuristic.
+
+The original full-Isom objects live on pullback(p_R,b). Reuse RelativeAmbientReassociation318.comparison of this exact family with pullback(p_Q,b>>baseMap R),including its exact second projection. Contravariant appTop composition transports the actual isomorphism. This avoids the invalid claim that b itself is flat. The inverse ring equivalence gives the canonical base-unit classifier,with both unit inverse laws and literal structural forward map.
+
+OriginalModuleScalarPullback318 supplies the actual pullback of scalar multiplication for all module sheaves. The current original line scalar classifier then gives the current full automorphism-unit pullback formula. The path transport used by full-Isom naturality is a native pullback surrounded by the exact original path associator;current automorphism_conjugation proves that associator does not change the scalar.
+
+Combine the exact original point recovery naturality with this scalar formula. The square of actual source-family projections gives the structural units square. Applying the injective structural-units equivalence proves naturality of BASE units without chosen coordinates. Composition follows current value_multiplication and original point recover_composition.
+
+Transport the old actual shear equivalence through the proved base-unit equivalence;its inverse supplies a unique scalar between every two original Isom points. No point of an empty Isom space is selected. Actual coefficient naturality follows the already proved original point-composition naturality and the inverse base-unit classification square.
+
+On Over(Spec R),the unit presheaf uses actual appTop along every base arrow. The original stabilizer's Over-points are exactly the old Points subtype by explicit Over.homMk and both inverse identities. Assemble the point/unit equivalences with actual coefficient naturality into a NatIso from Yoneda of the SAME stabilizer scheme to this units functor. This is genuine natural representability of the relative unit functor,not geometric representability of the Picard quotient.
