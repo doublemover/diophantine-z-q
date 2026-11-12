@@ -1,0 +1,25 @@
+{
+  "reviewer": "restore_and_integrate",
+  "author": "advance_jacobian_descent",
+  "packet": "relative-original-isom-open-restriction-repair-r1",
+  "status": "ACCEPTED_BOUNDED_SOURCE_REPAIR_HOSTED_PENDING",
+  "application_sha256": "21bd23c505e78849efe8b1639b77b61236216e94d76751e7a83546b21b624af0",
+  "intake_sha256": "78c5d16a0525271fe151f7b7b4a323837766f1e3a392f7937431d165a879c1e4",
+  "changed_source_hashes": {
+    "OriginalOpenLineRestrictionUnit318.lean": "166957aeddf3dfa33137553e730e710ced8010ca30ed64e672eb926516a13884",
+    "OriginalTensorUntwistRefinement318.lean": "9fe1d21a24084316d72e840b53d0f98032cd38f5a643a1b6f1c824dda5fd32eb",
+    "OriginalFrameCoordinateExt318.lean": "f9c9a772059d268724d48b2bcc98bf8ee8fd5981970da7e123bf7f1ea785da2b",
+    "OriginalTensorFrameRefinement318.lean": "1d54e734438cac28b85a4f0b458e1dfd6b06b690881605fb394d20b94bfc0def"
+  },
+  "unchanged_predecessor_sources": 1228,
+  "structural_sources": 1232,
+  "review": [
+    "Read full hosted323 OriginalOpenLineRestrictionUnit error log, entire changed source, original unit comparison and native TildePullback.globalNatIso functor definition, plus all three spelling-only source contexts.",
+    "Native restriction unit inverse now explicitly maps hom_inv_id_app and actual functor map_id, then composes with same restriction unit. Same adjunction iso and unit, no replacement maps.",
+    "Explicit globalNatIso naturality type has exactly pushforward then moduleSpec sections on left and scalar restriction of actual sections on right. Congruence with original pullback-unit map, composition functor law and previously proved inverse-unit equality finish the unchanged normalization.",
+    "Three separate preflight changes replace only nonexistent Iso.symm_symm with pinned native Iso.symm_symm_eq. These are API spelling repairs, not additional hosted failures. Inherited groupoid new-source spelling had already been corrected separately.",
+    "No statement, native comparison direction, inverse, scalar action, options or budgets changed. Substantive whole-basechange4 predecessor requires its separate review before integration.",
+    "Independent structural admission and exact unchanged predecessor comparison passed. Source-level bounded acceptance only; no local Lean or downstream kernel acceptance."
+  ],
+  "local_lean_run": false
+}
