@@ -1,0 +1,9 @@
+# Original ideal: native tensor inverse and exact square chart maps
+
+Six new sources preserve all1246 predecessors. The produced chart frames are transported via actual same-range open-immersion isomorphisms onto their ambient open images. Those three opens cover the ORIGINAL cubic scheme when n≠0. A native Line record now has object DEFINITIONALLY the old global ideal pullback. Actual one-generator frames produce its native IsLocallyFree instance/theorem.
+
+The existing exact cocycle/sheaf reconstruction machinery is applied to these produced original frames,constructing a genuine inverse line with both actual sheaf-tensor cancellation isomorphisms. Invertibility is therefore now established by a concrete tensor-inverse witness,not inferred from degree or dimension. This does NOT identify the inverse with the original line.
+
+The genuine sheaf tensor square is then restricted via native tensor/restriction compatibility. Its exact frame map on every subopen sends pure sections to the product of their original frame coefficients. Scaling by actual regular chart units yields actual isomorphisms to O on both affine principal opens and infinity. The affine factors are the already produced rootSquareUnit from g²=(x−a)*unit; infinity uses the inverse of the previously produced whole-chart pole unit from (x−a)u²=poleUnit. The exact pure-section formulas retain every factor.
+
+Remaining: prove these particular scaled maps agree on ALL intersections,using the actual earlier ideal/restriction normalization,then glue the root-function tensor-square isomorphism. Global self-inverseness,divisor identity,theta group and geometric Weil pairing are not claimed. Nor any Brauer/reciprocity/Cassels–Tate/rank completion. No local Lean; structural/source acceptance is separate from hosted kernel acceptance.
