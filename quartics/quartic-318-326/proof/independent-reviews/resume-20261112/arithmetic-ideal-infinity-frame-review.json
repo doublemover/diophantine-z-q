@@ -1,0 +1,44 @@
+{
+  "reviewer": "advance_pel_identification",
+  "author": "advance_global_arithmetic",
+  "packet": "forward-actual-two-descent-ideal-infinity-frame-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "e1a655a9d7d8254eb09d4432a6f6336c385158d6a2577a19efffccbfc78270f8",
+  "intake_sha256": "65d651c0d6b1e47f4a3c0bfe17934fc5e08eecbd191a45a708310168ce058e9a",
+  "new_source_hashes": {
+    "ActualTwoDescentLocalizedInclusionIsomorphism318.lean": "e698053efde3095ad6a3916bf51451683298d5560bf1999bdc78c9035e89e02e",
+    "ActualTwoDescentLocalizedTildeInclusion318.lean": "ae57a7e26f68dced2ffb6a3733123a739963a5ae0404891b7e8e9bba39bb1891",
+    "ActualTwoDescentOriginalOverlapInclusionIsomorphism318.lean": "02407d6668a84996913070527e7bff074034b922b3fab261fb099604462b4793",
+    "ActualTwoDescentFullOverlapMapRestriction318.lean": "11efac2febbb5746b5f98cfe572003ac4fe6d189fde942359b5634013ec8adae",
+    "ActualTwoDescentOriginalIdealInfinityFrame318.lean": "74087acd30453b05092ccba89a145b0366d2dbba06da73e1678a5d513b448177",
+    "ActualTwoDescentOriginalIdealEverywhereFramed318.lean": "6afbca17a20e51f4a2218ffedff60780f5b61c658a8e860921954859fb91acf8"
+  },
+  "unchanged_predecessor_sources": 1240,
+  "structural_sources": 1246,
+  "evidence_bindings": {
+    "README.md": "cfb80056bade027d5db817dee88ea17bf1ba34b365e71e98161840492f3083b5",
+    "DERIVATION.md": "ca201e585e217dfea0143d70461014fd3c6ea15c31b0dc5a03d2532732db54ce",
+    "SOURCE-COPIES.json": "52bd43a3f299c19858a7baefd7e3fad07bb762e93864f9bc90b465a6ee9682fb",
+    "GLOBAL-THEOREM-AUDIT.md": "1ba3f751da01ab1dc07f94598e895895aee0ab4574460806aaff1f71965f731e",
+    "IDEAL-INFINITY-PRIMARY/ChangeOfRings.lean": "09cbc9feba4de1928c9d75ebbfec432ebaeaa07f497f13a22531ff60ecca1cec",
+    "IDEAL-INFINITY-PRIMARY/ClutchedModule318.lean": "fb9f0e5f99572f47c72669d335642cf227d93d74eb34e274ab746a52f4e9ba61",
+    "IDEAL-INFINITY-PRIMARY/ClutchedModuleFrames318.lean": "2261124916b37d3c574a3c37f0b24fe9f6779b9e43ad4d7aa5785f9ff5beaf69",
+    "IDEAL-INFINITY-PRIMARY/PRIMARY-SOURCES.json": "4c22251220d2b0f83750b94199b081a6eea21a269ad3f7d6e5cd34d0c090c0da",
+    "IDEAL-INFINITY-PRIMARY/ScalarExtensionTensor318.lean": "d1b1b51c93c202338f6dc0e9a558179db989187598cfed428e9c2f07c634341c",
+    "IDEAL-INFINITY-PRIMARY/Sheaf.lean": "8badaa98b48210f93dec51390327d334f3efc40a99dd16b7c8200901ecbb7e7a",
+    "IDEAL-INFINITY-PRIMARY/TildePullback318.lean": "5796887e2929205ed290ce2ffb76ae32ddc84b877e064e2d431bb29760a1bed7"
+  },
+  "review": [
+    "Read all six new modules, nine application obligations, DERIVATION and README, native ChangeOfRings and scheme-module Sheaf restriction/pushforward APIs, baseline ScalarExtensionTensor/TildePullback/ClutchedModuleFrames, and actual old localization equivalence, root ideal inclusion, global module pullback, original chart intersection and three-chart cover consumers. Historical exact restriction/pullback templates are identified, not claimed as new.",
+    "The original categorical scalar-extension map is the literal ideal subtype inclusion. The native tensor comparison sends s tensor x to s*image(x); TensorProduct.rid gives the codomain value map. Injection follows from the localized ideal equivalence; surjection uses precisely ideal image equals top. This argument needs neither domain nor nonzero ideal assumptions. The localization monoid M, absent from the result, is explicitly included in both generic localization lemmas.",
+    "Checked the natural-isomorphism transport orientation F(f)=e_X.hom followed by G(f) followed by e_Y.inv. TildePullback.restrictionIso has exactly F=tilde then restrict and G=extendScalars then tilde. The actual tilde inclusion is retained, and its following tildeSelf is an isomorphism, not an arbitrary rank-one frame.",
+    "The original affine root ideal contains y, whose image has the explicit inverseY on the actual puncture, so its mapped ideal is top. The originalOverlapEquiv induces the contravariant Spec arrow into that puncture. RestrictFunctorComp transports the same inclusion to intoAffine, the full original overlap. No only-generic or field-point statement is substituted.",
+    "For every infinity subopen U, V=j preimage(k image U) lies in l.opensRange by the exact full-intersection equality. Thus l image(l preimage V)=V. Native restrictFunctor and pushforward map components have precisely the underlying map f.app V, and the isomorphism test quantifies every open U. This closes the top-section-only hazard without assuming source or target affine.",
+    "The actual affineIdealRestriction is the pushed literal root ideal inclusion followed by the original structure restriction. Both maps become invertible on the infinity chart. The exact finite pullback defining originalRootIdealSheaf is preserved by the inherited native restriction instance; the opposite matching arrow being invertible makes its actual infinityProjection invertible. The counit then produces a frame of that same global module.",
+    "Checked index coverage: the two Bool affine principal opens are exactly the previous RootChartRing cover, and the full infinity chart completes it. All scheme points, including nonclosed points and root loci, are covered when n is nonzero. n=0 is allowed in the localization/infinity-frame statements but not claimed in the final coverage theorem.",
+    "Fractional-ideal transition remains b/u and standard O(D) convention remains O(O-Ta); no divisor reinterpretation follows just from local frames. This packet establishes local rank-one framing of the actual module only, not its global tensor inverse, tensor-square map, Cartier divisor, theta group, Weil pairing or arithmetic duality.",
+    "Independently verified all 1240 exact predecessor bytes, all six hashes and evidence bindings, and 1246-module static packet closure. No local Lean compilation or profiling; hosted elaboration and axiom checks are pending. Ordinary elaboration/instance issues remain possible and source acceptance does not accept the entire inherited closure."
+  ],
+  "local_lean_run": false,
+  "validation_boundary": "Independent internal source/object/map/scalar/coverage review only; hosted kernel pending. No tensor-square, divisor, theta/Weil or global arithmetic acceptance."
+}
