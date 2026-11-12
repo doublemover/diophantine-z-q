@@ -1,0 +1,11 @@
+--- before/OriginalOpenLineRestrictionUnit318.lean
++++ after/OriginalOpenLineRestrictionUnit318.lean
+@@ -76,7 +76,7 @@
+       (moduleSpecΓFunctor.map ((Scheme.Modules.pushforward (Spec.map f)).map
+         ((Scheme.Modules.restrictFunctorIsoPullback (Spec.map f)).inv.app L.object)) ≫
+       (TildePullback318.globalNatIso f).hom.app
+-        ((Scheme.Modules.restrictFunctor (Spec.map f)).obj L.object) :=
++        ((Scheme.Modules.restrictFunctor (Spec.map f)).obj L.object)) :=
+       congrArg (fun a => moduleSpecΓFunctor.map
+         ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map f)).unit.app L.object) ≫ a) hn.symm
+     _ = moduleSpecΓFunctor.map
