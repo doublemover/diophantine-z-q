@@ -1,0 +1,24 @@
+{
+  "revision": "26595a60a0dfc5ee146b600a698b543faa67d36b",
+  "scope": "Every tracked .lean blob in exact branch commit, including archived and third-party copies; not untracked drafts.",
+  "tracked_lean_paths": 596285,
+  "unique_lean_blobs": 9577,
+  "unique_theorem_lemma_example_declarations_seen": 71373,
+  "selftests_passed": 10,
+  "candidate_blob_count": 820,
+  "candidate_count": 2841,
+  "limits": [
+    "Lexical advisory scan, not a Lean parser/typechecker or proof validation.",
+    "Only theorem/lemma/example with := and recognized line-leading commands; equation-style declarations are reported unsupported.",
+    "No macro expansion, namespace resolution, notation elaboration, typeclass dependency inference or exact lexical-shadow semantics.",
+    "Token use may be qualified name or local shadow; categories are candidates requiring source review, not confirmed errors.",
+    "Same-line scoped commands such as include hp in lemma ... are not recognized as declarations and may be omitted without an unsupported record.",
+    "Scoped variable (...) in is not modeled: its binders may leak into subsequent lexical candidates.",
+    "Qualified names such as Nat.x can match an unrelated section variable x.",
+    "This scan detects textual proof-only references, not hidden premises in elaborated types; automatic section/typeclass dependency capture requires hosted elaborated-type versus source-syntax inspection.",
+    "Passed scan cannot certify absence of omitted binders."
+  ],
+  "unsupported_records": 61,
+  "report_sha256": "d1aed944d741dcfe81dfea372e6ca48924e7297751148593f7d7fa006158eabf",
+  "scanner_sha256": "99dc47a853a1fca7edba81d646b5ab00dffa9fca9e490df9bcfaf01f30650e6d"
+}

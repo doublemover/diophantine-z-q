@@ -1,0 +1,75 @@
+{
+  "reviewer": "/root/advance_global_arithmetic",
+  "author": "/root/restore_and_integrate",
+  "status": "ACCEPTED_ADVISORY_ONLY_NOT_SEMANTIC_AUDIT",
+  "source": "scripts/audit_section_binders.py",
+  "source_sha256": "99dc47a853a1fca7edba81d646b5ab00dffa9fca9e490df9bcfaf01f30650e6d",
+  "scope": "Independent code/source review and bounded lexical fixtures. The scanner may be published only with its explicit heuristic limitations; its candidates are not confirmed Lean binder defects.",
+  "checks": [
+    "Read entire scanner source, exact committed Git blob collection and deduplication, comment-stripping reuse, bracket-depth proof-separator handling, section environment tracking and dependency token closure.",
+    "Ten bundled controls rerun successfully. Additional nested target-let and default+let cases correctly retain hp in the signature.",
+    "Reproduced qualified-name false positive, same-line include/lemma silent omission and scoped variable-in leakage; author added explicit report limitations. These are accepted limitations of advisory triage, not silently treated as resolved parser semantics.",
+    "No local Lean, source rewriting, report-driven automatic edits or semantic declaration checks performed."
+  ],
+  "bounded_fixtures": {
+    "nested_target_lets": {
+      "rows": [],
+      "declarations": 1,
+      "unsupported": []
+    },
+    "default_and_let": {
+      "rows": [],
+      "declarations": 1,
+      "unsupported": []
+    },
+    "qualified_name": {
+      "rows": [
+        {
+          "declaration": "t",
+          "line": 2,
+          "variable": "x",
+          "variable_type": "Nat",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "t : True"
+        }
+      ],
+      "declarations": 1,
+      "unsupported": []
+    },
+    "same_line_include": {
+      "rows": [],
+      "declarations": 0,
+      "unsupported": []
+    },
+    "scoped_variable_in": {
+      "rows": [
+        {
+          "declaration": "t",
+          "line": 3,
+          "variable": "hp",
+          "variable_type": "p",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "t : p"
+        },
+        {
+          "declaration": "u",
+          "line": 4,
+          "variable": "hp",
+          "variable_type": "p",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "u : p"
+        }
+      ],
+      "declarations": 2,
+      "unsupported": []
+    }
+  },
+  "limits": [
+    "A complete traversal of tracked blobs is not complete semantic coverage of declarations.",
+    "Textual proof references may be qualified names, shadows or elaborated dependencies and cannot determine hidden premises in elaborated declaration types.",
+    "Source syntax, elaborated types, consumer visibility and intended hypotheses require separate hosted Lean probes/source review.",
+    "Do not gate mathematical acceptance or auto-edit theorem statements based on candidates; lexical absence does not certify correctness.",
+    "Branch report count arithmetic and every candidate were not independently re-audited in this bounded tool review."
+  ],
+  "requested_downstream": "Pair any actionable finding with exact source declaration, hosted elaborated type and actual generic-field consumer/probe. Keep candidates distinct from confirmed defects."
+}

@@ -1,0 +1,223 @@
+{
+  "packet": "pel-original-generic-binder-included-probe-r1",
+  "status": "DIAGNOSTIC_HOSTED_SIGNATURE_PROBE_PENDING",
+  "order": [
+    "SphereInversion318",
+    "ComplexSphereCharts318",
+    "ReflectedDiskJoukowski318",
+    "ReflectedDiskJoukowskiTopology318",
+    "ComplexSphereJoukowski318",
+    "ComplexCurveRemovablePoints318",
+    "BoundedVertexExtension318",
+    "AnalyticSquareRemovable318",
+    "FourRootInfinityExtension318",
+    "FourRootNormalizedPointCharts318",
+    "FourRootNormalizedOverlap318",
+    "FourRootGluedTopology318",
+    "AnalyticZeroLocusChart318",
+    "AnalyticEmbeddedCurveChart318",
+    "SquareRootAmbientGraph318",
+    "FourRootFiniteBranchGraph318",
+    "FourRootRegularGraph318",
+    "FourRootInfinityGraph318",
+    "FourRootFiniteComplexAtlas318",
+    "FourRootInfinityComplexCharts318",
+    "FourRootOverlapAnalytic318",
+    "FourRootCompletedComplexAtlas318",
+    "FourRootAffineCoordinateRing318",
+    "FourRootTensorUniversal318",
+    "FourRootAffineTensorPresentation318",
+    "FourRootActualGenericField318",
+    "GenericBinderAudit318"
+  ],
+  "new_modules": [
+    "GenericBinderAudit318"
+  ],
+  "files": {
+    "SphereInversion318.lean": {
+      "sha256": "5fe748402bd1e838078d2e01ee958dc4b6c9b4aed6011793209d115f3191840f",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Normed.Field.Lemmas",
+        "Mathlib.Topology.Compactification.OnePoint.Basic"
+      ]
+    },
+    "ComplexSphereCharts318.lean": {
+      "sha256": "ce0b667cb579cfef4e575c1725da4fb5035ae06d0bef359b1208af0e808afc85",
+      "imports": [
+        "Mathlib.Analysis.Calculus.FDeriv.Analytic",
+        "Mathlib.Geometry.Manifold.IsManifold.Basic",
+        "Mathlib.Topology.OpenPartialHomeomorph.Constructions",
+        "SphereInversion318"
+      ]
+    },
+    "ReflectedDiskJoukowski318.lean": {
+      "sha256": "acff2dd1a93f13e7e93b289c8986b4f5f4f4d74f72e1279495e3447fbeb66703",
+      "imports": [
+        "Mathlib.Analysis.Complex.Polynomial.Basic",
+        "Mathlib.Tactic",
+        "SphereInversion318"
+      ]
+    },
+    "ReflectedDiskJoukowskiTopology318.lean": {
+      "sha256": "013aa8757340178b2363bd3ebf7a3b410020d75ad6c9160c1ee15b0a9039c49f",
+      "imports": [
+        "Mathlib.Topology.Homeomorph.Lemmas",
+        "ReflectedDiskJoukowski318"
+      ]
+    },
+    "ComplexSphereJoukowski318.lean": {
+      "sha256": "bf8651a8800e29d540fe3b1bad1940c0cd38e7da52995f60a1d5c0eeb9a404b5",
+      "imports": [
+        "ComplexSphereCharts318",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+        "ReflectedDiskJoukowskiTopology318"
+      ]
+    },
+    "ComplexCurveRemovablePoints318.lean": {
+      "sha256": "8bdd3494ecb51612226b52c80e91cfc8f0f39ea10e0b2b15e2fc00f13328a350",
+      "imports": [
+        "ComplexSphereJoukowski318",
+        "Mathlib.Analysis.Complex.RemovableSingularity"
+      ]
+    },
+    "BoundedVertexExtension318.lean": {
+      "sha256": "9b2fe7598bac22739b3ff35443d3c11f4fbc3c207ce16319843e1021dd43d016",
+      "imports": [
+        "ComplexCurveRemovablePoints318"
+      ]
+    },
+    "AnalyticSquareRemovable318.lean": {
+      "sha256": "26963816780011e2d16f6ec4a2ba0fdbdf93d193ea7de822a2a9a1bc2e40baaa",
+      "imports": [
+        "BoundedVertexExtension318"
+      ]
+    },
+    "FourRootInfinityExtension318.lean": {
+      "sha256": "1e96030bb8e4cb62944bd619a51e20aaf97fb14616418b0424e424d1c22dcc99",
+      "imports": [
+        "AnalyticSquareRemovable318",
+        "FiniteAnalyticCharts318",
+        "Mathlib.Tactic.FinCases"
+      ]
+    },
+    "FourRootNormalizedPointCharts318.lean": {
+      "sha256": "d16357a4e4fac4067ca345f17a7994302bd474f9eac82738a081522248f5acf4",
+      "imports": [
+        "FourRootInfinityExtension318"
+      ]
+    },
+    "FourRootNormalizedOverlap318.lean": {
+      "sha256": "dd5d56252b5455ed9c30c6935827da68eb5a7766421adc7d8ebde8a6b219a563",
+      "imports": [
+        "FourRootNormalizedPointCharts318"
+      ]
+    },
+    "FourRootGluedTopology318.lean": {
+      "sha256": "ad4d82fd47fac97a93a52244be8089f30bae06313b0ecaabec30eaec3609c338",
+      "imports": [
+        "FourRootNormalizedOverlap318"
+      ]
+    },
+    "AnalyticZeroLocusChart318.lean": {
+      "sha256": "2abc77dbd76e0adf0c2dcc6667f58751b348850cb172c12c6178c8af6454277f",
+      "imports": [
+        "AnalyticImplicitGraph318",
+        "Mathlib.Topology.OpenPartialHomeomorph.Basic"
+      ]
+    },
+    "AnalyticEmbeddedCurveChart318.lean": {
+      "sha256": "cfd38af6ee2a222c4a2841edcd5d775bd36a0fdafc7444cdfb5d7b46509b6994",
+      "imports": [
+        "AnalyticZeroLocusChart318",
+        "Mathlib.Analysis.Analytic.Constructions"
+      ]
+    },
+    "SquareRootAmbientGraph318.lean": {
+      "sha256": "685f604f4141bc1dc3f0ee38f35b0d7b1e818329d154acd84471c97a20532997",
+      "imports": [
+        "LocalHolomorphicSquareRoot318"
+      ]
+    },
+    "FourRootFiniteBranchGraph318.lean": {
+      "sha256": "43c202d3183e68c8ff3c053411d3c5fa208d21c7bb1ecc6da6c6cd61c806eee9",
+      "imports": [
+        "FourRootNormalizedPointCharts318",
+        "SquareRootAmbientGraph318"
+      ]
+    },
+    "FourRootRegularGraph318.lean": {
+      "sha256": "8979185d0e4a537266bbbae77b8cd9276abbd0c02d12e00f7bb2c3637a37312e",
+      "imports": [
+        "FourRootFiniteBranchGraph318"
+      ]
+    },
+    "FourRootInfinityGraph318.lean": {
+      "sha256": "2b7ade5fae884a5f8f7e55cb50bea606870de3edd9b15b331e013f55e158f49e",
+      "imports": [
+        "FourRootRegularGraph318"
+      ]
+    },
+    "FourRootFiniteComplexAtlas318.lean": {
+      "sha256": "749a0b65684fc5c4de9158d4d9ae82e6cef194060f19bd04c77af5bc88be182b",
+      "imports": [
+        "AnalyticEmbeddedCurveChart318",
+        "FourRootInfinityGraph318",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace"
+      ]
+    },
+    "FourRootInfinityComplexCharts318.lean": {
+      "sha256": "a917e095b3735a5fcefd31b972b472cac90bc9b66d3d7a1281de3d1efe2afe1a",
+      "imports": [
+        "FourRootFiniteComplexAtlas318"
+      ]
+    },
+    "FourRootOverlapAnalytic318.lean": {
+      "sha256": "56dbfb2b38b379d8d813fd9007ce1f05dfc75c0da124f5d4ead70ef04c70d448",
+      "imports": [
+        "FourRootGluedTopology318",
+        "FourRootInfinityComplexCharts318"
+      ]
+    },
+    "FourRootCompletedComplexAtlas318.lean": {
+      "sha256": "830d2484bb3b41fe4755749bb736a166232b1c696db1696e2d794fdadd5f3cda",
+      "imports": [
+        "FourRootOverlapAnalytic318"
+      ]
+    },
+    "FourRootAffineCoordinateRing318.lean": {
+      "sha256": "3712a5f995aba626c34629a3fe9db246579d29fe25162feea3361ab69012e9f9",
+      "imports": [
+        "AffineEquationFunctor318",
+        "FourRootCompletedComplexAtlas318"
+      ]
+    },
+    "FourRootTensorUniversal318.lean": {
+      "sha256": "ce0a0b33affb71fdb1cf81fe4a988bd93a0e96a070d36191695cc3b1543016aa",
+      "imports": [
+        "FourRootSignBaseChange318"
+      ]
+    },
+    "FourRootAffineTensorPresentation318.lean": {
+      "sha256": "9f3f9c67359f4f1c35cd6ce0a7ccefa1511278e19754b33ab8f9d10e5bf105bc",
+      "imports": [
+        "FourRootAffineCoordinateRing318",
+        "FourRootTensorUniversal318"
+      ]
+    },
+    "FourRootActualGenericField318.lean": {
+      "sha256": "3bc8c941797fe14596a0a475495b0e18aee97b941bde0bab4d0dae95fecb6327",
+      "imports": [
+        "FourRootAffineTensorPresentation318",
+        "KummerTensorField318"
+      ]
+    },
+    "GenericBinderAudit318.lean": {
+      "sha256": "7014f92b3d2866892b9c91a41f7e286980143308791f76c95ed01d2246618225",
+      "imports": [
+        "FourRootActualGenericField318"
+      ]
+    }
+  }
+}

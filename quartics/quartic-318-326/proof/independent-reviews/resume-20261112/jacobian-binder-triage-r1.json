@@ -1,0 +1,242 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "kind": "Source-only binder triage, not kernel validation",
+  "entries": [
+    {
+      "blob": "1027d6ab373034b1836ab3ea79356b9412d6517c",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/ActualThickenedAffineUnitNorm318.lean",
+      "sha256": "c1be85045beb3bf5d8f319a0287dece65fa58eabef1a9b294607ca90436b11ef",
+      "status": "false_positive_explicit_statement_dependencies",
+      "candidates": [
+        {
+          "declaration": "determinant_agreement",
+          "line": 55,
+          "variable": "hU",
+          "variable_type": "IsAffineOpen U",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement [Nonempty U] {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        },
+        {
+          "declaration": "determinant_agreement",
+          "line": 55,
+          "variable": "hY",
+          "variable_type": "NormalAffineBasis318.HasBasis Y",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement [Nonempty U] {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        },
+        {
+          "declaration": "determinant_agreement",
+          "line": 55,
+          "variable": "hfinite",
+          "variable_type": "letI := AffineDominantNorm318.fieldAlgebra f\n      FiniteDimensional Y.functionField X.functionField",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement [Nonempty U] {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        }
+      ],
+      "reason": "determinant_agreement complete statement explicitly contains norm R p q f hY hfinite U hU; local IsAffine instances also use hU. All three binders remain in the theorem type."
+    },
+    {
+      "blob": "4b2af8dff4e075549bb4d55e7855d5db86c26bf8",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/InjectiveCoverGauge318.lean",
+      "sha256": "494548e95e25c4b532de61d48123b505f12f7397666a2c3ebc0a80ae17578e5c",
+      "status": "false_positive_shadowed_proof_binder",
+      "candidates": [
+        {
+          "declaration": "related",
+          "line": 42,
+          "variable": "hd",
+          "variable_type": "(projection X).hom.app (op \u22a4) d = s - t",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "related (h : boundary X t = boundary X s) :\n    AdditiveDeformationClasses318.Related X U (cocycle a) (cocycle b)"
+        }
+      ],
+      "reason": "related proves its own boundary-zero relation and obtains a fresh local d,hd from boundary_zero_iff; the section hd is not needed and should not be included."
+    },
+    {
+      "blob": "7b1617aa91d31c2aca51a90b14c985d54be009e7",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/OriginalAllOpenDualNorm318.lean",
+      "sha256": "22068011c96964a96807e5a22f243481ae685f40f3b41b74c2c432789b44f5b9",
+      "status": "false_positive_explicit_statement_dependencies",
+      "candidates": [
+        {
+          "declaration": "determinant_agreement",
+          "line": 41,
+          "variable": "hY",
+          "variable_type": "NormalAffineBasis318.HasBasis Y",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement (U : Y.Opens) (hU : IsAffineOpen U) [Nonempty U]\n    {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        },
+        {
+          "declaration": "determinant_agreement",
+          "line": 41,
+          "variable": "hfinite",
+          "variable_type": "letI := AffineDominantNorm318.fieldAlgebra f\n      FiniteDimensional Y.functionField X.functionField",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement (U : Y.Opens) (hU : IsAffineOpen U) [Nonempty U]\n    {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        }
+      ],
+      "reason": "determinant_agreement norm f hY hfinite U explicitly consumes both binders in the stated left side after letI telescope."
+    },
+    {
+      "blob": "dd2c394424379b448372b6bbb44c40abc953e119",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/OriginalThickenedUnitSheafNorm318.lean",
+      "sha256": "777dd394c4fd5f2c02dc8e1700556079f7436810830ab7aa2025261a3ecdd638",
+      "status": "false_positive_explicit_statement_dependencies",
+      "candidates": [
+        {
+          "declaration": "determinant_agreement",
+          "line": 52,
+          "variable": "hY",
+          "variable_type": "NormalAffineBasis318.HasBasis Y",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement (U : Y.Opens) (hU : IsAffineOpen U) [Nonempty U]\n    {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        },
+        {
+          "declaration": "determinant_agreement",
+          "line": 52,
+          "variable": "hfinite",
+          "variable_type": "letI := AffineDominantNorm318.fieldAlgebra f\n      FiniteDimensional Y.functionField X.functionField",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "determinant_agreement (U : Y.Opens) (hU : IsAffineOpen U) [Nonempty U]\n    {\u03b9 : Type*} [Fintype \u03b9] [DecidableEq \u03b9]\n    (bs : letI"
+        }
+      ],
+      "reason": "determinant_agreement statement has (norm R p q f hY hfinite).hom.app; both binders are explicitly retained."
+    },
+    {
+      "blob": "3cc7c23514cc0a107d333711906909fc3386196f",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/OriginalTwoOpenGaugeLog318.lean",
+      "sha256": "9c062a4c3294c386f95d7771fa07eb4999ab1ef5b89bb7ffdafc6f2b6417c66e",
+      "status": "false_positive_shadowed_proof_binder",
+      "candidates": [
+        {
+          "declaration": "of_iso",
+          "line": 62,
+          "variable": "ha",
+          "variable_type": "\u2200 k l, (originalCocycle p U V y).transition k l =\n      UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.units (thickening R p)).obj\n        (thickOpens p U V) a k l * (originalCocycle p U V x).transition k l",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "of_iso (e : CocycleModule318.object (thickOpens p U V) (originalCocycle p U V x) \u2245\n    CocycleModule318.object (thickOpens p U V) (originalCocycle p U V y)) :\n    \u2203 b : \u0393(X,U), \u2203 c : \u0393(X,V), y =\n      InfinitesimalUnitCocycle318.restrict X inf_le_left b -\n        InfinitesimalUnitCocycle318.restrict X inf_le_right c + x"
+        }
+      ],
+      "reason": "of_iso obtains a fresh local a,ha from actual isomorphism. Section ha is not needed. hU hV hUV are explicitly included immediately before declaration."
+    },
+    {
+      "blob": "4762edc4d40fa98f2bc1293659406237b497840d",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/OriginalTwoOpenReducedCocycle318.lean",
+      "sha256": "c428ae21f8db8df59b8f798380a0a9f03fd2b70496c3d3dc957d13af43714871",
+      "status": "confirmed_missing_proof_only_binders",
+      "candidates": [
+        {
+          "declaration": "affine",
+          "line": 15,
+          "variable": "hU",
+          "variable_type": "IsAffineOpen U",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "affine (k : Bool) : IsAffine (TwoOpenAdditiveCocycle318.opens U V k).toScheme"
+        },
+        {
+          "declaration": "affine",
+          "line": 15,
+          "variable": "hV",
+          "variable_type": "IsAffineOpen V",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "affine (k : Bool) : IsAffine (TwoOpenAdditiveCocycle318.opens U V k).toScheme"
+        }
+      ],
+      "reason": "affine(k) conclusion has only U,V,k, with no hU/hV dependency; proof cases use section hU,hV and there is no include. frames explicitly calls affine U V hU hV, then cocycle/overlapUnit/reconstruction consume it. Add scoped include hU hV in a new bounded successor, not to frozen packets."
+    },
+    {
+      "blob": "f456448dc3dc368828452603e1b9a9bdc97a46c3",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/InverseImageMayerVietoris318.lean",
+      "sha256": "9b86ead714fb6eaaa11d4dc6afb370c31d4a5f2a6de4663cd9d9403215815641",
+      "status": "false_positive_explicit_statement_dependencies",
+      "candidates": [
+        {
+          "declaration": "delta_comparison",
+          "line": 96,
+          "variable": "h",
+          "variable_type": "U \u2294 V = \u22a4",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "delta_comparison (F : ASheaf (X"
+        }
+      ],
+      "reason": "delta_comparison full statement contains targetSquare U V h and sourceSquare f U V h, retaining h through the actual Mayer\u2013Vietoris objects."
+    },
+    {
+      "blob": "29003366a261fab3c7e2c4ff03db04d9df0ff001",
+      "source": "quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r2/MayerVietorisCoverRefinement318.lean",
+      "sha256": "d7de2c1ff7ba819365c997dc44178565e3ea15b24cc34d85e013228de9c32a89",
+      "status": "false_positive_explicit_statement_dependencies",
+      "candidates": [
+        {
+          "declaration": "boundary_refinement",
+          "line": 67,
+          "variable": "h",
+          "variable_type": "U \u2294 V = \u22a4",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "boundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "boundary_refinement",
+          "line": 67,
+          "variable": "h'",
+          "variable_type": "U' \u2294 V' = \u22a4",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "boundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "boundary_refinement",
+          "line": 67,
+          "variable": "hU",
+          "variable_type": "U' \u2264 U",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "boundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "boundary_refinement",
+          "line": 67,
+          "variable": "hV",
+          "variable_type": "V' \u2264 V",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "boundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "sectionBoundary_refinement",
+          "line": 79,
+          "variable": "h",
+          "variable_type": "U \u2294 V = \u22a4",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "sectionBoundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "sectionBoundary_refinement",
+          "line": 79,
+          "variable": "h'",
+          "variable_type": "U' \u2294 V' = \u22a4",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "sectionBoundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "sectionBoundary_refinement",
+          "line": 79,
+          "variable": "hU",
+          "variable_type": "U' \u2264 U",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "sectionBoundary_refinement (F : ASheaf (X"
+        },
+        {
+          "declaration": "sectionBoundary_refinement",
+          "line": 79,
+          "variable": "hV",
+          "variable_type": "V' \u2264 V",
+          "category": "proof_only_section_variable_candidate",
+          "signature": "sectionBoundary_refinement (F : ASheaf (X"
+        }
+      ],
+      "reason": "Both refinement theorems explicitly contain h,h prime in boundary definitions and hU,hV in inf_le_inf of the actual restriction arrow. No additional include required."
+    }
+  ],
+  "confirmed_families": 1,
+  "false_positive_families": 7,
+  "new_draft_self_audit": "OriginalBaseTwistRemoval318.classes and isomorphism needed proof-only square hf; scoped include hf inserted before draft freezing. Other new relation statements carry base-square proof through actual maps or declare proof hypotheses directly.",
+  "local_lean_run": false
+}

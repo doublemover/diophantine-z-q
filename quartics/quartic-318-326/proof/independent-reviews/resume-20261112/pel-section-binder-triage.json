@@ -1,0 +1,177 @@
+{
+  "scope": "First eight high-impact PEL module families, source triage only; not Lean elaboration",
+  "author": "advance_pel_identification",
+  "local_lean_run": false,
+  "candidate_source": "binder-audit/pel-candidates.json",
+  "confirmed_direct_declarations": 0,
+  "additional_indirect_instance_dependencies": 2,
+  "false_positive_declarations": 3,
+  "source_changes_made": false,
+  "grouped_repair_plan": [
+    "GroupA foundational generic field/domain/smoothness: focused hosted signature diagnosis first. Targeted per-declaration includes may be needed or redundant. Hold actual_field/actual_degree unchanged until local Fact capture is resolved.",
+    "GroupB original frame/differential covers: targeted two declarations in each of FrameDenominatorCover and ActualBaseDifferentialOrders. Do not alter infinity_cover/coefficient_ne_zero.",
+    "Preserve frozen snapshots; create one bounded shared-source patch packet plus fresh successor copies only. Obtain distinct review and hosted replay. Further candidates remain unreviewed; no broad automatic edit."
+  ],
+  "rows": [
+    {
+      "module": "FourRootActualGenericField318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootActualGenericField318.lean",
+      "sha256": "3522dee8f74dbf4f3b78af2e74c94d84c5e52fa813ed372e7b556dafaf72e4ac",
+      "false_positive": [],
+      "analysis": "product_nonsquare calls twisted_product_nonsquare b hb; independent calls product_nonsquare b hb. Tensor/domain conclusions contain only b, not hb. actual_field and actual_degree additionally require the local independentFact value whose construction depends on hb, while their target IsField/finrank types use only the canonical tensor ring/module, not that proof.",
+      "consumer_chains": [
+        "FourRootActualGenericField318.independent -> local independentFact -> actual_field/actual_degree -> tensor_domain -> affine_domain",
+        "FourRootWholeSchemeGeometry318:42,70 consumes affine_domain b hb",
+        "PELOriginalCharacterPullback318:16,21 consumes independent and affine_domain with branches_injective"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "product_nonsquare",
+        "independent",
+        "tensor_domain",
+        "affine_domain"
+      ],
+      "local_instance_capture_questions": [
+        "actual_field",
+        "actual_degree"
+      ]
+    },
+    {
+      "module": "FourRootAffineSmooth318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootAffineSmooth318.lean",
+      "sha256": "3e79ed68cbedb50021e9681ccea7a6d8b9bfcd63c10907bc1e0f99a2555281da",
+      "false_positive": [],
+      "analysis": "All four conclusion types depend on Ring b/presentation b only; hb is used only to exclude colliding roots or invoke prior results. chosen/presentation/scalar_not_mem/branch_minor_not_mem intentionally need no hb and must NOT receive a global include.",
+      "consumer_chains": [
+        "distinct_roots_not_both -> jacobian_span -> smooth -> integrallyClosed",
+        "FourRootInfinitySmooth318.smooth consumes FourRootAffineSmooth318.smooth b hb",
+        "FourRootWholeSchemeGeometry318.smooth consumes affine smooth b hb"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "distinct_roots_not_both",
+        "jacobian_span",
+        "smooth",
+        "integrallyClosed"
+      ],
+      "local_instance_capture_questions": []
+    },
+    {
+      "module": "FourRootInfinityDomain318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootInfinityDomain318.lean",
+      "sha256": "abc13ae665d483d525a35bdb667d2be9bc903cbf822e0df589754b43761c1e1b",
+      "false_positive": [],
+      "analysis": "Canonical ring and localization types have no hb dependency. Proofs invoke tensor_domain/affine_domain with hb. u_regular and localization_injective are unconditional and must remain unchanged.",
+      "consumer_chains": [
+        "finite_root_ne_zero -> finite_overlap_domain -> infinity_overlap_domain -> infinity_domain",
+        "FourRootWholeSchemeGeometry318.irreducible/reduced consumes infinity_domain b hb"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "finite_root_ne_zero",
+        "finite_overlap_domain",
+        "infinity_overlap_domain",
+        "infinity_domain"
+      ],
+      "local_instance_capture_questions": []
+    },
+    {
+      "module": "FourRootInfinitySmooth318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootInfinitySmooth318.lean",
+      "sha256": "6d39dd3409c7121c8e9827c74a3e34b326a17e80d58598474c6ac6e298922daf",
+      "false_positive": [],
+      "analysis": "The conclusions Algebra.Smooth/IsIntegrallyClosed of Infinity b use canonical complex scalar/ring structures independent of hb. Smooth proof uses old affine smooth b hb and normality proof uses infinity_domain b hb. cover_span is unconditional.",
+      "consumer_chains": [
+        "FourRootWholeSchemeGeometry318:87 consumes smooth b hb",
+        "FourRootWholeSchemeGeometry318:119 consumes integrallyClosed b hb"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "smooth",
+        "integrallyClosed"
+      ],
+      "local_instance_capture_questions": []
+    },
+    {
+      "module": "FourRootWholeSchemeGeometry318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootWholeSchemeGeometry318.lean",
+      "sha256": "dfbc0958d26c97527ca72282b04b8b4b8b5eeb12f45cc893e33fba485a37081e",
+      "false_positive": [],
+      "analysis": "All seven types use canonical original scheme/structureMap/stalks depending only on b; hb is proof-only. Chart-domain proofs, smoothness and normality explicitly invoke hb-dependent predecessors. twoChartCover is unconditional and remains so.",
+      "consumer_chains": [
+        "FourRootActualProperModel318:38-40 consumes integral/smooth/normal_stalk b hb",
+        "PELOriginalWholeCharacterProper318 uses actual proper model; finite-flat/native rank need same integral source",
+        "PELOriginalCharacterPullback318:22 directly consumes integral branches branches_injective"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "chart_intersection",
+        "irreducible",
+        "reduced",
+        "integral",
+        "smooth",
+        "normal_stalk",
+        "whole_geometry"
+      ],
+      "local_instance_capture_questions": []
+    },
+    {
+      "module": "FourRootActualFrameDenominatorCover318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootActualFrameDenominatorCover318.lean",
+      "sha256": "990810913de47ed3aef924475e0b5c1bc522fcc0d3a13e8a725cc08cb1ee3ad0",
+      "false_positive": [
+        "infinity_cover"
+      ],
+      "analysis": "denominator_not_mem uses other_distinct b i hb and finite_cover calls that plus affine distinct-root lemma. Their conclusions have no hb. infinity_cover is NOT missing hb: its conclusion explicitly contains FourRootActualInfinityKaehler318.denominator b hb.",
+      "consumer_chains": [
+        "denominator_not_mem -> finite_cover; consumers are original finite-frame source covers",
+        "infinity_cover signature already captures hb through its denominator"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "denominator_not_mem",
+        "finite_cover"
+      ],
+      "local_instance_capture_questions": []
+    },
+    {
+      "module": "FourRootActualBaseDifferentialOrders318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootActualBaseDifferentialOrders318.lean",
+      "sha256": "5dcde4465816fa36ddb3d90a81e75b6fee182ab6d362711ae7a18a3d2e8d619d",
+      "false_positive": [
+        "FourRootActualInfinityDifferentialOrders318.coefficient_ne_zero"
+      ],
+      "analysis": "chartIndex_branch/neighbor conclusion uses chartIndex b, denominator b and finitePrime b only. The first explicitly applies hb; second calls chartIndex_branch b hb. Infinity coefficient_ne_zero explicitly contains coefficient b hb in its signature and therefore is a false positive.",
+      "consumer_chains": [
+        "chartIndex_branch -> chartIndex_neighborhood -> original intrinsic finite differential coefficient/order consumer",
+        "coefficient_ne_zero at line117 already binds hb via coefficient b hb"
+      ],
+      "proposed_fix": "Targeted include hb in immediately before each selected declaration after hosted diagnosis, not module-wide; preserve every unconditional helper and all frozen source packets.",
+      "direct_proof_only_hb_references": [
+        "FourRootActualFiniteDifferentialOrders318.chartIndex_branch",
+        "FourRootActualFiniteDifferentialOrders318.chartIndex_neighborhood"
+      ],
+      "local_instance_capture_questions": []
+    },
+    {
+      "module": "FourRootActualProjectiveDegree318",
+      "source": "quartics/quartic-318-326/proof/experiments/pel-original-whole-character-native-rank-r1/FourRootActualProjectiveDegree318.lean",
+      "sha256": "dde1c595929e4bba9ee146a3304e37afe022bc02901a719ad311074840512828",
+      "false_positive": [
+        "actual_generic_degree"
+      ],
+      "analysis": "The displayed finrank hides a local Algebra Y.functionField (scheme b).functionField instance pullbackAlgebra b hb. That instance definition explicitly uses pullback b hb; thus hb is already required by the elaborated statement. Do not insert solely because the pretty source omits hb.",
+      "consumer_chains": [
+        "actual_generic_degree consumes actual_field_square b hb and original actual_degree b hb",
+        "pullbackAlgebra at lines85-87 is the hidden signature dependency"
+      ],
+      "proposed_fix": "No edit for this candidate.",
+      "direct_proof_only_hb_references": [],
+      "local_instance_capture_questions": []
+    }
+  ],
+  "classification_note": "Direct source references, not hosted-confirmed errors. Local instance capture may retain some hb binders; exact elaborated signatures require the focused hosted probes. Targeted includes may be redundant explicit-premise normalization.",
+  "direct_source_reference_candidates": 25,
+  "elaboration_confirmed_errors": 0,
+  "status": "SOURCE_TRIAGE_HOSTED_SIGNATURES_PENDING"
+}

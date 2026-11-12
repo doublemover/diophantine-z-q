@@ -1,0 +1,581 @@
+{
+  "reviewer": "advance_prime_witnesses",
+  "scope": "Source triage of all12 blobs35 advisory hypothesis slots; no local Lean and no frozen source changes. Recommends scoped successor repair only after owner/integrator selects carriers.",
+  "counts": {
+    "FALSE_POSITIVE_LOCAL_INSTANCE_DEPENDENCY": 2,
+    "FALSE_POSITIVE_TRUNCATED_SIGNATURE": 21,
+    "GENUINE_SOURCE_MISSING_INCLUDE": 12
+  },
+  "genuine_declarations": 9,
+  "genuine_files": 4,
+  "rows": [
+    {
+      "declaration": "forward_add",
+      "line": 60,
+      "variable": "hD",
+      "variable_type": "0<D",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "forward_add (p q : Oval D) :\n    letI : AddCommGroup (Oval D)",
+      "blob": "7bc36811d957d8fa7cd528fd3552002fa74f57b9",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-cup-cocycles-r1/RealOvalNormalization318.lean",
+        "quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r3/RealOvalNormalization318.lean"
+      ],
+      "source_sha256": "098b5701ae3410cbba319d4ac1cda49f29f11a13d539896499e1813742321ae7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "forward_add",
+      "line": 60,
+      "variable": "hpow",
+      "variable_type": "r^4=D",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "forward_add (p q : Oval D) :\n    letI : AddCommGroup (Oval D)",
+      "blob": "7bc36811d957d8fa7cd528fd3552002fa74f57b9",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-cup-cocycles-r1/RealOvalNormalization318.lean",
+        "quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r3/RealOvalNormalization318.lean"
+      ],
+      "source_sha256": "098b5701ae3410cbba319d4ac1cda49f29f11a13d539896499e1813742321ae7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "actual_orders",
+      "line": 87,
+      "variable": "hp",
+      "variable_type": "Values C u w",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "actual_orders (hray : \u2200 k\u2208coefficients C, (408:\u2124)\u2223value u w k-1)\n    (s : Fin 3 \u00d7 Fin 5 \u2192 Bool) :\n    let r",
+      "blob": "b1d9d5eda973f64e429013b5a31f9726968ad449",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-cup-cocycles-r1/SelectedRayEmbeddings318.lean",
+        "quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r3/SelectedRayEmbeddings318.lean"
+      ],
+      "source_sha256": "424090dc3a8b745b8a1663f418248db6a595212c46570dc429e64e7333bcc97c",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "lift_quotient",
+      "line": 23,
+      "variable": "hlocal",
+      "variable_type": "IsLocalHomeomorph F",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "lift_quotient : IsQuotientMap F",
+      "blob": "9bddd2935488d98bb7e968cc78e7dac5d1223869",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ComplexCoverQuotientBiholomorph318.lean"
+      ],
+      "source_sha256": "ac0e91b87987a094cbebe6ccef64df3153cb77384874505f331ccd44db932631",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hlocal hsur in immediately before lift_quotient",
+      "consumer": "comparison applies lift_quotient F hlocal hsur; comparison_projection/holomorphic/biholomorphic consume it; PELOriginalInvolutionActualTorus318 original comparison is downstream.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "lift_quotient",
+      "line": 23,
+      "variable": "hsur",
+      "variable_type": "Function.Surjective F",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "lift_quotient : IsQuotientMap F",
+      "blob": "9bddd2935488d98bb7e968cc78e7dac5d1223869",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ComplexCoverQuotientBiholomorph318.lean"
+      ],
+      "source_sha256": "ac0e91b87987a094cbebe6ccef64df3153cb77384874505f331ccd44db932631",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hlocal hsur in immediately before lift_quotient",
+      "consumer": "comparison applies lift_quotient F hlocal hsur; comparison_projection/holomorphic/biholomorphic consume it; PELOriginalInvolutionActualTorus318 original comparison is downstream.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "same_fibers",
+      "line": 11,
+      "variable": "hperiod",
+      "variable_type": "\u2200a\u2208L,\u2200z,f (z+a)=f z",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "same_fibers (z w:\u2102) (h:projection L z=projection L w) : f z=f w",
+      "blob": "96773fc2d7d9d3514b87c82703a8500848f06a41",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ComplexPeriodicCoefficient318.lean"
+      ],
+      "source_sha256": "8980e8f895768113fe0d765367e4ac154001f42966acf9f0dc13653f4714e42a",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hperiod in immediately before same_fibers",
+      "consumer": "descended quotient lift explicitly applies same_fibers L f hperiod.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "descended_continuous",
+      "line": 21,
+      "variable": "hf",
+      "variable_type": "\u2200z,AnalyticAt \u2102 f z",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "descended_continuous : Continuous (descended L f hperiod)",
+      "blob": "96773fc2d7d9d3514b87c82703a8500848f06a41",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ComplexPeriodicCoefficient318.lean"
+      ],
+      "source_sha256": "8980e8f895768113fe0d765367e4ac154001f42966acf9f0dc13653f4714e42a",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf in immediately before descended_continuous",
+      "consumer": "eq_at_zero applies descended_continuous L f hf hperiod.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "eq_at_zero",
+      "line": 23,
+      "variable": "hf",
+      "variable_type": "\u2200z,AnalyticAt \u2102 f z",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "eq_at_zero : \u2200z,f z=f 0",
+      "blob": "96773fc2d7d9d3514b87c82703a8500848f06a41",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ComplexPeriodicCoefficient318.lean"
+      ],
+      "source_sha256": "8980e8f895768113fe0d765367e4ac154001f42966acf9f0dc13653f4714e42a",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf hperiod in immediately before eq_at_zero",
+      "consumer": "PELOriginalDifferentialConstant318:94 applies eq_at_zero with periods, analytic coefficient and periodicity. Include hperiod also retains actual lattice L in conclusion dependency closure.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "eq_at_zero",
+      "line": 23,
+      "variable": "hperiod",
+      "variable_type": "\u2200a\u2208L,\u2200z,f (z+a)=f z",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "eq_at_zero : \u2200z,f z=f 0",
+      "blob": "96773fc2d7d9d3514b87c82703a8500848f06a41",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/ComplexPeriodicCoefficient318.lean"
+      ],
+      "source_sha256": "8980e8f895768113fe0d765367e4ac154001f42966acf9f0dc13653f4714e42a",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf hperiod in immediately before eq_at_zero",
+      "consumer": "PELOriginalDifferentialConstant318:94 applies eq_at_zero with periods, analytic coefficient and periodicity. Include hperiod also retains actual lattice L in conclusion dependency closure.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "second_real_period",
+      "line": 14,
+      "variable": "h1",
+      "variable_type": "\u2200x y:\u2102,f ![x,y+1]=f ![x,y]",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "second_real_period(x:\u211d):Periodic (fun y:\u211d=>f ![(x:\u2102),(y:\u2102)]) 1",
+      "blob": "1c5bf30f1bb1075dab0743b36c7a89bde5e539dc",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/EntireIntegerPeriodicRealTorus318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/EntireIntegerPeriodicRealTorus318.lean"
+      ],
+      "source_sha256": "dfff2d3bee6730328a0852f84d05d825e5f6e20c294b4f2c0e4abd2c986e21a3",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include h1 in immediately before second_real_period",
+      "consumer": "innerLift explicitly applies second_real_period f h1 x.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "first_lift_period",
+      "line": 18,
+      "variable": "h0",
+      "variable_type": "\u2200x y:\u2102,f ![x+1,y]=f ![x,y]",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "first_lift_period(q:UnitAddCircle):Periodic (fun x:\u211d=>innerLift f h1 x q) 1",
+      "blob": "1c5bf30f1bb1075dab0743b36c7a89bde5e539dc",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/EntireIntegerPeriodicRealTorus318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/EntireIntegerPeriodicRealTorus318.lean"
+      ],
+      "source_sha256": "dfff2d3bee6730328a0852f84d05d825e5f6e20c294b4f2c0e4abd2c986e21a3",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include h0 in immediately before first_lift_period",
+      "consumer": "pairLift explicitly applies first_lift_period f h0 h1; h1 is already in its statement.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "pair_continuous",
+      "line": 28,
+      "variable": "hf",
+      "variable_type": "Continuous f",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "pair_continuous:Continuous (pairLift f h0 h1)",
+      "blob": "1c5bf30f1bb1075dab0743b36c7a89bde5e539dc",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/EntireIntegerPeriodicRealTorus318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/EntireIntegerPeriodicRealTorus318.lean"
+      ],
+      "source_sha256": "dfff2d3bee6730328a0852f84d05d825e5f6e20c294b4f2c0e4abd2c986e21a3",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf in immediately before pair_continuous",
+      "consumer": "torus continuous-map constructor explicitly uses pair_continuous f hf h0 h1.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "quotientChart_apply",
+      "line": 46,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_apply (a : M) (p : Q) :\n    quotientChart (E",
+      "blob": "a7969599752e6067372fdb64200db0bed02f44e2",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "279554fb065bb83f560999425abfadec6f27fb6e482184d49ede7b3e2d6535ff",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_symm",
+      "line": 49,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_symm (a : M) (z : E) :\n    (quotientChart (E",
+      "blob": "a7969599752e6067372fdb64200db0bed02f44e2",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "279554fb065bb83f560999425abfadec6f27fb6e482184d49ede7b3e2d6535ff",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_center",
+      "line": 54,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_center (a : M) : q a\u2208(quotientChart (E",
+      "blob": "a7969599752e6067372fdb64200db0bed02f44e2",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "279554fb065bb83f560999425abfadec6f27fb6e482184d49ede7b3e2d6535ff",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "transition_contDiffAt",
+      "line": 65,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "transition_contDiffAt (a b : M) (z : E)\n    (hz : z\u2208((quotientChart (E",
+      "blob": "a7969599752e6067372fdb64200db0bed02f44e2",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "279554fb065bb83f560999425abfadec6f27fb6e482184d49ede7b3e2d6535ff",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotient_manifold",
+      "line": 109,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotient_manifold :\n    letI",
+      "blob": "a7969599752e6067372fdb64200db0bed02f44e2",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "279554fb065bb83f560999425abfadec6f27fb6e482184d49ede7b3e2d6535ff",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_maximal",
+      "line": 16,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_maximal (a : M) :\n    letI",
+      "blob": "0279b4c549e68ebc41d05ef410834ab91321bee5",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "1d81ac937d66cc7dfb85909168838cc44afd0ee4c963c7ad678df8c1d24cca25",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_center_value",
+      "line": 22,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_center_value (a : M) :\n    quotientChart (E",
+      "blob": "0279b4c549e68ebc41d05ef410834ab91321bee5",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "1d81ac937d66cc7dfb85909168838cc44afd0ee4c963c7ad678df8c1d24cca25",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "projection_holomorphic",
+      "line": 30,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "projection_holomorphic :\n    letI",
+      "blob": "0279b4c549e68ebc41d05ef410834ab91321bee5",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "1d81ac937d66cc7dfb85909168838cc44afd0ee4c963c7ad678df8c1d24cca25",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "descended_holomorphic",
+      "line": 55,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "descended_holomorphic (f : Q \u2192 N) (lift : M \u2192 N)\n    (hlift : ContMDiff \ud835\udcd8(\u2102,E) \ud835\udcd8(\u2102,F) \u03c9 lift) (hsquare : \u2200 x, f (q x)=lift x) :\n    letI",
+      "blob": "0279b4c549e68ebc41d05ef410834ab91321bee5",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "1d81ac937d66cc7dfb85909168838cc44afd0ee4c963c7ad678df8c1d24cca25",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "inverse_holomorphicAt",
+      "line": 16,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "inverse_holomorphicAt (a : M) (p : Q)\n    (hp : p\u2208(quotientChart (E",
+      "blob": "afb047ea81a2313e75c6c5c06129304788f73996",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/HolomorphicQuotientInverse318.lean"
+      ],
+      "source_sha256": "fcf6c8457046bc8f582c466049b465474099e66c42a5735dfc5849dc1ca6b830",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "projected_contDiff",
+      "line": 28,
+      "variable": "hf",
+      "variable_type": "ContDiffAt \u2102 1 f x",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "projected_contDiff:ContDiffAt \u2102 1 (projected f x) x",
+      "blob": "70ad2899bb26940e1e668839d33dc96532e3b035",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/SplitHolomorphicImage318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/SplitHolomorphicImage318.lean"
+      ],
+      "source_sha256": "760bd99dac1f35c66a814f7d843549573ac35bf9f271529efa18325effeea4c2",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf in immediately before projected_contDiff",
+      "consumer": "chart/center_mem/inverse_contDiff explicitly apply projected_contDiff f x hf.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "projected_hasFDerivAt",
+      "line": 30,
+      "variable": "hf",
+      "variable_type": "ContDiffAt \u2102 1 f x",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "projected_hasFDerivAt:\n    HasFDerivAt (projected f x) ((ContinuousLinearEquiv.refl \u2102 E):E\u2192L[\u2102]E) x",
+      "blob": "70ad2899bb26940e1e668839d33dc96532e3b035",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/SplitHolomorphicImage318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/SplitHolomorphicImage318.lean"
+      ],
+      "source_sha256": "760bd99dac1f35c66a814f7d843549573ac35bf9f271529efa18325effeea4c2",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf hinj in immediately before projected_hasFDerivAt",
+      "consumer": "chart and inverse theorems apply projected_hasFDerivAt f x hf hinj; PELOriginalLevelThreeLocalImage318:22,71 use resulting chart/graph. projected definition itself depends only on f,x, so no hidden hf/hinj.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "projected_hasFDerivAt",
+      "line": 30,
+      "variable": "hinj",
+      "variable_type": "Function.Injective (fderiv \u2102 f x)",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "projected_hasFDerivAt:\n    HasFDerivAt (projected f x) ((ContinuousLinearEquiv.refl \u2102 E):E\u2192L[\u2102]E) x",
+      "blob": "70ad2899bb26940e1e668839d33dc96532e3b035",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/height-original-normal-source-cotangent-r1/SplitHolomorphicImage318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r6/SplitHolomorphicImage318.lean"
+      ],
+      "source_sha256": "760bd99dac1f35c66a814f7d843549573ac35bf9f271529efa18325effeea4c2",
+      "disposition": "GENUINE_SOURCE_MISSING_INCLUDE",
+      "recommended_scoped_change": "include hf hinj in immediately before projected_hasFDerivAt",
+      "consumer": "chart and inverse theorems apply projected_hasFDerivAt f x hf hinj; PELOriginalLevelThreeLocalImage318:22,71 use resulting chart/graph. projected definition itself depends only on f,x, so no hidden hf/hinj.",
+      "reason": "Proof-only non-instance section hypothesis is absent from the full statement and its elaborated object dependencies; no existing scoped include. Source-level diagnosis, hosted elaboration not run."
+    },
+    {
+      "declaration": "quotientChart_apply",
+      "line": 43,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_apply (a : M) (p : Q) :\n    quotientChart (E",
+      "blob": "6d404bad89cb0fcf63e732565754ce25fcbde832",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverCharts318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "a5509e13160d2c4755cda0376d6b3dcb13d4565efc582555b62db84418cdb6a7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_symm",
+      "line": 46,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_symm (a : M) (z : E) :\n    (quotientChart (E",
+      "blob": "6d404bad89cb0fcf63e732565754ce25fcbde832",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverCharts318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "a5509e13160d2c4755cda0376d6b3dcb13d4565efc582555b62db84418cdb6a7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_center",
+      "line": 51,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_center (a : M) : q a\u2208(quotientChart (E",
+      "blob": "6d404bad89cb0fcf63e732565754ce25fcbde832",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverCharts318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "a5509e13160d2c4755cda0376d6b3dcb13d4565efc582555b62db84418cdb6a7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "transition_contDiffAt",
+      "line": 61,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "transition_contDiffAt (a b : M) (z : E)\n    (hz : z\u2208((quotientChart (E",
+      "blob": "6d404bad89cb0fcf63e732565754ce25fcbde832",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverCharts318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "a5509e13160d2c4755cda0376d6b3dcb13d4565efc582555b62db84418cdb6a7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotient_manifold",
+      "line": 92,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotient_manifold :\n    letI",
+      "blob": "6d404bad89cb0fcf63e732565754ce25fcbde832",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverCharts318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverCharts318.lean"
+      ],
+      "source_sha256": "a5509e13160d2c4755cda0376d6b3dcb13d4565efc582555b62db84418cdb6a7",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_maximal",
+      "line": 18,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_maximal (a : M) :\n    quotientChart (E",
+      "blob": "d103b561ab8aae23d112d389161e59ccdcf44928",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverMaps318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "01836325987378dddd903c242be176a9856436ac835774e5dbaeab38f0e21490",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "quotientChart_center_value",
+      "line": 21,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "quotientChart_center_value (a : M) :\n    quotientChart (E",
+      "blob": "d103b561ab8aae23d112d389161e59ccdcf44928",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverMaps318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "01836325987378dddd903c242be176a9856436ac835774e5dbaeab38f0e21490",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    },
+    {
+      "declaration": "projection_holomorphic",
+      "line": 29,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "projection_holomorphic : ContMDiff \ud835\udcd8(\u2102,E) \ud835\udcd8(\u2102,E) \u03c9 q",
+      "blob": "d103b561ab8aae23d112d389161e59ccdcf44928",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverMaps318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "01836325987378dddd903c242be176a9856436ac835774e5dbaeab38f0e21490",
+      "disposition": "FALSE_POSITIVE_LOCAL_INSTANCE_DEPENDENCY",
+      "reason": "ContMDiff statement elaborates with local ChartedSpace E Q := quotientCharts q hq, explicitly depending on hq; hhol is already included. Preserve exact instance and do not add a redundant binder."
+    },
+    {
+      "declaration": "descended_holomorphic",
+      "line": 48,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "descended_holomorphic (f : Q \u2192 N) (lift : M \u2192 N)\n    (hlift : ContMDiff \ud835\udcd8(\u2102,E) \ud835\udcd8(\u2102,F) \u03c9 lift) (hsquare : \u2200 x, f (q x)=lift x) :\n    ContMDiff \ud835\udcd8(\u2102,E) \ud835\udcd8(\u2102,F) \u03c9 f",
+      "blob": "d103b561ab8aae23d112d389161e59ccdcf44928",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientCoverMaps318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientCoverMaps318.lean"
+      ],
+      "source_sha256": "01836325987378dddd903c242be176a9856436ac835774e5dbaeab38f0e21490",
+      "disposition": "FALSE_POSITIVE_LOCAL_INSTANCE_DEPENDENCY",
+      "reason": "ContMDiff statement elaborates with local ChartedSpace E Q := quotientCharts q hq, explicitly depending on hq; hhol is already included. Preserve exact instance and do not add a redundant binder."
+    },
+    {
+      "declaration": "inverse_holomorphicAt",
+      "line": 18,
+      "variable": "hq",
+      "variable_type": "IsQuotientCoveringMap q G",
+      "category": "proof_only_section_variable_candidate",
+      "signature": "inverse_holomorphicAt (a : M) (p : Q)\n    (hp : p\u2208(quotientChart (E",
+      "blob": "d22a9ca98a75d7b344554b9e820cebda5ae75332",
+      "paths": [
+        "quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r32/HolomorphicQuotientInverse318.lean",
+        "quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r26/HolomorphicQuotientInverse318.lean"
+      ],
+      "source_sha256": "9bcefb2ce45a4d5170924faf89bac7b95055833624421f44dac80f086b6a751a",
+      "disposition": "FALSE_POSITIVE_TRUNCATED_SIGNATURE",
+      "reason": "Full statement explicitly contains the flagged variable after the lexical truncated signature: group D hD and forward D r hpow; oriented/roots hp; or quotientChart/quotientCharts/inverseChart q hq. No missing hypothesis."
+    }
+  ]
+}

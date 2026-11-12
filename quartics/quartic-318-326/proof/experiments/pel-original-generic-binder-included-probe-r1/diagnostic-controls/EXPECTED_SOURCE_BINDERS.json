@@ -1,0 +1,107 @@
+{
+  "scope": "Expected source binder inventory; printed hosted #check signatures are initial evidence only, no automated syntactic/type equality comparison implemented",
+  "local_lean_run": false,
+  "controls_not_admitted": true,
+  "controls": [
+    {
+      "declaration": "Explicit.proof",
+      "expected_source_parameters": [
+        "(p:Prop)",
+        "(hp:p)"
+      ],
+      "purpose": "explicit binder baseline"
+    },
+    {
+      "declaration": "AutomaticSignature.reflexive",
+      "expected_source_parameters": [
+        "(x:Nat)"
+      ],
+      "purpose": "section variable in statement is retained"
+    },
+    {
+      "declaration": "Typeclass.proof",
+      "expected_source_parameters": [
+        "(p:Prop)",
+        "[Fact p]"
+      ],
+      "purpose": "section typeclass dependency"
+    },
+    {
+      "declaration": "LocalInstance.proof",
+      "expected_source_parameters": "QUESTION: whether hp is captured from suppliedFact value",
+      "purpose": "resolve exact local-instance capture semantics without presuming failure"
+    },
+    {
+      "declaration": "DependentSignature.identity",
+      "expected_source_parameters": [
+        "(p:Prop)",
+        "(hp:p)"
+      ],
+      "purpose": "dependent definition and proof appear explicitly in statement"
+    },
+    {
+      "declaration": "Renamed.proof",
+      "expected_source_parameters": [
+        "(p:Prop)",
+        "(original:p)"
+      ],
+      "purpose": "local hb is renamed proof, not section omission"
+    },
+    {
+      "declaration": "Included.proof",
+      "expected_source_parameters": [
+        "(p:Prop)",
+        "(hp:p)"
+      ],
+      "purpose": "explicit include"
+    },
+    {
+      "declaration": "Omitted.noPremise",
+      "expected_source_parameters": [],
+      "purpose": "omit removes unused proof parameter"
+    },
+    {
+      "declaration": "DirectProofOnly.proof",
+      "expected_source_parameters": "EXPECTED_FAILURE; exact diagnostics must be observed",
+      "purpose": "proof-only section hp omitted, no local instance/dependent statement"
+    },
+    {
+      "declaration": "ExplicitOmit.proof",
+      "expected_source_parameters": "EXPECTED_FAILURE; exact diagnostics must be observed",
+      "purpose": "explicit omit followed by attempted proof use"
+    }
+  ],
+  "generic_consumers": [
+    {
+      "declaration": "product_nonsquare",
+      "written_call": "product_nonsquare b hb s hs",
+      "classification": "explicit hb argument at callers"
+    },
+    {
+      "declaration": "independent",
+      "written_call": "independent b hb",
+      "classification": "explicit hb argument at local independentFact producer"
+    },
+    {
+      "declaration": "actual_field",
+      "written_call": "actual_field b hb",
+      "classification": "explicit hb at tensor_domain consumer; producer body obtains Fact implicitly"
+    },
+    {
+      "declaration": "actual_degree",
+      "written_call": "actual_degree b hb",
+      "classification": "explicit hb at projective native degree consumer; producer body obtains Fact implicitly"
+    },
+    {
+      "declaration": "tensor_domain",
+      "written_call": "tensor_domain b hb",
+      "classification": "explicit hb at affine_domain/infinity-domain consumers"
+    },
+    {
+      "declaration": "affine_domain",
+      "written_call": "affine_domain b hb",
+      "classification": "explicit hb at whole-scheme/field/normality consumers"
+    }
+  ],
+  "original_specialization": "Original consumers replace b/hb by branches/branches_injective, with branches_injective proved from actual labeled points; four numeric j hypotheses remain separately explicit and undischarged."
+}

@@ -47,6 +47,7 @@ jobs:
           python-version: '3.12.14'
       - run: python -B scripts/test_ci_tooling.py
       - run: python -B scripts/test_progress_experiment.py
+      - run: python -B scripts/test_generic_binder_diagnostic.py
       - run: python -B scripts/test_endpoint_diagnostic.py
       - run: python -B scripts/test_candidate_endpoint_diagnostic.py
       - run: python -B scripts/test_edge_elaboration_diagnostic.py
@@ -114,6 +115,13 @@ jobs:
           test "${#targets[@]}" -gt 0
           cd quartics/quartic-318-326/proof/progress
           lake exe cache get "${targets[@]}"
+      - name: Non-admitted original generic-field binder signatures
+        if: always() && matrix.packet == 'pel-original-whole-character-native-rank-r1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_generic_binders.py
       - name: First strict checks and new-declaration audit
         shell: bash
         env:
@@ -337,6 +345,10 @@ jobs:
           name: experiment-${{ matrix.packet }}
           path: |
             build/progress-experiments/${{ matrix.packet }}/RESULT.json
+            build/generic-binder-diagnostics/SUMMARY.json
+            build/generic-binder-diagnostics/*.log
+            build/generic-binder-diagnostics/*/RESULT.json
+            build/generic-binder-diagnostics/*/logs/
             build/progress-experiments/relative-varying-source-word-core-r*/RESULT.json
             build/progress-experiments/relative-varying-source-word-core-r*/logs/
             build/progress-experiments/relative-varying-source-word-core-r*/ExperimentAudit.lean
