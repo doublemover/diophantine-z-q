@@ -1,0 +1,89 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:19:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq S
+    (∑ x,
+        f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (s, i, x)))) *
+          f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (t, x, j)))) -
+      ∑ x,
+        f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (t, i, x)))) *
+          f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (s, x, j)))))
+    0
+but is expected to have type
+  @Eq S
+    (((fun i j => f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (s, i, j))))) * fun i j =>
+          f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (t, i, j)))))
+        i j -
+      ((fun i j => f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (t, i, j))))) * fun i j =>
+          f ((quotient R σ ι) (MvPolynomial.X (Sum.inl (s, i, j)))))
+        i j)
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:11:14: error: (kernel) declaration has metavariables 'VaryingCommutingMatrixPoints318.forward'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:23:9: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:29:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Ideal.Quotient.lift ?I ?f ?H) ((Ideal.Quotient.mk ?I) ?a)
+in the target expression
+  (Ideal.Quotient.lift (ideal R σ ι) (evaluate R σ ι S d).toRingHom ⋯)
+      ((Ideal.Quotient.mk (ideal R σ ι)) (MvPolynomial.X x)) =
+    d.values x
+
+R σ ι : Type u
+inst✝³ : CommRing R
+inst✝² : Fintype ι
+S : Type u
+inst✝¹ : CommRing S
+inst✝ : Algebra R S
+d : Data σ ι S
+x : Variable σ ι
+⊢ (Ideal.Quotient.lift (ideal R σ ι) (evaluate R σ ι S d).toRingHom ⋯)
+      ((Ideal.Quotient.mk (ideal R σ ι)) (MvPolynomial.X x)) =
+    d.values x
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun a ha => ideal_le_kernel R σ ι S d ha
+  has type
+    ∀ a ∈ ideal R σ ι, a ∈ RingHom.ker (evaluate R σ ι S d).toRingHom
+  but is expected to have type
+    ∀ a ∈ ideal R σ ι, (evaluate R σ ι S d).toRingHom a = 0
+  in the application
+    Ideal.Quotient.lift (ideal R σ ι) (evaluate R σ ι S d).toRingHom ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:38:16: error: (kernel) application type mismatch
+  @Eq.ndrec (Variable σ ι) (Sum.inl val✝)
+    (fun x => (forward R σ ι S f).values x = f ((quotient R σ ι) (MvPolynomial.X x)))
+    (Eq.refl ((forward R σ ι S f).values (Sum.inl val✝)))
+argument has type
+  (forward R σ ι S f).values (Sum.inl val✝) = (forward R σ ι S f).values (Sum.inl val✝)
+but function has type
+  (fun x => (forward R σ ι S f).values x = f ((quotient R σ ι) (MvPolynomial.X x))) (Sum.inl val✝) →
+    ∀ {b : Variable σ ι},
+      Sum.inl val✝ = b → (fun x => (forward R σ ι S f).values x = f ((quotient R σ ι) (MvPolynomial.X x))) b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:46:17: error: (kernel) application type mismatch
+  funext fun j => backward_variable R σ ι S d (Sum.inl (s, i, j))
+argument has type
+  ∀ (j : ι), (backward R σ ι S d) ((quotient R σ ι) (MvPolynomial.X (Sum.inl (s, i, j)))) = d.values (Sum.inl (s, i, j))
+but function has type
+  (∀ (x : ι), (forward R σ ι S (backward R σ ι S d)).matrices s i x = d.matrices s i x) →
+    (forward R σ ι S (backward R σ ι S d)).matrices s i = d.matrices s i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:64:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq T (∑ x, f (d.matrices s i x) * f (d.matrices t x j)) (∑ x, f (d.matrices t i x) * f (d.matrices s x j))
+but is expected to have type
+  @Eq T (((fun i j => f (d.matrices s i j)) * fun i j => f (d.matrices t i j)) i j)
+    (((fun i j => f (d.matrices t i j)) * fun i j => f (d.matrices s i j)) i j)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:57:14: error: (kernel) declaration has metavariables 'VaryingCommutingMatrixPoints318.mapData'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-varying-source-word-core-r13/VaryingCommutingMatrixPoints318.lean:66:6: error: (kernel) application type mismatch
+  Data.ext (Eq.refl (forward R σ ι T (f.comp a)).matrices)
+argument has type
+  (forward R σ ι T (f.comp a)).matrices = (forward R σ ι T (f.comp a)).matrices
+but function has type
+  (forward R σ ι T (f.comp a)).matrices = (mapData R σ ι S T f (forward R σ ι S a)).matrices →
+    (forward R σ ι T (f.comp a)).marked = (mapData R σ ι S T f (forward R σ ι S a)).marked →
+      forward R σ ι T (f.comp a) = mapData R σ ι S T f (forward R σ ι S a)

@@ -1,0 +1,51 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "ACCEPTED_FOR_SCOPED_SOURCE_ARGUMENT_AND_HOSTED_REPLAY_NOT_KERNEL_ACCEPTANCE",
+  "packet": "pel-original-character-infinity-maps-r1",
+  "application_sha256": "02bfbebcb28d59cc30e11979b53320625d9121774a360d80cd76fc0d8af3f617",
+  "intake_sha256": "a90183f0316accc7eb6519cbba57c56d99d6aae6eeff0c8b2cfdd2aa801592d6",
+  "readme_sha256": "d4ae7dfed5b913d2630cd9ae4c526d28bec17ae35aff5325edecd9ba08b18927",
+  "copy_bindings_sha256": "e76415ca5c19885f3d5678d214a35576681ca52f3c84b7b34d5ece85d1f41b1c",
+  "new_sources": {
+    "ThreeBranchLegendreInfinityAlgebra318.lean": "5ea86d4c458836eec864ef5c86ecf5d3a7326ea306c129e91f31c9f8a4a84e00",
+    "FourRootCharacterInfinityOpen318.lean": "5c3ac32a1085b705f53724fe7c1677f08c4868e3059bb7faf0a2df15308267b6",
+    "PELOriginalCharacterInfinityMaps318.lean": "a671a181b96d9814a154ec9833540ab6e30c1180b31ff2b175f90a5c2ae6af96"
+  },
+  "changed_sources": {
+    "PELReductionResidueField318.lean": "aa968e6763966fe714ad0224488a1993a7077e015fc8639d3cb6799a81fde7c2",
+    "FourRootFiniteBranchGraph318.lean": "43c202d3183e68c8ff3c053411d3c5fa208d21c7bb1ecc6da6c6cd61c806eee9",
+    "CubicBoxMonomials318.lean": "df34b73cfbc269ac0c024075d98e5117a08ce6350dc8cfb2c9a9ac63d0316db4"
+  },
+  "read_producers": {
+    "ThreeBranchLegendrePolynomial318.lean": "9d1abc0d1e9eaf38c6b5066b12422862a57f1540f69688ebe0a767ba3d47baf9",
+    "ThreeBranchLegendreAffineIso318.lean": "6da929c40334004386daf62368317370a4d3fc41877987ca54943a5e4a737921",
+    "FourRootInfinityCoordinateRing318.lean": "b0d15b401900e87ed0da3179153e0ecc74b2496d6a36845ccf4c3a6758734d78",
+    "PELOriginalOrderedCharacterSchemeMaps318.lean": "d65243df41dccb179a175e874b3f09cf4eccc1a97dfc771142f979b2eb168c4f",
+    "PELOriginalOrderedCharacterCoordinate318.lean": "a6f2e4d6d5fdc58293293c18bca861ccbafd518e55af81eeb432b06bf826b14a",
+    "NormalizedLegendreProjectiveModel318.lean": "dae9750f5119f62493c18e45e039246176af175350acc4770e6e19a34298e857"
+  },
+  "read_baseline_producers": {
+    "InfinityChart318.lean": "e5154b0f309643cb4d03e1eef56f4059d4bf7208c87cdf263c3261a9301a77da",
+    "InfinitySmooth318.lean": "3e030ac04bb40f35b1979df0126fcd7e4265cd90ca2a16788669c06f055306c8",
+    "WeierstrassGluing318.lean": "3b90923ba3594d01fee8d724b2d21cfce41f3bad9f67f2db16130ee9f19f6a6a",
+    "WeierstrassOverlap318.lean": "289a13824afb9c6c2c45f32d3c1a56d3c714a70a6f6ec59dde7a98e4e6e1af48"
+  },
+  "scope_checks": [
+    "Exact reciprocal cubic identity retains the ordered branch parameter, short-Weierstrass center and root scale. scale^2=b-a and scale^3=rootScale agree with the prior affine ordinate normalization.",
+    "Checked the linear_combination signs directly: minus q^3*u^3 times r^2*r^-3=r^-1, plus q^3*u^3*r^-3 times the original r-square relation, yields exactly the target Y=1 equation. No inverse of u is used.",
+    "Source localization inverts the product of precisely the three original sign ratios. Every prime containing u omits each ratio since its square is 1 modulo that prime. Prime-ideal argument covers arbitrary residue fields and keeps nilpotents/full coordinate ring.",
+    "Original infinity ring imposes s0=1, retaining eight sign branches rather than accidentally sixteen. All original complex infinity points lift through the actual localization and map to (x,z)=(0,0).",
+    "Read the actual target inclusion: InfinitySmooth.scheme is Spec of the WHOLE raw infinity ring, not the smaller smooth Jacobian localization. Thus the ring map has the exact source required by WeierstrassGluing.infinityChart.",
+    "Scheme-point square preserves actual Spec composition and original complex coefficient map. No numerical j identification, overlap equality, global finite/infinity gluing or rational descent is inferred.",
+    "Reviewed all three inherited deltas: explicit Complex import, projected two=(0:F3) equality, and actual analyticAt_id congruence. They preserve original carriers/statements/limits.",
+    "Independently verified closure/import/hash/placeholder packet policy and byte comparison: precisely three predecessor sources changed; no other source replaced."
+  ],
+  "remaining": [
+    "Hosted Lean elaboration and recursive axiom audit pending. No local Lean or profiling.",
+    "Finite/infinity overlap equality, full source-curve gluing, published numerical j equalities, rational branch descent, represented Jacobian and algebraic PEL family/polarization identification remain open.",
+    "This is a bounded source review of the new module applications and stated repairs, not whole-proof acceptance."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}
