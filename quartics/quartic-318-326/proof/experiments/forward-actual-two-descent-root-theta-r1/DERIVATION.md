@@ -1,0 +1,21 @@
+# Exact source-to-consumer comparison
+
+## Actual native affine geometry
+`root` enumerates0,n,−3n. Each satisfies the original cubic with y=0. `curve_nonsingular` consumes n≠0 via the actual discriminant2304n^6. The pinned native `XYIdeal_neg_mul` requires this nonsingularity and multiplies the point ideal by its actual negative point ideal. The original negY is−y, so at y=0 these are the SAME ideal. This yields `actual_root_ideal_square`. `XYIdeal'` supplies the unit in the native fractional-ideal monoid; its underlying ideal equals the same rootIdeal. No external divisor assumption has been inserted.
+
+## Three original translations, all inputs
+The roots are indexed by Fin3, in original order0,n,−3n. x-translations are−3n²/x, n(x+3n)/(x−n),−3n(x−n)/(x+3n); y-translations multiply y by3n²/x²,−4n²/(x−n)²,−12n²/(x+3n)². The original cubic equation proves each preservation identity. The exact native slope/addX/addY formulas identify the resulting point with P+(a,0), for every point with x≠a. The separate AwayRoots predicate requires all three root functions nonzero and is proved stable using the full3×3 root-weight numerator table, not a smaller chosen sample.
+
+## Multipliers and identity of the function field
+`thetaMultiplier n x i j` is literally (x−a_i)(T_i(x)−a_j), and `thetaCommutator` is its ratio under interchange i,j. Nonsingular parameter and AwayRoots make both products nonzero. Explicit rational identities give diagonal1/off-diagonal−1 and squares−3n²,4n²,12n². The word commutator here names the displayed ratio; a theta-group operator realization is not inferred.
+
+`OriginalFunctionField n` is mathlib FractionRing of the actual original Weierstrass coordinate ring. `functionCoefficientMap` is the composite of two polynomial constant maps, the original quotient map, and the native fraction map. `functionX` is the image of the actual coordinate X. `rootFunction` is the image of XClass(a), which is nonzero in the original coordinate ring by the pinned degree argument; injectivity of the native fraction map retains nonzero. The definitional ring-map identity rootFunction(a)=functionX−functionCoefficientMap(a) identifies exactly the functions consumed by the generic multiplier proof. Thus the final native ratio is not evaluated at a surrogate rational-function variable or rational-point test space.
+
+## Actual coefficient comparison
+`geometricRoot` uses the actual original affine root points inside the original doubling kernel, using the prior explicit two-torsion proofs. The existing actual torsion sign producer gives their binary coordinates(1,1),(1,0),(0,1). All nine cases give actual originalRootPairing1 on equal points and−1 on distinct ones. Applying the SAME native coefficient map to those literal root-of-unity values matches the native multiplier ratio. No abstract self-duality equivalence is substituted for the geometric root points. These are all nonzero two-torsion pairs; the identity point is not given a new root-function chart in this batch.
+
+## Remaining geometric and arithmetic obligations
+The affine ideal-square relation does not include the pole order at projective infinity. It is not alone div(x−a)=2(a,0)−2O. Native pullback field automorphisms, the O(2O) line-bundle/theta-group realization, and comparison with a geometric Weil-pairing definition remain separate obligations. Only after those can the cup coefficient form be advertised as the genuine geometric Weil form. Actual continuous H2/Brauer, local invariants and Kummer isotropy, reciprocity, Sha/Cassels–Tate, and rank/twist-point conclusions are not produced here. No history classification beyond this bounded predecessor comparison is asserted.
+
+## Primary evidence and validation
+Pinned affine Point and Formula files are copied exactly from the cup predecessor's original elliptic primary evidence at mathlib56a005855ea17e0b0958f73ec801ae140b0a1679. The actual source theorems and definitions, not just their names, were consulted. Exact Fraction regressions run negative and positive nonzero n, rational x away from all roots, all three translations, all nine weight and ratio cases, the scalar squares and composition identities. They support formula checking only. Structural admission, source review and hosted kernel checking are separate stages.

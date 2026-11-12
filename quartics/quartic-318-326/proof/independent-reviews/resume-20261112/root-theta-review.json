@@ -1,0 +1,40 @@
+{
+  "reviewer": "advance_prime_witnesses",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "SCOPED_SOURCE_ACCEPTED_HOSTED_KERNEL_PENDING",
+  "packet": "forward-actual-two-descent-root-theta-r1",
+  "application_sha256": "e3d43e9f42bd30922bd0ca391f929bc6007af62279304168b0b7ba0a816bad2f",
+  "intake_sha256": "2263ae228685c046d9a739f038331d3df9c81fcdab1bab8ea45ef1a33bf373ad",
+  "readme_sha256": "da4e1ad46459735c0ebc95ae2b84104d8666d7b0826d232f5177a06d7120a95e",
+  "derivation_sha256": "229b101a729f078480fd6d1996e7a50640448f519700e56da069bcea32364b29",
+  "source_copy_record_sha256": "e09953c03315a1b58a3529404a13dec33c3bbee9159a73739d1aaf1508924418",
+  "new_sources": {
+    "ActualTwoDescentOriginalRootIdeals318.lean": "6a5fc0dbd3f393eff7bb7826075aecc450c73f187a38dacf8bb1e00a0ab18902",
+    "ActualTwoDescentOriginalRootTranslations318.lean": "e855269c220c554950404ea7c4b987f7777ff4b1d3009cbc3dfa798a5d1b16e1",
+    "ActualTwoDescentOriginalRootAddition318.lean": "dbd0632fad2ff6bf7582de31db5394dcd848a09e50121c57c8504bd1f7589ebe",
+    "ActualTwoDescentOriginalThetaMultipliers318.lean": "066c72eadff3fb1bdaa586517b5bcce93b81cabac3046b23ed9ff338e1896439",
+    "ActualTwoDescentOriginalFunctionFieldTheta318.lean": "bb14e528673fac5f14edfbaa6da488458d181657919eed04db52bfdebc889228",
+    "ActualTwoDescentOriginalThetaPairingComparison318.lean": "24d8ec7488457c609dacf8c67c8bcd5f1d6f7bc9af926c77c0869166b4c3ff69"
+  },
+  "unchanged_predecessor_sources_verified": 1186,
+  "source_admission": "PASS_1192_MODULES",
+  "regression_script_sha256": "642dd46d383cb5e063f1fc7fa28860b7c5c3a099f8dad07b6add8e6398cc2097",
+  "regression_result_sha256": "bca8bd39a608417462b14b9704383b3e21d70a14695c1c7118f43028250b42f9",
+  "scope_checks": [
+    "Independently read all six new source modules, README, DERIVATION and all nine exact application obligations. Read actual original elliptic model and preceding actual torsion/root pairing consumers; no source edits by reviewer.",
+    "Consulted pinned Affine.Point and Affine.Formula definitions and proofs: XYIdeal_neg_mul needs original nonsingularity and actual negative y; at y=0 the negative ideal equals the same root ideal. XYIdeal prime supplies the actual native fractional-ideal unit. This is a genuine affine ideal equality, not an asserted projective divisor.",
+    "All three roots 0,n,-3n and all nine ordered root-function ratios are covered, with explicit root poles excluded. Original n-nonzero and characteristic-zero assumptions ensure nonsingularity and nonzero root differences. Native slope/addX/addY and Point.add_of_X_ne identify translations with original elliptic addition at all permitted points.",
+    "The multiplier ratio is literal f_i(x) f_j(T_i x) divided by its reversed product. Full AwayRoots makes both factors nonzero. Off-diagonal signs and diagonal scalar factors -3n squared,4n squared,12n squared are retained rather than normalized away.",
+    "OriginalFunctionField is the native FractionRing of the original coordinate ring. Read XClass definition and native XClass_ne_zero degree proof; fraction map injectivity supplies generic root-function nonvanishing. The coefficient map uses exactly the original constant/quotient/fraction maps. No rational-point testing substitutes for generic function-field equality.",
+    "geometricRoot is the actual original doubling-kernel point. Existing torsion sign producers identify its binary coordinates, then every pair is compared with the native mapped square-one coefficient. No arbitrary abstract duality is substituted for the actual torsion points. Identity-at-infinity is explicitly outside the new root-function chart.",
+    "Independently reran exact Fraction regression and reproduced curve_translation2418, weight_table7254, commutator7254, square_multipliers2418, translation_composition7254. Composition tests are not mistaken for a newly proved native automorphism or theta-group theorem.",
+    "Independently checked all1186 predecessor source bytes,1192 structural admission, all bound application sources/evidence, and exact pinned ROOT-THETA-PRIMARY copies. No local Lean compilation or profiling."
+  ],
+  "remaining": [
+    "Projective divisor at infinity and identification with O(2O), actual pullback field automorphisms, theta-group/line-bundle realization and geometric Weil-pairing identification remain open. The named thetaCommutator currently denotes an explicit multiplier ratio only.",
+    "Continuous H2/Brauer comparison, local Kummer isotropy/invariants, reciprocity, Cassels-Tate/Sha duality and nondegeneracy, analytic-to-rational rank and four rational twist-point production remain open.",
+    "Hosted elaboration and recursive axiom audit remain pending. Source review and exact rational formula tests do not establish Lean kernel acceptance or the whole arithmetic theorem."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}
