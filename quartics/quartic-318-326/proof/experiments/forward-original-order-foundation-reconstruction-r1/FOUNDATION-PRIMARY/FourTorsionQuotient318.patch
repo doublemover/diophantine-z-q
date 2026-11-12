@@ -1,0 +1,11 @@
+--- before/FourTorsionQuotient318.lean
++++ after/FourTorsionQuotient318.lean
+@@ -95,7 +95,7 @@
+   have hz : H.index • q Q=0 :=
+     addOrderOf_dvd_iff_nsmul_eq_zero.mp (addOrderOf_dvd_natCard (q Q))
+   have hm : H.index • Q∈H := by
+-    apply (QuotientAddGroup.eq_zero_iff H).mp
++    apply (QuotientAddGroup.eq_zero_iff (N := H) _).mp
+     simpa only [map_nsmul] using hz
+   have hh := twice_mem_zero A B hA hB _ hm
+   apply addOrderOf_dvd_iff_nsmul_eq_zero.mpr

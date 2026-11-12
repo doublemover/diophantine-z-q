@@ -1,0 +1,43 @@
+{
+  "reviewer": "/root/advance_jacobian_descent",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_HOSTED_PENDING",
+  "packet": "forward-actual-two-descent-original-root-square-rebuild-r2",
+  "application_sha256": "637281398626f66cb09ff718c2796d9d5ce02256dbf88a1d68a4901d9bb6309a",
+  "intake_sha256": "8edca9a3c38f9fdc5b8548039729eada235fadc515016fa96350c114ceef1e14",
+  "new_sources": {
+    "ActualTwoDescentOpenStalkGenericSquareRebuild318.lean": "e6a5b4e89a0b1744ff7dffb0c03fc8d767f697bc066005beee9a1d2a2973257b",
+    "ActualTwoDescentOpenAffineCoefficientSquareRebuild318.lean": "dde5c1455c15744a2f07bd749530c5ba3e2b37222979f87d7f6477bb2527c19c",
+    "ActualTwoDescentOriginalRootGenericSquareRebuild318.lean": "1d02c6b739f08cf2882dc53d693b8ec3ac5ce2fd56d8e16daacb21775c010fb3",
+    "ActualTwoDescentOriginalRootLocalFieldRebuild318.lean": "b23ca9f58ef99a73beb1958995162cbabf7ada88a7e094ef891a0d2d0576bb3f"
+  },
+  "native_evidence": {
+    "experiments/forward-actual-two-descent-original-root-square-rebuild-r2/ROOT-SQUARE-REBUILD-PRIMARY/Mathlib__AlgebraicGeometry__Scheme.lean": "57baffd07501f10889ded1493b7e8a912dadfb92eda87cc3c4e25ca0af7cfc67",
+    "experiments/forward-actual-two-descent-original-root-square-rebuild-r2/ROOT-SQUARE-REBUILD-PRIMARY/Mathlib__AlgebraicGeometry__StructureSheaf.lean": "b67bc5ae26a7accd3ca4e83757ead0404048585696a8a7dff8e94869fd4b4f79",
+    "experiments/forward-actual-two-descent-original-root-square-rebuild-r2/ROOT-SQUARE-REBUILD-PRIMARY/Mathlib__Topology__Sheaves__Stalks.lean": "2791e5c6a7d01e56c30ae6b8657348155314d712f213bc92e0432b0edbe1d23a",
+    "experiments/forward-actual-two-descent-original-root-square-rebuild-r2/OVERLAP-PRIMARY/FractionRing.lean": "75ee1bc5afcebb293f4f7ce70b6997939af6431db40a6c18a237ac3e3cb05a99"
+  },
+  "checks": {
+    "structural_modules": 1312,
+    "exact_generic_predecessor_sources": 1307,
+    "bounded_inherited_changes": [
+      "ThreePoleCertificates318.lean"
+    ],
+    "inherited_repair_matches_reviewed_root_divisor_orders_r2": true,
+    "bindings": "PASS",
+    "local_lean_run": false
+  },
+  "findings": [
+    "Read all four new sources and exact old generic-field/stalk/cofactor/named-root producers.",
+    "Native stalkSpecializes composition is contravariant and its composition with the actual Inseparable stalkCongr inverse has the orientation required by Scheme.Hom.stalkSpecializes_stalkMap.",
+    "Local affine coefficient uses actual j.stalkMap followed by Spec.stalkIso; algebra compatibility identifies it with StructureSheaf.toStalk, rather than choosing a local field isomorphism.",
+    "Actual coefficient normalization extends to the common fraction field through native affineFractionEquiv.commutes, then named original root numerator class closes the same root-function square.",
+    "Fraction-ring extension of the actual rootEquiv has correct orientation and its algebraMap formula preserves every stalk element. No nonzero n premise is falsely required for these comparison identities; root valuation orders retain their separate premise.",
+    "Sole inherited repair is byte-exact accepted ThreePoleCertificates singleton-tail correction; four new sources otherwise unchanged from unaccepted r1.",
+    "No concrete source mathematical or native-API objection found."
+  ],
+  "limitations": [
+    "No local Lean or kernel acceptance.",
+    "Not infinity overlap normalization, all-point support, principal divisor, associated sheaf or theta/Weil identification.",
+    "Fresh reconstruction, not historical source recovery."
+  ]
+}

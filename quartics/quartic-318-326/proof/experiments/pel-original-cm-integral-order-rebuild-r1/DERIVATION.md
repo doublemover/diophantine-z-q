@@ -1,0 +1,11 @@
+# Exact original carrier and universal integral closure
+
+The surviving original quadratic embedding has literal carrier QuadraticAlgebra Q (-(discriminant4))0, discriminant4=210, and sends omega to the unchanged original quaternion element. Its actual negativity supplies the field structure. R is the integral quadratic algebra with parameter-210. Native mapRingHom casts each coordinate; its injectivity is checked on the two projections. Every R element is integral because the integral quadratic algebra is a finite free Z-module.
+
+Reuse the SURVIVING PELQuadraticIntegralInvariants.trace_integral and norm_integral, whose proofs apply conjugation inside a genuinely commutative quadratic carrier and reflect scalar integrality through an injective algebra map. The trace of omega*z is-420im(z); negating its integer gives U=420im(z). The exact norm formula gives N. Direct rational polynomial normalization yields210T^2+U^2=840N, then exact integer casting yields the integer identity.
+
+Reduce the identity modulo8. The complete64-case ZMod8 lemma gives the actual reductions of T modulo2 and U modulo4 by native castHom maps. Reduce modulo3,5,7: complete finite quadratic-zero checks force each prime to divide U. Use the actual Bezout identities4-3=1, -2*12+5*5=1, and2*60-17*7=1 to combine the divisibilities into420|U. No bounded search over algebraic integers substitutes for this universal argument.
+
+Write T=2r,U=420s with integer r,s and use exact rational equalities to recover re(z)=r,im(z)=s. This proves the reverse direction of full integral closure. Package the literal coordinate map into RingOfIntegers K and use its proved bijectivity to construct the native ring equivalence. All downstream maps retain the SAME original quaternion realization; no abstract quadratic copy is substituted.
+
+History: a related full-integer-order checkpoint was independently source-reviewed before the workspace loss. Those original five source files were not recovered. This route is newly reconstructed from actual surviving originals and exact pinned Mathlib APIs, so the old acceptance hash is not reused. The full class group and candidate unramified extension still require reconstruction in dependency order.

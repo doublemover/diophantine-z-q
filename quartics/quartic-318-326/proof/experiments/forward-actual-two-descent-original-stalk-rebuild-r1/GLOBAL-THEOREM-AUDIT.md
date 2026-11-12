@@ -1,0 +1,1 @@
+Unproved downstream joins: actual supported Weil cycle, whole original generic field, named-function stalk specialization squares, principal-divisor certificate, all-point associated-sheaf normalization, common polarization theta group and geometric Weil identification. Historical later work is not restored by this packet.

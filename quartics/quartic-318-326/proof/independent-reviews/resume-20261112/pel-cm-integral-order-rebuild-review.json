@@ -1,0 +1,55 @@
+{
+  "reviewer": "/root/advance_point_geometry",
+  "author": "/root/advance_pel_identification",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_HOSTED_KERNEL_PENDING",
+  "packet": "pel-original-cm-integral-order-rebuild-r1",
+  "application_sha256": "034698d118a003423929554d3527b554228e5d773bbe8ad2b641b2c0c88f333d",
+  "intake_sha256": "85073753db53488856ed71fd7dd2f219d43389c74463e77c43d8827d3b23fed8",
+  "scope": "Fresh universal full integer-order reconstruction for SAME original Quadratic4 and exact quaternion realization. Not recovery of old bytes, native class number, unramifiedness, Hilbert/Artin or CM residue-field results.",
+  "new_sources": {
+    "PELOriginalCM210IntegralConjugation318.lean": "d21240757a52c395b6748d8afbf3a303f8e61b775c496f7510dd2e3d3c03dfe9",
+    "PELOriginalCM210IntegralTraceData318.lean": "b6be27232bf1706a8681acda77cef6051841241c6ef024a71b8d6ee4ff6e136f",
+    "PELOriginalCM210DenominatorCongruences318.lean": "7ac650f959b573ffaf1973c33da579ba87bb6a8604f2d58a9385d1807a3f5680",
+    "PELOriginalCM210FullIntegralCoordinates318.lean": "bbf4ec0e7f839ce86712efe8108d41660e783897473d2421f5d2bc1bb82266e5",
+    "PELOriginalCM210NativeIntegerOrder318.lean": "87ca9475dbee033c58bcea2f41ec2c59bda1d9872c02f6a5e41097cd2e885fde"
+  },
+  "actual_consumers": {
+    "PELInertiaQuadraticEmbeddings318.lean": "33eb9da9950dc819a2b6c0efe111e6135c45697d57413f8d6b4c2ddec48ee49b",
+    "PELInertiaNormalizerData318.lean": "7bbe68d97b05f5e4580e945b5f5bdbc172a4dc71fc98f46cedfc1735312f6093",
+    "PELQuadraticIntegralInvariants318.lean": "ff792bcaf45c38e6955a7c2d1991f455a2aca4b9500af9d3ae7a8540c0114eb7"
+  },
+  "evidence": {
+    "README.md": "0333c444ab00889edc6bb36ca4346b531abd66793e1f889ef4ac85f24c197a81",
+    "DERIVATION.md": "13f9c86a7aaf99f54d28b124716e45bc2d8d917adec89fde5b77748be4170863",
+    "intake.json": "85073753db53488856ed71fd7dd2f219d43389c74463e77c43d8827d3b23fed8",
+    "COPY_BINDINGS.json": "a5587f702786a68de4bea793f06d27108e103e2ae568b02d4bd98cce25dbf07e",
+    "PRIMARY-PROVENANCE.json": "0ae305571da8d2ba05b3c279b1920720028fba305f6f82d896f2b9e1f8b0dd31",
+    "regress_cm_integral_rebuild.py": "ce0de28c1c238db8513ee5d843b428ccdb9a625c441a4b1cb959938022b95019",
+    "REGRESSION.json": "bc62e23aa4ad3524bce0c2111991a990b6bea2c24295d4df8ad10145d6e7dd17"
+  },
+  "checks": [
+    "Read all five fresh modules, nine obligations, DERIVATION and README; fresh acceptance does not reuse lost historical review pins.",
+    "The literal original index4 is the -210 quadratic carrier with field structure supplied by the surviving negativity no-root proof. Native quadratic finite/free and charZero instances justify NumberField. The integral map is actual coefficient casting via mapRingHom, not an abstract field replacement.",
+    "Inherited trace and norm integrality use the actual commutative quadratic conjugation, scalar integrality reflection and rational integer-closure theorem. They do not assert closure of integral elements of a noncommutative quaternion algebra under arbitrary arithmetic.",
+    "For every integral z, T=2re(z), U=420im(z), N=re(z)^2+210im(z)^2. Multiplication by the SAME integral theta yields the negative secondary trace; negating its integer witness fixes the sign. Independently checked 210T^2+U^2=840N.",
+    "The native finite checks at8,3,5,7 force2|T,4|U,3|U,5|U,7|U. All three explicit Bezout equalities produce420|U. No half-integer basis or omitted prime2 hypothesis is admitted.",
+    "The universal denominator result constructs actual integer coordinates for every algebraic integer. The converse uses finite integral quadratic order and native map_isIntegral_int. Both directions feed nativeMap surjectivity/injectivity and RingEquiv.ofBijective into the full NumberField.RingOfIntegers K.",
+    "Actual original theta/quaternion realization is retained before and after integerEquiv. This is not a maximal-order statement for the ambient quaternion algebra or an Artin reciprocity theorem.",
+    "Read bound native QuadraticAlgebra mapRingHom/basis/finite/charZero/re_mul/trace/norm APIs, NumberField and RingOfIntegers ext/coe, ZMod cast divisibility and IsCoprime.mul_dvd. No concrete source objection.",
+    "Independent source/hash/import check passed1174; independently compared all1169 inherited source files against their named surviving predecessor. All application bindings verified.",
+    "Independently checked705600 pairs modulo840 and26136 rational coordinate cases with all three trace/norm integrality tests. These finite controls do not replace the universal source proof. No local Lean or profiling."
+  ],
+  "structural": {
+    "sources": 1174,
+    "unchanged_predecessors": 1169,
+    "new_sources": 5,
+    "local_lean_run": false
+  },
+  "independent_regression": {
+    "status": "PASS",
+    "residue_cases": 705600,
+    "rational_cases": 26136
+  },
+  "corrections_requested": [],
+  "kernel_acceptance": false
+}

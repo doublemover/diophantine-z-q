@@ -1,0 +1,3 @@
+Actual cover and irreducibility reuse the surviving geometry construction, with the native pushout condition proving intersection nonempty. Native Properties and FunctionField APIs supply reduced descent, generic-point transport and fraction-field-of-every-stalk. The chosen affineComparison is explicit rather than an arbitrary abstract field equivalence. The theorem actual_section_square is the native germ identity, not yet the more specialized affine-coordinate square.
+
+The exact generic-stalk isomorphism and all-section germ square reuse surviving baseline OpenFunctionField318, including native Inseparable transport and affine localization AlgEquiv; they are not claimed as newly produced generic APIs.

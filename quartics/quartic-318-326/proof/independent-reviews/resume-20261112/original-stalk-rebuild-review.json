@@ -1,0 +1,41 @@
+{
+  "reviewer": "/root/advance_jacobian_descent",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_HOSTED_PENDING",
+  "packet": "forward-actual-two-descent-original-stalk-rebuild-r1",
+  "application_sha256": "23b88b5fc857810dfcfa2ae2f2c979f4feb2d71efb46e7b8c633025ebf72c78f",
+  "intake_sha256": "9ff9fa0fd3d2709a9f181273f0cafee2b659b8dce740e986fa0eedf5b185f102",
+  "new_sources": {
+    "ActualTwoDescentOpenAffineStalkRebuild318.lean": "2a748afb015b40fff5c455356fc458165ff6fe64aa3ab051a75edae94d7979b4",
+    "ActualTwoDescentOriginalMarkedStalksRebuild318.lean": "f40bfd5954d911852edd310ab23a5fd075a94b3904d71c0e1cc72d6dd6c757e5",
+    "ActualTwoDescentOriginalStalkFactorsRebuild318.lean": "c9b4073033c3a9e2192aa5d17b512c2db67da6688fd935fdd2b3c04e9f2db9d4",
+    "ActualTwoDescentDVRValueTransportRebuild318.lean": "61424850fa2f049eec6d370f7b0e2a497d8022064df4565b59e97e3b77bea938",
+    "ActualTwoDescentOriginalStalkOrdersRebuild318.lean": "a1aca4e72b80da1e73554a0bc2494e65644abfe7b011502c370776a0c320c515"
+  },
+  "native_evidence": {
+    "independent-reviews/resume-20261112/stalk-rebuild-native/RingHomInjSurj.lean": "7798bd43fbb2775def3c7582fe5406bfde71df42e5f97ac0584977d78c54c9b3",
+    "experiments/forward-actual-two-descent-original-stalk-rebuild-r1/STALK-REBUILD-PRIMARY/ActualDvrFractionValuationTransport318.lean": "e57acbd9dfa5847e23b026eedf54f00d1b889fe2270bb16b650ee778c63db70f",
+    "experiments/forward-actual-two-descent-original-stalk-rebuild-r1/STALK-REBUILD-PRIMARY/FourRootActualSchemeDvr318.lean": "66a9a15f6b5ad3f0ea16ec6e6e63ecda58c0ef47fdb99952109a4d83a1386253",
+    "experiments/forward-actual-two-descent-original-stalk-rebuild-r1/STALK-REBUILD-PRIMARY/Mathlib__AlgebraicGeometry__Morphisms__OpenImmersion.lean": "9bb1ff802425fb22ac99eedd652519502bf28687ff38962d9eb899803f4dac28",
+    "experiments/forward-actual-two-descent-original-stalk-rebuild-r1/STALK-REBUILD-PRIMARY/Mathlib__AlgebraicGeometry__Stalk.lean": "b0e85ceeecd7effa91d9941a1431af0e514518d022e8a0e0e4dbcd6888ebcffd",
+    "experiments/forward-actual-two-descent-original-stalk-rebuild-r1/STALK-REBUILD-PRIMARY/Mathlib__RingTheory__DiscreteValuationRing__Basic.lean": "74a1d40bc878f0b306a54972f517a5f9274a566715a7d22432bcde30089f44cf"
+  },
+  "checks": {
+    "structural_modules": 1304,
+    "exact_predecessor_sources": 1299,
+    "source_and_application_bindings": "PASS",
+    "local_lean_run": false
+  },
+  "findings": [
+    "Read all five fresh reconstructed modules and actual original root/infinity local-ring, chart-cover and valuation producers. No historical byte recovery or historical review transfer claimed.",
+    "Native stalk equivalence is the actual open-immersion stalkMap followed by Spec.stalkIso. Named coordinate definitions use its inverse, not an unrelated chosen local model.",
+    "Function.Injective.isDomain takes the explicit ring-equivalence map and its injectivity, with correct target-to-source orientation. Native DVR transport uses inverse equivalence.",
+    "Actual root unit-square and origin unit-cube transport retains the nonzero parameter requirement for root DVR/order and does not add it to unconditional origin assertions.",
+    "Exact normalized addVal transport includes zero and uses native unit-times-prime-power factorization; full all-element endpoint is stronger than support equality.",
+    "No concrete source mathematical or native-API objection found."
+  ],
+  "limitations": [
+    "No Lean elaboration or kernel acceptance; hosted checking remains pending.",
+    "Does not produce global integrality/function-field comparison, principal divisor, theta or Weil identification.",
+    "Known inherited audit failures in other producers are not resolved by this five-source review."
+  ]
+}
