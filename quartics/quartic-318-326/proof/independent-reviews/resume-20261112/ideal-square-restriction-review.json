@@ -1,0 +1,29 @@
+{
+  "reviewer": "advance_jacobian_descent",
+  "author": "advance_global_arithmetic",
+  "packet": "forward-actual-two-descent-ideal-square-restriction-r1",
+  "status": "ACCEPTED_SOURCE_SCOPE_HOSTED_PENDING",
+  "application_sha256": "c7287c648decf7a81bc7e760e1e40976fd4655e0d845357600b0941253cec513",
+  "intake_sha256": "06239276933f225a93cf34fa7c36323ad9a1b988b6a127ac64e71b6ec446cca5",
+  "new_source_hashes": {
+    "ActualTwoDescentNativeTensorMapComposition318.lean": "6f110c5265f40016985e9acb310d470fae83a174552d204c4c5f3c7e7afcdc2e",
+    "ActualTwoDescentNativeTensorNestedRestriction318.lean": "7578066e7e4977e2d9ae03c7ae49d330ea56d22b924f6638ce73c18484f81ff7",
+    "ActualTwoDescentNativeScaledSquareRestriction318.lean": "bdab623c4769d4c388f2c5c8d47625e708ef6b6cd6ffff628f48543686c93a17",
+    "ActualTwoDescentNativeScaledSquareCongruence318.lean": "0f961abc088107ee7fd9e936989d4ccfa65971751caa6ca455148b1f1b5c3cf5",
+    "ActualTwoDescentOriginalInfinitySquareRestriction318.lean": "4c8faca5b096a2cb149ef144d088f00772a081aa6784a50685fec06243f7d66f"
+  },
+  "structural_sources": 1280,
+  "unchanged_predecessor_sources": 1275,
+  "review": [
+    "Read all five new sources, nine application obligations, exact scaledSquareFrame and pure formula, old original infinity frame/square definitions, canonical matched square, and pinned native restriction composition/congruence/tensor normalization APIs. Prior exact frame-comparison seven was separately reviewed by this reviewer.",
+    "Native tensor morphism composition and restriction naturality are proved by all-subopen pure extensionality, not by a global-section spanning assumption. Both factors retain actual restricted module morphisms.",
+    "Nested restriction transports the ambient pure tensor along the exact equality j(image k U)=(k composed j)(image U). IntrinsicTensorSheaf.pure_restrict and both native restriction normalizations identify the two sides with the same transported tensor. The direction of eqToHom and source/target open sections is correct.",
+    "SquareMap_scaled compares the old scaledSquareFrame hom to the exact tensor-product/multiplication expression. Restriction uses the previous actual appTop coefficient theorem and native tensor composition, retaining old frame composition and native restrictUnitIso.",
+    "Equality of ambient embeddings remains explicit through inverse restrictFunctorCongr on the source tensor and both factors. Substitution reduces this to actual presheaf identity maps; no source transport is silently omitted.",
+    "The final infinitySquareOnOverlap contains exactly old chart equality transport, original native restriction composition and old infinitySquareChart restriction. The proved old infinityOverlapFrame identity and literal inverse-pole coefficient identify it with SAME matchedSquareIso.hom on the whole actual overlap. It also equals the canonical affine expression but does not identify either OLD affine square restriction.",
+    "Reviewer requested robust proof-only closers at five new rw-followed-by-rfl sites to avoid known no-goals elaboration hazards. Author replaced them by rw followed by <;> rfl, preserving mathematical statements; final current source hashes and metadata rechecked. This is source preflight, not an observed local Lean failure.",
+    "Independent1280 structural admission, all source hashes and1275 exact predecessor copies passed. Accepted precise old infinity-square restriction join and generic native tensor composition/scalar comparison. Old affine refinement cancellation, global square gluing, divisor and theta/Weil remain open. Hosted elaboration remains pending; no local Lean."
+  ],
+  "local_lean_run": false,
+  "primary_sources_sha256": "af1c016b4980c479e321f14d55075c88ad6a2d86f013b842e12b44982f8adb77"
+}
