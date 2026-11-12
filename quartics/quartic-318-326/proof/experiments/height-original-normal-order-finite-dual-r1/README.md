@@ -1,0 +1,23 @@
+# Full finite dual of the actual normal-order chart
+
+1469 sources:1461 byte-identical predecessor sources plus8 new modules. No local Lean/profiling, no predecessor edits or new resource options. Source admission and kernel validation are distinct.
+
+The prior batch compared actual dt-coordinate paths and proved raw-different-corrected cotangent bounds for the specialized trace codifferent. This batch supplies an actual affine duality identification, rather than calling that codifferent a Hodge lattice: the ENTIRE trace codifferent of the actual normal-order chart is isomorphic as a normalOrder-module to Hom_{V[T]}(normalOrder,V[T]), with the correct multiplication-precomposition action and the literal original algebra-trace pairing.
+
+OverorderMultiplierHom318 uses an injective original raw-order embedding and an actual conductor denominator whose image is a unit in the source. Multiplying any normal-order element by that denominator puts it in the raw order. Linearity and cancellation therefore force EVERY raw-order-linear map to be multiplication by its value at1. Conversely every actual conductor multiplier gives a full raw-order-linear map by the unique raw preimage. Both inverse laws are proved on all elements.
+
+FiniteFrameFunctionalAdjunction318 composes the existing entire raw-order-linear perfect coefficient frame with the existing finite-dual coinduction adjunction. This supplies all polynomial-base-linear functionals on the normalization, with no finite-free or projective hypothesis on the normalization itself. IntegralNormalizationRawEmbedding318 DISCHARGES the embedding and denominator requirements for the actual four-root order, using native free tensor-base-change injection and the previously produced conductor denominator power. No conductor nonvanishing or multiplier classification is assumed in the actual application.
+
+IntegralNormalizationConductorDual318 combines those producers on the literal normalOrder and exact marked raw inclusion, retaining the coefficient formula for every element. IntegralNormalizationTraceFunctional318 multiplies the actual trace codifferent by the SAME raw different to enter the conductor, then proves the resulting functional is precisely Tr(z*n). The factor16 and all marked roots enter through the already proved literal trace formula, not a changed scalar normalization.
+
+NormalTraceDualModule318 installs the actual normal-order multiplication action on the same trace-integral carrier. IntegralNormalizationFiniteDual318 proves the full equivalence normalOrder-linear against multiplication precomposition on Hom, using exact trace values and the actual injective polynomial-base map. This strengthens a mere set bijection or rank calculation to the genuine module isomorphism.
+
+OriginalNormalOrderFiniteDual318 specializes to the original finite-place data. It recovers a trace coefficient for EVERY affine finite-dual functional and evaluates it using the SAME M.fieldPoint with all original signed roots. Its value_range is exactly the prior codifferentValues, not merely a subset. On the explicit ht:w(t)<=1 branch, the previous exact normal-order/center identification and dt-path comparison yield raw-different-corrected membership in the OLD center cotangent image and integral pairing with its FULL dual for every such functional.
+
+## Exact boundary
+
+This is the full AFFINE finite dual of the actual finite normalization chart and its exact original-point realization. It is not a global Grothendieck-duality adjunction or gluing of these duals on the whole proper normal model. No Hodge or relative-dualizing sheaf identification, regular-model resolution/discrepancy, normal-order freeness, uncorrected ratio bound, reciprocal-only-place conclusion, KS210 or metric theorem is claimed. The raw different remains in the actual bound.
+
+## Credited source route
+
+The entire raw perfect coefficient frame, multiplication-precomposition dual action and coinduction adjunction come unchanged from FourRootIntegralDuality, FiniteDualModuleAction and FiniteDualAdjunction. The actual normalization conductor denominator comes from IntegralNormalizationConductorDenominator; the generic cancellation argument here consumes it explicitly. Native tensor injection/localization arguments are reused from IntegralInfinityArithmeticDomain with the actual finite denominator and marked coefficient map. The original normal-order chart/scalar/same-center and full dt-path equality are inherited unchanged, as are exact conductor/codifferent specialization and corrected cotangent bounds. PRIMARY binds the pinned native Subalgebra actions/algebraMap source read at Mathlib56a005855ea17e0b0958f73ec801ae140b0a1679.
