@@ -1,0 +1,120 @@
+module
+import all StructureAdditiveSheaf318
+import all NormalizedStructureTrace318
+import all ActualQuotientSheafRetraction318
+import all SheafCohomologyRetraction318
+import all ActualQuotientHOne318
+import all SheafInverseImageConstants318
+import all AdjunctionExtOneInjection318
+import all SourceCohomologyComparison318
+import all SchemeSourceCohomology318
+import all ActualSourceHOnePullbacks318
+import all PrincipalFractionClearing318
+import all PrincipalCocycleSplit318
+import all ActualPrincipalSections318
+import all ActualPrincipalCocycle318
+import all AffinePrincipalLocalLifts318
+import all AdditiveSheafSections318
+import all AffineStructureSectionLifting318
+import all OpenImmersionAdditiveRestriction318
+import all AffineOpenSectionLifting318
+import all AdjunctionExtOneSurjection318
+import all AffineStructureDirectImage318
+import all AffineHOneComparison318
+import all ActualSourceHOneTransfers318
+import all LocalSheafCohomologySections318
+import all LocalSheafCohomologyAdditive318
+import all LocalAffineStructureHOne318
+import all TerminalLocalCohomology318
+import all OpenMayerVietoris318
+import all AffineCoverHOnePresentation318
+import all ActualSourceHOnePresentation318
+import all LocalCohomologyRestriction318
+import all MayerVietorisSectionKernel318
+import all AffineCoverHOneQuotient318
+import all ActualSourceHOneQuotient318
+import all AffineChartRingSections318
+import all ActualSourceHOneCoordinates318
+import all RootOrderMonomialBasis318
+import all ContactHOneOrderBases318
+import all PolynomialPrincipalParts318
+import all ContactInfinityPrincipalParts318
+import all ContactInfinityRegularFractions318
+import all NativeTensorScalar318
+import all ContactWholePrincipalReduction318
+import all ActualSourceHOnePrincipalRepresentatives318
+import all ContactFinitePoleReduction318
+import all ActualSourceHOneSmallPoles318
+import all ContactPrincipalCoefficientExpansion318
+import all ActualSourceHOneFiveSpanning318
+import all StructureRationalScalar318
+import all CohomologyRationalScalar318
+import all ActualHOneRationalStructures318
+import all SplitAdditiveRetraction318
+import all FiniteSplitTransfer318
+import all ActualFiveHOneDecomposition318
+import all ActualSourceHOneRationalSpanning318
+import all ActualFiveHOneRationalExhaustion318
+import all SourceHOneCharacterIndices318
+import all SourceHOneCharacterRepresentatives318
+import all ActualSourceHOneCharacterAction318
+import all ActualSourceHOneCharacterProjectors318
+import all OriginalInfinityCoefficient318
+import all OriginalNegativePoleUniqueness318
+import all OriginalOverlapResidues318
+import all OriginalFinitePoleExpansion318
+import all OriginalSmallPoleResidues318
+import all ActualSourceHOneResidueBasis318
+import all MayerVietorisCoefficientNaturality318
+import all InverseImageLocalGenerator318
+import all InverseImageLocalCohomology318
+import all InverseImageMayerVietoris318
+import all InverseImageTerminalCoherence318
+import all SchemeBoundaryNaturality318
+import all StableCoverBoundary318
+import all OriginalSignChartPreservation318
+import all ActualSourceHOneGeometricSigns318
+import all TwoChartHOneFunctoriality318
+import all OriginalCharacterPullbackLines318
+import all OriginalFifthPullbackLine318
+import all OriginalFivePullbackIndependence318
+import all MayerVietorisCoverRefinement318
+import all RefinedSchemeBoundary318
+import all WeierstrassBoundaryClass318
+import all OriginalCharacterClassPullbacks318
+import all OriginalSimplePoleResidues318
+import all InfinityBasisUnitCoefficients318
+import all OriginalCharacterSimplePole318
+import all OriginalCharacterHOneNonzero318
+import all WeierstrassLaurentModel318
+import all WeierstrassLaurentFiltration318
+import all WeierstrassOriginalResidue318
+import all WeierstrassHOneNonzero318
+import all OriginalFiveHOneEquivalence318
+import all OriginalOpenTraceDeck318
+import all OriginalTransferDeckNaturality318
+import all OriginalFiveTransferInvariance318
+import all OriginalFiveHOneTraceEquivalence318
+import all OriginalHOneTraceNormalization318
+import all OriginalTargetHOneCoordinates318
+import all OriginalFiveHOneNormMatrices318
+import Lean.Util.CollectAxioms
+
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let modules : Array Name := #[`StructureAdditiveSheaf318,`NormalizedStructureTrace318,`ActualQuotientSheafRetraction318,`SheafCohomologyRetraction318,`ActualQuotientHOne318,`SheafInverseImageConstants318,`AdjunctionExtOneInjection318,`SourceCohomologyComparison318,`SchemeSourceCohomology318,`ActualSourceHOnePullbacks318,`PrincipalFractionClearing318,`PrincipalCocycleSplit318,`ActualPrincipalSections318,`ActualPrincipalCocycle318,`AffinePrincipalLocalLifts318,`AdditiveSheafSections318,`AffineStructureSectionLifting318,`OpenImmersionAdditiveRestriction318,`AffineOpenSectionLifting318,`AdjunctionExtOneSurjection318,`AffineStructureDirectImage318,`AffineHOneComparison318,`ActualSourceHOneTransfers318,`LocalSheafCohomologySections318,`LocalSheafCohomologyAdditive318,`LocalAffineStructureHOne318,`TerminalLocalCohomology318,`OpenMayerVietoris318,`AffineCoverHOnePresentation318,`ActualSourceHOnePresentation318,`LocalCohomologyRestriction318,`MayerVietorisSectionKernel318,`AffineCoverHOneQuotient318,`ActualSourceHOneQuotient318,`AffineChartRingSections318,`ActualSourceHOneCoordinates318,`RootOrderMonomialBasis318,`ContactHOneOrderBases318,`PolynomialPrincipalParts318,`ContactInfinityPrincipalParts318,`ContactInfinityRegularFractions318,`NativeTensorScalar318,`ContactWholePrincipalReduction318,`ActualSourceHOnePrincipalRepresentatives318,`ContactFinitePoleReduction318,`ActualSourceHOneSmallPoles318,`ContactPrincipalCoefficientExpansion318,`ActualSourceHOneFiveSpanning318,`StructureRationalScalar318,`CohomologyRationalScalar318,`ActualHOneRationalStructures318,`SplitAdditiveRetraction318,`FiniteSplitTransfer318,`ActualFiveHOneDecomposition318,`ActualSourceHOneRationalSpanning318,`ActualFiveHOneRationalExhaustion318,`SourceHOneCharacterIndices318,`SourceHOneCharacterRepresentatives318,`ActualSourceHOneCharacterAction318,`ActualSourceHOneCharacterProjectors318,`OriginalInfinityCoefficient318,`OriginalNegativePoleUniqueness318,`OriginalOverlapResidues318,`OriginalFinitePoleExpansion318,`OriginalSmallPoleResidues318,`ActualSourceHOneResidueBasis318,`MayerVietorisCoefficientNaturality318,`InverseImageLocalGenerator318,`InverseImageLocalCohomology318,`InverseImageMayerVietoris318,`InverseImageTerminalCoherence318,`SchemeBoundaryNaturality318,`StableCoverBoundary318,`OriginalSignChartPreservation318,`ActualSourceHOneGeometricSigns318,`TwoChartHOneFunctoriality318,`OriginalCharacterPullbackLines318,`OriginalFifthPullbackLine318,`OriginalFivePullbackIndependence318,`MayerVietorisCoverRefinement318,`RefinedSchemeBoundary318,`WeierstrassBoundaryClass318,`OriginalCharacterClassPullbacks318,`OriginalSimplePoleResidues318,`InfinityBasisUnitCoefficients318,`OriginalCharacterSimplePole318,`OriginalCharacterHOneNonzero318,`WeierstrassLaurentModel318,`WeierstrassLaurentFiltration318,`WeierstrassOriginalResidue318,`WeierstrassHOneNonzero318,`OriginalFiveHOneEquivalence318,`OriginalOpenTraceDeck318,`OriginalTransferDeckNaturality318,`OriginalFiveTransferInvariance318,`OriginalFiveHOneTraceEquivalence318,`OriginalHOneTraceNormalization318,`OriginalTargetHOneCoordinates318,`OriginalFiveHOneNormMatrices318]
+  let mut count : Nat := 0
+  let mut found : Nat := 0
+  for idx in [:env.header.modules.size] do
+    if modules.contains env.header.modules[idx]!.module then
+      found := found+1
+      for name in env.header.moduleData[idx]!.constNames do
+        let axs ← collectAxioms name
+        for ax in axs do
+          unless ax == ``propext || ax == ``Quot.sound || ax == ``Classical.choice do
+            throwError "Unexpected axiom {ax} in {name}"
+        count := count+1
+  unless found == modules.size do throwError "Missing imported modules: {found}/{modules.size}"
+  logInfo m!"EXPERIMENT_AUDIT_PASS declarations={count} modules={found}"
