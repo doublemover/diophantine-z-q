@@ -1,0 +1,11 @@
+# Exact logic and source identity
+
+For arbitrary finite index set and paired natural numbers, left/right swap according to one Boolean per index. If q divides the chosen left value at every index, and a competing orientation has q dividing its left LCM, coprimality rules out q from its right LCM. At every index, choosing the opposite side would then put the known q divisor into that right LCM, so the orientation must match. If q does not divide its left LCM, every index must instead be flipped. This proves classification without assuming that either choice succeeds, without exact order evaluation and without positivity or distinct-index assumptions.
+
+Finite filtering by coprimality plus an arbitrary additional predicate preserves the classification. Native Finset.card_le_card and card_le_two give cardinality2, including coincident global choices on the empty index type. The nonempty equivalence is literal membership of the two choices, not an existence inference.
+
+For the original curve, SelectedRayEmbeddings.oriented is used directly. The primary root is negated on true bits and the opposite root is always its negative. Thus true bits turn the opposite order into the original primary through neg_neg and proof irrelevance. Pointwise equalities are mapped through Finset.univ.lcm with the original Fin3×Fin5 index unchanged. The existing all_orientations theorem covers all actual root families; it is not newly asserted or replaced by count heuristics.
+
+The actual candidate predicate requires coprimality of the two original LCMs, coprimality of the original product with plus, coprimality of plus with L, and the exact preceding gcd(product^3*minus,L)|h0 condition. It therefore certifies the preceding native CRT constructor; no most-general CRT claim is made. The candidate witness retains the original Orders producer at the same roots, tuple and LCMs.
+
+Choice is made from literal successful quarter-count/denominator tests, not from a purported numerical actual order. Native halving root data and large selected primes discharge the quarter-order prerequisites. At least one test per index yields q dividing every chosen actual side. It reduces conditional coverage to two exact compatibility tests, but neither successful input coverage nor compatibility nor the simultaneous-prime tuple is supplied.

@@ -1,0 +1,54 @@
+{
+  "reviewer": "/root/restore_and_integrate",
+  "author": "/root/advance_prime_witnesses",
+  "status": "ACCEPTED_SCOPED_SOURCE_REVIEW_KERNEL_PENDING",
+  "packet": "forward-original-fifteen-order-reconstruction-r1",
+  "application_sha256": "0b613681925ea8f12942811ff08169a5304f131797a2bb3740219116d0a5ff91",
+  "intake_sha256": "f9116c7b846a46087aa5c451dd30c0055358d0ae0d87255f53d68d205ddc7328",
+  "structural_sources": 1329,
+  "exact_predecessor_sources": 1322,
+  "new_source_hashes": {
+    "ActualOrderAnnihilatorLCM318.lean": "699bc06bdcd145710732bb143a41932078cdc26a9697a6b56e99864fdd9c8bcf",
+    "ActualOrderContinuityCRT318.lean": "75e23a7f9cff5d6a8887ad6685d7fde187262e538a1fb8a67c051a95a43c8f36",
+    "ActualQuarterCoverageObstruction318.lean": "63ee09c9c2ff046b4ddebad7c52b50ce276f3863391ebfd60760adba150923ce",
+    "ActualQuarterDenominatorCoverage318.lean": "9dcc53c8a99cbcd6c9431e79e206d8e2b32e6aa500f04d7bd30e04758b704efb",
+    "ActualSelectedDenominatorSupport318.lean": "0b92c48af0f70f21851e1a48ec13e81c588a3ee7188ec4179b8f69adf07f00ef",
+    "ActualSelectedUniformOrderGrowth318.lean": "125b6cf9aa6f07dd276347fb75dad030835cb068a689dbc07c4174552b16e1cc",
+    "ExactContinuityDivisibilityCRT318.lean": "c7845c1ed342bd4ee43b0fbf7cd20f2a401d5d3b81c5189cfff9f0ed1cd37035"
+  },
+  "bounded_inherited_deltas": {},
+  "primary_evidence": {
+    "FIFTEEN-PRIMARY/ActualSelectedOrderModuli318.lean": "7d8bd996eada81083dd8605a85f7e002ab20d0691a04dbdeaf2cec9a4cccd575",
+    "FIFTEEN-PRIMARY/NatGCD.lean": "0320a5e9c4af0c1d785e281315c12e56002fa74cbbf45f91bd18284a744e9893",
+    "FIFTEEN-PRIMARY/NatModEq.lean": "89f0740250a99605b1a9a6fc57f83b371b4cf9039f11fb5db1f2405437ea60cb",
+    "FIFTEEN-PRIMARY/PROVENANCE.json": "822d8054174849327eb2e7d0d4c639d08ee399d52b5ea0717824963dbe241674",
+    "FIFTEEN-PRIMARY/PrimeCRTAssembly.lean": "1c689c3aa4abeb75f98d708d7235c0ab4fca62334c41685eefec5084e42d24e7",
+    "FIFTEEN-PRIMARY/SelectedCountDenominatorFactors318.lean": "d281c7771da2404b064b0c53f292ebbfb18c6421d928781e8fdc4e9f5616b1a2",
+    "FIFTEEN-PRIMARY/SelectedEntryDenominatorDivisibility318.lean": "5deb968d43f0ff45bfb693fb0116b817fdb67754f92134d4719b8385d5678bfe",
+    "FIFTEEN-PRIMARY/SelectedExactEntryOrders318.lean": "446425cabea379912f6712575fd6d4b3561f62be8bbfd0da8c0b47bb390c685f",
+    "FIFTEEN-PRIMARY/SelectedQuarterOrder318.lean": "de0a4151dede03ab364f172a836a5e9d9ab22a315b36cfe8814c920e3aa5150b",
+    "FIFTEEN-PRIMARY/SelectedRayEmbeddings318.lean": "424090dc3a8b745b8a1663f418248db6a595212c46570dc429e64e7333bcc97c",
+    "FIFTEEN-PRIMARY/SelectedReductionOrder318.lean": "2f96efb6676c3c6ab24d5d066c7291b8c19104d91072c7866a565a17397f927d",
+    "FIFTEEN-PRIMARY/SelectedTraceFromOrders318.lean": "0c0c26c877dfdabbee09e44aa4425577ca2c39d7f72d05e549442db0a97f18d3",
+    "FIFTEEN-PRIMARY/SelectedUniformOrderGrowth318.lean": "eec9d791e1dd75b51ed572ab925b3c918c9f6fad78f9108d41854e886c4bf25e"
+  },
+  "findings": [
+    "All seven full sources and actual predecessor/native consumers read. All fifteen original positions, including repeats, and both roots are retained.",
+    "Actual Entry at every position is equivalent to divisibility by the literal original order LCM; positive common annihilator support is distinguished from common prime divisors.",
+    "Literal quarter-count and denominator tests supply actual prime-divisor coverage only under explicitly retained successful tests, large-prime and root hypotheses.",
+    "Generalized native CRT proves the exact gcd(Pi^e*Mminus,L)|h0 criterion while retaining the other three stated coprimalities. Zero moduli remain allowed; positive moduli separately supply arbitrarily large solutions.",
+    "Opposite-side tests at any two positions obstruct coprimality of actual LCMs, without requiring distinct primes or indices."
+  ],
+  "checks": [
+    "All application bindings and source hashes verified",
+    "All 1322 predecessor source bytes identical",
+    "Static source/import validation passed",
+    "Independent exact regression rerun:2457 CRT cases,162 zero-modulus cases,3000 synthetic fifteen-LCM cases,150 synthetic cross obstructions,4 boundary controls"
+  ],
+  "limitations": [
+    "No simultaneous Values tuple, successful coverage tests, favorable orientation or real-orbit hit is produced.",
+    "Not a generalized three-modulus CRT theorem with all coprimalities removed.",
+    "Synthetic order regressions do not evaluate original quotient orders.",
+    "No Lean compilation or kernel replay performed."
+  ]
+}

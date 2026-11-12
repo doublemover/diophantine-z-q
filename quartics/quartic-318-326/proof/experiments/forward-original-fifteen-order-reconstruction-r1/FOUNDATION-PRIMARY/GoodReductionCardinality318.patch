@@ -1,0 +1,29 @@
+--- before/GoodReductionCardinality318.lean
++++ after/GoodReductionCardinality318.lean
+@@ -37,7 +37,7 @@
+     D.2 (nonsingular p D hD P) (nonsingular p D hD Q)
+     P.1.1.2 P.1.2.2 Q.1.1.2 Q.1.2.2 hsep
+   apply hn
+-  apply (QuotientAddGroup.eq_zero_iff (subgroup p D)).mp
++  apply (QuotientAddGroup.eq_zero_iff (N := subgroup p D) _).mp
+   change (QuotientAddGroup.mk' (subgroup p D)) (point p D hD P-point p D hD Q)=0
+   simpa only [map_sub,sub_eq_zero] using he
+ 
+@@ -62,7 +62,7 @@
+ lemma code_some_ne_zero (hp : p≠2) (D : ℤ_[p]) (hD : ‖D‖=1) (z : ResidueCurve p D) :
+     code p hp D hD (some z)≠0 := by
+   intro he
+-  exact point_nonformal p D hD _ ((QuotientAddGroup.eq_zero_iff (subgroup p D)).mp he)
++  exact point_nonformal p D hD _ ((QuotientAddGroup.eq_zero_iff (N := subgroup p D) _).mp he)
+ 
+ theorem code_injective (hp : p≠2) (D : ℤ_[p]) (hD : ‖D‖=1) :
+     Function.Injective (code p hp D hD) := by
+@@ -88,7 +88,7 @@
+   obtain ⟨P,rfl⟩ := QuotientAddGroup.mk'_surjective (subgroup p D) a
+   by_cases hf : P∈subgroup p D
+   · refine ⟨none,?_⟩
+-    exact ((QuotientAddGroup.eq_zero_iff (subgroup p D)).mpr hf).symm
++    exact ((QuotientAddGroup.eq_zero_iff (N := subgroup p D) _).mpr hf).symm
+   · cases P with
+     | zero => exact False.elim (hf (AddSubgroup.zero_mem _))
+     | some x y h =>
