@@ -1,0 +1,120 @@
+--- height-original-normal-overlap-orders-rebuild-r1/IntegralOriginalInfinityEmbedding318.lean
++++ height-original-normal-overlap-hom-rebuild-r1/IntegralOriginalInfinityEmbedding318.lean
+@@ -3,6 +3,7 @@
+ public import IntegralWholeProjectiveProper318
+ public section
+ noncomputable section
++universe u
+ namespace IntegralOriginalInfinityEmbedding318
+ open Polynomial AlgebraicGeometry CategoryTheory
+ open IntegralWholeReciprocalOrders318 IntegralWholeReciprocalGluing318
+@@ -11,6 +12,51 @@
+ set_option synthInstance.maxSize 4096
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++/-- Abstract the native localization proof before specializing its nested
++original chart carriers. The resulting ring map is unchanged. -/
++private theorem localization_equiv_open
++    (P F A B : Type u) [CommRing P] [CommRing F] [CommRing A] [CommRing B]
++    [Algebra P F] [Algebra P A] (x : P) [IsLocalization.Away x F]
++    (e : F ⊗[P] A ≃+* B) : IsOpenImmersion (Spec.map (CommRingCat.ofHom
++      (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom))) := by
++  letI := IntegralInfinityOverlapRealization318.rightAlgebra P F A
++  letI := IntegralInfinityOverlapRealization318.baseChange_localization P F A x
++  letI : IsOpenImmersion (Spec.map (CommRingCat.ofHom
++      (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom)) :=
++    IsOpenImmersion.of_isLocalization (algebraMap P A x)
++  have h : Spec.map (CommRingCat.ofHom
++      (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom)) =
++      Spec.map e.toCommRingCatIso.hom ≫ Spec.map (CommRingCat.ofHom
++        (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom) := by
++    rw [←Spec.map_comp]
++    rfl
++  rw [h]
++  infer_instance
++
++private theorem localization_equiv_range
++    (P F A B : Type u) [CommRing P] [CommRing F] [CommRing A] [CommRing B]
++    [Algebra P F] [Algebra P A] (x : P) [IsLocalization.Away x F]
++    (e : F ⊗[P] A ≃+* B)
++    [IsOpenImmersion (Spec.map (CommRingCat.ofHom
++      (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom)))] :
++    (Spec.map (CommRingCat.ofHom
++      (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom))).opensRange =
++      PrimeSpectrum.basicOpen (algebraMap P A x) := by
++  letI := IntegralInfinityOverlapRealization318.rightAlgebra P F A
++  letI := IntegralInfinityOverlapRealization318.baseChange_localization P F A x
++  letI : IsOpenImmersion (Spec.map (CommRingCat.ofHom
++      (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom)) :=
++    IsOpenImmersion.of_isLocalization (algebraMap P A x)
++  have h : Spec.map (CommRingCat.ofHom
++      (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom)) =
++      Spec.map e.toCommRingCatIso.hom ≫ Spec.map (CommRingCat.ofHom
++        (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom) := by
++    rw [←Spec.map_comp]
++    rfl
++  rw [h,Scheme.Hom.opensRange_comp_of_isIso]
++  apply TopologicalSpace.Opens.ext
++  exact PrimeSpectrum.localization_away_comap_range (F ⊗[P] A) (algebraMap P A x)
++
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ 
+ /-- The existing restricted infinity chart enters its actual whole order by
+@@ -25,51 +71,16 @@
+   Spec.map (CommRingCat.ofHom (ringMap R c))
+ 
+ instance inclusion_open : IsOpenImmersion (inclusion R c) := by
+-  letI := IntegralInfinityOverlapRealization318.rightAlgebra
+-    R[X] (IntegralInfinityChart318.Base R c) (InfinityOrder R c)
+-  letI := IntegralInfinityOverlapRealization318.baseChange_localization
+-    R[X] (IntegralInfinityChart318.Base R c) (InfinityOrder R c)
+-    (IntegralInfinityChart318.denominator R c)
+-  letI : IsOpenImmersion (Spec.map (CommRingCat.ofHom
+-      (Algebra.TensorProduct.includeRight : InfinityOrder R c →ₐ[R[X]]
+-        IntegralInfinityChart318.Base R c ⊗[R[X]] InfinityOrder R c).toRingHom)) :=
+-    IsOpenImmersion.of_isLocalization
+-      (algebraMap R[X] (InfinityOrder R c) (IntegralInfinityChart318.denominator R c))
+-  have h : inclusion R c=
+-      Spec.map (infinityLocalization R c).toRingEquiv.toCommRingCatIso.hom ≫
+-      Spec.map (CommRingCat.ofHom
+-        (Algebra.TensorProduct.includeRight : InfinityOrder R c →ₐ[R[X]]
+-          IntegralInfinityChart318.Base R c ⊗[R[X]] InfinityOrder R c).toRingHom) := by
+-    rw [←Spec.map_comp]
+-    rfl
+-  rw [h]
+-  infer_instance
++  exact localization_equiv_open R[X] (IntegralInfinityChart318.Base R c)
++    (InfinityOrder R c) (IntegralInfinityChart318.Order R c)
++    (IntegralInfinityChart318.denominator R c) (infinityLocalization R c).toRingEquiv
+ 
+ theorem inclusion_range : (inclusion R c).opensRange=
+     PrimeSpectrum.basicOpen
+       (algebraMap R[X] (InfinityOrder R c) (IntegralInfinityChart318.denominator R c)) := by
+-  letI := IntegralInfinityOverlapRealization318.rightAlgebra
+-    R[X] (IntegralInfinityChart318.Base R c) (InfinityOrder R c)
+-  letI := IntegralInfinityOverlapRealization318.baseChange_localization
+-    R[X] (IntegralInfinityChart318.Base R c) (InfinityOrder R c)
+-    (IntegralInfinityChart318.denominator R c)
+-  letI : IsOpenImmersion (Spec.map (CommRingCat.ofHom
+-      (Algebra.TensorProduct.includeRight : InfinityOrder R c →ₐ[R[X]]
+-        IntegralInfinityChart318.Base R c ⊗[R[X]] InfinityOrder R c).toRingHom)) :=
+-    IsOpenImmersion.of_isLocalization
+-      (algebraMap R[X] (InfinityOrder R c) (IntegralInfinityChart318.denominator R c))
+-  have h : inclusion R c=
+-      Spec.map (infinityLocalization R c).toRingEquiv.toCommRingCatIso.hom ≫
+-      Spec.map (CommRingCat.ofHom
+-        (Algebra.TensorProduct.includeRight : InfinityOrder R c →ₐ[R[X]]
+-          IntegralInfinityChart318.Base R c ⊗[R[X]] InfinityOrder R c).toRingHom) := by
+-    rw [←Spec.map_comp]
+-    rfl
+-  rw [h,Scheme.Hom.opensRange_comp_of_isIso]
+-  apply TopologicalSpace.Opens.ext
+-  exact PrimeSpectrum.localization_away_comap_range
+-    (IntegralInfinityChart318.Base R c ⊗[R[X]] InfinityOrder R c)
+-    (algebraMap R[X] (InfinityOrder R c) (IntegralInfinityChart318.denominator R c))
++  exact localization_equiv_range R[X] (IntegralInfinityChart318.Base R c)
++    (InfinityOrder R c) (IntegralInfinityChart318.Order R c)
++    (IntegralInfinityChart318.denominator R c) (infinityLocalization R c).toRingEquiv
+ 
+ @[expose] def chart : Spec (CommRingCat.of (IntegralInfinityChart318.Order R c)) ⟶ scheme R c :=
+   inclusion R c ≫ infinityChart R c
