@@ -1,0 +1,11 @@
+--- before/PELOriginalThirdPeriods318.lean
++++ after/PELOriginalThirdPeriods318.lean
+@@ -27,7 +27,7 @@
+ theorem quotient_zero_iff (z : ComplexVectors) :
+     quotientMap τ z=0 ↔ ∃ a : order, originalPeriods τ a=z := by
+   change QuotientAddGroup.mk' (periodSubgroup representation order τ) z=0 ↔ _
+-  rw [QuotientAddGroup.eq_zero_iff]
++  rw [QuotientAddGroup.mk'_apply,QuotientAddGroup.eq_zero_iff]
+   constructor
+   · rintro ⟨a,ha,he⟩
+     exact ⟨⟨a,ha⟩,he⟩

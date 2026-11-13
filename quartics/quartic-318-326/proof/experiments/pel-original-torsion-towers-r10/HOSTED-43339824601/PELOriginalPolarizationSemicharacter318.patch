@@ -1,0 +1,11 @@
+--- before/PELOriginalPolarizationSemicharacter318.lean
++++ after/PELOriginalPolarizationSemicharacter318.lean
+@@ -38,7 +38,7 @@
+   apply Complex.exp_eq_one_iff.mpr
+   refine ⟨correction x y,?_⟩
+   have h:=congrArg (fun n:ℤ=>(n:ℂ)) (quadratic_add x y)
+-  push_cast at h
++  push_cast at h ⊢
+   linear_combination (Real.pi:ℂ)*Complex.I*h
+ 
+ @[expose] def latticePhase (x:PELOriginalPeriodLattice318.lattice τ hτ):ℂ:=
