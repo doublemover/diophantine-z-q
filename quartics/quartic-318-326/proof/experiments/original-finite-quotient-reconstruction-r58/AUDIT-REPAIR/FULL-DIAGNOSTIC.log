@@ -1,0 +1,96 @@
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:25:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:28:37: error: typeclass instance problem is stuck, it is often due to metavariables
+  IsIntegralHom (Spec.map ?m.65)
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:32:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:31:0: warning: automatically included section variable(s) unused in theorem `OriginalCartesianChartCoefficients318.ringMap_dominant`:
+  [AlgebraicGeometry.IsIntegral B]
+  [IsIntegralHom p]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [AlgebraicGeometry.IsIntegral B] [IsIntegralHom p] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:37:0: error: cannot find synthesization order for instance @quotientAlgebra with type
+  {Y : Scheme} →
+    [inst : AlgebraicGeometry.IsIntegral Y] →
+      [AlgebraicGeometry.IsIntegral B] → (p : Y ⟶ B) → [IsDominant p] → Algebra (RatFunc ℚ) ↑Y.functionField
+all remaining arguments have metavariables:
+  @IsDominant Y B ?p
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:40:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Algebra (RatFunc ℚ) ↑Y.functionField
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:41:0: error: cannot find synthesization order for instance @chartAlgebra with type
+  {Y : Scheme} →
+    [inst : AlgebraicGeometry.IsIntegral Y] →
+      {A : Type} →
+        [inst_1 : CommRing A] → [IsDomain A] → (j : Spec ↧A ⟶ Y) → [IsOpenImmersion j] → Algebra A ↑Y.functionField
+all remaining arguments have metavariables:
+  @IsOpenImmersion (Spec ↧A) Y ?j
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:42:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 3: `(f : R →+* A)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:49:19: error(lean.unknownIdentifier): Unknown identifier `«B».functionField`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:50:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:53:5: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  polynomialAlgebra
+inferred
+  ActualOpenFractionField318.instAlgebraCarrierFunctionFieldSpecOf_actualOpenFractionField318
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:58:37: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Algebra A ↑Y.functionField
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:59:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:67:23: error(lean.unknownIdentifier): Unknown identifier `«B».functionField`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:68:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Algebra A ↑Y.functionField
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:64:86: error: Type mismatch
+  rfl
+has type
+  ?m.120 = ?m.120
+but is expected to have type
+  (algebraMap R ↑Y.functionField) q =
+    (CommRingCat.Hom.hom (DominantFunctionField318.map p))
+      (OriginalProjectiveFunctionCoordinate318.κ ((algebraMap R (RatFunc ℚ)) q))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 33
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:71:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-finite-quotient-reconstruction-r57\OriginalCartesianChartCoefficients318.lean:75:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

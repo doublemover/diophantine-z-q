@@ -1,6 +1,7 @@
 """Fail-closed source/cache admission and isolated experiment regression tests."""
 import copy
 import json
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -39,6 +40,24 @@ class ExperimentTests(unittest.TestCase):
                 ci.write_json(p/'APPLICATION.json',{'bindings':bindings})
                 with self.assertRaisesRegex(ValueError,'Invalid application'):
                     e.packet('sample',plan,root)
+
+    def test_ignored_application_evidence_must_be_published(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);p,d,plan=self.fixture(root)
+            subprocess.run(['git','init','-q',str(root)],check=True)
+            (root/'.gitignore').write_text('*.log\n')
+            evidence=p/'hosted-evidence.log';evidence.write_text('original hosted bytes\n')
+            ci.write_json(p/'APPLICATION.json',{'bindings':{'hosted-evidence.log':ci.sha(evidence)}})
+            e.packet('sample',plan,root)  # Local presence and the exact hash alone pass.
+            with self.assertRaisesRegex(ValueError,'not tracked in Git'):
+                e.check_application_publication([p],root)
+            subprocess.run(['git','-C',str(root),'add','-f','sample/hosted-evidence.log'],check=True)
+            e.check_application_publication([p],root)
+            subprocess.run(['git','-C',str(root),'rm','--cached','sample/hosted-evidence.log'],
+                           check=True,stdout=subprocess.DEVNULL)
+            self.assertTrue(evidence.is_file())
+            with self.assertRaisesRegex(ValueError,'not tracked in Git'):
+                e.check_application_publication([p],root)
 
     def test_source_mutation_and_declared_imports_fail(self):
         with tempfile.TemporaryDirectory() as t:

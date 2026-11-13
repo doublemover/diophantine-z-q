@@ -40,6 +40,28 @@ def check_application_bindings(folder):
             raise ValueError('Application evidence hash mismatch: ' + relative)
 
 
+def check_application_publication(folders, repository=ci.ROOT):
+    """Reject evidence present locally but absent from the publication index.
+
+    Byte bindings are checked separately by packet(); this guard catches ignored
+    logs that otherwise pass locally and disappear in a clean hosted checkout.
+    """
+    repository = repository.resolve()
+    required = set()
+    for folder in folders:
+        contract = folder / 'APPLICATION.json'
+        if contract.is_file():
+            for relative in json.loads(contract.read_text()).get('bindings', {}):
+                required.add((folder / relative).resolve().relative_to(repository).as_posix())
+    if not required:
+        return
+    tracked = set(subprocess.check_output(
+        ['git', 'ls-files', '-z'], cwd=repository).decode().split('\0'))
+    missing = sorted(required - tracked)
+    if missing:
+        raise ValueError('Application evidence is not tracked in Git: ' + ', '.join(missing))
+
+
 def packet(name, baseline, root=EXPERIMENTS):
     if not re.fullmatch(r'[a-z][a-z0-9-]*', name):
         raise ValueError('Invalid packet name')
@@ -183,6 +205,7 @@ def main():
         names=json.loads((EXPERIMENTS/'packets.json').read_text())['active_packets']
         if len(names)!=len(set(names)) or len(names)>16:raise ValueError('Invalid experiment matrix')
         for n in names:packet(n,plan)
+        check_application_publication([EXPERIMENTS / n for n in names])
         d={'matrix':{'packet':names},'base':plan['base'],'snapshot':plan['snapshot'],
            'has_packets':'true' if names else 'false'};print(json.dumps(d))
         if args.github_output:
