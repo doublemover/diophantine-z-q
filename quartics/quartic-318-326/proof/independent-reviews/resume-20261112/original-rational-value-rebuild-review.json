@@ -1,0 +1,66 @@
+{
+  "reviewer": "geometry_restart",
+  "author": "arithmetic_restart",
+  "packet": "forward-actual-two-descent-original-rational-value-rebuild-r1",
+  "status": "PASS_SOURCE_REVIEW_ONLY_NOT_LEAN_VALIDATED",
+  "application_sha256": "8fe1cf00eabf92aa7da3f95b32aed65dcf03605a4e446e737389ce9957f3febf",
+  "intake_sha256": "998b4338e7377fb3d19745f7b013782b9b0aecf50ec0256db827c696755d3886",
+  "new_sources": {
+    "ActualTwoDescentOpenRationalEvaluationRebuild318.lean": "9968f2636d542dabd6be72d353a96f03554f8aa44f51219ffa8fce13e0618c89",
+    "ActualTwoDescentPushforwardRationalValueRebuild318.lean": "cbf0585ceff4955fc0b8bf575f77cfc0a4116d3a414acc5cc4d4d40ab8b0fa41",
+    "ActualTwoDescentOriginalGlobalRationalValueRebuild318.lean": "6355ec7ae5b4a54c234bad9189553325580cadaf89e05919db4928d677c683cf",
+    "ActualTwoDescentOriginalOverlapRationalFrameRebuild318.lean": "276ea7493d5fb4ee782bc6729fb390716e538b6a197b79146e9d19ecc61eac52",
+    "ActualTwoDescentOpenAdjointSectionsRebuild318.lean": "f0668e00ee29d829b2130787ff433ce969a9c4339e804366cd2a1c7cc1393a01",
+    "ActualTwoDescentOriginalRationalRestrictionSquareRebuild318.lean": "3fe2e30836ed04f08a0a6fc6bb0e743d844d8d833098d8a0d283f6a276f4a507",
+    "ActualTwoDescentOriginalRationalAdditiveImageRebuild318.lean": "099924f99f84fa2d60d5237b00398a660cdb2a87357e2e63334319be45736eb5",
+    "ActualTwoDescentOriginalOverlapValueImageRebuild318.lean": "addf3729b1cd0277675405b8ae046394ad04f030dbe5946ba8f7d759c02da13a",
+    "ActualTwoDescentOriginalRationalImageBoundRebuild318.lean": "99af12fa9e2415995b9544c71adb9a4b79edad37ee6d26cc2d61706fb09c8286"
+  },
+  "actual_producers_read": {
+    "ActualTwoDescentOriginalIdealOverlapValues318.lean": "521ff6ab61d5c6dff97ba12f019c3a9de20d7078f2dec6cfad807de748ecc0ef",
+    "ActualTwoDescentOriginalOverlapOldFrameComparison318.lean": "e2d3c42d210933ec4cba9261f3621ce3ec2887430e5a9c0e094bac3885fbea26",
+    "ActualTwoDescentOriginalInverseInfinityTransition318.lean": "7a9e1509132b04edfac01ff67cc70ed1c0b0d0d3e489ab42df1d933410165202",
+    "ActualTwoDescentOriginalInfinityFractionalSheafRebuild318.lean": "f94433bd788acafa4b0a34374bf21549c2cb658753cf76bdf833b0871cc94e47",
+    "ActualTwoDescentOriginalIntegralSchemeRebuild318.lean": "dff262fcbd528e25ced088d44b90ac746f72fe609612a051c5182f7774ac2490"
+  },
+  "primary_read": {
+    "ModulesSheaf.lean": "8badaa98b48210f93dec51390327d334f3efc40a99dd16b7c8200901ecbb7e7a",
+    "FunctionField.lean": "cb75548259bfb9b3a5affcef0959941d6ca4fc58a9f8e86a5c7b1eb00d617bee",
+    "Presheaf.lean": "28fb3d294213f8c6eadd0af0974f844902f2fd40c8734e8d53271c407c6d8f88",
+    "OpenFunctionField318.lean": "0b49164761ee551b0c0a53f7ee12f19e632c5595651cc0151e29b06e9835b345",
+    "ActualTwoDescentOriginalIntegralSchemeRebuild318.lean": "dff262fcbd528e25ced088d44b90ac746f72fe609612a051c5182f7774ac2490"
+  },
+  "obligations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "checks": {
+    "structural_modules": 1346,
+    "byte_exact_predecessors": 1337,
+    "all_application_source_and_evidence_hashes_verified": true,
+    "lean_run": false
+  },
+  "correction_requested_and_verified": "Initial frozen consumer called nonexistent eq_iff_restrictSection twice; producer declares eq_iff_section. Author repaired both calls and generator, repackaged; final source and final binding verified.",
+  "findings": [
+    "Read all nine complete sources and nine DERIVATION/application obligations. Final source-level statement/consumer and native API comparison found no remaining concrete correction.",
+    "Open evaluation uses inverse of the ACTUAL open-immersion generic-stalk equivalence. Integral source and target supply fields; native genericPoint_eq_of_isOpenImmersion plus generic-open membership establishes nonempty preimage for every nonempty U. No empty-open value is claimed.",
+    "Pinned ModulesSheaf Hom.app is an Ab morphism, so the author correction to native Hom.app_smul is necessary. The pushforward scalar is j.app U a; ambient germ compatibility converts it to precisely the original ambient germ. Native naturality_apply has the forward direction used.",
+    "Original coefficientMap is exactly old affineProjection followed by affineIdealRestriction. Its infinity identity is the old pullback compatibility, not a supplied equality. The overlap local value retains actual affineValue, old inverse-u section restriction and the exact native field map.",
+    "Native restrictAdjunction_unit_app_app is literally restriction along image_preimage_le on EACH U. The new adjoint_apply follows native homEquiv_unit. Thus coefficient_square and value_square compare the actual global map to the actual restriction, with no new hypothesis.",
+    "Actual old affineValue is an isomorphism by its old frame comparison and inverse-u unit. Native Hom.isIso_iff_isIso_app gives bijective components. This proves the entire overlap value image equals the regular germ image on each nonempty common-chart subopen, rather than checking a generator.",
+    "AddSubgroup range records only actual image, and scalar closure follows the actual ambient scalar law. Restriction gives the correct antitone image inclusion. regular_on_overlap is only a necessary overlap-regularity bound, not a converse global-section existence assertion.",
+    "Final injective_iff_restriction is precisely the remaining global restriction-injectivity obligation. Neither the overlap frame injection nor generic-field injection is incorrectly promoted to global sheaf injectivity. n=0 is not silently excluded, and no nonsingularity is inferred."
+  ],
+  "historical_disposition": "Fresh scoped comparison to literal recovered producers and pinned native APIs. Existing actual inverse-u frame, native generic-field map and full overlap are credited; no lost acceptance or whole-proof endorsement reused.",
+  "limitations": [
+    "No Lean, kernel replay or elaboration validation.",
+    "No global restriction injectivity, full global image, intrinsic local-stalk exhaustion, associated-divisor/theta/Weil comparison, or arithmetic completeness established."
+  ]
+}

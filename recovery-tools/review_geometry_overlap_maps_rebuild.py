@@ -1,0 +1,21 @@
+from pathlib import Path
+import hashlib,json,re
+root=Path(__file__).resolve().parents[1];b=root/'quartics/quartic-318-326/proof/experiments';p=b/'height-original-normal-overlap-model-maps-rebuild-r1';old=b/'height-original-normal-reciprocal-dual-transport-rebuild-r1';h=lambda x:hashlib.sha256(x.read_bytes()).hexdigest()
+a=json.loads((p/'APPLICATION.json').read_text());d=json.loads((p/'intake.json').read_text());assert h(p/'APPLICATION.json')=='254a1da4699192ff5d06ed457d9894d5ea7300847da512823844ba1db168c37c';assert h(p/'intake.json')=='9f9e4440dce7d0eb3d120b7cc6d4814a2d2ac0837a50289d9d5f480479b8d9f4'
+for f,v in a['sources'].items():assert h(p/f)==v,f
+for f,v in a.get('bindings',{}).items():assert h(p/f)==v,f
+od=json.loads((old/'intake.json').read_text());assert len(od['order'])==1535
+for n in od['order']:assert (old/(n+'.lean')).read_bytes()==(p/(n+'.lean')).read_bytes(),n
+new=d['new_modules'];assert len(new)==5
+for n in new:assert not re.search(r'\b(sorry|admit|axiom)\b',(p/(n+'.lean')).read_text()),n
+r={'reviewer':'/root/arithmetic_restart','producer':'advance_point_geometry','status':'PASS_SOURCE_REVIEW_ONLY_NOT_LEAN_VALIDATED','packet':p.name,'application_sha256':h(p/'APPLICATION.json'),'intake_sha256':h(p/'intake.json'),'new_source_hashes':{n+'.lean':h(p/(n+'.lean')) for n in new},'exact_predecessor_sources':1535,'structural_sources':len(d['order']),'primary_sources_read':['MODEL-MAPS-PRIMARY/PrimeTopology.lean:933-940','MODEL-MAPS-PRIMARY/Separated.lean:285-307,369-377','MODEL-MAPS-PRIMARY/ModulesSheaf.lean:pullbackComp,pullbackCongr,restrictFunctorIsoPullback','AffineFractionGeneric318.lean','OriginalNormalOrderChart318.lean','OriginalNormalInfinityChart318.lean','IntegralClosureAlongRingMap318.lean','IntegralOriginalNormalOverlap318.lean','IntegralNormalFiniteDualSheafRestriction318.lean','IntegralNormalInfinityDualSheafRestriction318.lean','NormalOverlapReciprocalDualSheaf318.lean'],
+'findings':[
+'Dominance is produced from literal injective closure-subring inclusion by denseRange_comap_iff_ker_le_nilRadical. This covers the entire Spec overlap, not a sampled point set.',
+'ext_over_affine first obtains equality of structural maps into Spec R using absolute separatedness of the affine target. It then uses relative separatedness of M.structureMap. Reducedness belongs to the reciprocal overlap, supplied by its inclusion in the produced source domain.',
+'finite_source and infinity_source consume the existing original chart source equalities after exact Spec-map composition. source_square retains the contravariant direction InfinityOverlap -> FiniteOverlap and the identity-on-ambient-elements integral closure equivalence.',
+'NativeOverlapPullbackComparison has correct contravariant composition order: pullback f, i, j then compare with pullback g, k. The equality h is supplied by the proved whole scheme square, not a new premise at the actual consumer.',
+'localDual conjugates the old chartComparison with native restriction/pullback equivalences. Its normalization cancels those equivalences and retains the old reciprocal scalar and differential factor. It does not assert equality with globalModule.',
+'The signed point is preserved by precomposition with the same M.fieldPoint. No exceptional residue characteristic, new point, or replacement model is introduced.',
+'All five sources and 1535 exact predecessor copies were fingerprint-checked. No admissions found in new source. No Lean executed, so reducibility, instance search and exact tactic elaboration remain unverified.'],
+'historical_disposition':'Prior chart/source maps and reciprocal dual normalization found and explicitly consumed; this successor supplies the native whole-overlap scheme square and pullback comparison. No lost approval is recovered.','downstream_boundary':['Full categorical intersection coverage and full chart coverage remain outside this packet.','No effective global gluing, whole-model duality/Hodge identification, regularity or discrepancy conclusion.','No global arithmetic theorem or kernel acceptance.'],'local_lean_run':False,'kernel_acceptance':False,'active_replay_selector_changed':False}
+out=root/'quartics/quartic-318-326/proof/independent-reviews/resume-20261112/normal-overlap-model-maps-rebuild-review.json';out.write_text(json.dumps(r,indent=2)+'\n');print(out);print(h(out))
