@@ -1,0 +1,55 @@
+{
+  "reviewer": "/root/arithmetic_restart",
+  "producer": "/root/prime_restart",
+  "status": "PASS_WRITTEN_MATHEMATICS_AND_FINITE_CERTIFICATES_NOT_LEAN",
+  "application_sha256": "f9e74498e43666e98d926be7054ab9d6b69d47e8aebe4e737b735cf8021f1321",
+  "source_manifest_sha256": "3f3c12c86ac40eb1d73576550a4f6ea70ed96351dd8271683f5d8f171cf0e603",
+  "packet": "forward-original-order-parity-graph-r1",
+  "source_bindings_verified": 14,
+  "packet_files_verified": 10,
+  "mathematical_review": [
+    "For positive moduli the three pairwise gcd conditions are necessary. Sufficiency combines the coprime A/B residue with L, using gcd(A,L)*gcd(B,L)=gcd(A*B,L). Integer h0-1 is retained, including h0=0; the minimal period is lcm(A,B,L).",
+    "Every occurrence is retained and its partner has opposite side. Nontrivial gcd edges include within-position pairs, so an internal shared factor yields contradictory0/1 edges. Across positions, same-side edges encode exactly coprimality of the two side LCMs, without requiring one common divisor across all positions.",
+    "The nonempty-family valuation identity min(t+max(v_i),e)=max(min(t+v_i,e)) exactly decomposes the Pi^3 continuity condition into minus-side unary tests. Plus unary tests enforce both Pi coprimality and gcd(n,L)|(h0-1). Thus valid graph colorings and feasible original orientation bits are bijective, with no deduplication or overcounting at unit orders.",
+    "Each consistent connected signed component has two flips, unary restrictions force or exclude flips, and different component assignments yield distinct a_i colors because every node has a partner. The compressed count2^c is exact.",
+    "Literal source R=(1+sqrt2,2sqrt2) and E:y^2=x^3-Dx with D=(3-sqrt2)^2 were compared to bound definitions; R is not replaced by its double P. Smoothness is checked separately at every root/prime.",
+    "Annihilation at n, complete prime factorization of n and nonannihilation at n/q for every prime q|n prove exact finite-field point order. The Jacobian verifier is algebraically distinct from the affine producer. Both include identity, inverse-point and doubling exceptions.",
+    "Four finite-field examples are explicitly not the original fifteen-position prime pattern or newly accepted native formal-quotient orders. Root orientation and good-reduction kernel identification remain a separate bridge. No analytic prime-pattern existence, order distribution, real-orbit hit or global witness is inferred."
+  ],
+  "commands_replayed": [
+    {
+      "command": "python -B check_orientation.py",
+      "result": "PASS:46875 exhaustive two-position,1000 seeded random,12 full fifteen-position inputs,3888 direct-residue CRT cases"
+    },
+    {
+      "command": "python -B verify_reductions.py",
+      "result": "PASS:4 prime fields,8 literal R orders,8 mutation rejections"
+    },
+    {
+      "command": "python -B check_bindings.py",
+      "result": "PASS original12 source bindings/10packet files; final14 source bindings and unchanged10packet files separately verified"
+    },
+    {
+      "command": "python -B make_reduction_certificates.py (stdout parsed and compared)",
+      "result": "Exact JSON equality with stored certificate"
+    }
+  ],
+  "corrections_before_acceptance": [
+    "Requested split of combined constructed_input_and_justification and explicit source_references to satisfy audit contract fields. Producer repaired all nine entries and added exact D/E source bindings; argument and computational certificates unchanged."
+  ],
+  "historical_sources_read": [
+    "ExactContinuityDivisibilityCRT318.compatible_iff",
+    "ActualOrderOrientationCandidates318.Extra/Compatible/witness",
+    "FiniteOrderSignChoices318.two_choices",
+    "ActualRootSwapOrders318.primary_swap,opposite_swap,minus_swap,plus_swap",
+    "SelectedQuotientOrders318.subgroup/generator/order",
+    "GlobalGeneratorPoints318.xR/yR/R/double_R",
+    "AlgebraicFormalSubgroup318.formalSubgroup",
+    "ConcreteFourPrimeOrders318.family/opposite_dvd/factor_dvd"
+  ],
+  "local_lean_run": false,
+  "new_native_lean_theorem": false,
+  "original_fifteen_position_witness": false,
+  "manuscript_changed": false,
+  "active_replay_selector_changed": false
+}

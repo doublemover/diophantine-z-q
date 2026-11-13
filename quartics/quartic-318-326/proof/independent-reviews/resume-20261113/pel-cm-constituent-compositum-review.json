@@ -1,0 +1,68 @@
+{
+  "reviewer": "geometry_restart",
+  "author": "pel_restart",
+  "packet": "pel-original-cm-constituent-compositum-rebuild-r1",
+  "status": "PASS_SOURCE_REVIEW_ONLY_NOT_LEAN_VALIDATED",
+  "application_sha256": "321dcfdcad3143923cbff2a2e4daa08668ac069eee6d6d14602e3be4f642d59d",
+  "intake_sha256": "750fd7e896060c0fc9bdd3321aa37ef819c98baddcb7af7132e5eed4a53e915e",
+  "new_sources": {
+    "PELCMShiftedRadicalGenerators318.lean": "2784fd8282bf2ce15d1f21b1fbe752172481955632ed3c409838b94574b0e316",
+    "PELCMConstituentFieldEmbeddings318.lean": "a179bf5152f001b4e1160814d59beac2c8aaf3e1bc97c429f58763f8bb22d056",
+    "PELCMConstituentNativeOrderEmbeddings318.lean": "3a2fa734344b62f944fd0ccb21ab2d5fe3c9a8bb9b06c151b9a5368410980950",
+    "PELCMConstituentScalarTowers318.lean": "4e06d39eb6a43b3c2a531cdbb17cc81002b4a52d43d58ef1eda30df3191e3965",
+    "PELCMConstituentDiscriminantInputs318.lean": "5983accafc94a3b879aee0793e47daf80fce1757306199809a93ae505ff40913"
+  },
+  "actual_producers_read": {
+    "PELCMQuadraticConstituentFields318.lean": "4a878283764aa883858b666eae7eaea719ca75a8436a8e5928a68c3ade477d62",
+    "PELCMQuadraticConstituentOrders318.lean": "45d7eaf53c6a011ac8baec275beca22941d66634f8f0037b4d81976c03d4a043",
+    "PELCMQuadraticIntegralTraceData318.lean": "641607af886f142531a34d8bb6257d618e2bf00e274614c608efca6ba9cae3bc",
+    "PELOriginalCM210RadicalGenerators318.lean": "3b8964d7d1e06a2df0812e2377e4811e6f39a3514d0db154dc8ce11f7dea54a4",
+    "PELOriginalCM210RadicalGeneration318.lean": "87a193c715f2803fce85ee94fa93092f564ec85054e53c71b46dd8d238b7dc03",
+    "PELOriginalCM210RadicalTower318.lean": "ba2c79538d92c851cbac0407ed4df22e828fa8508b6e1fefdb99ba7ec8a80b7b"
+  },
+  "primary_read": {
+    "QuadraticBasic.lean": "ed6e3a682b4bd8e4f0e726c2263456b888e62800679571598703bd7ab1a382d3",
+    "QuadraticDefs.lean": "9f6dcf2de5d7ffaea35c76c88758f2ce240ce91eb05318ad670ea16b9d84bc14",
+    "FieldTower.lean": "21fad8be80b1f4acaabf26475028c0391b9a80fba254033bf72088f9f85fc88c",
+    "DimensionFree.lean": "f79c9b1213f5991832518b4547da7bf4103ec2d51b045b2ecd5eae72243880ce",
+    "CoprimeBasic.lean": "93c50c748ddac4c2f7d3153bbc8ae65256007448d243454eba5a7778f57a77cf",
+    "SubalgebraBasic.lean": "447de021b7dad33a5a96496c4624b2b2d306b9c6ae7f7b1392fcfe393fb69eee"
+  },
+  "obligations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "checks": {
+    "structural_modules": 1219,
+    "byte_exact_predecessors": 1214,
+    "all_application_source_evidence_primary_hashes_verified": true,
+    "independent_regression_rerun": true,
+    "regression_output_byte_exact": true,
+    "coordinate_multiplication_cases": 9604,
+    "ordered_distinct_bezout_pairs": 12,
+    "negative_controls": 4,
+    "lean_run": false
+  },
+  "findings": [
+    "Read all five complete new sources, README, DERIVATION and nine application obligations, plus actual constituent/order/generation producers. No concrete source correction requested.",
+    "Quadratic lift natively consumes u*u=a smul 1+b smul u. Shifted equations supply exactly this for pairs (-2,0),(-1,1),(1,1),(-2,1). The even sqrt(-2) row is not shifted; the three odd rows are (1+g)/2 in H, not half-integral arithmetic performed in the native integer ring.",
+    "Literal Field i domains are the same constituents used by fullIntegerEquiv and native_discriminant. embedding is a Q-algebra hom into the existing degree16 H, with explicit omega and arbitrary-coordinate formulas. Its field-hom injectivity requires no choice of an abstract comparison field.",
+    "Native integer embedding applies the same field hom to every full native integer and transports IsIntegral over Z. full_order_square uses the prior definitional fullIntegerEquiv_value/intMap carrier, and full_order_coordinates retains both actual integer coordinates. shifted_integral is derived from the prior integral omega, not guessed from its complex/rational appearance.",
+    "Each raw generator is recovered from its shifted generator. The old all_mem proof recursively expands arbitrary coordinates through all four quadratic stages. Consequently the supremum of literal embedding ranges is top for the entire H, not only the four generator elements and not solely by matching dimension.",
+    "Actual constituentAlgebra and constituentTower use embedding and its Q commutation. Native FiniteDimensional.right supplies finiteness over each constituent; native finrank tower multiplication then gives2*relative_degree=16, hence8. This does not change the old original-CM/H inclusion.",
+    "All12 distinct ordered index pairs have explicit correct integral Bezout witnesses after rewriting the native discriminants -8,-3,5,-7. The diagonal case is excluded. Product -840 is correct. Coprimality is not promoted to an unproved compositum maximality or unramifiedness theorem.",
+    "Independent exact-rational regression reproduced all9604 coordinate products, all16 product-basis vectors, determinant1/2^24, candidate basis discriminant840^8, all12 Bezout pairs and4 negative controls. Byte-exact output matches bound REGRESSION.json. This is arithmetic consistency only, not a native H-ring-of-integers certificate."
+  ],
+  "historical_disposition": "Fresh connecting argument consumes the exact existing full constituent orders and literal radical H. Surviving constituent source review is not treated as a kernel run or whole-proof validation.",
+  "limitations": [
+    "No Lean/kernel/elaboration validation.",
+    "No full H integer-ring/product-order maximality, native H discriminant, relative different, unramifiedness, Hilbert-class-field maximality, Artin reciprocity, original CM residue field or published j-value identification."
+  ]
+}

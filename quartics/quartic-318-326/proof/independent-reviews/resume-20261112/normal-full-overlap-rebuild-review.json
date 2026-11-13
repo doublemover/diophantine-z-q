@@ -1,0 +1,47 @@
+{
+  "reviewer": "/root/arithmetic_restart",
+  "producer": "/root/geometry_restart",
+  "status": "PASS_SOURCE_REVIEW_ONLY_NOT_LEAN_VALIDATED",
+  "packet": "height-original-normal-full-overlap-rebuild-r1",
+  "application_sha256": "d590c82057eb5b0f751cf0c22dad3a750f2e879d5b741b1f7e1fdb121b10c695",
+  "intake_sha256": "0d362b74bc6ea879afbc32280567027e8d0589754e67675628496479444e28aa",
+  "new_source_hashes": {
+    "NormalizationClosureChartRange318.lean": "86fbdf6dcf6633024cc094a8b019813652cddfd849577bb757b49eef677ff2e2",
+    "OriginalNormalChartRanges318.lean": "fcbf68d327493cd8f4458b9d3538559a95b537d382b671677bc7ce5e8d8a3d0f",
+    "OriginalNormalTwoChartCover318.lean": "ee0351d85e5b5c741ef210e2bce916043423fbd9a57834d6ebf2f11984ed4bef",
+    "IntegralJLineOverlapOpen318.lean": "90f613bc3387f05fdcba3b4913d1f593c485bf0e1891c7e3eb8bd8a41ca0c5b3",
+    "OriginalNormalFullOverlap318.lean": "613aa6876fc4842c99f8eaa5dd28e43007e74084e642a95ebc45e4f1e968b6bd"
+  },
+  "exact_predecessor_sources": 1540,
+  "structural_sources": 1545,
+  "primary_sources_read": [
+    "NormalizationClosureChart318.lean:data",
+    "OriginalNormalOrderChart318.lean:canonicalData",
+    "OriginalNormalInfinityChart318.lean:canonicalData,base",
+    "OriginalNormalModelCanonicalIso318.lean:iso,base",
+    "OriginalNormalInfinityOrder318.lean:polynomialMap,Order,polynomialScalar",
+    "OriginalNormalOverlapOrderLocalization318.lean:infinityNormalAlgebra,infinity_localization",
+    "IntegralInfinityReciprocalScalar318.lean:sourceMap_original",
+    "FULL-OVERLAP-PRIMARY/InfinityGlobalScheme318.lean:chartEmbedding_range",
+    "FULL-OVERLAP-PRIMARY/ProjectiveLineOverlap318.lean:chart_one_preimage_zero",
+    "FULL-OVERLAP-PRIMARY/JLineOverlapOpen318.lean",
+    "FULL-OVERLAP-PRIMARY/JLineAtlas318.lean:chart_range,standard_opens_cover",
+    "FULL-OVERLAP-PRIMARY/ContactFullOverlap318.lean:actual_full_intersection,actual_pullback",
+    "FULL-OVERLAP-PRIMARY/OpenImmersion.lean:150-152,757-766",
+    "FULL-OVERLAP-PRIMARY/PrimeTopology.lean:localization_away_comap_range"
+  ],
+  "findings": [
+    "Exact range uses the old normalization data constructor, a Spec isomorphism followed by fromSpec of the entire affine preimage. The argument does not infer coverage from density.",
+    "Finite canonicalData transport repeats the original equality between finitePolynomialMap.toAlgebra and the canonical polynomial algebra. The reciprocal constructor already uses its distinct old polynomialMap. Both ranges are transported along the same original model isomorphism and its base equality.",
+    "The standard projective opens cover all base points. Their full inverse images therefore cover every point of M, without removing vertical/bad-prime points. The native Fin2 cover uses precisely these old chart morphisms; branch0 is infinity and branch1 is finite.",
+    "The general-ring projective overlap proofs preserve the exact two homogeneous coordinates. The required HomogeneousLocalization formula is used in both directions, and no field assumption from the old rational specialization is consumed.",
+    "The old reciprocal order equals the closure for the reciprocal polynomial action; IntegralInfinityReciprocalScalar.sourceMap_original is literal equality. Its infinityNormalAlgebra installs the literal localization inclusion. The localized element is polynomialScalar(X), not the finite coordinate, with full localization_away_comap_range.",
+    "IsOpenImmersion.isPullback requires k followed by the infinity chart equal to j,i followed by the finite chart; the symmetric previous scheme square has exactly this orientation. Its full range condition is infinity_preimage_finite, not a weaker common-point claim.",
+    "center_covered is accurately only pointwise coverage. Effective descent, ambient trace/differential coherence, Hodge/dualizing identification, regularity and discrepancy remain open.",
+    "All five source hashes, bindings and1540 predecessor copies checked. No admissions in new source. No Lean run; dependent if elaboration, equality transport and typeclass inference still require formal validation."
+  ],
+  "historical_disposition": "Read and adapted surviving full-range/projective-overlap/full-intersection arguments; consumed old original all-place model constructors without replacing M or its point. No historical approval transferred.",
+  "local_lean_run": false,
+  "kernel_acceptance": false,
+  "active_replay_selector_changed": false
+}

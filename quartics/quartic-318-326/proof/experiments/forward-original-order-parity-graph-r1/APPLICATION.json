@@ -1,0 +1,172 @@
+{
+  "author": "prime_restart",
+  "base_commit": "34cf73ace4df32be1085cf819ca24c665dc0c7a4",
+  "status": "WRITTEN_ELEMENTARY_ARGUMENT_AND_FINITE_CERTIFICATES_PENDING_INDEPENDENT_REVIEW",
+  "historical_disposition": "prior justification found on narrower hypotheses; new generalization supplied",
+  "manuscript_disposition": "pending; unchanged",
+  "lean_disposition": "unchanged; no build or new theorem",
+  "source_bindings": {
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ExactContinuityDivisibilityCRT318.lean": "c7845c1ed342bd4ee43b0fbf7cd20f2a401d5d3b81c5189cfff9f0ed1cd37035",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderContinuityCRT318.lean": "75e23a7f9cff5d6a8887ad6685d7fde187262e538a1fb8a67c051a95a43c8f36",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/FiniteOrderSignChoices318.lean": "0b66b360f35df87afa1f91b8f18fbae9f8c7e8a84d3a1d14e901f4787394ddb4",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderOrientationCandidates318.lean": "793fe870635bf0088d64803c6782ddfa8de9072004d311a5f3b22921cfec615a",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualRootSwapOrders318.lean": "09441faced20f97017bc261750095fb6a2adb4cf3048e89f9631dd69076739cc",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/SelectedQuotientOrders318.lean": "2c82f5dd63554e2f5b8bcd141ef468c547c4d94edd98134a96cea5e135eeb72f",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/MergedContactPrimePattern318.lean": "5ef7e7059444c0341c2b5ba57e71199ac92618078364b5def75091f76553ec70",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ConcreteFourPrimeOrders318.lean": "e8b44271f377bb6ef1728c3831fbde1a599132a93fedcc7fd2954d3da3e5c0a8",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ConcreteFourPrimeCompatibility318.lean": "bcf0b756a3ccbfe2571e0e67af0262e80ab6a4de47513c425f7232e1b845f654",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/NATIVE-ORDER-PRIMARY/GlobalGeneratorPoints318.lean": "80ff13e0524489f9fbae177ad185358eb1e503cbd378291cbfd53d6d999ea6c6",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/NATIVE-ORDER-PRIMARY/LocalGenerator318.lean": "a485735d26ea3198f561007a1bf2d420232dc48bb357c12c6664560bd6cc1e44",
+    "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/FOUNDATION-PRIMARY/AlgebraicFormalSubgroup318.lean": "cc9a4667c7dd5b67c94f0c2ebb8176b70cf42dbab3dc9678a9783ffd72ff0505",
+    "quartics/quartic-318-326/proof/progress/ConcreteG8Domain.lean": "6dc941603024898c0fce8d513d3fbd41fe1f1feff3d61ab68f77822fffbc33c3",
+    "quartics/quartic-318-326/proof/progress/ReciprocalDouble318.lean": "5596c38bb68c29ea55553bc7d492be153ca1c4757d386b461004762490d02262"
+  },
+  "obligations": [
+    {
+      "id": "source_claim",
+      "required_input": "Positive-modulus generalized CRT and elementary finite LCM arithmetic.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "A=Pi^3*Mminus, B=Mplus, and the three literal residues zero, one, h0 over positive moduli.",
+      "justification": "README sections 1-2 prove both directions directly; the executable is not the proof.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ExactContinuityDivisibilityCRT318.lean#compatible_iff"
+      ]
+    },
+    {
+      "id": "quantifiers",
+      "required_input": "Every positive Pi,L and nonnegative h0; every nonempty finite family of positive paired orders.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "Every nonempty finite positive paired-order family is accepted, with positive Pi and L and nonnegative h0 fixed as input.",
+      "justification": "No order-distribution or pattern-existence quantifier is introduced. Fixed class analytic thresholds stay separate.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/SelectedQuotientOrders318.lean#order_positive",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderContinuityCRT318.lean#compatible_iff"
+      ]
+    },
+    {
+      "id": "constructed_domain",
+      "required_input": "The intended family is exactly Fin3 x Fin5 at common Clearing, Values and Roots.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "All occurrences of the original Fin3 x Fin5 family are retained when supplied; the recorded concrete four-prime sample remains a distinct Fin4 example.",
+      "justification": "The executable accepts all occurrences without deduplicating. Four-prime and synthetic inputs are labelled separate examples.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/MergedContactPrimePattern318.lean#Values",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderOrientationCandidates318.lean#candidates"
+      ]
+    },
+    {
+      "id": "index_coverage",
+      "required_input": "All 15 positions and both members, including internal and cross-neighbor gcd obstructions.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "A graph vertex for both orders at each supplied position, partner edges, and all pairwise nontrivial-gcd edges.",
+      "justification": "All distinct occurrence pairs receive nontrivial-gcd equality edges and each position receives an opposite edge.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/FiniteOrderSignChoices318.lean#two_choices",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualRootSwapOrders318.lean#minus_swap"
+      ]
+    },
+    {
+      "id": "maps_and_normalization",
+      "required_input": "Original root swap bits transport actual primary/opposite orders to minus/plus LCMs.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "The original root-swap bit at a_i maps to minus versus plus exactly as in ActualRootSwapOrders318; finite-field calculations use R=(1+r,2r) and D=(3-r)^2.",
+      "justification": "ActualRootSwapOrders318 is the source identity. Finite-field roots are explicit and not identified with arbitrary p-adic choices.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualRootSwapOrders318.lean#primary_swap",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/NATIVE-ORDER-PRIMARY/GlobalGeneratorPoints318.lean#R",
+        "quartics/quartic-318-326/proof/progress/ConcreteG8Domain.lean#D",
+        "quartics/quartic-318-326/proof/progress/ReciprocalDouble318.lean#E"
+      ]
+    },
+    {
+      "id": "exceptional_cases",
+      "required_input": "Positive orders/moduli, nonempty index family, unit orders, h0=0, and non-squarefree factors.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "The API rejects empty families and zero/nonpositive moduli or orders; unit orders and h0=0 are retained.",
+      "justification": "Zero moduli and empty families are rejected; integer h0-1 avoids truncated natural subtraction. Tests include unit orders and all assignments.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/SelectedQuotientOrders318.lean#order_positive",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ExactContinuityDivisibilityCRT318.lean#arbitrarily_large"
+      ]
+    },
+    {
+      "id": "object_identity",
+      "required_input": "The CRT residues are exactly h=0 mod Pi^3*Mminus, h=1 mod Mplus, h=h0 mod L.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "A=Pi^3*lcm(minus orders) and B=lcm(plus orders), with explicit merged CRT residue and period.",
+      "justification": "README 1 and exact_crt retain exponent3 and all three residues. Supplied order bounds cannot be substituted for exact orders to claim completeness.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderContinuityCRT318.lean#compatible_iff",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderOrientationCandidates318.lean#Compatible"
+      ]
+    },
+    {
+      "id": "downstream_consumption",
+      "required_input": "No existing manuscript or Lean consumer is altered.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "A standalone research packet and candidate future adapter; all existing manuscript and Lean consumers remain unchanged.",
+      "justification": "The broadened predicate and native formal-quotient bridge are pending; old Extra/Compatible remains sufficient, not relabelled exact.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ActualOrderOrientationCandidates318.lean#Extra",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/SelectedQuotientOrders318.lean#subgroup"
+      ]
+    },
+    {
+      "id": "verification_limits",
+      "required_input": "Finite diagnostics, exact reduction certificates, written elementary proof, and Lean acceptance are distinct.",
+      "evidence": [
+        "README.md",
+        "orientation.py",
+        "check_orientation.py",
+        "verify_reductions.py"
+      ],
+      "constructed_input": "Written elementary proof, source bindings, brute-force finite tests, affine certificates, and a separately implemented Jacobian verifier.",
+      "justification": "No Lean build ran; no new native theorem, fifteen-prime witness, real-orbit hit, or growing-screen density is asserted.",
+      "source_references": [
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ConcreteFourPrimeOrders318.lean#family",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/ConcreteFourPrimeCompatibility318.lean#not_original_row_assignment",
+        "quartics/quartic-318-326/proof/experiments/forward-fixed-original-gaussian-class-reconstruction-r1/FOUNDATION-PRIMARY/AlgebraicFormalSubgroup318.lean#formalSubgroup"
+      ]
+    }
+  ]
+}
