@@ -1,0 +1,22 @@
+--- before/PELOriginalThreeTorsion318.lean
++++ after/PELOriginalThreeTorsion318.lean
+@@ -11,8 +11,17 @@
+ @[expose] def torsion : AddSubgroup (Torus τ) where
+   carrier := {x | (3:ℤ) • x=0}
+   zero_mem' := by simp
+-  add_mem' := by intro x y hx hy; simpa [smul_add,hx,hy]
+-  neg_mem' := by intro x hx; simpa [smul_neg,hx]
++  add_mem' := by
++    intro x y hx hy
++    change (3:ℤ) • x=0 at hx
++    change (3:ℤ) • y=0 at hy
++    change (3:ℤ) • (x+y)=0
++    rw [smul_add,hx,hy,add_zero]
++  neg_mem' := by
++    intro x hx
++    change (3:ℤ) • x=0 at hx
++    change (3:ℤ) • (-x)=0
++    rw [smul_neg,hx,neg_zero]
+ 
+ @[expose] def orderToTorsion : PELPrincipalOrderCoordinates318.order →+ torsion τ where
+   toFun a := ⟨thirdPeriod τ a,third_killed τ a⟩

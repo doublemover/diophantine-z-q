@@ -1,0 +1,9 @@
+# Bounded PEL repairs from the actual hosted run
+
+GitHub Actions run 43339824601 reached Lean after evidence-publication repair. Read and preserved all diagnostics for the three failing declarations and their complete original sources. No cloud Lean process has run, no resource settings are changed, and no mathematical statement or carrier changes.
+
+1. FourRootOverlapAnalytic318.root_analytic: the actual scalar, Pi-space and product-space of the projection were underconstrained during composition. Supply a fully typed complex continuous-linear projection and a fully typed analytic snd map. This exact pattern already appears in FourRootFiniteComplexAtlas318, which the hosted sequence passed before reaching this file. The function remains q -> q.2 k.
+2. PELOriginalPolarizationSemicharacter318.phase_add: the goal retained the cast of the integer negation of integralForm while the auxiliary equation had already pushed casts. Extend push_cast to the goal as well as h. The original quadratic identity, complex exponential and sign convention are unchanged.
+3. PELOriginalThreeTorsion318.torsion: add_mem and neg_mem hypotheses remain membership in a set rather than explicit killed-by-3 equations. Expose precisely those definitional equations with change before smul_add/smul_neg rewriting. The subgroup remains the full additive 3-torsion of the same original torus. Subsequent reported kernel metavariable errors are downstream of the failed definition; they are not claimed repaired by a successful replay yet.
+
+Propagate these exact deltas, wherever present, into five new bounded successor packets. The old packets and the separately reviewed CM reconstruction packets are untouched. Every unchanged source is compared byte-for-byte. This is a proposed source repair pending distinct review and hosted replay, not a claim that any complete lane now passes.

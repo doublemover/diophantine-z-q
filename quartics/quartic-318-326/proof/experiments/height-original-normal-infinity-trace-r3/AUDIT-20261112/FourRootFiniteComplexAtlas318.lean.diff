@@ -1,0 +1,16 @@
+--- height-original-normal-infinity-trace-r1/FourRootFiniteComplexAtlas318.lean
++++ height-original-normal-infinity-trace-r2/FourRootFiniteComplexAtlas318.lean
+@@ -20,8 +20,12 @@
+     AnalyticAt ℂ (axis j) v:=by
+   cases j with
+   | none=>exact analyticAt_fst
+-  | some k=>exact ((ContinuousLinearMap.proj (R:=ℂ) k).analyticAt _).comp analyticAt_snd
++  | some k=>
++      have hproj : AnalyticAt ℂ (fun w:Fin 4→ℂ=>w k) v.2 :=
++        (ContinuousLinearMap.proj k : (Fin 4→ℂ)→L[ℂ]ℂ).analyticAt v.2
++      exact hproj.comp (analyticAt_snd : AnalyticAt ℂ (fun p:ℂ×(Fin 4→ℂ)=>p.2) v)
+ 
++include hb in
+ /-- Every finite point has an independent chart: t off all branch fibers,
+ or the exact vanishing root at a branch. Distinct branches make the other
+ three roots units, so no simultaneous singular branch is silently allowed. -/

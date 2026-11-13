@@ -1,0 +1,15 @@
+--- before/FourRootOverlapAnalytic318.lean
++++ after/FourRootOverlapAnalytic318.lean
+@@ -37,8 +37,10 @@
+ lemma toFinite_value (p:InfinityOverlap b):(toFinite b p).val.val=backward b p.val.val:=rfl
+ 
+ lemma root_analytic (k:Fin 4) (v:ℂ×(Fin 4→ℂ)):
+-    AnalyticAt ℂ (fun q:ℂ×(Fin 4→ℂ)=>q.2 k) v:=
+-  ((ContinuousLinearMap.proj (R:=ℂ) k).analyticAt _).comp analyticAt_snd
++    AnalyticAt ℂ (fun q:ℂ×(Fin 4→ℂ)=>q.2 k) v:=by
++  have hproj : AnalyticAt ℂ (fun w:Fin 4→ℂ=>w k) v.2 :=
++    (ContinuousLinearMap.proj k : (Fin 4→ℂ)→L[ℂ]ℂ).analyticAt v.2
++  exact hproj.comp (analyticAt_snd : AnalyticAt ℂ (fun p:ℂ×(Fin 4→ℂ)=>p.2) v)
+ lemma forward_analytic (v:ℂ×(Fin 4→ℂ)) (hv:v.2 0≠0):
+     AnalyticAt ℂ forward v:=
+   ((root_analytic 0 v).inv hv).prod
