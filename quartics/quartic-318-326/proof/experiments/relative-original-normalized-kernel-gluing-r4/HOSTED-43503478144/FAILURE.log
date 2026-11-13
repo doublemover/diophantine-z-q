@@ -1,0 +1,23 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r3/OriginalAffinePathWholeSections318.lean:18:13: error: Invalid simp theorem `OriginalAffineLinePathSections318.restriction`: Expected a definition with an exposed body
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r3/OriginalAffinePathWholeSections318.lean:20:2: error: Tactic `rfl` failed: The left-hand side
+  OriginalAffineLinePathSections318.restriction f L M e s
+is not definitionally equal to the right-hand side
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤))
+    ((OriginalOpenPullbackSections318.sectionPull (Spec.map f) L.object) s)
+
+A B : CommRingCat
+f : A ⟶ B
+L : Line (Spec A)
+M : Line (Spec B)
+e : (Scheme.Modules.pullback (Spec.map f)).obj L.object ≅ M.object
+s : ↑(OriginalLineAffineModel318.sections A L)
+⊢ OriginalAffineLinePathSections318.restriction f L M e s =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤))
+      ((OriginalOpenPullbackSections318.sectionPull (Spec.map f) L.object) s)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r3/OriginalAffinePathWholeSections318.lean:19:4: warning: This simp argument is unused:
+  AffineGlobalSectionCoherence318.global_hom_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalAffineLinePathSections318.restriction]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

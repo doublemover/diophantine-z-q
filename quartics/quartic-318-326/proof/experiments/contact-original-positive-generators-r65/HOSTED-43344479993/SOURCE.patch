@@ -1,0 +1,19 @@
+--- contact-original-positive-generators-r63/ContactOriginalRestrictionCoordinates318.lean
++++ contact-original-positive-generators-r64/ContactOriginalRestrictionCoordinates318.lean
+@@ -140,13 +140,14 @@
+     exact OriginalFiniteBasisBaseChange318.coordinates_unit
+       OriginalLaurentProjectiveOverlap318.infinityHom (infinitySections c L) m i
+   rw [← hi]
+-  exact coordinate_transport
++  simpa only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition,
++    ContactCommonLaurentModule318.transition] using (coordinate_transport
+     (ContactCommonLaurentModule318.finiteIso c L)
+     (ContactCommonLaurentModule318.infinityIso c L)
+     (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+     (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+     ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+-      (infinitySections c L) m)
++      (infinitySections c L) m))
+ 
+ 
+ /-- Every positive Laurent vector is the coordinate image of an actual

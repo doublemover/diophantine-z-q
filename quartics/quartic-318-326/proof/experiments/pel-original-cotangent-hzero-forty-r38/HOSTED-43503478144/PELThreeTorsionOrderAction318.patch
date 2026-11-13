@@ -1,0 +1,20 @@
+--- pel-original-cotangent-hzero-forty-r37/PELThreeTorsionOrderAction318.lean
++++ pel-original-cotangent-hzero-forty-r38/PELThreeTorsionOrderAction318.lean
+@@ -15,7 +15,8 @@
+     change (3:ℤ) • orderEnd representation order τ a x.val=0
+     rw [← map_zsmul,x.property,map_zero]⟩
+   map_zero' := Subtype.ext (map_zero _)
+-  map_add' x y := Subtype.ext (map_add _ x y)
++  map_add' x y := Subtype.ext
++    (map_add (orderEnd representation order τ a) x.val y.val)
+ 
+ theorem thirdVector_mul (a b : order) :
+     thirdVector τ (a*b)=leftLinear (representation a) (thirdVector τ b) := by
+@@ -38,6 +39,7 @@
+       torsionOrderEnd τ a (torsionEquiv τ hτ b) := by
+   obtain ⟨b,rfl⟩ := moduloThree.mk'_surjective b
+   rw [← map_mul]
++  simp only [torsionEquiv, AddEquiv.ofBijective_apply, quotientToTorsion_mk]
+   apply Subtype.ext
+   exact thirdPeriod_mul τ a b
+ 

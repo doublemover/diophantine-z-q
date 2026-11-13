@@ -1,0 +1,35 @@
+--- pel-original-zero-local-length-r31/FourRootAffineCoordinateRing318.lean
++++ pel-original-zero-local-length-r32/FourRootAffineCoordinateRing318.lean
+@@ -24,19 +24,19 @@
+ /-- Evaluation in any actual complex algebra retains all branch points. -/
+ @[expose] def lift {S:Type*} [CommRing S] [Algebra ℂ S]
+     (t:S) (z:Fin 4→S) (hz:∀k,z k^2=t-algebraMap ℂ S (b k)):Ring b→ₐ[ℂ]S:=
+-  Ideal.Quotient.liftₐ _ (aeval (Option.elim t z)) (by
++  Ideal.Quotient.liftₐ _ (aeval (fun k => Option.elim k t z)) (by
+     have hk:Ideal.span (Set.range (equation b))≤
+-        RingHom.ker (aeval (Option.elim t z):MvPolynomial (Option (Fin 4)) ℂ→ₐ[ℂ]S):=by
++        RingHom.ker (aeval (fun k => Option.elim k t z):MvPolynomial (Option (Fin 4)) ℂ→ₐ[ℂ]S):=by
+       apply Ideal.span_le.mpr
+       rintro _ ⟨k,rfl⟩
+-      change aeval (Option.elim t z) (equation b k)=0
++      change aeval (fun k => Option.elim k t z) (equation b k)=0
+       simp [equation,hz]
+     intro f hf
+     exact hk hf)
+ 
+ @[simp] theorem lift_coordinate {S:Type*} [CommRing S] [Algebra ℂ S]
+     (t:S) (z:Fin 4→S) (hz) (k:Option (Fin 4)):
+-    lift b t z hz (coordinate b k)=Option.elim t z k:=by
++    lift b t z hz (coordinate b k)=Option.elim k t z:=by
+   simp [lift,coordinate,Ideal.Quotient.lift_mk]
+ 
+ theorem hom_ext {S:Type*} [CommRing S] [Algebra ℂ S]
+@@ -49,7 +49,7 @@
+   ⟨(f (coordinate b none),fun k=>f (coordinate b (some k))),by
+     intro k
+     have h:=congrArg f (relation b k)
+-    simpa only [map_pow,map_sub,AlgHom.commutes,algebraMap_self_apply] using h⟩
++    simpa only [map_pow,map_sub,AlgHom.commutes,Algebra.algebraMap_self_apply] using h⟩
+ 
+ /-- All complex-valued algebra points. This is not a claim that every
+ topological spectrum point is complex-valued. -/

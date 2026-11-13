@@ -1,0 +1,179 @@
+--- original-finite-quotient-reconstruction-r59/OriginalCartesianChartCoefficients318.lean
++++ original-finite-quotient-reconstruction-r60/OriginalCartesianChartCoefficients318.lean
+@@ -37,12 +37,12 @@
+ /-- Exact named coefficient actions; no hidden-map instance registration. -/
+ @[instance_reducible] def quotientAlgebra : Algebra (RatFunc ℚ) Y.functionField :=
+   OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
+-@[instance_reducible] def polynomialAlgebra : Algebra R Y.functionField :=
++@[expose, instance_reducible] def polynomialAlgebra : Algebra R Y.functionField :=
+   (((DominantFunctionField318.map p).hom.comp OriginalProjectiveFunctionCoordinate318.κ).comp
+     (algebraMap R (RatFunc ℚ))).toAlgebra
+-@[instance_reducible] def chartAlgebra : Algebra A Y.functionField :=
++@[expose, instance_reducible] def chartAlgebra : Algebra A Y.functionField :=
+   ActualOpenFractionField318.sourceAlgebra j
+-@[instance_reducible] def coefficientAlgebra : Algebra R A := f.toAlgebra
++@[expose, instance_reducible] def coefficientAlgebra : Algebra R A := f.toAlgebra
+ 
+ /-- The canonical projective coordinate equals the OLD chart's coefficient
+ embedding, for every polynomial. -/
+--- original-finite-quotient-reconstruction-r59/OriginalCartesianNormalChart318.lean
++++ original-finite-quotient-reconstruction-r60/OriginalCartesianNormalChart318.lean
+@@ -21,35 +21,84 @@
+   (j : Spec (CommRingCat.of A) ⟶ Y) [IsOpenImmersion j]
+   (f : R →+* A)
+   (H : IsPullback (Spec.map (CommRingCat.ofHom f)) j (JLineAtlas318.chart ℚ 1) p)
+-local instance quotientAlgebra : Algebra (RatFunc ℚ) Y.functionField :=
++
++/-- Named original actions, not registrations with hidden morphism inputs. -/
++@[expose, instance_reducible] def quotientAlgebra : Algebra (RatFunc ℚ) Y.functionField :=
+   OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
+-variable [FiniteDimensional (RatFunc ℚ) Y.functionField] [IsGalois (RatFunc ℚ) Y.functionField]
+-local instance chartAlgebra : Algebra A Y.functionField := ActualOpenFractionField318.sourceAlgebra j
+-local instance coefficientAlgebra : Algebra R A := f.toAlgebra
+-local instance coefficientTower : IsScalarTower R A Y.functionField :=
+-  OriginalCartesianChartCoefficients318.coefficient_tower p j f H
+-local instance coefficientIntegral : Algebra.IsIntegral R A :=
+-  OriginalCartesianChartCoefficients318.coefficient_integral p j f H
+-local instance originalFraction : IsFractionRing A Y.functionField := ActualOpenFractionField318.fractionRing j
++@[expose, instance_reducible] def chartAlgebra : Algebra A Y.functionField :=
++  ActualOpenFractionField318.sourceAlgebra j
++@[expose, instance_reducible] def coefficientAlgebra : Algebra R A := f.toAlgebra
++
++variable [hfinite : letI := quotientAlgebra p; FiniteDimensional (RatFunc ℚ) Y.functionField]
++  [hgalois : letI := quotientAlgebra p; IsGalois (RatFunc ℚ) Y.functionField]
+ 
+ /-- Original full Cartesian affine ring, embedded through its actual generic
+ stalk, identified with the exact integral closure. -/
+-@[expose] def sections : A ≃ₐ[R] Order Y.functionField :=
+-  OriginalNormalSectionClosure318.equivalence R A Y.functionField
++@[expose] def sections :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    letI := coefficientAlgebra f
++    A ≃ₐ[R] Order Y.functionField := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  letI := chartAlgebra j
++  letI := coefficientAlgebra f
++  letI : IsScalarTower R A Y.functionField :=
++    OriginalCartesianChartCoefficients318.coefficient_tower p j f H
++  letI : Algebra.IsIntegral R A :=
++    OriginalCartesianChartCoefficients318.coefficient_integral p j f H
++  letI : IsFractionRing A Y.functionField := ActualOpenFractionField318.fractionRing j
++  exact OriginalNormalSectionClosure318.equivalence R A Y.functionField
+ 
+-@[expose] def specIso : Spec (CommRingCat.of (Order Y.functionField)) ≅ Spec (CommRingCat.of A) :=
+-  Scheme.Spec.mapIso (sections p j f H).toRingEquiv.toCommRingCatIso.op
++@[expose] def specIso :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    Spec (CommRingCat.of (Order Y.functionField)) ≅ Spec (CommRingCat.of A) := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  exact Scheme.Spec.mapIso (sections p j f H).toRingEquiv.toCommRingCatIso.op
+ 
+-@[expose] def chart : Spec (CommRingCat.of (Order Y.functionField)) ⟶ Y :=
+-  (specIso p j f H).hom ≫ j
++@[expose] def chart :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    Spec (CommRingCat.of (Order Y.functionField)) ⟶ Y := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  exact (specIso p j f H).hom ≫ j
+ 
+-instance chart_openImmersion : IsOpenImmersion (chart p j f H) := by
++instance chart_openImmersion :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    IsOpenImmersion (chart p j f H) := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
+   unfold chart
+   infer_instance
+ 
+ @[reassoc] theorem fraction_chart :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
+     OriginalNormalClosureChartAction318.fraction Y.functionField ≫ chart p j f H =
+       OriginalGenericStalkNaturality318.generic Y := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  letI := chartAlgebra j
++  letI := coefficientAlgebra f
++  letI : IsScalarTower R A Y.functionField :=
++    OriginalCartesianChartCoefficients318.coefficient_tower p j f H
++  letI : Algebra.IsIntegral R A :=
++    OriginalCartesianChartCoefficients318.coefficient_integral p j f H
++  letI : IsFractionRing A Y.functionField := ActualOpenFractionField318.fractionRing j
+   have he : OriginalNormalClosureChartAction318.fraction Y.functionField ≫
+       (specIso p j f H).hom = Spec.map (CommRingCat.ofHom (algebraMap A Y.functionField)) := by
+     change Spec.map (CommRingCat.ofHom (algebraMap (Order Y.functionField) Y.functionField)) ≫
+@@ -62,8 +111,15 @@
+   unfold chart
+   rw [← Category.assoc, he, OriginalOpenChartGeneric318.generic_square]
+ 
+-@[reassoc] theorem chart_base : chart p j f H ≫ p =
+-    OriginalNormalClosureChartAction318.chartBase Y.functionField := by
++@[reassoc] theorem chart_base :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    chart p j f H ≫ p = OriginalNormalClosureChartAction318.chartBase Y.functionField := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  letI := coefficientAlgebra f
+   unfold chart
+   rw [Category.assoc, ← H.w, ← Category.assoc]
+   change (Spec.map (CommRingCat.ofHom (sections p j f H).toRingHom) ≫
+@@ -77,9 +133,17 @@
+ 
+ /-- Every original normal-closure geometric point is evaluated in the SAME
+ old affine chart, by its literal coordinate ring map. -/
+-lemma point_chart (z : Order Y.functionField →+* ℂ) :
++lemma point_chart :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    ∀ (z : Order Y.functionField →+* ℂ),
+     OriginalCurveGeometricStabilizers318.point (chart p j f H) z =
+       Spec.map (CommRingCat.ofHom (z.comp (sections p j f H).toRingHom)) ≫ j := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  intro z
+   change Spec.map (CommRingCat.ofHom z) ≫ ((specIso p j f H).hom ≫ j) = _
+   rw [← Category.assoc]
+   change (Spec.map (CommRingCat.ofHom z) ≫
+@@ -87,8 +151,17 @@
+   rw [← Spec.map_comp]
+   all_goals rfl
+ 
+-lemma point_coefficient (z : Order Y.functionField →+* ℂ) (q : R) :
++lemma point_coefficient :
++    letI := quotientAlgebra p
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++    letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++    ∀ (z : Order Y.functionField →+* ℂ) (q : R),
+     (z.comp (sections p j f H).toRingHom) (f q) =
+-      z (algebraMap R (Order Y.functionField) q) :=
+-  congrArg z ((sections p j f H).commutes q)
++      z (algebraMap R (Order Y.functionField) q) := by
++  letI := quotientAlgebra p
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
++  letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  letI := coefficientAlgebra f
++  intro z q
++  exact congrArg z ((sections p j f H).commutes q)
+ end OriginalCartesianNormalChart318

@@ -1,0 +1,19 @@
+--- height-original-normal-infinity-trace-r4/PELOriginalPolarizationMetric318.lean
++++ height-original-normal-infinity-trace-r5/PELOriginalPolarizationMetric318.lean
+@@ -33,12 +33,12 @@
+   rw [diagonal_translate]
+   ring
+ 
+-@[expose] def squaredNorm (p:ComplexVectors×ℂ):ℝ:=‖p.2‖^2*weight τ hτ p.1
+-lemma squaredNorm_nonnegative (p:ComplexVectors×ℂ):0≤squaredNorm τ hτ p:=
++@[expose] def squaredNorm (p:Prod ComplexVectors ℂ):ℝ:=‖p.2‖^2*weight τ hτ p.1
++lemma squaredNorm_nonnegative (p:Prod ComplexVectors ℂ):0≤squaredNorm τ hτ p:=
+   mul_nonneg (sq_nonneg _) (weight_positive τ hτ p.1).le
+-lemma squaredNorm_zero_iff (p:ComplexVectors×ℂ):squaredNorm τ hτ p=0↔p.2=0:=by
++lemma squaredNorm_zero_iff (p:Prod ComplexVectors ℂ):squaredNorm τ hτ p=0↔p.2=0:=by
+   simp [squaredNorm,mul_eq_zero,(weight_positive τ hτ p.1).ne',sq_eq_zero_iff]
+-lemma squaredNorm_action (l:L τ hτ) (p:ComplexVectors×ℂ):
++lemma squaredNorm_action (l:L τ hτ) (p:Prod ComplexVectors ℂ):
+     squaredNorm τ hτ (action τ hτ l p)=squaredNorm τ hτ p:=by
+   simp only [squaredNorm,action,norm_mul,mul_pow]
+   calc
