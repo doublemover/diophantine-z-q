@@ -1,0 +1,17 @@
+--- height-original-normal-infinity-trace-r3/PELOriginalThreeTorsion318.lean
++++ height-original-normal-infinity-trace-r4/PELOriginalThreeTorsion318.lean
+@@ -16,12 +16,12 @@
+     change (3:ℤ) • x=0 at hx
+     change (3:ℤ) • y=0 at hy
+     change (3:ℤ) • (x+y)=0
+-    rw [smul_add,hx,hy,add_zero]
++    rw [zsmul_add,hx,hy,add_zero]
+   neg_mem' := by
+     intro x hx
+     change (3:ℤ) • x=0 at hx
+     change (3:ℤ) • (-x)=0
+-    rw [smul_neg,hx,neg_zero]
++    rw [zsmul_neg,hx,neg_zero]
+ 
+ @[expose] def orderToTorsion : PELPrincipalOrderCoordinates318.order →+ torsion τ where
+   toFun a := ⟨thirdPeriod τ a,third_killed τ a⟩

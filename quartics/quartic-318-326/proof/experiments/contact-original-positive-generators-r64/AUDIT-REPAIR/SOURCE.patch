@@ -1,0 +1,44 @@
+--- before/ContactOriginalRestrictionCoordinates318.lean
++++ after/ContactOriginalRestrictionCoordinates318.lean
+@@ -17,6 +17,16 @@
+ private lemma inverse_hom_trans_apply {R : Type*} [Ring R]
+     {M N P : ModuleCat R} (e : M ≅ P) (g : N ≅ P) (x : N) :
+     e.toLinearEquiv.symm (g.hom x) = (g ≪≫ e.symm).toLinearEquiv x := rfl
++
++/-- Abstract coordinate transport keeps the concrete chart recovery maps opaque. -/
++private lemma coordinate_transport {R : Type*} [CommRing R]
++    {M N P : ModuleCat R} {X Y : Type*}
++    [AddCommGroup X] [Module R X] [AddCommGroup Y] [Module R Y]
++    (e : M ≅ P) (g : N ≅ P) (u : M ≃ₗ[R] X) (v : N ≃ₗ[R] Y) (x : N) :
++    (e.toLinearEquiv.symm.trans u) (g.hom x) =
++      (v.symm.trans ((g ≪≫ e.symm).toLinearEquiv.trans u)) (v x) := by
++  simp only [LinearEquiv.trans_apply, LinearEquiv.symm_apply_apply]
++  rfl
+ 
+ variable (c : Fin 4 → ℚˣ) (L : Line (ContactProjectiveModel318.model c))
+ 
+@@ -130,21 +140,13 @@
+     exact OriginalFiniteBasisBaseChange318.coordinates_unit
+       OriginalLaurentProjectiveOverlap318.infinityHom (infinitySections c L) m i
+   rw [← hi]
+-  simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition,
+-    LinearEquiv.trans_apply, LinearEquiv.symm_apply_apply,
+-    ContactCommonLaurentModule318.transition]
+-  have h := inverse_hom_trans_apply
+-    (R := OriginalLaurentProjectiveOverlap318.Ring)
+-    (M := (ModuleCat.extendScalars OriginalLaurentProjectiveOverlap318.finiteHom).obj
+-      (finiteSections c L))
+-    (N := (ModuleCat.extendScalars OriginalLaurentProjectiveOverlap318.infinityHom).obj
+-      (infinitySections c L))
+-    (P := ContactCommonLaurentModule318.common c L)
++  exact coordinate_transport
+     (ContactCommonLaurentModule318.finiteIso c L)
+     (ContactCommonLaurentModule318.infinityIso c L)
++    (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
++    (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
+     ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+       (infinitySections c L) m)
+-  exact congrArg (ContactOriginalLaurentCoordinates318.finiteCoordinates c L) h
+ 
+ 
+ /-- Every positive Laurent vector is the coordinate image of an actual

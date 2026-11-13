@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r30/FourRootCompletedComplexAtlas318.lean:42:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (FourRootInfinityComplexCharts318.chart b s).invFun z
+in the target expression
+  (↑(↑(FourRootInfinityComplexCharts318.chart b s).symm z)).1 ≠ 0
+
+b : Fin 4 → ℂ
+hb : Function.Injective b
+s : InfinitySigns
+p : FinitePoints b
+z : ℂ
+hz : z ∈ ((infinityChart b s).symm ≫ₕ finiteChart b hb p).source
+q : FinitePoints b
+hq : q ∈ (FourRootFiniteComplexAtlas318.chart b hb p).source
+he : FourRootNormalizedPointCharts318.finiteChart b q = ↑(infinityChart b s).symm.symm.symm z
+hn : (↑q).2 0 ≠ 0
+hv : ↑(toInfinity b ⟨q, hn⟩) = (FourRootInfinityComplexCharts318.chart b s).invFun z
+⊢ (↑(↑(FourRootInfinityComplexCharts318.chart b s).symm z)).1 ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r30/FourRootCompletedComplexAtlas318.lean:90:92: error: Application type mismatch: The argument
+  ha
+has type
+  AnalyticAt ℂ (fun z => ↑(↑(FourRootInfinityComplexCharts318.chart b s).symm z)) z
+but is expected to have type
+  AnalyticAt ℂ Subtype.val (↑(FourRootInfinityComplexCharts318.chart b s).symm z)
+in the application
+  AnalyticAt.comp (backward_analytic b (↑(↑(FourRootInfinityComplexCharts318.chart b s).symm z)) hd) ha
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r30/FourRootCompletedComplexAtlas318.lean:90:60: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (InfinityPoints b)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r30/FourRootCompletedComplexAtlas318.lean:125:18: warning: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r30/FourRootCompletedComplexAtlas318.lean:130:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

@@ -1,0 +1,110 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r6/OriginalThickenedOpenSections318.lean:21:17: warning: This simp argument is unused:
+  Scheme.Hom.appIso_hom'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [baseIso, Scheme.Hom.map_appLE]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r6/OriginalThickenedOpenSections318.lean:21:41: warning: This simp argument is unused:
+  Scheme.Hom.map_appLE
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [baseIso, Scheme.Hom.appIso_hom']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r6/OriginalThickenedOpenSections318.lean:31:64: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => Scheme.Hom.appLE _a V ⊤ ⋯ = Scheme.Hom.appLE (π R (localBase R p V) ≫ V.ι) V (π R (localBase R p V) ⁻¹ᵁ ⊤) ⋯
+Error: Application type mismatch: The argument
+  Quiver.Hom.le ((TopologicalSpace.Opens.map (inclusion R p V).base).map (homOfLE le_rfl))
+has type
+  (TopologicalSpace.Opens.map (inclusion R p V).base).obj (π R p ⁻¹ᵁ V) ≤
+    (TopologicalSpace.Opens.map (inclusion R p V).base).obj (π R p ⁻¹ᵁ V)
+but is expected to have type
+  inclusion R p V ⁻¹ᵁ π R p ⁻¹ᵁ V ≤ _a ⁻¹ᵁ V
+in the application
+  LE.le.trans (inclusion_preimage R p V)
+    (Quiver.Hom.le ((TopologicalSpace.Opens.map (inclusion R p V).base).map (homOfLE le_rfl)))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  getLimitCone ↦ 91
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+R : Type u
+inst✝ : CommRing R
+X : Scheme
+p : X ⟶ base R
+V : X.Opens
+⊢ Scheme.Hom.appLE (inclusion R p V ≫ π R p) V ⊤ ⋯ =
+    Scheme.Hom.appLE (π R (localBase R p V) ≫ V.ι) V (π R (localBase R p V) ⁻¹ᵁ ⊤) ⋯
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Quiver.Hom.le ((TopologicalSpace.Opens.map (inclusion R p V).base).map (homOfLE le_rfl))
+  has type
+    @LE.le (TopologicalSpace.Opens ↥(Local R p V)) TopologicalSpace.Opens.instPartialOrder.toLE
+      ((TopologicalSpace.Opens.map (inclusion R p V).base).obj (π R p ⁻¹ᵁ V))
+      ((TopologicalSpace.Opens.map (inclusion R p V).base).obj (π R p ⁻¹ᵁ V))
+  but is expected to have type
+    @LE.le (Local R p V).Opens TopologicalSpace.Opens.instPartialOrder.toLE (inclusion R p V ⁻¹ᵁ π R p ⁻¹ᵁ V)
+      ((inclusion R p V ≫ π R p) ⁻¹ᵁ V)
+  in the application
+    LE.le.trans (inclusion_preimage R p V)
+      (Quiver.Hom.le ((TopologicalSpace.Opens.map (inclusion R p V).base).map (homOfLE le_rfl)))
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    getLimitCone ↦ 190
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r6/OriginalThickenedOpenSections318.lean:43:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  reduction R (localBase R p V) ≫ map R (localBase R p V) p V.ι ⋯
+in the target expression
+  Scheme.Hom.appLE (reduction R (localBase R p V) ≫ inclusion R p V) (π R p ⁻¹ᵁ V) (reduction R (localBase R p V) ⁻¹ᵁ ⊤)
+      ⋯ =
+    Scheme.Hom.appLE (V.ι ≫ reduction R p) (π R p ⁻¹ᵁ V) ⊤ ⋯
+
+R : Type u
+inst✝ : CommRing R
+X : Scheme
+p : X ⟶ base R
+V : X.Opens
+⊢ Scheme.Hom.appLE (reduction R (localBase R p V) ≫ inclusion R p V) (π R p ⁻¹ᵁ V) (reduction R (localBase R p V) ⁻¹ᵁ ⊤)
+      ⋯ =
+    Scheme.Hom.appLE (V.ι ≫ reduction R p) (π R p ⁻¹ᵁ V) ⊤ ⋯
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Quiver.Hom.le
+      ((TopologicalSpace.Opens.map (reduction R (localBase R p V)).base).map (homOfLE (inclusion_preimage R p V)))
+  has type
+    @LE.le (TopologicalSpace.Opens ↥↑V) TopologicalSpace.Opens.instPartialOrder.toLE
+      ((TopologicalSpace.Opens.map (reduction R (localBase R p V)).base).obj ⊤)
+      ((TopologicalSpace.Opens.map (reduction R (localBase R p V)).base).obj (inclusion R p V ⁻¹ᵁ π R p ⁻¹ᵁ V))
+  but is expected to have type
+    @LE.le (↑V).Opens TopologicalSpace.Opens.instPartialOrder.toLE (reduction R (localBase R p V) ⁻¹ᵁ ⊤)
+      ((reduction R (localBase R p V) ≫ inclusion R p V) ⁻¹ᵁ π R p ⁻¹ᵁ V)
+  in the application
+    LE.le.trans le_rfl
+      (Quiver.Hom.le
+        ((TopologicalSpace.Opens.map (reduction R (localBase R p V)).base).map (homOfLE (inclusion_preimage R p V))))
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    getLimitCone ↦ 340
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r6/OriginalThickenedOpenSections318.lean:55:2: error: Type mismatch: After simplification, term
+  DualNumberCocycleNaturality318.epsilon_naturality (localBase R p V) p V.ι rfl
+ has type
+  @Eq (↑Γ(thickening R (localBase R p V), ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Hom.appLE (map R (localBase R p V) p V.ι ⋯) ⊤ (map R (localBase R p V) p V.ι ⋯ ⁻¹ᵁ ⊤) ⋯))
+      (DualNumberInfinitesimalLines318.epsilon R p))
+    (DualNumberInfinitesimalLines318.epsilon R (localBase R p V))
+but is expected to have type
+  @Eq (↑Γ(Local R p V, ⊤))
+    ((ConcreteCategory.hom (Scheme.Hom.appLE (map R (localBase R p V) p V.ι ⋯) ⊤ ⊤ ⋯))
+      (DualNumberInfinitesimalLines318.epsilon R p))
+    (DualNumberInfinitesimalLines318.epsilon R (localBase R p V))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  getLimitCone ↦ 64
