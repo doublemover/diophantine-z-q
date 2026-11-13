@@ -1,0 +1,11 @@
+--- original-finite-quotient-reconstruction-r58/OriginalCartesianChartCoefficients318.lean
++++ original-finite-quotient-reconstruction-r59/OriginalCartesianChartCoefficients318.lean
+@@ -51,6 +51,8 @@
+     OriginalProjectiveFunctionCoordinate318.κ (algebraMap R (RatFunc ℚ) q) =
+       algebraMap R (B).functionField q := by
+   letI := ActualOpenFractionField318.sourceAlgebra (JLineAtlas318.chart ℚ 1)
++  letI : Algebra R (Spec (CommRingCat.of R)).functionField :=
++    AlgebraicGeometry.instAlgebraCarrierFunctionFieldSpec (CommRingCat.of R)
+   apply (ActualOpenFractionField318.genericEquiv (JLineAtlas318.chart ℚ 1)).injective
+   exact (OriginalProjectiveFunctionCoordinate318.coefficient q).trans
+     ((ActualOpenFractionField318.genericAlgEquiv (JLineAtlas318.chart ℚ 1)).commutes q).symm

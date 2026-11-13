@@ -1,0 +1,25 @@
+--- pel-original-torsion-towers-r10/PELOriginalPolarizationAutomorphy318.lean
++++ pel-original-torsion-towers-r11/PELOriginalPolarizationAutomorphy318.lean
+@@ -55,16 +55,16 @@
+ lemma holomorphic (l:L τ hτ):ContDiff ℂ ⊤ (factor τ hτ l):=by
+   have h:ContDiff ℂ ⊤ (fun z:ComplexVectors=>H z l.val):=
+     (continuousLinear τ hτ l.val).contDiff
+-  exact (Complex.contDiff_exp.comp
+-    (((h.add contDiff_const).const_mul (Real.pi:ℂ)).add contDiff_const))
++  exact Complex.contDiff_exp.comp
++    ((contDiff_const.mul (h.add contDiff_const)).add contDiff_const)
+ 
+-@[expose] def action (l:L τ hτ) (p:ComplexVectors×ℂ):ComplexVectors×ℂ:=
++@[expose] def action (l:L τ hτ) (p:Prod ComplexVectors ℂ):Prod ComplexVectors ℂ:=
+   (p.1+l.val,factor τ hτ l p.1*p.2)
+-lemma action_zero (p:ComplexVectors×ℂ):action τ hτ 0 p=p:=by
++lemma action_zero (p:Prod ComplexVectors ℂ):action τ hτ 0 p=p:=by
+   simp [action,zero_factor]
+-lemma action_add (l m:L τ hτ) (p:ComplexVectors×ℂ):
++lemma action_add (l m:L τ hτ) (p:Prod ComplexVectors ℂ):
+     action τ hτ (l+m) p=action τ hτ l (action τ hτ m p):=by
+-  ext
++  apply Prod.ext
+   · simp [action,add_comm,add_left_comm,add_assoc]
+   · simp only [action,cocycle,mul_assoc]
+ lemma action_preserves_zero (l:L τ hτ) (z:ComplexVectors):

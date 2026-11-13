@@ -1,0 +1,28 @@
+--- pel-original-cotangent-hzero-forty-r36/FourRootCompletedComplexAtlas318.lean
++++ pel-original-cotangent-hzero-forty-r37/FourRootCompletedComplexAtlas318.lean
+@@ -39,6 +39,8 @@
+     ((FourRootInfinityComplexCharts318.chart b s).symm z).val.1≠0:=by
+   obtain ⟨q,hq,he⟩:=hz.2
+   obtain ⟨hn,hv⟩:=(chart_identification b q _).mp he
++  change (toInfinity b ⟨q,hn⟩).val =
++    (FourRootInfinityComplexCharts318.chart b s).symm z at hv
+   rw [←hv]
+   exact inv_ne_zero hn
+ 
+@@ -85,9 +87,15 @@
+   have hd:=infinity_to_finite_denominator b hb s p z hz
+   have hn:=(analyticAt_fst.comp ha).continuousAt.eventually (eventually_ne_nhds hd)
+   obtain ⟨j,hj⟩:=FourRootFiniteComplexAtlas318.chart_axis b hb p
++  have hback:AnalyticAt ℂ (fun w:ℂ=>
++      backward b ((FourRootInfinityComplexCharts318.chart b s).symm w).val) z:=
++    (backward_analytic b _ hd).comp
++      (f:=fun w:ℂ=>((FourRootInfinityComplexCharts318.chart b s).symm w).val) ha
+   have hf:AnalyticAt ℂ (fun w=>FourRootFiniteComplexAtlas318.axis j
+       (backward b ((FourRootInfinityComplexCharts318.chart b s).symm w).val)) z:=
+-    (FourRootFiniteComplexAtlas318.axis_analytic j _).comp ((backward_analytic b _ hd).comp ha)
++    (FourRootFiniteComplexAtlas318.axis_analytic j _).comp
++      (f:=fun w:ℂ=>backward b
++        ((FourRootInfinityComplexCharts318.chart b s).symm w).val) hback
+   apply hf.congr
+   filter_upwards [hn] with w hw
+   change _=finiteChart b hb p ((infinityChart b s).symm w)

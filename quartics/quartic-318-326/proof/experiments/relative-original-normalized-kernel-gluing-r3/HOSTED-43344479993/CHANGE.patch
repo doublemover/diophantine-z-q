@@ -1,0 +1,11 @@
+--- relative-original-normalized-kernel-gluing-r2/OriginalOpenPullbackSections318.lean
++++ relative-original-normalized-kernel-gluing-r3/OriginalOpenPullbackSections318.lean
+@@ -104,7 +104,7 @@
+       (((PullbackPathComposition318.iso f g k h).hom.app M).app ⊤
+         (sectionPull f ((Scheme.Modules.pullback g).obj M) s)) =
+       M.presheaf.map (homOfLE (show k ''ᵁ ⊤ ≤ g ''ᵁ ⊤ by
+-        rw [← h]; exact OpenChartSections318.imageLE f g)).op
++        subst k; exact OpenChartSections318.imageLE f g)).op
+         (sectionsEquiv g M s) := by
+   subst k
+   simpa only [PullbackPathComposition318.iso,Iso.trans_hom,NatTrans.comp_app,
