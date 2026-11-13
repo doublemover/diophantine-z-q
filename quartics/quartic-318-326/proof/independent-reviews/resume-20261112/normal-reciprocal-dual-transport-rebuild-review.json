@@ -1,0 +1,58 @@
+{
+  "reviewer": "advance_global_arithmetic",
+  "author": "advance_point_geometry",
+  "packet": "height-original-normal-reciprocal-dual-transport-rebuild-r1",
+  "status": "ACCEPTED_FRESH_SCOPED_SOURCE_REVIEW_HOSTED_PENDING",
+  "application_sha256": "272d4bc56c8e730cc4b4a7a3d2091dfcfa64b88b4712ce6ee4e2a57f7d86b179",
+  "intake_sha256": "41582c177714564ba289619fa0a81ee4593bdcfb9aeca0b0891fda670da51744",
+  "new_sources": {
+    "ScalarChangedFiniteDual318.lean": "a59a5732450d0059e004a3631359b80f343d5742c27ac7f5b765297bed0985e3",
+    "ScalarChangedDualNativeExtension318.lean": "5a6f078f15137ef63b1566e9c2a47baad2e2985a20e57548a7feea07c607d749",
+    "NormalOverlapReciprocalDual318.lean": "b52b1a09282c7654eae4a7e784129aba6f5991079a43610afa535321e70737ba",
+    "NormalOverlapReciprocalDualSheaf318.lean": "29f194edf2133d966cfc67f7d147617744b546442a538fb77aee41ebb90f1eb2",
+    "NormalOverlapDifferentialDualTransition318.lean": "16dfadbce4623560813aab7ab3a302a0d4fec763e38da1abcc90a06833f718fb",
+    "OriginalNormalReciprocalDualTransition318.lean": "eb108ce612429e7abf594b99944e520a1f8a9fa956727502b3a47300147c43a5"
+  },
+  "actual_producers_read": {
+    "FiniteDualModuleAction318.lean": "f2683ec07c5adc8c08a86f16c8dc3160f2144b76721a58e3485556244bb306e3",
+    "IntegralOriginalNormalOverlap318.lean": "aabb48f10be241360b7aca1beb414245d8514fda670bf14cc0cfc1a3293ef6a7",
+    "NativeTildeLocalizedModule318.lean": "ae6b2dec065d840e64bb375968ce56882d04a65215ac04340f00ee63e26843c9",
+    "IntegralNormalFiniteDualSheafRestriction318.lean": "7c72af1cd9a4575577efc74147e1b5311c960e6ce540c7d1bebdfcadb15002c1",
+    "IntegralNormalInfinityDualSheafRestriction318.lean": "232155ab7cfbaa7675d037f5e6d2f45a527f98daa8386c30aa1dba23931e54de",
+    "OriginalNormalDualNativeRestrictions318.lean": "f4cff9a883a8866c3f4cf11818a751a97fc99e402e09ae1ad2600c3e80f17f33",
+    "IntegralClosureScalarEquiv318.lean": "d0ed887a7300016a0b83a60d159aac0818d8c8b7be701ce63ccb30647e6a8f5e",
+    "LaurentCoordinateInversion318.lean": "e89c0c01e785d7c10f1a1dd9933e8ddba821b520020724b17ad718019bc80869"
+  },
+  "primary_read": {
+    "RECIPROCAL-TRANSPORT-PRIMARY/ChangeOfRings.lean": "09cbc9feba4de1928c9d75ebbfec432ebaeaa07f497f13a22531ff60ecca1cec",
+    "RECIPROCAL-TRANSPORT-PRIMARY/AdjunctionFullyFaithful.lean": "68cc26a11f510580d8550f0d4f7253bfd1bc74758db2f8ad9b30ceb53e49997b",
+    "RECIPROCAL-TRANSPORT-PRIMARY/ModuleEquivDefs.lean": "2034a7193600dcc2394082ebaadc8a557c57c385ca8b042937ec38c733123d2f",
+    "RECIPROCAL-TRANSPORT-PRIMARY/TildePullback318.lean": "5796887e2929205ed290ce2ffb76ae32ddc84b877e064e2d431bb29760a1bed7"
+  },
+  "obligations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "findings": [
+    "All six complete sources and nine obligations read. Structural1535, all1529 exact predecessors and every application/evidence binding independently checked. No concrete source correction requested; final author one_value rw<;>rfl hardening inspected.",
+    "Actual old finite-dual order action is input multiplication-precomposition. ScalarChangedFiniteDual transports BOTH input through e inverse and output through sigma. Its scalar square, inverse, full functional inverse laws and entire-order semilinearity preserve that action, including arbitrary commutative coefficient rings.",
+    "Native restrictedIso uses the literal ModuleCat.restrictScalars target. Exact pinned restrictScalars_isEquivalence_of_ringEquiv supplies full/faithful restriction; the native adjunction counit is therefore an iso. extensionIso uses that actual counit, not a selected isomorphism of ranks. Pinned one-tensor counit and scalar-tensor formulas justify exact whole one/integral tensor evaluations.",
+    "Original normal overlap E is identity on ambient source elements, but its base scalar square uses the Laurent involution tau. Both closure algebras remain explicit; no substitution of finite scalar action for reciprocal action occurs.",
+    "Native sheaf comparison is exactly old TildePullback followed by tilde of the complete module transport. It consumes the OLD finite/infinity overlapDual definitions, not replacement carriers.",
+    "Differential factor is the actual unit -T^2 mapped by E. Multiplication-precomposition then becomes -S^(-2) on output after tau. This is distinct from the degree-four trace denominator transition. The ambient unit formula and final chartComparison direction were checked against actual old finiteRoute/infinityIso inverse.",
+    "Exact finite regression independently rerun:390625 full functional values,390625 twisted values,62500 scalar tests,10000 order tests and4 negative controls. These are algebra sanity checks, not categorical or Lean proof.",
+    "Endpoint genuinely compares both OLD restricted sheaves. It does not identify the model categorical intersection, prove ambient trace-form equality, glue globally or establish dualizing/Hodge properties."
+  ],
+  "historical_disposition": "Fresh reconstruction from actual surviving normal-order/localization and freshly accepted native restriction. No lost historical acceptance reused.",
+  "limitations": [
+    "No local Lean, kernel acceptance or runtime replay claim.",
+    "No model intersection, global gluing, ambient differential realization or global duality/Hodge conclusion."
+  ]
+}
