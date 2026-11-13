@@ -1,0 +1,11 @@
+--- relative-original-normalized-kernel-gluing-r3/OriginalAffineLinePathSections318.lean
++++ relative-original-normalized-kernel-gluing-r4/OriginalAffineLinePathSections318.lean
+@@ -18,7 +18,7 @@
+ 
+ /-- Restriction defined by the ACTUAL geometric pullback unit and specified
+ path comparison, independently of the module-extension presentation. -/
+-def restriction (m : OriginalLineAffineModel318.sections A L) : OriginalLineAffineModel318.sections B M :=
++@[expose] def restriction (m : OriginalLineAffineModel318.sections A L) : OriginalLineAffineModel318.sections B M :=
+   moduleSpecΓFunctor.map e.hom
+     ((TildePullback318.globalNatIso f).hom.app _
+       (moduleSpecΓFunctor.map

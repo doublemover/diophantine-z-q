@@ -1,0 +1,54 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r73/ActualAffineEffectiveComparison318.lean:45:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  SheafPathTransport318.transport ((Scheme.Modules.pullback (baseMap ?R ?S)).obj (tilde ?M)) (doubleIso ?R ?S).inv
+    (ActualOverlapDiagram318.first (baseMap ?R ?S)) (ActualOverlapDiagram318.second (baseMap ?R ?S))
+    (Spec.map (AffineModuleBaseChange318.leftMap ?R ?S ?S)) (Spec.map (AffineModuleBaseChange318.rightMap ?R ?S ?S)) ⋯ ⋯
+    (CanonicalSheafOverlap318.actual (tilde ?M) (baseMap ?R ?S))
+in the target expression
+  (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.leftMap R S S))).map e.inv ≫
+      SheafPathTransport318.transport ((Scheme.Modules.pullback (baseMap R S)).obj (tilde M)) (doubleIso R S).symm.hom
+          (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+          (Spec.map (AffineModuleBaseChange318.leftMap R S S)) (Spec.map (AffineModuleBaseChange318.rightMap R S S)) ⋯ ⋯
+          (CanonicalSheafOverlap318.actual (tilde M) (baseMap R S)) ≫
+        (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.rightMap R S S))).map e.hom =
+    SheafPathTransport318.transport L.object (doubleIso R S).symm.hom (ActualOverlapDiagram318.first (baseMap R S))
+      (ActualOverlapDiagram318.second (baseMap R S)) (Spec.map (AffineModuleBaseChange318.leftMap R S S))
+      (Spec.map (AffineModuleBaseChange318.rightMap R S S)) ⋯ ⋯ τ
+
+R S : CommRingCat
+inst✝¹ : Algebra ↑R ↑S
+inst✝ : Module.FaithfullyFlat ↑R ↑S
+L : Line (Spec S)
+τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L
+hdiag : ActualAffineSheafData318.Diagonal R S L τ
+htriple : ActualAffineSheafData318.Cocycle R S L τ
+M : ModuleCat ↑R :=
+  ReconstructedOverlapCompatibility318.descendedModule R S L (ActualAffineTensorTransport318.overlap R S L τ) ⋯ ⋯
+e : (Scheme.Modules.pullback (baseMap R S)).obj (tilde M) ≅ L.object := comparison R S L τ hdiag htriple
+⊢ (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.leftMap R S S))).map e.inv ≫
+      SheafPathTransport318.transport ((Scheme.Modules.pullback (baseMap R S)).obj (tilde M)) (doubleIso R S).symm.hom
+          (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+          (Spec.map (AffineModuleBaseChange318.leftMap R S S)) (Spec.map (AffineModuleBaseChange318.rightMap R S S)) ⋯ ⋯
+          (CanonicalSheafOverlap318.actual (tilde M) (baseMap R S)) ≫
+        (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.rightMap R S S))).map e.hom =
+    SheafPathTransport318.transport L.object (doubleIso R S).symm.hom (ActualOverlapDiagram318.first (baseMap R S))
+      (ActualOverlapDiagram318.second (baseMap R S)) (Spec.map (AffineModuleBaseChange318.leftMap R S S))
+      (Spec.map (AffineModuleBaseChange318.rightMap R S S)) ⋯ ⋯ τ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r73/ActualAffineEffectiveComparison318.lean:63:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map
+        (𝟙 ((Scheme.Modules.pullback (baseMap R S)).obj (line R S L τ hdiag htriple).object)) ≫
+      CanonicalSheafOverlap318.actual (line R S L τ hdiag htriple).object (baseMap R S) ≫
+        (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
+          (comparison R S L τ hdiag htriple).hom =
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map (comparison R S L τ hdiag htriple).hom ≫
+      τ
+but is expected to have type
+  CanonicalSheafOverlap318.actual (line R S L τ hdiag htriple).object (baseMap R S) ≫
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
+        (comparison R S L τ hdiag htriple).hom =
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map (comparison R S L τ hdiag htriple).hom ≫
+      τ
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getLimitCone ↦ 19938

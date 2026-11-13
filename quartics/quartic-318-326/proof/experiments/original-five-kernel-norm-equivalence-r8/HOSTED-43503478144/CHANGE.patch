@@ -1,0 +1,126 @@
+--- original-five-kernel-norm-equivalence-r7/OriginalOpenDualCoordinates318.lean
++++ original-five-kernel-norm-equivalence-r8/OriginalOpenDualCoordinates318.lean
+@@ -11,20 +11,20 @@
+ set_option backward.isDefEq.respectTransparency.types false
+ variable (R : Type u) [CommRing R] {X : Scheme.{u}} (p : X ⟶ base R)
+     (V : X.Opens) [IsAffine V.toScheme]
+-local notation "E" => (sectionsIso R p V).commRingCatIsoToRingEquiv
+-local notation "B" => (baseIso V).commRingCatIsoToRingEquiv
++local notation "E" => CategoryTheory.Iso.commRingCatIsoToRingEquiv (sectionsIso R p V)
++local notation "B" => CategoryTheory.Iso.commRingCatIsoToRingEquiv (baseIso V)
+ local notation "A" => OriginalAffineDualSectionEquivalence318.equivalence R (localBase R p V)
+ /-- The full original dual ring, not only its reduced units, is identified
+ with sections on the ENTIRE thickened affine open by original maps. -/
+ @[expose] def coordinates : SquareZeroUnit318.Dual Γ(X,V) ≃+*
+     Γ(thickening R p,π R p ⁻¹ᵁ V) :=
+-  ((SquareZeroRingLift318.congr B).trans A).trans E.symm
++  ((SquareZeroRingLift318.congr B).trans A).trans (E).symm
+ lemma coefficient (a : Γ(X,V)) : coordinates R p V (TrivSqZeroExt.inl a) = (π R p).app V a := by
+-  apply E.injective
++  apply (E).injective
+   calc
+     E (coordinates R p V (TrivSqZeroExt.inl a)) = A (TrivSqZeroExt.inl (B a)) := by
+-      change E (E.symm (A (SquareZeroRingLift318.congr B (TrivSqZeroExt.inl a)))) = _
+-      rw [E.apply_symm_apply]
++      change E ((E).symm (A (SquareZeroRingLift318.congr B (TrivSqZeroExt.inl a)))) = _
++      rw [(E).apply_symm_apply]
+       congr 1
+       apply TrivSqZeroExt.ext <;> simp [SquareZeroRingLift318.congr, SquareZeroUnit318.map]
+     _ = (π R (localBase R p V)).appTop (B a) := by
+@@ -51,11 +51,11 @@
+ lemma infinitesimal_unit (a : Γ(X,V)) :
+     units R p V (SquareZeroUnit318.unit Γ(X,V) a) = OriginalOpenUnitLogarithm318.exp R p V a := by
+   apply Units.ext
+-  change E.symm (A (SquareZeroRingLift318.congr B (SquareZeroUnit318.unit Γ(X,V) a).val)) =
+-    E.symm (A (SquareZeroUnit318.unit Γ(V.toScheme,⊤) (B a)).val)
+-  apply congrArg E.symm
++  change (E).symm (A (SquareZeroRingLift318.congr B (SquareZeroUnit318.unit Γ(X,V) a).val)) =
++    (E).symm (A (SquareZeroUnit318.unit Γ(V.toScheme,⊤) (B a)).val)
++  apply congrArg (E).symm
+   apply congrArg A
+-  exact congrArg Units.val (SquareZeroUnit318.map_unit Γ(X,V) B.toRingHom a)
++  exact congrArg Units.val (SquareZeroUnit318.map_unit Γ(X,V) (B).toRingHom a)
+ variable {V} {W : X.Opens} [IsAffine W.toScheme] (h : W ≤ V)
+ /-- Actual restriction compatibility on ALL units follows from original
+ coefficient and epsilon maps, not from a formal change of coordinates. -/
+--- original-five-kernel-norm-equivalence-r7/OriginalOpenUnitLogarithm318.lean
++++ original-five-kernel-norm-equivalence-r8/OriginalOpenUnitLogarithm318.lean
+@@ -11,24 +11,24 @@
+ set_option backward.isDefEq.respectTransparency.types false
+ variable (R : Type u) [CommRing R] {X : Scheme.{u}} (p : X ⟶ base R)
+     (V : X.Opens) [IsAffine V.toScheme]
+-local notation "E" => (sectionsIso R p V).commRingCatIsoToRingEquiv
+-local notation "B" => (baseIso V).commRingCatIsoToRingEquiv
++local notation "E" => CategoryTheory.Iso.commRingCatIsoToRingEquiv (sectionsIso R p V)
++local notation "B" => CategoryTheory.Iso.commRingCatIsoToRingEquiv (baseIso V)
+ /-- The actual local logarithm transported through the original open-immersion
+ section maps. Its coefficient is an original section on V, not a new coordinate. -/
+ @[expose] def exp (a : Γ(X,V)) : Γ(thickening R p,π R p ⁻¹ᵁ V)ˣ :=
+-  Units.map E.symm.toMonoidHom (OriginalAffineUnitLogarithm318.exp R (localBase R p V) (B a))
++  Units.map (E).symm.toMonoidHom (OriginalAffineUnitLogarithm318.exp R (localBase R p V) (B a))
+ @[expose] def log (z : Γ(thickening R p,π R p ⁻¹ᵁ V)ˣ) : Γ(X,V) :=
+-  B.symm (OriginalAffineUnitLogarithm318.log R (localBase R p V) (Units.map E.toMonoidHom z))
++  (B).symm (OriginalAffineUnitLogarithm318.log R (localBase R p V) (Units.map (E).toMonoidHom z))
+ lemma exp_original (a : Γ(X,V)) : exp R p V a =
+     InfinitesimalUnitCocycle318.unit (thickening R p)
+       (DualNumberInfinitesimalLines318.epsilon R p)
+       (DualNumberInfinitesimalLines318.epsilon_square R p)
+       (π R p ⁻¹ᵁ V) ((π R p).app V a) := by
+   apply Units.ext
+-  apply E.injective
+-  change E (E.symm (OriginalAffineUnitLogarithm318.exp R (localBase R p V) (B a) :
++  apply (E).injective
++  change E ((E).symm (OriginalAffineUnitLogarithm318.exp R (localBase R p V) (B a) :
+     Γ(Local R p V,⊤))) = E (1 + _ * _)
+-  rw [E.apply_symm_apply, OriginalAffineUnitLogarithm318.exp_original]
++  rw [(E).apply_symm_apply, OriginalAffineUnitLogarithm318.exp_original]
+   change 1 + DualNumberInfinitesimalLines318.epsilon R (localBase R p V) *
+     (π R (localBase R p V)).appTop (B a) = E (1 + _ * _)
+   rw [map_add, map_one, map_mul]
+@@ -38,12 +38,12 @@
+   exact congrArg (fun x => 1 + DualNumberInfinitesimalLines318.epsilon R (localBase R p V) * x)
+     (congrArg (fun f => f a) (coefficient_square R p V)).symm
+ lemma log_exp (a : Γ(X,V)) : log R p V (exp R p V a) = a := by
+-  have h : Units.map E.toMonoidHom (exp R p V a) =
++  have h : Units.map (E).toMonoidHom (exp R p V a) =
+       OriginalAffineUnitLogarithm318.exp R (localBase R p V) (B a) := by
+     apply Units.ext
+-    exact E.apply_symm_apply _
++    exact (E).apply_symm_apply _
+   dsimp only [log]
+-  rw [h, OriginalAffineUnitLogarithm318.log_exp, B.symm_apply_apply]
++  rw [h, OriginalAffineUnitLogarithm318.log_exp, (B).symm_apply_apply]
+ lemma exp_injective : Function.Injective (exp R p V) := fun a b h => by
+   simpa only [log_exp] using congrArg (log R p V) h
+ lemma exp_log (z : Γ(thickening R p,π R p ⁻¹ᵁ V)ˣ)
+@@ -53,21 +53,21 @@
+     change (reduction R (localBase R p V)).appTop (E z.val) = B (reduce R p V z.val) at h
+     simpa only [hz, map_one] using h
+   have h := OriginalAffineUnitLogarithm318.exp_log R (localBase R p V)
+-    (Units.map E.toMonoidHom z) hred
++    (Units.map (E).toMonoidHom z) hred
+   apply Units.ext
+-  apply E.injective
+-  change E (E.symm (OriginalAffineUnitLogarithm318.exp R (localBase R p V)
+-    (B (B.symm (OriginalAffineUnitLogarithm318.log R (localBase R p V)
+-      (Units.map E.toMonoidHom z)))) : Γ(Local R p V,⊤))) = E z.val
+-  rw [B.apply_symm_apply, E.apply_symm_apply]
++  apply (E).injective
++  change E ((E).symm (OriginalAffineUnitLogarithm318.exp R (localBase R p V)
++    (B ((B).symm (OriginalAffineUnitLogarithm318.log R (localBase R p V)
++      (Units.map (E).toMonoidHom z)))) : Γ(Local R p V,⊤))) = E z.val
++  rw [(B).apply_symm_apply, (E).apply_symm_apply]
+   exact congrArg Units.val h
+ lemma reduction_exp (a : Γ(X,V)) : reduce R p V (exp R p V a).val = 1 := by
+-  apply B.injective
++  apply (B).injective
+   have h := congrArg (fun f => f (exp R p V a).val) (reduction_square R p V)
+-  change (reduction R (localBase R p V)).appTop (E (E.symm
++  change (reduction R (localBase R p V)).appTop (E ((E).symm
+     (OriginalAffineUnitLogarithm318.exp R (localBase R p V) (B a) : Γ(Local R p V,⊤)))) =
+       B (reduce R p V (exp R p V a).val) at h
+-  rw [E.apply_symm_apply, OriginalAffineUnitLogarithm318.reduction_exp] at h
++  rw [(E).apply_symm_apply, OriginalAffineUnitLogarithm318.reduction_exp] at h
+   simpa only [map_one] using h.symm
+ lemma unit_iff (z : Γ(thickening R p,π R p ⁻¹ᵁ V)ˣ) :
+     reduce R p V z.val = 1 ↔ ∃! a : Γ(X,V), exp R p V a = z := by
