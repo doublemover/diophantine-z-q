@@ -1,0 +1,39 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r67/SheafIsoTransport318.lean:40:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @Eq
+    ((Scheme.Modules.pullback p₀ ⋙ Scheme.Modules.pullback e.hom).obj M ⟶
+      (Scheme.Modules.pullback p₁ ⋙ Scheme.Modules.pullback e.hom).obj M)
+    ((Scheme.Modules.pullback e.hom).map a ≫ 𝟙 ((Scheme.Modules.pullback p₁ ⋙ Scheme.Modules.pullback e.hom).obj M))
+    ((Scheme.Modules.pullback e.hom).map b ≫ 𝟙 ((Scheme.Modules.pullback p₁ ⋙ Scheme.Modules.pullback e.hom).obj M))
+but is expected to have type
+  @Eq
+    ((Scheme.Modules.pullback e.hom).obj ((Scheme.Modules.pullback p₀).obj M) ⟶
+      (Scheme.Modules.pullback e.hom).obj ((Scheme.Modules.pullback p₁).obj M))
+    ((Scheme.Modules.pullback e.hom).map a) ((Scheme.Modules.pullback e.hom).map b)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-relative-site-descent-r67/SheafIsoTransport318.lean:53:50: error: unsolved goals
+U X Y : Scheme
+M N : U.Modules
+e : M ≅ N
+q : Y ⟶ X
+p₀ p₁ : X ⟶ U
+v₀ v₁ : Y ⟶ U
+h₀ : q ≫ p₀ = v₀
+h₁ : q ≫ p₁ = v₁
+a : (Scheme.Modules.pullback p₀).obj M ⟶ (Scheme.Modules.pullback p₁).obj M
+c₀ : Scheme.Modules.pullback p₀ ⋙ Scheme.Modules.pullback q ≅ Scheme.Modules.pullback v₀ :=
+  PullbackPathComposition318.iso q p₀ v₀ h₀
+c₁ : Scheme.Modules.pullback p₁ ⋙ Scheme.Modules.pullback q ≅ Scheme.Modules.pullback v₁ :=
+  PullbackPathComposition318.iso q p₁ v₁ h₁
+hleft :
+  (Scheme.Modules.pullback v₀).map e.inv ≫ c₀.inv.app M =
+    c₀.inv.app N ≫ (Scheme.Modules.pullback q).map ((Scheme.Modules.pullback p₀).map e.inv)
+hright :
+  (Scheme.Modules.pullback q).map ((Scheme.Modules.pullback p₁).map e.hom) ≫ c₁.hom.app N =
+    c₁.hom.app M ≫ (Scheme.Modules.pullback v₁).map e.hom
+⊢ (Scheme.Modules.pullback v₀).map e.inv ≫
+      c₀.inv.app M ≫ (Scheme.Modules.pullback q).map a ≫ c₁.hom.app M ≫ (Scheme.Modules.pullback v₁).map e.hom =
+    (Scheme.Modules.pullback v₀).map e.inv ≫
+      (PullbackPathComposition318.iso q p₀ v₀ h₀).inv.app M ≫
+        (Scheme.Modules.pullback q).map a ≫
+          (PullbackPathComposition318.iso q p₁ v₁ h₁).hom.app M ≫ (Scheme.Modules.pullback v₁).map e.hom

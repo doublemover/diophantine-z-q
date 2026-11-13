@@ -1,0 +1,56 @@
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-five-kernel-norm-equivalence-r5\OriginalThickenedOpenSections318.lean:20:65: error: unsolved goals
+X : Scheme
+V : X.Opens
+⊢ X.presheaf.map (eqToHom ⋯) = X.presheaf.map (homOfLE ⋯).op
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-five-kernel-norm-equivalence-r5\OriginalThickenedOpenSections318.lean:21:17: warning: This simp argument is unused:
+  Scheme.Hom.appIso_hom'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [baseIso, Scheme.Hom.map_appLE]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-five-kernel-norm-equivalence-r5\OriginalThickenedOpenSections318.lean:21:41: warning: This simp argument is unused:
+  Scheme.Hom.map_appLE
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [baseIso, Scheme.Hom.appIso_hom']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-five-kernel-norm-equivalence-r5\OriginalThickenedOpenSections318.lean:28:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Scheme.Hom.app ?f ?U
+in the target expression
+  Scheme.Hom.appLE (π R p) V (π R p ⁻¹ᵁ V) ⋯ ≫ Scheme.Hom.appLE (inclusion R p V) (π R p ⁻¹ᵁ V) ⊤ ⋯ =
+    Scheme.Hom.appLE V.ι V ⊤ ⋯ ≫ Scheme.Hom.appTop (π R (localBase R p V))
+
+R : Type u
+inst✝ : CommRing R
+X : Scheme
+p : X ⟶ base R
+V : X.Opens
+⊢ Scheme.Hom.appLE (π R p) V (π R p ⁻¹ᵁ V) ⋯ ≫ Scheme.Hom.appLE (inclusion R p V) (π R p ⁻¹ᵁ V) ⊤ ⋯ =
+    Scheme.Hom.appLE V.ι V ⊤ ⋯ ≫ Scheme.Hom.appTop (π R (localBase R p V))
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-five-kernel-norm-equivalence-r5\OriginalThickenedOpenSections318.lean:37:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Scheme.Hom.app ?f ?U
+in the target expression
+  Scheme.Hom.appLE (inclusion R p V) (π R p ⁻¹ᵁ V) ⊤ ⋯ ≫ Scheme.Hom.appTop (reduction R (localBase R p V)) =
+    reduce R p V ≫ Scheme.Hom.appLE V.ι V ⊤ ⋯
+
+R : Type u
+inst✝ : CommRing R
+X : Scheme
+p : X ⟶ base R
+V : X.Opens
+⊢ Scheme.Hom.appLE (inclusion R p V) (π R p ⁻¹ᵁ V) ⊤ ⋯ ≫ Scheme.Hom.appTop (reduction R (localBase R p V)) =
+    reduce R p V ≫ Scheme.Hom.appLE V.ι V ⊤ ⋯
+C:\Users\sneak\Development\diophantine-z-q-quartic-audit\quartics\quartic-318-326\proof\experiments\original-five-kernel-norm-equivalence-r5\OriginalThickenedOpenSections318.lean:52:2: error: Type mismatch
+  DualNumberCocycleNaturality318.epsilon_naturality (localBase R p V) p V.ι rfl
+has type
+  (ConcreteCategory.hom (Scheme.Hom.appTop (map R (localBase R p V) p V.ι ⋯)))
+      (DualNumberInfinitesimalLines318.epsilon R p) =
+    DualNumberInfinitesimalLines318.epsilon R (localBase R p V)
+but is expected to have type
+  (ConcreteCategory.hom (Scheme.Hom.appLE (inclusion R p V) ⊤ ⊤ ⋯)) (DualNumberInfinitesimalLines318.epsilon R p) =
+    DualNumberInfinitesimalLines318.epsilon R (localBase R p V)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  getLimitCone ↦ 148
