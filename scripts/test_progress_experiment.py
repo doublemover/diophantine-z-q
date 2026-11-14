@@ -151,4 +151,130 @@ class ExperimentTests(unittest.TestCase):
             self.assertEqual(row['exit_code'],124)
             self.assertIn('WALL_CLOCK_LIMIT', (root/'logs/A.log').read_text())
 
+    def revision_fixture(self, root):
+        p, d, plan = self.fixture(root)
+        previous = root/'previous'; previous.mkdir()
+        prior = {'order': ['Draft', 'Stable', 'Retired'], 'files': {}}
+        for n in prior['order']:
+            source = previous/(n+'.lean')
+            source.write_text('module\npublic import Base\n')
+            prior['files'][source.name] = {'sha256': ci.sha(source), 'imports': ['Base']}
+        ci.write_json(previous/'intake.json', prior)
+        for n in ['Stable', 'New']:
+            source = p/(n+'.lean'); source.write_text('module\npublic import Base\n')
+            d['order'].append(n)
+            d['files'][source.name] = {'sha256': ci.sha(source), 'imports': ['Base']}
+        d.update(revision_classification_schema=1, revision_of='previous', changed_modules=['Draft'], revised_modules=['Draft'],
+                 modified_predecessor_modules=['Draft'], reused_modules=['Stable'],
+                 unchanged_predecessor_modules=['Stable'], exact_predecessor_modules=['Stable'],
+                 unchanged_producer_modules=1, new_modules=['New'])
+        ci.write_json(p/'intake.json', d)
+        return p, d, plan, previous, prior
+
+    def test_revision_exact_changed_unchanged_new_and_removed(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); p, d, plan, _, _ = self.revision_fixture(root)
+            e.packet('sample', plan, root)
+            d['unchanged_producer_modules'] = ['Stable']
+            ci.write_json(p/'intake.json', d)
+            e.packet('sample', plan, root)
+            # Both supported explicit-reference conventions agree.
+            d['revision_source'] = 'previous'; ci.write_json(p/'intake.json', d)
+            ci.write_json(p/'APPLICATION.json', {'predecessor': 'previous', 'revision_source': 'previous'})
+            e.packet('sample', plan, root)
+
+    def test_revision_all_stale_labels_duplicates_and_wrong_counts_fail(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); p, d, plan, _, _ = self.revision_fixture(root)
+            for key in ['changed_modules', 'revised_modules', 'modified_predecessor_modules',
+                        'reused_modules', 'unchanged_predecessor_modules',
+                        'exact_predecessor_modules', 'unchanged_producer_modules', 'new_modules']:
+                for value in [[], ['Ghost'], ['Draft', 'Draft'], [1], {}, True, 'Draft']:
+                    bad = copy.deepcopy(d); bad[key] = value
+                    ci.write_json(p/'intake.json', bad)
+                    with self.subTest(key=key, value=value), self.assertRaisesRegex(
+                            ValueError, 'Revision classification mismatch: '+key):
+                        e.packet('sample', plan, root)
+            for count in [-1, 0, 2]:
+                bad = copy.deepcopy(d); bad['unchanged_producer_modules'] = count
+                ci.write_json(p/'intake.json', bad)
+                with self.assertRaisesRegex(ValueError, 'unchanged_producer_modules'):
+                    e.packet('sample', plan, root)
+
+    def test_revision_reference_conflicts_unsafe_self_and_missing_fail(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); p, d, plan, _, _ = self.revision_fixture(root)
+            for value in ['../previous', '/previous', 'sample', '', [], None]:
+                bad = copy.deepcopy(d); bad['revision_of'] = value
+                ci.write_json(p/'intake.json', bad)
+                with self.assertRaisesRegex(ValueError, 'Invalid revision predecessor'):
+                    e.packet('sample', plan, root)
+            d['revision_of'] = 'missing'; ci.write_json(p/'intake.json', d)
+            with self.assertRaisesRegex(ValueError, 'Missing revision predecessor intake'):
+                e.packet('sample', plan, root)
+            d['revision_of'] = 'previous'; ci.write_json(p/'intake.json', d)
+            ci.write_json(p/'APPLICATION.json', {'predecessor': 'different'})
+            with self.assertRaisesRegex(ValueError, 'Conflicting revision predecessors'):
+                e.packet('sample', plan, root)
+
+    def test_revision_prior_source_manifest_and_digest_fail(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); p, d, plan, previous, prior = self.revision_fixture(root)
+            for order in [['Draft', 'Draft'], ['../Draft'], [], [1]]:
+                bad = copy.deepcopy(prior); bad['order'] = order
+                ci.write_json(previous/'intake.json', bad)
+                with self.assertRaisesRegex(ValueError, 'Invalid revision predecessor source manifest'):
+                    e.packet('sample', plan, root)
+            ci.write_json(previous/'intake.json', prior)
+            (previous/'Draft.lean').write_text('changed predecessor bytes\n')
+            with self.assertRaisesRegex(ValueError, 'Revision predecessor source hash mismatch'):
+                e.packet('sample', plan, root)
+            (previous/'Draft.lean').unlink()
+            with self.assertRaisesRegex(ValueError, 'Revision predecessor source hash mismatch'):
+                e.packet('sample', plan, root)
+
+    def test_revision_only_bound_root_inheritance_is_used(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); p, d, plan, _, _ = self.revision_fixture(root)
+            del d['revision_of']; ci.write_json(p/'intake.json', d)
+            ci.write_json(p/'INHERITANCE.json', {'predecessor': 'previous'})
+            ci.write_json(p/'APPLICATION.json', {'bindings': {'INHERITANCE.json': ci.sha(p/'INHERITANCE.json')}})
+            e.packet('sample', plan, root)
+            bad = copy.deepcopy(d); bad['revised_modules'] = ['Stable']
+            ci.write_json(p/'intake.json', bad)
+            with self.assertRaisesRegex(ValueError, 'revised_modules'):
+                e.packet('sample', plan, root)
+            # Opted-in packets cannot silently bypass validation without a predecessor.
+            ci.write_json(p/'APPLICATION.json', {})
+            with self.assertRaisesRegex(ValueError, 'Missing explicit revision predecessor'):
+                e.packet('sample', plan, root)
+            ci.write_json(p/'APPLICATION.json', {'predecessor': 'different',
+                'bindings': {'INHERITANCE.json': ci.sha(p/'INHERITANCE.json')}})
+            with self.assertRaisesRegex(ValueError, 'Conflicting revision predecessors'):
+                e.packet('sample', plan, root)
+
+    def test_revision_schema_opt_in_preserves_historical_semantics(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); p, d, plan, _, _ = self.revision_fixture(root)
+            # Historical packet aliases can describe baseline/new-producer semantics,
+            # not the immediate predecessor byte delta. Unversioned means legacy.
+            del d['revision_classification_schema']
+            d['new_modules'] = ['Draft', 'Stable', 'New']
+            d['unchanged_producer_modules'] = 58
+            d['revision_of'] = 'historical-predecessor-no-longer-present'
+            ci.write_json(p/'intake.json', d)
+            e.packet('sample', plan, root)
+            for version in [0, 2, True, '1', None, {}]:
+                d['revision_classification_schema'] = version
+                ci.write_json(p/'intake.json', d)
+                with self.assertRaisesRegex(ValueError, 'Unsupported revision classification schema'):
+                    e.packet('sample', plan, root)
+            d['revision_classification_schema'] = 1
+            del d['revision_of']; ci.write_json(p/'intake.json', d)
+            with self.assertRaisesRegex(ValueError, 'Missing explicit revision predecessor'):
+                e.packet('sample', plan, root)
+            d['revision_of'] = 'previous'; ci.write_json(p/'intake.json', d)
+            with self.assertRaisesRegex(ValueError, 'Revision classification mismatch'):
+                e.packet('sample', plan, root)
+
 if __name__=='__main__':unittest.main()
