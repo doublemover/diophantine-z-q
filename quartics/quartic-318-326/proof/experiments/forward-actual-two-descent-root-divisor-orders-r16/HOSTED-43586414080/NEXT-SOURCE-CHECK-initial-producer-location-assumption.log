@@ -1,0 +1,14 @@
+fatal: path 'quartics/quartic-318-326/proof/progress/DualNumberScalarExtension318.lean' does not exist in 'f89bd0a3cb8a788d6c7f2f494a21d7d103a893cb'
+Traceback (most recent call last):
+  File "/workspace/scratch/41c6d5925c0e/review43586414080/check_next_sources.py", line 65, in <module>
+    put(case,n+'.lean',git('quartics/quartic-318-326/proof/progress/'+n+'.lean'))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/41c6d5925c0e/review43586414080/check_next_sources.py", line 6, in git
+    def git(path):return subprocess.check_output(['git','show',head+':'+path],cwd=repo)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'f89bd0a3cb8a788d6c7f2f494a21d7d103a893cb:quartics/quartic-318-326/proof/progress/DualNumberScalarExtension318.lean']' returned non-zero exit status 128.

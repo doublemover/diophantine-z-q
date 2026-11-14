@@ -1,0 +1,30 @@
+module
+public import ScalarPackedLocalUnit318
+public section
+noncomputable section
+namespace ScalarSmallPrimePreparation318
+open ScalarPolePreparation318 ScalarForwardWitness318
+set_option maxHeartbeats 0
+
+set_option stderrAsMessages false
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_PROFILER_CONTROL_BEGIN"
+  out.flush
+  let opts := (({} : Lean.Options).setBool `profiler true).set `profiler.threshold (0 : Nat)
+  Lean.profileitIO (ε := IO.Error) "SMALL_PRIME_PROFILER_CONTROL" opts (pure ())
+  out.flush
+  out.putStrLn "SMALL_PRIME_PROFILER_CONTROL_END"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_PREFIX_BEGIN_0"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_PREFIX_COMMAND_END_0"
+  out.flush
+
+end ScalarSmallPrimePreparation318

@@ -1,0 +1,11 @@
+--- ScalarSmallPrimePreparation318.before.lean
++++ ScalarSmallPrimePreparation318.lean
+@@ -16,7 +16,7 @@
+   have he : 2∣x+x^2 := by
+     rw [Int.dvd_iff_emod_eq_zero]
+     rcases Int.emod_two_eq_zero_or_one x with h|h <;>
+-      simp [Int.add_emod,Int.pow_emod,h]
++      simp [Int.add_emod,pow_two,Int.mul_emod,h]
+   obtain ⟨j,hj⟩ := he
+   refine ⟨?_,?_,?_⟩
+   · refine ⟨91004161208951682994*x^1+716088952741312363108*x^2+2362325449973424226236*x^3+2814330797291386086912*x^4+3913336234084850038+j,?_⟩

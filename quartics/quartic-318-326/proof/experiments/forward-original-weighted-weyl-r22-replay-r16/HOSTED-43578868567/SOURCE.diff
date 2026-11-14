@@ -1,0 +1,24 @@
+--- PreparedIntegerSource318.before.lean
++++ PreparedIntegerSource318.lean
+@@ -25,7 +25,8 @@
+   · rw [ScalarActualInputs318.detector33]
+     exact hb.2.1
+   · rw [ScalarActualInputs318.detector37]
+-    exact_mod_cast hscalar
++    apply (Rat.cast_lt (K := ℝ)).mp
++    simpa only [Rat.cast_div,Rat.cast_one,Rat.cast_ofNat,Rat.cast_abs] using hscalar
+   · rw [ScalarActualInputs318.detector37]
+     exact hb.2.2
+   · exact ActualScalarRoot318.inverseNorm_bound _ (hn 1) hn1
+@@ -53,7 +54,10 @@
+   let C₂ := P₂.certificate (ne_of_gt (hbs 2))
+   let w := ThreePoleCertificates318.fill pre C₀ C₁ C₂
+   have hw := ThreePoleCertificates318.first263 S pre C₀ C₁ C₂ hrows
+-  have hslot := ScalarActualInputs318.preserved_slots (a:ℚ) labels h t C₀ C₁ C₂
++  have hslot : ∀ i ∈ ([0,33,37,82,83,118,145] : List ℕ),
++      w i = DetectorGateWitness318.witness (a:ℚ) labels h i := by
++    simpa only [w,pre] using
++      ScalarActualInputs318.preserved_slots (a:ℚ) labels h t C₀ C₁ C₂
+   have hi : w 0=(a:ℚ) := (hslot 0 (by simp)).trans (DetectorGateWitness318.witness_input _ _ _)
+   have hq : w 118=(w 0)^2 := by
+     rw [hslot 118 (by simp),hi,ScalarActualInputs318.detector118]

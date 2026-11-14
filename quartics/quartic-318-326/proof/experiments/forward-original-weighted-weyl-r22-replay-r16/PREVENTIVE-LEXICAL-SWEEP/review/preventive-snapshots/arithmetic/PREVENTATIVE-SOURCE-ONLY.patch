@@ -1,0 +1,280 @@
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ScalarSmallPrimePreparation318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ScalarSmallPrimePreparation318.lean
+@@ -69,7 +69,7 @@
+       padicValRat 17 (poleInput w n)=2 := by
+   obtain ⟨v₂,v₃,v₁₇⟩ := actual_multiplier_values a
+   rw [←hin] at v₂ v₃ v₁₇
+-  have hr : 10<inputR (w 0) := by rw [hin]; exact integer_inputR_large a
++  have hr : 10< inputR (w 0) := by rw [hin]; exact integer_inputR_large a
+   have hA : 114444*inputR (w 0)≠0 := by linarith
+   have hD : 1+114444*inputR (w 0)≠0 := by linarith
+   refine ⟨?_,?_,?_⟩
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ScalarSmallPrimePreparation318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ScalarSmallPrimePreparation318.lean
+@@ -69,7 +69,7 @@
+       padicValRat 17 (poleInput w n)=2 := by
+   obtain ⟨v₂,v₃,v₁₇⟩ := actual_multiplier_values a
+   rw [←hin] at v₂ v₃ v₁₇
+-  have hr : 10<inputR (w 0) := by rw [hin]; exact integer_inputR_large a
++  have hr : 10< inputR (w 0) := by rw [hin]; exact integer_inputR_large a
+   have hA : 114444*inputR (w 0)≠0 := by linarith
+   have hD : 1+114444*inputR (w 0)≠0 := by linarith
+   refine ⟨?_,?_,?_⟩
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/FixedArithmeticLabels318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/FixedArithmeticLabels318.lean
+@@ -9,7 +9,7 @@
+ /-- Literal beta used by the318 detector source, not the older2X²+3 stage. -/
+ @[expose] def inputBeta (a : ℤ) : ℤ := 3723*(2*a+1)^2
+ 
+-lemma beta_positive_odd (a : ℤ) : 0<inputBeta a ∧ Odd (inputBeta a) := by
++lemma beta_positive_odd (a : ℤ) : 0< inputBeta a ∧ Odd (inputBeta a) := by
+   have hm : (2*a+1)%2=1 := by omega
+   have hn : 2*a+1≠0 := by omega
+   refine ⟨by unfold inputBeta; positivity,?_⟩
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/FixedArithmeticLabels318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/FixedArithmeticLabels318.lean
+@@ -9,7 +9,7 @@
+ /-- Literal beta used by the318 detector source, not the older2X²+3 stage. -/
+ @[expose] def inputBeta (a : ℤ) : ℤ := 3723*(2*a+1)^2
+ 
+-lemma beta_positive_odd (a : ℤ) : 0<inputBeta a ∧ Odd (inputBeta a) := by
++lemma beta_positive_odd (a : ℤ) : 0< inputBeta a ∧ Odd (inputBeta a) := by
+   have hm : (2*a+1)%2=1 := by omega
+   have hn : 2*a+1≠0 := by omega
+   refine ⟨by unfold inputBeta; positivity,?_⟩
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/TernaryChartModuli318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/TernaryChartModuli318.lean
+@@ -22,7 +22,7 @@
+   exact Fintype.prod_subtype_mul_prod_subtype (fun i => t i≠none) p
+ 
+ theorem moduli_positive (p : ι → ℕ) (hp : ∀ i, (p i).Prime)
+-    (t : ∀ i, Option (ZMod (p i))) : 0<finiteModulus p t ∧ 0<infinityModulus p t := by
++    (t : ∀ i, Option (ZMod (p i))) : 0<finiteModulus p t ∧ 0< infinityModulus p t := by
+   classical
+   constructor
+   · exact FixedSquarefreeCRT318.modulus_positive (fun i : FiniteIndex t => p i.1) (fun i => hp i.1)
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/TernaryChartModuli318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/TernaryChartModuli318.lean
+@@ -22,7 +22,7 @@
+   exact Fintype.prod_subtype_mul_prod_subtype (fun i => t i≠none) p
+ 
+ theorem moduli_positive (p : ι → ℕ) (hp : ∀ i, (p i).Prime)
+-    (t : ∀ i, Option (ZMod (p i))) : 0<finiteModulus p t ∧ 0<infinityModulus p t := by
++    (t : ∀ i, Option (ZMod (p i))) : 0<finiteModulus p t ∧ 0< infinityModulus p t := by
+   classical
+   constructor
+   · exact FixedSquarefreeCRT318.modulus_positive (fun i : FiniteIndex t => p i.1) (fun i => hp i.1)
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/OriginalTernaryBasis318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/OriginalTernaryBasis318.lean
+@@ -127,7 +127,7 @@
+   obtain ⟨A,B,hA0,hA,hB0,hB,hcoeff⟩ := original_coefficients p hp hd κ t
+   obtain ⟨hq,hr⟩ := moduli_positive p hp t
+   have hqz : (0:ℤ)<finiteModulus p t := by exact_mod_cast hq
+-  have hrz : (0:ℤ)<infinityModulus p t := by exact_mod_cast hr
++  have hrz : (0:ℤ)< infinityModulus p t := by exact_mod_cast hr
+   have hqr : (finiteModulus p t:ℤ)*(infinityModulus p t:ℤ)=
+       (FixedSquarefreeCRT318.modulus p:ℤ) := by exact_mod_cast moduli_product p t
+   refine ⟨(finiteModulus p t:ℤ),(infinityModulus p t:ℤ),A,B,hqz,hrz,hqr,hA0,hA,hB0,hB,?_,?_⟩
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/OriginalTernaryBasis318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/OriginalTernaryBasis318.lean
+@@ -127,7 +127,7 @@
+   obtain ⟨A,B,hA0,hA,hB0,hB,hcoeff⟩ := original_coefficients p hp hd κ t
+   obtain ⟨hq,hr⟩ := moduli_positive p hp t
+   have hqz : (0:ℤ)<finiteModulus p t := by exact_mod_cast hq
+-  have hrz : (0:ℤ)<infinityModulus p t := by exact_mod_cast hr
++  have hrz : (0:ℤ)< infinityModulus p t := by exact_mod_cast hr
+   have hqr : (finiteModulus p t:ℤ)*(infinityModulus p t:ℤ)=
+       (FixedSquarefreeCRT318.modulus p:ℤ) := by exact_mod_cast moduli_product p t
+   refine ⟨(finiteModulus p t:ℤ),(infinityModulus p t:ℤ),A,B,hqz,hrz,hqr,hA0,hA,hB0,hB,?_,?_⟩
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualQuarticCoefficientHeight318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualQuarticCoefficientHeight318.lean
+@@ -13,8 +13,8 @@
+ 
+ lemma inner_bounds (κ t : ℤ) (a d : Vector ℤ) (L : ℝ) (hL : 0≤L)
+     (ha : Box a L) (hd : Box d L) :
+-    |(r2 κ d:ℝ)|≤innerHeight κ t L ∧ |(r1 κ a d:ℝ)|≤innerHeight κ t L ∧
+-    |(r0 κ t a:ℝ)|≤innerHeight κ t L := by
++    |(r2 κ d:ℝ)|≤ innerHeight κ t L ∧ |(r1 κ a d:ℝ)|≤ innerHeight κ t L ∧
++    |(r0 κ t a:ℝ)|≤ innerHeight κ t L := by
+   have haw := square_bound a.2.2 L ha.2.2
+   have hdw := square_bound d.2.2 L hd.2.2
+   have hxz := product_bound a.1 d.2.1 L hL ha.1 hd.2.1
+@@ -58,12 +58,12 @@
+     convert hsum using 1 <;> simp only [r1] <;> push_cast <;> ring
+   have hj : 0≤(|(κ:ℝ)|+1)*L^2 := by positivity
+   refine ⟨?_,?_,?_⟩
+-  · change |((κ*d.2.2^2-d.1*d.2.1:ℤ):ℝ)|≤innerHeight κ t L
++  · change |((κ*d.2.2^2-d.1*d.2.1:ℤ):ℝ)|≤ innerHeight κ t L
+     dsimp [innerHeight]
+     linarith only [hr2,hj,ht2,ht0]
+   · dsimp [innerHeight]
+     linarith only [hr1,ht2,ht0]
+-  · change |((κ*a.2.2^2-a.1*a.2.1+t^2+2*t:ℤ):ℝ)|≤innerHeight κ t L
++  · change |((κ*a.2.2^2-a.1*a.2.1+t^2+2*t:ℤ):ℝ)|≤ innerHeight κ t L
+     push_cast
+     dsimp [innerHeight]
+     linarith only [hc0,hj]
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualQuarticCoefficientHeight318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualQuarticCoefficientHeight318.lean
+@@ -13,8 +13,8 @@
+ 
+ lemma inner_bounds (κ t : ℤ) (a d : Vector ℤ) (L : ℝ) (hL : 0≤L)
+     (ha : Box a L) (hd : Box d L) :
+-    |(r2 κ d:ℝ)|≤innerHeight κ t L ∧ |(r1 κ a d:ℝ)|≤innerHeight κ t L ∧
+-    |(r0 κ t a:ℝ)|≤innerHeight κ t L := by
++    |(r2 κ d:ℝ)|≤ innerHeight κ t L ∧ |(r1 κ a d:ℝ)|≤ innerHeight κ t L ∧
++    |(r0 κ t a:ℝ)|≤ innerHeight κ t L := by
+   have haw := square_bound a.2.2 L ha.2.2
+   have hdw := square_bound d.2.2 L hd.2.2
+   have hxz := product_bound a.1 d.2.1 L hL ha.1 hd.2.1
+@@ -58,12 +58,12 @@
+     convert hsum using 1 <;> simp only [r1] <;> push_cast <;> ring
+   have hj : 0≤(|(κ:ℝ)|+1)*L^2 := by positivity
+   refine ⟨?_,?_,?_⟩
+-  · change |((κ*d.2.2^2-d.1*d.2.1:ℤ):ℝ)|≤innerHeight κ t L
++  · change |((κ*d.2.2^2-d.1*d.2.1:ℤ):ℝ)|≤ innerHeight κ t L
+     dsimp [innerHeight]
+     linarith only [hr2,hj,ht2,ht0]
+   · dsimp [innerHeight]
+     linarith only [hr1,ht2,ht0]
+-  · change |((κ*a.2.2^2-a.1*a.2.1+t^2+2*t:ℤ):ℝ)|≤innerHeight κ t L
++  · change |((κ*a.2.2^2-a.1*a.2.1+t^2+2*t:ℤ):ℝ)|≤ innerHeight κ t L
+     push_cast
+     dsimp [innerHeight]
+     linarith only [hc0,hj]
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualQuarticUniformFrame318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualQuarticUniformFrame318.lean
+@@ -15,10 +15,10 @@
+ lemma coefficient_mono (κ t : ℤ) (L H : ℝ) (hL : 0≤L) (hLH : L≤H) :
+     coefficientHeight κ t L≤coefficientHeight κ t H := by
+   have h2 := pow_le_pow_left₀ hL hLH 2
+-  have hJ : innerHeight κ t L≤innerHeight κ t H := by
++  have hJ : innerHeight κ t L≤ innerHeight κ t H := by
+     dsimp [innerHeight]
+     nlinarith [mul_le_mul_of_nonneg_left h2 (show 0≤2*|(κ:ℝ)|+2 by positivity)]
+-  have hJ0 : 0≤innerHeight κ t L := by dsimp [innerHeight];positivity
++  have hJ0 : 0≤ innerHeight κ t L := by dsimp [innerHeight];positivity
+   have hJ2 := pow_le_pow_left₀ hJ0 hJ 2
+   have ht2 := mul_le_mul_of_nonneg_left h2 (sq_nonneg (t:ℝ))
+   have hQ : quarticHeight κ t L≤quarticHeight κ t H := by dsimp [quarticHeight];linarith
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualQuarticUniformFrame318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualQuarticUniformFrame318.lean
+@@ -15,10 +15,10 @@
+ lemma coefficient_mono (κ t : ℤ) (L H : ℝ) (hL : 0≤L) (hLH : L≤H) :
+     coefficientHeight κ t L≤coefficientHeight κ t H := by
+   have h2 := pow_le_pow_left₀ hL hLH 2
+-  have hJ : innerHeight κ t L≤innerHeight κ t H := by
++  have hJ : innerHeight κ t L≤ innerHeight κ t H := by
+     dsimp [innerHeight]
+     nlinarith [mul_le_mul_of_nonneg_left h2 (show 0≤2*|(κ:ℝ)|+2 by positivity)]
+-  have hJ0 : 0≤innerHeight κ t L := by dsimp [innerHeight];positivity
++  have hJ0 : 0≤ innerHeight κ t L := by dsimp [innerHeight];positivity
+   have hJ2 := pow_le_pow_left₀ hJ0 hJ 2
+   have ht2 := mul_le_mul_of_nonneg_left h2 (sq_nonneg (t:ℝ))
+   have hQ : quarticHeight κ t L≤quarticHeight κ t H := by dsimp [quarticHeight];linarith
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualQuarticLabelHeight318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualQuarticLabelHeight318.lean
+@@ -13,8 +13,8 @@
+     coefficientHeight κ t L≤coefficientHeight κ s L := by
+   have hsq : (t:ℝ)^2≤(s:ℝ)^2 := by
+     simpa only [sq_abs] using pow_le_pow_left₀ (abs_nonneg (t:ℝ)) hts 2
+-  have hj : innerHeight κ t L≤innerHeight κ s L := by dsimp [innerHeight];linarith
+-  have hj0 : 0≤innerHeight κ t L := by dsimp [innerHeight];positivity
++  have hj : innerHeight κ t L≤ innerHeight κ s L := by dsimp [innerHeight];linarith
++  have hj0 : 0≤ innerHeight κ t L := by dsimp [innerHeight];positivity
+   have hj2 := pow_le_pow_left₀ hj0 hj 2
+   have htl := mul_le_mul_of_nonneg_right hsq (sq_nonneg L)
+   have hq : quarticHeight κ t L≤quarticHeight κ s L := by dsimp [quarticHeight];linarith
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualQuarticLabelHeight318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualQuarticLabelHeight318.lean
+@@ -13,8 +13,8 @@
+     coefficientHeight κ t L≤coefficientHeight κ s L := by
+   have hsq : (t:ℝ)^2≤(s:ℝ)^2 := by
+     simpa only [sq_abs] using pow_le_pow_left₀ (abs_nonneg (t:ℝ)) hts 2
+-  have hj : innerHeight κ t L≤innerHeight κ s L := by dsimp [innerHeight];linarith
+-  have hj0 : 0≤innerHeight κ t L := by dsimp [innerHeight];positivity
++  have hj : innerHeight κ t L≤ innerHeight κ s L := by dsimp [innerHeight];linarith
++  have hj0 : 0≤ innerHeight κ t L := by dsimp [innerHeight];positivity
+   have hj2 := pow_le_pow_left₀ hj0 hj 2
+   have htl := mul_le_mul_of_nonneg_right hsq (sq_nonneg L)
+   have hq : quarticHeight κ t L≤quarticHeight κ s L := by dsimp [quarticHeight];linarith
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualGaussianHeightGrowth318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualGaussianHeightGrowth318.lean
+@@ -20,7 +20,7 @@
+ @[expose] def heightConstant (κ : ℤ) : ℝ := 1+firstConstant κ+secondConstant κ
+ 
+ lemma constants_nonneg (κ : ℤ) :
+-    0≤innerConstant κ ∧ 0≤formConstant κ ∧ 0≤factorConstant ∧
++    0≤ innerConstant κ ∧ 0≤formConstant κ ∧ 0≤factorConstant ∧
+       0≤coefficientConstant κ ∧ 0≤firstConstant κ ∧ 0≤secondConstant κ := by
+   dsimp [innerConstant,formConstant,factorConstant,coefficientConstant,firstConstant,secondConstant]
+   exact ⟨by positivity,by positivity,by positivity,by positivity,by positivity,by positivity⟩
+@@ -32,7 +32,7 @@
+ lemma source_coefficient_bounds (κ : ℤ) (B : ℕ) (hB : 1≤B) :
+     formHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤formConstant κ*(B:ℝ)^5 ∧
+     factorHeight (2*B:ℤ) (2088*(B:ℝ)^2)≤factorConstant*(B:ℝ)^4 ∧
+-    innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤innerConstant κ*(B:ℝ)^4 := by
++    innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤ innerConstant κ*(B:ℝ)^4 := by
+   have hb : (1:ℝ)≤B := by exact_mod_cast hB
+   have hb0 : (0:ℝ)≤B := by positivity
+   have h14 : (B:ℝ)≤(B:ℝ)^4 := by simpa using pow_le_pow_right₀ hb (by norm_num : 1≤4)
+@@ -58,7 +58,7 @@
+     coefficientHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤coefficientConstant κ*(B:ℝ)^8 := by
+   have hb : (1:ℝ)≤B := by exact_mod_cast hB
+   obtain ⟨hf,hn,hj⟩ := source_coefficient_bounds κ B hB
+-  have hj0 : 0≤innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2) := by dsimp [innerHeight];positivity
++  have hj0 : 0≤ innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2) := by dsimp [innerHeight];positivity
+   have hj2 := pow_le_pow_left₀ hj0 hj 2
+   obtain ⟨_,hF,_,_,_,_⟩ := constants_nonneg κ
+   have h58 := mul_le_mul_of_nonneg_left
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualGaussianHeightGrowth318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualGaussianHeightGrowth318.lean
+@@ -20,7 +20,7 @@
+ @[expose] def heightConstant (κ : ℤ) : ℝ := 1+firstConstant κ+secondConstant κ
+ 
+ lemma constants_nonneg (κ : ℤ) :
+-    0≤innerConstant κ ∧ 0≤formConstant κ ∧ 0≤factorConstant ∧
++    0≤ innerConstant κ ∧ 0≤formConstant κ ∧ 0≤factorConstant ∧
+       0≤coefficientConstant κ ∧ 0≤firstConstant κ ∧ 0≤secondConstant κ := by
+   dsimp [innerConstant,formConstant,factorConstant,coefficientConstant,firstConstant,secondConstant]
+   exact ⟨by positivity,by positivity,by positivity,by positivity,by positivity,by positivity⟩
+@@ -32,7 +32,7 @@
+ lemma source_coefficient_bounds (κ : ℤ) (B : ℕ) (hB : 1≤B) :
+     formHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤formConstant κ*(B:ℝ)^5 ∧
+     factorHeight (2*B:ℤ) (2088*(B:ℝ)^2)≤factorConstant*(B:ℝ)^4 ∧
+-    innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤innerConstant κ*(B:ℝ)^4 := by
++    innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤ innerConstant κ*(B:ℝ)^4 := by
+   have hb : (1:ℝ)≤B := by exact_mod_cast hB
+   have hb0 : (0:ℝ)≤B := by positivity
+   have h14 : (B:ℝ)≤(B:ℝ)^4 := by simpa using pow_le_pow_right₀ hb (by norm_num : 1≤4)
+@@ -58,7 +58,7 @@
+     coefficientHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤coefficientConstant κ*(B:ℝ)^8 := by
+   have hb : (1:ℝ)≤B := by exact_mod_cast hB
+   obtain ⟨hf,hn,hj⟩ := source_coefficient_bounds κ B hB
+-  have hj0 : 0≤innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2) := by dsimp [innerHeight];positivity
++  have hj0 : 0≤ innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2) := by dsimp [innerHeight];positivity
+   have hj2 := pow_le_pow_left₀ hj0 hj 2
+   obtain ⟨_,hF,_,_,_,_⟩ := constants_nonneg κ
+   have h58 := mul_le_mul_of_nonneg_left
+--- a/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualPrimitiveCorrectionProducts318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r13/ActualPrimitiveCorrectionProducts318.lean
+@@ -11,7 +11,7 @@
+   classical
+   exact if Good κ p then 1-1/(p:ℝ)^s else 1
+ lemma inversePowerFactor_pos (κ : ℤ) (s p : ℕ) (hs : 1≤s) :
+-    0<inversePowerFactor κ s p := by
++    0< inversePowerFactor κ s p := by
+   classical
+   unfold inversePowerFactor
+   split_ifs with h
+--- a/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualPrimitiveCorrectionProducts318.lean
++++ b/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r13/ActualPrimitiveCorrectionProducts318.lean
+@@ -11,7 +11,7 @@
+   classical
+   exact if Good κ p then 1-1/(p:ℝ)^s else 1
+ lemma inversePowerFactor_pos (κ : ℤ) (s p : ℕ) (hs : 1≤s) :
+-    0<inversePowerFactor κ s p := by
++    0< inversePowerFactor κ s p := by
+   classical
+   unfold inversePowerFactor
+   split_ifs with h

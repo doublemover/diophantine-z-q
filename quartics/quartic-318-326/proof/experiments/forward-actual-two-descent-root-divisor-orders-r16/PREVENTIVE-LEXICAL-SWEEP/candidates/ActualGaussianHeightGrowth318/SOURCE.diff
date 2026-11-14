@@ -1,0 +1,29 @@
+--- ActualGaussianHeightGrowth318.before.lean
++++ ActualGaussianHeightGrowth318.lean
+@@ -20,7 +20,7 @@
+ @[expose] def heightConstant (κ : ℤ) : ℝ := 1+firstConstant κ+secondConstant κ
+ 
+ lemma constants_nonneg (κ : ℤ) :
+-    0≤innerConstant κ ∧ 0≤formConstant κ ∧ 0≤factorConstant ∧
++    0≤ innerConstant κ ∧ 0≤formConstant κ ∧ 0≤factorConstant ∧
+       0≤coefficientConstant κ ∧ 0≤firstConstant κ ∧ 0≤secondConstant κ := by
+   dsimp [innerConstant,formConstant,factorConstant,coefficientConstant,firstConstant,secondConstant]
+   exact ⟨by positivity,by positivity,by positivity,by positivity,by positivity,by positivity⟩
+@@ -32,7 +32,7 @@
+ lemma source_coefficient_bounds (κ : ℤ) (B : ℕ) (hB : 1≤B) :
+     formHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤formConstant κ*(B:ℝ)^5 ∧
+     factorHeight (2*B:ℤ) (2088*(B:ℝ)^2)≤factorConstant*(B:ℝ)^4 ∧
+-    innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤innerConstant κ*(B:ℝ)^4 := by
++    innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤ innerConstant κ*(B:ℝ)^4 := by
+   have hb : (1:ℝ)≤B := by exact_mod_cast hB
+   have hb0 : (0:ℝ)≤B := by positivity
+   have h14 : (B:ℝ)≤(B:ℝ)^4 := by simpa using pow_le_pow_right₀ hb (by norm_num : 1≤4)
+@@ -58,7 +58,7 @@
+     coefficientHeight κ (2*B:ℤ) (2088*(B:ℝ)^2)≤coefficientConstant κ*(B:ℝ)^8 := by
+   have hb : (1:ℝ)≤B := by exact_mod_cast hB
+   obtain ⟨hf,hn,hj⟩ := source_coefficient_bounds κ B hB
+-  have hj0 : 0≤innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2) := by dsimp [innerHeight];positivity
++  have hj0 : 0≤ innerHeight κ (2*B:ℤ) (2088*(B:ℝ)^2) := by dsimp [innerHeight];positivity
+   have hj2 := pow_le_pow_left₀ hj0 hj 2
+   obtain ⟨_,hF,_,_,_,_⟩ := constants_nonneg κ
+   have h58 := mul_le_mul_of_nonneg_left
