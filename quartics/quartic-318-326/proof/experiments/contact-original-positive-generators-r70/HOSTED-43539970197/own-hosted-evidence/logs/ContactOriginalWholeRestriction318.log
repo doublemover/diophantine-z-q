@@ -1,0 +1,70 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r67/ContactOriginalWholeRestriction318.lean:30:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r67/ContactOriginalWholeRestriction318.lean:83:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (overlapSectionsEquiv ?c ?L) (finiteDirect ?c ?L ?m)
+in the target expression
+  ((overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv)
+      (finiteDirect c L m) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((finiteSectionsEquiv c L) m)
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(finiteSections c L)
+⊢ ((overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv)
+      (finiteDirect c L m) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((finiteSectionsEquiv c L) m)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv
+  has type
+    @AddEquiv ↑Γ((ContactOriginalLineOverlap318.line c L).object, ⊤) ↑Γ(L.object, finiteOpen c ⊓ infinityOpen c)
+      Γ((ContactOriginalLineOverlap318.line c L).object, ⊤).str.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+      Γ(L.object, finiteOpen c ⊓ infinityOpen c).str.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+  but is expected to have type
+    @AddEquiv (↑(ContactCommonLaurentModule318.common c L)) (↑Γ(L.object, finiteOpen c ⊓ infinityOpen c))
+      (ContactCommonLaurentModule318.common c L).isAddCommGroup.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+      Γ(L.object, finiteOpen c ⊓ infinityOpen c).str.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+  in the application
+    ⇑((overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv)
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    Limits.getLimitCone ↦ 126
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r67/ContactOriginalWholeRestriction318.lean:93:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (overlapSectionsEquiv ?c ?L) (infinityDirect ?c ?L ?m)
+in the target expression
+  ((overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv)
+      (infinityDirect c L m) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((infinitySectionsEquiv c L) m)
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+m : ↑(infinitySections c L)
+⊢ ((overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv)
+      (infinityDirect c L m) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((infinitySectionsEquiv c L) m)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv
+  has type
+    @AddEquiv ↑Γ((ContactOriginalLineOverlap318.line c L).object, ⊤) ↑Γ(L.object, finiteOpen c ⊓ infinityOpen c)
+      Γ((ContactOriginalLineOverlap318.line c L).object, ⊤).str.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+      Γ(L.object, finiteOpen c ⊓ infinityOpen c).str.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+  but is expected to have type
+    @AddEquiv (↑(ContactCommonLaurentModule318.common c L)) (↑Γ(L.object, finiteOpen c ⊓ infinityOpen c))
+      (ContactCommonLaurentModule318.common c L).isAddCommGroup.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+      Γ(L.object, finiteOpen c ⊓ infinityOpen c).str.toAddCommMonoid.toAddCommSemigroup.toAddCommMagma.toAdd
+  in the application
+    ⇑((overlapSectionsEquiv c L).trans (Functor.mapIso L.object.presheaf (eqToIso ⋯).op).addCommGroupIsoToAddEquiv)
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    Limits.getLimitCone ↦ 126

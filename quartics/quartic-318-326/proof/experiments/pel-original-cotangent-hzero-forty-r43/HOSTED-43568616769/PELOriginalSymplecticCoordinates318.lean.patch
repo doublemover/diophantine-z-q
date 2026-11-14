@@ -1,0 +1,10 @@
+--- PELOriginalSymplecticCoordinates318.lean.before
++++ PELOriginalSymplecticCoordinates318.lean
+@@ -43,6 +43,6 @@
+   apply Complex.exp_eq_one_iff.mpr
+   refine ⟨x 1*x 2,?_⟩
+   have h:=congrArg (fun n:ℤ=>(n:ℂ)) (exact_quadratic x)
+-  push_cast at h
++  push_cast at h ⊢
+   linear_combination (Real.pi:ℂ)*Complex.I*h
+ end PELOriginalSymplecticCoordinates318

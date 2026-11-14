@@ -1,0 +1,23 @@
+# Independent four observed PEL-frontier source review
+
+## Verdict and evidence
+No source-level blocker found in the four exact reviewed candidates. Independently checked their before bytes against published e3d4f334, own RESULT/log hashes against the manifest, and each RESULT's packet intake against published Git bytes. All four are observed frontiers; this verdict is not a claim that their modules compile. Imports and all option lines remain unchanged.
+
+## Pivot: same native algebraMap, not an alternative inclusion
+42f4d860 replaces the failed separate RingHom type ascription with explicit @algebraMap type/CommSemiring/Semiring/Algebra arguments. Pinned Algebra/Algebra/Defs confirms exactly this native binder order. The source still has arbitrary CommRing R, all four root branches, the full ThreeRootOrder tensor target and the same selected signed root; all four branch proofs are unchanged. The observed mismatch was between lower parent projections chosen for the imposed RingHom and native algebraMap. This route avoids that second type elaboration, but whether the native instances and downstream conversion synthesize successfully remains a hosted question. It neither introduces an arbitrary Algebra nor replaces the map by includeLeft. FourRootActualBranchKaehler.regroup_root requires and still receives precisely that native algebraMap equation.
+
+## Smooth: original four minors and coefficient -8
+118c9926 adds only map_ofNat to the existing determinant simplification. The exact log reaches four residual goals with quotientMap(2)^3 rather than8. Pinned Nat/Cast/Basic defines map_ofNat for ring-hom classes and explicitly does not register it as simp. The extra rule supplies precisely that numeral normalization; no determinant entry, twelve-case succAbove table, -8 factor, root product, prime-cover condition or original injectivity binder is changed. The result remains the full affine quotient's original Jacobian-minor cover, not merely its unramified locus.
+
+## Symplectic: original integral phase
+ba58b707 changes only push_cast at h to push_cast at h and the goal. The displayed error is the difference between the complex image of x1*x2 and the product of the images. The same exact_quadratic identity, integer period witness x1*x2, factor2 and final linear_combination remain. This preserves the full integral lattice equivalence, same quadratic phase and same theta characteristic; no rational rescaling, sublattice or extra sign is introduced. The actual theorem consumer is PELOriginalSiegelNormalization.normalized_factor_formula, which applies same_phase(fromPair p) and to_from to identify the original factor. SiegelMatrix only imports the module and is not itself that theorem consumer.
+
+## Real fixed points: exact five matrices and positive component
+2e89f86f appends ring after field_simp to close the displayed A i*(1-1)=0 and pushes the real negative-entry cast after matrix_trace_zero before the existing change. All five i, actual matrices, fixedPoint coordinates A/C and sqrt(discriminant)/C, positive lower-left condition and nonzero denominator proof remain. The denominator is still the specific positive imaginary eigenvalue, and the Möbius fixed-point equation retains its direction and signs. No identification with contact-curve branch coordinates is claimed.
+
+The actual direct consumer is PELInertiaArithmeticFixedPoints: originalFixedPoint uses the same positivity proof, original_fixed uses the exact equation, and original_denominator_square uses denominator_value. OriginalInertiaOrbitSeparation also consumes the actual fixed-line equations. PrimeWord only imports this producer and must not be described as consuming its fixed-point theorem. APPLICATION now corrects both mistaken direct-consumer attributions and preserves its former bytes with an explicit correction record. The separately proposed cast normalization in ArithmeticFixedPoints is unobserved and receives its own review, not this observed verdict.
+
+## Coverage and trust
+No new premise, excluded case, modified coefficient, resource increase, admission or evaluator is introduced. Exact reviewed source hashes, own failed logs/RESULTs and primary files are pinned in the manifest. Remaining compiler conversion/performance and downstream elaboration must be established by hosted CI.
+
+The companion manifest binds the exact reviewed source, contracts and evidence. No local Lean/Lake or user computer was used. Source review does not establish a candidate Lean/kernel pass, later consumer success or final mathematical acceptance. Successor propagation/metadata review remains separate.

@@ -1,0 +1,178 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:16:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 6: `(f : ↑R →ₐ[↑k] ↑S)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:17:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SMul ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:19:2: error: Type mismatch
+  Eq.symm (AlgHom.commutes f a)
+has type
+  (algebraMap ↑k ↑S) a = f ((algebraMap ↑k ↑R) a)
+but is expected to have type
+  (algebraMap ↑k ?m.17) a = ((algebraMap ?m.16 ?m.17).comp (algebraMap ↑k ?m.16)) a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:22:34: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:23:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 8: `(f : ↑R →ₐ[↑k] ↑S)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:29:32: error: Function expected at
+  pushout
+but this term has type
+  CommRingCat
+
+Note: Expected a function because this term is being applied to the argument
+  k
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:30:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Algebra ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:36:13: error: unsolved goals
+case tmul
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+r : ↑R
+b : ↑B
+⊢ sorry () = (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) (r ⊗ₜ[↑k] b)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:38:18: error: unsolved goals
+case add
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+x y : ↑R ⊗[↑k] ↑B
+hx : sorry = (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) x
+hy : sorry = (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) y
+⊢ (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) x =
+    (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) x +
+      (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) y
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:37:12: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:37:12: warning: This simp argument is unused:
+  ringEquivalence
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [RelativeCoefficientChange318.ringMap_tmul, Algebra.smul_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:37:28: warning: This simp argument is unused:
+  RelativeCoefficientChange318.ringMap_tmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ringEquivalence, Algebra.smul_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:37:70: warning: This simp argument is unused:
+  Algebra.smul_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ringEquivalence, RelativeCoefficientChange318.ringMap_tmul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:38:32: warning: This simp argument is unused:
+  tmul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, hx, hy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:38:52: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [tmul_add, map_add, hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:41:33: error: Function expected at
+  pushout
+but this term has type
+  CommRingCat
+
+Note: Expected a function because this term is being applied to the argument
+  k
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:41:83: error: expected structure
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:41:14: error: (kernel) declaration has metavariables 'OriginalCoefficientTensor318.rightEquivalence'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:56:4: error: Function expected at
+  pushout
+but this term has type
+  CommRingCat
+
+Note: Expected a function because this term is being applied to the argument
+  k
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:56:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑(oldRing k R B) ↑(newRing k S B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:56:83: error: unsolved goals
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+N : ModuleCat ↑(oldRing k R B)
+⊢ sorry
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:74:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑(oldRing k R B) ↑(newRing k S B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:74:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:80:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module (↑(oldRing k R B)) (↑S ⊗[↑k] ↑B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:90:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:91:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Algebra ↑(oldRing k R B) ↑(newRing k S B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:96:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑(oldRing k R B) ↑(newRing k S B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:90:26: error: unsolved goals
+case refine_1
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+N : ModuleCat ↑(oldRing k R B)
+⊢ Algebra ↑(oldRing k R B) ↑(newRing k S B)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:104:36: error: Application type mismatch: The argument
+  f
+has type
+  ↑R →ₐ[↑k] ↑S
+of sort `Type u` but is expected to have type
+  ModuleCat ↑(oldRing k R B)
+of sort `Type (u + 1)` in the application
+  categoricalEquivalence k R S B f
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:107:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Algebra ↑(oldRing k R B) ↑(newRing k S B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:110:6: error(lean.unknownIdentifier): Unknown identifier `tensorEquivalence_symm_tmul`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r8/OriginalCoefficientTensor318.lean:106:67: error: unsolved goals
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+N : ModuleCat ↑(oldRing k R B)
+s : ↑S
+n : ↑N
+⊢ sorry = s ⊗ₜ[↑k] 1 ⊗ₜ[↑(oldRing k R B)] n

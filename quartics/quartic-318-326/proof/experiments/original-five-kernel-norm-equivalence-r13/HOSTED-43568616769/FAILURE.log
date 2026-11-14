@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r12/OriginalOpenExponentialNaturality318.lean:19:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Units.map ↑(InfinitesimalUnitCocycle318.restrict ?X ?h)) (InfinitesimalUnitCocycle318.unit ?X ?e ?he ?W ?a)
+in the target expression
+  (Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+      (InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ V)
+        ((ConcreteCategory.hom (Scheme.Hom.app (π R p) V)) a)) =
+    InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ W)
+      ((ConcreteCategory.hom (Scheme.Hom.app (π R p) W)) ((ConcreteCategory.hom (X.presheaf.map (homOfLE h).op)) a))
+
+R : Type u
+inst✝² : CommRing R
+X : Scheme
+p : X ⟶ base R
+V W : X.Opens
+inst✝¹ : IsAffine ↑V
+inst✝ : IsAffine ↑W
+h : W ≤ V
+a : ↑Γ(X, V)
+⊢ (Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+      (InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ V)
+        ((ConcreteCategory.hom (Scheme.Hom.app (π R p) V)) a)) =
+    InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ W)
+      ((ConcreteCategory.hom (Scheme.Hom.app (π R p) W)) ((ConcreteCategory.hom (X.presheaf.map (homOfLE h).op)) a))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r12/OriginalOpenExponentialNaturality318.lean:27:0: warning: automatically included section variable(s) unused in theorem `OriginalOpenExponentialNaturality318.reduced_appLE`:
+  [IsAffine ↑V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsAffine ↑V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

@@ -1,0 +1,107 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r36/FourRootAffineSmooth318.lean:24:53: error: unsolved goals
+case «0»
+b : Fin 4 → ℂ
+hsucc : ∀ (r : Fin 4) (k : Fin 3), r.succAbove k = ![![1, 2, 3], ![0, 2, 3], ![0, 1, 3], ![0, 1, 2]] r k
+hmatrix :
+  (presentation b ((fun i => i) ⟨0, ⋯⟩)).jacobiMatrix =
+    Matrix.of fun k l => (pderiv (chosen ((fun i => i) ⟨0, ⋯⟩) k)) (equation b l)
+⊢ -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) 2 ^ 3 *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 1)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 2)) *
+        (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 3))) =
+    -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 1)) *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 2)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 3)) *
+        8)
+
+case «1»
+b : Fin 4 → ℂ
+hsucc : ∀ (r : Fin 4) (k : Fin 3), r.succAbove k = ![![1, 2, 3], ![0, 2, 3], ![0, 1, 3], ![0, 1, 2]] r k
+hmatrix :
+  (presentation b ((fun i => i) ⟨1, ⋯⟩)).jacobiMatrix =
+    Matrix.of fun k l => (pderiv (chosen ((fun i => i) ⟨1, ⋯⟩) k)) (equation b l)
+⊢ -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) 2 ^ 3 *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 0)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 2)) *
+        (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 3))) =
+    -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 0)) *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 2)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 3)) *
+        8)
+
+case «2»
+b : Fin 4 → ℂ
+hsucc : ∀ (r : Fin 4) (k : Fin 3), r.succAbove k = ![![1, 2, 3], ![0, 2, 3], ![0, 1, 3], ![0, 1, 2]] r k
+hmatrix :
+  (presentation b ((fun i => i) ⟨2, ⋯⟩)).jacobiMatrix =
+    Matrix.of fun k l => (pderiv (chosen ((fun i => i) ⟨2, ⋯⟩) k)) (equation b l)
+⊢ -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) 2 ^ 3 *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 0)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 1)) *
+        (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 3))) =
+    -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 0)) *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 1)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 3)) *
+        8)
+
+case «3»
+b : Fin 4 → ℂ
+hsucc : ∀ (r : Fin 4) (k : Fin 3), r.succAbove k = ![![1, 2, 3], ![0, 2, 3], ![0, 1, 3], ![0, 1, 2]] r k
+hmatrix :
+  (presentation b ((fun i => i) ⟨3, ⋯⟩)).jacobiMatrix =
+    Matrix.of fun k l => (pderiv (chosen ((fun i => i) ⟨3, ⋯⟩) k)) (equation b l)
+⊢ -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) 2 ^ 3 *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 0)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 1)) *
+        (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 2))) =
+    -((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 0)) *
+            (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 1)) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X (some 2)) *
+        8)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r36/FourRootAffineSmooth318.lean:88:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r36/FourRootAffineSmooth318.lean:103:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r36/FourRootAffineSmooth318.lean:104:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
