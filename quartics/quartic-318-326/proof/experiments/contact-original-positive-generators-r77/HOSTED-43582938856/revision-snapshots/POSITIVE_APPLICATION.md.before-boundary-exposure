@@ -1,0 +1,29 @@
+# OriginalLineRationalCohomology318: explicit original scalar instances for a fixed structure map
+
+## Exact observed scope
+
+Proof-only run43582938856 at6fe85071934d36d22cfdbd7c503f6b9a54e6ef18, own positive-r73 artifact14109189107, verifies the quotient repair (28.882s) and first fails this module (14.499s). Hard errors are exported cohomology_smul rfl requiring exposure, two parametrized local instances whose structure map p cannot be inferred from their return types, and resulting boundaryLinear synthesis/application errors. Class-definition reducibility warnings alone are not claimed as separate failures.
+
+The canonical checkout's later bbda diagnostic commit changes only three workflow/diagnostic files, not any packet source or intake. Exact before bytes are independently taken from proof head6fe; diagnostic-tip43583139321 results are not substituted for own proof-run evidence.
+
+## Required input and original constructed actions
+
+The fixed parameter p : X→Spec(Q) determines scalar p U : Q→+*Γ(X,U). sectionModule p L U is the original Module.compHom on the SAME Γ(L.object,U), not a newly chosen module. cohomologyModule p L n is the SAME CohomologyRationalScalar.ofAction from multiply p L on the unchanged actual derived Sheaf.H(additive L)n. multiply remains the original ModuleScalar endomorphism forgotten to the additive coefficient sheaf. No quotient, coordinate equivalence or abstract uniqueness of rational modules manufactures either action.
+
+The candidate marks only sectionModule and cohomologyModule @[expose,reducible], matching the original ofAction constructor's convention. Their bodies and scalar formulas are unchanged. cohomologyModule exposure is directly required by the observed exported-rfl failure; sectionModule's corresponding visibility/reducibility supports identifying its exact original scalar action in the fixed-instance linearity proof. This supporting step is not misrepresented as a separately observed failure.
+
+## Explicit application and maps
+
+The two invalid parameter-dependent local-instance declarations are removed. boundaryLinear's type now explicitly installs letI sectionModule p L (U inf V) and letI cohomologyModule p L1, and its proof installs exactly those same instances before calling the original boundary.toRatLinearMap. This makes p explicit in the elaborated linear-map type instead of asking global instance search to infer a value absent from the target. It is an explicit elaboration of the originally intended actions, not a new instance parameter or an altered boundary. Its underlying function is unchanged.
+
+boundary_scalar installs the same two fixed-p instances in its proof and still uses (boundaryLinear p L U V h).map_smul. The actual source action reduces to scalar p (U inf V)a acting on the original section, and the actual target action is the original Sheaf.H.map(multiply p L a)1. All multiplication order, source/target carriers and original boundary maps are identical. All public proposition statements and constructor bodies are unchanged; boundaryLinear's type is deliberately made explicit with these let-bound instances, not claimed textually unchanged.
+
+## Full domains and actual consumers
+
+All Scheme X, p, original lines L, all degrees n for cohomologyModule/cohomology_smul, all rational a and all classes x remain included. The boundary part retains IsIntegral X, arbitrary U,V with U sup V=top and every original overlap section s; no additional affine/open/nonempty/nonzero/triviality hypothesis is added. No module or topology is replaced, and all original options/imports remain unchanged.
+
+Same-module cohomology_smul and boundary_scalar are the immediate action/linearity consumers. Actual external users are ContactOriginalCohomologyCoordinates318's H1 module instance, ContactOriginalLineCohomologyFinite318's degree-zero module instance, and ContactOriginalLineSectionsFinite318's top-section module instance; each supplies its actual ContactIntrinsicDifferentials structureMap c. These exact passages are retained as primary evidence. No importer or external use of boundaryLinear/boundary_scalar is invented.
+
+## Verification boundary
+
+Before bb1851560b4cdbac3393982f06bba27fc2149d867c55b131d6cc3cb3c48fd860; candidate d305aa1792565c5a71dea815ab53ceac493d30732dfbfb28249e55520a1e8316. The full107-module order remains; only this root changes. Distinct source/application and propagation reviews plus hosted elaboration remain required. No local Lean/Lake, increased resource cap, kernel/recursive audit, whole-packet or full arithmetic acceptance is claimed.

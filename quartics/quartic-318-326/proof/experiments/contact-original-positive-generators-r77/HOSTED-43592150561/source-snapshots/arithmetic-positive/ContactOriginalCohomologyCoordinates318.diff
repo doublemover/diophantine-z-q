@@ -1,0 +1,22 @@
+--- ContactOriginalCohomologyCoordinates318.before.lean
++++ ContactOriginalCohomologyCoordinates318.lean
+@@ -27,7 +27,8 @@
+   rw [AddEquiv.apply_symm_apply] at h
+   rw [← h]
+   simp only [overlapCoordinates,AddEquiv.trans_apply,AddEquiv.symm_apply_apply,
+-    AddEquiv.apply_symm_apply,LinearEquiv.coe_toAddEquiv]
++    AddEquiv.apply_symm_apply,LinearEquiv.coe_toAddEquiv,
++    LinearEquiv.coe_addEquiv_apply]
+ 
+ lemma infinity_res (s : Γ(L.object,infinityOpen c)) :
+     overlapCoordinates c L (L.object.presheaf.map
+@@ -37,7 +38,8 @@
+   rw [AddEquiv.apply_symm_apply] at h
+   rw [← h]
+   simp only [overlapCoordinates,AddEquiv.trans_apply,AddEquiv.symm_apply_apply,
+-    AddEquiv.apply_symm_apply,LinearEquiv.coe_toAddEquiv]
++    AddEquiv.apply_symm_apply,LinearEquiv.coe_toAddEquiv,
++    LinearEquiv.coe_addEquiv_apply]
+ 
+ /-- This is the actual global line H1, carrying the Q action of the actual
+ ModuleScalar coefficient endomorphisms before any coordinate choice. -/

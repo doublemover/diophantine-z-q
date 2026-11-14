@@ -1,0 +1,7 @@
+# pel-original-torsion-towers-r24
+
+Source-supported successor to pel-original-torsion-towers-r23, own observed run43597228569 at2af419e128047c483b3cdc0ba5e4d65c09d7c4ce. Full 735-module closure/order retained, 1 changed copies and 734 identical sources. Changed modules: PELOriginalSiegelCoercivity318.
+
+Where propagated, NormalizedSignAction exposes the exact normalization projections before existing rewrites and splits finite product extensionality; all signed chart maps, both cases and eight infinity points remain. Its additional downstream/kernel diagnostics remain unresolved until actual hosted replay. Coercivity replaces only the failing scalar positivity tactic by alpha_pos, the existing hτ and positivity of20; all existing conditional public telescopes are unchanged. PrimeLatticeResidues only allows its existing simplifier to make no progress; final ring remains mandatory on every residual, with all four primes/two rows and symbolic residue vectors retained. No new public premise or target change occurs in this delta.
+
+All own artifact ZIPs/digests/results and exact published intakes, native source/consumer evidence, immutable source reviews and nine structured obligations are bound. No new preventive PEL edits, local Lean/Lake, resource/trust changes, admission, candidate kernel acceptance, full packet pass or complete arithmetic theorem claim. New packet-specific input/map/consumer propagation review and hosted replay remain required.

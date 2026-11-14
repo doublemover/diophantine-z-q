@@ -1,0 +1,12 @@
+--- before/PELOriginalSiegelCoercivity318.lean
++++ after/PELOriginalSiegelCoercivity318.lean
+@@ -40,7 +40,8 @@
+       _≤1*U+(1/Complex.normSq τ)*V:=add_le_add h1 h2
+       _=U+V/Complex.normSq τ:=by ring
+   have hall:=le_trans (mul_le_mul_of_nonneg_left hsum hm) hsmall
+-  have hpos:0≤alpha*τ.im/20:=by positivity
++  have hpos:0≤alpha*τ.im/20:=
++    (div_pos (mul_pos alpha_pos hτ) (by norm_num : (0:ℝ)<20)).le
+   have h:=mul_le_mul_of_nonneg_left hall hpos
+   rw [energy_squares]
+   dsimp [coercive,m,U,V] at *
