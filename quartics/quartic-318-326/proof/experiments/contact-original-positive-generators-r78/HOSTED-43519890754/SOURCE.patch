@@ -1,0 +1,29 @@
+--- before/OriginalTensorChartWholeRestriction318.lean
++++ after/OriginalTensorChartWholeRestriction318.lean
+@@ -29,7 +29,7 @@
+   have he := ConcreteCategory.congr_hom (congrArg (fun t => t.app ⊤) e.hom_inv_id)
+     (sectionPull j L.object s)
+   simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app,
+-    ModuleCat.comp_apply, ModuleCat.id_apply] at he
++    ConcreteCategory.comp_apply, ConcreteCategory.id_apply] at he
+   rw [he] at hn
+   change ((PullbackPathComposition318.iso i.hom j (Spec.map (rightMap R A B)) hchart).hom.app
+     L.object).app ⊤ (((Scheme.Modules.pullback i.hom).map e.inv).app ⊤
+@@ -49,7 +49,7 @@
+     (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom_inv_id)
+       (sectionPull i.hom M (e.hom.app ⊤ (sectionPull j L.object s)))
+   simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app,
+-    ModuleCat.comp_apply, ModuleCat.id_apply] at he
++    ConcreteCategory.comp_apply, ConcreteCategory.id_apply] at he
+   rw [he]
+   exact OriginalPullbackSectionComposition318.recovery_apply i.hom M _
+ 
+@@ -70,7 +70,7 @@
+   change (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom.app ⊤
+     (((Scheme.Modules.pullback i.hom).obj M).presheaf.map (𝟙 _)
+       ((AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv.app ⊤ t)) = _
+-  rw [Functor.map_id] <;> rfl
++  rw [CategoryTheory.Functor.map_id] <;> rfl
+ 
+ /-- Final exact tensor-to-original overlap restriction square. -/
+ lemma original_restriction (s : Γ(L.object,⊤)) :

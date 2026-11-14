@@ -1,0 +1,82 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:20:2: error: Tactic `rfl` failed: The left-hand side
+  (OriginalFiniteBasisBaseChange318.reindex ⋯) v ∈ negative
+is not definitionally equal to the right-hand side
+  v ∈ negative
+
+m : ℕ
+v : V ℚ m
+⊢ (OriginalFiniteBasisBaseChange318.reindex ⋯) v ∈ negative ↔ v ∈ negative
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:32:86: error: Application type mismatch: The argument
+  hv
+has type
+  (LaurentTransitionBounds318.underlying (transition c L)) w = v
+but is expected to have type
+  (↑ℚ ↑(rawTransition c L)) ((OriginalFiniteBasisBaseChange318.reindex ⋯).symm w) = v
+in the application
+  ⟨?m.117, hv⟩
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  inv ↦ 13
+  transition ↦ 78
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:40:4: error: 'change' tactic failed, pattern
+  (rawTransition c L)
+      ((OriginalFiniteBasisBaseChange318.reindex ⋯).symm ((OriginalFiniteBasisBaseChange318.reindex ⋯) w)) =
+    v
+is not definitionally equal to target
+  (LaurentTransitionBounds318.underlying (transition c L)) ((OriginalFiniteBasisBaseChange318.reindex ⋯) w) = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:56:2: error: 'change' tactic failed, pattern
+  (boundaryLinear c L) v = 0 ↔
+    ∃ a b,
+      (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) a -
+          (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) b =
+        (overlapCoordinates c L).symm v
+is not definitionally equal to target
+  (MayerVietorisSectionKernel318.sectionBoundary (OriginalLineRestrictionAdditive318.additive L) (finiteOpen c)
+          (infinityOpen c) ⋯)
+        ((overlapCoordinates c L).symm v) =
+      0 ↔
+    ∃ a b,
+      (ConcreteCategory.hom ((OriginalLineRestrictionAdditive318.additive L).obj.map (homOfLE ⋯).op)) a -
+          (ConcreteCategory.hom ((OriginalLineRestrictionAdditive318.additive L).obj.map (homOfLE ⋯).op)) b =
+        (overlapCoordinates c L).symm v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:88:12: error: Type mismatch
+  le_sup_left
+has type
+  @LE.le ?m.133 (@Preorder.toLE ?m.133 (@PartialOrder.toPreorder ?m.133 SemilatticeSup.toPartialOrder)) ?m.135
+    (?m.135 ⊔ ?m.136)
+but is expected to have type
+  @LE.le (Submodule ?m.122 (V ?m.122 ?m.124))
+    (@Preorder.toLE (Submodule ?m.122 (V ?m.122 ?m.124))
+      (@PartialOrder.toPreorder (Submodule ?m.122 (V ?m.122 ?m.124)) Submodule.instPartialOrder))
+    positive (positive ⊔ ?m.130)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Finsupp.onFinsetSupport ↦ 48
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:92:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Submodule.map (↑ℚ ↑(rawTransition c L)) negative)
+in the target expression
+  (coordinates c L) (infinityRestriction c L b) ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+
+case mp.a
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+a : ↑(finiteSections c L)
+b : ↑(infinitySections c L)
+⊢ (coordinates c L) (infinityRestriction c L b) ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r76/ContactOriginalLaurentBoundary318.lean:98:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑positive
+in the target expression
+  x ∈ positive
+
+case mpr
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+v : V ℚ (finiteRank c L)
+hv : v ∈ positive ⊔ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+x : V ℚ (finiteRank c L)
+hx : x ∈ positive
+y : V ℚ (finiteRank c L)
+hy : y ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+hxy : x + y = v
+hny : -y ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+⊢ ∃ a b, (coordinates c L) (finiteRestriction c L a) - (coordinates c L) (infinityRestriction c L b) = v

@@ -1,0 +1,28 @@
+--- r1/PELPrimeLatticeResidues318.lean
++++ r2/PELPrimeLatticeResidues318.lean
+@@ -18,9 +18,24 @@
+ 
+ theorem residue_lift (i : Fin 4) (z : Fin 2 → ZMod (prime i)) :
+     residue i (lift i z)=z := by
++  have h22 : (2 : ZMod 2) = 0 := by decide
++  have h23 : (3 : ZMod 2) = 1 := by decide
++  have h2n3 : -(3 : ZMod 2) = 1 := by decide
++  have h24 : (4 : ZMod 2) = 0 := by decide
++  have h34 : (4 : ZMod 3) = 1 := by decide
++  have h36 : (6 : ZMod 3) = 0 := by decide
++  have h3n8 : -(8 : ZMod 3) = 1 := by decide
++  have h5n9 : -(9 : ZMod 5) = 1 := by decide
++  have h5n4 : -(4 : ZMod 5) = 1 := by decide
++  have h715 : (15 : ZMod 7) = 1 := by decide
++  have h770 : (70 : ZMod 7) = 0 := by decide
++  have h721 : (21 : ZMod 7) = 0 := by decide
++  have h7n97 : -(97 : ZMod 7) = 1 := by decide
+   fin_cases i <;> ext j <;> fin_cases j <;>
+     norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+-    push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring
++    push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring_nf <;>
++    (try simp only [←mul_neg, h22, h23, h2n3, h24, h34, h36, h3n8, h5n9, h5n4, h715, h770, h721, h7n97,
++      mul_zero, mul_one, add_zero, zero_add, sub_zero, zero_sub, neg_zero]) <;> ring
+ 
+ theorem residue_surjective (i : Fin 4) : Function.Surjective (residueHom i) := by
+   intro z

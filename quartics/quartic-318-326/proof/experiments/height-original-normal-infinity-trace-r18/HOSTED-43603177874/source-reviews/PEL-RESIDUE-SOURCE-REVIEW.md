@@ -1,0 +1,17 @@
+# Original residue lift: independent source and human-contract review
+
+Verdict: PASS as a source-supported symbolic normalization candidate, not a verified Lean proof. Exact after b0aa4b29255731863e72c8d4d665f7ebee3fb11a831fc2901cafe33c4436f4a3; published before cac16b1f9eb8d07b11cfb945281dfd341d52e571d1f25bacf68772770b6d6ffe; current human contract 9907c2d11021c6531afe85a45b18507e55b443da538158698550619864e0b001. The earlier generic post-cast norm_num draft 16e4ada6 remains a bound, unaccepted historical snapshot.
+
+All changes are inside residue_lift's proof. Its statement, integer lift coefficients, representative choice, complete i:Fin4 and symbolic z:Fin2→ZMod(prime i), later definitions/theorems and resource options are unchanged. Thirteen explicit closed coefficient identities at moduli 2,3,5,7 are mathematically correct; an independent integer-modulus sanity check confirms each. Pinned ZMod.Defs gives finite-ring equality decidability for these concrete positive moduli. Ordinary `decide` proposes kernel-checkable proofs of only these closed identities; no Lean execution or successful kernel check has happened here. This is not native_decide or an enumeration of z.
+
+The original complete four-by-two case/cast/value route is retained. ring_nf exposes polynomial coefficients; reverse mul_neg moves negation onto a coefficient; the exact closed identities and zero/one/subtraction identities reduce the eight displayed signed coefficient equations; mandatory final ring remains on each unresolved goal. The optional simp may make no progress but does not admit a goal. This route is substantively grounded in the actual residuals rather than assuming a generic tactic has a ZMod coefficient plugin. Its precise tactic normal-form matching and runtime still require hosted Lean.
+
+In particular the required congruences are mod2:2=0,3=1,-3=1,4=0; mod3:4=1,6=0,-8=1; mod5:-9=1,-4=1; mod7:15=1,70=0,21=0,-97=1. Negative signs are retained. Every vector, including zero, remains quantified. There is no altered prime, coefficient, right multiplication, lattice, quotient or characteristic assumption.
+
+The actual Cokernel.quotientEquiv uses unchanged kernel_eq_range and orderResidue_surjective for the original order/rightMultiply range. PeriodIsogenies.exact_rightMultiply identifies that same order map before the separate period join. These full consumers and the ramified paths are bound, not replaced by an abstract rank-four object or automatically accepted. Both own character-r17 and trace-r17 artifacts from run43603177874/head57227e16 contain the eight current unsolved modular goals, not the prior simp-no-progress error. Each official ZIP digest, RESULT, intake and published before source was independently checked. No trace geometry or whole-packet result follows.
+
+The current nine human obligations accurately disclose the new normalization route, complete symbolic domain, exact original maps, all coefficients and verification limits. Exact source scope and retained prior-draft history were independently checked.
+
+## Verification boundary and binding
+
+Source-only review plus static provenance checks. No Lean/Lake/compiler, owner-source mutation, staged change or publication was performed. No compiled recursive axiom audit, downstream/full-packet acceptance or global arithmetic conclusion is asserted. Current packet-specific machine obligations and exact propagation still require review. Bind the report and every named companion byte exactly, preserving reviewed sources/contracts and raw metadata before attachment.

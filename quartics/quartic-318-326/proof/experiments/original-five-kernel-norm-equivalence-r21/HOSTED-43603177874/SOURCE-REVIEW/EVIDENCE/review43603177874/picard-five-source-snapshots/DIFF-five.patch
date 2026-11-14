@@ -1,0 +1,20 @@
+--- before/DualUnitFactorization318.lean
++++ after/DualUnitFactorization318.lean
+@@ -16,12 +16,15 @@
+   rfl
+ @[simp] lemma coefficient_unit (a : R) : coefficient R (unit R a) = 1 := by
+   apply Units.ext
+-  simp [coefficient, unit, DualNumberScheme318.reductionRing]
++  change (1 + TrivSqZeroExt.inr a : Dual R).fst = 1
++  simp
+ /-- Divide an arbitrary unit by its ACTUAL invertible coefficient. -/
+ @[expose] def normalized : (Dual R)ˣ →* (Dual R)ˣ where
+   toFun z := (lift R (coefficient R z))⁻¹ * z
+   map_one' := by simp
+-  map_mul' z w := by simp [mul_comm, mul_left_comm, mul_assoc]
++  map_mul' z w := by
++    simp only [map_mul, mul_inv_rev]
++    ac_rfl
+ lemma normalized_reduces (z : (Dual R)ˣ) : coefficient R (normalized R z) = 1 := by
+   change coefficient R ((lift R (coefficient R z))⁻¹ * z) = 1
+   rw [map_mul, map_inv, coefficient_lift, inv_mul_cancel]
