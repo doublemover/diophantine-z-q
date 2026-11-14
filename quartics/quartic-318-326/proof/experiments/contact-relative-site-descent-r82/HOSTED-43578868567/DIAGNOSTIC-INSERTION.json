@@ -1,0 +1,15 @@
+{
+  "before_sha256": "1438e1ea76c5934e96d883a42845bf7d79f6d7a8c7de5133bb555ea078baf161",
+  "after_sha256": "092d5da60703ca1d93045263d49d3c2080fae34cca843da6c729193f9f3f36b6",
+  "single_insertion_before": "/-- Check the exact reconstructed line and its original comparison while the\n",
+  "inserted_text": "run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn \"PICARD_SITE_PROFILER_CONTROL_BEGIN\"\n  out.flush\n  let opts := (({} : Lean.Options).setBool `profiler true).setNat `profiler.threshold 0\n  Lean.profileitIO (ε := IO.Error) \"PICARD_SITE_PROFILER_CONTROL\" opts (pure ())\n  out.flush\n  out.putStrLn \"PICARD_SITE_PROFILER_CONTROL_END\"\n  out.flush\n\nset_option profiler true in\nset_option profiler.threshold 1 in\n",
+  "restores_predecessor_byte_exact": true,
+  "proof_changes": false,
+  "resource_changes": false,
+  "async_changes": false,
+  "diagnostic_options": [
+    "profiler true scoped to reconstructed_actual_overlap",
+    "profiler.threshold 1 scoped to reconstructed_actual_overlap",
+    "separate native profileitIO positive-control options profiler true / threshold0"
+  ]
+}

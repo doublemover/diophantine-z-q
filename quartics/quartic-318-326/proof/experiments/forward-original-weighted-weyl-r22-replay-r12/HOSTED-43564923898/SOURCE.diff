@@ -1,0 +1,11 @@
+--- before/ScalarPoleRealDomain318.lean
++++ after/ScalarPoleRealDomain318.lean
+@@ -61,7 +61,7 @@
+   constructor
+   · exact mul_pos ha0 (sq_pos_of_pos hq)
+   · unfold poleInput quotient
+-    rw [div_pow,mul_div_assoc]
++    rw [div_pow,← mul_div_assoc]
+     apply (div_lt_iff₀ (sq_pos_of_pos hd)).mpr
+     have hw2 : (W w n)^2<100 := by nlinarith
+     have hp := mul_lt_mul_of_pos_left hw2 ha0

@@ -1,0 +1,11 @@
+--- before/ComplexCurveHomeomorphInverse318.lean
++++ after/ComplexCurveHomeomorphInverse318.lean
+@@ -37,7 +37,7 @@
+   have hg' : ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω g (h (e.symm (e p))) := by
+     simpa only [hep] using contMDiffAt_of_mem_maximalAtlas hgM hhp
+   have hKC : ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω K (e p) :=
+-    hg'.comp (e p) (hh'.comp (e p)
++    hg'.comp (f := fun z : ℂ => h (e.symm z)) (e p) (hh'.comp (e p)
+       (contMDiffAt_symm_of_mem_maximalAtlas heM (e.map_source hp)))
+   have hKA : AnalyticAt ℂ K (e p) :=
+     (contMDiffAt_iff_contDiffAt.mp hKC).analyticAt
