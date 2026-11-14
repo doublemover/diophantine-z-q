@@ -1,0 +1,11 @@
+--- 56773da/lattice-r7/IntegralOriginalInfinityEmbedding318.lean
++++ candidate/IntegralOriginalInfinityEmbedding318.lean
+@@ -58,7 +58,7 @@
+   change Set.range (Spec.map (CommRingCat.ofHom
+     (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom))) = _
+   rw [h]
+-  have hr := congrArg (fun U : (Spec (CommRingCat.of A)).Opens => (U : Set _))
++  have hr := congrArg (fun U : (Spec (CommRingCat.of A)).Opens => U.carrier)
+     (Scheme.Hom.opensRange_comp_of_isIso (Spec.map e.toCommRingCatIso.hom)
+       (Spec.map (CommRingCat.ofHom
+         (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom)))

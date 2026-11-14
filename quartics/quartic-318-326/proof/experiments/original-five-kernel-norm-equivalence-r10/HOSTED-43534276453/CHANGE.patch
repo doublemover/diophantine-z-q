@@ -1,0 +1,11 @@
+--- original-five-kernel-norm-equivalence-r9/OriginalTwoOpenReducedCocycle318.lean
++++ original-five-kernel-norm-equivalence-r10/OriginalTwoOpenReducedCocycle318.lean
+@@ -10,7 +10,7 @@
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
+ /-- Transport the entire dependent frame along equality of the original opens. -/
+-private def frameAlongOpenEq {Y : Scheme.{0}} (M : Y.Modules)
++@[expose] def frameAlongOpenEq {Y : Scheme.{0}} (M : Y.Modules)
+     (W Z : Y.Opens) (h : W = Z)
+     (e : SheafOfModules.unit W.toScheme.ringCatSheaf ≅ M.restrict W.ι) :
+     SheafOfModules.unit Z.toScheme.ringCatSheaf ≅ M.restrict Z.ι := by

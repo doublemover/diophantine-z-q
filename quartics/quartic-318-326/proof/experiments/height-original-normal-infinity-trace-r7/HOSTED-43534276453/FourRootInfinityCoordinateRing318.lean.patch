@@ -1,0 +1,13 @@
+--- before/FourRootInfinityCoordinateRing318.lean
++++ after/FourRootInfinityCoordinateRing318.lean
+@@ -24,7 +24,9 @@
+   have h:Ideal.Quotient.mk (Ideal.span (Set.range (equation b))) (equation b (some k))=0:=
+     Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span ⟨some k,rfl⟩)
+   simp only [equation,map_sub,map_pow,map_mul,map_one] at h
+-  change coordinate b (some k)^2-1-algebraMap ℂ (Ring b) (b 0-b k)*coordinate b none^2=0 at h
++  change coordinate b (some k)^2-1-
++    (algebraMap ℂ (Ring b) (b 0)-algebraMap ℂ (Ring b) (b k))*coordinate b none^2=0 at h
++  rw [←map_sub (algebraMap ℂ (Ring b)) (b 0) (b k)] at h
+   linear_combination h
+ 
+ @[expose] def lift {S:Type*} [CommRing S] [Algebra ℂ S]

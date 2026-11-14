@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "packet": "original-finite-quotient-reconstruction-r62",
+  "history_correction": "At the schema opt-in step only historical hashes were retained, not raw pre-schema byte snapshots. The two explicitly RECONSTRUCTED files were produced later by reversing the documented metadata changes and verifying their bytes against those prior hashes. They are not claimed to be retained originals.",
+  "retained_current_application": {
+    "path": "HOSTED-43534276453/BEFORE-HISTORICAL-SNAPSHOT-BINDING-APPLICATION.json",
+    "sha256": "cdd0bdfebc5842a54e543c2a618f69a89977aa5b85cd1faf00748ddd718c9b65",
+    "kind": "raw snapshot retained immediately before adding this historical reconstruction binding"
+  },
+  "reconstructed_files": [
+    {
+      "path": "HOSTED-43534276453/RECONSTRUCTED-PRE-SCHEMA-INTAKE.json",
+      "sha256": "e494dc93d37c7ec7740df7fe8c243d832368dd32701735a333ad110105ad2cf8",
+      "kind": "reconstructed",
+      "source_sha256": "b7a41ed59ec480b6ccd2e463bc7e398f1eb76ceba091597ed2c996c037a95f80",
+      "method": "Remove only revision_classification_schema; serialize JSON with indent=2, ensure_ascii=False and final newline. Exact match to previously recorded intake hash."
+    },
+    {
+      "path": "HOSTED-43534276453/RECONSTRUCTED-PRE-SCHEMA-APPLICATION.json",
+      "sha256": "30320f77b9e4e31034febf77bf3721c5a3511b5d29ba292a3f5358b1b5d87cd0",
+      "kind": "reconstructed",
+      "source": "APPLICATION.json before this update",
+      "source_sha256": "cdd0bdfebc5842a54e543c2a618f69a89977aa5b85cd1faf00748ddd718c9b65",
+      "method": "Reverse only classification_metadata_update and restore prior intake binding; for r10 additionally reverse later source_review and fourth report binding. Serialize JSON with indent=2, ensure_ascii=False and final newline. Exact match to previously recorded application hash."
+    }
+  ],
+  "source_or_intake_changed": false,
+  "lean_run": false
+}
