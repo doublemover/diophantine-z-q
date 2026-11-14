@@ -1,0 +1,158 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r14/OriginalLineSquareSections318.lean:40:4: error: Type mismatch: After simplification, term
+  square b e e' a he ((Scheme.Modules.pullback i).obj M) s
+ has type
+  @Eq (↑Γ((Scheme.Modules.pullback a ⋙ Scheme.Modules.pullback e').obj ((Scheme.Modules.pullback i).obj M), ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp b e).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+            (eqToIso ⋯).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+              (Scheme.Modules.pullbackComp e' a).inv.app ((Scheme.Modules.pullback i).obj M))
+          ⊤))
+      ((pull b ((Scheme.Modules.pullback e).obj ((Scheme.Modules.pullback i).obj M)))
+        ((pull e ((Scheme.Modules.pullback i).obj M)) s)))
+    ((pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M)))
+      ((pull a ((Scheme.Modules.pullback i).obj M)) s))
+but is expected to have type
+  @Eq (↑Γ((Scheme.Modules.pullback a ⋙ Scheme.Modules.pullback e').obj ((Scheme.Modules.pullback i).obj M), ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp b e).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+            (eqToIso ⋯).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+              𝟙 ((Scheme.Modules.pullback (e' ≫ a)).obj ((Scheme.Modules.pullback i).obj M)) ≫
+                (Scheme.Modules.pullbackComp e' a).inv.app ((Scheme.Modules.pullback i).obj M))
+          ⊤))
+      z)
+    ((pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M)))
+      ((pull a ((Scheme.Modules.pullback i).obj M)) s))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r14/OriginalLineSquareSections318.lean:49:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullback ?f).map ?a) ⊤)) ((pull ?f ?M) ?s)
+in the target expression
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app ((comparison b j j' p hb).hom.app M) ⊤))
+      ((pull b ((Scheme.Modules.pullback j).obj M))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((PullbackPathComposition318.iso e i j h).hom.app M) ⊤))
+          ((pull e ((Scheme.Modules.pullback i).obj M)) s))) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app ((comparison b j j' p hb).hom.app M) ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app ((Scheme.Modules.pullback b).map ((PullbackPathComposition318.iso e i j h).hom.app M))
+            ⊤))
+        z)
+
+X Y U V U' V' : Scheme
+p : Y ⟶ X
+i : U ⟶ X
+j : V ⟶ X
+e : V ⟶ U
+h : e ≫ i = j
+i' : U' ⟶ Y
+j' : V' ⟶ Y
+e' : V' ⟶ U'
+h' : e' ≫ i' = j'
+a : U' ⟶ U
+b : V' ⟶ V
+ha : a ≫ i = i' ≫ p
+hb : b ≫ j = j' ≫ p
+he : b ≫ e = e' ≫ a
+M : X.Modules
+s : ↑Γ((Scheme.Modules.pullback i).obj M, ⊤)
+z : ↑Γ((Scheme.Modules.pullback b).obj ((Scheme.Modules.pullback e).obj ((Scheme.Modules.pullback i).obj M)), ⊤) :=
+  (pull b ((Scheme.Modules.pullback e).obj ((Scheme.Modules.pullback i).obj M)))
+    ((pull e ((Scheme.Modules.pullback i).obj M)) s)
+hp :
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullback b).map ((PullbackPathComposition318.iso e i j h).hom.app M) ≫
+            (comparison b j j' p hb).hom.app M)
+          ⊤))
+      z =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((comparison b e e' a he).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+            (Scheme.Modules.pullback e').map ((comparison a i i' p ha).hom.app M) ≫
+              (PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M))
+          ⊤))
+      z
+hs :
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app ((comparison b e e' a he).hom.app ((Scheme.Modules.pullback i).obj M)) ⊤))
+      z =
+    (pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M)))
+      ((pull a ((Scheme.Modules.pullback i).obj M)) s)
+⊢ (ConcreteCategory.hom (Scheme.Modules.Hom.app ((comparison b j j' p hb).hom.app M) ⊤))
+      ((pull b ((Scheme.Modules.pullback j).obj M))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((PullbackPathComposition318.iso e i j h).hom.app M) ⊤))
+          ((pull e ((Scheme.Modules.pullback i).obj M)) s))) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app ((comparison b j j' p hb).hom.app M) ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app ((Scheme.Modules.pullback b).map ((PullbackPathComposition318.iso e i j h).hom.app M))
+            ⊤))
+        z)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r14/OriginalLineSquareSections318.lean:54:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullback ?f).map ?a) ⊤)) ((pull ?f ?M) ?s)
+in the target expression
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M)) ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app ((Scheme.Modules.pullback e').map ((comparison a i i' p ha).hom.app M)) ⊤))
+        ((pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M)))
+          ((pull a ((Scheme.Modules.pullback i).obj M)) s))) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M)) ⊤))
+      ((pull e' ((Scheme.Modules.pullback i').obj ((Scheme.Modules.pullback p).obj M)))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((comparison a i i' p ha).hom.app M) ⊤))
+          ((pull a ((Scheme.Modules.pullback i).obj M)) s)))
+
+X Y U V U' V' : Scheme
+p : Y ⟶ X
+i : U ⟶ X
+j : V ⟶ X
+e : V ⟶ U
+h : e ≫ i = j
+i' : U' ⟶ Y
+j' : V' ⟶ Y
+e' : V' ⟶ U'
+h' : e' ≫ i' = j'
+a : U' ⟶ U
+b : V' ⟶ V
+ha : a ≫ i = i' ≫ p
+hb : b ≫ j = j' ≫ p
+he : b ≫ e = e' ≫ a
+M : X.Modules
+s : ↑Γ((Scheme.Modules.pullback i).obj M, ⊤)
+z : ↑Γ((Scheme.Modules.pullback b).obj ((Scheme.Modules.pullback e).obj ((Scheme.Modules.pullback i).obj M)), ⊤) :=
+  (pull b ((Scheme.Modules.pullback e).obj ((Scheme.Modules.pullback i).obj M)))
+    ((pull e ((Scheme.Modules.pullback i).obj M)) s)
+hp :
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullback b).map ((PullbackPathComposition318.iso e i j h).hom.app M) ≫
+            (comparison b j j' p hb).hom.app M)
+          ⊤))
+      z =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((comparison b e e' a he).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+            (Scheme.Modules.pullback e').map ((comparison a i i' p ha).hom.app M) ≫
+              (PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M))
+          ⊤))
+      z
+hs :
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app ((comparison b e e' a he).hom.app ((Scheme.Modules.pullback i).obj M)) ⊤))
+      z =
+    (pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M)))
+      ((pull a ((Scheme.Modules.pullback i).obj M)) s)
+⊢ (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M)) ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app ((Scheme.Modules.pullback e').map ((comparison a i i' p ha).hom.app M)) ⊤))
+        ((pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M)))
+          ((pull a ((Scheme.Modules.pullback i).obj M)) s))) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M)) ⊤))
+      ((pull e' ((Scheme.Modules.pullback i').obj ((Scheme.Modules.pullback p).obj M)))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((comparison a i i' p ha).hom.app M) ⊤))
+          ((pull a ((Scheme.Modules.pullback i).obj M)) s)))

@@ -1,0 +1,7 @@
+# pel-original-zero-local-length-r43
+
+Source-supported successor to pel-original-zero-local-length-r42, own observed43592150561 at75be14ed. Integration base2b151fc6 changes only three other packets; this entire predecessor folder is exact identity between observed and current commits. Full 580-module closure/order retained, 2 changed copies and 578 identical sources. Changed modules: FourRootCompletedHausdorff318, PELPrimeRightLattice318.
+
+Where propagated, Hausdorff qualifies only the native open-embedding predicate and retains all eight infinity points and original glued topology. Coercivity explicitly restores hτ:0<τ.im on exactly three positivity/bound public telescopes, with actual consumers already supplying that intended premise; literal public types change. The direct sum of min-bound inequalities replaces only its inverse-normal-form proof step. PrimeRightLattice retains the entire four-prime/two-row domain and original coordinate maps, evaluating pointwise residues and casts only inside two proof bodies. No new independent positivity, bound, genericity or compatibility assumption is added.
+
+All own artifact ZIPs/digests/results and exact published intakes, native source/consumer evidence, source reviews and nine structured obligations are bound. No new preventive PEL edits, local Lean/Lake, resource/trust change, admission, kernel acceptance, full packet pass or complete arithmetic theorem claim. New source/input/map/consumer propagation review and hosted replay remain required.

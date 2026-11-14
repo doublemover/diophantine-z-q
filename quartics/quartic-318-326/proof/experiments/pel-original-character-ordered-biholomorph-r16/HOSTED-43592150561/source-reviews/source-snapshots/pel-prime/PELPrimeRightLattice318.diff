@@ -1,0 +1,23 @@
+--- before/PELPrimeRightLattice318.lean
++++ after/PELPrimeRightLattice318.lean
+@@ -39,12 +39,16 @@
+ 
+ theorem residue_add (i : Fin 4) (a b : Coordinates) :
+     residue i (a+b)=residue i a+residue i b := by
+-  fin_cases i <;> ext j <;> fin_cases j <;>
+-    simp [residue,rows,product,conjugateCoefficients,prime] <;> ring
++  ext j
++  change ((product (a+b) (conjugateCoefficients i)) (rows i j):ZMod (prime i))=
++    ((product a (conjugateCoefficients i)) (rows i j):ZMod (prime i))+
++      ((product b (conjugateCoefficients i)) (rows i j):ZMod (prime i))
++  fin_cases i <;> fin_cases j <;>
++    norm_num [rows,product,conjugateCoefficients,prime,Pi.add_apply] <;> push_cast <;> ring
+ 
+ theorem residue_zero (i : Fin 4) : residue i 0=0 := by
+-  ext j
+-  simp [residue,product]
++  fin_cases i <;> ext j <;> fin_cases j <;>
++    norm_num [residue,rows,product,conjugateCoefficients,prime]
+ 
+ @[expose] def residueHom (i : Fin 4) : Coordinates →+ (Fin 2 → ZMod (prime i)) where
+   toFun := residue i
