@@ -1,0 +1,20 @@
+--- ScalarPoleRealDomain318.lean.before
++++ ScalarPoleRealDomain318.lean
+@@ -9,7 +9,7 @@
+ /-- A deliberately loose quantitative bound suffices for the actual scalar
+ pole range. The stored half-trace and norm are the original source entries. -/
+ theorem packed_bound (w : Assignment) (n : ℤ)
+-    (hr : 10<inputR (w 0)) (hf0 : 0≤w 33) (hf1 : w 33≤1)
++    (hr : 10 < inputR (w 0)) (hf0 : 0≤w 33) (hf1 : w 33≤1)
+     (hH0 : (1/100:ℚ)< |w 37|) (hH1 : |w 37|≤1)
+     (hR : |ActualScalarRoot318.inverseNorm n|<1) :
+     0<W w n ∧ W w n<10 := by
+@@ -49,7 +49,7 @@
+ /-- Actual scalar b is positive and below17 before any scalar point-pair
+ realization is invoked. No source-pole equation is assumed. -/
+ theorem pole_domain (w : Assignment) (n : ℤ)
+-    (hr : 10<inputR (w 0)) (hf0 : 0≤w 33) (hf1 : w 33≤1)
++    (hr : 10 < inputR (w 0)) (hf0 : 0≤w 33) (hf1 : w 33≤1)
+     (hH0 : (1/100:ℚ)< |w 37|) (hH1 : |w 37|≤1)
+     (hR : |ActualScalarRoot318.inverseNorm n|<1) :
+     0<poleInput w n ∧ poleInput w n<17 := by

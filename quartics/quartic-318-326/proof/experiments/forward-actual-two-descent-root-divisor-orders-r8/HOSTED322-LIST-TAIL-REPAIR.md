@@ -1,0 +1,3 @@
+# Exact hosted322 list-tail repair
+
+The actual hosted322 log records six type mismatches, all at the final singleton tails of finite Constraints conjunctions. The first16-row and next30-row hypotheses retain `∀a,a=last→a w=0`; the final48-row target retains the same quantified form. Only the two exact tuple terms change: explicitly specialize the first two final tails at their actual last row with rfl, and introduce/substitute the target last row before using hpole. All earlier conjunction components, statements, actual rows, assumptions, consumers and caps remain unchanged. This is not a row deletion or a proof of later modules. No local Lean run.

@@ -1,0 +1,73 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:12:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 2: `(hτ : 0 < τ.im)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:21:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DiscreteTopology ↥(P τ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:23:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DiscreteTopology ↥(P τ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:23:38: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DiscreteTopology ↥(P τ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:24:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DiscreteTopology ↥(P τ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:30:15: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+
+Hint: Replace the deprecated name:
+  C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵m̵u̵l̵_̵a̵p̵p̵l̵y̵s̲m̲u̲l̲_̲a̲p̲p̲l̲y̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:18:14: error: (kernel) declaration has metavariables 'PELOriginalPolarizationLineBundle318.core'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:40:6: error: (kernel) declaration type mismatch, 'PELOriginalPolarizationLineBundle318.original_local_transition' has type
+  ∀ (τ : ℂ) (hτ : 0 < τ.im) (a b : ComplexVectors) (q : Base τ),
+    (core τ hτ).coordChange a b q = (core τ hτ).coordChange a b q
+but it is expected to have type
+  ∀ (τ : ℂ) (hτ : 0 < τ.im) (a b : ComplexVectors) (q : Base τ),
+    (core τ hτ).coordChange a b q = factor τ hτ (shift τ hτ a b q) (↑(chart τ hτ a) q) • ContinuousLinearMap.id ℂ ℂ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:48:4: error: Type mismatch
+  ContinuousLinearMap.analyticAt (continuousLinear τ hτ ↑l)
+has type
+  ∀ (x : ComplexVectors), AnalyticAt ℂ (⇑(continuousLinear τ hτ ↑l)) x
+but is expected to have type
+  AnalyticAt ℂ (fun w => form τ hτ w ↑l) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:63:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Membership.mem (Base τ) (Set (Base τ)) Set.instMembership (localChart (P τ) a).source (projection (P τ) z)
+but is expected to have type
+  @Membership.mem (DiscreteComplexPeriodAtlas318.Quotient (P τ)) (Set (Base τ)) Set.instMembership (baseSet τ hτ a)
+    (projection (P τ) z)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:67:18: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  hs
+has type
+  (𝓝 (projection (P τ) z)).1 {x | (fun r => shift τ hτ a b r = shift τ hτ a b (projection (P τ) z)) x}
+which does not have the necessary form.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:60:70: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+a b z : ComplexVectors
+ha : z ∈ (chart τ hτ a).target
+hb : projection (P τ) z ∈ baseSet τ hτ b
+hq : projection (P τ) z ∈ baseSet τ hτ a
+hs : ∀ᶠ (r : Base τ) in 𝓝 (projection (P τ) z), shift τ hτ a b r = shift τ hτ a b (projection (P τ) z)
+hp : Continuous (projection (P τ))
+w : ComplexVectors
+hw : w ∈ ?m.90
+hwa : w ∈ (chart τ hτ a).target
+he : ↑(chart τ hτ a) (projection (P τ) w) = w
+⊢ factor τ hτ (shift τ hτ a b (projection (P τ) z)) w = factor τ hτ (shift τ hτ a b (projection (P τ) w)) w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r15/PELOriginalPolarizationLineBundle318.lean:72:24: warning: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [transition, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

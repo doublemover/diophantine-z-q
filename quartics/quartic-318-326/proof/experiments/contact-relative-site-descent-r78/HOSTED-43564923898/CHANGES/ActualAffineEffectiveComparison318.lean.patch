@@ -1,0 +1,97 @@
+--- contact-relative-site-descent-r77/ActualAffineEffectiveComparison318.lean
++++ contact-relative-site-descent-r78/ActualAffineEffectiveComparison318.lean
+@@ -89,6 +89,35 @@
+       CategoryTheory.Functor.map_id, Category.id_comp] using hh
+   simpa only [← hde] using hd
+ 
++/-- Check the exact reconstructed line and its original comparison while the
++input tensor overlap and both tensor laws are still independent parameters.
++The actual-nerve transport is connected by the displayed equality, not by
++substituting its derived diagonal and triple proof terms into this proof. -/
++private lemma reconstructed_actual_overlap (R S : CommRingCat.{u}) [Algebra R S]
++    [Module.FaithfullyFlat R S] (L : Line (Spec S))
++    (σ : OriginalLineOverlapCoaction318.first R S L ⟶ OriginalLineOverlapCoaction318.second R S L)
++    (hd : OriginalGeometricDiagonal318.Diagonal R S L σ)
++    (ht : OriginalGeometricTriple318.Cocycle R S L σ)
++    (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
++    (hσ : σ = ActualAffineTensorTransport318.overlap R S L τ) :
++    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map
++        (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht).inv ≫
++      CanonicalSheafOverlap318.actual
++        (OriginalGeometricAffineLine318.line R S L σ hd ht).object (baseMap R S) ≫
++      (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
++        (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht).hom = τ := by
++  exact original_overlap_of_object_eq (baseMap R S)
++    (OriginalGeometricAffineLine318.line R S L σ hd ht).object
++    (tilde (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht))
++    (ReconstructedOverlapCompatibility318.line_object R S L σ hd ht) L.object
++    (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht)
++    (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht)
++    (ReconstructedOverlapCompatibility318.comparison_transport R S L σ hd ht) τ
++    (affine_original_overlap R S
++      (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht) L
++      (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht) τ
++      ((ReconstructedOverlapCompatibility318.named_original_overlap R S L σ hd ht).trans hσ))
++
+ variable (R S : CommRingCat.{u}) [Algebra R S] [Module.FaithfullyFlat R S]
+   (L : Line (Spec S))
+   (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
+@@ -99,28 +128,6 @@
+     (Scheme.Modules.pullback (baseMap R S)).obj (line R S L τ hdiag htriple).object ≅ L.object :=
+   ActualAffineLineReconstruction318.pullbackIso R S L τ hdiag htriple
+ 
+-/-- Specialize the opaque producer equality separately from the canonical
+-actual-overlap proof, preserving the original reconstructed line. -/
+-private lemma reconstructed_object : (line R S L τ hdiag htriple).object =
+-    tilde (ReconstructedOverlapCompatibility318.descendedModule R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)) :=
+-  ReconstructedOverlapCompatibility318.line_object R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)
+-
+-/-- The original pullback comparison is retained via its explicit transport,
+-not silently coerced to a tilde-carrier comparison in the final proof. -/
+-private lemma reconstructed_comparison :
+-    (Scheme.Modules.pullback (baseMap R S)).mapIso
+-      (eqToIso (reconstructed_object R S L τ hdiag htriple)) ≪≫
+-      ReconstructedOverlapCompatibility318.namedComparison R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple) = comparison R S L τ hdiag htriple :=
+-  ReconstructedOverlapCompatibility318.comparison_transport R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)
+-
+ /-- The exact reconstruction comparison carries the canonical overlap on
+ the genuine categorical double to the unchanged original input overlap.
+ The original scheme isomorphism reflects the tensor-spectrum calculation. -/
+@@ -130,26 +137,9 @@
+       CanonicalSheafOverlap318.actual (line R S L τ hdiag htriple).object (baseMap R S) ≫
+       (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
+         (comparison R S L τ hdiag htriple).hom = τ := by
+-  exact original_overlap_of_object_eq (baseMap R S)
+-    (line R S L τ hdiag htriple).object (tilde (ReconstructedOverlapCompatibility318.descendedModule R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)))
+-    (reconstructed_object R S L τ hdiag htriple) L.object
+-    (comparison R S L τ hdiag htriple)
+-    (ReconstructedOverlapCompatibility318.namedComparison R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple))
+-    (reconstructed_comparison R S L τ hdiag htriple) τ
+-    (affine_original_overlap R S (ReconstructedOverlapCompatibility318.descendedModule R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)) L
+-      (ReconstructedOverlapCompatibility318.namedComparison R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)) τ
+-      (ReconstructedOverlapCompatibility318.named_original_overlap R S L (ActualAffineTensorTransport318.overlap R S L τ)
+-      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-      (ActualAffineTensorLaws318.triple R S L τ htriple)))
+-
++  exact reconstructed_actual_overlap R S L (ActualAffineTensorTransport318.overlap R S L τ)
++    (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
++    (ActualAffineTensorLaws318.triple R S L τ htriple) τ rfl
+ 
+ /-- The actual displayed isomorphism is compatible with the original
+ geometric descent datum on the actual categorical fiber product. -/

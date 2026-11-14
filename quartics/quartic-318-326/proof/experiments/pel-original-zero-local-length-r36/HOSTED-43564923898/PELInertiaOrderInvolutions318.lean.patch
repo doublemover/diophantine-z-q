@@ -1,0 +1,14 @@
+--- PELInertiaOrderInvolutions318.lean.before
++++ PELInertiaOrderInvolutions318.lean
+@@ -36,8 +36,9 @@
+   map_mul' x y := by
+     obtain ⟨a,rfl⟩ := coordinatesEquiv.surjective x
+     obtain ⟨b,rfl⟩ := coordinatesEquiv.surjective y
+-    rw [← coordinates_mul]
+-    simp only [AddEquiv.symm_apply_apply,conjugation_product,coordinates_mul]
++    rw [← coordinates_mul a b]
++    simp only [AddEquiv.symm_apply_apply]
++    rw [conjugation_product i a b,coordinates_mul (conjugation i a) (conjugation i b)]
+ 
+ theorem orderInvolution_value (i : Fin 5) (x : order) :
+     (orderInvolution i x:B)=element i*(x:B)*reciprocal (element i) := by

@@ -1,0 +1,21 @@
+--- height-normalized-valuative-center-r54/IntegralOtherRootCoordinates318.lean
++++ height-normalized-valuative-center-r55/IntegralOtherRootCoordinates318.lean
+@@ -24,10 +24,14 @@
+         ThreeRootCoordinates318.generator
+           (IntegralBranchChart318.other (otherTwist R c 0) (otherContact R 0)) j := by
+   fin_cases j <;>
+-    simp [sourceRegroup,FourRootPivot318.regroup,FourRootPivot318.pivot,
+-      ThreeRootOrder318.fourRootRegroup,root,FourRootOrderSigns318.generator,
+-      ThreeRootCoordinates318.generator,Algebra.TensorProduct.one_def,
+-      AlgEquiv.trans_apply,AlgEquiv.refl_apply,Algebra.TensorProduct.assoc_tmul]
++    change (Algebra.TensorProduct.assoc R[X] R[X] R[X]
++      (QuadraticPresentation318.RootRing (coefficient R c 0))
++      (QuadraticPresentation318.RootRing (coefficient R c 1))
++      (QuadraticPresentation318.RootRing (coefficient R c 2) ⊗[R[X]]
++        QuadraticPresentation318.RootRing (coefficient R c 3))) _ = _
++  all_goals
++    simp [root,FourRootOrderSigns318.generator,ThreeRootCoordinates318.generator,
++      Algebra.TensorProduct.one_def,Algebra.TensorProduct.assoc_tmul] <;> rfl
+ 
+ /-- Every finite generator is literally the image of its signed original
+ source root, through the already used source restriction. -/

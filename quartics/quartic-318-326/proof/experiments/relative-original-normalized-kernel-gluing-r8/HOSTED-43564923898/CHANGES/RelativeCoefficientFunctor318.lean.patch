@@ -1,0 +1,20 @@
+--- relative-original-normalized-kernel-gluing-r7/RelativeCoefficientFunctor318.lean
++++ relative-original-normalized-kernel-gluing-r8/RelativeCoefficientFunctor318.lean
+@@ -15,7 +15,7 @@
+   apply RingHom.ext
+   intro x
+   induction x using TensorProduct.inductionOn with
+-  | tmul r b => simp [RelativeCoefficientChange318.ringMap_tmul]
++  | tmul r b => simp [RelativeCoefficientChange318.ringMap]
+   | add x y hx hy => simp only [map_add,hx,hy]
+ 
+ /-- Actual coefficient chart maps compose in the original ring category. -/
+@@ -26,7 +26,7 @@
+   apply RingHom.ext
+   intro x
+   induction x using TensorProduct.inductionOn with
+-  | tmul r b => simp [RelativeCoefficientChange318.ringMap_tmul]
++  | tmul r b => simp [RelativeCoefficientChange318.ringMap]
+   | add x y hx hy => simp only [map_add,hx,hy]
+ 
+ variable {X : Scheme.{u}} (p : X ⟶ Spec k)
