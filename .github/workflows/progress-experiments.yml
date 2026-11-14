@@ -79,6 +79,7 @@ jobs:
       - run: python -B scripts/test_common_expression_diagnostic.py
       - run: python -B scripts/test_picard_reconstructed_overlap_diagnostic.py
       - run: python -B scripts/test_picard_overlap_fragments_diagnostic.py
+      - run: python -B scripts/test_picard_object_transport_diagnostic.py
       - run: python -B scripts/test_small_prime_diagnostic.py
       - id: plan
         run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
@@ -380,6 +381,15 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_picard_overlap_fragments.py "$PACKET"
+      - name: Non-admitted exact Picard object transport diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_picard_object_transport.py "$PACKET"
       - name: Non-admitted exact small-prime prefix localization
         if: always() && matrix.packet == 'forward-actual-two-descent-root-divisor-orders-r15'
         shell: bash
@@ -435,6 +445,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-common-expression-diagnostics/
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-reconstructed-overlap/
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-overlap-fragments/
+            build/progress-experiments/${{ matrix.packet }}/scratch-picard-object-transport/
             build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-preparation/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof

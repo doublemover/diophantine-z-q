@@ -11,7 +11,7 @@ class Tests(unittest.TestCase):
         cases=d.variants(S);self.assertEqual(list(cases),['exact_prefix','structural_witness'])
         self.assertEqual(cases['exact_prefix'],d.previous.variants(S)['exact_prefix'])
         self.assertIn(d.STRUCTURAL_BODY,cases['structural_witness'])
-        self.assertEqual(hashlib.sha256(d.STRUCTURAL_BODY.encode()).hexdigest(),'07ded6f92099298335558139ab345ee9dc572fc357d2f857bf21a91ed4486d78')
+        self.assertEqual(hashlib.sha256(d.STRUCTURAL_BODY.encode()).hexdigest(),'c49a2ee1cd48988e0ae1423412326401f182d73a578e3b308b74c7bd6de23813')
         for text in cases.values():
             self.assertNotIn('sorry',text);self.assertNotIn('axiom ',text);self.assertNotIn('set_option maxRecDepth',text)
             self.assertEqual([x for x in S.splitlines() if 'import ' in x],[x for x in text.splitlines() if 'import ' in x])
@@ -21,6 +21,10 @@ class Tests(unittest.TestCase):
         for term in ['Lean.Elab.Tactic.withMainContext','Lean.Meta.inferType','Lean.Meta.getFVarFromUserName','Lean.Expr.equal','for _ in [:1024]','differences >= 8','METADATA_PAYLOAD_NOT_COMPARED','exact True.intro']:self.assertIn(term,body)
         for term in ['Lean.Meta.isDefEq','Lean.Meta.whnf','.assign ', 'addDecl ', 'setEnv ', 'set_option pp.']:self.assertNotIn(term,body)
         self.assertIn('Structural difference does not prove definitional inequality',body)
+    def test_progress_status_interpolates_bool_not_prop(self):
+        # The actual hosted observer failed before execution on ToString Prop.
+        self.assertIn('pending={decide (cursor < queue.size)}',d.STRUCTURAL_BODY)
+        self.assertNotIn('pending={cursor < queue.size}',d.STRUCTURAL_BODY)
     def test_pinned_dependency_guards(self):
         d.check_dependencies()
         for name in d.DEPENDENCY_PINS:
