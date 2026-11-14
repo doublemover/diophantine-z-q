@@ -1,0 +1,36 @@
+--- PELQuaternionNormParity318.lean.before
++++ PELQuaternionNormParity318.lean
+@@ -13,8 +13,7 @@
+ 
+ theorem prime_injective : Function.Injective prime := by
+   intro i j h
+-  fin_cases i <;> fin_cases j
+-  all_goals norm_num [prime] at h ⊢
++  fin_cases i <;> fin_cases j <;> simp_all [prime]
+ 
+ theorem norm_mul (x y : B) : reducedNorm (x*y)=reducedNorm x*reducedNorm y := by
+   simp [reducedNorm] <;> ring
+@@ -92,12 +91,20 @@
+         omega
+       have he : z=1 := (ZMod.val_injective 2) (by
+         simpa only [ZMod.val_one_eq_one_mod] using hv)
+-      simp only [hz,ite_false,he]
++      rw [if_neg hz]
++      exact he.symm
++  have term (i j : Fin 4) :
++      parity (if v i=0 then 1 else rationalUnit i) j=if i=j then v i else 0 := by
++    by_cases hz : v i=0
++    · simp [hz,parity_one]
++    · have hv : v i=1 := by
++        simpa only [if_neg hz] using (bit (v i)).symm
++      simp [hz,parity_prime,hv]
+   unfold PELInertiaPrimeWord318.word
+   simp only [parity_mul]
+   ext j
+-  fin_cases j <;>
+-    simp [apply_ite,parity_one,parity_prime,bit]
++  simp only [Pi.add_apply,term]
++  fin_cases j <;> simp
+ 
+ theorem parity_surjective : Function.Surjective parityHom := by
+   intro v

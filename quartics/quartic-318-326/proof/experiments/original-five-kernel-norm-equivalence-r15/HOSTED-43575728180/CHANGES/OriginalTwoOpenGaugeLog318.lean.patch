@@ -1,0 +1,17 @@
+--- original-five-kernel-norm-equivalence-r14/OriginalTwoOpenGaugeLog318.lean
++++ original-five-kernel-norm-equivalence-r15/OriginalTwoOpenGaugeLog318.lean
+@@ -21,10 +21,12 @@
+     (hx : c.transition false true = x) (hy : d.transition false true = y) :
+     y = (Units.map (Z.presheaf.map (homOfLE inf_le_left).op).hom.toMonoidHom (a false) *
+       (Units.map (Z.presheaf.map (homOfLE inf_le_right).op).hom.toMonoidHom (a true))⁻¹) * x := by
+-  have h : (d.transition false true : Γ(Z,W false ⊓ W true)ˣ) =
++  let cx : Γ(Z,W false ⊓ W true)ˣ := c.transition false true
++  let dy : Γ(Z,W false ⊓ W true)ˣ := d.transition false true
++  have h : dy =
+       (Units.map (Z.presheaf.map (homOfLE inf_le_left).op).hom.toMonoidHom (a false) *
+         (Units.map (Z.presheaf.map (homOfLE inf_le_right).op).hom.toMonoidHom (a true))⁻¹) *
+-          (c.transition false true : Γ(Z,W false ⊓ W true)ˣ) := ha false true
++          cx := ha false true
+   exact hy.symm.trans (h.trans (congrArg (fun z : Γ(Z,W false ⊓ W true)ˣ =>
+     (Units.map (Z.presheaf.map (homOfLE inf_le_left).op).hom.toMonoidHom (a false) *
+       (Units.map (Z.presheaf.map (homOfLE inf_le_right).op).hom.toMonoidHom (a true))⁻¹) * z) hx))

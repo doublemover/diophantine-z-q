@@ -1,0 +1,49 @@
+{
+  "reviewer": "advance_prime_witnesses",
+  "review_type": "INTERNAL_INDEPENDENT_SOURCE_COMPARISON",
+  "status": "SCOPED_SOURCE_ACCEPTED_HOSTED_KERNEL_PENDING",
+  "packet": "forward-actual-two-descent-affine-refinement-r1",
+  "application_sha256": "e6909a3c5402a7b693d4b854aa7e708276e3bffbfe42016269b1ec8116258bcc",
+  "intake_sha256": "8713df0d0fa2d72ddb30c0d584d401fc504fed595d3badeaf7544a2b6fd851f3",
+  "readme_sha256": "885ffff8d7b87098081a4f91942832b272e0f014f1f5e46c8a3a27a83d3d72f7",
+  "derivation_sha256": "446224f45153a57d163bfd6353f64bfeed763806ff7004fd0712e8f601204d3b",
+  "source_copy_record_sha256": "bb99eb5727d79de3638684114e953195d2ea15963d4c8a543735cfc08e885056",
+  "new_sources": {
+    "ActualTwoDescentRootCofactorData318.lean": "5683b5a24c45054f9394fe5410677035e77eb41aa3c7d36c67c76b88673d47ec",
+    "ActualTwoDescentRootPrincipalOpenCover318.lean": "c69bd3c47c9f47db565be929530cb3353f13621c2c9e63e73e8685782f13a84f",
+    "ActualTwoDescentRootLocalizedIdeals318.lean": "3d6ed217e2080cb32a7c1df66b18795467ea70346bde3b69cfa71eb4b789ccd6",
+    "ActualTwoDescentPrincipalIdealModuleFrame318.lean": "594db8a30eaf02c6d5eae47c76b3593a4503415d4770073a4fb9d70caf78d2ae",
+    "ActualTwoDescentRootLocalizedModuleFrames318.lean": "d2680969f2f825108f2271ad3bb9a272b28661090a3a63f75508767434dd4a3e",
+    "ActualTwoDescentRootLocalTensorSquare318.lean": "792187492df69f70cb8d6c50e08f1eda9555294692ec7dd4913dc1c123e71a16",
+    "ActualTwoDescentOriginalRootRefinedCover318.lean": "a8a229b3b81c2478ee14086f235066141feb62ae24e3ee80358ae0c867fa404a"
+  },
+  "changed_sources": {
+    "ThreeDetectorPrePole318.lean": {
+      "old_sha256": "a053e0a91dd24c982aadd40ade35cd204540f416988cabdc0a4553433ffb89d7",
+      "new_sha256": "c5455945e0aeba441d5333dbf49338dde340dd13a29ee5c1fe0fc8c3ee74be22",
+      "reason": "Six exact hosted322 terminal singleton specialization errors; no statement or row changes."
+    }
+  },
+  "unchanged_predecessor_sources_verified": 1222,
+  "source_admission": "PASS_1230_MODULES",
+  "regression_script_sha256": "03117207ba8b1331192468e26d654b72f5c9bdbac71d90044578d2ce1f9bb8aa",
+  "regression_result_sha256": "689fc342bbf5841b04983011f8156eb91efd3b5ec1602b2b628b846091a99f10",
+  "scope_checks": [
+    "Read all seven new modules,all nine application obligations,DERIVATION and actual predecessor root ideals,affine coordinates,original two-chart scheme,all-point chart cover and literal root/infinity overlap ideals. Same original roots0,n,-3n and coordinate ring retained.",
+    "Checked complementary cofactors and Bezout constants -3n\u00b2,4n\u00b2,12n\u00b2 at all three actual roots. Nonzero n and characteristic zero are used exactly to make the constant a unit and produce span top. Algebraic identities and nonzero polynomial classes remain meaningful at n=0, but the cover does not claim n=0.",
+    "Read pinned native Scheme.affineOpenCoverOfSpanRangeEqTop: its actual chart rings are Localization.Away(s i), maps are the literal algebraMap spectra, and coverage includes every scheme point. Bool-indexed root/complement opens match those exact objects.",
+    "Actual extended root ideal is Ideal.map of the original ideal. On D(f) it is top because f is inverted. On D(Q), y\u00b2=fQ gives f=y\u00b2/Q and equality with the principal ideal(y). No unit y is assumed at the root-containing open; only y is nonzero as a domain element.",
+    "Checked native ideal-module frame a\u21a6ag: original scalar action/commutative multiplication, nonzero cancellation for injectivity and actual singleton-span divisibility for surjectivity. Localization domain and injectivity hypotheses are constructed from nonzero denominators.",
+    "Read native TensorProduct.congr and TensorProduct.lid and their pure-tensor formulas. The actual inverse module frames produce coefficient ac; unit scaling by e and the original f-principal frame give ac*e*f. The constructed relation g\u00b2=f*e proves the map is exactly multiplication of original ideal elements, without a suppressed unit or squareclass ambiguity.",
+    "Refined affine maps compose actual localization open immersions with the original affine chart. The existing all-point two-chart cover and new native affine cover give the full three-chart refinement, retaining infinity and non-rational points. Base structural map equality is inherited exactly.",
+    "Independently compared the bounded ThreeDetectorPrePole change with exact hosted322 six errors. Only two tuple expressions change: specialize each actual singleton tail with its final row and rfl, and introduce/substitute the target singleton before hpole. All rows,statements,other components and resource caps unchanged. This is source acceptance of a repair, not a later hosted-pass claim.",
+    "Verified all application/source/primary bindings and1222 exact predecessors plus one changed-source hash. Independently reran finite regression from a temporary copy:891 Bezout,891 factorization,792 nonzero-cover constants,31 actual rational curve points,120 local square frames,360 pure-tensor products,3 n=0 controls. Structural admission1230 passed. No local Lean/profile."
+  ],
+  "remaining": [
+    "Full native module-sheaf descent and overlap transition compatibility,global line bundle/local freeness and Ta\u2212O Cartier divisor identification remain open. The inverse infinity ideal/sign must be retained; local ordinary ideal matching alone does not provide that divisor.",
+    "Global tensor-square gluing,theta group and genuine geometric Weil identification remain open. No Brauer/local-invariant/reciprocity/Cassels\u2013Tate/Sha/rank conclusion is discharged by this packet.",
+    "Hosted kernel/axiom validation remains pending, including the bounded list-tail repair. Source review and finite arithmetic do not prove the complete quartic theorem."
+  ],
+  "local_lean_run": false,
+  "full_arithmetic_theorem_proved": false
+}

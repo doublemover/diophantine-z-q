@@ -1,0 +1,62 @@
+[
+  {
+    "path": "Mathlib/Algebra/Algebra/Equiv.lean",
+    "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "github_blob_sha": "0897ffa92fc5db60f3e5106e5f494f126933ba5a",
+    "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Algebra/Equiv.lean",
+    "start_line": 520,
+    "end_line": 535,
+    "excerpt": "theorem toLinearEquiv_symm (e : A\u2081 \u2243\u2090[R] A\u2082) : e.symm.toLinearEquiv = e.toLinearEquiv.symm :=\n  rfl\n\n@[simp]\ntheorem coe_toLinearEquiv (e : A\u2081 \u2243\u2090[R] A\u2082) : \u21d1e.toLinearEquiv = e := rfl\n\n@[simp]\ntheorem coe_symm_toLinearEquiv (e : A\u2081 \u2243\u2090[R] A\u2082) : \u21d1e.toLinearEquiv.symm = e.symm := rfl\n\n@[simp]\ntheorem toLinearEquiv_trans (e\u2081 : A\u2081 \u2243\u2090[R] A\u2082) (e\u2082 : A\u2082 \u2243\u2090[R] A\u2083) :\n    (e\u2081.trans e\u2082).toLinearEquiv = e\u2081.toLinearEquiv.trans e\u2082.toLinearEquiv :=\n  rfl\n\ntheorem toLinearEquiv_injective : Function.Injective (toLinearEquiv : _ \u2192 A\u2081 \u2243\u2097[R] A\u2082) :=\n  fun _ _ h => ext <| LinearEquiv.congr_fun h",
+    "scope": "Exact pinned excerpt; not the entire source file."
+  },
+  {
+    "path": "src/Lean/Elab/Tactic/BuiltinTactic.lean",
+    "ref": "v4.35.0",
+    "github_blob_sha": "d9c4ce60d1060de505789cfdb0c71a1d98dcee8a",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/Tactic/BuiltinTactic.lean",
+    "start_line": 676,
+    "end_line": 691,
+    "excerpt": "          toClear := toClear.push ldecl.fvarId\n      liftMetaTactic1 (\u00b7.tryClearMany toClear)\n  | _ => throwUnsupportedSyntax\n\n@[builtin_tactic runTac] def evalRunTac : Tactic := fun stx => do\n  match stx with\n  | `(tactic| run_tac $e:doSeq) =>\n    \u2190 unsafe Term.evalTerm (TacticM Unit) (mkApp (Lean.mkConst ``TacticM) (Lean.mkConst ``Unit))\n      (\u2190 `(discard do $e))\n  | _ => throwUnsupportedSyntax\n\nend Lean.Elab.Tactic\n",
+    "scope": "Exact pinned excerpt; not the entire source file."
+  },
+  {
+    "path": "src/Lean/Elab/Tactic/Basic.lean",
+    "ref": "v4.35.0",
+    "github_blob_sha": "fc1cef694b6bd0cea092b380be6226b98bf03132",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/Tactic/Basic.lean",
+    "start_line": 46,
+    "end_line": 61,
+    "excerpt": "current goals (`Lean.Elab.Tactic.State`, accessible via `MonadStateOf`) and local information about\nthe current tactic's name and whether error recovery is enabled (`Lean.Elab.Tactic.Context`,\naccessible via `MonadReaderOf`).\n-/\nabbrev TacticM := ReaderT Context $ StateRefT State TermElabM\n/--\nA tactic is a function from syntax to an action in the tactic monad.\n\nA given tactic syntax kind may have multiple `Tactic`s associated with it, all of which will be\nattempted until one succeeds.\n-/\nabbrev Tactic  := Syntax \u2192 TacticM Unit\n\n/-\nMake the compiler generate specialized `pure`/`bind` so we do not have to optimize through the\nwhole monad stack at every use site. May eventually be covered by `deriving`.",
+    "scope": "Exact pinned excerpt; not the entire source file."
+  },
+  {
+    "path": "src/Lean/CoreM.lean",
+    "ref": "v4.35.0",
+    "github_blob_sha": "ce7c6379fa561aecfd9d8e6681b929b5cce61eb2",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/CoreM.lean",
+    "start_line": 372,
+    "end_line": 387,
+    "excerpt": "@[inline] def liftIOCore (x : IO \u03b1) : CoreM \u03b1 := do\n  let ref \u2190 getRef\n  IO.toEIO (fun (err : IO.Error) => Exception.error ref (toString err)) x\n\ninstance : MonadLift IO CoreM where\n  monadLift := liftIOCore\n\ninstance : MonadTrace CoreM where\n  getTraceState := return (\u2190 get).traceState\n  modifyTraceState f := modify fun s => { s with traceState := f s.traceState }\n  getInheritedTraceOptions := return (\u2190 read).inheritedTraceOptions\n\nstructure SavedState extends State where\n  /-- Number of heartbeats passed inside `withRestoreOrSaveFull`, not used otherwise. -/\n  passedHeartbeats : Nat\nderiving Nonempty",
+    "scope": "Exact pinned excerpt; not the entire source file."
+  },
+  {
+    "path": "src/Lean/Elab/Term/TermElabM.lean",
+    "ref": "v4.35.0",
+    "github_blob_sha": "3239909f1a0e22118faa93e7aa9b05740c6263d5",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/Term/TermElabM.lean",
+    "start_line": 381,
+    "end_line": 385,
+    "excerpt": "abbrev TermElabM := ReaderT Context $ StateRefT State MetaM\nabbrev TermElab  := Syntax \u2192 Option Expr \u2192 TermElabM Expr\n\n@[deprecated \"replace with a check of autoBoundImplicitContext\" (since := \"2025-11-11\")]\ndef Context.autoBoundImplicit (ctx : Context) : Bool :=",
+    "scope": "Exact pinned excerpt; not the entire source file."
+  },
+  {
+    "path": "src/Lean/Meta/Basic.lean",
+    "ref": "v4.35.0",
+    "github_blob_sha": "1791b62f7fdeb9d2f2f83caec4cd281f38f4279b",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Meta/Basic.lean",
+    "start_line": 596,
+    "end_line": 600,
+    "excerpt": "abbrev MetaM  := ReaderT Context $ StateRefT State CoreM\n\n-- Make the compiler generate specialized `pure`/`bind` so we do not have to optimize through the\n-- whole monad stack at every use site. May eventually be covered by `deriving`.\n@[always_inline]",
+    "scope": "Exact pinned excerpt; not the entire source file."
+  }
+]

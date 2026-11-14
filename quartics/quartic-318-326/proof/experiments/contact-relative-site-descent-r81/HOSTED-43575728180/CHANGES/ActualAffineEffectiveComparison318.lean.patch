@@ -1,0 +1,24 @@
+--- contact-relative-site-descent-r80/ActualAffineEffectiveComparison318.lean
++++ contact-relative-site-descent-r81/ActualAffineEffectiveComparison318.lean
+@@ -132,6 +132,10 @@
+         (OriginalGeometricAffineLine318.line R S L σ hd ht).object (baseMap R S) ≫
+       (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
+         (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht).hom = τ := by
++  run_tac do
++    let out ← IO.getStderr
++    out.putStrLn "PICARD_SITE_BODY_00_ENTER_reconstructed_actual_overlap"
++    out.flush
+   exact original_overlap_of_object_eq (baseMap R S)
+     (OriginalGeometricAffineLine318.line R S L σ hd ht).object
+     (tilde (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht))
+@@ -143,6 +147,10 @@
+       (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht) L
+       (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht) τ
+       ((ReconstructedOverlapCompatibility318.named_original_overlap R S L σ hd ht).trans hσ))
++  run_tac do
++    let out ← IO.getStderr
++    out.putStrLn "PICARD_SITE_BODY_01_EXIT_reconstructed_actual_overlap"
++    out.flush
+ 
+ run_cmd Lean.Elab.Command.liftIO do
+   let out ← IO.getStderr
