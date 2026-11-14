@@ -1,0 +1,13 @@
+--- before/PELLevelThreeAlternatingPair318.lean
++++ after/PELLevelThreeAlternatingPair318.lean
+@@ -51,6 +51,9 @@
+   obtain ⟨b,rfl⟩ := coordinatesEquiv.surjective b
+   obtain ⟨c,rfl⟩ := moduloThree.mk'_surjective c
+   obtain ⟨c,rfl⟩ := coordinatesEquiv.surjective c
+-  rw [orderRosati_coordinates,← map_mul,← map_mul,← coordinates_mul,← coordinates_mul,
++  rw [orderRosati_coordinates,
++    ← map_mul moduloThree.mk' (coordinatesEquiv a) (coordinatesEquiv b),
++    ← map_mul moduloThree.mk' (coordinatesEquiv (involution a)) (coordinatesEquiv c),
++    ← coordinates_mul a b,← coordinates_mul (involution a) c,
+     original_pair,original_pair,integral_adjoint]
+ end PELLevelThreeAlternatingPair318

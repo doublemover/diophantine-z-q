@@ -1,0 +1,14 @@
+--- before/PELOriginalPolarizationMetric318.lean
++++ after/PELOriginalPolarizationMetric318.lean
+@@ -39,8 +39,9 @@
+ lemma squaredNorm_zero_iff (p:Prod ComplexVectors ℂ):squaredNorm τ hτ p=0↔p.2=0:=by
+   simp [squaredNorm,mul_eq_zero,(weight_positive τ hτ p.1).ne',sq_eq_zero_iff]
+ lemma squaredNorm_action (l:L τ hτ) (p:Prod ComplexVectors ℂ):
+-    squaredNorm τ hτ (action τ hτ l p)=squaredNorm τ hτ p:=by
+-  simp only [squaredNorm,action,norm_mul,mul_pow]
++    squaredNorm τ hτ (PELOriginalPolarizationAutomorphy318.action τ hτ l p)=
++      squaredNorm τ hτ p:=by
++  simp only [squaredNorm,PELOriginalPolarizationAutomorphy318.action,norm_mul,mul_pow]
+   calc
+     _=‖p.2‖^2*(‖factor τ hτ l p.1‖^2*weight τ hτ (p.1+l.val)):=by ring
+     _=_:=by rw [factor_metric]

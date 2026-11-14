@@ -1,0 +1,42 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r12/PELOriginalPolarizationMetric318.lean:40:63: warning: This simp argument is unused:
+  sq_eq_zero_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [squaredNorm, mul_eq_zero, (weight_positive τ hτ p.1).ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r12/PELOriginalPolarizationMetric318.lean:43:25: error: Ambiguous term
+  action
+Possible interpretations:
+  PELOriginalPolarizationAutomorphy318.action : (τ : ℂ) →
+    (hτ : 0 < τ.im) → ↥(L τ hτ) → ComplexVectors × ℂ → ComplexVectors × ℂ
+  
+  QuaternionicRealPeriod318.action : RealMatrices → ComplexVectors → ComplexVectors
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r12/PELOriginalPolarizationMetric318.lean:45:63: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+l : ↥(L τ hτ)
+p : ComplexVectors × ℂ
+⊢ ‖(PELOriginalPolarizationAutomorphy318.action τ hτ l p).2‖ ^ 2 *
+      weight τ hτ (PELOriginalPolarizationAutomorphy318.action τ hτ l p).1 =
+    ‖p.2‖ ^ 2 * ‖factor τ hτ l p.1‖ ^ 2 * weight τ hτ (p.1 + ↑l)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r12/PELOriginalPolarizationMetric318.lean:43:32: warning: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [squaredNorm, action, mul_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r12/PELOriginalPolarizationMetric318.lean:43:41: warning: This simp argument is unused:
+  mul_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [squaredNorm, action, norm_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

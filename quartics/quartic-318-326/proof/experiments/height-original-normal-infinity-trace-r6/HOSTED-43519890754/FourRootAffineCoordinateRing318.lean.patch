@@ -1,0 +1,13 @@
+--- before/FourRootAffineCoordinateRing318.lean
++++ after/FourRootAffineCoordinateRing318.lean
+@@ -37,7 +37,9 @@
+ @[simp] theorem lift_coordinate {S:Type*} [CommRing S] [Algebra ℂ S]
+     (t:S) (z:Fin 4→S) (hz) (k:Option (Fin 4)):
+     lift b t z hz (coordinate b k)=Option.elim k t z:=by
+-  simp [lift,coordinate,Ideal.Quotient.lift_mk]
++  change aeval (fun j : Option (Fin 4) => Option.elim j t z)
++    (X k : MvPolynomial (Option (Fin 4)) ℂ) = Option.elim k t z
++  exact MvPolynomial.aeval_X _ _
+ 
+ theorem hom_ext {S:Type*} [CommRing S] [Algebra ℂ S]
+     {f g:Ring b→ₐ[ℂ]S} (h:∀k,f (coordinate b k)=g (coordinate b k)):f=g:=by

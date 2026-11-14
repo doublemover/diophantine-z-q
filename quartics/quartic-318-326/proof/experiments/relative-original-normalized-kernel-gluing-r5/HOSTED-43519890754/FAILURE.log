@@ -1,0 +1,78 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r4/ContactRelativeWholeOpenSections318.lean:56:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (OriginalOpenPullbackSections318.sectionsEquiv (into R c) L.object)
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso (finiteEdge R c) (finiteInto R c) (into R c) ⋯).hom.app L.object) ⊤))
+      ((OriginalOpenPullbackSections318.sectionPull (finiteEdge R c)
+          ((Scheme.Modules.pullback (finiteInto R c)).obj L.object))
+        s))
+in the target expression
+  (ConcreteCategory.hom (L.object.presheaf.map (eqToIso ⋯).op.hom))
+      ((OriginalOpenPullbackSections318.sectionsEquiv (into R c) L.object)
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app (finiteComparison R c L).hom ⊤))
+          ((OriginalOpenPullbackSections318.sectionPull (finiteEdge R c) (finiteLine R c L).object) s))) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((finiteEquiv R c L) s)
+
+R : CommRingCat
+inst✝ : Algebra ℚ ↑R
+c : Fin 4 → ℚˣ
+L : Line (curve R c)
+s : ↑(finiteSections R c L)
+⊢ (ConcreteCategory.hom (L.object.presheaf.map (eqToIso ⋯).op.hom))
+      ((OriginalOpenPullbackSections318.sectionsEquiv (into R c) L.object)
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app (finiteComparison R c L).hom ⊤))
+          ((OriginalOpenPullbackSections318.sectionPull (finiteEdge R c) (finiteLine R c L).object) s))) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((finiteEquiv R c L) s)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    s
+  has type
+    ↑(finiteSections R c L)
+  but is expected to have type
+    ↑Γ((finiteLine R c L).object, ⊤)
+  in the application
+    (OriginalOpenPullbackSections318.sectionPull (finiteEdge R c) (finiteLine R c L).object) s
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    RelativeOriginalAffineChart318.into ↦ 48
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r4/ContactRelativeWholeOpenSections318.lean:70:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (OriginalOpenPullbackSections318.sectionsEquiv (into R c) L.object)
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso (infinityEdge R c) (infinityInto R c) (into R c) ⋯).hom.app L.object) ⊤))
+      ((OriginalOpenPullbackSections318.sectionPull (infinityEdge R c)
+          ((Scheme.Modules.pullback (infinityInto R c)).obj L.object))
+        s))
+in the target expression
+  (ConcreteCategory.hom (L.object.presheaf.map (eqToIso ⋯).op.hom))
+      ((OriginalOpenPullbackSections318.sectionsEquiv (into R c) L.object)
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app (infinityComparison R c L).hom ⊤))
+          ((OriginalOpenPullbackSections318.sectionPull (infinityEdge R c) (infinityLine R c L).object) s))) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((infinityEquiv R c L) s)
+
+R : CommRingCat
+inst✝ : Algebra ℚ ↑R
+c : Fin 4 → ℚˣ
+L : Line (curve R c)
+s : ↑(infinitySections R c L)
+⊢ (ConcreteCategory.hom (L.object.presheaf.map (eqToIso ⋯).op.hom))
+      ((OriginalOpenPullbackSections318.sectionsEquiv (into R c) L.object)
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app (infinityComparison R c L).hom ⊤))
+          ((OriginalOpenPullbackSections318.sectionPull (infinityEdge R c) (infinityLine R c L).object) s))) =
+    (ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) ((infinityEquiv R c L) s)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    s
+  has type
+    ↑(infinitySections R c L)
+  but is expected to have type
+    ↑Γ((infinityLine R c L).object, ⊤)
+  in the application
+    (OriginalOpenPullbackSections318.sectionPull (infinityEdge R c) (infinityLine R c L).object) s
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    RelativeOriginalAffineChart318.into ↦ 16

@@ -1,0 +1,1 @@
+This directory preserves the canonical preventive-source review snapshot before packet propagation. Its STATUS/SOURCE_VALIDATION statements describe that snapshot, not the now-modified successor. No hosted failure was observed for these two modules. Only canonical *.lean.patch files are included; obsolete drafts were excluded.
