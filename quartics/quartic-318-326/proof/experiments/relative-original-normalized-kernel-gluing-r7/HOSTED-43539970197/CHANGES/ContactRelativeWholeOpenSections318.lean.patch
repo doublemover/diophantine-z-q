@@ -1,0 +1,57 @@
+--- relative-original-normalized-kernel-gluing-r6/ContactRelativeWholeOpenSections318.lean
++++ relative-original-normalized-kernel-gluing-r7/ContactRelativeWholeOpenSections318.lean
+@@ -25,6 +25,29 @@
+   change M.presheaf.map _ (OriginalOpenPullbackSections318.sectionsEquiv k M _) = _
+   rw [OriginalOpenPullbackSections318.nested_path f g k h M s,
+     ← Functor.map_comp_apply] <;> rfl
++
++/-- Normalize the original native affine restriction and both pulled-back
++line carriers before substituting the original tensor-ring charts. -/
++private lemma identified_affine_sections {A B : CommRingCat.{u}}
++    (f : A ⟶ B) [IsOpenImmersion (Spec.map f)] {Z : Scheme.{u}}
++    (g : Spec A ⟶ Z) [IsOpenImmersion g]
++    (k : Spec B ⟶ Z) [IsOpenImmersion k] (h : Spec.map f ≫ g = k)
++    (L : Line Z) (W : Z.Opens) (hW : k ''ᵁ ⊤ = W) (hi : W ≤ g ''ᵁ ⊤)
++    (s : OriginalLineAffineModel318.sections A (LineSheafPullback318.line g L)) :
++    (L.object.presheaf.mapIso (eqToIso hW.symm).op).addCommGroupIsoToAddEquiv
++      (OriginalOpenPullbackSections318.sectionsEquiv k L.object
++        (OriginalAffineLinePathSections318.restriction f
++          (LineSheafPullback318.line g L) (LineSheafPullback318.line k L)
++          ((PullbackPathComposition318.iso (Spec.map f) g k h).app L.object) s)) =
++    L.object.presheaf.map (homOfLE hi).op
++      (OriginalOpenPullbackSections318.sectionsEquiv g L.object s) := by
++  exact identified_nested_sections (Spec.map f) g k h L.object W hW hi s
++    (OriginalAffineLinePathSections318.restriction f
++      (LineSheafPullback318.line g L) (LineSheafPullback318.line k L)
++      ((PullbackPathComposition318.iso (Spec.map f) g k h).app L.object) s)
++    (OriginalAffinePathWholeSections318.restriction_direct f
++      (LineSheafPullback318.line g L) (LineSheafPullback318.line k L)
++      ((PullbackPathComposition318.iso (Spec.map f) g k h).app L.object) s)
+ 
+ variable (R : CommRingCat.{0}) [Algebra ℚ R] (c : Fin 4 → ℚˣ) (L : Line (curve R c))
+ 
+@@ -66,18 +89,16 @@
+     overlapEquiv R c L (finiteRestriction R c L s) =
+       L.object.presheaf.map (homOfLE inf_le_left :
+         finiteOpen R c ⊓ infinityOpen R c ⟶ finiteOpen R c).op (finiteEquiv R c L s) := by
+-  exact identified_nested_sections (finiteEdge R c) (finiteInto R c) (into R c)
+-    (finiteEdge_into R c) L.object (finiteOpen R c ⊓ infinityOpen R c)
+-    (overlap_image R c) inf_le_left s (finiteRestriction R c L s)
+-    (OriginalAffinePathWholeSections318.restriction_direct _ _ _ _ s)
++  exact identified_affine_sections (finiteArrow R c) (finiteInto R c) (into R c)
++    (finiteEdge_into R c) L (finiteOpen R c ⊓ infinityOpen R c)
++    (overlap_image R c) inf_le_left s
+ 
+ lemma infinity_square (s : infinitySections R c L) :
+     overlapEquiv R c L (infinityRestriction R c L s) =
+       L.object.presheaf.map (homOfLE inf_le_right :
+         finiteOpen R c ⊓ infinityOpen R c ⟶ infinityOpen R c).op (infinityEquiv R c L s) := by
+-  exact identified_nested_sections (infinityEdge R c) (infinityInto R c) (into R c)
+-    (infinityEdge_into R c) L.object (finiteOpen R c ⊓ infinityOpen R c)
+-    (overlap_image R c) inf_le_right s (infinityRestriction R c L s)
+-    (OriginalAffinePathWholeSections318.restriction_direct _ _ _ _ s)
++  exact identified_affine_sections (infinityArrow R c) (infinityInto R c) (into R c)
++    (infinityEdge_into R c) L (finiteOpen R c ⊓ infinityOpen R c)
++    (overlap_image R c) inf_le_right s
+ 
+ end ContactRelativeWholeOpenSections318

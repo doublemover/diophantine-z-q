@@ -1,0 +1,81 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:29:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (lattice τ hτ).toAddSubgroup
+in the target expression
+  ↑(chart τ hτ b) q - ↑(chart τ hτ a) q ∈ lattice τ hτ
+
+τ : ℂ
+hτ : 0 < τ.im
+a b : ComplexVectors
+q : Base τ
+ha : q ∈ baseSet τ hτ a
+hb : q ∈ baseSet τ hτ b
+⊢ ↑(chart τ hτ b) q - ↑(chart τ hτ a) q ∈ lattice τ hτ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:39:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (q ∈ baseSet τ hτ a ∧ q ∈ baseSet τ hτ b)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:43:69: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+a b : ComplexVectors
+q : Base τ
+ha : q ∈ baseSet τ hτ a
+hb : q ∈ baseSet τ hτ b
+⊢ ↑(sorry ()) = ↑(chart τ hτ b) q - ↑(chart τ hτ a) q
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:44:8: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:44:14: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [shift, hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:44:17: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [shift, ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:48:2: error: unsolved goals
+case pos
+τ : ℂ
+hτ : 0 < τ.im
+a : ComplexVectors
+q : Base τ
+h : q ∈ baseSet τ hτ a
+⊢ sorry () = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:49:2: error: unsolved goals
+case neg
+τ : ℂ
+hτ : 0 < τ.im
+a : ComplexVectors
+q : Base τ
+h : q ∉ baseSet τ hτ a
+⊢ sorry () = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:48:10: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:48:16: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [shift]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:49:16: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [shift]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r14/PELOriginalPolarizationTransitions318.lean:67:31: error: Application type mismatch: The argument
+  EventuallyEq.symm he
+has type
+  (fun r => ↑(chart τ hτ b) r - ↑(chart τ hτ a) r) =ᶠ[𝓝 q] fun r => ↑(shift τ hτ a b r)
+but is expected to have type
+  (fun r => ↑(shift τ hτ a b r)) =ᶠ[𝓝 q] ↑(chart τ hτ b) - ↑(chart τ hτ a)
+in the application
+  ContinuousAt.congr_of_eventuallyEq
+    (ContinuousAt.sub (OpenPartialHomeomorph.continuousAt (chart τ hτ b) hb)
+      (OpenPartialHomeomorph.continuousAt (chart τ hτ a) ha))
+    (EventuallyEq.symm he)

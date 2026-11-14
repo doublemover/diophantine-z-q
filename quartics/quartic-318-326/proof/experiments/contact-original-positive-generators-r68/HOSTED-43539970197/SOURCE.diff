@@ -1,0 +1,36 @@
+--- ContactOriginalWholeRestriction318.lean.before
++++ ContactOriginalWholeRestriction318.lean
+@@ -78,19 +78,23 @@
+     overlapEquiv c L (finiteRestriction c L m) =
+       L.object.presheaf.map (homOfLE inf_le_left :
+         finiteOpen c ⊓ infinityOpen c ⟶ finiteOpen c).op (finiteSectionsEquiv c L m) := by
+-  rw [finite_direct]
+-  dsimp only [overlapEquiv, AddEquiv.trans_apply]
+-  rw [ContactWholeOpenSectionRestriction318.finite_square]
+-  exact image_restriction L.object _ _ _ (overlap_image c) _
+-    inf_le_left (finiteSectionsEquiv c L m)
++  have hs := congrArg
++    (fun s : Γ(L.object,(into c) ''ᵁ ⊤) =>
++      (L.object.presheaf.mapIso (eqToIso (overlap_image c).symm).op).addCommGroupIsoToAddEquiv s)
++    (ContactWholeOpenSectionRestriction318.finite_square c L m)
++  exact (congrArg (overlapEquiv c L) (finite_direct c L m)).trans
++    (hs.trans (image_restriction L.object _ _ _ (overlap_image c) _
++      inf_le_left (finiteSectionsEquiv c L m)))
+ 
+ lemma infinity_square (m : infinitySections c L) :
+     overlapEquiv c L (infinityRestriction c L m) =
+       L.object.presheaf.map (homOfLE inf_le_right :
+         finiteOpen c ⊓ infinityOpen c ⟶ infinityOpen c).op (infinitySectionsEquiv c L m) := by
+-  rw [infinity_direct]
+-  dsimp only [overlapEquiv, AddEquiv.trans_apply]
+-  rw [ContactWholeOpenSectionRestriction318.infinity_square]
+-  exact image_restriction L.object _ _ _ (overlap_image c) _
+-    inf_le_right (infinitySectionsEquiv c L m)
++  have hs := congrArg
++    (fun s : Γ(L.object,(into c) ''ᵁ ⊤) =>
++      (L.object.presheaf.mapIso (eqToIso (overlap_image c).symm).op).addCommGroupIsoToAddEquiv s)
++    (ContactWholeOpenSectionRestriction318.infinity_square c L m)
++  exact (congrArg (overlapEquiv c L) (infinity_direct c L m)).trans
++    (hs.trans (image_restriction L.object _ _ _ (overlap_image c) _
++      inf_le_right (infinitySectionsEquiv c L m)))
+ end ContactOriginalWholeRestriction318

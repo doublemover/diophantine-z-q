@@ -1,0 +1,14 @@
+--- before/PELPrimeOrderConjugation318.lean
++++ after/PELPrimeOrderConjugation318.lean
+@@ -52,8 +52,9 @@
+   map_mul' x y := by
+     obtain ⟨a,rfl⟩ := coordinatesEquiv.surjective x
+     obtain ⟨b,rfl⟩ := coordinatesEquiv.surjective y
+-    rw [← coordinates_mul]
+-    simp only [AddEquiv.symm_apply_apply,forward_product,coordinates_mul]
++    rw [← coordinates_mul a b]
++    simp only [AddEquiv.symm_apply_apply]
++    rw [forward_product i a b,coordinates_mul (forward i a) (forward i b)]
+ 
+ theorem orderEquiv_value (i : Fin 4) (x : order) :
+     (orderEquiv i x:B)=element i*(x:B)*reciprocal (element i) := by

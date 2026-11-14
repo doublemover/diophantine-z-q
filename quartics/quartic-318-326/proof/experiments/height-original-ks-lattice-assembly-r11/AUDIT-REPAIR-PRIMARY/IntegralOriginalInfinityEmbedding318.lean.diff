@@ -1,0 +1,28 @@
+--- height-original-ks-lattice-assembly-r5/IntegralOriginalInfinityEmbedding318.lean
++++ height-original-ks-lattice-assembly-r6/IntegralOriginalInfinityEmbedding318.lean
+@@ -3,6 +3,7 @@
+ public import IntegralWholeProjectiveProper318
+ public section
+ noncomputable section
++universe u
+ namespace IntegralOriginalInfinityEmbedding318
+ open Polynomial AlgebraicGeometry CategoryTheory
+ open IntegralWholeReciprocalOrders318 IntegralWholeReciprocalGluing318
+@@ -14,7 +15,7 @@
+ /-- Abstract the native localization proof before specializing its nested
+ original chart carriers. The resulting ring map is unchanged. -/
+ private theorem localization_equiv_open
+-    (P F A B : Type*) [CommRing P] [CommRing F] [CommRing A] [CommRing B]
++    (P F A B : Type u) [CommRing P] [CommRing F] [CommRing A] [CommRing B]
+     [Algebra P F] [Algebra P A] (x : P) [IsLocalization.Away x F]
+     (e : F ⊗[P] A ≃+* B) : IsOpenImmersion (Spec.map (CommRingCat.ofHom
+       (e.toRingHom.comp (Algebra.TensorProduct.includeRight : A →ₐ[P] F ⊗[P] A).toRingHom))) := by
+@@ -33,7 +34,7 @@
+   infer_instance
+ 
+ private theorem localization_equiv_range
+-    (P F A B : Type*) [CommRing P] [CommRing F] [CommRing A] [CommRing B]
++    (P F A B : Type u) [CommRing P] [CommRing F] [CommRing A] [CommRing B]
+     [Algebra P F] [Algebra P A] (x : P) [IsLocalization.Away x F]
+     (e : F ⊗[P] A ≃+* B)
+     [IsOpenImmersion (Spec.map (CommRingCat.ofHom

@@ -1,0 +1,45 @@
+# Independent source review: four Picard repairs, run 43539970197
+
+Status: no remaining source blocker found in the six changed sources. This is source/provenance review, not a Lean pass, recursive axiom audit or independent mathematical acceptance. No local Lean/Lake/compiler was executed. Resource and transparency options in every changed source remain unchanged. Performance resolution for the site, finite and gluing candidates is explicitly unverified.
+
+The companion INDEPENDENT-PICARD-SOURCE-BINDINGS.json binds exact before/after sources, own hosted RESULTs/logs and published predecessor intake identities at head 7a5f079f2a82fa6f21db0e060d9bca1af9956a0b. All own RESULT packet hashes were independently matched. Source sets are unchanged: two changed roots in site, one finite, one gluing, two five-kernel. Successor metadata/whole-closure propagation is a separate review.
+
+## Site r77: explicit original-object and comparison identity
+
+Reviewed final ActualAffineEffectiveComparison318 7b0221b6839791404b993827a09b596e2f475d2376b9d94c7878d138bcbfc31c and ReconstructedOverlapCompatibility318 5a2f365b611724ab71ed2e6edce3e3545ee3f99b06ca2d40aa99ed9e9b1a148d. Both new map_id references are correctly qualified CategoryTheory.Functor.map_id after review.
+
+The exact r76 failure is kernel excessive memory at original_overlap, 25.536 s, not a logical counterexample. Existing generic helpers had no diagnostic, but the module failed. The final proof previously silently coerced the reconstructed line object to tilde of its descended module. The revision instead exposes a proved equality at the producer boundary, before substituting the large actual-nerve diagonal/triple proofs.
+
+Producer line_object is precisely AffineCoalgebraLine.line_object for the same original coalgebra, original line and identity comparison. namedComparison is the SAME CanonicalTildeOverlap.coverComparison with original moduleIso. comparison_transport has the correct direction: pullback.mapIso of K.object=tilde(M), then namedComparison, equals the old comparison e. Its shallow generic proof uses native comparison_eq and functor identity. The rfl identifying eqToIso with Iso.refl still requires checking definitionally equal generic endpoints; it is not an assumed equality and does not change the actual line. named_original_overlap is the existing tensor overlap equation rewritten through that native comparison identity.
+
+The abstract object-equality lemma eliminates h:V=W before comparing isomorphisms. After cases h, the stated he reduces to d=e; its orientation correctly transfers the d-conjugation to e-conjugation. The final specialization supplies the exact old K/e, original descended module, transported original tau and existing tensor laws. No arbitrary isomorphic line, altered transition, selected point or smaller overlap replaces the target. Public original_overlap, comparison_commutes and effective statements remain unchanged. The original categorical double and both paths, arbitrary original rings and full original geometric hypotheses remain. This is a more explicit proof route; source review does not establish that its kernel memory use now fits.
+
+## Finite r63: exact constructed instances, no extra base premise
+
+Reviewed OriginalIntegralBaseReconstruction318 ecf876f3a72cad2a87328f2ebe277b96bc294168f700cd99fba31509b3e0375f. The exact failure says the fixed target of baseIntegral cannot determine Y/p, then base-integrality synthesis fails and the final proof times out at 900000 heartbeats. The previous ProjectiveBaseIntegral module passed 1.869 s; this wrapper failed 62.950 s.
+
+The revision makes baseIntegral a named theorem with explicit include p, retaining OriginalProjectiveBaseIntegral.integral p as its proof. It scopes that constructed proof in hfixed and scopes the identical original baseAlgebra/FiniteDimensional/IsGalois structures in the result and body. I compared the native OriginalCartesianCurveReconstruction.original_curve and OriginalSchemeDeckFieldAction.field_structure: the exact quotient p and kappa composite define the rational function-field action; finite/Galois proofs use the same original deck action, faithfulness and fixed-field hypothesis. No caller-supplied integral base, arbitrary algebra, separate Galois action or compatibility axiom is added.
+
+The result still supplies the same generic square and c/e/E with the same quotient, generic, sign and deck equations, full normal affine cover and branch law. Explicit result letI scopes and removal of unusable local instance registrations are intentional API/scope changes, not literal public type-text equality. Proof irrelevance identifies the identical constructed integral-base proofs. Existing downstream geometrical inputs and final native theorem application are unchanged. The prior final whnf timeout might persist independently; no budget adjustment or resolution claim is made.
+
+## Gluing r7: native affine carrier boundary
+
+Reviewed ContactRelativeWholeOpenSections318 42f276a06f0604fc2ed00c370a793e8ddaa051ab634b1155f4f2a2237b669ee6. The current exact log localizes kernel deterministic timeouts to finite_square and infinity_square, rather than the preceding replay's unlocated wall-clock timeout. The generic nested helper only has linter warnings; the module failed 112.366 s. OriginalAffinePathWholeSections passed 1.568 s.
+
+The intermediate identified_affine_sections statement retains native OriginalLineAffineModel sections, exact LineSheafPullback.line g L and line k L, and the literal PullbackPathComposition.iso.app L.object. Its proof combines the unchanged restriction_direct and existing identified_nested_sections before concrete tensor charts are substituted. The morphism f:A→B has contravariant Spec map Spec B→Spec A, matching the source/target carriers.
+
+I checked ContactOriginalRelativeLineOverlap and ContactOriginalRelativeOverlap: finiteArrow/infinityArrow are precisely the ring maps whose Spec maps define finiteEdge/infinityEdge; the exposed comparisons are precisely the same path iso.app on L.object. Thus specialization is the original affine restriction, not a new abstract map. The equality overlap_image and its symm/op mapIso direction, entire intersection, inf_le_left/right, all original coefficient rings including nonreduced tests, and every original full-open section remain. No basis, rationalization, smaller localization or new public hypothesis is introduced. Both public square statements and three equivalences are unchanged. Remaining concrete definitional conversion and kernel runtime still require hosted verification; an explicit equality is not mathematically missing from this source route.
+
+## Five-kernel r11: exact epsilon proof and genuinely generic cover
+
+Reviewed AffineHOnePointedDeformation318 393e9e182c8c1a54550959b98fd4dc855ad41e7075d7b28612c594c23b008b49 and OriginalHOnePointedSurjection318 7a9f9f8752a180e31fcdf93539be14848553a0e8b1819a12ff7f52a799f70e18. The predecessor ReducedCocycle passed 1.918 s; HOnePointedSurjection failed 2.720 s, first on the erased he epsilon-square-zero argument, then missing IsIntegral X in representative_class with cascading identifiers/arity.
+
+The change expression explicitly supplies the SAME thickening, epsilon and epsilon_square already present in originalCocycle and the goal. It changes no unit, sign, section or pullback. The original_forward rewrite sequence and all consumer statements/bodies remain otherwise unchanged.
+
+The sole producer edit is omit [IsIntegral X] in around thick_cover, retaining its proof verbatim. I read the exact baseline LinePullbackFrames.preimage_cover and TwoOpenAdditiveCocycle.cover: both are valid for arbitrary schemes and require only the original cover and inverse-image operation. The scoped omit therefore removes an unused theorem instance rather than restricting the general consumer or assuming integrality. representativeClass retains its original data construction and can infer only dependencies actually used after that cover theorem is generalized. Hosted elaboration must confirm the resulting inferred signatures. Later H1-dependent map_surjective deliberately retains its original IsIntegral X scope.
+
+All original pointed deformations, actual logarithm coefficient, lineIso, first projection, full Bool two-open cover, original representativeClass and H1 map are retained. No unpointed class, surrogate deformation, extra generic restriction or tangent/norm conclusion is substituted. The producer binder generalization requires fresh hosted declaration/axiom checking despite the historical producer pass.
+
+## Contracts and remaining limits
+
+All four draft nine-obligation contracts distinguish required inputs, constructed original objects and connecting maps. They retain false kernel/independent acceptance flags and explicit hosted risks. One minor site prose count ('two producer APIs') was sent for count-free correction; it has no source impact. This report is bound to source hashes rather than mutable APPLICATION metadata. Neither source inspection nor these reports upgrade any packet's mathematical status.
