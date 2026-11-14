@@ -1,0 +1,2 @@
+# Bounded inherited cast repair
+Hosted round 319 rejected the aggregate `exact_mod_cast hb` at UniformScaledPoleDomain318 line 77: its inferred conjunction stayed over the reals while the goal was rational. The successor uses four explicit applications of `Rat.cast_lt` and normalizes only rational casts. This is the same method already present in UniformPoleDomain318. No theorem statement, hypothesis, parameter, or resource cap changes. This is a source-level proposed repair; hosted kernel verification remains pending. Frozen predecessors are unchanged.

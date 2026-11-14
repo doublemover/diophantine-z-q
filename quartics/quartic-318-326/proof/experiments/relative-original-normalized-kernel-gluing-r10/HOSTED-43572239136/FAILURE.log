@@ -1,0 +1,143 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:16:0: warning: Definition `OriginalCoefficientTensor318.coefficientAlgebra` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:21:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:30:0: warning: Definition `OriginalCoefficientTensor318.chartAlgebra` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:56:13: error: unsolved goals
+case tmul
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+this✝¹ : Algebra ↑R ↑S := coefficientAlgebra k R S f
+this✝ : IsScalarTower ↑k ↑R ↑S := coefficientTower k R S f
+this : Algebra ↑(oldRing k R B) ↑(newRing k S B) := chartAlgebra k R S B f
+r : ↑R
+b : ↑B
+⊢ (algebraMap ↑R ↑S) r ⊗ₜ[↑k] b = (ConcreteCategory.hom (RelativeCoefficientChange318.ringMap k R S B f)) (r ⊗ₜ[↑k] b)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:57:28: warning: This simp argument is unused:
+  RelativeCoefficientChange318.ringMap_tmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ringEquivalence, Algebra.smul_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:99:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(ringEquivalence k R S B f) (?c • ?x)
+in the target expression
+  (ringEquivalence k R S B f) (s • t) ⊗ₜ[↑(oldRing k R B)] n = s • (ringEquivalence k R S B f) t ⊗ₜ[↑(oldRing k R B)] n
+
+case tmul
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+N : ModuleCat ↑(oldRing k R B)
+this✝¹ : Algebra ↑R ↑S := coefficientAlgebra k R S f
+this✝ : IsScalarTower ↑k ↑R ↑S := coefficientTower k R S f
+this : Algebra ↑(oldRing k R B) ↑(newRing k S B) := chartAlgebra k R S B f
+e : ↑(pushout k R S B f) ⊗[↑(oldRing k R B)] ↑N ≃ₗ[↑(oldRing k R B)] ↑(newRing k S B) ⊗[↑(oldRing k R B)] ↑N :=
+  TensorProduct.congr (rightEquivalence k R S B f) (LinearEquiv.refl ↑(oldRing k R B) ↑N)
+s : ↑S
+t : ↑(pushout k R S B f)
+n : ↑N
+⊢ (ringEquivalence k R S B f) (s • t) ⊗ₜ[↑(oldRing k R B)] n = s • (ringEquivalence k R S B f) t ⊗ₜ[↑(oldRing k R B)] n
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:100:18: error: unsolved goals
+case add
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+N : ModuleCat ↑(oldRing k R B)
+this✝¹ : Algebra ↑R ↑S := coefficientAlgebra k R S f
+this✝ : IsScalarTower ↑k ↑R ↑S := coefficientTower k R S f
+this : Algebra ↑(oldRing k R B) ↑(newRing k S B) := chartAlgebra k R S B f
+e : ↑(pushout k R S B f) ⊗[↑(oldRing k R B)] ↑N ≃ₗ[↑(oldRing k R B)] ↑(newRing k S B) ⊗[↑(oldRing k R B)] ↑N :=
+  TensorProduct.congr (rightEquivalence k R S B f) (LinearEquiv.refl ↑(oldRing k R B) ↑N)
+s : ↑S
+x y : ↑(pushout k R S B f) ⊗[↑(oldRing k R B)] ↑N
+hx : e (s • x) = s • e x
+hy : e (s • y) = s • e y
+⊢ s • e x + s • e y = s • (e x + e y)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:124:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:125:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:126:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:162:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:163:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean:164:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

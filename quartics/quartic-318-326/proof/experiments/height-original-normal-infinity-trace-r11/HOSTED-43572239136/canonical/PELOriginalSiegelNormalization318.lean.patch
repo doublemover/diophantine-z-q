@@ -1,0 +1,30 @@
+--- PELOriginalSiegelNormalization318.lean.before
++++ PELOriginalSiegelNormalization318.lean
+@@ -9,7 +9,7 @@
+ open PELPeriodRiemannForm318 PELOriginalPolarizationAutomorphy318
+ open PELOriginalHermitianForm318 PELOriginalPolarizationSemicharacter318
+ variable (τ:ℂ) (hτ:0<τ.im)
+-lemma parameter_ne:τ≠0:=by intro h;simpa [h] using hτ
++lemma parameter_ne (hτ:0<τ.im):τ≠0:=by intro h;simpa [h] using hτ
+ lemma beta_complex_ne:(beta:ℂ)≠0:=by exact_mod_cast beta_pos.ne'
+ lemma beta_complex_sq:(beta:ℂ)^2=5:=by exact_mod_cast beta_sq
+ 
+@@ -19,15 +19,15 @@
+   ![z 1-(1-(beta:ℂ))/2*((z 0/τ-z 1)/(beta:ℂ)),(z 0/τ-z 1)/(beta:ℂ)]
+ @[expose] def denormalize (z:ComplexVectors):ComplexVectors:=
+   ![τ*(z 0+(1+(beta:ℂ))/2*z 1),z 0+(1-(beta:ℂ))/2*z 1]
+-lemma denormalize_normalize (z:ComplexVectors):denormalize τ (normalize τ z)=z:=by
++lemma denormalize_normalize (hτ:0<τ.im) (z:ComplexVectors):denormalize τ (normalize τ z)=z:=by
+   ext i
+   fin_cases i <;> simp [normalize,denormalize] <;>
+     field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
+-lemma normalize_denormalize (z:ComplexVectors):normalize τ (denormalize τ z)=z:=by
++lemma normalize_denormalize (hτ:0<τ.im) (z:ComplexVectors):normalize τ (denormalize τ z)=z:=by
+   ext i
+   fin_cases i <;> simp [normalize,denormalize] <;>
+     field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
+-@[expose] def normalization:ComplexVectors≃ₗ[ℂ]ComplexVectors where
++@[expose] def normalization (hτ:0<τ.im):ComplexVectors≃ₗ[ℂ]ComplexVectors where
+   toFun:=normalize τ
+   invFun:=denormalize τ
+   left_inv:=denormalize_normalize τ hτ

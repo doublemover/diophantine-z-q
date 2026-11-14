@@ -1,0 +1,129 @@
+--- contact-relative-site-descent-r79/ActualAffineEffectiveComparison318.lean
++++ contact-relative-site-descent-r80/ActualAffineEffectiveComparison318.lean
+@@ -1,6 +1,7 @@
+ module
+ public import ActualCanonicalOverlap318
+ public section
++set_option stderrAsMessages false
+ noncomputable section
+ namespace ActualAffineEffectiveComparison318
+ open AlgebraicGeometry CategoryTheory LineSheafClass318
+@@ -9,7 +10,10 @@
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
+ universe u
+-#check ("PICARD_SITE_FRONTIER_00_POSITIVE_CONTROL_BEFORE_HELPERS" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_00_POSITIVE_CONTROL_BEFORE_HELPERS"
++  out.flush
+ 
+ /-- Cancel a displayed conjugation before specializing the category to the
+ actual nerve, so hidden limit-carrier projections are not simp patterns. -/
+@@ -29,7 +33,10 @@
+     _ = P.map e.hom ≫ b := by
+       rw [Category.assoc, h]
+ 
+-#check ("PICARD_SITE_FRONTIER_01_AFTER_conjugation_commutes" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_01_AFTER_conjugation_commutes"
++  out.flush
+ 
+ /-- Reflect conjugation on abstract scheme carriers before substituting the
+ actual categorical double. Both normalized endpoint paths are retained. -/
+@@ -50,7 +57,10 @@
+     ((congrArg (fun k => (Scheme.Modules.pullback v₀).map e.inv ≫ k ≫
+       (Scheme.Modules.pullback v₁).map e.hom) ha).trans h)
+ 
+-#check ("PICARD_SITE_FRONTIER_02_AFTER_reflect_conjugation" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_02_AFTER_reflect_conjugation"
++  out.flush
+ 
+ /-- Check the genuine affine-nerve specialization while its base module and
+ cover comparison remain abstract, before substituting the reconstructed coalgebra. -/
+@@ -72,7 +82,10 @@
+     (inverse_first R S) (inverse_second R S) _ _ τ
+     (ActualCanonicalOverlap318.transport R S M) h
+ 
+-#check ("PICARD_SITE_FRONTIER_03_AFTER_affine_original_overlap" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_03_AFTER_affine_original_overlap"
++  out.flush
+ 
+ /-- Transfer canonical compatibility across an explicit base-sheaf equality.
+ All dependent comparison transport is checked on abstract sheaf carriers. -/
+@@ -97,7 +110,10 @@
+       CategoryTheory.Functor.map_id, Category.id_comp] using hh
+   simpa only [← hde] using hd
+ 
+-#check ("PICARD_SITE_FRONTIER_04_AFTER_original_overlap_of_object_eq" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_04_AFTER_original_overlap_of_object_eq"
++  out.flush
+ 
+ /-- Check the exact reconstructed line and its original comparison while the
+ input tensor overlap and both tensor laws are still independent parameters.
+@@ -128,7 +144,10 @@
+       (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht) τ
+       ((ReconstructedOverlapCompatibility318.named_original_overlap R S L σ hd ht).trans hσ))
+ 
+-#check ("PICARD_SITE_FRONTIER_05_AFTER_reconstructed_actual_overlap" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_05_AFTER_reconstructed_actual_overlap"
++  out.flush
+ 
+ variable (R S : CommRingCat.{u}) [Algebra R S] [Module.FaithfullyFlat R S]
+   (L : Line (Spec S))
+@@ -140,7 +159,10 @@
+     (Scheme.Modules.pullback (baseMap R S)).obj (line R S L τ hdiag htriple).object ≅ L.object :=
+   ActualAffineLineReconstruction318.pullbackIso R S L τ hdiag htriple
+ 
+-#check ("PICARD_SITE_FRONTIER_06_AFTER_line_comparison_abbreviations" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_06_AFTER_line_comparison_abbreviations"
++  out.flush
+ 
+ /-- The exact reconstruction comparison carries the canonical overlap on
+ the genuine categorical double to the unchanged original input overlap.
+@@ -155,7 +177,10 @@
+     (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+     (ActualAffineTensorLaws318.triple R S L τ htriple) τ rfl
+ 
+-#check ("PICARD_SITE_FRONTIER_07_AFTER_original_overlap" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_07_AFTER_original_overlap"
++  out.flush
+ 
+ /-- The actual displayed isomorphism is compatible with the original
+ geometric descent datum on the actual categorical fiber product. -/
+@@ -171,7 +196,10 @@
+     (comparison R S L τ hdiag htriple) _ τ
+     (original_overlap R S L τ hdiag htriple)
+ 
+-#check ("PICARD_SITE_FRONTIER_08_AFTER_comparison_commutes" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_08_AFTER_comparison_commutes"
++  out.flush
+ 
+ /-- Effective descent with its exact original geometric compatibility
+ square, for a faithfully flat morphism of affine schemes. The diagonal
+@@ -185,6 +213,9 @@
+     (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map e.hom ≫ τ :=
+   ⟨line R S L τ hdiag htriple, comparison R S L τ hdiag htriple,
+     comparison_commutes R S L τ hdiag htriple⟩
+-#check ("PICARD_SITE_FRONTIER_09_AFTER_effective" : String)
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_FRONTIER_09_AFTER_effective"
++  out.flush
+ 
+ end ActualAffineEffectiveComparison318

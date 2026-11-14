@@ -1,0 +1,47 @@
+--- PELQuaternionNormParity318.lean.before
++++ PELQuaternionNormParity318.lean
+@@ -13,7 +13,8 @@
+ 
+ theorem prime_injective : Function.Injective prime := by
+   intro i j h
+-  fin_cases i <;> fin_cases j <;> norm_num [prime] at h ⊢
++  fin_cases i <;> fin_cases j
++  all_goals norm_num [prime] at h ⊢
+ 
+ theorem norm_mul (x y : B) : reducedNorm (x*y)=reducedNorm x*reducedNorm y := by
+   simp [reducedNorm] <;> ring
+@@ -62,7 +63,8 @@
+   ext j
+   change (padicValRat (prime j) (reducedNorm (algebraMap ℚ B (q:ℚ))):ZMod 2)=0
+   rw [norm_scalar,padicValRat.pow]
+-  push_cast <;> norm_num
++  push_cast
++  rw [show (2:ZMod 2)=0 from ZMod.natCast_self 2,zero_mul]
+ 
+ @[expose] def integralUnit (u : PELPrincipalOrderCoordinates318.orderˣ) : Bˣ :=
+   Units.map PELPrincipalOrderCoordinates318.order.subtype.toMonoidHom u
+@@ -81,11 +83,21 @@
+ theorem parity_word (v : InertiaLabels318.V) :
+     parity (PELInertiaPrimeWord318.word v)=v := by
+   have bit (z : ZMod 2) : (if z=0 then (0:ZMod 2) else 1)=z := by
+-    fin_cases z <;> decide
++    classical
++    by_cases hz : z=0
++    · simp only [hz,ite_true]
++    · have hv : z.val=1 := by
++        have hlt:=ZMod.val_lt z
++        have hne : z.val≠0 := fun h => hz ((ZMod.val_eq_zero z).mp h)
++        omega
++      have he : z=1 := (ZMod.val_injective 2) (by
++        simpa only [ZMod.val_one_eq_one_mod] using hv)
++      simp only [hz,ite_false,he]
++  unfold PELInertiaPrimeWord318.word
++  simp only [parity_mul]
+   ext j
+   fin_cases j <;>
+-    simp [PELInertiaPrimeWord318.word,parity_mul,apply_ite,
+-      parity_one,parity_prime,bit]
++    simp [apply_ite,parity_one,parity_prime,bit]
+ 
+ theorem parity_surjective : Function.Surjective parityHom := by
+   intro v

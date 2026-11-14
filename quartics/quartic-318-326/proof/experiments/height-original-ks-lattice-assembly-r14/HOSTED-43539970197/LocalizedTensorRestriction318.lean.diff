@@ -1,0 +1,24 @@
+--- LocalizedTensorRestriction318.lean.before
++++ LocalizedTensorRestriction318.lean
+@@ -28,12 +28,16 @@
+   exact (Algebra.TensorProduct.lift (baseMap x f h) (rightMap f)
+     (fun _ _ => Commute.all _ _)).toRingHom
+ 
+-@[simp] theorem lift_right (b : B) : lift x f h (1 ⊗ₜ[A] b)=f b := by
++@[simp] theorem lift_right (b : B) : lift (L := L) x f h ((1 : L) ⊗ₜ[A] b)=f b := by
+   letI : Algebra A T := targetAlgebra (A := A) f
+-  simp only [lift,Algebra.TensorProduct.lift_tmul,map_one,one_mul] <;> rfl
++  change (Algebra.TensorProduct.lift (baseMap x f h) (rightMap f)
++    (fun _ _ => Commute.all _ _)) ((1 : L) ⊗ₜ[A] b) = f b
++  simp only [Algebra.TensorProduct.lift_tmul, map_one, one_mul] <;> rfl
+ @[simp] theorem lift_left (a : A) :
+-    lift x f h ((algebraMap A L a) ⊗ₜ[A] (1:B))=f (algebraMap A B a) := by
++    lift (L := L) x f h ((algebraMap A L a) ⊗ₜ[A] (1:B))=f (algebraMap A B a) := by
+   letI : Algebra A T := targetAlgebra (A := A) f
+-  simp only [lift,Algebra.TensorProduct.lift_tmul,map_one,mul_one]
+-  exact IsLocalization.Away.lift_eq (g := f.comp (algebraMap A B)) (hg := h) x a
++  change (Algebra.TensorProduct.lift (baseMap x f h) (rightMap f)
++    (fun _ _ => Commute.all _ _)) ((algebraMap A L a) ⊗ₜ[A] (1 : B)) = _
++  simp only [Algebra.TensorProduct.lift_tmul, map_one, mul_one]
++  exact (baseMap (L := L) x f h).commutes a
+ end LocalizedTensorRestriction318
