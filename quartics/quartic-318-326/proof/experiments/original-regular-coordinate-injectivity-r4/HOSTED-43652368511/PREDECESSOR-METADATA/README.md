@@ -1,0 +1,9 @@
+# original-regular-coordinate-injectivity-r3
+
+Source-only successor to original-regular-coordinate-injectivity-r2, based on actual hosted run 43611323966 at 2428de0d42f12dc71e2bc6f19495025a5912d41c. Own first failed module: PELPrimeLatticeResidues318 (5.128 seconds). Original full 489-root order preserved; 1 changed copies, 488 unchanged.
+
+Changes: PELPrimeLatticeResidues318. Residue proof normalizes dependent prime carriers and negative coefficients while retaining the full original map and symbolic inputs. Stabilizers separates three product extensionality subgoals. Convergence explicitly presents the native summand and corrects doc/include ordering. Where present, six immediate theta consumers receive 21 explicit existing positivity binders; weighted Gaussian goals are eta-exposed and doc ordering remains valid. These are disclosed public telescope changes, not unconditional results. The six consumer modules were not reached and are preventive source candidates.
+
+All predecessor metadata and history are preserved verbatim under dated evidence; current application is separate. Exact own results/intake match. Signs remains unchanged and previously passed in this run. Every other source, import, resource option and baseline closure remains exact. No local Lean, declaration audit or native evaluator ran. Source/propagation review is not kernel acceptance. Later theta binder scope is explicitly deferred. No complete packet, arithmetic theorem, original scheme algebraization, rational descent or four-invariant result is claimed.
+
+All five new evaluator/injectivity producer files remain byte-identical and were not reached before the residue failure.

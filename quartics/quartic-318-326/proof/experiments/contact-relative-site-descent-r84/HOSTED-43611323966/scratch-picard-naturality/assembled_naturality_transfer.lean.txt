@@ -1,0 +1,297 @@
+module
+public import ActualCanonicalOverlap318
+public section
+set_option stderrAsMessages false
+noncomputable section
+namespace ActualAffineEffectiveComparison318
+open AlgebraicGeometry CategoryTheory LineSheafClass318
+open ActualAffineDoubleNerve318
+set_option maxHeartbeats 1400000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe u
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_SITE_FRONTIER_00_POSITIVE_CONTROL_BEFORE_HELPERS"
+  out.flush
+
+/-- Cancel a displayed conjugation before specializing the category to the
+actual nerve, so hidden limit-carrier projections are not simp patterns. -/
+private lemma conjugation_commutes {C D : Type*} [Category C] [Category D]
+    (P Q : C ⥤ D) {M N : C} (e : M ≅ N)
+    (a : P.obj M ⟶ Q.obj M) (b : P.obj N ⟶ Q.obj N)
+    (h : P.map e.inv ≫ a ≫ Q.map e.hom = b) :
+    a ≫ Q.map e.hom = P.map e.hom ≫ b := by
+  have hc : P.map e.hom ≫ P.map e.inv = 𝟙 _ := by
+    calc
+      _ = P.map (e.hom ≫ e.inv) := (P.map_comp _ _).symm
+      _ = P.map (𝟙 _) := congrArg (fun k => P.map k) e.hom_inv_id
+      _ = 𝟙 _ := P.map_id _
+  calc
+    a ≫ Q.map e.hom = (P.map e.hom ≫ P.map e.inv) ≫ a ≫ Q.map e.hom := by
+      rw [hc, Category.id_comp]
+    _ = P.map e.hom ≫ b := by
+      rw [Category.assoc, h]
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_SITE_FRONTIER_01_AFTER_conjugation_commutes"
+  out.flush
+
+/-- Reflect conjugation on abstract scheme carriers before substituting the
+actual categorical double. Both normalized endpoint paths are retained. -/
+private lemma reflect_conjugation {U X Y : Scheme.{u}} {M N : U.Modules}
+    (d : Y ≅ X) (e : M ≅ N) (p₀ p₁ : X ⟶ U) (v₀ v₁ : Y ⟶ U)
+    (h₀ : d.hom ≫ p₀ = v₀) (h₁ : d.hom ≫ p₁ = v₁)
+    (a : (Scheme.Modules.pullback p₀).obj M ⟶ (Scheme.Modules.pullback p₁).obj M)
+    (a' : (Scheme.Modules.pullback v₀).obj M ⟶ (Scheme.Modules.pullback v₁).obj M)
+    (b : (Scheme.Modules.pullback p₀).obj N ⟶ (Scheme.Modules.pullback p₁).obj N)
+    (ha : SheafPathTransport318.transport M d.hom p₀ p₁ v₀ v₁ h₀ h₁ a = a')
+    (h : (Scheme.Modules.pullback v₀).map e.inv ≫ a' ≫
+      (Scheme.Modules.pullback v₁).map e.hom =
+        SheafPathTransport318.transport N d.hom p₀ p₁ v₀ v₁ h₀ h₁ b) :
+    (Scheme.Modules.pullback p₀).map e.inv ≫ a ≫
+      (Scheme.Modules.pullback p₁).map e.hom = b := by
+  apply SheafIsoTransport318.transport_injective N d p₀ p₁ v₀ v₁ h₀ h₁
+  exact (SheafIsoTransport318.conjugation e d.hom p₀ p₁ v₀ v₁ h₀ h₁ a).trans
+    ((congrArg (fun k => (Scheme.Modules.pullback v₀).map e.inv ≫ k ≫
+      (Scheme.Modules.pullback v₁).map e.hom) ha).trans h)
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_SITE_FRONTIER_02_AFTER_reflect_conjugation"
+  out.flush
+
+/-- Check the genuine affine-nerve specialization while its base module and
+cover comparison remain abstract, before substituting the reconstructed coalgebra. -/
+private lemma affine_original_overlap (R S : CommRingCat.{u}) [Algebra R S]
+    (M : ModuleCat R) (L : Line (Spec S))
+    (e : (Scheme.Modules.pullback (baseMap R S)).obj (tilde M) ≅ L.object)
+    (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
+    (h : (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.leftMap R S S))).map e.inv ≫
+      CanonicalTildeOverlap318.sheafOverlap R S M ≫
+      (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.rightMap R S S))).map e.hom =
+        ActualAffineTensorTransport318.overlap R S L τ) :
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map e.inv ≫
+      CanonicalSheafOverlap318.actual (tilde M) (baseMap R S) ≫
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map e.hom = τ := by
+  exact reflect_conjugation (doubleIso R S).symm e
+    (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+    (Spec.map (AffineModuleBaseChange318.leftMap R S S))
+    (Spec.map (AffineModuleBaseChange318.rightMap R S S))
+    (inverse_first R S) (inverse_second R S) _ _ τ
+    (ActualCanonicalOverlap318.transport R S M) h
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_SITE_FRONTIER_03_AFTER_affine_original_overlap"
+  out.flush
+
+/-- Transfer canonical compatibility across an explicit base-sheaf equality.
+All dependent comparison transport is checked on abstract sheaf carriers. -/
+private lemma original_overlap_of_object_eq {B U : Scheme.{u}} (f : U ⟶ B)
+    (V W : B.Modules) (h : V = W) (N : U.Modules)
+    (e : (Scheme.Modules.pullback f).obj V ≅ N)
+    (d : (Scheme.Modules.pullback f).obj W ≅ N)
+    (he : (Scheme.Modules.pullback f).mapIso (eqToIso h) ≪≫ d = e)
+    (τ : (Scheme.Modules.pullback (ActualOverlapDiagram318.first f)).obj N ⟶
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second f)).obj N)
+    (hd : (Scheme.Modules.pullback (ActualOverlapDiagram318.first f)).map d.inv ≫
+      CanonicalSheafOverlap318.actual W f ≫
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second f)).map d.hom = τ) :
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first f)).map e.inv ≫
+      CanonicalSheafOverlap318.actual V f ≫
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second f)).map e.hom = τ := by
+  cases h
+  have hde : d = e := by
+    apply Iso.ext
+    have hh := congrArg (fun i => i.hom) he
+    simpa only [Iso.trans_hom, Functor.mapIso_hom, eqToIso_refl, Iso.refl_hom,
+      CategoryTheory.Functor.map_id, Category.id_comp] using hh
+  simpa only [← hde] using hd
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_SITE_FRONTIER_04_AFTER_original_overlap_of_object_eq"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_SITE_PROFILER_CONTROL_BEGIN"
+  out.flush
+  let opts := (({} : Lean.Options).setBool `profiler true).set `profiler.threshold (0 : Nat)
+  Lean.profileitIO (ε := IO.Error) "PICARD_SITE_PROFILER_CONTROL" opts (pure ())
+  out.flush
+  out.putStrLn "PICARD_SITE_PROFILER_CONTROL_END"
+  out.flush
+
+
+/-- Scratch-only naturality of the SAME two path-isomorphism components. -/
+private lemma canonical_actual_naturality {B U : Scheme.{u}} (f : U ⟶ B)
+    {V W : B.Modules} (c : V ⟶ W) :
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first f)).map
+        ((Scheme.Modules.pullback f).map c) ≫ CanonicalSheafOverlap318.actual W f =
+      CanonicalSheafOverlap318.actual V f ≫
+        (Scheme.Modules.pullback (ActualOverlapDiagram318.second f)).map
+          ((Scheme.Modules.pullback f).map c) := by
+  have h₀ := (PullbackPathComposition318.iso (ActualOverlapDiagram318.first f)
+    f (ActualOverlapDiagram318.first f ≫ f) rfl).hom.naturality c
+  have h₁ := (PullbackPathComposition318.iso (ActualOverlapDiagram318.second f)
+    f (ActualOverlapDiagram318.first f ≫ f)
+    (ActualOverlapDiagram318.edge_condition f).symm).inv.naturality c
+  simp only [Functor.comp_map] at h₀ h₁
+  unfold CanonicalSheafOverlap318.actual CanonicalSheafOverlap318.overlap
+  rw [← Category.assoc,h₀,Category.assoc,h₁,← Category.assoc]
+
+/-- Scratch-only transport by an actual base isomorphism and naturality.
+No dependent object-equality eliminator or carrier substitution is used. -/
+private lemma conjugation_of_base_iso_naturality
+    {C U D : Type*} [Category C] [Category U] [Category D]
+    (F : C ⥤ U) (P Q : U ⥤ D) {V W : C} {N : U}
+    (c : V ≅ W) (e : F.obj V ≅ N) (d : F.obj W ≅ N)
+    (he : F.mapIso c ≪≫ d = e)
+    (a : P.obj (F.obj V) ⟶ Q.obj (F.obj V))
+    (b : P.obj (F.obj W) ⟶ Q.obj (F.obj W))
+    (τ : P.obj N ⟶ Q.obj N)
+    (hn : P.map (F.map c.hom) ≫ b = a ≫ Q.map (F.map c.hom))
+    (hd : P.map d.inv ≫ b ≫ Q.map d.hom = τ) :
+    P.map e.inv ≫ a ≫ Q.map e.hom = τ := by
+  let k := F.mapIso c
+  have hk : P.map k.inv ≫ P.map k.hom = 𝟙 _ := by
+    calc
+      _ = P.map (k.inv ≫ k.hom) := (P.map_comp _ _).symm
+      _ = P.map (𝟙 _) := congrArg (fun t => P.map t) k.inv_hom_id
+      _ = 𝟙 _ := P.map_id _
+  have hc : P.map k.inv ≫ a ≫ Q.map k.hom = b := by
+    calc
+      _ = P.map k.inv ≫ (a ≫ Q.map k.hom) := Category.assoc _ _ _
+      _ = P.map k.inv ≫ (P.map k.hom ≫ b) :=
+        congrArg (fun t => P.map k.inv ≫ t) hn.symm
+      _ = (P.map k.inv ≫ P.map k.hom) ≫ b := (Category.assoc _ _ _).symm
+      _ = b := by rw [hk,Category.id_comp]
+  have hcomp :
+      P.map (d.inv ≫ k.inv) ≫ a ≫ Q.map (k.hom ≫ d.hom) =
+        P.map d.inv ≫ (P.map k.inv ≫ a ≫ Q.map k.hom) ≫ Q.map d.hom := by
+    simp only [Functor.map_comp,Category.assoc]
+  rw [← he]
+  change P.map (d.inv ≫ k.inv) ≫ a ≫ Q.map (k.hom ≫ d.hom) = τ
+  rw [hcomp,hc]
+  exact hd
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_NATURALITY_AFTER_GENERIC_LEMMAS_COMMAND_END"
+  out.flush
+set_option profiler true in
+set_option profiler.threshold 1 in
+/-- Check the exact reconstructed line and its original comparison while the
+input tensor overlap and both tensor laws are still independent parameters.
+The actual-nerve transport is connected by the displayed equality, not by
+substituting its derived diagonal and triple proof terms into this proof. -/
+private lemma reconstructed_native_actual_overlap_fragment (R S : CommRingCat.{u}) [Algebra R S]
+    [Module.FaithfullyFlat R S] (L : Line (Spec S))
+    (σ : OriginalLineOverlapCoaction318.first R S L ⟶ OriginalLineOverlapCoaction318.second R S L)
+    (hd : OriginalGeometricDiagonal318.Diagonal R S L σ)
+    (ht : OriginalGeometricTriple318.Cocycle R S L σ)
+    (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
+    (hσ : σ = ActualAffineTensorTransport318.overlap R S L τ) :
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map
+        (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht).inv ≫
+      CanonicalSheafOverlap318.actual
+        (tilde (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht)) (baseMap R S) ≫
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
+        (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht).hom = τ := by
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "PICARD_FRAGMENT_A_BODY_ENTER"
+    out.flush
+  exact affine_original_overlap R S
+      (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht) L
+      (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht) τ
+      ((ReconstructedOverlapCompatibility318.named_original_overlap R S L σ hd ht).trans hσ)
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "PICARD_FRAGMENT_A_BODY_EXIT"
+    out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_NATURALITY_AFTER_NATIVE_A_COMMAND_END"
+  out.flush
+set_option profiler true in
+set_option profiler.threshold 1 in
+/-- Check the exact reconstructed line and its original comparison while the
+input tensor overlap and both tensor laws are still independent parameters.
+The actual-nerve transport is connected by the displayed equality, not by
+substituting its derived diagonal and triple proof terms into this proof. -/
+private lemma reconstructed_canonical_overlap_naturality (R S : CommRingCat.{u}) [Algebra R S]
+    [Module.FaithfullyFlat R S] (L : Line (Spec S))
+    (σ : OriginalLineOverlapCoaction318.first R S L ⟶ OriginalLineOverlapCoaction318.second R S L)
+    (hd : OriginalGeometricDiagonal318.Diagonal R S L σ)
+    (ht : OriginalGeometricTriple318.Cocycle R S L σ)
+    (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
+    (hσ : σ = ActualAffineTensorTransport318.overlap R S L τ) :
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map ((Scheme.Modules.pullback (baseMap R S)).map (eqToIso (ReconstructedOverlapCompatibility318.line_object R S L σ hd ht)).hom) ≫
+      (CanonicalSheafOverlap318.actual (tilde (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht)) (baseMap R S)) =
+      (CanonicalSheafOverlap318.actual (OriginalGeometricAffineLine318.line R S L σ hd ht).object (baseMap R S)) ≫ (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map ((Scheme.Modules.pullback (baseMap R S)).map (eqToIso (ReconstructedOverlapCompatibility318.line_object R S L σ hd ht)).hom) := by
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "PICARD_FRAGMENT_CANONICAL_NATURALITY_ENTER"
+    out.flush
+  exact canonical_actual_naturality (baseMap R S) (eqToIso (ReconstructedOverlapCompatibility318.line_object R S L σ hd ht)).hom
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "PICARD_FRAGMENT_CANONICAL_NATURALITY_EXIT"
+    out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_NATURALITY_AFTER_CONCRETE_NATURALITY_COMMAND_END"
+  out.flush
+set_option profiler true in
+set_option profiler.threshold 1 in
+/-- Check the exact reconstructed line and its original comparison while the
+input tensor overlap and both tensor laws are still independent parameters.
+The actual-nerve transport is connected by the displayed equality, not by
+substituting its derived diagonal and triple proof terms into this proof. -/
+private lemma reconstructed_actual_overlap (R S : CommRingCat.{u}) [Algebra R S]
+    [Module.FaithfullyFlat R S] (L : Line (Spec S))
+    (σ : OriginalLineOverlapCoaction318.first R S L ⟶ OriginalLineOverlapCoaction318.second R S L)
+    (hd : OriginalGeometricDiagonal318.Diagonal R S L σ)
+    (ht : OriginalGeometricTriple318.Cocycle R S L σ)
+    (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
+    (hσ : σ = ActualAffineTensorTransport318.overlap R S L τ) :
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map
+        (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht).inv ≫
+      CanonicalSheafOverlap318.actual
+        (OriginalGeometricAffineLine318.line R S L σ hd ht).object (baseMap R S) ≫
+      (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map
+        (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht).hom = τ := by
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "PICARD_FRAGMENT_NATURALITY_ASSEMBLED_ENTER"
+    out.flush
+  exact conjugation_of_base_iso_naturality
+    (Scheme.Modules.pullback (baseMap R S))
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S)))
+    (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S)))
+    (eqToIso (ReconstructedOverlapCompatibility318.line_object R S L σ hd ht))
+    (ReconstructedOverlapCompatibility318.comparison R S L σ hd ht)
+    (ReconstructedOverlapCompatibility318.namedComparison R S L σ hd ht)
+    (ReconstructedOverlapCompatibility318.comparison_transport R S L σ hd ht)
+    (CanonicalSheafOverlap318.actual (OriginalGeometricAffineLine318.line R S L σ hd ht).object (baseMap R S))
+    (CanonicalSheafOverlap318.actual (tilde (ReconstructedOverlapCompatibility318.descendedModule R S L σ hd ht)) (baseMap R S))
+    τ
+    (reconstructed_canonical_overlap_naturality R S L σ hd ht τ hσ)
+    (reconstructed_native_actual_overlap_fragment R S L σ hd ht τ hσ)
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "PICARD_FRAGMENT_NATURALITY_ASSEMBLED_EXIT"
+    out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "PICARD_NATURALITY_assembled_naturality_transfer_COMMAND_END"
+  out.flush
+
+end ActualAffineEffectiveComparison318

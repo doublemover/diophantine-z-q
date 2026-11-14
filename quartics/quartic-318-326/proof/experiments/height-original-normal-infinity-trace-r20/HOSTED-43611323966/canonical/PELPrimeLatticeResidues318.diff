@@ -1,0 +1,17 @@
+--- before/PELPrimeLatticeResidues318.lean
++++ after/PELPrimeLatticeResidues318.lean
+@@ -31,10 +31,12 @@
+   have h770 : (70 : ZMod 7) = 0 := by decide
+   have h721 : (21 : ZMod 7) = 0 := by decide
+   have h7n97 : -(97 : ZMod 7) = 1 := by decide
+-  fin_cases i <;> ext j <;> fin_cases j <;>
++  fin_cases i <;>
++    simp only [prime, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_succ] at z ⊢ <;>
++    ext j <;> fin_cases j <;>
+     norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+     push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring_nf <;>
+-    (try simp only [←mul_neg, h22, h23, h2n3, h24, h34, h36, h3n8, h5n9, h5n4, h715, h770, h721, h7n97,
++    (try simp only [sub_eq_add_neg, ←mul_neg, h22, h23, h2n3, h24, h34, h36, h3n8, h5n9, h5n4, h715, h770, h721, h7n97,
+       mul_zero, mul_one, add_zero, zero_add, sub_zero, zero_sub, neg_zero]) <;> ring
+ 
+ theorem residue_surjective (i : Fin 4) : Function.Surjective (residueHom i) := by
