@@ -153,6 +153,10 @@ def packet(name, baseline, root=EXPERIMENTS):
         source = folder/(n+'.lean'); row = data['files'][n+'.lean']
         if ci.sha(source) != row['sha256']: raise ValueError('Draft source hash mismatch: '+n)
         code = code_only(source.read_text())
+        # Supplementary guard for the pinned Lean module-header prohibition.
+        # Legal private access uses separate public import M / import all M lines.
+        if re.search(r'^\s*public\s+(?:meta\s+)?import\s+all(?:\s|$)', code, re.M):
+            raise ValueError('Invalid public import all; use separate public import and import all in '+n)
         if re.search(r'\b(sorry|admit|native_decide|axiom|unsafe|implemented_by|constant)\b',code):
             raise ValueError('Unproved axiom, placeholder or native evaluator in '+n)
         if re.search(r'\b(?:debug\.)?skipKernelTC\b',code):

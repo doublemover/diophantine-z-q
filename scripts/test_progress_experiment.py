@@ -23,6 +23,57 @@ class ExperimentTests(unittest.TestCase):
             root=Path(t);p,d,plan=self.fixture(root)
             _,_,direct,ext=e.packet('sample',plan,root)
             self.assertEqual(e.required_baseline(plan,direct),['A','Base']);self.assertFalse(ext)
+    def test_public_import_all_is_rejected_after_comment_stripping(self):
+        # Same prohibition as the pinned native parser, including optional meta.
+        invalid = [
+            'public import all Base',
+            ' \tpublic\t import\t all\t Base',
+            'public\nimport\nall Base',
+            'public/- outer /- nested -/ end -/import/- gap -/all Base',
+            'public -- first\n import -- second\n all Base',
+            'public meta import all Base',
+        ]
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);p,d,plan=self.fixture(root)
+            for header in invalid:
+                with self.subTest(header=header):
+                    source='module\n'+header+'\n'
+                    (p/'Draft.lean').write_text(source)
+                    d['files']['Draft.lean']={'sha256':ci.sha(p/'Draft.lean'),
+                                             'imports':sorted(ci.import_names(source))}
+                    ci.write_json(p/'intake.json',d)
+                    with self.assertRaisesRegex(ValueError,'Invalid public import all'):
+                        e.packet('sample',plan,root)
+
+    def test_separate_public_and_private_imports_are_allowed(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);p,d,plan=self.fixture(root)
+            for header in ['public import Base\nimport all Base',
+                           'public/- nested /- comment -/ -/ import Base\nimport all Base',
+                           'public meta import Base\nmeta import all Base']:
+                with self.subTest(header=header):
+                    (p/'Draft.lean').write_text('module\n'+header+'\n')
+                    d['files']['Draft.lean']['sha256']=ci.sha(p/'Draft.lean')
+                    ci.write_json(p/'intake.json',d)
+                    _,_,direct,ext=e.packet('sample',plan,root)
+                    self.assertEqual(direct,{'Base'});self.assertFalse(ext)
+
+    def test_public_import_all_text_in_comments_and_strings_is_ignored(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);p,d,plan=self.fixture(root)
+            source=('module\npublic import Base\n'
+                    '-- public import all Base\n'
+                    '/- outer\n public import all Base\n /- nested\n'
+                    ' public import all Base\n -/ end -/\n'
+                    'def label : String := "public import all Base"\n'
+                    'def multiline : String := "first\npublic import all Base\nlast"\n'
+                    'def escaped : String := "escaped \\\" public import all Base"\n')
+            (p/'Draft.lean').write_text(source)
+            d['files']['Draft.lean']['sha256']=ci.sha(p/'Draft.lean')
+            ci.write_json(p/'intake.json',d)
+            _,_,direct,ext=e.packet('sample',plan,root)
+            self.assertEqual(direct,{'Base'});self.assertFalse(ext)
+
     def test_application_evidence_bindings_fail_closed(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);p,d,plan=self.fixture(root)

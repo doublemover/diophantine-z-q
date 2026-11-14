@@ -11,7 +11,7 @@ class Tests(unittest.TestCase):
         cases=d.variants(S);self.assertEqual(list(cases),['exact_prefix','structural_witness'])
         self.assertEqual(cases['exact_prefix'],d.previous.variants(S)['exact_prefix'])
         self.assertIn(d.STRUCTURAL_BODY,cases['structural_witness'])
-        self.assertEqual(hashlib.sha256(d.STRUCTURAL_BODY.encode()).hexdigest(),'c49a2ee1cd48988e0ae1423412326401f182d73a578e3b308b74c7bd6de23813')
+        self.assertEqual(hashlib.sha256(d.STRUCTURAL_BODY.encode()).hexdigest(),'adb775912b5e3a4133feb87d29e44936fb16d56c2d89c716cdd88883929b81c1')
         for text in cases.values():
             self.assertNotIn('sorry',text);self.assertNotIn('axiom ',text);self.assertNotIn('set_option maxRecDepth',text)
             self.assertEqual([x for x in S.splitlines() if 'import ' in x],[x for x in text.splitlines() if 'import ' in x])
@@ -25,6 +25,14 @@ class Tests(unittest.TestCase):
         # The actual hosted observer failed before execution on ToString Prop.
         self.assertIn('pending={decide (cursor < queue.size)}',d.STRUCTURAL_BODY)
         self.assertNotIn('pending={cursor < queue.size}',d.STRUCTURAL_BODY)
+    def test_fixed_snapshot_head_exposure(self):
+        body=d.STRUCTURAL_BODY
+        for term in ['let snapshot ← Lean.getMCtx','snapshot.getExprAssignmentCore? id','for _ in [:16]','RAW_HEAD','EXPOSED_HEAD','HEAD_STEP','HEAD_STOP','no witness comparison','transforms the observed expression']:
+            self.assertIn(term,body)
+        for term in ['Lean.instantiateMVars','instantiateMVarsCore','setMCtx','modifyMCtx','getDelayedMVarAssignment','consumeMData']:
+            self.assertNotIn(term,body)
+        self.assertLess(body.index('RAW_HEAD'),body.index('snapshot.getExprAssignmentCore? id'))
+        self.assertIn('HEAD_EXPOSED_STRUCTURAL_EQUAL',body)
     def test_pinned_dependency_guards(self):
         d.check_dependencies()
         for name in d.DEPENDENCY_PINS:
