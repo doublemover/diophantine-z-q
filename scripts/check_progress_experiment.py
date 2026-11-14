@@ -62,6 +62,78 @@ def check_application_publication(folders, repository=ci.ROOT):
         raise ValueError('Application evidence is not tracked in Git: ' + ', '.join(missing))
 
 
+def check_revision_classifications(folder, data, root):
+    """Verify optional revision labels against bytes, not mathematical claims.
+
+    Schema 1 opts into exact immediate-predecessor semantics. Unversioned legacy
+    classifications may have other meanings and retain their prior behavior.
+    """
+    if 'revision_classification_schema' not in data:
+        return
+    if type(data['revision_classification_schema']) is not int or data['revision_classification_schema'] != 1:
+        raise ValueError('Unsupported revision classification schema')
+    app_path = folder / 'APPLICATION.json'
+    app = json.loads(app_path.read_text()) if app_path.is_file() else {}
+    references = [obj[key] for obj, keys in (
+        (data, ('revision_of', 'revision_source')),
+        (app, ('predecessor', 'revision_source')))
+        for key in keys if key in obj]
+    if 'INHERITANCE.json' in app.get('bindings', {}):
+        inheritance = json.loads((folder / 'INHERITANCE.json').read_text())
+        if 'predecessor' in inheritance:
+            references.append(inheritance['predecessor'])
+    if not references:
+        raise ValueError('Missing explicit revision predecessor for classification schema 1')
+    if any(not isinstance(n, str) or not re.fullmatch(r'[a-z][a-z0-9-]*', n)
+           or n == folder.name for n in references):
+        raise ValueError('Invalid revision predecessor')
+    if len(set(references)) != 1:
+        raise ValueError('Conflicting revision predecessors')
+    predecessor = root / references[0]
+    if not predecessor.resolve().is_relative_to(root.resolve()):
+        raise ValueError('Invalid revision predecessor path')
+    if not (predecessor / 'intake.json').is_file():
+        raise ValueError('Missing revision predecessor intake: ' + references[0])
+    prior = json.loads((predecessor / 'intake.json').read_text())
+    order, files = prior.get('order'), prior.get('files')
+    if (not isinstance(order, list) or not order
+            or any(not isinstance(n, str) or not re.fullmatch(r'[A-Za-z_]\w*', n)
+                   for n in order) or len(order) != len(set(order))
+            or not isinstance(files, dict) or set(files) != {n+'.lean' for n in order}):
+        raise ValueError('Invalid revision predecessor source manifest')
+    old_hashes = {}
+    for n in order:
+        source, row = predecessor / (n+'.lean'), files[n+'.lean']
+        digest = row.get('sha256') if isinstance(row, dict) else None
+        if (not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest)
+                or not source.resolve().is_relative_to(predecessor.resolve())
+                or not source.is_file() or ci.sha(source) != digest):
+            raise ValueError('Revision predecessor source hash mismatch: ' + n)
+        old_hashes[n] = digest
+    current = {n: ci.sha(folder / (n+'.lean')) for n in data['order']}
+    changed = {n for n in current.keys() & old_hashes.keys()
+               if current[n] != old_hashes[n]}
+    unchanged = (current.keys() & old_hashes.keys()) - changed
+    categories = {
+        'changed_modules': changed, 'revised_modules': changed,
+        'modified_predecessor_modules': changed,
+        'reused_modules': unchanged, 'unchanged_predecessor_modules': unchanged,
+        'exact_predecessor_modules': unchanged, 'unchanged_producer_modules': unchanged,
+        'new_modules': current.keys() - old_hashes.keys(),
+    }
+    for key, expected in categories.items():
+        if key not in data:
+            continue
+        value = data[key]
+        if key == 'unchanged_producer_modules' and type(value) is int:
+            valid = value == len(expected)
+        else:
+            valid = (isinstance(value, list) and all(isinstance(n, str) for n in value)
+                     and len(value) == len(set(value)) and set(value) == expected)
+        if not valid:
+            raise ValueError('Revision classification mismatch: ' + key)
+
+
 def packet(name, baseline, root=EXPERIMENTS):
     if not re.fullmatch(r'[a-z][a-z0-9-]*', name):
         raise ValueError('Invalid packet name')
@@ -93,6 +165,7 @@ def packet(name, baseline, root=EXPERIMENTS):
             elif dep.split('.')[0] in OFFICIAL_PREFIXES: external.add(dep)
             else: raise ValueError('Unknown or nonpreceding import: '+dep)
         seen.add(n)
+    check_revision_classifications(folder, data, root)
     return folder,data,direct,external
 
 
