@@ -1,0 +1,58 @@
+--- relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean
++++ relative-original-normalized-kernel-gluing-r12/OriginalCoefficientSections318.lean
+@@ -11,7 +11,6 @@
+ universe u
+ variable (k R S B : CommRingCat.{u}) [Algebra k R] [Algebra k S] [Algebra k B]
+   (f : R →ₐ[k] S)
+-local instance : Algebra R S := f.toAlgebra
+ variable {X : Scheme.{u}} (p : X ⟶ Spec k) (j : Spec B ⟶ X)
+   (hj : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap k B)))
+   (L : Line (RelativeOriginalAffineChart318.family k R p))
+@@ -29,9 +28,12 @@
+ /-- Canonical COEFFICIENT-only base change of sections on the entire
+ original affine chart. The target is the literal pulled-back original
+ line on the actual S-test. It is not a chart-ring tensor left unconverted. -/
+-@[expose] def equivalence : S ⊗[R] oldSections k R B p j hj L ≃ₗ[S]
+-    newSections k R S B f p j hj L :=
+-  (OriginalCoefficientTensor318.categoricalEquivalence k R S B f
++@[expose] def equivalence :
++    letI := OriginalCoefficientTensor318.coefficientAlgebra k R S f
++    S ⊗[R] oldSections k R B p j hj L ≃ₗ[S]
++    newSections k R S B f p j hj L := by
++  letI := OriginalCoefficientTensor318.coefficientAlgebra k R S f
++  exact (OriginalCoefficientTensor318.categoricalEquivalence k R S B f
+     (oldSections k R B p j hj L)).symm.trans
+       (((ModuleCat.restrictScalars (algebraMap S (S ⊗[k] B))).mapIso
+         (OriginalCoefficientChartLine318.sectionsComparison
+@@ -42,6 +44,7 @@
+           (RelativeCoefficientChange318.into_square k R S B f p j hj) L)).toLinearEquiv)
+ 
+ lemma unit (m : oldSections k R B p j hj L) :
++    letI := OriginalCoefficientTensor318.coefficientAlgebra k R S f
+     equivalence k R S B f p j hj L ((1 : S) ⊗ₜ[R] m) =
+       OriginalCoefficientChartLine318.originalRestriction
+         (RelativeCoefficientChange318.familyMap k R S f p)
+@@ -49,6 +52,7 @@
+         (RelativeOriginalAffineChart318.into k R B p j hj)
+         (RelativeOriginalAffineChart318.into k S B p j hj)
+         (RelativeCoefficientChange318.into_square k R S B f p j hj) L m := by
++  letI := OriginalCoefficientTensor318.coefficientAlgebra k R S f
+   change (OriginalCoefficientChartLine318.sectionsComparison _ _ _ _ _ L).hom
+     ((OriginalCoefficientTensor318.categoricalEquivalence k R S B f
+       (oldSections k R B p j hj L)).symm ((1 : S) ⊗ₜ[R] m)) = _
+@@ -56,6 +60,7 @@
+   exact OriginalCoefficientChartLine318.unit _ _ _ _ _ L m
+ 
+ lemma pure_tensor (s : S) (m : oldSections k R B p j hj L) :
++    letI := OriginalCoefficientTensor318.coefficientAlgebra k R S f
+     equivalence k R S B f p j hj L (s ⊗ₜ[R] m) =
+       s • OriginalCoefficientChartLine318.originalRestriction
+         (RelativeCoefficientChange318.familyMap k R S f p)
+@@ -63,6 +68,7 @@
+         (RelativeOriginalAffineChart318.into k R B p j hj)
+         (RelativeOriginalAffineChart318.into k S B p j hj)
+         (RelativeCoefficientChange318.into_square k R S B f p j hj) L m := by
++  letI := OriginalCoefficientTensor318.coefficientAlgebra k R S f
+   have h : s ⊗ₜ[R] m = s • ((1 : S) ⊗ₜ[R] m) := by
+     simp only [TensorProduct.smul_tmul',smul_eq_mul,mul_one]
+   rw [h,(equivalence k R S B f p j hj L).map_smul,unit]

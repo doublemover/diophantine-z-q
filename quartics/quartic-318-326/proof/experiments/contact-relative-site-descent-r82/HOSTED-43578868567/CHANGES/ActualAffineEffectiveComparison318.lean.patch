@@ -1,0 +1,21 @@
+--- contact-relative-site-descent-r81/ActualAffineEffectiveComparison318.lean
++++ contact-relative-site-descent-r82/ActualAffineEffectiveComparison318.lean
+@@ -115,6 +115,18 @@
+   out.putStrLn "PICARD_SITE_FRONTIER_04_AFTER_original_overlap_of_object_eq"
+   out.flush
+ 
++run_cmd Lean.Elab.Command.liftIO do
++  let out ← IO.getStderr
++  out.putStrLn "PICARD_SITE_PROFILER_CONTROL_BEGIN"
++  out.flush
++  let opts := (({} : Lean.Options).setBool `profiler true).setNat `profiler.threshold 0
++  Lean.profileitIO (ε := IO.Error) "PICARD_SITE_PROFILER_CONTROL" opts (pure ())
++  out.flush
++  out.putStrLn "PICARD_SITE_PROFILER_CONTROL_END"
++  out.flush
++
++set_option profiler true in
++set_option profiler.threshold 1 in
+ /-- Check the exact reconstructed line and its original comparison while the
+ input tensor overlap and both tensor laws are still independent parameters.
+ The actual-nerve transport is connected by the displayed equality, not by

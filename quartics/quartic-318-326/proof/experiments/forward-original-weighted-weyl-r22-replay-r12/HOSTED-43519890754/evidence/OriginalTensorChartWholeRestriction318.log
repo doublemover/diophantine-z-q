@@ -1,0 +1,218 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:33:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤ ≫ Scheme.Modules.Hom.app e.inv ⊤)) ((sectionPull j L.object) s)
+in the target expression
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullback i.hom).map e.inv) ⊤))
+      ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))) =
+    (sectionPull i.hom ((Scheme.Modules.pullback j).obj L.object))
+      ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.inv ⊤))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)))
+
+R A B : CommRingCat
+inst✝¹ : Algebra ↑R ↑A
+inst✝ : Algebra ↑R ↑B
+X : Scheme
+j : X ⟶ Spec B
+i : Spec (ring R A B) ≅ X
+hchart : i.hom ≫ j = Spec.map (rightMap R A B)
+L : Line (Spec B)
+M : X.Modules
+e : (Scheme.Modules.pullback j).obj L.object ≅ M
+s : ↑Γ(L.object, ⊤)
+hn :
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullback i.hom).map e.inv) ⊤))
+      ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))) =
+    (sectionPull i.hom ((Scheme.Modules.pullback j).obj L.object))
+      ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.inv ⊤))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)))
+he :
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤ ≫ Scheme.Modules.Hom.app e.inv ⊤))
+      ((sectionPull j L.object) s) =
+    (ConcreteCategory.hom (𝟙 Γ((Scheme.Modules.pullback j).obj L.object, ⊤))) ((sectionPull j L.object) s)
+⊢ (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤))
+      ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))) =
+    (sectionPull (Spec.map (rightMap R A B)) L.object) s
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:32:4: warning: This simp argument is unused:
+  ModuleCat.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app, ModuleCat.id_apply] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:32:26: warning: This simp argument is unused:
+  ModuleCat.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app, ModuleCat.comp_apply] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:53:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom
+      (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤ ≫
+        Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+    ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)))
+in the target expression
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤))
+          ((sectionPull i.hom M)
+            ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))))) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)
+
+R A B : CommRingCat
+inst✝¹ : Algebra ↑R ↑A
+inst✝ : Algebra ↑R ↑B
+X : Scheme
+j : X ⟶ Spec B
+i : Spec (ring R A B) ≅ X
+hchart : i.hom ≫ j = Spec.map (rightMap R A B)
+L : Line (Spec B)
+M : X.Modules
+e : (Scheme.Modules.pullback j).obj L.object ≅ M
+s : ↑Γ(L.object, ⊤)
+he :
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤ ≫
+          Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+      ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))) =
+    (ConcreteCategory.hom (𝟙 Γ((Scheme.Modules.pullback i.hom).obj M, ⊤)))
+      ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)))
+⊢ (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤))
+          ((sectionPull i.hom M)
+            ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))))) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤))
+        ((sectionPull i.hom M) ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s))))
+  has type
+    ↑Γ((Scheme.Modules.pullback i.hom).obj M, ⊤)
+  but is expected to have type
+    ↑Γ((Scheme.Modules.pushforward i.hom).obj ((Scheme.Modules.pullback i.hom).obj M), ⊤)
+  in the application
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).hom ⊤))
+          ((sectionPull i.hom M)
+            ((ConcreteCategory.hom (Scheme.Modules.Hom.app e.hom ⊤)) ((sectionPull j L.object) s)))))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:52:4: warning: This simp argument is unused:
+  ModuleCat.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app, ModuleCat.id_apply] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:52:26: warning: This simp argument is unused:
+  ModuleCat.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.Hom.comp_app, Scheme.Modules.Hom.id_app, ModuleCat.comp_apply] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:73:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun x => id <$> x
+in the target expression
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (((Scheme.Modules.pullback i.hom).obj M).presheaf.map
+            (𝟙 ((TopologicalSpace.Opens.map i.hom.base).op.obj (Opposite.op ⊤)))))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+          t)) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+        t)
+
+R A B : CommRingCat
+inst✝¹ : Algebra ↑R ↑A
+inst✝ : Algebra ↑R ↑B
+X : Scheme
+p : X ⟶ Spec A
+j : X ⟶ Spec B
+i : Spec (ring R A B) ≅ X
+hbase : i.hom ≫ p = Spec.map (leftMap R A B)
+hchart : i.hom ≫ j = Spec.map (rightMap R A B)
+L : Line (Spec B)
+M : X.Modules
+e : (Scheme.Modules.pullback j).obj L.object ≅ M
+t : ↑Γ((Scheme.Modules.pullback (Spec.map (rightMap R A B))).obj L.object, ⊤)
+⊢ (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (((Scheme.Modules.pullback i.hom).obj M).presheaf.map
+            (𝟙 ((TopologicalSpace.Opens.map i.hom.base).op.obj (Opposite.op ⊤)))))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+          t)) =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app (SchemeIsoPushforwardRecovery318.recovery i.hom M).hom ⊤))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+        t)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+      t
+  has type
+    ↑Γ((Scheme.Modules.pullback i.hom).obj M, ⊤)
+  but is expected to have type
+    ↑(((Scheme.Modules.pullback i.hom).obj M).presheaf.obj
+        ((TopologicalSpace.Opens.map i.hom.base).op.obj (Opposite.op ⊤)))
+  in the application
+    (ConcreteCategory.hom
+        (((Scheme.Modules.pullback i.hom).obj M).presheaf.map
+          (𝟙 ((TopologicalSpace.Opens.map i.hom.base).op.obj (Opposite.op ⊤)))))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app (AffineTensorLinePushforward318.chartComparison R A B j i hchart L M e).inv ⊤))
+        t)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:67:23: warning: This simp argument is unused:
+  Functor.mapIso_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalTensorChartRestriction318.chartRecovery, SchemeIsoPushforwardRecovery318.overBase,
+    Iso.trans_hom, Iso.symm_hom, Functor.mapIso_hom, Functor.map_comp, Scheme.Modules.pushforward_map_app,
+    Scheme.Modules.pushforwardComp_inv_app_app, Scheme.Modules.pushforwardCongr_hom_app_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:68:4: warning: This simp argument is unused:
+  Scheme.Modules.pushforward_map_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalTensorChartRestriction318.chartRecovery, SchemeIsoPushforwardRecovery318.overBase,
+    Iso.trans_hom, Iso.symm_hom, Functor.mapIso_hom, Functor.mapIso_inv, Functor.map_comp,
+    Scheme.Modules.pushforwardComp_inv_app_app, Scheme.Modules.pushforwardCongr_hom_app_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:68:39: warning: This simp argument is unused:
+  Scheme.Modules.pushforwardComp_inv_app_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalTensorChartRestriction318.chartRecovery, SchemeIsoPushforwardRecovery318.overBase,
+    Iso.trans_hom, Iso.symm_hom, Functor.mapIso_hom, Functor.mapIso_inv, Functor.map_comp,
+    Scheme.Modules.pushforward_map_app, Scheme.Modules.pushforwardCongr_hom_app_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r65/OriginalTensorChartWholeRestriction318.lean:69:4: warning: This simp argument is unused:
+  Scheme.Modules.pushforwardCongr_hom_app_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalTensorChartRestriction318.chartRecovery, SchemeIsoPushforwardRecovery318.overBase,
+    Iso.trans_hom, Iso.symm_hom, Functor.mapIso_hom, Functor.mapIso_inv, Functor.map_comp,
+    Scheme.Modules.pushforward_map_app, Scheme.Modules.pushforwardComp_inv_app_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

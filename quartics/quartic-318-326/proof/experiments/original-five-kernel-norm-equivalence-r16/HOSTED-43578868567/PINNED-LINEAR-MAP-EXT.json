@@ -1,0 +1,11 @@
+{
+  "repository": "leanprover-community/mathlib4",
+  "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "path": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+  "blob_sha": "0a918aab87b5688bd9034ef04e8e6d666ecc5c12",
+  "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Module/LinearMap/Defs.lean",
+  "start_line": 205,
+  "end_line": 221,
+  "excerpt": "\n@[deprecated (since := \"2026-09-07\")] alias coe_coe := coe_ofClass\n\n/-- The `DistribMulActionHom` underlying a `LinearMap`. -/\ndef toDistribMulActionHom (f : M →ₛₗ[σ] M₃) : DistribMulActionHom σ.toMonoidHom M M₃ :=\n  { f with map_zero' := show f 0 = 0 from map_zero f }\n\n@[simp]\ntheorem coe_toAddHom (f : M →ₛₗ[σ] M₃) : ⇑f.toAddHom = f := rfl\n\n@[simp]\ntheorem toFun_eq_coe {f : M →ₛₗ[σ] M₃} : f.toFun = (f : M → M₃) := rfl\n\n@[ext]\ntheorem ext {f g : M →ₛₗ[σ] M₃} (h : ∀ x, f x = g x) : f = g :=\n  DFunLike.ext f g h\n\n",
+  "whole_file": false
+}

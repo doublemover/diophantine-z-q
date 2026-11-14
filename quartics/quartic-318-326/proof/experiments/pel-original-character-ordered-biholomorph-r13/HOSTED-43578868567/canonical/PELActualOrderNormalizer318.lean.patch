@@ -1,0 +1,12 @@
+--- before/PELActualOrderNormalizer318.lean
++++ after/PELActualOrderNormalizer318.lean
+@@ -85,7 +85,8 @@
+ related prime words, carry the exact original inertia labels. -/
+ theorem parity_inertia (i : Fin 5) : parity (inertiaElement i)=
+     Multiplicative.ofAdd (InertiaLabels318.fiveLabels i) := by
+-  change PELQuaternionNormParity318.parity (PELInertiaNormalizerData318.rationalUnit i)=_
++  change PELQuaternionNormParity318.parity (PELInertiaNormalizerData318.rationalUnit i)=
++    InertiaLabels318.fiveLabels i
+   rw [inertia_unit_word,PELQuaternionNormParity318.parity_mul,
+     PELQuaternionNormParity318.parity_norm_one _ (PELInertiaPrimeWord318.connectingUnit_norm i),
+     PELQuaternionNormParity318.parity_word,zero_add]

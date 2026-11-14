@@ -1,0 +1,39 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean:14:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 6: `(f : ↑R →ₐ[↑k] ↑S)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean:32:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean:54:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean:66:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean:66:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Module ↑R ↑S
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r11/OriginalCoefficientSections318.lean:65:75: error: unsolved goals
+k R S B : CommRingCat
+inst✝² : Algebra ↑k ↑R
+inst✝¹ : Algebra ↑k ↑S
+inst✝ : Algebra ↑k ↑B
+f : ↑R →ₐ[↑k] ↑S
+X : Scheme
+p : X ⟶ Spec k
+j : Spec B ⟶ X
+hj : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap ↑k ↑B))
+L : Line (RelativeOriginalAffineChart318.family k R p)
+s : ↑S
+m : ↑(oldSections k R B p j hj L)
+⊢ sorry =
+    s •
+      OriginalCoefficientChartLine318.originalRestriction (RelativeCoefficientChange318.familyMap k R S f p)
+        (RelativeCoefficientChange318.ringMap k R S B f) (RelativeOriginalAffineChart318.into k R B p j hj)
+        (RelativeOriginalAffineChart318.into k S B p j hj) ⋯ L m

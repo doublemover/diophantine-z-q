@@ -1,0 +1,1 @@
+Distinct source reviewer: /root/restore_and_integrate. Reviewed exact before/after one-token addition of forall_eq and all 263 row projections against uploaded audit diagnostic. Source-scope endorsement supplied 2026-11-12. No hosted replay result or measured runtime improvement asserted. Frozen predecessor untouched.
