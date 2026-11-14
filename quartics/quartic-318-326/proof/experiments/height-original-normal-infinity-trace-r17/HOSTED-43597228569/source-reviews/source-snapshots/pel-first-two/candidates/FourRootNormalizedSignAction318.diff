@@ -1,0 +1,33 @@
+--- before/FourRootNormalizedSignAction318.lean
++++ after/FourRootNormalizedSignAction318.lean
+@@ -24,12 +24,14 @@
+ @[expose] def infinity (p:InfinityPoints b):InfinityPoints b:=
+   ⟨(coordinate (F:=ℂ) 0 g*p.val.1,
+     fun i=>coordinate (F:=ℂ) i g*coordinate (F:=ℂ) 0 g*p.val.2 i),by
++    change coordinate (F:=ℂ) 0 g*coordinate (F:=ℂ) 0 g*p.val.2 0=1
+     rw [p.property.1,mul_one,←pow_two,coordinate_square],by
+     intro i
+     simp only [mul_pow,coordinate_square,one_mul]
+     exact p.property.2 i⟩
+ @[expose] def signs (s:InfinitySigns):InfinitySigns:=
+   ⟨fun i=>coordinate (F:=ℂ) i g*coordinate (F:=ℂ) 0 g*s.val i,by
++    change coordinate (F:=ℂ) 0 g*coordinate (F:=ℂ) 0 g*s.val 0=1
+     rw [s.property.1,mul_one,←pow_two,coordinate_square],by
+     intro i
+     simp only [mul_pow,coordinate_square,one_mul]
+@@ -86,10 +88,11 @@
+   rcases p with p|s
+   · apply congrArg Sum.inl
+     apply Subtype.ext
+-    apply Prod.ext rfl
+-    funext i
+-    change coordinate (F:=ℂ) i g*(coordinate (F:=ℂ) i g*p.val.2 i)=p.val.2 i
+-    rw [←mul_assoc,←pow_two,coordinate_square,one_mul]
++    apply Prod.ext
++    · rfl
++    · funext i
++      change coordinate (F:=ℂ) i g*(coordinate (F:=ℂ) i g*p.val.2 i)=p.val.2 i
++      rw [←mul_assoc,←pow_two,coordinate_square,one_mul]
+   · apply congrArg Sum.inr
+     apply Subtype.ext
+     funext i

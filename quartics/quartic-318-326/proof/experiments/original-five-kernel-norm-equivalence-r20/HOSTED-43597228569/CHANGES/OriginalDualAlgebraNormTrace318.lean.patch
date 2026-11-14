@@ -1,0 +1,12 @@
+--- original-five-kernel-norm-equivalence-r19/OriginalDualAlgebraNormTrace318.lean
++++ original-five-kernel-norm-equivalence-r20/OriginalDualAlgebraNormTrace318.lean
+@@ -44,7 +44,8 @@
+         Algebra.norm (DualNumber R) (equivalence R S (x ⊗ₜ[R] 1)) :=
+       congrArg (Algebra.norm (DualNumber R)) hx.symm
+     _ = Algebra.norm (DualNumber R) (x ⊗ₜ[R] (1 : DualNumber R)) :=
+-      Algebra.norm_eq_of_algEquiv (R := DualNumber R) (equivalence R S) (x ⊗ₜ[R] 1)
++      Algebra.norm_eq_of_algEquiv (R := DualNumber R) (equivalence R S)
++        (x ⊗ₜ[R] (1 : DualNumber R))
+     _ = inl (Algebra.norm R x) := by
+       rw [OriginalRightTensorNormTrace318.norm_coefficient,
+         TrivSqZeroExt.algebraMap_eq_inl]

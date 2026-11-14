@@ -1,0 +1,209 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r15/ContactCoefficientRestrictionSquares318.lean:31:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (↑Γ((Scheme.Modules.pullback (curveMap R S f c) ⋙ Scheme.Modules.pullback (into S c)).obj L.object, ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (Spec.map (overlapRingMap R S f c)) (into R c)).hom.app L.object ≫
+            (eqToIso ⋯).hom.app L.object ≫ (Scheme.Modules.pullbackComp (into S c) (curveMap R S f c)).inv.app L.object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (overlapRingMap R S f c))).unit.app
+              ((Scheme.Modules.pullback (into R c)).obj L.object))
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (finiteEdge R c) (finiteInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (finiteEdge R c)).unit.app
+                  ((Scheme.Modules.pullback (finiteInto R c)).obj L.object))
+                ⊤))
+            m))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (finiteEdge S c) (finiteInto S c)).hom.app
+              ((Scheme.Modules.pullback (curveMap R S f c)).obj L.object) ≫
+            (eqToIso ⋯).hom.app ((Scheme.Modules.pullback (curveMap R S f c)).obj L.object))
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (finiteEdge S c)).unit.app
+              ((Scheme.Modules.pullback (finiteInto S c)).obj
+                ((Scheme.Modules.pullback (curveMap R S f c)).obj L.object)))
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (Spec.map (finiteRingMap R S f c)) (finiteInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object ≫
+                  (Scheme.Modules.pullbackComp (finiteInto S c) (curveMap R S f c)).inv.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (finiteRingMap R S f c))).unit.app
+                  ((Scheme.Modules.pullback (finiteInto R c)).obj L.object))
+                ⊤))
+            m))))
+but is expected to have type
+  @Eq
+    (↑(OriginalLineAffineModel318.sections (↧(TensorProduct ℚ (↑S) (ContactOverlapTensorCharts318.finiteRing c)))
+        (LineSheafPullback318.line (into S c) (LineSheafPullback318.line (curveMap R S f c) L))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (Spec.map (overlapRingMap R S f c)) (into R c)).hom.app L.object ≫
+            (eqToIso ⋯).hom.app L.object ≫ (Scheme.Modules.pullbackComp (into S c) (curveMap R S f c)).inv.app L.object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (overlapRingMap R S f c))).unit.app
+              (LineSheafPullback318.line (into R c) L).object)
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (finiteEdge R c) (finiteInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction
+                        (Spec.map (ContactOriginalRelativeLineOverlap318.finiteArrow R c))).unit.app
+                  (ContactOriginalRelativeLineOverlap318.finiteLine R c L).object)
+                ⊤))
+            m))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (finiteEdge S c) (finiteInto S c)).hom.app
+              (LineSheafPullback318.line (curveMap R S f c) L).object ≫
+            (eqToIso ⋯).hom.app (LineSheafPullback318.line (curveMap R S f c) L).object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction
+                    (Spec.map (ContactOriginalRelativeLineOverlap318.finiteArrow S c))).unit.app
+              (ContactOriginalRelativeLineOverlap318.finiteLine S c
+                  (LineSheafPullback318.line (curveMap R S f c) L)).object)
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (Spec.map (finiteRingMap R S f c)) (finiteInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object ≫
+                  (Scheme.Modules.pullbackComp (finiteInto S c) (curveMap R S f c)).inv.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (finiteRingMap R S f c))).unit.app
+                  (LineSheafPullback318.line (finiteInto R c) L).object)
+                ⊤))
+            m))))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  RelativeOriginalAffineChart318.chartIso ↦ 8896
+  Limits.getLimitCone ↦ 140136
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r15/ContactCoefficientRestrictionSquares318.lean:58:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (↑Γ((Scheme.Modules.pullback (curveMap R S f c) ⋙ Scheme.Modules.pullback (into S c)).obj L.object, ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (Spec.map (overlapRingMap R S f c)) (into R c)).hom.app L.object ≫
+            (eqToIso ⋯).hom.app L.object ≫ (Scheme.Modules.pullbackComp (into S c) (curveMap R S f c)).inv.app L.object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (overlapRingMap R S f c))).unit.app
+              ((Scheme.Modules.pullback (into R c)).obj L.object))
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (infinityEdge R c) (infinityInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (infinityEdge R c)).unit.app
+                  ((Scheme.Modules.pullback (infinityInto R c)).obj L.object))
+                ⊤))
+            m))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (infinityEdge S c) (infinityInto S c)).hom.app
+              ((Scheme.Modules.pullback (curveMap R S f c)).obj L.object) ≫
+            (eqToIso ⋯).hom.app ((Scheme.Modules.pullback (curveMap R S f c)).obj L.object))
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (infinityEdge S c)).unit.app
+              ((Scheme.Modules.pullback (infinityInto S c)).obj
+                ((Scheme.Modules.pullback (curveMap R S f c)).obj L.object)))
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (Spec.map (infinityRingMap R S f c)) (infinityInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object ≫
+                  (Scheme.Modules.pullbackComp (infinityInto S c) (curveMap R S f c)).inv.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (infinityRingMap R S f c))).unit.app
+                  ((Scheme.Modules.pullback (infinityInto R c)).obj L.object))
+                ⊤))
+            m))))
+but is expected to have type
+  @Eq
+    (↑(OriginalLineAffineModel318.sections (↧(TensorProduct ℚ (↑S) (ContactOverlapTensorCharts318.finiteRing c)))
+        (LineSheafPullback318.line (into S c) (LineSheafPullback318.line (curveMap R S f c) L))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (Spec.map (overlapRingMap R S f c)) (into R c)).hom.app L.object ≫
+            (eqToIso ⋯).hom.app L.object ≫ (Scheme.Modules.pullbackComp (into S c) (curveMap R S f c)).inv.app L.object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (overlapRingMap R S f c))).unit.app
+              (LineSheafPullback318.line (into R c) L).object)
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (infinityEdge R c) (infinityInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction
+                        (Spec.map (ContactOriginalRelativeLineOverlap318.infinityArrow R c))).unit.app
+                  (ContactOriginalRelativeLineOverlap318.infinityLine R c L).object)
+                ⊤))
+            m))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackComp (infinityEdge S c) (infinityInto S c)).hom.app
+              (LineSheafPullback318.line (curveMap R S f c) L).object ≫
+            (eqToIso ⋯).hom.app (LineSheafPullback318.line (curveMap R S f c) L).object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction
+                    (Spec.map (ContactOriginalRelativeLineOverlap318.infinityArrow S c))).unit.app
+              (ContactOriginalRelativeLineOverlap318.infinityLine S c
+                  (LineSheafPullback318.line (curveMap R S f c) L)).object)
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((Scheme.Modules.pullbackComp (Spec.map (infinityRingMap R S f c)) (infinityInto R c)).hom.app L.object ≫
+                (eqToIso ⋯).hom.app L.object ≫
+                  (Scheme.Modules.pullbackComp (infinityInto S c) (curveMap R S f c)).inv.app L.object)
+              ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map (infinityRingMap R S f c))).unit.app
+                  (LineSheafPullback318.line (infinityInto R c) L).object)
+                ⊤))
+            m))))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  RelativeOriginalAffineChart318.chartIso ↦ 8896
+  Limits.getLimitCone ↦ 120872
+  ContactWholeInfinityScheme318.into ↦ 1568

@@ -1,0 +1,11 @@
+--- before/PELPrimeLatticeResidues318.lean
++++ after/PELPrimeLatticeResidues318.lean
+@@ -20,7 +20,7 @@
+     residue i (lift i z)=z := by
+   fin_cases i <;> ext j <;> fin_cases j <;>
+     norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+-    push_cast <;> simp [ZMod.natCast_zmod_val] <;> ring
++    push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring
+ 
+ theorem residue_surjective (i : Fin 4) : Function.Surjective (residueHom i) := by
+   intro z
