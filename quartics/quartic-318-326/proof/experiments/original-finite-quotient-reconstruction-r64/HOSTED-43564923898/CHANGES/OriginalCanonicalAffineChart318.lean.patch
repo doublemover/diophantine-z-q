@@ -1,0 +1,24 @@
+--- original-finite-quotient-reconstruction-r63/OriginalCanonicalAffineChart318.lean
++++ original-finite-quotient-reconstruction-r64/OriginalCanonicalAffineChart318.lean
+@@ -56,7 +56,7 @@
+       chart p ≫ p := by
+     rw [coefficient_spec]
+     exact (Category.assoc _ _ _).trans
+-      ((congrArg (fun k => (Chart p).isoSpec.inv ≫ k) (pullback.condition _ _)).trans
++      ((congrArg (fun k => (Chart p).isoSpec.inv ≫ k) (pullback.condition (f := JLineAtlas318.chart ℚ 1) (g := p))).trans
+         (Category.assoc _ _ _).symm)
+   exact IsPullback.of_iso_pullback ⟨h⟩ (Chart p).isoSpec.symm
+     (coefficient_spec p).symm rfl
+@@ -66,8 +66,10 @@
+ include hcover hnormal in
+ /-- Normality of this whole canonical Cartesian chart follows from the
+ old normal cover through the original open-immersion stalk maps. -/
+-theorem ring_normal : IsIntegrallyClosed (Ring p) :=
+-  OriginalNormalCoverSections318.sections_of_stalks
++theorem ring_normal : IsIntegrallyClosed (Ring p) := by
++  obtain ⟨x⟩ := chart_nonempty p
++  letI : Nonempty (⊤ : (Chart p).Opens) := ⟨⟨x, by trivial⟩⟩
++  exact OriginalNormalCoverSections318.sections_of_stalks
+     (OriginalNormalCoverSections318.open_stalk V hcover hnormal (inclusion p))
+     ⊤ (isAffineOpen_top (Chart p))
+ end OriginalCanonicalAffineChart318

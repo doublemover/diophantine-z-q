@@ -1,0 +1,25 @@
+--- FourRootAffineSmooth318.lean.before
++++ FourRootAffineSmooth318.lean
+@@ -23,18 +23,18 @@
+ theorem jacobian_formula (j:Fin 4):(presentation b j).jacobian=
+     -8*∏k:Fin 3,coordinate b (some (j.succAbove k)):=by
+   have hmatrix : (presentation b j).jacobiMatrix =
+-      fun k l : Fin 4 => pderiv (chosen j k) (equation b l) := by
++      Matrix.of (fun k l : Fin 4 => pderiv (chosen j k) (equation b l)) := by
+     ext k l
+-    simp only [presentation,PreSubmersivePresentation.jacobiMatrix_naive]
++    simp only [presentation,PreSubmersivePresentation.jacobiMatrix_naive,Matrix.of_apply]
+   have hsucc : ∀ (r : Fin 4) (k : Fin 3), r.succAbove k =
+       (![![(1:Fin 4),2,3],![0,2,3],![0,1,3],![0,1,2]] : Fin 4 → Fin 3 → Fin 4) r k := by
+     decide
+   rw [PreSubmersivePresentation.jacobian_eq_jacobiMatrix_det,hmatrix]
+   change Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))
+-    (Matrix.det (fun k l : Fin 4 => pderiv (chosen j k) (equation b l))) = _
++    (Matrix.det (Matrix.of (fun k l : Fin 4 => pderiv (chosen j k) (equation b l)))) = _
+   rw [Matrix.det_succ_row_zero]
+   fin_cases j <;>
+-    simp [chosen,equation,hsucc,Matrix.det_fin_three,Matrix.submatrix_apply,
++    simp [chosen,equation,hsucc,Matrix.of_apply,Matrix.det_fin_three,Matrix.submatrix_apply,
+       coordinate,Fin.prod_univ_succ,Fin.sum_univ_succ] <;> ring
+ 
+ lemma scalar_not_mem (p:PrimeSpectrum (Ring b)) (c:ℂ) (hc:c≠0):

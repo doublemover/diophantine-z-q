@@ -1,0 +1,31 @@
+# Independent source review: first three PEL candidates
+
+Internal source/application comparison only. No local Lean/Lake/compiler/proof build and no kernel or whole arithmetic acceptance. Run 43564923898 at b3d76fb41c03f9194b0613eac0a9b4cb04b2576c. Every before file was byte-compared to its own published predecessor, each candidate hash checked, and each own RESULT/log and predecessor intake binding checked.
+
+## FourRootAffineSmooth318
+
+Candidate 27105ebce595387abcc3a0523926083b0e64c1a9fe9eda27acb00aec78d4d801 (before 6f858b62cd64dd7cd19a8531e2922661e00d5424ba125030dfc58cf0b92ae86c). Only the displayed Jacobian matrix and determinant argument are wrapped in Matrix.of and its native evaluation lemma is added. The exact observed failure reports a raw two-argument function where Matrix is expected under implicit transparency. Pinned Mathlib LinearAlgebra/Matrix/Defs lines 41-44 explicitly warns against constructing matrices as raw/ascribed lambdas; lines 91-96 define of as Equiv.refl and of_apply as rfl. This is the same entry matrix, not an altered Jacobian.
+
+All four j:Fin4 and three complementary root indices k:Fin3 remain covered. The entries still differentiate equation b l in chosen j k, preserving row/column orientation. The quotient map, determinant expansion, twelve-case succAbove table and exact -8 times product of the three non-omitted roots remain unchanged. No injectivity assumption is added to the unconditional formula. Existing b/hb inputs to jacobian_span, smooth and integrallyClosed are unchanged. Prime-cover argument still treats the whole affine chart including branch points, not only the etale locus. Downstream branch_minor_not_mem consumes the same formula, jacobian_span the same full cover, and WholeSchemeGeometry/ActualOrderGalois the same smooth/normal ring.
+
+Own RESULT: GenericField passes 5.377s, Smooth fails 3.222s. No candidate success follows from that. Matrix.of is a source-grounded repair; downstream determinant normalization remains hosted-pending.
+
+## PELOriginalPolarizationLineBundle318
+
+Candidate 19ccbe7ff0109dbe63b7534d50704fa408d476d0ec06fd0e0f3b52618468b7aa (before b74aa84daea9f304c9310d9145b9b41e68594b2707d1aa550eeaa986904206ac). Removes the invalid hidden-hτ local instance registration and installs the exact original_discrete τ hτ proof locally where used, in core and transition_analytic. No externally supplied discrete-topology or bundle hypothesis replaces the construction.
+
+The core still has the original Base τ, all ComplexVectors chart indices, identical baseSet/chart, identical quotient-surjective selected indexAt, and identical transition times ContinuousLinearMap.id. The revised membership proof unfolds those exact exposed names to the native localChart_center theorem, retaining coverage for every quotient point. Native VectorBundleCore fields (pinned Basic lines558-567) require full cover membership, continuity on every double overlap and composition on every triple overlap; all such fields retain the same data and previously constructed transition laws. Fiber/Total, rank_one, original_local_transition and projection_continuous target that very core, not a replacement isomorphic bundle.
+
+The explicit point z in continuousLinear.analyticAt addresses exactly the hosted inferred type ∀x,AnalyticAt ... x. That signature is supported by the exact diagnostic; FDeriv/Analytic's saved file is not falsely cited as its defining source. hq changes to the exact chart source before using map_target. Filter.Tendsto.eventually transports the same locally-constant shift predicate along continuous projection; pinned Tendsto lines46-48 give exactly this direction. hs' and open_target.mem_nhds then establish equality with the fixed-shift analytic factor on a neighborhood of the same z. The unchanged factor and exponent/shift signs remain the original automorphy data. No analyticity outside its requested overlap/domain is assumed.
+
+I read the original transitions and downstream DescendedMetric metric/local_formula: it consumes this exact core/indexAt/coordChange on the original quotient, so metric compatibility is not merely about a related bundle. That later source has unchanged hidden-instance/API risks and is not being claimed to pass. Own RESULT has Transitions pass1.868s and LineBundle fail2.169s. No source-level blocker in the candidate; elaboration remains hosted-pending.
+
+## PELInertiaOrderInvolutions318
+
+Candidate 68ce74310129d667937af0020b76dfcdab32d79c5ea341bc1b98cc4a6382187b (before af3b67013ad480d728a63423aeab886b1e68a9777ca4df61863d314bc3404632). Only map_mul proof order changes. First rewrite coordinatesEquiv a * coordinatesEquiv b backwards using the explicitly bound native coordinates_mul a b; then cancel AddEquiv.symm_apply_apply without re-expanding that product; then apply the original conjugation_product i a b and coordinates_mul at the conjugated coordinates. This directly avoids the observed residual nested inverse/product that broad simp reintroduced.
+
+Coordinates.product is the original non-coordinatewise order multiplication realized by embed_mul; every x,y in the order is obtained via the same coordinatesEquiv surjectivity. All five i:Fin5, conjugation matrices, inverse/identity/additivity, normalizer element and reciprocal are byte-unchanged. The final ring equivalence is exactly the original coordinate conjugation, and orderInvolution_value identifies its value with element i*x*reciprocal(element i) in the same quaternion algebra. No scalar, sign, field/order carrier, label or product convention is changed. Immediate quadratic embeddings retain the same original element and inertia label; no new normalization assumption is supplied. Own RESULT has NormalizerData pass3.170s and Involutions fail33.629s, not a candidate pass.
+
+## Conclusion
+
+No source-level blocker found in these exact three candidates. Imports/public target statements and all resource/transparency/trust options are unchanged; local instance registration scope changes are explicitly disclosed. No scope change is licensed by this report. Final packet contracts, complete exact-copy propagation and current own evidence for each sibling still require separate review. The accompanying bindings name exact source/log/RESULT hashes and pinned primary files read.

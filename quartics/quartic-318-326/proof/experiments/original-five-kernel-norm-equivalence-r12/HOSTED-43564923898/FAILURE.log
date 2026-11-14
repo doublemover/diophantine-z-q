@@ -1,0 +1,41 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r11/SplitReducedGauge318.lean:31:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (NatTrans.app ?a (op (?U ?i ⊓ ?U ?j)))) (coboundary ?m.281 ?U ?s ?i ?j)
+in the target expression
+  1 =
+    (ConcreteCategory.hom ((Functor.whiskerRight i.c OpenUnitNorm318.unitsFunctor).app (op (U k ⊓ U l))))
+        (coboundary (StructureUnitsSheaf318.units X).obj U a k l) *
+      (ConcreteCategory.hom ((Functor.whiskerRight i.c OpenUnitNorm318.unitsFunctor).app (op (U k ⊓ U l))))
+        (c.transition k l)
+
+X₀ X : Scheme
+i : X₀ ⟶ X
+κ : Type u
+U : κ → X.Opens
+c d : Cocycle (StructureUnitsSheaf318.units X).obj U
+rc : UnitCocyclePointedLine318.ReducesToOne i U c
+rd : UnitCocyclePointedLine318.ReducesToOne i U d
+a : (k : κ) → (↑Γ(X, U k))ˣ
+ha : ∀ (k l : κ), d.transition k l = coboundary (StructureUnitsSheaf318.units X).obj U a k l * c.transition k l
+k l : κ
+h :
+  1 =
+    (ConcreteCategory.hom ((Functor.whiskerRight i.c OpenUnitNorm318.unitsFunctor).app (op (U k ⊓ U l))))
+        (coboundary (StructureUnitsSheaf318.units X).obj U a k l) *
+      (ConcreteCategory.hom ((Functor.whiskerRight i.c OpenUnitNorm318.unitsFunctor).app (op (U k ⊓ U l))))
+        (c.transition k l)
+⊢ (Units.map ↑(CommRingCat.Hom.hom (X₀.presheaf.map (homOfLE ⋯).op))) (reduced i U a k) =
+    (Units.map ↑(CommRingCat.Hom.hom (X₀.presheaf.map (homOfLE ⋯).op))) (reduced i U a l)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    StructureUnitsSheaf318.units X
+  has type
+    TopCat.Sheaf CommGrpCat ↑X.toPresheafedSpace
+  but is expected to have type
+    ObjectProperty.FullSubcategory (Presheaf.IsSheaf (Opens.grothendieckTopology ↥X))
+  in the application
+    (StructureUnitsSheaf318.units X).obj
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r11/SplitReducedGauge318.lean:72:19: error(lean.unknownIdentifier): Unknown identifier `stable`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r11/SplitReducedGauge318.lean:72:56: error(lean.unknownIdentifier): Unknown identifier `stable`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r11/SplitReducedGauge318.lean:73:29: error(lean.unknownIdentifier): Unknown identifier `stable`

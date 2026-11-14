@@ -1,0 +1,17 @@
+--- ActualRootPivotCoordinates318.lean.before
++++ ActualRootPivotCoordinates318.lean
+@@ -40,9 +40,12 @@
+ variable {R:Type*} [CommRing R] (a:Fin 4→R)
+ lemma regroup_generator (i:Fin 4):
+     FourRootPivot318.regroup a i (FourRootOrderSigns318.generator a i)=
+-      algebraMap (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)))
++      (algebraMap (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)))
+         (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))⊗[R]
+-          ThreeRootOrder318.Order (fun j=>a (FourRootPivot318.indices i j.succ)))
++          ThreeRootOrder318.Order (fun j=>a (FourRootPivot318.indices i j.succ))) :
++        QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)) →+*
++          (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))⊗[R]
++            ThreeRootOrder318.Order (fun j=>a (FourRootPivot318.indices i j.succ))))
+         (AdjoinRoot.root (QuadraticPresentation318.polynomial (a (FourRootPivot318.indices i 0)))):=by
+   fin_cases i
+   · exact first_root _
