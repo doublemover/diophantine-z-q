@@ -1,0 +1,191 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:25:63: error: unsolved goals
+A B D : Scheme
+f : A ⟶ B
+g : B ⟶ D
+t : A ⟶ D
+hf : f ≫ g = t
+M : D.Modules
+hf' : f ≫ g = t
+⊢ (Iso.refl (Scheme.Modules.pullback f)).hom.app ((Scheme.Modules.pullback g).obj M) ≫
+      (PullbackPathComposition318.iso f g t hf').hom.app M =
+    (PullbackPathComposition318.iso f g t hf).hom.app M
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:27:55: warning: This simp argument is unused:
+  NatTrans.id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.pullbackCongr, eqToIso_refl, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:27:71: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Scheme.Modules.pullbackCongr, eqToIso_refl, NatTrans.id_app]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:75:15: error: unsolved goals
+X Y U V U' V' : Scheme
+p : Y ⟶ X
+i : U ⟶ X
+j : V ⟶ X
+e : V ⟶ U
+h : e ≫ i = j
+i' : U' ⟶ Y
+j' : V' ⟶ Y
+e' : V' ⟶ U'
+h' : e' ≫ i' = j'
+a : U' ⟶ U
+b : V' ⟶ V
+ha : a ≫ i = i' ≫ p
+hb : b ≫ j = j' ≫ p
+he : b ≫ e = e' ≫ a
+M : X.Modules
+hl : (b ≫ e) ≫ i = j' ≫ p
+hr : (e' ≫ a) ≫ i = j' ≫ p
+hm : e' ≫ i' ≫ p = j' ≫ p
+A1 : (Scheme.Modules.pullback e ⋙ Scheme.Modules.pullback b).obj ((Scheme.Modules.pullback i).obj M) ⟶
+  (Scheme.Modules.pullback (b ≫ e)).obj ((Scheme.Modules.pullback i).obj M) :=
+  (PullbackPathComposition318.iso b e (b ≫ e) ⋯).hom.app ((Scheme.Modules.pullback i).obj M)
+A2 : (Scheme.Modules.pullback i ⋙ Scheme.Modules.pullback (b ≫ e)).obj M ⟶ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso (b ≫ e) i (j' ≫ p) hl).hom.app M
+B0 : (Scheme.Modules.pullback (b ≫ e)).obj ((Scheme.Modules.pullback i).obj M) ⟶
+  (Scheme.Modules.pullback (e' ≫ a)).obj ((Scheme.Modules.pullback i).obj M) :=
+  (Scheme.Modules.pullbackCongr he).hom.app ((Scheme.Modules.pullback i).obj M)
+A2' : (Scheme.Modules.pullback i ⋙ Scheme.Modules.pullback (e' ≫ a)).obj M ⟶ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso (e' ≫ a) i (j' ≫ p) hr).hom.app M
+A3 : (Scheme.Modules.pullback a ⋙ Scheme.Modules.pullback e').obj ((Scheme.Modules.pullback i).obj M) ≅
+  (Scheme.Modules.pullback (e' ≫ a)).obj ((Scheme.Modules.pullback i).obj M) :=
+  (PullbackPathComposition318.iso e' a (e' ≫ a) ⋯).app ((Scheme.Modules.pullback i).obj M)
+A4 : (Scheme.Modules.pullback i ⋙ Scheme.Modules.pullback a).obj M ⟶ (Scheme.Modules.pullback (i' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso a i (i' ≫ p) ha).hom.app M
+A5 : (Scheme.Modules.pullback (i' ≫ p) ⋙ Scheme.Modules.pullback e').obj M ⟶ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso e' (i' ≫ p) (j' ≫ p) hm).hom.app M
+A6 : (Scheme.Modules.pullback i' ⋙ Scheme.Modules.pullback e').obj ((Scheme.Modules.pullback p).obj M) ⟶
+  (Scheme.Modules.pullback j').obj ((Scheme.Modules.pullback p).obj M) :=
+  (PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M)
+A7 : (Scheme.Modules.pullback p ⋙ Scheme.Modules.pullback j').obj M ≅ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso j' p (j' ≫ p) ⋯).app M
+A8 : (Scheme.Modules.pullback p ⋙ Scheme.Modules.pullback i').obj M ≅ (Scheme.Modules.pullback (i' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso i' p (i' ≫ p) ⋯).app M
+H1 :
+  A1 ≫ A2 =
+    (Scheme.Modules.pullback b).map ((PullbackPathComposition318.iso e i j h).hom.app M) ≫
+      (PullbackPathComposition318.iso b j (j' ≫ p) hb).hom.app M
+H2 : A3.hom ≫ A2' = (Scheme.Modules.pullback e').map A4 ≫ A5
+H3 : A6 ≫ A7.hom = (Scheme.Modules.pullback e').map A8.hom ≫ A5
+H4 : A2 = B0 ≫ A2'
+⊢ A6 = (Scheme.Modules.pullback e').map (𝟙 ((Scheme.Modules.pullback p ⋙ Scheme.Modules.pullback i').obj M)) ≫ A6
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:88:13: error: unsolved goals
+X Y U V U' V' : Scheme
+p : Y ⟶ X
+i : U ⟶ X
+j : V ⟶ X
+e : V ⟶ U
+h : e ≫ i = j
+i' : U' ⟶ Y
+j' : V' ⟶ Y
+e' : V' ⟶ U'
+h' : e' ≫ i' = j'
+a : U' ⟶ U
+b : V' ⟶ V
+ha : a ≫ i = i' ≫ p
+hb : b ≫ j = j' ≫ p
+he : b ≫ e = e' ≫ a
+M : X.Modules
+hl : (b ≫ e) ≫ i = j' ≫ p
+hr : (e' ≫ a) ≫ i = j' ≫ p
+hm : e' ≫ i' ≫ p = j' ≫ p
+A1 : (Scheme.Modules.pullback e ⋙ Scheme.Modules.pullback b).obj ((Scheme.Modules.pullback i).obj M) ⟶
+  (Scheme.Modules.pullback (b ≫ e)).obj ((Scheme.Modules.pullback i).obj M) :=
+  (PullbackPathComposition318.iso b e (b ≫ e) ⋯).hom.app ((Scheme.Modules.pullback i).obj M)
+A2 : (Scheme.Modules.pullback i ⋙ Scheme.Modules.pullback (b ≫ e)).obj M ⟶ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso (b ≫ e) i (j' ≫ p) hl).hom.app M
+B0 : (Scheme.Modules.pullback (b ≫ e)).obj ((Scheme.Modules.pullback i).obj M) ⟶
+  (Scheme.Modules.pullback (e' ≫ a)).obj ((Scheme.Modules.pullback i).obj M) :=
+  (Scheme.Modules.pullbackCongr he).hom.app ((Scheme.Modules.pullback i).obj M)
+A2' : (Scheme.Modules.pullback i ⋙ Scheme.Modules.pullback (e' ≫ a)).obj M ⟶ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso (e' ≫ a) i (j' ≫ p) hr).hom.app M
+A3 : (Scheme.Modules.pullback a ⋙ Scheme.Modules.pullback e').obj ((Scheme.Modules.pullback i).obj M) ≅
+  (Scheme.Modules.pullback (e' ≫ a)).obj ((Scheme.Modules.pullback i).obj M) :=
+  (PullbackPathComposition318.iso e' a (e' ≫ a) ⋯).app ((Scheme.Modules.pullback i).obj M)
+A4 : (Scheme.Modules.pullback i ⋙ Scheme.Modules.pullback a).obj M ⟶ (Scheme.Modules.pullback (i' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso a i (i' ≫ p) ha).hom.app M
+A5 : (Scheme.Modules.pullback (i' ≫ p) ⋙ Scheme.Modules.pullback e').obj M ⟶ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso e' (i' ≫ p) (j' ≫ p) hm).hom.app M
+A6 : (Scheme.Modules.pullback i' ⋙ Scheme.Modules.pullback e').obj ((Scheme.Modules.pullback p).obj M) ⟶
+  (Scheme.Modules.pullback j').obj ((Scheme.Modules.pullback p).obj M) :=
+  (PullbackPathComposition318.iso e' i' j' h').hom.app ((Scheme.Modules.pullback p).obj M)
+A7 : (Scheme.Modules.pullback p ⋙ Scheme.Modules.pullback j').obj M ≅ (Scheme.Modules.pullback (j' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso j' p (j' ≫ p) ⋯).app M
+A8 : (Scheme.Modules.pullback p ⋙ Scheme.Modules.pullback i').obj M ≅ (Scheme.Modules.pullback (i' ≫ p)).obj M :=
+  (PullbackPathComposition318.iso i' p (i' ≫ p) ⋯).app M
+H1 :
+  A1 ≫ A2 =
+    (Scheme.Modules.pullback b).map ((PullbackPathComposition318.iso e i j h).hom.app M) ≫
+      (PullbackPathComposition318.iso b j (j' ≫ p) hb).hom.app M
+H2 : A3.hom ≫ A2' = (Scheme.Modules.pullback e').map A4 ≫ A5
+H3 : A6 ≫ A7.hom = (Scheme.Modules.pullback e').map A8.hom ≫ A5
+H4 : A2 = B0 ≫ A2'
+H5 : A5 ≫ A7.inv = (Scheme.Modules.pullback e').map A8.inv ≫ A6
+⊢ (Scheme.Modules.pullbackComp b e).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+      (Iso.refl (Scheme.Modules.pullback (b ≫ e))).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+        (eqToIso ⋯).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+          ((Scheme.Modules.pullbackComp e' a ≪≫ Iso.refl (Scheme.Modules.pullback (e' ≫ a))).app
+                ((Scheme.Modules.pullback i).obj M)).inv ≫
+            (Scheme.Modules.pullback e').map ((Scheme.Modules.pullbackComp a i).hom.app M) ≫
+              (Scheme.Modules.pullback e').map ((eqToIso ⋯).hom.app M) ≫
+                (Scheme.Modules.pullback e').map
+                    ((Scheme.Modules.pullbackComp i' p ≪≫ Iso.refl (Scheme.Modules.pullback (i' ≫ p))).app M).inv ≫
+                  (Scheme.Modules.pullbackComp e' i').hom.app ((Scheme.Modules.pullback p).obj M) ≫
+                    (eqToIso ⋯).hom.app ((Scheme.Modules.pullback p).obj M) =
+    (Scheme.Modules.pullbackComp b e).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+      (eqToIso ⋯).hom.app ((Scheme.Modules.pullback i).obj M) ≫
+        (Scheme.Modules.pullbackComp e' a ≪≫ Iso.refl (Scheme.Modules.pullback (e' ≫ a))).inv.app
+            ((Scheme.Modules.pullback i).obj M) ≫
+          (Scheme.Modules.pullback e').map ((Scheme.Modules.pullbackComp a i).hom.app M) ≫
+            (Scheme.Modules.pullback e').map ((eqToIso ⋯).hom.app M) ≫
+              (Scheme.Modules.pullback e').map
+                  ((Scheme.Modules.pullbackComp i' p ≪≫ Iso.refl (Scheme.Modules.pullback (i' ≫ p))).inv.app M) ≫
+                (Scheme.Modules.pullbackComp e' i').hom.app ((Scheme.Modules.pullback p).obj M) ≫
+                  (eqToIso ⋯).hom.app ((Scheme.Modules.pullback p).obj M)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:76:8: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.hom_inv_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:76:23: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Functor.map_comp_assoc, Iso.hom_inv_id, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:92:8: warning: This simp argument is unused:
+  NatTrans.id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [comparison, PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, NatTrans.comp_app,
+    Functor.map_comp, Category.assoc, A1, B0, A3, A4, A6, A8, Scheme.Modules.pullbackCongr, eqToIso_refl,
+    Category.comp_id, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:92:24: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [comparison, PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, NatTrans.comp_app,
+    Functor.map_comp, Category.assoc, A1, B0, A3, A4, A6, A8, Scheme.Modules.pullbackCongr, eqToIso_refl,
+    NatTrans.id_app, Category.id_comp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r13/OriginalPullbackSquarePasting318.lean:92:41: warning: This simp argument is unused:
+  Category.id_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [comparison, PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, NatTrans.comp_app,
+    Functor.map_comp, Category.assoc, A1, B0, A3, A4, A6, A8, Scheme.Modules.pullbackCongr, eqToIso_refl,
+    NatTrans.id_app, Category.comp_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

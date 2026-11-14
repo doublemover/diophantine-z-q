@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -38,7 +38,7 @@
+       pull e' ((Scheme.Modules.pullback a).obj ((Scheme.Modules.pullback i).obj M))
+         (pull a ((Scheme.Modules.pullback i).obj M) s) := by
+     simpa only [comparison,PullbackPathComposition318.iso,Iso.trans_hom,Iso.symm_hom,
+-      NatTrans.comp_app,Scheme.Modules.pullbackCongr,eqToIso_refl,NatTrans.id_app,
++      Iso.trans_inv,Iso.refl_hom,Iso.refl_inv,Iso.app_hom,Iso.app_inv,NatTrans.comp_app,Scheme.Modules.pullbackCongr,eqToIso_refl,NatTrans.id_app,
+       Category.comp_id,Category.assoc] using
+         OriginalSectionPullbackComposition318.square b e e' a he
+           ((Scheme.Modules.pullback i).obj M) s

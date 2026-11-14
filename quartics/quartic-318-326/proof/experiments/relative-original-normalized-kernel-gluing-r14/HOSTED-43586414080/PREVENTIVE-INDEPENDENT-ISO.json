@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "content": "theorem nonempty_iso_symm (X Y : C) : Nonempty (X ≅ Y) ↔ Nonempty (Y ≅ X) :=\n  ⟨fun h => ⟨h.some.symm⟩, fun h => ⟨h.some.symm⟩⟩\n\n/-- Identity isomorphism. -/\n@[refl, simps (attr := grind =), implicit_reducible]\ndef refl (X : C) : X ≅ X where\n  hom := 𝟙 X\n  inv := 𝟙 X\n\nattribute [to_dual existing refl_inv] refl_hom\n\ninstance : Inhabited (X ≅ X) := ⟨Iso.refl X⟩\n\ntheorem nonempty_iso_refl (X : C) : Nonempty (X ≅ X) := ⟨default⟩\n\n@[simp, grind =]\ntheorem refl_symm (X : C) : (Iso.refl X).symm = Iso.refl X := rfl\n\n/-- Composition of two isomorphisms -/\n@[simps (attr := grind =), implicit_reducible]\ndef trans (α : X ≅ Y) (β : Y ≅ Z) : X ≅ Z where\n  hom := α.hom ≫ β.hom\n  inv := β.inv ≫ α.inv\n\nattribute [to_dual existing trans_inv] trans_hom\n\n@[simps]\ninstance instTransIso : Trans (α := C) (· ≅ ·) (· ≅ ·) (· ≅ ·) where\n  trans := trans\n",
+    "encoding": "utf-8",
+    "sha": "86c396e01326897331b481b12ed59c6baf4f1a1a",
+    "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Iso.lean",
+    "display_title": "Iso.lean"
+  },
+  "isError": false
+}

@@ -1,0 +1,46 @@
+--- before/PELOriginalSiegelNormalization318.lean
++++ after/PELOriginalSiegelNormalization318.lean
+@@ -20,13 +20,37 @@
+ @[expose] def denormalize (z:ComplexVectors):ComplexVectors:=
+   ![τ*(z 0+(1+(beta:ℂ))/2*z 1),z 0+(1-(beta:ℂ))/2*z 1]
+ lemma denormalize_normalize (hτ:0<τ.im) (z:ComplexVectors):denormalize τ (normalize τ z)=z:=by
+-  ext i
+-  fin_cases i <;> simp only [normalize,denormalize,Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.cons_val_zero',Matrix.cons_val_succ'] <;>
+-    field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
++  let x:ℂ := (z 0/τ-z 1)/(beta:ℂ)
++  have hx:x*(beta:ℂ)=z 0/τ-z 1 := div_mul_cancel₀ _ beta_complex_ne
++  funext i
++  fin_cases i
++  · change τ*((z 1-(1-(beta:ℂ))/2*x)+(1+(beta:ℂ))/2*x)=z 0
++    calc
++      τ*((z 1-(1-(beta:ℂ))/2*x)+(1+(beta:ℂ))/2*x) =
++          τ*(z 1+x*(beta:ℂ)) := by ring
++      _ = (z 0/τ)*τ := by rw [hx];ring
++      _ = z 0 := div_mul_cancel₀ _ (parameter_ne τ hτ)
++  · change (z 1-(1-(beta:ℂ))/2*x)+(1-(beta:ℂ))/2*x=z 1
++    ring
+ lemma normalize_denormalize (hτ:0<τ.im) (z:ComplexVectors):normalize τ (denormalize τ z)=z:=by
+-  ext i
+-  fin_cases i <;> simp only [normalize,denormalize,Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.cons_val_zero',Matrix.cons_val_succ'] <;>
+-    field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
++  let A:ℂ := z 0+(1+(beta:ℂ))/2*z 1
++  let B:ℂ := z 0+(1-(beta:ℂ))/2*z 1
++  have hcancel:τ*A/τ=A :=
++    (div_eq_iff (parameter_ne τ hτ)).2 (mul_comm τ A)
++  have hnum:τ*A/τ-B=z 1*(beta:ℂ) := by
++    rw [hcancel]
++    dsimp only [A,B]
++    ring
++  have hquot:(τ*A/τ-B)/(beta:ℂ)=z 1 :=
++    (div_eq_iff beta_complex_ne).2 hnum
++  funext i
++  fin_cases i
++  · change B-(1-(beta:ℂ))/2*((τ*A/τ-B)/(beta:ℂ))=z 0
++    rw [hquot]
++    dsimp only [B]
++    ring
++  · change (τ*A/τ-B)/(beta:ℂ)=z 1
++    exact hquot
+ @[expose] def normalization (hτ:0<τ.im):ComplexVectors≃ₗ[ℂ]ComplexVectors where
+   toFun:=normalize τ
+   invFun:=denormalize τ

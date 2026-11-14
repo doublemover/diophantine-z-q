@@ -1,0 +1,9 @@
+{
+  "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "path": "Mathlib/RingTheory/Norm/Basic.lean",
+  "sha": "89111f90ee6b682f3fc2737b18b7e9f0364dcc5a",
+  "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/RingTheory/Norm/Basic.lean",
+  "start_line": 203,
+  "end_line": 214,
+  "text": "    congr\n    exact AlgHom.card L F E\n  \u00b7 intro \u03c3\n    simp only [algHomEquivSigma, Equiv.coe_fn_mk, AlgHom.domRestrict, AlgHom.comp_apply,\n      IsScalarTower.coe_toAlgHom']\n\nlemma norm_eq_of_algEquiv [Ring T] [Algebra R T] (e : S \u2243\u2090[R] T) (x) :\n    Algebra.norm R (e x) = Algebra.norm R x := by\n  simp_rw [Algebra.norm_apply, \u2190 LinearMap.det_conj _ e.toLinearEquiv]; congr; ext; simp\n\nset_option backward.isDefEq.respectTransparency false in\nlemma norm_eq_of_ringEquiv {A B C : Type*} [CommRing A] [CommRing B] [Ring C]"
+}

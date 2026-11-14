@@ -1,0 +1,33 @@
+--- ContactOriginalCohomologyCoordinates318.before.lean
++++ ContactOriginalCohomologyCoordinates318.lean
+@@ -27,7 +27,7 @@
+   rw [AddEquiv.apply_symm_apply] at h
+   rw [← h]
+   simp only [overlapCoordinates,AddEquiv.trans_apply,AddEquiv.symm_apply_apply,
+-    AddEquiv.apply_symm_apply]
++    AddEquiv.apply_symm_apply,LinearEquiv.coe_toAddEquiv]
+ 
+ lemma infinity_res (s : Γ(L.object,infinityOpen c)) :
+     overlapCoordinates c L (L.object.presheaf.map
+@@ -37,7 +37,7 @@
+   rw [AddEquiv.apply_symm_apply] at h
+   rw [← h]
+   simp only [overlapCoordinates,AddEquiv.trans_apply,AddEquiv.symm_apply_apply,
+-    AddEquiv.apply_symm_apply]
++    AddEquiv.apply_symm_apply,LinearEquiv.coe_toAddEquiv]
+ 
+ /-- This is the actual global line H1, carrying the Q action of the actual
+ ModuleScalar coefficient endomorphisms before any coordinate choice. -/
+@@ -55,8 +55,10 @@
+ def boundaryLinear : LaurentVectorFiltration318.V ℚ (finiteRank c L) →ₗ[ℚ] H1 c L :=
+   (coordinateBoundary c L).toRatLinearMap
+ 
+-lemma boundary_surjective : Function.Surjective (boundaryLinear c L) :=
+-  (OriginalLineMayerVietorisQuotient318.boundary_surjective L
++lemma boundary_surjective : Function.Surjective (boundaryLinear c L) := by
++  letI : IsIntegral (ContactProjectiveModel318.model c) :=
++    ContactProjectiveModel318.model_integral c
++  exact (OriginalLineMayerVietorisQuotient318.boundary_surjective L
+     (finiteOpen c) (infinityOpen c) (finite_affine c) (infinity_affine c) (cover c)).comp
+     (overlapCoordinates c L).symm.surjective
+ 
