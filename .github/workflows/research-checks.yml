@@ -26,6 +26,11 @@ jobs:
           - os: windows-2022
             python: '3.12.10'
     steps:
+      # Configure Git before checkout: retained evidence paths exceed MAX_PATH.
+      - name: Enable long checkout paths on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: git config --global core.longpaths true
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - uses: ./.github/actions/setup-pinned-python
         with:
@@ -51,6 +56,11 @@ jobs:
           - os: windows-2022
             python: '3.12.10'
     steps:
+      # Configure Git before checkout: retained evidence paths exceed MAX_PATH.
+      - name: Enable long checkout paths on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: git config --global core.longpaths true
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - uses: ./.github/actions/setup-pinned-python
         with:
@@ -78,6 +88,11 @@ jobs:
           - os: windows-2022
             python: '3.12.10'
     steps:
+      # Configure Git before checkout: retained evidence paths exceed MAX_PATH.
+      - name: Enable long checkout paths on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: git config --global core.longpaths true
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
       - uses: ./.github/actions/setup-pinned-python
         with:
