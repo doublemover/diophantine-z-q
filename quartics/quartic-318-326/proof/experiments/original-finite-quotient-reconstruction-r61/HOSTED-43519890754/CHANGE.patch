@@ -1,0 +1,18 @@
+--- original-finite-quotient-reconstruction-r60/OriginalCartesianNormalChart318.lean
++++ original-finite-quotient-reconstruction-r61/OriginalCartesianNormalChart318.lean
+@@ -52,6 +52,7 @@
+   letI : IsFractionRing A Y.functionField := ActualOpenFractionField318.fractionRing j
+   exact OriginalNormalSectionClosure318.equivalence R A Y.functionField
+ 
++set_option pp.rawOnError true in
+ @[expose] def specIso :
+     letI := quotientAlgebra p
+     letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
+@@ -60,6 +61,7 @@
+   letI := quotientAlgebra p
+   letI : FiniteDimensional (RatFunc ℚ) Y.functionField := hfinite
+   letI : IsGalois (RatFunc ℚ) Y.functionField := hgalois
++  letI := coefficientAlgebra f
+   exact Scheme.Spec.mapIso (sections p j f H).toRingEquiv.toCommRingCatIso.op
+ 
+ @[expose] def chart :

@@ -1,0 +1,228 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r2/ThreeDetectorUniformFamily318.lean:103:4: error: unsolved goals
+case refine_2.refine_2.«0»
+S q : ℚ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+K : Set Coeff
+hK : IsCompact K
+hc₁ : c₁ labels ≠ 0
+hc₂ : c₂ labels ≠ 0
+t : ℚ
+hfirst :
+  ∀ (h : ℤ),
+    h ≠ 0 →
+      h ≠ 1 →
+        (∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0) →
+          project (DetectorGateWitness318.witness q labels h) ∈ K →
+            have w := PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t;
+            w 0 = q ∧
+              Constraints (List.take 152 (Raw318FinalReplay.stage0 S)) w ∧
+                0 < w 190 ∧
+                  w 190 < 17 ∧
+                    PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0 ∧
+                      w 190 =
+                        ContactWeightWitness318.contact t *
+                          PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+hsecond :
+  2 < ScaledContactWeights318.parameter (c₁ labels) t ∧
+    ∀ (w : Assignment),
+      project w ∈ K →
+        ScaledDetectorChain318.realChain w (c₁ labels) t ≠ 0 ∧
+          0 < ScaledDetectorChain318.poleInput w (c₁ labels) t ∧ ScaledDetectorChain318.poleInput w (c₁ labels) t < 17
+hthird :
+  2 < ScaledContactWeights318.parameter (c₂ labels) t ∧
+    ∀ (w : Assignment),
+      project w ∈ K →
+        ScaledDetectorChain318.realChain w (c₂ labels) t ≠ 0 ∧
+          0 < ScaledDetectorChain318.poleInput w (c₂ labels) t ∧ ScaledDetectorChain318.poleInput w (c₂ labels) t < 17
+ht : 2 < t
+h : ℤ
+h0 : h ≠ 0
+h1 : h ≠ 1
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hwK : project (DetectorGateWitness318.witness q labels h) ∈ K
+w : Assignment := DetectorGateWitness318.witness q labels h
+hin : PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 0 = q
+hrows :
+  Constraints (List.take 152 (Raw318FinalReplay.stage0 S))
+    (PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t)
+hpos : 0 < PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190
+hsmall : PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190 < 17
+hs : PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0
+hclass :
+  PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190 =
+    ContactWeightWitness318.contact t *
+      PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+hr₁ : ScaledDetectorChain318.realChain w (c₁ labels) t ≠ 0
+hpos₁ : 0 < ScaledDetectorChain318.poleInput w (c₁ labels) t
+hsmall₁ : ScaledDetectorChain318.poleInput w (c₁ labels) t < 17
+hr₂ : ScaledDetectorChain318.realChain w (c₂ labels) t ≠ 0
+hpos₂ : 0 < ScaledDetectorChain318.poleInput w (c₂ labels) t
+hsmall₂ : ScaledDetectorChain318.poleInput w (c₂ labels) t < 17
+hs₁ : c₁ labels = w 143 + w 145
+hs₂ : c₂ labels = w 145
+hnp : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorPrePole318.fill w (c₁ labels) (c₂ labels) t)
+hb : ∀ (j : Fin 3), 0 < witness q labels h t (190 + 51 * ↑j) ∧ witness q labels h t (190 + 51 * ↑j) < 17
+P₀ : NormalizedPolePoints318.PointPair (witness q labels h t 190)
+P₁ : NormalizedPolePoints318.PointPair (witness q labels h t 241)
+P₂ : NormalizedPolePoints318.PointPair (witness q labels h t 292)
+pre : Assignment := witness q labels h t
+C₀ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑0)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₀
+C₁ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑1)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₁
+C₂ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑2)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₂
+⊢ pre 190 = witness q labels h t 190
+
+case refine_2.refine_2.«1»
+S q : ℚ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+K : Set Coeff
+hK : IsCompact K
+hc₁ : c₁ labels ≠ 0
+hc₂ : c₂ labels ≠ 0
+t : ℚ
+hfirst :
+  ∀ (h : ℤ),
+    h ≠ 0 →
+      h ≠ 1 →
+        (∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0) →
+          project (DetectorGateWitness318.witness q labels h) ∈ K →
+            have w := PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t;
+            w 0 = q ∧
+              Constraints (List.take 152 (Raw318FinalReplay.stage0 S)) w ∧
+                0 < w 190 ∧
+                  w 190 < 17 ∧
+                    PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0 ∧
+                      w 190 =
+                        ContactWeightWitness318.contact t *
+                          PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+hsecond :
+  2 < ScaledContactWeights318.parameter (c₁ labels) t ∧
+    ∀ (w : Assignment),
+      project w ∈ K →
+        ScaledDetectorChain318.realChain w (c₁ labels) t ≠ 0 ∧
+          0 < ScaledDetectorChain318.poleInput w (c₁ labels) t ∧ ScaledDetectorChain318.poleInput w (c₁ labels) t < 17
+hthird :
+  2 < ScaledContactWeights318.parameter (c₂ labels) t ∧
+    ∀ (w : Assignment),
+      project w ∈ K →
+        ScaledDetectorChain318.realChain w (c₂ labels) t ≠ 0 ∧
+          0 < ScaledDetectorChain318.poleInput w (c₂ labels) t ∧ ScaledDetectorChain318.poleInput w (c₂ labels) t < 17
+ht : 2 < t
+h : ℤ
+h0 : h ≠ 0
+h1 : h ≠ 1
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hwK : project (DetectorGateWitness318.witness q labels h) ∈ K
+w : Assignment := DetectorGateWitness318.witness q labels h
+hin : PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 0 = q
+hrows :
+  Constraints (List.take 152 (Raw318FinalReplay.stage0 S))
+    (PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t)
+hpos : 0 < PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190
+hsmall : PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190 < 17
+hs : PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0
+hclass :
+  PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190 =
+    ContactWeightWitness318.contact t *
+      PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+hr₁ : ScaledDetectorChain318.realChain w (c₁ labels) t ≠ 0
+hpos₁ : 0 < ScaledDetectorChain318.poleInput w (c₁ labels) t
+hsmall₁ : ScaledDetectorChain318.poleInput w (c₁ labels) t < 17
+hr₂ : ScaledDetectorChain318.realChain w (c₂ labels) t ≠ 0
+hpos₂ : 0 < ScaledDetectorChain318.poleInput w (c₂ labels) t
+hsmall₂ : ScaledDetectorChain318.poleInput w (c₂ labels) t < 17
+hs₁ : c₁ labels = w 143 + w 145
+hs₂ : c₂ labels = w 145
+hnp : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorPrePole318.fill w (c₁ labels) (c₂ labels) t)
+hb : ∀ (j : Fin 3), 0 < witness q labels h t (190 + 51 * ↑j) ∧ witness q labels h t (190 + 51 * ↑j) < 17
+P₀ : NormalizedPolePoints318.PointPair (witness q labels h t 190)
+P₁ : NormalizedPolePoints318.PointPair (witness q labels h t 241)
+P₂ : NormalizedPolePoints318.PointPair (witness q labels h t 292)
+pre : Assignment := witness q labels h t
+C₀ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑0)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₀
+C₁ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑1)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₁
+C₂ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑2)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₂
+⊢ pre 241 = witness q labels h t 241
+
+case refine_2.refine_2.«2»
+S q : ℚ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+K : Set Coeff
+hK : IsCompact K
+hc₁ : c₁ labels ≠ 0
+hc₂ : c₂ labels ≠ 0
+t : ℚ
+hfirst :
+  ∀ (h : ℤ),
+    h ≠ 0 →
+      h ≠ 1 →
+        (∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0) →
+          project (DetectorGateWitness318.witness q labels h) ∈ K →
+            have w := PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t;
+            w 0 = q ∧
+              Constraints (List.take 152 (Raw318FinalReplay.stage0 S)) w ∧
+                0 < w 190 ∧
+                  w 190 < 17 ∧
+                    PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0 ∧
+                      w 190 =
+                        ContactWeightWitness318.contact t *
+                          PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+hsecond :
+  2 < ScaledContactWeights318.parameter (c₁ labels) t ∧
+    ∀ (w : Assignment),
+      project w ∈ K →
+        ScaledDetectorChain318.realChain w (c₁ labels) t ≠ 0 ∧
+          0 < ScaledDetectorChain318.poleInput w (c₁ labels) t ∧ ScaledDetectorChain318.poleInput w (c₁ labels) t < 17
+hthird :
+  2 < ScaledContactWeights318.parameter (c₂ labels) t ∧
+    ∀ (w : Assignment),
+      project w ∈ K →
+        ScaledDetectorChain318.realChain w (c₂ labels) t ≠ 0 ∧
+          0 < ScaledDetectorChain318.poleInput w (c₂ labels) t ∧ ScaledDetectorChain318.poleInput w (c₂ labels) t < 17
+ht : 2 < t
+h : ℤ
+h0 : h ≠ 0
+h1 : h ≠ 1
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hwK : project (DetectorGateWitness318.witness q labels h) ∈ K
+w : Assignment := DetectorGateWitness318.witness q labels h
+hin : PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 0 = q
+hrows :
+  Constraints (List.take 152 (Raw318FinalReplay.stage0 S))
+    (PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t)
+hpos : 0 < PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190
+hsmall : PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190 < 17
+hs : PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ≠ 0
+hclass :
+  PoleInputWitness318.fill (DetectorGateWitness318.witness q labels h) t 190 =
+    ContactWeightWitness318.contact t *
+      PoleInputWitness318.squareFactor (DetectorGateWitness318.witness q labels h) t ^ 2
+hr₁ : ScaledDetectorChain318.realChain w (c₁ labels) t ≠ 0
+hpos₁ : 0 < ScaledDetectorChain318.poleInput w (c₁ labels) t
+hsmall₁ : ScaledDetectorChain318.poleInput w (c₁ labels) t < 17
+hr₂ : ScaledDetectorChain318.realChain w (c₂ labels) t ≠ 0
+hpos₂ : 0 < ScaledDetectorChain318.poleInput w (c₂ labels) t
+hsmall₂ : ScaledDetectorChain318.poleInput w (c₂ labels) t < 17
+hs₁ : c₁ labels = w 143 + w 145
+hs₂ : c₂ labels = w 145
+hnp : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorPrePole318.fill w (c₁ labels) (c₂ labels) t)
+hb : ∀ (j : Fin 3), 0 < witness q labels h t (190 + 51 * ↑j) ∧ witness q labels h t (190 + 51 * ↑j) < 17
+P₀ : NormalizedPolePoints318.PointPair (witness q labels h t 190)
+P₁ : NormalizedPolePoints318.PointPair (witness q labels h t 241)
+P₂ : NormalizedPolePoints318.PointPair (witness q labels h t 292)
+pre : Assignment := witness q labels h t
+C₀ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑0)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₀
+C₁ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑1)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₁
+C₂ : NormalizedPolePoints318.Certificate (witness q labels h t (190 + 51 * ↑2)) :=
+  NormalizedPolePoints318.PointPair.certificate ⋯ P₂
+⊢ pre 292 = witness q labels h t 292

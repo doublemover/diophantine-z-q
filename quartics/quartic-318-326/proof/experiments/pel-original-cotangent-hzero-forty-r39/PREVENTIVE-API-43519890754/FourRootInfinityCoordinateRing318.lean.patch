@@ -1,0 +1,39 @@
+--- before/FourRootInfinityCoordinateRing318.lean
++++ after/FourRootInfinityCoordinateRing318.lean
+@@ -30,20 +30,22 @@
+ @[expose] def lift {S:Type*} [CommRing S] [Algebra ℂ S]
+     (u:S) (s:Fin 4→S) (h0:s 0=1)
+     (hs:∀k,s k^2=1+algebraMap ℂ S (b 0-b k)*u^2):Ring b→ₐ[ℂ]S:=
+-  Ideal.Quotient.liftₐ _ (aeval (Option.elim u s)) (by
++  Ideal.Quotient.liftₐ _ (aeval (fun k => Option.elim k u s)) (by
+     have hk:Ideal.span (Set.range (equation b))≤
+-        RingHom.ker (aeval (Option.elim u s):MvPolynomial (Option (Fin 4)) ℂ→ₐ[ℂ]S):=by
++        RingHom.ker (aeval (fun k => Option.elim k u s):MvPolynomial (Option (Fin 4)) ℂ→ₐ[ℂ]S):=by
+       apply Ideal.span_le.mpr
+       rintro _ ⟨k,rfl⟩
+-      change aeval (Option.elim u s) (equation b k)=0
++      change aeval (fun k => Option.elim k u s) (equation b k)=0
+       cases k <;> simp [equation,h0,hs]
+     intro f hf
+     exact hk hf)
+ 
+ @[simp] theorem lift_coordinate {S:Type*} [CommRing S] [Algebra ℂ S]
+     (u:S) (s:Fin 4→S) (h0) (hs) (k:Option (Fin 4)):
+-    lift b u s h0 hs (coordinate b k)=Option.elim u s k:=by
+-  simp [lift,coordinate,Ideal.Quotient.lift_mk]
++    lift b u s h0 hs (coordinate b k)=Option.elim k u s:=by
++  change aeval (fun j : Option (Fin 4) => Option.elim j u s)
++    (X k : MvPolynomial (Option (Fin 4)) ℂ) = Option.elim k u s
++  exact MvPolynomial.aeval_X _ _
+ 
+ theorem hom_ext {S:Type*} [CommRing S] [Algebra ℂ S]
+     {f g:Ring b→ₐ[ℂ]S} (h:∀k,f (coordinate b k)=g (coordinate b k)):f=g:=by
+@@ -56,7 +58,7 @@
+     simpa only [map_one] using congrArg f (zero_relation b),by
+     intro k
+     have h:=congrArg f (relation b k)
+-    simpa only [map_pow,map_add,map_mul,map_one,AlgHom.commutes,algebraMap_self_apply] using h⟩
++    simpa only [map_pow,map_add,map_mul,map_one,AlgHom.commutes,Algebra.algebraMap_self_apply] using h⟩
+ 
+ @[expose] def pointEquiv:(Ring b→ₐ[ℂ]ℂ)≃InfinityPoints b where
+   toFun:=point b

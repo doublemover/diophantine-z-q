@@ -1,0 +1,24 @@
+--- before/FourRootCoordinateRingSigns318.lean
++++ after/FourRootCoordinateRingSigns318.lean
+@@ -97,7 +97,7 @@
+   · exact congrArg f (finite_base b g)
+   · funext i
+     change f (finiteEnd b g (FourRootAffineCoordinateRing318.coordinate b (some i)))=_
+-    rw [finite_root,map_mul,AlgHom.commutes,algebraMap_self_apply]
++    rw [finite_root,map_mul,AlgHom.commutes,Algebra.algebraMap_self_apply]
+     rfl
+ lemma infinity_point (f:FourRootInfinityCoordinateRing318.Ring b→ₐ[ℂ]ℂ):
+     FourRootInfinityCoordinateRing318.point b (f.comp (infinityEnd b g))=
+@@ -105,10 +105,10 @@
+   apply Subtype.ext
+   apply Prod.ext
+   · change f (infinityEnd b g (FourRootInfinityCoordinateRing318.coordinate b none))=_
+-    rw [infinity_parameter,map_mul,AlgHom.commutes,algebraMap_self_apply]
++    rw [infinity_parameter,map_mul,AlgHom.commutes,Algebra.algebraMap_self_apply]
+     rfl
+   · funext i
+     change f (infinityEnd b g (FourRootInfinityCoordinateRing318.coordinate b (some i)))=_
+-    rw [infinity_ratio,map_mul,AlgHom.commutes,algebraMap_self_apply]
++    rw [infinity_ratio,map_mul,AlgHom.commutes,Algebra.algebraMap_self_apply]
+     rfl
+ end FourRootCoordinateRingSigns318

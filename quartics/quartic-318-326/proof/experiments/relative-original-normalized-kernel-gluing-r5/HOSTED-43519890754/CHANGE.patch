@@ -1,0 +1,11 @@
+--- relative-original-normalized-kernel-gluing-r4/RelativeOriginalAffineChart318.lean
++++ relative-original-normalized-kernel-gluing-r5/RelativeOriginalAffineChart318.lean
+@@ -23,7 +23,7 @@
+     pullbackSymmetry (Spec.map (CommRingCat.ofHom (algebraMap k B))) (baseMap k R) ≪≫
+     pullbackSpecIso k R B
+ 
+-def into : Spec (ring k R B) ⟶ family k R p :=
++@[expose] def into : Spec (ring k R B) ⟶ family k R p :=
+   (chartIso k R B p j hj).inv ≫ pullback.snd _ _
+ 
+ instance [IsOpenImmersion j] : IsOpenImmersion (into k R B p j hj) := by

@@ -1,0 +1,48 @@
+--- original-five-kernel-norm-equivalence-r8/OriginalTwoOpenReducedCocycle318.lean
++++ original-five-kernel-norm-equivalence-r9/OriginalTwoOpenReducedCocycle318.lean
+@@ -9,6 +9,14 @@
+ set_option maxHeartbeats 1600000
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++/-- Transport the entire dependent frame along equality of the original opens. -/
++private def frameAlongOpenEq {Y : Scheme.{0}} (M : Y.Modules)
++    (W Z : Y.Opens) (h : W = Z)
++    (e : SheafOfModules.unit W.toScheme.ringCatSheaf ≅ M.restrict W.ι) :
++    SheafOfModules.unit Z.toScheme.ringCatSheaf ≅ M.restrict Z.ι := by
++  subst Z
++  exact e
++
+ variable {R : Type} [CommRing R] {X : Scheme.{0}} (p : X ⟶ base R)
+     (U V : X.Opens) (hU : IsAffineOpen U) (hV : IsAffineOpen V)
+     (L : Deformation R p)
+@@ -21,14 +29,15 @@
+     L.line.object.restrict (thickOpens p U V k).ι := by
+   have f := OriginalThickenedFrameCocycle318.frames R p (TwoOpenAdditiveCocycle318.opens U V)
+     (affine U V hU hV) L k
+-  simpa only [OriginalThickenedFrameCocycle318.opens, OriginalThickenedOpen318.fullOpen_eq,
+-    thickOpens] using f
++  exact frameAlongOpenEq L.line.object _ _
++    (OriginalThickenedOpen318.fullOpen_eq R p (TwoOpenAdditiveCocycle318.opens U V k)) f
++
+ lemma stable (k : Bool) : thickOpens p U V k ≤ pullback.fst p (structureMap R) ⁻¹ᵁ
+     (reduction R p ⁻¹ᵁ thickOpens p U V k) := by
+-  change (pullback.fst p (structureMap R)) ⁻¹ᵁ _ ≤
+-    (pullback.fst p (structureMap R)) ⁻¹ᵁ (reduction R p ⁻¹ᵁ ((pullback.fst p (structureMap R)) ⁻¹ᵁ _))
+-  rw [← Scheme.Hom.comp_preimage, reduction_fst]
+-  all_goals exact le_rfl
++  exact le_of_eq (congrArg (fun W => (pullback.fst p (structureMap R)) ⁻¹ᵁ W)
++    (OriginalThickenedOpenSections318.reduction_preimage R p
++      (TwoOpenAdditiveCocycle318.opens U V k))).symm
++
+ @[expose] def cocycle : UnitTransitionCocycle318.Cocycle
+     (StructureUnitsSheaf318.units (thickening R p)).obj (thickOpens p U V) :=
+   SplitPointedCocycleNormalization318.normalized (reduction R p) (pullback.fst p (structureMap R))
+@@ -51,5 +60,7 @@
+     CocycleModule318.object (thickOpens p U V) (cocycle p U V hU hV L) :=
+   SplitPointedCocycleNormalization318.reconstruction (reduction R p)
+     (pullback.fst p (structureMap R)) L (thickOpens p U V) (frames p U V hU hV L)
+-      (stable p U V) (thick_cover p U V hc)
++      (stable p U V)
++      (LinePullbackFrames318.preimage_cover (pullback.fst p (structureMap R))
++        (TwoOpenAdditiveCocycle318.opens U V) (TwoOpenAdditiveCocycle318.cover U V hc))
+ end OriginalTwoOpenReducedCocycle318

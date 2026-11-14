@@ -1,0 +1,68 @@
+--- contact-relative-site-descent-r74/ActualAffineEffectiveComparison318.lean
++++ contact-relative-site-descent-r75/ActualAffineEffectiveComparison318.lean
+@@ -16,9 +16,35 @@
+     (a : P.obj M ⟶ Q.obj M) (b : P.obj N ⟶ Q.obj N)
+     (h : P.map e.inv ≫ a ≫ Q.map e.hom = b) :
+     a ≫ Q.map e.hom = P.map e.hom ≫ b := by
+-  have hh := congrArg (fun k => P.map e.hom ≫ k) h
+-  simpa only [Category.assoc, ← Functor.map_comp_assoc, Iso.hom_inv_id,
+-    Functor.map_id, Category.id_comp] using hh
++  have hc : P.map e.hom ≫ P.map e.inv = 𝟙 _ := by
++    calc
++      _ = P.map (e.hom ≫ e.inv) := (P.map_comp _ _).symm
++      _ = P.map (𝟙 _) := congrArg (fun k => P.map k) e.hom_inv_id
++      _ = 𝟙 _ := P.map_id _
++  calc
++    a ≫ Q.map e.hom = (P.map e.hom ≫ P.map e.inv) ≫ a ≫ Q.map e.hom := by
++      rw [hc, Category.id_comp]
++    _ = P.map e.hom ≫ b := by
++      rw [Category.assoc, h]
++
++/-- Reflect conjugation on abstract scheme carriers before substituting the
++actual categorical double. Both normalized endpoint paths are retained. -/
++private lemma reflect_conjugation {U X Y : Scheme.{u}} {M N : U.Modules}
++    (d : Y ≅ X) (e : M ≅ N) (p₀ p₁ : X ⟶ U) (v₀ v₁ : Y ⟶ U)
++    (h₀ : d.hom ≫ p₀ = v₀) (h₁ : d.hom ≫ p₁ = v₁)
++    (a : (Scheme.Modules.pullback p₀).obj M ⟶ (Scheme.Modules.pullback p₁).obj M)
++    (a' : (Scheme.Modules.pullback v₀).obj M ⟶ (Scheme.Modules.pullback v₁).obj M)
++    (b : (Scheme.Modules.pullback p₀).obj N ⟶ (Scheme.Modules.pullback p₁).obj N)
++    (ha : SheafPathTransport318.transport M d.hom p₀ p₁ v₀ v₁ h₀ h₁ a = a')
++    (h : (Scheme.Modules.pullback v₀).map e.inv ≫ a' ≫
++      (Scheme.Modules.pullback v₁).map e.hom =
++        SheafPathTransport318.transport N d.hom p₀ p₁ v₀ v₁ h₀ h₁ b) :
++    (Scheme.Modules.pullback p₀).map e.inv ≫ a ≫
++      (Scheme.Modules.pullback p₁).map e.hom = b := by
++  apply SheafIsoTransport318.transport_injective N d p₀ p₁ v₀ v₁ h₀ h₁
++  exact (SheafIsoTransport318.conjugation e d.hom p₀ p₁ v₀ v₁ h₀ h₁ a).trans
++    ((congrArg (fun k => (Scheme.Modules.pullback v₀).map e.inv ≫ k ≫
++      (Scheme.Modules.pullback v₁).map e.hom) ha).trans h)
+ 
+ variable (R S : CommRingCat.{u}) [Algebra R S] [Module.FaithfullyFlat R S]
+   (L : Line (Spec S))
+@@ -48,17 +74,17 @@
+   change (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map e.inv ≫
+     CanonicalSheafOverlap318.actual (tilde M) (baseMap R S) ≫
+     (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map e.hom = τ
+-  apply SheafIsoTransport318.transport_injective L.object (doubleIso R S).symm
++  exact reflect_conjugation (doubleIso R S).symm e
+     (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+     (Spec.map (AffineModuleBaseChange318.leftMap R S S))
+-    (Spec.map (AffineModuleBaseChange318.rightMap R S S)) (inverse_first R S) (inverse_second R S)
+-  rw [SheafIsoTransport318.conjugation]
+-  simp only [Iso.symm_hom]
+-  rw [ActualCanonicalOverlap318.transport R S M]
+-  exact ReconstructedOverlapCompatibility318.original_overlap R S L
+-    (ActualAffineTensorTransport318.overlap R S L τ)
+-    (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
+-    (ActualAffineTensorLaws318.triple R S L τ htriple)
++    (Spec.map (AffineModuleBaseChange318.rightMap R S S))
++    (inverse_first R S) (inverse_second R S) _ _ τ
++    (ActualCanonicalOverlap318.transport R S M)
++    (ReconstructedOverlapCompatibility318.original_overlap R S L
++      (ActualAffineTensorTransport318.overlap R S L τ)
++      (ActualAffineTensorLaws318.diagonal R S L τ hdiag)
++      (ActualAffineTensorLaws318.triple R S L τ htriple))
++
+ 
+ /-- The actual displayed isomorphism is compatible with the original
+ geometric descent datum on the actual categorical fiber product. -/

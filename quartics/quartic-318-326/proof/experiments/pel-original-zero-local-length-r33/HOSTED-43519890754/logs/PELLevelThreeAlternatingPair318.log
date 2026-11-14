@@ -1,0 +1,21 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r5/PELLevelThreeAlternatingPair318.lean:44:41: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r5/PELLevelThreeAlternatingPair318.lean:44:41: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r5/PELLevelThreeAlternatingPair318.lean:54:42: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MulHomClass (Coordinates ≃+ ↥order) Coordinates ↥order
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r5/PELLevelThreeAlternatingPair318.lean:54:50: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  coordinatesEquiv ?a * coordinatesEquiv ?b
+in the target expression
+  pair (moduloThree.mk' (coordinatesEquiv (a * b))) (moduloThree.mk' (coordinatesEquiv c)) =
+    pair (moduloThree.mk' (coordinatesEquiv b))
+      (moduloThree.mk' (coordinatesEquiv (involution a)) * moduloThree.mk' (coordinatesEquiv c))
+
+a b c : Coordinates
+⊢ pair (moduloThree.mk' (coordinatesEquiv (a * b))) (moduloThree.mk' (coordinatesEquiv c)) =
+    pair (moduloThree.mk' (coordinatesEquiv b))
+      (moduloThree.mk' (coordinatesEquiv (involution a)) * moduloThree.mk' (coordinatesEquiv c))
