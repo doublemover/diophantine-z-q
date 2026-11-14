@@ -1,0 +1,23 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r14/PELNormalizerParityQuotient318.lean:17:50: warning: Variable name `v` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _v
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r14/PELNormalizerParityQuotient318.lean:35:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @Eq (Multiplicative InertiaLabels318.V) (Multiplicative.ofAdd v) (Multiplicative.ofAdd w)
+but is expected to have type
+  @Eq InertiaLabels318.V v w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r14/PELNormalizerParityQuotient318.lean:39:60: error: unsolved goals
+q : QuotientNormalizer
+⊢ Multiplicative.ofAdd (Multiplicative.toAdd (quotientEquiv q)) = quotientEquiv q
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r14/PELNormalizerParityQuotient318.lean:61:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(inertiaElement ?i)
+in the target expression
+  (fun i => ↑(inertiaElement i)) i = (fun i => ↑(inertiaElement i)) j
+
+i j : Fin 5
+h : (fun i => ↑(inertiaElement i)) i = (fun i => ↑(inertiaElement i)) j
+⊢ i = j

@@ -1,0 +1,35 @@
+{
+  "iso435864": {
+    "sha": "86c396e01326897331b481b12ed59c6baf4f1a1a",
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Iso.lean",
+    "excerpts": [
+      {
+        "start_line": 105,
+        "end_line": 125,
+        "text": "theorem symm_bijective {X Y : C} : Function.Bijective (symm : (X \u2245 Y) \u2192 _) :=\n  Function.bijective_iff_has_inverse.mpr \u27e8_, symm_symm_eq, symm_symm_eq\u27e9\n\n@[simp]\ntheorem symm_eq_iff {X Y : C} {\u03b1 \u03b2 : X \u2245 Y} : \u03b1.symm = \u03b2.symm \u2194 \u03b1 = \u03b2 :=\n  symm_bijective.injective.eq_iff\n\ntheorem nonempty_iso_symm (X Y : C) : Nonempty (X \u2245 Y) \u2194 Nonempty (Y \u2245 X) :=\n  \u27e8fun h => \u27e8h.some.symm\u27e9, fun h => \u27e8h.some.symm\u27e9\u27e9\n\n/-- Identity isomorphism. -/\n@[refl, simps (attr := grind =), implicit_reducible]\ndef refl (X : C) : X \u2245 X where\n  hom := \ud835\udfd9 X\n  inv := \ud835\udfd9 X\n\nattribute [to_dual existing refl_inv] refl_hom\n\ninstance : Inhabited (X \u2245 X) := \u27e8Iso.refl X\u27e9\n\ntheorem nonempty_iso_refl (X : C) : Nonempty (X \u2245 X) := \u27e8default\u27e9"
+      }
+    ]
+  },
+  "functor435864": {
+    "sha": "dde937035bebf78a6637ab8264c273d927a8ab32",
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Functor/Basic.lean",
+    "excerpts": [
+      {
+        "start_line": 35,
+        "end_line": 58,
+        "text": "To apply a functor `F` to an object use `F.obj X`, and to a morphism use `F.map f`.\n\nThe axiom `map_id` expresses preservation of identities, and\n`map_comp` expresses functoriality. -/\n@[stacks 001B, wikidata Q864475]\nstructure Functor (C : Type u\u2081) [Category.{v\u2081} C] (D : Type u\u2082) [Category.{v\u2082} D] :\n    Type max v\u2081 v\u2082 u\u2081 u\u2082 where\n  /-- The action of a functor on objects. -/\n  obj : C \u2192 D\n  /-- The action of a functor on morphisms. -/\n  map : \u2200 {X Y : C}, (X \u27f6 Y) \u2192 ((obj X) \u27f6 (obj Y))\n  /-- A functor preserves identity morphisms. -/\n  map_id : \u2200 X : C, map (\ud835\udfd9 X) = \ud835\udfd9 (obj X) := by cat_disch\n  /-- A functor preserves composition. -/\n  map_comp : \u2200 {X Y Z : C} (f : X \u27f6 Y) (g : Y \u27f6 Z), map (f \u226b g) = map f \u226b map g := by cat_disch\n\n/-- Notation for a functor between categories. -/\n-- A functor is basically a function, so give \u2964 a similar precedence to \u2192 (25).\n-- For example, `C \u00d7 D \u2964 E` should parse as `(C \u00d7 D) \u2964 E` not `C \u00d7 (D \u2964 E)`.\nscoped[CategoryTheory] infixr:26 \" \u2964 \" => Functor -- type as \\func\n\nattribute [simp] Functor.map_id Functor.map_comp\nattribute [grind =] Functor.map_id\nattribute [grind _=_] Functor.map_comp"
+      }
+    ]
+  },
+  "natiso435864": {
+    "sha": "1fd48742789e9c07640d6e2d4efc913f7767f43c",
+    "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/NatIso.lean",
+    "excerpts": [
+      {
+        "start_line": 48,
+        "end_line": 65,
+        "text": "/-- The application of a natural isomorphism to an object. We put this definition in a different\nnamespace, so that we can use `\u03b1.app` -/\n@[implicit_reducible, simps (attr := grind =)]\ndef app {F G : C \u2964 D} (\u03b1 : F \u2245 G) (X : C) :\n    F.obj X \u2245 G.obj X where\n  hom := \u03b1.hom.app X\n  inv := \u03b1.inv.app X\n\nattribute [to_dual existing app_inv] app_hom\n\n@[map (attr := reassoc +to_dual (attr := simp)), grind =]\ntheorem hom_inv_id_app {F G : C \u2964 D} (\u03b1 : F \u2245 G) (X : C) :\n    \u03b1.hom.app X \u226b \u03b1.inv.app X = \ud835\udfd9 (F.obj X) := by cat_disch\n\n@[map (attr := reassoc +to_dual (attr := simp)), grind =]\ntheorem inv_hom_id_app {F G : C \u2964 D} (\u03b1 : F \u2245 G) (X : C) :\n    \u03b1.inv.app X \u226b \u03b1.hom.app X = \ud835\udfd9 (G.obj X) := by cat_disch\n"
+      }
+    ]
+  }
+}

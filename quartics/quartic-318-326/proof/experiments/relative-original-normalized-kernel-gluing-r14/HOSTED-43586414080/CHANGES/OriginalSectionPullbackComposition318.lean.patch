@@ -1,0 +1,11 @@
+--- relative-original-normalized-kernel-gluing-r13/OriginalSectionPullbackComposition318.lean
++++ relative-original-normalized-kernel-gluing-r14/OriginalSectionPullbackComposition318.lean
+@@ -48,7 +48,7 @@
+       (pull f ((Scheme.Modules.pullback g).obj M) (pull g M s)) = pull h M s := by
+   subst h
+   simpa only [PullbackPathComposition318.iso,Scheme.Modules.pullbackCongr,
+-    eqToIso_refl,Iso.trans_hom,NatTrans.comp_app,NatTrans.id_app,Category.comp_id] using
++    eqToIso_refl,Iso.trans_hom,Iso.refl_hom,NatTrans.comp_app,NatTrans.id_app,Category.comp_id] using
+       composition f g M s
+ 
+ variable {Y' : Scheme.{u}} (f' : X ⟶ Y') (g' : Y' ⟶ Z)

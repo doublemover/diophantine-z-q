@@ -1,0 +1,23 @@
+--- original-five-kernel-norm-equivalence-r17/OriginalDualAlgebraNormTrace318.lean
++++ original-five-kernel-norm-equivalence-r18/OriginalDualAlgebraNormTrace318.lean
+@@ -37,8 +37,10 @@
+   exact ⟨Module.Free.of_equiv e.toLinearEquiv, Module.Finite.equiv e.toLinearEquiv⟩
+ lemma norm_inl (x : S) : Algebra.norm (DualNumber R) (inl x : DualNumber S) =
+     inl (Algebra.norm R x) := by
+-  change Algebra.norm (DualNumber R) (equivalence R S (x ⊗ₜ[R] 1)) = _
+-  rw [Algebra.norm_eq_of_algEquiv, OriginalRightTensorNormTrace318.norm_coefficient,
++  have hx : equivalence R S (x ⊗ₜ[R] 1) = (inl x : DualNumber S) :=
++    DualNumberScalarExtension318.equivalence_left R S x
++  rw [← hx, Algebra.norm_eq_of_algEquiv (equivalence R S) (x ⊗ₜ[R] 1),
++    OriginalRightTensorNormTrace318.norm_coefficient,
+     TrivSqZeroExt.algebraMap_eq_inl]
+ /-- The determinant norm of the ORIGINAL dual base-change algebra sends the
+ OLD actual1+epsilon unit to the OLD actual1+epsilon unit of the ORIGINAL trace.
+@@ -60,6 +62,6 @@
+       DualNumber.eps DualNumber.eps_mul_eps x)
+   apply Units.ext
+   change Algebra.norm (DualNumber R) (SquareZeroUnit318.unit S x).val = _
+-  rw [← hz, Algebra.norm_eq_of_algEquiv]
++  rw [← hz, Algebra.norm_eq_of_algEquiv (equivalence R S) z.val]
+   exact hn.trans (congrArg Units.val (infinitesimal_eq R (Algebra.trace R S x)))
+ end OriginalDualAlgebraNormTrace318

@@ -1,0 +1,22 @@
+--- r57/IntegralRationalInfinityMap318.lean
++++ candidate/IntegralRationalInfinityMap318.lean
+@@ -106,6 +106,9 @@
+   apply rational_order_ext (fun j => IntegralInfinityChart318.coefficient ℚ c j)
+   · have hX := (IntegralRationalInfinityCoordinate318.reciprocal_coordinate c).trans
+       (original_coordinate c).symm
++    rw [RingHom.comp_apply]
++    change originalFieldEmbedding c (infinityMap ℚ c (IntegralInfinityChart318.coordinate ℚ c)) =
++      originalEmbedding c (IntegralInfinityChart318.coordinate ℚ c)
+     exact hX
+   · intro j
+     -- Unfold only this named composite, rather than asking defeq to reconstruct
+@@ -118,6 +121,9 @@
+         (rationalOrderEquiv c (infinityGenerator ℚ c j)) = _
+       rw [rationalOrderEquiv_generator, InfinityOrderCoordinates318.generator_embedding]
+     have h := (generator_original_field c j).trans hroot.symm
++    rw [RingHom.comp_apply]
++    change originalFieldEmbedding c (infinityMap ℚ c (infinityGenerator ℚ c j)) =
++      originalEmbedding c (infinityGenerator ℚ c j)
+     exact h
+ 
+ /-- The full infinity restriction commutes with the original rational atlas.

@@ -1,0 +1,28 @@
+--- before/OriginalPullbackSquarePasting318.lean
++++ after/OriginalPullbackSquarePasting318.lean
+@@ -24,7 +24,7 @@
+       (PullbackPathComposition318.iso f' g t hf').hom.app M =
+         (PullbackPathComposition318.iso f g t hf).hom.app M := by
+   subst f'
+-  simp only [Scheme.Modules.pullbackCongr,eqToIso_refl,NatTrans.id_app,Category.id_comp]
++  simp only [Scheme.Modules.pullbackCongr,eqToIso_refl,Iso.refl_hom,NatTrans.id_app,Category.id_comp]
+ 
+ variable {X Y U V U' V' : Scheme.{u}}
+   (p : Y ⟶ X) (i : U ⟶ X) (j : V ⟶ X) (e : V ⟶ U) (h : e ≫ i = j)
+@@ -73,7 +73,7 @@
+       _ = (A6 ≫ A7.hom) ≫ A7.inv := by rw [← Category.assoc,← H3]
+       _ = A6 := by simp only [Category.assoc,Iso.hom_inv_id,Category.comp_id]
+       _ = _ := by simp only [← Functor.map_comp_assoc,Iso.hom_inv_id,
+-        Functor.map_id,Category.id_comp]
++        CategoryTheory.Functor.map_id,Category.id_comp]
+   calc
+     _ = A1 ≫ A2 ≫ A7.inv := by
+       change _ ≫ ((PullbackPathComposition318.iso b j (j' ≫ p) hb).hom.app M ≫ A7.inv) = _
+@@ -88,6 +88,6 @@
+     _ = _ := by
+       simp only [comparison,PullbackPathComposition318.iso,Iso.trans_hom,Iso.symm_hom,
+         NatTrans.comp_app,Functor.map_comp,Category.assoc,
+-        A1,B0,A3,A4,A6,A8,Scheme.Modules.pullbackCongr,eqToIso_refl,
++        A1,B0,A3,A4,A6,A8,Scheme.Modules.pullbackCongr,eqToIso_refl,Iso.refl_hom,Iso.app_inv,
+         NatTrans.id_app,Category.comp_id,Category.id_comp]
+ end OriginalPullbackSquarePasting318

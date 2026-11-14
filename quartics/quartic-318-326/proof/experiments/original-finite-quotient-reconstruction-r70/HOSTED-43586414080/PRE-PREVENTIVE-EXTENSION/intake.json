@@ -1,0 +1,665 @@
+{
+  "packet": "original-finite-quotient-reconstruction-r70",
+  "status": "DRAFT_SOURCE_REPAIR_HOSTED_PENDING",
+  "revision_classification_schema": 1,
+  "revision_source": "original-finite-quotient-reconstruction-r69",
+  "new_modules": [],
+  "changed_modules": [
+    "OriginalFiniteProjectiveFlat318"
+  ],
+  "order": [
+    "FourRootEvaluation318",
+    "ComplementRootReconstruction318",
+    "ComplementRootAction318",
+    "LabeledContactFieldReconstruction318",
+    "SquareclassRadicalNormalization318",
+    "PolynomialEvenSquare318",
+    "RationalFunctionEvenSquare318",
+    "ContactDivisorFieldReconstruction318",
+    "NormalBasisCharacterRadicals318",
+    "FourBinaryCharacters318",
+    "ComplementaryFunctionRigidity318",
+    "GaloisCharacterContactReconstruction318",
+    "PolynomialPrimeValuation318",
+    "DVRInertiaCharacterParity318",
+    "DVRFractionCharacterParity318",
+    "QuadraticLocalCharacterOrders318",
+    "ContactPrimeOrderParity318",
+    "OriginalInertiaFieldReconstruction318",
+    "InertiaTangentUniformizer318",
+    "LabeledContactInertiaSigns318",
+    "TameInvolutionUniformizer318",
+    "OriginalTangentFieldReconstruction318",
+    "NormalizationSourceIso318",
+    "NormalizationBirationalComparison318",
+    "AffineFractionGeneric318",
+    "ContactFieldNormalization318",
+    "ReconstructedFieldNormalization318",
+    "OriginalCandidateCurveIso318",
+    "OriginalCurveActionComparison318",
+    "CenteredDVRRestriction318",
+    "CenteredContactReconstruction318",
+    "PrimeLocalOriginalField318",
+    "AffinePrimeCenter318",
+    "AffinePrimeOriginalInertia318",
+    "LocalBranchEquationOrders318",
+    "OriginalAffineLocalReconstruction318",
+    "CanonicalDVRQuotientLength318",
+    "OriginalPrimeOrderInertia318",
+    "OriginalNormalClosureGalois318",
+    "LabeledFullInertiaCardinality318",
+    "OriginalFullInertiaReconstruction318",
+    "NormalClosureGeometricPoints318",
+    "OriginalGeometricBranchLocus318",
+    "OriginalCurveGeometricStabilizers318",
+    "OriginalClosedResiduePoints318",
+    "OriginalComplexPointReconstruction318",
+    "ComplexLegendreCoordinates318",
+    "OriginalPublishedComplexBranches318",
+    "OriginalContactInertiaBasis318",
+    "OriginalArithmeticBranchReconstruction318",
+    "OriginalFiniteDeckGalois318",
+    "OriginalDeckArithmeticLabels318",
+    "OriginalDeckCurveReconstruction318",
+    "OriginalActualDeckEquivariance318",
+    "OriginalGenericStalkNaturality318",
+    "OriginalSchemeDeckFieldAction318",
+    "OriginalNormalClosureChartAction318",
+    "OriginalCanonicalDeckReconstruction318",
+    "OriginalNormalSectionClosure318",
+    "OriginalNormalAffineChart318",
+    "OriginalAffineSectionReconstruction318",
+    "OriginalProjectiveFunctionCoordinate318",
+    "OriginalCanonicalQuotientBase318",
+    "OriginalCanonicalCoordinateReconstruction318",
+    "OriginalOpenChartGeneric318",
+    "OriginalCartesianChartCoefficients318",
+    "OriginalCartesianNormalChart318",
+    "OriginalCartesianCurveReconstruction318",
+    "OriginalProjectiveBaseIntegral318",
+    "OriginalIntegralBaseReconstruction318",
+    "OriginalNormalCoverSections318",
+    "OriginalCanonicalAffineChart318",
+    "OriginalCanonicalAffineReconstruction318",
+    "OriginalSchemeBranchReconstruction318",
+    "OriginalFiniteDeckDegree318",
+    "OriginalQuotientRankFixed318",
+    "OriginalUnramifiedFiberRank318",
+    "OriginalFiberPointReconstruction318",
+    "OriginalFiniteProjectiveFlat318",
+    "OriginalFinitePointReconstruction318"
+  ],
+  "files": {
+    "FourRootEvaluation318.lean": {
+      "sha256": "0e0bead44e352cb2d2690df8707664be10aa66ca8b8db7a918f8586ad0a7586e",
+      "imports": [
+        "FourRootAutomorphisms318",
+        "SourceTwistArithmetic318",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Basic"
+      ]
+    },
+    "ComplementRootReconstruction318.lean": {
+      "sha256": "9fdbda67a9687a845ef684e33299e7feeac16086cbec78ddd331f4f4ef470d94",
+      "imports": [
+        "FourRootEvaluation318",
+        "ComplementSquareclass318"
+      ]
+    },
+    "ComplementRootAction318.lean": {
+      "sha256": "0af420f2f7a8e6e3bc066c8dbd4a3215722df24d3a61c7e4d823a68983736983",
+      "imports": [
+        "ComplementRootReconstruction318"
+      ]
+    },
+    "LabeledContactFieldReconstruction318.lean": {
+      "sha256": "61b71171850e7712d299121010c5be271d60557808cf27420113f897bccbe57e",
+      "imports": [
+        "ComplementRootAction318",
+        "SourceTwistFieldEquiv318"
+      ]
+    },
+    "SquareclassRadicalNormalization318.lean": {
+      "sha256": "599c9804dce188dda6a753a9b1850e16808de56fd41731765c4cc44b9252666b",
+      "imports": [
+        "LabeledContactFieldReconstruction318"
+      ]
+    },
+    "PolynomialEvenSquare318.lean": {
+      "sha256": "c641aca240e945b5f5565035631b93ce00e4fbb61f9bd22833d649987761b418",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.FieldDivision",
+        "Mathlib.RingTheory.UniqueFactorizationDomain.Multiplicity",
+        "Mathlib.Tactic"
+      ]
+    },
+    "RationalFunctionEvenSquare318.lean": {
+      "sha256": "b9ffa835e27b8ca762eb2c4d06cbdd496293b6276bf2718bff628bfa33a9ada1",
+      "imports": [
+        "PolynomialEvenSquare318",
+        "Mathlib.FieldTheory.RatFunc.Basic"
+      ]
+    },
+    "ContactDivisorFieldReconstruction318.lean": {
+      "sha256": "fdc88472efb6700364a85478b4f2a246db0df75b58ab1894946c3ea819e6bb9b",
+      "imports": [
+        "RationalFunctionEvenSquare318",
+        "SquareclassRadicalNormalization318"
+      ]
+    },
+    "NormalBasisCharacterRadicals318.lean": {
+      "sha256": "f3be631903008fcf7791c0694a47bd940b52895054aedb5a34daa888d2846b84",
+      "imports": [
+        "Mathlib.FieldTheory.Galois.NormalBasis",
+        "Mathlib.Tactic"
+      ]
+    },
+    "FourBinaryCharacters318.lean": {
+      "sha256": "e74c3a44a472a5eaca91374ad3c2f11cc4b898d45469c5a8fb4f346209a7ab8b",
+      "imports": [
+        "SourceTwistArithmetic318",
+        "Mathlib.Algebra.Group.TypeTags.Basic",
+        "Mathlib.Data.ZMod.Basic"
+      ]
+    },
+    "ComplementaryFunctionRigidity318.lean": {
+      "sha256": "15c9819ed23f2249da1bc12443705e3c72e9ea54d36b948b5e20262dff2be11d",
+      "imports": [
+        "ComplementRootAction318"
+      ]
+    },
+    "GaloisCharacterContactReconstruction318.lean": {
+      "sha256": "ed29c7f95efe2a390058135265e87e95af480f6eaea0274f75964b6748bbeb1e",
+      "imports": [
+        "NormalBasisCharacterRadicals318",
+        "FourBinaryCharacters318",
+        "ContactDivisorFieldReconstruction318",
+        "ComplementaryFunctionRigidity318"
+      ]
+    },
+    "PolynomialPrimeValuation318.lean": {
+      "sha256": "83bec6034896c921349d3f5c1c24ad29cc9cbbe6b3904ba3cdde7d0f3916a33f",
+      "imports": [
+        "RationalFunctionEvenSquare318",
+        "Mathlib.RingTheory.Valuation.PrimeMultiplicity",
+        "Mathlib.RingTheory.Valuation.ExtendToLocalization"
+      ]
+    },
+    "DVRInertiaCharacterParity318.lean": {
+      "sha256": "747c270e50a4a10cf214d9a706f41589fc184f1018a08e120e308c3bf0c8774f",
+      "imports": [
+        "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+        "Mathlib.RingTheory.LocalRing.ResidueField.Basic",
+        "Mathlib.Algebra.Ring.Parity",
+        "Mathlib.Tactic"
+      ]
+    },
+    "DVRFractionCharacterParity318.lean": {
+      "sha256": "089925a297e68061ffda6f082c42336b439645ae77f8146441ffdb82fca14cce",
+      "imports": [
+        "PolynomialPrimeValuation318",
+        "DVRInertiaCharacterParity318",
+        "Mathlib.RingTheory.Valuation.ValuationRing"
+      ]
+    },
+    "QuadraticLocalCharacterOrders318.lean": {
+      "sha256": "f9b09df29ed7c1887ed22d58d7e55a2a409e225f6b8dd5cc78598e0f4b2a10b9",
+      "imports": [
+        "DVRFractionCharacterParity318"
+      ]
+    },
+    "ContactPrimeOrderParity318.lean": {
+      "sha256": "6f312fdf227e72ff0f3908a30960c9d72696a828e321b24769ead16bafa7e3ef",
+      "imports": [
+        "PolynomialPrimeValuation318",
+        "GaloisCharacterContactReconstruction318"
+      ]
+    },
+    "OriginalInertiaFieldReconstruction318.lean": {
+      "sha256": "9f7e62b81c8493c5177afe15c3bae795763ca649644f8813933b9cbc9fef4d57",
+      "imports": [
+        "QuadraticLocalCharacterOrders318",
+        "ContactPrimeOrderParity318"
+      ]
+    },
+    "InertiaTangentUniformizer318.lean": {
+      "sha256": "437c0f52761e3ab816821375852fddeb0ab164d7b482e9787a7f2172148c79c1",
+      "imports": [
+        "DVRInertiaCharacterParity318"
+      ]
+    },
+    "LabeledContactInertiaSigns318.lean": {
+      "sha256": "9d87374c8fd9867bce33a04c4ee189a43d12049a3bdf4887a6778a7004e0e6e6",
+      "imports": [
+        "OriginalInertiaFieldReconstruction318",
+        "Mathlib.Algebra.BigOperators.Associated"
+      ]
+    },
+    "TameInvolutionUniformizer318.lean": {
+      "sha256": "0b1c2bcec5cb26caab340f91efd6f482b80ed8c389813f6cbf5afea91f4f8fc6",
+      "imports": [
+        "InertiaTangentUniformizer318",
+        "Mathlib.Algebra.Group.Irreducible.Lemmas"
+      ]
+    },
+    "OriginalTangentFieldReconstruction318.lean": {
+      "sha256": "dcd53a53b6b62973bd56a5bbd04584f33bdc548473da6176b607b60a3773dff7",
+      "imports": [
+        "TameInvolutionUniformizer318",
+        "LabeledContactInertiaSigns318"
+      ]
+    },
+    "NormalizationSourceIso318.lean": {
+      "sha256": "933de5586909c8a99faa5606aaf7b10b296946ade9fa68cebada757f9dc866b8",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Normalization"
+      ]
+    },
+    "NormalizationBirationalComparison318.lean": {
+      "sha256": "5bb23ebd92b8d7c3d8816c625a15a0272a1a440715956346a2554153fe9f2ea1",
+      "imports": [
+        "IntegralGenericIso318",
+        "NormalizationSourceIso318",
+        "Mathlib.AlgebraicGeometry.Morphisms.IsIso"
+      ]
+    },
+    "AffineFractionGeneric318.lean": {
+      "sha256": "2b16bf96b41b002512041d4074506e5572dfb0da9c5926ffbe7d0c3392e7bda5",
+      "imports": [
+        "AffineFunctionFieldMap318"
+      ]
+    },
+    "ContactFieldNormalization318.lean": {
+      "sha256": "244d307047283687cd88257b7d5233f248050d4ad230198c45980efbe68dbaca",
+      "imports": [
+        "AffineFractionGeneric318",
+        "NormalizationBirationalComparison318",
+        "ContactGlobalNormal318",
+        "SourceOpenFractionField318"
+      ]
+    },
+    "ReconstructedFieldNormalization318.lean": {
+      "sha256": "d217c29f9ecd80d7422026cefb945d9c230145c569d548ab24943d493b11b163",
+      "imports": [
+        "ContactFieldNormalization318",
+        "OriginalTangentFieldReconstruction318"
+      ]
+    },
+    "OriginalCandidateCurveIso318.lean": {
+      "sha256": "753354ad8758bd1a6edc62a12bd1fa997d7226345937133c5b8408f2853adaeb",
+      "imports": [
+        "ReconstructedFieldNormalization318"
+      ]
+    },
+    "OriginalCurveActionComparison318.lean": {
+      "sha256": "0f9af9d3b410985f0c0d0ff1daf8a2e0d3c1979f3830edf810a51b93a718a6cd",
+      "imports": [
+        "OriginalCandidateCurveIso318",
+        "SourceSignFieldComparison318",
+        "SchematicEqualityExtension318"
+      ]
+    },
+    "CenteredDVRRestriction318.lean": {
+      "sha256": "3af4c4e12257201b3b77a447a6dd01368efffd0828ec50d6100c218d84228215",
+      "imports": [
+        "DVRFractionCharacterParity318"
+      ]
+    },
+    "CenteredContactReconstruction318.lean": {
+      "sha256": "7066bf0663875e82858a7ca43af47c5e00d88e7514f06108ffa730497942329b",
+      "imports": [
+        "CenteredDVRRestriction318",
+        "OriginalCurveActionComparison318"
+      ]
+    },
+    "PrimeLocalOriginalField318.lean": {
+      "sha256": "f45bcc8c32c5d27a4b8105c9159849d5016fc6b191237309b1ebfd8ea2d597cf",
+      "imports": [
+        "HeightOneDVR318",
+        "Mathlib.RingTheory.Localization.LocalizationLocalization"
+      ]
+    },
+    "AffinePrimeCenter318.lean": {
+      "sha256": "f317dc11cb8fa9f178aacd13c8cce021571bcdaf93eb302afddb085dbe933c7a",
+      "imports": [
+        "PrimeLocalOriginalField318",
+        "CenteredDVRRestriction318"
+      ]
+    },
+    "AffinePrimeOriginalInertia318.lean": {
+      "sha256": "9a6931e9f7f50a4d03ec6428ea3f31ef0bfc0a3b50d72dd1c0a468fac25ba43d",
+      "imports": [
+        "AffinePrimeCenter318",
+        "PrimeLocalizationInertia318"
+      ]
+    },
+    "LocalBranchEquationOrders318.lean": {
+      "sha256": "df1441329507d2d92780a954370bb8e1a0dfe75c69bdd279fe519a9e59ecd4d5",
+      "imports": [
+        "AffinePrimeOriginalInertia318"
+      ]
+    },
+    "OriginalAffineLocalReconstruction318.lean": {
+      "sha256": "edd48859d487595ff51beabb2402aa8b8f37b7be5ac3ba4d39f8385889ca5206",
+      "imports": [
+        "LocalBranchEquationOrders318",
+        "CenteredContactReconstruction318"
+      ]
+    },
+    "CanonicalDVRQuotientLength318.lean": {
+      "sha256": "13e4eb52e7d61e12211ffa2510a046c9ee42e9d72b48f65cf642f03d68120a2d",
+      "imports": [
+        "LocalBranchEquationOrders318",
+        "Mathlib.RingTheory.RamificationInertia.Ramification"
+      ]
+    },
+    "OriginalPrimeOrderInertia318.lean": {
+      "sha256": "3b2cd5817feb815eb563572a9d7d50a3a205774c5a649b8f54a02c194a56a9d9",
+      "imports": [
+        "CanonicalDVRQuotientLength318",
+        "Mathlib.NumberTheory.RamificationInertia.Galois"
+      ]
+    },
+    "OriginalNormalClosureGalois318.lean": {
+      "sha256": "b24d076ebb57e5365b6ce54a101a40d9ee593e0749d9a618fa8cbfc14e0d04d5",
+      "imports": [
+        "OriginalPrimeOrderInertia318",
+        "Mathlib.FieldTheory.RatFunc.Basic",
+        "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+        "Mathlib.FieldTheory.Galois.IsGaloisGroup"
+      ]
+    },
+    "LabeledFullInertiaCardinality318.lean": {
+      "sha256": "153e09dbe828918cbf6145e2a14dbc8ab23338c002c75e7d19c39197599d7114",
+      "imports": [
+        "OriginalNormalClosureGalois318",
+        "LabeledContactInertiaSigns318"
+      ]
+    },
+    "OriginalFullInertiaReconstruction318.lean": {
+      "sha256": "42891d8b85ec05fea8246a62c48c2582993c21df64b7f54275a9a9def69f5d9c",
+      "imports": [
+        "LabeledFullInertiaCardinality318",
+        "OriginalAffineLocalReconstruction318"
+      ]
+    },
+    "NormalClosureGeometricPoints318.lean": {
+      "sha256": "27881d452af9d9cc3a77b326f33478d194bc71e0c6db1f4002f32fae47be5310",
+      "imports": [
+        "OriginalFullInertiaReconstruction318",
+        "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure"
+      ]
+    },
+    "OriginalGeometricBranchLocus318.lean": {
+      "sha256": "dae86c627ac410143fd932add827bd2b09af42ffacc0e35e344de1f7ad71386b",
+      "imports": [
+        "NormalClosureGeometricPoints318"
+      ]
+    },
+    "OriginalCurveGeometricStabilizers318.lean": {
+      "sha256": "b5df48b788ece6140c22e982140c77ad77524fe3a1a8bd4118f265b59540f5a5",
+      "imports": [
+        "OriginalGeometricBranchLocus318"
+      ]
+    },
+    "OriginalClosedResiduePoints318.lean": {
+      "sha256": "90abe50df2a44f26de23ec54a834ea17288c7bd3d5238dd2c9402c6deb63b8db",
+      "imports": [
+        "NormalClosureGeometricPoints318",
+        "Mathlib.RingTheory.Jacobson.Ring"
+      ]
+    },
+    "OriginalComplexPointReconstruction318.lean": {
+      "sha256": "3d074c9b3383a431f30e1b2e6c7c19fcc57a21d8d0bedd25cf157af1ea307d21",
+      "imports": [
+        "OriginalClosedResiduePoints318",
+        "OriginalCurveGeometricStabilizers318",
+        "Mathlib.Analysis.Complex.Polynomial.Basic"
+      ]
+    },
+    "ComplexLegendreCoordinates318.lean": {
+      "sha256": "432fdaee00cabdce5f9ac05ffcaee4c951f725ec1abfdc1dab413c5959bdccfb",
+      "imports": [
+        "ContactCoordinates318",
+        "Mathlib.Analysis.Complex.Polynomial.Basic"
+      ]
+    },
+    "OriginalPublishedComplexBranches318.lean": {
+      "sha256": "ecf310ce75373f793ecc4876c9d1cea13af2b02d2691058b4b6b0fd155253e58",
+      "imports": [
+        "ComplexLegendreCoordinates318",
+        "OriginalComplexPointReconstruction318"
+      ]
+    },
+    "OriginalContactInertiaBasis318.lean": {
+      "sha256": "585d370703f75e436fc035605d94d2bb09ca8b522669332d0cadb5560a5addbb",
+      "imports": [
+        "InertiaLabels318",
+        "FourBinaryCharacters318"
+      ]
+    },
+    "OriginalArithmeticBranchReconstruction318.lean": {
+      "sha256": "fd558d9836c067c6f7086d4f1fccd49b4269fa58d534e64ccf18b481cbc15c5f",
+      "imports": [
+        "OriginalContactInertiaBasis318",
+        "OriginalPublishedComplexBranches318"
+      ]
+    },
+    "OriginalFiniteDeckGalois318.lean": {
+      "sha256": "2e2e4315dda619a6a32b90588b4f331e580ac1292e124ce45aab22816e2aa2fb",
+      "imports": [
+        "Mathlib.FieldTheory.Galois.IsGaloisGroup"
+      ]
+    },
+    "OriginalDeckArithmeticLabels318.lean": {
+      "sha256": "0b2432607353198390ddae6c105320fb01415eaea09b070f2ffb73a97c5e6123",
+      "imports": [
+        "OriginalFiniteDeckGalois318",
+        "OriginalArithmeticBranchReconstruction318"
+      ]
+    },
+    "OriginalDeckCurveReconstruction318.lean": {
+      "sha256": "c7339901608ce81238f5f3fce97882a8529bb8b59d668cb3e82f6e466cefaddb",
+      "imports": [
+        "OriginalDeckArithmeticLabels318"
+      ]
+    },
+    "OriginalActualDeckEquivariance318.lean": {
+      "sha256": "d7ebfd58a9359b792d3b04d875948e531c4b29e50fc1860dc6d1849c28444c6d",
+      "imports": [
+        "OriginalDeckCurveReconstruction318",
+        "OriginalCurveActionComparison318"
+      ]
+    },
+    "OriginalGenericStalkNaturality318.lean": {
+      "sha256": "7e0fd4b8108eaf471bc8da26e40c9849830c06a2f355b729188391d476dda52d",
+      "imports": [
+        "DominantFunctionField318",
+        "SchematicEqualityExtension318",
+        "Mathlib.AlgebraicGeometry.Stalk",
+        "Mathlib.AlgebraicGeometry.Morphisms.IsIso"
+      ]
+    },
+    "OriginalSchemeDeckFieldAction318.lean": {
+      "sha256": "490ae0a29016fe10551372ed1916398fa6d73bd618850fdc3466f1bf46a7dabd",
+      "imports": [
+        "OriginalGenericStalkNaturality318",
+        "OriginalFiniteDeckGalois318"
+      ]
+    },
+    "OriginalNormalClosureChartAction318.lean": {
+      "sha256": "1866e5b76bcee7bc114b95dedeba226074cc2934d37935fbe9a960e01510b7cb",
+      "imports": [
+        "OriginalGenericStalkNaturality318",
+        "NormalClosureGeometricPoints318"
+      ]
+    },
+    "OriginalCanonicalDeckReconstruction318.lean": {
+      "sha256": "c22520a92cf68cb1e134225ad6a92503c2afe51f38d4b604b4547745c8a791a7",
+      "imports": [
+        "OriginalNormalClosureChartAction318",
+        "OriginalSchemeDeckFieldAction318",
+        "OriginalActualDeckEquivariance318"
+      ]
+    },
+    "OriginalNormalSectionClosure318.lean": {
+      "sha256": "f412b8d53f0a3030c5d0f5832a7273dc0fe307b2bba5077f78818ac84c76081f",
+      "imports": [
+        "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed"
+      ]
+    },
+    "OriginalNormalAffineChart318.lean": {
+      "sha256": "d4a62aec7f55b22b9a9fcbfc5d31ec8cb19bb56efc45ea6cc4b87c87e1ee9083",
+      "imports": [
+        "OriginalNormalSectionClosure318",
+        "OriginalNormalClosureChartAction318"
+      ]
+    },
+    "OriginalAffineSectionReconstruction318.lean": {
+      "sha256": "3294f10636496be469c88f38066650d53d278548ecc6ad7084a419b00f376263",
+      "imports": [
+        "OriginalNormalAffineChart318",
+        "OriginalCanonicalDeckReconstruction318"
+      ]
+    },
+    "OriginalProjectiveFunctionCoordinate318.lean": {
+      "sha256": "9c62b61550fd005c5c62f3f54a531b2f04c86c6d321cc73b977ad39ab450bd51",
+      "imports": [
+        "OriginalGenericStalkNaturality318",
+        "JLineAtlas318",
+        "Mathlib.FieldTheory.RatFunc.AsPolynomial"
+      ]
+    },
+    "OriginalCanonicalQuotientBase318.lean": {
+      "sha256": "16b0bbc638e7c6b1d4cb2753eafe035052eb1979af7fb48612552acbd8f86b23",
+      "imports": [
+        "OriginalProjectiveFunctionCoordinate318",
+        "OriginalSchemeDeckFieldAction318",
+        "ReconstructedFieldNormalization318"
+      ]
+    },
+    "OriginalCanonicalCoordinateReconstruction318.lean": {
+      "sha256": "4a613a087b789806f3a54e91e70c0ae8895b346289bb9605958a09ebca02af47",
+      "imports": [
+        "OriginalAffineSectionReconstruction318",
+        "OriginalCanonicalQuotientBase318"
+      ]
+    },
+    "OriginalOpenChartGeneric318.lean": {
+      "sha256": "b5049a96d33ec7c166d8d83ed23f3a8b0125381605c6374c25bab78ec62f6005",
+      "imports": [
+        "OriginalGenericStalkNaturality318",
+        "ActualOpenFractionField318"
+      ]
+    },
+    "OriginalCartesianChartCoefficients318.lean": {
+      "sha256": "e07d7507e6f733794bd5bf9b6430fc58a67cb84ba13107e9c03fcdd0f140e154",
+      "imports": [
+        "OriginalCanonicalQuotientBase318",
+        "OriginalOpenChartGeneric318",
+        "OpenFunctionFieldSquare318",
+        "Mathlib.AlgebraicGeometry.Morphisms.Integral"
+      ]
+    },
+    "OriginalCartesianNormalChart318.lean": {
+      "sha256": "ea8d89fbee6b3bc2b2df50acba8602fda33efb7262b1677a3549076feb7bba93",
+      "imports": [
+        "OriginalCartesianChartCoefficients318",
+        "OriginalOpenChartGeneric318",
+        "OriginalNormalSectionClosure318",
+        "OriginalNormalClosureChartAction318",
+        "OriginalCurveGeometricStabilizers318"
+      ]
+    },
+    "OriginalCartesianCurveReconstruction318.lean": {
+      "sha256": "2753d5429d92d5d4c7b1c28aff027b72a0bddd722899768f1b0a6baeb56535f7",
+      "imports": [
+        "OriginalCartesianNormalChart318",
+        "OriginalCanonicalDeckReconstruction318"
+      ]
+    },
+    "OriginalProjectiveBaseIntegral318.lean": {
+      "sha256": "fd894eab371dc227c94c1e2e7a9a1d54167118864abbfc07b899134d36007cf4",
+      "imports": [
+        "JLineAtlas318",
+        "Mathlib.AlgebraicGeometry.Morphisms.Integral",
+        "Mathlib.AlgebraicGeometry.Properties"
+      ]
+    },
+    "OriginalIntegralBaseReconstruction318.lean": {
+      "sha256": "ecf876f3a72cad2a87328f2ebe277b96bc294168f700cd99fba31509b3e0375f",
+      "imports": [
+        "OriginalCartesianCurveReconstruction318",
+        "OriginalProjectiveBaseIntegral318"
+      ]
+    },
+    "OriginalNormalCoverSections318.lean": {
+      "sha256": "e7e995cd96d9c14b22edee57997f1f56abfc75e1f0bf66b54f70cfeb9538c835",
+      "imports": [
+        "OriginalIntegralBaseReconstruction318",
+        "Mathlib.RingTheory.LocalProperties.IntegrallyClosed"
+      ]
+    },
+    "OriginalCanonicalAffineChart318.lean": {
+      "sha256": "8bdbf829f824e32abbdde9aa6dd7a8ca970cf5d30dbf78c80500abb895fbd32d",
+      "imports": [
+        "OriginalNormalCoverSections318",
+        "Mathlib.AlgebraicGeometry.PullbackCarrier"
+      ]
+    },
+    "OriginalCanonicalAffineReconstruction318.lean": {
+      "sha256": "e62961e17f8e610fffb2da6964f0f63e2c4a7b747b1211fa889a82e4530026bd",
+      "imports": [
+        "OriginalCanonicalAffineChart318"
+      ]
+    },
+    "OriginalSchemeBranchReconstruction318.lean": {
+      "sha256": "4a23568b5cfdd81e9b4af2845271b3082f2ed4ef4f7b934f6faadcf156c9d02f",
+      "imports": [
+        "OriginalCanonicalAffineReconstruction318"
+      ]
+    },
+    "OriginalFiniteDeckDegree318.lean": {
+      "sha256": "3e6c250749ff70901f2afe87203761ad001425794160d41aedad127377b737c0",
+      "imports": [
+        "OriginalFiniteDeckGalois318"
+      ]
+    },
+    "OriginalQuotientRankFixed318.lean": {
+      "sha256": "e42f30aa696da7c3d2742b9f60a00ca378725251a23f78c59a9b9daafc37fda0",
+      "imports": [
+        "OriginalSchemeBranchReconstruction318",
+        "OriginalFiniteDeckDegree318",
+        "FiniteFlatGenericRank318"
+      ]
+    },
+    "OriginalUnramifiedFiberRank318.lean": {
+      "sha256": "847e1cd25f8e5f2e9e358695ed8cfd44185378fcc6fe04de9f5936ae4125bffd",
+      "imports": [
+        "OriginalQuotientRankFixed318",
+        "FiniteEtaleGeometricRank318"
+      ]
+    },
+    "OriginalFiberPointReconstruction318.lean": {
+      "sha256": "e4fbc90eb0f1dcd70c9402317d6c53250332ae1db000c581bc75fb9232c8d02b",
+      "imports": [
+        "OriginalUnramifiedFiberRank318"
+      ]
+    },
+    "OriginalFiniteProjectiveFlat318.lean": {
+      "sha256": "328c8097f7b4460fcdea640f1d114d94c2c0018e909256d10b95e72441c069da",
+      "imports": [
+        "OriginalFiberPointReconstruction318",
+        "Mathlib.RingTheory.Flat.TorsionFree"
+      ]
+    },
+    "OriginalFinitePointReconstruction318.lean": {
+      "sha256": "b0db4aa5b0b295f9577f6b60daf53d2dfe01503e8a6ee4c57f4756566368fe8a",
+      "imports": [
+        "OriginalFiniteProjectiveFlat318"
+      ]
+    }
+  },
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "full_arithmetic_theorem_proved": false
+}

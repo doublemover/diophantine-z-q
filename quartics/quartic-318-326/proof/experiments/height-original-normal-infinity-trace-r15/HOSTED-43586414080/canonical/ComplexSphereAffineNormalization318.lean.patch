@@ -1,0 +1,15 @@
+--- before/ComplexSphereAffineNormalization318.lean
++++ after/ComplexSphereAffineNormalization318.lean
+@@ -22,10 +22,10 @@
+ @[expose] def poleCoordinate (p:OnePoint ℂ) : OnePoint ℂ≃ₜOnePoint ℂ:=
+   p.elim (Homeomorph.refl _) (fun z=>
+     (affineSphere 1 (-z) one_ne_zero).trans inversionHomeomorph)
+-lemma poleCoordinate_at (p:OnePoint ℂ) : poleCoordinate p p=∞:=by
++lemma poleCoordinate_at (p:OnePoint ℂ) : poleCoordinate p p=(∞:OnePoint ℂ):=by
+   induction p using OnePoint.rec with
+   | infty=>rfl
+-  | coe z=>change inversion ((1*z+-z:ℂ):OnePoint ℂ)=∞;simp only [one_mul,add_neg_cancel,inversion_zero]
++  | coe z=>change inversion ((1*z+-z:ℂ):OnePoint ℂ)=(∞:OnePoint ℂ);simp only [one_mul,add_neg_cancel,inversion_zero]
+ 
+ theorem poleCoordinate_holomorphic (p:OnePoint ℂ) :
+     ContMDiff 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (poleCoordinate p) := by

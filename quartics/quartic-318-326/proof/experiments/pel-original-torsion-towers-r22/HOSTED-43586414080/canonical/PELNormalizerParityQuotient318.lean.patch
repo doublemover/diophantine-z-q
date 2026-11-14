@@ -1,0 +1,30 @@
+--- before/PELNormalizerParityQuotient318.lean
++++ after/PELNormalizerParityQuotient318.lean
+@@ -31,15 +31,15 @@
+ theorem word_class_injective : Function.Injective
+     (fun v : InertiaLabels318.V => (QuotientGroup.mk (word v):QuotientNormalizer)) := by
+   intro v w h
+-  have hh := congrArg quotientEquiv h
+-  simpa only [quotientEquiv_mk,parity_word] using hh
++  have hh := congrArg (fun q:QuotientNormalizer => Multiplicative.toAdd (quotientEquiv q)) h
++  simpa only [quotientEquiv_mk,parity_word,toAdd_ofAdd] using hh
+ 
+ /-- Same scalar/normalizer arithmetic, with no geometric deck-action claim. -/
+ theorem every_class (q : QuotientNormalizer) :
+     ∃ v : InertiaLabels318.V,QuotientGroup.mk (word v)=q := by
+   refine ⟨Multiplicative.toAdd (quotientEquiv q),?_⟩
+   apply quotientEquiv.injective
+-  rw [quotientEquiv_mk,parity_word]
++  rw [quotientEquiv_mk,parity_word,ofAdd_toAdd]
+ 
+ /-- No two different original labels become identified in this actual
+ normalizer parity quotient. -/
+@@ -58,6 +58,8 @@
+ theorem inertia_classes_injective : Function.Injective
+     (fun i : Fin 5 => (QuotientGroup.mk (inertiaElement i):QuotientNormalizer)) := by
+   intro i j h
++  change (QuotientGroup.mk (inertiaElement i):QuotientNormalizer)=
++    QuotientGroup.mk (inertiaElement j) at h
+   rw [inertia_class,inertia_class] at h
+   exact original_five_classes_injective h
+ 

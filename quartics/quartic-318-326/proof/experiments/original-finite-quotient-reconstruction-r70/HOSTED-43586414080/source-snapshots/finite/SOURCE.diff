@@ -1,0 +1,25 @@
+--- before/OriginalFiniteProjectiveFlat318.lean
++++ after/OriginalFiniteProjectiveFlat318.lean
+@@ -45,7 +45,21 @@
+     (p : Y ⟶ ProjectiveJLine318.scheme ℚ) [IsFinite p] [IsDominant p] : Flat p := by
+   letI : Surjective p :=
+     surjective_of_isDominant_of_isClosed_range p p.isClosedMap.isClosed_range
+-  rw [IsZariskiLocalAtTarget.iff_of_openCover (P := @Flat) (JLineAtlas318.cover ℚ)]
++  let C : (ProjectiveJLine318.scheme ℚ).OpenCover := {
++    I₀ := Fin 2
++    X := fun _ => Spec (CommRingCat.of (Polynomial ℚ))
++    f := JLineAtlas318.chart ℚ
++    mem₀ := by
++      rw [Scheme.presieve₀_mem_precoverage_iff]
++      refine ⟨?_, inferInstance⟩
++      intro x
++      have hx : x ∈ (⊤ : (ProjectiveJLine318.scheme ℚ).Opens) := trivial
++      rw [← JLineAtlas318.standard_opens_cover ℚ, TopologicalSpace.Opens.mem_iSup] at hx
++      obtain ⟨j, hj⟩ := hx
++      rw [← JLineAtlas318.chart_range] at hj
++      obtain ⟨q, hq⟩ := hj
++      exact ⟨j, q, hq⟩ }
++  rw [IsZariskiLocalAtTarget.iff_of_openCover (P := @Flat) C]
+   intro i
+   change Flat (pullback.snd p (JLineAtlas318.chart ℚ i))
+   let T := pullback p (JLineAtlas318.chart ℚ i)

@@ -1,0 +1,36 @@
+--- 
++++ 
+@@ -13,15 +13,11 @@
+   (p : Y ⟶ ProjectiveJLine318.scheme ℚ) [IsFinite p] [IsDominant p]
+   (b : ArithmeticGroup → (Y ≅ Y))
+ local instance originalFlat : Flat p := OriginalFiniteProjectiveFlat318.flat p
+-local instance baseIntegral : IsIntegral (ProjectiveJLine318.scheme ℚ) :=
+-  OriginalProjectiveBaseIntegral318.integral p
+ variable
+   (bone : (b 1).hom = 𝟙 Y)
+   (bmul : ∀ v w, (b (v*w)).hom = (b v).hom ≫ (b w).hom)
+   (hover : ∀ w, (b w).hom ≫ p = p)
+   (hb : Function.Injective (fun w => (b w).hom))
+-local instance actualBase : Algebra (RatFunc ℚ) Y.functionField :=
+-  OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
+ variable {ι : Type*} (V : ι → Y.affineOpens) (hcover : ⨆ i, (V i).1 = ⊤)
+   (hnormal : ∀ i, IsIntegrallyClosed Γ(Y, (V i).1))
+ 
+@@ -36,6 +32,8 @@
+ theorem original_curve (l m : ℂ)
+     (hmodels : OriginalPublishedComplexBranches318.ModelInvariants l m)
+     (hbranch : OriginalSchemeBranchReconstruction318.BranchLaw p b l m) :
++    letI := OriginalQuotientRankFixed318.baseIntegral p
++    letI := OriginalQuotientRankFixed318.actualBase p
+     (OriginalGenericStalkNaturality318.generic Y ≫ p =
+       ReconstructedFieldNormalization318.base Y.functionField) ∧
+     ∃ c : Fin 4 → ℚˣ,
+@@ -51,6 +49,8 @@
+                 (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) z)) ∧
+           ∀ w : ArithmeticGroup, (b w).hom ≫ E.hom = E.hom ≫ ContactGlobalSigns318.map c
+             (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) := by
++  letI := OriginalQuotientRankFixed318.baseIntegral p
++  letI := OriginalQuotientRankFixed318.actualBase p
+   exact OriginalFiberPointReconstruction318.original_curve p b bone bmul hover hb
+     V hcover hnormal y hcard l m hmodels hbranch
+ end OriginalFinitePointReconstruction318
