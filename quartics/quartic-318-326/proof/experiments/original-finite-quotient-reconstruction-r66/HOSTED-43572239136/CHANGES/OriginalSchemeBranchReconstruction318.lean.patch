@@ -1,0 +1,73 @@
+--- original-finite-quotient-reconstruction-r65/OriginalSchemeBranchReconstruction318.lean
++++ original-finite-quotient-reconstruction-r66/OriginalSchemeBranchReconstruction318.lean
+@@ -35,7 +35,7 @@
+   apply Polynomial.ringHom_ext'
+   · exact Subsingleton.elim _ _
+   · change r Polynomial.X = Polynomial.eval₂ (algebraMap ℚ ℂ) (r Polynomial.X) Polynomial.X
+-    exact Polynomial.eval₂_X.symm
++    simp only [Polynomial.eval₂_X]
+ 
+ lemma point_over (r : OriginalCanonicalAffineChart318.Ring p →+* ℂ) :
+     (Spec.map (CommRingCat.ofHom r) ≫ OriginalCanonicalAffineChart318.chart p) ≫ p =
+@@ -49,7 +49,8 @@
+         JLineAtlas318.chart ℚ 1 := by
+       rw [← Spec.map_comp_assoc]
+       all_goals rfl
+-    _ = _ := by rw [polynomial_map] <;> rfl
++    _ = _ := by
++      rw [polynomial_map (r.comp (OriginalCanonicalAffineChart318.coefficient p))] <;> rfl
+ 
+ lemma canonical_branch (l m : ℂ) (h : BranchLaw p b l m) :
+     OriginalCartesianCurveReconstruction318.BranchLocus b
+@@ -58,18 +59,19 @@
+   exact h (r (OriginalCanonicalAffineChart318.coefficient p Polynomial.X))
+     (Spec.map (CommRingCat.ofHom r) ≫ OriginalCanonicalAffineChart318.chart p) (point_over p r)
+ 
+-local instance baseIntegral : IsIntegral (ProjectiveJLine318.scheme ℚ) :=
++include p in
++/-- The original quotient supplies its integral base explicitly. -/
++lemma baseIntegral : IsIntegral (ProjectiveJLine318.scheme ℚ) :=
+   OriginalProjectiveBaseIntegral318.integral p
+ variable
+   (bone : (b 1).hom = 𝟙 Y)
+   (bmul : ∀ v w, (b (v*w)).hom = (b v).hom ≫ (b w).hom)
+   (hover : ∀ w, (b w).hom ≫ p = p)
+   (hb : Function.Injective (fun w => (b w).hom))
+-  (hfixed : ∀ x : Y.functionField,
++  (hfixed : letI := baseIntegral p
++    ∀ x : Y.functionField,
+     (∀ w, OriginalSchemeDeckFieldAction318.ringEquiv b w x = x) →
+       ∃ r : RatFunc ℚ, (DominantFunctionField318.map p).hom (OriginalProjectiveFunctionCoordinate318.κ r) = x)
+-local instance actualBase : Algebra (RatFunc ℚ) Y.functionField :=
+-  OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
+ variable {ι : Type*} (V : ι → Y.affineOpens) (hcover : ⨆ i, (V i).1 = ⊤)
+   (hnormal : ∀ i, IsIntegrallyClosed Γ(Y, (V i).1))
+ 
+@@ -80,6 +82,13 @@
+ theorem original_curve (l m : ℂ)
+     (hmodels : OriginalPublishedComplexBranches318.ModelInvariants l m)
+     (hbranch : BranchLaw p b l m) :
++    letI := baseIntegral p
++    letI : Algebra (RatFunc ℚ) Y.functionField :=
++      OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField :=
++      (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).1
++    letI : IsGalois (RatFunc ℚ) Y.functionField :=
++      (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).2.1
+     (OriginalGenericStalkNaturality318.generic Y ≫ p =
+       ReconstructedFieldNormalization318.base Y.functionField) ∧
+     ∃ c : Fin 4 → ℚˣ,
+@@ -95,6 +104,13 @@
+                 (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) z)) ∧
+           ∀ w : ArithmeticGroup, (b w).hom ≫ E.hom = E.hom ≫ ContactGlobalSigns318.map c
+             (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) := by
++  letI := baseIntegral p
++  letI : Algebra (RatFunc ℚ) Y.functionField :=
++    OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField :=
++    (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).1
++  letI : IsGalois (RatFunc ℚ) Y.functionField :=
++    (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).2.1
+   exact OriginalCanonicalAffineReconstruction318.original_curve p b bone bmul hover hb hfixed
+     V hcover hnormal l m hmodels (canonical_branch p b l m hbranch)
+ end OriginalSchemeBranchReconstruction318

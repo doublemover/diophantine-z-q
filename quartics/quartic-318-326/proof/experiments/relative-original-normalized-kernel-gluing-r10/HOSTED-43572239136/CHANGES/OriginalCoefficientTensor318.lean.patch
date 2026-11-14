@@ -1,0 +1,33 @@
+--- relative-original-normalized-kernel-gluing-r9/OriginalCoefficientTensor318.lean
++++ relative-original-normalized-kernel-gluing-r10/OriginalCoefficientTensor318.lean
+@@ -54,7 +54,7 @@
+   letI := chartAlgebra k R S B f
+   induction t using TensorProduct.inductionOn with
+   | tmul r b =>
+-      simp [ringEquivalence,RelativeCoefficientChange318.ringMap_tmul,Algebra.smul_def]
++      simp [ringEquivalence,RelativeCoefficientChange318.ringMap,coefficientAlgebra,Algebra.smul_def]
+   | add x y hx hy => simp only [tmul_add,map_add,hx,hy]
+ 
+ /-- The same ring isomorphism is linear for the ACTUAL old chart map. -/
+@@ -96,12 +96,19 @@
+   | tmul t n =>
+       change ringEquivalence k R S B f (s • t) ⊗ₜ[oldRing k R B] n =
+         s • (ringEquivalence k R S B f t ⊗ₜ[oldRing k R B] n)
+-      rw [(ringEquivalence k R S B f).toLinearEquiv.map_smul,smul_tmul']
++      simpa only [smul_tmul'] using congrArg
++        (fun a : newRing k S B => a ⊗ₜ[oldRing k R B] n)
++        ((ringEquivalence k R S B f).toLinearEquiv.map_smul s t)
+   | add x y hx hy =>
+       change e (s • x) = s • e x at hx
+       change e (s • y) = s • e y at hy
+       change e (s • (x+y)) = s • e (x+y)
+-      simp only [smul_add,map_add,hx,hy]
++      calc
++        e (s • (x+y)) = e (s • x + s • y) := congrArg e (smul_add s x y)
++        _ = e (s • x) + e (s • y) := map_add e _ _
++        _ = s • e x + s • e y := congrArg₂ (· + ·) hx hy
++        _ = s • (e x + e y) := (smul_add s (e x) (e y)).symm
++        _ = s • e (x+y) := congrArg (fun z => s • z) (map_add e x y).symm
+ 
+ /-- Actual chart-ring extension reduces to coefficient-only extension,
+ with no flatness, finite-free chart, or line trivialization hypothesis. -/

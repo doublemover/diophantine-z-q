@@ -1,0 +1,42 @@
+--- IntegralRationalGlobalComparison318.lean.before
++++ IntegralRationalGlobalComparison318.lean
+@@ -12,6 +12,16 @@
+ set_option synthInstance.maxSize 4096
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++/-- Transport a commuting ring square contravariantly before specializing
++any of the concrete nested overlap carriers. -/
++private theorem spec_inverse_square {A B C D : CommRingCat}
++    (f : A ⟶ B) (g : C ⟶ D) (eA : A ≅ C) (eB : B ≅ D)
++    (h : f ≫ eB.hom = eA.hom ≫ g) :
++    (Scheme.Spec.mapIso eB.symm.op).inv ≫ Spec.map f =
++      Spec.map g ≫ (Scheme.Spec.mapIso eA.symm.op).inv := by
++  change Spec.map eB.hom ≫ Spec.map f = Spec.map g ≫ Spec.map eA.hom
++  rw [←Spec.map_comp, ←Spec.map_comp, h]
++
+ variable (c : Fin 4 → ℚˣ)
+ 
+ /-- These are the same source restrictions used to construct overlapEquiv,
+@@ -46,15 +56,15 @@
+ theorem infinity_inverse_square :
+     (overlapIso c).inv ≫ intoInfinity ℚ c =
+       ContactOverlapMaps318.infinityInclusion c ≫ (infinityIso c).inv := by
+-  change Spec.map (overlapEquiv c).toRingEquiv.toCommRingCatIso.hom ≫
+-    Spec.map (CommRingCat.ofHom (IntegralOverlapChartMaps318.infinityMap ℚ c).toRingHom) =
+-    Spec.map (CommRingCat.ofHom (InfinityOverlapLocalization318.toOpen c)) ≫
+-    Spec.map (rationalOrderEquiv c).toRingEquiv.toCommRingCatIso.hom
+-  rw [←Spec.map_comp,←Spec.map_comp]
+-  congr 1
++  apply spec_inverse_square
++    (CommRingCat.ofHom (IntegralOverlapChartMaps318.infinityMap ℚ c).toRingHom)
++    (CommRingCat.ofHom (InfinityOverlapLocalization318.toOpen c))
++    (rationalOrderEquiv c).toRingEquiv.toCommRingCatIso
++    (overlapEquiv c).toRingEquiv.toCommRingCatIso
+   apply CommRingCat.hom_ext
+   apply RingHom.ext
+-  exact IntegralRationalInfinityMap318.infinity_restriction c
++  intro a
++  exact IntegralRationalInfinityMap318.infinity_restriction c a
+ 
+ theorem finite_square :
+     intoFinite ℚ c ≫ (finiteIso c).hom =

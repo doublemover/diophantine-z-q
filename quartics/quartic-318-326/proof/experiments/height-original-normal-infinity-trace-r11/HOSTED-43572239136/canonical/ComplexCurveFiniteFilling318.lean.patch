@@ -1,0 +1,11 @@
+--- ComplexCurveFiniteFilling318.lean.before
++++ ComplexCurveFiniteFilling318.lean
+@@ -35,7 +35,7 @@
+     filter_upwards [hnb] with q hq
+     by_cases hqp : q=p
+     · subst q
+-      simp only [fill,if_pos hp,update_same]
++      simp only [fill,if_pos hp,Function.update_self]
+     · have hqS : q∉S := fun hs => hq ⟨hs,hqp⟩
+       simp only [fill,if_neg hqS,update_of_ne hqp]
+   · exact (hF p hp).congr_of_eventuallyEq (away_eventually S hS F a hp)

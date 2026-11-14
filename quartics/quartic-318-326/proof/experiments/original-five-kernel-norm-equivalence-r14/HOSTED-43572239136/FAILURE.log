@@ -1,0 +1,94 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:35:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:36:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:41:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsAffine ↑(TwoOpenAdditiveCocycle318.opens U V false)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:44:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsAffine ↑(TwoOpenAdditiveCocycle318.opens U V true)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:51:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul
+    (↑((StructureUnitsSheaf318.units (thickening R p)).obj.obj (op (thickOpens p U V false ⊓ thickOpens p U V true))))
+    (↑Γ(thickening R p, OriginalThickenedOpenSections318.π R p ⁻¹ᵁ (U ⊓ V)))ˣ
+    (↑Γ(thickening R p, OriginalThickenedOpenSections318.π R p ⁻¹ᵁ (U ⊓ V)))ˣ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean:56:18: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Units.map ↑(CommRingCat.Hom.hom ((thickening ?R ?p).presheaf.map (homOfLE ⋯).op)))
+    (OriginalOpenUnitLogarithm318.exp ?R ?p ?V ?a)
+in the target expression
+  OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) y =
+    (Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+          (OriginalOpenUnitLogarithm318.exp R p U b) *
+        ((Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+            (OriginalOpenUnitLogarithm318.exp R p V c))⁻¹ *
+      OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) x
+
+R : Type
+inst✝ : CommRing R
+X : Scheme
+p : X ⟶ base R
+U V : X.Opens
+hU : IsAffineOpen U
+hV : IsAffineOpen V
+hUV : IsAffineOpen (U ⊓ V)
+x y : ↑Γ(X, U ⊓ V)
+a : (k : Bool) → (↑Γ(thickening R p, thickOpens p U V k))ˣ
+ra : ∀ (k : Bool), (Units.map ↑(CommRingCat.Hom.hom (Scheme.Hom.app (reduction R p) (thickOpens p U V k)))) (a k) = 1
+ha :
+  ∀ (k l : Bool),
+    (originalCocycle p U V y).transition k l =
+      UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.units (thickening R p)).obj (thickOpens p U V) a k l *
+        (originalCocycle p U V x).transition k l
+this✝¹ : IsAffine ↑U := hU
+this✝ : IsAffine ↑V := hV
+this : IsAffine ↑(U ⊓ V) := hUV
+b : ↑Γ(X, U) := OriginalOpenUnitLogarithm318.log R p U (a false)
+c : ↑Γ(X, V) := OriginalOpenUnitLogarithm318.log R p V (a true)
+hb : OriginalOpenUnitLogarithm318.exp R p U b = a false
+hc : OriginalOpenUnitLogarithm318.exp R p V c = a true
+h :
+  OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) y =
+    (Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+          (OriginalOpenUnitLogarithm318.exp R p U b) *
+        ((Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+            (OriginalOpenUnitLogarithm318.exp R p V c))⁻¹ *
+      OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) x
+⊢ OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) y =
+    OriginalOpenUnitLogarithm318.exp R p (U ⊓ V)
+      ((InfinitesimalUnitCocycle318.restrict X ⋯) b - (InfinitesimalUnitCocycle318.restrict X ⋯) c + x)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    StructureUnitsSheaf318.units (thickening R p)
+  has type
+    TopCat.Sheaf CommGrpCat ↑(thickening R p).toPresheafedSpace
+  but is expected to have type
+    ObjectProperty.FullSubcategory (Presheaf.IsSheaf (Opens.grothendieckTopology ↥(thickening R p)))
+  in the application
+    (StructureUnitsSheaf318.units (thickening R p)).obj

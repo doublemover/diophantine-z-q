@@ -1,0 +1,15 @@
+# Independent original coefficient-tensor source review: run 43572239136
+
+No source/application blocker found in candidate OriginalCoefficientTensor318 SHA429d42d22a28f2d075dec3856df44a9794d6cd536dcaefde7609472f35a554c4. This is internal source comparison only, not Lean/kernel or whole-packet acceptance. Full contract/propagation review is pending. No local Lean or user computer was used.
+
+The before source matches published52ab6e7 and own failed RESULT/intake. Exact diagnostics are three proof-branch failures: a pure tensor residual comparing the coefficient algebraMap with ConcreteCategory.hom ringMap, a projected toLinearEquiv.map_smul rewrite not matching the displayed application, and additive distributivity remaining after simp. Previously repaired named action scopes are retained unchanged; warnings are not presented as new failures.
+
+In ringEquivalence_right, the pure-tensor simplification now unfolds the actual exposed RelativeCoefficientChange.ringMap and coefficientAlgebra. These are literally tensor-map f id_B and f.toAlgebra. Thus the compared map is still r⊗b↦f(r)⊗b, preserving the entire chart factor B. The native cancelBaseChange equivalence, old-chart action and all arbitrary k/R/S/B/f parameters remain unchanged. The producer itself uses simp [ringMap] for its corresponding tensor rule.
+
+In tensorTransport's pure-tensor branch, congrArg applies the native S-linear map_smul equality to the explicit function a↦a⊗[oldRing]n, then only smul_tmul' is simplified. This avoids selecting a pattern through the projected equivalence coercion without changing the map or either scalar action. The additive branch now explicitly composes smul_add, e.map_add, the two induction hypotheses and the reverse distributivity/map_add equations. Every intermediate has the same endpoint e(s•(x+y))=s•e(x+y). No additional compatibility premise, flatness, finite generation, basis or triviality condition is introduced.
+
+The whole tensor induction domain and actual module N remain arbitrary. The exact rightEquivalence, tensorTransport, tensorEquivalence and categoricalEquivalence definitions/headers are unchanged except those proof bodies. Their direction remains newRing⊗[oldRing]N≃ₗ[S]S⊗[R]N, with the same native change-of-rings map and unchanged inverse pure-tensor identity.
+
+Direct consumers were read. OriginalCoefficientSections.equivalence uses the inverse categoricalEquivalence followed by the actual pulled-back line sectionsComparison; its unit and pure_tensor equations use the unchanged inverse tensor formula on the whole original affine chart. OriginalCoefficientTensorSection.path uses ringEquivalence_right for the literal inclusion/relabel path, and expansion uses the same equivalence's S action over every finite index. These downstream sources retain their own hidden-f instance registrations and have not been compiled here; their future success is not inferred.
+
+No imports, public statements, options, resource caps, trust settings, scalar factors, map direction or exceptional-case coverage change. Exact source, producer, consumer, own log and RESULT identities are in PICARD-GLUING-SOURCE-BINDINGS.json.

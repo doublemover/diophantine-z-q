@@ -1,0 +1,97 @@
+--- original-five-kernel-norm-equivalence-r13/OriginalTwoOpenGaugeLog318.lean
++++ original-five-kernel-norm-equivalence-r14/OriginalTwoOpenGaugeLog318.lean
+@@ -9,6 +9,26 @@
+ set_option maxHeartbeats 1700000
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++/-- Normalize a whole forward gauge equation on native section-unit carriers
++before specializing the opens and cocycles to the original thickening. -/
++private lemma native_forward_gauge {Z : Scheme.{0}} (W : Bool → Z.Opens)
++    (c d : UnitTransitionCocycle318.Cocycle (StructureUnitsSheaf318.units Z).obj W)
++    (a : ∀ k, Γ(Z,W k)ˣ)
++    (ha : ∀ k l, d.transition k l =
++      UnitTransitionCocycle318.coboundary (StructureUnitsSheaf318.units Z).obj W a k l *
++        c.transition k l)
++    (x y : Γ(Z,W false ⊓ W true)ˣ)
++    (hx : c.transition false true = x) (hy : d.transition false true = y) :
++    y = (Units.map (Z.presheaf.map (homOfLE inf_le_left).op).hom.toMonoidHom (a false) *
++      (Units.map (Z.presheaf.map (homOfLE inf_le_right).op).hom.toMonoidHom (a true))⁻¹) * x := by
++  have h : (d.transition false true : Γ(Z,W false ⊓ W true)ˣ) =
++      (Units.map (Z.presheaf.map (homOfLE inf_le_left).op).hom.toMonoidHom (a false) *
++        (Units.map (Z.presheaf.map (homOfLE inf_le_right).op).hom.toMonoidHom (a true))⁻¹) *
++          (c.transition false true : Γ(Z,W false ⊓ W true)ˣ) := ha false true
++  exact hy.symm.trans (h.trans (congrArg (fun z : Γ(Z,W false ⊓ W true)ˣ =>
++    (Units.map (Z.presheaf.map (homOfLE inf_le_left).op).hom.toMonoidHom (a false) *
++      (Units.map (Z.presheaf.map (homOfLE inf_le_right).op).hom.toMonoidHom (a true))⁻¹) * z) hx))
++
+ variable {R : Type} [CommRing R] {X : Scheme.{0}} (p : X ⟶ base R)
+     (U V : X.Opens) (hU : IsAffineOpen U) (hV : IsAffineOpen V) (hUV : IsAffineOpen (U ⊓ V))
+     (x y : Γ(X,U ⊓ V))
+@@ -38,26 +58,53 @@
+   let c := OriginalOpenUnitLogarithm318.log R p V (a true)
+   have hb : OriginalOpenUnitLogarithm318.exp R p U b = a false :=
+     OriginalOpenUnitLogarithm318.exp_log R p U (a false)
+-      (OriginalOpenExponentialNaturality318.reduced_appLE R p (a false) (ra false))
++      (OriginalOpenExponentialNaturality318.reduced_appLE R p (V := U) (a false) (ra false))
+   have hc : OriginalOpenUnitLogarithm318.exp R p V c = a true :=
+     OriginalOpenUnitLogarithm318.exp_log R p V (a true)
+-      (OriginalOpenExponentialNaturality318.reduced_appLE R p (a true) (ra true))
++      (OriginalOpenExponentialNaturality318.reduced_appLE R p (V := V) (a true) (ra true))
+   refine ⟨b,c,?_⟩
+   apply OriginalOpenUnitLogarithm318.exp_injective R p (U ⊓ V)
+-  have h := ha false true
+-  rw [original_forward, original_forward,
+-    ← OriginalOpenUnitLogarithm318.exp_original, ← OriginalOpenUnitLogarithm318.exp_original] at h
+-  change OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) y =
+-    (Units.map ((thickening R p).presheaf.map
+-        (homOfLE ((pullback.fst p (structureMap R)).preimage_mono inf_le_left)).op).hom.toMonoidHom (a false) *
+-      (Units.map ((thickening R p).presheaf.map
+-        (homOfLE ((pullback.fst p (structureMap R)).preimage_mono inf_le_right)).op).hom.toMonoidHom (a true))⁻¹) *
+-      OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) x at h
+-  rw [← hb, ← hc, OriginalOpenExponentialNaturality318.exp_restrict,
+-    OriginalOpenExponentialNaturality318.exp_restrict] at h
++  have h := native_forward_gauge (thickOpens p U V)
++    (originalCocycle p U V x) (originalCocycle p U V y) a ha
++    (OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) x)
++    (OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) y)
++    ((original_forward p U V x).trans
++      (OriginalOpenUnitLogarithm318.exp_original R p (U ⊓ V) x).symm)
++    ((original_forward p U V y).trans
++      (OriginalOpenUnitLogarithm318.exp_original R p (U ⊓ V) y).symm)
++  have rb : Units.map ((thickening R p).presheaf.map
++        (homOfLE ((pullback.fst p (structureMap R)).preimage_mono
++          (show U ⊓ V ≤ U from inf_le_left))).op).hom.toMonoidHom (a false) =
++      OriginalOpenUnitLogarithm318.exp R p (U ⊓ V)
++        (InfinitesimalUnitCocycle318.restrict X inf_le_left b) := by
++    exact (congrArg (Units.map ((thickening R p).presheaf.map
++      (homOfLE ((pullback.fst p (structureMap R)).preimage_mono
++        (show U ⊓ V ≤ U from inf_le_left))).op).hom.toMonoidHom) hb.symm).trans
++      (OriginalOpenExponentialNaturality318.exp_restrict R p (V := U) (W := U ⊓ V)
++        inf_le_left b)
++  have rc : Units.map ((thickening R p).presheaf.map
++        (homOfLE ((pullback.fst p (structureMap R)).preimage_mono
++          (show U ⊓ V ≤ V from inf_le_right))).op).hom.toMonoidHom (a true) =
++      OriginalOpenUnitLogarithm318.exp R p (U ⊓ V)
++        (InfinitesimalUnitCocycle318.restrict X inf_le_right c) := by
++    exact (congrArg (Units.map ((thickening R p).presheaf.map
++      (homOfLE ((pullback.fst p (structureMap R)).preimage_mono
++        (show U ⊓ V ≤ V from inf_le_right))).op).hom.toMonoidHom) hc.symm).trans
++      (OriginalOpenExponentialNaturality318.exp_restrict R p (V := V) (W := U ⊓ V)
++        inf_le_right c)
++  have h' : OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) y =
++      (OriginalOpenUnitLogarithm318.exp R p (U ⊓ V)
++        (InfinitesimalUnitCocycle318.restrict X inf_le_left b) *
++      (OriginalOpenUnitLogarithm318.exp R p (U ⊓ V)
++        (InfinitesimalUnitCocycle318.restrict X inf_le_right c))⁻¹) *
++      OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) x :=
++    h.trans (congrArg (fun z : Γ(thickening R p,
++      (pullback.fst p (structureMap R)) ⁻¹ᵁ (U ⊓ V))ˣ =>
++        z * OriginalOpenUnitLogarithm318.exp R p (U ⊓ V) x)
++      (congrArg₂ (· * ·) rb (congrArg (fun z => z⁻¹) rc)))
+   rw [sub_eq_add_neg, OriginalOpenUnitLogarithm318.exp_add,
+     OriginalOpenUnitLogarithm318.exp_add, OriginalOpenExponentialNaturality318.exp_neg]
+-  exact h
++  exact h'
+ include hU hV hUV in
+ /-- Any original module-sheaf isomorphism between old H1 representatives gives
+ the original additive coboundary. No faithfulness of H1 has been assumed. -/
