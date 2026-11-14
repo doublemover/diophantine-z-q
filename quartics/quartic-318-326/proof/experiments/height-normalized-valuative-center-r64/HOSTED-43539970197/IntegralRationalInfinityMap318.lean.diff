@@ -1,0 +1,66 @@
+--- IntegralRationalInfinityMap318.lean.before
++++ IntegralRationalInfinityMap318.lean
+@@ -56,25 +56,22 @@
+     exact hX
+   · exact hroot
+ 
+-/-- Normalize the original chart coordinates and composite application while
+-both the intermediate and target rings are abstract. The same full localized
+-base and all three ordered roots are still checked by rational_order_ext. -/
+-private theorem rational_infinity_comp_ext (c : Fin 4 → ℚˣ)
+-    {A T : Type*} [CommRing A] [CommRing T] [Algebra ℚ A]
+-    (f : A →+* T) (g : IntegralInfinityChart318.Order ℚ c →ₐ[ℚ] A)
+-    (h : IntegralInfinityChart318.Order ℚ c →+* T)
+-    (hX : f (g (IntegralInfinityChart318.coordinate ℚ c)) =
+-      h (IntegralInfinityChart318.coordinate ℚ c))
+-    (hroot : ∀ j, f (g (infinityGenerator ℚ c j)) = h (infinityGenerator ℚ c j)) :
+-    f.comp g.toRingHom = h := by
++/-- Normalize the original chart coordinates on two already-constructed ring
++maps. The complete localized base and all three ordered roots remain checked,
++without synthesizing a second algebra structure on the intermediate overlap. -/
++private theorem rational_infinity_ext (c : Fin 4 → ℚˣ)
++    {T : Type*} [CommRing T]
++    (f g : IntegralInfinityChart318.Order ℚ c →+* T)
++    (hX : f (IntegralInfinityChart318.coordinate ℚ c) =
++      g (IntegralInfinityChart318.coordinate ℚ c))
++    (hroot : ∀ j, f (infinityGenerator ℚ c j) = g (infinityGenerator ℚ c j)) :
++    f = g := by
+   apply rational_order_ext (fun j => IntegralInfinityChart318.coefficient ℚ c j)
+-  · rw [RingHom.comp_apply]
+-    change f (g (IntegralInfinityChart318.coordinate ℚ c)) =
+-      h (IntegralInfinityChart318.coordinate ℚ c)
++  · change f (IntegralInfinityChart318.coordinate ℚ c) =
++      g (IntegralInfinityChart318.coordinate ℚ c)
+     exact hX
+   · intro j
+-    rw [RingHom.comp_apply]
+-    change f (g (infinityGenerator ℚ c j)) = h (infinityGenerator ℚ c j)
++    change f (infinityGenerator ℚ c j) = g (infinityGenerator ℚ c j)
+     exact hroot j
+ 
+ variable (c : Fin 4 → ℚˣ)
+@@ -124,11 +121,12 @@
+ its entire localized polynomial base and all THREE presentation generators. -/
+ theorem field_restriction :
+     (originalFieldEmbedding c).comp (infinityMap ℚ c).toRingHom = originalEmbedding c := by
+-  apply rational_infinity_comp_ext c (originalFieldEmbedding c) (infinityMap ℚ c)
+-    (originalEmbedding c)
++  refine rational_infinity_ext c
++    ((originalFieldEmbedding c).comp (infinityMap ℚ c).toRingHom)
++    (originalEmbedding c) ?_ ?_
+   · have hX := (IntegralRationalInfinityCoordinate318.reciprocal_coordinate c).trans
+       (original_coordinate c).symm
+-    exact hX
++    simpa only [RingHom.comp_apply, AlgHom.coe_toRingHom] using hX
+   · intro j
+     -- Unfold only this named composite, rather than asking defeq to reconstruct
+     -- its nested field embedding while checking an expected transitivity goal.
+@@ -140,7 +138,7 @@
+         (rationalOrderEquiv c (infinityGenerator ℚ c j)) = _
+       rw [rationalOrderEquiv_generator, InfinityOrderCoordinates318.generator_embedding]
+     have h := (generator_original_field c j).trans hroot.symm
+-    exact h
++    simpa only [RingHom.comp_apply, AlgHom.coe_toRingHom] using h
+ 
+ /-- The full infinity restriction commutes with the original rational atlas.
+ The proof uses all generators and injectivity of the ORIGINAL open embedding. -/

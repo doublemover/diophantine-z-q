@@ -1,0 +1,35 @@
+--- PELOriginalSiegelNormalization318.lean.before
++++ PELOriginalSiegelNormalization318.lean
+@@ -21,11 +21,11 @@
+   ![τ*(z 0+(1+(beta:ℂ))/2*z 1),z 0+(1-(beta:ℂ))/2*z 1]
+ lemma denormalize_normalize (hτ:0<τ.im) (z:ComplexVectors):denormalize τ (normalize τ z)=z:=by
+   ext i
+-  fin_cases i <;> simp [normalize,denormalize] <;>
++  fin_cases i <;> dsimp only [normalize,denormalize] <;>
+     field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
+ lemma normalize_denormalize (hτ:0<τ.im) (z:ComplexVectors):normalize τ (denormalize τ z)=z:=by
+   ext i
+-  fin_cases i <;> simp [normalize,denormalize] <;>
++  fin_cases i <;> dsimp only [normalize,denormalize] <;>
+     field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
+ @[expose] def normalization (hτ:0<τ.im):ComplexVectors≃ₗ[ℂ]ComplexVectors where
+   toFun:=normalize τ
+@@ -46,7 +46,7 @@
+     simp [normalization,normalize,standardPeriod,omega,periodHom,period,row,
+       representation,matrix,embed,fromPair] <;>
+     push_cast <;> field_simp [parameter_ne τ hτ,beta_complex_ne] <;>
+-    ring_nf <;> simp only [beta_complex_sq] <;> ring
++    ring_nf <;> (try rw [beta_complex_sq]) <;> ring
+ 
+ lemma full_original_periods (z:ComplexVectors):
+     z∈periodSubgroup representation order τ↔
+@@ -70,7 +70,8 @@
+     (normalization τ hτ).symm (standardPeriod τ p)=
+       (latticeEquiv τ hτ (fromPair p):ComplexVectors):=by
+   have h:=congrArg (normalization τ hτ).symm (original_period τ hτ p)
+-  simpa only [LinearEquiv.symm_apply_apply] using h.symm
++  simpa only [LinearEquiv.symm_apply_apply,latticeEquiv,LinearEquiv.ofBijective_apply,
++    latticeMap] using h.symm
+ /-- Canonical theta factor expression for the SAME previously produced
+ line bundle. The only change is the genuine complex coordinate equivalence;
+ the original phase is exactly equal, not replaced up to an unspecified twist. -/

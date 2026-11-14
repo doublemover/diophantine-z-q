@@ -1,0 +1,20 @@
+--- ComplexHolomorphicChartInverse318.lean.before
++++ ComplexHolomorphicChartInverse318.lean
+@@ -17,7 +17,7 @@
+   rcases he.deriv.eventually_eq_zero_or_eventually_ne_zero with hzero | hne
+   · exfalso
+     have hnear : ∀ᶠ z in 𝓝 x,z∈e.source ∧ AnalyticAt ℂ e z ∧ deriv e z=0 :=
+-      (e.open_source.mem_nhds hx).and (he.eventually_analyticAt.and hzero)
++      Filter.Eventually.and (e.open_source.mem_nhds hx) (he.eventually_analyticAt.and hzero)
+     obtain ⟨r,hr,hball⟩ := Metric.mem_nhds_iff.mp hnear
+     have hconst : ∀ z∈ball x r,e z=e x := by
+       intro z hz
+@@ -63,7 +63,7 @@
+            _=e x := congrArg e hz'
+   have hsource : ∀ᶠ z in 𝓝[≠] x,z∈e.source ∧ AnalyticAt ℂ e z :=
+     eventually_nhdsWithin_of_eventually_nhds
+-      ((e.open_source.mem_nhds hx).and he.eventually_analyticAt)
++      (Filter.Eventually.and (e.open_source.mem_nhds hx) he.eventually_analyticAt)
+   apply Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt _ hc
+   filter_upwards [hto.eventually (hsource.and (derivative_punctured e hx he)),
+     eventually_nhdsWithin_of_eventually_nhds (e.open_target.mem_nhds hy)] with z hz hzt

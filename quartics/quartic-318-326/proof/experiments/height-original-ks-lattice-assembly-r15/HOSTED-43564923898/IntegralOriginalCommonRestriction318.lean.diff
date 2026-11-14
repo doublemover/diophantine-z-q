@@ -1,0 +1,32 @@
+--- IntegralOriginalCommonRestriction318.lean.before
++++ IntegralOriginalCommonRestriction318.lean
+@@ -46,14 +46,17 @@
+ /-- The old overlap maps into the full punctured order by the genuine
+ localization universal property, without discarding any whole-order points. -/
+ @[expose] def commonRestriction : CommonOrder R c →+* OldOverlap R c :=
+-  (LocalizedTensorRestriction318.lift (L:=Laurent R) X
++  (LocalizedTensorRestriction318.lift (A := R[X]) (L := Laurent R)
++    (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+     (finiteRestriction R c).toRingHom (finiteRestriction_unit R c)).comp
+       (finiteBaseChange R c).symm.toRingHom
+ 
+ theorem common_finite (a : FiniteOrder R c) :
+     commonRestriction R c (finiteMap R c a)=finiteRestriction R c a := by
+-  change LocalizedTensorRestriction318.lift _ _ _
+-    ((finiteBaseChange R c).symm (finiteBaseChange R c (1 ⊗ₜ[R[X]] a))) = _
++  change LocalizedTensorRestriction318.lift (A := R[X]) (L := Laurent R)
++    (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
++    (finiteRestriction R c).toRingHom (finiteRestriction_unit R c)
++    ((finiteBaseChange R c).symm (finiteBaseChange R c ((1 : Laurent R) ⊗ₜ[R[X]] a))) = _
+   rw [AlgEquiv.symm_apply_apply,LocalizedTensorRestriction318.lift_right]
+ 
+ theorem common_y :
+@@ -65,7 +68,7 @@
+ 
+ theorem common_constant (r : R) :
+     commonRestriction R c (algebraMap R (CommonOrder R c) r)=
+-      algebraMap R (OldOverlap R c) r := by
++      (algebraMap R (OldOverlap R c) : R →+* OldOverlap R c) r := by
+   change commonRestriction R c (algebraMap (Laurent R) (CommonOrder R c)
+     (algebraMap R[X] (Laurent R) (C r))) = _
+   rw [←IntegralWholeOrderScalarMaps318.finite_polynomial,common_finite]

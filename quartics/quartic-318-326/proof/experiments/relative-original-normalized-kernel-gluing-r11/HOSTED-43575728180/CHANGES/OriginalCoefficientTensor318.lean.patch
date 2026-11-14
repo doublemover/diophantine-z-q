@@ -1,0 +1,20 @@
+--- relative-original-normalized-kernel-gluing-r10/OriginalCoefficientTensor318.lean
++++ relative-original-normalized-kernel-gluing-r11/OriginalCoefficientTensor318.lean
+@@ -54,7 +54,7 @@
+   letI := chartAlgebra k R S B f
+   induction t using TensorProduct.inductionOn with
+   | tmul r b =>
+-      simp [ringEquivalence,RelativeCoefficientChange318.ringMap,coefficientAlgebra,Algebra.smul_def]
++      simp [ringEquivalence,RelativeCoefficientChange318.ringMap,coefficientAlgebra,Algebra.smul_def] <;> rfl
+   | add x y hx hy => simp only [tmul_add,map_add,hx,hy]
+ 
+ /-- The same ring isomorphism is linear for the ACTUAL old chart map. -/
+@@ -96,7 +96,7 @@
+   | tmul t n =>
+       change ringEquivalence k R S B f (s • t) ⊗ₜ[oldRing k R B] n =
+         s • (ringEquivalence k R S B f t ⊗ₜ[oldRing k R B] n)
+-      simpa only [smul_tmul'] using congrArg
++      simpa only [AlgEquiv.coe_toLinearEquiv,smul_tmul'] using congrArg
+         (fun a : newRing k S B => a ⊗ₜ[oldRing k R B] n)
+         ((ringEquivalence k R S B f).toLinearEquiv.map_smul s t)
+   | add x y hx hy =>

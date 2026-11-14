@@ -1,0 +1,29 @@
+--- original-finite-quotient-reconstruction-r66/OriginalFiniteDeckDegree318.lean
++++ original-finite-quotient-reconstruction-r67/OriginalFiniteDeckDegree318.lean
+@@ -19,11 +19,12 @@
+   letI : FiniteDimensional F L := FiniteDimensional.of_finrank_pos (by
+     rw [hdegree]
+     exact Nat.card_pos)
+-  letI := OriginalFiniteDeckGalois318.action ρ
+-  letI : FaithfulSMul G L := ⟨fun v w h => hfaithful (AlgEquiv.ext h)⟩
+-  letI : SMulCommClass G F L := ⟨fun w r z => (ρ w).map_smul r z⟩
++  letI : MulSemiringAction G L := MulSemiringAction.compHom L ρ
++  letI : FaithfulSMul G L := ⟨fun {v w} h => hfaithful (AlgEquiv.ext h)⟩
++  letI : SMulCommClass G F L := ⟨fun w r z => (ρ w).toLinearEquiv.toLinearMap.map_smul r z⟩
+   let E : IntermediateField F L := FixedPoints.intermediateField G
+   have hE : Module.finrank E L = Nat.card G := by
++    change Module.finrank (FixedPoints.subfield G L) L = Nat.card G
+     simpa only [Nat.card_eq_fintype_card] using FixedPoints.finrank_eq_card G L
+   have ht := Module.finrank_mul_finrank F E L
+   rw [hE, hdegree] at ht
+@@ -31,7 +32,9 @@
+     Nat.eq_of_mul_eq_mul_right (Nat.card_pos : 0 < Nat.card G)
+       (ht.trans (one_mul (Nat.card G)).symm)
+   have hbot : E = ⊥ := IntermediateField.finrank_eq_one_iff.mp hbase
+-  have hm : x ∈ E := hx
++  have hm : x ∈ E := by
++    change ∀ w : G, ρ w x = x
++    exact hx
+   rw [hbot] at hm
+   exact hm
+ end OriginalFiniteDeckDegree318

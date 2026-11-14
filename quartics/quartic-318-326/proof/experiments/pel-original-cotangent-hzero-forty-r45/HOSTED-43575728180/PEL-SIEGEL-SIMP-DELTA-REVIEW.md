@@ -1,0 +1,5 @@
+# PEL Siegel source-review delta: optional cleanup only
+
+The previously reviewed5941d83fbbf01cc6c3d8e5442466762d71dba262f78c1de8bb4022d348d49133 is preserved exactly. Final8482d502e63537c9ce5027316619e5144316de673244f50fe455c47c4dfc37de differs only by `(try rw [beta_complex_sq])` becoming `(try simp only [beta_complex_sq])`. Independently verified this literal replacement reconstructs the full final source bytes.
+
+This is the narrower repair of the exact predecessor no-progress diagnostic: it retains the original all-occurrence simplification, only allowing cleanup to make no progress. The following ring remains mandatory on every remaining goal. No mathematical obligation, hypothesis, public declaration, import or option changes. The original source review and contract0dd14a2e remain valid for all other content; this addendum updates only the final source identity and cleanup behavior. No local Lean/compiler was run; hosted replay is still required, and this is not proof or application acceptance.
