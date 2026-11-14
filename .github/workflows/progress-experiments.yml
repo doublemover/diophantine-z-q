@@ -390,8 +390,8 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_picard_object_transport.py "$PACKET"
-      - name: Non-admitted exact small-prime prefix localization
-        if: always() && matrix.packet == 'forward-actual-two-descent-root-divisor-orders-r15'
+      - name: Non-admitted targeted small-prime Decidable localization
+        if: always() && matrix.packet == 'forward-actual-two-descent-root-divisor-orders-r16'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -446,7 +446,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-reconstructed-overlap/
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-overlap-fragments/
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-object-transport/
-            build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-preparation/
+            build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-decidable/
           retention-days: 3
 # Only the tooling composite actions save runtime caches. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.
