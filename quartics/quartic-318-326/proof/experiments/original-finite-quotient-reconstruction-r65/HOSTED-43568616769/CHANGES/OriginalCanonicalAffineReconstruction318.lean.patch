@@ -1,0 +1,73 @@
+--- original-finite-quotient-reconstruction-r64/OriginalCanonicalAffineReconstruction318.lean
++++ original-finite-quotient-reconstruction-r65/OriginalCanonicalAffineReconstruction318.lean
+@@ -11,7 +11,9 @@
+ set_option backward.isDefEq.respectTransparency.types false
+ variable {Y : Scheme} [IsIntegral Y]
+   (p : Y ⟶ ProjectiveJLine318.scheme ℚ) [IsDominant p] [IsIntegralHom p]
+-local instance baseIntegral : IsIntegral (ProjectiveJLine318.scheme ℚ) :=
++include p in
++/-- The original quotient supplies its integral base explicitly. -/
++lemma baseIntegral : IsIntegral (ProjectiveJLine318.scheme ℚ) :=
+   OriginalProjectiveBaseIntegral318.integral p
+ variable
+   (b : ArithmeticGroup → (Y ≅ Y))
+@@ -19,24 +21,18 @@
+   (bmul : ∀ v w, (b (v*w)).hom = (b v).hom ≫ (b w).hom)
+   (hover : ∀ w, (b w).hom ≫ p = p)
+   (hb : Function.Injective (fun w => (b w).hom))
+-  (hfixed : ∀ x : Y.functionField,
++  (hfixed : letI := baseIntegral p
++    ∀ x : Y.functionField,
+     (∀ w, OriginalSchemeDeckFieldAction318.ringEquiv b w x = x) →
+       ∃ r : RatFunc ℚ, (DominantFunctionField318.map p).hom (OriginalProjectiveFunctionCoordinate318.κ r) = x)
+-
+-local instance actualBase : Algebra (RatFunc ℚ) Y.functionField :=
+-  OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
+-
+-local instance actualFinite : FiniteDimensional (RatFunc ℚ) Y.functionField :=
+-  (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).1
+-
+-local instance actualGalois : IsGalois (RatFunc ℚ) Y.functionField :=
+-  (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).2.1
+ 
+ variable
+   {ι : Type*} (V : ι → Y.affineOpens) (hcover : ⨆ i, (V i).1 = ⊤)
+   (hnormal : ∀ i, IsIntegrallyClosed Γ(Y, (V i).1))
+ 
+-local instance canonicalNormal : IsIntegrallyClosed (OriginalCanonicalAffineChart318.Ring p) :=
++include hcover hnormal in
++/-- The original full normal cover supplies this exact section-ring instance. -/
++lemma canonicalNormal : IsIntegrallyClosed (OriginalCanonicalAffineChart318.Ring p) :=
+   OriginalCanonicalAffineChart318.ring_normal p V hcover hnormal
+ 
+ include bone bmul hover hb hfixed hcover hnormal in
+@@ -47,6 +43,13 @@
+     (hmodels : OriginalPublishedComplexBranches318.ModelInvariants l m)
+     (hbranch : OriginalCartesianCurveReconstruction318.BranchLocus b
+       (OriginalCanonicalAffineChart318.chart p) (OriginalCanonicalAffineChart318.coefficient p) l m) :
++    letI := baseIntegral p
++    letI : Algebra (RatFunc ℚ) Y.functionField :=
++      OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
++    letI : FiniteDimensional (RatFunc ℚ) Y.functionField :=
++      (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).1
++    letI : IsGalois (RatFunc ℚ) Y.functionField :=
++      (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).2.1
+     (OriginalGenericStalkNaturality318.generic Y ≫ p =
+       ReconstructedFieldNormalization318.base Y.functionField) ∧
+     ∃ c : Fin 4 → ℚˣ,
+@@ -62,6 +65,15 @@
+                 (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) z)) ∧
+           ∀ w : ArithmeticGroup, (b w).hom ≫ E.hom = E.hom ≫ ContactGlobalSigns318.map c
+             (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) := by
++  letI := baseIntegral p
++  letI : Algebra (RatFunc ℚ) Y.functionField :=
++    OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
++  letI : FiniteDimensional (RatFunc ℚ) Y.functionField :=
++    (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).1
++  letI : IsGalois (RatFunc ℚ) Y.functionField :=
++    (OriginalSchemeDeckFieldAction318.field_structure p OriginalProjectiveFunctionCoordinate318.κ b bone bmul hover hb hfixed).2.1
++  letI : IsIntegrallyClosed (OriginalCanonicalAffineChart318.Ring p) :=
++    canonicalNormal p V hcover hnormal
+   exact OriginalIntegralBaseReconstruction318.original_curve p b bone bmul hover hb hfixed
+     (OriginalCanonicalAffineChart318.chart p) (OriginalCanonicalAffineChart318.coefficient p)
+     (OriginalCanonicalAffineChart318.square p) V hcover hnormal l m hmodels hbranch

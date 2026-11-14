@@ -1,0 +1,10 @@
+--- PELInertiaArithmeticFixedPoints318.lean.before
++++ PELInertiaArithmeticFixedPoints318.lean
+@@ -40,6 +40,7 @@
+   change ((PELQuaternionRealRepresentation318.representation (element i) 1 0:ℂ)*fixedPoint i+
+     (PELQuaternionRealRepresentation318.representation (element i) 1 1:ℂ))^2= _
+   rw [matrix_trace_zero]
++  push_cast
+   change ((C i:ℂ)*fixedPoint i-(A i:ℂ))^2= _
+   rw [denominator_value,mul_pow,Complex.I_sq]
+   have hs : (Real.sqrt (discriminant i:ℝ):ℂ)^2=(discriminant i:ℂ) := by

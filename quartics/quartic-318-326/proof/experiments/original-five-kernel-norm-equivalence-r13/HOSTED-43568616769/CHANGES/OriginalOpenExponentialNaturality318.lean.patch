@@ -1,0 +1,15 @@
+--- original-five-kernel-norm-equivalence-r12/OriginalOpenExponentialNaturality318.lean
++++ original-five-kernel-norm-equivalence-r13/OriginalOpenExponentialNaturality318.lean
+@@ -16,7 +16,11 @@
+ lemma exp_restrict (a : Γ(X,V)) :
+     Units.map ((thickening R p).presheaf.map (homOfLE ((π R p).preimage_mono h)).op).hom.toMonoidHom
+       (exp R p V a) = exp R p W (X.presheaf.map (homOfLE h).op a) := by
+-  rw [exp_original, exp_original, InfinitesimalUnitCocycle318.unit_restrict]
++  rw [exp_original, exp_original]
++  refine (InfinitesimalUnitCocycle318.unit_restrict (thickening R p)
++    (DualNumberInfinitesimalLines318.epsilon R p)
++    (DualNumberInfinitesimalLines318.epsilon_square R p)
++    ((π R p).preimage_mono h) ((π R p).app V a)).trans ?_
+   congr 1
+   exact (congrArg (fun f => f a) ((π R p).naturality (homOfLE h).op)).symm
+ lemma exp_neg (a : Γ(X,V)) : exp R p V (-a) = (exp R p V a)⁻¹ := by

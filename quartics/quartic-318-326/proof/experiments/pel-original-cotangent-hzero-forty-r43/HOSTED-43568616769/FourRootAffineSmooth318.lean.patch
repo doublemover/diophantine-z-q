@@ -1,0 +1,11 @@
+--- FourRootAffineSmooth318.lean.before
++++ FourRootAffineSmooth318.lean
+@@ -35,7 +35,7 @@
+   rw [Matrix.det_succ_row_zero]
+   fin_cases j <;>
+     simp [chosen,equation,hsucc,Matrix.of_apply,Matrix.det_fin_three,Matrix.submatrix_apply,
+-      coordinate,Fin.prod_univ_succ,Fin.sum_univ_succ] <;> ring
++      coordinate,map_ofNat,Fin.prod_univ_succ,Fin.sum_univ_succ] <;> ring
+ 
+ lemma scalar_not_mem (p:PrimeSpectrum (Ring b)) (c:ℂ) (hc:c≠0):
+     algebraMap ℂ (Ring b) c∉p.asIdeal:=by

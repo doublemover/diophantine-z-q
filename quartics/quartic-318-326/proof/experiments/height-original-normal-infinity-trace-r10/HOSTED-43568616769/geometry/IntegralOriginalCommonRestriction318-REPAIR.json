@@ -1,0 +1,24 @@
+{
+  "module": "IntegralOriginalCommonRestriction318",
+  "head": "e3d4f3341daf299c5658e7e9fe2f276f2e6aa58e",
+  "run": 43568616769,
+  "artifact": 14104225609,
+  "job": 132368407582,
+  "packet": "height-original-ks-lattice-assembly-r12",
+  "before_sha256": "38623e9f7c3340f7386ec441a87bf680464e49d665c81b5f6519956c800d3cfc",
+  "candidate_sha256": "01c42107bb65a1e9e145a03d8e424750bbdef64482fd9b80000bb7c096f24590",
+  "exact_log_sha256": "fb3ef43f671635324d325a974af3c9fae5acfd51c244f53df26094aa6e2e3263",
+  "own_result_sha256": "7ed767a0032c848db56a7795a18ecfa2e8434f329e568e0528e4e98b37423d78",
+  "predecessor_intake_sha256": "df64e3dd49e55996085cfdef87937fc3e181a093c6df692d3e82c827274b23af",
+  "diagnostics": [
+    "51:38 and58:38 max recursion at AlgHom-view unit witness passed into native ring-hom lift",
+    "71:6 target Semiring.toNonAssocSemiring versus TensorProduct.instNonAssocSemiring mismatch",
+    "remaining unknown commonRestriction errors are downstream of failed declaration"
+  ],
+  "change": "Cache existing overlap CommRing, export the original unit witness in RingHom view before specialization, and use explicit native algebraMap structure arguments instead of independently re-elaborating a lower RingHom hierarchy. Same native lift and finiteBaseChange; no hypotheses, indices, resource limits or domain changes.",
+  "source_review": "PENDING",
+  "hosted_replay": "PENDING",
+  "local_lean_run": false,
+  "public_statement_annotation": "common_constant names the same algebraMap with explicit native structure arguments instead of a separate RingHom ascription",
+  "new_exported_theorem": "finiteRestriction_ringHom_unit is the same original unit proposition viewed through .toRingHom; exported because exposed commonRestriction references it"
+}

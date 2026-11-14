@@ -1,0 +1,19 @@
+--- PELInertiaRealFixedPoints318.lean.before
++++ PELInertiaRealFixedPoints318.lean
+@@ -53,7 +53,7 @@
+       (Real.sqrt (discriminant i:ℝ):ℂ)*Complex.I := by
+   have hc := ne_of_gt (lower_left_positive i)
+   apply Complex.ext <;>
+-    simp [fixedPoint,Complex.mul_re,Complex.mul_im] <;> field_simp [hc]
++    simp [fixedPoint,Complex.mul_re,Complex.mul_im] <;> field_simp [hc] <;> ring
+ 
+ theorem denominator_ne_zero (i : Fin 5) :
+     (C i:ℂ)*fixedPoint i-(A i:ℂ)≠0 := by
+@@ -70,6 +70,7 @@
+       ((representation (element i) 1 0:ℂ)*fixedPoint i+
+         (representation (element i) 1 1:ℂ))=fixedPoint i := by
+   rw [matrix_trace_zero]
++  push_cast
+   change ((A i:ℂ)*fixedPoint i+(Bentry i:ℂ))/
+     ((C i:ℂ)*fixedPoint i-(A i:ℂ))=fixedPoint i
+   apply (div_eq_iff (denominator_ne_zero i)).2
