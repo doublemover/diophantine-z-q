@@ -1,0 +1,14 @@
+--- before/FiniteProjectiveDualFrame318.lean
++++ after/FiniteProjectiveDualFrame318.lean
+@@ -46,9 +46,10 @@
+         have he : (Pi.single i (a • b) : Fin n → R) = a • Pi.single i b := by
+           ext j
+           by_cases h : j=i <;> simp_all [Pi.single_apply]
+-        rw [he,map_smul] }
++        simp only [he,map_smul,RingHom.id_apply] }
+   refine ⟨⟨n,out,back,?_⟩⟩
+   ext m
++  rw [LinearMap.sum_apply]
+   change (∑ i : Fin n, f (Pi.single i (g m i))) = m
+   rw [← map_sum]
+   have he : (∑ i : Fin n, Pi.single i (g m i)) = g m := by

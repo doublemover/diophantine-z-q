@@ -1,0 +1,35 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r70/OriginalAffineLineLocalHOne318.lean:38:53: error: unsolved goals
+R : CommRingCat
+inst✝ : IsDomain ↑R
+L : Line (Spec R)
+U : (Spec R).Opens
+hU : IsAffineOpen U
+x : ↑(Sheaf.H' (additiveLine R L) 1 U)
+F : SheafOfModules (Spec R).ringCatSheaf ⥤ Sheaf (Opens.grothendieckTopology ↥(Spec R)) AddCommGrpCat :=
+  SheafOfModules.toSheaf (Spec R).ringCatSheaf
+e : (SheafOfModules.toSheaf (Spec R).ringCatSheaf).obj (SheafOfModules.unit (Spec R).ringCatSheaf) ≅
+  StructureAdditiveSheaf318.sheaf (Spec R) :=
+  additiveUnitIso R
+a : Fin (OriginalAffineLineDualFrame318.moduleFrame R L).n →
+  (F.obj L.object ⟶ StructureAdditiveSheaf318.sheaf (Spec R)) :=
+  fun i => F.map (OriginalAffineLineDualFrame318.out R L i) ≫ e.hom
+b : Fin (OriginalAffineLineDualFrame318.moduleFrame R L).n →
+  (StructureAdditiveSheaf318.sheaf (Spec R) ⟶ F.obj L.object) :=
+  fun i => e.inv ≫ F.map (OriginalAffineLineDualFrame318.back R L i)
+⊢ F.map (∑ a, OriginalAffineLineDualFrame318.out R L a ≫ OriginalAffineLineDualFrame318.back R L a) =
+    𝟙 (additiveLine R L)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r70/OriginalAffineLineLocalHOne318.lean:40:24: warning: This simp argument is unused:
+  OriginalAffineLineDualFrame318.total
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [a, b, Category.assoc, Iso.hom_inv_id_assoc, ← Functor.map_comp, ← Functor.map_sum, Functor.map_id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r70/OriginalAffineLineLocalHOne318.lean:40:61: warning: This simp argument is unused:
+  Functor.map_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [a, b, Category.assoc, Iso.hom_inv_id_assoc, ← Functor.map_comp, ← Functor.map_sum,
+    OriginalAffineLineDualFrame318.total]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

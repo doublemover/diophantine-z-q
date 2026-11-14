@@ -1,0 +1,12 @@
+--- IntegralRationalFiveChartGeometry318.lean.before
++++ IntegralRationalFiveChartGeometry318.lean
+@@ -24,7 +24,8 @@
+     Spec.map (CommRingCat.ofHom
+       (algebraMap (ContactKummerOrder318.SourceOrder c) (ContactIntrinsicFrames318.BranchRing c i))) ≫
+       (finiteIso c).inv := by
+-  change Spec.map (branchEquiv c i).toRingEquiv.toCommRingCatIso.hom ≫ _ = _
++  change Spec.map (branchEquiv c i).toRingEquiv.toCommRingCatIso.hom ≫ _ =
++    _ ≫ Spec.map (IntegralRationalFullOverlap318.sourceEquiv c).toRingEquiv.toCommRingCatIso.hom
+   rw [←Spec.map_comp,←Spec.map_comp]
+   congr 1
+   apply CommRingCat.hom_ext

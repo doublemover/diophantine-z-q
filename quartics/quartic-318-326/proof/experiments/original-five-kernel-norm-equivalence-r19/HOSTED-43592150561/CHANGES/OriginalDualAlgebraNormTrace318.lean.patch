@@ -1,0 +1,21 @@
+--- original-five-kernel-norm-equivalence-r18/OriginalDualAlgebraNormTrace318.lean
++++ original-five-kernel-norm-equivalence-r19/OriginalDualAlgebraNormTrace318.lean
+@@ -39,9 +39,15 @@
+     inl (Algebra.norm R x) := by
+   have hx : equivalence R S (x ⊗ₜ[R] 1) = (inl x : DualNumber S) :=
+     DualNumberScalarExtension318.equivalence_left R S x
+-  rw [← hx, Algebra.norm_eq_of_algEquiv (equivalence R S) (x ⊗ₜ[R] 1),
+-    OriginalRightTensorNormTrace318.norm_coefficient,
+-    TrivSqZeroExt.algebraMap_eq_inl]
++  calc
++    Algebra.norm (DualNumber R) (inl x : DualNumber S) =
++        Algebra.norm (DualNumber R) (equivalence R S (x ⊗ₜ[R] 1)) :=
++      congrArg (Algebra.norm (DualNumber R)) hx.symm
++    _ = Algebra.norm (DualNumber R) (x ⊗ₜ[R] (1 : DualNumber R)) :=
++      Algebra.norm_eq_of_algEquiv (R := DualNumber R) (equivalence R S) (x ⊗ₜ[R] 1)
++    _ = inl (Algebra.norm R x) := by
++      rw [OriginalRightTensorNormTrace318.norm_coefficient,
++        TrivSqZeroExt.algebraMap_eq_inl]
+ /-- The determinant norm of the ORIGINAL dual base-change algebra sends the
+ OLD actual1+epsilon unit to the OLD actual1+epsilon unit of the ORIGINAL trace.
+ No integrality or reducedness of the test ring is required. -/

@@ -1,0 +1,64 @@
+module
+public import IntegralRationalInfinityMap318
+public import IntegralRationalFiniteAtlas318
+public import IntegralGluedModel318
+public import CompletedCharacterGlobal318
+public section
+noncomputable section
+namespace IntegralRationalGlobalComparison318
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open IntegralGluedModel318 IntegralRationalFullOverlap318 IntegralInfinityOriginalField318
+set_option maxHeartbeats 900000
+set_option synthInstance.maxSize 4096
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+/-- Transport a commuting ring square contravariantly before specializing
+any of the concrete nested overlap carriers. -/
+private theorem spec_inverse_square {A B C D : CommRingCat}
+    (f : A ⟶ B) (g : C ⟶ D) (eA : A ≅ C) (eB : B ≅ D)
+    (h : f ≫ eB.hom = eA.hom ≫ g) :
+    (Scheme.Spec.mapIso eB.symm.op).inv ≫ Spec.map f =
+      Spec.map g ≫ (Scheme.Spec.mapIso eA.symm.op).inv := by
+  change Spec.map eB.hom ≫ Spec.map f = Spec.map g ≫ Spec.map eA.hom
+  rw [←Spec.map_comp, ←Spec.map_comp, h]
+
+variable (c : Fin 4 → ℚˣ)
+
+/-- These are the same source restrictions used to construct overlapEquiv,
+not newly chosen scalar actions on either overlap. -/
+local instance sourceOverlapAlgebra :
+    Algebra (IntegralSourceBranches318.SourceOrder ℚ c)
+      (IntegralOverlapChartMaps318.Overlap ℚ c) :=
+  IntegralFullOverlapLocalization318.sourceAlgebra ℚ c
+local instance originalSourceAlgebra :
+    Algebra (IntegralSourceBranches318.SourceOrder ℚ c)
+      (ContactKummerOrder318.OpenOrder c) :=
+  IntegralRationalFullOverlap318.originalAlgebra c
+
+/-- These chart identifications are the contravariant spectra of the original
+ring equivalences, not abstract affine isomorphisms chosen from dimensions. -/
+@[expose] def finiteIso : finiteScheme ℚ c ≅
+    Spec (CommRingCat.of (ContactKummerOrder318.SourceOrder c)) :=
+  Scheme.Spec.mapIso (sourceEquiv c).toRingEquiv.toCommRingCatIso.symm.op
+@[expose] def infinityIso : infinityScheme ℚ c ≅
+    ReciprocalInfinityNormalization318.neighborhood c :=
+  Scheme.Spec.mapIso (rationalOrderEquiv c).toRingEquiv.toCommRingCatIso.symm.op
+@[expose] def overlapIso : commonScheme ℚ c ≅ ContactKummerCover318.cover c :=
+  Scheme.Spec.mapIso (overlapEquiv c).toRingEquiv.toCommRingCatIso.symm.op
+
+theorem finite_inverse_square :
+    (overlapIso c).inv ≫ intoFinite ℚ c =
+      ContactOverlapMaps318.sourceInclusion c ≫ (finiteIso c).inv :=
+  IntegralRationalFiniteAtlas318.finite_square c
+
+
+set_option diagnostics true
+set_option profiler true
+set_option profiler.threshold 0
+set_option stderrAsMessages false
+run_cmd do
+  let e ← IO.getStderr
+  e.putStrLn "GEOMETRY_DIAGNOSTIC exact_prefix"
+  e.flush
+
+end IntegralRationalGlobalComparison318

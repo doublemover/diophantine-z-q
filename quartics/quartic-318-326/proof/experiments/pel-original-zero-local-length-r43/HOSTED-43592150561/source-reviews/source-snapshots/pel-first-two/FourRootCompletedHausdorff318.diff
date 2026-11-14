@@ -1,0 +1,11 @@
+--- before/FourRootCompletedHausdorff318.lean
++++ after/FourRootCompletedHausdorff318.lean
+@@ -36,7 +36,7 @@
+         (continuous_subtype_val.fst.pow 2)))
+ 
+ private theorem separate_open_embedding {X Y:Type*} [TopologicalSpace X]
+-    [TopologicalSpace Y] [T2Space X] (f:X→Y) (hf:IsOpenEmbedding f)
++    [TopologicalSpace Y] [T2Space X] (f:X→Y) (hf:Topology.IsOpenEmbedding f)
+     (x y:X) (hne:f x≠f y):
+     ∃U V:Set Y,IsOpen U ∧ IsOpen V ∧ f x∈U ∧ f y∈V ∧ Disjoint U V:=by
+   obtain ⟨U,V,hU,hV,hx,hy,hd⟩:=t2_separation (show x≠y from fun h=>hne (congrArg f h))
