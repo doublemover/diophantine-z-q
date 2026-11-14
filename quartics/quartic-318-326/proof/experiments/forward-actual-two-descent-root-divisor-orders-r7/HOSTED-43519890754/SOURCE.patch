@@ -1,0 +1,171 @@
+--- before/ScalarForwardWitness318.lean
++++ after/ScalarForwardWitness318.lean
+@@ -16,9 +16,9 @@
+   101783690143177584*inputX q+267108917866935984*(inputX q)^2+
+     533801448346128768*inputFourth q+4376874610839020
+ 
+-lemma inputR_large (q : ℚ) (hq : 0≤q+q^2) : 10<inputR q := by
+-  have hx : 0≤inputX q := hq
+-  have hfour : 0≤inputFourth q := by unfold inputFourth; positivity
++lemma inputR_large (q : ℚ) (hq : 0≤q+q^2) : 10 < inputR q := by
++  have hx : 0 ≤ inputX q := hq
++  have hfour : 0 ≤ inputFourth q := by unfold inputFourth; positivity
+   have hterm : 0≤101783690143177584*inputX q := by positivity
+   have hterm2 : 0≤267108917866935984*(inputX q)^2 := by positivity
+   have hterm3 : 0≤533801448346128768*inputFourth q := by positivity
+@@ -33,7 +33,7 @@
+   have hi' : 0≤(a:ℚ)*((a:ℚ)+1) := by exact_mod_cast hi
+   nlinarith
+ 
+-lemma integer_inputR_large (a : ℤ) : 10<inputR (a:ℚ) :=
++lemma integer_inputR_large (a : ℤ) : 10 < inputR (a:ℚ) :=
+   inputR_large _ (integer_inputX a)
+ 
+ @[expose] def N (w : Assignment) : ℚ := 1+(w 37/inputR (w 0))^2+2*w 33/inputR (w 0)
+@@ -78,51 +78,51 @@
+   refine ⟨?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ,?_ ⟩
+   · norm_num [r263,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+-      dsimp [inputR,inputFourth,inputX] at hr ⊢
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try dsimp [inputR,inputFourth,inputX] at hr ⊢
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r264,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+-      dsimp [inputR,inputFourth,inputX] at hr ⊢
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try dsimp [inputR,inputFourth,inputX] at hr ⊢
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r265,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+-      dsimp [inputR,inputFourth,inputX] at hr ⊢
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try dsimp [inputR,inputFourth,inputX] at hr ⊢
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r266,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r267,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r268,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r269,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r270,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r271,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · have he := ActualScalarRoot318.kummer n h0 h1
+     rw [←hroot] at he
+@@ -140,46 +140,52 @@
+     linear_combination hh
+   · norm_num [r274,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r275,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
++      try simp only [hq]
+       change -1+normCoefficient (ActualScalarRoot318.root n)*(normCoefficient (ActualScalarRoot318.root n))⁻¹=0
+       rw [mul_inv_cancel₀ hnR]
+       norm_num
+   · norm_num [r276,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+-      dsimp [inputR,inputFourth,inputX] at hr ⊢
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try dsimp [inputR,inputFourth,inputX] at hr ⊢
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r277,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r278,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+   · norm_num [r279,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+-      field_simp [hr,hH,ha,hnR] <;> ring
+-  · norm_num [r280,fill,pair,normCoefficient]
+-    all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+-      dsimp [inputR,inputFourth,inputX] at hr ha ⊢
+-      field_simp [hr,hH,ha,hnR] <;> ring
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      field_simp [hr,hH,ha,hnR] <;> ring
++  · have hquot : (1+114444*inputR (w 0))*quotient w n = W w n := by
++      unfold quotient
++      field_simp [ha] <;> ring
++    have hrow : r280 S (fill w n) =
++        -1-2*(N w-1)-(N w-1)^2-inputR (w 0)*(Q w n)^2+
++          (1+114444*inputR (w 0))*quotient w n := by
++      norm_num [r280,fill,hq]
++      unfold inputR inputFourth inputX
++      ring
++    rw [hrow,hquot]
++    unfold W
++    ring
+   · norm_num [r281,fill,pair,normCoefficient]
+     all_goals
+-      simp only [hq]
+-      dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
++      try simp only [hq]
++      try dsimp [poleInput,quotient,W,N,Q,ActualScalarRoot318.inverseNorm]
+       field_simp [hr,hH,ha,hnR] <;> ring
+ 
+ lemma pole_squareclass (w : Assignment) (n : ℤ) :

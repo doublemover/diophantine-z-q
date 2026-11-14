@@ -1,0 +1,11 @@
+--- before/FourRootCoordinateOverlap318.lean
++++ after/FourRootCoordinateOverlap318.lean
+@@ -38,7 +38,7 @@
+       (t b-algebraMap ℂ (AffineOverlap b) (b k))*zi b^2=
+           (t b-algebraMap ℂ (AffineOverlap b) (b 0))*zi b^2+
+             (algebraMap ℂ (AffineOverlap b) (b 0)-algebraMap ℂ (AffineOverlap b) (b k))*zi b^2:=by ring
+-      _=z b 0^2*zi b^2+_=by rw [finite_relation]
++      _=z b 0^2*zi b^2+_:=by rw [finite_relation]
+       _=1+_:=by rw [←mul_pow,z_zi];norm_num)
+ /-- Exact inverse equations t=b0+u^-2 and z_k=s_k/u, not just projected
+ base agreement. No passage to a field or radical ideal occurs. -/

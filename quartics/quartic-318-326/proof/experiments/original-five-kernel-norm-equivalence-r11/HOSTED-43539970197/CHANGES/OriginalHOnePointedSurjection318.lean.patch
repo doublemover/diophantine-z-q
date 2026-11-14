@@ -1,0 +1,13 @@
+--- original-five-kernel-norm-equivalence-r10/OriginalHOnePointedSurjection318.lean
++++ original-five-kernel-norm-equivalence-r11/OriginalHOnePointedSurjection318.lean
+@@ -34,7 +34,9 @@
+       (DualNumberInfinitesimalLines318.epsilon_square R p)
+       ((pullback.fst p (structureMap R)) ⁻¹ᵁ (U ⊓ V))
+       ((pullback.fst p (structureMap R)).app (U ⊓ V) x) := by
+-  change InfinitesimalUnitCocycle318.unit _ _ _ _
++  change InfinitesimalUnitCocycle318.unit (thickening R p)
++    (DualNumberInfinitesimalLines318.epsilon R p)
++    (DualNumberInfinitesimalLines318.epsilon_square R p) _
+     ((pullback.fst p (structureMap R)).appLE (U ⊓ V)
+       ((pullback.fst p (structureMap R)) ⁻¹ᵁ (U ⊓ V)) _
+       ((TwoOpenAdditiveCocycle318.cocycle U V x).transition false true)) = _

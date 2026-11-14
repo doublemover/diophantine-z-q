@@ -1,0 +1,10 @@
+--- original-five-kernel-norm-equivalence-r10/AffineHOnePointedDeformation318.lean
++++ original-five-kernel-norm-equivalence-r11/AffineHOnePointedDeformation318.lean
+@@ -16,6 +16,7 @@
+ /-- The original two-open cover pulled to the actual dual-number fiber product. -/
+ @[expose] def thickOpens (a : Bool) : (thickening R p).Opens :=
+   (pullback.fst p (structureMap R)) ⁻¹ᵁ opens U V a
++omit [IsIntegral X] in
+ include h in
+ lemma thick_cover : (⊤ : (thickening R p).Opens) ≤ ⨆ a, thickOpens p U V a :=
+   LinePullbackFrames318.preimage_cover _ _ (cover U V h)
