@@ -1,0 +1,11 @@
+--- TernaryChartModuli318.before.lean
++++ TernaryChartModuli318.lean
+@@ -22,7 +22,7 @@
+   exact Fintype.prod_subtype_mul_prod_subtype (fun i => t i≠none) p
+ 
+ theorem moduli_positive (p : ι → ℕ) (hp : ∀ i, (p i).Prime)
+-    (t : ∀ i, Option (ZMod (p i))) : 0<finiteModulus p t ∧ 0<infinityModulus p t := by
++    (t : ∀ i, Option (ZMod (p i))) : 0<finiteModulus p t ∧ 0< infinityModulus p t := by
+   classical
+   constructor
+   · exact FixedSquarefreeCRT318.modulus_positive (fun i : FiniteIndex t => p i.1) (fun i => hp i.1)

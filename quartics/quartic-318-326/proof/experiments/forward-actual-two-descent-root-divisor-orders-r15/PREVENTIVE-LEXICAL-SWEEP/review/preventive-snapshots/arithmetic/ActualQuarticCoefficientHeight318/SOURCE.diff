@@ -1,0 +1,28 @@
+--- ActualQuarticCoefficientHeight318.before.lean
++++ ActualQuarticCoefficientHeight318.lean
+@@ -13,8 +13,8 @@
+ 
+ lemma inner_bounds (κ t : ℤ) (a d : Vector ℤ) (L : ℝ) (hL : 0≤L)
+     (ha : Box a L) (hd : Box d L) :
+-    |(r2 κ d:ℝ)|≤innerHeight κ t L ∧ |(r1 κ a d:ℝ)|≤innerHeight κ t L ∧
+-    |(r0 κ t a:ℝ)|≤innerHeight κ t L := by
++    |(r2 κ d:ℝ)|≤ innerHeight κ t L ∧ |(r1 κ a d:ℝ)|≤ innerHeight κ t L ∧
++    |(r0 κ t a:ℝ)|≤ innerHeight κ t L := by
+   have haw := square_bound a.2.2 L ha.2.2
+   have hdw := square_bound d.2.2 L hd.2.2
+   have hxz := product_bound a.1 d.2.1 L hL ha.1 hd.2.1
+@@ -58,12 +58,12 @@
+     convert hsum using 1 <;> simp only [r1] <;> push_cast <;> ring
+   have hj : 0≤(|(κ:ℝ)|+1)*L^2 := by positivity
+   refine ⟨?_,?_,?_⟩
+-  · change |((κ*d.2.2^2-d.1*d.2.1:ℤ):ℝ)|≤innerHeight κ t L
++  · change |((κ*d.2.2^2-d.1*d.2.1:ℤ):ℝ)|≤ innerHeight κ t L
+     dsimp [innerHeight]
+     linarith only [hr2,hj,ht2,ht0]
+   · dsimp [innerHeight]
+     linarith only [hr1,ht2,ht0]
+-  · change |((κ*a.2.2^2-a.1*a.2.1+t^2+2*t:ℤ):ℝ)|≤innerHeight κ t L
++  · change |((κ*a.2.2^2-a.1*a.2.1+t^2+2*t:ℤ):ℝ)|≤ innerHeight κ t L
+     push_cast
+     dsimp [innerHeight]
+     linarith only [hc0,hj]

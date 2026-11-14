@@ -1,0 +1,11 @@
+--- OriginalTernaryBasis318.before.lean
++++ OriginalTernaryBasis318.lean
+@@ -127,7 +127,7 @@
+   obtain ⟨A,B,hA0,hA,hB0,hB,hcoeff⟩ := original_coefficients p hp hd κ t
+   obtain ⟨hq,hr⟩ := moduli_positive p hp t
+   have hqz : (0:ℤ)<finiteModulus p t := by exact_mod_cast hq
+-  have hrz : (0:ℤ)<infinityModulus p t := by exact_mod_cast hr
++  have hrz : (0:ℤ)< infinityModulus p t := by exact_mod_cast hr
+   have hqr : (finiteModulus p t:ℤ)*(infinityModulus p t:ℤ)=
+       (FixedSquarefreeCRT318.modulus p:ℤ) := by exact_mod_cast moduli_product p t
+   refine ⟨(finiteModulus p t:ℤ),(infinityModulus p t:ℤ),A,B,hqz,hrz,hqr,hA0,hA,hB0,hB,?_,?_⟩

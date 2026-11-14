@@ -1,0 +1,11 @@
+--- FixedArithmeticLabels318.before.lean
++++ FixedArithmeticLabels318.lean
+@@ -9,7 +9,7 @@
+ /-- Literal beta used by the318 detector source, not the older2X²+3 stage. -/
+ @[expose] def inputBeta (a : ℤ) : ℤ := 3723*(2*a+1)^2
+ 
+-lemma beta_positive_odd (a : ℤ) : 0<inputBeta a ∧ Odd (inputBeta a) := by
++lemma beta_positive_odd (a : ℤ) : 0< inputBeta a ∧ Odd (inputBeta a) := by
+   have hm : (2*a+1)%2=1 := by omega
+   have hn : 2*a+1≠0 := by omega
+   refine ⟨by unfold inputBeta; positivity,?_⟩

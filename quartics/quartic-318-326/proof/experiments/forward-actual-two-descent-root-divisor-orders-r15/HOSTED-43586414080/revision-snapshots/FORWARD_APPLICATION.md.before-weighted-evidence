@@ -1,0 +1,23 @@
+# Exact original scalar denominator parser repair
+
+## Observed evidence and sole source edit
+Run 43586414080 at f89bd0a3cb8a788d6c7f2f494a21d7d103a893cb. Descent r13 own artifact 14110599663 has TwoTwistPointRealization318 PASS 1.870 seconds, then ScalarPolePreparation318 FAIL 1.669 seconds. Weighted r13 has separately reported artifact 14109949953, to be independently downloaded/validated before propagation. Before-source bytes are identical in both published packets.
+
+At line 80, `10<inputR` is parsed through the `<i` principal-segment notation, producing an OfNat(Type) error, unknown `nputR`, and hr of PrincipalSeg type. The two linarith failures then lack the intended rational inequality. Pinned Mathlib Order/InitialSeg.lean at 56a005855ea17e0b0958f73ec801ae140b0a1679 defines notation3 `α <i β` as PrincipalSeg of the two less-than relations. The candidate only inserts spaces: `10 < inputR (w 0)`. No statement, theorem application, coefficient, formula, tactic or option is otherwise changed. The letI style warning remains untouched.
+
+## Required inputs and exact construction
+The original theorem quantifies every Assignment w and integers n,a, with hin : w 0 = (a:Q), W w n nonzero, and local-unit preparation at EVERY natural prime p with positive valuation of 114444*inputR(w 0). No finite selected support set replaces this universal condition.
+
+The repaired local inequality comes from the unchanged ScalarForwardWitness318.integer_inputR_large a after rewriting hin. That producer covers all integers a via nonnegativity of a*(a+1), not only positive a. With A = 114444*inputR(w 0), hr gives A nonzero and 1+A nonzero to the original linarith calls. The original W remains the exact expression built from N,Q and inverseNorm n; no new n nonzero premise is added here.
+
+The result remains IsSquare of the reduced natural denominator of the SAME poleInput w n. Its unchanged definitional comparison is normalized A W = A*(W/(1+A))^2, not a simplified or independent quotient. The all-prime square_denominator theorem retains its exact valuation identity v(A)+2*(v(W)-v(1+A)), with the positive-support unit case and nonpositive-support even case. The exact factorization and denominator valuation comparison remain untouched, including primes 2,3,17.
+
+Integrality is still constructed from the literal integerR a polynomial, integerR_cast and the integer 114444*integerR a; padicValRat.of_int then gives every required nonnegative valuation. No integer-value assumption is substituted for local-unit preparation. Coefficients, signs, powers, numerator and denominator conventions are byte-identical.
+
+## Actual downstream applications
+ScalarSmallPrimePreparation318.actual_preparation line 104 consumes this theorem with the actual w,n,a,hin,hW and the universal hunit derived from its original local-leaf inequalities. ScalarPackedLocalUnit318.actual_square_denominator line 90 uses the same theorem before proving each original support-prime unit. AllScalarSupportPreparation318.prepared_of_units line 69 passes the actual detector witness, labels 1, original hin, h2.1 and the full support coverage hs; it keeps the original finite-support-to-all-primes argument. PreparedLucasSource318, PreparedTwoThreeSource318 and SmallPrimeFullSource318 also directly consume the unchanged theorem after splitting actual small-prime/support cases. Their complete exact source copies are retained; no consumer is modified or treated as a new proof of preparation.
+
+All original zero/equal/negative-index cases admitted by the statement remain; only W nonzero and integer input/local-unit hypotheses already present are used. The normalization denominator is nonzero by the integer-input lower bound, not by deleting an exceptional case. No speculative correction is made to later files containing similar lexing patterns.
+
+## Verification boundary
+Only the observed canonical source changes, identically in the unchanged 1299/1304 ordered forward closures after own weighted evidence verification. Full declaration/producer/consumer inspection and structural checks are not Lean acceptance. No local Lean/Lake/compiler or kernel/recursive-axiom run is performed, and no full arithmetic theorem or downstream packet completion is claimed.

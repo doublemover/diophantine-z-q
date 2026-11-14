@@ -1,0 +1,13 @@
+--- IntegralRationalInfinityCoefficients318.lean.before
++++ IntegralRationalInfinityCoefficients318.lean
+@@ -77,5 +77,9 @@
+         (IntegralInfinityChart318.coordinate ℚ c)) =
+       KaehlerDifferential.D ℚ (InfinityOpenChart318.OpenOrder c)
+         (ContactFrameNormalization318.infinityCoordinate c) := by
+-  rw [AlgHomDifferential318.map_D,coordinate]
++  rw [AlgHomDifferential318.map_D]
++  change KaehlerDifferential.D ℚ (InfinityOpenChart318.OpenOrder c)
++    (rationalOrderEquiv c (IntegralInfinityChart318.coordinate ℚ c)) = _
++  exact congrArg (KaehlerDifferential.D ℚ (InfinityOpenChart318.OpenOrder c))
++    (coordinate c)
+ end IntegralRationalInfinityCoefficients318
