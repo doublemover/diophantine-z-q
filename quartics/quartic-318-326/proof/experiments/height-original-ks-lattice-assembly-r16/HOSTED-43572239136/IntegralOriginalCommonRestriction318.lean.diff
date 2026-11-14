@@ -1,0 +1,52 @@
+--- IntegralOriginalCommonRestriction318.lean.before
++++ IntegralOriginalCommonRestriction318.lean
+@@ -10,6 +10,25 @@
+ set_option synthInstance.maxSize 4096
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++section AlgHomLift
++variable {k A L B T : Type*} [CommRing k] [CommRing A] [CommRing L]
++    [CommRing B] [CommRing T] [Algebra A L] [Algebra A B]
++    [Algebra k B] [Algebra k T]
++variable (x : A) [IsLocalization.Away x L] (f : B →ₐ[k] T)
++    (h : IsUnit (f (algebraMap A B x)))
++
++/-- The original tensor-localization lift, with the algebra-hom witness
++conversion checked before the concrete nested carriers are specialized. -/
++@[expose] def liftOfAlgHom : L ⊗[A] B →+* T :=
++  LocalizedTensorRestriction318.lift (L := L) x f.toRingHom (by
++    simpa only [AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom] using h)
++
++@[simp] theorem liftOfAlgHom_right (b : B) :
++    liftOfAlgHom (L := L) x f h ((1 : L) ⊗ₜ[A] b) = f b := by
++  simp only [liftOfAlgHom, LocalizedTensorRestriction318.lift_right,
++    AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom]
++end AlgHomLift
++
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ abbrev OldOverlap := IntegralOverlapChartMaps318.Overlap R c
+ 
+@@ -58,18 +77,18 @@
+ /-- The old overlap maps into the full punctured order by the genuine
+ localization universal property, without discarding any whole-order points. -/
+ @[expose] def commonRestriction : CommonOrder R c →+* OldOverlap R c :=
+-  (LocalizedTensorRestriction318.lift (A := R[X]) (L := Laurent R)
++  (liftOfAlgHom (k := R) (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c).toRingHom (finiteRestriction_ringHom_unit R c)).comp
++    (finiteRestriction R c) (finiteRestriction_unit R c)).comp
+       (finiteBaseChange R c).symm.toRingHom
+ 
+ theorem common_finite (a : FiniteOrder R c) :
+     commonRestriction R c (finiteMap R c a)=finiteRestriction R c a := by
+-  change LocalizedTensorRestriction318.lift (A := R[X]) (L := Laurent R)
++  change liftOfAlgHom (k := R) (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c).toRingHom (finiteRestriction_ringHom_unit R c)
++    (finiteRestriction R c) (finiteRestriction_unit R c)
+     ((finiteBaseChange R c).symm (finiteBaseChange R c ((1 : Laurent R) ⊗ₜ[R[X]] a))) = _
+-  rw [AlgEquiv.symm_apply_apply,LocalizedTensorRestriction318.lift_right]
++  rw [AlgEquiv.symm_apply_apply,liftOfAlgHom_right]
+ 
+ theorem common_y :
+     commonRestriction R c (IntegralWholeOrderScalarMaps318.commonY R c)=oldY R c := by
