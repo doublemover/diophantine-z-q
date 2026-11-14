@@ -1,0 +1,11 @@
+{
+  "repository": "leanprover-community/mathlib4",
+  "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "path": "Mathlib/Algebra/Algebra/Bilinear.lean",
+  "blob_sha": "e9748290daf0410f8e131703d2d90be0423e58dc",
+  "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Algebra/Bilinear.lean",
+  "start_line": 15,
+  "end_line": 55,
+  "excerpt": "in order to avoid importing `LinearAlgebra.BilinearMap` and\n`LinearAlgebra.TensorProduct` unnecessarily.\n-/\n\n@[expose] public section\n\nopen TensorProduct Module\n\nvariable {R A B : Type*}\n\nnamespace LinearMap\n\nsection NonUnitalNonAssoc\n\nvariable (R A) [CommSemiring R] [NonUnitalNonAssocSemiring A] [Module R A]\nvariable [SMulCommClass R A A] [IsScalarTower R A A]\n\n/-- The multiplication in a non-unital non-associative algebra is a bilinear map.\n\nA weaker version of this for semirings exists as `AddMonoidHom.mul`. -/\n@[instance_reducible, simps!]\ndef mul : A →ₗ[R] A →ₗ[R] A :=\n  LinearMap.mk₂ R (· * ·) add_mul smul_mul_assoc mul_add mul_smul_comm\n\n/-- The multiplication map on a non-unital algebra, as an `R`-linear map from `A ⊗[R] A` to `A`. -/\ndef mul' : A ⊗[R] A →ₗ[R] A :=\n  TensorProduct.lift (mul R A)\n\n@[inherit_doc] scoped[RingTheory.LinearMap] notation \"μ\" => LinearMap.mul' _ _\n@[inherit_doc] scoped[RingTheory.LinearMap] notation \"μ[\" R \"]\" => LinearMap.mul' R _\n\nvariable {A R}\n\n@[simp]\ntheorem mul_apply' (a b : A) : mul R A a b = a * b :=\n  rfl\n\n@[simp]\ntheorem mul'_apply {a b : A} : mul' R A (a ⊗ₜ b) = a * b :=\n  rfl\n\n",
+  "whole_file": false
+}

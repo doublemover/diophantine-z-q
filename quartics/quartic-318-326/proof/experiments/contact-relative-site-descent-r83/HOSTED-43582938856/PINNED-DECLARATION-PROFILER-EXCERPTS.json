@@ -1,0 +1,90 @@
+[
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Util/Profile.lean",
+    "blob_sha": "df21629886ce8b69c8ffea99b9ab3ea4bdb27a71",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Util/Profile.lean",
+    "start_line": 1,
+    "end_line": 52,
+    "excerpt": "/-\nCopyright (c) 2019 Sebastian Ullrich. All rights reserved.\nReleased under Apache 2.0 license as described in the file LICENSE.\nAuthor: Sebastian Ullrich\n-/\nmodule\n\nprelude\npublic import Init.Data.OfScientific\npublic import Lean.Data.Options\n\npublic section\n\nnamespace Lean\n\nregister_builtin_option profiler : Bool := {\n  defValue := false\n  descr    := \"show exclusive execution times of various Lean components\n\nSee also `trace.profiler` for an alternative profiling system with structured output.\"\n}\n\nregister_builtin_option profiler.threshold : Nat := {\n  defValue := 100\n  descr    := \"threshold in milliseconds, profiling times under threshold will not be reported individually\"\n}\n\n@[export lean_get_profiler]\nprivate def get_profiler (o : Options) : Bool :=\n  profiler.get o\n\n@[export lean_get_profiler_threshold]\ndef profiler.threshold.getSecs (o : Options) : Float :=\n  (profiler.threshold.get o).toFloat / 1000\n\n/-- Print and accumulate run time of `act` when option `profiler` is set to `true`. -/\n@[extern \"lean_profileit\"]\ndef profileit {α : Type} (category : @& String) (opts : @& Options) (fn : Unit → α) (decl := Name.anonymous) : α := fn ()\n\nunsafe def profileitIOUnsafe {ε α : Type} (category : String) (opts : Options) (act : EIO ε α) (decl := Name.anonymous) : EIO ε α :=\n  match profileit (decl := decl) category opts fun _ => unsafeEIO act with\n  | Except.ok a    => pure a\n  | Except.error e => throw e\n\n@[implemented_by profileitIOUnsafe]\ndef profileitIO {ε α : Type} (category : String) (opts : Options) (act : EIO ε α) (decl := Name.anonymous) : EIO ε α := act\n\n-- impossible to infer `ε`\ndef profileitM {m : Type → Type} (ε : Type) [MonadFunctorT (EIO ε) m] {α : Type} (category : String) (opts : Options) (act : m α) (decl := Name.anonymous) : m α :=\n  monadMap (fun {β} => profileitIO (ε := ε) (α := β) (decl := decl) category opts) act\n\n/-- Print all profiling times (if any) to standard error. -/\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/library/time_task.cpp",
+    "blob_sha": "fecae9fadb28f0d8e2e15c1d60f2143a35beb7f5",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/library/time_task.cpp",
+    "start_line": 60,
+    "end_line": 98,
+    "excerpt": "        m_timeit = optional<xtimeit>(std::in_place, get_profiling_threshold(opts), [=, this](second_duration duration) mutable {\n            sstream ss;\n            ss << m_category;\n            if (decl)\n                ss << \" of \" << decl;\n            ss << \" took \" << display_profiling_time{duration} << \"\\n\";\n            // output atomically, like IO.print\n            tout() << ss.str();\n        });\n        m_parent_task = g_current_time_task;\n        g_current_time_task = this;\n    }\n}\n\ntime_task::~time_task() {\n    if (m_timeit) {\n        g_current_time_task = m_parent_task;\n        report_profiling_time(m_category, m_timeit->get_elapsed());\n        if (m_parent_task && m_parent_task->m_timeit)\n            // report exclusive times\n            m_parent_task->m_timeit->exclude_duration(m_timeit->get_elapsed_inclusive());\n    }\n}\n\n/* profileit {α : Type} (category : String) (opts : Options) (fn : Unit → α) (decl : Name) : α */\nextern \"C\" LEAN_EXPORT obj_res lean_profileit(b_obj_arg category, b_obj_arg opts, obj_arg fn, obj_arg decl) {\n    time_task t(string_to_std(category),\n                TO_REF(options, opts),\n                name(decl));\n    return apply_1(fn, box(0));\n}\n}\n\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/kernel/trace.cpp",
+    "blob_sha": "4a1c4f65a3405c30aec7a74ed7578bc5e15288e3",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/kernel/trace.cpp",
+    "start_line": 40,
+    "end_line": 56,
+    "excerpt": "    object * r = lean_io_eprint(s);\n    if (!lean_io_result_is_ok(r))\n        lean_io_result_show_error(r);\n    lean_dec(r);\n}\n\ntout::~tout() {\n    io_eprint(mk_string(m_out.str()));\n}\n\nstd::ostream & operator<<(std::ostream & ios, tclass const & c) {\n    ios << \"[\" << c.m_cls << \"] \";\n    return ios;\n}\n\nvoid initialize_trace() {\n}\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Init/System/IO.lean",
+    "blob_sha": "0ba291b145184c80beb3e20d1a5548dc134d175f",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Init/System/IO.lean",
+    "start_line": 1280,
+    "end_line": 1302,
+    "excerpt": "Converts `s` to a string using its `ToString α` instance, and prints it to the current standard\nerror (as determined by `IO.getStderr`).\n-/\ndef eprint [ToString α] (s : α) : IO Unit := do\n  let out ← getStderr\n  out.putStr <| toString s\n\n/--\nConverts `s` to a string using its `ToString α` instance, and prints it with a trailing newline to\nthe current standard error (as determined by `IO.getStderr`).\n-/\ndef eprintln [ToString α] (s : α) : IO Unit :=\n  eprint <| toString s |>.push '\\n'\n\n@[export lean_io_eprint]\nprivate def eprintAux (s : String) : IO Unit :=\n  eprint s\n\n@[export lean_io_eprintln]\nprivate def eprintlnAux (s : String) : IO Unit :=\n  eprintln s\n\n/--\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Elab/MutualDef.lean",
+    "blob_sha": "81f3d84a62a9cfc1ef4502eb8c2e6b69618d9b2f",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/MutualDef.lean",
+    "start_line": 535,
+    "end_line": 565,
+    "excerpt": "      withLCtx' ((← getLCtx).modifyLocalDecls fun decl => decl.setType decl.type.cleanupAnnotations) do\n      forallBoundedTelescope header.type header.numParams (cleanupAnnotations := true) fun xs type => do\n        -- Add new info nodes for new fvars. The server will detect all fvars of a binder by the binder's source location.\n        for h : i in *...header.binderIds.size do\n          -- skip auto-bound prefix in `xs`\n          addLocalVarInfo header.binderIds[i] xs[header.numParams - header.binderIds.size + i]!\n        let val ← if (← useProofAsSorry header.kind) then\n          mkSorry type false\n        else withReader ({ · with tacSnap? := header.tacSnap? }) do\n          -- Store instantiated body in info tree for the benefit of the unused variables linter\n          -- and other metaprograms that may want to inspect it without paying for the instantiation\n          -- again\n          withInfoContext' valStx\n            (mkInfo := (pure <| .inl <| mkBodyInfo valStx ·))\n            (mkInfoOnError := (pure <| mkBodyInfo valStx none))\n            do\n              -- synthesize mvars here to force the top-level tactic block (if any) to run\n              let val ← elabTermEnsuringType valStx type <* synthesizeSyntheticMVarsNoPostponing\n              -- NOTE: without this `instantiatedMVars`, `mkLambdaFVars` may leave around a redex that\n              -- leads to more section variables being included than necessary\n              instantiateMVarsProfiling val\n        let val ← mkLambdaFVars xs val\n        if header.type?.isNone && (← getEnv).header.isModule && !(← getEnv).isExporting &&\n            !isPrivateName header.declName && header.kind != .example then\n          -- If the type of a non-exposed definition was elided, we need to check after the fact\n          -- whether it is in fact well-formed.\n          withRef header.declId do\n          withExporting do\n            let type ← instantiateMVars type\n            Meta.check type\n        if Linter.getLinterValue linter.unusedSectionVars (← Linter.getLinterOptions) && !header.type.hasSorry && !val.hasSorry then\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Elab/MutualDef.lean",
+    "blob_sha": "81f3d84a62a9cfc1ef4502eb8c2e6b69618d9b2f",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/MutualDef.lean",
+    "start_line": 1236,
+    "end_line": 1243,
+    "excerpt": "    if let (#[view], #[declId]) := (views, expandedDeclIds) then\n      if Elab.async.get (← getOptions) && view.kind.isTheorem &&\n          !deprecated.oldSectionVars.get (← getOptions) &&\n          -- holes in theorem types is not a fatal error, but it does make parallelism impossible\n          !headers[0]!.type.hasMVar then\n        elabAsync headers[0]! view declId\n      else elabSync headers\n    else elabSync headers\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Elab/MutualDef.lean",
+    "blob_sha": "81f3d84a62a9cfc1ef4502eb8c2e6b69618d9b2f",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/MutualDef.lean",
+    "start_line": 1394,
+    "end_line": 1443,
+    "excerpt": "    let values ← try\n      let values ← elabFunValues headers vars sc\n      Term.synthesizeSyntheticMVarsNoPostponing\n      values.mapM (instantiateMVarsProfiling ·)\n    catch ex =>\n      logException ex\n      headers.mapM fun header => withRef header.declId <| mkLabeledSorry header.type (synthetic := true) (unique := true)\n    let headers ← headers.mapM instantiateMVarsAtHeader\n    let letRecsToLift ← getLetRecsToLift\n    let letRecsToLift ← letRecsToLift.mapM instantiateMVarsAtLetRecToLift\n    checkLetRecsToLiftTypes funFVars letRecsToLift\n    -- At this point, all metavariables except for letrec auxiliary variables and `?hole`s\n    -- introduced by the user should be assigned.\n    -- Hence we solve the remaining ones using `where ... finally`.\n    let exprsWithHoles := letRecsToLift.foldl (init := Std.HashMap.emptyWithCapacity headers.size) fun acc l =>\n      let ewh : ExprWithHoles := { ref := l.ref, expr := l.val }\n      if let some parentName := l.parentName? then\n        acc.alter parentName (fun | none => some #[ewh] | some ewhs => some (ewhs.push ewh))\n      else -- no parentName => no holes filled\n        acc\n    for header in headers, value in values do\n      let whereFinally ← declValToWhereFinally header.value\n      let exprsWithHoles := (exprsWithHoles.getD header.declName #[]).push { ref := header.ref, expr := value }\n      fillHolesFromWhereFinally header.declName exprsWithHoles whereFinally header.modifiers.attrs\n    -- Compilation should take place without unused section vars, but all section vars should be\n    -- present when elaborating documentation.\n    let docCtx := (← getLCtx, ← getLocalInstances)\n    (if headers.all (·.kind.isTheorem) && !deprecated.oldSectionVars.get (← getOptions) then\n       -- do not repeat checks already done in `elabFunValues`\n       withHeaderSecVars (check := false) vars sc headers\n     else withUsed vars headers values letRecsToLift) fun vars => do\n      let preDefs ← MutualClosure.main vars headers funFVars values letRecsToLift\n      -- If there are any unassigned mvars left, they are errors. Check in `addPreDefinitions`.\n      -- Be aware that delayed assignments `?m := fun ... f => ?n ... f` in a let-recs `f` are even\n      -- ill-scoped after lifting `f` to a constant! Any attempt to interact with `?m` likely results\n      -- in `unknown free variable '...'` errors.\n      checkAllDeclNamesDistinct preDefs\n      for preDef in preDefs do\n        trace[Elab.definition] \"{preDef.declName} : {preDef.type} :=\\n{preDef.value}\"\n      let allUserLevelNames := getAllUserLevelNames headers\n      let preDefs ← withLevelNames allUserLevelNames <| levelMVarToParamTypesPreDecls preDefs\n      let preDefs ← instantiateMVarsAtPreDecls preDefs\n      let preDefs ← shareCommonPreDefs preDefs\n      let scopeLevelNames ← getLevelNames\n      let preDefs ← fixLevelParams preDefs scopeLevelNames allUserLevelNames\n      for preDef in preDefs do\n        trace[Elab.definition] \"after eraseAuxDiscr, {preDef.declName} : {preDef.type} :=\\n{preDef.value}\"\n      addPreDefinitions docCtx preDefs\n    for view in views, funFVar in funFVars do\n      addLocalVarInfo view.declId funFVar\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Elab/PreDefinition/Basic.lean",
+    "blob_sha": "c31e13045fd34779db5fbbe3efc03909af17432a",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Elab/PreDefinition/Basic.lean",
+    "start_line": 179,
+    "end_line": 223,
+    "excerpt": "private def addNonRecAux (docCtx : LocalContext × LocalInstances) (preDef : PreDefinition) (compile : Bool)\n    (all : List Name) (applyAttrAfterCompilation := true) (cacheProofs := true) (cleanupValue := false)\n    (isRecursive := false) : TermElabM Unit :=\n  withRef preDef.ref do\n    let preDef ← abstractNestedProofs (cache := cacheProofs) preDef\n    let preDef ← letToHaveType preDef\n    let preDef ← if cleanupValue then letToHaveValue preDef else pure preDef\n    let mkDefDecl : TermElabM Declaration :=\n      return Declaration.defnDecl {\n          name := preDef.declName, levelParams := preDef.levelParams, type := preDef.type, value := preDef.value\n          hints := ReducibilityHints.regular (getMaxHeight (← getEnv) preDef.value + 1)\n          safety := if preDef.modifiers.isUnsafe then DefinitionSafety.unsafe else DefinitionSafety.safe,\n          all }\n    let mkThmDecl : TermElabM Declaration := do\n      let d := {\n        name := preDef.declName, levelParams := preDef.levelParams, type := preDef.type, value := preDef.value, all\n      }\n      reportTheoremDiag d\n      return Declaration.thmDecl d\n    let decl ←\n      match preDef.kind with\n      | DefKind.«theorem» => mkThmDecl\n      | DefKind.«opaque»  =>\n        pure <| Declaration.opaqueDecl {\n          name := preDef.declName, levelParams := preDef.levelParams, type := preDef.type, value := preDef.value\n          isUnsafe := preDef.modifiers.isUnsafe, all\n        }\n      | DefKind.«abbrev»  =>\n        pure <| Declaration.defnDecl {\n          name := preDef.declName, levelParams := preDef.levelParams, type := preDef.type, value := preDef.value\n          hints := ReducibilityHints.«abbrev»\n          safety := if preDef.modifiers.isUnsafe then DefinitionSafety.unsafe else DefinitionSafety.safe,\n          all }\n      | DefKind.def | DefKind.example => mkDefDecl\n      | DefKind.«instance» => if ← Meta.isProp preDef.type then mkThmDecl else mkDefDecl\n    addDecl decl\n    if isRecursive then markAsRecursive preDef.declName\n    applyAttributesOf #[preDef] AttributeApplicationTime.afterTypeChecking\n    match preDef.modifiers.computeKind with\n    -- Tags may have been added by `elabMutualDef` already, but that is not the only caller\n    | .meta          => if !isMarkedMeta (← getEnv) preDef.declName then modifyEnv (markMeta · preDef.declName)\n    | .noncomputable => if !isNoncomputable (asyncMode := .local) (← getEnv) preDef.declName then modifyEnv (addNoncomputable · preDef.declName)\n    | _              => pure ()\n    if compile && shouldGenCodeFor preDef then\n      compileDecl decl\n",
+    "whole_file": false
+  }
+]

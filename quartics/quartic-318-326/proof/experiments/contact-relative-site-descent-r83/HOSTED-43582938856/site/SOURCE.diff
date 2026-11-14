@@ -1,0 +1,11 @@
+--- published/ActualAffineEffectiveComparison318.lean
++++ candidate/ActualAffineEffectiveComparison318.lean
+@@ -119,7 +119,7 @@
+   let out ← IO.getStderr
+   out.putStrLn "PICARD_SITE_PROFILER_CONTROL_BEGIN"
+   out.flush
+-  let opts := (({} : Lean.Options).setBool `profiler true).setNat `profiler.threshold 0
++  let opts := (({} : Lean.Options).setBool `profiler true).set `profiler.threshold (0 : Nat)
+   Lean.profileitIO (ε := IO.Error) "PICARD_SITE_PROFILER_CONTROL" opts (pure ())
+   out.flush
+   out.putStrLn "PICARD_SITE_PROFILER_CONTROL_END"

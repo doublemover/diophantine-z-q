@@ -1,0 +1,300 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:28:4: error: mod_cast has type
+  (1 : ℝ) / 100 < ↑|normCoefficient (CoherentMultipleCharts318.chartU h)|
+but is expected to have type
+  (1 : ℚ) / 100 < |normCoefficient (CoherentMultipleCharts318.chartU h)|
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLT ↦ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:59:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ 118
+in the target expression
+  w 118 = w 0 ^ 2
+
+S : ℚ
+a : ℤ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+hn1 : labels 1 ≠ 1
+h : ℤ
+t : ℚ
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU h))|
+hrows : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorUniformFamily318.witness (↑a) labels h t)
+hbs : ∀ (j : Fin 3), 0 < ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑j)
+P₀ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 190)
+P₁ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 241)
+P₂ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 292)
+P₃ : PointPair (scalarB (↑a) labels h)
+A :
+  ScalarCompleteSource318.Anchor S (FixedDetectorScales318.normProduct labels)
+    (ActualScalarRoot318.inverseNorm (labels 1))
+pre : Assignment := ThreeDetectorUniformFamily318.witness (↑a) labels h t
+C₀ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑0)) := PointPair.certificate ⋯ P₀
+C₁ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑1)) := PointPair.certificate ⋯ P₁
+C₂ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑2)) := PointPair.certificate ⋯ P₂
+w : Assignment := ThreePoleCertificates318.fill pre C₀ C₁ C₂
+hw : Constraints (List.take 263 (stage0 S)) (ThreePoleCertificates318.fill pre C₀ C₁ C₂)
+hslot :
+  ∀ i ∈ [0, 33, 37, 82, 83, 118, 145],
+    ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ i =
+      DetectorGateWitness318.witness (↑a) labels h i
+hi : w 0 = ↑a
+⊢ w 118 = w 0 ^ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:61:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ 82
+in the target expression
+  ConcreteG8Domain.pair (w 82) (w 83) = CoherentMultipleCharts318.fixedRoot (labels 1)
+
+S : ℚ
+a : ℤ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+hn1 : labels 1 ≠ 1
+h : ℤ
+t : ℚ
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU h))|
+hrows : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorUniformFamily318.witness (↑a) labels h t)
+hbs : ∀ (j : Fin 3), 0 < ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑j)
+P₀ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 190)
+P₁ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 241)
+P₂ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 292)
+P₃ : PointPair (scalarB (↑a) labels h)
+A :
+  ScalarCompleteSource318.Anchor S (FixedDetectorScales318.normProduct labels)
+    (ActualScalarRoot318.inverseNorm (labels 1))
+pre : Assignment := ThreeDetectorUniformFamily318.witness (↑a) labels h t
+C₀ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑0)) := PointPair.certificate ⋯ P₀
+C₁ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑1)) := PointPair.certificate ⋯ P₁
+C₂ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑2)) := PointPair.certificate ⋯ P₂
+w : Assignment := ThreePoleCertificates318.fill pre C₀ C₁ C₂
+hw : Constraints (List.take 263 (stage0 S)) (ThreePoleCertificates318.fill pre C₀ C₁ C₂)
+hslot :
+  ∀ i ∈ [0, 33, 37, 82, 83, 118, 145],
+    ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ i =
+      DetectorGateWitness318.witness (↑a) labels h i
+hi : w 0 = ↑a
+hq : w 118 = w 0 ^ 2
+⊢ ConcreteG8Domain.pair (w 82) (w 83) = CoherentMultipleCharts318.fixedRoot (labels 1)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:67:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ 37
+in the target expression
+  w 37 ≠ 0
+
+S : ℚ
+a : ℤ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+hn1 : labels 1 ≠ 1
+h : ℤ
+t : ℚ
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU h))|
+hrows : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorUniformFamily318.witness (↑a) labels h t)
+hbs : ∀ (j : Fin 3), 0 < ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑j)
+P₀ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 190)
+P₁ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 241)
+P₂ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 292)
+P₃ : PointPair (scalarB (↑a) labels h)
+A :
+  ScalarCompleteSource318.Anchor S (FixedDetectorScales318.normProduct labels)
+    (ActualScalarRoot318.inverseNorm (labels 1))
+pre : Assignment := ThreeDetectorUniformFamily318.witness (↑a) labels h t
+C₀ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑0)) := PointPair.certificate ⋯ P₀
+C₁ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑1)) := PointPair.certificate ⋯ P₁
+C₂ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑2)) := PointPair.certificate ⋯ P₂
+w : Assignment := ThreePoleCertificates318.fill pre C₀ C₁ C₂
+hw : Constraints (List.take 263 (stage0 S)) (ThreePoleCertificates318.fill pre C₀ C₁ C₂)
+hslot :
+  ∀ i ∈ [0, 33, 37, 82, 83, 118, 145],
+    ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ i =
+      DetectorGateWitness318.witness (↑a) labels h i
+hi : w 0 = ↑a
+hq : w 118 = w 0 ^ 2
+hroot : ConcreteG8Domain.pair (w 82) (w 83) = CoherentMultipleCharts318.fixedRoot (labels 1)
+hr : 10 < ScalarForwardWitness318.inputR (w 0)
+⊢ w 37 ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:71:87: error: unsolved goals
+S : ℚ
+a : ℤ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+hn1 : labels 1 ≠ 1
+h : ℤ
+t : ℚ
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU h))|
+hrows : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorUniformFamily318.witness (↑a) labels h t)
+hbs : ∀ (j : Fin 3), 0 < ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑j)
+P₀ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 190)
+P₁ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 241)
+P₂ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 292)
+P₃ : PointPair (scalarB (↑a) labels h)
+A :
+  ScalarCompleteSource318.Anchor S (FixedDetectorScales318.normProduct labels)
+    (ActualScalarRoot318.inverseNorm (labels 1))
+pre : Assignment := ThreeDetectorUniformFamily318.witness (↑a) labels h t
+C₀ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑0)) := PointPair.certificate ⋯ P₀
+C₁ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑1)) := PointPair.certificate ⋯ P₁
+C₂ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑2)) := PointPair.certificate ⋯ P₂
+w : Assignment := ThreePoleCertificates318.fill pre C₀ C₁ C₂
+hw : Constraints (List.take 263 (stage0 S)) (ThreePoleCertificates318.fill pre C₀ C₁ C₂)
+hslot :
+  ∀ i ∈ [0, 33, 37, 82, 83, 118, 145],
+    ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ i =
+      DetectorGateWitness318.witness (↑a) labels h i
+hi : w 0 = ↑a
+hq : w 118 = w 0 ^ 2
+hroot : ConcreteG8Domain.pair (w 82) (w 83) = CoherentMultipleCharts318.fixedRoot (labels 1)
+hr : 10 < ScalarForwardWitness318.inputR (w 0)
+hH : w 37 ≠ 0
+⊢ 114444 * ScalarForwardWitness318.inputR (w 0) *
+      (((1 + (w 37 / ScalarForwardWitness318.inputR (w 0)) ^ 2 + 2 * w 33 / ScalarForwardWitness318.inputR (w 0)) ^ 2 +
+            ScalarForwardWitness318.inputR (w 0) *
+              (ActualScalarRoot318.inverseNorm (labels 1) / (w 37 * ScalarForwardWitness318.inputR (w 0) ^ 15)) ^ 2) /
+          (1 + 114444 * ScalarForwardWitness318.inputR (w 0))) ^
+        2 =
+    114444 * ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels h 0) *
+      (((1 +
+                  (DetectorGateWitness318.witness (↑a) labels h 37 /
+                      ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels h 0)) ^
+                    2 +
+                2 * DetectorGateWitness318.witness (↑a) labels h 33 /
+                  ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels h 0)) ^
+              2 +
+            ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels h 0) *
+              (ActualScalarRoot318.inverseNorm (labels 1) /
+                  (DetectorGateWitness318.witness (↑a) labels h 37 *
+                    ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels h 0) ^ 15)) ^
+                2) /
+          (1 + 114444 * ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels h 0))) ^
+        2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:80:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ 145
+in the target expression
+  ScalarCompleteSource318.Anchor S (w 145) (ActualScalarRoot318.inverseNorm (labels 1))
+
+S : ℚ
+a : ℤ
+labels : Fin 4 → ℤ
+hn : ∀ (j : Fin 4), labels j ≠ 0
+hn1 : labels 1 ≠ 1
+h : ℤ
+t : ℚ
+hg : ∀ (j : Fin 4), RealGuardTrace318.guardValue (labels j) (h • LocalGenerator318.P) ≠ 0
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU h))|
+hrows : Constraints (ThreeDetectorPrePole318.rows S) (ThreeDetectorUniformFamily318.witness (↑a) labels h t)
+hbs : ∀ (j : Fin 3), 0 < ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑j)
+P₀ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 190)
+P₁ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 241)
+P₂ : PointPair (ThreeDetectorUniformFamily318.witness (↑a) labels h t 292)
+P₃ : PointPair (scalarB (↑a) labels h)
+A :
+  ScalarCompleteSource318.Anchor S (FixedDetectorScales318.normProduct labels)
+    (ActualScalarRoot318.inverseNorm (labels 1))
+pre : Assignment := ThreeDetectorUniformFamily318.witness (↑a) labels h t
+C₀ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑0)) := PointPair.certificate ⋯ P₀
+C₁ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑1)) := PointPair.certificate ⋯ P₁
+C₂ : Certificate (ThreeDetectorUniformFamily318.witness (↑a) labels h t (190 + 51 * ↑2)) := PointPair.certificate ⋯ P₂
+w : Assignment := ThreePoleCertificates318.fill pre C₀ C₁ C₂
+hw : Constraints (List.take 263 (stage0 S)) (ThreePoleCertificates318.fill pre C₀ C₁ C₂)
+hslot :
+  ∀ i ∈ [0, 33, 37, 82, 83, 118, 145],
+    ThreePoleCertificates318.fill (ThreeDetectorUniformFamily318.witness (↑a) labels h t) C₀ C₁ C₂ i =
+      DetectorGateWitness318.witness (↑a) labels h i
+hi : w 0 = ↑a
+hq : w 118 = w 0 ^ 2
+hroot : ConcreteG8Domain.pair (w 82) (w 83) = CoherentMultipleCharts318.fixedRoot (labels 1)
+hr : 10 < ScalarForwardWitness318.inputR (w 0)
+hH : w 37 ≠ 0
+hbeq : ScalarForwardWitness318.poleInput w (labels 1) = scalarB (↑a) labels h
+hb : 0 < scalarB (↑a) labels h ∧ scalarB (↑a) labels h < 17
+P₃' : PointPair (ScalarForwardWitness318.poleInput w (labels 1))
+⊢ ScalarCompleteSource318.Anchor S (w 145) (ActualScalarRoot318.inverseNorm (labels 1))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:74:6: warning: This simp argument is unused:
+  hslot 0 (by simp)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, ScalarForwardWitness318.poleInput, ScalarForwardWitness318.quotient,
+    ScalarForwardWitness318.W, ScalarForwardWitness318.N, ScalarForwardWitness318.Q, hslot 33 (by simp),
+    hslot 37 (by simp)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:74:24: warning: This simp argument is unused:
+  hslot 33 (by simp)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, ScalarForwardWitness318.poleInput, ScalarForwardWitness318.quotient,
+    ScalarForwardWitness318.W, ScalarForwardWitness318.N, ScalarForwardWitness318.Q, hslot 0 (by simp),
+    hslot 37 (by simp)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:74:43: warning: This simp argument is unused:
+  hslot 37 (by simp)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [scalarB, ScalarForwardWitness318.poleInput, ScalarForwardWitness318.quotient,
+    ScalarForwardWitness318.W, ScalarForwardWitness318.N, ScalarForwardWitness318.Q, hslot 0 (by simp),
+    hslot 33 (by simp)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:105:9: warning: Variable name `P₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:105:37: warning: Variable name `P₁` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₁
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:105:65: warning: Variable name `P₂` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₂
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:106:9: warning: Variable name `P₃` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₃
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:107:9: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:139:9: warning: Variable name `P₀` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₀
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:139:37: warning: Variable name `P₁` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₁
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:139:65: warning: Variable name `P₂` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₂
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:140:9: warning: Variable name `P₃` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P₃
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r11/PreparedIntegerSource318.lean:141:9: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

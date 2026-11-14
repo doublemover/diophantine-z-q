@@ -1,0 +1,11 @@
+--- TwoTwistPointRealization318.before.lean
++++ TwoTwistPointRealization318.lean
+@@ -33,7 +33,7 @@
+ /-- The exact two scaling factors recover one shared parameter E and
+ abscissas B and B*s². This is the missing model-conversion step after the
+ simultaneous realization theorem, not a proof of that theorem. -/
+-def Realization.pointPair {b : ℚ} (R : Realization b) : PointPair b where
++@[expose] def Realization.pointPair {b : ℚ} (R : Realization b) : PointPair b where
+   parameter := R.n*(R.c/R.first.root)^2
+   s := R.second.root*R.d/R.first.root
+   y₁ := R.first.ordinate*(R.c/R.first.root)^3

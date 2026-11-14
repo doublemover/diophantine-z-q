@@ -1,0 +1,29 @@
+--- before/ScalarActualInputs318.lean
++++ after/ScalarActualInputs318.lean
+@@ -27,19 +27,21 @@
+     0≤((chartU h)^2).re ∧ ((chartU h)^2).re≤1 ∧ |normCoefficient (chartU h)|≤1 := by
+   have hp : |ActualQuadraticEmbeddings318.positiveEmbedding (chartU h)|≤1 := by
+     simpa [RealQuarticAmbient318.orbit,RealQuarticAmbient318.embedding,
+-      CoherentMultiplePrefix318.u,CoherentMultiplePrefix318.parameters] using
+-      RealQuarticAmbient318.coordinate_bound (RealQuarticAmbient318.orbit_mem (fun _ => 1) h) 0 0 0
++      CoherentMultiplePrefix318.u,CoherentMultiplePrefix318.parameters,Fin.append_left] using
++      RealQuarticAmbient318.coordinate_bound (RealQuarticAmbient318.orbit_mem (fun _ => 1) h) ((0 : Fin 4).castAdd 4) 0 0
+   have hm : |ActualQuadraticEmbeddings318.negativeEmbedding (chartU h)|≤1 := by
+     simpa [RealQuarticAmbient318.orbit,RealQuarticAmbient318.embedding,
+-      CoherentMultiplePrefix318.u,CoherentMultiplePrefix318.parameters] using
+-      RealQuarticAmbient318.coordinate_bound (RealQuarticAmbient318.orbit_mem (fun _ => 1) h) 0 1 0
++      CoherentMultiplePrefix318.u,CoherentMultiplePrefix318.parameters,Fin.append_left] using
++      RealQuarticAmbient318.coordinate_bound (RealQuarticAmbient318.orbit_mem (fun _ => 1) h) ((0 : Fin 4).castAdd 4) 1 0
+   have hp2 := (sq_le_one_iff_abs_le_one _).mpr hp
+   have hm2 := (sq_le_one_iff_abs_le_one _).mpr hm
+   have he : (((chartU h)^2).re:ℝ)=
+       ((ActualQuadraticEmbeddings318.positiveEmbedding (chartU h))^2+
+         (ActualQuadraticEmbeddings318.negativeEmbedding (chartU h))^2)/2 := by
++    have hpPow := map_pow ActualQuadraticEmbeddings318.positiveEmbedding (chartU h) 2
++    have hmPow := map_pow ActualQuadraticEmbeddings318.negativeEmbedding (chartU h) 2
+     simpa only [RealDetectorRatios318.re,RealQuarticAmbient318.embedding,ite_true,
+-      show (1:Fin 2)≠0 by decide,ite_false,map_pow] using
++      show (1:Fin 2)≠0 by decide,ite_false,hpPow,hmPow] using
+       (RealDetectorRatios318.re_embedding ((chartU h)^2)).symm
+   have hf0 : (0:ℝ)≤(((chartU h)^2).re:ℝ) := by rw [he]; positivity
+   have hf1 : (((chartU h)^2).re:ℝ)≤1 := by rw [he]; linarith

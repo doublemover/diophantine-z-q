@@ -1,0 +1,11 @@
+--- OriginalLineMayerVietorisQuotient318.before.lean
++++ OriginalLineMayerVietorisQuotient318.lean
+@@ -51,7 +51,7 @@
+ /-- The original global derived H1 of EVERY original line on an integral
+ scheme with a two-affine cover is the quotient of its original overlap
+ sections by its original restriction difference. -/
+-def equivalence (U V : X.Opens) (hU : IsAffineOpen U) (hV : IsAffineOpen V)
++@[expose] def equivalence (U V : X.Opens) (hU : IsAffineOpen U) (hV : IsAffineOpen V)
+     (h : U ⊔ V = ⊤) : Γ(L.object,U ⊓ V) ⧸ (difference L U V).range ≃+ H1 L :=
+   (QuotientAddGroup.quotientAddEquivOfEq (kernel_eq_range L U V h).symm).trans
+     (QuotientAddGroup.quotientKerEquivOfSurjective (boundary L U V h)

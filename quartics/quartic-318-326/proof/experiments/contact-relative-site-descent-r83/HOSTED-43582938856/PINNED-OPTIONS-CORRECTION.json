@@ -1,0 +1,24 @@
+[
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Data/Options.lean",
+    "blob_sha": "875b0607fba2d2e2be4d1c3cbd1a877442b6af71",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Data/Options.lean",
+    "start_line": 64,
+    "end_line": 72,
+    "excerpt": "@[inline] def insert (o : Options) (k : Name) (v : DataValue) : Options where\n  map := o.map.insert k v\n  hasTrace := o.hasTrace || (`trace).isPrefixOf k\n\ndef set {α : Type} [KVMap.Value α] (o : Options) (k : Name) (v : α) : Options :=\n  o.insert k (KVMap.Value.toDataValue v)\n\n@[inline] def setBool (o : Options) (k : Name) (v : Bool) : Options :=\n  o.set k v\n",
+    "whole_file": false
+  },
+  {
+    "repository": "leanprover/lean4",
+    "ref": "v4.35.0",
+    "path": "src/Lean/Data/KVMap.lean",
+    "blob_sha": "7753d6e20da1efda91120fe6f660712ea8427130",
+    "display_url": "https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Data/KVMap.lean",
+    "start_line": 238,
+    "end_line": 249,
+    "excerpt": "instance : Value Bool where\n  toDataValue  := DataValue.ofBool\n  ofDataValue?\n    | DataValue.ofBool b => some b\n    | _                  => none\n\ninstance : Value Nat where\n  toDataValue  := DataValue.ofNat\n  ofDataValue?\n    | DataValue.ofNat n => some n\n    | _                 => none\n\n",
+    "whole_file": false
+  }
+]

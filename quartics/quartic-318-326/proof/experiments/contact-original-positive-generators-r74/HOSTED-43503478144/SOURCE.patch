@@ -1,0 +1,45 @@
+--- before/ContactOriginalRestrictionCoordinates318.lean
++++ after/ContactOriginalRestrictionCoordinates318.lean
+@@ -34,6 +34,25 @@
+ def coordinates :=
+   (ContactCommonLaurentModule318.finiteIso c L).toLinearEquiv.symm.trans
+     (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
++
++/-- Evaluate the already proved recovery square before cancelling coordinates.
++The geometric isomorphisms remain opaque, and the argument is an abstract
++scalar-extended section rather than a nested adjunction-unit expression. -/
++private lemma coordinates_infinityIso
++    (x : (ModuleCat.extendScalars OriginalLaurentProjectiveOverlap318.infinityHom).obj
++      (infinitySections c L)) :
++    coordinates c L ((ContactCommonLaurentModule318.infinityIso c L).hom x) =
++      ContactOriginalLaurentCoordinates318.rawTransition c L
++        (ContactOriginalLaurentCoordinates318.infinityCoordinates c L x) := by
++  have hrec := congrArg
++    (fun f : (ModuleCat.extendScalars OriginalLaurentProjectiveOverlap318.infinityHom).obj
++        (infinitySections c L) ⟶ ContactCommonLaurentModule318.common c L => f x)
++    (ContactCommonLaurentModule318.transition_recovery c L)
++  rw [ModuleCat.comp_apply] at hrec
++  rw [← hrec]
++  simp only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition,
++    LinearEquiv.trans_apply, inverse_hom_apply, LinearEquiv.symm_apply_apply,
++    Iso.toLinearEquiv_apply]
+ 
+ /-- Finite-chart restriction defined geometrically, by the original pullback
+ unit on the genuine tensor chart and its original overlap recovery. -/
+@@ -140,14 +159,9 @@
+     exact OriginalFiniteBasisBaseChange318.coordinates_unit
+       OriginalLaurentProjectiveOverlap318.infinityHom (infinitySections c L) m i
+   rw [← hi]
+-  simpa only [coordinates, ContactOriginalLaurentCoordinates318.rawTransition,
+-    ContactCommonLaurentModule318.transition] using (coordinate_transport
+-    (ContactCommonLaurentModule318.finiteIso c L)
+-    (ContactCommonLaurentModule318.infinityIso c L)
+-    (ContactOriginalLaurentCoordinates318.finiteCoordinates c L)
+-    (ContactOriginalLaurentCoordinates318.infinityCoordinates c L)
++  exact coordinates_infinityIso c L
+     ((ModuleCat.extendRestrictScalarsAdj OriginalLaurentProjectiveOverlap318.infinityHom).unit.app
+-      (infinitySections c L) m))
++      (infinitySections c L) m)
+ 
+ 
+ /-- Every positive Laurent vector is the coordinate image of an actual
