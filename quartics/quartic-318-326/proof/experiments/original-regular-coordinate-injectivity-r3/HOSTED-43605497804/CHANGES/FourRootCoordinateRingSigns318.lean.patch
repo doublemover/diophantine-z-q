@@ -1,0 +1,11 @@
+--- r1/FourRootCoordinateRingSigns318.lean
++++ r2/FourRootCoordinateRingSigns318.lean
+@@ -75,7 +75,7 @@
+       rw [←mul_assoc,←pow_two,scalar_square,one_mul]
+     | some i=>
+       simp only [AlgHom.comp_apply,infinity_ratio,map_mul,AlgHom.commutes,AlgHom.id_apply]
+-      rw [←mul_assoc,←pow_two,double_scalar_square,one_mul]
++      rw [←mul_assoc,←pow_two,←map_mul,double_scalar_square,one_mul]
+   intro x
+   exact AlgHom.congr_fun he x
+ @[expose] def infinityEquiv : FourRootInfinityCoordinateRing318.Ring b≃ₐ[ℂ]FourRootInfinityCoordinateRing318.Ring b where

@@ -11,7 +11,7 @@ class Tests(unittest.TestCase):
         cases=d.variants(S);self.assertEqual(list(cases),['exact_prefix','structural_witness'])
         self.assertEqual(cases['exact_prefix'],d.previous.variants(S)['exact_prefix'])
         self.assertIn(d.STRUCTURAL_BODY,cases['structural_witness'])
-        self.assertEqual(hashlib.sha256(d.STRUCTURAL_BODY.encode()).hexdigest(),'adb775912b5e3a4133feb87d29e44936fb16d56c2d89c716cdd88883929b81c1')
+        self.assertEqual(hashlib.sha256(d.STRUCTURAL_BODY.encode()).hexdigest(),'5000a918031dc90decd93ae89a10115180cf0eb49c10c048c5d607aead088a9f')
         for text in cases.values():
             self.assertNotIn('sorry',text);self.assertNotIn('axiom ',text);self.assertNotIn('set_option maxRecDepth',text)
             self.assertEqual([x for x in S.splitlines() if 'import ' in x],[x for x in text.splitlines() if 'import ' in x])
@@ -33,6 +33,13 @@ class Tests(unittest.TestCase):
             self.assertNotIn(term,body)
         self.assertLess(body.index('RAW_HEAD'),body.index('snapshot.getExprAssignmentCore? id'))
         self.assertIn('HEAD_EXPOSED_STRUCTURAL_EQUAL',body)
+    def test_readonly_local_context_labels(self):
+        b=d.STRUCTURAL_BODY
+        for token in ['let localSnapshot ← Lean.getLCtx','localSnapshot.find? id','decl.userName','decl.type.getAppFn','decl.value?','for i in [:min 8 args.size]','PART_STRUCTURAL_EQUAL','Eq.lhs.DFunLike.dictionary','Eq.rhs.Units.monoid','enclosingA','enclosingB','APPLICATION_ARGS_TRUNCATED']:
+            self.assertIn(token,b)
+        for token in ['decl.value? true','setLCtx','modifyLCtx','Lean.Meta.isDefEq','Lean.Meta.whnf','Lean.instantiateMVars','ppExpr','reprStr expected','reprStr actual']:
+            self.assertNotIn(token,b)
+        self.assertIn('values are only labeled, never substituted',b)
     def test_pinned_dependency_guards(self):
         d.check_dependencies()
         for name in d.DEPENDENCY_PINS:

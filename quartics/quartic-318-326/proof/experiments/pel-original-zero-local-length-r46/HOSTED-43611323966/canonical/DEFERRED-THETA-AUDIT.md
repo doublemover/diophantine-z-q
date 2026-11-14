@@ -1,0 +1,3 @@
+# Later theta readiness scope not included
+
+A lexical reviewer scan identified possible later hτ retention needs in AlgebraicThetaSection, LevelTheta, LevelThetaFourier, LevelThetaIndependence, LevelThetaStrictDerivative, ScaledThetaConvergence, ScaledThetaHolomorphy, ThetaContinuousDerivative, ThetaInfinitesimalPeriod, ThetaTranslationPeriod. These are not fixed or accepted by this batch. The current bounded predictive pass covers six immediate theta consumers only (21 explicit positivity binders), plus observed Convergence repair; full downstream readiness is not claimed. Full hosted packet checking may expose further errors.

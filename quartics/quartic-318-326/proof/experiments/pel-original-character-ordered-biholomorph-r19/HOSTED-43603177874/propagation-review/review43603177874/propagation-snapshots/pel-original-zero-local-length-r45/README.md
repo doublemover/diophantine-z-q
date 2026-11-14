@@ -1,0 +1,7 @@
+# pel-original-zero-local-length-r45
+
+Source-supported successor to pel-original-zero-local-length-r44, own observed run43603177874 at57227e167abe49436d651b932ff75d5bdf9b5898; current integration base4c5562395a9891e0d79fa5808926ebf9b2781470 has the identical full predecessor folder. Full 580-module closure/order retained, 2 changed copies and 578 identical sources. Changed modules: FourRootCoordinateRingSigns318, PELPrimeLatticeResidues318.
+
+Where propagated, ThetaConvergence explicitly restores existing hτ:0<τ.im in five public theorem telescopes and splits two absolute-value/multiplication tokens; its exact definitions and full integer-pair domain are unchanged. CoordinateRingSigns adds only reverse map_mul to the existing infinity involution proof, retaining every native ring/sign map. PrimeLatticeResidues uses thirteen ordinary-decide closed modular coefficient identities followed by symbolic ring normalization; the former generic-normalization draft is preserved as unaccepted history. Full arbitrary residue vectors, all four primes/two rows and mandatory final proof closure remain.
+
+All authentic own artifacts/results and exact published intakes, pinned native/source/consumer evidence, immutable source reports and nine scoped obligations are bound. No local Lean/Lake, resource/trust change, admission, candidate kernel acceptance, full packet pass or complete arithmetic theorem claim. Current packet-specific propagation review and hosted replay remain required.

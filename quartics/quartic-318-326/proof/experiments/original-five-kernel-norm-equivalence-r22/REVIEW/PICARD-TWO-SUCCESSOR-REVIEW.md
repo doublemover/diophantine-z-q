@@ -1,0 +1,13 @@
+# Independent Picard successor contract and propagation review
+
+Reviewer review_lean,2026-11-14 against published2428de0d42f12dc71e2bc6f19495025a5912d41c. Read full changed sources, both README nine-obligation contracts, actual original_square theorem, and packet APPLICATIONs. Source and provenance review only. No local Lean/Lake. These are reconstructed repairs, not asserted recovery of a previous same-number archive.
+
+Five22 keeps the same normalization of every dual-number unit by the inverse of its actual lifted coefficient. Its new proof uses inverse-order reversal, commutation of two units and the four-factor interchange law. No algebraic hypothesis or conclusion is changed and the zero-ring case is not excluded.
+
+Gluing18 adds an identity-on-underlying-sections map from moduleSpecΓFunctor.obj N to the same N's whole-open sections, with injectivity proved by the same equality. Both finite and distinct infinity squares are reflected through this map, then use the same original geometric-square theorem and literal ring maps, edges, pulled line and full overlap. No replacement line/module/section, dense-open restriction, chosen basis or scalar-cancellation premise appears. The public equalities remain in the original affine module. Successful conversion of these concrete native wrappers remains an elaboration question for hosted Lean; source review cannot guarantee it.
+
+Complete independent propagation checks:
+- original-five-kernel-norm-equivalence-r22:213 ordered roots, same order as21; only DualUnitFactorization318 changed, other212 identical. Intake52cd5d17adabd1e2ea90992babc8c274a9194dc14382b3b0833583e6b0a883ba; reviewed APPLICATION8e089967b5cfb3fe0cde8ae0d7a6dcc767ac17c9b5050c11621fc6d41e3ae97e.
+- relative-original-normalized-kernel-gluing-r18:1298 ordered roots, same order as17; only OriginalAffinePathWholeSections318 and ContactCoefficientRestrictionSquares318 changed, other1296 identical. Intake099a5bdb11211e74f72cda2b345c8f5d3d1c2585365db13c18bded601f4782a2; reviewed APPLICATIONa79b13092da0f11edfb7454cdb03734e035796d63f8537dff8d9d36c048edcbd.
+
+Every intake source SHA and every APPLICATION source/evidence binding checked:649 entries for five,3904 for gluing, no mismatch. Each own hosted RESULT is FAILED at the named original module and packet_sha256 matches the corresponding exact published predecessor intake. Their historical failure evidence is not substituted by sibling success. Site83 is untouched and no nonadmitted control is promoted. No source-level current-contract or propagation blocker found for these exact snapshots. Hosted strict checks, recursive axiom audit, final integrated binding and arithmetic-theorem conclusions remain separate and pending.
