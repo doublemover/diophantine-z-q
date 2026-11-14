@@ -1,0 +1,13 @@
+# Independent scalar denominator parser source/contract review
+
+Verdict: no source or supplied human-contract blocker found. Exact after source 4d2a0fec575bcf7dd9a77e8fcc2233f1cfc107dd600c0e80fd4fb933c39cd90b differs from 721851a467f0e8f34e4e6cb267aae94af3bf9da73e1c570d332c7f0b3c85ee10 solely by `10<inputR` to `10 < inputR` at the one observed local inequality.
+
+Both own artifacts, descent 14110599663 and weighted 14109949953, were independently matched to GitHub metadata/digests, actual ZIP log/RESULT bytes, published predecessor intake and identical before sources at run 43586414080/f89bd0a3. Failure logs match after only packet-name normalization. Exact errors show unknown nputR, OfNat(Type), a PrincipalSeg hr and dependent linarith failures. The pinned native `<i` principal-segment notation supports that parser diagnosis. No later similar-looking source is altered.
+
+The theorem still quantifies every original Assignment w and integers n,a with the same integer input, W nonzero and unit condition at EVERY positive-support natural prime. The original integer_inputR_large a is valid for all integers a, not merely positive inputs, and produces the same lower bound after hin. The same A=114444*inputR(w 0), nonzero normalization denominator, literal poleInput and normalized A W=A*(W/(1+A))² remain. No extra n nonzero, positivity, finite support or integrality assumption is added.
+
+All-prime valuation coverage, positive-support and nonpositive-support cases, numerator/denominator conventions, fixed coefficients, signs and exponents are unchanged. Actual integrality still follows from integerR a and integerR_cast through padicValRat.of_int. The square reduced denominator is a property of the original pole, not a substituted quotient. The public theorem and complete proof except whitespace are preserved, including original maxHeartbeats 0; no resource change is made or characterized as new.
+
+Exact published producer and direct consumers were checked, including ScalarSmallPrimePreparation318.actual_preparation, ScalarPackedLocalUnit318.actual_square_denominator and AllScalarSupportPreparation318.prepared_of_units with their same full local-unit/support inputs. PreparedLucasSource318, PreparedTwoThreeSource318 and SmallPrimeFullSource318 direct applications also remain unmodified. FORWARD_APPLICATION.md SHA a37755a28fa9e30d7a59a7ec177f497d4e9813ddc743c166232e0ed842f8ce9a accurately preserves those obligations and both own evidence scopes; prior contract snapshot is retained.
+
+Source-only/Git/artifact/API checks passed; no local Lean, packet acceptance or mathematical theorem completion is claimed. Complete successor classifications, bindings and machine-readable obligations still require propagation review and hosted replay.

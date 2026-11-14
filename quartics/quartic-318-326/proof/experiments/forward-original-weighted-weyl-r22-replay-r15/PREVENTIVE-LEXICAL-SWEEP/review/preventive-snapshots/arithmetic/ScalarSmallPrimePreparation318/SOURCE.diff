@@ -1,0 +1,11 @@
+--- ScalarSmallPrimePreparation318.before.lean
++++ ScalarSmallPrimePreparation318.lean
+@@ -69,7 +69,7 @@
+       padicValRat 17 (poleInput w n)=2 := by
+   obtain ⟨v₂,v₃,v₁₇⟩ := actual_multiplier_values a
+   rw [←hin] at v₂ v₃ v₁₇
+-  have hr : 10<inputR (w 0) := by rw [hin]; exact integer_inputR_large a
++  have hr : 10< inputR (w 0) := by rw [hin]; exact integer_inputR_large a
+   have hA : 114444*inputR (w 0)≠0 := by linarith
+   have hD : 1+114444*inputR (w 0)≠0 := by linarith
+   refine ⟨?_,?_,?_⟩

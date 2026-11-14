@@ -1,0 +1,50 @@
+{
+  "Equiv": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "content": "/-- `LinearEquiv.symm` defines an equivalence between `α ≃ₛₗ[σ] β` and `β ≃ₛₗ[σ] α`. -/\n@[simps!]\ndef symmEquiv : (M ≃ₛₗ[σ] M₂) ≃ (M₂ ≃ₛₗ[σ'] M) where\n  toFun := .symm\n  invFun := .symm\n\nvariable {e₁₂} {e₂₃}\n\ntheorem coe_toAddEquiv : e.toAddEquiv = e :=\n  rfl\n\n@[simp]\nlemma coe_addEquiv_apply (x : M) : (e : M ≃+ M₂) x = e x :=\n  rfl",
+      "encoding": "utf-8",
+      "sha": "6be4cedda755e0e8a646c5cb7cdf079b2108f2bf",
+      "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Module/Equiv/Defs.lean",
+      "display_title": "Defs.lean"
+    },
+    "isError": false
+  },
+  "Norm": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "content": "    congr\n    exact AlgHom.card L F E\n  · intro σ\n    simp only [algHomEquivSigma, Equiv.coe_fn_mk, AlgHom.domRestrict, AlgHom.comp_apply,\n      IsScalarTower.coe_toAlgHom']\n\nlemma norm_eq_of_algEquiv [Ring T] [Algebra R T] (e : S ≃ₐ[R] T) (x) :\n    Algebra.norm R (e x) = Algebra.norm R x := by\n  simp_rw [Algebra.norm_apply, ← LinearMap.det_conj _ e.toLinearEquiv]; congr; ext; simp\n\nset_option backward.isDefEq.respectTransparency false in\nlemma norm_eq_of_ringEquiv {A B C : Type*} [CommRing A] [CommRing B] [Ring C]",
+      "encoding": "utf-8",
+      "sha": "89111f90ee6b682f3fc2737b18b7e9f0364dcc5a",
+      "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/RingTheory/Norm/Basic.lean",
+      "display_title": "Basic.lean"
+    },
+    "isError": false
+  },
+  "InitialSeg": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "content": "  top : β\n  /-- The range of the order embedding is the set of elements `b` such that `s b top` -/\n  mem_range_iff_rel' : ∀ b, b ∈ Set.range toRelEmbedding ↔ s b top\n\n@[inherit_doc]\nscoped[InitialSeg] infixl:25 \" ≺i \" => PrincipalSeg\n\n/-- A `PrincipalSeg` between the `<` relations of two types. -/\nnotation3:25 α:24 \" <i \" β:25 => @PrincipalSeg α β (· < ·) (· < ·)\n\nopen scoped InitialSeg\n",
+      "encoding": "utf-8",
+      "sha": "568fc55fafade73ee81825d91ecfa9afd526362c",
+      "display_url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Order/InitialSeg.lean",
+      "display_title": "InitialSeg.lean"
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,11 @@
+--- ActualPrimitiveCorrectionProducts318.before.lean
++++ ActualPrimitiveCorrectionProducts318.lean
+@@ -11,7 +11,7 @@
+   classical
+   exact if Good κ p then 1-1/(p:ℝ)^s else 1
+ lemma inversePowerFactor_pos (κ : ℤ) (s p : ℕ) (hs : 1≤s) :
+-    0<inversePowerFactor κ s p := by
++    0< inversePowerFactor κ s p := by
+   classical
+   unfold inversePowerFactor
+   split_ifs with h

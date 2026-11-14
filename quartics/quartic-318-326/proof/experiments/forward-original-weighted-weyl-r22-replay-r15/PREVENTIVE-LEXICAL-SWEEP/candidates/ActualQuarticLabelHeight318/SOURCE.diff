@@ -1,0 +1,13 @@
+--- ActualQuarticLabelHeight318.before.lean
++++ ActualQuarticLabelHeight318.lean
+@@ -13,8 +13,8 @@
+     coefficientHeight κ t L≤coefficientHeight κ s L := by
+   have hsq : (t:ℝ)^2≤(s:ℝ)^2 := by
+     simpa only [sq_abs] using pow_le_pow_left₀ (abs_nonneg (t:ℝ)) hts 2
+-  have hj : innerHeight κ t L≤innerHeight κ s L := by dsimp [innerHeight];linarith
+-  have hj0 : 0≤innerHeight κ t L := by dsimp [innerHeight];positivity
++  have hj : innerHeight κ t L≤ innerHeight κ s L := by dsimp [innerHeight];linarith
++  have hj0 : 0≤ innerHeight κ t L := by dsimp [innerHeight];positivity
+   have hj2 := pow_le_pow_left₀ hj0 hj 2
+   have htl := mul_le_mul_of_nonneg_right hsq (sq_nonneg L)
+   have hq : quarticHeight κ t L≤quarticHeight κ s L := by dsimp [quarticHeight];linarith

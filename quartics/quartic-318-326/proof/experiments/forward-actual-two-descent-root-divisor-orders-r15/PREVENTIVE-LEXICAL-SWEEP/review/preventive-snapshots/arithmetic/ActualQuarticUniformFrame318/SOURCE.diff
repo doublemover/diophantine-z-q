@@ -1,0 +1,15 @@
+--- ActualQuarticUniformFrame318.before.lean
++++ ActualQuarticUniformFrame318.lean
+@@ -15,10 +15,10 @@
+ lemma coefficient_mono (κ t : ℤ) (L H : ℝ) (hL : 0≤L) (hLH : L≤H) :
+     coefficientHeight κ t L≤coefficientHeight κ t H := by
+   have h2 := pow_le_pow_left₀ hL hLH 2
+-  have hJ : innerHeight κ t L≤innerHeight κ t H := by
++  have hJ : innerHeight κ t L≤ innerHeight κ t H := by
+     dsimp [innerHeight]
+     nlinarith [mul_le_mul_of_nonneg_left h2 (show 0≤2*|(κ:ℝ)|+2 by positivity)]
+-  have hJ0 : 0≤innerHeight κ t L := by dsimp [innerHeight];positivity
++  have hJ0 : 0≤ innerHeight κ t L := by dsimp [innerHeight];positivity
+   have hJ2 := pow_le_pow_left₀ hJ0 hJ 2
+   have ht2 := mul_le_mul_of_nonneg_left h2 (sq_nonneg (t:ℝ))
+   have hQ : quarticHeight κ t L≤quarticHeight κ t H := by dsimp [quarticHeight];linarith

@@ -1,0 +1,11 @@
+--- ScalarPolePreparation318.before.lean
++++ ScalarPolePreparation318.lean
+@@ -77,7 +77,7 @@
+     (hW : W w n≠0)
+     (hunit : ∀ p : ℕ, p.Prime → 0<padicValRat p (114444*inputR (w 0)) →
+       padicValRat p (W w n)=0) : IsSquare (poleInput w n).den := by
+-  have hr : 10<inputR (w 0) := by rw [hin]; exact integer_inputR_large a
++  have hr : 10 < inputR (w 0) := by rw [hin]; exact integer_inputR_large a
+   change IsSquare (normalized (114444*inputR (w 0)) (W w n)).den
+   apply square_denominator _ _ (by linarith) hW (by linarith) _ hunit
+   intro p hp
