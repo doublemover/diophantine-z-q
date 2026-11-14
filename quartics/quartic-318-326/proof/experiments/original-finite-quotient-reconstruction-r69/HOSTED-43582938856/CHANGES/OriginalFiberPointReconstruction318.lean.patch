@@ -1,0 +1,36 @@
+--- original-finite-quotient-reconstruction-r68/OriginalFiberPointReconstruction318.lean
++++ original-finite-quotient-reconstruction-r69/OriginalFiberPointReconstruction318.lean
+@@ -12,15 +12,11 @@
+ variable {Y : Scheme} [IsIntegral Y]
+   (p : Y ⟶ ProjectiveJLine318.scheme ℚ) [IsFinite p] [Flat p] [IsDominant p]
+   (b : ArithmeticGroup → (Y ≅ Y))
+-local instance baseIntegral : IsIntegral (ProjectiveJLine318.scheme ℚ) :=
+-  OriginalProjectiveBaseIntegral318.integral p
+ variable
+   (bone : (b 1).hom = 𝟙 Y)
+   (bmul : ∀ v w, (b (v*w)).hom = (b v).hom ≫ (b w).hom)
+   (hover : ∀ w, (b w).hom ≫ p = p)
+   (hb : Function.Injective (fun w => (b w).hom))
+-local instance actualBase : Algebra (RatFunc ℚ) Y.functionField :=
+-  OriginalSchemeDeckFieldAction318.baseAlgebra p OriginalProjectiveFunctionCoordinate318.κ
+ variable {ι : Type*} (V : ι → Y.affineOpens) (hcover : ⨆ i, (V i).1 = ⊤)
+   (hnormal : ∀ i, IsIntegrallyClosed Γ(Y, (V i).1))
+ 
+@@ -35,6 +31,8 @@
+ theorem original_curve (l m : ℂ)
+     (hmodels : OriginalPublishedComplexBranches318.ModelInvariants l m)
+     (hbranch : OriginalSchemeBranchReconstruction318.BranchLaw p b l m) :
++    letI := OriginalQuotientRankFixed318.baseIntegral p
++    letI := OriginalQuotientRankFixed318.actualBase p
+     (OriginalGenericStalkNaturality318.generic Y ≫ p =
+       ReconstructedFieldNormalization318.base Y.functionField) ∧
+     ∃ c : Fin 4 → ℚˣ,
+@@ -50,6 +48,8 @@
+                 (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) z)) ∧
+           ∀ w : ArithmeticGroup, (b w).hom ≫ E.hom = E.hom ≫ ContactGlobalSigns318.map c
+             (FourBinaryCharacters318.signPattern (OriginalContactInertiaBasis318.basis w)) := by
++  letI := OriginalQuotientRankFixed318.baseIntegral p
++  letI := OriginalQuotientRankFixed318.actualBase p
+   have hfixed : ∀ x : Y.functionField,
+       (∀ w, OriginalSchemeDeckFieldAction318.ringEquiv b w x = x) →
+         ∃ r : RatFunc ℚ, (DominantFunctionField318.map p).hom

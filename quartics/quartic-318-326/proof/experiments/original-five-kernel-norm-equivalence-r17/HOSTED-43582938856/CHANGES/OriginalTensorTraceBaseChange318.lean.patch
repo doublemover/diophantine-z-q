@@ -1,0 +1,11 @@
+--- original-five-kernel-norm-equivalence-r16/OriginalTensorTraceBaseChange318.lean
++++ original-five-kernel-norm-equivalence-r17/OriginalTensorTraceBaseChange318.lean
+@@ -20,7 +20,7 @@
+   induction z using TensorProduct.induction_on with
+   | zero => simp only [map_zero]
+   | tmul a t =>
+-    simp only [Algebra.coe_lmul_eq_mul, LinearMap.baseChange_tmul,
++    simp only [Algebra.coe_lmul_eq_mul, LinearMap.mul_apply', LinearMap.baseChange_tmul,
+       Algebra.TensorProduct.tmul_mul_tmul, one_mul]
+   | add x y hx hy => simpa only [map_add, hx, hy]
+ variable [Module.Free R S] [Module.Finite R S]

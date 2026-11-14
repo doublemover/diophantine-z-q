@@ -1,0 +1,22 @@
+--- relative-original-normalized-kernel-gluing-r12/ContactCoefficientSectionEquivalences318.lean
++++ relative-original-normalized-kernel-gluing-r13/ContactCoefficientSectionEquivalences318.lean
+@@ -8,7 +8,6 @@
+ open ContactOriginalRelativePolynomialCharts318 ContactOriginalRelativeOverlap318
+ variable (R S : CommRingCat.{0}) [Algebra ℚ R] [Algebra ℚ S]
+   (f : R →ₐ[ℚ] S) (c : Fin 4 → ℚˣ) (L : Line (curve R c))
+-local instance : Algebra R S := f.toAlgebra
+ local instance : Module R (ContactOriginalRelativeLineOverlap318.originalSections R c L) :=
+   Module.compHom _ (algebraMap R (ring R c))
+ 
+@@ -28,7 +27,9 @@
+ /-- The overlap comparison is pinned to the genuine original pullback
+ unit. Thus its normalization cannot be silently changed before H1. -/
+ lemma overlap_unit (m : ContactOriginalRelativeLineOverlap318.originalSections R c L) :
++    letI := OriginalCoefficientTensor318.coefficientAlgebra (CommRingCat.of ℚ) R S f
+     overlapEquivalence R S f c L ((1 : S) ⊗ₜ[R] m) =
+-      ContactCoefficientLineCharts318.overlapRestriction R S f c L m :=
+-  OriginalCoefficientSections318.unit _ _ _ _ _ _ _ _ _ m
++      ContactCoefficientLineCharts318.overlapRestriction R S f c L m := by
++  letI := OriginalCoefficientTensor318.coefficientAlgebra (CommRingCat.of ℚ) R S f
++  exact OriginalCoefficientSections318.unit _ _ _ _ _ _ _ _ _ m
+ end ContactCoefficientSectionEquivalences318

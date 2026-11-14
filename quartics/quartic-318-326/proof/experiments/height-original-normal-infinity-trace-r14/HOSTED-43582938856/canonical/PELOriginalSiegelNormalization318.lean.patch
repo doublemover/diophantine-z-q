@@ -1,0 +1,16 @@
+--- before/PELOriginalSiegelNormalization318.lean
++++ after/PELOriginalSiegelNormalization318.lean
+@@ -21,11 +21,11 @@
+   ![τ*(z 0+(1+(beta:ℂ))/2*z 1),z 0+(1-(beta:ℂ))/2*z 1]
+ lemma denormalize_normalize (hτ:0<τ.im) (z:ComplexVectors):denormalize τ (normalize τ z)=z:=by
+   ext i
+-  fin_cases i <;> simp only [normalize,denormalize,Matrix.cons_val_zero,Matrix.cons_val_one] <;>
++  fin_cases i <;> simp only [normalize,denormalize,Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.cons_val_zero',Matrix.cons_val_succ'] <;>
+     field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
+ lemma normalize_denormalize (hτ:0<τ.im) (z:ComplexVectors):normalize τ (denormalize τ z)=z:=by
+   ext i
+-  fin_cases i <;> simp only [normalize,denormalize,Matrix.cons_val_zero,Matrix.cons_val_one] <;>
++  fin_cases i <;> simp only [normalize,denormalize,Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.cons_val_zero',Matrix.cons_val_succ'] <;>
+     field_simp [parameter_ne τ hτ,beta_complex_ne] <;> ring
+ @[expose] def normalization (hτ:0<τ.im):ComplexVectors≃ₗ[ℂ]ComplexVectors where
+   toFun:=normalize τ

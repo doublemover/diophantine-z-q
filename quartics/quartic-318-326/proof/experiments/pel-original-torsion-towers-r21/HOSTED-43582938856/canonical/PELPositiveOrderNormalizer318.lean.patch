@@ -1,0 +1,13 @@
+--- before/PELPositiveOrderNormalizer318.lean
++++ after/PELPositiveOrderNormalizer318.lean
+@@ -21,7 +21,9 @@
+     intro u hu
+     refine ⟨PELActualOrderNormalizer318.normalizer.inv_mem hu.1,?_⟩
+     have h : reducedNorm (u:B)*reducedNorm ((u⁻¹:Bˣ):B)=1 := by
+-      rw [← PELQuaternionNormParity318.norm_mul,Units.val_inv]
++      rw [← PELQuaternionNormParity318.norm_mul]
++      change reducedNorm (u.val*u.inv)=1
++      rw [u.val_inv]
+       norm_num [reducedNorm]
+     nlinarith [hu.2]
+ 
