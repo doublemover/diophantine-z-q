@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "packet": "relative-original-normalized-kernel-gluing-r6",
+  "history_correction": "At the schema opt-in step only historical hashes were retained, not raw pre-schema byte snapshots. The two explicitly RECONSTRUCTED files were produced later by reversing the documented metadata changes and verifying their bytes against those prior hashes. They are not claimed to be retained originals.",
+  "retained_current_application": {
+    "path": "HOSTED-43534276453/BEFORE-HISTORICAL-SNAPSHOT-BINDING-APPLICATION.json",
+    "sha256": "de0361a80fd9f7309bcc4b3c9f1a764519849f4b51136412f4e14dfff4e42684",
+    "kind": "raw snapshot retained immediately before adding this historical reconstruction binding"
+  },
+  "reconstructed_files": [
+    {
+      "path": "HOSTED-43534276453/RECONSTRUCTED-PRE-SCHEMA-INTAKE.json",
+      "sha256": "574a6f1568688cd1d494f98317a9202e9dd21ac04bfcebbf9ce60679bde5133b",
+      "kind": "reconstructed",
+      "source_sha256": "2785285e8d5499727252373f8e34cc4011e40d0467d3bd26fa002702dad3ca2d",
+      "method": "Remove only revision_classification_schema; serialize JSON with indent=2, ensure_ascii=False and final newline. Exact match to previously recorded intake hash."
+    },
+    {
+      "path": "HOSTED-43534276453/RECONSTRUCTED-PRE-SCHEMA-APPLICATION.json",
+      "sha256": "fd2570ef2331979510a1135c4e3bd49f5d1c260554d165f9e552c52c39cad800",
+      "kind": "reconstructed",
+      "source": "HOSTED-43534276453/BEFORE-IDENTITY-CONTRACT-APPLICATION.json",
+      "source_sha256": "d2dc54b5cc8e2508e67af4c781cbeefb209285359688e375a446be4b0fba7466",
+      "method": "Reverse only classification_metadata_update and restore prior intake binding; for r10 additionally reverse later source_review and fourth report binding. Serialize JSON with indent=2, ensure_ascii=False and final newline. Exact match to previously recorded application hash."
+    }
+  ],
+  "source_or_intake_changed": false,
+  "lean_run": false
+}

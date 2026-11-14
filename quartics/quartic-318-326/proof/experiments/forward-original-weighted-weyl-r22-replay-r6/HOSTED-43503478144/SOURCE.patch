@@ -1,0 +1,12 @@
+--- before/ActualScalarRoot318.lean
++++ after/ActualScalarRoot318.lean
+@@ -42,7 +42,8 @@
+     1< |σ (root n)| := by
+   have he := congrArg σ (scalar_curve_identity n h0 h1)
+   simp only [map_pow,map_mul,map_sub] at he
+-  have hd := RealMultiples318.real_D_gt_one σ
++  have hd : 1 < σ CompressedOrientation318.D := by
++    simpa only [CoherentMultipleCharts318.D_eq] using RealMultiples318.real_D_gt_one σ
+   have hk : σ k≠0 := fun hz => CompressedPoint318.k_ne (σ.injective (by simpa using hz))
+   by_contra! hsmall
+   have hs : (σ (root n))^2≤1 := (sq_le_one_iff_abs_le_one _).mpr hsmall

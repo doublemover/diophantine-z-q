@@ -1,0 +1,43 @@
+--- contact-relative-site-descent-r75/ActualAffineEffectiveComparison318.lean
++++ contact-relative-site-descent-r76/ActualAffineEffectiveComparison318.lean
+@@ -46,6 +46,26 @@
+     ((congrArg (fun k => (Scheme.Modules.pullback v₀).map e.inv ≫ k ≫
+       (Scheme.Modules.pullback v₁).map e.hom) ha).trans h)
+ 
++/-- Check the genuine affine-nerve specialization while its base module and
++cover comparison remain abstract, before substituting the reconstructed coalgebra. -/
++private lemma affine_original_overlap (R S : CommRingCat.{u}) [Algebra R S]
++    (M : ModuleCat R) (L : Line (Spec S))
++    (e : (Scheme.Modules.pullback (baseMap R S)).obj (tilde M) ≅ L.object)
++    (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
++    (h : (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.leftMap R S S))).map e.inv ≫
++      CanonicalTildeOverlap318.sheafOverlap R S M ≫
++      (Scheme.Modules.pullback (Spec.map (AffineModuleBaseChange318.rightMap R S S))).map e.hom =
++        ActualAffineTensorTransport318.overlap R S L τ) :
++    (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map e.inv ≫
++      CanonicalSheafOverlap318.actual (tilde M) (baseMap R S) ≫
++      (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map e.hom = τ := by
++  exact reflect_conjugation (doubleIso R S).symm e
++    (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
++    (Spec.map (AffineModuleBaseChange318.leftMap R S S))
++    (Spec.map (AffineModuleBaseChange318.rightMap R S S))
++    (inverse_first R S) (inverse_second R S) _ _ τ
++    (ActualCanonicalOverlap318.transport R S M) h
++
+ variable (R S : CommRingCat.{u}) [Algebra R S] [Module.FaithfullyFlat R S]
+   (L : Line (Spec S))
+   (τ : ActualAffineSheafData318.firstObject R S L ⟶ ActualAffineSheafData318.secondObject R S L)
+@@ -74,12 +94,7 @@
+   change (Scheme.Modules.pullback (ActualOverlapDiagram318.first (baseMap R S))).map e.inv ≫
+     CanonicalSheafOverlap318.actual (tilde M) (baseMap R S) ≫
+     (Scheme.Modules.pullback (ActualOverlapDiagram318.second (baseMap R S))).map e.hom = τ
+-  exact reflect_conjugation (doubleIso R S).symm e
+-    (ActualOverlapDiagram318.first (baseMap R S)) (ActualOverlapDiagram318.second (baseMap R S))
+-    (Spec.map (AffineModuleBaseChange318.leftMap R S S))
+-    (Spec.map (AffineModuleBaseChange318.rightMap R S S))
+-    (inverse_first R S) (inverse_second R S) _ _ τ
+-    (ActualCanonicalOverlap318.transport R S M)
++  exact affine_original_overlap R S M L e τ
+     (ReconstructedOverlapCompatibility318.original_overlap R S L
+       (ActualAffineTensorTransport318.overlap R S L τ)
+       (ActualAffineTensorLaws318.diagonal R S L τ hdiag)

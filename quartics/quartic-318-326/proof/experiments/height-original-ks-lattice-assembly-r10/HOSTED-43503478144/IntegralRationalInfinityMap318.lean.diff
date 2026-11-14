@@ -1,0 +1,64 @@
+--- 56773da/center-r56/IntegralRationalInfinityMap318.lean
++++ candidate/IntegralRationalInfinityMap318.lean
+@@ -42,8 +42,10 @@
+ before specializing the nested original chart and field carriers. -/
+ private theorem rational_order_ext (a : Fin 3 → ℚ[X]) {T : Type*} [CommRing T]
+     (f g : Presentation a →+* T)
+-    (hX : f (algebraMap ℚ[X] (Presentation a) X) =
+-      g (algebraMap ℚ[X] (Presentation a) X))
++    (hX : f (algebraMap (Localization.Away (∏ k : Fin 3, a k)) (Presentation a)
++        (algebraMap ℚ[X] (Localization.Away (∏ k : Fin 3, a k)) X)) =
++      g (algebraMap (Localization.Away (∏ k : Fin 3, a k)) (Presentation a)
++        (algebraMap ℚ[X] (Localization.Away (∏ k : Fin 3, a k)) X)))
+     (hroot : ∀ j, f (ThreeRootCoordinates318.generator
+         (fun i => algebraMap ℚ[X] (Localization.Away (∏ k : Fin 3, a k)) (a i)) j) =
+       g (ThreeRootCoordinates318.generator
+@@ -51,7 +53,7 @@
+     f = g := by
+   apply ThreeRootCoordinates318.ringHom_ext
+   · apply localized_polynomial_ext (∏ k : Fin 3, a k)
+-    simpa only [RingHom.comp_apply, ← IsScalarTower.algebraMap_apply] using hX
++    exact hX
+   · exact hroot
+ 
+ variable (c : Fin 4 → ℚˣ)
+@@ -72,7 +74,11 @@
+         (InfinityFieldCoordinates318.root c 0)⁻¹ := by
+     have h := congrArg ((originalFieldEmbedding c).comp (commonMap ℚ c).toRingHom)
+       (Units.mul_inv (rootUnit ℚ c))
+-    simp only [RingHom.comp_apply,map_mul,map_one,IntegralRationalInfinityCoordinate318.root_zero] at h
++    simp only [RingHom.comp_apply,map_mul,map_one] at h
++    -- Expose the algebra-hom applications before matching the signed-root theorem.
++    change originalFieldEmbedding c (commonMap ℚ c (rootUnit ℚ c : CommonBase ℚ c)) *
++      originalFieldEmbedding c (commonMap ℚ c (↑(rootUnit ℚ c)⁻¹ : CommonBase ℚ c)) = 1 at h
++    rw [IntegralRationalInfinityCoordinate318.root_zero] at h
+     exact eq_inv_of_mul_eq_one_right h
+   change originalFieldEmbedding c (commonMap ℚ c (↑(rootUnit ℚ c)⁻¹ : CommonBase ℚ c)) *
+     originalFieldEmbedding c (1 ⊗ₜ[IntegralSourceBranches318.OpenBase ℚ c 0]
+@@ -98,13 +104,21 @@
+ theorem field_restriction :
+     (originalFieldEmbedding c).comp (infinityMap ℚ c).toRingHom = originalEmbedding c := by
+   apply rational_order_ext (fun j => IntegralInfinityChart318.coefficient ℚ c j)
+-  · exact (IntegralRationalInfinityCoordinate318.reciprocal_coordinate c).trans
++  · have hX := (IntegralRationalInfinityCoordinate318.reciprocal_coordinate c).trans
+       (original_coordinate c).symm
++    exact hX
+   · intro j
+-    have h := congrArg (InfinityOpenFractionField318.openEmbedding c)
+-      (rationalOrderEquiv_generator c j)
+-    exact (generator_original_field c j).trans
+-      (h.trans (InfinityOrderCoordinates318.generator_embedding c j)).symm
++    -- Unfold only this named composite, rather than asking defeq to reconstruct
++    -- its nested field embedding while checking an expected transitivity goal.
++    have hroot : originalEmbedding c (infinityGenerator ℚ c j) =
++        InfinityFieldCoordinates318.ratio c j := by
++      unfold originalEmbedding
++      rw [RingHom.comp_apply]
++      change InfinityOpenFractionField318.openEmbedding c
++        (rationalOrderEquiv c (infinityGenerator ℚ c j)) = _
++      rw [rationalOrderEquiv_generator, InfinityOrderCoordinates318.generator_embedding]
++    have h := (generator_original_field c j).trans hroot.symm
++    exact h
+ 
+ /-- The full infinity restriction commutes with the original rational atlas.
+ The proof uses all generators and injectivity of the ORIGINAL open embedding. -/

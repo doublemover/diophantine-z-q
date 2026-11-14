@@ -1,0 +1,39 @@
+--- before/PELOriginalPolarizationTransitions318.lean
++++ after/PELOriginalPolarizationTransitions318.lean
+@@ -11,14 +11,14 @@
+ variable (τ:ℂ) (hτ:0<τ.im)
+ abbrev P:=PELComplexPeriodSurface318.Periods τ
+ abbrev Base:=PELComplexPeriodSurface318.Surface τ
+-local instance discretePeriods:DiscreteTopology (P τ):=original_discrete τ hτ
+ local instance discreteLattice:DiscreteTopology (L τ hτ):=by
+   have h:=original_discrete τ hτ
+   rw [exact_period_subgroup τ hτ] at h
+   exact h
+-@[expose] def chart (a:ComplexVectors):OpenPartialHomeomorph (Base τ) ComplexVectors:=
+-  localChart (P τ) a
+-@[expose] def baseSet (a:ComplexVectors):Set (Base τ):=(chart τ hτ a).source
++@[expose] def chart (hτ:0<τ.im) (a:ComplexVectors):OpenPartialHomeomorph (Base τ) ComplexVectors:=by
++  letI:DiscreteTopology (P τ):=original_discrete τ hτ
++  exact localChart (P τ) a
++@[expose] def baseSet (hτ:0<τ.im) (a:ComplexVectors):Set (Base τ):=(chart τ hτ a).source
+ lemma section_projection (a:ComplexVectors) (q:Base τ) (hq:q∈baseSet τ hτ a):
+     projection (P τ) (chart τ hτ a q)=q:=by
+   have h:=(chart τ hτ a).left_inv hq
+@@ -67,7 +67,7 @@
+       |>.congr_of_eventuallyEq he.symm
+   have hs:ContinuousAt (shift τ hτ a b) q:=
+     hv.codRestrict (fun r=>(shift τ hτ a b r).property)
+-  exact hs ((isOpen_discrete : IsOpen ({shift τ hτ a b q}:Set (L τ hτ))).mem_nhds
++  exact hs ((isOpen_discrete _ : IsOpen ({shift τ hτ a b q}:Set (L τ hτ))).mem_nhds
+     (Set.mem_singleton (shift τ hτ a b q)))
+ 
+ @[expose] def transition (a b:ComplexVectors) (q:Base τ):ℂ:=
+@@ -88,7 +88,7 @@
+   intro q hq
+   apply ContinuousAt.continuousWithinAt
+   have h:ContinuousAt (fun r=>factor τ hτ (shift τ hτ a b q) (chart τ hτ a r)) q:=
+-    (holomorphic τ hτ _).continuous.continuousAt.comp q ((chart τ hτ a).continuousAt hq.1)
++    (holomorphic τ hτ _).continuous.continuousAt.comp ((chart τ hτ a).continuousAt hq.1)
+   apply h.congr_of_eventuallyEq
+   filter_upwards [shift_locally_constant τ hτ a b q hq.1 hq.2] with r hr
+   simp only [transition,hr]

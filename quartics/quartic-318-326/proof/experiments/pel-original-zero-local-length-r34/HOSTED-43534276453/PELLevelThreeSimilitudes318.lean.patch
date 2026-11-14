@@ -1,0 +1,26 @@
+--- before/PELLevelThreeSimilitudes318.lean
++++ after/PELLevelThreeSimilitudes318.lean
+@@ -24,8 +24,11 @@
+     norm (moduloThree.mk' (coordinatesEquiv a))=(integralNorm a:F3) := by
+   change QuadraticAlgebra.norm (residue (quotientEquiv (moduloThree.mk' (coordinatesEquiv a))))=_
+   rw [quotientEquiv_mk,reduction_coordinates]
++  have h3 : (3:F3)=0 := by decide
+   simp [residue,reduceCoordinates,QuadraticAlgebra.norm_def,integralNorm] <;>
+-    push_cast <;> norm_num <;> ring
++    push_cast <;> norm_num
++  linear_combination (-(a 0:F3)*(a 2:F3)-70*(a 1:F3)^2-
++    70*(a 1:F3)*(a 3:F3)-14*(a 3:F3)^2)*h3
+ 
+ /-- Right multiplication is a similitude by the ORIGINAL reduced norm,
+ not automatically an isometry. This is an integer polynomial identity. -/
+@@ -42,7 +45,9 @@
+   obtain ⟨b,rfl⟩ := coordinatesEquiv.surjective b
+   obtain ⟨c,rfl⟩ := moduloThree.mk'_surjective c
+   obtain ⟨c,rfl⟩ := coordinatesEquiv.surjective c
+-  rw [← map_mul,← map_mul,← coordinates_mul,← coordinates_mul,
++  rw [← map_mul moduloThree.mk' (coordinatesEquiv a) (coordinatesEquiv c),
++    ← map_mul moduloThree.mk' (coordinatesEquiv b) (coordinatesEquiv c),
++    ← coordinates_mul a c,← coordinates_mul b c,
+     PELLevelThreeAlternatingPair318.original_pair,
+     PELLevelThreeAlternatingPair318.original_pair,norm_original,integral_right_similitude]
+   push_cast <;> ring
