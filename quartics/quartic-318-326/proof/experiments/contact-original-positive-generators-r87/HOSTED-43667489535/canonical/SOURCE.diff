@@ -1,0 +1,37 @@
+--- before/ContactOriginalLineSectionEquivalence318.lean
++++ after/ContactOriginalLineSectionEquivalence318.lean
+@@ -18,8 +18,9 @@
+ section, obtained by gluing the SAME two whole-chart representatives. -/
+ lemma matching_surjective : Function.Surjective (matchingLinear c L) := by
+   intro v
+-  have hx := v.property.1
+-  have hy := v.property.2
++  let z : V ℚ (finiteRank c L) := v.val
++  have hx : z∈positive := v.property.1
++  have hy : z∈negative.map (LaurentTransitionBounds318.underlying (transition c L)) := v.property.2
+   rw [ContactOriginalLaurentBoundary318.negative_image] at hy
+   rw [← finite_image c L] at hx
+   rw [← infinity_image c L] at hy
+@@ -36,7 +37,7 @@
+     (finiteSectionsEquiv c L a) (infinitySectionsEquiv c L b) hab
+   refine ⟨s,?_⟩
+   apply Subtype.ext
+-  change globalCoordinates c L s = v.val
++  change globalCoordinates c L s = z
+   rw [ContactOriginalLineSectionsFinite318.finite_formula,hs,AddEquiv.symm_apply_apply]
+   exact ha
+ 
+@@ -49,7 +50,12 @@
+ 
+ lemma equivalence_overlap (s : Γ(L.object,⊤)) :
+     (equivalence c L s).val = overlapCoordinates c L
+-      (L.object.presheaf.map (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ ⊤ from le_top)).op s) := rfl
++      (L.object.presheaf.map (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ ⊤ from le_top)).op s) := by
++  change (matchingLinear c L s).val = _
++  unfold matchingLinear
++  change globalCoordinates c L s = _
++  unfold globalCoordinates
++  rfl
+ 
+ lemma finrank_sections : Module.finrank ℚ Γ(L.object,⊤) =
+     Module.finrank ℚ (LaurentCechSectionsFinite318.H0 (transition c L)) :=

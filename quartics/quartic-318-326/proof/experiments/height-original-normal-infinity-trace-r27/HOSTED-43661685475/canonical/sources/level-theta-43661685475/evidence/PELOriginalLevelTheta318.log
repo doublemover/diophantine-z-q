@@ -1,0 +1,35 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r29/PELOriginalLevelTheta318.lean:24:57: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (accepts N r x✝)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r29/PELOriginalLevelTheta318.lean:37:0: warning: automatically included section variable(s) unused in theorem `PELOriginalLevelTheta318.scaled_term_integer`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r29/PELOriginalLevelTheta318.lean:43:13: warning: This simp argument is unused:
+  PELOriginalScaledThetaConvergence318.term
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [linear, integerVector, Pi.add_apply, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r29/PELOriginalLevelTheta318.lean:70:4: error: Type mismatch
+  scaled_term_period τ N k b z
+has type
+  PELOriginalScaledThetaConvergence318.term τ (1 / ↑N) k (z + periodVector τ b) =
+    multiplier τ b z ^ N * PELOriginalScaledThetaConvergence318.term τ (1 / ↑N) (k + shift N b) z
+but is expected to have type
+  (if residue N k = r then PELOriginalScaledThetaConvergence318.term τ (1 / ↑N) k (z + periodVector τ b) else 0) =
+    multiplier τ b z ^ N * PELOriginalScaledThetaConvergence318.term τ (1 / ↑N) (k + shift N b) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r29/PELOriginalLevelTheta318.lean:71:2: error: unsolved goals
+case neg
+τ : ℂ
+N : ℕ
+inst✝ : NeZero N
+r : Label N
+k b : Index
+z : ComplexVectors
+h✝ : ¬residue N k = r
+⊢ residue N k = r → PELOriginalScaledThetaConvergence318.term τ (↑N)⁻¹ k (z + periodVector τ b) = 0

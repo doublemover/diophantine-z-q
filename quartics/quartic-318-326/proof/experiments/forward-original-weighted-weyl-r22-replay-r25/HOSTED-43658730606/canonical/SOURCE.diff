@@ -1,0 +1,11 @@
+--- before/ScalarTranslatedIndex318.lean
++++ after/ScalarTranslatedIndex318.lean
+@@ -31,7 +31,7 @@
+     chartU (n-1)= -(chartU n*shiftWitness (chartU n) (chartV n)) := by
+   have hgroup : (n-1) • GlobalGeneratorPoints318.R=
+       n • GlobalGeneratorPoints318.R+ -GlobalGeneratorPoints318.R := by
+-    rw [sub_zsmul,one_zsmul,sub_eq_add_neg]
++    rw [sub_zsmul,one_zsmul]
+   have he := CoherentAdditionU318.u_add (n • GlobalGeneratorPoints318.R)
+     (-GlobalGeneratorPoints318.R)
+   have hadd : chartU (n-1)=ReciprocalGroup318.sumU ConcreteG8Domain.D

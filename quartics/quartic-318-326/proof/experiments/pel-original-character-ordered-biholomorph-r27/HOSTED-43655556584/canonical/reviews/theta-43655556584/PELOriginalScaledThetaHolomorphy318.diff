@@ -1,0 +1,16 @@
+--- before/PELOriginalScaledThetaHolomorphy318
++++ after/PELOriginalScaledThetaHolomorphy318
+@@ -16,10 +16,9 @@
+   have h:=((linearMap n).hasFDerivAt (x:=z)).const_mul (2*(Real.pi:ℂ)*Complex.I)
+   have he:=h.const_add ((Real.pi:ℂ)*Complex.I*(a:ℂ)*quadratic τ n)
+   have hexp:=(Complex.hasDerivAt_exp _).comp_hasFDerivAt z he
+-  convert hexp using 1
+-  ext v
+-  simp [derivative,term,linearMap,smul_smul]
+-  ring
++  change HasFDerivAt (term τ a n)
++    (term τ a n z • ((2*(Real.pi:ℂ)*Complex.I) • linearMap n)) z at hexp
++  simpa only [derivative,smul_smul] using hexp
+ @[expose] def weightedOne (S:ℝ) (n:ℤ):ℝ:=|(n:ℝ)| *oneBound τ a S n
+ @[expose] def derivativeBound (S:ℝ) (n:Index):ℝ:=
+   (2*Real.pi)*(weightedOne τ a S n.1*oneBound τ a S n.2+

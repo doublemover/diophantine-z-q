@@ -1,0 +1,14 @@
+--- before/ScalarPreparedCongruence318.lean
++++ after/ScalarPreparedCongruence318.lean
+@@ -27,11 +27,9 @@
+   have h₂ : padicValNat 2 6=1 := by
+     rw [show (6:ℕ)=2*3 by norm_num,padicValNat.mul (by norm_num) (by norm_num),
+       padicValNat_self,padicValNat_primes (by decide : 2≠3)]
+-    norm_num
+   have h₃ : padicValNat 3 6=1 := by
+     rw [show (6:ℕ)=3*2 by norm_num,padicValNat.mul (by norm_num) (by norm_num),
+       padicValNat_self,padicValNat_primes (by decide : 3≠2)]
+-    norm_num
+   have he : scalarLabel d-1=((6^21*d:ℕ):ℤ) := by simp [scalarLabel]
+   rw [he,padicValInt.of_nat,padicValInt.of_nat,
+     padicValNat.mul (by positivity : (6:ℕ)^21≠0) hd,

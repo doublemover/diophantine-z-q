@@ -1,0 +1,14 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r85/ContactOriginalLineSectionEquivalence318.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑positive
+in the target expression
+  z ∈ positive
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+v : LaurentCechSectionsFinite318.H0 (transition c L)
+z : V ℚ (finiteRank c L) := ↑v
+hx : z ∈ positive
+hy : z ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+⊢ ∃ a, (matchingLinear c L) a = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r85/ContactOriginalLineSectionEquivalence318.lean:55:9: error: Tactic `unfold` failed to unfold `matchingLinear` in
+  ↑((matchingLinear c L) s) = (overlapCoordinates c L) ((ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) s)

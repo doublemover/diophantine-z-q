@@ -1,0 +1,8 @@
+# Independent finite branch chart source review
+Verdict: accept the exact two proof-expression changes for hosted checking only.
+
+After 9942dc6e73e3815f4163ba10be5ec402caccaccf30832797622bd7c8872969ce; before d1400dd2cab542a31751f834c0f997059dceb4d1c48d88ff56db26ab2f95333e. APPLICATION aa86327e427ab54a0dc52366b0a8e7a15e82e4d7048402d176318f1bad6bf0a7, manifest 15e8a38f95eeeb856db02ad19a3eecccaf3af87398b664faf2942bd3fe44c3e4. All14 bindings verified; complete candidate, exact diff and native regroup/root-square source read.
+
+Polynomial.C_1 supplies the missing literal C(1)=1 reduction in the target Root parameter before one_mul. The actual polynomial equivalence and regroup composition, base ring, branch indices and root order stay fixed. Generic inv_one is the ordinary theorem for the unit group's inverse of1; Units.val_one and map_one then reduce precisely the scalar in native open_contact_square. It does not erase an arbitrary twist. All b and pivots remain, same denominator localization and full open order. No new injectivity, branch separation or point premise in these statements, no telescope/import/resource changes. Existing conditional other_distinct retains hb.
+
+Own cotangent55 RESULT 188cd0c41ad64fc6c30f5fce5df7cc0971ff6778e049639768c4c4505f68244f matches intake e11e9b1f55bbfa3869336131bf1179c6853347db67ea9deb28ae0364d0a667ac. CharacterFields/FractionField full commands pass; this module fails3.173s after50 successes. This report is source reasoning, not elaboration or downstream acceptance. No local Lean; additional identical copies must be disclosed as preventive when unreached.

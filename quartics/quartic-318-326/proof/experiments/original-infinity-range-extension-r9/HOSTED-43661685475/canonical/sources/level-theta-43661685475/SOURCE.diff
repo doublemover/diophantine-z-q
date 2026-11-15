@@ -1,0 +1,30 @@
+--- before/PELOriginalLevelTheta318.lean
++++ after/PELOriginalLevelTheta318.lean
+@@ -21,7 +21,10 @@
+ lemma label_card:Fintype.card (Label N)=N^2:=by
+   simp [Label,Fintype.card_prod,pow_two]
+ @[expose] def accepts (r:Label N) (k:Index):Prop:=residue N k=r
+-instance (r:Label N):DecidablePred (accepts N r):=fun _=>inferInstance
++instance (r:Label N):DecidablePred (accepts N r):=by
++  intro k
++  change Decidable (residue N k=r)
++  infer_instance
+ @[expose] def levelTerm (r:Label N) (k:Index) (z:ComplexVectors):ℂ:=
+   PELOriginalScaledThetaHolomorphy318.selectedTerm τ (1/(N:ℝ)) (accepts N r) k z
+ @[expose] def levelTheta (r:Label N) (z:ComplexVectors):ℂ:=
+@@ -65,10 +68,11 @@
+ lemma term_period (r:Label N) (k b:Index) (z:ComplexVectors):
+     levelTerm τ N r k (z+periodVector τ b)=
+       multiplier τ b z^N*levelTerm τ N r (k+shift N b) z:=by
+-  simp only [levelTerm,PELOriginalScaledThetaHolomorphy318.selectedTerm,accepts,residue_shift]
+-  split_ifs
+-  · exact scaled_term_period τ N k b z
+-  · simp
++  by_cases h : residue N k=r
++  · simpa only [levelTerm,PELOriginalScaledThetaHolomorphy318.selectedTerm,
++      accepts,residue_shift,if_pos h] using scaled_term_period τ N k b z
++  · simp only [levelTerm,PELOriginalScaledThetaHolomorphy318.selectedTerm,
++      accepts,residue_shift,if_neg h,mul_zero]
+ lemma theta_integer (r:Label N) (m:Index) (z:ComplexVectors):
+     levelTheta τ N r (z+integerVector m)=levelTheta τ N r z:=
+   tsum_congr (fun k=>term_integer τ N r k m z)
