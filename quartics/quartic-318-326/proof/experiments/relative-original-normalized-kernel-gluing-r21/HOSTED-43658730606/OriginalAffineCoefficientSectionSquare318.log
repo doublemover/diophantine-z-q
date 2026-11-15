@@ -1,0 +1,125 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r20/OriginalAffineCoefficientSectionSquare318.lean:22:91: error: unsolved goals
+X Y : Scheme
+B B' : CommRingCat
+p : Y ⟶ X
+j : Spec B ⟶ X
+j' : Spec B' ⟶ Y
+b : B ⟶ B'
+hb : Spec.map b ≫ j = j' ≫ p
+L : Line X
+⊢ ((Scheme.Modules.pullbackComp (Spec.map b) j).app L.object ≪≫
+        (eqToIso ⋯).app L.object ≪≫ ((Scheme.Modules.pullbackComp j' p).app L.object).symm).hom =
+    (Scheme.Modules.pullbackComp (Spec.map b) j).hom.app L.object ≫
+      (eqToIso ⋯).hom.app L.object ≫ (Scheme.Modules.pullbackComp j' p).inv.app L.object
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r20/OriginalAffineCoefficientSectionSquare318.lean:26:45: warning: This simp argument is unused:
+  Iso.refl_hom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalCoefficientChartLine318.sheafComparison, OriginalPullbackSquarePasting318.comparison,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.refl_inv, NatTrans.comp_app,
+    Iso.app_hom, Iso.app_inv, Scheme.Modules.pullbackCongr, eqToIso_refl, NatTrans.id_app, Category.comp_id,
+    Category.id_comp, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r20/OriginalAffineCoefficientSectionSquare318.lean:27:34: warning: This simp argument is unused:
+  Iso.app_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalCoefficientChartLine318.sheafComparison, OriginalPullbackSquarePasting318.comparison,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.refl_hom, Iso.refl_inv,
+    NatTrans.comp_app, Iso.app_hom, Scheme.Modules.pullbackCongr, eqToIso_refl, NatTrans.id_app, Category.comp_id,
+    Category.id_comp, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r20/OriginalAffineCoefficientSectionSquare318.lean:28:17: warning: This simp argument is unused:
+  NatTrans.id_app
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalCoefficientChartLine318.sheafComparison, OriginalPullbackSquarePasting318.comparison,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.refl_hom, Iso.refl_inv,
+    NatTrans.comp_app, Iso.app_hom, Iso.app_inv, Scheme.Modules.pullbackCongr, eqToIso_refl, Category.comp_id,
+    Category.id_comp, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r20/OriginalAffineCoefficientSectionSquare318.lean:28:33: warning: This simp argument is unused:
+  Category.comp_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [OriginalCoefficientChartLine318.sheafComparison, OriginalPullbackSquarePasting318.comparison,
+    PullbackPathComposition318.iso, Iso.trans_hom, Iso.symm_hom, Iso.trans_inv, Iso.refl_hom, Iso.refl_inv,
+    NatTrans.comp_app, Iso.app_hom, Iso.app_inv, Scheme.Modules.pullbackCongr, eqToIso_refl, NatTrans.id_app,
+    Category.id_comp, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r20/OriginalAffineCoefficientSectionSquare318.lean:50:2: error: Type mismatch: After simplification, term
+  hs
+ has type
+  @Eq (↑Γ((Scheme.Modules.pullback j').obj ((Scheme.Modules.pullback p).obj L.object), ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app ((OriginalPullbackSquarePasting318.comparison (Spec.map b) j j' p hb).hom.app L.object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map b)).unit.app
+              ((Scheme.Modules.pullback j).obj L.object))
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app ((PullbackPathComposition318.iso (Spec.map e) i j h).hom.app L.object) ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map e)).unit.app
+                  ((Scheme.Modules.pullback i).obj L.object))
+                ⊤))
+            m))))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso (Spec.map e') i' j' h').hom.app ((Scheme.Modules.pullback p).obj L.object))
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map e')).unit.app
+              ((Scheme.Modules.pullback i').obj ((Scheme.Modules.pullback p).obj L.object)))
+            ⊤))
+        ((ConcreteCategory.hom
+            (Scheme.Modules.Hom.app
+              ((OriginalPullbackSquarePasting318.comparison (Spec.map a) i i' p ha).hom.app L.object) ⊤))
+          ((AddCommGrpCat.Hom.hom
+              (Scheme.Modules.Hom.app
+                ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map a)).unit.app
+                  ((Scheme.Modules.pullback i).obj L.object))
+                ⊤))
+            m))))
+but is expected to have type
+  @Eq (↑Γ((Scheme.Modules.pullback j').obj ((Scheme.Modules.pullback p).obj L.object), ⊤))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app ((OriginalPullbackSquarePasting318.comparison (Spec.map b) j j' p hb).hom.app L.object)
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map b)).unit.app
+              ((Scheme.Modules.pullback j).obj L.object))
+            ⊤))
+        (OriginalAffineLinePathSections318.restriction e
+          { object := (Scheme.Modules.pullback i).obj L.object, Index := L.Index, opens := fun i_1 => i ⁻¹ᵁ L.opens i_1,
+            cover := ⋯, frame := fun i_1 => LinePullbackFrames318.frame i L.object (L.opens i_1) (L.frame i_1) }
+          { object := (Scheme.Modules.pullback j).obj L.object, Index := L.Index, opens := fun i => j ⁻¹ᵁ L.opens i,
+            cover := ⋯, frame := fun i => LinePullbackFrames318.frame j L.object (L.opens i) (L.frame i) }
+          ((PullbackPathComposition318.iso (Spec.map e) i j h).app L.object) m)))
+    ((ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((PullbackPathComposition318.iso (Spec.map e') i' j' h').hom.app ((Scheme.Modules.pullback p).obj L.object))
+          ⊤))
+      ((AddCommGrpCat.Hom.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map e')).unit.app
+              ((Scheme.Modules.pullback i').obj ((Scheme.Modules.pullback p).obj L.object)))
+            ⊤))
+        (OriginalAffineLinePathSections318.restriction a
+          { object := (Scheme.Modules.pullback i).obj L.object, Index := L.Index, opens := fun i_1 => i ⁻¹ᵁ L.opens i_1,
+            cover := ⋯, frame := fun i_1 => LinePullbackFrames318.frame i L.object (L.opens i_1) (L.frame i_1) }
+          { object := (Scheme.Modules.pullback i').obj ((Scheme.Modules.pullback p).obj L.object), Index := L.Index,
+            opens := fun i => i' ⁻¹ᵁ p ⁻¹ᵁ L.opens i, cover := ⋯,
+            frame := fun i =>
+              LinePullbackFrames318.frame i' ((Scheme.Modules.pullback p).obj L.object) (p ⁻¹ᵁ L.opens i)
+                (LinePullbackFrames318.frame p L.object (L.opens i) (L.frame i)) }
+          ((OriginalPullbackSquarePasting318.comparison (Spec.map a) i i' p ha).app L.object) m)))

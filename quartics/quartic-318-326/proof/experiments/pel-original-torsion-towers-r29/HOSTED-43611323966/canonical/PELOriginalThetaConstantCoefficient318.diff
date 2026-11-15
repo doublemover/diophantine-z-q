@@ -1,0 +1,33 @@
+--- before/PELOriginalThetaConstantCoefficient318.lean
++++ after/PELOriginalThetaConstantCoefficient318.lean
+@@ -36,6 +36,7 @@
+     simp [coefficient,term,quadratic,linear]
+   · simp
+ 
++include hτ in
+ /-- Exact constant Fourier coefficient ONE for the actual original theta.
+ No assumed nonzero theta constant, positivity of individual complex terms,
+ or cancellation-free evaluation at the origin is used. -/
+@@ -46,12 +47,14 @@
+     simpa using (hasSum_ite_eq (0:Index) (1:ℂ))
+   simp only [average_term] at h
+   exact h.unique h0
++include hτ in
+ lemma torusTheta_ne_zero:torusTheta τ≠0:=by
+   intro h
+   have hc:=constant_coefficient τ hτ
+   rw [h,map_zero] at hc
+   exact zero_ne_one hc
+ 
++include hτ in
+ /-- There is an ACTUAL real covering point where the original theta
+ series is nonzero. This proves nontriviality, not nonvanishing everywhere. -/
+ theorem exists_real_nonzero:∃x:Fin 2→ℝ,theta τ (realPoint x)≠0:=by
+@@ -61,6 +64,7 @@
+   ext q
+   obtain ⟨x,rfl⟩:=torusPoint_surjective q
+   exact (real_evaluation τ hτ x).trans (h x)
++include hτ in
+ theorem exists_nonzero:∃z:ComplexVectors,theta τ z≠0:=by
+   obtain ⟨x,hx⟩:=exists_real_nonzero τ hτ
+   exact ⟨realPoint x,hx⟩

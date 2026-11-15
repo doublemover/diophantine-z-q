@@ -1,0 +1,29 @@
+--- before
++++ after
+@@ -9,7 +9,7 @@
+ 
+ lemma sign_scalar {S:Type*} [CommRing S] [Algebra ℂ S] (i:Fin 4) (z:S):
+     (if signPattern g i then -z else z)=algebraMap ℂ S (coordinate (F:=ℂ) i g)*z:=by
+-  by_cases h:Multiplicative.toAdd (g i)=0
++  by_cases h:g i=1
+   · simp [signPattern,coordinate,h]
+   · simp [signPattern,coordinate,h]
+ 
+@@ -28,7 +28,7 @@
+       change toTensor b (FourRootCoordinateRingSigns318.finiteEnd b g
+         (FourRootAffineCoordinateRing318.coordinate b none))=_
+       rw [FourRootCoordinateRingSigns318.finite_base,toTensor_base]
+-      exact (AlgEquiv.commutes _ _).symm
++      exact ((signEquiv (radicand b) (signPattern g)).commutes Polynomial.X).symm
+     | some i=>
+       change toTensor b (FourRootCoordinateRingSigns318.finiteEnd b g
+         (FourRootAffineCoordinateRing318.coordinate b (some i)))=
+@@ -59,6 +59,7 @@
+       (FourRootCoordinateRingSigns318.finiteEnd b g x)=
+       genericAutomorphism b g (FourRootActualGenericField318.affineEmbedding b x):=by
+   change FourRootActualGenericField318.embedding b
+-      (equivalence b (FourRootCoordinateRingSigns318.finiteEnd b g x))=_
++      (equivalence b (FourRootCoordinateRingSigns318.finiteEnd b g x))=
++      genericAutomorphism b g (FourRootActualGenericField318.embedding b (equivalence b x))
+   rw [tensor_equivariant,embedding_equivariant]
+ end FourRootActualGenericSigns318

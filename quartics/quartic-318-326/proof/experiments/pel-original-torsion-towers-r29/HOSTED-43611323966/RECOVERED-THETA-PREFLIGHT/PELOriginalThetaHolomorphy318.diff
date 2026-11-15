@@ -1,0 +1,36 @@
+--- before/PELOriginalThetaHolomorphy318.lean
++++ after/PELOriginalThetaHolomorphy318.lean
+@@ -38,15 +38,18 @@
+ @[expose] def derivativeBound (S:ℝ) (n:Index):ℝ:=
+   (2*Real.pi)*(weightedOne τ S n.1*oneBound τ S n.2+
+     oneBound τ S n.1*weightedOne τ S n.2)
++include hτ in
+ lemma weightedOne_summable (S:ℝ):Summable (weightedOne τ S):=by
+   simpa only [weightedOne,oneBound,pow_one,Int.cast_abs] using
+     summable_pow_mul_jacobiTheta₂_term_bound S (coercive_positive τ hτ) 1
++include hτ in
+ lemma derivativeBound_summable (S:ℝ):Summable (derivativeBound τ S):=by
+   have h0:=oneBound_summable τ hτ S
+   have h1:=weightedOne_summable τ hτ S
+   have hn0:0≤oneBound τ S:=fun _=>(Real.exp_pos _).le
+   have hn1:0≤weightedOne τ S:=fun _=>mul_nonneg (abs_nonneg _) (Real.exp_pos _).le
+   exact ((h1.mul_of_nonneg h0 hn1 hn0).add (h0.mul_of_nonneg h1 hn0 hn1)).mul_left _
++include hτ in
+ lemma derivative_norm_bound (S:ℝ) (z:ComplexVectors)
+     (h0:|(z 0).im|≤S) (h1:|(z 1).im|≤S) (n:Index):
+     ‖derivative τ n z‖≤derivativeBound τ S n:=by
+@@ -75,6 +78,7 @@
+   linarith
+ /-- Full complex Frechet derivative on C², obtained from locally uniform
+ summable derivative bounds. This is not merely separate-variable holomorphy. -/
++include hτ in
+ theorem theta_hasFDerivAt (z:ComplexVectors):
+     HasFDerivAt (theta τ) (∑'n:Index,derivative τ n z) z:=by
+   let S:=‖z‖+1
+@@ -89,5 +93,6 @@
+     exact derivative_norm_bound τ hτ S w (ball_im_bound z w hw 0) (ball_im_bound z w hw 1) n
+   exact hasFDerivAt_tsum_of_isPreconnected hu ho hp hd hb hz (summable τ hτ z) hz
+ 
++include hτ in
+ theorem holomorphic:Differentiable ℂ (theta τ):=fun z=>(theta_hasFDerivAt τ hτ z).differentiableAt
+ end PELOriginalThetaHolomorphy318
