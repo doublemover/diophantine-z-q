@@ -1,0 +1,11 @@
+--- before/PELNormalizerArithmeticBase318.lean
++++ sources/PELNormalizerArithmeticBase318.lean
+@@ -35,6 +35,8 @@
+   Quotient.map' (baseAction g) (by
+     rintro τ σ ⟨u,hu⟩
+     refine ⟨principalConjugation g u,?_⟩
++    change u • σ=τ at hu
++    change (principalConjugation g u) • baseAction g σ=baseAction g τ
+     rw [←baseAction_equivariant,hu])
+ 
+ theorem arithmeticAction_square (g : positiveNormalizer) (τ : HalfPlane) :

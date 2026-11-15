@@ -1,0 +1,204 @@
+{
+  "status": "SOURCE_CURRENT_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "proof_repair_claimed": false,
+  "proposed_source_repair": true,
+  "project_commit": "4ce7eda322f507e43be0c9be1be2e97449e82189",
+  "hosted_run": 43680185849,
+  "observed_failure_modules": [
+    "FourRootActualFiniteRamification318"
+  ],
+  "preventive_unobserved_modules": [
+    "FourRootOffBranchRamification318"
+  ],
+  "sources": {
+    "FourRootActualFiniteRamification318.lean": {
+      "before": "41269711037d0a79cd7196d3a27f6b9d565cdbd0b1ac0d1be4a83a3481c95745",
+      "after": "8a048cfd006387b0f07a53f9f14b09fb3b805343a2c2f0e8268dfe61ee1367d7",
+      "root_index": 47,
+      "scope": "observed"
+    },
+    "FourRootOffBranchRamification318.lean": {
+      "before": "5fa921674d2c61f9695dba43fcc70b5047e99c8400e63f5fb68dde823864d331",
+      "after": "f241fab4d358fc1d493e3c592418fb36a767c3e5f76b65fddaaa94aed957f0c5",
+      "root_index": 74,
+      "scope": "preventive_unreached"
+    }
+  },
+  "explicit_hb_telescopes": {
+    "FourRootActualFiniteRamification318": [
+      "ramificationIdxIn_two",
+      "ramificationIdx_two"
+    ],
+    "FourRootOffBranchRamification318": [
+      "regular_inertia_bot",
+      "ramificationIdx_one",
+      "finite_exact_index"
+    ]
+  },
+  "public_result_type_repairs": [
+    "separableResidue: derived contactPrime.IsPrime letI",
+    "point_separable: derived pointBase.IsPrime letI"
+  ],
+  "removed_derived_instance_declarations_per_file": [
+    "affineDomain",
+    "groupFinite",
+    "groupGalois"
+  ],
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Original b, injectivity hb, actual finite point and branch/off-branch condition.",
+      "constructed_input": "The same hb-derived domain, finite group and Galois witnesses are installed explicitly inside index proofs.",
+      "justification": "No new Fact/domain/Galois/primality premise added to callers.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "Actual contact and point primes and the SAME algebraic ramification indices.",
+      "constructed_input": "All ideal definitions, Galois actions, polynomial algebra dictionaries and native index theorems remain unchanged.",
+      "justification": "Only failed inference scopes, explicit witness typing and coefficient reduction are repaired.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "Every original j and every finite branch point; preventive consumer all off-branch points and exhaustive finite split.",
+      "constructed_input": "No quantifier or full affine ring is narrowed.",
+      "justification": "OffBranch remains explicitly unreached in the current own run.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "Original aeval polynomial algebra, evaluation kernel and lies-over maps.",
+      "constructed_input": "Three invalid hb-dependent instance declarations removed per file; canonical witness terms inserted at the exact native consumers.",
+      "justification": "No alternative scalar dictionary, tensor presentation or action installed.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "scalars_and_signs",
+      "required_input": "Literal complex branch coefficients and native inertia/cardinality normalization.",
+      "constructed_input": "Coefficient b\u2212RingHom.id b residual closed definitionally by sub_self; no factor or sign changed.",
+      "justification": "Native card_inertia theorem requirements compared with derived IsDomain/Finite/Galois, existing finite/flat, prime and separable witnesses.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Same whole finite inertia group and native Ideal.ramificationIdxIn/ramificationIdx.",
+      "constructed_input": "Existing full_inertia_card and native Galois index transport are retained.",
+      "justification": "No analytic degree or label-cardinality surrogate replaces full algebraic ramification.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "exceptional_cases",
+      "required_input": "All actual branch points, off-branch points, and existing normalization.",
+      "constructed_input": "Two primary hb telescope repairs; three preventive hb telescope repairs; both separability result types explicitly derive required prime instance.",
+      "justification": "The branch functions b remain in the public separability types; no caller-supplied prime assumption.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "downstream_and_history",
+      "required_input": "Current zero55 exact intake/RESULT/log and published same-before sources.",
+      "constructed_input": "One observed module repair plus one immediate preventive/unreached source; exact scope table and upstream OrderGalois PASS retained.",
+      "justification": "No propagation or whole-lane acceptance claimed; prior failure and before bytes preserved.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    },
+    {
+      "id": "verification_boundary",
+      "required_input": "Independent exact source/current review and later hosted checking.",
+      "constructed_input": "No local Lean, resource option or active registry change.",
+      "justification": "Clearing current diagnostics or auditing an unreached consumer is not full-module success.",
+      "source_refs": [
+        "after/FourRootActualFiniteRamification318.lean",
+        "after/FourRootOffBranchRamification318.lean"
+      ],
+      "evidence": [
+        "EVIDENCE/RESULT.json",
+        "EVIDENCE/FourRootActualFiniteRamification318.log",
+        "PRIMARY/Ramification-Galois.lean"
+      ]
+    }
+  ],
+  "bindings": {
+    "SOURCE.diff": "4196d644f9e0dbd7a8a21f6b5b5e27306cadd4e62e3e7dc7c3ffd1a6291b4cb4",
+    "README.md": "2a5d23f3e209d5b496b545c7497138962a18cee12f9f4971f57e097f3e591a84",
+    "after/FourRootOffBranchRamification318.lean": "f241fab4d358fc1d493e3c592418fb36a767c3e5f76b65fddaaa94aed957f0c5",
+    "after/FourRootActualFiniteRamification318.lean": "8a048cfd006387b0f07a53f9f14b09fb3b805343a2c2f0e8268dfe61ee1367d7",
+    "EVIDENCE/FourRootActualFiniteRamification318.log": "f9b568d3caf856f002116d3fe9cb721aa4b4c6b9b8aa396a57f92295690d9d15",
+    "EVIDENCE/intake.json": "503966a3b07cd48638cf1d0a31d739859a712a40bc5e52b6788cf3926d471213",
+    "EVIDENCE/RESULT.json": "6e396d1bd403317ad4749f51a2b160b3c3610269b8aeea423a823553bf07b9de",
+    "EVIDENCE/PREDECESSOR-APPLICATION.json": "f76644a558b3d3443742b4659602f55e5cef8a2dbb1460566e1b0330eb80a06f",
+    "before/FourRootOffBranchRamification318.lean": "5fa921674d2c61f9695dba43fcc70b5047e99c8400e63f5fb68dde823864d331",
+    "before/FourRootActualFiniteRamification318.lean": "41269711037d0a79cd7196d3a27f6b9d565cdbd0b1ac0d1be4a83a3481c95745",
+    "PRIMARY/PINS.json": "09eab22979003895ce01b4221a0a63b5b38d47cd5275e1e72d10c2e39c5c7c45",
+    "PRIMARY/FourRootFullFiniteInertia318.lean": "601521df96b036c5f7b7fcac4f017971f51679afaa407330545b9a9e6cfabf0e",
+    "PRIMARY/FourRootActualResidueInertia318.lean": "713f004cc1b7db66242a9a6a70b4aa3e35c1e6dc3b1564e04ae08f6fa5833f38",
+    "PRIMARY/FourRootActualOrderGalois318.lean": "a7215288a9f6e2d53a44dded793070ac0e70e38f17193efa209cca126d90ebf3",
+    "PRIMARY/FourRootActualFractionField318.lean": "56d2544b43df10304a4d1dca5d2cbf40abf689ed9cb604ad56668d57708d0ec6",
+    "PRIMARY/Ramification-Galois.lean": "8e098eb9ef652057f428751dd6cd949294602e8463c662f712cdd3bf5977d592"
+  }
+}

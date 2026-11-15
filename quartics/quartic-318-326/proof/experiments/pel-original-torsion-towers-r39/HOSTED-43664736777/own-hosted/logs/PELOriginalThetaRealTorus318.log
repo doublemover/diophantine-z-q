@@ -1,0 +1,39 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r30/PELOriginalThetaRealTorus318.lean:52:35: error(lean.unknownIdentifier): Unknown constant `AddCircle.fourier_coe_apply`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r30/PELOriginalThetaRealTorus318.lean:54:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Complex.exp ?x * Complex.exp ?y
+in the target expression
+  Complex.exp (↑Real.pi * Complex.I * quadratic τ n) * ((fourier n.1) ↑(x 0) * (fourier n.2) ↑(x 1)) =
+    Complex.exp
+      (↑Real.pi * Complex.I * quadratic τ n + 2 * ↑Real.pi * Complex.I * (↑n.1 * realPoint x 0 + ↑n.2 * realPoint x 1))
+
+τ : ℂ
+n : Index
+x : Fin 2 → ℝ
+⊢ Complex.exp (↑Real.pi * Complex.I * quadratic τ n) * ((fourier n.1) ↑(x 0) * (fourier n.2) ↑(x 1)) =
+    Complex.exp
+      (↑Real.pi * Complex.I * quadratic τ n + 2 * ↑Real.pi * Complex.I * (↑n.1 * realPoint x 0 + ↑n.2 * realPoint x 1))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r30/PELOriginalThetaRealTorus318.lean:52:63: warning: This simp argument is unused:
+  Complex.ofReal_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [torusTerm, ContinuousMap.smul_apply, smul_eq_mul, coefficient, mFourier, ContinuousMap.coe_mk,
+    Fin.prod_univ_two, frequency, Matrix.cons_val_zero, Matrix.cons_val_one, torusPoint, AddCircle.fourier_coe_apply,
+    div_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r30/PELOriginalThetaRealTorus318.lean:52:82: warning: This simp argument is unused:
+  div_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [torusTerm, ContinuousMap.smul_apply, smul_eq_mul, coefficient, mFourier, ContinuousMap.coe_mk,
+    Fin.prod_univ_two, frequency, Matrix.cons_val_zero, Matrix.cons_val_one, torusPoint, AddCircle.fourier_coe_apply,
+    Complex.ofReal_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r30/PELOriginalThetaRealTorus318.lean:53:57: warning: This simp argument is unused:
+  Complex.exp_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [term, linear, Pi.zero_apply, mul_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

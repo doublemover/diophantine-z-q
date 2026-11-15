@@ -1,0 +1,9 @@
+# original-infinity-range-extension-r12
+
+Exact source-only successor to original-infinity-range-extension-r11, own run43723785714 at964435f03d8c11dbb6b52b8453fa0c4140a445d9: 92 full draft passes then PELGlobalIntegralUnitLifts318 fails20.778s. 535 roots unchanged order; 2 changed copies/533 unchanged.
+
+Observed own failure repair: PELGlobalIntegralUnitLifts318. Preventive/unreached matching copies: PELNormalizerPrincipalConjugation318. Every matching canonical root is exact reviewed after bytes: changed before copies are propagated, already-after copies remain unchanged. Own receipt, predecessor metadata and historical source maps preserved; older SOURCE-MAP classifications are historical, current COPY-BINDINGS/intake govern this revision.
+
+Actual-frontier fixes retain original maps/coefficient data: categorical AlgHom overlap identity, explicit existing A/P/C scalar actions with independent R actions, qualified lattice action, native inverse-unit/norm APIs, unchanged81 finite mod3 branches with ordinary decide tails and native unit-power coercion. Preventive infinity4 explicitly retains17 original hb binders and derived-prime result type; this changes public telescope presentation, not original mathematical distinctness. Geometry4 shares the actual single Scheme universe only in geometric producer/consumer sections; ring APIs retain independent universes, original evaluation algebra is explicitly installed, and eval_C uses expected-type simp. These public universe/telescope adjustments are disclosed, not blanket unchanged signatures. No new external mathematical premise, research root, scalar substitution, resource/trust increase, or local Lean.
+
+No repaired module is claimed to pass. Complete packet/declaration audit requires hosted replay. Omitted finite-flat and inactive Picard/obstruction research remain outside this unchanged root scope. No root/import/accepted baseline/toolchain/budget change.
