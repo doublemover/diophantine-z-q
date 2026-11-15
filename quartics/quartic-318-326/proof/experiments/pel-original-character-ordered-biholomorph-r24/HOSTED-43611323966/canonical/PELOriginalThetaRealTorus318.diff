@@ -1,0 +1,26 @@
+--- before/PELOriginalThetaRealTorus318.lean
++++ after/PELOriginalThetaRealTorus318.lean
+@@ -28,6 +28,7 @@
+   coefficient τ n • mFourier (frequency n)
+ lemma torusTerm_norm (n:Index):‖torusTerm τ n‖=‖coefficient τ n‖:=by
+   rw [torusTerm,norm_smul,mFourier_norm,mul_one]
++include hτ in
+ lemma torusTerm_summable:Summable (torusTerm τ):=by
+   apply (bound_summable τ hτ 0).of_norm_bounded
+   intro n
+@@ -38,6 +39,7 @@
+ constructed as a convergent series in the Banach space of continuous maps.
+ This supplies genuine uniform summation before taking a Fourier coefficient. -/
+ @[expose] def torusTheta:C(Torus,ℂ):=∑'n:Index,torusTerm τ n
++include hτ in
+ lemma torus_hasSum:HasSum (torusTerm τ) (torusTheta τ):=
+   (torusTerm_summable τ hτ).hasSum
+ 
+@@ -54,6 +56,7 @@
+   simp only [realPoint]
+   ring
+ 
++include hτ in
+ /-- Evaluation agrees with the actual original entire theta, not a
+ separately chosen periodic function or formal Fourier series. -/
+ lemma real_evaluation (x:Fin 2→ℝ):

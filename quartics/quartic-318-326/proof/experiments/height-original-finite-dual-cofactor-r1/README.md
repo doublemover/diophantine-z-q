@@ -1,0 +1,13 @@
+# height-original-finite-dual-cofactor-r1
+
+FIRST unaccepted hosted experiment. No predecessor run or successful kernel/axiom result is claimed for this packet. No local Lean was run.
+
+This isolated lane contains17 draft roots and19 exact-byte accepted-baseline dependency sources, for a36-source custom closure. The17 roots include prerequisite imported research sources as well as the new finite-dual/cofactor construction; they are NOT36 new checked roots. BASELINE-BINDINGS records the exact current snapshot, module keys and matching source bytes. Native verified-cache restoration and the final recursive experiment axiom audit remain mandatory; no baseline source is shadowed.
+
+The source chain constructs genuine finite quadratic duals, tensorizes to the entire actual normalized four-root finite dual, then constructs a whole native cotangent class into Hom_{V[T]}(A,Ω_{V[T]/V}). Its values retain exact Jacobian M and root cofactors. No unit2, unit-root or unit-twist hypothesis is added, no nonunit factor is canceled, and no arbitrary functional or model isomorphism is a caller input.
+
+This is NOT yet a relative dualizing-sheaf/fundamental-class identification, original maximal-model comparison, integral section/KS210/metric theorem or GeometricRealization. Success here would establish only this isolated source closure and its recursive axiom audit under the pinned compiler. All copied RESEARCH source applications/reports are historical source-only reviews, not hosted receipts. No all-place original-model theorem or accepted manifest promotion follows.
+
+The packet deliberately has no dependency on the failed PrimeFrame, Common or infinity-height-one frontiers and is not a successor to the parameter lane. Earlier chart prerequisites, including IntegralInfinityChart318, are explicitly included among its17 draft roots. It supplies a distinct research signal rather than appending more roots behind the same center frontier. It does NOT replace or mutate the parameter, evaluator or finite-control source packets. Integration scheduling may temporarily substitute the unchanged site85 lane under the root's explicit direction; the16-lane cap and all existing memory/time/resource flags remain unchanged. No new trusted evaluator, admission or resource setting is introduced.
+
+The existing source files and their resource settings are byte-preserved from the independently reviewed closure. Draft and accepted-baseline scopes are separate. Independent current packet review and Library preservation are required before integration; final reports are appended externally to frozen APPLICATION bytes.

@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r52/FourRootActualGenericSigns318.lean:13:2: error: unsolved goals
+case pos
+g : FourBinaryCharacters318.Group
+S : Type u_1
+inst✝¹ : CommRing S
+inst✝ : Algebra ℂ S
+i : Fin 4
+z : S
+h : Multiplicative.toAdd (g i) = 0
+⊢ z = (algebraMap ℂ S) (if g i = 1 then 1 else -1) * z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r52/FourRootActualGenericSigns318.lean:14:2: error: unsolved goals
+case neg
+g : FourBinaryCharacters318.Group
+S : Type u_1
+inst✝¹ : CommRing S
+inst✝ : Algebra ℂ S
+i : Fin 4
+z : S
+h : ¬Multiplicative.toAdd (g i) = 0
+⊢ -z = (algebraMap ℂ S) (if g i = 1 then 1 else -1) * z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r52/FourRootActualGenericSigns318.lean:31:13: error: typeclass instance problem is stuck
+  Algebra ?m.117 ?m.127
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, third, and fourth type arguments to `Algebra` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r52/FourRootActualGenericSigns318.lean:60:83: error: unsolved goals
+b : Fin 4 → ℂ
+g : FourBinaryCharacters318.Group
+x : FourRootAffineCoordinateRing318.Ring b
+⊢ (genericAutomorphism b g) ((FourRootActualGenericField318.embedding b) ((equivalence b) x)) =
+    (genericAutomorphism b g) ((FourRootActualGenericField318.affineEmbedding b) x)

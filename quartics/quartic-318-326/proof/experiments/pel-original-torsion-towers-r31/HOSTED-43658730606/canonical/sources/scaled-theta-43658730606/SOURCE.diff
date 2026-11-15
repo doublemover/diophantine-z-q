@@ -1,0 +1,33 @@
+--- before/PELOriginalScaledThetaHolomorphy318.lean
++++ after/PELOriginalScaledThetaHolomorphy318.lean
+@@ -51,7 +51,8 @@
+       mul_le_mul (mul_le_mul_of_nonneg_right (norm_bound τ hτ a ha S z h0 h1 n)
+         (by positivity)) (norm_linearMap n) (norm_nonneg _) (mul_nonneg hb (by positivity))
+     _=derivativeBound τ a S n:=by
+-      simp only [derivativeBound,weightedOne,slope,bound]
++      change bound τ a S n*(2*Real.pi)*(|(n.1:ℝ)|+|(n.2:ℝ)|)=derivativeBound τ a S n
++      simp only [derivativeBound,weightedOne,bound]
+       ring
+ 
+ /-- A fixed frequency subset, selected BEFORE evaluation in C². -/
+@@ -84,9 +85,17 @@
+       HasFDerivAt (selectedTerm τ a P n) (selectedDerivative τ a P n w) w:=by
+     intro n w hw
+     by_cases hn:P n
+-    · simpa only [selectedTerm,selectedDerivative,if_pos hn] using term_hasFDerivAt τ a n w
+-    · simpa only [selectedTerm,selectedDerivative,if_neg hn] using
+-        (hasFDerivAt_const w (0:ℂ))
++    · have hf : selectedTerm τ a P n=term τ a n := by
++        funext x
++        simp only [selectedTerm,if_pos hn]
++      rw [hf]
++      simpa only [selectedDerivative,if_pos hn] using term_hasFDerivAt τ a n w
++    · have hf : selectedTerm τ a P n=(fun _ : ComplexVectors => (0:ℂ)) := by
++        funext x
++        simp only [selectedTerm,if_neg hn]
++      rw [hf]
++      simpa only [selectedDerivative,if_neg hn] using
++        (hasFDerivAt_const (𝕜 := ℂ) (0:ℂ) w)
+   have hb:∀n:Index,∀w∈Metric.ball z 1,
+       ‖selectedDerivative τ a P n w‖≤derivativeBound τ a S n:=by
+     intro n w hw

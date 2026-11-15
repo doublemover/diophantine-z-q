@@ -1,0 +1,159 @@
+module
+public import ScalarPackedLocalUnit318
+public section
+noncomputable section
+namespace ScalarSmallPrimePreparation318
+open ScalarPolePreparation318 ScalarForwardWitness318
+set_option maxHeartbeats 0
+
+set_option stderrAsMessages false
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_PROFILER_CONTROL_BEGIN"
+  out.flush
+  let opts := (({} : Lean.Options).setBool `profiler true).set `profiler.threshold (0 : Nat)
+  Lean.profileitIO (ε := IO.Error) "SMALL_PRIME_PROFILER_CONTROL" opts (pure ())
+  out.flush
+  out.putStrLn "SMALL_PRIME_PROFILER_CONTROL_END"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_VARIANT_MARKED"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_BEFORE_integerA_shapes"
+  out.flush
+set_option profiler true in
+set_option profiler.threshold 10 in
+/-- Exact small-prime normal forms of the actual integer scalar multiplier.
+These are the correct current-source values; the2-adic order is4. -/
+lemma integerA_shapes (a : ℤ) :
+    (∃ k : ℤ, 114444*integerR a=16*(1+8*k)) ∧
+    (∃ k : ℤ, 114444*integerR a=9*(1+3*k)) ∧
+    (∃ k : ℤ, 114444*integerR a=289*(8+17*k)) := by
+  let x := a+a^2
+  have he : 2∣x+x^2 := by
+    rw [Int.dvd_iff_emod_eq_zero]
+    rcases Int.emod_two_eq_zero_or_one x with h|h <;>
+      simp [Int.add_emod,pow_two,Int.mul_emod,h]
+  obtain ⟨j,hj⟩ := he
+  refine ⟨?_,?_,?_⟩
+  · refine ⟨91004161208951682994*x^1+716088952741312363108*x^2+2362325449973424226236*x^3+2814330797291386086912*x^4+3913336234084850038+j,?_⟩
+    dsimp [integerR]
+    change 114444*(101783690143177584*x+800910366213064752*x^2+2642145132961084032*x^3+3147690941013049344*x^4+4376874610839020)=_
+    linear_combination 64*hj
+  · refine ⟨431427134620215386048*x^1+3394792072255110462144*x^2+11199172503577714850304*x^3+13342012668640645152768*x^4+18552112517142992773,?_⟩
+    dsimp [integerR,x]
+    ring
+  · refine ⟨2370961252746960192*x^1+18656500295316096576*x^2+61546439567799369216*x^3+73322683096539267072*x^4+101955432111308936,?_⟩
+    dsimp [integerR,x]
+    ring
+
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_AFTER_integerA_shapes"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_BEFORE_value_scaled_unit"
+  out.flush
+set_option profiler true in
+set_option profiler.threshold 10 in
+lemma value_scaled_unit (p e : ℕ) [Fact p.Prime] (u : ℤ) (hu : ¬(p:ℤ)∣u) :
+    padicValRat p ((p:ℚ)^e*(u:ℚ))=(e:ℤ) := by
+  have hp : (p:ℚ)≠0 := by exact_mod_cast (Fact.out:p.Prime).ne_zero
+  have hu0 : u≠0 := fun hz => hu (hz ▸ dvd_zero _)
+  rw [padicValRat.mul (pow_ne_zero _ hp) (by exact_mod_cast hu0),
+    padicValRat.pow,padicValRat.self (Fact.out:p.Prime).one_lt,
+    padicValRat.of_int,padicValInt.eq_zero_of_not_dvd hu]
+  norm_num
+
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_AFTER_value_scaled_unit"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_BEFORE_actual_multiplier_values"
+  out.flush
+set_option profiler true in
+set_option profiler.threshold 10 in
+lemma actual_multiplier_values (a : ℤ) :
+    padicValRat 2 (114444*inputR (a:ℚ))=4 ∧
+    padicValRat 3 (114444*inputR (a:ℚ))=2 ∧
+    padicValRat 17 (114444*inputR (a:ℚ))=2 := by
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "SMALL_PRIME_TACTIC_OBTAIN"
+    out.flush
+  obtain ⟨⟨k₂,h₂⟩,⟨k₃,h₃⟩,⟨k₁₇,h₁₇⟩⟩ := integerA_shapes a
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "SMALL_PRIME_TACTIC_HCAST"
+    out.flush
+  have hcast : 114444*inputR (a:ℚ)=((114444*integerR a:ℤ):ℚ) := by
+    rw [Int.cast_mul,integerR_cast]
+    norm_num
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "SMALL_PRIME_TACTIC_RW_HCAST"
+    out.flush
+  rw [hcast]
+  run_tac do
+    let out ← IO.getStderr
+    out.putStrLn "SMALL_PRIME_TACTIC_REFINE"
+    out.flush
+  refine ⟨?_,?_,?_⟩
+  · letI : Fact (Nat.Prime 2) := ⟨by norm_num⟩
+    run_tac do
+      let out ← IO.getStderr
+      out.putStrLn "SMALL_PRIME_TACTIC_RW_TWO"
+      out.flush
+    rw [h₂,Int.cast_mul]
+    run_tac do
+      let out ← IO.getStderr
+      out.putStrLn "SMALL_PRIME_TACTIC_CONVERT_TWO"
+      out.flush
+    convert value_scaled_unit 2 4 (1+8*k₂) (by omega) using 1 <;> norm_num
+  · letI : Fact (Nat.Prime 3) := ⟨by norm_num⟩
+    run_tac do
+      let out ← IO.getStderr
+      out.putStrLn "SMALL_PRIME_TACTIC_RW_THREE"
+      out.flush
+    rw [h₃,Int.cast_mul]
+    run_tac do
+      let out ← IO.getStderr
+      out.putStrLn "SMALL_PRIME_TACTIC_CONVERT_THREE"
+      out.flush
+    convert value_scaled_unit 3 2 (1+3*k₃) (by omega) using 1 <;> norm_num
+  · letI : Fact (Nat.Prime 17) := ⟨by norm_num⟩
+    run_tac do
+      let out ← IO.getStderr
+      out.putStrLn "SMALL_PRIME_TACTIC_RW_SEVENTEEN"
+      out.flush
+    rw [h₁₇,Int.cast_mul]
+    run_tac do
+      let out ← IO.getStderr
+      out.putStrLn "SMALL_PRIME_TACTIC_CONVERT_SEVENTEEN"
+      out.flush
+    convert value_scaled_unit 17 2 (8+17*k₁₇) (by omega) using 1 <;> norm_num
+
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_AFTER_actual_multiplier_values"
+  out.flush
+
+run_cmd Lean.Elab.Command.liftIO do
+  let out ← IO.getStderr
+  out.putStrLn "SMALL_PRIME_COMMAND_END_MARKED"
+  out.flush
+
+end ScalarSmallPrimePreparation318

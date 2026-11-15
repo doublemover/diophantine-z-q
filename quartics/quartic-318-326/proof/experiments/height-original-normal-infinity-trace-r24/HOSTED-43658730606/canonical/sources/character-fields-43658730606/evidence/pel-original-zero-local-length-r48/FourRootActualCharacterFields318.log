@@ -1,0 +1,63 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:9:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 2: `(hb : Function.Injective b)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:11:0: error: This instance has 2 arguments that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 2: `(hb : Function.Injective b)`
+  argument 4: `(hs : s.Nonempty)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:29:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Field (KummerTensorField318.Raw (parameter b))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:30:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fact (QuadraticTower318.Independent (parameter b))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:35:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Field (KummerTensorField318.Raw (parameter b))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:40:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fact ¬IsSquare (CharacterRoot318.radicand ?m.20 ?m.22)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:43:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fact ¬IsSquare (CharacterRoot318.radicand ?m.22 ?m.24)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:44:27: error: typeclass instance problem is stuck
+  Algebra ?m.8 ?m.10
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, third, and fourth type arguments to `Algebra` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:47:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fact ¬IsSquare (CharacterRoot318.radicand ?m.17 ?m.19)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:56:2: error: unsolved goals
+case pos
+s : Finset (Fin 4)
+g : FourBinaryCharacters318.Group
+i : Fin 4
+hi : i ∈ s
+h : Multiplicative.toAdd (g i) = 0
+⊢ 1 = RatFunc.C (if g i = 1 then 1 else -1)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:57:2: error: unsolved goals
+case neg
+s : Finset (Fin 4)
+g : FourBinaryCharacters318.Group
+i : Fin 4
+hi : i ∈ s
+h : ¬Multiplicative.toAdd (g i) = 0
+⊢ -1 = RatFunc.C (if g i = 1 then 1 else -1)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r48/FourRootActualCharacterFields318.lean:62:4: error: typeclass instance problem is stuck
+  Membership (KummerTensorField318.Raw (parameter b) ≃ₐ[K] KummerTensorField318.Raw (parameter b)) ?m.9
+
+Note: Lean will not try to resolve this typeclass instance problem because the second type argument to `Membership` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
