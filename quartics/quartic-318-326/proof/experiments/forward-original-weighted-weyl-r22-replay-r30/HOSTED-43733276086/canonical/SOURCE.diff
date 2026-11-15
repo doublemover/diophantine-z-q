@@ -1,0 +1,28 @@
+--- before/ActualAnchorRatio318
++++ after/ActualAnchorRatio318
+@@ -17,7 +17,6 @@
+       (3:ℚ)^N*ratio labels N := by
+   unfold ratio
+   field_simp
+-  ring
+ 
+ /-- Actual odd labels and sufficient translated3-depth make the literal
+ normalized anchor a2-adic unit and3-adically integral. -/
+@@ -36,7 +35,7 @@
+   have h30 : padicValRat 3 (4096:ℚ)=0 := by
+     simpa using AnchorNorm318.rational_unit_value 3 4096 1 (by norm_num) (by norm_num)
+   have h212 : padicValRat 2 (4096:ℚ)=12 := by
+-    rw [show (4096:ℚ)=2^12 by norm_num,padicValRat.pow,padicValRat.self (by norm_num)]
++    rw [show (4096:ℚ)=2^12 by norm_num,padicValRat.pow,padicValRat.self (p := 2) (by norm_num)]
+     norm_num
+   obtain ⟨p2,p3⟩ := actual_product_depths labels hn
+   have hfirst2 : padicValRat 2 (4096*normProduct labels)=0 := by
+@@ -59,7 +58,7 @@
+   have hsecond3 : 0≤padicValRat 3
+       (ActualScalarRoot318.inverseNorm (labels 1)/(3:ℚ)^N) := by
+     rw [padicValRat.div hI hs,scalar_norm_three _ hn0 hn1 heven,
+-      padicValRat.pow,padicValRat.self (by norm_num)]
++      padicValRat.pow,padicValRat.self (p := 3) (by norm_num)]
+     norm_num
+     omega
+   have hsum := padicValRat.min_le_padicValRat_add (p:=3) hr

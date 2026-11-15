@@ -1,0 +1,75 @@
+test_application_evidence_bindings_fail_closed (test_progress_experiment.ExperimentTests.test_application_evidence_bindings_fail_closed) ... ok
+test_audit_private_imports_and_exact_coverage (test_progress_experiment.ExperimentTests.test_audit_private_imports_and_exact_coverage) ... ok
+test_cache_bytes_dependencies_and_scope_fail_closed (test_progress_experiment.ExperimentTests.test_cache_bytes_dependencies_and_scope_fail_closed) ... ok
+test_empty_matrix_skips_checks_without_weakening_admission (test_progress_experiment.ExperimentTests.test_empty_matrix_skips_checks_without_weakening_admission) ... ok
+test_ignored_application_evidence_must_be_published (test_progress_experiment.ExperimentTests.test_ignored_application_evidence_must_be_published) ... ok
+test_nonpreceding_draft_import_fails (test_progress_experiment.ExperimentTests.test_nonpreceding_draft_import_fails) ... ok
+test_placeholders_axioms_and_kernel_options_fail (test_progress_experiment.ExperimentTests.test_placeholders_axioms_and_kernel_options_fail) ... ok
+test_revision_all_stale_labels_duplicates_and_wrong_counts_fail (test_progress_experiment.ExperimentTests.test_revision_all_stale_labels_duplicates_and_wrong_counts_fail) ... ok
+test_revision_exact_changed_unchanged_new_and_removed (test_progress_experiment.ExperimentTests.test_revision_exact_changed_unchanged_new_and_removed) ... ok
+test_revision_only_bound_root_inheritance_is_used (test_progress_experiment.ExperimentTests.test_revision_only_bound_root_inheritance_is_used) ... ok
+test_revision_prior_source_manifest_and_digest_fail (test_progress_experiment.ExperimentTests.test_revision_prior_source_manifest_and_digest_fail) ... ok
+test_revision_reference_conflicts_unsafe_self_and_missing_fail (test_progress_experiment.ExperimentTests.test_revision_reference_conflicts_unsafe_self_and_missing_fail) ... ok
+test_revision_schema_opt_in_preserves_historical_semantics (test_progress_experiment.ExperimentTests.test_revision_schema_opt_in_preserves_historical_semantics) ... ok
+test_shadowing_duplicate_and_path_names_fail (test_progress_experiment.ExperimentTests.test_shadowing_duplicate_and_path_names_fail) ... ok
+test_source_mutation_and_declared_imports_fail (test_progress_experiment.ExperimentTests.test_source_mutation_and_declared_imports_fail) ... ok
+test_timeout_is_a_failed_check (test_progress_experiment.ExperimentTests.test_timeout_is_a_failed_check) ... {"matrix": {"packet": []}, "base": "base", "snapshot": "snapshot", "has_packets": "false"}
+{"matrix": {"packet": ["sample"]}, "base": "base", "snapshot": "snapshot", "has_packets": "true"}
+{"module": "A", "exit_code": 124, "seconds": 0.0}
+ok
+test_upstream_and_audit_module_shadowing_fails (test_progress_experiment.ExperimentTests.test_upstream_and_audit_module_shadowing_fails) ... ok
+test_valid_packet_and_only_required_closure (test_progress_experiment.ExperimentTests.test_valid_packet_and_only_required_closure) ... ok
+test_workflow_never_saves_draft_cache_or_uploads_oleans (test_progress_experiment.ExperimentTests.test_workflow_never_saves_draft_cache_or_uploads_oleans) ... ok
+test_cache_checks_bytes_and_actual_dependency_artifacts (test_progress_lean.ProgressTests.test_cache_checks_bytes_and_actual_dependency_artifacts) ... ok
+test_clean_build_does_not_reuse_valid_cache (test_progress_lean.ProgressTests.test_clean_build_does_not_reuse_valid_cache) ... {"cohort": 0, "compiled": 3, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"module": "B", "cache": "verified-reuse"}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 3}
+{"cohort": 0, "compiled": 3, "reused": 0}
+ok
+test_cohorts_cover_every_module_and_its_dependencies (test_progress_lean.ProgressTests.test_cohorts_cover_every_module_and_its_dependencies) ... ok
+test_complete_cache_survives_cohort_reassignment (test_progress_lean.ProgressTests.test_complete_cache_survives_cohort_reassignment) ... {"cohort": 0, "compiled": 3, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"module": "B", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 2}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+ok
+test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded (test_progress_lean.ProgressTests.test_cross_stage_artifacts_are_verified_not_rebuilt_or_reuploaded) ... {"cohort": 0, "compiled": 1, "reused": 0}
+{"cohort": 1, "compiled": 1, "reused": 0}
+{"cohort": 2, "compiled": 1, "reused": 0}
+ok
+test_dependency_invalidation_is_transitive_and_selective (test_progress_lean.ProgressTests.test_dependency_invalidation_is_transitive_and_selective) ... ok
+test_heavy_independent_chunks_are_distributed (test_progress_lean.ProgressTests.test_heavy_independent_chunks_are_distributed) ... ok
+test_replay_order_must_match_authoritative_manifest (test_progress_lean.ProgressTests.test_replay_order_must_match_authoritative_manifest) ... ok
+test_source_hash_and_audit_coverage_fail_closed (test_progress_lean.ProgressTests.test_source_hash_and_audit_coverage_fail_closed) ... ok
+test_three_stages_selectively_rebuild_transitive_dependents (test_progress_lean.ProgressTests.test_three_stages_selectively_rebuild_transitive_dependents) ... {"cohort": 0, "compiled": 1, "reused": 0}
+{"cohort": 1, "compiled": 1, "reused": 0}
+{"cohort": 2, "compiled": 1, "reused": 0}
+{"cohort": 3, "compiled": 1, "reused": 0}
+{"module": "A", "cache": "verified-reuse"}
+{"cohort": 0, "compiled": 0, "reused": 1}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+{"module": "B", "cache": "verified-reuse"}
+{"cohort": 2, "compiled": 0, "reused": 1}
+{"module": "D", "cache": "verified-reuse"}
+{"cohort": 3, "compiled": 0, "reused": 1}
+{"cohort": 0, "compiled": 1, "reused": 0}
+{"module": "C", "cache": "verified-reuse"}
+{"cohort": 1, "compiled": 0, "reused": 1}
+{"cohort": 2, "compiled": 1, "reused": 0}
+{"cohort": 3, "compiled": 1, "reused": 0}
+{"cohort": 0, "compiled": 1, "reused": 0}
+{"cohort": 1, "compiled": 1, "reused": 0}
+{"cohort": 2, "compiled": 1, "reused": 0}
+{"cohort": 3, "compiled": 1, "reused": 0}
+ok
+test_weights_are_source_bound_and_not_cache_keys (test_progress_lean.ProgressTests.test_weights_are_source_bound_and_not_cache_keys) ... ok
+test_workflow_cache_paths_match_save_and_restore (test_progress_lean.ProgressTests.test_workflow_cache_paths_match_save_and_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 4.536s
+
+OK
