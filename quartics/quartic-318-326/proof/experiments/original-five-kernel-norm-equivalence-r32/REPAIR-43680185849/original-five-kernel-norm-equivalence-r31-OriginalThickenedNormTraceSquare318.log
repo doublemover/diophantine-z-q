@@ -1,0 +1,55 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r31/OriginalThickenedNormTraceSquare318.lean:26:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Units.map ↑(InfinitesimalUnitCocycle318.restrict ?X ?h)) (InfinitesimalUnitCocycle318.unit ?X ?e ?he ?W ?a)
+in the target expression
+  (Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+      (InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ V)
+        ((ConcreteCategory.hom (Scheme.Hom.app (π R p) V)) a)) =
+    InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ W)
+      ((ConcreteCategory.hom (Scheme.Hom.app (π R p) W)) ((ConcreteCategory.hom (X.presheaf.map (homOfLE h).op)) a))
+
+R : Type u
+inst✝ : CommRing R
+X : Scheme
+p : X ⟶ base R
+V W : X.Opens
+h : W ≤ V
+a : ↑Γ(X, V)
+⊢ (Units.map ↑(CommRingCat.Hom.hom ((thickening R p).presheaf.map (homOfLE ⋯).op)))
+      (InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ V)
+        ((ConcreteCategory.hom (Scheme.Hom.app (π R p) V)) a)) =
+    InfinitesimalUnitCocycle318.unit (thickening R p) (DualNumberInfinitesimalLines318.epsilon R p) ⋯ (π R p ⁻¹ᵁ W)
+      ((ConcreteCategory.hom (Scheme.Hom.app (π R p) W)) ((ConcreteCategory.hom (X.presheaf.map (homOfLE h).op)) a))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r31/OriginalThickenedNormTraceSquare318.lean:54:20: error(lean.invalidField): Invalid field `toScheme`: The environment does not contain `TopologicalSpace.Opens.toScheme`, so it is not possible to project the field `toScheme` from an expression
+  V
+of type `Opens ↥Y`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r31/OriginalThickenedNormTraceSquare318.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r31/OriginalThickenedNormTraceSquare318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r31/OriginalThickenedNormTraceSquare318.lean:56:26: error: failed to synthesize
+  IsAffine ↑V
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    hV
+  has type
+    V ∈ Y.affineOpens
+  but is expected to have type
+    IsAffineOpen V
+  in the application
+    ActualThickenedAffineUnitNorm318.norm R p q f hY hfinite V hV

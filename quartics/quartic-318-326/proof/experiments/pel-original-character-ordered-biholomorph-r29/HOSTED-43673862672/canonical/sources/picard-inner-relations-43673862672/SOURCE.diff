@@ -1,0 +1,20 @@
+--- before/PELNormalizerInnerRelations318.lean
++++ after/PELNormalizerInnerRelations318.lean
+@@ -12,7 +12,7 @@
+ theorem square_inner (i : Fin 4) (x : Reduction) :
+     reductionEquiv i (reductionEquiv i x)=
+       reduction (squareUnit i:PELPrincipalOrderCoordinates318.order)*x*
+-        reduction ((squareUnit i)⁻¹:PELPrincipalOrderCoordinates318.order) := by
++        reduction (((squareUnit i)⁻¹:PELPrincipalOrderCoordinates318.orderˣ):PELPrincipalOrderCoordinates318.order) := by
+   change forward i (forward i x)=
+     reduction (PELPrincipalOrderCoordinates318.coordinatesEquiv (squareCoefficients i))*x*
+       reduction (PELPrincipalOrderCoordinates318.coordinatesEquiv (squareInverseCoefficients i))
+@@ -27,7 +27,7 @@
+     reductionEquiv i (reductionEquiv j x)=
+       reduction (commutatorUnit i j:PELPrincipalOrderCoordinates318.order)*
+         reductionEquiv j (reductionEquiv i x)*
+-          reduction ((commutatorUnit i j)⁻¹:PELPrincipalOrderCoordinates318.order) := by
++          reduction (((commutatorUnit i j)⁻¹:PELPrincipalOrderCoordinates318.orderˣ):PELPrincipalOrderCoordinates318.order) := by
+   change forward i (forward j x)=
+     reduction (PELPrincipalOrderCoordinates318.coordinatesEquiv (commutatorCoefficients i j))*
+       forward j (forward i x)*

@@ -1,0 +1,13 @@
+--- IntegralRationalBranchCoefficients318.lean.before
++++ IntegralRationalBranchCoefficients318.lean
+@@ -63,5 +63,9 @@
+         (IntegralBranchCoordinates318.sourceCoordinate ℚ c i)) =
+       KaehlerDifferential.D ℚ (ContactIntrinsicFrames318.BranchRing c i)
+         (ContactFrameNormalization318.sourceCoordinate c i) := by
+-  rw [AlgHomDifferential318.map_D,coordinate]
++  rw [AlgHomDifferential318.map_D]
++  change KaehlerDifferential.D ℚ (ContactIntrinsicFrames318.BranchRing c i)
++    (branchEquiv c i (IntegralBranchCoordinates318.sourceCoordinate ℚ c i)) = _
++  exact congrArg (KaehlerDifferential.D ℚ (ContactIntrinsicFrames318.BranchRing c i))
++    (coordinate c i)
+ end IntegralRationalBranchCoefficients318

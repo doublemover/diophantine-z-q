@@ -1,0 +1,11 @@
+# original-infinity-range-extension-r6
+
+Source-only successor to original-infinity-range-extension-r5, exact hosted run43664736777 at 1785ba5569eff8aebbd69b9236dead5e0fcc3c02. Own first failed module: PELPrimeLatticeResidues318 (3.625s). Full 535 roots in unchanged order; 1 changed copies and 534 unchanged.
+
+Canonical scope present: PELPrimeLatticeResidues318. Own observed failed-source repair: PELPrimeLatticeResidues318. Preventive/unreached matching repairs: .
+
+Cardinality explicitly retains the existing proof-only hb hypothesis in finite_card; this is a real generated telescope change, not an unchanged-signature claim. Other four canonical repairs change proof bodies only. Prior named derived PrimeFrame instances and root_image letI type remain unchanged by this one-line proof-local tower addition.
+
+LevelTheta and ActualResidueInertia remain unchanged after genuine current full-module passes in torsion30 and zero50 respectively. RealTorus names the actual root-global Fourier API. Cardinality normalizes the same sign predicate, types full actual inertia membership, and retains hb in finite_card. FiniteBranchChart explicitly identifies both concrete polynomial carriers before the same native regroup equivalence. Residues now proves eight generic INTEGER polynomial rows before substituting the actual residue representatives. Corrected diagnosis: current failures occur inside integer hrow normalization, not later integer-to-ZMod transport; prior transport-only attribution was incomplete. All original symbolic inputs, maps, later cast steps and final coefficient facts are retained. PrimeFrame supplies only its existing derived source scalar tower locally, preventive in trace only, with own trace Residues failure retained.
+
+Every matching canonical root is propagated byte-identically. Each source has its own exact independently reviewed nine-obligation contract; packet obligations below include only clauses for sources present here. Own predecessor metadata and authentic outputs are preserved, not rewritten. Older distinct Restrictions, other lattice lanes and new analytic/quartic research remain outside scope. No 535-root infinity producer changes, no local Lean/Lake, resource/trust changes or endpoint acceptance claim.

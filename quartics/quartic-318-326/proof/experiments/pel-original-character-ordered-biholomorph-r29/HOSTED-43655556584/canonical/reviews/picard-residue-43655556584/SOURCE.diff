@@ -1,0 +1,103 @@
+--- picard-residue-43655556584/before/PELPrimeLatticeResidues318.lean	2026-11-14 19:10:01.056439997 -0500
++++ picard-residue-43655556584/after/PELPrimeLatticeResidues318.lean	2026-11-14 19:10:01.079497415 -0500
+@@ -34,36 +34,76 @@
+   fin_cases i
+   · change (Fin 2 → ZMod 2) at z
+     change @Eq (Fin 2 → ZMod 2) (residue (0 : Fin 4) (lift (0 : Fin 4) z)) z
+-    ext j <;> fin_cases j <;>
+-      norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+-      push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring_nf <;>
+-      (try simp only [sub_eq_add_neg, ←mul_neg, h22, h23, h2n3, h24, h34, h36,
+-        h3n8, h5n9, h5n4, h715, h770, h721, h7n97, mul_zero, mul_one,
+-        add_zero, zero_add, sub_zero, zero_sub, neg_zero]) <;> ring
++    ext j
++    fin_cases j
++    · calc
++        _ = (3 : ZMod 2) * ((z 0).val : ZMod 2) + (2 : ZMod 2) * ((z 1).val : ZMod 2) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 0 := by
++          simp only [ZMod.natCast_zmod_val, h23, h22, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
++    · calc
++        _ = -(4 : ZMod 2) * ((z 0).val : ZMod 2) + -(3 : ZMod 2) * ((z 1).val : ZMod 2) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 1 := by
++          simp only [ZMod.natCast_zmod_val, h24, h2n3, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
+   · change (Fin 2 → ZMod 3) at z
+     change @Eq (Fin 2 → ZMod 3) (residue (1 : Fin 4) (lift (1 : Fin 4) z)) z
+-    ext j <;> fin_cases j <;>
+-      norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+-      push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring_nf <;>
+-      (try simp only [sub_eq_add_neg, ←mul_neg, h22, h23, h2n3, h24, h34, h36,
+-        h3n8, h5n9, h5n4, h715, h770, h721, h7n97, mul_zero, mul_one,
+-        add_zero, zero_add, sub_zero, zero_sub, neg_zero]) <;> ring
++    ext j
++    fin_cases j
++    · calc
++        _ = (4 : ZMod 3) * ((z 0).val : ZMod 3) + (6 : ZMod 3) * ((z 1).val : ZMod 3) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 0 := by
++          simp only [ZMod.natCast_zmod_val, h34, h36, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
++    · calc
++        _ = -(6 : ZMod 3) * ((z 0).val : ZMod 3) + -(8 : ZMod 3) * ((z 1).val : ZMod 3) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 1 := by
++          simp only [ZMod.natCast_zmod_val, h36, h3n8, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
+   · change (Fin 2 → ZMod 5) at z
+     change @Eq (Fin 2 → ZMod 5) (residue (2 : Fin 4) (lift (2 : Fin 4) z)) z
+-    ext j <;> fin_cases j <;>
+-      norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+-      push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring_nf <;>
+-      (try simp only [sub_eq_add_neg, ←mul_neg, h22, h23, h2n3, h24, h34, h36,
+-        h3n8, h5n9, h5n4, h715, h770, h721, h7n97, mul_zero, mul_one,
+-        add_zero, zero_add, sub_zero, zero_sub, neg_zero]) <;> ring
++    ext j
++    fin_cases j
++    · calc
++        _ = -(9 : ZMod 5) * ((z 0).val : ZMod 5) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 0 := by
++          simp only [ZMod.natCast_zmod_val, h5n9, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
++    · calc
++        _ = -(4 : ZMod 5) * ((z 1).val : ZMod 5) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 1 := by
++          simp only [ZMod.natCast_zmod_val, h5n4, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
+   · change (Fin 2 → ZMod 7) at z
+     change @Eq (Fin 2 → ZMod 7) (residue (3 : Fin 4) (lift (3 : Fin 4) z)) z
+-    ext j <;> fin_cases j <;>
+-      norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
+-      push_cast <;> (try simp [ZMod.natCast_zmod_val]) <;> ring_nf <;>
+-      (try simp only [sub_eq_add_neg, ←mul_neg, h22, h23, h2n3, h24, h34, h36,
+-        h3n8, h5n9, h5n4, h715, h770, h721, h7n97, mul_zero, mul_one,
+-        add_zero, zero_add, sub_zero, zero_sub, neg_zero]) <;> ring
++    ext j
++    fin_cases j
++    · calc
++        _ = (15 : ZMod 7) * ((z 0).val : ZMod 7) + (70 : ZMod 7) * ((z 1).val : ZMod 7) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 0 := by
++          simp only [ZMod.natCast_zmod_val, h715, h770, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
++    · calc
++        _ = -(21 : ZMod 7) * ((z 0).val : ZMod 7) + -(97 : ZMod 7) * ((z 1).val : ZMod 7) := by
++          norm_num [residue,lift,liftCoefficients,rows,product,conjugateCoefficients,prime] <;>
++            push_cast <;> ring
++        _ = z 1 := by
++          simp only [ZMod.natCast_zmod_val, h721, h7n97, neg_zero,
++            zero_mul, one_mul, zero_add, add_zero]
+ 
+ theorem residue_surjective (i : Fin 4) : Function.Surjective (residueHom i) := by
+   intro z
