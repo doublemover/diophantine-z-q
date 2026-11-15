@@ -1,0 +1,33 @@
+--- before/FirstOrderCotangentEvaluation318.lean
++++ after/FirstOrderCotangentEvaluation318.lean
+@@ -24,8 +24,7 @@
+     { toLinearMap := ((TrivSqZeroExt.sndHom K K).restrictScalars V).comp L.toLinearMap
+       map_one_eq_zero' := by
+         change (L 1).snd=0
+-        rw [map_one]
+-        rfl
++        simp only [map_one,TrivSqZeroExt.snd_one]
+       leibniz' := fun a b => by
+         change (L (a*b)).snd=f a*(L b).snd+f b*(L a).snd
+         rw [map_mul,TrivSqZeroExt.snd_mul]
+--- before/NormalizedCotangentEvaluation318.lean
++++ after/NormalizedCotangentEvaluation318.lean
+@@ -54,8 +54,7 @@
+   letI : Algebra A V := f.toRingHom.toAlgebra
+   rw [finiteEvaluation,integralFiberMap_differential]
+   change (FourRootFirstOrderPoint318.lift V K p t _ _ (algebraMap V[X] A X)).snd=1
+-  rw [FourRootFirstOrderPoint318.lift_polynomial,Polynomial.aeval_X]
+-  rfl
++  rw [FourRootFirstOrderPoint318.lift_polynomial,Polynomial.aeval_X] <;> rfl
+ end Finite
+ 
+ section Infinity
+@@ -103,7 +102,6 @@
+   letI : Algebra A V := f.toRingHom.toAlgebra
+   rw [infinityEvaluation,integralFiberMap_differential]
+   change (FourRootFirstOrderPoint318.lift V K p t _ _ (algebraMap V[X] A X)).snd=1
+-  rw [FourRootFirstOrderPoint318.lift_polynomial,Polynomial.aeval_X]
+-  rfl
++  rw [FourRootFirstOrderPoint318.lift_polynomial,Polynomial.aeval_X] <;> rfl
+ end Infinity
+ end NormalizedCotangentEvaluation318

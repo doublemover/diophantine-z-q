@@ -1,0 +1,7 @@
+# height-original-parameter-evaluation-r14
+
+Unaccepted successor to OWN height-original-parameter-evaluation-r13, run43733276086 at58cac25d.62complete passes then OverlapPoint fails18.863s,43unreached. Earlier lift-domain errors are gone, but failed module has NO partial acceptance. Exact own source/intake/result/log retained, no sibling receipt borrowed.
+
+Only OverlapPoint changes in three proof bodies: explicit actual inverse/constant map equalities before rewrite, and native tensor left-action identity via smul_tmul'/tmul_mul_tmul instead of assuming Algebra.smul_def matches its dictionary. Same original commonMap,commonPoint,whole overlap and signed generators. No extra nonzero/unit/domain/smoothness hypotheses, scalar cancellation, substitute carrier/action, altered public types or compiler/resource/trust change; only tensor notation scope added. Actual infinity extension consumer unchanged/unreached. Source-reviewed paths still need hosted elaboration/kernel checking.
+
+106same ordered roots,1reviewed revision/105exact immediate copies,0new. Current inheritance/validation/sourcehash/repair metadata refreshed; exact prior metadata retained IMMEDIATE-PREDECESSOR-43733276086. Earlier nested evidence/contracts remain historical. No inactive normalization research, lattice diagnostics or workflow changes included. No local Lean, whole geometry/model/KS or GeometricRealization acceptance.

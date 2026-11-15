@@ -1,0 +1,112 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r70/IntegralOriginalBicanonicalRestrictions318.lean:91:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r70/IntegralOriginalBicanonicalRestrictions318.lean:113:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (IntegralRationalFiniteAtlas318.branchEquiv ?c ?i) (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ ?c ?i ?n)
+in the target expression
+  weightedSquare (ContactIntrinsicFrames318.branchEmbedding c i) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralRationalFiniteAtlas318.branchEquiv c i) (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n))
+      ((AlgHomDifferential318.map ↑(IntegralRationalFiniteAtlas318.branchEquiv c i))
+        ((KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i))
+          (IntegralBranchCoordinates318.sourceCoordinate ℚ c i))) =
+    (ConcreteCategory.hom ((tensor c).presheaf.map (homOfLE ⋯).op)) (originalQ c n)
+
+c : Fin 4 → ℚˣ
+i : Fin 4
+n : Fin 2
+this : IsOpenImmersion (Spec.map (CommRingCat.ofHom (↑(IntegralRationalFiniteAtlas318.branchEquiv c i)).toRingHom)) :=
+  spec_algEquiv_open (IntegralRationalFiniteAtlas318.branchEquiv c i)
+transport :
+  (ConcreteCategory.hom ((tensor c).presheaf.map (homOfLE ⋯).op)) (branchQ c i n) =
+    weightedSquare (ContactIntrinsicFrames318.branchEmbedding c i) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralRationalFiniteAtlas318.branchEquiv c i) (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n))
+      ((AlgHomDifferential318.map ↑(IntegralRationalFiniteAtlas318.branchEquiv c i))
+        ((KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i))
+          (IntegralBranchCoordinates318.sourceCoordinate ℚ c i)))
+⊢ weightedSquare (ContactIntrinsicFrames318.branchEmbedding c i) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralRationalFiniteAtlas318.branchEquiv c i) (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n))
+      ((AlgHomDifferential318.map ↑(IntegralRationalFiniteAtlas318.branchEquiv c i))
+        ((KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i))
+          (IntegralBranchCoordinates318.sourceCoordinate ℚ c i))) =
+    (ConcreteCategory.hom ((tensor c).presheaf.map (homOfLE ⋯).op)) (originalQ c n)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    weightedSquare (ContactIntrinsicFrames318.branchEmbedding c i) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralRationalFiniteAtlas318.branchEquiv c i) (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n))
+      ((AlgHomDifferential318.map ↑(IntegralRationalFiniteAtlas318.branchEquiv c i))
+        ((KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i))
+          (IntegralBranchCoordinates318.sourceCoordinate ℚ c i)))
+  has type
+    ↑Γ(IntrinsicTensorSheaf318.tensor
+          (FamilyIntrinsicDifferentials318.omega (ContactIntrinsicDifferentials318.structureMap c))
+          (FamilyIntrinsicDifferentials318.omega (ContactIntrinsicDifferentials318.structureMap c)),
+        ContactIntrinsicFrames318.branchEmbedding c i ''ᵁ ⊤)
+  but is expected to have type
+    ↑((tensor c).presheaf.obj (op (ContactGlobalBicanonical318.opens c (some i))))
+  in the application
+    Eq
+      (weightedSquare (ContactIntrinsicFrames318.branchEmbedding c i) (ContactIntrinsicDifferentials318.structureMap c)
+        ⋯
+        (↑(IntegralRationalFiniteAtlas318.branchEquiv c i) (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n))
+        ((AlgHomDifferential318.map ↑(IntegralRationalFiniteAtlas318.branchEquiv c i))
+          ((KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i))
+            (IntegralBranchCoordinates318.sourceCoordinate ℚ c i))))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r70/IntegralOriginalBicanonicalRestrictions318.lean:127:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r70/IntegralOriginalBicanonicalRestrictions318.lean:149:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (IntegralInfinityOriginalField318.rationalOrderEquiv ?c)
+    (IntegralGlobalBicanonicalPair318.infinityCoefficient ℚ ?c ?n)
+in the target expression
+  weightedSquare (InfinityGlobalScheme318.chartEmbedding c) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralInfinityOriginalField318.rationalOrderEquiv c)
+        (IntegralGlobalBicanonicalPair318.infinityCoefficient ℚ c n))
+      ((AlgHomDifferential318.map ↑(IntegralInfinityOriginalField318.rationalOrderEquiv c))
+        ((KaehlerDifferential.D ℚ (IntegralInfinityChart318.Order ℚ c)) (IntegralInfinityChart318.coordinate ℚ c))) =
+    (ConcreteCategory.hom ((tensor c).presheaf.map (homOfLE ⋯).op)) (originalQ c n)
+
+c : Fin 4 → ℚˣ
+n : Fin 2
+this : IsOpenImmersion
+  (Spec.map (CommRingCat.ofHom (↑(IntegralInfinityOriginalField318.rationalOrderEquiv c)).toRingHom)) :=
+  spec_algEquiv_open (IntegralInfinityOriginalField318.rationalOrderEquiv c)
+transport :
+  (ConcreteCategory.hom ((tensor c).presheaf.map (homOfLE ⋯).op)) (infinityQ c n) =
+    weightedSquare (InfinityGlobalScheme318.chartEmbedding c) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralInfinityOriginalField318.rationalOrderEquiv c)
+        (IntegralGlobalBicanonicalPair318.infinityCoefficient ℚ c n))
+      ((AlgHomDifferential318.map ↑(IntegralInfinityOriginalField318.rationalOrderEquiv c))
+        ((KaehlerDifferential.D ℚ (IntegralInfinityChart318.Order ℚ c)) (IntegralInfinityChart318.coordinate ℚ c)))
+⊢ weightedSquare (InfinityGlobalScheme318.chartEmbedding c) (ContactIntrinsicDifferentials318.structureMap c) ⋯
+      (↑(IntegralInfinityOriginalField318.rationalOrderEquiv c)
+        (IntegralGlobalBicanonicalPair318.infinityCoefficient ℚ c n))
+      ((AlgHomDifferential318.map ↑(IntegralInfinityOriginalField318.rationalOrderEquiv c))
+        ((KaehlerDifferential.D ℚ (IntegralInfinityChart318.Order ℚ c)) (IntegralInfinityChart318.coordinate ℚ c))) =
+    (ConcreteCategory.hom ((tensor c).presheaf.map (homOfLE ⋯).op)) (originalQ c n)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    InfinityGlobalScheme318.chartEmbedding c
+  has type
+    @Quiver.Hom Scheme Scheme.instCategory.toQuiver (ReciprocalInfinityNormalization318.neighborhood c)
+      (Scheme.Hom.normalization (ContactProjectiveModel318.coverMap c))
+  but is expected to have type
+    @Quiver.Hom Scheme Scheme.instCategory.toQuiver (Spec ↧(InfinityOpenChart318.OpenOrder c))
+      (Scheme.Hom.normalization (ContactProjectiveModel318.coverMap c))
+  in the application
+    @weightedSquare (Scheme.Hom.normalization (ContactProjectiveModel318.coverMap c)) ℚ
+      (InfinityOpenChart318.OpenOrder c) Rat.commRing Algebra.TensorProduct.instCommRing
+      Algebra.TensorProduct.leftAlgebra (InfinityGlobalScheme318.chartEmbedding c)

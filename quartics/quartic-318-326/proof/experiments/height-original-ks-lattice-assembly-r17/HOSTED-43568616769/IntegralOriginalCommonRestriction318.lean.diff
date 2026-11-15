@@ -1,0 +1,53 @@
+--- IntegralOriginalCommonRestriction318.lean.before
++++ IntegralOriginalCommonRestriction318.lean
+@@ -12,6 +12,10 @@
+ set_option backward.isDefEq.respectTransparency.types false
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ abbrev OldOverlap := IntegralOverlapChartMaps318.Overlap R c
++
++/-- Cache the existing tensor-overlap ring so all later projections use
++its same inherited semiring operations. -/
++local instance oldOverlapCommRing : CommRing (OldOverlap R c) := inferInstance
+ 
+ /-- Restriction of the actual full finite order to the OLD overlap is the
+ original source restriction conjugated by the explicit signed-root comparison. -/
+@@ -43,19 +47,27 @@
+   rw [finiteRestriction_X]
+   exact (oldY R c).isUnit
+ 
++/-- Use the same unit witness through the ring-hom projection before
++specializing the localization lift on the concrete overlap. -/
++theorem finiteRestriction_ringHom_unit :
++    IsUnit ((finiteRestriction R c).toRingHom
++      (algebraMap R[X] (FiniteOrder R c) X)) := by
++  simpa only [AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom] using
++    (finiteRestriction_unit R c)
++
+ /-- The old overlap maps into the full punctured order by the genuine
+ localization universal property, without discarding any whole-order points. -/
+ @[expose] def commonRestriction : CommonOrder R c →+* OldOverlap R c :=
+   (LocalizedTensorRestriction318.lift (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c).toRingHom (finiteRestriction_unit R c)).comp
++    (finiteRestriction R c).toRingHom (finiteRestriction_ringHom_unit R c)).comp
+       (finiteBaseChange R c).symm.toRingHom
+ 
+ theorem common_finite (a : FiniteOrder R c) :
+     commonRestriction R c (finiteMap R c a)=finiteRestriction R c a := by
+   change LocalizedTensorRestriction318.lift (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c).toRingHom (finiteRestriction_unit R c)
++    (finiteRestriction R c).toRingHom (finiteRestriction_ringHom_unit R c)
+     ((finiteBaseChange R c).symm (finiteBaseChange R c ((1 : Laurent R) ⊗ₜ[R[X]] a))) = _
+   rw [AlgEquiv.symm_apply_apply,LocalizedTensorRestriction318.lift_right]
+ 
+@@ -68,7 +80,8 @@
+ 
+ theorem common_constant (r : R) :
+     commonRestriction R c (algebraMap R (CommonOrder R c) r)=
+-      (algebraMap R (OldOverlap R c) : R →+* OldOverlap R c) r := by
++      (@algebraMap R (OldOverlap R c) (inferInstance : CommSemiring R)
++        (inferInstance : Semiring (OldOverlap R c)) inferInstance) r := by
+   change commonRestriction R c (algebraMap (Laurent R) (CommonOrder R c)
+     (algebraMap R[X] (Laurent R) (C r))) = _
+   rw [←IntegralWholeOrderScalarMaps318.finite_polynomial,common_finite]

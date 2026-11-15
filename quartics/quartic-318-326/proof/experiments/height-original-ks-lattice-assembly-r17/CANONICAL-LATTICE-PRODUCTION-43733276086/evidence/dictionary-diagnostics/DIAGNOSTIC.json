@@ -1,0 +1,60 @@
+{
+  "aggregate_runtime_note": "Replaces the previous two structural probes; unchanged 180 seconds probe wall caps plus setup/cleanup, separate from production cap.",
+  "baseline_or_experiment_accepted": false,
+  "bytes_per_probe": 2097152,
+  "compiled_artifact_absence_checked": true,
+  "full_packet_accepted": false,
+  "full_result_sha256": "67614b6f14f345caa063b31c513e13537ef89627ad26642d37060c31ba85cfdf",
+  "original_source_sha256": "11d365488de375da288b7c3336d34e80f46213393fce57a57373b86ca8df6963",
+  "packet": "height-original-ks-lattice-assembly-r16",
+  "packet_intake_sha256": "af1f9b005979d4b1ba85de7fa6de951f1c5e051ced68437dabd2b2968a13a0ae",
+  "probe_wall_cap_sum_seconds": 180,
+  "production_source_changed": false,
+  "scope": "NON_ADMITTED_COMMON_DICTIONARY_CONVERSION_ONLY",
+  "seconds_per_probe": 90,
+  "strict_flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "variants": [
+    {
+      "admitted": false,
+      "bytes": 32297,
+      "exit_code": 1,
+      "limit": null,
+      "memory": {
+        "peak_hwm_kib": 2882916,
+        "peak_rss_kib": 2882916,
+        "sample_count": 674
+      },
+      "memory_sample_interval_target_seconds": 0.2,
+      "memory_scope": "sampled /proc of spawned Lean PID; not descendants",
+      "proof_acceptance": false,
+      "seconds": 5.613,
+      "source_sha256": "1e012ab6936e495ea63d808791491025d1a8f7f5ba532aebcb67be368d7c6650",
+      "variant": "restricted_dictionary_dsimp"
+    },
+    {
+      "admitted": false,
+      "bytes": 32305,
+      "exit_code": 0,
+      "limit": null,
+      "memory": {
+        "peak_hwm_kib": 2882920,
+        "peak_rss_kib": 2882920,
+        "sample_count": 678
+      },
+      "memory_sample_interval_target_seconds": 0.2,
+      "memory_scope": "sampled /proc of spawned Lean PID; not descendants",
+      "proof_acceptance": false,
+      "seconds": 5.509,
+      "source_sha256": "8bfe67016f2a5a795417ad54f2ad44b344007df2d28742a061f2aa8e5d69e55b",
+      "variant": "instance_transparency_witness"
+    }
+  ],
+  "verification_boundary": "A successful True endpoint means this specialized lift term elaborated; not full commonRestriction, downstream theorem, recursive audit, or production acceptance.",
+  "writes_olean": false
+}

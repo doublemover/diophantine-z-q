@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r17/ScalarLocalSquares318.lean:18:4: error: Type mismatch: After simplification, term
+  hnear
+ has type
+  ‖u ^ 2 - v‖ < (‖2‖ * ‖u‖) ^ 2
+but is expected to have type
+  ‖u ^ 2 - v‖ < (‖1 + 1‖ * ‖u‖) ^ 2
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLT ↦ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r17/ScalarLocalSquares318.lean:31:2: error: linarith failed to find a contradiction
+k : ℤ
+he : 1 ^ 2 - ↑(1 + 8 * k) = -2 ^ 3 * ↑k
+hb : ‖↑k‖ ≤ 1
+a✝ : ‖2‖ ^ 2 ≤ ‖2‖ ^ 3 * ‖↑k‖
+⊢ False
+failed
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r17/ScalarLocalSquares318.lean:29:51: warning: This simp argument is unused:
+  PadicInt.norm_p
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he, norm_mul, norm_neg, norm_pow, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r17/ScalarLocalSquares318.lean:40:35: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖↑?m.128‖
+in the target expression
+  ‖3‖ * ‖↑k‖ < ‖2‖ ^ 2
+
+k : ℤ
+he : 1 ^ 2 - ↑(1 + 3 * k) = -3 * ↑k
+hd : ‖2‖ = 1
+hb : ‖↑k‖ ≤ 1
+⊢ ‖3‖ * ‖↑k‖ < ‖2‖ ^ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r17/ScalarLocalSquares318.lean:52:18: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖↑?m.130‖
+in the target expression
+  ‖17‖ * ‖1 - ↑k‖ < ‖2 * 5‖ ^ 2
+
+k : ℤ
+he : 5 ^ 2 - ↑(8 + 17 * k) = 17 * (1 - ↑k)
+hd : ‖10‖ = 1
+hb : ‖1 - ↑k‖ ≤ 1
+⊢ ‖17‖ * ‖1 - ↑k‖ < ‖2 * 5‖ ^ 2
