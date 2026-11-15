@@ -1,0 +1,171 @@
+{
+  "status": "SOURCE_CANDIDATE_REVIEW_PENDING",
+  "author": "geometry_repair_resume",
+  "production_changes": false,
+  "global_realization_proved": false,
+  "local_lean_run": false,
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "A specified finite-place embedded model M, finite generation, and a nonzero member.",
+      "constructed_input": "M.FG and the actual a0 membership/nonvanishing, not a frame/rank/KS premise.",
+      "justification": "Theorem exists_generator extracts its finite-span witness and augments the set by a0.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "An actual free integral frame of the same M.",
+      "constructed_input": "Maximum-norm generator gamma, proof gamma\u22600, equality lattice(gamma)=M and existing principal basis transported by that equality.",
+      "justification": "Both lattice inclusions are proved from exact norm membership and membership of gamma in M.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "Every excluded finite place; no zero-model or zero-pair exception silently removed.",
+      "constructed_input": "FiniteModels quantifies exactly BadPlace; each model contains nonzero original a0.",
+      "justification": "No frame exists for zero M, but actual a0 rules it out explicitly; no good/bad place is omitted.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "Same field embedding and original valuation integer action.",
+      "constructed_input": "Native lattice/basis and LinearEquiv.ofEq, whose coercion preserves the field element.",
+      "justification": "frame_value records the actual coefficient formula; no alternate completion or rational frame introduced.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "scalars_and_signs",
+      "required_input": "Actual finite norm normalization and every retained bad defect.",
+      "constructed_input": "Existing bounded_iff/mem_iff_norm for the exact finite-place ring.",
+      "justification": "Largest-norm selection is only a basis choice for M; does not equate M with section span or force defect1; no scalar210 or Hodge normalization changed.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Previous ModelFrames interface consumed by the exact original metric-section bridge.",
+      "constructed_input": "modelFrames.model is literally D.model; assembled_bad is the proved exact model equality.",
+      "justification": "The global Hodge/KS maps and metrics remain supplied downstream, not synthesized from this frame.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "exceptional_cases",
+      "required_input": "Finite generation/nonzero prerequisites, arbitrary parameter c and all actual branch labels.",
+      "constructed_input": "All original hn,i,c,t retained.",
+      "justification": "Finite generation is still a displayed geometric assumption; no claim arbitrary infinitely generated submodules are principal.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "downstream_and_history",
+      "required_input": "Previous map and section-defect slices plus original published lattice chain.",
+      "constructed_input": "Source-reviewed map slice reused unchanged; original pair and defects remain unchanged.",
+      "justification": "This is a new frame producer, not a proof of actual global bad model/coherence/Hodge realization or a historical gap claim.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    },
+    {
+      "id": "verification_boundary",
+      "required_input": "Independent source review and reachable hosted whole-module validation.",
+      "constructed_input": "Pinned native APIs, standalone sources/contract only.",
+      "justification": "No local Lean, active packet, resource change, admission, metric construction or proof acceptance.",
+      "source_refs": [
+        "sources/FiniteGeneratedPlaceFrame318.lean",
+        "sources/OriginalFiniteModelFrames318.lean",
+        "primary/PROVENANCE.json"
+      ],
+      "evidence": [
+        "README.md",
+        "primary/ActualFinitePlaceIntegers318.lean",
+        "primary/FinitePlacePrincipalLattice318.lean"
+      ]
+    }
+  ],
+  "bindings": {
+    "package.py": "0d862b1c345e3da68bb2225d157b08ed1781a701789695ca7323e69e68b6cee4",
+    "README.md": "2f0324b2c7a611d9f6e00ea2dfc1e4c3fe02f2371f8e110678eeeafd6ade94c8",
+    "primary/FinitePlacePrincipalImage318.lean": "85273d296be312b73ac3369456414f6f8021430e6a9c2a8c0016890199a20f69",
+    "primary/OriginalModelMapMetricSections318.lean": "a2634dfa5411b1b797989c64d3d3d88347d1ce4073523d723973a8be085700d9",
+    "primary/Mathlib_Order_ConditionallyCompleteLattice_Finset.lean": "db9e6bb99a387d2b8f594c74612de8e5ba2648e7b34a758227f2024d442ebbf4",
+    "primary/OriginalExcludedModelFrames318.lean": "fa7b957a12c63e2c4f630361226250f23975dcbb8717c9585993a1511e2b7332",
+    "primary/Mathlib_RingTheory_Finiteness_Basic.lean": "704734b7dbe3ace88c1302bca72a629483a70bff40e210dcbc31e96ba54866ce",
+    "primary/Mathlib_RingTheory_Finiteness_Defs.lean": "aa5c6c53c292d0fa6688419fefdd97182605d6dd1bc3bfd898846e9fe8262c36",
+    "primary/EmbeddedLatticeFrames318.lean": "cffcf8d786d33280a262dee132d6633c37a1133116193618dcdf880e44bb25e5",
+    "primary/FinitePlacePrincipalLattice318.lean": "7eded964cd384c001c614373e6b85ae46300569f2001495aff4cfbaf2bfbdbca",
+    "primary/ActualFinitePlaceIntegers318.lean": "0535c4bf22fb78d3a790eb2a7ecb055aab4b20967a48983d2d013e20203e1c43",
+    "primary/Mathlib_Algebra_Module_Submodule_Equiv.lean": "12d18d55d3b5a01c63386566a3797fb3ddc4b6ea78873226cd93a8a80a65e6b9",
+    "primary/PROVENANCE.json": "38cee5d42fe5b2273595ff67928a1078feb89e81a2668aaad9f6ddb90b365b14",
+    "primary/Mathlib_Data_Finset_Max.lean": "620b0e39a5a7d623087b9e9777d85281321f99c501600048c9154d42aaf01a7d",
+    "sources/OriginalFiniteModelFrames318.lean": "c0760f0d2123303c8da1a86cf5a79b543f879ec416a2ddbeb42a3291e4417465",
+    "sources/FiniteGeneratedPlaceFrame318.lean": "a2c36d3d8599ae5e27fe0d0eac8bd62763e84abe79f53b2676149a7bd89e2ed6"
+  }
+}

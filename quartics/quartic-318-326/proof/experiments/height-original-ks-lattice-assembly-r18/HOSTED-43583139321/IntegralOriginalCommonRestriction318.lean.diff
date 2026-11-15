@@ -1,0 +1,27 @@
+--- IntegralOriginalCommonRestriction318.lean.before
++++ IntegralOriginalCommonRestriction318.lean
+@@ -88,16 +88,19 @@
+ /-- The old overlap maps into the full punctured order by the genuine
+ localization universal property, without discarding any whole-order points. -/
+ @[expose] def commonRestriction : CommonOrder R c →+* OldOverlap R c :=
+-  (liftOfAlgHomUnit (k := R) (A := R[X]) (L := Laurent R)
++  let lift := liftOfAlgHomUnit (k := R) (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c) (oldY R c) (finiteRestriction_X R c)).comp
+-      (finiteBaseChange R c).symm.toRingHom
++    (finiteRestriction R c) (oldY R c)
++  let hX := finiteRestriction_X R c
++  (lift hX).comp (finiteBaseChange R c).symm.toRingHom
+ 
+ theorem common_finite (a : FiniteOrder R c) :
+     commonRestriction R c (finiteMap R c a)=finiteRestriction R c a := by
+-  change liftOfAlgHomUnit (k := R) (A := R[X]) (L := Laurent R)
++  let lift := liftOfAlgHomUnit (k := R) (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c) (oldY R c) (finiteRestriction_X R c)
++    (finiteRestriction R c) (oldY R c)
++  have hX := finiteRestriction_X R c
++  change lift hX
+     ((finiteBaseChange R c).symm (finiteBaseChange R c ((1 : Laurent R) ⊗ₜ[R[X]] a))) = _
+   rw [AlgEquiv.symm_apply_apply,liftOfAlgHomUnit_right]
+ 
