@@ -1,0 +1,82 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:29:40: error: Application type mismatch: The argument
+  mul_comm ?m.70 ?m.71
+has type
+  @HMul.hMul ?m.68 ?m.68 ?m.68 (@instHMul ?m.68 CommMagma.toMul) ?m.70 ?m.71 = ?m.71 * ?m.70
+but is expected to have type
+  @HMul.hMul (Dual R)ˣ (Dual R)ˣ (Dual R)ˣ (@instHMul (Dual R)ˣ Group.toDivisionMonoid.toMulOneClass.toMulOne.toMul)
+      ((lift R) ((coefficient R) w))⁻¹ ((lift R) ((coefficient R) z))⁻¹ =
+    ((lift R) ((coefficient R) z))⁻¹ * ((lift R) ((coefficient R) w))⁻¹
+in the application
+  congrArg (fun a => a * (z * w)) (mul_comm ?m.70 ?m.71)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:22:14: error: (kernel) declaration has metavariables 'DualUnitFactorization318.normalized'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:32:6: error: (kernel) application type mismatch
+  id
+    (Eq.mpr (id (congrArg (fun _a => _a = 1) (map_mul (coefficient R) ((lift R) ((coefficient R) z))⁻¹ z)))
+      (Eq.mpr
+        (id (congrArg (fun _a => _a * (coefficient R) z = 1) (map_inv (coefficient R) ((lift R) ((coefficient R) z)))))
+        (Eq.mpr (id (congrArg (fun _a => _a⁻¹ * (coefficient R) z = 1) (coefficient_lift R ((coefficient R) z))))
+          (Eq.mpr (id (congrArg (fun _a => _a = 1) (inv_mul_cancel ((coefficient R) z)))) (Eq.refl 1)))))
+argument has type
+  (coefficient R) (((lift R) ((coefficient R) z))⁻¹ * z) = 1
+but function has type
+  (coefficient R) ((normalized R) z) = 1 → (coefficient R) ((normalized R) z) = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:38:6: error: (kernel) application type mismatch
+  id
+    (of_eq_true
+      (Eq.trans (congrFun' (congrArg Eq (mul_inv_cancel_left ((lift R) ((coefficient R) z)) z)) z) (eq_self z)))
+argument has type
+  (lift R) ((coefficient R) z) * (((lift R) ((coefficient R) z))⁻¹ * z) = z
+but function has type
+  (lift R) ((coefficient R) z) * (normalized R) z = z → (lift R) ((coefficient R) z) * (normalized R) z = z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:42:14: error: (kernel) application type mismatch
+  id
+    (Eq.mpr (id (congrArg (fun _a => ((lift R) _a)⁻¹ * unit R a = unit R a) (coefficient_unit R a)))
+      (Eq.mpr (id (congrArg (fun _a => _a⁻¹ * unit R a = unit R a) (map_one (lift R))))
+        (Eq.mpr (id (congrArg (fun _a => _a * unit R a = unit R a) inv_one))
+          (Eq.mpr (id (congrArg (fun _a => _a = unit R a) (one_mul (unit R a)))) (Eq.refl (unit R a))))))
+argument has type
+  ((lift R) ((coefficient R) (unit R a)))⁻¹ * unit R a = unit R a
+but function has type
+  (normalized R) (unit R a) = unit R a → (normalized R) (unit R a) = unit R a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:47:14: error: (kernel) application type mismatch
+  id
+    (Eq.mpr (id (congrArg (fun _a => ((lift R) _a)⁻¹ * (lift R) a = 1) (coefficient_lift R a)))
+      (Eq.mpr (id (congrArg (fun _a => _a = 1) (inv_mul_cancel ((lift R) a)))) (Eq.refl 1)))
+argument has type
+  ((lift R) ((coefficient R) ((lift R) a)))⁻¹ * (lift R) a = 1
+but function has type
+  (normalized R) ((lift R) a) = 1 → (normalized R) ((lift R) a) = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r23/DualUnitFactorization318.lean:67:6: error: (kernel) application type mismatch
+  id
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => ((lift S) ((coefficient S) ((Units.map ↑(map R f)) z)))⁻¹ * (Units.map ↑(map R f)) z = _a)
+          (map_mul (Units.map ↑(map R f)) ((lift R) ((coefficient R) z))⁻¹ z)))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              ((lift S) ((coefficient S) ((Units.map ↑(map R f)) z)))⁻¹ * (Units.map ↑(map R f)) z =
+                _a * (Units.map ↑(map R f)) z)
+            (map_inv (Units.map ↑(map R f)) ((lift R) ((coefficient R) z)))))
+        (Eq.mpr
+          (id
+            (congrArg
+              (fun _a =>
+                ((lift S) _a)⁻¹ * (Units.map ↑(map R f)) z =
+                  ((Units.map ↑(map R f)) ((lift R) ((coefficient R) z)))⁻¹ * (Units.map ↑(map R f)) z)
+              (coefficient_natural R f z)))
+          (Eq.mpr
+            (id
+              (congrArg
+                (fun _a =>
+                  ((lift S) ((Units.map ↑f) ((coefficient R) z)))⁻¹ * (Units.map ↑(map R f)) z =
+                    _a⁻¹ * (Units.map ↑(map R f)) z)
+                (lift_natural R f ((coefficient R) z))))
+            (Eq.refl (((lift S) ((Units.map ↑f) ((coefficient R) z)))⁻¹ * (Units.map ↑(map R f)) z))))))
+argument has type
+  ((lift S) ((coefficient S) ((Units.map ↑(map R f)) z)))⁻¹ * (Units.map ↑(map R f)) z =
+    (Units.map ↑(map R f)) (((lift R) ((coefficient R) z))⁻¹ * z)
+but function has type
+  (normalized S) ((Units.map ↑(map R f)) z) = (Units.map ↑(map R f)) ((normalized R) z) →
+    (normalized S) ((Units.map ↑(map R f)) z) = (Units.map ↑(map R f)) ((normalized R) z)

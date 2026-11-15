@@ -1,0 +1,51 @@
+--- before
++++ after
+@@ -14,8 +14,12 @@
+ lemma square_of_near_square (p : ℕ) [Fact p.Prime] (u v : ℤ_[p])
+     (hnear : ‖u^2-v‖< ‖2*u‖^2) : IsSquare v := by
+   let F : Polynomial ℤ_[p] := X^2-C v
++  have hF (x : ℤ_[p]) : F.aeval x=x^2-v := by simp [F]
++  have hd : F.derivative.aeval u=2*u := by
++    simp [F] <;> ring
+   have hn : ‖F.aeval u‖< ‖F.derivative.aeval u‖^2 := by
+-    simpa [F] using hnear
++    rw [hF,hd]
++    exact hnear
+   obtain ⟨z,hz,_⟩ := hensels_lemma hn
+   have he : z^2=v := sub_eq_zero.mp (by simpa [F] using hz)
+   exact ⟨z,by simpa only [pow_two] using he.symm⟩
+@@ -26,7 +30,9 @@
+     push_cast
+     ring
+   have hb : ‖(k:ℤ_[2])‖≤1 := PadicInt.norm_le_one _
+-  simp only [he,norm_mul,norm_neg,norm_pow,mul_one,PadicInt.norm_p]
++  have hp : ‖(2:ℤ_[2])‖=(2:ℝ)⁻¹ := by
++    simpa only [Nat.cast_ofNat] using (PadicInt.norm_p (p:=2))
++  simp only [he,norm_mul,norm_neg,norm_pow,mul_one,hp]
+   norm_num
+   nlinarith
+ 
+@@ -37,7 +43,9 @@
+     ring
+   have hd : ‖(2:ℤ_[3])‖=1 := PadicInt.norm_natCast_eq_one_iff.mpr (by decide)
+   have hb : ‖(k:ℤ_[3])‖≤1 := PadicInt.norm_le_one _
+-  rw [he,norm_mul,norm_neg,mul_one,PadicInt.norm_p,hd]
++  have hp : ‖(3:ℤ_[3])‖=(3:ℝ)⁻¹ := by
++    simpa only [Nat.cast_ofNat] using (PadicInt.norm_p (p:=3))
++  rw [he,norm_mul,norm_neg,mul_one,hp,hd]
+   norm_num
+   nlinarith
+ 
+@@ -49,8 +57,10 @@
+     ring
+   have hd : ‖(10:ℤ_[17])‖=1 := PadicInt.norm_natCast_eq_one_iff.mpr (by decide)
+   have hb : ‖1-(k:ℤ_[17])‖≤1 := PadicInt.norm_le_one _
+-  rw [he,norm_mul,PadicInt.norm_p]
+-  norm_num only [show (2:ℤ_[17])*5=10 by norm_num,hd,one_pow]
++  have hp : ‖(17:ℤ_[17])‖=(17:ℝ)⁻¹ := by
++    simpa only [Nat.cast_ofNat] using (PadicInt.norm_p (p:=17))
++  rw [he,norm_mul,hp,show (2:ℤ_[17])*5=10 by norm_num,hd]
++  norm_num only [one_pow]
+   norm_num
+   nlinarith
+ 

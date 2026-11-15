@@ -1,0 +1,24 @@
+--- before/ContactWholeChartRestrictionInjective318.lean
++++ after/ContactWholeChartRestrictionInjective318.lean
+@@ -77,9 +77,19 @@
+   · change L.object.presheaf.map (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op s =
+       L.object.presheaf.map (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op t
+     apply finite_original_injective c L
+-    simpa only [← Functor.map_comp_apply] using h
++    have hc :
++        (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op ≫
++          (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ finiteOpen c from inf_le_left)).op =
++        (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ ⊤ from le_top)).op :=
++      Subsingleton.elim _ _
++    simpa only [← Functor.map_comp_apply,hc] using h
+   · change L.object.presheaf.map (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op s =
+       L.object.presheaf.map (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op t
+     apply infinity_original_injective c L
+-    simpa only [← Functor.map_comp_apply] using h
++    have hc :
++        (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op ≫
++          (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ infinityOpen c from inf_le_right)).op =
++        (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ ⊤ from le_top)).op :=
++      Subsingleton.elim _ _
++    simpa only [← Functor.map_comp_apply,hc] using h
+ end ContactWholeChartRestrictionInjective318
