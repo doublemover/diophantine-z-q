@@ -1,0 +1,10 @@
+--- before/PELOriginalGaugedTheta318.lean
++++ after/PELOriginalGaugedTheta318.lean
+@@ -20,6 +20,7 @@
+     ((continuousBilinear τ).analyticOnNhd_bilinear Set.univ).contDiff.comp
+       (contDiff_id.prodMk contDiff_id)
+   exact Complex.contDiff_exp.comp (contDiff_const.mul hb)
++include hτ in
+ lemma gauged_differentiable:Differentiable ℂ (gaugedTheta τ (bilinearMap τ)):=
+   ((gauge_smooth τ).differentiable (by simp)).mul (PELOriginalThetaHolomorphy318.holomorphic τ hτ)
+ 

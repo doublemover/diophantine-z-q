@@ -1,0 +1,203 @@
+--- before/PELGlobalIntegralUnitLifts318.lean
++++ sources/PELGlobalIntegralUnitLifts318.lean
+@@ -36,7 +36,7 @@
+     reduction (generator j:order)=finiteGenerator j := by
+   change reduction (coordinatesEquiv (generatorCoefficients j))=_
+   rw [reduction_coordinates]
+-  fin_cases j <;> ext <;> norm_num [generatorCoefficients,reduceCoordinates,finiteGenerator]
++  fin_cases j <;> ext <;> norm_num [generatorCoefficients,reduceCoordinates,finiteGenerator] <;> decide
+ 
+ @[expose] def globalWord (k : Fin 8) (a b : Fin 3) : orderˣ :=
+   generator 0^k.val*generator 1^a.val*generator 2^b.val
+@@ -45,7 +45,7 @@
+ 
+ theorem word_reduction (k : Fin 8) (a b : Fin 3) :
+     reduction (globalWord k a b:order)=finiteWord k a b := by
+-  simp only [globalWord,finiteWord,Units.val_mul,Units.val_pow,map_mul,map_pow,generator_reduction]
++  simp only [globalWord,finiteWord,Units.val_mul,Units.val_pow_eq_pow_val,map_mul,map_pow,generator_reduction]
+ 
+ /-- All72 finite units have explicit original integral unit lifts. The
+ norm−1 generator is retained; this is NOT norm-one-unit surjectivity onto72. -/
+@@ -55,101 +55,101 @@
+   fin_cases r <;> fin_cases u <;> fin_cases j <;> fin_cases v
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
+-  · exact ⟨6,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨6,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨6,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
++  · exact ⟨6,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨6,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨6,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
+-  · exact ⟨6,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨6,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨6,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
++  · exact ⟨6,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨6,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨6,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue]
+-  · exact ⟨6,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨6,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨6,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨2,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨0,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨5,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨7,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨4,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨3,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
+-  · exact ⟨1,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two]⟩
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> decide
++  · exact ⟨6,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨6,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨6,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨2,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨0,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨5,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨7,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨4,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨3,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
++  · exact ⟨1,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> decide⟩
+ end PELGlobalIntegralUnitLifts318

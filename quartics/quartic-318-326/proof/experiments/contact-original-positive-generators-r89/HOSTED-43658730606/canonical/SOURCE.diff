@@ -1,0 +1,22 @@
+--- before/ContactOriginalLineCohomologyFinite318.lean
++++ after/ContactOriginalLineCohomologyFinite318.lean
+@@ -12,11 +12,15 @@
+ instance : Module ℚ (Sheaf.H (additive L) 0) :=
+   OriginalLineRationalCohomology318.cohomologyModule (ContactIntrinsicDifferentials318.structureMap c) L 0
+ 
+-def degreeZeroLinear : Sheaf.H (additive L) 0 →ₗ[ℚ] Γ(L.object,⊤) :=
+-  (Sheaf.H.equiv₀ (additive L) CategoryTheory.Limits.isTerminalTop).toAddMonoidHom.toRatLinearMap
++def degreeZeroLinear : Sheaf.H (additive L) 0 →ₗ[ℚ] Γ(L.object,⊤) := by
++  let e : Sheaf.H (additive L) 0 ≃+ Γ(L.object,⊤) :=
++    Sheaf.H.equiv₀ (additive L) CategoryTheory.Limits.isTerminalTop
++  exact e.toAddMonoidHom.toRatLinearMap
+ 
+-lemma degreeZero_injective : Function.Injective (degreeZeroLinear c L) :=
+-  (Sheaf.H.equiv₀ (additive L) CategoryTheory.Limits.isTerminalTop).injective
++lemma degreeZero_injective : Function.Injective (degreeZeroLinear c L) := by
++  change Function.Injective
++    (Sheaf.H.equiv₀ (additive L) CategoryTheory.Limits.isTerminalTop)
++  exact (Sheaf.H.equiv₀ (additive L) CategoryTheory.Limits.isTerminalTop).injective
+ 
+ instance finite_h0 : FiniteDimensional ℚ (Sheaf.H (additive L) 0) :=
+   FiniteDimensional.of_injective (degreeZeroLinear c L) (degreeZero_injective c L)

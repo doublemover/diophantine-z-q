@@ -1,0 +1,3 @@
+# Separate theta positivity readiness preflight
+
+Three source candidates add exactly eleven include hτ in lines. This deliberately restores the same existing positivity hypothesis to eleven public theorem telescopes. Every definition, map, proof body, domain and resource option remains exact. The immediate consumers already supply τ hτ. This is preventive, unobserved and uncompiled; the preceding ThetaConvergence artifact is analogous evidence only. There is no intake and no active repository modification. Current ten-successor proof/tooling freeze remains untouched. Independent review and later explicit propagation gates are required. Other later theta scopes may still have the same issue; this bounded audit does not claim comprehensive cleanup.

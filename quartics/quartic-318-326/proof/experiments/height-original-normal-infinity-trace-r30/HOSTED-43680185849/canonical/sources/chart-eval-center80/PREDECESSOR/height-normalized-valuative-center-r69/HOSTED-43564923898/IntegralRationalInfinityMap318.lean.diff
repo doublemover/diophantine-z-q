@@ -1,0 +1,20 @@
+--- IntegralRationalInfinityMap318.lean.before
++++ IntegralRationalInfinityMap318.lean
+@@ -126,7 +126,7 @@
+     (originalEmbedding c) ?_ ?_
+   · have hX := (IntegralRationalInfinityCoordinate318.reciprocal_coordinate c).trans
+       (original_coordinate c).symm
+-    simpa only [RingHom.comp_apply, AlgHom.coe_toRingHom] using hX
++    simpa only [RingHom.comp_apply, AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom] using hX
+   · intro j
+     -- Unfold only this named composite, rather than asking defeq to reconstruct
+     -- its nested field embedding while checking an expected transitivity goal.
+@@ -138,7 +138,7 @@
+         (rationalOrderEquiv c (infinityGenerator ℚ c j)) = _
+       rw [rationalOrderEquiv_generator, InfinityOrderCoordinates318.generator_embedding]
+     have h := (generator_original_field c j).trans hroot.symm
+-    simpa only [RingHom.comp_apply, AlgHom.coe_toRingHom] using h
++    simpa only [RingHom.comp_apply, AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom] using h
+ 
+ /-- The full infinity restriction commutes with the original rational atlas.
+ The proof uses all generators and injectivity of the ORIGINAL open embedding. -/

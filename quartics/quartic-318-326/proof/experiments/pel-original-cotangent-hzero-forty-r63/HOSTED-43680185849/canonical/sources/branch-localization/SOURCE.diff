@@ -1,0 +1,63 @@
+--- baseline/FourRootActualBranchLocalization318.lean
++++ after/FourRootActualBranchLocalization318.lean
+@@ -78,25 +78,42 @@
+     (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]
+   rw [←IsScalarTower.algebraMap_apply ℂ[X] (BranchBase b i) (OpenBase b i)]
+ 
+-/-- Complex scalars act through the genuine polynomial/OpenBase tower.
+-Use the existing scalar actions instead of replacing tensor scalar dictionaries. -/
+-local instance sourceTower : IsScalarTower ℂ (FourRootActualFractionField318.A b) (OpenOrder b i):=by
+-  refine ⟨fun c a z=>?_⟩
+-  change sourceMap b i (c • a)*z=c • (sourceMap b i a*z)
+-  have hca:(c • a:FourRootActualFractionField318.A b)=
+-      algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c)*a:=
+-    (IsScalarTower.algebraMap_smul (R:=ℂ) ℂ[X] c a).symm
+-  have hc:=sourceMap_on_polynomial b i (C c)
+-  change sourceMap b i (algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c))=
+-    algebraMap (OpenBase b i) (OpenOrder b i)
+-      (algebraMap ℂ[X] (OpenBase b i) (algebraMap ℂ ℂ[X] c)) at hc
+-  rw [←IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenBase b i)] at hc
+-  rw [hca,map_mul,hc,mul_assoc]
++/-- Abstract proof with the EXISTING R-actions supplied independently.
++No Algebra.toSMul dictionary for R on A or B is substituted. The concrete
++sourceTower below applies this opaque lemma instead of kernel-checking a
++large expanded quotient/tensor proof term. -/
++private theorem scalarTowerFromCompatibleMap
++    (R P A C B:Type*) [CommRing R] [CommRing P] [CommRing A]
++    [CommRing C] [CommRing B] [Algebra R P] [Algebra P A]
++    [SMul R A] [IsScalarTower R P A] [Algebra R C] [Algebra C B]
++    [SMul R B] [IsScalarTower R C B] [Algebra A B]
++    (hmap:∀r:R,algebraMap A B (algebraMap P A (algebraMap R P r))=
++      algebraMap C B (algebraMap R C r)):IsScalarTower R A B:=by
++  refine ⟨fun r a z=>?_⟩
++  change algebraMap A B (r • a)*z=r • (algebraMap A B a*z)
++  have hca:(r • a:A)=algebraMap P A (algebraMap R P r)*a:=
++    (IsScalarTower.algebraMap_smul (R:=R) P r a).symm
++  rw [hca,map_mul,hmap,mul_assoc]
+   calc
+-    _=(algebraMap ℂ (OpenBase b i) c) • (sourceMap b i a*z) :=
+-      (Algebra.smul_def _ _).symm
+-    _=c • (sourceMap b i a*z) :=
+-      IsScalarTower.algebraMap_smul (R:=ℂ) (OpenBase b i) c (sourceMap b i a*z)
++    _=(algebraMap R C r) • (algebraMap A B a*z):=(Algebra.smul_def _ _).symm
++    _=r • (algebraMap A B a*z):=
++      IsScalarTower.algebraMap_smul (R:=R) C r (algebraMap A B a*z)
++
++/-- The already proved polynomial-map square specialized to actual complex
++scalars; the original map and both scalar actions are unchanged. -/
++lemma sourceMap_on_complex (c:ℂ):
++    sourceMap b i (algebraMap ℂ[X] (FourRootActualFractionField318.A b)
++      (algebraMap ℂ ℂ[X] c))=
++      algebraMap (OpenBase b i) (OpenOrder b i) (algebraMap ℂ (OpenBase b i) c):=by
++  have h:=sourceMap_on_polynomial b i (algebraMap ℂ ℂ[X] c)
++  rw [←IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenBase b i)] at h
++  exact h
++
++/-- The same genuine source tower, proved by typed opaque helper application
++rather than expanding its full quotient/tensor dictionaries in one proof. -/
++local instance sourceTower : IsScalarTower ℂ (FourRootActualFractionField318.A b) (OpenOrder b i):=
++  scalarTowerFromCompatibleMap ℂ ℂ[X] (FourRootActualFractionField318.A b)
++    (OpenBase b i) (OpenOrder b i) (sourceMap_on_complex b i)
+ 
+ /-- Name the SAME source-linear localization equivalence before restricting
+ scalars, so later coherence checks reuse this exact map instead of expanding

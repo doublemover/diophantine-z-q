@@ -1,0 +1,195 @@
+{
+  "packet": "height-original-finite-dual-cofactor-r6",
+  "status": "UNACCEPTED_HOSTED_EXPERIMENT",
+  "order": [
+    "QuadraticFiniteDual318",
+    "TensorFiniteDual318",
+    "DVRTwistSquareNormalization318",
+    "IntegralInfinityChart318",
+    "IntegralBranchChart318",
+    "IntegralSourceBranches318",
+    "IntegralValuativeRootCoordinates318",
+    "DVRNormalizedContactPoint318",
+    "IntegralRootPointMaps318",
+    "DVRNormalizedFiniteOrder318",
+    "NormalizedOrderFiniteDual318",
+    "RingValuedCotangentEvaluation318",
+    "NormalizedCofactorFirstOrder318",
+    "NormalizedCofactorAlgebraJet318",
+    "NormalizedCofactorSourceDerivation318",
+    "NormalizedSourceConormalRelations318",
+    "NormalizedFiniteProjectionCotangent318"
+  ],
+  "files": {
+    "QuadraticFiniteDual318.lean": {
+      "sha256": "684722ae3f700634a68373b3209b33bff1cc81f4273001c992861bdc7f958f63",
+      "imports": [
+        "Mathlib.LinearAlgebra.Dual.Defs",
+        "QuadraticPresentation318"
+      ]
+    },
+    "TensorFiniteDual318.lean": {
+      "sha256": "6fc84a63ceadd71f04782b2a20d8a08917ad3e7fb71a4ef4df80beda9c9f306b",
+      "imports": [
+        "Mathlib.LinearAlgebra.Contraction",
+        "Mathlib.RingTheory.TensorProduct.Finite"
+      ]
+    },
+    "DVRTwistSquareNormalization318.lean": {
+      "sha256": "8a73e62e8d0817576a8fcedc26cf4a62d3fb92a997c9a12b6b71490b34e435d4",
+      "imports": [
+        "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    "IntegralInfinityChart318.lean": {
+      "sha256": "c5fede47e5f22679047c957399902d0c9620d72ffe3ddb1a0a88e02c78465554",
+      "imports": [
+        "LocalizedKaehlerFrame318",
+        "Mathlib.RingTheory.Kaehler.Polynomial",
+        "Mathlib.RingTheory.Localization.Away.Basic",
+        "ThreeRootOrder318"
+      ]
+    },
+    "IntegralBranchChart318.lean": {
+      "sha256": "0a323f90792e48b98b69417a43151c5d0c08b2dfc4abf5a4f9e7491e812b97d2",
+      "imports": [
+        "LinearRootCoordinate318",
+        "ThreeRootOrder318"
+      ]
+    },
+    "IntegralSourceBranches318.lean": {
+      "sha256": "0d87449b0325bc15a780e9802d7f460f8c9843cb7f143183b3ac8b2edac9cd91",
+      "imports": [
+        "FourRootPivot318",
+        "IntegralBranchChart318"
+      ]
+    },
+    "IntegralValuativeRootCoordinates318.lean": {
+      "sha256": "569a7e83bc2f6a9152f74c190ddecd35da99af34c67a10d4a7cdf96332474f07",
+      "imports": [
+        "IntegralInfinityChart318",
+        "IntegralSourceBranches318",
+        "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed",
+        "Mathlib.RingTheory.Valuation.ValuationRing"
+      ]
+    },
+    "DVRNormalizedContactPoint318.lean": {
+      "sha256": "3c3c92ecd5c477dca326687d21dfbe60d2709680340b963bbb3b9280d1f7072e",
+      "imports": [
+        "DVRTwistSquareNormalization318",
+        "IntegralValuativeRootCoordinates318"
+      ]
+    },
+    "IntegralRootPointMaps318.lean": {
+      "sha256": "dfeb23cc316957ecb180b558066dc5c622e8b5b2e9b18a5e76d743d7ee42125b",
+      "imports": [
+        "FourRootSignBaseChange318",
+        "ThreeRootCoordinates318"
+      ]
+    },
+    "DVRNormalizedFiniteOrder318.lean": {
+      "sha256": "ce71b36bbe38dbf6aea169b878b6615965c111b4cdfde302fdfed835e511c261",
+      "imports": [
+        "DVRNormalizedContactPoint318",
+        "IntegralRootPointMaps318"
+      ]
+    },
+    "NormalizedOrderFiniteDual318.lean": {
+      "sha256": "e75fa599eed847c5ffe8b36ec095e86521362668bf193a74dd68fece8c088fb7",
+      "imports": [
+        "DVRNormalizedFiniteOrder318",
+        "QuadraticFiniteDual318",
+        "TensorFiniteDual318"
+      ]
+    },
+    "RingValuedCotangentEvaluation318.lean": {
+      "sha256": "16ed24d277f8ccc864250157e1f380dc996e1bac958a39717578fa4b55d7bf15",
+      "imports": [
+        "Mathlib.Algebra.TrivSqZeroExt.Basic",
+        "Mathlib.LinearAlgebra.TensorProduct.Tower",
+        "Mathlib.RingTheory.Kaehler.Basic"
+      ]
+    },
+    "NormalizedCofactorFirstOrder318.lean": {
+      "sha256": "124f197327ced7cc3b8247df16c1210c08e7bd037e1207e9f89c711f07ef2d40",
+      "imports": [
+        "DVRNormalizedFiniteOrder318",
+        "IntegralRootPointMaps318",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "RingValuedCotangentEvaluation318"
+      ]
+    },
+    "NormalizedCofactorAlgebraJet318.lean": {
+      "sha256": "572f31ef73840330a1d20e865d223d7ac69698966784d8dd24b2877b1b7a392d",
+      "imports": [
+        "NormalizedCofactorFirstOrder318"
+      ]
+    },
+    "NormalizedCofactorSourceDerivation318.lean": {
+      "sha256": "f960b66564d8288168d457d28c382d14fa22f8f04806f0aa0ba00664d03c03eb",
+      "imports": [
+        "LocalizationDerivation318",
+        "NormalizedCofactorAlgebraJet318"
+      ]
+    },
+    "NormalizedSourceConormalRelations318.lean": {
+      "sha256": "e26b68cbd1a222e68f1317d95e4ca7187e42e88b19168f5cc1ec133df0aa68bd",
+      "imports": [
+        "NormalizedCofactorSourceDerivation318"
+      ]
+    },
+    "NormalizedFiniteProjectionCotangent318.lean": {
+      "sha256": "dde7ed7b0d2161f292e91fbefd8ed6fa9dbe25e5f8b6b3943c5a6712e3b2940f",
+      "imports": [
+        "Mathlib.RingTheory.Kaehler.Polynomial",
+        "NormalizedOrderFiniteDual318",
+        "NormalizedSourceConormalRelations318"
+      ]
+    }
+  },
+  "first_hosted_run": false,
+  "closure_sources": 36,
+  "baseline_closure_sources": 19,
+  "revision_of": "height-original-finite-dual-cofactor-r5",
+  "new_modules": [],
+  "revised_modules": [
+    "NormalizedCofactorFirstOrder318"
+  ],
+  "reused_modules": [
+    "QuadraticFiniteDual318",
+    "TensorFiniteDual318",
+    "DVRTwistSquareNormalization318",
+    "IntegralInfinityChart318",
+    "IntegralBranchChart318",
+    "IntegralSourceBranches318",
+    "IntegralValuativeRootCoordinates318",
+    "DVRNormalizedContactPoint318",
+    "IntegralRootPointMaps318",
+    "DVRNormalizedFiniteOrder318",
+    "NormalizedOrderFiniteDual318",
+    "RingValuedCotangentEvaluation318",
+    "NormalizedCofactorAlgebraJet318",
+    "NormalizedCofactorSourceDerivation318",
+    "NormalizedSourceConormalRelations318",
+    "NormalizedFiniteProjectionCotangent318"
+  ],
+  "unchanged_predecessor_modules": [
+    "QuadraticFiniteDual318",
+    "TensorFiniteDual318",
+    "DVRTwistSquareNormalization318",
+    "IntegralInfinityChart318",
+    "IntegralBranchChart318",
+    "IntegralSourceBranches318",
+    "IntegralValuativeRootCoordinates318",
+    "DVRNormalizedContactPoint318",
+    "IntegralRootPointMaps318",
+    "DVRNormalizedFiniteOrder318",
+    "NormalizedOrderFiniteDual318",
+    "RingValuedCotangentEvaluation318",
+    "NormalizedCofactorAlgebraJet318",
+    "NormalizedCofactorSourceDerivation318",
+    "NormalizedSourceConormalRelations318",
+    "NormalizedFiniteProjectionCotangent318"
+  ]
+}

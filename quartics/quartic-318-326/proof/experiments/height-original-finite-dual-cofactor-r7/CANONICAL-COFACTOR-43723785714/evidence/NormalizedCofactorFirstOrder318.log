@@ -1,0 +1,124 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:71:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:77:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:84:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:96:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f (FourRootOrderSigns318.generator p ?i)
+in the target expression
+  (rootJet V d z i).fst = f.toRingHom (FourRootOrderSigns318.generator p i)
+
+case hz
+V : Type u_1
+inst✝ : CommRing V
+d a : Fin 4 → V
+T : V
+z : Fin 4 → V
+hz : ∀ (i : Fin 4), z i ^ 2 = d i * (T - a i)
+f : A →ₐ[V] V
+hf : ∀ (q : V[X]), f ((algebraMap V[X] A) q) = eval T q
+hr : ∀ (i : Fin 4), f (FourRootOrderSigns318.generator p i) = z i
+x : A
+this : Algebra V[X] V := (evalRingHom T).toAlgebra
+i : Fin 4
+⊢ (rootJet V d z i).fst = f.toRingHom (FourRootOrderSigns318.generator p i)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:116:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:117:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (RingValuedCotangentEvaluation318.integralFiberMap ?V ?«A» ?K ?f ?L ?hL)
+    (1 ⊗ₜ[?«A»] (KaehlerDifferential.D ?V ?«A») ?a)
+in the target expression
+  (RingValuedCotangentEvaluation318.integralFiberMap V A V f (lift V d a T z hz) ⋯)
+      (1 ⊗ₜ[A] (KaehlerDifferential.D V A) ((algebraMap V[X] A) X)) =
+    factor V z
+
+V : Type u_1
+inst✝ : CommRing V
+d a : Fin 4 → V
+T : V
+z : Fin 4 → V
+hz : ∀ (i : Fin 4), z i ^ 2 = d i * (T - a i)
+f : A →ₐ[V] V
+hf : ∀ (q : V[X]), f ((algebraMap V[X] A) q) = eval T q
+hr : ∀ (i : Fin 4), f (FourRootOrderSigns318.generator p i) = z i
+this : Algebra A V := f.toAlgebra
+⊢ (RingValuedCotangentEvaluation318.integralFiberMap V A V f (lift V d a T z hz) ⋯)
+      (1 ⊗ₜ[A] (KaehlerDifferential.D V A) ((algebraMap V[X] A) X)) =
+    factor V z
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    projection V d a T z hz f hf hr
+  has type
+    ∀ (x : A), @Eq V ((lift V d a T z hz) x).fst (f x)
+  but is expected to have type
+    ∀ (a_1 : A), @Eq V ((lift V d a T z hz) a_1).fst ((RingValuedCotangentEvaluation318.fieldPoint V A V f) a_1)
+  in the application
+    RingValuedCotangentEvaluation318.integralFiberMap V A V f (lift V d a T z hz) ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:127:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-finite-dual-cofactor-r6/NormalizedCofactorFirstOrder318.lean:128:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (RingValuedCotangentEvaluation318.integralFiberMap ?V ?«A» ?K ?f ?L ?hL)
+    (1 ⊗ₜ[?«A»] (KaehlerDifferential.D ?V ?«A») ?a)
+in the target expression
+  (RingValuedCotangentEvaluation318.integralFiberMap V A V f (lift V d a T z hz) ⋯)
+      (1 ⊗ₜ[A] (KaehlerDifferential.D V A) (FourRootOrderSigns318.generator p i)) =
+    slope V d z i
+
+V : Type u_1
+inst✝ : CommRing V
+d a : Fin 4 → V
+T : V
+z : Fin 4 → V
+hz : ∀ (i : Fin 4), z i ^ 2 = d i * (T - a i)
+f : A →ₐ[V] V
+hf : ∀ (q : V[X]), f ((algebraMap V[X] A) q) = eval T q
+hr : ∀ (i : Fin 4), f (FourRootOrderSigns318.generator p i) = z i
+i : Fin 4
+this : Algebra A V := f.toAlgebra
+⊢ (RingValuedCotangentEvaluation318.integralFiberMap V A V f (lift V d a T z hz) ⋯)
+      (1 ⊗ₜ[A] (KaehlerDifferential.D V A) (FourRootOrderSigns318.generator p i)) =
+    slope V d z i
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    projection V d a T z hz f hf hr
+  has type
+    ∀ (x : A), @Eq V ((lift V d a T z hz) x).fst (f x)
+  but is expected to have type
+    ∀ (a_1 : A), @Eq V ((lift V d a T z hz) a_1).fst ((RingValuedCotangentEvaluation318.fieldPoint V A V f) a_1)
+  in the application
+    RingValuedCotangentEvaluation318.integralFiberMap V A V f (lift V d a T z hz) ⋯
