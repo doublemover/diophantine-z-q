@@ -1,0 +1,62 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:15:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:29:49: error: unsolved goals
+case e'_12
+τ : ℂ
+n : Index
+z : ComplexVectors
+h : HasFDerivAt (fun y => 2 * ↑Real.pi * Complex.I * (linearMap n) y) ((2 * ↑Real.pi * Complex.I) • linearMap n) z
+he :
+  HasFDerivAt (fun x => ↑Real.pi * Complex.I * quadratic τ n + 2 * ↑Real.pi * Complex.I * (linearMap n) x)
+    ((2 * ↑Real.pi * Complex.I) • linearMap n) z
+hexp :
+  HasFDerivAt (Complex.exp ∘ fun x => ↑Real.pi * Complex.I * quadratic τ n + 2 * ↑Real.pi * Complex.I * (linearMap n) x)
+    (Complex.exp (↑Real.pi * Complex.I * quadratic τ n + 2 * ↑Real.pi * Complex.I * (linearMap n) z) •
+      (2 * ↑Real.pi * Complex.I) • linearMap n)
+    z
+e_4✝ : Pi.addCommGroup = Pi.normedAddCommGroup.toAddCommGroup
+e_5✝ : Pi.Function.module (Fin 2) ℂ ℂ ≍ Pi.normedSpace.toModule
+e_6✝ : Pi.topologicalSpace = PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+e_8✝ : Complex.addCommGroup = DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup
+e_9✝ : Semiring.toModule ≍ (NormedAlgebra.toNormedSpace ℂ).toModule
+⊢ derivative τ n z =
+    Complex.exp (↑Real.pi * Complex.I * quadratic τ n + ↑Real.pi * Complex.I * (linearMap n) z * 2) •
+      (↑Real.pi * Complex.I * 2) • linearMap n
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:35:8: warning: This simp argument is unused:
+  derivative
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [term, linearMap, smul_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:35:34: warning: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [derivative, term, linearMap]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:59:10: warning: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Real.pi_pos.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:59:19: warning: This simp argument is unused:
+  Real.pi_pos.le
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r27/PELOriginalThetaHolomorphy318.lean:96:8: error(lean.unknownIdentifier): Unknown identifier `hasFDerivAt_tsum_of_isPreconnected`

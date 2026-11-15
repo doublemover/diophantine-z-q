@@ -1,0 +1,20 @@
+--- before/QuaternionicIntegralPeriodMap318.lean
++++ after/QuaternionicIntegralPeriodMap318.lean
+@@ -13,7 +13,7 @@
+ @[expose] def periodScalar : ComplexVectors →ₗ[ℂ] ComplexVectors where
+   toFun z := denominator (ρ n) τ • z
+   map_add' z w := smul_add _ _ _
+-  map_smul' c z := by simp only [smul_smul]; congr 1; ring
++  map_smul' c z := by simp only [RingHom.id_apply,smul_smul]; congr 1; ring
+ 
+ include hd in
+ /-- Multiplication by the actual denominator carries original periods
+@@ -21,7 +21,7 @@
+ theorem scalar_period (x : B) :
+     periodScalar ρ O n τ (periodHom ρ (parameter ρ O n τ) x)=periodHom ρ τ (x*n) := by
+   change denominator (ρ n) τ • period (mobius (ρ n) τ) (ρ x)=period τ (ρ (x*n))
+-  rw [period_mobius _ _ τ hd,map_mul,smul_smul,mul_inv_cancel₀ hd,one_smul]
++  rw [map_mul ρ x (n:B),period_mobius _ _ τ hd,smul_smul,mul_inv_cancel₀ hd,one_smul]
+ 
+ include hd in
+ theorem preserves_original_periods :

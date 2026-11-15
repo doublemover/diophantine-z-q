@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r87/LaurentPositiveTwistVanishing318.lean:16:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a₁ • ?a₂ • ?b
+in the target expression
+  (fun v => LaurentPolynomial.T (-d) • v) ((fun v => LaurentPolynomial.T d • v) v) = v
+
+k : Type u
+inst✝ : Field k
+r : ℕ
+d : ℤ
+v : V k r
+⊢ (fun v => LaurentPolynomial.T (-d) • v) ((fun v => LaurentPolynomial.T d • v) v) = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r87/LaurentPositiveTwistVanishing318.lean:18:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a₁ • ?a₂ • ?b
+in the target expression
+  (fun v => LaurentPolynomial.T d • v) ((fun v => LaurentPolynomial.T (-d) • v) v) = v
+
+k : Type u
+inst✝ : Field k
+r : ℕ
+d : ℤ
+v : V k r
+⊢ (fun v => LaurentPolynomial.T d • v) ((fun v => LaurentPolynomial.T (-d) • v) v) = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r87/LaurentPositiveTwistVanishing318.lean:12:14: error: (kernel) declaration has metavariables 'LaurentPositiveTwistVanishing318.shift'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r87/LaurentPositiveTwistVanishing318.lean:26:6: error: (kernel) declaration type mismatch, 'LaurentPositiveTwistVanishing318.inverse_apply' has type
+  ∀ {k : Type u} [inst : Field k] {r : ℕ} (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) (v : V k r),
+    e.symm (LaurentPolynomial.T (-d) • v) = LaurentPolynomial.T (-d) • e.symm v
+but it is expected to have type
+  ∀ {k : Type u} [inst : Field k] {r : ℕ} (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) (v : V k r),
+    (transition e d).symm v = LaurentPolynomial.T (-d) • e.symm v

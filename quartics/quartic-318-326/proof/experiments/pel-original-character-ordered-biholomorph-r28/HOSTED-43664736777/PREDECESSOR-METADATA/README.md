@@ -1,0 +1,11 @@
+# pel-original-character-ordered-biholomorph-r23
+
+Source-only successor to pel-original-character-ordered-biholomorph-r22, exact hosted run43661685475 at 58f3c3ea56040e8776debb9d9b7a6d12db76ac23. Own first failed module: PELPrimeLatticeResidues318 (4.275s). Full 1169 roots in unchanged order; 4 changed copies and 1165 unchanged.
+
+Canonical scope present: PELPrimeLatticeResidues318, FourRootActualResidueInertia318, FourRootActualFiniteBranchChart318, PELOriginalLevelTheta318. Own observed failed-source repair: PELPrimeLatticeResidues318. Preventive/unreached matching repairs: FourRootActualResidueInertia318, FourRootActualFiniteBranchChart318, PELOriginalLevelTheta318.
+
+PrimeFrame, only where present, replaces three invalid noninferable local instances by named exposed constructions with explicit derived letI instances; root_image explicitly pins that same native algebra in its type. Original input hi and all ring carriers remain. Other four source repairs preserve declaration types and binders. No blanket unchanged-signature claim is made for PrimeFrame.
+
+CharacterFields and FractionField are unchanged after actual current full-module passes in zero49 and cotangent55. ScaledThetaHolomorphy and ThetaQuasiperiods are unchanged after full-module passes in torsion29. ResidueInertia unfolds the actual prime alias and supplies exact evaluation/automorphism arguments at two rejected rewrites. FiniteBranchChart simplifies literal polynomial C1 and the inverse of unit1. LevelTheta supplies decidability of the unchanged acceptance predicate and normalizes both actual residue guards. Residues changes only eight broad push_cast calls to integer-only cast normalization; symbolic inputs, native map, hrows and final coefficient reductions remain unchanged. PrimeFrame is preventive in trace only, with own trace Residues failure retained.
+
+Every matching canonical root is propagated byte-identically. Each source has its own exact independently reviewed nine-obligation contract; packet obligations below include only clauses for sources present here. Own predecessor metadata and authentic outputs are preserved, not rewritten. Older distinct Restrictions, other lattice lanes and new analytic/quartic research remain outside scope. No 535-root infinity producer changes, no local Lean/Lake, resource/trust changes or endpoint acceptance claim.

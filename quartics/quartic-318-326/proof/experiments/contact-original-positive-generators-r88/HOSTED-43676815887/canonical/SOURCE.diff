@@ -1,0 +1,27 @@
+--- before/LaurentPositiveTwistVanishing318.lean
++++ after/LaurentPositiveTwistVanishing318.lean
+@@ -13,8 +13,12 @@
+   toFun v := (LaurentPolynomial.T d : LaurentPolynomial k) • v
+   invFun v := (LaurentPolynomial.T (-d) : LaurentPolynomial k) • v
+   left_inv v := by
++    change (LaurentPolynomial.T (-d) : LaurentPolynomial k) •
++      ((LaurentPolynomial.T d : LaurentPolynomial k) • v) = v
+     rw [smul_smul,← LaurentPolynomial.T_add,neg_add_cancel,LaurentPolynomial.T_zero,one_smul]
+   right_inv v := by
++    change (LaurentPolynomial.T d : LaurentPolynomial k) •
++      ((LaurentPolynomial.T (-d) : LaurentPolynomial k) • v) = v
+     rw [smul_smul,← LaurentPolynomial.T_add,add_neg_cancel,LaurentPolynomial.T_zero,one_smul]
+   map_add' := smul_add _
+   map_smul' a v := smul_comm _ _ _
+@@ -24,8 +28,9 @@
+ def transition (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) := e.trans (shift d)
+ 
+ lemma inverse_apply (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) (v : V k r) :
+-    (transition e d).symm v = (LaurentPolynomial.T (-d) : LaurentPolynomial k) • e.symm v :=
+-  e.symm.map_smul _ _
++    (transition e d).symm v = (LaurentPolynomial.T (-d) : LaurentPolynomial k) • e.symm v := by
++  change e.symm ((LaurentPolynomial.T (-d) : LaurentPolynomial k) • v) = _
++  exact e.symm.map_smul _ _
+ 
+ /-- The existing bound on the OLD inverse columns shifts by exactly -d;
+ no new bound on a modified, unknown transition is postulated. -/
