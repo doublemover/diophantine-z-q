@@ -1,0 +1,11 @@
+# height-original-parameter-evaluation-r5
+
+Unaccepted successor to height-original-parameter-evaluation-r4; no local Lean or successor kernel/axiom acceptance.
+
+Own predecessor run43661685475 at exact58f3c3ea56040e8776debb9d9b7a6d12db76ac23 has51 strict module successes, including full IntegralArithmeticHeightOne318, then full IntegralArithmeticPrimeFrame318 fails at its uninferable hi-dependent branch localization algebra instance, with downstream algebra/tower/frame binder cascades. Own RESULT and logs are frozen in HOSTED-43661685475.
+
+Only IntegralArithmeticPrimeFrame318 changes. Native branch algebra and localization/scalar tower maps retain their exact actual carriers and explicit chart-membership witness hi, but are installed with scoped letI in types/bodies rather than malformed uninferable global instances. Specifically, three former local instance declarations become named exposed letI constructions, and root_image now has an explicit let-bound algebra in its type. Intended hi-dependent telescopes are thereby retained; no blanket unchanged-signature claim is made. Original IsUnit2, separationInteger, unit twists, original signed root and all height-one geometry hypotheses are retained. No external algebra/frame/model premise is added; no resources/options change.
+
+Order remains exactly 106 roots. All ten appended research roots were unreached and remain unaccepted. Prior HeightOne, ArithmeticDomain and Restrictions roots are unchanged. Trace may propagate the identical-before PrimeFrame repair preventively under its own contract, not as a trace-hosted PrimeFrame outcome. Lattice16 remains deferred for PrimeFrame, HeightOne, ArithmeticDomain and its older Restrictions, blocked at Common. Trace retains its older distinct Restrictions. No all-active-copy claim.
+
+This packet binds its OWN current predecessor RESULT and nine obligations. Historical predecessor reports and nested RESEARCH closure files are frozen historical evidence, not a claim that every historical source copy has been changed. Inactive original-model research batches are not activated. No actual maximal-model/dualizing/KS or GeometricRealization claim follows from this elaboration repair.
