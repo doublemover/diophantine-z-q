@@ -1,0 +1,32 @@
+--- before/FourRootActionStabilizers318.lean
++++ after/FourRootActionStabilizers318.lean
+@@ -11,7 +11,8 @@
+   rcases p with p|s
+   · apply congrArg Sum.inl
+     apply Subtype.ext
+-    apply Prod.ext rfl
++    apply Prod.ext
++    · rfl
+     funext i
+     simp [finite,map_one]
+   · apply congrArg Sum.inr
+@@ -24,7 +25,8 @@
+   rcases p with p|s
+   · apply congrArg Sum.inl
+     apply Subtype.ext
+-    apply Prod.ext rfl
++    apply Prod.ext
++    · rfl
+     funext i
+     change coordinate (F:=ℂ) i (g*h)*p.val.2 i=
+       coordinate (F:=ℂ) i g*(coordinate (F:=ℂ) i h*p.val.2 i)
+@@ -49,7 +51,8 @@
+     exact mul_right_cancel₀ hi (by simpa using he)
+   · intro h
+     apply Subtype.ext
+-    apply Prod.ext rfl
++    apply Prod.ext
++    · rfl
+     funext i
+     change coordinate (F:=ℂ) i g*p.val.2 i=p.val.2 i
+     by_cases hi:p.val.2 i=0

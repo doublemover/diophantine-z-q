@@ -1,0 +1,453 @@
+name: Progress Lean experiments
+
+on:
+  push:
+    paths:
+      - 'quartics/quartic-318-326/proof/experiments/**'
+      - 'scripts/check_progress_experiment.py'
+      - 'scripts/test_progress_experiment.py'
+      - '.github/workflows/progress-experiments.yml'
+      - '.github/actions/setup-pinned-*/**'
+      - 'scripts/setup_pinned_lean.sh'
+      - 'scripts/test_ci_tooling.py'
+  workflow_dispatch:
+    inputs:
+      validation_lane:
+        description: 'Use replay only for a newer reviewed head blocked by an older run'
+        type: choice
+        required: true
+        default: main
+        options:
+          - main
+          - replay
+
+permissions:
+  contents: read
+
+# Keep pushes in the original serialized group and never cancel a running check.
+# An explicit replay occupies one additional fixed lane, capped at four jobs.
+# Do not use a SHA/run-id group: that would allow unbounded rapid-push fan-out.
+concurrency:
+  group: progress-experiments-${{ github.ref }}${{ github.event_name == 'workflow_dispatch' && inputs.validation_lane == 'replay' && '-replay' || '' }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      has_packets: ${{ steps.plan.outputs.has_packets }}
+      base: ${{ steps.plan.outputs.base }}
+      snapshot: ${{ steps.plan.outputs.snapshot }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - run: python -B scripts/test_ci_tooling.py
+      - run: python -B scripts/test_progress_experiment.py
+      - run: python -B scripts/test_generic_binder_diagnostic.py
+      - run: python -B scripts/test_endpoint_diagnostic.py
+      - run: python -B scripts/test_candidate_endpoint_diagnostic.py
+      - run: python -B scripts/test_edge_elaboration_diagnostic.py
+      - run: python -B scripts/test_named_edge_diagnostic.py
+      - run: python -B scripts/test_diagonal_identity_diagnostic.py
+      - run: python -B scripts/test_diagonal_split_diagnostic.py
+      - run: python -B scripts/test_diagonal_formula_diagnostic.py
+      - run: python -B scripts/test_diagonal_components_diagnostic.py
+      - run: python -B scripts/test_diagonal_map_carriers_diagnostic.py
+      - run: python -B scripts/test_diagonal_explicit_consumers_diagnostic.py
+      - run: python -B scripts/test_diagonal_split_specialization_diagnostic.py
+      - run: python -B scripts/test_diagonal_producer_diagnostic.py
+      - run: python -B scripts/test_diagonal_counit_diagnostic.py
+      - run: python -B scripts/test_diagonal_final_diagnostic.py
+      - run: python -B scripts/test_diagonal_final_steps_diagnostic.py
+      - run: python -B scripts/test_diagonal_opaque_final_diagnostic.py
+      - run: python -B scripts/test_diagonal_concrete_witnesses_diagnostic.py
+      - run: python -B scripts/test_source_word_core_smoke.py
+      - run: python -B scripts/test_core_artifact_paths.py
+      - run: python -B scripts/test_diagonal_split_map_carriers_diagnostic.py
+      - run: python -B scripts/test_diagonal_consumer_transpose_diagnostic.py
+      - run: python -B scripts/test_diagonal_consumer_carriers_diagnostic.py
+      - run: python -B scripts/test_overlap_morphism_carriers_diagnostic.py
+      - run: python -B scripts/test_overlap_morphism_coherence_diagnostic.py
+      - run: python -B scripts/test_tensor_transport_faces_diagnostic.py
+      - run: python -B scripts/test_center_prefixes_diagnostic.py
+      - run: python -B scripts/test_geometry_frontier_diagnostic.py
+      - run: python -B scripts/test_common_witness_diagnostic.py
+      - run: python -B scripts/test_common_expression_diagnostic.py
+      - run: python -B scripts/test_picard_reconstructed_overlap_diagnostic.py
+      - run: python -B scripts/test_picard_overlap_fragments_diagnostic.py
+      - run: python -B scripts/test_picard_object_transport_diagnostic.py
+      - run: python -B scripts/test_picard_naturality_diagnostic.py
+      - run: python -B scripts/test_small_prime_diagnostic.py
+      - id: plan
+        run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
+
+      - name: Warm pinned compiler cache before matrix fan-out
+        if: steps.plan.outputs.has_packets == 'true'
+        uses: ./.github/actions/setup-pinned-lean
+
+  first-check:
+    needs: plan
+    if: needs.plan.outputs.has_packets == 'true'
+    name: Experimental packet ${{ matrix.packet }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ github.event_name == 'workflow_dispatch' && inputs.validation_lane == 'replay' && 4 || 16 }}
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - name: Restore previously audited baseline
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
+        with:
+          path: .cache/progress-ci
+          key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
+          restore-keys: |
+            progress-v2-full-${{ needs.plan.outputs.base }}-
+      - uses: ./.github/actions/setup-pinned-lean
+      - name: Fetch exact pinned upstream artifacts
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          python -B scripts/check_progress_experiment.py targets --packet "$PACKET" > "$RUNNER_TEMP/experiment-targets.txt"
+          mapfile -t targets < "$RUNNER_TEMP/experiment-targets.txt"
+          test "${#targets[@]}" -gt 0
+          cd quartics/quartic-318-326/proof/progress
+          lake exe cache get "${targets[@]}"
+      - name: Non-admitted original generic-field binder signatures
+        if: always() && startsWith(matrix.packet, 'pel-original-character-')
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_generic_binders.py
+      - name: First strict checks and new-declaration audit
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
+      - name: Separate exact source-word core smoke check
+        if: always() && matrix.packet == 'relative-original-cartesian-frame-parameter-r3'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/check_source_word_core_smoke.py
+      - name: Non-admitted endpoint scratch diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r26'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_original_endpoint.py --packet "$PACKET"
+      - name: Non-admitted candidate endpoint and edge diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r27'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_candidate_endpoint.py --packet "$PACKET"
+      - name: Non-admitted edge elaboration bisection
+        if: always() && matrix.packet == 'contact-relative-site-descent-r27'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_edge_elaboration.py --packet "$PACKET"
+      - name: Non-admitted named-arrow edge verification
+        if: always() && matrix.packet == 'contact-relative-site-descent-r29'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_named_edge.py --packet "$PACKET"
+      - name: Non-admitted original and named-identity diagonal profiling
+        if: always() && matrix.packet == 'contact-relative-site-descent-r30'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_identity.py --packet "$PACKET"
+      - name: Non-admitted opaque diagonal split prefix and full verification
+        if: always() && matrix.packet == 'contact-relative-site-descent-r33'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_split.py "$PACKET"
+      - name: Non-admitted abstract iso formula and concrete conversion diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r34'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_formula.py "$PACKET"
+      - name: Non-admitted named projections and componentwise diagonal diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r35'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_components.py "$PACKET"
+      - name: Non-admitted explicit functor map carrier diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r36'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_map_carriers.py "$PACKET"
+      - name: Non-admitted explicit map consumer diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r38'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_explicit_consumers.py "$PACKET"
+      - name: Non-admitted typed split specialization diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r39'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_split_specialization.py "$PACKET"
+      - name: Non-admitted explicit producer diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r40'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_producer.py "$PACKET"
+      - name: Non-admitted faithful counit composition diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r41'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_counit.py "$PACKET"
+      - name: Non-admitted isolated final diagonal diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r42'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_final.py "$PACKET"
+      - name: Non-admitted final diagonal constituent diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r43'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_final_steps.py "$PACKET"
+      - name: Non-admitted opaque final and actual downstream consumer diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r44'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_opaque_final.py "$PACKET"
+      - name: Non-admitted typed concrete diagonal witness diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r45'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_concrete_witnesses.py "$PACKET"
+      - name: Non-admitted exact split-map carrier diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r46'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_split_map_carriers.py "$PACKET"
+      - name: Non-admitted unchanged diagonal and actual consumer diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r47'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_consumer_transpose.py "$PACKET"
+      - name: Non-admitted typed consumer carrier diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r48'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_diagonal_consumer_carriers.py "$PACKET"
+      - name: Non-admitted actual overlap morphism diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r49'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_overlap_morphism_carriers.py "$PACKET"
+      - name: Non-admitted actual overlap coherence diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r50'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_overlap_morphism_coherence.py "$PACKET"
+      - name: Non-admitted actual tensor transport diagnostics
+        if: failure() && matrix.packet == 'contact-relative-site-descent-r57'
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_tensor_transport_faces.py "$PACKET"
+      - name: Non-admitted exact center prefix diagnostics
+        if: always() && matrix.packet == 'height-normalized-valuative-center-r50'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_center_prefixes.py "$PACKET"
+      - name: Non-admitted exact geometry frontier diagnostics
+        if: always() && (matrix.packet == 'height-normalized-valuative-center-r64' || matrix.packet == 'height-original-ks-lattice-assembly-r15')
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_geometry_frontiers.py "$PACKET"
+      - name: Non-admitted exact Common expression boundary diagnostics
+        if: always() && matrix.packet == 'height-original-ks-lattice-assembly-r16'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_common_expression_boundary.py "$PACKET"
+      - name: Non-admitted exact Picard helper diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_picard_reconstructed_overlap.py "$PACKET"
+      - name: Non-admitted exact Picard A B and assembled diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_picard_overlap_fragments.py "$PACKET"
+      - name: Non-admitted exact Picard canonical naturality diagnostics
+        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_picard_naturality.py "$PACKET"
+      - name: Non-admitted targeted small-prime Decidable localization
+        if: always() && matrix.packet == 'forward-actual-two-descent-root-divisor-orders-r16'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_small_prime_preparation.py "$PACKET"
+      - name: Upload bounded results and error logs only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
+        with:
+          name: experiment-${{ matrix.packet }}
+          path: |
+            build/progress-experiments/${{ matrix.packet }}/RESULT.json
+            build/generic-binder-diagnostics/SUMMARY.json
+            build/generic-binder-diagnostics/*.log
+            build/generic-binder-diagnostics/*/RESULT.json
+            build/generic-binder-diagnostics/*/logs/
+            build/progress-experiments/relative-varying-source-word-core-r*/RESULT.json
+            build/progress-experiments/relative-varying-source-word-core-r*/logs/
+            build/progress-experiments/relative-varying-source-word-core-r*/ExperimentAudit.lean
+            build/progress-experiments/relative-varying-source-word-core-r*/SMOKE_SCOPE.json
+            build/progress-experiments/${{ matrix.packet }}/logs/
+            build/progress-experiments/${{ matrix.packet }}/ExperimentAudit.lean
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-candidate-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-edge-elaboration/
+            build/progress-experiments/${{ matrix.packet }}/scratch-named-edge-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-identity-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-split-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-formula-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-component-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-map-carrier-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-explicit-consumer-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-split-specialization-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-producer-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-counit-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-final-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-final-step-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-opaque-final-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-concrete-witness-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-split-map-carrier-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-consumer-transpose-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-diagonal-consumer-carriers-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-overlap-morphism-carriers-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-overlap-morphism-coherence-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-tensor-transport-faces-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-center-prefix-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-geometry-frontier-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-common-witness-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-common-expression-diagnostics/
+            build/progress-experiments/${{ matrix.packet }}/scratch-picard-reconstructed-overlap/
+            build/progress-experiments/${{ matrix.packet }}/scratch-picard-overlap-fragments/
+            build/progress-experiments/${{ matrix.packet }}/scratch-picard-naturality/
+            build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-decidable/
+          retention-days: 3
+# Only the tooling composite actions save runtime caches. Experimental proof
+# artifacts never enter the accepted baseline or any project artifact cache.

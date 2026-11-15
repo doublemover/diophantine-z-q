@@ -1,0 +1,40 @@
+--- before/ScalarSmallPrimePreparation318.lean
++++ after/ScalarSmallPrimePreparation318.lean
+@@ -39,11 +39,20 @@
+     padicValRat.of_int,padicValInt.eq_zero_of_not_dvd hu]
+   norm_num
+ 
++/-- The elementary unit facts are proved before the large integer-shape
++context is introduced. The actual multiplier and all three forms are unchanged. -/
++private lemma multiplier_units (k₂ k₃ k₁₇ : ℤ) :
++    (¬(2:ℤ)∣(1+8*k₂)) ∧ (¬(3:ℤ)∣(1+3*k₃)) ∧ (¬(17:ℤ)∣(8+17*k₁₇)) := by
++  constructor
++  · omega
++  constructor <;> omega
++
+ lemma actual_multiplier_values (a : ℤ) :
+     padicValRat 2 (114444*inputR (a:ℚ))=4 ∧
+     padicValRat 3 (114444*inputR (a:ℚ))=2 ∧
+     padicValRat 17 (114444*inputR (a:ℚ))=2 := by
+   obtain ⟨⟨k₂,h₂⟩,⟨k₃,h₃⟩,⟨k₁₇,h₁₇⟩⟩ := integerA_shapes a
++  have hu := multiplier_units k₂ k₃ k₁₇
+   have hcast : 114444*inputR (a:ℚ)=((114444*integerR a:ℤ):ℚ) := by
+     rw [Int.cast_mul,integerR_cast]
+     norm_num
+@@ -51,13 +60,13 @@
+   refine ⟨?_,?_,?_⟩
+   · letI : Fact (Nat.Prime 2) := ⟨by norm_num⟩
+     rw [h₂,Int.cast_mul]
+-    convert value_scaled_unit 2 4 (1+8*k₂) (by omega) using 1 <;> norm_num
++    convert value_scaled_unit 2 4 (1+8*k₂) hu.1 using 1 <;> norm_num
+   · letI : Fact (Nat.Prime 3) := ⟨by norm_num⟩
+     rw [h₃,Int.cast_mul]
+-    convert value_scaled_unit 3 2 (1+3*k₃) (by omega) using 1 <;> norm_num
++    convert value_scaled_unit 3 2 (1+3*k₃) hu.2.1 using 1 <;> norm_num
+   · letI : Fact (Nat.Prime 17) := ⟨by norm_num⟩
+     rw [h₁₇,Int.cast_mul]
+-    convert value_scaled_unit 17 2 (8+17*k₁₇) (by omega) using 1 <;> norm_num
++    convert value_scaled_unit 17 2 (8+17*k₁₇) hu.2.2 using 1 <;> norm_num
+ 
+ /-- Once genuine local preparation makes W a unit, all three numerical
+ preparation-zero valuation thresholds follow at the literal scalar b. -/

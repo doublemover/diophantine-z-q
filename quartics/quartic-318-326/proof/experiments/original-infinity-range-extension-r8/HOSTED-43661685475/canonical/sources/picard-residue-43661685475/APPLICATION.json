@@ -1,0 +1,80 @@
+{
+  "status": "SOURCE_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "before": "29321770f6d38e50590bd4503c5d192f1ebd5bef6a5ff5716e30699282e11a54",
+  "after": "d525eeaebdc49506f2fc71ba7100a82ed2b7d56adc20b8399a07a110de2336ae",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "contract_sha256": "d6bf1ab495bf6d8889b23d78856071f743bd4e9e6d1322df7f43a4eda6eb5c1f",
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Every i:Fin4 and arbitrary symbolic z:Fin2\u2192ZMod(prime i).",
+      "constructed_input": "Same residue_lift telescope; exact integer lift/residue definitions unchanged.",
+      "justification": "No new nonzero, bounded-coordinate, or admissibility assumption."
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "Actual order-coordinate lift and actual product-with-conjugate residue.",
+      "constructed_input": "Only proof body changed; four concrete function carrier conversions retained.",
+      "justification": "No surrogate residue or matrix replaces original maps."
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "All four norm primes2,3,5,7 and both output coordinates for every z.",
+      "constructed_input": "Eight symbolic polynomial rows separately proved; z is never enumerated.",
+      "justification": "fin_cases only indexes fixed prime/coordinate, not input residue values."
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "Exact original integral coordinate product followed by reduction modulo the norm prime.",
+      "constructed_input": "Each calc first proves an exact integral product row hrow, rewrites the original integer cast by hrow, then only explicit native integer cast addition/multiplication/negation/numeral rules and ring normalize both sides in the literal ZMod carrier.",
+      "justification": "ring checks identities in the full commutative ring; no assumed linear formula."
+    },
+    {
+      "id": "scalars_and_signs",
+      "required_input": "Original coefficient signs3/2,-4/-3;4/6,-6/-8;-9,-4;15/70,-21/-97.",
+      "constructed_input": "Second calc uses native natCast_zmod_val and existing typed13 ordinary decide facts.",
+      "justification": "Negative coefficients are stated as factors, avoiding final normalform -(value*n) mismatch."
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Existing residue_surjective, original orderResidue and full kernel_eq_range.",
+      "constructed_input": "All later definitions/statements/proofs byte-identical.",
+      "justification": "No weakened surjectivity or kernel conclusion."
+    },
+    {
+      "id": "exceptional_cases",
+      "required_input": "All input residues including zeros, negative lift coefficients, every output coordinate.",
+      "constructed_input": "No cancellation or nonzero input premise; symbolic val casts use native NeZero literal primes.",
+      "justification": "No exhaustive residue enumeration or native_decide introduced."
+    },
+    {
+      "id": "downstream_and_history",
+      "required_input": "Own run43661685475 current canonical29321770 fails all8 first calc rows because broad push_cast introduced ZMod.cast only on the RHS.",
+      "constructed_input": "Authentic infinity4 log bound; this candidate preserves all exact integer hrow proofs and replaces only broad push_cast with a closed list of integer-cast rules, retaining identical symbolic Nat.val terms on both sides and all second calc reductions.",
+      "justification": "Concrete carrier previous repair did advance diagnostics, but did not pass module."
+    },
+    {
+      "id": "verification_boundary",
+      "required_input": "Independent arithmetic/source review and full hosted connected module closures/audits.",
+      "constructed_input": "Pinned Mathlib ZMod Basic56a005 snapshot validates natCast_zmod_val signature; no local Lean run.",
+      "justification": "Source review/static hashes are not kernel or entire experiment acceptance."
+    }
+  ],
+  "bindings": {
+    "README.md": "d6bf1ab495bf6d8889b23d78856071f743bd4e9e6d1322df7f43a4eda6eb5c1f",
+    "write_contract.py": "6745db799d1e8a3153c157b64af9a268f5acf0420444c56efeac60fd9052cf0b",
+    "after/PELPrimeLatticeResidues318.lean": "d525eeaebdc49506f2fc71ba7100a82ed2b7d56adc20b8399a07a110de2336ae",
+    "EVIDENCE/RESULT.json": "30fca7000d2ac0f62a09a33720730632646e4561cd965f97b8b0b3da99e204ac",
+    "EVIDENCE/PELPrimeLatticeResidues318.log": "97b623b8af4a3146f9dbd35c6b52740f42ff25ec003d5f0b6acfd7ac9c0d515c",
+    "before/PELPrimeLatticeResidues318.lean": "29321770f6d38e50590bd4503c5d192f1ebd5bef6a5ff5716e30699282e11a54",
+    "PRIMARY/INTEGER-CAST-SOURCES.json": "c4e352021e79084c9159ac4a9f61fc7ab94ef9177f59b18ebcb6cd22660292e0",
+    "PRIMARY/Int-Cast-Basic.lean": "cc5f2ee0ae50ede2dd65a84113d5dd2eb8fabe9df3e680a848e92fdb17e1583f",
+    "PRIMARY/PELPrimeRightLattice318.lean": "3bcda80f6875c153f2094063b0cbd81a6854561cca79b7851bae01d4894b3743",
+    "PRIMARY/SOURCE.json": "39134937d98afaeef564c3b01eb7685bf522276cf61dd6642033b271a53f0197",
+    "PRIMARY/Int-Ring-Defs.lean": "5183aff41d548af41ad40531921da81ec406dc59e0f5ce86385498d3892bd4a3",
+    "PRIMARY/PELPrincipalOrderCoordinates318.lean": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+    "PRIMARY/PELPrimeNormalizerData318.lean": "34aa44ea111a79e61d759133782b368298d6a0672fa9ec33068a5d011eb7601a",
+    "PRIMARY/ZMod-Basic.lean": "f86120453447f00e0c87188381e0e8d15e0d8c85a080c8f8a8ba2da04f5e2f8a"
+  }
+}

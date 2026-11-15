@@ -1,0 +1,200 @@
+{
+  "status": "SOURCE_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "base_commit": "58f3c3ea56040e8776debb9d9b7a6d12db76ac23",
+  "run": 43661685475,
+  "before_sha256": "d1400dd2cab542a31751f834c0f997059dceb4d1c48d88ff56db26ab2f95333e",
+  "after_sha256": "9942dc6e73e3815f4163ba10be5ec402caccaccf30832797622bd7c8872969ce",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Every arbitrary b:Fin4\u2192\u2102 and pivot i:Fin4; sourceRegroup and exact_square require no new hypotheses.",
+      "constructed_input": "Same b,i, actual affine coordinate ring, and unit twist1.",
+      "justification": "No theorem telescope or section binder change.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "The actual polynomial equivalence followed by FourRootPivot.regroup must target the literal FiniteBranchChart OriginalOrder.",
+      "constructed_input": "Normalize Polynomial.C (1:\u2102) to1 using Polynomial.C_1 at sourceRegroup; retain exact composite.",
+      "justification": "The root parameter C1*(X-C(bi)) is exactly X-C(bi), not a replacement order.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "All four pivots and every original complex branch tuple; no regularity restriction.",
+      "constructed_input": "Only simp normalization changes; all Fin4/Fin3 indices and full chart types unchanged.",
+      "justification": "No point, ramification, denominator locus, or coefficient restriction added.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "transition_and_scalar_maps",
+      "required_input": "Regrouping over unchanged complex-polynomial base and exact open root square.",
+      "constructed_input": "Retain native regroup and localizedSourceEquiv; normalize inverse of unit1 with generic inv_one, its value with Units.val_one, then algebraMap1=1.",
+      "justification": "The scalar is exactly1; it is proved away, not silently dropped.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "OpenBase, OpenOrder, root and all denominator/etale consumers must be same objects.",
+      "constructed_input": "All definitions and later consumers byte-identical; exact_square proves original algebraMap(X-Cbi)=root\u00b2.",
+      "justification": "The unit scalar simplification uses literal twist1, not chosen substitute chart.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "downstream_statements",
+      "required_input": "sourceRegroup and exact_square are used by later actual branch/valuation/cotangent arguments.",
+      "constructed_input": "Only two proof-expression sites change; statement heads, imports, options and resources stay unchanged.",
+      "justification": "Own cotangent55 logs give both failures. Other matching copies are preventive until their own run reaches this module.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "historical_disposition",
+      "required_input": "Separate already written original chart construction from new elaboration repair.",
+      "constructed_input": "Earlier native FiniteBranchChart/LinearRootCoordinate/Pivot arguments preserved as primary snapshots.",
+      "justification": "This is implementation repair, no claim of a newly discovered mathematical gap or whole-project acceptance.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "verification_and_limitations",
+      "required_input": "Exact current source and own current result/intake; independent review and later hosted replay.",
+      "constructed_input": "Own run43661685475 cotangent55 has CharacterFields and FractionField pass, this module fail after50 successes.",
+      "justification": "No local Lean; source review cannot establish successful elaboration or downstream acceptance.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    },
+    {
+      "id": "independent_acceptance",
+      "required_input": "Reviewer must differ from source author and bind actual native construction/application/consumers.",
+      "constructed_input": "Frozen before/after, own logs, primary5, nine clauses and hashes supplied for independent review.",
+      "justification": "Source review pending; propagation and hosted kernel checking remain separate.",
+      "source_references": [
+        "before/FourRootActualFiniteBranchChart318.lean",
+        "after/FourRootActualFiniteBranchChart318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineTensorPresentation318.lean",
+        "primary/FourRootPivot318.lean",
+        "primary/LinearRootCoordinate318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualFiniteBranchChart318.log"
+      ]
+    }
+  ]
+}
