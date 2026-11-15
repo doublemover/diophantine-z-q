@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r55/FourRootActualFiniteBranchChart318.lean:40:4: error: Type mismatch: After simplification, term
+  regroup (radicand b) i
+ has type
+  FourRootOrder318.Order (radicand b) ≃ₐ[P]
+    QuadraticPresentation318.RootRing (X - C (b (indices i 0))) ⊗[P]
+      ThreeRootOrder318.Order fun j => X - C (b (indices i j.succ))
+but is expected to have type
+  TensorRing b ≃ₐ[P]
+    QuadraticPresentation318.RootRing (C 1 * (X - C (b i))) ⊗[FiniteBranchChart318.Base]
+      ThreeRootOrder318.Order (FiniteBranchChart318.other twists (otherBranch b i))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  instNeg ↦ 6
+  instAdd ↦ 22
+  instMul ↦ 4
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r55/FourRootActualFiniteBranchChart318.lean:71:14: error(lean.unknownIdentifier): Unknown constant `Units.inv_one`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r55/FourRootActualFiniteBranchChart318.lean:71:2: error: Type mismatch: After simplification, term
+  FiniteBranchChart318.open_contact_square 1 (b i) twists (otherBranch b i)
+ has type
+  (algebraMap FiniteBranchChart318.Base (FiniteBranchChart318.OpenBase 1 (b i) twists (otherBranch b i)))
+      (X - C (b i)) =
+    (algebraMap ℂ (FiniteBranchChart318.OpenBase 1 (b i) twists (otherBranch b i))) ↑1⁻¹ *
+      FiniteBranchChart318.openRoot 1 (b i) twists (otherBranch b i) ^ 2
+but is expected to have type
+  (algebraMap P (OpenBase b i)) (X - C (b i)) = FiniteBranchChart318.openRoot 1 (b i) twists (otherBranch b i) ^ 2
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  instNeg ↦ 6
+  instAdd ↦ 10

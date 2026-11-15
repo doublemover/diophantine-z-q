@@ -1,0 +1,15 @@
+# Actual character fields: independent source/application review
+
+Verdict: source candidate accepted for future hosted checking only. No local Lean/Lake and no kernel acceptance.
+
+Final after dbe7af29ae278f5ac8d531bd96e75ee51237883387540db9fe4654d4b3cd4fd1; before4413cf915d7782e2c52e5d6159eeedf32d5cdca614d1245a1bf2befe52a0ca9f. Final APPLICATION73f0e5b2bf8835fb448f96e8269e47c741c0fa44683d6652f431259353203bbf; manifest8e17632cffd52559be7113fb9f07d016904b3a0886e3e9da4683329c28625380. All19 manifest bindings independently verified.
+
+Both cotangent54 and zero48 own RESULT/intake hashes match, and both published before sources match the exact before hash. ActualGenericSigns full-module passes3.122s and2.920s respectively. CharacterFields fails2.420s after48 and2.268s after39, respectively. Read both actual failure surfaces: uninferable hb/hs section-local instance parameters, and separate normalized-sign simp goals. These are not all one downstream typeclass cascade.
+
+Read entire before/after, exact diff and pinned rawField, CharacterQuadraticField and FourBinaryCharacters definitions. Removing the two invalid local instance declarations and introducing their exact derived Facts with letI in each result type and value/proof is mathematically appropriate. Independence still comes from existing b injectivity, nonsquare from existing nonempty s and the same root product. There is no new Fact hypothesis or default/fallback field choice. ActualKummerGalois.rawField is the existing global native instance from that independence Fact. Proof-irrelevant Fact witnesses do not select a different algebraic field. The b,hb,s,hs arguments are retained explicitly in the field and six theorem types; no proof-only assumption was lost. Native typeclass/field algebra coherence must still be checked by hosted elaboration.
+
+The affine monomial, embedding and generator formulas remain byte-unchanged. Result statements retain the literal adjoin field, degree2, relative degree8, actual fixed field, fixing subgroup size8 and full-label sign-membership iff. Wrapper let-bindings make the already intended instance terms explicit; they do not narrow b,s or remove any conclusion.
+
+The actual_sign split now uses g i=1, the simplifier-normalized condition visible in the authentic goal. The pinned coordinate and signPattern definitions themselves use toAdd(g i)=0. Both definitions and their signs remain unchanged; only the hypothesis matches the normal form after simplification. The current corrected application item6 states this accurately. Positive and negative coordinate factors and the full finite product are retained.
+
+No imports, resource options, trust declarations or active packets changed. Exact propagation into matching active copies remains a separate current-contract task with each lane's own evidence and explicit preventive status for unreached copies. Adjacent FractionField/OrderAutomorphisms repairs are outside this report. Passing GenericSigns does not establish CharacterFields or later modules; full hosted replay and recursive audit remain required.

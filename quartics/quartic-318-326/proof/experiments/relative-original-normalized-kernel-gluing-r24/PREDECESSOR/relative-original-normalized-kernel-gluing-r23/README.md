@@ -1,0 +1,22 @@
+# Gluing23: explicit whole-section wrappers and deferred canonical TwoOpen repair
+
+1299-module successor,1297 unchanged roots and two revised sources. The abstract helper is the actual current failure at root77; generic TwoOpen at root215 is separately preventive/unreached in this lane. No local Lean or resource change. This refreshed contract preserves the prior gluing23 candidate separately and replaces only its preventive TwoOpen source with the independently reviewed current dependent-empty-case correction.
+
+1. **required_inputs** Required: All original rings, scheme arrows, full line sections and actual square hypotheses; separately all original binary opens/full module sheaf gluing hypotheses. Constructed: No new theorem premise. Typed wrappers retain every affine whole-section input and original he. Justification: The preventive generic gluing theorem has exactly its existing public statement; no rank/affine or finiteness assumption.
+
+2. **constructed_objects** Required: Same coefficient and chart restriction maps, same original native section-square theorem; same actual sheaf global section for TwoOpen. Constructed: Two explicit wrapper equations expose native Γ pullback expressions; final hs starts with actual wholeSection m. Preventive TwoOpen uses exact canonical ULift Fin2 cover indexing and dependent Fin.cases with the corrected eta-expanded dependent empty-case eliminator. Justification: No new section carrier or abstract replacement comparison/gluing object.
+
+3. **index_and_domain_coverage** Required: Every section and original finite/infinity coefficient square; every pair of original opens, every universe and all four binary cover index pairs. Constructed: 1299 same module order,1297 byte-identical sources, one observed helper and one preventive downstream repair. Justification: No omitted chart, point, empty open, intersection or universe narrowing.
+
+4. **transition_maps** Required: Actual native pullbackComp/pullbackCongr path isos, original units and binary presheaf restrictions. Constructed: Final proof explicitly rewrites typed coefficient/chart wrapper lemmas on each side, with no final wholeSection unfolding. TwoOpen preserves swapped overlap through exact thin-category arrow equality. Justification: No altered path, coordinate-ring map or restriction map.
+
+5. **scalars_and_signs** Required: Original line/sheaf scalar actions and whole sections. Constructed: Only typed proof normalization changes; TwoOpen reindexes its finite cover without modifying module scalars. Justification: No resource/transparency/trust change or scalar/sign normalization.
+
+6. **consumer_identity** Required: Original affine section-square conclusion and actual binary section gluing conclusion. Constructed: Same downstream ContactCoefficientRestrictionSquares consumes the helper; TwoOpen reaches same native gluedTop restrictions. Justification: No assumed desired square, basis-only equality, or substituted local gluing proposition.
+
+7. **exceptional_cases** Required: Arbitrary whole sections, original finite/infinity charts and empty/equal/intersecting binary opens. Constructed: No invertibility, flatness, nonzero or locality condition added. Justification: No discarded infinity center or exceptional open.
+
+8. **downstream_and_history** Required: Own gluing22 run43664736777: helper remains failed at final line74 maxRecDepth after76 successes. Constructed: Earlier restriction_whole carrier error is absent, but helper not full PASS. Actual log flags old final restriction_whole simp unused. Root215 TwoOpen remains UNREACHED in gluing; exact same-before35687e35→reviewed0b1e7a25→corrected859e549b is separately preventive. Authentic positive82 run436616 and positive83 run436647 evidence records the latter remaining dependent empty-case failure, now eta-expanded. Both intermediate before/after links are byte-verified. Justification: Do not conflate source review/partial helper progress with compilation; sibling evidence is not gluing own success.
+
+9. **verification_boundary** Required: Independent source/current1299 propagation review, native metadata validation, then hosted full closure/audit. Constructed: Own current receipt/intake and separate canonical preventive evidence bound; source helper still uncompiled and measured speedup not claimed. Justification: No limits increased, no local Lean, no hidden-carrier/kernel cause asserted uniquely diagnosed, no whole packet acceptance.
+

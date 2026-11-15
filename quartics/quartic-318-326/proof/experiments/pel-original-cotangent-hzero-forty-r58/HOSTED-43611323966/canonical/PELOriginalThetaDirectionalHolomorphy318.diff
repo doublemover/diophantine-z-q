@@ -1,0 +1,41 @@
+--- before/PELOriginalThetaDirectionalHolomorphy318.lean
++++ after/PELOriginalThetaDirectionalHolomorphy318.lean
+@@ -16,6 +16,7 @@
+      map_smul':=by intro c A;rfl}).mkContinuous ‖v‖ (by
+       intro A
+       simpa only [mul_comm] using A.le_opNorm v)
++include hτ in
+ lemma derivative_summable(z:ComplexVectors):Summable (fun n:Index=>derivative τ n z):=by
+   let S:=max |(z 0).im| |(z 1).im|
+   exact (derivativeBound_summable τ hτ S).of_norm_bounded
+@@ -25,12 +26,14 @@
+   simp only [evaluate,derivative,directionalTerm,coefficient,
+     ContinuousLinearMap.smul_apply,smul_eq_mul]
+   ring
++include hτ in
+ lemma directional_summable(v z:ComplexVectors):
+     Summable (fun n:Index=>directionalTerm τ v n z):=by
+   have h:=(evaluate v).hasSum (derivative_summable τ hτ z).hasSum
+   simpa only [evaluate_term] using h.summable
+ @[expose] def directionalTheta(v z:ComplexVectors):ℂ:=
+   ∑'n:Index,directionalTerm τ v n z
++include hτ in
+ lemma actual_derivative(v z:ComplexVectors):
+     fderiv ℂ (theta τ) z v=directionalTheta τ v z:=by
+   rw [(theta_hasFDerivAt τ hτ z).fderiv]
+@@ -38,6 +41,7 @@
+   simp only [evaluate_term] at h
+   exact h.tsum_eq.symm
+ 
++include hτ in
+ /-- Full Frechet derivative of the directional theta function, obtained
+ from the actual locally uniform SECOND-derivative Gaussian bound. -/
+ lemma directional_hasFDerivAt(v z:ComplexVectors):
+@@ -58,6 +62,7 @@
+   exact hasFDerivAt_tsum_of_isPreconnected hu ho hp hd hb hz
+     (directional_summable τ hτ v z) hz
+ 
++include hτ in
+ theorem directional_holomorphic(v:ComplexVectors):
+     Differentiable ℂ (directionalTheta τ v):=
+   fun z=>(directional_hasFDerivAt τ hτ v z).differentiableAt
