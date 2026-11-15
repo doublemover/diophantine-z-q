@@ -1,0 +1,25 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r56/FourRootProjectiveProjection318.lean:46:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Spec.map (CommRingCat.ofHom ((toInfinityBase b).comp (finiteCoordinate b)).toRingHom)
+in the target expression
+  Spec.map (CommRingCat.ofHom (finiteCoordinate b).toRingHom ≫ CommRingCat.ofHom (toInfinityBase b).toRingHom) ≫
+      JLineAtlas318.chart ℂ 1 =
+    Spec.map
+        (CommRingCat.ofHom (infinityCoordinate b).toRingHom ≫
+          CommRingCat.ofHom (algebraMap (Infinity b) (InfinityOverlap b))) ≫
+      JLineAtlas318.chart ℂ 0
+
+b : Fin 4 → ℂ
+hf :
+  Spec.map (CommRingCat.ofHom ((toInfinityBase b).comp (finiteCoordinate b)).toRingHom) =
+    Spec.map (CommRingCat.ofHom (aeval (ui b ^ 2)).toRingHom)
+hi :
+  Spec.map
+      (CommRingCat.ofHom
+        ((IsScalarTower.toAlgHom ℂ (Infinity b) (InfinityOverlap b)).comp (infinityCoordinate b)).toRingHom) =
+    Spec.map (CommRingCat.ofHom (aeval (u b ^ 2)).toRingHom)
+⊢ Spec.map (CommRingCat.ofHom (finiteCoordinate b).toRingHom ≫ CommRingCat.ofHom (toInfinityBase b).toRingHom) ≫
+      JLineAtlas318.chart ℂ 1 =
+    Spec.map
+        (CommRingCat.ofHom (infinityCoordinate b).toRingHom ≫
+          CommRingCat.ofHom (algebraMap (Infinity b) (InfinityOverlap b))) ≫
+      JLineAtlas318.chart ℂ 0

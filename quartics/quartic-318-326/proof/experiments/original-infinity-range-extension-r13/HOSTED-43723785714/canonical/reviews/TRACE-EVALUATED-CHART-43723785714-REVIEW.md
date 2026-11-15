@@ -1,0 +1,15 @@
+# Independent trace-only evaluated chart source review
+
+Reviewer: resume_probe, 2026-11-15 UTC. APPROVED bounded preventive source for trace packet preparation; no activation or hosted acceptance.
+
+Envelope resume-geometry/evaluated-chart-43723785714, SOURCE-APPLICATION SHA25606933976790a43e5d79b237ac6c53255ee7216dee48972440f62c99c4bbf7aea, candidate4bbefb9e7b8e4da193d18748db387c234a135d4feb545f1670bdb57bb9fbb5c9. All19 bindings and nine clauses verified. Before source equals pushed trace29; own intake/APPLICATION and RESULT match current trace evidence. The three included producer candidates equal the already reviewed immutable three-source envelope exactly. Native eval_C SHA256/Git blob agree with pinned provenance atmathlib56a005855ea17e0b0958f73ec801ae140b0a1679.
+
+Read complete source before plus exact candidate delta, current contract/README and native eval_C/category signatures. The delta is only explicit shared universe u for R/K and expected-type proof `(by simp only [Polynomial.eval_C])` replacing the obsolete explicit-argument eval_C application in hk. K occurs only in the geometric exists_chart statement/proof, so no ring-only independent-universe API is narrowed. R-only ChartRing, embedding, coefficient and primitive retain arbitrary universe. Native Scheme/CommRingCat composites and the reviewed point/extension producers require that common category universe; the former ill-typed signature is corrected, not asserted unchanged.
+
+The literal whole marked generic point and pair ratio remain jointly constructed, with unchanged chart rings, section coefficients, scalar maps, root signs, finite branch selection and infinity proof. The hk equality is literal constant evaluation; no coefficient or denominator condition changes. Existing separationInteger-unit, valuation/fraction-ring and signed-root hypotheses remain. Options/imports and all other proof lines are unchanged. No mathematical assumption, new inversion, trust escape, model replacement or all-place conclusion was added.
+
+This target is zero-based root1167 of trace29, unreached behind its103 full passes and PrincipalConjugation failure2.168s;1400 roots remain unreached. All four geometry changes are preventive in trace. Center/evaluator receipts are not trace acceptance. This fourth module is absent from their proposed successor packets and must not be added to those root lists.
+
+Independent direct-consumer scan found OriginalSectionFinitePlaceBounds318 and OriginalPointPrimitiveChart318 in trace. Both use fixed rational and original finite-place types; the latter calls exists_chart. No further independently quantified R/K category boundary occurs on this immediate consumer edge. Together with the earlier three-source review this covers the identified connected generic-universe edge, not an assertion that every downstream theorem compiles.
+
+No local Lean/Lake/compiler was run. Packet inventory/current-contract/propagation review and exact hosted full-module checking/audit remain separate gates. Report remains external to the frozen source envelope.

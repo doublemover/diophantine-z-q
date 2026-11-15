@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "title": "Original model frames and normalized maps to per-point metric sections",
+  "status": "SOURCE_CANDIDATE_REVIEW_PENDING",
+  "base_commit": "2b151fc62f5872fd569489336d35f536d4cae0a4",
+  "production_changes": false,
+  "local_lean_run": false,
+  "global_realization_proved": false,
+  "obligations": [
+    {
+      "id": "source_inputs",
+      "required_input": "Exact published local lattice/image/metric-section constructors.",
+      "constructed_input": "Supplied embedded model frames, original memberships, and normalized scalar210 comparisons.",
+      "justification": "Frame extraction and surjectivity derive generators and image equality; no existence premise is discarded.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "Original point field, actual evaluated pair and canonical/Hodge objects.",
+      "constructed_input": "Same original point field and pair; same good lattices; supplied bad model lattices are retained as exact submodules.",
+      "justification": "assembled_bad/assembled_good and metricSections_a0 identify the concrete consumers; both section values are definitionally retained.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "domain_coverage",
+      "required_input": "Every admissible point, all finite and infinite places, all Fin2 sections.",
+      "constructed_input": "New constructor works for each displayed admissible point; LocalComparisons quantifies all finite places; bad frame data quantify exactly denominator-excluded places.",
+      "justification": "No existence for every point is claimed; good/bad split is exhaustive, includes primes dividing210.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "maps",
+      "required_input": "Actual scalar210 image and multiplication product, fixed generic frame.",
+      "constructed_input": "Surjective linear maps between the specified embedded submodules with literal scalar formula.",
+      "justification": "scalar_image_of_surjective proves exact submodule equality; no unproved norm or image equation is a new field. Native global KS normalization is still an input obligation.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "normalizations",
+      "required_input": "Original scaled coordinate32u/v, J\u00b2 sections, factor210, Yuan vs original shift.",
+      "constructed_input": "Existing constructor unchanged with factor210 and independently supplied actual Hodge metric/degree.",
+      "justification": "No level/ramification factor omitted; existing bound uses hYuan-log pi. This slice does not prove actual Hodge provenance or archimedean isometry.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Exact original MetricSections, then existing CMInputs/NonCMInputs.toLegacy.",
+      "constructed_input": "Existing OriginalKSLatticeMetricSections.metricSections invoked with extracted generators and proved image identity.",
+      "justification": "No new section pair/field/Hodge metric substituted; CM and nonCM numerical records remain separately supplied, not produced.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "downstream",
+      "required_input": "Refined realization and original height/soundness route.",
+      "constructed_input": "Conditional per-point MetricSections constructor only.",
+      "justification": "The globally quantified realization remains open; no active packet or downstream historical source is altered.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "history",
+      "required_input": "Actual historical arguments and source-specific acceptance.",
+      "constructed_input": "Read maximal-KS note and formal elliptic Hodge and lattice/consumer modules at pinned commit.",
+      "justification": "Prior classical justification found; not reaccepted as formal producer. Prior source/static reviews do not authorize this new argument.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    },
+    {
+      "id": "validation",
+      "required_input": "Independent source review and hosted Lean before proof claims.",
+      "constructed_input": "Three isolated new sources, original dependency closure unchanged, no local Lean execution.",
+      "justification": "Static hashes/no-admission/import checks only initially. Independent review pending and full hosted compilation blocked upstream; neither is proof of GeometricRealization.",
+      "source_references": [
+        "PROVENANCE.json",
+        "sources/EmbeddedLatticeFrames318.lean",
+        "sources/OriginalExcludedModelFrames318.lean",
+        "sources/OriginalModelMapMetricSections318.lean"
+      ],
+      "evidence": [
+        "PRODUCER-AUDIT.md",
+        "primary/OriginalKSLatticeMetricSections318.lean"
+      ]
+    }
+  ],
+  "bindings": {
+    "README.md": "3b0237df20d0e07443fec966d8d8e3f64c8643bc26f998518be18b02793d9d6f",
+    "PRODUCER-AUDIT.md": "8cb33ab601ed5c6c63da4f304989fead8963a74598e9de3bf37753cb159e1cf2",
+    "PROVENANCE.json": "b0f3ced5ca346933a81b5b6b5ff501eb2bbe2101bb61cb5fefb9f6e08622c272",
+    "primary/FinitePlacePrincipalImage318.lean": "85273d296be312b73ac3369456414f6f8021430e6a9c2a8c0016890199a20f69",
+    "primary/OriginalGoodCotangentLattice318.lean": "21f85e5d0971ac5b3b402720f3cc6a930cec8c8b64e2bd9d197d1b2bfaac8b9e",
+    "primary/FiveContactProducer318.lean": "7635960162dff1feb9b5c2d0ae88690b39813b363728c62aed06513c136aa435",
+    "primary/OriginalConstructedMetricSections318.lean": "b08a1d13e53176352be45774c6fcad68fb71fd3bdd9dcc2f92e521452e70bbd5",
+    "primary/KSImageFrameNorms318.lean": "c9e62af02d09e32ace0a18754cd15029a06801ad7850c7e9ad078ef1da3ef667",
+    "primary/OriginalModelFrameNorms318.lean": "5ff67f2d8300e991d4db0f95ee5d544164430cb70c1914f739f9232c43c497c9",
+    "primary/LiteralIntrinsicHodge318.lean": "675d8648effb571e0a92ba1bae73f002af7d46a23daec3c6df7bd61751d8f80c",
+    "primary/IdentityCotangent318.lean": "98133ee6796ccffdf13a144342ec03f0af7c0d0785335d7dd5f1e1ec91bbf392",
+    "primary/IntrinsicHodgeIsomorphism318.lean": "4ab138e5b1631d54fd4df223d54c298c95d13795a1f4b6e5f30e1722a8a428b2",
+    "primary/SectionHeight318.lean": "accfa44bb2fb53ee367c7ec776e6a924f412c80cc3dc96fd490f2abea1dbb712",
+    "primary/OriginalExcludedPlaceData318.lean": "b68642b01ed520b813edb5d9f1eca1bb62813ed58658fc1e867db76d96a9bcda",
+    "primary/IntrinsicHodgeComparison318.lean": "5e1f4e2ec6835c8312042b5a7db96802205b56abdf1716199e6730ce2fcefe92",
+    "primary/RefinedContactRealization318.lean": "9bed97f0f5ecc44589eab050feb3e4370b3b19b74c1b06a7e83052c845413f83",
+    "primary/OriginalKSLatticeMetricSections318.lean": "6df2a1e325f9c053789346eff4a49bfae487e9865ca005798612a365ad6aeaa5",
+    "primary/FinitePlacePrincipalLattice318.lean": "7eded964cd384c001c614373e6b85ae46300569f2001495aff4cfbaf2bfbdbca",
+    "primary/OriginalFiniteNormAssembly318.lean": "80c22907af071cb7a9cb5cd29d658f1b4423485d005f09d016f23287317d908a",
+    "primary/MAXIMAL-KS-PRODUCER.md": "f857ca8b92e329c6e6bd39b2819bb22615554cd691c2cbcfa53c717da41d38c4",
+    "primary/InducedLattice318.lean": "f5cf4775d3ff7ee73c0819f892997de027ffc3cd4acded89fe907a79aa8c14f3",
+    "primary/receipt.json": "3c8431607b51a823a6b9a356004300c2d21d0d071e7e6a8261d03b17450c448d",
+    "primary/OriginalCanonicalFiniteLattices318.lean": "d3584b169da91892cd406bf30d679c4b45cf68d5b9cf1debfc7db0f6b3699d45",
+    "primary/README.md": "117ce9e174caa91ceb48af775529eeac3ebea55790a96e5b4b9df2bc0c6b0aa2",
+    "primary/ContactOriginalMetricConsumer318.lean": "a80bfe418c4b8110d002e80d8c516cdc98e34ffdd59ca65bf8ce38e904e27ab9",
+    "primary/OriginalSectionLatticeGeneration318.lean": "caa2b75312d4f8fe6e909d40c692298372d9d836ed63b7ac619c42812e8b32c1",
+    "sources/OriginalModelMapMetricSections318.lean": "a2634dfa5411b1b797989c64d3d3d88347d1ce4073523d723973a8be085700d9",
+    "sources/OriginalExcludedModelFrames318.lean": "fa7b957a12c63e2c4f630361226250f23975dcbb8717c9585993a1511e2b7332",
+    "sources/EmbeddedLatticeFrames318.lean": "cffcf8d786d33280a262dee132d6633c37a1133116193618dcdf880e44bb25e5",
+    "primary/Mathlib_Algebra_Module_Equiv_Basic.lean": "7d8b3d7a19426fe1e5b1a805b1b1b20f732d35b6574f106c754467f710af1b08",
+    "primary/Mathlib_Algebra_Module_Submodule_Map.lean": "7e028a404ff45b438bb0d5db75abb6dedd1d0bf2a8b4d84ad9524349b19e35b6",
+    "primary/Mathlib_Algebra_Module_Equiv_Defs.lean": "2034a7193600dcc2394082ebaadc8a557c57c385ca8b042937ec38c733123d2f",
+    "primary/Mathlib_Algebra_Module_Submodule_Defs.lean": "5edc092a74c3283127064defcd4fab72668f93e1a50bce7b408b1f768748ee2d",
+    "primary/NATIVE-API-PROVENANCE.json": "638b6f88d0792ef7c0c141f58e44e36f3c6053de5690d67e826bb8b947133f7b",
+    "primary/PREDECESSOR-intake.json": "af1f9b005979d4b1ba85de7fa6de951f1c5e051ced68437dabd2b2968a13a0ae",
+    "FUTURE-CLOSURE.json": "3a50efb0c9f1e33397a3f6f610b7b3d7cfabd0799035cb8fb1e0378c5ba9a855",
+    "PRE-NATIVE-APPLICATION.json": "568b753bf1d6b810e89cd576f20b253d8cecf05f5a91415807fc23ae02f4c489"
+  }
+}

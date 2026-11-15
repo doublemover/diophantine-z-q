@@ -1,0 +1,15 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r30/PELNormalizerArithmeticBase318.lean:38:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (principalConjugation ?g) ?u • baseAction ?g ?τ
+in the target expression
+  (fun m => m • baseAction g σ) ((principalConjugation g) u) = baseAction g τ
+
+g : ↥positiveNormalizer
+τ σ : HalfPlane
+u : ↥principalThree
+hu : (fun m => m • σ) u = τ
+⊢ (fun m => m • baseAction g σ) ((principalConjugation g) u) = baseAction g τ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r30/PELNormalizerArithmeticBase318.lean:34:14: error: (kernel) declaration has metavariables 'PELNormalizerArithmeticBase318.arithmeticAction'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r30/PELNormalizerArithmeticBase318.lean:40:8: error: (kernel) declaration type mismatch, 'PELNormalizerArithmeticBase318.arithmeticAction_square' has type
+  ∀ (g : ↥positiveNormalizer) (τ : HalfPlane), arithmeticAction g (baseQuotient τ) = arithmeticAction g (baseQuotient τ)
+but it is expected to have type
+  ∀ (g : ↥positiveNormalizer) (τ : HalfPlane), arithmeticAction g (baseQuotient τ) = baseQuotient (baseAction g τ)

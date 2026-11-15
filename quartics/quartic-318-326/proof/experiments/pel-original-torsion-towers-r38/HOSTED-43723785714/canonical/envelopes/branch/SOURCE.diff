@@ -1,0 +1,24 @@
+--- before/FourRootActualBranchLocalization318.lean
++++ sources/FourRootActualBranchLocalization318.lean
+@@ -90,12 +90,17 @@
+     (hmap:∀r:R,algebraMap A B (algebraMap P A (algebraMap R P r))=
+       algebraMap C B (algebraMap R C r)):IsScalarTower R A B:=by
+   refine ⟨fun r a z=>?_⟩
+-  change algebraMap A B (r • a)*z=r • (algebraMap A B a*z)
+-  have hca:(r • a:A)=algebraMap P A (algebraMap R P r)*a:=
+-    (IsScalarTower.algebraMap_smul (R:=R) P r a).symm
++  rw [Algebra.smul_def (R:=A) (A:=B) (r • a) z,
++    Algebra.smul_def (R:=A) (A:=B) a z]
++  have hca:(r • a:A)=algebraMap P A (algebraMap R P r)*a:=by
++    calc
++      r • a = (algebraMap R P r) • a :=
++        (IsScalarTower.algebraMap_smul (R:=R) P r a).symm
++      _ = algebraMap P A (algebraMap R P r)*a :=
++        Algebra.smul_def (R:=P) (A:=A) _ _
+   rw [hca,map_mul,hmap,mul_assoc]
+   calc
+-    _=(algebraMap R C r) • (algebraMap A B a*z):=(Algebra.smul_def _ _).symm
++    _=(algebraMap R C r) • (algebraMap A B a*z):=(Algebra.smul_def (R:=C) (A:=B) _ _).symm
+     _=r • (algebraMap A B a*z):=
+       IsScalarTower.algebraMap_smul (R:=R) C r (algebraMap A B a*z)
+ 

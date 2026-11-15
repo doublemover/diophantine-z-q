@@ -1,0 +1,59 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:11:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 2: `(hτ : 0 < τ.im)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:15:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  QuaternionicOrderPeriodQuotient318.periodSubgroup PELQuaternionRealRepresentation318.representation
+    PELPrincipalOrderCoordinates318.order τ
+in the target expression
+  ↑l ∈ P τ
+
+τ : ℂ
+hτ : 0 < τ.im
+z : ComplexVectors
+l : ↥(L τ hτ)
+⊢ ↑l ∈ P τ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:17:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑↑l
+in the target expression
+  (QuotientAddGroup.mk' (P τ)) z + (QuotientAddGroup.mk' (P τ)) ↑l = (QuotientAddGroup.mk' (P τ)) z
+
+τ : ℂ
+hτ : 0 < τ.im
+z : ComplexVectors
+l : ↥(L τ hτ)
+hl : ↑l ∈ P τ
+⊢ (QuotientAddGroup.mk' (P τ)) z + (QuotientAddGroup.mk' (P τ)) ↑l = (QuotientAddGroup.mk' (P τ)) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:21:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (lattice τ hτ).toAddSubgroup
+in the target expression
+  ↑(chart τ hτ a) (projection (P τ) z) - z ∈ lattice τ hτ
+
+τ : ℂ
+hτ : 0 < τ.im
+a z : ComplexVectors
+ha : projection (P τ) z ∈ baseSet τ hτ a
+⊢ ↑(chart τ hτ a) (projection (P τ) z) - z ∈ lattice τ hτ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:28:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (projection (P τ) z ∈ baseSet τ hτ a)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:31:75: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+a z : ComplexVectors
+ha : projection (P τ) z ∈ baseSet τ hτ a
+⊢ ↑(sorry ()) = ↑(chart τ hτ a) (projection (P τ) z) - z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:32:8: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:32:16: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [shiftTo]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:55:41: error: unexpected token ')'; expected term
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:58:65: error: unexpected token ')'; expected term
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:69:47: error: unexpected token ')'; expected term
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r35/PELOriginalAutomorphyRepresentatives318.lean:87:51: error: unexpected token ')'; expected term
