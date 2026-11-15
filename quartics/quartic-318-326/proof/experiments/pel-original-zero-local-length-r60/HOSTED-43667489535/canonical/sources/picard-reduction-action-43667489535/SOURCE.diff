@@ -1,0 +1,69 @@
+--- before/PELNormalizerReductionAction318.lean
++++ after/PELNormalizerReductionAction318.lean
+@@ -22,15 +22,42 @@
+ @[expose] def reductionEquiv (i : Fin 4) : Reduction ≃+* Reduction where
+   toFun := forward i
+   invFun := backward i
+-  left_inv x := by fin_cases i <;> ext <;> simp [forward,backward] <;> ring
+-  right_inv x := by fin_cases i <;> ext <;> simp [forward,backward] <;> ring
++  left_inv x := by
++    have h3 : (3:F3)=0 := by decide
++    fin_cases i <;> ext <;> simp [forward,backward] <;> ring
++    case «0».imI => linear_combination (x.imI + x.imJ)*h3
++    case «0».imK => linear_combination (x.imJ)*h3
++    case «1».imI => linear_combination (2*x.imJ)*h3
++    case «1».imJ => linear_combination (x.imJ)*h3
++    case «1».imK => linear_combination (2*x.imJ + x.imK)*h3
++    case «2».imK => linear_combination (x.imK)*h3
++    case «3».imI => linear_combination (x.imI)*h3
++    case «3».imK => linear_combination (2*x.imJ + x.imK)*h3
++  right_inv x := by
++    have h3 : (3:F3)=0 := by decide
++    fin_cases i <;> ext <;> simp [forward,backward] <;> ring
++    case «0».imI => linear_combination (x.imJ)*h3
++    case «0».imK => linear_combination (x.imJ + x.imK)*h3
++    case «1».imI => linear_combination (2*x.imJ)*h3
++    case «1».imJ => linear_combination (x.imJ)*h3
++    case «1».imK => linear_combination (2*x.imJ + x.imK)*h3
++    case «2».imI => linear_combination (x.imI)*h3
++    case «3».imI => linear_combination (x.imI)*h3
++    case «3».imK => linear_combination (2*x.imJ + x.imK)*h3
+   map_add' x y := by fin_cases i <;> ext <;> simp [forward] <;> ring
+-  map_mul' x y := by fin_cases i <;> ext <;> simp [forward] <;> norm_num <;> ring
++  map_mul' x y := by
++    have h3 : (3:F3)=0 := by decide
++    fin_cases i <;> ext <;> simp [forward] <;> norm_num <;> ring
++    case «0».imI => linear_combination (-x.imI*y.imJ + x.imJ*y.imI)*h3
++    case «0».imK => linear_combination (-x.imJ*y.imK + x.imK*y.imJ)*h3
++    case «1».re => linear_combination (-2*x.imJ*y.imJ)*h3
++    case «1».imI => linear_combination (2*x.imJ*y.imK - 2*x.imK*y.imJ)*h3
+ 
+ /-- The whole original reduction square commutes on EVERY integral element,
+ not only on a basis or on the semisimple residue field. -/
+ theorem original_conjugation (i : Fin 4) (x : order) :
+     reduction (PELPrimeOrderConjugation318.orderEquiv i x)=reductionEquiv i (reduction x) := by
++  have h3 : (3:F3)=0 := by decide
+   obtain ⟨a,rfl⟩ := coordinatesEquiv.surjective x
+   change reduction (coordinatesEquiv (PELPrimeOrderConjugation318.forward i
+     (coordinatesEquiv.symm (coordinatesEquiv a))))=reductionEquiv i (reduction (coordinatesEquiv a))
+@@ -38,6 +65,20 @@
+   fin_cases i <;> ext <;>
+     norm_num [reductionEquiv,forward,reduceCoordinates,PELPrimeOrderConjugation318.forward] <;>
+     push_cast <;> norm_num <;> ring
++  case «0».re => linear_combination (294*(a 1:F3) - 21*(a 2:F3) + 168*(a 3:F3))*h3
++  case «0».imI => linear_combination (276*(a 1:F3) - 20*(a 2:F3) + 156*(a 3:F3))*h3
++  case «0».imJ => linear_combination (196*(a 1:F3) - 14*(a 2:F3) + 112*(a 3:F3))*h3
++  case «0».imK => linear_combination (-159*(a 1:F3) + 12*(a 2:F3) - 89*(a 3:F3))*h3
++  case «1».re => linear_combination (210*(a 1:F3) - 14*(a 2:F3) + 126*(a 3:F3))*h3
++  case «1».imI => linear_combination (166*(a 1:F3) - 11*(a 2:F3) + 99*(a 3:F3))*h3
++  case «1».imJ => linear_combination (140*(a 1:F3) - 9*(a 2:F3) + 84*(a 3:F3))*h3
++  case «1».imK => linear_combination (-95*(a 1:F3) + 7*(a 2:F3) - 57*(a 3:F3))*h3
++  case «2».imI => linear_combination (3*(a 1:F3))*h3
++  case «2».imK => linear_combination (-2*(a 1:F3))*h3
++  case «3».re => linear_combination (126*(a 1:F3) - 6*(a 2:F3) + 84*(a 3:F3))*h3
++  case «3».imI => linear_combination (422*(a 1:F3) - 23*(a 2:F3) + 279*(a 3:F3))*h3
++  case «3».imJ => linear_combination (84*(a 1:F3) - 4*(a 2:F3) + 56*(a 3:F3))*h3
++  case «3».imK => linear_combination (-245*(a 1:F3) + 14*(a 2:F3) - 162*(a 3:F3))*h3
+ 
+ /-- Actual ring automorphism of the literal original quotient O/3O. -/
+ @[expose] def quotientConjugation (i : Fin 4) : QuotientOrder ≃+* QuotientOrder :=

@@ -1,0 +1,11 @@
+fatal: path 'quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r44' exists on disk, but not in '4c5562395a9891e0d79fa5808926ebf9b2781470'
+Traceback (most recent call last):
+  File "/workspace/scratch/41c6d5925c0e/review43603177874/check_pel_propagation.py", line 30, in <module>
+    assert subprocess.check_output(['git','rev-parse',HEAD+':'+REL+'/'+old],cwd=REPO)==subprocess.check_output(['git','rev-parse',CURRENT+':'+REL+'/'+old],cwd=REPO),(name,'whole predecessor tree differs')
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'rev-parse', '4c5562395a9891e0d79fa5808926ebf9b2781470:quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r44']' returned non-zero exit status 128.

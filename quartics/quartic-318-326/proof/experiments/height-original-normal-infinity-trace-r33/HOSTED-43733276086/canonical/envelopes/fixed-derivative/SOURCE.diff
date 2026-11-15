@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -30,9 +30,9 @@
+     (a b c d z : K) (h : c*z+d≠0) :
+     HasDerivAt (fun w => (a*w+b)/(c*w+d)) ((a*d-b*c)/(c*z+d)^2) z := by
+   have hn : HasDerivAt (fun w : K => a*w+b) a z := by
+-    simpa only [id_eq,mul_one] using ((hasDerivAt_id z).const_mul a).add_const b
++    exact (hasDerivAt_add_const_iff b).mpr (hasDerivAt_const_mul (x:=z) a)
+   have hd : HasDerivAt (fun w : K => c*w+d) c z := by
+-    simpa only [id_eq,mul_one] using ((hasDerivAt_id z).const_mul c).add_const d
++    exact (hasDerivAt_add_const_iff d).mpr (hasDerivAt_const_mul (x:=z) c)
+   convert hn.div hd h using 1 <;> congr 1 <;> ring
+ 
+ theorem original_denominator_square (i : Fin 5) :

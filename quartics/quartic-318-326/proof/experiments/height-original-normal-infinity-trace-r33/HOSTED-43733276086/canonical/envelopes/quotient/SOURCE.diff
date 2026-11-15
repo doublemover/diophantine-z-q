@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -29,6 +29,7 @@
+   exact mul_left_cancel₀ (nonzero τ hτ (shiftTo τ hτ a z) z) he
+ lemma representative_surjective:Function.Surjective (toTotal τ hτ):=by
+   rintro ⟨q,v⟩
++  change ℂ at v
+   let a:ComplexVectors:=(core τ hτ).indexAt q
+   let z:=chart τ hτ a q
+   have ha:q∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at _

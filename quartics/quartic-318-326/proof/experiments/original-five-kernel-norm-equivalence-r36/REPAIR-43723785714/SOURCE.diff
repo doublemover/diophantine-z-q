@@ -1,0 +1,24 @@
+--- before/OriginalThickenedNormTraceSquare318.lean
++++ after/OriginalThickenedNormTraceSquare318.lean
+@@ -49,14 +49,16 @@
+   obtain ⟨_,⟨V₀,hV₀,rfl⟩,hyV,hVU⟩ := Y.isBasis_affineOpens.exists_subset_of_mem_open hy U.isOpen
+   let V : Y.Opens := V₀
+   have hV : IsAffineOpen V := hV₀
+-  refine ⟨V,hVU,hyV,?_⟩
+-  change Units.map ((thickening R q).presheaf.map (homOfLE ((π R q).preimage_mono hVU)).op).hom.toMonoidHom
++  have hle : V ≤ U := hVU
++  refine ⟨V,hle,hyV,?_⟩
++  change Units.map ((thickening R q).presheaf.map (homOfLE ((π R q).preimage_mono hle)).op).hom.toMonoidHom
+       ((OriginalThickenedUnitSheafNorm318.norm R p q f hY hfinite).hom.app (op U)
+         (sectionUnit R p (f ⁻¹ᵁ U) a)) =
+-    Units.map ((thickening R q).presheaf.map (homOfLE ((π R q).preimage_mono hVU)).op).hom.toMonoidHom
++    Units.map ((thickening R q).presheaf.map (homOfLE ((π R q).preimage_mono hle)).op).hom.toMonoidHom
+       (sectionUnit R q U (OpenDominantTrace318.trace f hY hfinite U a))
+-  rw [OriginalThickenedUnitSheafNorm318.restrict, sectionUnit_restrict, sectionUnit_restrict,
+-    OpenDominantTrace318.restrict f hY hfinite (homOfLE hVU),
++  rw [OriginalThickenedUnitSheafNorm318.restrict R p q f hY hfinite hle,
++    sectionUnit_restrict R p (f.preimage_mono hle), sectionUnit_restrict R q hle,
++    OpenDominantTrace318.restrict f hY hfinite (homOfLE hle),
+     OriginalThickenedUnitSheafNorm318.affine_value R p q f hY hfinite V hV]
+   letI : IsAffine V.toScheme := hV
+   letI : IsAffine (f ⁻¹ᵁ V).toScheme := hV.preimage f

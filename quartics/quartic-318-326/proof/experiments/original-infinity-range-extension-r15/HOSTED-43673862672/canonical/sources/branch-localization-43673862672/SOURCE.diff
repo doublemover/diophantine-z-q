@@ -1,0 +1,12 @@
+--- before/FourRootActualBranchLocalization318.lean
++++ after/FourRootActualBranchLocalization318.lean
+@@ -87,6 +87,9 @@
+       algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c)*a:=
+     (IsScalarTower.algebraMap_smul (R:=ℂ) ℂ[X] c a).symm
+   have hc:=sourceMap_on_polynomial b i (C c)
++  change sourceMap b i (algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c))=
++    algebraMap (OpenBase b i) (OpenOrder b i)
++      (algebraMap ℂ[X] (OpenBase b i) (algebraMap ℂ ℂ[X] c)) at hc
+   rw [←IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenBase b i)] at hc
+   rw [hca,map_mul,hc,mul_assoc]
+   calc

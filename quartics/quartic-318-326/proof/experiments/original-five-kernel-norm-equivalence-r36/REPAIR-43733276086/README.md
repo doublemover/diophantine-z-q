@@ -1,0 +1,5 @@
+# Exact own infinitesimal norm cocycle repair
+
+Own run43733276086, published five34, has145 full passes then OriginalInfinitesimalNormCocycle318 fails3.924s,67 later roots unreached. Source triple has three unconstrained inferred inclusion proofs after generic sectionUnit_restrict rewriting; provide each existing native preimage_mono triple-overlap inclusion and actual transition explicitly. Norm reduction currently mixes intersection-of-preimages with preimage-of-intersection under an opaque actual pullback; explicitly fix BOTH the reduction app open and epsilon open to the same whole original preimage of U_i∩U_j before native reduction_epsilon_open.
+
+All original transitions, norms, trace, covers, rings and epsilon retained. No new hypotheses; no changed theorem statement, import, option, budget, or roots. Both edits are exact-error-driven proof presentation, not a changed norm construction. Original pointed-line deformation consumer unchanged. No local Lean or inferred acceptance; independent source review and hosted check pending.

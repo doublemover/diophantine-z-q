@@ -1,0 +1,42 @@
+--- PELOriginalThetaConvergence318.before
++++ PELOriginalThetaConvergence318.after
+@@ -22,20 +22,23 @@
+       2*((n.1:ℝ)*(z 0).im+(n.2:ℝ)*(z 1).im))):=by
+   simp [term,Complex.norm_exp,quadratic,linear,energy,imaginary,Complex.mul_re,Complex.mul_im]
+   congr 1 <;> ring
++include hτ in
+ lemma oneBound_summable (S:ℝ):Summable (oneBound τ S):=by
+   simpa only [oneBound,pow_zero,one_mul,Int.cast_abs] using
+     summable_pow_mul_jacobiTheta₂_term_bound S (coercive_positive τ hτ) 0
++include hτ in
+ lemma bound_summable (S:ℝ):Summable (bound τ S):=
+   (oneBound_summable τ hτ S).mul_of_nonneg (oneBound_summable τ hτ S)
+     (fun _=>(Real.exp_pos _).le) (fun _=>(Real.exp_pos _).le)
++include hτ in
+ lemma norm_bound (S:ℝ) (z:ComplexVectors)
+     (hz0:|(z 0).im|≤S) (hz1:|(z 1).im|≤S) (n:Index):
+     ‖term τ n z‖≤bound τ S n:=by
+-  have h0: -|(n.1:ℝ)|*S≤(n.1:ℝ)*(z 0).im:=by
++  have h0: -|(n.1:ℝ)| *S≤(n.1:ℝ)*(z 0).im:=by
+     have h:=mul_le_mul_of_nonneg_left hz0 (abs_nonneg (n.1:ℝ))
+     rw [←abs_mul] at h
+     linarith [neg_abs_le ((n.1:ℝ)*(z 0).im)]
+-  have h1: -|(n.2:ℝ)|*S≤(n.2:ℝ)*(z 1).im:=by
++  have h1: -|(n.2:ℝ)| *S≤(n.2:ℝ)*(z 1).im:=by
+     have h:=mul_le_mul_of_nonneg_left hz1 (abs_nonneg (n.2:ℝ))
+     rw [←abs_mul] at h
+     linarith [neg_abs_le ((n.2:ℝ)*(z 1).im)]
+@@ -53,11 +56,13 @@
+ 
+ /-- Genuine absolute convergence of the full two-dimensional theta
+ series for the actual original quaternionic period matrix. -/
++include hτ in
+ lemma summable (z:ComplexVectors):Summable (fun n:Index=>term τ n z):=by
+   let S:=max |(z 0).im| |(z 1).im|
+   exact (bound_summable τ hτ S).of_norm_bounded
+     (norm_bound τ hτ S z (le_max_left _ _) (le_max_right _ _))
+ @[expose] def theta (z:ComplexVectors):ℂ:=∑'n:Index,term τ n z
++include hτ in
+ lemma hasSum (z:ComplexVectors):HasSum (fun n:Index=>term τ n z) (theta τ z):=
+   (summable τ hτ z).hasSum
+ end PELOriginalThetaConvergence318

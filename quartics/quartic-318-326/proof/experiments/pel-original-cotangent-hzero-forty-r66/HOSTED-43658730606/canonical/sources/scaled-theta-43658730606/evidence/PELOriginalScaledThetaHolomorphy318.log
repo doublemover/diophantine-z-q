@@ -1,0 +1,74 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:54:45: error: Invalid simp theorem: Expected a proposition, but found
+  Index → ℝ
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:53:31: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+a : ℝ
+ha : 0 < a
+S : ℝ
+z : ComplexVectors
+h0 : |(z 0).im| ≤ S
+h1 : |(z 1).im| ≤ S
+n : Index
+hconst : ‖2 * ↑Real.pi * Complex.I‖ = 2 * Real.pi
+hb : 0 ≤ bound τ a S n
+hs : 0 ≤ PELOriginalThetaHolomorphy318.slope n
+⊢ oneBound τ a S n.1 * oneBound τ a S n.2 * Real.pi * PELOriginalThetaHolomorphy318.slope n * 2 =
+    oneBound τ a S n.1 * oneBound τ a S n.2 * Real.pi * |↑n.1| * 2 +
+      oneBound τ a S n.1 * oneBound τ a S n.2 * Real.pi * |↑n.2| * 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:44:10: warning: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Real.pi_pos.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:44:19: warning: This simp argument is unused:
+  Real.pi_pos.le
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:69:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:71:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:87:50: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:87:6: error: Type mismatch: After simplification, term
+  term_hasFDerivAt τ a n w
+ has type
+  HasFDerivAt (term τ a n) (derivative τ a n w) w
+but is expected to have type
+  HasFDerivAt (selectedTerm τ a P n) (derivative τ a n w) w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:88:50: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:88:6: error: Type mismatch: After simplification, term
+  hasFDerivAt_const w 0
+ has type
+  HasFDerivAt (fun x => w) 0 0
+but is expected to have type
+  HasFDerivAt (selectedTerm τ a P n) 0 w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:94:37: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r28/PELOriginalScaledThetaHolomorphy318.lean:96:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

@@ -1,0 +1,34 @@
+--- before/PELOriginalAutomorphyRepresentatives318.lean
++++ sources/PELOriginalAutomorphyRepresentatives318.lean
+@@ -77,6 +77,9 @@
+   have h:p.1+(shiftTo τ hτ a p.1:ComplexVectors)=chart τ hτ a (projection (P τ) p.1):=by
+     rw [shiftTo_value τ hτ a p.1 ha];abel
+   have he:=PELOriginalPolarizationMetric318.squaredNorm_action τ hτ (shiftTo τ hτ a p.1) p
++  change PELOriginalPolarizationMetric318.squaredNorm τ hτ
++    (chart τ hτ a (projection (P τ) p.1),factor τ hτ (shiftTo τ hτ a p.1) p.1*p.2)=
++      PELOriginalPolarizationMetric318.squaredNorm τ hτ p
+   simpa only [PELOriginalPolarizationAutomorphy318.action,h] using he
+ 
+ lemma shiftTo_period (a z:ComplexVectors) (l:L τ hτ)
+@@ -94,9 +97,16 @@
+   have ha:projection (P τ) p.1∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at _
+   have hc:=cocycle τ hτ (shiftTo τ hτ a (p.1+l.val)) l p.1
+   rw [shiftTo_period τ hτ a p.1 l ha] at hc
+-  simp only [toTotal,PELOriginalPolarizationAutomorphy318.action,projection_add_period]
+-  congr 1
+-  change factor τ hτ (shiftTo τ hτ a (p.1+l.val)) (p.1+l.val)*
+-    (factor τ hτ l p.1*p.2)=factor τ hτ (shiftTo τ hτ a p.1) p.1*p.2
+-  rw [←mul_assoc,←hc]
++  apply Bundle.TotalSpace.ext
++  · change projection (P τ) (p.1+l.val)=projection (P τ) p.1
++    exact projection_add_period τ hτ p.1 l
++  · apply heq_of_eq
++    change factor τ hτ
++      (shiftTo τ hτ ((core τ hτ).indexAt (projection (P τ) (p.1+l.val))) (p.1+l.val))
++      (p.1+l.val)*(factor τ hτ l p.1*p.2)=
++        factor τ hτ (shiftTo τ hτ a p.1) p.1*p.2
++    rw [projection_add_period]
++    change factor τ hτ (shiftTo τ hτ a (p.1+l.val)) (p.1+l.val)*
++      (factor τ hτ l p.1*p.2)=factor τ hτ (shiftTo τ hτ a p.1) p.1*p.2
++    rw [←mul_assoc,←hc]
+ end PELOriginalAutomorphyRepresentatives318

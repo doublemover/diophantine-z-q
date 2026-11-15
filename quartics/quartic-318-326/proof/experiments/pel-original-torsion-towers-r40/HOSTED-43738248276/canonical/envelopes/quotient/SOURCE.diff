@@ -1,0 +1,19 @@
+--- before/PELOriginalAutomorphyQuotient318.lean
++++ sources/PELOriginalAutomorphyQuotient318.lean
+@@ -40,9 +40,13 @@
+     rw [shiftTo_value τ hτ a z hza,hz]
+     exact sub_self _
+   refine ⟨(z,v),?_⟩
+-  simp only [toTotal,hz]
+-  change (⟨q,factor τ hτ (shiftTo τ hτ a z) z*v⟩:Total τ hτ)=⟨q,v⟩
+-  rw [hs,zero_factor,one_mul]
++  apply Bundle.TotalSpace.ext
++  · exact hz
++  · apply heq_of_eq
++    change factor τ hτ (shiftTo τ hτ ((core τ hτ).indexAt (projection (P τ) z)) z) z*v=v
++    rw [hz]
++    change factor τ hτ (shiftTo τ hτ a z) z*v=v
++    rw [hs,zero_factor,one_mul]
+ 
+ /-- Exact full fibers, including the zero section, are ORIGINAL action
+ orbits. The fiber multiplier is nonzero because it is the actual exponential. -/

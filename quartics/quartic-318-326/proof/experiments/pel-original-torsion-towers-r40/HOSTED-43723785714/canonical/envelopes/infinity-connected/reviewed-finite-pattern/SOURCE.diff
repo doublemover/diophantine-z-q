@@ -1,0 +1,127 @@
+--- before/FourRootActualFiniteRamification318.lean
++++ after/FourRootActualFiniteRamification318.lean
+@@ -9,13 +9,8 @@
+ variable (b:Fin 4→ℂ) (hb:Function.Injective b)
+ local instance polyAlgebra:Algebra P (A b):=
+   (Polynomial.aeval (FourRootAffineCoordinateRing318.coordinate b none)).toAlgebra
+-local instance affineDomain:IsDomain (A b):=affine_domain b hb
+ local instance affineFinite:Module.Finite P (A b):=(FourRootActualOrderGalois318.finite_free b).1
+ local instance affineFlat:Module.Flat P (A b):=(FourRootActualOrderGalois318.finite_flat b).2
+-local instance groupFinite:Finite (FourRootActualOrderGalois318.G b):=
+-  FourRootActualOrderGalois318.group_finite b hb
+-local instance groupGalois:IsGaloisGroup (FourRootActualOrderGalois318.G b) P (A b):=
+-  FourRootActualOrderGalois318.galoisGroup b hb
+ 
+ @[expose] def contactPrime (j:Fin 4):Ideal P:=Ideal.span {X-C (b j)}
+ lemma contact_maximal (j:Fin 4):(contactPrime b j).IsMaximal:=by
+@@ -32,7 +27,7 @@
+   change finiteEvaluation b p (Polynomial.aeval
+     (FourRootAffineCoordinateRing318.coordinate b none) (X-C (b j)))=0
+   simp only [map_sub,Polynomial.aeval_X,Polynomial.aeval_C,AlgHom.commutes,he,hp,
+-    Algebra.algebraMap_self,sub_self]
++    Algebra.algebraMap_self] <;> exact sub_self _
+ 
+ lemma liesOver (j:Fin 4) (p:FinitePoints b) (hp:p.val.1=b j):
+     (finitePrime b p).LiesOver (contactPrime b j):=by
+@@ -46,6 +41,7 @@
+     exact contact_membership b j p hp)
+ 
+ lemma separableResidue (j:Fin 4):
++    letI:(contactPrime b j).IsPrime:=(contact_maximal b j).isPrime
+     Algebra.HasSeparableResidueFieldsAt P (A b) (contactPrime b j):=by
+   letI:(contactPrime b j).IsPrime:=(contact_maximal b j).isPrime
+   letI:Algebra.IsIntegral P (A b):=Algebra.IsIntegral.of_finite P (A b)
+@@ -55,12 +51,17 @@
+     Algebra.charZero_of_charZero ℂ (contactPrime b j).ResidueField
+   infer_instance
+ 
++include hb in
+ /-- Actual algebraic ramification index of the SAME whole finite chart
+ at every original complex branch point. The cardinality-to-index theorem
+ uses constructed full Galois action, finite flatness and separable residue
+ fields, not an analytic local-degree assertion or a known-label count. -/
+ theorem ramificationIdxIn_two (j:Fin 4) (p:FinitePoints b) (hp:p.val.1=b j):
+     Ideal.ramificationIdxIn (contactPrime b j) (A b)=2:=by
++  letI:IsDomain (A b):=affine_domain b hb
++  letI:Finite (FourRootActualOrderGalois318.G b):=FourRootActualOrderGalois318.group_finite b hb
++  letI:IsGaloisGroup (FourRootActualOrderGalois318.G b) P (A b):=
++    FourRootActualOrderGalois318.galoisGroup b hb
+   letI:(contactPrime b j).IsPrime:=(contact_maximal b j).isPrime
+   letI:(finitePrime b p).IsPrime:=finite_prime b p
+   letI:(finitePrime b p).LiesOver (contactPrime b j):=liesOver b j p hp
+@@ -69,8 +70,13 @@
+     (G:=FourRootActualOrderGalois318.G b) (contactPrime b j) (finitePrime b p)
+   exact h.symm.trans (FourRootFullFiniteInertia318.full_inertia_card b hb j p hp)
+ 
++include hb in
+ theorem ramificationIdx_two (j:Fin 4) (p:FinitePoints b) (hp:p.val.1=b j):
+     (finitePrime b p).ramificationIdx P=2:=by
++  letI:IsDomain (A b):=affine_domain b hb
++  letI:Finite (FourRootActualOrderGalois318.G b):=FourRootActualOrderGalois318.group_finite b hb
++  letI:IsGaloisGroup (FourRootActualOrderGalois318.G b) P (A b):=
++    FourRootActualOrderGalois318.galoisGroup b hb
+   letI:(contactPrime b j).IsPrime:=(contact_maximal b j).isPrime
+   letI:(finitePrime b p).IsPrime:=finite_prime b p
+   letI:(finitePrime b p).LiesOver (contactPrime b j):=liesOver b j p hp
+--- before/FourRootOffBranchRamification318.lean
++++ after/FourRootOffBranchRamification318.lean
+@@ -9,13 +9,8 @@
+ variable (b:Fin 4→ℂ) (hb:Function.Injective b)
+ local instance polyAlgebra:Algebra P (A b):=
+   (Polynomial.aeval (FourRootAffineCoordinateRing318.coordinate b none)).toAlgebra
+-local instance affineDomain:IsDomain (A b):=affine_domain b hb
+ local instance affineFinite:Module.Finite P (A b):=(FourRootActualOrderGalois318.finite_free b).1
+ local instance affineFlat:Module.Flat P (A b):=(FourRootActualOrderGalois318.finite_flat b).2
+-local instance groupFinite:Finite (FourRootActualOrderGalois318.G b):=
+-  FourRootActualOrderGalois318.group_finite b hb
+-local instance groupGalois:IsGaloisGroup (FourRootActualOrderGalois318.G b) P (A b):=
+-  FourRootActualOrderGalois318.galoisGroup b hb
+ 
+ lemma sign_one:FourRootActualOrderAutomorphisms318.polynomialSign b 1=1:=by
+   have h:FourRootCoordinateRingSigns318.finiteEnd b 1=AlgHom.id ℂ (A b):=by
+@@ -38,6 +33,7 @@
+     simp [FourBinaryCharacters318.signPattern]
+   exact hi.trans h1.symm
+ 
++include hb in
+ lemma regular_inertia_bot (p:FinitePoints b) (hp:∀j,p.val.1≠b j):
+     (finitePrime b p).inertia (FourRootActualOrderGalois318.G b)=⊥:=by
+   apply le_antisymm
+@@ -74,8 +70,10 @@
+   change finiteEvaluation b p (Polynomial.aeval
+     (FourRootAffineCoordinateRing318.coordinate b none) (X-C p.val.1))=0
+   simp only [map_sub,Polynomial.aeval_X,Polynomial.aeval_C,AlgHom.commutes,he,
+-    Algebra.algebraMap_self,sub_self]
+-lemma point_separable (t:ℂ):Algebra.HasSeparableResidueFieldsAt P (A b) (pointBase t):=by
++    Algebra.algebraMap_self] <;> exact sub_self _
++lemma point_separable (t:ℂ):
++    letI:(pointBase t).IsPrime:=(pointBase_maximal t).isPrime
++    Algebra.HasSeparableResidueFieldsAt P (A b) (pointBase t):=by
+   letI:(pointBase t).IsPrime:=(pointBase_maximal t).isPrime
+   letI:Algebra.IsIntegral P (A b):=Algebra.IsIntegral.of_finite P (A b)
+   letI:Algebra ℂ (pointBase t).ResidueField:=
+@@ -84,11 +82,16 @@
+     Algebra.charZero_of_charZero ℂ (pointBase t).ResidueField
+   infer_instance
+ 
++include hb in
+ /-- Every actual finite point away from the four literal branches has
+ algebraic ramification index one. This excludes hidden extra branch
+ points by the full actual Galois inertia theorem. -/
+ theorem ramificationIdx_one (p:FinitePoints b) (hp:∀j,p.val.1≠b j):
+     (finitePrime b p).ramificationIdx P=1:=by
++  letI:IsDomain (A b):=affine_domain b hb
++  letI:Finite (FourRootActualOrderGalois318.G b):=FourRootActualOrderGalois318.group_finite b hb
++  letI:IsGaloisGroup (FourRootActualOrderGalois318.G b) P (A b):=
++    FourRootActualOrderGalois318.galoisGroup b hb
+   letI:(pointBase p.val.1).IsPrime:=(pointBase_maximal p.val.1).isPrime
+   letI:(finitePrime b p).IsPrime:=finite_prime b p
+   letI:(finitePrime b p).LiesOver (pointBase p.val.1):=point_liesOver b p
+@@ -101,6 +104,7 @@
+     (FourRootActualOrderGalois318.G b)]
+   exact hi
+ 
++include hb in
+ theorem finite_exact_index (p:FinitePoints b):
+     (finitePrime b p).ramificationIdx P=if ∃j,p.val.1=b j then 2 else 1:=by
+   split_ifs with h

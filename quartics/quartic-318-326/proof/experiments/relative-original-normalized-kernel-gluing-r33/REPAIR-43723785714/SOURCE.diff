@@ -1,0 +1,11 @@
+--- before/OriginalPrincipalCocycleRows318.lean
++++ after/OriginalPrincipalCocycleRows318.lean
+@@ -19,7 +19,7 @@
+   le_inf inf_le_left (inf_le_right.trans inf_le_right)
+ 
+ /-- Actual original additive Čech equation on the whole triple intersection. -/
+-def Cocycle (c : ∀ i j, Γ(X,V X f i j)) : Prop := ∀ i j k,
++@[expose] def Cocycle (c : ∀ i j, Γ(X,V X f i j)) : Prop := ∀ i j k,
+   res X (tripleLeft X f i j k) (c i j) + res X (tripleRight X f i j k) (c j k) =
+     res X (tripleOuter X f i j k) (c i k)
+ 

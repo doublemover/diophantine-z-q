@@ -1,0 +1,22 @@
+--- before/PELIntegralPeriodKernel318.lean
++++ after/PELIntegralPeriodKernel318.lean
+@@ -53,6 +53,7 @@
+   obtain ⟨z,hz⟩ := QuotientAddGroup.mk'_surjective (Periods (translated n τ)) p.val
+   have hzero : QuotientAddGroup.mk' (Periods τ) (periodScalar representation order n τ z)=0 := by
+     have h := p.property
++    change originalMap n hn τ hτ p.val=0 at h
+     rw [←hz,originalMap_period] at h
+     exact h
+   obtain ⟨x,hx,he⟩ := (QuotientAddGroup.eq_zero_iff _).mp hzero
+@@ -78,7 +79,10 @@
+     have hx0 : kernelLift n τ x=0 := congrArg Subtype.val hx
+     obtain ⟨y,hy,he⟩ := (QuotientAddGroup.eq_zero_iff _).mp hx0
+     have hperiod : periodHom representation τ (y*n)=periodHom representation τ x := by
+-      rw [←scalar_period representation order n τ (scalar_nonzero n hn τ hτ) y,he]
++      rw [←scalar_period representation order n τ (scalar_nonzero n hn τ hτ) y]
++      change periodScalar representation order n τ
++        (periodHom representation (translated n τ) y)=periodHom representation τ x
++      rw [he]
+       change QuaternionicMobiusPeriods318.denominator (representation n) τ •
+         ((QuaternionicMobiusPeriods318.denominator (representation n) τ)⁻¹ •
+           periodHom representation τ x)=_

@@ -1,0 +1,31 @@
+--- before/FourRootActualOrderAutomorphisms318.lean
++++ after/FourRootActualOrderAutomorphisms318.lean
+@@ -75,6 +75,16 @@
+   apply FourRootInertiaLabelCardinality318.signEquivalence.injective
+   exact FourRootAutomorphisms318.signEquiv_injective (parameter b) hh
+ 
++/-- The polynomial-order and field presentations use the same literal
++four tensor factors and original root-sign maps over the actual base field. -/
++lemma field_sign_eq (s:Fin 4→Bool) :
++    FourRootOrderSigns318.signEquiv (parameter b) s =
++      FourRootAutomorphisms318.signEquiv (parameter b) s := by
++  simp only [FourRootOrderSigns318.signEquiv,FourRootAutomorphisms318.signEquiv,
++    FourRootOrderSigns318.bitEquiv,FourRootAutomorphisms318.bitEquiv,
++    FourRootOrderSigns318.negateEquiv,FourRootAutomorphisms318.negateEquiv,
++    FourRootOrderSigns318.negateHom,FourRootAutomorphisms318.negateHom] <;> rfl
++
+ include hb in
+ /-- No further polynomial-order automorphisms are omitted: all extend
+ into the actual degree-sixteen Kummer field and hence are original signs. -/
+@@ -96,7 +106,10 @@
+   change affineEmbedding b (FourRootCoordinateRingSigns318.finiteEnd b g x)=
+     affineEmbedding b (e x)
+   rw [FourRootActualGenericSigns318.affineEmbedding_equivariant]
+-  simpa only [FourRootActualGenericSigns318.genericAutomorphism,hg] using hx
++  change FourRootAutomorphisms318.signEquiv (parameter b) s (affineEmbedding b x)=
++    affineEmbedding b (e x) at hx
++  rw [FourRootActualGenericSigns318.genericAutomorphism,hg,field_sign_eq]
++  exact hx
+ 
+ @[expose] def signEquivalence:FourBinaryCharacters318.Group≃(A b≃ₐ[P]A b):=
+   Equiv.ofBijective (polynomialSign b) ⟨sign_injective b hb,sign_surjective b hb⟩
