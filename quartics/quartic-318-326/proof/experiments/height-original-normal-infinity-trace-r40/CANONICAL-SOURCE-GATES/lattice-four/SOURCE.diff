@@ -1,0 +1,71 @@
+--- before/PELOriginalIntegralDualLattice318.lean
++++ sources/PELOriginalIntegralDualLattice318.lean
+@@ -29,11 +29,11 @@
+     (hi:∀l:L τ hτ,∃n:ℤ,riemann τ hτ δ l.val=(n:ℝ)):L τ hτ→ₗ[ℤ]ℤ where
+   toFun:=integerPairing τ hτ δ hi
+   map_add' l m:=by
+-    apply Int.cast_injective (R:=ℝ)
++    apply Int.cast_injective (α:=ℝ)
+     rw [Int.cast_add,integerPairing_value,integerPairing_value,integerPairing_value]
+     exact add_right τ hτ δ l.val m.val
+   map_smul' n l:=by
+-    apply Int.cast_injective (R:=ℝ)
++    apply Int.cast_injective (α:=ℝ)
+     simp only [smul_eq_mul,Int.cast_mul]
+     rw [integerPairing_value,integerPairing_value]
+     change riemann τ hτ δ (n • l.val)=(n:ℝ)*riemann τ hτ δ l.val
+--- before/PELOriginalOrderHermitianAdjoint318.lean
++++ sources/PELOriginalOrderHermitianAdjoint318.lean
+@@ -32,13 +32,16 @@
+ lemma form_neg_first (z w : ComplexVectors) : form τ hτ (-z) w= -form τ hτ z w :=
+   map_neg (PELOriginalHermitianForm318.linear τ hτ w) z
+ lemma form_zero_second (z : ComplexVectors) : form τ hτ z 0=0 := by
+-  rw [hermitian,form_zero_first,map_zero]
++  rw [hermitian,form_zero_first,star_zero]
+ lemma form_neg_second (z w : ComplexVectors) : form τ hτ z (-w)= -form τ hτ z w := by
+-  rw [hermitian,form_neg_first,map_neg,←hermitian]
++  rw [hermitian,form_neg_first,star_neg,←hermitian]
+ lemma linear_zero (z : ComplexVectors) : linear (0 : order) z=0 := by
+-  simp [PELOriginalComplementaryHermitian318.linear,leftLinear]
++  funext i
++  fin_cases i <;> simp [PELOriginalComplementaryHermitian318.linear,leftLinear,action]
+ lemma linear_one (z : ComplexVectors) : linear (1 : order) z=z := by
+-  simp [PELOriginalComplementaryHermitian318.linear,leftLinear]
++  funext i
++  fin_cases i <;> simp [PELOriginalComplementaryHermitian318.linear,leftLinear,action]
+ lemma linear_neg_one (z : ComplexVectors) : linear (-1 : order) z= -z := by
+-  simp [PELOriginalComplementaryHermitian318.linear,leftLinear]
++  funext i
++  fin_cases i <;> simp [PELOriginalComplementaryHermitian318.linear,leftLinear,action]
+ end PELOriginalOrderHermitianAdjoint318
+--- before/LatticeQuotientKernel318.lean
++++ sources/LatticeQuotientKernel318.lean
+@@ -16,8 +16,15 @@
+     change QuotientAddGroup.mk' L (F (F.symm x.val))=0
+     rw [F.apply_symm_apply]
+     exact (QuotientAddGroup.eq_zero_iff _).mpr x.property⟩
+-  map_zero' := by apply Subtype.ext; simp only [map_zero]
+-  map_add' x y := by apply Subtype.ext; simp only [map_add]
++  map_zero' := by
++    apply Subtype.ext
++    change QuotientAddGroup.mk' L (F.symm (0 : V)) = 0
++    exact map_zero ((QuotientAddGroup.mk' L).comp F.symm.toAddMonoidHom)
++  map_add' x y := by
++    apply Subtype.ext
++    change QuotientAddGroup.mk' L (F.symm (x.val + y.val)) =
++      QuotientAddGroup.mk' L (F.symm x.val) + QuotientAddGroup.mk' L (F.symm y.val)
++    exact map_add ((QuotientAddGroup.mk' L).comp F.symm.toAddMonoidHom) x.val y.val
+ lemma root_surjective : Function.Surjective (rootHom L F h) := by
+   intro q
+   obtain ⟨z,hz⟩ := Quotient.exists_rep q.val
+--- before/QuaternionicOrderQuotientActionLaws318.lean
++++ sources/QuaternionicOrderQuotientActionLaws318.lean
+@@ -35,7 +35,7 @@
+   refine Quotient.inductionOn q ?_
+   intro z
+   change QuotientAddGroup.mk' (periodSubgroup ρ O τ) (leftLinear (ρ (1:B)) z)=_
+-  rw [map_one,linear_one]
++  rw [map_one,linear_one] <;> exact QuotientAddGroup.mk'_apply _ _
+ lemma add_action (a b : O) (q : PeriodQuotient ρ O τ) :
+     orderEnd ρ O τ (a+b) q=orderEnd ρ O τ a q+orderEnd ρ O τ b q := by
+   refine Quotient.inductionOn q ?_

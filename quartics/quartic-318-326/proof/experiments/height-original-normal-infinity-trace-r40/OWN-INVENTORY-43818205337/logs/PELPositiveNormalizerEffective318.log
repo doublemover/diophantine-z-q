@@ -1,0 +1,33 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELPositiveNormalizerEffective318.lean:11:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (normOneConjugation ?g) minusOne
+in the target expression
+  Subgroup.zpowers ((normOneConjugation g).toMonoidHom minusOne) = Subgroup.zpowers minusOne
+
+g : ↥positiveNormalizer
+⊢ Subgroup.zpowers ((normOneConjugation g).toMonoidHom minusOne) = Subgroup.zpowers minusOne
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELPositiveNormalizerEffective318.lean:27:56: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELPositiveNormalizerEffective318.lean:27:56: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELPositiveNormalizerEffective318.lean:35:2: warning: Unused tactic linter: `change effectiveConjugation g (effectiveReduction u) = 1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELPositiveNormalizerEffective318.lean:40:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (effectiveConjugation ?g) ↑?u
+in the target expression
+  (effectiveConjugation 1) ((QuotientGroup.mk' signs) u) = (QuotientGroup.mk' signs) u
+
+u : ↥PELFiniteNormOneGroup318.normOne
+⊢ (effectiveConjugation 1) ((QuotientGroup.mk' signs) u) = (QuotientGroup.mk' signs) u
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELPositiveNormalizerEffective318.lean:45:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (effectiveConjugation ?g) ↑?u
+in the target expression
+  (effectiveConjugation (g * h)) ((QuotientGroup.mk' signs) u) =
+    (effectiveConjugation g) ((effectiveConjugation h) ((QuotientGroup.mk' signs) u))
+
+g h : ↥positiveNormalizer
+u : ↥PELFiniteNormOneGroup318.normOne
+⊢ (effectiveConjugation (g * h)) ((QuotientGroup.mk' signs) u) =
+    (effectiveConjugation g) ((effectiveConjugation h) ((QuotientGroup.mk' signs) u))

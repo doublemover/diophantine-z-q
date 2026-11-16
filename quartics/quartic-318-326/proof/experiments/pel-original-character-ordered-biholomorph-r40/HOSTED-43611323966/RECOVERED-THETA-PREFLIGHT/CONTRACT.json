@@ -1,0 +1,128 @@
+{
+  "classification": "PREVENTIVE_UNOBSERVED_NOT_IN_ACTIVE_INDEX",
+  "published_before_head": "4c5562395a9891e0d79fa5808926ebf9b2781470",
+  "frozen_batch_untouched": true,
+  "local_lean_run": false,
+  "new_public_telescope_count": 11,
+  "source_changes": {
+    "PELOriginalThetaHolomorphy318": {
+      "before_sha256": "c10a415b34a981294e50c52d737e4aba957e68b7e3fa8fd52359e193732fb251",
+      "after_sha256": "57a25fd46c757062e6fa1313329283cc65b55419c54f28d9173392b698acca19",
+      "public_telescope_restorations": [
+        "weightedOne_summable",
+        "derivativeBound_summable",
+        "derivative_norm_bound",
+        "theta_hasFDerivAt",
+        "holomorphic"
+      ],
+      "added_lines": 5,
+      "proof_bodies_definitions_and_statements_other_than_section_parameter_selection_unchanged": true
+    },
+    "PELOriginalThetaRealTorus318": {
+      "before_sha256": "9386ff8fe6bfe469d1a8872971b97d37fbffda7f1fe454aebb2774d86ce904cf",
+      "after_sha256": "4df8c769206ed1d47bc014aeea296e5d3bf82ca312974e1874d358643b2f1fa4",
+      "public_telescope_restorations": [
+        "torusTerm_summable",
+        "torus_hasSum",
+        "real_evaluation"
+      ],
+      "added_lines": 3,
+      "proof_bodies_definitions_and_statements_other_than_section_parameter_selection_unchanged": true
+    },
+    "PELOriginalThetaSecondBounds318": {
+      "before_sha256": "eb3677a48852b89d0dfeebccd7b21907ee6f700eb550c5d5c4837e4056289294",
+      "after_sha256": "74d7e96a0c9c174ea61aa2fae7281dc355d6809b22b7ecf9847e2b7d98dc3554",
+      "public_telescope_restorations": [
+        "weightedTwo_summable",
+        "secondBound_summable",
+        "second_norm_bound"
+      ],
+      "added_lines": 3,
+      "proof_bodies_definitions_and_statements_other_than_section_parameter_selection_unchanged": true
+    }
+  },
+  "obligations": {
+    "hypotheses": {
+      "required_input": "Existing section tau:Complex and hTau:0<tau.im.",
+      "constructed_input": "Explicit include hTau in for exactly eleven listed existing lemmas/theorems.",
+      "justification": "Their proof terms already use this section hypothesis, while the displayed result types do not mention it. This changes eleven literal public telescopes to the intended conditional theorems; no stronger independent inequality assumption is added.",
+      "evidence": "Exact published before bytes and immediate consumers are bound."
+    },
+    "objects": {
+      "required_input": "Original full Z² theta, original complex vectors, continuous real-torus series and exact derivative/second-derivative maps.",
+      "constructed_input": "All definitions and proof bodies byte-identical after removal of the eleven new include lines.",
+      "justification": "No surrogate function, finite truncation or replacement domain."
+    },
+    "identity": {
+      "required_input": "Actual theta and derivatives produced by prior convergence/coercivity source.",
+      "constructed_input": "Same theta/term/derivative/torusTheta expressions and equalities.",
+      "justification": "Only section-variable retention changes; source expressions do not."
+    },
+    "coverage": {
+      "required_input": "Every integer pair, full complex vector space, every real torus representative and all derivative directions.",
+      "constructed_input": "Original quantifiers and bounds unchanged.",
+      "justification": "No specialization to one parameter or a finite sample."
+    },
+    "coefficients": {
+      "required_input": "Existing real/complex scalars and coercive tau.im/20 Gaussian.",
+      "constructed_input": "No coefficient/type/cast changes.",
+      "justification": "Same native complex/real Gaussian and Banach summation APIs."
+    },
+    "local_conditions": {
+      "required_input": "Existing positive imaginary part, local ball bound and summable derivative bounds.",
+      "constructed_input": "Retain the exact already-used positivity binder on the eleven dependent results.",
+      "justification": "Do not make unconditional holomorphy/summability claims outside the stated upper-half-plane input."
+    },
+    "exceptional_cases": {
+      "required_input": "All original integer frequencies including zero, all points, all finite coordinate cases.",
+      "constructed_input": "No case exclusions added.",
+      "justification": "Uniform/summability and derivative proof terms untouched."
+    },
+    "downstream": {
+      "required_input": "Actual consumers already applying these results to tau hTau.",
+      "constructed_input": {
+        "PELOriginalThetaHolomorphy318": [
+          "Internal derivativeBound_summable already calls weightedOne_summable tau hTau; theta_hasFDerivAt already calls derivativeBound_summable and derivative_norm_bound tau hTau; holomorphic already calls theta_hasFDerivAt tau hTau.",
+          "External PELOriginalGaugedTheta318.gauged_differentiable explicitly consumes PELOriginalThetaHolomorphy318.holomorphic tau hTau; PELOriginalThetaDirectionalHolomorphy318 consumes the derivative bounds and derivative theorem with tau hTau."
+        ],
+        "PELOriginalThetaRealTorus318": [
+          "Internal torus_hasSum already calls torusTerm_summable tau hTau; real_evaluation already calls torus_hasSum tau hTau.",
+          "PELOriginalThetaConstantCoefficient318.constant_coefficient line44 uses torus_hasSum tau hTau; exists_real_nonzero line63 uses real_evaluation tau hTau x."
+        ],
+        "PELOriginalThetaSecondBounds318": [
+          "Internal secondBound_summable already calls weightedTwo_summable tau hTau.",
+          "PELOriginalThetaDirectionalHolomorphy318 uses secondBound_summable tau hTau S v and second_norm_bound tau hTau S v w at its full Frechet derivative summation."
+        ]
+      },
+      "justification": "Any newly revealed consumer elaboration failure remains unverified; no blanket acceptance inferred."
+    },
+    "boundary": {
+      "required_input": "Source-primary grounded preventive audit, not new own hosted failures.",
+      "constructed_input": "PREVENTIVE_UNOBSERVED source candidates only, outside active index and without intake.",
+      "justification": "Authentic preceding ThetaConvergence hTau failure is analogous evidence only; these three modules were not reached. Independent source/contract review and later fresh propagation/index review required."
+    }
+  },
+  "bindings": {
+    "prepare.py": "17107b038f5f7232bdd092bd073ce900e10b7ef9bd6b2c7d6425788e2bfaf6f2",
+    "prepare.before-consumer-label-correction.py": "1bc453764d006c51e8f830a7ae4a48beb727690909e9f818afd8601d17005f9d",
+    "PRE-CONSUMER-LABEL-CONTRACT.json": "0ceff30bb352d1878cd870f8b0caaa5696a6007ef40b67889d1b0d3fef791335",
+    "PELOriginalThetaHolomorphy318.diff": "653e16010deea85e23f07462061159c70654387a9f39a196b82b0f0466c6c2f9",
+    "README.md": "c6827802fffa5f1537d76609b09b492957430704e2efeab59bb7e31a639c54cf",
+    "PELOriginalThetaSecondBounds318.diff": "bab2f77ca7e7f894b18a3be5bed8b50e42c7607066ea7122c60646bd48548eaf",
+    "PELOriginalThetaRealTorus318.diff": "6907c1a1ef07a4086cfbb61bc46c87637daa0870dc09de08ab830d46a5d20b9b",
+    "after/PELOriginalThetaSecondBounds318.lean": "74d7e96a0c9c174ea61aa2fae7281dc355d6809b22b7ecf9847e2b7d98dc3554",
+    "after/PELOriginalThetaHolomorphy318.lean": "57a25fd46c757062e6fa1313329283cc65b55419c54f28d9173392b698acca19",
+    "after/PELOriginalThetaRealTorus318.lean": "4df8c769206ed1d47bc014aeea296e5d3bf82ca312974e1874d358643b2f1fa4",
+    "evidence/PELOriginalGaugedTheta318.lean": "96e400a784c3d6ac2f6364abb5f132b9b6a252a5a46a4ac1e327e4306ff562c6",
+    "evidence/PELOriginalThetaDirectionalHolomorphy318.lean": "aa7ec3f777f8a5bc3709fa766789573e0ffc4393679e92d5a5ea9d73606a96d9",
+    "evidence/PELOriginalSiegelCoercivity318.lean": "76735d65ed572489d6299a4d25395e267c64521ac953c0e388998d65d2388948",
+    "evidence/PRECEDING-THETA-CONVERGENCE-ACTUAL-FAILURE.log": "2ae7c8dafeacd03405eb770e66c2101e41ec1121087f2011cccd9715f84bd17b",
+    "evidence/PELOriginalThetaConvergence318.lean": "f488f6c8dcc94991c3d1df1490948aa7166023e884e5a6be9448d24dccfddacd",
+    "evidence/Mathlib_NumberTheory_ModularForms_JacobiTheta_TwoVariable.lean": "1e1918e5dac2b81f082ee17bfa8fd04d8624926ad30a0a28678b6ce6fda9cb8a",
+    "evidence/PELOriginalThetaConstantCoefficient318.lean": "fe05e80f1e820b001a884896187f4cbb3b6451e6f3077803563ec5ca579191c4",
+    "evidence/PROVENANCE.json": "65dc4eabdbd122ef346e4595cdb74f58f8ad4d8ba85a6625c91332e6f037749f",
+    "before/PELOriginalThetaSecondBounds318.lean": "eb3677a48852b89d0dfeebccd7b21907ee6f700eb550c5d5c4837e4056289294",
+    "before/PELOriginalThetaHolomorphy318.lean": "c10a415b34a981294e50c52d737e4aba957e68b7e3fa8fd52359e193732fb251",
+    "before/PELOriginalThetaRealTorus318.lean": "9386ff8fe6bfe469d1a8872971b97d37fbffda7f1fe454aebb2774d86ce904cf"
+  }
+}

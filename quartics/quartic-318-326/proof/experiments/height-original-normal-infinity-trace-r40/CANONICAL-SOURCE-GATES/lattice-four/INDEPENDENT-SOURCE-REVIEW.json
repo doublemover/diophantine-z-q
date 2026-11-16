@@ -1,0 +1,67 @@
+{
+  "status": "PASS_BOUNDED_FOUR_SOURCE_API_REVIEW_HOSTED_UNVERIFIED",
+  "application_sha256": "82d99b1973d35e57c2e2436e73b2962554290518a9387e4c230d75d634f86607",
+  "bindings_verified": 38,
+  "actual_primary_origins_verified": 14,
+  "native_blobs_verified": [
+    {
+      "repository": "leanprover-community/mathlib4",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Data/Int/Cast/Lemmas.lean",
+      "git_blob": "b1001d9996c992e03aead4f323de24d7029132f6",
+      "sha256": "aadf0092604482b7ba777fa8da63222210edc65f3ba8d4a27e461f836d49c5cf"
+    },
+    {
+      "path": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+      "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "6ec41ce6a202f1d5471545ccf7d3017a199cd228",
+      "sha256": "75a6d9894e9ac871dea9d5744f28fbee76eb48ce20dc90b6c5412544761ce609"
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Hom/Defs.lean",
+      "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "6fa9cdfaa5483dd76acedc6b65292a805bb861b8",
+      "sha256": "01aa5f4c424688f5ef7ca46a65442f1d88ae7148990b6d9a4e85269ed7921c64"
+    },
+    {
+      "path": "Mathlib/Algebra/Star/Basic.lean",
+      "ref": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "git_blob": "7eba4bb1c6ccbf8711d9761db62c0d0682c0c9b0",
+      "sha256": "297c31d580ae2708924155684a964da9f182544937b58c7940342237caabd979"
+    }
+  ],
+  "repairs": [
+    {
+      "module": "PELOriginalIntegralDualLattice318",
+      "before_sha256": "ffbaa42631a5c9d92a72b9aaebd64a7bac07ceffa0c6111e4a9293944a91d712",
+      "after_sha256": "eae315dac9b2d8ce7513117997502db2e88fa6528f8c83037669c39c7259a722"
+    },
+    {
+      "module": "PELOriginalOrderHermitianAdjoint318",
+      "before_sha256": "26addf015d886ef6555b71bd822203270694383a9b0b0fc23bfc09a441e69e65",
+      "after_sha256": "f5fb813096028a1d928fac23d092ab3a1742b8285f00886d24267041d469a318"
+    },
+    {
+      "module": "LatticeQuotientKernel318",
+      "before_sha256": "c3630992b6962c1cb54713faa21356a6e6c0edc595b77ea4e3b317ae73aadbf7",
+      "after_sha256": "4fa3887c58a69f0306802a132e2136bfbd98d1efa2cf37488992724689f368b7"
+    },
+    {
+      "module": "QuaternionicOrderQuotientActionLaws318",
+      "before_sha256": "c91246cf107a13b1559cedb667fb478109c5280c48ef811b86d04160464e0c1c",
+      "after_sha256": "cb71f3d3c1e3bbfaf40936bff51e2fe2e215a4add8ec8a4cc13ab654c4e5e2b6"
+    }
+  ],
+  "checks": [
+    "Int.cast_injective uses the pinned alpha parameter over the same real CharZero ring; no weaker rational pairing or altered original lattice.",
+    "Native star_zero/star_neg match the actual star expressions, unlike map_zero/map_neg. Fin2 ext/simp computes the unchanged actual representation/leftLinear/action at zero/one/minus-one.",
+    "LatticeQuotientKernel retains the same quotient after F.symm. Its structure-law goals are explicitly the zero/add laws of the existing additive composite, with subtype coercions exposed, not a new quotient map.",
+    "QuotientActionLaws one-action residual exactly matches native additive mk-prime evaluation lemma; robust <;> sequencing does not assume a remaining goal.",
+    "All four exact own torsion44 inventory errors/logs, full modified bodies, relevant actual producers/callers and pinned declarations checked; no public written signature, option or mathematical map change."
+  ],
+  "limits": [
+    "Source/API only; no candidate Lean or downstream closure acceptance. Unchanged downstream OrderDegreeLaws still contains its own old named-argument issue and is not silently repaired by this gate.",
+    "Inventory independent attempts are not a normal prefix or full packet pass. Current propagation remains separate.",
+    "No local compiler, source mutation, publication or blocked jobs snapshot."
+  ]
+}

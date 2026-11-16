@@ -1,0 +1,11 @@
+--- before/PELNormalizerTraceIntegral318
++++ after/PELNormalizerTraceIntegral318
+@@ -30,7 +30,7 @@
+     (↑u⁻¹:B)=(↑u⁻¹:B)*1 := (mul_one _).symm
+     _ = (↑u⁻¹:B)*((u:B)*reciprocal (u:B)) :=
+       congrArg (fun z : B => (↑u⁻¹:B)*z) (mul_reciprocal (u:B) u.ne_zero).symm
+-    _ = reciprocal (u:B) := by rw [←mul_assoc,Units.inv_val,one_mul]
++    _ = reciprocal (u:B) := by rw [←mul_assoc,Units.inv_mul,one_mul]
+ 
+ theorem inverse_trace (u : Bˣ) :
+     reducedTrace (↑u⁻¹:B)=(reducedNorm (u:B))⁻¹*reducedTrace (u:B) := by

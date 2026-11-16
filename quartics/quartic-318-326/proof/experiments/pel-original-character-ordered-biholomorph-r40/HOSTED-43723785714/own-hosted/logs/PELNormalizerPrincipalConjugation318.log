@@ -1,0 +1,61 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:22:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Units.inv ?self * ↑?self
+in the target expression
+  ↑(↑g)⁻¹ * ↑↑g * ↑x * (↑(↑g)⁻¹ * ↑↑g) = ↑x
+
+g : ↥positiveNormalizer
+x : ↥order
+⊢ ↑(↑g)⁻¹ * ↑↑g * ↑x * (↑(↑g)⁻¹ * ↑↑g) = ↑x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:28:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑?self * Units.inv ?self
+in the target expression
+  ↑↑g * ↑(↑g)⁻¹ * ↑x * (↑↑g * ↑(↑g)⁻¹) = ↑x
+
+g : ↥positiveNormalizer
+x : ↥order
+⊢ ↑↑g * ↑(↑g)⁻¹ * ↑x * (↑↑g * ↑(↑g)⁻¹) = ↑x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:40:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Units.inv ?self * ↑?self
+in the target expression
+  ↑↑g * (↑x * ↑y) * ↑(↑g)⁻¹ = ↑↑g * ↑x * (↑(↑g)⁻¹ * ↑↑g * ↑y) * ↑(↑g)⁻¹
+
+g : ↥positiveNormalizer
+x y : ↥order
+⊢ ↑↑g * (↑x * ↑y) * ↑(↑g)⁻¹ = ↑↑g * ↑x * (↑(↑g)⁻¹ * ↑↑g * ↑y) * ↑(↑g)⁻¹
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:50:18: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑?self * Units.inv ?self
+in the target expression
+  reducedNorm (↑↑g * ↑(↑g)⁻¹) = 1
+
+g : ↥positiveNormalizer
+x : ↥order
+⊢ reducedNorm (↑↑g * ↑(↑g)⁻¹) = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:52:24: error: Ambiguous term
+  norm_mul
+Possible interpretations:
+  _root_.norm_mul : ∀ (a b : ?m.32), ‖a * b‖ = ‖a‖ * ‖b‖
+  
+  PELQuaternionNormParity318.norm_mul : ∀ (x y : B), reducedNorm (x * y) = reducedNorm x * reducedNorm y
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:48:57: error: unsolved goals
+g : ↥positiveNormalizer
+x : ↥order
+hu : reducedNorm ↑↑g * reducedNorm ↑(↑g)⁻¹ = 1
+⊢ reducedNorm (↑↑g * ↑x * ↑(↑g)⁻¹) = reducedNorm ↑x
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:87:37: error: unsolved goals
+g : ↥positiveNormalizer
+u : ↥principalThree
+⊢ ↑↑g * (↑↑↑u * (↑(↑g)⁻¹ * ↑↑g)) = ↑↑g * ↑↑↑u
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:89:23: warning: This simp argument is unused:
+  Units.inv_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_assoc, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r29/PELNormalizerPrincipalConjugation318.lean:89:37: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_assoc, Units.inv_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,276 @@
+{
+  "status": "FROZEN_THREE_EXISTING_SOURCE_REPAIRS_REVIEW_PENDING",
+  "source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+  "execution_commit": "e51d8760f82415364f83792071135dfb71d3b462",
+  "run": 43818205337,
+  "repairs": [
+    {
+      "module": "FiniteNormalBaseMonogenicSuborder318",
+      "packet": "pel-original-torsion-towers-r44",
+      "before_sha256": "63d0761e2091d6d99ce1a2f0303c270f720c590a5f47f45416370a825637ad91",
+      "after_sha256": "e13974e472512d79c1212870db982168a760b7a4dee948395022c80b3362961e",
+      "own_inventory": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-torsion-towers-r44/quarantine/FiniteNormalBaseMonogenicSuborder318/FiniteNormalBaseMonogenicSuborder318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/FiniteNormalBaseMonogenicSuborder318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+          "Mathlib.RingTheory.Finiteness.Basic"
+        ],
+        "log_sha256": "d5ea13e68a7dce091464bcb4e29a1ddeab63e204ce240f3c01a1d037579eef82",
+        "occurrence": "pel-original-torsion-towers-r44/FiniteNormalBaseMonogenicSuborder318",
+        "root_causes": [
+          "FiniteNormalBaseMonogenicSuborder318"
+        ],
+        "seconds": 1.116,
+        "source_sha256": "63d0761e2091d6d99ce1a2f0303c270f720c590a5f47f45416370a825637ad91",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "repair": "Qualify the already intended native class as Module.IsTorsionFree R A. Native minpoly owner opens Module for the same hypothesis; no altered torsion-free property. Every monic/embedding/injectivity/finiteness proof remains byte-identical. Bound downstream RootPointLift retains its own similar unqualified class and is not silently repaired or declared accepted."
+    },
+    {
+      "module": "InjectivePrincipalField318",
+      "packet": "pel-original-torsion-towers-r44",
+      "before_sha256": "7981774e458c1ed0ae203f5f94c4fcaad5445a70237b791ed33d438044ab85ca",
+      "after_sha256": "e16a3e220a36090bdb0107908b06683bb6d24fbc42994d8a069be06fab549a83",
+      "own_inventory": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-torsion-towers-r44/quarantine/InjectivePrincipalField318/InjectivePrincipalField318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/InjectivePrincipalField318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.RingTheory.Localization.Away.Basic"
+        ],
+        "log_sha256": "c05c0ad21aa7f2bac3cdb517a81cb74c44eae7b7b07d2da30b68e7404014dc29",
+        "occurrence": "pel-original-torsion-towers-r44/InjectivePrincipalField318",
+        "root_causes": [
+          "InjectivePrincipalField318"
+        ],
+        "seconds": 1.016,
+        "source_sha256": "7981774e458c1ed0ae203f5f94c4fcaad5445a70237b791ed33d438044ab85ca",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "repair": "Scoped include hd before powers_units restores original nonzero image premise; scoped include hf before injective restores original map-injectivity premise and intended existing caller argument order. Native lift_injective_iff first branch has goal f a=f b, already furnished by congrArg(toField) followed by coefficient; remove erroneous apply hf there rather than applying an R-valued injectivity conclusion to a K-valued equality. This latter static correction is necessary after resolving the logged binder cascade, not claimed a separate observed error. Second branch still uses hf to rewrite source equality; same localization and map."
+    },
+    {
+      "module": "AffineQuotientPullback318",
+      "packet": "pel-original-zero-local-length-r64",
+      "before_sha256": "dc6784a7656fbc5cb5f74b6a6c9e8aada1d4ce0b21b3d43e105300d518106a51",
+      "after_sha256": "9f94f2162fd8eaeaf2af32c10812a093dd8f60cf3f2da020739a5a2b12b20346",
+      "own_inventory": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r64",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-zero-local-length-r64/quarantine/AffineQuotientPullback318/AffineQuotientPullback318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r64/AffineQuotientPullback318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion",
+          "Mathlib.AlgebraicGeometry.Pullbacks",
+          "Mathlib.RingTheory.Ideal.Quotient.Operations"
+        ],
+        "log_sha256": "ec6e1acf678ce72c12eaf336692a41d066ee38f36f32830725ca1b9a84ade38d",
+        "occurrence": "pel-original-zero-local-length-r64/AffineQuotientPullback318",
+        "root_causes": [
+          "AffineQuotientPullback318"
+        ],
+        "seconds": 1.217,
+        "source_sha256": "dc6784a7656fbc5cb5f74b6a6c9e8aada1d4ce0b21b3d43e105300d518106a51",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "repair": "Scoped include hJ before ideal_le retains the original equality J=map f I used only in its proof. The existing arrow definition then captures f/hJ through that proof, restoring intended actual public telescope. No proof bodies, maps, quotient ideals or pushout/pullback assumptions changed."
+    }
+  ],
+  "public_telescope_changed": true,
+  "options_changed": false,
+  "local_lean_run": false,
+  "obligations": [
+    {
+      "id": "inputs",
+      "claim": "FiniteNormal keeps whole normal domain R, domain A, finite algebra and same actual native torsion-free hypothesis. InjectivePrincipal retains already written f,hf,d,hd. AffineQuotient retains actual f,I,J,hJ. No conclusion supplied as premise.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "objects",
+      "claim": "Exact monogenic AdjoinRoot embedding, true principal localization into field, and full quotient ring square retained, including nonreduced quotient rings.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "domain",
+      "claim": "Original universal t,a,y and ring/field/ideal domains retained; no selected points, denominator inversion beyond existing principal localization or extra flatness.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "maps",
+      "claim": "All definition values unchanged: native equivAdjoin, localization lift and quotientMap remain actual maps. Only names/binder retention and removal of one type-incompatible redundant apply step.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "scalars",
+      "claim": "Module.IsTorsionFree is the native class used by minpoly.equivAdjoin. Localization coefficient square is original f. Affine quotient is actual CommRingCat maps, no substitute algebra dictionaries.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "signatures",
+      "claim": "Public proof-only hd,hf,hJ telescope retention is intentional and matches existing actual callers. FiniteNormal corrects class name, not a new assumption. No imports/resource options changed.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "consumer",
+      "claim": "Six full actual own-source consumer bodies retained. They already pass original hf/hd/hJ as intended. Other consumer errors are not ruled out; FiniteNormalBaseRootPointLift has its own unqualified class issue, retained untouched.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "limits",
+      "claim": "Own inventory independently attempted compiler_error records, not a production prefix. Binder cascade correction may expose additional downstream errors. Static first-branch lift correction is disclosed, no candidate Lean result.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    },
+    {
+      "id": "verification",
+      "claim": "Native full pinned owner files and own exact logs bound, before sources exact15d. No Lean/Lake, resource adjustment, admissions, uploads, main edits or packet propagation.",
+      "source_refs": [
+        "sources/FiniteNormalBaseMonogenicSuborder318.lean",
+        "sources/InjectivePrincipalField318.lean",
+        "sources/AffineQuotientPullback318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "README.md",
+        "primary/ORIGINS.json"
+      ]
+    }
+  ],
+  "bindings": {
+    "README.md": "4f36434c465f149aa678087853769379460cb9e384580cf1383f750877710351",
+    "SOURCE.diff": "0fa00c84bf43618b3ab2aa30c369665de56719d1841ea1d1eb57d3c65f72a83d",
+    "before/AffineQuotientPullback318.lean": "dc6784a7656fbc5cb5f74b6a6c9e8aada1d4ce0b21b3d43e105300d518106a51",
+    "before/FiniteNormalBaseMonogenicSuborder318.lean": "63d0761e2091d6d99ce1a2f0303c270f720c590a5f47f45416370a825637ad91",
+    "before/InjectivePrincipalField318.lean": "7981774e458c1ed0ae203f5f94c4fcaad5445a70237b791ed33d438044ab85ca",
+    "evidence/pel-original-torsion-towers-r44/FiniteNormalBaseMonogenicSuborder318.log": "d5ea13e68a7dce091464bcb4e29a1ddeab63e204ce240f3c01a1d037579eef82",
+    "evidence/pel-original-torsion-towers-r44/INVENTORY.json": "3cceb51e7868006f2e632e58462215f0c78ffa4252838bf7aaeca2d8a0b0c124",
+    "evidence/pel-original-torsion-towers-r44/InjectivePrincipalField318.log": "c05c0ad21aa7f2bac3cdb517a81cb74c44eae7b7b07d2da30b68e7404014dc29",
+    "evidence/pel-original-zero-local-length-r64/AffineQuotientPullback318.log": "ec6e1acf678ce72c12eaf336692a41d066ee38f36f32830725ca1b9a84ade38d",
+    "evidence/pel-original-zero-local-length-r64/INVENTORY.json": "0e12d755999d99cb26f7457a1b09f5ee39d1df8fdf0faf06ce5c0773be90a151",
+    "native/AwayBasic.lean": "d651befeb3c6909a1e5d6359c6a9e7996c4eec31187552dc2652d93fe30823b8",
+    "native/AwayBasic.pin.json": "a81c0bd824c9e2b4beac5028bda8501fcc22dff4540c0b6a6c40e290778e86cc",
+    "native/Mathlib_FieldTheory_Minpoly_IsIntegrallyClosed.lean": "8c5798a60eaba68e601acbcb3bb16bc50efa1ba2093c75a9952549e1e3bd77ec",
+    "native/Mathlib_FieldTheory_Minpoly_IsIntegrallyClosed.lean.pin.json": "9a23038541a208757c8d3282e4d32643a6680ef5a012f60ff1fabbd17b025f3f",
+    "native/Mathlib_RingTheory_Localization_Defs.lean": "c16483bdb92776bf34ced3c9defbd944e997299de0fc86b3387d1142e40deb38",
+    "native/Mathlib_RingTheory_Localization_Defs.lean.pin.json": "34bb7040e90af165b5b0be7ecd799ef8c0b16b77982e90b77309bae662479847",
+    "native/ModuleTorsionFree.lean": "ebdecf456e411614b736e87dd6cf92be0511cc249e16b3f4bcc44c87e8f49495",
+    "native/ModuleTorsionFree.pin.json": "54c5e4526c5ef43464de60d2df60196d4ae9b26ee881359c4ffc7e5c212cc161",
+    "native/QuotientOperations.lean": "90cbc7f60b4b6d777c89e9bb09699c5b269b0576a7c95716a11e07cc81614dab",
+    "native/QuotientOperations.pin.json": "1845c349c9db7c9b48a2fda7c2235758cde696ca6bd18126b1bd19f2f18e4415",
+    "primary/FiniteNormalBaseRootPointLift318.lean": "e35cdcef3e1ca8ec4125c47d4fa50db363f0c2da583e0c9394a2c54674de4c54",
+    "primary/FourRootGluedDerivativeIdeal318.lean": "4a544b52252563024783bdb868d9e5eb72f20fc240d68876ff8c968fef202a4f",
+    "primary/ORIGINS.json": "a2408aefdb4a188fae36280c2a493104dcc9fbd59a0d73a16a82c87cf6cf4019",
+    "primary/PELOriginalChartOverlapLocalization318.lean": "fcc82c9707c6f7faaac2a3710f4728f8ebbbd29284b570a1a68277ce354f24bf",
+    "primary/PELOriginalNormalSmoothNeighborhood318.lean": "5da9fa030e8d9bbeb4eea5d073a0373b59189634c57406815e08cff0ed4d5a90",
+    "primary/PELOriginalWholeNormalizationRootLift318.lean": "2c170fdd274ac9d5e516a3a0f673fc47f88acf42b8015e53904935e1a7fbd81b",
+    "primary/QuotientOpenRange318.lean": "1c3a69832e640a589f1ff479ebd4db5eb2078eb9fff53ac272c325d84e353ee3",
+    "sources/AffineQuotientPullback318.lean": "9f94f2162fd8eaeaf2af32c10812a093dd8f60cf3f2da020739a5a2b12b20346",
+    "sources/FiniteNormalBaseMonogenicSuborder318.lean": "e13974e472512d79c1212870db982168a760b7a4dee948395022c80b3362961e",
+    "sources/InjectivePrincipalField318.lean": "e16a3e220a36090bdb0107908b06683bb6d24fbc42994d8a069be06fab549a83"
+  }
+}

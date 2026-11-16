@@ -1,0 +1,56 @@
+--- before/FiniteNormalBaseMonogenicSuborder318.lean
++++ sources/FiniteNormalBaseMonogenicSuborder318.lean
+@@ -6,7 +6,7 @@
+ namespace FiniteNormalBaseMonogenicSuborder318
+ open Polynomial Algebra
+ variable (R A : Type*) [CommRing R] [IsDomain R] [IsIntegrallyClosed R]
+-  [CommRing A] [IsDomain A] [Algebra R A] [IsTorsionFree R A] [Module.Finite R A]
++  [CommRing A] [IsDomain A] [Algebra R A] [Module.IsTorsionFree R A] [Module.Finite R A]
+ 
+ /-- The literal minimal polynomial over the WHOLE normal base. No
+ base denominator or discriminant is inverted. -/
+@@ -23,8 +23,8 @@
+   Subtype.val_injective.comp (minpoly.equivAdjoin (IsIntegral.of_finite R t)).injective
+ 
+ lemma embedding_root (t : A) : embedding R A t (AdjoinRoot.root (minpoly R t)) = t := by
+-  change ↑(Minpoly.toAdjoin R t (AdjoinRoot.mk (minpoly R t) X)) = t
+-  exact Minpoly.coe_toAdjoin_mk_X
++  change ↑(AdjoinRoot.Minpoly.toAdjoin R t (AdjoinRoot.mk (minpoly R t) X)) = t
++  exact AdjoinRoot.Minpoly.coe_toAdjoin_mk_X
+ 
+ /-- The whole original algebra is finite over this actual monogenic
+ suborder, not merely integral after passing to its fraction field. -/
+--- before/InjectivePrincipalField318.lean
++++ sources/InjectivePrincipalField318.lean
+@@ -6,6 +6,7 @@
+ variable {R K : Type*} [CommRing R] [Field K]
+ variable (f : R →+* K) (hf : Function.Injective f) (d : R) (hd : f d ≠ 0)
+ 
++include hd in
+ lemma powers_units (y : Submonoid.powers d) : IsUnit (f y) := by
+   obtain ⟨y,⟨n,rfl⟩⟩ := y
+   rw [map_pow]
+@@ -17,12 +18,12 @@
+ lemma coefficient (a : R) : toField f d hd (algebraMap R (Localization.Away d) a)=f a :=
+   IsLocalization.lift_eq _ a
+ 
++include hf in
+ lemma injective : Function.Injective (toField f d hd) := by
+   apply (IsLocalization.lift_injective_iff (powers_units f d hd)).mpr
+   intro a b
+   constructor
+   · intro h
+-    apply hf
+     simpa only [coefficient] using congrArg (toField f d hd) h
+   · intro h
+     rw [hf h]
+--- before/AffineQuotientPullback318.lean
++++ sources/AffineQuotientPullback318.lean
+@@ -10,6 +10,7 @@
+ variable {A B : CommRingCat.{u}} (f : A ⟶ B) (I : Ideal A) (J : Ideal B)
+   (hJ : J = Ideal.map f.hom I)
+ 
++include hJ in
+ lemma ideal_le : I ≤ Ideal.comap f.hom J := by
+   rw [hJ]
+   exact Ideal.le_comap_map

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_NOT_LEAN",
+  "application": "pel-inventory-declarations-three-43818205337-r2/APPLICATION.json",
+  "application_sha256": "8d92856d3a8144d31b8fd145c9935a78a821048e62e02436c3246bd02ac4e322",
+  "checked": {
+    "bindings": 36,
+    "full_source_bodies": 3,
+    "actual_callers": 6,
+    "native_blobs": 6,
+    "obligations": 9
+  },
+  "review": [
+    "R1 full-source review retained; current R2 full bodies reread. Exact R1 history and sole two AdjoinRoot namespace additions verified, other two source bodies unchanged.",
+    "Pinned AdjoinRoot namespace starts line59; Minpoly.toAdjoin and coe_toAdjoin_mk_X at853/865 are nested there. Native minpoly.equivAdjoin definition and toAlgHom equation preserve exact existing embedding/root.",
+    "Module.IsTorsionFree is native intended class, not additional assumption. Scoped hd/hf/hJ restore already written proof dependencies; exact lift_injective_iff first branch requires f a=f b, supplied by congrArg, not a second application of hf.",
+    "Actual quotient square, localization and monogenic embedding unchanged. Public telescope restoration explicitly disclosed; no caps/import changes."
+  ],
+  "prior_finding": {
+    "path": "PEL-INVENTORY-DECLARATIONS-THREE-43818205337-PICARD-R1-FINDING.json",
+    "sha256": "47c128337ff1a487e6e90f3c7fb43e913d049ddc08bd48a0eacaf6149cdef5b6"
+  },
+  "limits": [
+    "Own inventory errors are independent attempts, not strict-prefix acceptance.",
+    "Bound downstream FiniteNormalBaseRootPointLift retains its own unqualified class issue and is not accepted by this review.",
+    "No local Lean, no candidate compilation, no current propagation approval."
+  ]
+}

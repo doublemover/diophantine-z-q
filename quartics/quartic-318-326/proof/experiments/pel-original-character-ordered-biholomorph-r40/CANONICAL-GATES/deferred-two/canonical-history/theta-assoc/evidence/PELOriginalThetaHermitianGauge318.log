@@ -1,0 +1,16 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r43/PELOriginalThetaHermitianGauge318.lean:54:2: error: Tactic `rfl` failed: The left-hand side
+  normalizedFactor τ hτ p z * gauge B z * theta τ z
+is not definitionally equal to the right-hand side
+  normalizedFactor τ hτ p z * gaugedTheta τ B z
+
+τ : ℂ
+hτ : 0 < τ.im
+B : ComplexVectors →ₗ[ℂ] ComplexVectors →ₗ[ℂ] ℂ
+hB : ∀ (z w : ComplexVectors), (B z) w = (B w) z
+hperiod :
+  ∀ (p : Pair) (z : ComplexVectors),
+    (B z) (standardPeriod τ p) - normalizedHermitian τ hτ z (standardPeriod τ p) =
+      2 * Complex.I * linear (p.2 0, p.2 1) z
+p : Pair
+z : ComplexVectors
+⊢ normalizedFactor τ hτ p z * gauge B z * theta τ z = normalizedFactor τ hτ p z * gaugedTheta τ B z

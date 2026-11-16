@@ -1,0 +1,25 @@
+--- before/PELOriginalThetaSecondBounds318.lean
++++ after/PELOriginalThetaSecondBounds318.lean
+@@ -30,9 +30,13 @@
+ @[expose] def secondBound(S:ℝ)(v:ComplexVectors)(n:Index):ℝ:=
+   (8*Real.pi^2*‖v‖)*(weightedTwo τ S n.1*oneBound τ S n.2+
+     oneBound τ S n.1*weightedTwo τ S n.2)
++include hτ in
+ lemma weightedTwo_summable(S:ℝ):Summable (weightedTwo τ S):=by
+-  simpa only [weightedTwo,oneBound,Int.cast_abs] using
++  change Summable (fun n : ℤ =>
++    |(n:ℝ)|^2*Real.exp (-Real.pi*(coercive τ*(n:ℝ)^2-2*S*|(n:ℝ)|)))
++  simpa only [Int.cast_abs] using
+     summable_pow_mul_jacobiTheta₂_term_bound S (coercive_positive τ hτ) 2
++include hτ in
+ lemma secondBound_summable(S:ℝ)(v:ComplexVectors):Summable (secondBound τ S v):=by
+   have h0:=oneBound_summable τ hτ S
+   have h2:=weightedTwo_summable τ hτ S
+@@ -40,6 +44,7 @@
+   have hn2:0≤weightedTwo τ S:=fun _=>mul_nonneg (sq_nonneg _) (Real.exp_pos _).le
+   exact ((h2.mul_of_nonneg h0 hn2 hn0).add (h0.mul_of_nonneg h2 hn0 hn2)).mul_left _
+ 
++include hτ in
+ /-- The second derivative bound is an actual quadratic-frequency
+ Gaussian on the WHOLE Z² series, not a pointwise formal derivative. -/
+ lemma second_norm_bound(S:ℝ)(v z:ComplexVectors)

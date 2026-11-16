@@ -1,0 +1,51 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootInfinityReducedPresentation318.lean:21:2: error: 'change' tactic failed, pattern
+  coordinate b k.succ ^ 2 - 1 - (algebraMap ℂ (Ring b)) (b 0 - b k.succ) * coordinate b 0 ^ 2 = 0
+is not definitionally equal to target
+  (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X k.succ) ^ 2 - 1 -
+      ((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (C (b 0)) -
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (C (b k.succ))) *
+        (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X 0) ^ 2 =
+    0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootInfinityReducedPresentation318.lean:34:65: error: unsolved goals
+b : Fin 4 → ℂ
+S : Type u_1
+inst✝¹ : CommRing S
+inst✝ : Algebra ℂ S
+x : Fin 4 → S
+hx : ∀ (k : Fin 3), x k.succ ^ 2 = 1 + (algebraMap ℂ S) (b 0 - b k.succ) * x 0 ^ 2
+k : Fin 4
+⊢ (Ideal.Quotient.lift (Ideal.span (Set.range (equation b))) ↑(aeval x) ⋯)
+      ((Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X k)) =
+    x k
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootInfinityReducedPresentation318.lean:35:24: warning: This simp argument is unused:
+  Ideal.Quotient.lift_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [lift, coordinate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootInfinityReducedPresentation318.lean:82:59: error: Application type mismatch: The argument
+  Fin.succ_injective
+has type
+  ∀ (n : ℕ), Function.Injective Fin.succ
+but is expected to have type
+  Function.Injective Fin.succ
+in the application
+  @PreSubmersivePresentation.naive ℂ (Fin 3) (Fin 4) Complex.commRing (equation b) Fin.succ Fin.succ_injective
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootInfinityReducedPresentation318.lean:92:75: error: unsolved goals
+b : Fin 4 → ℂ
+⊢ (algebraMap (PreSubmersivePresentation.naive Fin.succ ⋯ (Function.surjInv ⋯) ⋯).Ring (Ring b)) 2 ^ 3 *
+          (algebraMap (PreSubmersivePresentation.naive Fin.succ ⋯ (Function.surjInv ⋯) ⋯).Ring (Ring b)) (X 1) *
+        (algebraMap (PreSubmersivePresentation.naive Fin.succ ⋯ (Function.surjInv ⋯) ⋯).Ring (Ring b)) (X 2) *
+      (algebraMap (PreSubmersivePresentation.naive Fin.succ ⋯ (Function.surjInv ⋯) ⋯).Ring (Ring b)) (X 3) =
+    (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X 1) *
+          (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X 2) *
+        (Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))) (X 3) *
+      8
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootInfinityReducedPresentation318.lean:94:10: warning: declaration uses `sorry`

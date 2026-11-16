@@ -1,0 +1,98 @@
+--- before/FourRootProjectiveChartPullbacks318.lean
++++ sources/FourRootProjectiveChartPullbacks318.lean
+@@ -72,7 +72,7 @@
+       refine ⟨Spec.map (CommRingCat.ofHom (finiteCoordinate b).toRingHom) p,?_⟩
+       exact congrArg (fun f=>f p) (finite_centered b).symm
+     exact iff_of_true hp ⟨p,rfl⟩
+-  · change p∈infinityChart b ⁻¹ᵁ(centeredProjection b ⁻¹ᵁ_) ↔
++  · change p∈infinityChart b ⁻¹ᵁ(centeredProjection b ⁻¹ᵁ (JLineAtlas318.chart ℂ 1).opensRange) ↔
+       p∈infinityChart b ⁻¹ᵁ(finiteChart b).opensRange
+     rw [←Scheme.Hom.comp_preimage,infinity_centered,infinityProjection,
+       Scheme.Hom.comp_preimage,ProjectiveLineComplexChartGeometry318.chart_zero_preimage_one,
+@@ -83,7 +83,7 @@
+     (infinityChart b).opensRange:=by
+   ext p
+   rcases charts_cover b p with ⟨p,rfl⟩|⟨p,rfl⟩
+-  · change p∈finiteChart b ⁻¹ᵁ(centeredProjection b ⁻¹ᵁ_) ↔
++  · change p∈finiteChart b ⁻¹ᵁ(centeredProjection b ⁻¹ᵁ (JLineAtlas318.chart ℂ 0).opensRange) ↔
+       p∈finiteChart b ⁻¹ᵁ(infinityChart b).opensRange
+     rw [←Scheme.Hom.comp_preimage,finite_centered,finiteProjection,
+       Scheme.Hom.comp_preimage,chart_one_preimage_zero,
+@@ -101,9 +101,9 @@
+ theorem finite_square:IsPullback
+     (Spec.map (CommRingCat.ofHom (finiteCoordinate b).toRingHom)) (finiteChart b)
+     (JLineAtlas318.chart ℂ 1) (centeredProjection b):=
+-  IsOpenImmersion.isPullback _ _ _ _ (finite_centered b).symm (centered_preimage_one b)
++  IsOpenImmersion.isPullback _ _ _ _ (by simpa only [finiteProjection] using finite_centered b) (centered_preimage_one b)
+ theorem infinity_square:IsPullback
+     (Spec.map (CommRingCat.ofHom (infinityCoordinate b).toRingHom)) (infinityChart b)
+     (JLineAtlas318.chart ℂ 0) (centeredProjection b):=
+-  IsOpenImmersion.isPullback _ _ _ _ (infinity_centered b).symm (centered_preimage_zero b)
++  IsOpenImmersion.isPullback _ _ _ _ (by simpa only [infinityProjection] using infinity_centered b) (centered_preimage_zero b)
+ end FourRootProjectiveChartPullbacks318
+--- before/FourRootSchemeChartInputs318.lean
++++ sources/FourRootSchemeChartInputs318.lean
+@@ -97,8 +97,7 @@
+     exact overlapEvaluation_map b g hu a
+   calc
+     _=Spec.map (CommRingCat.ofHom (overlapEvaluation b g hu).toRingHom)≫intoFinite b≫finiteChart b:=by
+-      rw [intoFinite_eq,←Spec.map_comp]
+-      rfl
++      rw [intoFinite_eq,←Category.assoc,←Spec.map_comp] <;> rfl
+     _=Spec.map (CommRingCat.ofHom (overlapEvaluation b g hu).toRingHom)≫intoInfinity b≫infinityChart b:=by
+       rw [chart_overlap]
+     _=infinityInput b g:=by rw [←Category.assoc,hl];rfl
+--- before/FourRootSchemeSignAction318.lean
++++ sources/FourRootSchemeSignAction318.lean
+@@ -45,23 +45,23 @@
+   rw [←Spec.map_comp]
+   have he:(finiteEnd b g).comp (finiteEnd b g)=AlgHom.id ℂ (FourRootCoordinateOverlap318.Affine b):=by
+     ext a;exact finite_involutive b g a
+-  have hh:=congrArg (fun f:FourRootCoordinateOverlap318.Affine b→ₐ[ℂ]
+-    FourRootCoordinateOverlap318.Affine b=>Spec.map (CommRingCat.ofHom f.toRingHom)) he
+-  simpa using hh
++  change Spec.map (CommRingCat.ofHom ((finiteEnd b g).comp (finiteEnd b g)).toRingHom)=𝟙 _
++  rw [he]
++  exact Spec.map_id (CommRingCat.of (FourRootCoordinateOverlap318.Affine b))
+ lemma infinityMap_square:infinityMap b g≫infinityMap b g=𝟙 _:=by
+   unfold infinityMap
+   rw [←Spec.map_comp]
+   have he:(infinityEnd b g).comp (infinityEnd b g)=AlgHom.id ℂ (FourRootCoordinateOverlap318.Infinity b):=by
+     ext a;exact infinity_involutive b g a
+-  have hh:=congrArg (fun f:FourRootCoordinateOverlap318.Infinity b→ₐ[ℂ]
+-    FourRootCoordinateOverlap318.Infinity b=>Spec.map (CommRingCat.ofHom f.toRingHom)) he
+-  simpa using hh
++  change Spec.map (CommRingCat.ofHom ((infinityEnd b g).comp (infinityEnd b g)).toRingHom)=𝟙 _
++  rw [he]
++  exact Spec.map_id (CommRingCat.of (FourRootCoordinateOverlap318.Infinity b))
+ lemma action_square:action b g≫action b g=𝟙 _:=by
+   apply FourRootGluedScheme318.hom_ext
+-  · simp only [finite_action_assoc,finite_action,Category.comp_id,←Category.assoc,
+-      finiteMap_square,Category.id_comp]
+-  · simp only [infinity_action_assoc,infinity_action,Category.comp_id,←Category.assoc,
+-      infinityMap_square,Category.id_comp]
++  · rw [finite_action_assoc,finite_action,←Category.assoc,finiteMap_square,
++      Category.id_comp,Category.comp_id]
++  · rw [infinity_action_assoc,infinity_action,←Category.assoc,infinityMap_square,
++      Category.id_comp,Category.comp_id]
+ @[expose] def schemeIso:scheme b≅scheme b where
+   hom:=action b g
+   inv:=action b g
+@@ -71,7 +71,7 @@
+ /-- The original complex coefficient base is fixed as a Scheme map. -/
+ @[reassoc] theorem over_base:action b g≫structureMap b=structureMap b:=by
+   apply FourRootGluedScheme318.hom_ext
+-  · rw [finite_action_assoc,finite_structure,finite_structure]
++  · rw [finite_action_assoc,finite_structure]
+     unfold finiteMap finiteBase
+     rw [←Spec.map_comp]
+     congr 1
+@@ -79,7 +79,7 @@
+     apply RingHom.ext
+     intro a
+     exact (finiteEnd b g).commutes a
+-  · rw [infinity_action_assoc,infinity_structure,infinity_structure]
++  · rw [infinity_action_assoc,infinity_structure]
+     unfold infinityMap infinityBase
+     rw [←Spec.map_comp]
+     congr 1

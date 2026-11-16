@@ -1,0 +1,3 @@
+Own gluing32 at60747aae/run43738248276:93 complete passes then OriginalAffineLineDualFrame1.819s,1205 unreached. Previous syntax fix progressed; current failures are final simp no progress and Module R synthesis for four raw-carrier ModuleCat.ofHom constructors.
+
+Use the native bundled ModuleCat.Hom constructor under the already explicit actual source/target hom types, so its hom' field uses the ORIGINAL bundled module structure without attempting fresh raw-carrier typeclass synthesis. This is not a new scalar action or instance. Final generic transported identity is an explicit congrArg chain for F.map_id, category id_comp and the actual e.inv_hom_id, not a simplifier guess. All objects/maps/types/inputs/options/budgets unchanged. No local Lean, no success claim.

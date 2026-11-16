@@ -1,0 +1,17 @@
+--- before/FourRootInfinityTensorPresentation318.lean
++++ sources/FourRootInfinityTensorPresentation318.lean
+@@ -60,10 +60,12 @@
+           change toTensor b (fromTensor b (algebraMap P (TensorRing b) (C c)))=_
+           rw [AlgHom.commutes,base_C,AlgHom.commutes]
+           exact (IsScalarTower.algebraMap_apply ℂ P (TensorRing b) c).symm
+-        · change toTensor b (fromTensor b (algebraMap P (TensorRing b) X))=_
++        · change toTensor b (fromTensor b (algebraMap P (TensorRing b) X))=
++            algebraMap P (TensorRing b) X
+           rw [fromTensor_base,toTensor_base]
+       · intro k
+-        change toTensor b (fromTensor b (generator (radicand b) k))=_
++        change toTensor b (fromTensor b (generator (radicand b) k))=
++          generator (radicand b) k
+         rw [fromTensor_root,toTensor_root,root_succ])
+     (by
+       apply FourRootInfinityCoordinateRing318.hom_ext

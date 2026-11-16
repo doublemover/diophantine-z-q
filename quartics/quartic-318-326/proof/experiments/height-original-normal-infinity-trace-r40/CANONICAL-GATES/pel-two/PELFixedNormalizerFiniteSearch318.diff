@@ -1,0 +1,11 @@
+--- before/PELFixedNormalizerFiniteSearch318
++++ after/PELFixedNormalizerFiniteSearch318
+@@ -50,7 +50,7 @@
+     admissible (norm i) r (candidateRoot (norm i) r d) d →
+     (r.val,candidateRoot (norm i) r d,d.val)∈rows i := by
+   revert r d
+-  fin_cases i <;> decide
++  fin_cases i <;> decide +kernel
+ 
+ /-- Complete absolute-coordinate classification for all five norms,
+ without any primitivity assumption, genus bound or Riemann-Hurwitz input. -/

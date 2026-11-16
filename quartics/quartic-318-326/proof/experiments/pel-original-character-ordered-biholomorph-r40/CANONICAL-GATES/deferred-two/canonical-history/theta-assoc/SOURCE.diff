@@ -1,0 +1,9 @@
+--- before/PELOriginalThetaHermitianGauge318.lean
++++ sources/PELOriginalThetaHermitianGauge318.lean
+@@ -51,5 +51,5 @@
+       normalizedFactor τ hτ p z*gaugedTheta τ B z:=by
+   rw [gaugedTheta,theta_original_period]
+   rw [←mul_assoc,exact_multiplier τ hτ B hB hperiod]
+-  rfl
++  simp only [gaugedTheta,mul_assoc]
+ end PELOriginalThetaHermitianGauge318

@@ -1,0 +1,39 @@
+--- before/FourRootActualInfinityRamification318.lean
++++ after/FourRootActualInfinityRamification318.lean
+@@ -37,11 +37,14 @@
+ @[expose] def finitePoint (p:InfinityPoints b):FinitePoints (branches b):=
+   FourRootAffineCoordinateRing318.point (branches b)
+     ((infinityEvaluation b p).comp (fromAffine b hb))
++private lemma infinityEvaluation_u (p:InfinityPoints b):
++    infinityEvaluation b p (iz b none)=p.val.1:=by
++  have h:=(FourRootInfinityCoordinateRing318.pointEquiv b).apply_symm_apply p
++  exact congrArg (fun q:InfinityPoints b=>q.val.1) h
+ lemma finitePoint_base (p:InfinityPoints b):
+     (finitePoint b hb p).val.1=p.val.1^2:=by
+   change infinityEvaluation b p (fromAffine b hb (az b none))=_
+-  rw [fromAffine_base,map_pow]
+-  rfl
++  rw [fromAffine_base,map_pow,infinityEvaluation_u]
+ lemma transformed_kernel (p:InfinityPoints b):
+     RingHom.ker ((infinityEvaluation b p).toRingHom.comp
+       (polynomialEquivalence b hb).symm.toRingHom)=
+@@ -65,7 +68,7 @@
+ @[expose] def basePrime:Ideal P:=Ideal.span {X}
+ lemma base_maximal:(basePrime).IsMaximal:=by
+   have h:=FourRootActualFiniteRamification318.contact_maximal (fun _:Fin 4=>(0:ℂ)) 0
+-  simpa only [FourRootActualFiniteRamification318.contactPrime,C_0,sub_zero] using h
++  simpa only [basePrime,FourRootActualFiniteRamification318.contactPrime,C_0,sub_zero] using h
+ lemma liesOver (p:InfinityPoints b) (hp:p.val.1=0):
+     (infinityPrime b p).LiesOver basePrime:=by
+   letI:(infinityPrime b p).IsPrime:=infinity_prime b p
+@@ -76,9 +79,7 @@
+   intro r hr
+   rcases Set.mem_singleton_iff.mp hr with rfl
+   change infinityEvaluation b p (Polynomial.aeval (iz b none^2) X)=0
+-  rw [Polynomial.aeval_X,map_pow]
+-  change p.val.1^2=0
+-  rw [hp,zero_pow (by decide:2≠0)]
++  rw [Polynomial.aeval_X,map_pow,infinityEvaluation_u,hp,zero_pow (by decide:2≠0)]
+ lemma separableResidue:
+     letI:basePrime.IsPrime:=base_maximal.isPrime
+     Algebra.HasSeparableResidueFieldsAt P (I b) basePrime:=by

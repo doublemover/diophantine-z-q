@@ -1,0 +1,37 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootProjectiveChartPullbacks318.lean:75:4: error: 'change' tactic failed, pattern
+  p ∈ infinityChart b ⁻¹ᵁ centeredProjection b ⁻¹ᵁ ?m.153 ↔
+    p ∈ infinityChart b ⁻¹ᵁ Scheme.Hom.opensRange (finiteChart b)
+is not definitionally equal to target
+  (infinityChart b) p ∈ ↑(centeredProjection b ⁻¹ᵁ Scheme.Hom.opensRange (JLineAtlas318.chart ℂ 1)) ↔
+    (infinityChart b) p ∈ ↑(Scheme.Hom.opensRange (finiteChart b))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootProjectiveChartPullbacks318.lean:86:4: error: 'change' tactic failed, pattern
+  p ∈ finiteChart b ⁻¹ᵁ centeredProjection b ⁻¹ᵁ ?m.104 ↔ p ∈ finiteChart b ⁻¹ᵁ Scheme.Hom.opensRange (infinityChart b)
+is not definitionally equal to target
+  (finiteChart b) p ∈ ↑(centeredProjection b ⁻¹ᵁ Scheme.Hom.opensRange (JLineAtlas318.chart ℂ 0)) ↔
+    (finiteChart b) p ∈ ↑(Scheme.Hom.opensRange (infinityChart b))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootProjectiveChartPullbacks318.lean:104:37: error: Application type mismatch: The argument
+  Eq.symm (finite_centered b)
+has type
+  finiteProjection b = finiteChart b ≫ centeredProjection b
+but is expected to have type
+  finiteChart b ≫ centeredProjection b =
+    Spec.map (CommRingCat.ofHom (finiteCoordinate b).toRingHom) ≫ JLineAtlas318.chart ℂ 1
+in the application
+  IsOpenImmersion.isPullback (Spec.map (CommRingCat.ofHom (finiteCoordinate b).toRingHom)) (finiteChart b)
+    (JLineAtlas318.chart ℂ 1) (centeredProjection b) (Eq.symm (finite_centered b))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 244
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootProjectiveChartPullbacks318.lean:108:37: error: Application type mismatch: The argument
+  Eq.symm (infinity_centered b)
+has type
+  infinityProjection b = infinityChart b ≫ centeredProjection b
+but is expected to have type
+  infinityChart b ≫ centeredProjection b =
+    Spec.map (CommRingCat.ofHom (infinityCoordinate b).toRingHom) ≫ JLineAtlas318.chart ℂ 0
+in the application
+  IsOpenImmersion.isPullback (Spec.map (CommRingCat.ofHom (infinityCoordinate b).toRingHom)) (infinityChart b)
+    (JLineAtlas318.chart ℂ 0) (centeredProjection b) (Eq.symm (infinity_centered b))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 244

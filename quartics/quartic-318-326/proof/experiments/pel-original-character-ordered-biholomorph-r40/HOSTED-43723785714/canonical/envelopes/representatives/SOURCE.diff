@@ -1,0 +1,26 @@
+--- before/PELOriginalAutomorphyRepresentatives318.lean
++++ sources/PELOriginalAutomorphyRepresentatives318.lean
+@@ -77,7 +77,7 @@
+   have h:p.1+(shiftTo τ hτ a p.1:ComplexVectors)=chart τ hτ a (projection (P τ) p.1):=by
+     rw [shiftTo_value τ hτ a p.1 ha];abel
+   have he:=PELOriginalPolarizationMetric318.squaredNorm_action τ hτ (shiftTo τ hτ a p.1) p
+-  simpa only [action,h] using he
++  simpa only [PELOriginalPolarizationAutomorphy318.action,h] using he
+ 
+ lemma shiftTo_period (a z:ComplexVectors) (l:L τ hτ)
+     (ha:projection (P τ) z∈baseSet τ hτ a):
+@@ -89,12 +89,12 @@
+     shiftTo_value τ hτ a z ha,projection_add_period]
+   abel
+ lemma toTotal_action (l:L τ hτ) (p : ComplexVectors × ℂ):
+-    toTotal τ hτ (action τ hτ l p)=toTotal τ hτ p:=by
++    toTotal τ hτ (PELOriginalPolarizationAutomorphy318.action τ hτ l p)=toTotal τ hτ p:=by
+   let a:ComplexVectors:=(core τ hτ).indexAt (projection (P τ) p.1)
+   have ha:projection (P τ) p.1∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at _
+   have hc:=cocycle τ hτ (shiftTo τ hτ a (p.1+l.val)) l p.1
+   rw [shiftTo_period τ hτ a p.1 l ha] at hc
+-  simp only [toTotal,action,projection_add_period]
++  simp only [toTotal,PELOriginalPolarizationAutomorphy318.action,projection_add_period]
+   congr 1
+   change factor τ hτ (shiftTo τ hτ a (p.1+l.val)) (p.1+l.val)*
+     (factor τ hτ l p.1*p.2)=factor τ hτ (shiftTo τ hτ a p.1) p.1*p.2

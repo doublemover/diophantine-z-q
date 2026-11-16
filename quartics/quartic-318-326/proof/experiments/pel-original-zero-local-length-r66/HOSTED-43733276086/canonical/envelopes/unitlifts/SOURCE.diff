@@ -1,0 +1,190 @@
+--- 
++++ 
+@@ -51,106 +51,105 @@
+ norm−1 generator is retained; this is NOT norm-one-unit surjectivity onto72. -/
+ theorem finite_cover (x : Reduction) (hx : PELReductionResidueField318.residue x≠0) :
+     ∃ k : Fin 8,∃ a b : Fin 3,finiteWord k a b=x := by
+-  letI : DecidableEq F3 := ZMod.decidableEq 3
+   obtain ⟨r,u,j,v⟩ := x
+   fin_cases r <;> fin_cases u <;> fin_cases j <;> fin_cases v
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
+-  · exact ⟨6,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨6,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨6,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
++  · exact ⟨6,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨6,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨6,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
+-  · exact ⟨6,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨6,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨6,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
++  · exact ⟨6,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨6,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨6,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   · exfalso
+     apply hx
+-    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; decide)
+-  · exact ⟨6,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨6,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨6,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨2,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨0,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨5,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨7,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨4,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨3,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
+-  · exact ⟨1,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; decide)⟩
++    ext <;> norm_num [PELReductionResidueField318.residue] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
++  · exact ⟨6,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨6,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨6,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨2,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨0,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨5,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨7,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,0,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,2,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,1,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨4,1,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,2,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,0,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨3,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,2,2,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,1,0,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
++  · exact ⟨1,0,1,by ext <;> norm_num [finiteWord,finiteGenerator,pow_succ,pow_two] <;> (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)⟩
+ end PELGlobalIntegralUnitLifts318
