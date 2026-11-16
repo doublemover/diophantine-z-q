@@ -89,7 +89,9 @@ class Tests(unittest.TestCase):
         workflow=(Path(__file__).resolve().parent.parent/'.github/workflows/progress-experiments.yml').read_text()
         self.assertEqual(workflow.count('python -B scripts/test_small_prime_diagnostic.py'),1)
         self.assertEqual(workflow.count('lake env python -B ../../../../scripts/diagnose_small_prime_preparation.py "$PACKET"'),1)
-        self.assertIn("if: always() && matrix.packet == '"+d.PACKET+"'",workflow)
+        self.assertIn("if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == '"+d.PACKET+"'",workflow)
+        self.assertNotIn("if: always() && matrix.packet == '"+d.PACKET+"'",workflow)
+        self.assertIn("      - 'scripts/test_small_prime_diagnostic.py'",workflow)
         self.assertIn('scratch-small-prime-decidable/',workflow)
         self.assertIn('--seconds 180',workflow);self.assertIn('cancel-in-progress: false',workflow)
     def test_no_acceptance_or_output_artifacts(self):

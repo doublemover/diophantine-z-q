@@ -32,7 +32,9 @@ class EndpointDiagnosticTests(unittest.TestCase):
             env.assert_not_called()
     def test_workflow_does_not_admit_scratch_or_upload_oleans(self):
         text=(d.ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
-        self.assertIn("if: always() && matrix.packet == 'contact-relative-site-descent-r26'",text)
+        self.assertIn("if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r26'",text)
+        self.assertNotIn("if: always() && matrix.packet == 'contact-relative-site-descent-r26'",text)
+        self.assertIn("      - 'scripts/test_endpoint_diagnostic.py'",text)
         self.assertNotIn('/lib/',text)
         self.assertIn('scratch-diagnostics/',text)
         script=Path(d.__file__).read_text()
