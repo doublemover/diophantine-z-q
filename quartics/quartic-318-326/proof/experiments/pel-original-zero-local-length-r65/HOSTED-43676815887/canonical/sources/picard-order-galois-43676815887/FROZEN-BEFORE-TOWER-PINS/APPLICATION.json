@@ -1,0 +1,101 @@
+{
+  "status": "SOURCE_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "before": "b514b772415390c05a32c343f5ef3ddcd2dd15e171c993450c3bdbf030e16393",
+  "after": "a7215288a9f6e2d53a44dded793070ac0e70e38f17193efa209cca126d90ebf3",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "proof_repair_claimed": false,
+  "proposed_source_repair": true,
+  "explicit_hb_telescope_repairs": [
+    "integralClosure",
+    "group_finite",
+    "invariant",
+    "galoisGroup"
+  ],
+  "removed_derived_instance_declarations": [
+    "independentFact",
+    "affineDomain",
+    "rawFraction",
+    "affineClosure",
+    "rawFinite",
+    "actualGalois"
+  ],
+  "native_scalar_dictionary_change": "remove redundant competing local baseAlgebra/baseTower, derive exact same original composite map from native tensor tower",
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Original injective branch b and full affine/tensor rings.",
+      "constructed_input": "Existing hb retained explicitly in4 theorem telescopes; Fact/domain/fraction/closure/finite/Galois witnesses derived from original proofs.",
+      "justification": "No new Fact, field, integral-closure or invariant assumption imposed on callers."
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "Entire unshifted polynomial order, integral closure and full automorphism group.",
+      "constructed_input": "No point/carrier/embedding/group definition changed.",
+      "justification": "Same A b, L b, P, K and actual rawField enabled by local Fact."
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "All elements of whole original rings and all order automorphisms.",
+      "constructed_input": "No localization narrowing, selected generators-only result, residue enumeration or discarded components.",
+      "justification": "Full original statement domain retained."
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "Original P-to-K-to-L scalar map and affineEmbedding.",
+      "constructed_input": "Native tensor scalar action retained; base_algebraMap proves native map equals original composite; explicit R/S/A tower uses embedding_on_polynomial.",
+      "justification": "Redundant competing local baseAlgebra/baseTower removed rather than silently overriding native SMul."
+    },
+    {
+      "id": "scalars_and_signs",
+      "required_input": "Compatible original polynomial, affine and raw tensor dictionaries.",
+      "constructed_input": "polyAlgebra/rawAlgebra unchanged; actual canonical rawField activated by derived Fact. Native P algebra and tower use original tensor structure.",
+      "justification": "No fresh field structure or different sign action."
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Original integralClosure, group_finite, invariant and galoisGroup theorems.",
+      "constructed_input": "4 explicit ordinary hb telescope repairs; local witnesses replace6 unavailable or uninferable declarations.",
+      "justification": "finite_free and finite_flat unchanged; no renamed surrogate theorem."
+    },
+    {
+      "id": "exceptional_cases",
+      "required_input": "Arbitrary original distinct complex branches.",
+      "constructed_input": "Only existing injectivity hb used; no extra nonzero/hypothesis or change to characteristic.",
+      "justification": "Tensor whole-field proof remains prerequisite, not substituted desired invariance."
+    },
+    {
+      "id": "downstream_and_history",
+      "required_input": "Own zero54 run43676815887 at9582519d.",
+      "constructed_input": "Exact intake f7da2f8d and published before bound; FullFiniteInertia fullPASS1.717,45passes then OrderGaloisFAIL3.721.",
+      "justification": "Current invalid instances, scalar towers and missing hb evidence addressed; cascades not declared closed."
+    },
+    {
+      "id": "verification_boundary",
+      "required_input": "Independent source/current review then exact hosted replay.",
+      "constructed_input": "Pinned scalar tower/tensor/Galois APIs and completed actual producer definitions preserved.",
+      "justification": "No local Lean, no module acceptance or propagation claim; native instance synthesis remains hosted-unverified."
+    }
+  ],
+  "bindings": {
+    "SOURCE.diff": "6793e5baa1e13b8a25c97fffe5404a7bd1ccdd4575b807b1340c415c3b287688",
+    "README.md": "6134e2e60c382dad94e6964e8b260dfed02048e432512a8c5627db2d42602ccd",
+    "after/FourRootActualOrderGalois318.lean": "a7215288a9f6e2d53a44dded793070ac0e70e38f17193efa209cca126d90ebf3",
+    "EVIDENCE/FourRootActualOrderGalois318.log": "567922e5a7a683d4525cdd38f6f95b0165de32ec1130c9e395366b0ee54db179",
+    "EVIDENCE/intake.json": "f7da2f8d35a3735c0abd0142c6df0ec29b8e30d5d1952c498589c7b42e3d6ce1",
+    "EVIDENCE/RESULT.json": "d7bd0de274fd2692b1ffc72a2d7863373bd11dbe4a04dd6543a6e10cba25ae28",
+    "EVIDENCE/APPLICATION.json": "c251febf116ec4deb8c94051b01162ab0c9a2625ec41e17cab0007c1b8c6c3fe",
+    "before/FourRootActualOrderGalois318.lean": "b514b772415390c05a32c343f5ef3ddcd2dd15e171c993450c3bdbf030e16393",
+    "PRIMARY/FourRootAffineSmooth318.lean": "118c99266a889155520fe018ec473372850c60212d5d4ff6b4ac5f4c4ab85669",
+    "PRIMARY/KummerTensorField318.lean": "239b64490aec84afca20d389da61f9ca26a77634fbb3af806d202b1529da2362",
+    "PRIMARY/TensorProduct-Basic.lean": "f0e8e9992eb6c6811068b7bf1830236c5ad02d52c8ecab6325416d6cdc9f7ff2",
+    "PRIMARY/FourRootActualGenericField318.lean": "b6d108947cec8ec4045f2354ba665b764d905dfb1571414a53c68cfee7365844",
+    "PRIMARY/ActualKummerGalois318.lean": "7eb849a0d19d008e0a8928475b74066aa276ed823b0758409bed690c081795a3",
+    "PRIMARY/PIN.json": "8f629f213efdabaf61298e4bdfac3ed67986408d044f49f85bab8aa72f24d237",
+    "PRIMARY/Invariant-Galois.lean": "b5fbd01e254d10e6117e0260a5c16de817dda5c4f15133e8cb2328f90b58b664",
+    "PRIMARY/FourRootActualFractionField318.lean": "56d2544b43df10304a4d1dca5d2cbf40abf689ed9cb604ad56668d57708d0ec6",
+    "PRIMARY/FourRootActualOrderAutomorphisms318.lean": "153dd2bf81fadaaf03feec226ea1b7259bb0f04942256a5c6e6c27ac0aa04fa9",
+    "PRIMARY/Algebra-Tower.lean": "a43bea3eb561f4851def5553e4f0e0ac00c55b5c2b0060e3acac0c53b8545e7a",
+    "PRIMARY/Ramification-Galois.lean": "8e098eb9ef652057f428751dd6cd949294602e8463c662f712cdd3bf5977d592"
+  }
+}

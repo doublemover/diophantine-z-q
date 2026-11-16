@@ -1,0 +1,11 @@
+--- before/PolynomialOrderIsomorphismInertia318.lean
++++ sources/PolynomialOrderIsomorphismInertia318.lean
+@@ -22,7 +22,7 @@
+   have ht:∀g:T≃ₐ[R]T,g (e x)=e x:=by
+     intro g
+     have hh:=congrArg e (hx (e.trans (g.trans e.symm)))
+-    simpa only [AlgEquiv.trans_apply,AlgEquiv.apply_symm_apply] using hh
++    simpa only [AlgEquiv.smul_def,AlgEquiv.trans_apply,AlgEquiv.apply_symm_apply] using hh
+   obtain ⟨r,hr⟩:=h.1 (e x) ht
+   refine ⟨r,?_⟩
+   apply e.injective

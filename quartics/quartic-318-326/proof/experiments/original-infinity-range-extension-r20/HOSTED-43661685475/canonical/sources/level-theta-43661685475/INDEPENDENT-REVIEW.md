@@ -1,0 +1,11 @@
+# Actual level-theta residue guard source review
+
+Source/current-application PASS for a future hosted replay, not Lean acceptance. No local Lean/Lake or active edit.
+
+After source d1045e124819de09e1bcb0132610e0cdd4bc9b8baa04649098c9f071344fa594; applicationa85471b58a33ff44b8f73930c22d7488750d4580a0e1fe24d036680e78b26fad. All11 BINDINGS entries verified against their bytes. Independently read the actual torsion29 RESULT, exact predecessor intake and complete LevelTheta error log; they match run43661685475 at58f3c3ea. Own intake873413b138d646b3a4a0f21444214461ef7f34d5ce0260cbb564d6165d74d0f1; RESULTc8d75fc2625153bcc216d3ec0e7905f4ce98fc13e2ff4a1748dec56a7a922b30. ScaledHolomorphy1.968s and Quasiperiods1.768s are actual full-module passes; LevelTheta fails1.818s after52 full successes.
+
+Read the full before/after source and exact two proof-body deltas. The DecidablePred body now exposes the literal residue equality before native DecidableEq inference. It preserves the same accepts predicate, label type and every frequency; no arbitrary classical support or new instance hypothesis is substituted. The term_period body splits on residue N k=r itself, then explicitly unfolds both selected-term guards and rewrites residue_shift so the SAME equality decides both sides. In the positive branch it applies the existing scaled-term identity with the exact multiplier power and shift; in the negative branch both selected terms become zero. This directly addresses the authentic residual conditional goals rather than deleting a periodicity obligation.
+
+All public declarations, imports, options, original N/NeZero N, hτ positivity retention, scale1/N, labels(all N²), integer frequencies, original normalized period lattice and infinite sums remain unchanged. The already explicit include hτ lines remain. No exceptional zero label/frequency is excluded; N=0 is excluded only by the prior NeZero instance. No convergence, holomorphy or original period theorem is turned into a premise.
+
+No obvious new proof-only binder omission or changed scalar factor is present. Native unfolding/instance synthesis still requires hosted Lean verification. Source review does not assert that this module, downstream torsion declarations, full lane or PEL endpoint now passes. All-copy propagation is a separate current-packet obligation.

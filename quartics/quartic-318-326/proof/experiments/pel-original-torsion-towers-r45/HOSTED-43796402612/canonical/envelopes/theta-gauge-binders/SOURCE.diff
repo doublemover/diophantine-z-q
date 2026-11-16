@@ -1,0 +1,26 @@
+--- before/PELOriginalThetaHermitianGauge318.lean
++++ sources/PELOriginalThetaHermitianGauge318.lean
+@@ -15,6 +15,7 @@
+ 
+ @[expose] def gauge (z:ComplexVectors):ℂ:=Complex.exp ((Real.pi:ℂ)/2*B z z)
+ lemma gauge_nonzero (z:ComplexVectors):gauge B z≠0:=Complex.exp_ne_zero _
++include hB in
+ lemma diagonal_add (z w:ComplexVectors):B (z+w) (z+w)=B z z+2*B z w+B w w:=by
+   simp only [map_add,LinearMap.add_apply]
+   rw [hB w z]
+@@ -26,6 +27,7 @@
+   push_cast
+   ring
+ 
++include hB hperiod in
+ /-- The explicit quadratic gauge converts the actual classical theta
+ multiplier to the SAME original normalized Appell-Humbert factor, including
+ its exact characteristic. The matrix identity is isolated for the actual
+@@ -43,6 +45,7 @@
+   linear_combination (Real.pi:ℂ)*h0+(Real.pi:ℂ)/2*h1
+ 
+ @[expose] def gaugedTheta (z:ComplexVectors):ℂ:=gauge B z*theta τ z
++include hB hperiod in
+ lemma original_factor (p:Pair) (z:ComplexVectors):
+     gaugedTheta τ B (z+standardPeriod τ p)=
+       normalizedFactor τ hτ p z*gaugedTheta τ B z:=by

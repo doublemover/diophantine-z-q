@@ -1,0 +1,27 @@
+--- before/PELPositiveNormalizerEffective318.lean
++++ sources/PELPositiveNormalizerEffective318.lean
+@@ -8,7 +8,9 @@
+ 
+ theorem signs_preserved (g : positiveNormalizer) :
+     signs.map (normOneConjugation g).toMonoidHom=signs := by
+-  rw [signs,MonoidHom.map_zpowers,normOneConjugation_minusOne]
++  rw [signs,MonoidHom.map_zpowers]
++  change Subgroup.zpowers (normOneConjugation g minusOne)=Subgroup.zpowers minusOne
++  rw [normOneConjugation_minusOne]
+ 
+ /-- Actual automorphism of the18-element effective positive-level group
+ for EVERY positive original-order normalizer. -/
+@@ -37,11 +39,13 @@
+ 
+ theorem effectiveConjugation_one (x : EffectivePositiveLevel) : effectiveConjugation 1 x=x := by
+   obtain ⟨u,rfl⟩ := QuotientGroup.mk'_surjective signs x
++  simp only [QuotientGroup.mk'_apply]
+   rw [effectiveConjugation_mk,normOneConjugation_one]
+ 
+ theorem effectiveConjugation_mul (g h : positiveNormalizer) (x : EffectivePositiveLevel) :
+     effectiveConjugation (g*h) x=effectiveConjugation g (effectiveConjugation h x) := by
+   obtain ⟨u,rfl⟩ := QuotientGroup.mk'_surjective signs x
++  simp only [QuotientGroup.mk'_apply]
+   rw [effectiveConjugation_mk,effectiveConjugation_mk,effectiveConjugation_mk,normOneConjugation_mul]
+ 
+ /-- A genuine action homomorphism, with original normalizer composition,

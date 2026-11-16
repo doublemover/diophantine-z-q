@@ -1,0 +1,40 @@
+--- before/OriginalAffineLineDualFrame318.lean
++++ sources/OriginalAffineLineDualFrame318.lean
+@@ -25,7 +25,10 @@
+       simp only [Functor.map_comp,Preadditive.comp_sum,Preadditive.sum_comp,
+         Category.assoc,Iso.hom_inv_id_assoc]
+     _ = e.inv ≫ F.map (𝟙 M) ≫ e.hom := by rw [← Functor.map_sum,h]
+-    _ = _ := by simp only [Functor.map_id,Category.id_comp,Iso.inv_hom_id]
++    _ = e.inv ≫ (𝟙 (F.obj M) ≫ e.hom) :=
++      congrArg (fun t => e.inv ≫ t ≫ e.hom) (F.map_id M)
++    _ = e.inv ≫ e.hom := congrArg (fun t => e.inv ≫ t) (Category.id_comp e.hom)
++    _ = 𝟙 A := e.inv_hom_id
+ 
+ variable (R : CommRingCat.{u}) (L : Line (Spec R))
+ 
+@@ -46,11 +49,11 @@
+ def out (i : Fin (moduleFrame R L).n) : L.object ⟶ SheafOfModules.unit (Spec R).ringCatSheaf :=
+   (OriginalLineAffineModel318.canonicalIso R L).inv ≫
+     (tilde.functor R).map (show OriginalLineAffineModel318.sections R L ⟶ ModuleCat.of R R from
+-      ModuleCat.ofHom ((moduleFrame R L).out i)) ≫ (tildeSelf (R:=R)).hom
++      ⟨(moduleFrame R L).out i⟩) ≫ (tildeSelf (R:=R)).hom
+ 
+ def back (i : Fin (moduleFrame R L).n) : SheafOfModules.unit (Spec R).ringCatSheaf ⟶ L.object :=
+   (tildeSelf (R:=R)).inv ≫ (tilde.functor R).map (show ModuleCat.of R R ⟶ OriginalLineAffineModel318.sections R L from
+-      ModuleCat.ofHom ((moduleFrame R L).back i)) ≫
++      ⟨(moduleFrame R L).back i⟩) ≫
+     (OriginalLineAffineModel318.canonicalIso R L).hom
+ 
+ /-- The sum of these genuine structure-line factorizations is the identity
+@@ -59,9 +62,9 @@
+   apply transport_total (tilde.functor R)
+     (OriginalLineAffineModel318.canonicalIso R L) (tildeSelf (R:=R))
+     (fun i => show OriginalLineAffineModel318.sections R L ⟶ ModuleCat.of R R from
+-      ModuleCat.ofHom ((moduleFrame R L).out i))
++      ⟨(moduleFrame R L).out i⟩)
+     (fun i => show ModuleCat.of R R ⟶ OriginalLineAffineModel318.sections R L from
+-      ModuleCat.ofHom ((moduleFrame R L).back i))
++      ⟨(moduleFrame R L).back i⟩)
+   apply ModuleCat.hom_ext
+   change (∑ i, ((moduleFrame R L).back i).comp ((moduleFrame R L).out i)) = LinearMap.id
+   exact (moduleFrame R L).total
