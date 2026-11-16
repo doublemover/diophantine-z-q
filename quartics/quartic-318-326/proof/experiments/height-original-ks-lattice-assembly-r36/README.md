@@ -1,0 +1,5 @@
+# Minimal overlap universe repair successor of KS35
+
+The published KS35 is the exact predecessor. All 197 roots retain their order; exactly IntegralFourRootOverlap318 changes, with 196 source files byte-identical. The newly compiler-passed polynomial-localization repair and all earlier passed roots are preserved, as is the KS35 gluing coercion repair. The sole change gives the private Spec-map composition helper one common explicit carrier universe, required by the native CommRingCat/Scheme APIs and already shared by its actual caller rings. Its proof body, public statements, imports, maps, options and resource limits are unchanged.
+
+The exact source-bound fresh KS34 targeted log reports a universe mismatch in that private helper, followed by its missing declaration. This candidate addresses that exact elaboration failure; it is not a compiler-success claim. Predecessor evidence remains byte-identical; fresh source/log/inventory/summary/native snapshots and independent review are bound. Only the active KS registry slot changes r35 to r36. No other slots, markers, scripts, baseline files, or separate normalization/resolution sources change. No local Lean.
