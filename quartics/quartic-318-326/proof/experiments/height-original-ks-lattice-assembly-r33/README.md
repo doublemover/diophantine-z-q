@@ -1,0 +1,5 @@
+# Minimal gluing-elaboration repair successor of KS32
+
+The published repairs-only KS32 is the exact predecessor. All 197 root modules retain their order; exactly IntegralOriginalGluingCompatibility318 changes, with the other 196 byte-identical. The reviewed change restricts the infinity-generator rewrites to their intended equation sides and supplies explicit parameters. Public statements, imports, scalar maps, options and resource limits are unchanged. A fresh hosted KS32 log bound to the exact previous source records an isDefEq heartbeat timeout after the earlier API mismatch was cleared. This source rewrite is not a verified timeout cure until hosted replay succeeds.
+
+Predecessor evidence is retained byte-for-byte, with its application and copy-binding records preserved in evidence. The fresh exact source/log/application and independent review are also bound. No normalization, flatness, p3 singularity, resolution, regular-model or KS source additions are bundled. Only the active KS registry slot changes from r32 to r33; all other slots and markers/scripts remain unchanged. Static/source review is not Lean acceptance. No local Lean run.

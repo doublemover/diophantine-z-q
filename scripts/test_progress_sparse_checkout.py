@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Pure Git/source tests; no Lean, network, credentials or hosted mutation."""
-import importlib.util,json,os,pathlib,shutil,subprocess,tempfile,unittest
+import importlib.util,json,os,pathlib,shutil,subprocess,tempfile,unittest,textwrap
 from unittest.mock import patch
 import prepare_progress_sparse_checkout as s
 class SparseCheckoutTests(unittest.TestCase):
@@ -10,6 +10,8 @@ class SparseCheckoutTests(unittest.TestCase):
   self.write('scripts/prepare_progress_sparse_checkout.py',pathlib.Path(s.__file__).read_text())
   self.write('.github/actions/example/action.yml','name: example\n')
   self.write('quartics/quartic-318-326/proof/progress/Base.lean','-- baseline preserved\n')
+  self.write('lean/lean-toolchain','leanprover/lean4:v4.35.0\n')
+  self.write('quartics/quartic-318-326/proof/progress/lean-toolchain','leanprover/lean4:v4.35.0\n')
   self.write(s.EXPERIMENTS+'/packets.json',{'active_packets':['test-r2']})
   self.write(s.EXPERIMENTS+'/test-r2/intake.json',{'revision_classification_schema':1,'revision_of':'test-r1'})
   self.write(s.EXPERIMENTS+'/test-r2/APPLICATION.json',{'predecessor':'test-r1','bindings':{'INHERITANCE.json':'bound-by-native-checker'}})
@@ -51,7 +53,7 @@ class SparseCheckoutTests(unittest.TestCase):
   with self.assertRaises(ValueError):self.paths()
  def test_legacy(self):
   self.write(s.EXPERIMENTS+'/test-r2/intake.json',{});self.commit();self.assertEqual(self.paths(),[s.EXPERIMENTS+'/test-r2'])
- def sparse(self):self.g('sparse-checkout','init','--cone');self.g('sparse-checkout','set','scripts','.github','quartics/quartic-318-326/proof/progress')
+ def sparse(self):self.g('sparse-checkout','init','--cone');self.g('sparse-checkout','set','scripts','.github','lean','quartics/quartic-318-326/proof/progress')
  def command(self,*args,head=None):
   env=dict(os.environ,GITHUB_SHA=head or self.head)
   return subprocess.run(['python3','-B',str(self.root/'scripts/prepare_progress_sparse_checkout.py'),'--packet','test-r2',*args],capture_output=True,text=True,env=env)
@@ -64,4 +66,24 @@ class SparseCheckoutTests(unittest.TestCase):
  def test_wrong_event_head(self):self.sparse();self.assertNotEqual(self.command(head='0'*40).returncode,0)
  def test_dirty_worktree_rejected(self):self.sparse();self.write('scripts/dirty.txt','untracked harmless');self.write('.github/actions/example/action.yml','changed');self.assertNotEqual(self.command().returncode,0)
  def test_full_checkout_not_silently_reconfigured(self):self.assertNotEqual(self.command().returncode,0)
+ def test_compiler_setup_pin_files_materialized(self):
+  self.sparse()
+  for path in ['lean/lean-toolchain','quartics/quartic-318-326/proof/progress/lean-toolchain']:
+   self.assertEqual((self.root/path).read_text(),'leanprover/lean4:v4.35.0\n')
+  # Extract the actual composite preflight, never installer/toolchain steps.
+  action=(pathlib.Path(__file__).resolve().parents[1]/'.github/actions/setup-pinned-lean/action.yml').read_text()
+  shell=textwrap.dedent(action.split('      run: |\n',1)[1].split('    - id: installer',1)[0])
+  self.assertIn('cat lean/lean-toolchain',shell)
+  self.assertNotIn('setup_pinned_lean.sh',shell)
+  env=dict(os.environ,RUNNER_OS='Linux',RUNNER_ARCH='X64',ImageOS='ubuntu24')
+  self.assertEqual(subprocess.run(['bash','-c',shell],cwd=self.root,env=env).returncode,0)
+ def test_old_sparse_selection_reproduces_missing_root_pin(self):
+  self.g('sparse-checkout','init','--cone');self.g('sparse-checkout','set','scripts','.github','quartics/quartic-318-326/proof/progress')
+  self.assertFalse((self.root/'lean/lean-toolchain').exists())
+ def test_both_live_matrix_workflows_include_root_pin_directory(self):
+  root=pathlib.Path(__file__).resolve().parents[1]
+  for file,job in [('progress-experiments.yml','  first-check:'),('progress-inventory.yml','  inventory:')]:
+   text=(root/'.github/workflows'/file).read_text().split(job,1)[1]
+   block=text.split('sparse-checkout: |',1)[1].split('      - ',1)[0]
+   self.assertIn('\n            lean\n',block)
 if __name__=='__main__':unittest.main()

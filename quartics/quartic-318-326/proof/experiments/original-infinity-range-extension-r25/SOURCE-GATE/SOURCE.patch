@@ -1,0 +1,27 @@
+--- before/PELLevelOrbitKernel318.lean
++++ after/PELLevelOrbitKernel318.lean
+@@ -40,7 +40,7 @@
+   change mobius (representation (-((u.val:order):B))) τ=
+     mobius (representation ((u.val:order):B)) τ
+   rw [map_neg]
+-  simp only [mobius,denominator,Matrix.neg_apply,Complex.ofReal_neg,neg_mul,←neg_add,neg_div_neg]
++  simp only [mobius,denominator,Matrix.neg_apply,Complex.ofReal_neg,neg_mul,←neg_add,neg_div_neg_eq]
+ 
+ /-- The stabilizer of EVERY fine-level base orbit is precisely the actual
+ effective finite-level kernel. This uses both the original ±1 stabilizer and
+@@ -50,6 +50,7 @@
+   constructor
+   · intro h
+     obtain ⟨k,hk⟩ := base_covering.apply_eq_iff_mem_orbit.mp h
++    change k • τ = u • τ at hk
+     let w : normOneUnits := u⁻¹*principalEmbedding k
+     have hw : w • τ=τ := by
+       change (u⁻¹*principalEmbedding k) • τ=τ
+@@ -68,7 +69,6 @@
+     · have hn : ((negative u).val:order)=1+(3:ℕ) • (-v) := by
+         change -(u.val:order)=1+(3:ℕ) • (-v)
+         rw [hv]
+-        simp only [nsmul_neg]
+         abel
+       let k : principalThree := ⟨(negative u).val,(negative u).property,⟨-v,hn⟩⟩
+       calc

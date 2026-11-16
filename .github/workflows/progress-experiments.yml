@@ -23,6 +23,8 @@ on:
       - 'scripts/test_small_prime_diagnostic.py'
       - 'scripts/diagnose_prepared_anchor_elaboration.py'
       - 'scripts/test_prepared_anchor_elaboration_diagnostic.py'
+      - 'scripts/diagnose_prepared_anchor_cleanup_off.py'
+      - 'scripts/test_prepared_anchor_cleanup_off.py'
       - 'scripts/test_kaehler_timeout_diagnostic.py'
       - 'scripts/diagnose_kaehler_timeout.py'
       - 'scripts/diagnostic_evidence/kaehler_timeout_source.lean.txt'
@@ -108,6 +110,7 @@ jobs:
       - run: python -B scripts/test_picard_naturality_diagnostic.py
       - run: python -B scripts/test_small_prime_diagnostic.py
       - run: python -B scripts/test_prepared_anchor_elaboration_diagnostic.py
+      - run: python -B scripts/test_prepared_anchor_cleanup_off.py
       - run: python -B scripts/test_kaehler_timeout_diagnostic.py
       - id: plan
         env:
@@ -158,6 +161,7 @@ jobs:
           sparse-checkout: |
             .github
             scripts
+            lean
             quartics/quartic-318-326/proof/progress
       - uses: ./.github/actions/setup-pinned-python
         with:
@@ -483,6 +487,15 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_prepared_anchor_elaboration.py "$PACKET"
+      - name: Non-admitted exact PreparedAnchor cleanup-off differential
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'forward-original-weighted-weyl-r22-replay-r35'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_prepared_anchor_cleanup_off.py "$PACKET"
       - name: Non-admitted exact Kaehler import and command timeout diagnostic
         if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'pel-original-cotangent-hzero-forty-r69'
         shell: bash
@@ -541,6 +554,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-naturality/
             build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-decidable/
             build/progress-experiments/${{ matrix.packet }}/scratch-prepared-anchor-elaboration/
+            build/progress-experiments/${{ matrix.packet }}/scratch-prepared-anchor-cleanup-off/
             build/progress-experiments/${{ matrix.packet }}/scratch-kaehler-timeout/
           retention-days: 3
 # Tooling/source composites save only runtime or verified source transports. Experimental proof

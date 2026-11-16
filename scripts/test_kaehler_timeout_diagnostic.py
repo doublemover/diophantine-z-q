@@ -19,6 +19,24 @@ class Tests(unittest.TestCase):
         for value in out.values():
             self.assertLess(value.index('set_option stderrAsMessages false'),value.index('run_cmd'))
         self.assertEqual(out['command_trace'].count('KAEHLER_COMMAND_'),21)
+    def test_scoped_substep_instrumentation(self):
+        text=d.specimens(self.source())['command_trace']
+        self.assertEqual(text.count(d.SUBSTEP_SCOPE),1)
+        self.assertIn(d.SUBSTEP_SCOPE+'lemma source_coordinate_original:',text)
+        self.assertEqual(text.count(d.SUBSTEP_FINAL_TACTICS.rstrip('\n')),1)
+        self.assertEqual(text.count('Lean.Elab.Tactic.evalTactic'),2)
+        for label in ['BEFORE_FINAL_RW','AFTER_FINAL_RW','BEFORE_FINAL_RFL','AFTER_FINAL_RFL']:
+            self.assertEqual(text.count('emit "'+label+'"'),1)
+        self.assertLess(text.index('emit "BEFORE_FINAL_RW"'),text.index('emit "AFTER_FINAL_RW"'))
+        self.assertLess(text.index('emit "BEFORE_FINAL_RFL"'),text.index('emit "AFTER_FINAL_RFL"'))
+        # Undo only the instrumentation; exact old frozen diagnostic is restored.
+        restored=text.replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
+        self.assertEqual(d.digest(restored),'324766ba3fac040b7055810250f3b2639b45786f04729f2b6c7417a41f460955')
+    def test_substep_boundaries_fail_closed(self):
+        text=d.specimens(self.source())['command_trace']
+        original=text.replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
+        for changed in [original.replace('lemma source_coordinate_original:','lemma moved:',1), original.replace(d.OLD_FINAL_TACTICS.rstrip('\n'),'  exact False.elim (by contradiction)',1)]:
+            with self.assertRaises(ValueError):d.substep_specimen(changed)
     def test_tamper_rejected(self):
         with self.assertRaisesRegex(ValueError,'Frozen target source changed'):d.specimens(self.source()+'\n')
     def test_hosted_guard(self):
