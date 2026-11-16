@@ -1,0 +1,25 @@
+--- before/IntegralWholeOverlapGenerators318.lean
++++ sources/IntegralWholeOverlapGenerators318.lean
+@@ -47,8 +47,20 @@
+     (baseChangedOrderMapAlong (reciprocalMap R c).toRingHom
+       (IntegralInfinityChart318.coefficient R c)
+       (generator (IntegralInfinityChart318.coefficient R c) j)) = _
+-  rw [baseChangedOrderMapAlong_generator]
++  have hg : baseChangedOrderMapAlong (reciprocalMap R c).toRingHom
++      (IntegralInfinityChart318.coefficient R c)
++      (generator (IntegralInfinityChart318.coefficient R c) j) =
++      generator (infinityParameter R c) j := by
++    simpa only [infinityParameter,AlgHom.toRingHom_eq_coe,AlgHom.coe_toRingHom] using
++      (baseChangedOrderMapAlong_generator (reciprocalMap R c).toRingHom
++        (IntegralInfinityChart318.coefficient R c) j)
++  have hs : fullOverlap R c (generator (finiteParameter R c) j) =
++      (y R : Laurent R) • generator (infinityParameter R c) j := by
++    simpa only [fullOverlap] using
++      (full_scale (infinityParameter R c) (finiteParameter R c) (y R)
++        (parameter_identity R c) j)
++  rw [hg]
+   apply (fullOverlap R c).injective
+-  rw [AlgEquiv.apply_symm_apply,map_smul,full_scale,smul_smul,Units.inv_mul,one_smul]
++  rw [AlgEquiv.apply_symm_apply,map_smul,hs,smul_smul,Units.inv_mul,one_smul]
+ 
+ end IntegralWholeOverlapGenerators318

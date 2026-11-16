@@ -1,0 +1,67 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r20/IntegralWholeOverlapGenerators318.lean:17:87: error: unsolved goals
+case «0»
+S : Type u_1
+inst✝ : CommRing S
+a b : Fin 3 → S
+y : Sˣ
+h : ∀ (j : Fin 3), b j = a j * ↑y ^ 2
+⊢ ((AdjoinRoot.of (QuadraticPresentation318.polynomial (a 0))) ↑y *
+        AdjoinRoot.root (QuadraticPresentation318.polynomial (a 0))) ⊗ₜ[S]
+      1 =
+    (↑y • AdjoinRoot.root (QuadraticPresentation318.polynomial (a 0))) ⊗ₜ[S] 1
+
+case «1»
+S : Type u_1
+inst✝ : CommRing S
+a b : Fin 3 → S
+y : Sˣ
+h : ∀ (j : Fin 3), b j = a j * ↑y ^ 2
+⊢ 1 ⊗ₜ[S]
+      (((AdjoinRoot.of (QuadraticPresentation318.polynomial (a 1))) ↑y *
+          AdjoinRoot.root (QuadraticPresentation318.polynomial (a 1))) ⊗ₜ[S]
+        1) =
+    (↑y • 1) ⊗ₜ[S] (AdjoinRoot.root (QuadraticPresentation318.polynomial (a 1)) ⊗ₜ[S] 1)
+
+case «2»
+S : Type u_1
+inst✝ : CommRing S
+a b : Fin 3 → S
+y : Sˣ
+h : ∀ (j : Fin 3), b j = a j * ↑y ^ 2
+⊢ 1 ⊗ₜ[S]
+      (1 ⊗ₜ[S]
+        ((AdjoinRoot.of (QuadraticPresentation318.polynomial (a 2))) ↑y *
+          AdjoinRoot.root (QuadraticPresentation318.polynomial (a 2)))) =
+    (↑y • 1) ⊗ₜ[S] (1 ⊗ₜ[S] AdjoinRoot.root (QuadraticPresentation318.polynomial (a 2)))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r20/IntegralWholeOverlapGenerators318.lean:21:45: warning: This simp argument is unused:
+  ← Algebra.smul_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [UnitScaledQuadraticOrder318.three, generator, Algebra.TensorProduct.congr_apply,
+    Algebra.TensorProduct.map_tmul, UnitScaledQuadraticOrder318.equiv_root, TensorProduct.smul_tmul',
+    TensorProduct.tmul_smul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r20/IntegralWholeOverlapGenerators318.lean:22:31: warning: This simp argument is unused:
+  TensorProduct.tmul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [UnitScaledQuadraticOrder318.three, generator, Algebra.TensorProduct.congr_apply,
+    Algebra.TensorProduct.map_tmul, UnitScaledQuadraticOrder318.equiv_root, ← Algebra.smul_def,
+    TensorProduct.smul_tmul']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r20/IntegralWholeOverlapGenerators318.lean:35:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r20/IntegralWholeOverlapGenerators318.lean:39:7: error: synthesized type class instance is not definitionally equal to expression inferred by typing rules, synthesized
+  OreLocalization.instModuleOfIsScalarTower
+inferred
+  Algebra.toModule

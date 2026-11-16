@@ -1,0 +1,93 @@
+--- before/CharacteristicPartialEquiv318.lean
++++ sources/CharacteristicPartialEquiv318.lean
+@@ -13,7 +13,7 @@
+ The closed-disk map may identify boundary points. -/
+ @[expose] def cellMap (c : closedBall (0:E) 1 → X) (S : Set X)
+     (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     PartialEquiv E X where
+   toFun z := if hz : z∈closedBall (0:E) 1 then c ⟨z,hz⟩ else c ⟨0,by simp⟩
+   invFun y := if hy : y∈S then (h.symm ⟨y,hy⟩).val else 0
+@@ -21,7 +21,7 @@
+   target := S
+   map_source' := by
+     intro z hz
+-    simp only [dif_pos hz.le]
++    simp only [dif_pos (ball_subset_closedBall hz)]
+     rw [agree ⟨z,hz⟩]
+     exact (h ⟨z,hz⟩).property
+   map_target' := by
+@@ -30,7 +30,7 @@
+     exact (h.symm ⟨y,hy⟩).property
+   left_inv' := by
+     intro z hz
+-    have hzc : z∈closedBall (0:E) 1 := hz.le
++    have hzc : z∈closedBall (0:E) 1 := ball_subset_closedBall hz
+     simp only [dif_pos hzc]
+     rw [agree ⟨z,hz⟩]
+     simp only [dif_pos (h ⟨z,hz⟩).property]
+@@ -39,26 +39,26 @@
+     intro y hy
+     simp only [dif_pos hy]
+     have hz := (h.symm ⟨y,hy⟩).property
+-    simp only [dif_pos hz.le]
++    simp only [dif_pos (ball_subset_closedBall hz)]
+     rw [agree (h.symm ⟨y,hy⟩)]
+     exact congrArg Subtype.val (h.apply_symm_apply ⟨y,hy⟩)
+ 
+ theorem source (c : closedBall (0:E) 1 → X) (S : Set X) (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     (cellMap c S h agree).source=ball (0:E) 1 := rfl
+ 
+ theorem target (c : closedBall (0:E) 1 → X) (S : Set X) (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     (cellMap c S h agree).target=S := rfl
+ 
+ theorem on_closed (c : closedBall (0:E) 1 → X) (S : Set X) (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val)
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val)
+     (z : closedBall (0:E) 1) : cellMap c S h agree z.val=c z := by
+   simp only [cellMap,dif_pos z.property]
+ 
+ theorem continuousOn_closed (c : closedBall (0:E) 1 → X) (hc : Continuous c)
+     (S : Set X) (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     ContinuousOn (cellMap c S h agree) (closedBall (0:E) 1) := by
+   apply continuousOn_iff_continuous_restrict.mpr
+   have he : (fun z : closedBall (0:E) 1 => cellMap c S h agree z.val)=c :=
+@@ -69,7 +69,7 @@
+ 
+ theorem continuousOn_inverse (c : closedBall (0:E) 1 → X) (S : Set X)
+     (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     ContinuousOn (cellMap c S h agree).symm S := by
+   apply continuousOn_iff_continuous_restrict.mpr
+   have he : (fun y : S => (cellMap c S h agree).symm y.val)=
+@@ -81,7 +81,7 @@
+   exact continuous_subtype_val.comp h.symm.continuous
+ 
+ theorem open_image (c : closedBall (0:E) 1 → X) (S : Set X) (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     cellMap c S h agree '' ball (0:E) 1=S := by
+   ext y
+   constructor
+@@ -90,11 +90,11 @@
+   · intro hy
+     let z := h.symm ⟨y,hy⟩
+     refine ⟨z.val,z.property,?_⟩
+-    rw [on_closed c S h agree ⟨z.val,z.property.le⟩,agree z]
++    rw [on_closed c S h agree ⟨z.val,ball_subset_closedBall z.property⟩,agree z]
+     exact congrArg Subtype.val (h.apply_symm_apply ⟨y,hy⟩)
+ 
+ theorem closed_image (c : closedBall (0:E) 1 → X) (S : Set X) (h : ball (0:E) 1 ≃ₜ S)
+-    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,z.property.le⟩=(h z).val) :
++    (agree : ∀ z : ball (0:E) 1, c ⟨z.val,ball_subset_closedBall z.property⟩=(h z).val) :
+     cellMap c S h agree '' closedBall (0:E) 1=Set.range c := by
+   ext y
+   constructor

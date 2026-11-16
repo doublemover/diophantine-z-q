@@ -1,0 +1,31 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW",
+  "candidate": "resume-geometry/whole-generator-family-43817651313-r2",
+  "application_sha256": "f9a53811079485572cb70c13a6acdbf9fb997b70c9bbce4db8cd14ecfabbea39",
+  "source_sha256": "33b8a7a6edf9514a09aa0ed8e546cfb64f6f1100d2b2caa19072917d5f654010",
+  "bindings_verified": 18,
+  "clauses_checked": 9,
+  "prior_review": {
+    "path": "resume-independent-review/LATTICE23-FAMILY-43817651313-R1-REVIEW.json",
+    "sha256": "55ac0e41749ee15ac1f6175d368ef21c033579092a580466e9f3e298d95986ed",
+    "status": "Historical hold, not r1 approval"
+  },
+  "native_supplement": {
+    "resume-independent-review/LATTICE23-TRANSPARENCY-NATIVE/ElabTerm.lean.pin.json": "54adb3a3c62aa36e86d2c0f5fa446611be16d17e8ef5543b6adeb49e4daa0988",
+    "resume-independent-review/LATTICE23-TRANSPARENCY-NATIVE/ElabTerm.lean": "65bbae85dcd20c746fcaaff88537eef9c4ec2e29b8f51b91f1c574499f5d574e",
+    "resume-independent-review/LATTICE23-TRANSPARENCY-NATIVE/Change.lean.pin.json": "afc5ab926ebcb4728f039ea5fc343a140831ba1c633fdd3dc0c85b856d545337",
+    "resume-independent-review/LATTICE23-TRANSPARENCY-NATIVE/Change.lean": "438e307e9d79ad5dd7922f11a5f56d6a9c488bac1c8bc79ac16c56d8b7f2df4b"
+  },
+  "findings": [
+    "R2 explicitly unfolds the actual infinityParameter definition before change and removes the instances-transparency wrapper. This resolves the precise static R1 hold without changing any global option.",
+    "The unfolded family is literally fun i => reciprocalMap R c (coefficient R c i). Native AlgHom RingHom projection/coercion equalities are reflexive; targeted change selects exactly the private baseChangedOrderMapAlong_generator telescope, then exact consumes it. No new carrier, action, tensor construction or premise.",
+    "Entire source read with four complete actual producer bodies; all source bytes outside hg remain identical to own failed source. Existing full_scale, abstract helper, hs and final inverse-map cancellation remain unchanged.",
+    "All 18 bindings and nine clauses checked. R1 history exact; before/evidence/primary bytes exactly preserve previously verified own15d Git origins and native Hom blob928a7294. Own central62-pass result/log and artifact14203976503 digest/CRC were independently verified in prior review and remain byte-identical.",
+    "Own module remains failed3.673s with110 unreached. Source review does not infer partial acceptance from absence of other diagnostics."
+  ],
+  "limits": [
+    "No local Lean/Lake, compiler, uploads, commits, pushes or shared checkout edits.",
+    "Static source/API approval only; actual conversion and whole module require hosted check.",
+    "Current successor propagation requires separate own-receipt gate."
+  ]
+}

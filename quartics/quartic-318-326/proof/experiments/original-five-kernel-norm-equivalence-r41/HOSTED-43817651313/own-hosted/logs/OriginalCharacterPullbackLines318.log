@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r40/OriginalCharacterPullbackLines318.lean:37:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsAffine (ShortAffineScheme318.scheme (publishedA i) (publishedB i))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r40/OriginalCharacterPullbackLines318.lean:45:2: error: Tactic `decide` failed to reduce
+  @decide (∀ (i : Fin 4) (j : Index), epsilon j (SourceCharacterFields318.flip i) = if j = some i then 1 else -1)
+    (Nat.decidableForallFin fun i =>
+      ∀ (j : Index), epsilon j (SourceCharacterFields318.flip i) = if j = some i then 1 else -1)
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `instDecidableEqRat`, `isFalse`, `isTrue`, `Finset.decidableDforallFinset`, `Fintype.decidableForallFintype`, `Int.decEq`, `Int.instDecidableEq`, `List.decidableBAll`, `Multiset.decidableDforallMultiset`, `Multiset.decidableForallMultiset`, `Nat.decidableBallLT`, `Nat.decidableForallFin`, `Option.instDecidableEq`, and `instDecidableEqRat.decEq`, reduction got stuck at
+  match
+    (((fun j => if SourceCharacterFields318.flip ⟨0, ⋯⟩ j = true then -1 else 1) ((fun i => i) ⟨0, ⋯⟩)).mul
+        (List.foldr (fun x1 x2 => x1 * x2) 1
+          (List.map (fun j => if SourceCharacterFields318.flip ⟨0, ⋯⟩ j = true then -1 else 1)
+            ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+              ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])))))).num,
+    -Rat.num 1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r40/OriginalCharacterPullbackLines318.lean:71:57: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

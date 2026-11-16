@@ -1,0 +1,34 @@
+--- before/ScalarHalfTraceDepth318.lean
++++ after/ScalarHalfTraceDepth318.lean
+@@ -25,15 +25,17 @@
+   have hf := ScalarPackedLocalUnit318.half_trace_ne u hn
+   rw [half_trace] at hf
+   have hterm : padicValRat 2 (2*u.im^2)=1+2*padicValRat 2 u.im := by
+-    rw [padicValRat.mul (by norm_num) (pow_ne_zero _ hb),padicValRat.pow,
+-      padicValRat.self (by norm_num)]
++    have hself : padicValRat 2 (2:ℚ)=1 := by
++      simpa only [Nat.cast_ofNat] using padicValRat.self (p:=2) (by norm_num)
++    rw [padicValRat.mul (by norm_num) (pow_ne_zero _ hb),padicValRat.pow,hself]
+     norm_num
+-  have hsum := padicValRat.add_eq_min hf (pow_ne_zero _ ha)
++  have hsum := padicValRat.add_eq_min (p:=2) (q:=u.re^2) (r:=2*u.im^2) hf (pow_ne_zero _ ha)
+     (mul_ne_zero (by norm_num) (pow_ne_zero _ hb))
+     (by rw [padicValRat.pow,hterm]; norm_num; omega)
+   have hnorm : padicValRat 2 (normCoefficient u)=
+       min (2*padicValRat 2 u.re) (1+2*padicValRat 2 u.im) := by
+-    simpa only [norm_coefficient] using AnchorNorm318.norm_two_value u.re u.im ha hb
++    have hpair : ConcreteG8Domain.pair u.re u.im=u := by cases u; rfl
++    simpa only [norm_coefficient,hpair] using AnchorNorm318.norm_two_value u.re u.im ha hb
+   rw [half_trace,hsum,padicValRat.pow,hterm,hnorm]
+   norm_num
+ 
+@@ -55,7 +57,8 @@
+   have hsum := padicValRat.min_le_padicValRat_add (p:=3) hf
+   rw [padicValRat.pow,hterm] at hsum
+   have hnorm : padicValRat 3 (normCoefficient u)=2*min (padicValRat 3 u.re) (padicValRat 3 u.im) := by
+-    simpa only [norm_coefficient] using AnchorNorm318.norm_three_value u.re u.im ha hb
++    have hpair : ConcreteG8Domain.pair u.re u.im=u := by cases u; rfl
++    simpa only [norm_coefficient,hpair] using AnchorNorm318.norm_three_value u.re u.im ha hb
+   rw [half_trace,hnorm]
+   omega
+ 

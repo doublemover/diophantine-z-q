@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r21/IntegralWholeOverlapGenerators318.lean:21:45: warning: This simp argument is unused:
+  ← AdjoinRoot.algebraMap_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [UnitScaledQuadraticOrder318.three, generator, Algebra.TensorProduct.congr_apply,
+    Algebra.TensorProduct.map_tmul, UnitScaledQuadraticOrder318.equiv_root, ← Algebra.smul_def,
+    ← TensorProduct.smul_tmul', TensorProduct.tmul_smul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r21/IntegralWholeOverlapGenerators318.lean:31:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r21/IntegralWholeOverlapGenerators318.lean:52:41: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (UnitScaledQuadraticOrder318.three ?a ?b ?y ?h) (generator ?b ?j)
+in the target expression
+  generator (fun i => (reciprocalMap R c).toRingHom (IntegralInfinityChart318.coefficient R c i)) j =
+    ↑(y R)⁻¹ • (fullOverlap R c) (generator (finiteParameter R c) j)
+
+R : Type u_2
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+j : Fin 3
+⊢ generator (fun i => (reciprocalMap R c).toRingHom (IntegralInfinityChart318.coefficient R c i)) j =
+    ↑(y R)⁻¹ • (fullOverlap R c) (generator (finiteParameter R c) j)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    generator (fun i => (reciprocalMap R c).toRingHom (IntegralInfinityChart318.coefficient R c i)) j
+  has type
+    @ThreeRootOrder318.Order (Laurent R) OreLocalization.instCommRing fun i =>
+      (reciprocalMap R c).toRingHom (IntegralInfinityChart318.coefficient R c i)
+  but is expected to have type
+    @ThreeRootOrder318.Order (Laurent R) OreLocalization.instCommRing (infinityParameter R c)
+  in the application
+    Eq (generator (fun i => (reciprocalMap R c).toRingHom (IntegralInfinityChart318.coefficient R c i)) j)

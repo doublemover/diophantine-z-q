@@ -1,0 +1,29 @@
+--- before/FourRootActualBranchLocalization318.lean
++++ after/FourRootActualBranchLocalization318.lean
+@@ -81,15 +81,19 @@
+ /-- Complex scalars act through the genuine polynomial/OpenBase tower.
+ Use the existing scalar actions instead of replacing tensor scalar dictionaries. -/
+ local instance sourceTower : IsScalarTower ℂ (FourRootActualFractionField318.A b) (OpenOrder b i):=by
+-  apply IsScalarTower.of_algebraMap_smul
+-  intro c z
++  refine ⟨fun c a z=>?_⟩
++  change sourceMap b i (c • a)*z=c • (sourceMap b i a*z)
++  have hca:(c • a:FourRootActualFractionField318.A b)=
++      algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c)*a:=
++    (IsScalarTower.algebraMap_smul (R:=ℂ) ℂ[X] c a).symm
+   have hc:=sourceMap_on_polynomial b i (C c)
+-  rw [show algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c)=
+-    algebraMap ℂ (FourRootActualFractionField318.A b) c from Polynomial.aeval_C _ c] at hc
+   rw [←IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenBase b i)] at hc
+-  change sourceMap b i (algebraMap ℂ (FourRootActualFractionField318.A b) c)*z=c • z
+-  rw [hc,←Algebra.smul_def]
+-  exact IsScalarTower.algebraMap_smul (R:=ℂ) (OpenBase b i) c z
++  rw [hca,map_mul,hc,mul_assoc]
++  calc
++    _=(algebraMap ℂ (OpenBase b i) c) • (sourceMap b i a*z) :=
++      (Algebra.smul_def _ _).symm
++    _=c • (sourceMap b i a*z) :=
++      IsScalarTower.algebraMap_smul (R:=ℂ) (OpenBase b i) c (sourceMap b i a*z)
+ 
+ /-- Name the SAME source-linear localization equivalence before restricting
+ scalars, so later coherence checks reuse this exact map instead of expanding

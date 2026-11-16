@@ -1,0 +1,16 @@
+--- before
++++ after
+@@ -26,8 +26,11 @@
+     cases k with
+     | none=>
+       change toTensor b (FourRootCoordinateRingSigns318.finiteEnd b g
+-        (FourRootAffineCoordinateRing318.coordinate b none))=_
+-      rw [FourRootCoordinateRingSigns318.finite_base,toTensor_base]
++        (FourRootAffineCoordinateRing318.coordinate b none))=
++        signEquiv (radicand b) (signPattern g)
++          (toTensor b (FourRootAffineCoordinateRing318.coordinate b none))
++      rw [FourRootCoordinateRingSigns318.finite_base]
++      simp only [toTensor_base]
+       exact ((signEquiv (radicand b) (signPattern g)).commutes Polynomial.X).symm
+     | some i=>
+       change toTensor b (FourRootCoordinateRingSigns318.finiteEnd b g

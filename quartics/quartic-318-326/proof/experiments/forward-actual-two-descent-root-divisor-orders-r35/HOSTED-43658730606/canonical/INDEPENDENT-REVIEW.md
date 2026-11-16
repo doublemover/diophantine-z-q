@@ -1,0 +1,7 @@
+# Actual translated-index redundant rewrite repair
+
+Source/application verdict accepted as candidate for hosted testing only. No local Lean/Lake or kernel acceptance. Candidate9377fe19a9a7344bff72391beb686f9a0a3b36e5199a81211629a87dba014d0b; before5a19a15c2d3e7ad4dbdf805b470f9f70a8d9ab46851fa67d1a828174da8323db. APPLICATION74b03838c5c4bdd3281354e4477511f3419c8a1944ede5ba46b76f7b77043ce0; BINDINGS ab8f7c617c34b98c6936c70d3748f0d69e1339319e1b398e832ec553079d57b8, all10 entries verified.
+
+Both authentic descent19/weighted19 RESULT digests match their own intakes. Both passed102 modules then ScalarTranslatedIndex failed2.320s/2.169s. Read exact errors: the final sub_eq_add_neg rewrite is attempted on an already reflexive addition-of-negative target. The sole edit removes that last redundant rewrite, leaving sub_zsmul and one_zsmul. Native rw's normal concluding reflexivity can then close the identical expression; this is not a new group identity or an assumption.
+
+All original n,hn,actual generator R, integer shift n−1, chartU/shiftWitness/coherent addition formulas and later proof bytes remain. No public telescope, scalar/sign, exceptional denominator premise, import, option or trust change. Current9 obligations correctly preserve the same arbitrary domain and distinguish actual prior ScalarLocalSquares passes from uncompiled successor. Future all-copy/current-packet propagation and full hosted replay remain separate.

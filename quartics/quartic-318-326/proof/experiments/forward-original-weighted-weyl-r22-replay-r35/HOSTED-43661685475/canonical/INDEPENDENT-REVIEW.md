@@ -1,0 +1,8 @@
+# Independent half-trace source review
+Verdict: bounded source/application review passes for future hosted replay only.
+
+After bf7fff094b74cda984da88a8f78ecc3474ff3e371ef7394f14f28c5fbf5a242f; before ae3e5e0de7f42f554e2a5fb4cff7515671f19f1c384d968fd8b682d83d96ce65. BINDINGS 9bb488bec6232f0070b06732551182cd8bc2a1a7cc8d335825d6d7230429d3de, APPLICATION 98d269d17d5dbd42309d77e835f52f6fe4b58a8bdea500f0f399c2cfcf0aa570. All 13 bindings verified; full candidate and diff, actual error and pinned padic/AnchorNorm producers read.
+
+The typed hself instantiates native padicValRat.self at p=2 and reduces the Nat numeral cast to the rational numeral actually present. add_eq_min now supplies p=2 and its exact two original summands, allowing the existing Fact2 before its parity proof. The two local pair eta equalities identify the literal quadratic pair of u's coordinates with u itself; norm_coefficient then compares the same original norm, not a substitute. Opposite valuation parity and factors 1+2v2(im), 2v2(re), and the inert factor2 are unchanged. Zero-coordinate branches remain, no new nonvanishing or cancellation premise, same whole field and theorem statements/options/imports.
+
+Weighted20 own RESULT 69c778c6bf48d2865b72a15b22db230382b361d0ffbfd7dda620b2fb9284c925 binds intake d6c876a25c494ffd57a412ef4c0ee3c3cbe3f5c253661171659c073294f6f6a9: TranslatedIndex 1.717s and IndexValuations 1.467s pass, HalfTrace fails 1.517s after104 successes. Descent20 receipt not part of this canonical evidence. No local Lean or conclusion of successful elaboration; sibling propagation and hosted audit remain separate.

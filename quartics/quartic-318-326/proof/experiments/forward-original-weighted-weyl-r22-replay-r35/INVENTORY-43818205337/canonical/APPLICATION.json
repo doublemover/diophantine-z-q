@@ -1,0 +1,128 @@
+{
+  "base_head": "e51d8760f82415364f83792071135dfb71d3b462",
+  "own_source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+  "own_inventory_head": "e51d8760f82415364f83792071135dfb71d3b462",
+  "run_id": 43818205337,
+  "evidence_kind": "DEPENDENCY_READY_INVENTORY_NOT_PRODUCTION_ACCEPTANCE",
+  "module": "Source150CRTWitness318",
+  "before_sha256": "45c646eadecf194e97040d598e1061f8e5c85ac49774c43e078807b28de62ffa",
+  "after_sha256": "96a9a4302dc0530dfffccdf424f155da6ddb95966e0edbd7e6227a87b4c19072",
+  "local_lean_run": false,
+  "public_signature_changed": false,
+  "own_receipts": [
+    {
+      "packet": "forward-original-weighted-weyl-r22-replay-r34",
+      "source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+      "inventory_marker": "e51d8760f82415364f83792071135dfb71d3b462",
+      "inventory_run": 43818205337,
+      "counts": {
+        "blocked_by_import": 1185,
+        "compile_pass": 117,
+        "compiler_error": 2
+      },
+      "failed_seconds": 1.417,
+      "successful_subset_audit": {
+        "modules": 117,
+        "declarations": 4188,
+        "status": "audit_pass"
+      },
+      "inventory_sha256": "8da24a0edbf0019e3abdd4983beb83593c09f65455d3a3658150963f9fbd0c23",
+      "intake_sha256": "0056ff55ba1f98e693a5fbe9eb73ec9b26ae230817152bcdf5c0d29091cc1cee",
+      "source_sha256": "45c646eadecf194e97040d598e1061f8e5c85ac49774c43e078807b28de62ffa",
+      "source107_same_guard_proof_status": "compile_pass",
+      "production_run": 43817651313,
+      "production_still_failed_module": "PreparedAnchorSource318"
+    },
+    {
+      "packet": "forward-actual-two-descent-root-divisor-orders-r34",
+      "source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+      "inventory_marker": "e51d8760f82415364f83792071135dfb71d3b462",
+      "inventory_run": 43818205337,
+      "counts": {
+        "blocked_by_import": 1180,
+        "compile_pass": 117,
+        "compiler_error": 2
+      },
+      "failed_seconds": 1.418,
+      "successful_subset_audit": {
+        "modules": 117,
+        "declarations": 4188,
+        "status": "audit_pass"
+      },
+      "inventory_sha256": "c392767f75b144c5e74a0f307d55de09b1ef70574a7b27d67094cb987e0934fe",
+      "intake_sha256": "2a7abb21eb4e7c150ae61c9a57c668f155c2890b485198fff96463640541fa8d",
+      "source_sha256": "45c646eadecf194e97040d598e1061f8e5c85ac49774c43e078807b28de62ffa",
+      "source107_same_guard_proof_status": "compile_pass",
+      "production_run": 43817651313,
+      "production_still_failed_module": "PreparedAnchorSource318"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "statement": "The entire select_prefix statement is unchanged: arbitrary rational S,q,t with t and its contact nonzero; all four integer labels nonzero; all seven natural CRT parameters with the exact positivity, coprimality, gcd16 and64-divisibility conditions. The same bound B and all original hypotheses remain. No nonzero guard or solution is newly assumed."
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "The sole proof delta replaces simp[he] at ht with rw[he] at ht followed by norm_num at ht. ht is the exact guard lower bound already produced by UnconditionalRealCRTPrefix. The explicit rewrite uses the assumed zero of the same rational guard before broad simplification can change integer scalar action notation to natural scalar action. The resulting zero cast and absolute value normalize to0; unchanged linarith contradicts the strictly positive margin."
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "statement": "The same chosen h from the original B+1 CRT selection is reused for every congruence, point-nonzero result, scalar bound, all four guards, input coordinate and root equality. The proof still handles arbitrary j:Fin4 and all admissible labels. No sample, fixed contact parameter or alternate index is introduced."
+    },
+    {
+      "id": "transition_maps",
+      "statement": "The rational guard is still evaluated at ((h:\u2124)\u2022P) and cast to\u211d inside absolute value. The repair rewrites that rational guard equality in its existing typed occurrence, without changing the scalar-action map, cast, point or bound. Native Lean rewriteLocalDecl applies the supplied equality to the local hypothesis; no new rewrite axiom or change in group action is used."
+    },
+    {
+      "id": "dependency_chase",
+      "statement": "GeneratorScalarProgression.margin_positive proves0<margin from the actual nonzero labels. UnconditionalRealCRTPrefix supplies margin<abs(guard) at the same integer multiple. Explicitly rewriting guard=0 gives margin<0, contradicting positivity. The same guard proof already appears verbatim in Source107CRTWitness, which independently passes in each own inventory. That supports this repair but does not certify Source150 candidate elaboration."
+    },
+    {
+      "id": "public_signatures",
+      "statement": "All imports, namespace, theorem telescope and conclusion, witness construction, first150 row count and all other proof lines are unchanged. One simplifier invocation becomes an explicit rewrite plus numerical normalization. No new theorem, hypothesis, enumeration, admission, axiom, resource option, diagnostic or compiler/trust change."
+    },
+    {
+      "id": "consumer_comparison",
+      "statement": "The unchanged ContactChainWitness.witness_first150 receives hzero,hone,the original free t/nonzero-contact hypotheses and the guard nonvanishing just proved. Its complete original fill chain covers exactly the first150 of288 rows, preserving the input and all four root equalities; remaining138 rows and pole realization are not claimed. No downstream theorem using this result was invented; the actual local producer/application chain is included in full."
+    },
+    {
+      "id": "limits_and_policy",
+      "statement": "Evidence is an independently authenticated dependency-ready INVENTORY, not a normal first-failure replay. Each own weighted34/descent34 inventory at marker e51/requested source15d has117 compile_pass,2 compiler_error, and1185/1180 blocked_by_import. Source150 fails1.417s/1.418s separately. The117-successful-module audit covers4188 declarations only; packet acceptance remains false. Own production43817651313 still stops at PreparedAnchorSource; its unknown-fvar issue remains unresolved and unchanged here."
+    },
+    {
+      "id": "acceptance_boundary",
+      "statement": "Both own inventory JSON/log/intake/source identities and successful-subset audits are bound separately, with published15d/e51 source reconciliation and own production failure retained. This observed independent error is not classified as an unreached preventive edit. Canonical and current propagation reviews are required before any isolated successors. No local Lean, upload, user computer, main edit, whole packet acceptance, baseline promotion or full arithmetic theorem claim."
+    }
+  ],
+  "bindings": {
+    "APPLICATION.md": "f9c7080250913e570e573bf85f4d3c7820d05207d5b7ff706706001ace39c5d5",
+    "SOURCE.diff": "6faa6a496b78a6d7964a7c2de3ac99528e187b144a15d3646915a88fb4d200df",
+    "before/Source150CRTWitness318.lean": "45c646eadecf194e97040d598e1061f8e5c85ac49774c43e078807b28de62ffa",
+    "primary/GeneratorScalarProgression318.lean": "fee74c4d131da19ec4cc6df84f0ff9d4fef9db53b2d560a13b77680001b36d06",
+    "primary/ContactChainWitness318.lean": "e908986094306ab628aa90dfa8bd3f10d70c47a7e0d45a9d6b1516d5d59ed3af",
+    "primary/RealGuardTrace318.lean": "da4dc35e66edb26bc14e0b99c2d2ca2bee36ebdf6524ab7a4661dd70a382df52",
+    "primary/Lean-Elab-Tactic-Rewrite.lean": "ee24161d476a4379e07bee6b481bb24918677316afb2da2de1a06eb849ebc55e",
+    "primary/UnconditionalRealCRTPrefix318.lean": "5fb75c0ca8f7ab3b1759a9d606afb584a3fe7239bed6fc0299ac8d1d6c76b556",
+    "primary/NATIVE-PINS.json": "4e864ceba24e145448eb0e1f4840378843260cd57fc3e119b1296aff374891eb",
+    "primary/Source107CRTWitness318.lean": "46a079279b0b75c3433d38798a0b84d1a2fb87a9e7ffe7e499ea7313225b4752",
+    "primary/Lean-LICENSE": "8b28515ffffc5c0fe2807d8ae3735b00b324d9b7ce807dd63ff6ac8922fbce7e",
+    "after/Source150CRTWitness318.lean": "96a9a4302dc0530dfffccdf424f155da6ddb95966e0edbd7e6227a87b4c19072",
+    "evidence/INVENTORY-AUTHENTICATION-REVIEW.json": "42abbe6b50626260105e3371fd1855456e8b8ae2bc0f4de61b0f5c91bebce878",
+    "evidence/RECONCILIATION.json": "c330a8b2ed2ecef3da58d667c7cce7dcd93bb3a66279ef5f74c6e40b67620cee",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/intake.json": "0056ff55ba1f98e693a5fbe9eb73ec9b26ae230817152bcdf5c0d29091cc1cee",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/INVENTORY.json": "8da24a0edbf0019e3abdd4983beb83593c09f65455d3a3658150963f9fbd0c23",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/PRODUCTION-PreparedAnchorSource318.log": "975a0608dd5b8c686986e69e7cd5f78d45bdd6b658dbdae41d94f3e73549a4be",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/ExperimentAudit.log": "dc59380ae85972f576195b7e40addbca6ada544fd0d04344206569810b4dde01",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/Source150CRTWitness318.log": "6afcce5134488bf8055df4dc52a081f3d96f4c50a3f4d6c97e441d8d5388164c",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/ExperimentAudit.lean": "dec5904c42536db231ab9cf0c761900e336931ec4b12c6a59dc61df96c511760",
+    "evidence/forward-original-weighted-weyl-r22-replay-r34/PRODUCTION-RESULT.json": "3f37edc9e982cd1d17279776e72cae8b28a8aaa7d20b82de8e09db27e036e0e1",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/intake.json": "2a7abb21eb4e7c150ae61c9a57c668f155c2890b485198fff96463640541fa8d",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/INVENTORY.json": "c392767f75b144c5e74a0f307d55de09b1ef70574a7b27d67094cb987e0934fe",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/PRODUCTION-PreparedAnchorSource318.log": "9b816ca141f781361c584d9639f6e1a11d82e05ee1e518e9e0e9c607126b5aab",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/ExperimentAudit.log": "dc59380ae85972f576195b7e40addbca6ada544fd0d04344206569810b4dde01",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/Source150CRTWitness318.log": "758bb202b11a8613921ffc0dd932a1671e344c444089a8c972e3fd7bd1bf9cdb",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/ExperimentAudit.lean": "dec5904c42536db231ab9cf0c761900e336931ec4b12c6a59dc61df96c511760",
+    "evidence/forward-actual-two-descent-root-divisor-orders-r34/PRODUCTION-RESULT.json": "d81c2679ca68b49892e97cc8f9cfa59b8d7b8febe631a24b0af83c036f2a9bc0"
+  }
+}

@@ -1,0 +1,20 @@
+--- before/PELNormOneBaseStabilizer318
++++ after/PELNormOneBaseStabilizer318
+@@ -49,7 +49,7 @@
+     have hm := scalar_of_extreme_trace _ τ hτ hl hd 1 (by norm_num) htr
+     have hb1 : ((u:order):B)=1 := by
+       apply representation_injective
+-      simpa only [one_smul,map_one] using hm
++      simpa only [unitMatrix,one_smul,map_one] using hm
+     left
+     apply Units.ext
+     exact Subtype.ext hb1
+@@ -60,7 +60,7 @@
+     have hm := scalar_of_extreme_trace _ τ hτ hl hd (-1) (by norm_num) htr
+     have hb1 : ((u:order):B)= -1 := by
+       apply representation_injective
+-      simpa only [neg_one_smul,map_neg,map_one] using hm
++      simpa only [unitMatrix,neg_one_smul,map_neg,map_one] using hm
+     right
+     apply Units.ext
+     exact Subtype.ext hb1

@@ -1,0 +1,342 @@
+{
+  "schema": 1,
+  "scope": "SIX_EXISTING_CALCULUS_API_SOURCE_ONLY_REPAIRS",
+  "source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+  "current_reconciled_head": "257a24fddaa43786ff5bf9fb193f14457667d021",
+  "inventory_run": 43818205337,
+  "evidence_kind": "OWN_INDEPENDENT_INVENTORY_COMPILER_ERRORS_NOT_NORMAL_PRODUCTION_ACCEPTANCE",
+  "packet": "pel-original-character-ordered-biholomorph-r37",
+  "modules": [
+    "AnalyticNonzeroSquareRoot318",
+    "AnalyticSquaredBaseChange318",
+    "AnalyticSquaredDerivative318",
+    "GeodesicCircleFlattening318",
+    "PELOriginalLogMetricDerivatives318",
+    "UpperHalfPlanePowerRays318"
+  ],
+  "repairs": [
+    {
+      "module": "AnalyticNonzeroSquareRoot318",
+      "before_sha256": "18fdf214ded1dc6bafbc814ab5ca80bcc56de6b75310c88902fd3ca27f28913c",
+      "after_sha256": "6a76265d52b1098140a963c4a34a2b9152295f44067b12d0bb509a6c2701a75c",
+      "receipt": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-character-ordered-biholomorph-r37/quarantine/AnalyticNonzeroSquareRoot318/AnalyticNonzeroSquareRoot318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticNonzeroSquareRoot318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "FiniteAnalyticCharts318",
+          "Mathlib.Analysis.Complex.BranchLogRoot"
+        ],
+        "log_sha256": "81525ea4d25742edcba5df16580149ed219e43890d346574d6b194207b8b0933",
+        "occurrence": "pel-original-character-ordered-biholomorph-r37/AnalyticNonzeroSquareRoot318",
+        "root_causes": [
+          "AnalyticNonzeroSquareRoot318"
+        ],
+        "seconds": 1.418,
+        "source_sha256": "18fdf214ded1dc6bafbc814ab5ca80bcc56de6b75310c88902fd3ca27f28913c",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "published_path": "quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticNonzeroSquareRoot318.lean",
+      "observed_cause": "The logged rewrite sees deriv (id ^ 2), not the explicit lambda square.",
+      "bounded_correction": "Use native hasDerivAt_pow 2 (s z), whose function is exactly fun w => w^2. Same derivative 2*s z and original nonzero proof; original inverse-function argument untouched.",
+      "written_declarations_unchanged": true,
+      "options_unchanged": true
+    },
+    {
+      "module": "AnalyticSquaredBaseChange318",
+      "before_sha256": "fb704b9bc32ca4932b4d6e5044a3140a040cd9d058ed461985386f808c5a1a68",
+      "after_sha256": "8e2dbfa6ec448af3455e152cfa288f4f4332d244fe04de1a057f7398d487607f",
+      "receipt": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-character-ordered-biholomorph-r37/quarantine/AnalyticSquaredBaseChange318/AnalyticSquaredBaseChange318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticSquaredBaseChange318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "FiniteAnalyticCharts318",
+          "LocalHolomorphicSquareRoot318",
+          "Mathlib.Analysis.Analytic.Order"
+        ],
+        "log_sha256": "ee91480a605015328b5b4470fd5cf43689ea43bf1fb9970e026b03e01f7c0fdd",
+        "occurrence": "pel-original-character-ordered-biholomorph-r37/AnalyticSquaredBaseChange318",
+        "root_causes": [
+          "AnalyticSquaredBaseChange318"
+        ],
+        "seconds": 1.468,
+        "source_sha256": "fb704b9bc32ca4932b4d6e5044a3140a040cd9d058ed461985386f808c5a1a68",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "published_path": "quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticSquaredBaseChange318.lean",
+      "observed_cause": "Composition inferred the wrong partially applied HPow map; derivative simplification retained id 0; ContinuousAt did not rewrite to explicit target Tendsto.",
+      "bounded_correction": "Specify comp inner f := fun z : Complex => z^2, definitionally restate product derivative at 0 with actual q and factors, and use a typed continuous square map followed by hc.tendsto and zero_pow. The same q=z*s(z^2), nonzero b, produced inverse k and eventual square identity remain.",
+      "written_declarations_unchanged": true,
+      "options_unchanged": true
+    },
+    {
+      "module": "AnalyticSquaredDerivative318",
+      "before_sha256": "f97e8d6d365036a2dfbd33187c7e712b21e1c10af8810ca12d358ceaffe3de96",
+      "after_sha256": "366102ad221c8ac318e508b7a5cf4120e3c23426181c1455a56b7c7a51c44581",
+      "receipt": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-character-ordered-biholomorph-r37/quarantine/AnalyticSquaredDerivative318/AnalyticSquaredDerivative318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticSquaredDerivative318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.Analysis.Analytic.Order",
+          "Mathlib.Analysis.Meromorphic.Order"
+        ],
+        "log_sha256": "ca40ca8f531e805289b501a0dfe2ecfe7ac127710150c5563a8ebc5ed8daae20",
+        "occurrence": "pel-original-character-ordered-biholomorph-r37/AnalyticSquaredDerivative318",
+        "root_causes": [
+          "AnalyticSquaredDerivative318"
+        ],
+        "seconds": 1.017,
+        "source_sha256": "f97e8d6d365036a2dfbd33187c7e712b21e1c10af8810ca12d358ceaffe3de96",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "published_path": "quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticSquaredDerivative318.lean",
+      "observed_cause": "The compiler auto-implicit context reports a free type named \u2102 with no field/topology/numeral dictionaries.",
+      "bounded_correction": "Add public Mathlib.Analysis.Complex.Basic import, whose concrete Complex normed and densely normed field instances supply the intended carrier. Written declarations and proof bodies are byte-identical. This restores concrete complex notation, not a new generic-field hypothesis.",
+      "written_declarations_unchanged": true,
+      "options_unchanged": true
+    },
+    {
+      "module": "GeodesicCircleFlattening318",
+      "before_sha256": "c91212364a9cca0d3b9271aed882edf23aeb99b1c450db66031cfe76752d7e70",
+      "after_sha256": "6fecbbbebf17fc584050042da4d3da44f4fd8706b841f9d035d5dc6587e3d762",
+      "receipt": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-character-ordered-biholomorph-r37/quarantine/GeodesicCircleFlattening318/GeodesicCircleFlattening318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/GeodesicCircleFlattening318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.Analysis.Complex.CauchyIntegral",
+          "Mathlib.Tactic"
+        ],
+        "log_sha256": "8c050dbe5de52993be34a5b32e4cb514fce4c6812eda4a1825284763684f648f",
+        "occurrence": "pel-original-character-ordered-biholomorph-r37/GeodesicCircleFlattening318",
+        "root_causes": [
+          "GeodesicCircleFlattening318"
+        ],
+        "seconds": 1.869,
+        "source_sha256": "c91212364a9cca0d3b9271aed882edf23aeb99b1c450db66031cfe76752d7e70",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "published_path": "quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/GeodesicCircleFlattening318.lean",
+      "observed_cause": "differentiableAt_const is a theorem taking an explicit constant c, so dot mul/add on the unapplied theorem is unresolved.",
+      "bounded_correction": "Apply exact constants -I, b, a, b, I, 1, I before existing mul/add/sub/div rules. No flatten/unflatten map, denominator condition, real endpoint or positivity hypothesis changes.",
+      "written_declarations_unchanged": true,
+      "options_unchanged": true
+    },
+    {
+      "module": "PELOriginalLogMetricDerivatives318",
+      "before_sha256": "ea5079f799d6caa63207ea99ad0915155a5dee09e5bf5b4dab86ecebb3e5d600",
+      "after_sha256": "d68c3690fd5374f1dfa9a43abfa2d2b6a8f775e90d2814cd88b1b0e40bffc16e",
+      "receipt": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-character-ordered-biholomorph-r37/quarantine/PELOriginalLogMetricDerivatives318/PELOriginalLogMetricDerivatives318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/PELOriginalLogMetricDerivatives318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.Analysis.Calculus.FDeriv.Bilinear",
+          "PELOriginalDescendedMetric318"
+        ],
+        "log_sha256": "8b0adbbd095b2e3bfed5ee42e28b66dc368e2fe83e1c23bc8d5d5ce9b6a38949",
+        "occurrence": "pel-original-character-ordered-biholomorph-r37/PELOriginalLogMetricDerivatives318",
+        "root_causes": [
+          "PELOriginalLogMetricDerivatives318"
+        ],
+        "seconds": 1.618,
+        "source_sha256": "ea5079f799d6caa63207ea99ad0915155a5dee09e5bf5b4dab86ecebb3e5d600",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "published_path": "quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/PELOriginalLogMetricDerivatives318.lean",
+      "observed_cause": "Bilinear derivative producer retains id y/id z, preventing rewrite by the explicit logWeight function equality.",
+      "bounded_correction": "Normalize only Function.id_def in h before the existing rw [he]; the same actual bilinear Riemann form, imaginaryMap, firstDerivative, symmetric_real and second differential remain.",
+      "written_declarations_unchanged": true,
+      "options_unchanged": true
+    },
+    {
+      "module": "UpperHalfPlanePowerRays318",
+      "before_sha256": "c4c56858a1f593b7492218651c32e12187d854db4e241e7fb2bbe31368de0fa3",
+      "after_sha256": "4337a92bc21174fa6fd24ffc4b201fc38afca881f9a6d8c277e81caaaac0b7db",
+      "receipt": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/pel-original-character-ordered-biholomorph-r37/quarantine/UpperHalfPlanePowerRays318/UpperHalfPlanePowerRays318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/UpperHalfPlanePowerRays318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+          "Mathlib.Tactic"
+        ],
+        "log_sha256": "479627a2c507df504f2b514270ad9cf6df6cf7839209b67aa467dc3e6b9ddaac",
+        "occurrence": "pel-original-character-ordered-biholomorph-r37/UpperHalfPlanePowerRays318",
+        "root_causes": [
+          "UpperHalfPlanePowerRays318"
+        ],
+        "seconds": 1.468,
+        "source_sha256": "c4c56858a1f593b7492218651c32e12187d854db4e241e7fb2bbe31368de0fa3",
+        "status": "compiler_error",
+        "timed_out": false
+      },
+      "published_path": "quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/UpperHalfPlanePowerRays318.lean",
+      "observed_cause": "Both imaginary-part proofs leave (Complex.sin (real angle)).re = Real.sin angle; native sin_ofReal_re is not a simp lemma.",
+      "bounded_correction": "Add only Complex.sin_ofReal_re to the two existing simp invocations. Both original exponential rays, every integer n>=2, strict positive imaginary parts and powers I/-I remain.",
+      "written_declarations_unchanged": true,
+      "options_unchanged": true
+    }
+  ],
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "statement": "All six original public telescopes remain written byte-for-byte: nonvanishing continuous square root over an open domain; simply-connected hypothesis for existence; arbitrary analytic noncritical f at zero; analytic f,h satisfying f-prime squared=f squared times h; meromorphic original f with actual local constant germ and continuity at y; arbitrary real endpoints with existing denominator conditions; actual positive-imaginary period parameter and original ComplexVectors; every natural n>=2. No conclusion is supplied as a premise."
+    },
+    {
+      "id": "constructed_objects",
+      "statement": "Each correction repairs only application of already pinned native calculus or dictionary APIs. NonzeroSquareRoot still constructs a local inverse to squaring. SquaredBaseChange still constructs q=z*s(z^2) and its inverse k from the original factor u and root b. SquaredDerivative still derives infinite vanishing order and meromorphic continuation. Circle maps, actual Gaussian log metric and both explicit exponential rays are unchanged; no replacement carrier or abstract witness."
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "statement": "Both square-root theorems retain all z and all original open/simply-connected domains. Base-change preserves both local inverse equations and eventual squared equation, including zero. Derivative lemmas retain every complex point, original analytic and meromorphic hypotheses, and regular endpoint. Circle statements keep full denominator-nonzero domains and all real endpoints. Metric identities quantify all original complex vectors and all upper-half-plane periods. Ray result covers every n>=2, not a finite test set."
+    },
+    {
+      "id": "transition_maps",
+      "statement": "Source/interface normalization only: native explicit-lambda power derivative replaces pointwise id power; comp gets the same inner square map explicitly; change exposes the identical derivative product at zero; continuousAt.tendsto names the existing topology conversion. Concrete Complex import restores intended dictionaries. Applied explicit constants select the unchanged differentiability operations. Function.id_def normalizes the same bilinear map. sin_ofReal_re supplies the exact real-part conversion for the unchanged complex sine."
+    },
+    {
+      "id": "dependency_chase",
+      "statement": "Fifteen full actual producer/consumer bodies are bound at own source15d and byte-reconciled with current257a. FiniteAnalyticCharts and LocalHolomorphicSquareRoot already use explicit comp(f:=...) for the same inference issue. The metric chain retains original period Riemann form, bilinear lift, Gaussian coefficient, descended bundle and curvature. Eleven pinned Mathlib files including license bind exact native APIs, with Git blob verification. Six independent compiler_error entries and own logs, not borrowed normal-production evidence, anchor all changes."
+    },
+    {
+      "id": "public_signatures",
+      "statement": "Every written theorem/lemma/definition signature and all existing resource options are unchanged. Only AnalyticSquaredDerivative gains one concrete standard Mathlib import; all its proof bodies are unchanged. No new declaration, axiom, admission, hypothesis, exposure attribute, resource cap, skipped kernel check, cache reuse or acceptance setting. Remaining warnings and unrelated proofs are deliberately untouched."
+    },
+    {
+      "id": "consumer_comparison",
+      "statement": "Full consumers retain actual Legendre half-plane sheets and global sign comparison; original contact and character branch normal forms; actual Weierstrass cubic nonsingularity; original geodesic reflection and half-cut endpoints; actual curvature recovering the original integral Riemann form; and half-plane leading coefficients. The repaired APIs still prove the same statements used by these consumers, without replacing domains, maps, regularity or original lattice. Consumer source is evidence only, not modified or claimed compiled."
+    },
+    {
+      "id": "limits_and_policy",
+      "statement": "Own character37 inventory execution e51/run43818205337 requests immutable source15d. Authenticated R2 report620b08e4 and full inventory bind243 successful,34 compiler_error,837 blocked,55 budget-unattempted. The successful-subset audit3889 declarations is not whole-packet acceptance. All six assigned modules are inventory-observed independent errors. No trace/infinity outcome is borrowed; no successor packet, main checkout change, local Lean/Lake, user computer or upload is performed. PreparedAnchor diagnostics and all other authors scopes remain separate."
+    },
+    {
+      "id": "acceptance_boundary",
+      "statement": "This bounded six-module source candidate is uncompiled. Exact source/API independent review is required before current propagation, and hosted evidence alone can establish candidate whole-module success. Static checks establish byte/signature/options/evidence invariants only, not Lean elaboration, full recursive audit, packet acceptance or global theorem completion. Any newly exposed failure must be handled from its own observed receipt."
+    }
+  ],
+  "local_lean_run": false,
+  "candidate_success_established": false,
+  "bindings": {
+    "APPLICATION.md": "2978a3413b592424f84dcfe73dd191eb1315504094ed98de40af3d41070c6765",
+    "SOURCE.diff": "d3f24d94f6e6a275211c697bf6e4935b67638665d644d20714f3ee4355431f9f",
+    "after/AnalyticNonzeroSquareRoot318.lean": "6a76265d52b1098140a963c4a34a2b9152295f44067b12d0bb509a6c2701a75c",
+    "after/AnalyticSquaredBaseChange318.lean": "8e2dbfa6ec448af3455e152cfa288f4f4332d244fe04de1a057f7398d487607f",
+    "after/AnalyticSquaredDerivative318.lean": "366102ad221c8ac318e508b7a5cf4120e3c23426181c1455a56b7c7a51c44581",
+    "after/GeodesicCircleFlattening318.lean": "6fecbbbebf17fc584050042da4d3da44f4fd8706b841f9d035d5dc6587e3d762",
+    "after/PELOriginalLogMetricDerivatives318.lean": "d68c3690fd5374f1dfa9a43abfa2d2b6a8f775e90d2814cd88b1b0e40bffc16e",
+    "after/UpperHalfPlanePowerRays318.lean": "4337a92bc21174fa6fd24ffc4b201fc38afca881f9a6d8c277e81caaaac0b7db",
+    "before/AnalyticNonzeroSquareRoot318.lean": "18fdf214ded1dc6bafbc814ab5ca80bcc56de6b75310c88902fd3ca27f28913c",
+    "before/AnalyticSquaredBaseChange318.lean": "fb704b9bc32ca4932b4d6e5044a3140a040cd9d058ed461985386f808c5a1a68",
+    "before/AnalyticSquaredDerivative318.lean": "f97e8d6d365036a2dfbd33187c7e712b21e1c10af8810ca12d358ceaffe3de96",
+    "before/GeodesicCircleFlattening318.lean": "c91212364a9cca0d3b9271aed882edf23aeb99b1c450db66031cfe76752d7e70",
+    "before/PELOriginalLogMetricDerivatives318.lean": "ea5079f799d6caa63207ea99ad0915155a5dee09e5bf5b4dab86ecebb3e5d600",
+    "before/UpperHalfPlanePowerRays318.lean": "c4c56858a1f593b7492218651c32e12187d854db4e241e7fb2bbe31368de0fa3",
+    "evidence/AnalyticNonzeroSquareRoot318.log": "81525ea4d25742edcba5df16580149ed219e43890d346574d6b194207b8b0933",
+    "evidence/AnalyticSquaredBaseChange318.log": "ee91480a605015328b5b4470fd5cf43689ea43bf1fb9970e026b03e01f7c0fdd",
+    "evidence/AnalyticSquaredDerivative318.log": "ca40ca8f531e805289b501a0dfe2ecfe7ac127710150c5563a8ebc5ed8daae20",
+    "evidence/GeodesicCircleFlattening318.log": "8c050dbe5de52993be34a5b32e4cb514fce4c6812eda4a1825284763684f648f",
+    "evidence/INVENTORY-43818205337-FINITE-CENTER-CHARACTER-PROBE-REVIEW-R2.json": "620b08e41684639c87ce12ee62cb32445e7510ec64ff51631774689c211937bc",
+    "evidence/INVENTORY.json": "01866c76d6bfa9d03f0e043ce3c5c00864da8d5eeb1a204be4e268b8bbdadf16",
+    "evidence/PELOriginalLogMetricDerivatives318.log": "8b0adbbd095b2e3bfed5ee42e28b66dc368e2fe83e1c23bc8d5d5ce9b6a38949",
+    "evidence/RECONCILIATION.json": "e63577c36b115ee954e82aac4570d5401c8a2d574de237e18a389a5da8f82b39",
+    "evidence/UpperHalfPlanePowerRays318.log": "479627a2c507df504f2b514270ad9cf6df6cf7839209b67aa467dc3e6b9ddaac",
+    "evidence/intake.json": "2c126b473f9adf95b7e1eb66c2cbe158f6b75032b9598d6d69fe97cc4d1884c8",
+    "native/LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "native/Mathlib_Analysis_Analytic_Composition.lean": "f746d6a007c094e5c563081fba10bc9c0f37bf131faec0971b233179651d0745",
+    "native/Mathlib_Analysis_Calculus_Deriv_Mul.lean": "16d6196abd7f8ecc721b31498c65180fb07483dd305e48224db1537e94bd60cf",
+    "native/Mathlib_Analysis_Calculus_Deriv_Pow.lean": "b2781c21c39de75badfc2a305a9f848c32329e384bb9e9f3ea220b3b41ce10ea",
+    "native/Mathlib_Analysis_Calculus_FDeriv_Add.lean": "90822d16e3df96240fbfae33eda542b3d8864fd911a8f24f2306c5d57fe5b1e0",
+    "native/Mathlib_Analysis_Calculus_FDeriv_Bilinear.lean": "bf8686ff1f0e3832748c51cc3ff2f193734bc5c91bbc1408e01b1771843b37bb",
+    "native/Mathlib_Analysis_Calculus_FDeriv_Const.lean": "d3ebef4ea4b94f62a7478af8f0d24c345a71982e5b767514b93ac7b411838f0d",
+    "native/Mathlib_Analysis_Calculus_FDeriv_Mul.lean": "c9220bbf9211197f0ffc6602c04173d46ae4537e88d66db36f83599821ae05b0",
+    "native/Mathlib_Analysis_Complex_Basic.lean": "b0853cb846060f8762aa1e292c97e3c0bd35fc7bc84f8ddffdd744fc0326bdee",
+    "native/Mathlib_Analysis_Complex_Trigonometric.lean": "f6f2c2bb6da4d7dac960bef8d07dc2e337c474b417726c1fd15e30c6b74caafb",
+    "native/Mathlib_Topology_Continuous.lean": "14b6c26b5d22be63134a1bed41bcd9ae7720b1b3fc1c0798a42d71e33feb615c",
+    "native/PINS.json": "5006791c070640aebd8d49b7de483c8e87a7b8d9e88ac18ef0ee8096c91b987b",
+    "primary/AnalyticHalfPlaneLeading318.lean": "229cc8c84bcea867d496021dda4864092f781b185e5d4c1ba37c4c1451fb139f",
+    "primary/ConnectedSquareRootComparison318.lean": "1a7cd09fe3ac6df8719190735d7b1618b8b1c68b81c4b77f73d66372d057f83a",
+    "primary/FiniteAnalyticCharts318.lean": "258a1761d647b89174f0d1667480bfdf4d940dc3e63e82772c4c289b2b068a76",
+    "primary/GeodesicCircleReflection318.lean": "ef56cb447e2289098fa7bd1c4245b1477892abfb3aa7aa51eaae40276db8805a",
+    "primary/LegendreHalfPlaneAnalyticSheets318.lean": "236fd46c4d6b2746a3a847d88a614248e7a1aededded6bb85a8171826eded486",
+    "primary/LocalHolomorphicSquareRoot318.lean": "b6007b8c3865f560170462bf96524b34620a6b7b11aa44816f734ef0d2e8f1b4",
+    "primary/PELActualHalfCutGeodesics318.lean": "5a6057a25a64d0a1ff696dbeba2da946e2ee9af7072cd218e407f1946535126c",
+    "primary/PELOriginalContactBranchNormalForm318.lean": "db651795550712df9d5c80e84699fcf9cf5f0773363bac1cfdadc1f4d8999c96",
+    "primary/PELOriginalDescendedMetric318.lean": "af10a1797c3037c2203a5f59e969c8337259fd099e5fc957847a5cfabbf63592",
+    "primary/PELOriginalMetricCurvature318.lean": "20a01a3a9d3e83c45f5493fdc3f40e8cfea9626d8727b61f753277d8ab602008",
+    "primary/PELOriginalMetricSmoothCoefficient318.lean": "26750e5752a79da795f7137aa970701b8e37a8162b81fa66d3ff248da6dd8bb1",
+    "primary/PELOriginalPolarizationMetric318.lean": "454a20b1d039133198f7300c3e7bbd2efbce083cb4f80293e85e41ff4387510a",
+    "primary/PELOriginalStandardBranchNormalForm318.lean": "5df3cb4eeab0e4596123a21c0e717f4ffb0cf99c650f22794bbde32ef83dccdc",
+    "primary/PELPeriodRiemannForm318.lean": "ad0868561b279912601ef4b87a5823d9a75055db0b97a90f41600d5efd9c1a06",
+    "primary/PINS.json": "f2a12a45c0f623c1cdf7944aab6235c96ada92e0ffb40360457a4c0ca878b62d",
+    "primary/WeierstrassCubicNonsingular318.lean": "a51dfb5ad9b77aaae9848543853cddb63d2136cfeb3c1c959b47df7ce8aea60d"
+  }
+}

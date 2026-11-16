@@ -1,0 +1,12 @@
+--- before/Source150CRTWitness318
++++ after/Source150CRTWitness318
+@@ -44,7 +44,8 @@
+     intro j he
+     have ht := hguards j
+     have hp := GeneratorScalarProgression318.margin_positive labels hn j
+-    simp [he] at ht
++    rw [he] at ht
++    norm_num at ht
+     linarith
+   exact ⟨h,by omega,hr0,hr1,hrL,hpoint,hscalar,hguards,
+     ContactChainWitness318.witness_input q labels (h:ℤ) t,

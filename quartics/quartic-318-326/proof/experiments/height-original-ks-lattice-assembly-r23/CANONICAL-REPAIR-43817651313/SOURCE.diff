@@ -1,0 +1,20 @@
+--- before
++++ after
+@@ -51,9 +51,14 @@
+       (IntegralInfinityChart318.coefficient R c)
+       (generator (IntegralInfinityChart318.coefficient R c) j) =
+       generator (infinityParameter R c) j := by
+-    simpa only [infinityParameter,AlgHom.toRingHom_eq_coe,AlgHom.coe_toRingHom] using
+-      (baseChangedOrderMapAlong_generator (reciprocalMap R c).toRingHom
+-        (IntegralInfinityChart318.coefficient R c) j)
++    unfold infinityParameter
++    change baseChangedOrderMapAlong (reciprocalMap R c).toRingHom
++      (IntegralInfinityChart318.coefficient R c)
++      (generator (IntegralInfinityChart318.coefficient R c) j) =
++      generator (fun i => (reciprocalMap R c).toRingHom
++        (IntegralInfinityChart318.coefficient R c i)) j
++    exact baseChangedOrderMapAlong_generator (reciprocalMap R c).toRingHom
++      (IntegralInfinityChart318.coefficient R c) j
+   have hs : fullOverlap R c (generator (finiteParameter R c) j) =
+       (y R : Laurent R) • generator (infinityParameter R c) j := by
+     simpa only [fullOverlap] using

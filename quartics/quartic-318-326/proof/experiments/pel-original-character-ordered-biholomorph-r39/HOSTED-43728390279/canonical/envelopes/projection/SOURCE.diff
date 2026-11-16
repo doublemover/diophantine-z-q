@@ -1,0 +1,21 @@
+--- before/FourRootProjectiveProjection318.lean
++++ sources/FourRootProjectiveProjection318.lean
+@@ -39,12 +39,12 @@
+   rw [intoFinite_eq]
+   unfold finiteProjection infinityProjection intoInfinity
+   rw [←Category.assoc,←Spec.map_comp,←Category.assoc,←Spec.map_comp]
+-  have hf:=congrArg (fun f:Polynomial ℂ→ₐ[ℂ]InfinityOverlap b=>
+-    Spec.map (CommRingCat.ofHom f.toRingHom)) (finite_coordinate_overlap b)
+-  have hi:=congrArg (fun f:Polynomial ℂ→ₐ[ℂ]InfinityOverlap b=>
+-    Spec.map (CommRingCat.ofHom f.toRingHom)) (infinity_coordinate_overlap b)
+-  simp only [AlgHom.comp_toRingHom,CommRingCat.ofHom_comp] at hf hi
+-  rw [hf,hi]
++  change Spec.map (CommRingCat.ofHom
++      ((toInfinityBase b).comp (finiteCoordinate b)).toRingHom) ≫ JLineAtlas318.chart ℂ 1 =
++    Spec.map (CommRingCat.ofHom
++      ((IsScalarTower.toAlgHom ℂ (Infinity b) (InfinityOverlap b)).comp
++        (infinityCoordinate b)).toRingHom) ≫ JLineAtlas318.chart ℂ 0
++  rw [finite_coordinate_overlap,infinity_coordinate_overlap]
+   exact JLineOverlap318.unit_chart_overlap (R:=ℂ) (overlapUnit b)
+ 
+ @[expose] def centeredProjection:scheme b⟶ProjectiveJLine318.scheme ℂ:=

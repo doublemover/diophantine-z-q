@@ -1,0 +1,7 @@
+# height-original-ks-lattice-assembly-r23
+
+Existing-module successor to height-original-ks-lattice-assembly-r22. Exact own 15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3/run 43817651313: 62 full passes, then IntegralWholeOverlapGenerators318 fails 3.673s, 110 unreached. No failed-file partial acceptance. Complete predecessor source and metadata tree e78e62ed552ef8b5ebfa099c999de0091149e51e equals current marker head e51d8760f82415364f83792071135dfb71d3b462; all immediate root metadata preserved under IMMEDIATE-PREDECESSOR-43817651313.
+
+Own 15d/run43817651313 lattice22 remains 62 full passes; WholeOverlapGenerators fails 3.673s with 110 unreached. Only the local hg proof changes. Explicitly unfold the regular infinityParameter definition, then use targeted default-transparency change to the exact existing helper family and exact the helper. No .instances wrapper remains. This addresses the independent native Change API hold on r1; r1 is preserved in history. Same maps, actions, public types, every other proof and all options remain unchanged. No local Lean or claimed candidate acceptance. Exact current own receipt and bounded artifact verification retained.
+
+Same 173 ordered roots: one reviewed source change and 172 unchanged. No workflow/resource changes. Literal r16 diagnostic guard unchanged. Native Python structure checks only; future own hosted replay required. Full evidence local-only, no baseline promotion.

@@ -1,0 +1,30 @@
+--- before/OriginalCharacterPullbackLines318.lean
++++ sources/OriginalCharacterPullbackLines318.lean
+@@ -32,8 +32,11 @@
+ 
+ theorem target_boundary_surjective (i : Fin 4) : Function.Surjective
+     (MayerVietorisSectionKernel318.sectionBoundary (StructureAdditiveSheaf318.sheaf (Target i))
+-      (finiteOpen i) (infinityOpen i) (target_cover i)) :=
+-  AffineCoverHOnePresentation318.boundary_surjective (finiteOpen i) (infinityOpen i)
++      (finiteOpen i) (infinityOpen i) (target_cover i)) := by
++  letI : IsAffine (ShortAffineScheme318.scheme (publishedA i) (publishedB i)) := by
++    dsimp only [ShortAffineScheme318.scheme]
++    infer_instance
++  exact AffineCoverHOnePresentation318.boundary_surjective (finiteOpen i) (infinityOpen i)
+     (isAffineOpen_opensRange (WeierstrassGluing318.finiteChart (publishedA i) (publishedB i)))
+     (isAffineOpen_opensRange (WeierstrassGluing318.infinityChart (publishedA i) (publishedB i)))
+     (target_cover i)
+@@ -41,8 +44,11 @@
+ /-- All five source characters are tested against this exact omitted-root flip. -/
+ theorem epsilon_flip (i : Fin 4) (j : Index) :
+     epsilon j (SourceCharacterFields318.flip i) = if j = some i then 1 else -1 := by
+-  revert i j
+-  decide
++  have h : ∀ (i : Fin 4) (j : Index),
++      epsilonInt j (SourceCharacterFields318.flip i) = if j = some i then (1 : ℤ) else -1 := by
++    unfold epsilonInt support SourceCharacterFields318.complement SourceCharacterFields318.flip
++    decide
++  simpa [epsilonInt_cast] using congrArg (fun z : ℤ => (z : ℚ)) (h i j)
+ 
+ /-- The full original target H1 pulls into the actual fixed space of its original omitted-root involution. -/
+ theorem pullback_fixed (i : Fin 4) (x : SheafCohomologyRetraction318.structureH (Target i) 1) :

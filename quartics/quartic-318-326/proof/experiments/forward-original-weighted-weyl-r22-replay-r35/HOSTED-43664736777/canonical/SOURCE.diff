@@ -1,0 +1,54 @@
+--- before/ScalarTwoThreePreparation318.lean
++++ after/ScalarTwoThreePreparation318.lean
+@@ -37,22 +37,24 @@
+     padicValRat 2 (W (DetectorGateWitness318.witness (a:ℚ) labels h) (labels 1))=0 := by
+   let w := DetectorGateWitness318.witness (a:ℚ) labels h
+   have hin : w 0=(a:ℚ) := DetectorGateWitness318.witness_input _ _ _
+-  have hH : w 37≠0 := by rw [ScalarActualInputs318.detector37]; exact common_norm_ne h hh
++  have hH : w 37≠0 := by rw [w,ScalarActualInputs318.detector37]; exact common_norm_ne h hh
+   have hf : w 33≠0 := by
+-    rw [ScalarActualInputs318.detector33]
++    rw [w,ScalarActualInputs318.detector33]
+     exact ScalarPackedLocalUnit318.half_trace_ne _ (common_norm_ne h hh)
+   have hr : inputR (w 0)≠0 := by rw [hin]; linarith [integer_inputR_large a]
+   have hvR : padicValRat 2 (inputR (w 0))=2 := by rw [hin]; exact (input_values a).1
+   have hvH : padicValRat 2 (w 37)=3+2*(padicValInt 2 h:ℤ) := by
+-    rw [ScalarActualInputs318.detector37]
++    rw [w,ScalarActualInputs318.detector37]
+     exact chart_norm_two h hh
+   have hvf : padicValRat 2 (w 33)=3+2*(padicValInt 2 h:ℤ) := by
+-    rw [ScalarActualInputs318.detector33,half_trace_two _ (common_norm_ne h hh)]
++    rw [w,ScalarActualInputs318.detector33,half_trace_two _ (common_norm_ne h hh)]
+     exact chart_norm_two h hh
+   have hvI := scalar_norm_two (labels 1) hn hn1
++  have hself : padicValRat 2 (2:ℚ)=1 := by
++    simpa only [Nat.cast_ofNat] using padicValRat.self (p:=2) (by norm_num)
+   exact (ScalarPackedLocalUnit318.actual_unit 2 w (labels 1) hr hf hH hn hn1
+     (by omega)
+-    (by rw [padicValRat.mul (by norm_num) hf,padicValRat.self (by norm_num),hvf]; omega)
++    (by rw [padicValRat.mul (by norm_num) hf,hself,hvf]; omega)
+     (by omega)).2
+ 
+ /-- The corresponding inert3-adic preparation uses the actual half-trace
+@@ -64,17 +66,17 @@
+     padicValRat 3 (W (DetectorGateWitness318.witness (a:ℚ) labels h) (labels 1))=0 := by
+   let w := DetectorGateWitness318.witness (a:ℚ) labels h
+   have hin : w 0=(a:ℚ) := DetectorGateWitness318.witness_input _ _ _
+-  have hH : w 37≠0 := by rw [ScalarActualInputs318.detector37]; exact common_norm_ne h hh
++  have hH : w 37≠0 := by rw [w,ScalarActualInputs318.detector37]; exact common_norm_ne h hh
+   have hf : w 33≠0 := by
+-    rw [ScalarActualInputs318.detector33]
++    rw [w,ScalarActualInputs318.detector33]
+     exact ScalarPackedLocalUnit318.half_trace_ne _ (common_norm_ne h hh)
+   have hr : inputR (w 0)≠0 := by rw [hin]; linarith [integer_inputR_large a]
+   have hvR : padicValRat 3 (inputR (w 0))=0 := by rw [hin]; exact (input_values a).2.1
+   have hvH : padicValRat 3 (w 37)=2+2*(padicValInt 3 h:ℤ) := by
+-    rw [ScalarActualInputs318.detector37]
++    rw [w,ScalarActualInputs318.detector37]
+     exact chart_norm_three h hh heven
+   have hvf : 2+2*(padicValInt 3 h:ℤ)≤padicValRat 3 (w 33) := by
+-    rw [ScalarActualInputs318.detector33,←chart_norm_three h hh heven]
++    rw [w,ScalarActualInputs318.detector33,←chart_norm_three h hh heven]
+     exact half_trace_three _ (common_norm_ne h hh)
+   have hvI := scalar_norm_three (labels 1) hn hn1 hneven
+   have v₂ : padicValRat 3 (2:ℚ)=0 := by

@@ -1,0 +1,7 @@
+# height-original-ks-lattice-assembly-r19
+
+Unaccepted source successor to own height-original-ks-lattice-assembly-r18 at e17cc578d503a7eefc2907302eba6fd7e4421b6a, run 43744210772: 61 complete passes then IntegralOriginalCommonRestriction318 failure 20.972s, 111 roots unreached. No partial failed-file acceptance. Exact own source/intake/result/log retained.
+
+Production commonRestriction definition, common_y and final commonAlgRestriction consumer remain byte-identical. Add generic bundled RingHom inverse cancellation helper before concrete carrier specialization; use it in common_finite. Explicitly rewrite original constant scalar tower and Polynomial.algebraMap_eq in common_constant. Existing public statement types/options/imports/resources unchanged; one helper added. Expected-type specialization still hosted-unverified, so no guaranteed recursion fix or partial module acceptance. Literal16 diagnostic guard remains unchanged and skips19; no workflow/resource expansion. Trace copy preventive under separate own evidence/owner review.
+
+Same 173 ordered roots: 1 reviewed source change, 172 byte-exact copies, no new roots. All immediate root metadata preserved byte-identically under IMMEDIATE-PREDECESSOR-43744210772 and replaced by current records. Nested earlier contracts/evidence are historical. No compiler, resource, trust, baseline or workflow change. No inactive conductor research appended. Full own hosted replay remains required; no local Lean or full model/KS acceptance.

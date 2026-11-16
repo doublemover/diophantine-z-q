@@ -1,0 +1,60 @@
+--- before/IntegralOriginalCommonRestriction318.lean
++++ sources/IntegralOriginalCommonRestriction318.lean
+@@ -50,6 +50,14 @@
+   exact liftOfAlgHomUnit_right (L := L) x f u hu b
+ 
+ end AlgHomLift
++
++/-- Normalize a polynomial constant in an abstract scalar tower, without
++rewriting inside the concrete old-overlap algebra-hom dictionary. -/
++private theorem polynomial_constant_image {S B : Type*} [CommRing S] [CommRing B]
++    [Algebra S B] [Algebra S[X] B] [IsScalarTower S S[X] B] (r : S) :
++    algebraMap S[X] B (C r) = algebraMap S B r := by
++  simpa only [Polynomial.algebraMap_eq] using
++    (IsScalarTower.algebraMap_apply S S[X] B r).symm
+ 
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ abbrev OldOverlap := IntegralOverlapChartMaps318.Overlap R c
+@@ -107,12 +115,28 @@
+       exact finiteRestriction_X R c)
+   completed.comp (finiteBaseChange R c).symm.toRingHom
+ 
++/-- The existing finite map is precisely the named base-change inclusion. -/
++private theorem finiteMap_baseChange :
++    finiteMap R c = (finiteBaseChange R c).toRingHom.comp
++      (Algebra.TensorProduct.includeRight : FiniteOrder R c →ₐ[R[X]]
++        Laurent R ⊗[R[X]] FiniteOrder R c).toRingHom := by
++  unfold finiteMap baseChangedOrderMap finiteBaseChange <;> rfl
++
++/-- Align the inverse ring-map projection without unfolding the tensor
++algebra equivalence or replacing its scalar structures. -/
++private theorem finiteBaseChange_inverse :
++    (finiteBaseChange R c).symm.toRingHom =
++      (finiteBaseChange R c).toRingEquiv.symm.toRingHom := rfl
++
+ theorem common_finite (a : FiniteOrder R c) :
+     commonRestriction R c (finiteMap R c a)=finiteRestriction R c a := by
+   have hu : finiteRestriction R c (algebraMap R[X] (FiniteOrder R c) X)=
+       (oldY R c : OldOverlap R c) := by
+     with_reducible_and_instances
+       exact finiteRestriction_X R c
++  rw [finiteMap_baseChange]
++  unfold commonRestriction
++  rw [finiteBaseChange_inverse]
+   with_reducible_and_instances
+     exact liftOfAlgHomUnit_equiv_right (k := R) (A := R[X]) (L := Laurent R)
+       (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+@@ -132,10 +156,10 @@
+   change commonRestriction R c (algebraMap (Laurent R) (CommonOrder R c)
+     (algebraMap R[X] (Laurent R) (C r))) = _
+   rw [←IntegralWholeOrderScalarMaps318.finite_polynomial,common_finite]
+-  have h := (finiteRestriction R c).commutes r
+-  rw [IsScalarTower.algebraMap_apply R R[X] (FiniteOrder R c),Polynomial.algebraMap_eq] at h
+   with_reducible_and_instances
+-    exact h
++    exact (congrArg (finiteRestriction R c)
++      (polynomial_constant_image (B := FiniteOrder R c) r)).trans
++        ((finiteRestriction R c).commutes r)
+ 
+ @[expose] def commonAlgRestriction : CommonOrder R c →ₐ[R] OldOverlap R c where
+   __ := commonRestriction R c

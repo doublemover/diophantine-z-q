@@ -1,0 +1,40 @@
+--- before/NormalizedOriginalFinitePoint318
++++ after/NormalizedOriginalFinitePoint318
+@@ -9,6 +9,17 @@
+ set_option maxHeartbeats 1100000
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++/-- Convert the actual four-root scalar equation on abstract carriers before
++specializing the polynomial ring and its inherited tensor actions. -/
++private theorem four_generator_mul {A : Type*} [CommRing A]
++    (a b : Fin 4 → A) (u : Fin 4 → Aˣ)
++    (hu : ∀ i, b i = a i * (u i : A)^2) (i : Fin 4) :
++    FourRootIndividualScales318.four a b u hu (FourRootOrderSigns318.generator b i) =
++      algebraMap A (FourRootOrder318.Order a) (u i : A) *
++        FourRootOrderSigns318.generator a i := by
++  rw [← Algebra.smul_def]
++  exact FourRootIndividualScales318.four_generator a b u hu i
++
+ variable (K : Type*) [Field K] (c : Fin 4 → Kˣ) (d s : Fin 4 → K)
+   (hs : ∀ i,s i≠0) (hc : ∀ i,(c i:K)=d i*(s i)^2)
+ abbrev NormalizedOrder := DVRNormalizedFiniteOrder318.Order K d (contacts K)
+@@ -40,10 +51,9 @@
+     sourceEquiv K c d s hs hc (FourRootOrderSigns318.generator (coefficient K c) i)=
+       algebraMap K[X] (NormalizedOrder K d) (C (s i))*
+         FourRootOrderSigns318.generator (DVRNormalizedFiniteOrder318.coefficient K d (contacts K)) i := by
+-  have h := FourRootIndividualScales318.four_generator
++  exact four_generator_mul
+     (DVRNormalizedFiniteOrder318.coefficient K d (contacts K)) (coefficient K c)
+     (scaleUnit K s hs) (coefficient_relation K c d s hs hc) i
+-  simpa only [Algebra.smul_def] using h
+ 
+ variable (t : K) (y : Fin 4 → K)
+   (hy : ∀ i,(y i)^2=(c i:K)*(t-contacts K i))
+@@ -59,6 +69,7 @@
+       (normalized_roots K c d s hs hc t y hy)).comp
+         (sourceEquiv K c d s hs hc).toRingHom=
+       IntegralValuativeChartPoints318.finiteMap K c t y hy := by
++  letI : Algebra K[X] K := DVRNormalizedFiniteOrder318.evaluationAlgebra K t
+   apply IntegralRootPointMaps318.four_ringHom_ext
+   · apply Polynomial.ringHom_ext
+     · intro r

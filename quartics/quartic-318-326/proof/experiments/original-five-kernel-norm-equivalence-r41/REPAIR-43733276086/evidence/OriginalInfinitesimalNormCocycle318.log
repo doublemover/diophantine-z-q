@@ -1,0 +1,113 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r34/OriginalInfinitesimalNormCocycle318.lean:27:18: error: unsolved goals
+case h
+R : Type u
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+ι : Type u
+U : ι → Y.Opens
+c : InfinitesimalUnitCocycle318.AdditiveCocycle X fun i => f ⁻¹ᵁ U i
+i j k : ι
+⊢ f ⁻¹ᵁ (U i ⊓ U j ⊓ U k) ≤ f ⁻¹ᵁ (U i ⊓ U k)
+
+case h
+R : Type u
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+ι : Type u
+U : ι → Y.Opens
+c : InfinitesimalUnitCocycle318.AdditiveCocycle X fun i => f ⁻¹ᵁ U i
+i j k : ι
+⊢ f ⁻¹ᵁ (U i ⊓ U j ⊓ U k) ≤ f ⁻¹ᵁ (U j ⊓ U k)
+
+case h
+R : Type u
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+ι : Type u
+U : ι → Y.Opens
+c : InfinitesimalUnitCocycle318.AdditiveCocycle X fun i => f ⁻¹ᵁ U i
+i j k : ι
+⊢ f ⁻¹ᵁ (U i ⊓ U j ⊓ U k) ≤ f ⁻¹ᵁ (U i ⊓ U j)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r34/OriginalInfinitesimalNormCocycle318.lean:71:30: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom (Scheme.Hom.app (reduction ?R ?p) ?V))
+    (InfinitesimalUnitCocycle318.epsilon (thickening ?R ?p) (DualNumberInfinitesimalLines318.epsilon ?R ?p) ?V)
+in the target expression
+  1 +
+      (ConcreteCategory.hom (Scheme.Hom.app (reduction R q) ((fun i => π R q ⁻¹ᵁ U i) i ⊓ (fun i => π R q ⁻¹ᵁ U i) j)))
+          (InfinitesimalUnitCocycle318.epsilon (thickening R q) (DualNumberInfinitesimalLines318.epsilon R q)
+            (π R q ⁻¹ᵁ (U i ⊓ U j))) *
+        (ConcreteCategory.hom
+            (Scheme.Hom.app (reduction R q) ((fun i => π R q ⁻¹ᵁ U i) i ⊓ (fun i => π R q ⁻¹ᵁ U i) j)))
+          ((ConcreteCategory.hom (Scheme.Hom.app (π R q) (U i ⊓ U j)))
+            ((traceCocycle f hY hfinite U c).transition i j)) =
+    1
+
+R : Type u
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+ι : Type u
+U : ι → Y.Opens
+c : InfinitesimalUnitCocycle318.AdditiveCocycle X fun i => f ⁻¹ᵁ U i
+i j : ι
+⊢ 1 +
+      (ConcreteCategory.hom (Scheme.Hom.app (reduction R q) ((fun i => π R q ⁻¹ᵁ U i) i ⊓ (fun i => π R q ⁻¹ᵁ U i) j)))
+          (InfinitesimalUnitCocycle318.epsilon (thickening R q) (DualNumberInfinitesimalLines318.epsilon R q)
+            (π R q ⁻¹ᵁ (U i ⊓ U j))) *
+        (ConcreteCategory.hom
+            (Scheme.Hom.app (reduction R q) ((fun i => π R q ⁻¹ᵁ U i) i ⊓ (fun i => π R q ⁻¹ᵁ U i) j)))
+          ((ConcreteCategory.hom (Scheme.Hom.app (π R q) (U i ⊓ U j)))
+            ((traceCocycle f hY hfinite U c).transition i j)) =
+    1
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    InfinitesimalUnitCocycle318.epsilon (thickening R q) (DualNumberInfinitesimalLines318.epsilon R q)
+      (π R q ⁻¹ᵁ (U i ⊓ U j))
+  has type
+    ↑Γ(thickening R q, π R q ⁻¹ᵁ (U i ⊓ U j))
+  but is expected to have type
+    ↑Γ(thickening R q, (fun i => π R q ⁻¹ᵁ U i) i ⊓ (fun i => π R q ⁻¹ᵁ U i) j)
+  in the application
+    (ConcreteCategory.hom (Scheme.Hom.app (reduction R q) ((fun i => π R q ⁻¹ᵁ U i) i ⊓ (fun i => π R q ⁻¹ᵁ U i) j)))
+      (InfinitesimalUnitCocycle318.epsilon (thickening R q) (DualNumberInfinitesimalLines318.epsilon R q)
+        (π R q ⁻¹ᵁ (U i ⊓ U j)))
+  
+  Note: The following definitions were not unfolded because their definition is not exposed:
+    getLimitCone ↦ 14
