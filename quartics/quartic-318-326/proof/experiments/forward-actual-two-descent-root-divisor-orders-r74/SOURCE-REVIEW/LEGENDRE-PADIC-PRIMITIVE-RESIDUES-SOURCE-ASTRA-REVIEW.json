@@ -1,0 +1,21 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_MATHEMATICAL_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "6f6ede89f9742b76e495422a4e268ea8ffaedf3825cdce7d2ad51bc14c1d8526",
+  "bindings_sha256": "665b104762315e4ea65268c50417dcff55548d9835e3d40f742715e0ec4a6f57",
+  "native_snapshots": {
+    "completeness-primary-selmer-transfer-20261116/legendre-padic-residues/Mathlib-PadicIntegers.lean.txt": "b78618e81f9550d0fc31e823966ec4c45537fbede71d3564be88d778f2ad558a",
+    "completeness-primary-selmer-transfer-20261116/legendre-modular-root/Mathlib-Padic-RingHoms.lean.txt": "c56bf1519b51dd9a50dcbee80abc439fd0a2c1e2a9694582b9df0eda71e4839f"
+  },
+  "findings": [
+    "Finite maximum among three real norms selects an actual coordinate q; nonzero vector forces q nonzero. Division by q is legitimate for every prime, including2, and norm ratios are at most1, giving actual PadicInt values without an extra integrality premise.",
+    "Homogeneous equation scales by q^-2. One chosen coordinate is exactly1, so all three cannot be divisible by p; native norm_lt_one_iff_dvd rules out p dividing1.",
+    "Native appr_spec depth2 states divisibility by p\u00b2 of q minus its approximant. If p divides every integer representative, this divisibility lifts back to p dividing every original PadicInt coordinate, contradicting established primitivity.",
+    "Mapping the original integral equation through toZModPow2 yields the exact integer residual modulo p\u00b2. Cast/divisibility interfaces and argument order match inspected native statements.",
+    "Only review-requested cast proof was changed from prior73baef5e: congrArg followed by explicit Int.cast_mul/natCast simplification, avoiding a trailing tactic after possible goal closure."
+  ],
+  "limitations": [
+    "No local Lean or hosted acceptance. In particular hmap rfl, subtype coercion changes and mapped-equation simplification are compiler obligations.",
+    "Native snapshot hashes/content inspected; no independent remote Git blob identity is claimed.",
+    "The theorem starts from a genuine nonzero local homogeneous solution. It does not provide squarefree normalization, CRT, descent induction, global auxiliary selection or simultaneous elliptic realizations."
+  ]
+}
