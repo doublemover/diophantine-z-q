@@ -1,0 +1,37 @@
+{
+  "status": "PASS_EXACT_DEPENDENCY_REBASE_SOURCE_ONLY_NOT_NEW_LEAN_ACCEPTANCE",
+  "rebase_sha256": "0ed537173aece17856d7c21bdaf2f2636d689e999533153f48a0e622b909a556",
+  "passed_source_commit": "75f0c4f4c1da45e8deb3cc1d43b43a3e43c1a210",
+  "passed_packet_subtree": "cfc8140080e769fe67792f605961ff8d441161ff",
+  "new_sources": [
+    {
+      "module": "IntegralClosureAwayField318",
+      "path": "geometry-normalized-open-overlap/sources/IntegralClosureAwayField318.lean",
+      "sha256": "decba43e18d269cd132f17e1b3294a28e4b9ab8f7e78a409eaf0a88538b8d283",
+      "frozen_manifest": "geometry-normalized-open-overlap/MANIFEST.json",
+      "manifest_sha256": "500c26d51d87ae27f07391d8abb06d551a60d5db8b13f3d99c567609dad9e56b"
+    },
+    {
+      "module": "OriginalIntegerNormalizedOverlap318",
+      "path": "geometry-normalized-open-overlap/sources/OriginalIntegerNormalizedOverlap318.lean",
+      "sha256": "e015891b15d3778c5987ba0b4a095fc4aa164d3bb10469949c154bd9bf543479",
+      "frozen_manifest": "geometry-normalized-open-overlap/MANIFEST.json",
+      "manifest_sha256": "500c26d51d87ae27f07391d8abb06d551a60d5db8b13f3d99c567609dad9e56b"
+    }
+  ],
+  "target": "OriginalIntegerNormalizedOverlap318",
+  "draft_closure_count": 41,
+  "baseline_closure_count": 180,
+  "bindings_verified": 231,
+  "checks": [
+    "Actual import closure reconstructed:39 currently checked production roots+2 frozen additions+180 immutable baseline sources; no unresolved non-Mathlib imports.",
+    "Both dependency orders topological; all39 predecessor source hashes exactly current hosted passes, all180 baseline source bytes match same immutable tree.",
+    "Consumer calls actual toClosure/toClosure_injective, not corrected auxiliary field_scalar_tower. Named baseAlgebra/fieldAlgebra, closure definitions and coefficient-map paths retained.",
+    "Generic localization module has no production dependency; retains same ambient field and explicitly extended coefficient map, no extra original-specific premise."
+  ],
+  "limitations": [
+    "Two new modules remain source-reviewed only. Native algebra-action inference, parameter embedding conversion, localization and open-immersion proofs require focused hosted checking.",
+    "Scope authorizes no later geometry chain or global resolution claim.",
+    "Next integration should add only these two frozen modules while preserving200 current roots."
+  ]
+}

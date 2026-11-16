@@ -1,0 +1,7 @@
+# Minimal reciprocal-action tower repair for N2
+
+All 204 KS51 predecessor roots retain exact order; 203 sources remain byte-identical. Only the private reciprocalTower declaration in OriginalIntegerReciprocalNormalization318 changes. Its three actions explicitly project the existing reciprocalLaurentAlgebra, captured laurentAlgebra and reciprocalBaseAlgebra, and its algebra-map constructor has explicit R/S/A carrier arguments. This corrects the private inferred action telescope; it does not assert equality with the finite-parameter native tensor action. The selected reciprocal base map is still exactly reciprocalMap followed by the captured Laurent-to-original-field inclusion. No named map, public claim, assumption, import, option or resource limit changes.
+
+Fresh KS51 checking recorded 51 strict passes and an independently authenticated subset audit of 1309 declarations. The new generic localization helper passes; the actual reciprocal source first fails at tower inference, with later tower/rfl/whnf errors. This earliest source-reviewed correction requires replay; no downstream timeout cure is claimed. The exact target remains OriginalIntegerReciprocalNormalization318 with 52 packet roots and 180 baseline dependencies. No gluing or later geometry is added.
+
+All prior evidence and passed source bytes are preserved. Only the KS registry slot changes 51 to 52; no marker, scripts, workflows, baseline or unrelated packet changes. No local Lean or new proof acceptance claim.
