@@ -1,0 +1,5 @@
+# Final pure linear consumer elaboration repairs
+
+Fresh pure58 run43897325860 passed nine modules and recursively audited130 declarations, including the repaired additive residue bridge. The two remaining consumers failed to unfold privately imported coordinate computations; the transported module also required exposure of its local linear equivalence for an exported rfl theorem and beta reduction of an ExistsUnique witness goal before rewriting.
+
+Import the exact private computation bodies in these two consumers, expose only the existing padicLinearEquiv definition, and explicitly change the witness goal to its beta-reduced form. The non-Prop padicModule instance is already exposed by Lean's native default. Mathematical definitions, public statements, scalar action, canonical normalization and assumptions are unchanged. All1323 predecessor sources and order remain exact, including nine passed pure producers, the checked anchor175b0ba5, and independent finite-field59 correction. This successor revises59 and keeps the same11-root target union. No local Lean or new mathematical layer; hosted kernel compilation and recursive audit remain required.

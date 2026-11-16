@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SOURCE_OPACITY_API_NOT_LEAN",
+  "source": "0f4a63eae3dc79d3384741c8310dcdfad4269d66",
+  "execution": "71ce0acdb81a1927c0278245200b3c142d9ac912",
+  "run": "43897325860",
+  "files": {
+    "PrimaryTatePadicNaturality318": {
+      "before": "a2309a8e8ec8d40599f99538780cfc3e71910697c09a9e0bfb4f6a9d03f2c5b1",
+      "after": "7d48500240119cfe97a46254311c6014cf98cde02071e9f81c26d926ac40b68c",
+      "log": "129ce1b14d764c8b70de688a9bdd5e13223c199d57662302e41249c86a0bdf87"
+    },
+    "PrueferTatePadicModule318": {
+      "before": "a37f48fedd6f6c785f5dbffcd516c94bcf99152f11359c37033b6d5dfb00d1d1",
+      "after": "66b2b86517a16ce1a932670ec2419aafa57b91639020889ce8a975e73dbd40a0",
+      "log": "82f030c144f0215ec674c397a3646e82bd8d087bf8aa0319e8e5064edc3e893f"
+    }
+  },
+  "passed_producer_hashes_verified": 9,
+  "findings": [
+    "Private import-all lines expose exact tower/mapEquiv and residue/canonical/encode bodies required by observed change failures, without modifying any producer.",
+    "Exported padicLinearEquiv_apply rfl needs local padicLinearEquiv exposure; exact body unchanged. Native TransferInstance has exposed public section, module abbrev and linearEquiv, so existing transfer function projections remain available.",
+    "Native Lean MutualDef defaults non-Prop instances to exposed; padicModule already qualifies. No additional instance attribute or changed module action required.",
+    "ExistsUnique witness change only beta-reduces literal lambda to same scalar equality before unchanged hs/equivalence rewrite.",
+    "No theorem statements, scalar actions, basis generator, assumptions, resource settings or remaining proof bodies changed."
+  ],
+  "limits": "Candidate still requires hosted elaboration/kernel checks; not new accepted rank/corank or arithmetic theorem."
+}
