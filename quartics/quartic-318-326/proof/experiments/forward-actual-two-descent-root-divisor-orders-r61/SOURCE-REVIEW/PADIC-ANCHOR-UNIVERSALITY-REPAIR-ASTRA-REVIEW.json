@@ -1,0 +1,25 @@
+{
+  "status": "PASS_SOURCE_API_REPAIR_NOT_LEAN",
+  "source_sha256": "dd020dd1cdfd3f598967b8fb671f6a582aad7f046a5a3316ee7e1259980ec1f8",
+  "before_sha256": "4a6d9427bf7f31cb95038a407d7bd4dce76ade943de4e632627cd5b29da3c4ef",
+  "bindings_sha256": "2767aea025c5f0610f1483fe6b59d46b2e630c0faf5d3edece10933961f0c6ae",
+  "hosted_run": "43899157249",
+  "source_commit": "ee6ce543777bb23771398de378114b87d7856105",
+  "execution_commit": "29ff09d19b556f3d47575b17fb2db022293562a7",
+  "log_sha256": "512ac62ab8028563adb6e9701d0cd7e9116ff49d8720aa7c3a17b714e8fdbf09",
+  "findings": [
+    "Exactly two proof sites change, with every written declaration, hypothesis, map, resource option and all other proof bytes unchanged.",
+    "Derivative now removes outer constant via derivative_C before any simplifier distributes polynomial C. Native derivative_C_mul_X_sq gives C(2*2)*X; evaluation at1 normalizes to negative4, same Hensel derivative condition.",
+    "CongrArg applies literal native PadicInt-to-Padic coercion to existing hc. Native coe_add/sub/mul/pow/intCast/natCast are rfl in exposed section; no changed isotropic vector, ring embedding, or additional premise.",
+    "107 passed producers independently authenticated in FINITE-ANCHOR107-HOSTED-43899157249-ASTRA-REVIEW.json, including anchor175 and finite-field874. No producer is edited."
+  ],
+  "native_raw_blobs": {
+    "PadicIntegers": "b050dd660f05c948ea3cd546dbc375dbd0268843",
+    "Derivative": "cbb7a078500ef72838f5227006eafa1b2eb27b63"
+  },
+  "native_verification": "Both independently fetched at exact mathlib pin and byte-identical.",
+  "limitations": [
+    "No local Lean.",
+    "Remaining elaboration and final target acceptance require hosted execution."
+  ]
+}
