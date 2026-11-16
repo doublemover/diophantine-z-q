@@ -1,0 +1,64 @@
+--- before/PELOriginalPowerSectionDescent318.lean
++++ after/PELOriginalPowerSectionDescent318.lean
+@@ -8,8 +8,6 @@
+ open PELOriginalPolarizationPowerBundle318 PELOriginalPolarizationAutomorphy318
+ open PELOriginalAutomorphyRepresentatives318 PELOriginalPowerSectionLift318
+ variable (τ:ℂ) (hτ:0<τ.im) (N:ℕ)
+-local instance discretePeriods:DiscreteTopology (P τ):=
+-  PELOriginalPeriodLattice318.original_discrete τ hτ
+ 
+ /-- Full original-factor automorphic functions, before any theta gauge
+ or normalized period coordinates are introduced. -/
+@@ -46,9 +44,25 @@
+   have hz:z∈(chart τ hτ a).target:=(chart τ hτ a).map_source ha
+   have hp:projection (P τ) z=q:=section_projection τ hτ a q ha
+   have hs:shiftTo τ hτ a z=0:=target_shift_zero τ hτ a z hz
++  let f : Base τ → ℂ := fun q => s.value q
+   change (factor τ hτ (shiftTo τ hτ ((core τ hτ).indexAt (projection (P τ) z)) z) z^N)⁻¹*
+-    s.value (projection (P τ) z)=s.value q
++    f (projection (P τ) z)=f q
+   simp only [hp,hs,zero_factor,one_pow,inv_one,one_mul]
++
++/-- Only the actual value field is data; holomorphy is proof-irrelevant. -/
++private lemma section_ext (s t : HolomorphicSection τ hτ N) (h : s.value=t.value) : s=t := by
++  cases s
++  cases t
++  cases h
++  rfl
++
++/-- Only the actual value field is data; the original analytic and lattice
++laws are proof-irrelevant fields of the same automorphic-function record. -/
++private lemma automorphic_ext (f g : OriginalAutomorphic τ hτ N) (h : f.value=g.value) : f=g := by
++  cases f
++  cases g
++  cases h
++  rfl
+ 
+ /-- Genuine whole-section correspondence: BOTH directions are derived
+ from original local bundle coordinates. In particular arbitrary sections
+@@ -57,19 +71,13 @@
+   toFun:=ascend τ hτ N
+   invFun:=descend τ hτ N
+   left_inv s:=by
+-    cases s with
+-    | mk v hv =>
+-      have he:(descend τ hτ N (ascend τ hτ N ⟨v,hv⟩)).value=v:=by
+-        funext q;exact descend_lift τ hτ N ⟨v,hv⟩ q
+-      cases he
+-      rfl
++    apply section_ext τ hτ N
++    funext q
++    exact descend_lift τ hτ N s q
+   right_inv f:=by
+-    cases f with
+-    | mk v hv ha =>
+-      have he:(ascend τ hτ N (descend τ hτ N ⟨v,hv,ha⟩)).value=v:=by
+-        funext z;exact lift_descend τ hτ N ⟨v,hv,ha⟩ z
+-      cases he
+-      rfl
++    apply automorphic_ext τ hτ N
++    funext z
++    exact lift_descend τ hτ N f z
+ 
+ /-- Continuity of an arbitrary original holomorphic section is DERIVED
+ from its recovered entire representative and genuine original gluing. -/

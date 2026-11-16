@@ -1,0 +1,5 @@
+# pel-original-torsion-towers-r55
+
+Repair-only successor to pel-original-torsion-towers-r54; all 735 roots/order retained, 734 byte-identical. Only the newly failed PowerSectionDescent consumer changes: remove the rejected unused positivity-dependent period instance, name the SAME native scalar section values before multiplication, and use private ordinary record-extensionality lemmas instead of circular dependent elimination. Original ascend/descend definitions, correspondence carrier and public statements are unchanged. No new premise, topology, bundle, map, import or resource setting. All45 passed sources, particularly repaired PowerSectionLift, remain byte-identical.
+
+Targeted43889041643 compiled45 modules with recursive subset audit910; only Descent failed and its output was quarantined. This candidate has not run Lean; full packet acceptance remains unestablished. Earlier immutable evidence retained without recursive copying. Local predecessor892f75c5 has exact publishede1bb packet54 bytes; serial overlay must preserve current marker and unrelated packets.
