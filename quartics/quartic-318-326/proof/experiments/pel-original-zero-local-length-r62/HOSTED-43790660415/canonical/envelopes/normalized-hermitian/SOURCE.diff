@@ -1,0 +1,18 @@
+--- before/PELOriginalNormalizedHermitianMatrix318.lean
++++ sources/PELOriginalNormalizedHermitianMatrix318.lean
+@@ -36,6 +36,7 @@
+     field_simp [alpha_pos.ne',hτ.ne'] <;>
+     ring_nf <;> simp only [beta_sq] <;> ring
+ 
++include hτ in
+ /-- Exact inverse relation to the imaginary part of the ACTUAL normalized
+ period matrix. This supplies the theta gauge with no new matrix hypothesis. -/
+ lemma gram_imaginary_inverse:gram τ*imaginary τ=1:=by
+@@ -47,6 +48,7 @@
+       Complex.mul_im,Complex.div_im] <;>
+     field_simp [hn,alpha_pos.ne',hτ.ne'] <;>
+     ring_nf <;> simp only [beta_sq] <;> ring
++include hτ in
+ lemma imaginary_gram_inverse:imaginary τ*gram τ=1:=by
+   have h:=congrArg Matrix.transpose (gram_imaginary_inverse τ hτ)
+   simpa only [Matrix.transpose_mul,Matrix.transpose_one,gram_symmetric,

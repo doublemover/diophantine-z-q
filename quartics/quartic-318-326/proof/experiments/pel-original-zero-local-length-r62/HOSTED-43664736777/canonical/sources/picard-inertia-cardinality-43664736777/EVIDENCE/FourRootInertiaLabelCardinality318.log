@@ -1,0 +1,65 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:20:53: error: unsolved goals
+case pos
+g : FourBinaryCharacters318.Group
+i : Fin 4
+h : Multiplicative.toAdd (g i) = 0
+⊢ ¬g i = 1 → -1 = 1
+
+case neg
+g : FourBinaryCharacters318.Group
+i : Fin 4
+h : ¬Multiplicative.toAdd (g i) = 0
+⊢ ¬g i = 1 ∧ ¬-1 = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:23:83: error: unsolved goals
+case pos
+g : FourBinaryCharacters318.Group
+i j : Fin 4
+h : Multiplicative.toAdd (g i) = 0
+k : Multiplicative.toAdd (g j) = 0
+⊢ (if g i = 1 then 1 else -1) = if g j = 1 then 1 else -1
+
+case neg
+g : FourBinaryCharacters318.Group
+i j : Fin 4
+h : Multiplicative.toAdd (g i) = 0
+k : ¬Multiplicative.toAdd (g j) = 0
+⊢ ¬(if g i = 1 then 1 else -1) = if g j = 1 then 1 else -1
+
+case pos
+g : FourBinaryCharacters318.Group
+i j : Fin 4
+h : ¬Multiplicative.toAdd (g i) = 0
+k : Multiplicative.toAdd (g j) = 0
+⊢ ¬(if g i = 1 then 1 else -1) = if g j = 1 then 1 else -1
+
+case neg
+g : FourBinaryCharacters318.Group
+i j : Fin 4
+h : ¬Multiplicative.toAdd (g i) = 0
+k : ¬Multiplicative.toAdd (g j) = 0
+⊢ (if g i = 1 then 1 else -1) = if g j = 1 then 1 else -1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:36:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:61:12: error: typeclass instance problem is stuck
+  Membership (FourRootAffineCoordinateRing318.Ring b ≃ₐ[ℂ] FourRootAffineCoordinateRing318.Ring b) ?m.24
+
+Note: Lean will not try to resolve this typeclass instance problem because the second type argument to `Membership` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:58:14: error: (kernel) declaration has metavariables 'FourRootInertiaLabelCardinality318.finiteEquivalence'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:69:12: error: typeclass instance problem is stuck
+  Membership (FourRootInfinityCoordinateRing318.Ring b ≃ₐ[ℂ] FourRootInfinityCoordinateRing318.Ring b) ?m.24
+
+Note: Lean will not try to resolve this typeclass instance problem because the second type argument to `Membership` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:66:14: error: (kernel) declaration has metavariables 'FourRootInertiaLabelCardinality318.infinityEquivalence'
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:76:42: error(lean.unknownIdentifier): Unknown identifier `hb`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r50/FourRootInertiaLabelCardinality318.lean:75:35: error: unsolved goals
+b : Fin 4 → ℂ
+j : Fin 4
+p : FinitePoints b
+hp : (↑p).1 = b j
+⊢ Nat.card ↑(finiteLabels b p) = 2

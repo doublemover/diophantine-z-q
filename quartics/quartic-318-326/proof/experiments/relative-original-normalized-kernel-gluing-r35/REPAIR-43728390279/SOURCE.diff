@@ -1,0 +1,57 @@
+--- before/NonreducedAffineSectionLifting318.lean
++++ after/NonreducedAffineSectionLifting318.lean
+@@ -12,6 +12,44 @@
+ variable {X : Scheme.{0}} [hX : IsAffine X]
+ local notation "O" => StructureAdditiveSheaf318.sheaf X
+ variable {F G : ASheaf (X:=X)}
++
++/-- Typed native restriction compositions on the actual triple open.
++Each path has the same endpoints before additive cancellation. -/
++private lemma triple_difference (F : ASheaf (X:=X)) (U V W : X.Opens)
++    (a : Sec F U) (b : Sec F V) (c : Sec F W) :
++    res F (le_inf inf_le_left (inf_le_right.trans inf_le_left))
++      (res F (inf_le_left : U ⊓ V ≤ U) a - res F inf_le_right b) +
++    res F (inf_le_right : U ⊓ (V ⊓ W) ≤ V ⊓ W)
++      (res F inf_le_left b - res F inf_le_right c) =
++    res F (le_inf inf_le_left (inf_le_right.trans inf_le_right))
++      (res F (inf_le_left : U ⊓ W ≤ U) a - res F inf_le_right c) := by
++  let hUV : U ⊓ (V ⊓ W) ≤ U ⊓ V := le_inf inf_le_left (inf_le_right.trans inf_le_left)
++  let hVW : U ⊓ (V ⊓ W) ≤ V ⊓ W := inf_le_right
++  let hUW : U ⊓ (V ⊓ W) ≤ U ⊓ W := le_inf inf_le_left (inf_le_right.trans inf_le_right)
++  let hU : U ⊓ (V ⊓ W) ≤ U := inf_le_left
++  let hV : U ⊓ (V ⊓ W) ≤ V := inf_le_right.trans inf_le_left
++  let hW : U ⊓ (V ⊓ W) ≤ W := inf_le_right.trans inf_le_right
++  have eUa : res F hUV (res F inf_le_left a)=res F hU a :=
++    AdditiveSheafSections318.res_res F inf_le_left hUV a
++  have eVb : res F hUV (res F inf_le_right b)=res F hV b :=
++    AdditiveSheafSections318.res_res F inf_le_right hUV b
++  have eVc : res F hVW (res F inf_le_left b)=res F hV b :=
++    AdditiveSheafSections318.res_res F inf_le_left hVW b
++  have eWd : res F hVW (res F inf_le_right c)=res F hW c :=
++    AdditiveSheafSections318.res_res F inf_le_right hVW c
++  have eUe : res F hUW (res F inf_le_left a)=res F hU a :=
++    AdditiveSheafSections318.res_res F inf_le_left hUW a
++  have eWf : res F hUW (res F inf_le_right c)=res F hW c :=
++    AdditiveSheafSections318.res_res F inf_le_right hUW c
++  calc
++    _ = (res F hU a-res F hV b)+(res F hV b-res F hW c) := by
++      rw [map_sub,map_sub]
++      exact congrArg₂ (fun x y => x+y) (congrArg₂ (fun x y => x-y) eUa eVb)
++        (congrArg₂ (fun x y => x-y) eVc eWd)
++    _ = res F hU a-res F hW c := by abel
++    _ = _ := by
++      rw [map_sub]
++      exact (congrArg₂ (fun x y => x-y) eUe eWf).symm
+ 
+ include hX in
+ /-- Global sections lift in every additive-sheaf extension whose kernel is
+@@ -46,8 +84,7 @@
+       m.hom.app _ (res O _ (c i k))
+     rw [← hom_res,← hom_res,← hom_res,hc,hc,hc]
+     dsimp only [d]
+-    simp only [map_sub,res_res]
+-    abel
++    exact triple_difference F (U i) (U j) (U k) (s i) (s j) (s k)
+   obtain ⟨b,hb⟩ := OriginalNonreducedCocycleSplit318.split_of_cover X f l.covers c hcc
+   let corrected (i : l.Index) : Sec F (U i) := s i - m.hom.app _ (b i)
+   have hcorrected (i j : l.Index) :

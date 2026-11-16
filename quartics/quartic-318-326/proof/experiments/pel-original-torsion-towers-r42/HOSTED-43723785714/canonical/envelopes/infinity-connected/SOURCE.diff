@@ -1,0 +1,161 @@
+--- before/FourRootReciprocalBranchData318.lean
++++ after/FourRootReciprocalBranchData318.lean
+@@ -6,6 +6,7 @@
+ namespace FourRootReciprocalBranchData318
+ variable (b:Fin 4→ℂ) (hb:Function.Injective b)
+ @[expose] def difference (k:Fin 3):ℂ:=b 0-b k.succ
++include hb in
+ lemma difference_ne_zero (k:Fin 3):difference b k≠0:=by
+   intro h
+   exact (Fin.succ_ne_zero k) (hb (sub_eq_zero.mp h)).symm
+@@ -14,8 +15,10 @@
+ @[expose] def branches:Fin 4→ℂ:=Fin.cases 0 (fun k=>-(difference b k)⁻¹)
+ lemma branches_zero:branches b 0=0:=rfl
+ lemma branches_succ (k:Fin 3):branches b k.succ=-(difference b k)⁻¹:=rfl
++include hb in
+ lemma branch_ne_zero (k:Fin 3):branches b k.succ≠0:=
+   neg_ne_zero.mpr (inv_ne_zero (difference_ne_zero b hb k))
++include hb in
+ lemma branches_injective:Function.Injective (branches b):=by
+   intro i
+   refine Fin.cases ?_ (fun k=>?_) i
+@@ -32,12 +35,14 @@
+   (IsAlgClosed.exists_pow_nat_eq (difference b k) (by decide:0<2)).choose
+ lemma scale_square (k:Fin 3):scale b k^2=difference b k:=
+   (IsAlgClosed.exists_pow_nat_eq (difference b k) (by decide:0<2)).choose_spec
++include hb in
+ lemma scale_ne_zero (k:Fin 3):scale b k≠0:=by
+   intro h
+   apply difference_ne_zero b hb k
+   rw [←scale_square,h,zero_pow (by decide:2≠0)]
+ lemma inv_scale_square (k:Fin 3):(scale b k)⁻¹^2=(difference b k)⁻¹:=by
+   rw [inv_pow,scale_square]
++include hb in
+ lemma difference_inv_scale_square (k:Fin 3):difference b k*(scale b k)⁻¹^2=1:=by
+   rw [inv_scale_square,mul_inv_cancel₀ (difference_ne_zero b hb k)]
+ end FourRootReciprocalBranchData318
+--- before/FourRootInfinityAffineComparison318.lean
++++ after/FourRootInfinityAffineComparison318.lean
+@@ -15,6 +15,7 @@
+ lemma base_square:az b (some 0)^2=az b none:=by
+   simpa only [branches_zero,map_zero,sub_zero] using
+     FourRootAffineCoordinateRing318.relation (branches b) 0
++include hb in
+ lemma ratio_square (k:Fin 4):ratio b k^2=
+     1+algebraMap ℂ (A b) (b 0-b k)*az b (some 0)^2:=by
+   refine Fin.cases ?_ (fun j=>?_) k
+@@ -40,6 +41,7 @@
+ 
+ @[expose] def root:Fin 4→I b:=
+   Fin.cases (iz b none) (fun k=>algebraMap ℂ (I b) ((scale b k)⁻¹)*iz b (some k.succ))
++include hb in
+ lemma root_square (k:Fin 4):root b k^2=iz b none^2-algebraMap ℂ (I b) (branches b k):=by
+   refine Fin.cases ?_ (fun j=>?_) k
+   · simp [root,branches_zero]
+--- before/FourRootInfinityDomain318.lean
++++ after/FourRootInfinityDomain318.lean
+@@ -36,6 +36,7 @@
+   rintro q ⟨n,rfl⟩
+   exact (nonZeroDivisors (Infinity b)).pow_mem (u_regular b) n
+ 
++include hb in
+ lemma finite_root_ne_zero (k:Fin 4):FourRootAffineCoordinateRing318.coordinate b (some k)≠0:=by
+   intro h
+   have hg:FourRootOrderSigns318.generator (FourRootAffineTensorPresentation318.radicand b) k=0:=by
+@@ -51,14 +52,17 @@
+   have hz:FourRootAffineTensorPresentation318.radicand b k=0:=hinj (he.symm.trans (map_zero _).symm)
+   exact Polynomial.X_sub_C_ne_zero (b k) hz
+ 
++include hb in
+ theorem finite_overlap_domain:IsDomain (AffineOverlap b):=by
+   letI:IsDomain (Affine b):=FourRootActualGenericField318.affine_domain b hb
+   exact IsLocalization.Away.isDomain (AffineOverlap b) (finite_root_ne_zero b hb 0)
++include hb in
+ theorem infinity_overlap_domain:IsDomain (InfinityOverlap b):=by
+   letI:IsDomain (AffineOverlap b):=finite_overlap_domain b hb
+   exact Function.Injective.isDomain (FourRootCoordinateOverlap318.overlapEquiv b)
+     (FourRootCoordinateOverlap318.overlapEquiv b).injective
+ 
++include hb in
+ /-- No component supported over u=0 is discarded. Actual injectivity into
+ its literal principal open proves the whole infinity quotient is a domain. -/
+ theorem infinity_domain:IsDomain (Infinity b):=by
+--- before/FourRootActualInfinityRamification318.lean
++++ after/FourRootActualInfinityRamification318.lean
+@@ -11,26 +11,26 @@
+ abbrev P:=Polynomial ℂ
+ local instance infinityAlgebra:Algebra P (I b):=(Polynomial.aeval (iz b none^2)).toAlgebra
+ local instance finiteAlgebra:Algebra P (A b):=(Polynomial.aeval (az b none)).toAlgebra
+-local instance infinityDomain:IsDomain (I b):=FourRootInfinityDomain318.infinity_domain b hb
+ local instance infinityFinite:Module.Finite P (I b):=(FourRootSquaredInfinityBase318.finite_free b).1
+ local instance infinityFree:Module.Free P (I b):=(FourRootSquaredInfinityBase318.finite_free b).2
+ local instance infinityFlat:Module.Flat P (I b):=Module.Flat.of_free
+ abbrev G:=I b≃ₐ[P]I b
+ 
++include hb in
+ lemma group_finite:Finite (G b):=by
+   letI:Finite (A b≃ₐ[P]A b):=
+     FourRootActualOrderGalois318.group_finite (branches b) (branches_injective b hb)
+   exact Finite.of_equiv (A b≃ₐ[P]A b)
+     (PolynomialOrderIsomorphismInertia318.conjugation (polynomialEquivalence b hb)).symm
++include hb in
+ lemma invariant:Algebra.IsInvariant P (I b) (G b):=
+   PolynomialOrderIsomorphismInertia318.invariant (polynomialEquivalence b hb)
+     (FourRootActualOrderGalois318.invariant (branches b) (branches_injective b hb))
++include hb in
+ lemma galoisGroup:IsGaloisGroup (G b) P (I b) where
+   faithful:=inferInstance
+   commutes:=inferInstance
+   isInvariant:=invariant b hb
+-local instance groupFinite:Finite (G b):=group_finite b hb
+-local instance groupGalois:IsGaloisGroup (G b) P (I b):=galoisGroup b hb
+ 
+ /-- Each of the eight actual infinity points is carried to an actual
+ finite branch-zero point, with its entire evaluation map retained. -/
+@@ -51,6 +51,7 @@
+     (FourRootAffineCoordinateRing318.pointEquiv (branches b)).symm_apply_apply _
+   rw [finitePrime,h]
+   rfl
++include hb in
+ lemma full_inertia_card (p:InfinityPoints b) (hp:p.val.1=0):
+     Nat.card ((infinityPrime b p).inertia (G b))=2:=by
+   have hc:=Nat.card_congr (PolynomialOrderIsomorphismInertia318.inertiaEquivalence
+@@ -78,7 +79,9 @@
+   rw [Polynomial.aeval_X,map_pow]
+   change p.val.1^2=0
+   rw [hp,zero_pow (by decide:2≠0)]
+-lemma separableResidue:Algebra.HasSeparableResidueFieldsAt P (I b) basePrime:=by
++lemma separableResidue:
++    letI:basePrime.IsPrime:=base_maximal.isPrime
++    Algebra.HasSeparableResidueFieldsAt P (I b) basePrime:=by
+   letI:basePrime.IsPrime:=base_maximal.isPrime
+   letI:Algebra.IsIntegral P (I b):=Algebra.IsIntegral.of_finite P (I b)
+   letI:Algebra ℂ basePrime.ResidueField:=
+@@ -86,19 +89,27 @@
+   letI:CharZero basePrime.ResidueField:=Algebra.charZero_of_charZero ℂ basePrime.ResidueField
+   infer_instance
+ 
++include hb in
+ /-- Algebraic ramification index two at EVERY one of the eight actual
+ normalized infinity points, over the actual reciprocal base v=u².
+ The rank-eight u-presentation is never substituted for that degree-sixteen base. -/
+ theorem ramificationIdxIn_two (p:InfinityPoints b) (hp:p.val.1=0):
+     Ideal.ramificationIdxIn basePrime (I b)=2:=by
++  letI:IsDomain (I b):=FourRootInfinityDomain318.infinity_domain b hb
++  letI:Finite (G b):=group_finite b hb
++  letI:IsGaloisGroup (G b) P (I b):=galoisGroup b hb
+   letI:basePrime.IsPrime:=base_maximal.isPrime
+   letI:(infinityPrime b p).IsPrime:=infinity_prime b p
+   letI:(infinityPrime b p).LiesOver basePrime:=liesOver b p hp
+   letI:Algebra.HasSeparableResidueFieldsAt P (I b) basePrime:=separableResidue b
+   have h:=Ideal.card_inertia_eq_ramificationIdxIn (G:=G b) basePrime (infinityPrime b p)
+   exact h.symm.trans (full_inertia_card b hb p hp)
++include hb in
+ theorem ramificationIdx_two (p:InfinityPoints b) (hp:p.val.1=0):
+     (infinityPrime b p).ramificationIdx P=2:=by
++  letI:IsDomain (I b):=FourRootInfinityDomain318.infinity_domain b hb
++  letI:Finite (G b):=group_finite b hb
++  letI:IsGaloisGroup (G b) P (I b):=galoisGroup b hb
+   letI:basePrime.IsPrime:=base_maximal.isPrime
+   letI:(infinityPrime b p).IsPrime:=infinity_prime b p
+   letI:(infinityPrime b p).LiesOver basePrime:=liesOver b p hp

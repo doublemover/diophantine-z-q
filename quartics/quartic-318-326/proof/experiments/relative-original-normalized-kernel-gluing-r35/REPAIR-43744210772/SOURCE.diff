@@ -1,0 +1,56 @@
+--- published33
++++ candidate
+@@ -44,16 +44,33 @@
+   letI := (OriginalLineAffineModel318.properties R L).1
+   exact FiniteProjectiveDualFrame318.frame R _
+ 
++/-- Public native conversion keeps the actual bundled section module,
++without direct use of ModuleCat's internal constructor. -/
++@[expose] def outModule (i : Fin (moduleFrame R L).n) :
++    OriginalLineAffineModel318.sections R L ⟶ ModuleCat.of R R :=
++  (ModuleCat.homEquiv (M := OriginalLineAffineModel318.sections R L)
++    (N := ModuleCat.of R R)).symm ((moduleFrame R L).out i)
++@[expose] def backModule (i : Fin (moduleFrame R L).n) :
++    ModuleCat.of R R ⟶ OriginalLineAffineModel318.sections R L :=
++  (ModuleCat.homEquiv (M := ModuleCat.of R R)
++    (N := OriginalLineAffineModel318.sections R L)).symm ((moduleFrame R L).back i)
++lemma outModule_hom (i : Fin (moduleFrame R L).n) :
++    (outModule R L i).hom=(moduleFrame R L).out i :=
++  (ModuleCat.homEquiv (M := OriginalLineAffineModel318.sections R L)
++    (N := ModuleCat.of R R)).apply_symm_apply _
++lemma backModule_hom (i : Fin (moduleFrame R L).n) :
++    (backModule R L i).hom=(moduleFrame R L).back i :=
++  (ModuleCat.homEquiv (M := ModuleCat.of R R)
++    (N := OriginalLineAffineModel318.sections R L)).apply_symm_apply _
++
+ /-- Actual sheaf maps to/from the structure line on the original affine
+ scheme, through the unchanged tilde counit. -/
+ def out (i : Fin (moduleFrame R L).n) : L.object ⟶ SheafOfModules.unit (Spec R).ringCatSheaf :=
+   (OriginalLineAffineModel318.canonicalIso R L).inv ≫
+-    (tilde.functor R).map (show OriginalLineAffineModel318.sections R L ⟶ ModuleCat.of R R from
+-      ⟨(moduleFrame R L).out i⟩) ≫ (tildeSelf (R:=R)).hom
++    (tilde.functor R).map (outModule R L i) ≫ (tildeSelf (R:=R)).hom
+ 
+ def back (i : Fin (moduleFrame R L).n) : SheafOfModules.unit (Spec R).ringCatSheaf ⟶ L.object :=
+-  (tildeSelf (R:=R)).inv ≫ (tilde.functor R).map (show ModuleCat.of R R ⟶ OriginalLineAffineModel318.sections R L from
+-      ⟨(moduleFrame R L).back i⟩) ≫
++  (tildeSelf (R:=R)).inv ≫ (tilde.functor R).map (backModule R L i) ≫
+     (OriginalLineAffineModel318.canonicalIso R L).hom
+ 
+ /-- The sum of these genuine structure-line factorizations is the identity
+@@ -61,11 +78,10 @@
+ lemma total : ∑ i, out R L i ≫ back R L i = 𝟙 L.object := by
+   apply transport_total (tilde.functor R)
+     (OriginalLineAffineModel318.canonicalIso R L) (tildeSelf (R:=R))
+-    (fun i => show OriginalLineAffineModel318.sections R L ⟶ ModuleCat.of R R from
+-      ⟨(moduleFrame R L).out i⟩)
+-    (fun i => show ModuleCat.of R R ⟶ OriginalLineAffineModel318.sections R L from
+-      ⟨(moduleFrame R L).back i⟩)
++    (outModule R L)
++    (backModule R L)
+   apply ModuleCat.hom_ext
+-  change (∑ i, ((moduleFrame R L).back i).comp ((moduleFrame R L).out i)) = LinearMap.id
++  simp only [ModuleCat.hom_sum,ModuleCat.hom_comp,ModuleCat.hom_id,
++    outModule_hom,backModule_hom]
+   exact (moduleFrame R L).total
+ end OriginalAffineLineDualFrame318

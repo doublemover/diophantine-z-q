@@ -1,0 +1,33 @@
+Try this:
+  [apply] abel_nf
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r30/NonreducedAffineSectionLifting318.lean:41:62: error: unsolved goals
+X : Scheme
+hX : IsAffine X
+F G : ASheaf
+m : O ⟶ F
+p : F ⟶ G
+hw : m ≫ p = 0
+hS : { X₁ := O, X₂ := F, X₃ := G, f := m, g := p, zero := hw }.ShortExact
+hm : Mono m
+hp : Epi p
+t : ↑(G.obj.obj (op ⊤))
+l : NonreducedAffineLocalLifts318.Data p t := NonreducedAffineLocalLifts318.data p t
+this : Fintype l.Index := l.finiteIndex
+f : l.Index → ↑Γ(X, ⊤) := l.element
+s : (i : l.Index) → ↑(F.obj.obj (op (X.basicOpen (l.element i)))) := l.localSection
+U : l.Index → X.Opens := fun i => X.basicOpen (f i)
+d : (i j : l.Index) → ↑(Sec F (U i ⊓ U j)) := fun i j => (res F ⋯) (s i) - (res F ⋯) (s j)
+hd : ∀ (i j : l.Index), (ConcreteCategory.hom (p.hom.app (op (U i ⊓ U j)))) (d i j) = 0
+c : (i j : l.Index) → ↑Γ(X, U i ⊓ U j)
+hc : ∀ (i j : l.Index), (ConcreteCategory.hom (m.hom.app (op (U i ⊓ U j)))) (c i j) = d i j
+i j k : l.Index
+⊢ (res F ⋯) ((res F ⋯) (s i)) +
+      (-1 • (res F ⋯) ((res F ⋯) (s j)) + ((res F ⋯) ((res F ⋯) (s j)) + -1 • (res F ⋯) ((res F ⋯) (s k)))) =
+    (res F ⋯) ((res F ⋯) (s i)) + -1 • (res F ⋯) ((res F ⋯) (s k))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r30/NonreducedAffineSectionLifting318.lean:49:23: warning: This simp argument is unused:
+  res_res
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

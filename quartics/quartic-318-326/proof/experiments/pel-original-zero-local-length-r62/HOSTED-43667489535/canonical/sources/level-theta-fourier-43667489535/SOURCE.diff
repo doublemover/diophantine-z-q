@@ -1,0 +1,11 @@
+--- before/PELOriginalLevelThetaFourier318.lean
++++ after/PELOriginalLevelThetaFourier318.lean
+@@ -34,7 +34,7 @@
+       mFourier (frequency k) (torusPoint x)=
+         PELOriginalScaledThetaConvergence318.term τ (1/(N:ℝ)) k (realPoint x):=by
+   simp only [mFourier,ContinuousMap.coe_mk,Fin.prod_univ_two,frequency,
+-    Matrix.cons_val_zero,Matrix.cons_val_one,torusPoint,AddCircle.fourier_coe_apply,
++    Matrix.cons_val_zero,Matrix.cons_val_one,torusPoint,_root_.fourier_coe_apply,
+     Complex.ofReal_one,div_one,PELOriginalScaledThetaConvergence318.term,linear,
+     Pi.zero_apply,mul_zero,add_zero,Complex.exp_zero]
+   rw [←Complex.exp_add,←Complex.exp_add]

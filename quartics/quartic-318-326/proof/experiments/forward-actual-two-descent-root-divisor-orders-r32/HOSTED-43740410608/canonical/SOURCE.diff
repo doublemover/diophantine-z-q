@@ -1,0 +1,17 @@
+--- before/PreparedAnchorLabels318
++++ after/PreparedAnchorLabels318
+@@ -19,11 +19,12 @@
+   have h3 : padicValNat 3 6=1 := by
+     rw [show (6:ℕ)=3*2 by norm_num,padicValNat.mul (by norm_num) (by norm_num),
+       padicValNat_self,padicValNat_primes (by decide : 3≠2)]
+-    norm_num
+   have he : scalarLabel A B (multiplier N d)-1=
+       ((6^(A+B+15)*(3^N*d):ℕ):ℤ) := by simp [scalarLabel,multiplier]
++  have hm : (3^N*d:ℕ)≠0 := by
++    simpa only [multiplier] using multiplier_ne N d hd
+   rw [he,padicValInt.of_nat,
+-    padicValNat.mul (by positivity : (6:ℕ)^(A+B+15)≠0) (multiplier_ne N d hd),
++    padicValNat.mul (by positivity : (6:ℕ)^(A+B+15)≠0) hm,
+     padicValNat.mul (by positivity : (3:ℕ)^N≠0) hd,
+     padicValNat.pow,padicValNat.prime_pow,h3]
+   omega
