@@ -1,0 +1,26 @@
+--- before/PELOriginalThetaLineSection318.lean
++++ sources/PELOriginalThetaLineSection318.lean
+@@ -50,19 +50,20 @@
+   intro q
+   let a:ComplexVectors:=(core τ hτ).indexAt q
+   have ha:q∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at q
+-  apply ((core τ hτ).localTriv a).continuousAt_of_comp_left continuousAt_id ha
++  apply ((core τ hτ).localTriv a).continuousAt_of_comp_left (f := thetaSection τ hτ)
++    (by change ContinuousAt (fun r : Base τ => r) q; exact continuousAt_id) ha
+   have hc:ContinuousAt (fun r:Base τ=>(r,F (chart τ hτ a r))) q:=
+     continuousAt_id.prodMk ((PELOriginalGaugedTheta318.holomorphic τ hτ).continuous.continuousAt.comp
+       ((chart τ hτ a).continuousAt ha))
+   apply hc.congr_of_eventuallyEq
+   filter_upwards [(chart τ hτ a).open_source.mem_nhds ha] with r hr
+-  exact (local_formula τ hτ a r hr).symm
++  exact local_formula τ hτ a r hr
+ 
+ lemma original_holomorphic_formula (a z:ComplexVectors) (hz:z∈(chart τ hτ a).target):
+     ((core τ hτ).localTriv a (thetaSection τ hτ (projection (P τ) z))).2=F z:=by
+   letI : DiscreteTopology (P τ) := original_discrete τ hτ
+   have hq:projection (P τ) z∈baseSet τ hτ a:=by
+-    simpa only [chart,localChart_symm] using (chart τ hτ a).map_target hz
++    simpa only [baseSet,chart,localChart_symm] using (chart τ hτ a).map_target hz
+   rw [local_formula τ hτ a _ hq]
+   have he:chart τ hτ a (projection (P τ) z)=z:=by
+     simpa only [chart,localChart_symm] using (chart τ hτ a).right_inv hz

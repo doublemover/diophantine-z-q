@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/PELOriginalThetaLineSection318.lean:53:60: error: Application type mismatch: The argument
+  continuousAt_id
+has type
+  ContinuousAt id ?m.64
+but is expected to have type
+  ContinuousAt (Bundle.TotalSpace.proj ∘ ?m.60) ?m.61
+in the application
+  Bundle.Trivialization.continuousAt_of_comp_left ((core τ hτ).localTriv a) continuousAt_id
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/PELOriginalThetaLineSection318.lean:59:2: error: Type mismatch
+  Eq.symm (local_formula τ hτ a r hr)
+has type
+  (r, F (↑(chart τ hτ a) r)) = ↑((core τ hτ).localTriv a) (thetaSection τ hτ r)
+but is expected to have type
+  (↑((core τ hτ).localTriv a) ∘ thetaSection τ hτ) r = (r, F (↑(chart τ hτ a) r))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 45
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/PELOriginalThetaLineSection318.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/PELOriginalThetaLineSection318.lean:65:4: error: Type mismatch: After simplification, term
+  OpenPartialHomeomorph.map_target (chart τ hτ a) hz
+ has type
+  @Membership.mem (Base τ) (Set (Base τ)) Set.instMembership (localChart (P τ) a).source (projection (P τ) z)
+but is expected to have type
+  @Membership.mem (DiscreteComplexPeriodAtlas318.Quotient (P τ)) (Set (Base τ)) Set.instMembership (baseSet τ hτ a)
+    (projection (P τ) z)

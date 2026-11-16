@@ -1,0 +1,54 @@
+--- before/SplitHolomorphicImage318
++++ sources/SplitHolomorphicImage318
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.Analysis.Complex.Basic
+ public import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
+ public import Mathlib.Analysis.Normed.Module.FiniteDimension
+ public import Mathlib.LinearAlgebra.Basis.VectorSpace
+@@ -9,6 +10,7 @@
+ variable {E F:Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
+   [NormedAddCommGroup F] [NormedSpace ℂ F] [FiniteDimensional ℂ E]
+   [FiniteDimensional ℂ F]
++local instance : CompleteSpace E := FiniteDimensional.complete ℂ E
+ 
+ /-- An actual continuous complex-linear left inverse of an injective
+ finite-dimensional derivative, not a hypothesis that the image splits. -/
+@@ -25,8 +27,10 @@
+ variable (f:E→F) (x:E) (hf:ContDiffAt ℂ 1 f x)
+   (hinj:Function.Injective (fderiv ℂ f x))
+ @[expose] def projected:E→E:=fun z=>projection (fderiv ℂ f x) (f z)
++include hf in
+ lemma projected_contDiff:ContDiffAt ℂ 1 (projected f x) x:=
+   (projection (fderiv ℂ f x)).contDiff.contDiffAt.comp x hf
++include hf hinj in
+ lemma projected_hasFDerivAt:
+     HasFDerivAt (projected f x) ((ContinuousLinearEquiv.refl ℂ E):E→L[ℂ]E) x:=by
+   have h:=(projection (fderiv ℂ f x)).hasFDerivAt.comp x
+@@ -80,7 +84,7 @@
+       ((chart f x hf hinj).map_source (center_mem f x hf hinj))
+   have hu:∀ᶠw in 𝓝 (projected f x x),(chart f x hf hinj).symm w∈U:=by
+     have hi:=(inverse_contDiff f x hf hinj).continuousAt
+-    apply hi.eventually
++    apply hi.eventually_mem
+     rw [inverse_center]
+     exact hU.mem_nhds hx
+   obtain ⟨W,hW,hWo,hWx⟩:=mem_nhds_iff.mp (inter_mem ht (inter_mem hg hu))
+--- before/ImmersedGraphProjection318
++++ sources/ImmersedGraphProjection318
+@@ -36,6 +36,7 @@
+     (hi : Function.Injective (fderiv ℂ f x)) :
+     ∃ e : OpenPartialHomeomorph E E,
+       x ∈ e.source ∧ (∀ y, e y = p y) ∧ ContDiffAt ℂ 1 e.symm (p x) := by
++  letI : CompleteSpace E := FiniteDimensional.complete ℂ E
+   have hpd : DifferentiableAt ℂ p x := hp.differentiableAt (by norm_num)
+   have hinj := projection_derivative_injective f p g x hf hpd hg he hi
+   let A : E ≃L[ℂ] E :=
+--- before/LineCoreHomeomorphPullback318
++++ sources/LineCoreHomeomorphPullback318
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.Analysis.Complex.Basic
+ public import Mathlib.Topology.VectorBundle.Basic
+ public section
+ noncomputable section

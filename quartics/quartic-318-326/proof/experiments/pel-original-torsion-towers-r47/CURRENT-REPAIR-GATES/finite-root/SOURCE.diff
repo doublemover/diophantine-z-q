@@ -1,0 +1,74 @@
+--- before/MonicComplexRootApproximation318
++++ sources/MonicComplexRootApproximation318
+@@ -35,12 +35,13 @@
+   have hbound := norm_root_product_lower p.roots z ε hε.le (fun r hr => by
+     have hroot := (Polynomial.mem_roots hm.ne_zero).mp hr
+     simpa only [norm_sub_rev] using hn r hroot)
+-  have hp := Polynomial.prod_multiset_X_sub_C_of_monic_of_roots_card_eq hm
+-    (Polynomial.card_roots_eq_natDegree (p := p))
++  have hcard : p.roots.card = p.natDegree :=
++    (Polynomial.Splits.natDegree_eq_card_roots (IsAlgClosed.splits p)).symm
++  have hp := Polynomial.prod_multiset_X_sub_C_of_monic_of_roots_card_eq hm hcard
+   have he := congrArg (fun q : Polynomial ℂ => q.eval z) hp
+   simp only [Polynomial.eval_multiset_prod,Multiset.map_map,Function.comp_def,
+     Polynomial.eval_sub,Polynomial.eval_X,Polynomial.eval_C] at he
+-  rw [Polynomial.card_roots_eq_natDegree,he] at hbound
++  rw [hcard,he] at hbound
+   exact (not_lt_of_ge hbound) hsmall
+ 
+ /-- Every root of a continuous fixed-degree monic family is approached
+@@ -54,7 +55,10 @@
+     (ε : ℝ) (hε : 0 < ε) :
+     ∀ᶠ y in 𝓝 x, ∃ r : ℂ, (p y).IsRoot r ∧ ‖r-z‖ < ε := by
+   have hsmall : ∀ᶠ y in 𝓝 x, ‖(p y).eval z‖ < ε^N :=
+-    hc.norm.eventually (isOpen_Iio.mem_nhds (by simpa only [hz,norm_zero] using pow_pos hε N))
++    hc.norm.eventually_mem (isOpen_Iio.mem_nhds (by
++      change ‖(p x).eval z‖ < ε^N
++      rw [hz,norm_zero]
++      exact pow_pos hε N))
+   filter_upwards [hm,hd,hsmall] with y hym hyd hys
+   apply exists_root_near (p y) hym z ε hε
+   simpa only [hyd] using hys
+--- before/FiniteAlgebraEvaluationFiber318
++++ sources/FiniteAlgebraEvaluationFiber318
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
+ public import WholeGeneratorEvaluationSeparation318
+ public import Mathlib.RingTheory.Finiteness.Basic
+ public import Mathlib.FieldTheory.Minpoly.Basic
+@@ -31,7 +32,8 @@
+       exact f.property r
+     have hz := congrArg f.val.toRingHom (minpoly.aeval R (a i))
+     simp only [Polynomial.aeval_def,Polynomial.hom_eval₂,hs,map_zero] at hz
+-    simpa only [P,Polynomial.IsRoot,Polynomial.eval_map] using hz
++    simpa only [P,Polynomial.IsRoot,Polynomial.eval_map,AlgHom.toRingHom_eq_coe,
++      AlgHom.coe_toRingHom] using hz
+   let E (f : V) : ∀ i, Z i := fun i => ⟨f.val (a i),hroot f i⟩
+   have hE : Function.Injective E := by
+     intro f g h
+@@ -39,6 +41,7 @@
+     apply WholeGeneratorEvaluationSeparation318.algebra_hom_ext a hgen
+     intro i
+     exact congrArg Subtype.val (congrFun h i)
+-  letI : Finite V := Finite.of_injective E hE
++  letI : Finite {f : A →ₐ[F] F // ∀ r : R, f (algebraMap R A r) = v r} :=
++    show Finite V from Finite.of_injective E hE
+   exact Set.toFinite _
+ end FiniteAlgebraEvaluationFiber318
+--- before/PrimitiveFinitePointSeparator318
++++ sources/PrimitiveFinitePointSeparator318
+@@ -34,12 +34,12 @@
+   simp only [element,ScalarWeightedFiniteSeparation318.weighted,map_sum,map_mul,map_pow,
+     AlgHom.commutes,Algebra.algebraMap_self,RingHom.id_apply]
+ 
++include T in
+ /-- A SINGLE literal constant-weighted combination of the original
+ whole-ring generators simultaneously generates the actual fraction-field
+ extension and separates ANY specified finite set of complex-style
+ points. Generic primitivity and point separation are proved separately
+ using one shared finite-root exclusion, not inferred from each other. -/
+-include T in
+ theorem exists_primitive_separator {n : ℕ} (a : Fin n → A)
+     (hgen : Function.Surjective (MvPolynomial.aeval a : MvPolynomial (Fin n) F →ₐ[F] A))
+     (V : Set (A →ₐ[F] F)) (hV : V.Finite) :

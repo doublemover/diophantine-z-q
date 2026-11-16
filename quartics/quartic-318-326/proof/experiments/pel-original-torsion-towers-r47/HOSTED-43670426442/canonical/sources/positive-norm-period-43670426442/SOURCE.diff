@@ -1,0 +1,25 @@
+--- before/PELPositiveNormPeriodMap318.lean
++++ after/PELPositiveNormPeriodMap318.lean
+@@ -41,17 +41,16 @@
+       orderEnd representation order τ a (originalMap n hn τ hτ p) :=
+   quotientMap_order representation order n τ (scalar_nonzero n hn τ hτ) a p
+ 
+-local instance : DiscreteTopology (Periods τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
+-local instance : DiscreteTopology (Periods (translated n τ)) :=
+-  PELOriginalPeriodLattice318.original_discrete _ (translated_positive n hn τ hτ)
+-
+ /-- The actual nonunit map is holomorphic for BOTH original surface
+ atlases, using its exact scalar projection square on all vectors. -/
+ theorem originalMap_holomorphic :
+     letI := surfaceCharts (translated n τ) (translated_positive n hn τ hτ)
+     letI := surfaceCharts τ hτ
+-    ContMDiff 𝓘(ℂ,ComplexVectors) 𝓘(ℂ,ComplexVectors) ω (originalMap n hn τ hτ) :=
+-  descended_linear_between (Periods (translated n τ)) (Periods τ)
++    ContMDiff 𝓘(ℂ,ComplexVectors) 𝓘(ℂ,ComplexVectors) ω (originalMap n hn τ hτ) := by
++  letI : DiscreteTopology (Periods τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
++  letI : DiscreteTopology (Periods (translated n τ)) :=
++    PELOriginalPeriodLattice318.original_discrete _ (translated_positive n hn τ hτ)
++  exact descended_linear_between (Periods (translated n τ)) (Periods τ)
+     (periodScalar representation order n τ) (originalMap n hn τ hτ)
+     (originalMap_period n hn τ hτ)
+ 

@@ -1,0 +1,34 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r26/PELIntegralPeriodKernel318.lean:56:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (originalMap ?n ?hn ?τ ?hτ) ((QuotientAddGroup.mk' (Periods (translated ?n ?τ))) ?z)
+in the target expression
+  (QuotientAddGroup.mk' (Periods (translated n τ))) z ∈ (originalMap n hn τ hτ).ker
+
+n : ↥order
+hn : 0 < reducedNorm ↑n
+τ : ℂ
+hτ : 0 < τ.im
+p : ↥(originalMap n hn τ hτ).ker
+z : ComplexVectors
+hz : (QuotientAddGroup.mk' (Periods (translated n τ))) z = ↑p
+h : (QuotientAddGroup.mk' (Periods (translated n τ))) z ∈ (originalMap n hn τ hτ).ker
+⊢ (QuotientAddGroup.mk' (Periods τ)) ((periodScalar representation order n τ) z) = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r26/PELIntegralPeriodKernel318.lean:81:79: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (periodHom representation (translated n τ)) y
+in the target expression
+  (periodScalar representation order n τ) ((periodHom representation (parameter representation order n τ)) y) =
+    (periodHom representation τ) ↑x
+
+n : ↥order
+hn : 0 < reducedNorm ↑n
+τ : ℂ
+hτ : 0 < τ.im
+x : ↥order
+hx : x ∈ (kernelHom n hn τ hτ).ker
+hx0 : (kernelLift n τ) x = 0
+y : B
+hy : y ∈ ↑order.toAddSubgroup
+he :
+  (periodHom representation (translated n τ)) y =
+    (QuaternionicMobiusPeriods318.denominator (representation ↑n) τ)⁻¹ • (periodHom representation τ) ↑x
+⊢ (periodScalar representation order n τ) ((periodHom representation (parameter representation order n τ)) y) =
+    (periodHom representation τ) ↑x

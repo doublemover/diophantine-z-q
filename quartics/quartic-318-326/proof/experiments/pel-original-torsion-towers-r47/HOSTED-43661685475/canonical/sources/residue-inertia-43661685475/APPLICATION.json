@@ -1,0 +1,191 @@
+{
+  "status": "SOURCE_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "base_commit": "58f3c3ea56040e8776debb9d9b7a6d12db76ac23",
+  "run": 43661685475,
+  "before_sha256": "538f01d37e0ace4da05e21d4269bfee34bce011a048c719006407ed3a22e7126",
+  "after_sha256": "713f004cc1b7db66242a9a6a70b4aa3e35c1e6dc3b1564e04ae08f6fa5833f38",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Original arbitrary b, actual finite/infinity points p and original full sign word g; infinity hp:p1=0 remains.",
+      "constructed_input": "No hypotheses or theorem telescopes change; only two rejected rewrites now explicitly unfold their prime alias and pass actual evaluation/map terms.",
+      "justification": "No branch injectivity, field-selection, nonzero-root or additional inertia hypothesis inserted.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "finitePrime and infinityPrime are the actual kernels of the existing complex-point evaluation algebra maps.",
+      "constructed_input": "Unfold precisely finitePrime or infinityPrime at the rejected site, exposing RingHom.ker to the already proved kernel_inertia_iff.",
+      "justification": "No alternate ideal or residue field; the same original evaluation map defines the ideal.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "Every actual finite point, including zero-root/ramified cases, and every normalized infinity point at u=0.",
+      "constructed_input": "Both exact statements retain full Fin4 coordinate quantifiers, all signs and original fixed-point characterization.",
+      "justification": "No restriction to a regular locus or selected infinity sign.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "kernel_inertia_iff requires p:A\u2192\u2090[C]C and e:A\u2243\u2090[C]A.",
+      "constructed_input": "Supply exactly finiteEvaluation/infinityEvaluation and finiteEquiv/infinityEquiv after unfolding the matching prime.",
+      "justification": "Same map direction p.comp(e.toAlgHom)=p, not inverse automorphism or point-action substitution.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "coefficient_and_scalar_factors",
+      "required_input": "Original coordinate signs, roots and normalized infinity ratios.",
+      "constructed_input": "All coordinate factors, map definitions and subsequent pointEquiv/stabilizer steps remain byte unchanged.",
+      "justification": "No scalar normalization, sign convention or product factor changed.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "local_and_exceptional_cases",
+      "required_input": "Finite branch inertia theorem and all eight normalized infinity points.",
+      "constructed_input": "The earlier explicit stabilizer proofs remain consumed unchanged. The generic kernel lemma itself already compiled and is unmodified.",
+      "justification": "The repair only makes its required literal ideal visible; no inertia theorem assumed as an input.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "identity_with_consumed_object",
+      "required_input": "Actual ideal inertia subgroup of the whole coordinate algebra automorphism group.",
+      "constructed_input": "The result remains exact membership iff the original point-sign condition; same named finite/infinity ideals and original full deck maps.",
+      "justification": "No point-set stabilizer is substituted for ideal inertia without the existing kernel/evaluation proof.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "downstream_dependency_effects",
+      "required_input": "Own zero49 at58f3c3ea56040e8776debb9d9b7a6d12db76ac23, run43661685475.",
+      "constructed_input": "Own intake digest matches own RESULT. CharacterFields3.023s and FractionField3.474s fully pass; next ResidueInertia fails1.769s after41successes at these two rewrites.",
+      "justification": "Adjacent same-pattern scan in this current root found only these two sites. Other lanes/copies need their own evidence and classification at propagation; later OrderAutomorphisms is unreached.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    },
+    {
+      "id": "honesty_boundary",
+      "required_input": "Independent exact source/application review and later hosted full closure.",
+      "constructed_input": "Before/after/diff/native primary sources/own logs and result are hashed. No imports/options/public statements or map definitions change.",
+      "justification": "No local Lean/Lake, admissions, resource or trust changes. Two-source-shape fix remains a candidate until hosted acceptance; source review is not kernel or full arithmetic proof.",
+      "source_references": [
+        "before/FourRootActualResidueInertia318.lean",
+        "after/FourRootActualResidueInertia318.lean",
+        "primary/FourRootActionStabilizers318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/FourRootCoordinateRingSigns318.lean",
+        "primary/FourRootInfinityCoordinateRing318.lean"
+      ],
+      "evidence": [
+        "SOURCE.diff",
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualResidueInertia318.log"
+      ]
+    }
+  ]
+}

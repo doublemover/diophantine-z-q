@@ -1,0 +1,24 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/MonicComplexRootApproximation318.lean:39:5: error(lean.unknownIdentifier): Unknown constant `Polynomial.card_roots_eq_natDegree`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/MonicComplexRootApproximation318.lean:43:6: error(lean.unknownIdentifier): Unknown constant `Polynomial.card_roots_eq_natDegree`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/MonicComplexRootApproximation318.lean:33:39: error: unsolved goals
+p : ℂ[X]
+hm : p.Monic
+z : ℂ
+ε : ℝ
+hε : 0 < ε
+hsmall : ‖eval z p‖ < ε ^ p.natDegree
+hn : ∀ (r : ℂ), p.IsRoot r → ε ≤ ‖r - z‖
+hbound : ε ^ p.roots.card ≤ ‖(Multiset.map (fun r => z - r) p.roots).prod‖
+hp : (Multiset.map (fun a => X - C a) p.roots).prod = p
+he : (Multiset.map (fun x => z - x) p.roots).prod = eval z p
+⊢ False
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r44/MonicComplexRootApproximation318.lean:57:48: error: Type mismatch: After simplification, term
+  pow_pos hε N
+ has type
+  0 < ε ^ N
+but is expected to have type
+  0 ∈ Set.Iio (ε ^ N)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLT ↦ 4
+  Real.instZero ↦ 2
