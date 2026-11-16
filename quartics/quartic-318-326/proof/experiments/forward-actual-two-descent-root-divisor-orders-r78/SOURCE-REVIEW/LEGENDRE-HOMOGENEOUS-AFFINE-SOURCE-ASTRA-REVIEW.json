@@ -1,0 +1,26 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "candidate_sha256": "1557b6170f97590a2eabd0bf4cb28f9f3d3fd8cb0e7fb36288380cfd701c2e4a",
+  "source_path": "completeness-primary-selmer-transfer-20261116/legendre-homogeneous-affine/LegendreHomogeneousAffine318.lean",
+  "assumptions": [
+    "F is a field of characteristic zero.",
+    "a is nonzero.",
+    "Supplied homogeneous vector(x,z,w) is not all zero and satisfies z\u00b2-a*x\u00b2-b*w\u00b2=0."
+  ],
+  "findings": [
+    "If w\u22600, (u,v)=(z/w,x/w) has norm b after dividing the exact original equation by w\u00b2.",
+    "If w=0, x=0 would force z\u00b2=0 and z=0, contradicting nontriviality; thus x\u22600 and s=z/x satisfies s\u00b2=a.",
+    "a\u22600 forces s\u22600. Characteristic zero makes2 nonzero, so u=(b+1)/2 and v=(b-1)/(2s) are defined and u\u00b2-a*v\u00b2=((b+1)\u00b2-(b-1)\u00b2)/4=b.",
+    "No b\u22600 assumption is needed; includes b=0. No positivity, integrality, p-adic unit or coprimality condition is introduced.",
+    "All local fields Qp and R satisfy the stated characteristic-zero field assumptions. This produces affine witnesses from already supplied homogeneous ones, not local solutions from nothing."
+  ],
+  "api_obligations": [
+    "Source uses ordinary field equalities, pow_eq_zero, sub_eq_zero, div_pow, simp, ring and field_simp. Actual elaboration and tactic closure still require a bounded strict hosted check.",
+    "No native source snapshot or packaging manifest was supplied for this standalone file; receipt binds exact source bytes only."
+  ],
+  "limits": [
+    "a=0 is explicitly outside this lemma and must remain an elementary branch in any descent.",
+    "Does not establish squarefree normalization, CRT roots, descent termination, reciprocity, auxiliary selection or Hasse\u2013Minkowski.",
+    "No local Lean or proof acceptance."
+  ]
+}
