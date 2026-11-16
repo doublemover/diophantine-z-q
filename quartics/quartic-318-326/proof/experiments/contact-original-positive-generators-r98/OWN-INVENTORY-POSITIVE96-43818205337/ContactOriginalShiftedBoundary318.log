@@ -1,0 +1,65 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318.lean:27:57: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Submodule.map (↑ℚ ↑(rawTransition c L)) negative)
+in the target expression
+  (transition c L) w ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+
+case mp
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+d : ℤ
+v w : V ℚ (finiteRank c L)
+hw : w ∈ ↑negative
+hv : (LaurentTransitionBounds318.underlying (LaurentPositiveTwistVanishing318.transition (transition c L) d)) w = v
+hz : (transition c L) w ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+⊢ ∃ b, LaurentPolynomial.T d • (coordinates c L) (infinityRestriction c L b) = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318.lean:35:59: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Submodule.map (↑ℚ ↑(rawTransition c L)) negative)
+in the target expression
+  (coordinates c L) (infinityRestriction c L b) ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+d : ℤ
+v : V ℚ (finiteRank c L)
+b : ↑(infinitySections c L)
+hb : LaurentPolynomial.T d • (coordinates c L) (infinityRestriction c L b) = v
+⊢ (coordinates c L) (infinityRestriction c L b) ∈ Submodule.map (↑ℚ ↑(rawTransition c L)) negative
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318.lean:39:4: error: 'change' tactic failed, pattern
+  LaurentPolynomial.T d • (transition c L) w = v
+is not definitionally equal to target
+  (LaurentTransitionBounds318.underlying (LaurentPositiveTwistVanishing318.transition (transition c L) d)) w = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318.lean:54:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑positive
+in the target expression
+  x ∈ positive
+
+case mp
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+d : ℤ
+v : V ℚ (finiteRank c L)
+hv : v ∈ LaurentCechFinite318.boundary (LaurentPositiveTwistVanishing318.transition (transition c L) d)
+x : V ℚ (finiteRank c L)
+hx : x ∈ positive
+y : V ℚ (finiteRank c L)
+hy :
+  y ∈
+    Submodule.map
+      (LaurentTransitionBounds318.underlying (LaurentPositiveTwistVanishing318.transition (transition c L) d)) negative
+hxy : x + y = v
+⊢ ∃ a b,
+    (coordinates c L) (finiteRestriction c L a) -
+        LaurentPolynomial.T d • (coordinates c L) (infinityRestriction c L b) =
+      v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318.lean:64:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑positive
+in the target expression
+  (coordinates c L) (finiteRestriction c L a) ∈ positive
+
+case mpr.a
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+d : ℤ
+a : ↑(finiteSections c L)
+b : ↑(infinitySections c L)
+⊢ (coordinates c L) (finiteRestriction c L a) ∈ positive

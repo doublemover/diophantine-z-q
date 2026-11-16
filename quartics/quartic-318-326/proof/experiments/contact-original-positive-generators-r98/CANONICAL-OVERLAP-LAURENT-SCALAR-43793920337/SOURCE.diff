@@ -1,0 +1,56 @@
+--- before/ContactOriginalOverlapLaurentScalar318.lean
++++ sources/ContactOriginalOverlapLaurentScalar318.lean
+@@ -28,7 +28,8 @@
+     ((projection c).appTop ((Scheme.ΓSpecIso (CommRingCat.of A)).inv a)) s
+   change L.object.presheaf.map (eqToHom (overlap_image c).symm).op
+       (OriginalOpenPullbackSections318.sectionsEquiv (into c) L.object
+-        (((projection c).appTop ((Scheme.ΓSpecIso (CommRingCat.of A)).inv a)) • s)) = _
++        (((projection c).appTop ((Scheme.ΓSpecIso (CommRingCat.of A)).inv a)) •
++          (s : Γ((Scheme.Modules.pullback (into c)).obj L.object,⊤)))) = _
+   rw [h,Scheme.Modules.map_smul]
+   rfl
+ 
+--- before/ContactOriginalWholeRestriction318.lean
++++ sources/ContactOriginalWholeRestriction318.lean
+@@ -57,7 +57,7 @@
+ /-- Exact original common Laurent module sections on the FULL original
+ ambient intersection, using the proved equality of its image with that
+ intersection. Only the actual original presheaf equality transport occurs. -/
+-def overlapEquiv : ContactCommonLaurentModule318.common c L ≃+
++@[expose] def overlapEquiv : ContactCommonLaurentModule318.common c L ≃+
+     Γ(L.object,finiteOpen c ⊓ infinityOpen c) :=
+   (overlapSectionsEquiv c L).trans
+     (L.object.presheaf.mapIso (eqToIso (overlap_image c).symm).op).addCommGroupIsoToAddEquiv
+--- before/ContactWholeOpenSectionRestriction318.lean
++++ sources/ContactWholeOpenSectionRestriction318.lean
+@@ -30,7 +30,7 @@
+   OriginalOpenPullbackSections318.sectionsEquiv (ContactWholeInfinityScheme318.into c) L.object
+ 
+ /-- The actual whole overlap line sections, before coordinate choices. -/
+-def overlapSectionsEquiv : Γ((ContactOriginalLineOverlap318.line c L).object,⊤) ≃+
++@[expose] def overlapSectionsEquiv : Γ((ContactOriginalLineOverlap318.line c L).object,⊤) ≃+
+     Γ(L.object,(into c) ''ᵁ ⊤) :=
+   OriginalOpenPullbackSections318.sectionsEquiv (into c) L.object
+ 
+--- before/ContactOriginalCohomologyCoordinates318.lean
++++ sources/ContactOriginalCohomologyCoordinates318.lean
+@@ -15,7 +15,7 @@
+ variable (c : Fin 4 → ℚˣ) (L : Line (ContactProjectiveModel318.model c))
+ 
+ /-- Coordinates on the literal original ambient overlap sections. -/
+-def overlapCoordinates : Γ(L.object,finiteOpen c ⊓ infinityOpen c) ≃+
++@[expose] def overlapCoordinates : Γ(L.object,finiteOpen c ⊓ infinityOpen c) ≃+
+     LaurentVectorFiltration318.V ℚ (finiteRank c L) :=
+   (overlapEquiv c L).symm.trans (coordinates c L).toAddEquiv
+ 
+--- before/ContactOriginalTwistingLine318.lean
++++ sources/ContactOriginalTwistingLine318.lean
+@@ -14,7 +14,7 @@
+ 
+ /-- The actual Laurent base coordinate on the FULL original Contact
+ overlap, transported through its original open-immersion ring isomorphism. -/
+-def scalar : LaurentPolynomial ℚ →+*
++@[expose] def scalar : LaurentPolynomial ℚ →+*
+     Γ(ContactProjectiveModel318.model c,finiteOpen c ⊓ infinityOpen c) :=
+   ((Scheme.ΓSpecIso (CommRingCat.of OriginalLaurentProjectiveOverlap318.Ring)).inv ≫
+     (projection c).appTop ≫ ((into c).appIso ⊤).inv ≫

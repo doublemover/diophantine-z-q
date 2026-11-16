@@ -1,0 +1,331 @@
+{
+  "status": "INACTIVE_SOURCE_REVIEW_PENDING",
+  "source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+  "execution_head": "e51d8760f82415364f83792071135dfb71d3b462",
+  "inventory_run": 43818205337,
+  "packet": "contact-original-positive-generators-r96",
+  "modules": [
+    "ContactOriginalShiftedBoundary318",
+    "LaurentPositiveTwistVanishing318",
+    "OriginalOpenRingRestrictionPath318"
+  ],
+  "repairs": {
+    "ContactOriginalShiftedBoundary318": {
+      "before": "47330c43c824e9a9078c0535726be30c6cccc79cce1e30bedc701e8edc274977",
+      "after": "e609353fd3c5dca273c710753e7128115d02e62f521e434276a9e00accab1745",
+      "repair": "Use typed Set.ext_iff range membership for the exact finite/infinity image equalities instead of rewriting hidden Submodule coercions; same minus and transition.",
+      "own_inventory": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/contact-original-positive-generators-r96/quarantine/ContactOriginalShiftedBoundary318/ContactOriginalShiftedBoundary318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "ContactOriginalLaurentBoundary318",
+          "LaurentPositiveTwistVanishing318"
+        ],
+        "log_sha256": "4b6562418ab06c1892660636bd37c4f33670069f7f418b7b92b5c70a6a55f455",
+        "occurrence": "contact-original-positive-generators-r96/ContactOriginalShiftedBoundary318",
+        "root_causes": [
+          "ContactOriginalShiftedBoundary318"
+        ],
+        "seconds": 1.77,
+        "source_sha256": "47330c43c824e9a9078c0535726be30c6cccc79cce1e30bedc701e8edc274977",
+        "status": "compiler_error",
+        "timed_out": false
+      }
+    },
+    "LaurentPositiveTwistVanishing318": {
+      "before": "aee3f7be3beb59287a709abf6263b609b3d4e1e77bcb340dede1c6be45c973d6",
+      "after": "f4ebdf9d2bf76eac18cd783629799dedc8248bb197b1979e88110d79a85ceed0",
+      "repair": "Expose only the unchanged original monomial-shift composite transition needed by the actual shifted-boundary evaluation.",
+      "own_inventory": {
+        "artifacts": {
+          ".ir": "58a2f72dd40060190685ab58e5141294043f9827953054c4602542b4dcd4b230",
+          ".olean": "a519a3170697344b8a925a1cf399a0e330d398b13d3b982c5ad2f6ae616ec02e",
+          ".olean.private": "9b3a9bc60a0d5445f6a7ab352fd4af3edc9bada3bac22b398428849f8ada1ecf",
+          ".olean.server": "1bd6c0cb3e7a2658fb8e191cf6e6e82956d26d96e0b5165b62cab8befc4fcbff"
+        },
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/contact-original-positive-generators-r96/quarantine/LaurentPositiveTwistVanishing318/LaurentPositiveTwistVanishing318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/LaurentPositiveTwistVanishing318.lean"
+        ],
+        "dependency_artifacts": {
+          "LaurentCechFinite318": {
+            ".ir": "7db9fc164d6e9de1dc279ef738b05f907cc666708d66a505bd8bd3a721204507",
+            ".olean": "6b7920aeb7232deeeed84a094c3fc3cb4011a87b8703e0a2e09cc272366ab6d8",
+            ".olean.private": "0b1b267c0a048b4e82ed2cb7a18047466cad5c407ac8148d748e5842fc6f85cc",
+            ".olean.server": "235e1e50d9c06c4fa678973b45b10b9ad96b191bc7cd2d73333a5a836cfaa8ab"
+          }
+        },
+        "exit_code": 0,
+        "imports": [
+          "LaurentCechFinite318"
+        ],
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "occurrence": "contact-original-positive-generators-r96/LaurentPositiveTwistVanishing318",
+        "root_causes": [],
+        "seconds": 1.117,
+        "source_sha256": "aee3f7be3beb59287a709abf6263b609b3d4e1e77bcb340dede1c6be45c973d6",
+        "status": "compile_pass",
+        "timed_out": false
+      }
+    },
+    "OriginalOpenRingRestrictionPath318": {
+      "before": "607db8a877ae66e303e12db632cabfda7d0d301f896506fddb769484961b9cf1",
+      "after": "3e627e6976ef6e962a636dc954cb28e5c19d511b4fb4b5d3cbe1b1eea6624e77",
+      "repair": "Substitute the named composite before dependent image rewriting, then identify exact Opens morphisms using proof irrelevance before functorial composition.",
+      "own_inventory": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/contact-original-positive-generators-r96/quarantine/OriginalOpenRingRestrictionPath318/OriginalOpenRingRestrictionPath318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r96/OriginalOpenRingRestrictionPath318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "OpenChartSections318"
+        ],
+        "log_sha256": "44e8d5dd65cb9511bce0d14ac66607ff8115f29ed79362e6bdfe7f7b62a8209a",
+        "occurrence": "contact-original-positive-generators-r96/OriginalOpenRingRestrictionPath318",
+        "root_causes": [
+          "OriginalOpenRingRestrictionPath318"
+        ],
+        "seconds": 1.518,
+        "source_sha256": "607db8a877ae66e303e12db632cabfda7d0d301f896506fddb769484961b9cf1",
+        "status": "compiler_error",
+        "timed_out": false
+      }
+    }
+  },
+  "local_lean_run": false,
+  "resources_changed": false,
+  "obligations": [
+    {
+      "id": "inputs",
+      "required_input": "All existing original line, rank transport, named chart composite and full-image hypotheses retained.",
+      "constructed_input": "All existing original line, rank transport, named chart composite and full-image hypotheses retained.",
+      "justification": "All existing original line, rank transport, named chart composite and full-image hypotheses retained.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "objects",
+      "required_input": "Same actual whole-chart restrictions and original Laurent coordinate modules.",
+      "constructed_input": "Same actual whole-chart restrictions and original Laurent coordinate modules.",
+      "justification": "Same actual whole-chart restrictions and original Laurent coordinate modules.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "domain",
+      "required_input": "All positive/negative filtration vectors, every integer shift and exact whole chart images retained.",
+      "constructed_input": "All positive/negative filtration vectors, every integer shift and exact whole chart images retained.",
+      "justification": "All positive/negative filtration vectors, every integer shift and exact whole chart images retained.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "maps",
+      "required_input": "Same monomial transition body, exact coordinate and restriction maps; no replacement maps.",
+      "constructed_input": "Same monomial transition body, exact coordinate and restriction maps; no replacement maps.",
+      "justification": "Same monomial transition body, exact coordinate and restriction maps; no replacement maps.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "scalars",
+      "required_input": "Same actual Laurent monomial scalar and original Mayer-Vietoris minus.",
+      "constructed_input": "Same actual Laurent monomial scalar and original Mayer-Vietoris minus.",
+      "justification": "Same actual Laurent monomial scalar and original Mayer-Vietoris minus.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "signatures",
+      "required_input": "All public mathematical types unchanged; only existing transition exposure and consumer proofs changed.",
+      "constructed_input": "All public mathematical types unchanged; only existing transition exposure and consumer proofs changed.",
+      "justification": "All public mathematical types unchanged; only existing transition exposure and consumer proofs changed.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "consumer",
+      "required_input": "Exact full direct producer bodies in primary, both failed own inventory consumers and already-accepted connected producer distinguished, no downstream compilation inferred.",
+      "constructed_input": "Exact full direct producer bodies in primary, both failed own inventory consumers and already-accepted connected producer distinguished, no downstream compilation inferred.",
+      "justification": "Exact full direct producer bodies in primary, both failed own inventory consumers and already-accepted connected producer distinguished, no downstream compilation inferred.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "limits",
+      "required_input": "No local Lean, hosted candidate success, full packet acceptance or altered resource caps. Simplifier and rfl conversions remain untested.",
+      "constructed_input": "No local Lean, hosted candidate success, full packet acceptance or altered resource caps. Simplifier and rfl conversions remain untested.",
+      "justification": "No local Lean, hosted candidate success, full packet acceptance or altered resource caps. Simplifier and rfl conversions remain untested.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    },
+    {
+      "id": "verification",
+      "required_input": "Before/source/log/intake exact own inventory bindings and immutable Git origins verified; independent source gate required before propagation.",
+      "constructed_input": "Before/source/log/intake exact own inventory bindings and immutable Git origins verified; independent source gate required before propagation.",
+      "justification": "Before/source/log/intake exact own inventory bindings and immutable Git origins verified; independent source gate required before propagation.",
+      "source_refs": [
+        "sources/ContactOriginalShiftedBoundary318.lean",
+        "sources/LaurentPositiveTwistVanishing318.lean",
+        "sources/OriginalOpenRingRestrictionPath318.lean"
+      ],
+      "evidence": [
+        "README.md",
+        "SOURCE.diff",
+        "ORIGINS.json",
+        "evidence/INVENTORY.json",
+        "evidence/ContactOriginalShiftedBoundary318.log",
+        "evidence/LaurentPositiveTwistVanishing318.log",
+        "evidence/OriginalOpenRingRestrictionPath318.log"
+      ]
+    }
+  ],
+  "bindings": {
+    "ORIGINS.json": "a8614e17067f41b09b773f50c6c8d63765ce9b5d34c6a00cbc1c27cb504de696",
+    "README.md": "8ef4a799b06ec7ab15d3b1100e1d70217313ca3e4feacca895b3c6b5682a4da0",
+    "SOURCE.diff": "e13eb54ab936cbbb6fe4dcdaebb1206cb98310c2c8f6e73aab5f7bbdf9537032",
+    "before/ContactOriginalShiftedBoundary318.lean": "47330c43c824e9a9078c0535726be30c6cccc79cce1e30bedc701e8edc274977",
+    "before/LaurentPositiveTwistVanishing318.lean": "aee3f7be3beb59287a709abf6263b609b3d4e1e77bcb340dede1c6be45c973d6",
+    "before/OriginalOpenRingRestrictionPath318.lean": "607db8a877ae66e303e12db632cabfda7d0d301f896506fddb769484961b9cf1",
+    "evidence/ContactOriginalShiftedBoundary318.log": "4b6562418ab06c1892660636bd37c4f33670069f7f418b7b92b5c70a6a55f455",
+    "evidence/INDEPENDENT-AUTHENTICATION.json": "64d378fa2a4d23c5aff98498de951a4dc84dfc3b1a8682f4d5bcbcb71c43dd09",
+    "evidence/INVENTORY.json": "00671dbe6dab7758c19811e835b30eb98b77bdfef00388501ee8d5cbf1e0a17f",
+    "evidence/LaurentPositiveTwistVanishing318.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/OriginalOpenRingRestrictionPath318.log": "44e8d5dd65cb9511bce0d14ac66607ff8115f29ed79362e6bdfe7f7b62a8209a",
+    "evidence/intake.json": "284d2204d28f548fa170608bf7c56c8b1bf1fd7b0e5ce8857447cd1b42485eba",
+    "primary/ContactOriginalLaurentBoundary318.lean": "48869c9055c3d302a2e178fb6ce33931e146c5144dc79a6aa8d6b3fe9ec71b30",
+    "primary/ContactOriginalRestrictionCoordinates318.lean": "c462cc0e030af8879c77ff17085f7ab5a3b7e3106ef6ef1ec8690c719e00eb57",
+    "primary/LaurentCechFinite318.lean": "0371a11806476d8c8e16bfbafb2f66124d2bad3a0554ffd362d70175d3510751",
+    "primary/LaurentPositiveTwistVanishing318.lean": "aee3f7be3beb59287a709abf6263b609b3d4e1e77bcb340dede1c6be45c973d6",
+    "primary/LaurentTransitionBounds318.lean": "3146dd4d534cc6b6ff3306c982119334c69443ca516791b7bdc05d6f8721781a",
+    "primary/LaurentVectorFiltration318.lean": "18f271906397dba006d7f42ee61a8e9ce2a32833fd672347c59a372b2b3735cd",
+    "primary/OpenChartSections318.lean": "8370f3b98f10cee233a7793c89a4b3b9a1a38d872d90756c8526bdb913aae76d",
+    "sources/ContactOriginalShiftedBoundary318.lean": "e609353fd3c5dca273c710753e7128115d02e62f521e434276a9e00accab1745",
+    "sources/LaurentPositiveTwistVanishing318.lean": "f4ebdf9d2bf76eac18cd783629799dedc8248bb197b1979e88110d79a85ceed0",
+    "sources/OriginalOpenRingRestrictionPath318.lean": "3e627e6976ef6e962a636dc954cb28e5c19d511b4fb4b5d3cbe1b1eea6624e77"
+  }
+}

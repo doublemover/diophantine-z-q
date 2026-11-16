@@ -1,0 +1,12 @@
+--- before/OriginalRestrictionTopScalar318
++++ after/OriginalRestrictionTopScalar318
+@@ -27,7 +27,8 @@
+       M.presheaf.map (eqToHom (LineFrameTopScalar318.image_top U).symm).op t) h
+   rw [Scheme.Modules.map_smul] at ht
+   simpa only [Scheme.Modules.restrictAppIso,Scheme.Opens.ι_appIso,
+-    Iso.refl_hom,Iso.refl_inv,ConcreteCategory.id_apply] using ht
++    Iso.refl_hom,Iso.refl_inv,ConcreteCategory.id_apply,
++    AddCommGrpCat.hom_id,CommRingCat.hom_id,AddMonoidHom.id_apply,RingHom.id_apply] using ht
+ 
+ /-- The original ModuleScalar action on the open subscheme corresponds to
+ exactly the original ambient coefficient action, with no transported guess. -/

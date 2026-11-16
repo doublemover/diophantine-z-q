@@ -1,0 +1,33 @@
+--- before/BinaryFramedPowerComparison318
++++ sources/BinaryFramedPowerComparison318
+@@ -54,7 +54,7 @@
+       FrameScalarAlgebra318.symm
+       (OpenLineFrameCoordinates318.frame M U (em ⟨false⟩) (V ⊓ U) inf_le_right)
+       (OpenLineFrameCoordinates318.frame M V (em ⟨true⟩) (V ⊓ U) inf_le_left)]
+-    simpa only [LineFrameTransitions318.scalar,inv_pow] using hi
++    simpa [LineFrameTransitions318.scalar,OpenClutchedLocallyFree318.cover,inv_pow] using hi
+   · change (LineFrameCocycle318.cocycle N _ en).transition ⟨true⟩ ⟨true⟩ =
+       (LineFrameCocycle318.cocycle M _ em).transition ⟨true⟩ ⟨true⟩ ^ n
+     rw [UnitTransitionCocycle318.Cocycle.diagonal,UnitTransitionCocycle318.Cocycle.diagonal,one_pow]
+--- before/OriginalTensorPowerCongruence318
++++ sources/OriginalTensorPowerCongruence318
+@@ -8,7 +8,7 @@
+ variable {X : Scheme.{u}} {M N : X.Modules}
+ 
+ /-- Functorial isomorphisms of the genuine iterated tensor sheaves. -/
+-def iso (e : M ≅ N) : (n : ℕ) →
++@[expose] def iso (e : M ≅ N) : (n : ℕ) →
+     FramedLineTensorPower318.object M n ≅ FramedLineTensorPower318.object N n
+   | 0 => Iso.refl _
+   | n+1 => TensorSheafFunctor318.congr (iso e n) e
+--- before/OriginalGlobalFrameGenerator318
++++ sources/OriginalGlobalFrameGenerator318
+@@ -29,7 +29,7 @@
+           (OpenLineFrameCoordinates318.frame M U e U le_rfl 1) := congrArg _ hs
+       _ = _ := by rw [OpenLineFrameCoordinates318.natural,map_one]
+   rw [hr,← LinearEquiv.map_smul]
+-  simp only [smul_eq_mul,mul_one]
++  simp only [smul_eq_mul,mul_one] <;> rfl
+ 
+ lemma bijective (hs : M.presheaf.map (homOfLE (show U ≤ ⊤ from le_top)).op s =
+     OpenLineFrameCoordinates318.frame M U e U le_rfl 1)

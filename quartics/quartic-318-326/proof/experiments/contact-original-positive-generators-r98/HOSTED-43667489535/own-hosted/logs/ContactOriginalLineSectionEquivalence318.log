@@ -1,0 +1,35 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r84/ContactOriginalLineSectionEquivalence318.lean:23:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ↑v ∈ ↑_a
+Error: Application type mismatch: The argument
+  v
+has type
+  LaurentCechSectionsFinite318.H0 (transition c L)
+but is expected to have type
+  ↥(positive ⊓ _a)
+in the application
+  ↑v
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+c : Fin 4 → ℚˣ
+L : Line (ContactProjectiveModel318.model c)
+v : LaurentCechSectionsFinite318.H0 (transition c L)
+hx : ↑v ∈ ↑positive
+hy : ↑v ∈ ↑(Submodule.map (LaurentTransitionBounds318.underlying (transition c L)) negative)
+⊢ ∃ a, (matchingLinear c L) a = v
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r84/ContactOriginalLineSectionEquivalence318.lean:50:0: error: Not a definitional equality: the left-hand side
+  ↑((equivalence c L) s)
+is not definitionally equal to the right-hand side
+  (overlapCoordinates c L) ((ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) s)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r84/ContactOriginalLineSectionEquivalence318.lean:52:101: error: Type mismatch
+  rfl
+has type
+  ?m.47 = ?m.47
+but is expected to have type
+  ↑((equivalence c L) s) = (overlapCoordinates c L) ((ConcreteCategory.hom (L.object.presheaf.map (homOfLE ⋯).op)) s)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  overlapCoordinates ↦ 4
+  matchingLinear ↦ 7

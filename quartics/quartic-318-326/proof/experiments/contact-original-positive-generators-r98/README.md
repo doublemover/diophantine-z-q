@@ -1,0 +1,5 @@
+# contact-original-positive-generators-r98
+
+Direct revision of exact locally committed contact-original-positive-generators-r97 at f23f632951bbfac8e3c5b30a3c50c219b5cf62f1, tree 3cb9eca1bdf7a0c9a46e025a600065f816737c04. Positive97 is source/current-reviewed but UNEXECUTED; no own97 receipt claimed. Own evidence is published96/source15d normal43817651313 and executione51 inventory43818205337. Entire97 tree verified; compared against own96, sole inherited source delta is reviewed OriginalRestrictionTopScalar d93a212e, retained unchanged. No false assertion that96=97 whole trees.
+
+Own96 normal88 full passes then RestrictionTopScalar3.675s/18unreached; inherited97 source targets that failure. Own96 inventory88pass/6errors/13blocked, NOT a production prefix. Five other actual independently attempted errors now repaired; LaurentPositiveTwistVanishing is already-compiled connected producer exposure only. Six new source deltas,101exact inherited roots,107ordered roots total,347baseline. Same public mathematics/maps/actions/options; one exposure and typed proof corrections only. No new root/workflow/admission/cap change or local Lean. Candidate requires hosted replay.

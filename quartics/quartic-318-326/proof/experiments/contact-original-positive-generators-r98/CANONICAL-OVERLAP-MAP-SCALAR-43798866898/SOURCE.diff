@@ -1,0 +1,22 @@
+--- before/ContactOriginalOverlapLaurentScalar318.lean
++++ sources/ContactOriginalOverlapLaurentScalar318.lean
+@@ -26,12 +26,13 @@
+       ContactOriginalTwistingLine318.scalar c a • overlapEquiv c L s := by
+   have h := OriginalOpenPullbackSectionScalar318.scalar (into c) L.object
+     ((projection c).appTop ((Scheme.ΓSpecIso (CommRingCat.of A)).inv a)) s
+-  change L.object.presheaf.map (eqToHom (overlap_image c).symm).op
+-      (OriginalOpenPullbackSections318.sectionsEquiv (into c) L.object
+-        (((projection c).appTop ((Scheme.ΓSpecIso (CommRingCat.of A)).inv a)) •
+-          (s : Γ((Scheme.Modules.pullback (into c)).obj L.object,⊤)))) = _
+-  rw [h,Scheme.Modules.map_smul]
+-  rfl
++  have ht := congrArg
++    (fun t : Γ(L.object,(into c) ''ᵁ ⊤) =>
++      L.object.presheaf.map (eqToHom (overlap_image c).symm).op t) h
++  rw [Scheme.Modules.map_smul] at ht
++  change overlapEquiv c L (a • s) =
++    ContactOriginalTwistingLine318.scalar c a • overlapEquiv c L s at ht
++  exact ht
+ 
+ local instance : Module A Γ(L.object,finiteOpen c ⊓ infinityOpen c) := ambientModule c L
+ 

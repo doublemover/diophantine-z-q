@@ -1,0 +1,63 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:26:4: error(nested.lean.propRecLargeElim): Tactic `cases` failed with a nested error:
+Tactic `induction` failed: recursor `List.Mem.casesOn` can only eliminate into `Prop`
+
+X : Scheme
+M : X.Modules
+U V : X.Opens
+hcover : U ⊔ V = ⊤
+a : ↑Γ(M, U)
+b : ↑Γ(M, V)
+hab :
+  (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) a = (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) b
+W : Fin 2 → X.Opens := ![U, V]
+hc : ⊤ ≤ iSup W
+i : Fin 2
+this✝ : i ∈ Fintype.elems
+a✝ : List (Fin 2)
+this : List.Mem i a✝
+⊢ List.finRange 2 = a✝ → this✝ ≍ this → ↑Γ(M, W i)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:27:6: error: Type mismatch
+  a
+has type
+  ↑Γ(M, U)
+but is expected to have type
+  ↑Γ(M, W i)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:28:4: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:32:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (↑(M.presheaf.obj (op (V ⊓ U)))) ((ConcreteCategory.hom (M.presheaf.map ((homOfLE ⋯).op ≫ (eqToHom ⋯).op))) b)
+    ((ConcreteCategory.hom (M.presheaf.map ((homOfLE ⋯).op ≫ (eqToHom ⋯).op))) a)
+but is expected to have type
+  @Eq (↑(M.presheaf.obj (op (V ⊓ U)))) ((ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) b)
+    ((ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) a)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:37:6: error: Type mismatch
+  hab
+has type
+  (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) a = (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) b
+but is expected to have type
+  (ConcreteCategory.hom
+        (M.presheaf.map (TopologicalSpace.Opens.infLELeft (W ((fun i => i) ⟨0, ⋯⟩)) (W ((fun i => i) ⟨1, ⋯⟩))).op))
+      (pieces ((fun i => i) ⟨0, ⋯⟩)) =
+    (ConcreteCategory.hom
+        (M.presheaf.map (TopologicalSpace.Opens.infLERight (W ((fun i => i) ⟨0, ⋯⟩)) (W ((fun i => i) ⟨1, ⋯⟩))).op))
+      (pieces ((fun i => i) ⟨1, ⋯⟩))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:38:6: error: Type mismatch
+  hswap
+has type
+  (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) b = (ConcreteCategory.hom (M.presheaf.map (homOfLE ⋯).op)) a
+but is expected to have type
+  (ConcreteCategory.hom
+        (M.presheaf.map (TopologicalSpace.Opens.infLELeft (W ((fun i => i) ⟨1, ⋯⟩)) (W ((fun i => i) ⟨0, ⋯⟩))).op))
+      (pieces ((fun i => i) ⟨1, ⋯⟩)) =
+    (ConcreteCategory.hom
+        (M.presheaf.map (TopologicalSpace.Opens.infLERight (W ((fun i => i) ⟨1, ⋯⟩)) (W ((fun i => i) ⟨0, ⋯⟩))).op))
+      (pieces ((fun i => i) ⟨0, ⋯⟩))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r82/OriginalModuleTwoOpenGluing318.lean:40:57: error: Application type mismatch: The argument
+  hp
+has type
+  TopCat.Presheaf.IsCompatible.{u, u, u + 1, u, u, 0} M.presheaf W pieces
+but is expected to have type
+  TopCat.Presheaf.IsCompatible.{u, u, u + 1, u, u, u} M.presheaf ?m.1040 ?m.1043
+in the application
+  ModuleGlobalSections318.gluedTop M ?m.1040 ?m.1041 ?m.1043 hp

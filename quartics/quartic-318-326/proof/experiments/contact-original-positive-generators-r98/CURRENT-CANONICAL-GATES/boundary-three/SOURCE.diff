@@ -1,0 +1,88 @@
+--- before/ContactOriginalShiftedBoundary318
++++ sources/ContactOriginalShiftedBoundary318
+@@ -20,20 +20,23 @@
+       (LaurentPositiveTwistVanishing318.transition (transition c L) d)) ↔
+     ∃ b : infinitySections c L,
+       (LaurentPolynomial.T d : A) • coordinates c L (infinityRestriction c L b) = v := by
++  have him (x : V ℚ (finiteRank c L)) :
++      (∃ b : infinitySections c L, coordinates c L (infinityRestriction c L b) = x) ↔
++        x ∈ negative.map (LaurentTransitionBounds318.underlying (transition c L)) := by
++    rw [ContactOriginalLaurentBoundary318.negative_image]
++    exact Set.ext_iff.mp (infinity_image c L) x
+   constructor
+   · rintro ⟨w,hw,hv⟩
+     have hz : transition c L w ∈ negative.map (LaurentTransitionBounds318.underlying (transition c L)) :=
+       ⟨w,hw,rfl⟩
+-    rw [ContactOriginalLaurentBoundary318.negative_image,← infinity_image c L] at hz
+-    obtain ⟨b,hb⟩ := hz
++    obtain ⟨b,hb⟩ := (him _).mpr hz
+     refine ⟨b,?_⟩
+     rw [hb]
+     exact hv
+   · rintro ⟨b,hb⟩
+     have hz : coordinates c L (infinityRestriction c L b) ∈
+         negative.map (LaurentTransitionBounds318.underlying (transition c L)) := by
+-      rw [ContactOriginalLaurentBoundary318.negative_image,← infinity_image c L]
+-      exact ⟨b,rfl⟩
++      exact (him _).mp ⟨b,rfl⟩
+     obtain ⟨w,hw,he⟩ := hz
+     refine ⟨w,hw,?_⟩
+     change (LaurentPolynomial.T d : A) • transition c L w = v
+@@ -48,11 +51,13 @@
+     ∃ (a : finiteSections c L) (b : infinitySections c L),
+       coordinates c L (finiteRestriction c L a) -
+         (LaurentPolynomial.T d : A) • coordinates c L (infinityRestriction c L b) = v := by
++  have hfm (x : V ℚ (finiteRank c L)) :
++      (∃ a : finiteSections c L, coordinates c L (finiteRestriction c L a) = x) ↔
++        x ∈ positive := Set.ext_iff.mp (finite_image c L) x
+   constructor
+   · intro hv
+     obtain ⟨x,hx,y,hy,hxy⟩ := Submodule.mem_sup.mp hv
+-    rw [← finite_image c L] at hx
+-    obtain ⟨a,ha⟩ := hx
++    obtain ⟨a,ha⟩ := (hfm x).mpr hx
+     have hny := Submodule.neg_mem _ hy
+     obtain ⟨b,hb⟩ := (negative_image c L d (-y)).mp hny
+     refine ⟨a,b,?_⟩
+@@ -61,8 +66,7 @@
+   · rintro ⟨a,b,rfl⟩
+     apply Submodule.sub_mem
+     · apply (le_sup_left : positive ≤ LaurentCechFinite318.boundary _)
+-      rw [← finite_image c L]
+-      exact ⟨a,rfl⟩
++      exact (hfm _).mp ⟨a,rfl⟩
+     · apply (le_sup_right : negative.map _ ≤ LaurentCechFinite318.boundary _)
+       exact (negative_image c L d _).mpr ⟨b,rfl⟩
+ end ContactOriginalShiftedBoundary318
+--- before/LaurentPositiveTwistVanishing318
++++ sources/LaurentPositiveTwistVanishing318
+@@ -25,7 +25,7 @@
+ 
+ /-- The displayed old transition multiplied by the original positive
+ Laurent monomial. Identification with a geometric tensor twist is separate. -/
+-def transition (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) := e.trans (shift d)
++@[expose] def transition (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) := e.trans (shift d)
+ 
+ lemma inverse_apply (e : V k r ≃ₗ[LaurentPolynomial k] V k r) (d : ℤ) (v : V k r) :
+     (transition e d).symm v = (LaurentPolynomial.T (-d) : LaurentPolynomial k) • e.symm v := by
+--- before/OriginalOpenRingRestrictionPath318
++++ sources/OriginalOpenRingRestrictionPath318
+@@ -16,7 +16,8 @@
+ /-- The literal named path and original image equality determine the
+ ambient inclusion used by the restriction; no unrelated ring embedding. -/
+ lemma image_le : W ≤ j ''ᵁ ⊤ := by
+-  rw [← hw,← h]
++  subst t
++  rw [← hw]
+   exact OpenChartSections318.imageLE k j
+ 
+ /-- Original regular-function restriction along a named composite chart,
+@@ -27,5 +28,7 @@
+   subst t
+   have hp := congrArg (X.presheaf.map (eqToHom hw.symm).op)
+     (OpenChartSections318.restriction_apply k j s)
+-  simpa only [← Functor.map_comp_apply,← op_comp] using hp
++  have hpath : eqToHom hw.symm ≫ homOfLE (OpenChartSections318.imageLE k j) =
++      homOfLE (image_le k j (k ≫ j) rfl W hw) := Subsingleton.elim _ _
++  simpa only [← Functor.map_comp_apply,← op_comp,hpath] using hp
+ end OriginalOpenRingRestrictionPath318

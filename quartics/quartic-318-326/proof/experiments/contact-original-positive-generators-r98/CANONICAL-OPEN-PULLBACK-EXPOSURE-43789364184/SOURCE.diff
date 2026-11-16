@@ -1,0 +1,11 @@
+--- before/OriginalOpenPullbackSections318.lean
++++ sources/OriginalOpenPullbackSections318.lean
+@@ -15,7 +15,7 @@
+ 
+ /-- Actual original pullback sections identify with sections of the SAME
+ original module on the FULL image open. -/
+-def sectionsEquiv (M : Y.Modules) :
++@[expose] def sectionsEquiv (M : Y.Modules) :
+     Γ((Scheme.Modules.pullback f).obj M,⊤) ≃+ Γ(M,f ''ᵁ ⊤) :=
+   (((Scheme.Modules.toPresheaf X).mapIso
+     (((Scheme.Modules.restrictFunctorIsoPullback f).app M).symm)).app (op ⊤)).addCommGroupIsoToAddEquiv
