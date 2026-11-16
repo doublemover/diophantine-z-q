@@ -1,0 +1,11 @@
+--- quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r42/ActualLocalizationCartesian318.lean
++++ quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r50/ActualLocalizationCartesian318.lean
+@@ -24,6 +24,6 @@
+     ext a
+     simp only [RingHom.comp_apply,Localization.awayMap,IsLocalization.Away.map,
+       IsLocalization.map_eq]
+-  exact (CommRingCat.isPushout_of_isLocalization f
+-    (Localization.awayMap f r) h (Submonoid.powers r)).op.map Scheme.Spec
++  exact ((CommRingCat.isPushout_of_isLocalization f
++    (Localization.awayMap f r) h (Submonoid.powers r)).op.map Scheme.Spec).flip
+ end ActualLocalizationCartesian318

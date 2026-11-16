@@ -1,0 +1,54 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PerfectCoefficientPairing318.lean:21:30: error: unsolved goals
+R : Type u_1
+A : Type u_2
+ι : Type u_3
+inst✝⁴ : CommRing R
+inst✝³ : CommRing A
+inst✝² : Algebra R A
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+b : Basis ι R A
+σ : ι → ι
+hσ : Function.Involutive σ
+ε : A →ₗ[R] R
+hpair : ∀ (i j : ι), ε (b i * b j) = if j = σ i then 1 else 0
+x : A
+r : R
+y : A
+⊢ r • ε (x * y) = (RingHom.id R) r • ε (x * y)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PerfectCoefficientPairing318.lean:22:18: error: unsolved goals
+R : Type u_1
+A : Type u_2
+ι : Type u_3
+inst✝⁴ : CommRing R
+inst✝³ : CommRing A
+inst✝² : Algebra R A
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+b : Basis ι R A
+σ : ι → ι
+hσ : Function.Involutive σ
+ε : A →ₗ[R] R
+hpair : ∀ (i j : ι), ε (b i * b j) = if j = σ i then 1 else 0
+x y z : A
+⊢ { toFun := fun y_1 => ε (x * y_1) + ε (y * y_1), map_add' := ⋯, map_smul' := ⋯ } z =
+    { toFun := fun y => ε (x * y), map_add' := ⋯, map_smul' := ⋯ } z +
+      { toFun := fun y_1 => ε (y * y_1), map_add' := ⋯, map_smul' := ⋯ } z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PerfectCoefficientPairing318.lean:23:19: error: unsolved goals
+R : Type u_1
+A : Type u_2
+ι : Type u_3
+inst✝⁴ : CommRing R
+inst✝³ : CommRing A
+inst✝² : Algebra R A
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+b : Basis ι R A
+σ : ι → ι
+hσ : Function.Involutive σ
+ε : A →ₗ[R] R
+hpair : ∀ (i j : ι), ε (b i * b j) = if j = σ i then 1 else 0
+r : R
+x y : A
+⊢ { toFun := fun y => r • ε (x * y), map_add' := ⋯, map_smul' := ⋯ } y =
+    (RingHom.id R) r • { toFun := fun y => ε (x * y), map_add' := ⋯, map_smul' := ⋯ } y

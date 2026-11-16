@@ -1,0 +1,21 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW_NOT_LEAN",
+  "sources": {
+    "PrueferTatePadicModule318.lean": "1045df42d148fdde8c76cacf19be66e8a022fa980a4316c5e4d4a40a51107f41",
+    "ActualPrimaryTateZ2Model318.lean": "0c1a71edec248df57890544b2b528043a582413ef6c5c467d5575d63350e275c"
+  },
+  "native_snapshots": {
+    "Mathlib-Module-TransferInstance-56a005.lean.txt": "303646c116d151cf5eb1a86ad0a1920749d38a2d5e66d0fe65cc76384f1e17ca",
+    "Mathlib-Basis-Basic-56a005.lean.txt": "9e4d6423b8a1d181afdc9102ce0696f3bff15872caf95f78407dc35304c585b9"
+  },
+  "findings": [
+    "The Module Z2 structure is transferred using the explicit additive equivalence from the literal tower to Z2, in the correct direction. AddEquiv.module preserves the existing AddCommGroup; it does not replace the actual tower carrier or additive law.",
+    "The corresponding linear equivalence has the inverse direction Z2 to tower and underlying map is the already constructed padicEquiv. map_smul gives the claimed multiplication formula.",
+    "smul_coordinate proves equality with the actual finite-residue action: reduction is a ring hom, ZMod.val_mul computes numerator modulo 2^n, encode_mod removes the reduction, and mul_nsmul matches scalar composition. Thus the transferred structure is checked coordinatewise, including level0.",
+    "The singleton basis is the native basis of Z2 over itself transported by that same linear equivalence. Its value is padicEquiv 1, already identified with the actual canonical tower. Unique scalar generation follows from bijectivity, with no divisibility or nonzero assumption omitted.",
+    "ActualPrimaryTateZ2Model318 composes the previous zero-or-Pruefer alternative with padicEquiv.symm. It retains exactly hn, hf, hb, hS, does not select either branch, and asserts only an additive equivalence in the nonzero branch. It does not claim a canonical actual-Selmer module structure or positive rank/Sha finiteness.",
+    "No admissions, new axioms or option changes. Native module/basis signatures align, but all source and dependency elaboration remains hosted."
+  ],
+  "local_lean_run": false,
+  "lean_acceptance": false
+}

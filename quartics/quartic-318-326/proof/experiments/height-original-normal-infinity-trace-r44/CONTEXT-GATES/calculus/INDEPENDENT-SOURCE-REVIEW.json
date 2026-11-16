@@ -1,0 +1,69 @@
+{
+  "status": "PASS_BOUNDED_SIX_SOURCE_API_REVIEW_NOT_LEAN_ACCEPTANCE",
+  "application_sha256": "8ea1e4973a1183a53d1c0e411de44a347a482eaf4167b383b591ae16ac112440",
+  "bindings_verified": 52,
+  "native_git_blobs_verified": 11,
+  "actual_producer_consumer_copies_verified": 15,
+  "rows": [
+    {
+      "module": "AnalyticNonzeroSquareRoot318",
+      "before_sha256": "18fdf214ded1dc6bafbc814ab5ca80bcc56de6b75310c88902fd3ca27f28913c",
+      "after_sha256": "6a76265d52b1098140a963c4a34a2b9152295f44067b12d0bb509a6c2701a75c",
+      "own_inventory_seconds": 1.418,
+      "public_written_signature_unchanged": true
+    },
+    {
+      "module": "AnalyticSquaredBaseChange318",
+      "before_sha256": "fb704b9bc32ca4932b4d6e5044a3140a040cd9d058ed461985386f808c5a1a68",
+      "after_sha256": "8e2dbfa6ec448af3455e152cfa288f4f4332d244fe04de1a057f7398d487607f",
+      "own_inventory_seconds": 1.468,
+      "public_written_signature_unchanged": true
+    },
+    {
+      "module": "AnalyticSquaredDerivative318",
+      "before_sha256": "f97e8d6d365036a2dfbd33187c7e712b21e1c10af8810ca12d358ceaffe3de96",
+      "after_sha256": "366102ad221c8ac318e508b7a5cf4120e3c23426181c1455a56b7c7a51c44581",
+      "own_inventory_seconds": 1.017,
+      "public_written_signature_unchanged": true
+    },
+    {
+      "module": "GeodesicCircleFlattening318",
+      "before_sha256": "c91212364a9cca0d3b9271aed882edf23aeb99b1c450db66031cfe76752d7e70",
+      "after_sha256": "6fecbbbebf17fc584050042da4d3da44f4fd8706b841f9d035d5dc6587e3d762",
+      "own_inventory_seconds": 1.869,
+      "public_written_signature_unchanged": true
+    },
+    {
+      "module": "PELOriginalLogMetricDerivatives318",
+      "before_sha256": "ea5079f799d6caa63207ea99ad0915155a5dee09e5bf5b4dab86ecebb3e5d600",
+      "after_sha256": "d68c3690fd5374f1dfa9a43abfa2d2b6a8f775e90d2814cd88b1b0e40bffc16e",
+      "own_inventory_seconds": 1.618,
+      "public_written_signature_unchanged": true
+    },
+    {
+      "module": "UpperHalfPlanePowerRays318",
+      "before_sha256": "c4c56858a1f593b7492218651c32e12187d854db4e241e7fb2bbe31368de0fa3",
+      "after_sha256": "4337a92bc21174fa6fd24ffc4b201fc38afca881f9a6d8c277e81caaaac0b7db",
+      "own_inventory_seconds": 1.468,
+      "public_written_signature_unchanged": true
+    }
+  ],
+  "checks": [
+    "AnalyticNonzeroSquareRoot: full source read. Native hasDerivAt_pow n x has the explicit lambda x^n and derivative n*x^(n-1), matching the logged rewrite boundary. At n=2 this uses the already-derived nonzero s z, not a new nonvanishing premise; local inverse/continuous-root argument unchanged.",
+    "AnalyticSquaredBaseChange: full source read. AnalyticAt.comp has explicit implicit f, now pinned to the same square map. Native HasDerivAt.mul gives c-prime*d(x)+c(x)*d-prime exactly; the change only exposes id(0) and the existing q lambda, without comparing or changing Complex scalar dictionaries. ContinuousAt.tendsto gives the correct target neighborhood, then zero_pow normalizes its center. Existing q, inverse k, all local identities and assumptions remain.",
+    "AnalyticSquaredDerivative: full source read. Sole import supplies concrete Complex normed/densely normed field and topology dictionaries; own log previously treated the unbound symbol as an auto-implicit generic type. This restores the intended concrete carrier, not a proof that arbitrary fields satisfy the statement. Written declarations and entire proof bodies unchanged; downstream errors may still appear hosted.",
+    "GeodesicCircleFlattening: full source read. Native differentiableAt_const takes explicit c. Constants now exactly match flatten -I*((z-a)/(b-z)) and unflatten (a+b*(I*w))/(1+I*w), with original denominator hypotheses and public domains. All other proofs and maps unchanged.",
+    "PELOriginalLogMetricDerivatives: full source and actual Riemann/bilinear/weight/curvature chain read. Native bilinear derivative retains f=id; Function.id_def removes only id y/id z before the existing equality rewrite. Same actual real bilinear form, imaginaryMap, Gaussian coefficient and factor -2*pi retained.",
+    "UpperHalfPlanePowerRays: full source read. Pinned Complex.sin_ofReal_re exactly proves the two emitted real-part residuals and is not automatically a simp lemma there. Added only to existing simp calls. Rays, n>=2 coverage, positivity and powers I/-I unchanged.",
+    "All52 bindings,11 native blobs including license,15 exact actual producer/consumer snapshots and six before copies verified; own central inventory/log bytes agree. Relevant actual consumer applications retain the same domains/maps; no consumer source is changed.",
+    "One new direct native import must be reflected in any successor intake import metadata for AnalyticSquaredDerivative; source gate is separate from packet propagation."
+  ],
+  "scope": "Six existing source corrections anchored to own character37 independent inventory errors, not a production-prefix or sibling success. Full changed bodies and relevant native telescopes read; no added mathematical premises, options or proof caps.",
+  "limits": [
+    "No local Lean or candidate hosted success. All complete source/consumer elaboration remains to be tested hosted.",
+    "Public written signatures unchanged; the new Complex import intentionally repairs the earlier unintended auto-implicit carrier.",
+    "Current propagation must preserve exact own inventory provenance and add the explicit import in metadata; no packet/root expansion or acceptance inferred."
+  ],
+  "local_lean_run": false,
+  "candidate_success_established": false
+}

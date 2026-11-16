@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS independent source/mathematical/API review only, NOT Lean acceptance",
+  "bindings": {
+    "completeness-primary-selmer-transfer-20261116/ActualFullSelmerCorank318.lean": "ccdbf1736303448d6f44f09295c0ea2a8b4baacffe0e26f80f4750a28009c36c",
+    "completeness-primary-selmer-transfer-20261116/ActualPontryaginLowCorank318.lean": "173fc65c3ae57e6ee50febc5e172606eeb4eb553b67619f439a13fae9802bf72",
+    "completeness-primary-selmer-transfer-20261116/Mathlib-Dimension-Finite-56a005.lean.txt": "d34bd6ddee91ea21bafb19e36fea93800189c6be56852e4b29b1633d65bfedaf",
+    "completeness-primary-selmer-transfer-20261116/Mathlib-Dimension-Basic-56a005.lean.txt": "d4cda0cfa9c279840b74e59334b05d063241773fd39a6112ae05d1c3f7d90430",
+    "completeness-primary-selmer-transfer-20261116/Mathlib-OrderOfElement-56a005.lean.txt": "a88352f3bc014e3306143e09781e3ef55c72b42496505b63089b7998fc5d31c4"
+  },
+  "checks": [
+    "Generic finite charZero module lemma uses native rank_eq_zero_iff, which requires no torsion-free hypothesis. Each finite additive element admits positive integer annihilator; CharZero ensures its cast nonzero.",
+    "Native additive finite-order alias yields positive q, so hq.ne prime gives q !=0, matching Nat.cast_ne_zero. Native cast smul reduces to nsmul.",
+    "Actual corank is explicitly Module.rank of existing native Pontryagin dual under already defined natural Z2 action, not rational-point rank or finite level size.",
+    "Finite branch gives rank zero; actual linear equivalence branch gives rank one using rank_eq and CommSemiring.rank_self. Full hn,hf,hb,hS hypotheses retained and no branch chosen.",
+    "No missing reduced-pairing input assumed, no new topological equivalence theorem or pointwise converse claim."
+  ],
+  "limitations": [
+    "Hosted Lean elaboration and recursive arithmetic audit remain required; actual dependency remains anchor-bound.",
+    "Definition fixes the corank convention in this source; does not independently prove an external alternative definition agrees."
+  ],
+  "lean_executed": false
+}

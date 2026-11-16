@@ -1,0 +1,33 @@
+{
+  "verdict": "PASS independent mathematical/source/API review only, NOT Lean acceptance",
+  "bindings": {
+    "completeness-primary-selmer-transfer-20261116/ActualCorankOnePrimaryShaCriterion318.lean": "0d1d60330d1ab3354dbe76c4650e1674f992801caca100dae3bf193efdec7845",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualCorankZeroFinitePrimarySha318.lean": "bba92194b72af6290699f7dce292ce442567838fe4f1045276afd7b1901d0833",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualFullSelmerCorank318.lean": "ccdbf1736303448d6f44f09295c0ea2a8b4baacffe0e26f80f4750a28009c36c",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualPontryaginLowCorank318.lean": "173fc65c3ae57e6ee50febc5e172606eeb4eb553b67619f439a13fae9802bf72",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualTwoDescentDyadicPrueferModel318.lean": "05fcf765ec6dc337095230584302fe5d4c200dac1b9f92ccd10bd5e536b6580b",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualTwoDescentFiniteRankPrimarySelmerEquivalence318.lean": "871b7319227ab46264494120d0ecb118e496b15894f62f9bf16bbed8042c0b57",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualTwoDescentActualShaRankAlternative318.lean": "f8b5b4e5f152725fb028cd2c1d084261303f59210d507c862e4bbf4e444205a3",
+    "recovery-pruefer-residue-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r48/ActualTwoDescentActualShaPrimaryVanishing318.lean": "5a5474632a96579e556bbead3517a127da521277d2d52b9482995bbd2e53c47d"
+  },
+  "predecessor_commit": "65d31be3233b0adaa87870aed81d5128c07aba5e",
+  "native_reference": {
+    "repository": "leanprover-community/mathlib4",
+    "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "path": "Mathlib/Basic/Finite/Defs.lean",
+    "git_blob_sha": "46c793bf035b8c5f7dc19a729b49b3971e6f154c"
+  },
+  "checks": [
+    "Finite primary Selmer forces corank zero under actual classification: cyclic branch gives finite actual dual then rank zero; Pruefer branch contradicts actual_pruefer_infinite using Finite.of_equiv. Native not_finite takes simultaneous Infinite/Finite instances and yields False as used.",
+    "Finite primarySha plus finite Point gives finite primarySelmer through actual finiteRankPrimarySelmerEquiv, whose only extra typeclass is Finite(Point n); contradiction with explicit corank-one hypothesis.",
+    "Infinite(Point n) gives actualShaTwo cardinality1 by exact existing actual_sha_one_iff_infinite under hn,hf,hb,hS. Existing primary-group theorem upgrades trivial2-torsion to trivial whole2-primary subgroup. No parity/reduced-duality assumption introduced.",
+    "Final equivalence finite primarySha iff Subsingleton primarySha retains explicit corank-one premise. No numerical rank-one replacement, no assertion either branch holds for a specific twist.",
+    "Separate legal import all exposes the unchanged corank definition; all7 inspected producer files exact immutable48 and transitively imported.",
+    "Statements remain about full2-primary Sha, not other primary parts. New source contains no changed compiler options or trust bypass."
+  ],
+  "limitations": [
+    "Hosted Lean elaboration and inherited actual arithmetic audit remain required; actual closure remains anchor-dependent.",
+    "Infinite rational-point group is the precise conclusion; relating it to any numerical Mordell-Weil rank convention is separate."
+  ],
+  "lean_executed": false
+}

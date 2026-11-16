@@ -1,0 +1,7 @@
+# pel-original-character-ordered-biholomorph-r44
+
+Thin successor to pel-original-character-ordered-biholomorph-r43 at d291055d546466020841e10daae6711b0ec78200. Same 1169 ordered roots; 1165 byte-identical and four independently reviewed source repairs. All original public written theorem statements, resource options, mathematical objects and full proof requirements retained.
+
+FiniteNormalAllOpenImage separates the lattice inequality from iSup so the parser cannot consume the initial-segment token ≤i. AffineTargetCoordinates finishes the original categorical composition residual by reflexivity. FlatSurjectiveLocalFactorAgreement derives restriction surjectivity from the already assumed global surjectivity using native Zariski locality. PELOriginalPeriodMatrixDerivative imports native Matrix.Normed and opens its Elementwise scope to supply the missing native Pi-based normed group/space; all its written statements and proof bodies remain unchanged, and dictionary compatibility remains a hosted obligation. The added native import is reflected in intake metadata.
+
+All four source/log pairs are historical long-inventory errors in run 43830035707, matching current before bytes; historical evidence is not current dependency-context acceptance. Exact source/native API reviews are bound in SOURCE-GATES. No local Lean, packet acceptance, baseline promotion, desired witness assumption or full theorem claim. Immediate predecessor evidence remains immutable at INHERITANCE commit/path/tree.

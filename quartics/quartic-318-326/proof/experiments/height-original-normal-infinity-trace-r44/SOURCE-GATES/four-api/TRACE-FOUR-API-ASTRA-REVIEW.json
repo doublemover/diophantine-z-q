@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS independent exact-source/API review, NOT Lean acceptance",
+  "application_sha256": "669337398cb83db66f4e8d448fd8ab5c7018619f7ba6b9ad8e04105159b7a33e",
+  "bindings_verified": 33,
+  "modules": {
+    "PerfectCoefficientPairing318": {
+      "before_sha256": "0b81f830798f15de900a84ed7dd10c60e75b477ff8f8d9849967f6c4867b206b",
+      "after_sha256": "173526932dcf20f8d6bc96d92887ae12f3a02a225219b1ec530ee4fb2082b51f"
+    },
+    "SimpleQuadraticEtalePoint318": {
+      "before_sha256": "c146c3bc8f7dc63cd7005c7602b114402b9601501f954012ead4e67485643531",
+      "after_sha256": "5f6707936c37f523f9fbab7c2051f9cbfa05d56b24323f8111c83ff21dc2473b"
+    },
+    "IntegralQuadraticPointZoom318": {
+      "before_sha256": "61434e80c6f12d733efbb67dea230ea3fd59950d9f04bec8cf5e7e6a7132cfd7",
+      "after_sha256": "b5385c74381bc3514d7f19aea9df37a01fec9396569cbd9d281715ed86015324"
+    },
+    "BaseChangingDifferentialTensor318": {
+      "before_sha256": "70309261cc3437825c88ec5e44d1053b542ccecef2fc11fb0b4029eb50631867",
+      "after_sha256": "ff27fad6306a60ebe391f9dc5a877a2b01dd9b9b59647e1c17548e8ef454d73b"
+    }
+  },
+  "checks": [
+    "All four historical failing source hashes exactly match current trace42; native-only project imports, no changed producer. Eight direct consumer snapshots independently match immutable historical and current Git bytes.",
+    "PerfectCoefficientPairing makes existing structure projections and identity scalar action explicit before identical module laws; no pairing or hypothesis change.",
+    "SimpleQuadraticEtalePoint matches native lift_mk(h,p),lift_root(h) arities and pins Away.lift to the same rootPoint ev hq. This fixes dropped implicit section-parameter capture; it does not change the intended zero point or invert2.",
+    "IntegralQuadraticPointZoom normalizes polynomial C2 via map_ofNat before existing ring identity for all four arbitrary radicands.",
+    "BaseChangingDifferentialTensor makes same f.toRingHom scalar action explicit; native TensorProduct.lift.tmul has two explicit arguments. No balanced map/type changed.",
+    "All33 bindings, five raw pinned native Git blobs and four historical failure inventory/log bindings independently verified.",
+    "Diff contains no new premise, import, resource-option change, admitted proof, or trust bypass. Existing producer options retained."
+  ],
+  "limitations": [
+    "Hosted candidate and consumers remain uncompiled by this review; historical errors are not current replay outcomes.",
+    "Final successor and full recursive packet audit still required."
+  ],
+  "lean_executed": false
+}

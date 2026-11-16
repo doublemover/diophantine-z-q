@@ -471,7 +471,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_prepared_anchor_elaboration.py "$PACKET"
       - name: Non-admitted exact Kaehler import and command timeout diagnostic
-        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'pel-original-cotangent-hzero-forty-r68'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'pel-original-cotangent-hzero-forty-r69'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}

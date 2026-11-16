@@ -1,0 +1,35 @@
+--- quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r42/AlgebraicFiniteTypeFiniteOpen318.lean
++++ quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r50/AlgebraicFiniteTypeFiniteOpen318.lean
+@@ -24,8 +24,8 @@
+   let B := Localization.Away r
+   let L := Localization.Away (algebraMap R A r)
+   let f : B →+* L := localizedMap R A r
+-  letI : Algebra R L := ((algebraMap A L).comp (algebraMap R A)).toAlgebra
+-  letI : IsScalarTower R A L := IsScalarTower.of_algebraMap_eq' rfl
++  -- Retain the native Ore-localization scalar actions and their actual tower.
++  letI : IsScalarTower R A L := inferInstance
+   letI : Algebra B L := f.toAlgebra
+   letI : IsScalarTower R B L := IsScalarTower.of_algebraMap_eq' (by
+     ext a
+@@ -52,10 +52,17 @@
+   have hcomp : (localizedMap R A (e p)).comp g.toRingHom =
+       Localization.awayMap ((algebraMap R A).comp e.toRingHom) p := by
+     apply IsLocalization.ringHom_ext (Submonoid.powers p)
+-    ext a
+-    simp only [RingHom.comp_apply,g,IsLocalization.ringEquivOfRingEquiv_eq,
+-      localizedMap_source,Localization.awayMap,IsLocalization.Away.map,
+-      IsLocalization.map_eq]
++    apply RingHom.ext
++    intro a
++    change localizedMap R A (e p) (g (algebraMap P (Localization.Away p) a))=
++      Localization.awayMap ((algebraMap R A).comp e.toRingHom) p
++        (algebraMap P (Localization.Away p) a)
++    rw [show g (algebraMap P (Localization.Away p) a)=
++      algebraMap R (Localization.Away (e p)) (e a) from
++      IsLocalization.ringEquivOfRingEquiv_eq (Submonoid.map_powers e p) a]
++    rw [localizedMap_source]
++    simp only [Localization.awayMap,IsLocalization.Away.map,IsLocalization.map_eq,RingHom.comp_apply]
++    rfl
+   rw [←hcomp]
+   exact hf.comp (RingHom.Finite.of_surjective g.toRingHom g.surjective)
+ 

@@ -1,0 +1,75 @@
+module
+public import CanonicalIndexPreparation318
+public import CanonicalJacobiNorm318
+public section
+noncomputable section
+namespace JacobiIndexPreparation318
+open Filter CircuitReplay
+open ClearedContactForms318 MergedContactPrimePattern318 ContactPatternSupport318
+open GaussianRayQuarterPreparation318 GaussianQuarterModuli318
+open ActualCyclicClosure318 GeneratorScalarProgression318
+open scoped Topology
+set_option maxHeartbeats 1000000
+variable {labels : Fin 4 → ℤ} (C : Clearing labels)
+local instance : Fact (Nat.Prime 2) := ⟨by norm_num⟩
+local instance : Fact (Nat.Prime 3) := ⟨by norm_num⟩
+local instance : Fact (Nat.Prime 17) := ⟨by norm_num⟩
+
+/-- The actual Jacobi-sum producer discharges canonical CM and hence every
+original finite-count input before constructing the same final CRT index.
+Prime-pattern existence and conditional rational point pairs remain explicit. -/
+theorem prepared_family (S : ℚ) (a : ℤ) (hn : ∀ j, labels j≠0)
+    (hbeta : labels 0=3723*(2*a+1)^2)
+    (hlucas : (labels 2)^2-labels 1*(labels 1-2)*labels 2*labels 3+
+      (labels 1-2)^2*(labels 3)^2=1)
+    (h₀ L : ℕ) (hL : 0<L) (h64L : 64∣L) (h64h : 64∣h₀)
+    (N₂ N₃ N₁₇ : ℤ)
+    (h₂ : SourceLocalProgression318.Prepared 2 (a:ℚ) labels h₀ L N₂ 3)
+    (h₃ : SourceLocalProgression318.Prepared 3 (a:ℚ) labels h₀ L N₃ 1)
+    (h₁₇ : SourceLocalProgression318.Prepared 17 (a:ℚ) labels h₀ L N₁₇ 2) :
+    ∃ T : ℚ, ∃ Q : ℕ, 0<Q ∧ ∀ u w : ℤ, ∀ hp : Values C u w,
+      (Q:ℤ)∣w → ∀ hray : (∀ k∈coefficients C, (408:ℤ)∣value u w k-1),
+      (∀ j : Fin 3, ∀ i : Fin 5, FixedSelectedPrimeBound318.bound C<(row C u w j i).natAbs) →
+      ∀ A B : Fin 3 × Fin 5 → ℤ,
+      (∀ i, GaussianRayQuadratic318.Ray (row C u w i.1 i.2).natAbs (A i) (B i)) →
+      (∀ i, A i%7=1) → (∀ i, B i%7=3) →
+      (∀ i j, Nat.gcd (GaussianNeighborNorms318.minus (A i) (B i))
+        (GaussianNeighborNorms318.plus (A j) (B j))=4) →
+      (∀ i, Avoid L (A i) (B i)) →
+      (∀ k∈coefficients C, L<(value u w k).natAbs) →
+      ∀ E : ℝ, (∀ i, 1+2*|(A i:ℝ)|≤E) → E<(w:ℝ)^2 →
+      (∀ k∈coefficients C, ∀ i : Fin 3 × Fin 5,
+        ((row C u w i.1 i.2).natAbs:ℝ)+E<2*((value u w k).natAbs:ℝ)) →
+      T≤parameter C u w → ∀ B₀ : ℕ,
+      ∃ s : Fin 3 × Fin 5 → Bool,
+      let r := SelectedRayEmbeddings318.oriented C u w hp (SelectedRayEmbeddings318.roots C u w hp hray) s
+      ∃ h : ℕ, B₀<h ∧ 1<h ∧
+        Nat.ModEq ((product C u w)^3*quarterMinus C u w hp r) h 0 ∧
+        Nat.ModEq (quarterPlus C u w hp r) h 1 ∧ Nat.ModEq L h h₀ ∧
+        (1/100:ℝ)< |(normCoefficient (CoherentMultipleCharts318.chartU (h:ℤ)):ℝ)| ∧
+        (∀ j : Fin 4, margin labels j<
+          |(RealGuardTrace318.guardValue (labels j) ((h:ℤ) • LocalGenerator318.P):ℝ)|) ∧
+        ThreeSelectedPolePreparation318.Prepared (a:ℚ) labels (h:ℤ) (parameter C u w) ∧
+        let pre := ThreeDetectorUniformFamily318.witness (a:ℚ) labels (h:ℤ) (parameter C u w)
+        pre 0=(a:ℚ) ∧ Constraints (ThreeDetectorPrePole318.rows S) pre ∧
+        (∀ j : Fin 3, 0<pre (190+51*j.val) ∧ pre (190+51*j.val)<17) ∧
+        (∀ j : Fin 4, RealGuardWitness318.root (CoherentMultiplePrefix318.u labels (h:ℤ))
+          (CoherentMultiplePrefix318.v labels (h:ℤ)) j=CoherentMultipleCharts318.fixedRoot (labels j)) ∧
+        (∀ P₀ : NormalizedPolePoints318.PointPair (pre 190),
+         ∀ P₁ : NormalizedPolePoints318.PointPair (pre 241),
+         ∀ P₂ : NormalizedPolePoints318.PointPair (pre 292),
+         ∃ out : Assignment, out 0=(a:ℚ) ∧
+           (∀ j : Fin 3, out (190+51*j.val)=pre (190+51*j.val)) ∧
+           Constraints ((Raw318FinalReplay.stage0 S).take 263) out) := by
+  obtain ⟨T,Q,hQ,hfamily⟩ := CanonicalIndexPreparation318.prepared_family C S a hn hbeta hlucas
+    h₀ L hL h64L h64h N₂ N₃ N₁₇ h₂ h₃ h₁₇
+  refine ⟨T,Q,hQ,?_⟩
+  intro u w hp hw hray hlarge A B hGaussian ha7 hb7 hpair hav hcut E herror hspace hrange hparam B₀
+  have hcm : CanonicalSelectedCounts318.AllCanonicalCM C u w hp A := by
+    intro i
+    let p := (row C u w i.1 i.2).natAbs
+    letI : Fact p.Prime := ⟨row_prime C u w hp i.1 i.2⟩
+    exact CanonicalJacobiNorm318.canonical_from_ray p (A i) (B i) (hGaussian i)
+  exact hfamily u w hp hw hray hlarge A B hGaussian ha7 hb7 hcm hpair hav hcut E herror hspace hrange hparam B₀
+
+end JacobiIndexPreparation318

@@ -1,0 +1,17 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/AnalyticNonzeroSquareRoot318.lean:25:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv (id ^ 2) (s z)
+in the target expression
+  deriv (fun w => w ^ 2) (s z) ≠ 0
+
+U : Set ℂ
+hU : IsOpen U
+g s : ℂ → ℂ
+hg : AnalyticOnNhd ℂ g U
+hs : ContinuousOn s U
+he : ∀ (z : ℂ), s z ^ 2 = g z
+hn : ∀ z ∈ U, g z ≠ 0
+z : ℂ
+hz : z ∈ U
+hs0 : s z ≠ 0
+hfa : AnalyticAt ℂ (fun w => w ^ 2) (s z)
+⊢ deriv (fun w => w ^ 2) (s z) ≠ 0

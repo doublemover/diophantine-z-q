@@ -9,13 +9,14 @@ import tempfile
 import re
 import diagnose_diagonal_identity as runner
 ci = runner.ci
-PACKET = 'pel-original-cotangent-hzero-forty-r68'
+PACKET = 'pel-original-cotangent-hzero-forty-r69'
 MODULE = 'FourRootActualBranchKaehler318'
 DEPENDENCIES = {'FourRootActualBranchLocalization318','ActualEtaleFrameNormalization318','SquareCoordinateDifferential318','ActualRootPivotCoordinates318'}
+BASELINE_SOURCES = {'SquareCoordinateDifferential318': 'dc7711a87960735b1682f8ccfa9275be60b5bce135ab5386b36d12f06a2e908b'}
 SOURCE_SHA = '26e84b6a6e5f1d14263d71673cdfbbc520964630179cf9732fb2616b471d0b32'
 SCRATCH_SHAS = {'imports_only':'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59','command_trace':'324766ba3fac040b7055810250f3b2639b45786f04729f2b6c7417a41f460955'}
-INTAKE_SHA = 'f17a81bd71ac81be4294e9683c91d1b7e012b723bff76afc2b55bc93cb223e9f'
-APPLICATION_SHA = '3683b863c3f906b9664cca0b12aa3fbcaa85389a39666e138e7d6c2130f4296e'
+INTAKE_SHA = '6e0afdf648f8afae6195ad8ac836ac706f8e804a3bdf2572ce15f292d435f442'
+APPLICATION_SHA = 'bb069d50852d17b665734340b9ded0e32d373aadef7685c13e854998ee8b8128'
 RUNNER_SHA = 'f270b32bb08b551595e4b74cfbe3cb84ed26b3eef469894a7d4a7e5c574df7f2'
 RUNNER_LIMITS_SHA = '1d9e0fd76754d37372f24995469592a3707fe0d3ebf5c55518752449f80a3c00'
 SECONDS = 90
@@ -53,6 +54,62 @@ def specimens(source):
     require({k:digest(v) for k,v in result.items()} == SCRATCH_SHAS, 'Reviewed specimen changed')
     return result
 
+def baseline_dependency_evidence(output, result, successful_prefix):
+    """Read-only authentication of the one direct import from the audited baseline.
+
+    This repeats cache provenance checks against the same job's copied library;
+    it does not compile, copy, repair, or promote any artifact.
+    """
+    missing = DEPENDENCIES - set(successful_prefix)
+    require(missing == set(BASELINE_SOURCES), 'Unexpected dependency outside successful prefix')
+    plan = ci.derive_plan()
+    require(result.get('baseline_snapshot') == plan['snapshot'] and
+            result.get('baseline_modules') == len(plan['module_order']),
+            'Own normal baseline identity changed')
+    require(missing <= set(plan['module_keys']), 'Required import is not an accepted baseline module')
+    source_bindings = {}
+    for name, expected in BASELINE_SOURCES.items():
+        source = ci.PROJECT / (name + '.lean')
+        require(sha(source) == expected, 'Frozen baseline source changed: ' + name)
+        source_bindings[name] = expected
+    cache = ci.ROOT / '.cache/progress-ci'
+    receipt_path = cache / 'receipt.json'
+    receipt = json.loads(receipt_path.read_text())
+    expected_receipt = {'schema': ci.SCHEMA, 'status': 'PASS', 'base': plan['base'],
+        'snapshot': plan['snapshot'], 'scope': 'Complete source coverage and recursive axiom audit'}
+    require(all(receipt.get(k) == v for k, v in expected_receipt.items()),
+            'Audited baseline receipt identity changed')
+    require(isinstance(receipt.get('audit_result_sha256'), str) and
+            re.fullmatch(r'[0-9a-f]{64}', receipt['audit_result_sha256']),
+            'Audited baseline result reference missing')
+    needed = set()
+    def visit(name):
+        if name in needed:
+            return
+        for dependency in plan['dependencies'][name]:
+            visit(dependency)
+        needed.add(name)
+    for name in sorted(missing):
+        visit(name)
+    built, artifacts = {}, {}
+    for name in plan['module_order']:
+        if name not in needed:
+            continue
+        entry = receipt.get('modules', {}).get(name)
+        require(ci.reusable(entry, name, plan, cache / 'lib', built),
+                'Missing, stale or corrupt audited baseline artifact: ' + name)
+        require(ci.artifact_hashes(output / 'lib', name) == entry['files'],
+                'Same-run copied baseline artifact differs: ' + name)
+        built[name] = entry
+        for suffix, value in entry['files'].items():
+            artifacts['lib/' + name.replace('.', '/') + suffix] = value
+    return {'scope': 'AUTHENTICATED_REUSED_BASELINE_NOT_FRESH_COMPILATION',
+        'receipt_sha256': sha(receipt_path), 'audit_result_sha256': receipt['audit_result_sha256'],
+        'snapshot': plan['snapshot'], 'base': plan['base'], 'source_bindings': source_bindings,
+        'required_modules': [n for n in plan['module_order'] if n in needed],
+        'module_keys': {n: plan['module_keys'][n] for n in plan['module_order'] if n in needed},
+        'same_run_artifacts': artifacts}
+
 def validate(packet, output, hosted=True):
     if hosted:
         require(os.environ.get('GITHUB_ACTIONS') == 'true' and bool(os.environ.get('RUNNER_TEMP')),
@@ -79,11 +136,11 @@ def validate(packet, output, hosted=True):
     require([x.get('module') for x in rows] == intake['order'][:index+1], 'Own normal frontier changed')
     require(all(x.get('exit_code') == 0 for x in rows[:-1]) and rows[-1].get('exit_code') == 124,
             'Own normal outcomes changed')
-    require(DEPENDENCIES <= set(intake['order'][:index]), 'Required dependency is outside successful prefix')
+    baseline_evidence = baseline_dependency_evidence(output, result, intake['order'][:index])
     lp = output/'logs'/(MODULE+'.log')
     require(lp.is_file() and 'WALL_CLOCK_LIMIT_EXCEEDED' in lp.read_text(), 'Exact own timeout absent')
     no_compiled(output/'lib', MODULE)
-    artifacts = {}
+    artifacts = dict(baseline_evidence['same_run_artifacts'])
     for row in rows[:-1]:
         name = row['module']
         require((output/'lib'/(name+'.olean')).is_file(), 'Own normally compiled predecessor missing: '+name)
@@ -94,7 +151,8 @@ def validate(packet, output, hosted=True):
     return specimens((packet/(MODULE+'.lean')).read_text()), {
         'normal_result_sha256':sha(rp), 'normal_failure_log_sha256':sha(lp),
         'successful_prefix_modules':[r['module'] for r in rows[:-1]],
-        'same_run_predecessor_artifacts':artifacts}
+        'same_run_predecessor_artifacts':artifacts,
+        'authenticated_reused_baseline':baseline_evidence}
 
 def main():
     p = argparse.ArgumentParser();p.add_argument('packet', choices=[PACKET]);a = p.parse_args()
@@ -131,6 +189,9 @@ def main():
         require(sha(output/'RESULT.json') == evidence['normal_result_sha256'], 'Production result changed')
         require(sha(output/'logs'/(MODULE+'.log')) == evidence['normal_failure_log_sha256'], 'Production log changed')
         require(sha(packet/(MODULE+'.lean')) == SOURCE_SHA, 'Production source changed')
+        require(baseline_dependency_evidence(output, json.loads((output/'RESULT.json').read_text()),
+                evidence['successful_prefix_modules']) == evidence['authenticated_reused_baseline'],
+                'Audited baseline provenance changed during probe')
         for name, expected in evidence['same_run_predecessor_artifacts'].items():
             require(sha(output/name) == expected, 'Compiled predecessor changed: '+name)
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,

@@ -1,0 +1,18 @@
+--- quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r42/FourRootFiniteBranchGraph318.lean
++++ quartics/quartic-318-326/proof/experiments/original-infinity-range-extension-r23/FourRootFiniteBranchGraph318.lean
+@@ -85,11 +85,13 @@
+   · intro k
+     by_cases hk:k=j
+     · have hi : AnalyticAt ℂ (fun w:ℂ=>w) 0 := by
+-        simpa only [id_eq] using (analyticAt_id : AnalyticAt ℂ (id : ℂ → ℂ) (0 : ℂ))
++        exact (analyticAt_id : AnalyticAt ℂ (id : ℂ → ℂ) (0 : ℂ)).congr
++          (Filter.Eventually.of_forall (fun w => rfl))
+       simpa only [Z,z,if_pos hk] using hi
+     · have ha:AnalyticAt ℂ (g k) (b j+(0:ℂ)^2):=by simpa using hg k hk
+       have hi : AnalyticAt ℂ (fun w:ℂ=>w) 0 := by
+-        simpa only [id_eq] using (analyticAt_id : AnalyticAt ℂ (id : ℂ → ℂ) (0 : ℂ))
++        exact (analyticAt_id : AnalyticAt ℂ (id : ℂ → ℂ) (0 : ℂ)).congr
++          (Filter.Eventually.of_forall (fun w => rfl))
+       have hs : AnalyticAt ℂ (fun w:ℂ=>b j+w^2) 0 :=
+         (analyticAt_const : AnalyticAt ℂ (fun _ : ℂ=>b j) 0).add (hi.pow 2)
+       have hc : AnalyticAt ℂ (fun w:ℂ=>g k (b j+w^2)) 0 :=

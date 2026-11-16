@@ -1,0 +1,16 @@
+--- before.lean
++++ PELOriginalPeriodMatrixDerivative318.lean
+@@ -2,11 +2,13 @@
+ public import PELOriginalSiegelNormalization318
+ public import Mathlib.Analysis.Calculus.Deriv.Mul
+ public import Mathlib.Analysis.Calculus.Deriv.Inv
++public import Mathlib.Analysis.Matrix.Normed
+ public section
+ noncomputable section
+ namespace PELOriginalPeriodMatrixDerivative318
+ open PELQuaternionRealRepresentation318 PELOriginalSiegelMatrix318
+ open PELOriginalSiegelNormalization318 QuaternionicRealPeriod318
++open scoped Matrix.Norms.Elementwise
+ 
+ @[expose] def linearPart : Matrix (Fin 2) (Fin 2) ℂ :=
+   !![(alpha:ℂ)/10*(3+(beta:ℂ)), -(alpha:ℂ)/10*(1+(beta:ℂ));

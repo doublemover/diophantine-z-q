@@ -12,7 +12,7 @@ PACKET = 'forward-original-weighted-weyl-r22-replay-r35'
 MODULE = 'PreparedAnchorSource318'
 DEPENDENCY = 'PhysicalAnchorFromHomogeneous318'
 SOURCE_SHA = 'a45660c71122bdfdfd612d7436f17ff59fe3216b8f0262fa84ad4865bb5dc36e'
-SCRATCH_SHA = '0bea9ef9cd747200c3e7bfb0b8f35c58ecb488c8a0bc66b1420862c4c9185a84'
+SCRATCH_SHA = 'c1517114f4c8d862ba1ce6a5bc2a18b81cf62d711ab9f71a0d8ea16e4eb84009'
 INTAKE_SHA = '7b89dbce661d08a3c6b8ad70333928eec5b91d7cdbbe8e9ef56b256db9c93c90'
 APPLICATION_SHA = '404de382ec3adde2ed06517463d49424203e34f6a35f5fe5a338e9dbded6860c'
 RUNNER_SHA = 'f270b32bb08b551595e4b74cfbe3cb84ed26b3eef469894a7d4a7e5c574df7f2'
@@ -22,7 +22,8 @@ MAX_BYTES = 2 * 1024 * 1024
 EXPECTED_FLAGS = ('-j1', '-M', '6144', '-Ddebug.skipKernelTC=false')
 COMPILED_SUFFIXES = ('.olean', '.olean.private', '.olean.server', '.ilean', '.ir')
 SCOPE = ('set_option trace.Elab.definition.header true in\n'
-         'set_option trace.Elab.definition.value true in\n')
+         'set_option trace.Elab.definition.value true in\n'
+         'set_option trace.Meta.letToHave true in\n')
 TARGET = '/-- The actual fixed labels'
 FAILURE = "PreparedAnchorSource318.lean:17:8: error: unknown free variable `_fvar.499`"
 LABEL = 'scratch-prepared-anchor-elaboration'
@@ -102,7 +103,7 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_EXACT_PREPARED_ANCHOR_DECLARATION_STAGE_TRACE',
+    base = {'scope':'NON_ADMITTED_EXACT_PREPARED_ANCHOR_SIGNATURE_CLEANUP_TRACE',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
             'original_source_sha256':SOURCE_SHA,'scratch_source_sha256':SCRATCH_SHA,
             'actual_head':os.environ.get('GITHUB_SHA'),'actual_run':os.environ.get('GITHUB_RUN_ID'),
@@ -129,7 +130,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variant=row,
-        interpretation='Exact scoped header/value traces only. A trace entry is not completion. Missing, truncated or changed traces are inconclusive. Inspect exit, node outcomes and later errors; no automatic root-cause or proof-success conclusion.'))
+        interpretation='Exact scoped header/value and Meta.letToHave traces only; check whether cleanup reports the exact exception before value stage. A trace entry is not completion. Missing, truncated or changed traces are inconclusive. Inspect exit, node outcomes and later errors; no automatic root-cause or proof-success conclusion.'))
 
 if __name__ == '__main__':
     main()

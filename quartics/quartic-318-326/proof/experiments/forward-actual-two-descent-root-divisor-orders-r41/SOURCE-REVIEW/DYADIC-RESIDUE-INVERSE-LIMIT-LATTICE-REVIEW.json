@@ -1,0 +1,15 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "source_sha256": "f1fd77ed7198b17c7af0419eb29a0ae801414c9d052a01ea9010091804fb3726",
+  "native_ringhoms_snapshot_sha256": "11ce39089acfaf1e5575da3d5f84230c52878557246644592c135548a38f6315",
+  "native_prime_instance": "Pinned56a00585 Mathlib/Data/Nat/Prime/Defs.lean contains global Nat.fact_prime_two : Fact (Prime 2)",
+  "findings": [
+    "Residues is literal dependent product subring satisfying every reduction map, with correct powers divisibility orientation; zero/one/add/mul/neg closure is coordinatewise ring hom preservation.",
+    "Coordinates are genuine ring homomorphisms; compatibility matches PadicInt.lift required forall k1 k2 hk castHom.comp equation exactly.",
+    "toResidues uses actual toZModPow and its compatibility theorem. fromResidues uses actual universal lift, and lift_spec provides every coordinate equality.",
+    "from_to uses ext_of_toZModPow.mp in correct direction; to_from uses subtype/function extensionality. RingEquiv multiplication/addition fields are existing ring-hom identities.",
+    "Fact prime2 is provided by native global instance, no missing explicit hypothesis; ZMod1 at coordinate0 and zero-based tower are intentional.",
+    "This identifies dyadic residue inverse limit with literal2-adic integers only. It neither identifies Pruefer/Selmer Tate tower nor installs/asserts its Z2-module rank. No admissions/options, no local Lean; hosted elaboration remains."
+  ],
+  "local_lean_run": false
+}

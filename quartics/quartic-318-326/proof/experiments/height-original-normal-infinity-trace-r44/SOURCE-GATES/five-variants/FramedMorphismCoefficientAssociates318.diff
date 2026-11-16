@@ -1,0 +1,28 @@
+--- quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r42/FramedMorphismCoefficientAssociates318.lean
++++ quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r68/FramedMorphismCoefficientAssociates318.lean
+@@ -14,8 +14,8 @@
+   have hs:s=(e.symm s) • e 1:=by
+     rw [←e.map_smul,smul_eq_mul,mul_one,e.apply_symm_apply]
+   have he:=congrArg f.symm h
+-  rw [hs,map_smul,map_smul,smul_eq_mul,smul_eq_mul] at he
+-  exact he
++  rw [hs] at he
++  simpa only [map_smul,smul_eq_mul] using he
+ /-- Actual generator units give an explicitly produced unit relating
+ the extracted arrow coefficient to the literal coefficient. Nothing
+ is inferred from equal support, generic order or desired divisor. -/
+@@ -43,11 +43,12 @@
+   apply le_antisymm
+   · apply Ideal.span_le.mpr
+     intro z hz
+-    rcases Set.mem_singleton_iff.mp hz with rfl
++    rw [Set.mem_singleton_iff.mp hz]
+     exact Ideal.mul_mem_left _ _ (Ideal.subset_span (Set.mem_singleton a))
+   · apply Ideal.span_le.mpr
+     intro z hz
+-    rcases Set.mem_singleton_iff.mp hz with rfl
++    rw [Set.mem_singleton_iff.mp hz]
++    change a ∈ Ideal.span {u.val*a}
+     have hm:=Ideal.mul_mem_left (Ideal.span {u.val*a}) (u⁻¹).val
+       (Ideal.subset_span (Set.mem_singleton (u.val*a)))
+     simpa only [←mul_assoc,Units.inv_mul,one_mul] using hm

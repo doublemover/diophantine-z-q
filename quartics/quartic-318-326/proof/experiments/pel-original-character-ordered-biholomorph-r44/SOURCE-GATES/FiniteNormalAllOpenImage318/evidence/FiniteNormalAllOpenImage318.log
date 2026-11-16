@@ -1,0 +1,57 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FiniteNormalAllOpenImage318.lean:29:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FiniteNormalAllOpenImage318.lean:30:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FiniteNormalAllOpenImage318.lean:38:6: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FiniteNormalAllOpenImage318.lean:49:18: error(lean.unknownIdentifier): Unknown identifier `Sup`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FiniteNormalAllOpenImage318.lean:50:12: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+X Y : Scheme
+inst✝⁵ : AlgebraicGeometry.IsIntegral X
+inst✝⁴ : AlgebraicGeometry.IsIntegral Y
+f : X ⟶ Y
+inst✝³ : IsFinite f
+inst✝² : IsDominant f
+basis : NormalAffineBasis318.HasBasis Y
+U : Y.Opens
+inst✝¹ : Nonempty ↥↑U
+inst✝ : Nonempty ↥↑(f ⁻¹ᵁ U)
+x : ↑Γ(X, f ⁻¹ᵁ U)
+z : ↑Y.functionField
+hz :
+  (CommRingCat.Hom.hom (DominantFunctionField318.map f)) z = (ConcreteCategory.hom (X.germToFunctionField (f ⁻¹ᵁ U))) x
+V : ↥U → Y.Opens
+hVU : ∀ (x : ↥U), V x ≤ U
+hpoint : ∀ (x : ↥U), ↑x ∈ V x
+hAffine : ∀ (x : ↥U), IsAffineOpen (V x)
+hNormal : ∀ (x : ↥U), IsIntegrallyClosed ↑Γ(Y, V x)
+this✝ : ∀ (p : ↥U), Nonempty ↥↑(V p) := fun p => Nonempty.intro ⟨↑p, hpoint p⟩
+this : ∀ (p : ↥U), Nonempty ↥↑(f ⁻¹ᵁ V p) := fun p => DominantFunctionField318.preimage_nonempty f (V p)
+s : (p : ↥U) → ↑Γ(X, f ⁻¹ᵁ V p) := fun p => (ConcreteCategory.hom (X.presheaf.map (homOfLE ⋯).op)) x
+hs :
+  ∀ (p : ↥U),
+    (ConcreteCategory.hom (X.germToFunctionField (f ⁻¹ᵁ V p))) (s p) =
+      (ConcreteCategory.hom (X.germToFunctionField (f ⁻¹ᵁ U))) x
+a : (p : ↥U) → ↑Γ(Y, V p)
+ha : ∀ (p : ↥U), (CommRingCat.Hom.hom (Scheme.Hom.app f (V p))) (a p) = s p
+germ_a : ∀ (p : ↥U), (ConcreteCategory.hom (Y.germToFunctionField (V p))) (a p) = z
+⊢ InitialSeg (fun x1 x2 => x1 < x2) fun x1 x2 => sorry

@@ -1,0 +1,42 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/IntegralQuadraticPointZoom318.lean:31:55: error: unsolved goals
+V : Type u_1
+inst✝ : CommRing V
+α β γ : Fin 4 → V
+t : V
+i : Fin 4
+hs : C (scale α β γ t) = 4 * C (value α β γ t i) * C (cofactor α β γ t i)
+⊢ C (α i) * C t * C (β i) * C (γ i) * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 32 +
+                              C (α i) * C t * C (γ i) * C (cofactor α β γ t i) * X * 8 +
+                            C (α i) * C t ^ 2 +
+                          C (α i) * C t ^ 2 * C (β i) * C (cofactor α β γ t i) * X * 12 +
+                        C (α i) * C t ^ 2 * C (β i) ^ 2 * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 16 +
+                      C (α i) * C (γ i) ^ 2 * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 16 +
+                    C (α i) ^ 2 * C t ^ 2 * C (γ i) * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 32 +
+                  C (α i) ^ 2 * C t ^ 3 * C (β i) * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 32 +
+                C (α i) ^ 2 * C t ^ 3 * C (cofactor α β γ t i) * X * 8 +
+              C (α i) ^ 3 * C t ^ 4 * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 16 +
+            C t * C (β i) +
+          C t * C (β i) ^ 2 * C (cofactor α β γ t i) * X * 4 +
+        C (β i) * C (γ i) * C (cofactor α β γ t i) * X * 4 +
+      C (γ i) =
+    C (α i) * C t * C (β i) * C (γ i) * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 32 +
+                                C (α i) * C t * C (γ i) * C (cofactor α β γ t i) * X * C 2 * 4 +
+                              C (α i) * C t ^ 2 +
+                            C (α i) * C t ^ 2 * C (β i) * C (cofactor α β γ t i) * X * 4 +
+                          C (α i) * C t ^ 2 * C (β i) * C (cofactor α β γ t i) * X * C 2 * 4 +
+                        C (α i) * C t ^ 2 * C (β i) ^ 2 * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 16 +
+                      C (α i) * C (γ i) ^ 2 * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 16 +
+                    C (α i) ^ 2 * C t ^ 2 * C (γ i) * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 32 +
+                  C (α i) ^ 2 * C t ^ 3 * C (β i) * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 32 +
+                C (α i) ^ 2 * C t ^ 3 * C (cofactor α β γ t i) * X * C 2 * 4 +
+              C (α i) ^ 3 * C t ^ 4 * C (cofactor α β γ t i) ^ 2 * X ^ 2 * 16 +
+            C t * C (β i) +
+          C t * C (β i) ^ 2 * C (cofactor α β γ t i) * X * 4 +
+        C (β i) * C (γ i) * C (cofactor α β γ t i) * X * 4 +
+      C (γ i)

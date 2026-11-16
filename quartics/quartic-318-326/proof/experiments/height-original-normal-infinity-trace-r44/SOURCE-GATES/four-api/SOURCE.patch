@@ -1,0 +1,86 @@
+--- before/PerfectCoefficientPairing318.lean
++++ after/PerfectCoefficientPairing318.lean
+@@ -18,9 +18,17 @@
+   toFun x :=
+     { toFun := fun y => ε (x*y)
+       map_add' := fun y z => by rw [mul_add,map_add]
+-      map_smul' := fun r y => by rw [Algebra.mul_smul_comm,map_smul] }
+-  map_add' x y := by ext z; simp only [add_mul,map_add,LinearMap.add_apply]
+-  map_smul' r x := by ext y; simp only [Algebra.smul_mul_assoc,map_smul,LinearMap.smul_apply]
++      map_smul' := fun r y => by
++        change ε (x * (r • y)) = r • ε (x*y)
++        rw [Algebra.mul_smul_comm,map_smul] }
++  map_add' x y := by
++    ext z
++    change ε ((x+y)*z) = ε (x*z) + ε (y*z)
++    rw [add_mul,map_add]
++  map_smul' r x := by
++    ext y
++    change ε ((r • x)*y) = r • ε (x*y)
++    rw [Algebra.smul_mul_assoc,map_smul]
+ 
+ @[expose] def inverse (f : Module.Dual R A) : A := ∑ i, f (b (σ i)) • b i
+ 
+--- before/SimpleQuadraticEtalePoint318.lean
++++ after/SimpleQuadraticEtalePoint318.lean
+@@ -46,7 +46,7 @@
+       zero_pow (by decide : (2 : ℕ)≠0),sub_self,add_zero])
+ theorem rootPoint_polynomial (p : R[X]) :
+     rootPoint q ev hq (AdjoinRoot.mk (equation q) p)=Polynomial.eval₂ ev 0 p :=
+-  AdjoinRoot.lift_mk _ _ _ p
++  AdjoinRoot.lift_mk _ p
+ 
+ theorem derivative_at_point : rootPoint q ev hq (derivativeValue q)=1 := by
+   rw [derivativeValue,rootPoint_polynomial]
+@@ -56,7 +56,7 @@
+ open in every residue characteristic. Its derivative image is literally1,
+ so no inverse of2 is requested or smuggled into the integral base. -/
+ @[expose] def point : EtaleRing q →+* S :=
+-  IsLocalization.Away.lift (derivativeValue q)
++  IsLocalization.Away.lift (g := rootPoint q ev hq) (derivativeValue q)
+     (by rw [derivative_at_point]; exact isUnit_one)
+ 
+ theorem point_on_root_ring (x : RootRing q) :
+@@ -64,7 +64,7 @@
+   IsLocalization.Away.lift_eq _ _ _
+ theorem point_root : point q ev hq (root q)=0 := by
+   rw [root,point_on_root_ring]
+-  exact AdjoinRoot.lift_root _ _ _
++  exact AdjoinRoot.lift_root _
+ theorem point_scalar (r : R) : point q ev hq (algebraMap R (EtaleRing q) r)=ev r := by
+   rw [IsScalarTower.algebraMap_apply R (RootRing q) (EtaleRing q),point_on_root_ring]
+   change rootPoint q ev hq (AdjoinRoot.mk (equation q) (C r))=ev r
+--- before/IntegralQuadraticPointZoom318.lean
++++ after/IntegralQuadraticPointZoom318.lean
+@@ -34,7 +34,7 @@
+     rw [scale,←factor_product α β γ t i,map_mul,map_ofNat,map_mul]
+     ring
+   simp only [coordinate,coefficient,map_mul,hs]
+-  simp only [value,map_add,map_mul,map_pow]
++  simp only [value,map_add,map_mul,map_pow,_root_.map_ofNat]
+   ring
+ 
+ /-- The new root variable has derivative1 at the actual point, even
+--- before/BaseChangingDifferentialTensor318.lean
++++ after/BaseChangingDifferentialTensor318.lean
+@@ -39,7 +39,10 @@
+   toFun ω :=
+     { toFun := fun η => differential (S:=S) f ω ⊗ₜ[B] differential (S:=S) f η
+       map_add' := fun η ξ => by rw [map_add,TensorProduct.tmul_add]
+-      map_smul' := fun a η => by rw [differential_smul,TensorProduct.tmul_smul] }
++      map_smul' := fun a η => by
++        change differential (S:=S) f ω ⊗ₜ[B] differential (S:=S) f (a • η)=
++          f a • (differential (S:=S) f ω ⊗ₜ[B] differential (S:=S) f η)
++        rw [differential_smul,TensorProduct.tmul_smul] }
+   map_add' ω η := by
+     ext ξ
+     change differential (S:=S) f (ω+η) ⊗ₜ[B] differential (S:=S) f ξ=
+@@ -62,7 +65,7 @@
+ theorem tensorMap_tmul (ω η : KaehlerDifferential R A) :
+     tensorMap (S:=S) f (ω ⊗ₜ[A] η)=
+       differential (S:=S) f ω ⊗ₜ[B] differential (S:=S) f η :=
+-  TensorProduct.lift.tmul _ _ _
++  TensorProduct.lift.tmul _ _
+ 
+ /-- Actual tensor pullback on pure tensors and scalar multiples. Its
+ inputs are the genuine universal differential modules of the two bases. -/

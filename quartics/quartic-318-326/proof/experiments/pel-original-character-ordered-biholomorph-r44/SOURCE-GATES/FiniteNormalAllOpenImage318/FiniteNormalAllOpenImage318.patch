@@ -1,0 +1,11 @@
+--- before/FiniteNormalAllOpenImage318.lean
++++ after/FiniteNormalAllOpenImage318.lean
+@@ -46,7 +46,7 @@
+         (DominantFunctionField318.map_germ f (V p))
+       exact square.trans ((congrArg (X.germToFunctionField (f⁻¹ᵁV p)) (ha p)).trans
+         ((hs p).trans hz.symm))
+-    have cover:U≤iSup V:=by
++    have cover : U ≤ iSup V := by
+       intro p hp
+       exact Opens.mem_iSup.mpr ⟨⟨p,hp⟩,hpoint ⟨p,hp⟩⟩
+     obtain ⟨a0,ha0⟩:=FunctionFieldGluing318.exists_section Y V U

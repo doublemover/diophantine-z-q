@@ -1,0 +1,11 @@
+--- before.lean
++++ FlatSurjectiveLocalFactorAgreement318.lean
+@@ -13,6 +13,8 @@
+ theorem overlap (g:X⟶Z) (U V:Y.Opens) (F:U.toScheme⟶Z) (G:V.toScheme⟶Z)
+     (hF:(f ∣_ U)≫F=(f⁻¹ᵁU).ι≫g) (hG:(f ∣_ V)≫G=(f⁻¹ᵁV).ι≫g):
+     Y.homOfLE (U:=U⊓V) inf_le_left≫F=Y.homOfLE (U:=U⊓V) inf_le_right≫G:=by
++  letI : Surjective (f ∣_ (U ⊓ V)) :=
++    IsZariskiLocalAtTarget.restrict (P := @Surjective) ‹Surjective f› (U ⊓ V)
+   letI:Epi (f ∣_ (U⊓V)):=Flat.epi_of_flat_of_surjective _
+   apply (cancel_epi (f ∣_ (U⊓V))).mp
+   calc

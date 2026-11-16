@@ -1,0 +1,15 @@
+--- before.lean
++++ PELEffectiveNormOneAction318.lean
+@@ -20,7 +20,11 @@
+       right_inv τ := by
+         change u • (u⁻¹ • τ) = τ
+         rw [smul_smul,mul_inv_cancel,one_smul] }
+-  map_one' := by ext τ; exact one_smul _ _
++  map_one' := by
++    apply Equiv.ext
++    intro τ
++    change (1 : normOneUnits) • (τ : HalfPlane) = τ
++    exact one_smul normOneUnits τ
+   map_mul' u v := by
+     apply Equiv.ext
+     intro τ

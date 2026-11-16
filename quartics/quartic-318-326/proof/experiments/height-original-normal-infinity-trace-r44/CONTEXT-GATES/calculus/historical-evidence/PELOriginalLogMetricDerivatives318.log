@@ -1,0 +1,22 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELOriginalLogMetricDerivatives318.lean:29:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun w => -Real.pi * ((bilinear τ hτ) w) (imaginaryMap w)
+in the target expression
+  HasFDerivAt (fun y => -Real.pi * ((bilinear τ hτ) (id y)) (imaginaryMap y))
+    (-Real.pi •
+      (((ContinuousLinearMap.precompR ComplexVectors (bilinear τ hτ)) (id z)) imaginaryMap +
+        ((ContinuousLinearMap.precompL ComplexVectors (bilinear τ hτ)) (ContinuousLinearMap.id ℝ ComplexVectors))
+          (imaginaryMap z)))
+    z
+
+τ : ℂ
+hτ : 0 < τ.im
+z : ComplexVectors
+h :
+  HasFDerivAt (fun y => -Real.pi * ((bilinear τ hτ) (id y)) (imaginaryMap y))
+    (-Real.pi •
+      (((ContinuousLinearMap.precompR ComplexVectors (bilinear τ hτ)) (id z)) imaginaryMap +
+        ((ContinuousLinearMap.precompL ComplexVectors (bilinear τ hτ)) (ContinuousLinearMap.id ℝ ComplexVectors))
+          (imaginaryMap z)))
+    z
+he : (fun w => -Real.pi * ((bilinear τ hτ) w) (imaginaryMap w)) = logWeight τ hτ
+⊢ HasFDerivAt (logWeight τ hτ) (firstDerivative τ hτ z) z

@@ -1,0 +1,15 @@
+--- quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r42/AdjoinRootSpecializedPoints318.lean
++++ quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r50/AdjoinRootSpecializedPoints318.lean
+@@ -28,8 +28,10 @@
+     apply Subtype.ext
+     apply AdjoinRoot.ringHom_ext
+     · rw [AdjoinRoot.lift_comp_of,e.2]
+-    · exact AdjoinRoot.lift_root _
+-  right_inv z := Subtype.ext (AdjoinRoot.lift_root _)
++    · exact AdjoinRoot.lift_root
++        (by simpa only [Polynomial.eval_map] using point_root Q v e)
++  right_inv z := Subtype.ext (AdjoinRoot.lift_root
++    (by simpa only [Polynomial.eval_map] using z.2))
+ 
+ abbrev SchemePoints :=
+   {q : Spec (CommRingCat.of ℂ) ⟶ Spec (CommRingCat.of (AdjoinRoot Q)) //

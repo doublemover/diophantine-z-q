@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS exact trace43 propagation source gate only, NOT Lean acceptance",
+  "candidate_tree": "c84092f0c2c72b917209bddb0f7af8b9f34cd2b5",
+  "canonical_application_sha256": "f8a20239e7bdb4873b24b0628531c97b698e46022d25ada675ee5bdf88a572a4",
+  "prior_full_review": "FOUR-ROOT-TENSOR-NORMALIZATION-43793920337-TWO-SOURCE-REVIEW.json",
+  "bindings_verified": 23,
+  "sources": {
+    "FourRootUnitScale318": {
+      "before_sha256": "5ee3e15f82812211ff3a9fcb19f52bf86dae8b31794196b1ec58830112edcf07",
+      "after_sha256": "1a5ae529f6a452774499f00a77d72e4de9d54b95e00f8826b942bb3fc126f1b2",
+      "classification": "observed failure"
+    },
+    "FourRootIndividualScales318": {
+      "before_sha256": "e2d5ca6c96ed34907f80f85452860ab1b2da639c97651d2329dbed2925d3fd83",
+      "after_sha256": "c47e06a8c9e444c37311c72ed4b273f26b744bfb05eaa3fc818320d50a75dc38",
+      "classification": "preventive unreached"
+    }
+  },
+  "exact_current_context": {
+    "FourRootUnitScale318": "quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r43/FourRootUnitScale318.lean",
+    "FourRootIndividualScales318": "quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r43/FourRootIndividualScales318.lean",
+    "UnitScaledQuadraticOrder318": "quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r43/UnitScaledQuadraticOrder318.lean",
+    "FourRootOrderSigns318": "quartics/quartic-318-326/proof/progress/FourRootOrderSigns318.lean",
+    "NormalizedReciprocalLaurent318": "quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r43/NormalizedReciprocalLaurent318.lean"
+  },
+  "checks": [
+    "Both trace43 immutable before bytes exactly match reviewed sources; all3 current producer/consumer contexts exact, including baseline locations.",
+    "Sole diff reverses smul_tmul prime in each existing simp block, retaining actual balanced tensor/scalar action and hypotheses.",
+    "Canonical old evidence remains untouched: UnitScale observed in old evidence, IndividualScales preventive. Not fresh trace pass."
+  ],
+  "limitations": "Final8-source trace44 union integration must be separately reviewed; no Lean/packet acceptance."
+}

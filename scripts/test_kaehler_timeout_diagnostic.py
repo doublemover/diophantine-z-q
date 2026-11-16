@@ -41,4 +41,100 @@ class Tests(unittest.TestCase):
         self.assertIn("matrix.packet == '"+d.PACKET+"'",hook)
         self.assertIn("steps.dependency_sources.outcome == 'success'",hook)
         self.assertIn('build/progress-experiments/${{ matrix.packet }}/scratch-kaehler-timeout/',workflow)
+    def baseline_fixture(self, root):
+        # Synthetic artifact bytes test authentication, never Lean compilation.
+        import hashlib, json
+        project = root / 'project'; project.mkdir()
+        source = (d.ci.PROJECT / 'SquareCoordinateDifferential318.lean').read_bytes()
+        (project / 'SquareCoordinateDifferential318.lean').write_bytes(source)
+        name = 'SquareCoordinateDifferential318'; parent = 'BaselineParent'
+        plan = {'snapshot': 'snapshot', 'base': 'base', 'module_order': [parent, name],
+            'module_keys': {parent: 'parent-key', name: 'square-key'},
+            'dependencies': {parent: [], name: [parent]}}
+        cache = root / '.cache/progress-ci'; (cache / 'lib').mkdir(parents=True)
+        output = root / 'output'; (output / 'lib').mkdir(parents=True)
+        entries = {}
+        for module in plan['module_order']:
+            data = ('synthetic-not-compiled-' + module).encode()
+            for lib in [cache / 'lib', output / 'lib']:
+                (lib / (module + '.olean')).write_bytes(data)
+            entries[module] = {'key': plan['module_keys'][module],
+                'files': {'.olean': hashlib.sha256(data).hexdigest()},
+                'dependency_artifacts': {n: entries[n]['files'] for n in plan['dependencies'][module]}}
+        receipt = {'schema': d.ci.SCHEMA, 'status': 'PASS', 'base': plan['base'],
+            'snapshot': plan['snapshot'], 'scope': 'Complete source coverage and recursive axiom audit',
+            'audit_result_sha256': 'a' * 64, 'modules': entries}
+        (cache / 'receipt.json').write_text(json.dumps(receipt))
+        result = {'baseline_snapshot': plan['snapshot'], 'baseline_modules': 2}
+        return project, output, plan, receipt, result
+
+    def check_baseline_fixture(self, root, fixture):
+        project, output, plan, receipt, result = fixture
+        with patch.object(d.ci, 'ROOT', root), patch.object(d.ci, 'PROJECT', project), \
+             patch.object(d.ci, 'derive_plan', return_value=plan):
+            return d.baseline_dependency_evidence(output, result,
+                d.DEPENDENCIES - set(d.BASELINE_SOURCES))
+
+    def test_actual_baseline_origin_and_packet_split(self):
+        import json
+        plan = d.ci.derive_plan()
+        name = 'SquareCoordinateDifferential318'
+        self.assertIn(name, plan['module_keys'])
+        self.assertEqual(d.sha(d.ci.PROJECT / (name + '.lean')), d.BASELINE_SOURCES[name])
+        self.assertEqual(plan['dependencies'][name], [])
+        packet = d.ci.ROOT / 'quartics/quartic-318-326/proof/experiments' / d.PACKET
+        intake = json.loads((packet / 'intake.json').read_text())
+        prefix = set(intake['order'][:intake['order'].index(d.MODULE)])
+        self.assertEqual(d.DEPENDENCIES - prefix, set(d.BASELINE_SOURCES))
+        self.assertNotIn(name + '.lean', intake['files'])
+
+    def test_authenticated_baseline_closure_read_only(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder); fixture = self.baseline_fixture(root)
+            before = {str(p.relative_to(root)): p.read_bytes() for p in root.rglob('*') if p.is_file()}
+            evidence = self.check_baseline_fixture(root, fixture)
+            self.assertEqual(evidence['required_modules'], ['BaselineParent', 'SquareCoordinateDifferential318'])
+            self.assertEqual(len(evidence['same_run_artifacts']), 2)
+            self.assertEqual(evidence['scope'], 'AUTHENTICATED_REUSED_BASELINE_NOT_FRESH_COMPILATION')
+            after = {str(p.relative_to(root)): p.read_bytes() for p in root.rglob('*') if p.is_file()}
+            self.assertEqual(before, after)
+
+    def test_baseline_fails_closed_on_tampering(self):
+        import tempfile, json
+        cases = ['source', 'normal_snapshot', 'normal_module_count', 'receipt_status', 'receipt_scope',
+                 'receipt_base', 'receipt_snapshot', 'audit_reference', 'module_key',
+                 'dependency_chain', 'cached_artifact', 'copied_artifact', 'missing_parent',
+                 'extra_copied_artifact', 'missing_baseline_membership']
+        for case in cases:
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as folder:
+                root = Path(folder); fixture = self.baseline_fixture(root)
+                project, output, plan, receipt, result = fixture
+                name = 'SquareCoordinateDifferential318'; cache = root / '.cache/progress-ci'
+                if case == 'source': (project / (name + '.lean')).write_text('changed')
+                elif case == 'normal_snapshot': result['baseline_snapshot'] = 'other'
+                elif case == 'normal_module_count': result['baseline_modules'] = 3
+                elif case.startswith('receipt_'): receipt[case.removeprefix('receipt_')] = 'wrong'
+                elif case == 'audit_reference': receipt.pop('audit_result_sha256')
+                elif case == 'module_key': receipt['modules'][name]['key'] = 'wrong'
+                elif case == 'dependency_chain': receipt['modules'][name]['dependency_artifacts'] = {}
+                elif case == 'cached_artifact': (cache / 'lib' / (name + '.olean')).write_bytes(b'wrong')
+                elif case == 'copied_artifact': (output / 'lib' / (name + '.olean')).write_bytes(b'wrong')
+                elif case == 'missing_parent': receipt['modules'].pop('BaselineParent')
+                elif case == 'extra_copied_artifact': (output / 'lib' / (name + '.olean.private')).write_bytes(b'extra')
+                elif case == 'missing_baseline_membership': plan['module_keys'].pop(name)
+                (cache / 'receipt.json').write_text(json.dumps(receipt))
+                with self.assertRaises((ValueError, OSError)):
+                    self.check_baseline_fixture(root, fixture)
+
+    def test_missing_experiment_import_not_treated_as_baseline(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder); fixture = self.baseline_fixture(root)
+            project, output, plan, receipt, result = fixture
+            with patch.object(d.ci, 'ROOT', root), patch.object(d.ci, 'PROJECT', project), \
+                 patch.object(d.ci, 'derive_plan', return_value=plan):
+                with self.assertRaisesRegex(ValueError, 'Unexpected dependency'):
+                    d.baseline_dependency_evidence(output, result, [])
+
 if __name__=='__main__':unittest.main()
