@@ -196,6 +196,13 @@ class Tests(unittest.TestCase):
         self.assertIn('KAEHLER_CANDIDATE_BEFORE_TRANSPORT_HELPER',text)
         self.assertIn('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER',text)
 
+    def test_transport_helper_dictionary_arguments_are_explicit(self):
+        helper=d.TRANSPORT_HELPER
+        self.assertIn('(@algebraMap (QuadraticPresentation318.RootRing p)',helper)
+        self.assertIn('(inferInstance : CommSemiring (QuadraticPresentation318.RootRing p))',helper)
+        self.assertIn('(inferInstance : Semiring',helper)
+        self.assertIn('inferInstance)\n        (AdjoinRoot.root',helper)
+
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
         import hashlib, json
