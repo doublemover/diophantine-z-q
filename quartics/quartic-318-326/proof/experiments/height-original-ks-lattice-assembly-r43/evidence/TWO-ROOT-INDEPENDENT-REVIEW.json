@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS exact fresh KS31 two-root source/API repair review only; NOT Lean acceptance",
+  "manifest_sha256": "964c45f8899193d57d7a75bad3a2796f7ea5cbe679bf3e881b939417eb3405dd",
+  "sources": {
+    "IntegerPolynomialLocalization318.lean": "b1a1dc756b5bac2116260495225421cc33ac7b146eae57d61054e40c620e65be",
+    "IntegralFourRootOverlap318.lean": "02af88affb5f09d78793814bb3037b5a0b15d7937ba4a0930683deb7106864de"
+  },
+  "before": {
+    "IntegerPolynomialLocalization318.lean": "17a032985dcab12c4176db76235acb346595864a1192592320a969c3d9d4bd2c",
+    "IntegralFourRootOverlap318.lean": "8bceb385d55dc33f41b251eb76f5ad37e44398b938383ccaf41626da58d5b5e7"
+  },
+  "log_sha256": {
+    "IntegerPolynomialLocalization318.log": "3468d4fe5b2c970222a28ce94396d26b65d9f1c38842c5a81b65c46ec02d45cf",
+    "IntegralFourRootOverlap318.log": "a1382e002cfc6f3020a360d0ade909ab3e4ce8c1cae489f47a829bea9e960860"
+  },
+  "checks": [
+    "Read fresh own logs: polynomial pushout instance failure under semireducible named algebra; overlap parser rejects extra close parenthesis after exact intended map equation.",
+    "Polynomial repair proves named algebra equals native polynomial coefficient algebra by algebra_ext on exact maps, then proves localization under native instance and transports proposition back. No assumption or scalar map changed.",
+    "Original producer defines mapRingHom(Int.castRingHom Q).toAlgebra; native algebra_ext telescope and polynomial pushout instance read and match intended coefficientwise algebra.",
+    "Overlap removes only extra closing parenthesis so existing Spec composition proof and conclusion can parse; no new map, hypothesis or proof alteration.",
+    "Before hashes independently checked at immutable02decd27, all source/native/log manifest hashes verified. No imports/options/resource/bypass changes."
+  ],
+  "limitations": [
+    "Precise algebra equality definal reduction, simplifier transport and post-parser proof elaboration still require hosted replay.",
+    "Fresh repairs do not accept dependent global/proper/normalization sources."
+  ],
+  "lean_executed": false
+}

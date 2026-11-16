@@ -1,0 +1,5 @@
+# Minimal fraction-field dictionary successor of KS42
+
+All 200 predecessor roots retain exact order; 199 sources remain byte-identical. The sole change scopes reducible-and-instances transparency to the existing localization theorem application and explicitly supplies its same source and target carriers. No actual maps, scalar structures, assumptions, imports, public statements, global options or proof limits change.
+
+Fresh KS42 checking recorded 36 compiler passes and a strict subset audit of 916 declarations. The localization theorem namespace now resolves, but the AlgEquiv argument exhibits tensor Semiring versus CommSemiring.toSemiring dictionary mismatch. The two normalization consumers remained blocked. This minimal source/API correction requires hosted checking, including the log's unexposed instMul obligation; no cure is claimed. Passing polynomial fraction-field and gluing sources, all other roots, and all old evidence remain exact. No later geometry additions and no local Lean. Only the active KS registry slot changes 42 to 43; no marker, scripts, workflows, baseline or unrelated packet changes.
