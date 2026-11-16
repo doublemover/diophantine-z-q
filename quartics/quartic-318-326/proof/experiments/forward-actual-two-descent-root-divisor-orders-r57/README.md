@@ -1,0 +1,5 @@
+# Actual residue bridge and bounded-character consumer repair
+
+Fresh pure55 run43885295592 passed seven modules and recursively audited97 declarations. The two independent failures were imported encode/circle/tower/residue bodies being unavailable and an undetermined prime at the final unit-coordinate expression. Import the exact necessary private definition bodies in those two consumers and explicitly type that unit as a2-adic integer.
+
+BoundedCircleCharacters adds one import-all line. PrueferTateResidueBridge adds four import-all lines and one type annotation. No mathematical definition body, public statement, assumption or transition map changes. All1323 other predecessor sources and root order remain exact, including all seven passed pure producers and the independent anchor56 candidate175b0ba5. This successor revises56 and excludes held50. The pure target union remains11 roots. Source/API review and static checks are not Lean acceptance; exact hosted elaboration and recursive audit remain required. No local Lean.
