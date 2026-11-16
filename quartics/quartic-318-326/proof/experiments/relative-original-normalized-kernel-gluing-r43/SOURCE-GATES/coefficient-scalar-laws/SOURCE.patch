@@ -1,0 +1,48 @@
+--- before/OriginalCoefficientCohomology318.lean
++++ after/OriginalCoefficientCohomology318.lean
+@@ -36,25 +36,35 @@
+ lemma multiply_zero : multiply R p L 0 = 0 := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U s
+-  change (multiply R p L 0).hom.app (op U.unop) s = 0
+-  rw [multiply_apply,map_zero,zero_smul]
++  obtain ⟨U,rfl⟩ := Opposite.op_surjective U
++  change Γ(L.object,U) at s
++  change (multiply R p L 0).hom.app (op U) s = 0
++  rw [multiply_apply R p L 0 U s,map_zero,zero_smul]
+ lemma multiply_one : multiply R p L 1 = 𝟙 _ := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U s
+-  change (multiply R p L 1).hom.app (op U.unop) s = s
+-  rw [multiply_apply,map_one,one_smul]
++  obtain ⟨U,rfl⟩ := Opposite.op_surjective U
++  change Γ(L.object,U) at s
++  change (multiply R p L 1).hom.app (op U) s = s
++  rw [multiply_apply R p L 1 U s,map_one,one_smul]
+ lemma multiply_add (r s : R) : multiply R p L (r+s) = multiply R p L r + multiply R p L s := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U t
+-  change (multiply R p L (r+s)).hom.app (op U.unop) t =
+-    (multiply R p L r).hom.app (op U.unop) t + (multiply R p L s).hom.app (op U.unop) t
+-  rw [multiply_apply,multiply_apply,multiply_apply,map_add,add_smul]
++  obtain ⟨U,rfl⟩ := Opposite.op_surjective U
++  change Γ(L.object,U) at t
++  change (multiply R p L (r+s)).hom.app (op U) t =
++    (multiply R p L r).hom.app (op U) t + (multiply R p L s).hom.app (op U) t
++  rw [multiply_apply R p L (r+s) U t,multiply_apply R p L r U t,
++    multiply_apply R p L s U t,map_add,add_smul]
+ lemma multiply_mul (r s : R) : multiply R p L (r*s) = multiply R p L s ≫ multiply R p L r := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U t
+-  change (multiply R p L (r*s)).hom.app (op U.unop) t =
+-    (multiply R p L r).hom.app (op U.unop) ((multiply R p L s).hom.app (op U.unop) t)
+-  rw [multiply_apply,multiply_apply,multiply_apply,map_mul,mul_smul]
++  obtain ⟨U,rfl⟩ := Opposite.op_surjective U
++  change Γ(L.object,U) at t
++  change (multiply R p L (r*s)).hom.app (op U) t =
++    (multiply R p L r).hom.app (op U) ((multiply R p L s).hom.app (op U) t)
++  rw [multiply_apply R p L (r*s) U t,multiply_apply R p L r U _,
++    multiply_apply R p L s U t,map_mul,mul_smul]
+ 
+ /-- Structural R action on the UNCHANGED actual derived Ext carrier,
+ induced directly by its actual coefficient endomorphisms. -/
