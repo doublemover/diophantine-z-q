@@ -1,0 +1,23 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "reviewer": "lattice_successor",
+  "source_sha256": "63798ad4aa50eb5330710d9a7b237fada14adca0ba8cd5635c60308e2a734d40",
+  "dependency_sha256": "4c529c579596ed635a8750aa70d6a73e6a0161e158f66abe1674d4210b37d4df",
+  "normalized_certificate_sha256": "410995ba113f37dfcb54261e61eb6b90fde58242a4fa0eed79282e99ad060542",
+  "consumer_sha256": "a06b70a2e09101a0474b617e517ba7d8e75493cee84956247af8788cf90faacd",
+  "checks": [
+    "diagonalPoint uses root=1, ordinate=0, n=beta; middle curve factor is zero, root nonzero.",
+    "squareTwist exactly matches equalTwist arguments beta=n=17*b,c=1,theta=1 and supplied nonzero d. Both occurrences use same n.",
+    "ofSquareComplement d=17*b*r is nonzero by hb/hr, with exact V=d^2 identity from complement equality.",
+    "certificate conversion consumes same b; explicit output simplifies to e=17,s=17*r,p=q=0 and both literal factored equations vanish.",
+    "Parameterized b=17*(1-r^2) is strictly between0 and17 from r!=0 and r^2<1; no sign assumption on r needed.",
+    "PreparedIntegerSource consumes PointPair at the same four poles, available through ofSquareComplement(...).pointPair. Certificates themselves feed existing fill route; no positive-rank/nonzero-ordinate requirement exists in these inspected interfaces.",
+    "Exact stated dependency hash matches current ba417446 source. Mathlib tactics are publicly imported upstream. No new option, sorry, axiom, unsafe/native evaluator or hidden desired-point premise found."
+  ],
+  "limits": [
+    "No local Lean or declaration elaboration run. Native tactic success and current complete dependency closure require hosted check.",
+    "Square-complement condition is a genuine restriction; no arbitrary positive rational pole theorem or simultaneous four-pole CRT selection is supplied.",
+    "This does not construct the independent source Anchor or remove global geometric soundness obligations."
+  ],
+  "minor_documentation_finding": "diagonalPoint comment calls the abscissa nonzero although definition permits beta=0; usage in squareComplement has beta nonzero. Clarify comment, not a mathematical code blocker."
+}
