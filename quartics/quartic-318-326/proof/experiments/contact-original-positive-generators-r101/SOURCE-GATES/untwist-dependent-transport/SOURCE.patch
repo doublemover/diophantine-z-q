@@ -1,0 +1,57 @@
+--- before/OriginalTensorUntwistOver318.lean
++++ after/OriginalTensorUntwistOver318.lean
+@@ -84,14 +84,12 @@
+     (m : Γ(L.object,V)) (n : Γ(N.object,V)) :
+     sections L N U e V hV (IntrinsicTensorSheaf318.pure L.object N.object V m n) =
+       (OpenLineFrameCoordinates318.frame N.object U e.symm V hV).symm n • m := by
+-  have hp : ∀ (m' : Γ(L.object,U.ι ''ᵁ (U.ι ⁻¹ᵁ V)))
+-      (n' : Γ(N.object,U.ι ''ᵁ (U.ι ⁻¹ᵁ V))),
+-      sections L N U e (U.ι ''ᵁ (U.ι ⁻¹ᵁ V))
+-        (by simpa using U.ι.image_le_opensRange (U.ι ⁻¹ᵁ V))
+-        (IntrinsicTensorSheaf318.pure L.object N.object _ m' n') =
+-      (OpenLineFrameCoordinates318.frame N.object U e.symm _
+-        (by simpa using U.ι.image_le_opensRange (U.ι ⁻¹ᵁ V))).symm n' • m' := by
+-    intro m' n'
++  let P (W : X.Opens) : Prop := ∀ (hW : W ≤ U)
++    (m' : Γ(L.object,W)) (n' : Γ(N.object,W)),
++    sections L N U e W hW (IntrinsicTensorSheaf318.pure L.object N.object W m' n') =
++      (OpenLineFrameCoordinates318.frame N.object U e.symm W hW).symm n' • m'
++  have hp : P (U.ι ''ᵁ (U.ι ⁻¹ᵁ V)) := by
++    intro hW m' n'
+     rw [image_pure]
+     rw [Scheme.Opens.ι_appIso]
+     congr 1
+@@ -99,11 +97,8 @@
+   have hi : U.ι ''ᵁ (U.ι ⁻¹ᵁ V) = V := by
+     rw [Scheme.Hom.image_preimage_eq_opensRange_inf,Scheme.Opens.opensRange_ι,
+       inf_eq_right.mpr hV]
+-  have hp' : ∀ (m' : Γ(L.object,V)) (n' : Γ(N.object,V)),
+-      sections L N U e V hV (IntrinsicTensorSheaf318.pure L.object N.object V m' n') =
+-        (OpenLineFrameCoordinates318.frame N.object U e.symm V hV).symm n' • m' := by
+-    simpa only [hi] using hp
+-  exact hp' m n
++  have hp' : P V := Eq.mp (congrArg P hi) hp
++  exact hp' hV m n
+ /-- Exact full-open comparison, with the ORIGINAL image-of-top transport
+ on both endpoints. This is not an identification of unnamed section types. -/
+ lemma top_square (s : Γ((LineSheafTensor318.line L N).object.restrict U.ι,⊤)) :
+@@ -111,14 +106,9 @@
+       (OriginalRestrictionTopScalar318.moduleTop (LineSheafTensor318.line L N).object U s) =
+     OriginalRestrictionTopScalar318.moduleTop L.object U
+       ((OriginalTensorLineChartUntwist318.iso L N U e).hom.app ⊤ s) := by
+-  let k : Over.mk (homOfLE (show U ≤ U from le_rfl)) ⟶
+-      Over.mk (homOfLE (show U.ι ''ᵁ ⊤ ≤ U from by simpa using U.ι.image_le_opensRange ⊤)) :=
+-    Over.homMk (eqToHom (LineFrameTopScalar318.image_top U).symm) (Subsingleton.elim _ _)
+-  have hn := congrArg (fun q => q s) ((iso L N U e).hom.val.naturality k.op)
+-  change sections L N U e U le_rfl
+-      (OriginalRestrictionTopScalar318.moduleTop (LineSheafTensor318.line L N).object U s) =
+-    OriginalRestrictionTopScalar318.moduleTop L.object U
+-      (sections L N U e (U.ι ''ᵁ ⊤) _ s) at hn
+-  rw [image_apply] at hn
+-  exact hn
++  rw [← image_apply L N U e ⊤ s]
++  unfold OriginalRestrictionTopScalar318.moduleTop
++  exact (natural L N U e
++    (show U.ι ''ᵁ (⊤ : U.toScheme.Opens) ≤ U from (LineFrameTopScalar318.image_top U).le)
++    (LineFrameTopScalar318.image_top U).symm.le s).symm
+ end OriginalTensorUntwistOver318
