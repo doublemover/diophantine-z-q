@@ -1,0 +1,97 @@
+--- before/ComplexSphereFourPointNormalization318.lean
++++ sources/ComplexSphereFourPointNormalization318.lean
+@@ -11,7 +11,7 @@
+ variable (p:Fin 4→OnePoint ℂ) (hp:Function.Injective p)
+ include hp
+ 
+-lemma pole_finite (j:Fin 3) : poleCoordinate (p 0) (p j.succ)≠∞ := by
++lemma pole_finite (j:Fin 3) : poleCoordinate (p 0) (p j.succ)≠(∞:OnePoint ℂ) := by
+   rw [←poleCoordinate_at (p 0)]
+   intro h
+   have hh:=hp ((poleCoordinate (p 0)).injective h)
+@@ -28,7 +28,7 @@
+   intro j k he
+   have h:=congrArg (fun z:ℂ=>(z:OnePoint ℂ)) he
+   rw [finiteCoordinate_spec,finiteCoordinate_spec] at h
+-  exact Fin.succ_injective (hp ((poleCoordinate (p 0)).injective h))
++  exact Fin.succ_injective 3 (hp ((poleCoordinate (p 0)).injective h))
+ lemma denominator_ne : finiteCoordinate p hp 1-finiteCoordinate p hp 0≠0 := by
+   intro h
+   have he:=finiteCoordinate_injective p hp (sub_eq_zero.mp h)
+@@ -43,8 +43,8 @@
+   (finiteCoordinate p hp 2-finiteCoordinate p hp 0)/
+     (finiteCoordinate p hp 1-finiteCoordinate p hp 0)
+ 
+-lemma normalization_zero : normalization p hp (p 0)=∞ := by
+-  change affineSphere _ _ _ (poleCoordinate (p 0) (p 0))=∞
++lemma normalization_zero : normalization p hp (p 0)=(∞:OnePoint ℂ) := by
++  change affineSphere _ _ _ (poleCoordinate (p 0) (p 0))=(∞:OnePoint ℂ)
+   rw [poleCoordinate_at,affineSphere_infty]
+ lemma normalization_succ (j:Fin 3) : normalization p hp (p j.succ)=
+     ((finiteCoordinate p hp j-finiteCoordinate p hp 0)/
+--- before/FourRootNativeGermHolomorphy318.lean
++++ sources/FourRootNativeGermHolomorphy318.lean
+@@ -8,8 +8,6 @@
+ open FourRootNormalizedPointCharts318
+ variable (b:Fin 4→ℂ) (hb:Function.Injective b)
+ local instance : TopologicalSpace (Completed b):=FourRootGluedTopology318.topology b
+-local instance : ChartedSpace ℂ (Completed b):=FourRootCompletedComplexAtlas318.chartedSpace b hb
+-local instance : IsManifold 𝓘(ℂ,ℂ) ω (Completed b):=FourRootCompletedComplexAtlas318.complex_manifold b hb
+ variable {M:Type*} [TopologicalSpace M] [ChartedSpace ℂ M]
+   [IsManifold 𝓘(ℂ,ℂ) ω M]
+ 
+@@ -19,7 +17,10 @@
+ theorem finite (g:M→FinitePoints b) (x:M)
+     (ht:ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun y=>(g y).val.1) x)
+     (hz:∀k,ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun y=>(g y).val.2 k) x):
++    letI:=FourRootCompletedComplexAtlas318.chartedSpace b hb
+     ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun y=>finiteChart b (g y)) x:=by
++  letI:=FourRootCompletedComplexAtlas318.chartedSpace b hb
++  letI:=FourRootCompletedComplexAtlas318.complex_manifold b hb
+   let e:=FourRootCompletedComplexAtlas318.finiteChart b hb (g x)
+   have he:e∈IsManifold.maximalAtlas 𝓘(ℂ,ℂ) ω (Completed b):=
+     IsManifold.subset_maximalAtlas ⟨Sum.inl (g x),rfl⟩
+@@ -49,7 +50,10 @@
+     (hx:g x=FourRootInfinityGraph318.center b s)
+     (hu:ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun y=>(g y).val.1) x)
+     (hs:∀k,ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun y=>(g y).val.2 k) x):
++    letI:=FourRootCompletedComplexAtlas318.chartedSpace b hb
+     ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun y=>infinityChart b (g y)) x:=by
++  letI:=FourRootCompletedComplexAtlas318.chartedSpace b hb
++  letI:=FourRootCompletedComplexAtlas318.complex_manifold b hb
+   let e:=FourRootCompletedComplexAtlas318.infinityChart b s
+   have he:e∈IsManifold.maximalAtlas 𝓘(ℂ,ℂ) ω (Completed b):=
+     IsManifold.subset_maximalAtlas ⟨Sum.inr s,rfl⟩
+--- before/PELMaximalHalfOctagonBoundary318.lean
++++ sources/PELMaximalHalfOctagonBoundary318.lean
+@@ -24,10 +24,9 @@
+       rw [Metric.mem_ball,Real.dist_eq,abs_of_nonneg (by linarith : 0≤(1+ε/2:ℝ)-1)]
+       linarith
+     have hext := hball hdist
+-    change -30≤(1+ε/2)*z.re ∧ (1+ε/2)*z.re≤30 ∧
+-      -(1/2:ℝ)≤(1+ε/2)*z.im ∧ (1+ε/2)*z.im≤1/2 ∧
+-      (1+ε/2)*z.re+7*((1+ε/2)*z.im)≤63/2 ∧
+-      -((1+ε/2)*z.re)+7*((1+ε/2)*z.im)≤63/2 at hext
++    change (1+ε/2) • z∈centeredPolygon at hext
++    simp only [centeredPolygon,Set.mem_setOf_eq,Complex.smul_re,Complex.smul_im,
++      smul_eq_mul] at hext
+     obtain ⟨h₁,h₂,h₃,h₄,h₅,h₆⟩ := hext
+     have T (v c : ℝ) (hc : 0<c) (he : (1+ε/2)*v≤c) : v<c := by
+       by_contra h
+@@ -79,9 +78,13 @@
+     (centerHomeomorph P.val).re= -30 ∨ (centerHomeomorph P.val).re=30 ∨
+     (centerHomeomorph P.val).re+7*(centerHomeomorph P.val).im=63/2 ∨
+     -(centerHomeomorph P.val).re+7*(centerHomeomorph P.val).im=63/2) ↔ _
+-  simp only [centerHomeomorph,Complex.add_re,Complex.ofReal_re,Complex.mul_re,Complex.ofReal_im,
+-    Complex.I_re,Complex.I_im,mul_zero,zero_mul,sub_zero,add_zero,
+-    Complex.add_im,Complex.mul_im,mul_one,zero_add]
++  have hre (Q:ℝ×ℝ) : (centerHomeomorph Q).re=Q.1 := by
++    change ((Q.1:ℂ)+((Q.2-1/2:ℝ):ℂ)*Complex.I).re=Q.1
++    simp
++  have him (Q:ℝ×ℝ) : (centerHomeomorph Q).im=Q.2-1/2 := by
++    change ((Q.1:ℂ)+((Q.2-1/2:ℝ):ℂ)*Complex.I).im=Q.2-1/2
++    simp
++  simp only [hre,him]
+   constructor <;> rintro (h | h | h | h | h | h)
+   · exact Or.inl (by linarith)
+   · exact Or.inr (Or.inl (by linarith))

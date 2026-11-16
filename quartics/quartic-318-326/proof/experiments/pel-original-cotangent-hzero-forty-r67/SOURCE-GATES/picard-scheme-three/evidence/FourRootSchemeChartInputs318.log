@@ -1,0 +1,33 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootSchemeChartInputs318.lean:73:37: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toInfinityBase_z, s_zero, map_one, one_mul] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootSchemeChartInputs318.lean:73:45: warning: This simp argument is unused:
+  map_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toInfinityBase_z, s_zero, map_mul, one_mul] at hz
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/FourRootSchemeChartInputs318.lean:100:24: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Spec.map ?g ≫ Spec.map ?f
+in the target expression
+  finiteInput b ((overlapEvaluation b g hu).comp (toInfinityBase b)) =
+    Spec.map (CommRingCat.ofHom (overlapEvaluation b g hu).toRingHom) ≫
+      Spec.map (CommRingCat.ofHom (toInfinityBase b).toRingHom) ≫ finiteChart b
+
+b : Fin 4 → ℂ
+S : Type
+inst✝¹ : CommRing S
+inst✝ : Algebra ℂ S
+g : Infinity b →ₐ[ℂ] S
+hu : IsUnit (g (FourRootInfinityCoordinateRing318.coordinate b none))
+hl :
+  Spec.map (CommRingCat.ofHom (overlapEvaluation b g hu).toRingHom) ≫ intoInfinity b =
+    Spec.map (CommRingCat.ofHom g.toRingHom)
+⊢ finiteInput b ((overlapEvaluation b g hu).comp (toInfinityBase b)) =
+    Spec.map (CommRingCat.ofHom (overlapEvaluation b g hu).toRingHom) ≫
+      Spec.map (CommRingCat.ofHom (toInfinityBase b).toRingHom) ≫ finiteChart b

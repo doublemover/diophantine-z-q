@@ -1,0 +1,68 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/LocalConformalEdgeExtension318.lean:53:53: error: Application type mismatch: The argument
+  (hrect (upper_full hw')).right.left
+has type
+  w ∈ interior S
+but is expected to have type
+  0 < w.im ∈ interior (Iff (↑e.symm w ∈ D))
+in the application
+  interior_subset (hrect (upper_full hw')).right.left
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/LocalConformalEdgeExtension318.lean:80:32: error(lean.invalidField): Invalid field `mono`: The environment does not contain `Exists.mono`, so it is not possible to project the field `mono` from an expression
+  self_mem_nhdsWithin
+of type
+  ∃ a ∈ 𝓝 ?m.897, ∃ b ∈ 𝓟 ?m.898, ?m.898 = a ∩ b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/LocalConformalEdgeExtension318.lean:102:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑e z
+in the target expression
+  ‖(fun y => G (↑e y)) z‖ = 1
+
+case refine_2
+D : Set ℂ
+hD : IsOpen D
+disk : ↑D ≃ₜ ↑UnitDisk
+f : ℂ → ℂ
+hf : ∀ (q : ↑D), f ↑q = ↑(disk q)
+hfa : AnalyticOnNhd ℂ f D
+e : OpenPartialHomeomorph ℂ ℂ
+hea : AnalyticOnNhd ℂ (↑e) e.source
+hia : AnalyticOnNhd ℂ (↑e.symm) e.target
+z : ℂ
+hz : z ∈ e.source
+hreal : (↑e z).im = 0
+hhalf : ∀ᶠ (w : ℂ) in 𝓝 (↑e z), ↑e.symm w ∈ D ↔ 0 < w.im
+hw : ↑e z ∈ e.target
+hback : ↑e.symm (↑e z) = z
+hfront : z ∈ frontier D
+hlow : ∀ᶠ (y : ℂ) in 𝓝 z, y ∈ D → 1 / 2 < ‖f y‖
+hsym : Tendsto (↑e.symm) (𝓝 (↑e z)) (𝓝 z)
+S : Set ℂ := {w | ↑e.symm w ∈ D ↔ 0 < w.im}
+T : Set ℂ := {w | ↑e.symm w ∈ D → 1 / 2 < ‖f (↑e.symm w)‖}
+V : Set ℂ := e.target ∩ (interior S ∩ interior T)
+hV : IsOpen V
+hwV : ↑e z ∈ V
+x : ℝ := (↑e z).re
+hx : ↑e z = ↑x
+hVx : V ∈ 𝓝 ↑x
+r : ℝ
+hr : r > 0
+hrect : openRectangle (x - r) (x + r) (-r) r ⊆ V
+U : Set ℂ := openRectangle (x - r) (x + r) 0 r
+W : Set ℂ := openRectangle (x - r) (x + r) (-r) r
+hab : x - r < x + r
+hxmid : x ∈ Ioo (x - r) (x + r)
+upper_full : U ⊆ W
+hUtarget : U ⊆ e.target
+hUD : ∀ w ∈ U, ↑e.symm w ∈ D
+hfnorm : ∀ y ∈ D, ‖f y‖ < 1
+g : ℂ → ℂ := fun w => f (↑e.symm w)
+hg : DifferentiableOn ℂ g U
+hlo : ∀ w ∈ U, 1 / 2 ≤ ‖g w‖
+hhi : ∀ w ∈ U, ‖g w‖ ≤ 1
+hmod : ∀ y ∈ Ioo (x - r) (x + r), Tendsto (fun w => ‖g w‖) (𝓝[U] ↑y) (𝓝 1)
+G : ℂ → ℂ
+hG : DifferentiableOn ℂ G (openRectangle (x - r) (x + r) (-r) r)
+hag : ∀ z ∈ openRectangle (x - r) (x + r) 0 r, G z = g z
+hlower : ∀ z ∈ openRectangle (x - r) (x + r) (-r) 0, G z = ModulusSchwarzExtension318.reciprocalReflection g z
+hxW : ↑x ∈ W
+heW : ↑e z ∈ W
+hGA : AnalyticAt ℂ G (↑e z)
+⊢ ‖(fun y => G (↑e y)) z‖ = 1

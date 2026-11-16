@@ -1,0 +1,114 @@
+--- before/FourRootInfinityReducedPresentation318.lean
++++ sources/FourRootInfinityReducedPresentation318.lean
+@@ -18,7 +18,9 @@
+   have h:Ideal.Quotient.mk (Ideal.span (Set.range (equation b))) (equation b k)=0:=
+     Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span ⟨k,rfl⟩)
+   simp only [equation,map_sub,map_pow,map_mul,map_one] at h
+-  change coordinate b k.succ^2-1-algebraMap ℂ (Ring b) (b 0-b k.succ)*coordinate b 0^2=0 at h
++  change coordinate b k.succ^2-1-
++    (algebraMap ℂ (Ring b) (b 0)-algebraMap ℂ (Ring b) (b k.succ))*coordinate b 0^2=0 at h
++  rw [←map_sub (algebraMap ℂ (Ring b)) (b 0) (b k.succ)] at h
+   linear_combination h
+ 
+ @[expose] def lift {S:Type*} [CommRing S] [Algebra ℂ S]
+@@ -32,7 +34,8 @@
+     exact fun _ hf=>hk hf)
+ @[simp] theorem lift_coordinate {S:Type*} [CommRing S] [Algebra ℂ S]
+     (x:Fin 4→S) (hx) (k:Fin 4):lift b x hx (coordinate b k)=x k:=by
+-  simp [lift,coordinate,Ideal.Quotient.lift_mk]
++  change aeval x (X k : MvPolynomial (Fin 4) ℂ)=x k
++  exact MvPolynomial.aeval_X _ _
+ theorem hom_ext {S:Type*} [CommRing S] [Algebra ℂ S]
+     {f g:Ring b→ₐ[ℂ]S} (h:∀k,f (coordinate b k)=g (coordinate b k)):f=g:=by
+   apply Ideal.Quotient.algHom_ext
+@@ -79,7 +82,7 @@
+       · simp [AlgHom.comp_apply,originalCoordinate])
+ 
+ @[expose] def reducedPresentation:PreSubmersivePresentation ℂ (Ring b) (Fin 4) (Fin 3):=
+-  PreSubmersivePresentation.naive (v:=equation b) Fin.succ Fin.succ_injective
++  PreSubmersivePresentation.naive (v:=equation b) Fin.succ (Fin.succ_injective 3)
+ @[expose] def presentation:PreSubmersivePresentation ℂ
+     (FourRootInfinityCoordinateRing318.Ring b) (Fin 4) (Fin 3):=
+   (reducedPresentation b).ofAlgEquiv (equivalence b)
+@@ -90,10 +93,14 @@
+     8*∏k:Fin 3,FourRootInfinityCoordinateRing318.coordinate b (some k.succ):=by
+   rw [presentation,PreSubmersivePresentation.jacobian_ofAlgEquiv]
+   have he:(reducedPresentation b).jacobian=8*∏k:Fin 3,coordinate b k.succ:=by
+-    rw [PreSubmersivePresentation.jacobian_eq_jacobiMatrix_det]
+-    simp [reducedPresentation,PreSubmersivePresentation.jacobiMatrix_naive,
+-      equation,Matrix.det_fin_three,coordinate,Fin.prod_univ_succ]
+-    <;> ring
++    have hmatrix : (reducedPresentation b).jacobiMatrix =
++        Matrix.of (fun k l : Fin 3 => pderiv k.succ (equation b l)) := by
++      ext k l
++      simp only [reducedPresentation,PreSubmersivePresentation.jacobiMatrix_naive,Matrix.of_apply]
++    rw [PreSubmersivePresentation.jacobian_eq_jacobiMatrix_det,hmatrix]
++    change Ideal.Quotient.mk (Ideal.span (Set.range (equation b)))
++      (Matrix.det (Matrix.of (fun k l : Fin 3 => pderiv k.succ (equation b l)))) = _
++    simp [equation,Matrix.det_fin_three,coordinate,Fin.prod_univ_succ] <;> ring
+   rw [he,map_mul,map_ofNat,map_prod]
+   congr 1
+   apply Finset.prod_congr rfl
+--- before/ProjectiveLineComplexSchemePoints318.lean
++++ sources/ProjectiveLineComplexSchemePoints318.lean
+@@ -32,7 +32,7 @@
+   intro z w h
+   have ha:affinePoint z=affinePoint w:=Subtype.ext
+     ((cancel_mono (JLineAtlas318.chart ℂ j)).mp (congrArg Subtype.val h))
+-  have hh:=congrArg Spec.homEquivAlgHom ha
++  have hh:=congrArg (Spec.homEquivAlgHom (R:=ℂ) (A:=Polynomial ℂ) (B:=ℂ)) ha
+   have hh':Polynomial.aeval z=Polynomial.aeval w:=by
+     simpa only [affinePoint,Equiv.apply_symm_apply] using hh
+   simpa only [Polynomial.aeval_X] using congrArg
+@@ -75,7 +75,7 @@
+   change ((affinePoint z).val ≫ JLineAtlas318.chart ℂ 0) ⁻¹ᵁ _=_
+   rw [Scheme.Hom.comp_preimage,ProjectiveLineComplexChartGeometry318.chart_zero_preimage_one,
+     affinePoint_value,SpecMap_preimage_basicOpen]
+-  simp
++  exact congrArg (fun c:ℂ => PrimeSpectrum.basicOpen c) (Polynomial.aeval_X z)
+ 
+ lemma infinity_ne_finite (z:ℂ) : chartPoint 0 0≠chartPoint 1 z := by
+   intro he
+@@ -84,7 +84,8 @@
+     exact ⟨(affinePoint z).val default,rfl⟩
+   have hm:default∈(chartPoint 0 0).val ⁻¹ᵁ (JLineAtlas318.chart ℂ 1).opensRange:=hmem
+   rw [chart_zero_preimage_one] at hm
+-  simpa using hm
++  change (0:ℂ) ∉ (default:PrimeSpectrum ℂ).asIdeal at hm
++  exact hm (Ideal.zero_mem _)
+ 
+ /-- Full overlap equality of actual field-valued Scheme points. No
+ additional gluing identifications can occur beyond reciprocal coordinates. -/
+@@ -129,7 +130,7 @@
+       · subst z
+         exact ⟨∞,rfl⟩
+       · refine ⟨(z⁻¹:ℂ),?_⟩
+-        exact (reciprocal_overlap z⁻¹ (inv_ne_zero hz)).trans (by rw [inv_inv])
++        exact (reciprocal_overlap z⁻¹ (inv_ne_zero hz)).trans (by rw [inv_inv] <;> rfl)
+     · exact ⟨(z:OnePoint ℂ),rfl⟩
+ 
+ @[expose] def sphereSchemeEquiv : OnePoint ℂ≃SchemePoints:=
+--- before/ProjectiveLineGradedPointAction318.lean
++++ sources/ProjectiveLineGradedPointAction318.lean
+@@ -21,8 +21,7 @@
+   intro a
+   obtain ⟨n,p,hp,rfl⟩:=a.mk_surjective G hs
+   have hv:φ (f s)*(↑hu.unit⁻¹:S)=1 := by
+-    rw [←hu.unit_spec]
+-    exact Units.mul_inv hu.unit
++    exact Units.mul_inv_of_eq (u:=hu.unit) hu.unit_spec
+   simp only [RingHom.comp_apply,Away.map_mk]
+   rw [JLineEvaluation318.evaluate_mk φ (f s) hu (f.map_mem hs) n (f p)
+       (f.map_mem hp) (↑hu.unit⁻¹) hv,
+@@ -62,8 +61,9 @@
+   have he:=JLineOverlap318.chartEval_polynomial φ j hj v hv
+   change Spec.map (CommRingCat.ofHom (JLineEvaluation318.chartEval φ j hj).toRingHom) ≫ _=_
+   rw [he]
+-  simp only [AlgHom.comp_toRingHom,CommRingCat.ofHom_comp,Spec.map_comp,
+-    JLineAtlas318.chart,Category.assoc]
++  change Spec.map ((JLineAtlas318.chartEquiv R j).toRingEquiv.toCommRingCatIso.hom ≫
++    CommRingCat.ofHom (Polynomial.aeval (φ (X (j.succAbove 0))*v)).toRingHom) ≫ _ = _
++  rw [Spec.map_comp,Category.assoc] <;> rfl
+ 
+ /-- A concrete original source coordinate and a concrete transformed target
+ coordinate, with no inference from an underlying topological point. -/

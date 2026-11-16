@@ -1,0 +1,37 @@
+--- before/NormalizerVertexEnergyMinimum318.lean
++++ sources/NormalizerVertexEnergyMinimum318.lean
+@@ -27,13 +27,13 @@
+     r.natAbs≤radiusR k N ∧ c.natAbs≤radiusC k N ∧ d.natAbs≤radiusD k N := by
+   fin_cases k
+   · have ⟨hr,hc,hd⟩ := energy0_bounds s r c d
+-    simp only [energy,threshold,if_pos rfl] at h
++    change energy0 s r c d < 20*(N:ℤ) at h
+     refine ⟨?_,?_,?_⟩
+     · exact natAbs_bound r 56 (20*N) (by decide) (by push_cast; linarith)
+     · exact natAbs_bound c 4 (60*N) (by decide) (by push_cast; linarith)
+     · exact natAbs_bound d 56 (100*N) (by decide) (by push_cast; linarith)
+   · have ⟨hr,hc,hd⟩ := energy1_bounds s r c d
+-    norm_num only [energy,threshold] at h
++    change energy1 s r c d < 28*(N:ℤ) at h
+     refine ⟨?_,?_,?_⟩
+     · exact natAbs_bound r 60 (28*N) (by decide) (by push_cast; linarith)
+     · exact natAbs_bound c 10 (196*N) (by decide) (by push_cast; linarith)
+@@ -52,6 +52,7 @@
+   have he : 4*(N:ℤ)-210*r^2+5*c^2+42*d^2=s^2 := by linarith
+   have hn : (s^2).toNat=s.natAbs^2 := by
+     apply Int.ofNat_injective
++    change ((s^2).toNat : ℤ) = ((s.natAbs^2 : ℕ) : ℤ)
+     rw [Int.toNat_of_nonneg (sq_nonneg s)]
+     simp only [Int.natCast_pow,Int.natCast_natAbs,sq_abs]
+   simp only [root,he,hn,Nat.sqrt_eq']
+@@ -70,7 +71,9 @@
+     S^2+210*R^2-5*C^2-42*D^2=4*(allowedNorm i:ℤ) →
+       threshold k (allowedNorm i)≤energy k S R C D := by
+   revert r c d sr sc sd ss
+-  fin_cases i <;> fin_cases k <;> decide
++  fin_cases i <;> fin_cases k <;>
++    dsimp only [radiusR,radiusC,radiusD,allowedNorm,sign,root,threshold,energy,energy0,energy1] <;>
++    decide
+ 
+ /-- All integral original coordinate vectors of any allowed norm satisfy
+ both representative vertex inequalities. No normalization hypothesis is

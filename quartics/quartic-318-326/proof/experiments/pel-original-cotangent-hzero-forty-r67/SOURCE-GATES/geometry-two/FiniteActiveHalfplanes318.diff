@@ -1,0 +1,15 @@
+--- before/FiniteActiveHalfplanes318
++++ after/FiniteActiveHalfplanes318
+@@ -14,8 +14,10 @@
+   classical
+   let U : Set X := {x | ∀ i, f i p < c i → f i x < c i}
+   have hopen : IsOpen U := by
+-    change IsOpen {x | ∀ i, f i p < c i → f i x < c i}
+-    change IsOpen (⋂ i, {x | f i p < c i → f i x < c i})
++    have hU : U = ⋂ i, {x | f i p < c i → f i x < c i} := by
++      ext x
++      simp only [U, mem_iInter, mem_setOf_eq]
++    rw [hU]
+     apply isOpen_iInter_of_finite
+     intro i
+     by_cases hi : f i p < c i

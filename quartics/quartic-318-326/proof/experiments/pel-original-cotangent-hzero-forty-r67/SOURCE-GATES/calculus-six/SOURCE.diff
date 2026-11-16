@@ -1,0 +1,93 @@
+--- before/AnalyticNonzeroSquareRoot318.lean
++++ after/AnalyticNonzeroSquareRoot318.lean
+@@ -22,7 +22,7 @@
+     exact hn z hz hez.symm
+   have hfa:AnalyticAt ℂ (fun w:ℂ=>w^2) (s z):=analyticAt_id.pow 2
+   have hd:deriv (fun w:ℂ=>w^2) (s z)≠0:=by
+-    rw [((hasDerivAt_id (s z)).pow 2).deriv]
++    rw [(hasDerivAt_pow 2 (s z)).deriv]
+     simpa using mul_ne_zero (by norm_num : (2:ℂ)≠0) hs0
+   obtain ⟨k,hk,_,hl,_⟩:=FiniteAnalyticCharts318.analytic_inverse hfa hd
+   have hcs:ContinuousAt s z:=(hs z hz).continuousAt (hU.mem_nhds hz)
+--- before/AnalyticSquaredBaseChange318.lean
++++ after/AnalyticSquaredBaseChange318.lean
+@@ -32,18 +32,20 @@
+   have hsqA:AnalyticAt ℂ (fun z:ℂ=>s (z^2)) 0:=by
+     have hpow:AnalyticAt ℂ (fun z:ℂ=>z^2) 0:=analyticAt_id.pow 2
+     have hs':AnalyticAt ℂ s ((0:ℂ)^2):=by simpa using hs
+-    exact hs'.comp hpow
++    exact hs'.comp (f := fun z : ℂ => z^2) hpow
+   have hq:AnalyticAt ℂ q 0:=analyticAt_id.mul hsqA
+   have hq0:q 0=0:=by simp [q]
+   have hqd:HasDerivAt q b 0:=by
+     have hh:=(hasDerivAt_id (0:ℂ)).mul hsqA.differentiableAt.hasDerivAt
++    change HasDerivAt q (1 * s ((0:ℂ)^2) + 0 * deriv (fun z:ℂ=>s (z^2)) 0) 0 at hh
+     simpa only [q,zero_pow (by decide : 2≠0),hs0,one_mul,zero_mul,add_zero] using hh
+   have hqne:deriv q 0≠0:=by rw [hqd.deriv];exact hb0
+   obtain ⟨k,hk,hk0,hl,hr⟩:=FiniteAnalyticCharts318.analytic_inverse hq hqne
+   rw [hq0] at hk hk0 hr
+   refine ⟨q,k,hq,hq0,hqne,hk,hk0,hl,hr,?_⟩
+   have ht:Tendsto (fun z:ℂ=>z^2) (𝓝 0) (𝓝 0):=by
+-    simpa using (continuousAt_id.pow 2 : ContinuousAt (fun z:ℂ=>z^2) 0)
++    have hc : ContinuousAt (fun z:ℂ=>z^2) 0 := continuousAt_id.pow 2
++    simpa only [zero_pow (by decide : 2≠0)] using hc.tendsto
+   filter_upwards [ht.eventually he'] with z hz
+   dsimp [q]
+   rw [mul_pow,hsq,hz]
+--- before/AnalyticSquaredDerivative318.lean
++++ after/AnalyticSquaredDerivative318.lean
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.Analysis.Complex.Basic
+ public import Mathlib.Analysis.Analytic.Order
+ public import Mathlib.Analysis.Meromorphic.Order
+ public section
+--- before/GeodesicCircleFlattening318.lean
++++ after/GeodesicCircleFlattening318.lean
+@@ -63,15 +63,15 @@
+ theorem flatten_differentiableOn (a b : ℝ) :
+     DifferentiableOn ℂ (flatten a b) {z : ℂ | (b:ℂ)-z≠0} := by
+   intro z hz
+-  exact (differentiableAt_const.mul
+-    ((differentiableAt_id.sub_const _).div (differentiableAt_const.sub differentiableAt_id) hz)).differentiableWithinAt
++  exact ((differentiableAt_const (-I)).mul
++    ((differentiableAt_id.sub_const _).div ((differentiableAt_const (b:ℂ)).sub differentiableAt_id) hz)).differentiableWithinAt
+ 
+ theorem unflatten_differentiableOn (a b : ℝ) :
+     DifferentiableOn ℂ (unflatten a b) {w : ℂ | 1+I*w≠0} := by
+   intro w hw
+-  exact ((differentiableAt_const.add
+-    (differentiableAt_const.mul (differentiableAt_const.mul differentiableAt_id))).div
+-    (differentiableAt_const.add (differentiableAt_const.mul differentiableAt_id)) hw).differentiableWithinAt
++  exact (((differentiableAt_const (a:ℂ)).add
++    ((differentiableAt_const (b:ℂ)).mul ((differentiableAt_const I).mul differentiableAt_id))).div
++    ((differentiableAt_const (1:ℂ)).add ((differentiableAt_const I).mul differentiableAt_id)) hw).differentiableWithinAt
+ 
+ /-- Exact original-coordinate circle equation in the imaginary part of
+ the holomorphic straightening map. -/
+--- before/PELOriginalLogMetricDerivatives318.lean
++++ after/PELOriginalLogMetricDerivatives318.lean
+@@ -26,6 +26,7 @@
+       logWeight τ hτ:=by
+     funext w
+     exact (logWeight_formula τ hτ w).symm
++  simp only [Function.id_def] at h
+   rw [he] at h
+   convert h using 1
+   ext v
+--- before/UpperHalfPlanePowerRays318.lean
++++ after/UpperHalfPlanePowerRays318.lean
+@@ -30,11 +30,11 @@
+   have hai : a.im=Real.sin θ := by
+     dsimp [a]
+     rw [←Complex.cos_add_sin_I]
+-    simp
++    simp [Complex.sin_ofReal_re]
+   have hbi : b.im=Real.sin φ := by
+     dsimp [b]
+     rw [←Complex.cos_add_sin_I]
+-    simp
++    simp [Complex.sin_ofReal_re]
+   refine ⟨a,b,by rw [hai]; exact Real.sin_pos_of_pos_of_lt_pi hθ0 hθπ,
+     by rw [hbi]; exact Real.sin_pos_of_pos_of_lt_pi hφ0 hφπ,?_,?_⟩
+   · dsimp [a]

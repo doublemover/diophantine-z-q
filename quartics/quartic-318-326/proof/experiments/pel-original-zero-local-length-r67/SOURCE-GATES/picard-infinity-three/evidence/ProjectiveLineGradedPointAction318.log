@@ -1,0 +1,76 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/ProjectiveLineGradedPointAction318.lean:24:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a * ↑hu.unit⁻¹ = 1
+Error: Application type mismatch: The argument
+  hu
+has type
+  IsUnit (φ (f s))
+but is expected to have type
+  IsUnit _a
+in the application
+  hu.unit
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+R S : Type u
+inst✝¹ : CommRing R
+inst✝ : CommRing S
+f : G →+*ᵍ G
+φ : P →+* S
+s : P
+d : ℕ
+hs : s ∈ G d
+hu : IsUnit (φ (f s))
+n : ℕ
+p : P
+hp : p ∈ G (n • d)
+⊢ φ (f s) * ↑hu.unit⁻¹ = 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/ProjectiveLineGradedPointAction318.lean:61:35: error: unsolved goals
+R S : Type u
+inst✝² : CommRing R
+inst✝¹ : CommRing S
+inst✝ : Algebra R S
+φ : P →ₐ[R] S
+j : Fin 2
+hj : IsUnit (φ (X j))
+v : S
+hv : φ (X j) * v = 1
+he :
+  JLineEvaluation318.chartEval φ j hj =
+    (Polynomial.aeval (φ (X (j.succAbove 0)) * v)).comp ↑(JLineAtlas318.chartEquiv R j)
+⊢ Spec.map
+        (CommRingCat.ofHom
+          ((Polynomial.aeval (φ (X (j.succAbove 0)) * v)).comp ↑(JLineAtlas318.chartEquiv R j)).toRingHom) ≫
+      Proj.awayι G (X j) ⋯ evaluatedPoint._proof_2 =
+    Spec.map (CommRingCat.ofHom (Polynomial.aeval (φ (X (j.succAbove 0)) * v)).toRingHom) ≫
+      Spec.map (JLineAtlas318.chartEquiv R j).toRingEquiv.toCommRingCatIso.hom ≫
+        Proj.awayι G (X j) ⋯ JLineAtlas318.chart._proof_2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/ProjectiveLineGradedPointAction318.lean:65:13: warning: This simp argument is unused:
+  AlgHom.comp_toRingHom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [CommRingCat.ofHom_comp, Spec.map_comp, JLineAtlas318.chart, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/ProjectiveLineGradedPointAction318.lean:65:35: warning: This simp argument is unused:
+  CommRingCat.ofHom_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [AlgHom.comp_toRingHom, Spec.map_comp, JLineAtlas318.chart, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/ProjectiveLineGradedPointAction318.lean:65:58: warning: This simp argument is unused:
+  Spec.map_comp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [AlgHom.comp_toRingHom, CommRingCat.ofHom_comp, JLineAtlas318.chart, Category.assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/ProjectiveLineGradedPointAction318.lean:66:24: warning: This simp argument is unused:
+  Category.assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [AlgHom.comp_toRingHom, CommRingCat.ofHom_comp, Spec.map_comp, JLineAtlas318.chart]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

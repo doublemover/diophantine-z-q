@@ -1,0 +1,142 @@
+{
+  "status": "INACTIVE_SOURCE_REVIEW_PENDING",
+  "source_head": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+  "execution_head": "e51d8760f82415364f83792071135dfb71d3b462",
+  "run_id": 43818205337,
+  "packet": "height-original-normal-infinity-trace-r37",
+  "evidence_kind": "dependency_ready_inventory_not_failfast_prefix",
+  "modules": {
+    "PELNormalizerTraceIntegral318": {
+      "before_sha256": "7e493a75477abe8942751879c4458386e8af0f4ede5b2a8127f1f983b82ed56c",
+      "after_sha256": "67b62c65bdafc7d0eff403e18fc2f231c22c2d1b3bde704f3a1d58e825088bf2",
+      "own_observation": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/height-original-normal-infinity-trace-r37/quarantine/PELNormalizerTraceIntegral318/PELNormalizerTraceIntegral318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELNormalizerTraceIntegral318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "PELIntegralUnitSpan318"
+        ],
+        "log_sha256": "91d6f55b27c8965174bf14a79e4c36e91dc169eb0b4417dacd4d330e97011940",
+        "occurrence": "height-original-normal-infinity-trace-r37/PELNormalizerTraceIntegral318",
+        "root_causes": [
+          "PELNormalizerTraceIntegral318"
+        ],
+        "seconds": 3.526,
+        "source_sha256": "7e493a75477abe8942751879c4458386e8af0f4ede5b2a8127f1f983b82ed56c",
+        "status": "compiler_error",
+        "timed_out": false
+      }
+    },
+    "PELFixedNormalizerFiniteSearch318": {
+      "before_sha256": "b4c0dd023d06d6da0411aad0e9de8bdb8a3d648fb449d6680b844910bf7ca98e",
+      "after_sha256": "41622e9917bdc351a4f8f67124e449e1474d93f99225e0932d8f31ca9b7cd363",
+      "own_observation": {
+        "command": [
+          "lean",
+          "-j1",
+          "-M",
+          "6144",
+          "-Ddebug.skipKernelTC=false",
+          "-R",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37",
+          "-o",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/height-original-normal-infinity-trace-r37/quarantine/PELFixedNormalizerFiniteSearch318/PELFixedNormalizerFiniteSearch318.olean",
+          "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r37/PELFixedNormalizerFiniteSearch318.lean"
+        ],
+        "exit_code": 1,
+        "imports": [
+          "Mathlib.Data.Nat.Sqrt",
+          "Mathlib.Tactic"
+        ],
+        "log_sha256": "ef0fa795cc88ebd98b77161f48f0b9cebc8d090f720e0a4e434d2c45f07da365",
+        "occurrence": "height-original-normal-infinity-trace-r37/PELFixedNormalizerFiniteSearch318",
+        "root_causes": [
+          "PELFixedNormalizerFiniteSearch318"
+        ],
+        "seconds": 10.195,
+        "source_sha256": "b4c0dd023d06d6da0411aad0e9de8bdb8a3d648fb449d6680b844910bf7ca98e",
+        "status": "compiler_error",
+        "timed_out": false
+      }
+    }
+  },
+  "public_types_changed": false,
+  "local_lean_run": false,
+  "obligations": [
+    {
+      "id": "inputs",
+      "statement": "TraceIntegral retains arbitrary actual quaternion unit u and original normalizer/order hypotheses; no integral-quaternion premise added. FiniteSearch retains every i:Fin5,r:Fin201,d:Fin334 and actual admissible implication."
+    },
+    {
+      "id": "objects",
+      "statement": "TraceIntegral changes only Units.inv_val to Units.inv_mul in existing inverse cancellation. FiniteSearch changes only decide to decide +kernel after existing fin_cases; same decidable proposition and exhaustive finite box."
+    },
+    {
+      "id": "domains",
+      "statement": "Full noncommutative quaternion unit group and every original normalizer retained. Search includes all five norms30,42,70,105,210 and all335670 pairs, no selected sample, omitted sign or weakened inequalities."
+    },
+    {
+      "id": "maps",
+      "statement": "TraceIntegral uses identical reciprocal and product association, cancelling coerced unit inverse by exact native theorem. Sandwich trace, integer matrix witnesses and subsequent trace-integrality maps unchanged."
+    },
+    {
+      "id": "scalars",
+      "statement": "No new algebra/action/field dictionary. Native Units.inv_mul has (\u2191u\u207b\u00b9*u:\u03b1)=1 for any Monoid. Search still natural-number truncated subtraction/division/square root, exact same concrete Decidable instance."
+    },
+    {
+      "id": "signatures",
+      "statement": "Both module statements/imports/public definitions and every other proof line unchanged. All existing maxHeartbeats/maxRecDepth,180s wall cap,-j1,-M6144 and debug.skipKernelTC=false remain. No native_decide, axiom or admitted stand-in introduced."
+    },
+    {
+      "id": "consumers",
+      "statement": "Complete PELNormOneNormalizerIntegral and PELOriginalFixedPolygonSearch consumers retained: same actual norm-one normalizer order membership and original fixed-point constraints imply same finite rows. These downstream conclusions are not assumed."
+    },
+    {
+      "id": "limits",
+      "statement": "Kernel mode is explicitly selected by existing native DecideConfig; pinned doKernel uses mkDecideProof and mkAuxLemma, separate from nativeEqTrue. This avoids relying on elaborator whnf reduction but does not guarantee the large computation fits existing hosted limits. Python finite enumeration is supplementary only."
+    },
+    {
+      "id": "verification",
+      "statement": "Own source/intake/log hashes match authenticated inventory source15d; both compiler_error statuses observed independently of production frontier. Source review and separate propagation gate required; no local compiler, packet success, blocked-module failure inference or borrowed infinity receipt."
+    }
+  ],
+  "bindings": {
+    "PELFixedNormalizerFiniteSearch318.diff": "fb10e2c1505626e9a859a2cdb53eed12736919843ab354587ddf1682c6c61ee3",
+    "PELNormalizerTraceIntegral318.diff": "1d11fa45094c44c68b38ec917d2c2f8aea71d8e4756d7d9b4d79dcb8294fd3e8",
+    "README.md": "df179e7cc387da825e23473ece27b886fb3c7b93a3feefdee390c30ac073059f",
+    "after/PELFixedNormalizerFiniteSearch318.lean": "41622e9917bdc351a4f8f67124e449e1474d93f99225e0932d8f31ca9b7cd363",
+    "after/PELNormalizerTraceIntegral318.lean": "67b62c65bdafc7d0eff403e18fc2f231c22c2d1b3bde704f3a1d58e825088bf2",
+    "before/PELFixedNormalizerFiniteSearch318.lean": "b4c0dd023d06d6da0411aad0e9de8bdb8a3d648fb449d6680b844910bf7ca98e",
+    "before/PELNormalizerTraceIntegral318.lean": "7e493a75477abe8942751879c4458386e8af0f4ede5b2a8127f1f983b82ed56c",
+    "evidence/INVENTORY-AUTHENTICATION.json": "801b60f773cf577a7e74dc6eb0009daa264035cc7a8765f9d7d4e08b99112816",
+    "evidence/INVENTORY.json": "de84e66cba16bf8549a275976a96793b4d01fda3a91dcc7ab1da08690042b35b",
+    "evidence/PELFixedNormalizerFiniteSearch318.log": "ef0fa795cc88ebd98b77161f48f0b9cebc8d090f720e0a4e434d2c45f07da365",
+    "evidence/PELNormalizerTraceIntegral318.log": "91d6f55b27c8965174bf14a79e4c36e91dc169eb0b4417dacd4d330e97011940",
+    "evidence/intake.json": "eb2df64e272d060710204b218c045b01bba52fc0cd14f4e77dc94e5f6d6aef81",
+    "native/Decide.lean": "6773f54ca73ee7405a91c5ffb3b827db4ecdbb22b28a494cf5e2fe8ac224c4b3",
+    "native/Decide.lean.pin.json": "d0f36e5eb75c348be48583396abdaaca95803ffd2fce262b18f85c48cbc5b857",
+    "native/NatSqrt.lean": "1e61ada5495ef1986e06fdffc14ae7a5163e839baae71ade5e39118889786bf5",
+    "native/NatSqrt.lean.pin.json": "bf7d2be72a9a34ca69cd448da89689b9ed9e8e987840d28eaea19167fcc6bb82",
+    "native/NatSqrtBasic.lean": "f57f88ba1daaa0db650ad5f2386681f17d2ee01bf33213581f2530946c829df6",
+    "native/NatSqrtBasic.lean.pin.json": "9bb159f0dbcd2609d613d962e0326e5cecfb03984eb29c7676482157cfaacb55",
+    "native/UnitsDefs.lean": "f35090c081e7903c719d1d77033bd1b443cc70a99ee4fb711dcaa2384508c77e",
+    "native/UnitsDefs.lean.pin.json": "ccbe210ca9d42d40fb6355cda047c5029281bfd9c47870d36df768b81a7f164b",
+    "primary/PELActualOrderNormalizer318.lean": "6f67005a6c0065459da960faf85d3cc122898c4e26f7355afabad0eb33f724e3",
+    "primary/PELIntegralUnitSpan318.lean": "1fdc6969578628a7b221f75bc3e1ce18f6244fad692953d6c4db6e3b07d54c5d",
+    "primary/PELNormOneNormalizerIntegral318.lean": "caf5282d11ad4b73cde0d85d687547fe0db93d8e869db650faa4b1a8002073af",
+    "primary/PELOriginalFixedPolygonSearch318.lean": "95cf06174c28e7e01dbb55ac02924bd07ce9f7872cbf1b5164abc07431fb02b4",
+    "primary/PELPrincipalOrderCoordinates318.lean": "efcc1b9eef380228cf87df44f262271e33928721f376ddf79fa517342693c17e",
+    "primary/PELPrincipalOrderPerfect318.lean": "d87dc5726114e1e7aeddac0b2dea093c90ada4087870fcdc96e4a4b1f5bb0d76",
+    "primary/PELQuaternionDivision318.lean": "5c810bac3c3e2e2638ef12bd211caaca5f743fa69e97f5e640b54963d8b6d155"
+  }
+}

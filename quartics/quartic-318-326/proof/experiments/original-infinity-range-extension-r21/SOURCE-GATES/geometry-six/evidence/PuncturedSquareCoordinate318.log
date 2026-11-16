@@ -1,0 +1,23 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/PuncturedSquareCoordinate318.lean:31:65: error: typeclass instance problem is stuck
+  TopologicalSpace ?m.380
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `TopologicalSpace` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/PuncturedSquareCoordinate318.lean:32:23: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Exists.symm`, so it is not possible to project the field `symm` from an expression
+  hn
+of type
+  ∃ a ∈ 𝓝 0, ∃ b ∈ 𝓟 {0}ᶜ, {x | (fun z => ‖f z‖ = ‖z‖) x} = a ∩ b
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/PuncturedSquareCoordinate318.lean:53:4: error: Type mismatch: After simplification, term
+  HasDerivAt.tendsto_slope (DifferentiableAt.hasDerivAt (AnalyticAt.differentiableAt hq))
+ has type
+  Tendsto (slope q 0) (𝓝[≠] 0) (𝓝 (deriv q 0))
+but is expected to have type
+  Tendsto (fun z => z⁻¹ * q z) (𝓝[≠] 0) (𝓝 (deriv q 0))
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 32
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r37/PuncturedSquareCoordinate318.lean:59:73: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Exists.symm`, so it is not possible to project the field `symm` from an expression
+  hratio
+of type
+  ∃ a ∈ 𝓝 0, ∃ b ∈ 𝓟 {0}ᶜ, {x | (fun z => (q z / z) ^ 2 = 1) x} = a ∩ b

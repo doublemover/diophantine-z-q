@@ -1,0 +1,146 @@
+--- before/ComplexCurveOpenMapping318.lean
++++ sources/ComplexCurveOpenMapping318.lean
+@@ -24,7 +24,7 @@
+   have hq : q∈e.source := mem_chart_source ℂ q
+   have hi : ContinuousAt e.symm (e q) := e.continuousAt_symm (e.map_source hq)
+   have hnear : ∀ᶠ z in 𝓝 (e q),z∈e.target ∧ e.symm z∈W ∩ U := by
+-    refine (e.open_target.mem_nhds (e.map_source hq)).and (hi.eventually ?_)
++    refine Filter.Eventually.and (e.open_target.mem_nhds (e.map_source hq)) (hi.eventually_mem ?_)
+     simpa only [e.left_inv hq] using (hWo.inter hU).mem_nhds ⟨hqW,hqU⟩
+   have hf : ∀ᶠ z in 𝓝[≠] (e q),False := by
+     filter_upwards [eventually_nhdsWithin_of_eventually_nhds hnear,self_mem_nhdsWithin] with z hz hne
+@@ -66,12 +66,12 @@
+     apply g.injOn hFq hgp
+     simpa only [H,e.left_inv hq,hep] using hconst
+   have hi : ContinuousAt e.symm (e p) := e.continuousAt_symm (e.map_source hp)
+-  have hiA : ∀ᶠ z in 𝓝 (e p),e.symm z∈A := hi.eventually (by simpa only [hep] using hA)
++  have hiA : ∀ᶠ z in 𝓝 (e p),e.symm z∈A := hi.eventually_mem (by simpa only [hep] using hA)
+   have hcF : ContinuousAt (fun z => F (e.symm z)) (e p) := hF'.continuousAt.comp hi
+   let T : Set ℂ := {z | z∈e.target ∧ e.symm z∈A ∧ F (e.symm z)∈g.source}
+   have hT : T∈𝓝 (e p) :=
+-    (e.open_target.mem_nhds (e.map_source hp)).and (hiA.and
+-      (hcF.eventually (by simpa only [hep] using g.open_source.mem_nhds hgp)))
++    Filter.Eventually.and (e.open_target.mem_nhds (e.map_source hp)) (Filter.Eventually.and hiA
++      (hcF.eventually_mem (by simpa only [hep] using g.open_source.mem_nhds hgp)))
+   have hHT : H '' T∈𝓝 (g (F p)) := by
+     rw [←hH0]
+     apply hopen
+--- before/ComplexCurvePartialInverse318.lean
++++ sources/ComplexCurvePartialInverse318.lean
+@@ -27,7 +27,8 @@
+   let K : OpenPartialHomeomorph ℂ ℂ := (e.symm.trans h).trans g
+   have hk : e p∈K.source := by
+     refine ⟨⟨e.map_source hp,?_⟩,?_⟩
+-    · simpa only [hep] using hpSource
++    · change e.symm (e p)∈h.source
++      simpa only [hep] using hpSource
+     · change h (e.symm (e p))∈g.source
+       simpa only [hep] using hhp
+   have hv : K (e p)=g (h p) := by
+@@ -37,9 +38,11 @@
+     simpa only [hep] using hh
+   have hg' : ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω g (h (e.symm (e p))) := by
+     simpa only [hep] using contMDiffAt_of_mem_maximalAtlas hgM hhp
+-  have hKC : ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω K (e p) :=
+-    hg'.comp (e p) (hh'.comp (e p)
+-      (contMDiffAt_symm_of_mem_maximalAtlas heM (e.map_source hp)))
++  have hKC : ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω K (e p) := by
++    change ContMDiffAt 𝓘(ℂ,ℂ) 𝓘(ℂ,ℂ) ω (fun z => g (h (e.symm z))) (e p)
++    exact hg'.comp (f := fun z => h (e.symm z)) (e p)
++      (hh'.comp (f := e.symm) (e p)
++        (contMDiffAt_symm_of_mem_maximalAtlas heM (e.map_source hp)))
+   have hKA : AnalyticAt ℂ K (e p) :=
+     (contMDiffAt_iff_contDiffAt.mp hKC).analyticAt
+   have hIA := ComplexHolomorphicChartInverse318.inverse_analytic K hk hKA
+--- before/DenseTargetOpenComparison318.lean
++++ sources/DenseTargetOpenComparison318.lean
+@@ -40,8 +40,7 @@
+     (F : M → N) (hc : Continuous F) (ho : IsOpenMap F)
+     (V : Set N) (hV : Dense V) (hcover : V⊆range F)
+     (hfib : ∀ x y,F x=F y → F x∈V → x=y) : M ≃ₜ N :=
+-  (Equiv.ofBijective F ⟨injective F ho V hV hfib,surjective F hc V hV hcover⟩).
+-    toHomeomorphOfContinuousOpen hc ho
++  (Equiv.ofBijective F ⟨injective F ho V hV hfib,surjective F hc V hV hcover⟩).toHomeomorphOfContinuousOpen hc ho
+ 
+ /-- Interior injectivity suffices for the dense fibers only when ALL
+ preimages of the regular target region are shown to lie in that interior. -/
+@@ -49,5 +48,5 @@
+     (hinj : InjOn F U) (hpre : F ⁻¹' V⊆U) :
+     ∀ x y,F x=F y → F x∈V → x=y := by
+   intro x y hxy hx
+-  exact hinj (hpre hx) (hpre (hxy ▸ hx)) hxy
++  exact hinj (hpre hx) (hpre (show F y∈V from hxy ▸ hx)) hxy
+ end DenseTargetOpenComparison318
+--- before/FourRootPuncturedRegularity318.lean
++++ sources/FourRootPuncturedRegularity318.lean
+@@ -51,8 +51,8 @@
+     filter_upwards [he.filter_mono nhdsWithin_le_nhds,self_mem_nhdsWithin] with w hw hn
+     intro h
+     apply hw
+-    rw [←h]
+-    field_simp [hn]
++    have hwn : w≠0 := hn
++    rw [←h,inv_mul_cancel₀ (pow_ne_zero 2 hwn),sub_self]
+   filter_upwards [hk 0,hk 1,hk 2,hk 3] with w h0 h1 h2 h3
+   apply (denominator_ne_iff b _).mpr
+   intro k
+--- before/LocalConformalEdgeExtension318.lean
++++ sources/LocalConformalEdgeExtension318.lean
+@@ -50,7 +50,7 @@
+   have hUtarget : U⊆e.target := fun w hw'=>(hrect (upper_full hw')).1
+   have hUD : ∀w∈U,e.symm w∈D := by
+     intro w hw'
+-    have hs : e.symm w∈D ↔ 0<w.im := interior_subset ((hrect (upper_full hw')).2.1)
++    have hs : e.symm w∈D ↔ 0<w.im := interior_subset (s := S) ((hrect (upper_full hw')).2.1)
+     exact hs.mpr hw'.2.1
+   have hfnorm (y:ℂ) (hy:y∈D) : ‖f y‖<1 := by
+     rw [hf ⟨y,hy⟩]
+@@ -77,7 +77,8 @@
+     have hto:Tendsto e.symm (𝓝[U] (y:ℂ)) (𝓝[D] (e.symm (y:ℂ))) := by
+       apply tendsto_nhdsWithin_iff.mpr
+       refine ⟨(e.continuousAt_symm hyV.1).tendsto.mono_left nhdsWithin_le_nhds,?_⟩
+-      exact self_mem_nhdsWithin.mono (fun w hw'=>hUD w hw')
++      exact Filter.Eventually.mono (self_mem_nhdsWithin : ∀ᶠ w in 𝓝[U] (y:ℂ), w∈U)
++        (fun w hw'=>hUD w hw')
+     exact (boundary_norm_tendsto_one D hD disk f hf _ hyfront).comp hto
+   obtain ⟨G,hG,hag,hlower⟩ := ModulusSchwarzExtension318.extension_of_modulus
+     g hab hr hg hlo hhi hmod
+@@ -99,6 +100,7 @@
+     rw [hag _ hyU]
+     change f (e.symm (e y))=f y
+     rw [e.left_inv hyS]
+-  · rw [hx]
++  · change ‖G (e z)‖=1
++    rw [hx]
+     exact ModulusSchwarzExtension318.seam_norm_one g G hr hG hag hmod hxmid
+ end LocalConformalEdgeExtension318
+--- before/PuncturedSquareCoordinate318.lean
++++ sources/PuncturedSquareCoordinate318.lean
+@@ -28,8 +28,9 @@
+   have ht:Tendsto f (𝓝[≠] (0:ℂ)) (𝓝 0):=by
+     apply tendsto_zero_iff_norm_tendsto_zero.mpr
+     have hh:Tendsto (fun z:ℂ=>‖z‖) (𝓝[≠] (0:ℂ)) (𝓝 0):=by
+-      simpa using continuous_norm.continuousAt.tendsto.mono_left nhdsWithin_le_nhds
+-    exact hh.congr' hn.symm
++      have hc : ContinuousAt (fun z:ℂ=>‖z‖) 0 := continuous_norm.continuousAt
++      simpa only [norm_zero] using hc.tendsto.mono_left nhdsWithin_le_nhds
++    exact hh.congr' (Filter.EventuallyEq.symm hn)
+   let q:ℂ→ℂ:=update f 0 0
+   have hq0:q 0=0:=by simp [q]
+   have hqf:q=ᶠ[𝓝[≠] (0:ℂ)] f:=by
+@@ -50,13 +51,13 @@
+     · simp [h,hq0]
+     · simpa only [q,update_of_ne h] using hz h
+   have hderiv:Tendsto (fun z:ℂ=>q z/z) (𝓝[≠] (0:ℂ)) (𝓝 (deriv q 0)):=by
+-    simpa [slope,hq0,smul_eq_mul,div_eq_mul_inv,mul_comm] using
++    simpa only [slope_fun_def_field,hq0,sub_zero] using
+       hq.differentiableAt.hasDerivAt.tendsto_slope
+   have hratio:∀ᶠ z in 𝓝[≠] (0:ℂ),(q z/z)^2=(1:ℂ):=by
+     filter_upwards [hqs.filter_mono nhdsWithin_le_nhds,self_mem_nhdsWithin] with z hz hne
+     rw [div_pow,hz,div_self (pow_ne_zero 2 hne)]
+   have hds:deriv q 0^2=(1:ℂ):=
+-    tendsto_nhds_unique (hderiv.pow 2) (tendsto_const_nhds.congr' hratio.symm)
++    tendsto_nhds_unique (hderiv.pow 2) (tendsto_const_nhds.congr' (Filter.EventuallyEq.symm hratio))
+   have hdn:deriv q 0≠0:=by
+     intro h
+     rw [h,zero_pow (by decide:2≠0)] at hds
