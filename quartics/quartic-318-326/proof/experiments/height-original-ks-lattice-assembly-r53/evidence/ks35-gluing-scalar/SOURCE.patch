@@ -1,0 +1,26 @@
+--- before.lean
++++ IntegralOriginalGluingCompatibility318.lean
+@@ -20,6 +20,13 @@
+   change algebraMap k B (c : k) * f (↑u⁻¹ : A) =
+     f (algebraMap k A (c : k) * (↑u⁻¹ : A))
+   rw [map_mul, f.commutes]
++
++/-- Expand the scalar action through the exact ring map on abstract algebra
++carriers before specializing the Laurent and tensor dictionaries. -/
++private theorem ring_map_smul {k A B : Type*} [CommSemiring k] [Semiring A] [Semiring B]
++    [Algebra k A] (f : A →+* B) (r : k) (a : A) :
++    f (r • a) = f (algebraMap k A r) * f a := by
++  rw [Algebra.smul_def, map_mul]
+ 
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ 
+@@ -78,7 +85,8 @@
+       rw [IntegralWholeGeneratorComparisons318.infinity_generator R c j]
+       simp only [AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom]
+       rw [IntegralOverlapRootGenerators318.infinityMap_generator R c j]
+-    rw [Algebra.smul_def,map_mul]
++    rw [ring_map_smul (commonRestriction R c) (↑(y R)⁻¹ : Laurent R)
++      (ThreeRootCoordinates318.generator (finiteParameter R c) j)]
+     change commonRestriction R c
+       (↑(IntegralWholeOrderScalarMaps318.commonY R c)⁻¹:CommonOrder R c) *
+         commonRestriction R c (ThreeRootCoordinates318.generator (finiteParameter R c) j)=_
