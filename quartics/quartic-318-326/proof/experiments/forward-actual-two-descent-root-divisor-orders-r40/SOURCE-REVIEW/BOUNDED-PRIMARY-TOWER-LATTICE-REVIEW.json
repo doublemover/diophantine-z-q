@@ -1,0 +1,13 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "source_sha256": "0ed13c022b993ec0c30bebec4acd3b522759423ed2bc392388c2a8a89f4c24af",
+  "declarations": 3,
+  "findings": [
+    "Induction on m uses 2^(m+1)=2^m*2, mul_nsmul and the same transition hx(k+m); Nat.add_assoc matches the index exactly.",
+    "Uniform exponent bound annihilates x(k+N), so iterated transition gives every x(k)=0. No finite group hypothesis necessary; N=0 also valid for trivial group.",
+    "ZMod(2^N) is killed by its characteristic via nsmul_eq_mul and characteristic cast simplification; N=0 means ZMod1 and is valid.",
+    "A compatible infinite halving sequence is forced zero for bounded exponent. This does not assert all individual torsion points zero, nor vanishing of towers in the alternative Pruefer model.",
+    "No assumption of finite Sha, pointwise converse, module corank or duality. Sound finite-model prerequisite only; no local Lean or kernel acceptance."
+  ],
+  "local_lean_run": false
+}
