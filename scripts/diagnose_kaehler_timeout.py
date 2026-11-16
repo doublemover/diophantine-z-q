@@ -93,7 +93,7 @@ CANDIDATE_SQUARE_PROOF = '  exact (mappedSquare (R := ℂ) (A := FourRootActualF
 ORIGINAL_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  change _ (FourRootAffineTensorPresentation318.toTensor b\n    (FourRootAffineCoordinateRing318.coordinate b (some i)))=_\n  rw [FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
 TRANSPORT_HELPER = '/-- The exact sourceRegroup parameter transport, named separately so its\ncomplete declaration can be checked before the root-compatibility theorem. -/\nprivate def transportedRegroup\n    {R : Type*} [CommRing R] (a : Fin 4 → R) (i : Fin 4)\n    (p : R) (q : Fin 3 → R)\n    (hp : p = a (FourRootPivot318.indices i 0))\n    (hq : q = fun j => a (FourRootPivot318.indices i j.succ)) :\n    FourRootOrder318.Order a ≃ₐ[R]\n      TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q) := by\n  rw [hp,hq]\n  exact FourRootPivot318.regroup a i\n\n/-- Root compatibility for the same regrouping equivalence transported\nalong the two parameter equalities used in sourceRegroup. -/\nprivate theorem transportedRegroupRoot\n    {R : Type*} [CommRing R] (a : Fin 4 → R) (i : Fin 4)\n    (p : R) (q : Fin 3 → R)\n    (hp : p = a (FourRootPivot318.indices i 0))\n    (hq : q = fun j => a (FourRootPivot318.indices i j.succ)) :\n    (transportedRegroup a i p q hp hq)\n        (FourRootOrderSigns318.generator a i) =\n      (@algebraMap (QuadraticPresentation318.RootRing p)\n        (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q))\n        (inferInstance : CommSemiring (QuadraticPresentation318.RootRing p))\n        (inferInstance : Semiring\n          (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q)))\n        inferInstance)\n        (AdjoinRoot.root (QuadraticPresentation318.polynomial p)) := by\n  subst p\n  subst q\n  exact ActualRootPivotCoordinates318.regroup_generator a i\n\n'
 CANDIDATE_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  have ht : FourRootActualFractionField318.polynomialEquivalence b\n      (FourRootAffineCoordinateRing318.coordinate b (some i)) =\n      FourRootAffineTensorPresentation318.toTensor b\n        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl\n  rw [sourceRegroup, AlgEquiv.trans_apply, ht,\n    FourRootAffineTensorPresentation318.toTensor_root]\n  have h0 : LinearRootCoordinate318.parameter (1:ℂˣ) (b i) =\n      FourRootAffineTensorPresentation318.radicand b (FourRootPivot318.indices i 0) := by\n    change (Polynomial.C (1:ℂ):ℂ[X]) * (X-C (b i)) =\n      X-C (b (FourRootPivot318.indices i 0))\n    rw [Polynomial.C_1,one_mul,FourRootPivot318.indices_zero]\n  have hother : FiniteBranchChart318.other twists (otherBranch b i) =\n      (fun j => FourRootAffineTensorPresentation318.radicand b (FourRootPivot318.indices i j.succ)) := by\n    funext j\n    change (Polynomial.C (1:ℂ):ℂ[X]) * (X-C (b (FourRootPivot318.indices i j.succ))) =\n      X-C (b (FourRootPivot318.indices i j.succ))\n    rw [Polynomial.C_1,one_mul]\n  exact transportedRegroupRoot (FourRootAffineTensorPresentation318.radicand b) i\n    (LinearRootCoordinate318.parameter (1:ℂˣ) (b i))\n    (FiniteBranchChart318.other twists (otherBranch b i)) h0 hother\n'
-SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'complete_candidate_prefix': 'fb96548c77573274cc8fbdc839faef02b960dfa7a625ce945268542e59bef47c'}
+SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'complete_candidate_prefix': '691e5cc4ff216646a01ec0b776769307f063a7b25e969154af9659623e361db9'}
 
 def frozen_candidate(source):
     require(digest(source) == SOURCE_SHA, 'Frozen original source changed')
@@ -149,15 +149,15 @@ def candidate_specimen(candidate):
         text = scope_declaration(text, target)
     return text
 
-PREFIX_RAW_SHA = '30531585f279be430d9e92916b1371a2b91c303bff3011c547ce24e86205eec3'
+PREFIX_RAW_SHA = 'bd4cff194761fa3a02fee3566b2667fecc66d5389bf4dd27c26dc878eda9bad2'
 PREFIX_END = 'end FourRootActualBranchKaehler318\n'
-PREFIX_CHECKPOINT = '/-- Root compatibility for the same regrouping equivalence transported'
-PREFIX_MARKER = '/-- Root compatibility for the same regrouping equivalence transported'
+PREFIX_CHECKPOINT = 'variable (b:Fin 4→ℂ) (i:Fin 4)'
+PREFIX_MARKER = 'variable (b:Fin 4→ℂ) (i:Fin 4)'
 
 def prefix_specimen(candidate):
-    """Complete isolated transport-definition prefix, not original production.
+    """Complete transport-compatibility prefix, not original production.
 
-    Cut before the root-compatibility theorem doc comment and declaration.
+    Cut after the complete root-compatibility theorem and before concrete b/i variables.
     Close only the named namespace; normal process exit must classify the prefix.
     Full candidate reversal remains checked by frozen_candidate in specimens.
     """
@@ -166,7 +166,7 @@ def prefix_specimen(candidate):
     raw_prefix = candidate[:candidate.index(PREFIX_CHECKPOINT)]
     require(digest(raw_prefix) == PREFIX_RAW_SHA, 'Reviewed raw prefix changed')
     require('private def transportedRegroup' in raw_prefix and
-            'private theorem transportedRegroupRoot' not in raw_prefix and
+            'private theorem transportedRegroupRoot' in raw_prefix and
             'variable (b:Fin 4' not in raw_prefix,
             'Prefix declaration scope changed')
     text = candidate_specimen(candidate)
@@ -290,12 +290,12 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_KAEHLER_ISOLATED_TRANSPORT_DEFINITION_PREFIX_DIFFERENTIAL',
+    base = {'scope':'NON_ADMITTED_KAEHLER_TRANSPORT_COMPATIBILITY_PREFIX_DIFFERENTIAL',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
             'original_source_sha256':SOURCE_SHA,'candidate_source_sha256':CANDIDATE_SOURCE_SHA,
             'scratch_source_sha256':SCRATCH_SHAS,
             'prefix_raw_sha256':PREFIX_RAW_SHA,'prefix_of':'named transport-definition candidate, not original production',
-            'prefix_last_declaration':'transportedRegroup','target_declaration_included':False,
+            'prefix_last_declaration':'transportedRegroupRoot','target_declaration_included':False,
             'actual_head':os.environ.get('GITHUB_SHA'),'actual_run':os.environ.get('GITHUB_RUN_ID'),
             'production_source_changed':False,'production_limits_changed':False,
             'checkpoints_are_traversal_only':True,'timeouts_may_hide_deferred_errors':True,
@@ -330,7 +330,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Fresh original timeout and own prefix plus the unchanged imports-only control precede a declaration-complete isolated transport-definition prefix of the candidate, not original production. The second probe ends after transportedRegroup and closes its namespace; transportedRegroupRoot and every concrete b/i declaration are excluded. This replaces the full-candidate second probe, never adds a third probe. Only full process exit and output can establish this prefix compile outcome. Checkpoints and profiles are traversal-only, including recovery; timeouts may hide deferred errors. Even prefix exit zero establishes neither the target/full candidate nor production audit, admission or proof acceptance. Same strict kernel/no-olean controls and two-probe budget; instrumentation may affect timing.'))
+        interpretation='Fresh original timeout and own prefix plus the unchanged imports-only control precede a declaration-complete transport-compatibility prefix of the candidate, not original production. The second probe ends after transportedRegroupRoot and closes its namespace; every concrete b/i declaration is excluded. This replaces the full-candidate second probe, never adds a third probe. Only full process exit and output can establish this prefix compile outcome. Checkpoints and profiles are traversal-only, including recovery; timeouts may hide deferred errors. Even prefix exit zero establishes neither the target/full candidate nor production audit, admission or proof acceptance. Same strict kernel/no-olean controls and two-probe budget; instrumentation may affect timing.'))
 
 if __name__ == '__main__':
     main()
