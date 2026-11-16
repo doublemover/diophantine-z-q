@@ -88,7 +88,7 @@ class Tests(unittest.TestCase):
         self.assertNotIn('  rw ',proof)
         self.assertNotIn('  change ',proof)
         self.assertEqual(self.source().count(d.ORIGINAL_SQUARE_PROOF),1)
-        text=d.specimens(self.source())['syntax_corrected_candidate']
+        text=d.candidate_specimen(d.frozen_candidate(self.source()))
         self.assertIn(d.SUBSTEP_SCOPE+'lemma exact_square:',text)
         self.assertLess(text.index('KAEHLER_CANDIDATE_BEFORE_MAPPED_SQUARE'),text.index('KAEHLER_CANDIDATE_AFTER_MAPPED_SQUARE'))
     def test_doc_comments_are_not_split_by_trace_options(self):
@@ -96,7 +96,7 @@ class Tests(unittest.TestCase):
         target='lemma source_coordinate_original:'
         prefix=candidate[:candidate.index(target)]
         doc=prefix[prefix.rfind('/--'):]
-        text=d.specimens(self.source())['syntax_corrected_candidate']
+        text=d.candidate_specimen(d.frozen_candidate(self.source()))
         self.assertIn(d.SUBSTEP_SCOPE+doc+target,text)
         self.assertNotIn(doc+d.SUBSTEP_SCOPE+target,text)
     def test_scope_declaration_boundaries(self):
@@ -121,13 +121,13 @@ class Tests(unittest.TestCase):
         self.assertIn("'timeouts_may_hide_deferred_errors':True",source)
     def test_candidate_two_probe_budget_and_hashes(self):
         out=d.specimens(self.source())
-        self.assertEqual(list(out),['imports_only','syntax_corrected_candidate'])
+        self.assertEqual(list(out),['imports_only','complete_candidate_prefix'])
         self.assertEqual({k:d.digest(v) for k,v in out.items()},d.SCRATCH_SHAS)
         self.assertEqual(out['imports_only'],d.control_specimens(self.source())['imports_only'])
         self.assertEqual(d.SECONDS,90);self.assertEqual(d.MAX_BYTES,2*1024*1024)
     def test_candidate_instrumentation_and_reversal(self):
         import re
-        candidate=d.frozen_candidate(self.source());text=d.specimens(self.source())['syntax_corrected_candidate']
+        candidate=d.frozen_candidate(self.source());text=d.candidate_specimen(d.frozen_candidate(self.source()))
         self.assertEqual(text.count('KAEHLER_CANDIDATE_'),25)
         self.assertEqual(text.count(d.SUBSTEP_SCOPE),4)
         self.assertNotIn('kaehler_final',text)
@@ -157,6 +157,32 @@ class Tests(unittest.TestCase):
         self.assertIn("'candidate_source_sha256':CANDIDATE_SOURCE_SHA",source)
         self.assertIn('probe_wall_cap_sum_seconds=2*SECONDS',source)
         self.assertIn("'full_packet_accepted':False,'proof_acceptance':False,'writes_olean':False",source)
+
+    def test_complete_prefix_exact_boundary_and_namespace(self):
+        candidate=d.frozen_candidate(self.source())
+        raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
+        self.assertEqual(d.digest(raw),d.PREFIX_RAW_SHA)
+        out=d.specimens(self.source())['complete_candidate_prefix']
+        full=d.candidate_specimen(candidate)
+        self.assertEqual(out,full[:full.index(d.PREFIX_MARKER)]+d.PREFIX_END)
+        self.assertTrue(out.endswith(d.PREFIX_END))
+        self.assertIn('lemma regroup_root',out)
+        for excluded in ['lemma source_coordinate_original:', 'lemma exact_square:', 'def sourceParameter', 'KAEHLER_CANDIDATE_before_source_coordinate_original']:
+            self.assertNotIn(excluded,out)
+        self.assertNotIn('/-- The exact original source coordinate',out)
+    def test_complete_prefix_tamper_rejected(self):
+        candidate=d.frozen_candidate(self.source())
+        with self.assertRaises(ValueError):d.prefix_specimen(candidate+'\n')
+        with patch.object(d,'PREFIX_RAW_SHA','0'*64):
+            with self.assertRaisesRegex(ValueError,'raw prefix changed'):d.prefix_specimen(candidate)
+        with patch.object(d,'PREFIX_MARKER',d.PREFIX_MARKER+'missing'):
+            with self.assertRaisesRegex(ValueError,'Instrumented prefix'):d.prefix_specimen(candidate)
+    def test_prefix_metadata_does_not_claim_full_candidate(self):
+        source=(HERE/'diagnose_kaehler_timeout.py').read_text()
+        self.assertIn("'target_declaration_included':False",source)
+        self.assertIn("'prefix_last_declaration':'regroup_root'",source)
+        self.assertIn('not original production',source)
+        self.assertIn('neither the target/full candidate nor production audit',source)
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.

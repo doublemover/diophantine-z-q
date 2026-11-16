@@ -92,7 +92,7 @@ ORIGINAL_SQUARE_PROOF = '  apply (sourceLocalizationEquiv b i).injective\n  rw [
 CANDIDATE_SQUARE_PROOF = '  exact (mappedSquare (R := ℂ) (A := FourRootActualFractionField318.A b)\n    (B := SourceRing b i) (FourRootAffineCoordinateRing318.coordinate b none)\n    (FourRootAffineCoordinateRing318.coordinate b (some i)) (b i)\n    (FourRootAffineCoordinateRing318.relation b i)).trans\n      (congrArg (fun z : SourceRing b i => z ^ 2) (source_coordinate_original b i).symm)\n'
 ORIGINAL_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  change _ (FourRootAffineTensorPresentation318.toTensor b\n    (FourRootAffineCoordinateRing318.coordinate b (some i)))=_\n  rw [FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
 CANDIDATE_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  have ht : FourRootActualFractionField318.polynomialEquivalence b\n      (FourRootAffineCoordinateRing318.coordinate b (some i)) =\n      FourRootAffineTensorPresentation318.toTensor b\n        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl\n  rw [sourceRegroup, AlgEquiv.trans_apply, ht,\n    FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
-SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'syntax_corrected_candidate': '0258c180708e7bfb0f5030c6673ba66615902260c212188762ec57d1d09ce864'}
+SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'complete_candidate_prefix': '42aaa83d595044067c60c2a610c7bc8941e20be7a687a6850d5744e090e3bf79'}
 
 def frozen_candidate(source):
     require(digest(source) == SOURCE_SHA, 'Frozen original source changed')
@@ -145,10 +145,32 @@ def candidate_specimen(candidate):
         text = scope_declaration(text, target)
     return text
 
+PREFIX_RAW_SHA = '95d66e3c3de27398b64c6d0b8ab56d02b488345f74df504dc1062fc19f4eb2fc'
+PREFIX_END = 'end FourRootActualBranchKaehler318\n'
+PREFIX_CHECKPOINT = '#eval (do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_source_coordinate_original"\n  out.flush : IO Unit)'
+PREFIX_MARKER = 'run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_before_source_coordinate_original"\n  out.flush'
+
+def prefix_specimen(candidate):
+    """Complete prefix of the syntax-corrected candidate, not original production.
+
+    Cut before the target checkpoint, attached doc comment and declaration.
+    Close only the named namespace; normal process exit must classify the prefix.
+    Full candidate reversal remains checked by frozen_candidate in specimens.
+    """
+    require(digest(candidate) == CANDIDATE_SOURCE_SHA, 'Reviewed candidate changed')
+    require(candidate.count(PREFIX_CHECKPOINT) == 1, 'Prefix checkpoint boundary changed')
+    raw_prefix = candidate[:candidate.index(PREFIX_CHECKPOINT)]
+    require(digest(raw_prefix) == PREFIX_RAW_SHA, 'Reviewed raw prefix changed')
+    require('lemma regroup_root' in raw_prefix and 'lemma source_coordinate_original:' not in raw_prefix,
+            'Prefix declaration scope changed')
+    text = candidate_specimen(candidate)
+    require(text.count(PREFIX_MARKER) == 1, 'Instrumented prefix boundary changed')
+    return text[:text.index(PREFIX_MARKER)] + PREFIX_END
+
 def specimens(source):
     control = control_specimens(source)
     result = {'imports_only': control['imports_only'],
-        'syntax_corrected_candidate': candidate_specimen(frozen_candidate(source))}
+        'complete_candidate_prefix': prefix_specimen(frozen_candidate(source))}
     require({k:digest(v) for k,v in result.items()} == SCRATCH_SHAS,
         'Reviewed candidate specimen changed')
     return result
@@ -262,10 +284,12 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_KAEHLER_SYNTAX_CORRECTED_CANDIDATE_DIFFERENTIAL',
+    base = {'scope':'NON_ADMITTED_KAEHLER_COMPLETE_SYNTAX_CORRECTED_PREFIX_DIFFERENTIAL',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
             'original_source_sha256':SOURCE_SHA,'candidate_source_sha256':CANDIDATE_SOURCE_SHA,
             'scratch_source_sha256':SCRATCH_SHAS,
+            'prefix_raw_sha256':PREFIX_RAW_SHA,'prefix_of':'syntax-corrected candidate, not original production',
+            'prefix_last_declaration':'regroup_root','target_declaration_included':False,
             'actual_head':os.environ.get('GITHUB_SHA'),'actual_run':os.environ.get('GITHUB_RUN_ID'),
             'production_source_changed':False,'production_limits_changed':False,
             'checkpoints_are_traversal_only':True,'timeouts_may_hide_deferred_errors':True,
@@ -300,7 +324,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Fresh original timeout and prefix plus imports-only control precede the separately reviewed syntax-corrected candidate. This replaces the old command-trace specimen, not the production source; total scratch budget stays two probes. Candidate success is diagnostic only, not production repair, packet audit or proof acceptance. Checkpoints and profiles record traversal only, including error recovery. Timeouts may hide deferred compiler messages. Only a complete exit/output can establish whether this specimen compiled; no checkpoint certifies a declaration. Even exit zero has no production audit or admission. Instrumentation may affect elaboration; marker intervals do not establish causes.'))
+        interpretation='Fresh original timeout and own prefix plus the unchanged imports-only control precede a declaration-complete prefix of the syntax-corrected candidate, not original production. The second probe ends after regroup_root and closes its namespace; source_coordinate_original and every later declaration are excluded. This replaces the full-candidate second probe, never adds a third probe. Only full process exit and output can establish this prefix compile outcome. Checkpoints and profiles are traversal-only, including recovery; timeouts may hide deferred errors. Even prefix exit zero establishes neither the target/full candidate nor production audit, admission or proof acceptance. Same strict kernel/no-olean controls and two-probe budget; instrumentation may affect timing.'))
 
 if __name__ == '__main__':
     main()
