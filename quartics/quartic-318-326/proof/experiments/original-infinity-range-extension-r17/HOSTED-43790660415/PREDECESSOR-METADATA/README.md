@@ -1,0 +1,9 @@
+# original-infinity-range-extension-r16
+
+Exact source-only successor to original-infinity-range-extension-r15, own run43744210772 ate17cc578d503a7eefc2907302eba6fd7e4421b6a: 95 full draft passes then PELFiniteNormOneGroup318 fails1.618s. 535 roots unchanged order; 1 changed copies/534 unchanged.
+
+Observed own failed-root delta: PELFiniteNormOneGroup318. Preventive/unreached matching copies (diagnostics separately classified): . Every matching canonical root is exact reviewed after bytes: changed before copies are propagated, already-after copies remain unchanged. Own receipt, predecessor metadata and historical source maps preserved; older SOURCE-MAP classifications are historical, current COPY-BINDINGS/intake govern this revision.
+
+Same whole original objects/maps/scalars and all existing signatures retained. Actual frontiers: full bundle/quotient topology native function and equality orientation; whole infinity/affine inverse identity values with literal original v=u² polynomial Algebras inside proof; actual finite norm-one group literal F3 decision certificates, not integer arithmetic. Same-before geometry InfinityExtension carries exact retained inverse/base evaluation and native scalar tower fixes, preventive/unreached in trace only. No roots/order/options/budgets/compiler/workflow changes. Kaehler source is UNCHANGED from immediate predecessor, including its existing math+diagnostic source; own cotangent66 log contains only timeout and no phase/partial proof conclusion follows. No new diagnostic delta in these successors. No local Lean or source-only-to-kernel inference.
+
+No repaired module is claimed to pass. Complete packet/declaration audit requires hosted replay. Omitted finite-flat and inactive Picard/obstruction research remain outside this unchanged root scope. No root/accepted baseline/toolchain/budget change. Kaehler copies remain byte-exact prior source, not a new mathematical or diagnostic repair.

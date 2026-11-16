@@ -1,0 +1,22 @@
+--- before/FourRootInfinityDomain318.lean
++++ sources/FourRootInfinityDomain318.lean
+@@ -28,7 +28,8 @@
+     change algebraMap P (Infinity b) X*r=0
+     rw [FourRootInfinityTensorPresentation318.base_X]
+     exact hr
+-  exact (smul_eq_zero.mp hs).resolve_left Polynomial.X_ne_zero
++  exact (smul_eq_zero_iff_right (R:=P) (M:=Infinity b)
++    (r:=(X:P)) Polynomial.X_ne_zero).mp hs
+ 
+ theorem localization_injective:Function.Injective
+     (algebraMap (Infinity b) (InfinityOverlap b)):=by
+@@ -46,6 +47,9 @@
+     FourRootActualGenericField318.tensor_domain b hb
+   letI:Module.Free P (FourRootAffineTensorPresentation318.TensorRing b):=
+     (FourRootOrder318.finite_free (FourRootAffineTensorPresentation318.radicand b)).2
++  letI:FaithfulSMul P (FourRootAffineTensorPresentation318.TensorRing b):=
++    .of_injective _ (Module.Free.chooseBasis P
++      (FourRootAffineTensorPresentation318.TensorRing b)).repr.symm.injective
+   have hinj:=FaithfulSMul.algebraMap_injective P (FourRootAffineTensorPresentation318.TensorRing b)
+   have he:=FourRootOrderSigns318.generator_square (FourRootAffineTensorPresentation318.radicand b) k
+   rw [hg,zero_pow (by decide:2≠0)] at he

@@ -1,0 +1,84 @@
+{
+  "status": "SOURCE_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "before": "75c04fdf9488df3c0af8c92fe54bc638c8d5ea67c1ef9610e5539404b001542c",
+  "after": "601521df96b036c5f7b7fcac4f017971f51679afaa407330545b9a9e6cfabf0e",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "explicit_hb_telescope_repairs": [
+    "full_inertia_card",
+    "inertia_original_label"
+  ],
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Original branch b and its existing injectivity hb.",
+      "constructed_input": "No new hypothesis; retain ordinary hb explicitly in two theorem telescopes where it was already proof-used.",
+      "justification": "No new hypothesis; retain ordinary hb explicitly in two theorem telescopes where it was already proof-used."
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "Actual full polynomial-order inertia and original complex-linear sign inertia.",
+      "constructed_input": "No definitions, groups, primes, maps or instances changed.",
+      "justification": "No definitions, groups, primes, maps or instances changed."
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "Every actual sign and every whole affine-ring element; arbitrary original branch point.",
+      "constructed_input": "No enumeration, selected values or narrowed localization.",
+      "justification": "No enumeration, selected values or narrowed localization."
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "Native Ideal.mem_inertia uses AlgEquiv scalar action.",
+      "constructed_input": "Pinned AlgEquiv.smul_def rewrites the same action to application on both sides before the existing polynomialSign_apply lemma.",
+      "justification": "Pinned AlgEquiv.smul_def rewrites the same action to application on both sides before the existing polynomialSign_apply lemma."
+    },
+    {
+      "id": "scalars_and_signs",
+      "required_input": "Original P-algebra and complex-algebra structures.",
+      "constructed_input": "No new instance or carrier replacement; actual native action is only made explicit.",
+      "justification": "No new instance or carrier replacement; actual native action is only made explicit."
+    },
+    {
+      "id": "consumer_identity",
+      "required_input": "Full branch inertia cardinality2 and unique original ramified sign label.",
+      "constructed_input": "Existing branchInertiaEquivalence/sign classification unchanged; include hb restores intended ordinary arguments, not an assumed cardinality.",
+      "justification": "Existing branchInertiaEquivalence/sign classification unchanged; include hb restores intended ordinary arguments, not an assumed cardinality."
+    },
+    {
+      "id": "exceptional_cases",
+      "required_input": "All original distinct branch parameters and every branch point.",
+      "constructed_input": "No added nonzero assumptions, punctures or discarded signs.",
+      "justification": "No added nonzero assumptions, punctures or discarded signs."
+    },
+    {
+      "id": "downstream_and_history",
+      "required_input": "Own zero53 run43673862672 at55ee98101d4ff8da911dac6f79fde13bd30d13a8.",
+      "constructed_input": "OrderAutomorphisms fullPASS4.675s;44passes then FullFiniteInertiaFAIL2.069s. Current action mismatch plus two missing hb theorem binders bound exactly.",
+      "justification": "OrderAutomorphisms fullPASS4.675s;44passes then FullFiniteInertiaFAIL2.069s. Current action mismatch plus two missing hb theorem binders bound exactly."
+    },
+    {
+      "id": "verification_boundary",
+      "required_input": "Independent source/current review and future hosted replay.",
+      "constructed_input": "No local Lean, no fullmodule/lane acceptance; later branchEquivalence and cardinality consumers remain hosted-unverified.",
+      "justification": "No local Lean, no fullmodule/lane acceptance; later branchEquivalence and cardinality consumers remain hosted-unverified."
+    }
+  ],
+  "bindings": {
+    "SOURCE.diff": "a1f4862d5d39295089828910a04938d7bea64c92024bb7488f2ebd6e2d7a4f9b",
+    "README.md": "33d8b195f0b47e4170a9944ada4b1bffa656e65993cbc127320bcc61e76e7b32",
+    "after/FourRootFullFiniteInertia318.lean": "601521df96b036c5f7b7fcac4f017971f51679afaa407330545b9a9e6cfabf0e",
+    "EVIDENCE/FourRootFullFiniteInertia318.log": "3112a3fb33b62735de33e9e76958760e6c375593a223b7652d866e09ee222596",
+    "EVIDENCE/RESULT.json": "a35b1a8bdc32b0336355cba1c1148f56ae3177bb95ff41f6f71b08ecac302576",
+    "EVIDENCE/ZERO53-intake.json": "ab4cbbb615a8e51da854cdd004e0ea67fb02e9dfa23cb72421a19bbf5bd21ac8",
+    "EVIDENCE/ZERO53-APPLICATION.json": "5fcb9ca88c7878281eca17897eb659d590666f91b8b002e848b532bcf54ac70f",
+    "before/FourRootFullFiniteInertia318.lean": "75c04fdf9488df3c0af8c92fe54bc638c8d5ea67c1ef9610e5539404b001542c",
+    "PRIMARY/FourRootActualResidueInertia318.lean": "713f004cc1b7db66242a9a6a70b4aa3e35c1e6dc3b1564e04ae08f6fa5833f38",
+    "PRIMARY/Algebra-Equiv.lean": "b66da6112bba1a47f872b8f989fe639b37a6f94a4bb65b17c7308be3156afe7d",
+    "PRIMARY/Ideal-Defs.lean": "656d5aabba0ca74ab1fc906dc9cdf93b9fc6c6b25f0f155b58f261ec461e80d1",
+    "PRIMARY/FourRootInertiaLabelCardinality318.lean": "1a94b73a2cb087e713f46ba5f6eaed40b81ac5e8e3ed616522ad53888e60480d",
+    "PRIMARY/PIN.json": "18f9454123955d7e1ee7831b5313dc381eb3668f1f20d9e89da01fd91b188df2",
+    "PRIMARY/FourRootCoordinateRingSigns318.lean": "5e2cb890b77513f26f374584b2773ca286494a90143bc36b60fff031139c0b91",
+    "PRIMARY/FourRootActualOrderAutomorphisms318.lean": "153dd2bf81fadaaf03feec226ea1b7259bb0f04942256a5c6e6c27ac0aa04fa9"
+  }
+}

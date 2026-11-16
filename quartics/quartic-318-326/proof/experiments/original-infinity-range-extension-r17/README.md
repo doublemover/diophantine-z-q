@@ -1,0 +1,9 @@
+# original-infinity-range-extension-r17
+
+Exact source-only successor to original-infinity-range-extension-r16, own run43790660415 at960090b9a5b895bc9350511ea373ed42bfeb475d: 118 full draft passes then PELOriginalCongruenceKernel318 fails5.731s. 535 roots unchanged order; 2 changed copies/533 unchanged.
+
+Observed own failed-root delta: PELOriginalCongruenceKernel318. Preventive/unreached matching copies (diagnostics separately classified): FourRootInfinityDomain318. Every matching canonical root is exact reviewed after bytes: changed before copies are propagated, already-after copies remain unchanged. Own receipt, predecessor metadata and historical source maps preserved; older SOURCE-MAP classifications are historical, current COPY-BINDINGS/intake govern this revision.
+
+Observed own CongruenceKernel repair retains literal original quotient/unit reduction and whole order kernel: explicit quotient-unit coercion, native integer-to-natural three action, and same whole kernel witness. Same-before Domain repair is preventive/unreached in all three lanes; Hermitian proof-only positivity telescope retention is preventive/unreached in character and trace, publicly disclosed, with unchanged matrix bodies and no new premise. Two exact reviewed geometry UnitScale/IndividualScales conversions are preventive/unreached only in trace, not borrowed geometry acceptance. Every other source, all roots/order/imports/options/budgets/compiler/workflow unchanged. Kaehler is byte-exact predecessor, no new diagnostic delta. Source/current approval is not Lean acceptance.
+
+No repaired module is claimed to pass. Complete packet/declaration audit requires hosted replay. Omitted finite-flat and inactive Picard/obstruction research remain outside this unchanged root scope. No root/accepted baseline/toolchain/budget change. Kaehler copies remain byte-exact prior source, not a new mathematical or diagnostic repair.

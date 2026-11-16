@@ -1,0 +1,10 @@
+--- before/FourRootProjectiveProjection318.lean
++++ sources/FourRootProjectiveProjection318.lean
+@@ -43,6 +43,7 @@
+     Spec.map (CommRingCat.ofHom f.toRingHom)) (finite_coordinate_overlap b)
+   have hi:=congrArg (fun f:Polynomial ℂ→ₐ[ℂ]InfinityOverlap b=>
+     Spec.map (CommRingCat.ofHom f.toRingHom)) (infinity_coordinate_overlap b)
++  simp only [AlgHom.comp_toRingHom,CommRingCat.ofHom_comp] at hf hi
+   rw [hf,hi]
+   exact JLineOverlap318.unit_chart_overlap (R:=ℂ) (overlapUnit b)
+ 

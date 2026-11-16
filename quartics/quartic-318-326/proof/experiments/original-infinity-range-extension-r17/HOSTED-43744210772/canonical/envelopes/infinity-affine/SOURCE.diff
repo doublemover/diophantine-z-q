@@ -1,0 +1,31 @@
+--- before/FourRootInfinityAffineComparison318.lean
++++ sources/FourRootInfinityAffineComparison318.lean
+@@ -70,7 +70,7 @@
+     refine Fin.cases ?_ (fun j=>?_) k
+     · simp [ratio,FourRootInfinityCoordinateRing318.zero_relation]
+     · simp only [AlgHom.comp_apply,toAffine_ratio,ratio,Fin.cases_succ,map_mul,
+-        AlgHom.commutes,fromAffine_root,root]
++        AlgHom.commutes,fromAffine_root,root,AlgHom.id_apply]
+       rw [←mul_assoc,←map_mul,mul_inv_cancel₀ (scale_ne_zero b hb j),map_one,one_mul]
+ lemma to_from:(toAffine b hb).comp (fromAffine b hb)=AlgHom.id ℂ (A b):=by
+   apply FourRootAffineCoordinateRing318.hom_ext
+@@ -81,7 +81,7 @@
+     refine Fin.cases ?_ (fun j=>?_) k
+     · simp [root]
+     · simp only [AlgHom.comp_apply,fromAffine_root,root,Fin.cases_succ,map_mul,
+-        AlgHom.commutes,toAffine_ratio,ratio]
++        AlgHom.commutes,toAffine_ratio,ratio,AlgHom.id_apply]
+       rw [←mul_assoc,←map_mul,inv_mul_cancel₀ (scale_ne_zero b hb j),map_one,one_mul]
+ @[expose] def equivalence:I b≃ₐ[ℂ]A b:=
+   AlgEquiv.ofAlgHom (toAffine b hb) (fromAffine b hb) (to_from b hb) (from_to b hb)
+@@ -99,6 +99,8 @@
+ @[expose] def polynomialEquivalence:
+     letI:Algebra (Polynomial ℂ) (I b):=(Polynomial.aeval (iz b none^2)).toAlgebra
+     letI:Algebra (Polynomial ℂ) (A b):=(Polynomial.aeval (az b none)).toAlgebra
+-    I b≃ₐ[Polynomial ℂ]A b:=
+-  { (equivalence b hb).toRingEquiv with commutes':=original_base b hb }
++    I b≃ₐ[Polynomial ℂ]A b:=by
++  letI:Algebra (Polynomial ℂ) (I b):=(Polynomial.aeval (iz b none^2)).toAlgebra
++  letI:Algebra (Polynomial ℂ) (A b):=(Polynomial.aeval (az b none)).toAlgebra
++  exact { (equivalence b hb).toRingEquiv with commutes':=original_base b hb }
+ end FourRootInfinityAffineComparison318

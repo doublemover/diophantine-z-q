@@ -1,0 +1,45 @@
+--- 
++++ 
+@@ -25,8 +25,10 @@
+     (algebraMap P (TensorRing b) X+algebraMap ℂ (TensorRing b) (b 0))
+     (generator (radicand b)) (by
+       intro k
++      have hC (c:ℂ):algebraMap P (TensorRing b) (C c)=algebraMap ℂ (TensorRing b) c :=
++        (IsScalarTower.algebraMap_apply ℂ P (TensorRing b) c).symm
+       rw [generator_square]
+-      simp only [radicand,map_add,map_sub,←IsScalarTower.algebraMap_apply]
++      simp only [radicand,map_add,map_sub,hC]
+       ring)
+ @[simp] theorem toTensor_base:toTensor b (coordinate b none)=
+     algebraMap P (TensorRing b) X+algebraMap ℂ (TensorRing b) (b 0):=
+@@ -56,25 +58,26 @@
+           change toTensor b (fromTensor b (algebraMap P (TensorRing b) (C c)))=_
+           rw [AlgHom.commutes,base_C,AlgHom.commutes]
+           exact (IsScalarTower.algebraMap_apply ℂ P (TensorRing b) c).symm
+-        · change toTensor b (fromTensor b (algebraMap P (TensorRing b) X))=_
++        · change toTensor b (fromTensor b (algebraMap P (TensorRing b) X))=
++            algebraMap P (TensorRing b) X
+           rw [fromTensor_base,map_sub,toTensor_base,AlgHom.commutes]
+           ring
+       · intro k
+-        change toTensor b (fromTensor b (generator (radicand b) k))=_
++        change toTensor b (fromTensor b (generator (radicand b) k))=generator (radicand b) k
+         rw [fromTensor_root,toTensor_root])
+     (by
+       apply FourRootAffineCoordinateRing318.hom_ext
+       intro k
+       cases k with
+       | none=>
+-        change fromTensor b (toTensor b (coordinate b none))=_
++        change fromTensor b (toTensor b (coordinate b none))=coordinate b none
+         rw [toTensor_base,map_add,fromTensor_base]
+         have hc:=((fromTensor b).restrictScalars ℂ).commutes (b 0)
+         change fromTensor b (algebraMap ℂ (TensorRing b) (b 0))=_ at hc
+         rw [hc]
+         ring
+       | some k=>
+-        change fromTensor b (toTensor b (coordinate b (some k)))=_
++        change fromTensor b (toTensor b (coordinate b (some k)))=coordinate b (some k)
+         rw [toTensor_root,fromTensor_root])
+ 
+ lemma equivalence_base (p:P):equivalence b (algebraMap P (Ring b) p)=algebraMap P (TensorRing b) p:=by
