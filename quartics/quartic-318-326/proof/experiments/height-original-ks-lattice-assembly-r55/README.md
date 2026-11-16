@@ -1,0 +1,7 @@
+# N3a: single-source actual normalized-chart gluing checkpoint
+
+All 204 KS54 predecessor sources and their order are preserved byte-for-byte. Exactly one unchanged previously reviewed source is appended: OriginalIntegerClosureGluing318. It constructs the literal Scheme pushout of the finite and reciprocal normalized chart open immersions, its two open chart coprojections, and the actual intersection pullback square. Both maps have the same actual Laurent integral-closure source in the original field. It does not call any repaired private reciprocal tower or infer a new action equality.
+
+N2 has 52 strict hosted passes and independently authenticated audit 1325, including the reciprocal open immersion. The new target has exactly 53 packet roots and 180 baseline dependencies: those same 52 accepted roots and the one source-reviewed addition. Independent rebase and runtime authentication receipts are bound. The new gluing source still requires hosted compilation and audit.
+
+This deliberately splits the earlier two-source N3 plan. No reciprocal fraction-field source, reciprocal order identification, reciprocal finiteness, finite global normalization map, properness, regularity, resolution or KS layer is added. All prior evidence remains preserved. Only the KS registry slot changes 54 to 55; no marker, workflow, scripts, baseline or unrelated packet changes. No local Lean or resource-limit changes.

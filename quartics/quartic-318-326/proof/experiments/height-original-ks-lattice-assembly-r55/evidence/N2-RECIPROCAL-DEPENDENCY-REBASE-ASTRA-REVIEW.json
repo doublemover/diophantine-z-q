@@ -1,0 +1,41 @@
+{
+  "status": "PASS_EXACT_DEPENDENCY_REBASE_FOR_BOUNDED_HOSTED_CHECK_NOT_LEAN",
+  "manifest_sha256": "c51322b0b646387e06319ea65587bda2efd5fafd16fb183836c7cbe0d6a994b0",
+  "source_commit": "e13693248da8bc0b687a29309d11729f6869ec3a",
+  "packet_subtree": "dfdc2fcd583d055c0dd7db5de1ed427ef8000d8c",
+  "new_sources": [
+    {
+      "module": "IntegralClosureLocalizationField318",
+      "path": "geometry-reciprocal-normalization/sources/IntegralClosureLocalizationField318.lean",
+      "sha256": "eec07936841716015d4913909c43d81cf0d66872adf9126a40b44f5c173434ac",
+      "frozen_manifest": "geometry-reciprocal-normalization/MANIFEST.json",
+      "manifest_sha256": "873452311a662eaa0c154a2e9374afaa2e4281bcc4b3743dc183413c50b1a5a2"
+    },
+    {
+      "module": "OriginalIntegerReciprocalNormalization318",
+      "path": "geometry-reciprocal-normalization/sources/OriginalIntegerReciprocalNormalization318.lean",
+      "sha256": "bcd436abe03c4fd3a707cbb683003e534dcf0beb89e497354bad2c5d98629c37",
+      "frozen_manifest": "geometry-reciprocal-normalization/MANIFEST.json",
+      "manifest_sha256": "873452311a662eaa0c154a2e9374afaa2e4281bcc4b3743dc183413c50b1a5a2"
+    }
+  ],
+  "verified_bindings": 240,
+  "draft_closure_count": 52,
+  "baseline_closure_count": 180,
+  "findings": [
+    "Actual import closure independently reconstructed; all predecessor and baseline bytes matched immutable source. Only two frozen reviewed additions.",
+    "41 fresh N1 passed source identities and nine historical overlap passed identities matched inventories. The latter are not a fresh compile of their current context.",
+    "N1 fieldAlgebra definition and fieldMap remain the same; dependent closure now explicitly captures that algebra. Reciprocal source captures laurentAlgebra before reciprocalBaseAlgebra, so both overlap carriers use the identical Laurent-to-field action.",
+    "Generic helper takes standard compatible algebra/tower inputs, without a new unit-proof-dependent global instance.",
+    "No closure gluing or later geometry source is included."
+  ],
+  "hosted_obligations": [
+    "Full 52-root current-context replay, including nine historical roots.",
+    "Concrete reciprocal tower inference and definitionally matching overlap carrier under explicit algebra capture.",
+    "Reciprocal inclusion_injective still uses untyped Subtype.val; analogous N1 code required an explicit target projection. This existing source site is uncompiled and may require the same focused fix; this gate does not assert it elaborates."
+  ],
+  "limitations": [
+    "No local Lean, N2 acceptance, whole-packet acceptance, reciprocal order identification, global gluing, properness or regularity claim.",
+    "Integration and serial publication gates remain separate."
+  ]
+}

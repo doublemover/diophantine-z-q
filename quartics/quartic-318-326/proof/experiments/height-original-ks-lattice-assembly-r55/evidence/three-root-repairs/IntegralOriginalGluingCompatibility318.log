@@ -1,0 +1,44 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r31/IntegralOriginalGluingCompatibility318.lean:42:30: error: Application type mismatch: The argument
+  IntegralOverlapChartMaps318.commonMap R c
+has type
+  @AlgHom R (IntegralInfinityCommonBase318.CommonBase R c) (IntegralOverlapChartMaps318.Overlap R c)
+    CommRing.toCommSemiring OreLocalization.instSemiring Algebra.TensorProduct.instSemiring OreLocalization.instAlgebra
+    (IntegralOverlapChartMaps318.overlap_algebra R c)
+but is expected to have type
+  @AlgHom R (IntegralInfinityCommonBase318.CommonBase R c) ?m.78 CommRing.toCommSemiring
+    CommRing.toCommSemiring.toSemiring CommRing.toCommSemiring.toSemiring OreLocalization.instAlgebra ?m.83
+in the application
+  reciprocal_unit_image (IntegralOverlapChartMaps318.commonMap R c)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 198
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r31/IntegralOriginalGluingCompatibility318.lean:61:6: error: 'change' tactic failed, pattern
+  (commonRestriction R c) ((algebraMap R (CommonOrder R c)) r) = ?m.103
+is not definitionally equal to target
+  (commonRestriction R c) ((algebraMap (Laurent R) (CommonOrder R c)) ((reciprocalMap R c) (C r))) =
+    (((IntegralOverlapChartMaps318.infinityMap R c).comp (IntegralOriginalInfinityEmbedding318.ringMap R c)).comp
+        (algebraMap R[X] (ThreeRootOrder318.Order (IntegralInfinityChart318.coefficient R c))))
+      (C r)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r31/IntegralOriginalGluingCompatibility318.lean:67:6: error: 'change' tactic failed, pattern
+  (commonRestriction R c) ((algebraMap (Laurent R) (CommonOrder R c)) (u R c)) = ?m.136
+is not definitionally equal to target
+  (commonRestriction R c) ((algebraMap (Laurent R) (CommonOrder R c)) ((reciprocalMap R c) X)) =
+    (((IntegralOverlapChartMaps318.infinityMap R c).comp (IntegralOriginalInfinityEmbedding318.ringMap R c)).comp
+        (algebraMap R[X] (ThreeRootOrder318.Order (IntegralInfinityChart318.coefficient R c))))
+      X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r31/IntegralOriginalGluingCompatibility318.lean:74:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (IntegralOriginalInfinityEmbedding318.ringMap ?R ?c)
+    (ThreeRootCoordinates318.generator (IntegralInfinityChart318.coefficient ?R ?c) ?j)
+in the target expression
+  (commonRestriction R c) (↑(y R)⁻¹ • ThreeRootCoordinates318.generator (finiteParameter R c) j) =
+    ((IntegralOverlapChartMaps318.infinityMap R c).comp (IntegralOriginalInfinityEmbedding318.ringMap R c))
+      (ThreeRootCoordinates318.generator (IntegralInfinityChart318.coefficient R c) j)
+
+case refine_2
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+j : Fin 3
+⊢ (commonRestriction R c) (↑(y R)⁻¹ • ThreeRootCoordinates318.generator (finiteParameter R c) j) =
+    ((IntegralOverlapChartMaps318.infinityMap R c).comp (IntegralOriginalInfinityEmbedding318.ringMap R c))
+      (ThreeRootCoordinates318.generator (IntegralInfinityChart318.coefficient R c) j)
