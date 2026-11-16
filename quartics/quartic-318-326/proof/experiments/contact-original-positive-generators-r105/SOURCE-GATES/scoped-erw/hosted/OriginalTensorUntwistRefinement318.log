@@ -1,0 +1,65 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r104/OriginalTensorUntwistRefinement318.lean:79:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom
+      (Scheme.Modules.Hom.app
+        ((?t ≫ ((Scheme.Modules.overFunctorEquiv ?W).app ?M).inv) ≫
+          (Scheme.Modules.overEquiv ?W).functor.map ?f ≫ ((Scheme.Modules.overFunctorEquiv ?W).app ?N).hom)
+        ?Z))
+    ?s
+in the target expression
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((TensorOpenRestriction318.iso W.ι L.object N.object).inv ≫
+              ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv) ≫
+            (Scheme.Modules.overEquiv W).functor.map (restrictedIso L N U e W h).hom ≫
+              ((Scheme.Modules.overFunctorEquiv W).app L.object).hom)
+          Z))
+      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((TensorOpenRestriction318.iso W.ι L.object N.object).inv ≫
+              ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv) ≫
+            (Scheme.Modules.overEquiv W).functor.map
+                (OriginalTensorUntwistOver318.iso L N W
+                    (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm).hom ≫
+              ((Scheme.Modules.overFunctorEquiv W).app L.object).hom)
+          Z))
+      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n)
+
+X : Scheme
+L N : Line X
+U : X.Opens
+e : N.object.restrict U.ι ≅ SheafOfModules.unit (↑U).ringCatSheaf
+W : X.Opens
+h : W ≤ U
+Z : (↑W).Opens
+m : ↑Γ(L.object.restrict W.ι, Z)
+n : ↑Γ(N.object.restrict W.ι, Z)
+⊢ (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((TensorOpenRestriction318.iso W.ι L.object N.object).inv ≫
+              ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv) ≫
+            (Scheme.Modules.overEquiv W).functor.map (restrictedIso L N U e W h).hom ≫
+              ((Scheme.Modules.overFunctorEquiv W).app L.object).hom)
+          Z))
+      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((TensorOpenRestriction318.iso W.ι L.object N.object).inv ≫
+              ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv) ≫
+            (Scheme.Modules.overEquiv W).functor.map
+                (OriginalTensorUntwistOver318.iso L N W
+                    (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm).hom ≫
+              ((Scheme.Modules.overFunctorEquiv W).app L.object).hom)
+          Z))
+      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    SheafOfModules X.ringCatSheaf
