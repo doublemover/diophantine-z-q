@@ -1,0 +1,5 @@
+# Minimal native-action tower successor of KS44
+
+All 200 predecessor roots retain exact order; 199 sources remain byte-identical. The sole change replaces baseTower's algebra-map constructor with native instance synthesis for its unchanged expected IsScalarTower type. TensorProduct and AdjoinRoot already carry the exact native actions displayed in the hosted goal. Named baseAlgebra, all maps, assumptions, imports, public statements, options and resource limits are unchanged. No conversion between mismatched algebra projections and native actions is asserted.
+
+Fresh KS44 checking recorded 37 compiler passes and a strict subset audit of 969 declarations. The explicit carriers fixed inference, but the manufactured algebra-action tower did not match TensorProduct.instSMul/leftHasSMul. Four downstream tower failures remain blocked behind that declaration. This source-only repair requires hosted checking. Passed fraction-field and gluing sources, all other roots and all prior evidence stay exact. No later geometry additions or local Lean. Only the active KS registry slot changes 44 to 45; no marker, scripts, workflows, baseline or unrelated packet changes.
