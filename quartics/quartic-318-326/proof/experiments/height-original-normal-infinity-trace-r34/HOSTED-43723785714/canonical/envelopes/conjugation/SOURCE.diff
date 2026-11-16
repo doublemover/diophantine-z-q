@@ -1,0 +1,46 @@
+--- before/PELNormalizerPrincipalConjugation318.lean
++++ sources/PELNormalizerPrincipalConjugation318.lean
+@@ -19,13 +19,13 @@
+     change ((g.val⁻¹:Bˣ):B)*((g.val:B)*(x:B)*((g.val⁻¹:Bˣ):B))*(g.val:B)=(x:B)
+     calc
+       _ = (((g.val⁻¹:Bˣ):B)*(g.val:B))*(x:B)*(((g.val⁻¹:Bˣ):B)*(g.val:B)) := by noncomm_ring
+-      _ = _ := by rw [Units.inv_val,one_mul,mul_one]
++      _ = _ := by rw [Units.inv_mul,one_mul,mul_one]
+   right_inv x := by
+     apply Subtype.ext
+     change (g.val:B)*(((g.val⁻¹:Bˣ):B)*(x:B)*(g.val:B))*((g.val⁻¹:Bˣ):B)=(x:B)
+     calc
+       _ = ((g.val:B)*((g.val⁻¹:Bˣ):B))*(x:B)*((g.val:B)*((g.val⁻¹:Bˣ):B)) := by noncomm_ring
+-      _ = _ := by rw [Units.val_inv,one_mul,mul_one]
++      _ = _ := by rw [Units.mul_inv,one_mul,mul_one]
+   map_add' x y := by
+     apply Subtype.ext
+     change (g.val:B)*((x:B)+(y:B))*((g.val⁻¹:Bˣ):B)=
+@@ -37,7 +37,7 @@
+       ((g.val:B)*(x:B)*((g.val⁻¹:Bˣ):B))*((g.val:B)*(y:B)*((g.val⁻¹:Bˣ):B))
+     calc
+       _ = (g.val:B)*(x:B)*((((g.val⁻¹:Bˣ):B)*(g.val:B))*(y:B))*((g.val⁻¹:Bˣ):B) := by
+-        rw [Units.inv_val,one_mul]
++        rw [Units.inv_mul,one_mul]
+         all_goals noncomm_ring
+       _ = _ := by noncomm_ring
+ 
+@@ -47,9 +47,9 @@
+ theorem conjugation_norm (g : positiveNormalizer) (x : order) :
+     reducedNorm (conjugation g x:B)=reducedNorm (x:B) := by
+   have hu : reducedNorm (g.val:B)*reducedNorm ((g.val⁻¹:Bˣ):B)=1 := by
+-    rw [←norm_mul,Units.val_inv]
++    rw [←PELQuaternionNormParity318.norm_mul,Units.mul_inv]
+     norm_num [reducedNorm]
+-  rw [conjugation_value,norm_mul,norm_mul]
++  rw [conjugation_value,PELQuaternionNormParity318.norm_mul,PELQuaternionNormParity318.norm_mul]
+   calc
+     _ = (reducedNorm (g.val:B)*reducedNorm ((g.val⁻¹:Bˣ):B))*reducedNorm (x:B) := by ring
+     _ = _ := by rw [hu,one_mul]
+@@ -86,5 +86,5 @@
+     (((principalConjugation g u).val:order):B)*(g.val:B)=
+       (g.val:B)*((u.val:order):B) := by
+   rw [principalConjugation_value]
+-  simp only [mul_assoc,Units.inv_val,mul_one]
++  simp only [mul_assoc,Units.inv_mul,mul_one]
+ end PELNormalizerPrincipalConjugation318

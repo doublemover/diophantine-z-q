@@ -1,0 +1,15 @@
+# Branch localization opaque-helper repair review
+
+PASS for source/API/current-contract review, not a demonstrated timeout fix or kernel acceptance. No local Lean.
+
+Envelope pel-20261115/branch-localization-43680185849. Manifest 01e3cdfe678750435572e03713fb4f3e0fbea4865026b2615632defcdbb8d120 (all 18 references checked). APPLICATION 255278889c63022741a011e50884698289323167b13ab03974dca9652c9723f7. Candidate c4036efc167b2daea093d6ead55b9d743ce890e426e686a8e9c77772038f6191.
+
+Diagnostic-before a00edb76bafd85c1cd92cba3c21f734522a4d33570da5799b11fae1c3918dc3c contains exactly 19 #check observers. Independently stripping those lines recovers exact baseline bda7db9e164ce2b0e964b0658d6cf24aeec5db78d6631ee1bac165b9fe068314. Both allowed-before hashes are explicitly bound. The new candidate has no observers and can become one common canonical source after exact per-copy propagation review.
+
+The authentic cotangent61 log explicitly reports `(kernel) deterministic timeout` at line98:15, the sourceTower declaration, then a partially printed sourceTower signature and wall limit. The RESULT remains failed after 180.103 seconds. This is stronger location evidence than the last successful #check, but neither a marker nor compiler error recovery certifies completed asynchronous kernel checking or any whole-module acceptance.
+
+Read the complete candidate and exact baseline diff. The generic private theorem takes the existing R actions on A and B as independent SMul instances, the genuine R-P-A and R-C-B scalar towers, the actual A-algebra on B, and compatibility of scalar images. Its proof expands only that actual A-algebra action, rewrites the source action through the P tower, uses multiplicativity and the supplied scalar equality, then returns through the C tower. Pinned IsScalarTower.algebraMap_smul requires the independently supplied SMul R M, an A-M MulAction, and the tower, exactly matching this setup. It does not require replacing those R actions by a competing Algebra.toSMul dictionary.
+
+The concrete compatibility premise is derived from the unchanged sourceMap_on_polynomial specialized to algebraMap ℂ ℂ[X] c and the existing OpenBase tower. It is not a new caller assumption. The new sourceMap_on_complex and private generic theorem are the only new helpers. sourceTower's proposition and sourceMap/sourceAlgebra/localization maps, full source and target carriers, pivots and scalar factors remain unchanged. The local instance now applies the opaque helper instead of presenting the whole expanded proof term at once.
+
+All inherited heartbeat, synthesis, transparency, import and trust settings are unchanged; none was increased. This is a reasonable proof-staging candidate for the observed kernel cost, not a verified improvement. The exact nine obligations disclose the two helpers, dual before lineage, observer removal, unchanged public endpoint types and unaccepted status. Future own receipts must establish actual module completion; remaining source consumers and kernel checking are not inferred from this source review.

@@ -1,0 +1,13 @@
+--- before/PELNormalizerProjectiveLevel318.lean
++++ after/PELNormalizerProjectiveLevel318.lean
+@@ -24,7 +24,9 @@
+ theorem signs_preserved (i : Fin 4) :
+     (LevelThreeKernel318.signs QuotientOrder).map (unitConjugation i).toMonoidHom=
+       LevelThreeKernel318.signs QuotientOrder := by
+-  rw [LevelThreeKernel318.signs,MonoidHom.map_zpowers,unitConjugation_neg_one]
++  rw [LevelThreeKernel318.signs,MonoidHom.map_zpowers]
++  change Subgroup.zpowers (unitConjugation i (-1))=Subgroup.zpowers (-1)
++  rw [unitConjugation_neg_one]
+ 
+ abbrev EffectiveLevel := QuotientOrderˣ ⧸ LevelThreeKernel318.signs QuotientOrder
+ 

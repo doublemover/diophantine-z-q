@@ -1,0 +1,32 @@
+--- before/OriginalTwoOpenNormRepresentative318.lean
++++ sources/OriginalTwoOpenNormRepresentative318.lean
+@@ -9,6 +9,16 @@
+ set_option maxHeartbeats 1600000
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
++/-- Transport the actual epsilon unit across an equality of WHOLE opens,
++including the dependent appLE inclusion proof. No pullback object is unfolded. -/
++private lemma unit_appLE_of_eq {Z T : Scheme.{0}} (g : Z ⟶ T)
++    (e : Γ(Z,⊤)) (he : e * e = 0) (W : T.Opens) (W' : Z.Opens)
++    (h : W' = g ⁻¹ᵁ W) (hW : W' ≤ g ⁻¹ᵁ W) (a : Γ(T,W)) :
++    HEq (InfinitesimalUnitCocycle318.unit Z e he (g ⁻¹ᵁ W) (g.app W a))
++      (InfinitesimalUnitCocycle318.unit Z e he W' (g.appLE W W' hW a)) := by
++  subst W'
++  rw [Scheme.Hom.appLE_eq_app]
++
+ variable {R : Type} [CommRing R] {X Y : Scheme.{0}} [IsIntegral X] [IsIntegral Y]
+     (p : X ⟶ base R) (q : Y ⟶ base R) (f : X ⟶ Y) [IsDominant f] [IsFinite f]
+     (hY : NormalAffineBasis318.HasBasis Y)
+@@ -51,8 +61,10 @@
+     simp only [OriginalInfinitesimalNormCocycle318.sourceCocycle,preimageCocycle,
+       OriginalHOnePointedSurjection318.originalCocycle, InfinitesimalUnitCocycle318.cocycle,
+       AdditiveCocycleRefinement318.cocycle,OriginalThickenedNormTraceSquare318.sectionUnit,
+-      AffineHOnePointedDeformation318.thickOpens,opens,Scheme.Hom.appLE_eq_app]
+-  all_goals rfl
++      AffineHOnePointedDeformation318.thickOpens,opens,OriginalThickenedOpenSections318.π]
++  all_goals
++    apply unit_appLE_of_eq
++    exact (Scheme.Hom.preimage_inf _).symm
+ /-- The genuine norm of the OLD source representative has ALL four target
+ transitions equal to the OLD target representative of the OLD trace. -/
+ lemma norm_cocycle (x : Γ(X,f ⁻¹ᵁ (U ⊓ V))) :

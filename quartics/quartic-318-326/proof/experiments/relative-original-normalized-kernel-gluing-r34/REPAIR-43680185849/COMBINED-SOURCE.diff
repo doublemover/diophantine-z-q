@@ -1,0 +1,43 @@
+--- before/NonreducedAffineLocalLifts318.lean
++++ after/NonreducedAffineLocalLifts318.lean
+@@ -22,11 +22,11 @@
+ /-- Genuine local lifts on a finite original principal cover of ANY affine
+ scheme. Nilpotents and empty opens are not excluded by an artificial
+ nonzero-generator requirement. -/
+-def data [Epi p] (t : G.obj.obj (op ⊤)) : Data p t := by
++def data [hpEpi : Epi p] (t : G.obj.obj (op ⊤)) : Data p t := by
+   classical
+   apply Classical.choice
+   have hp : TopCat.Presheaf.IsLocallySurjective (X:=X) p.hom :=
+-    (TopCat.Sheaf.isLocallySurjective_iff_epi (X:=X) p).mpr inferInstance
++    (TopCat.Sheaf.isLocallySurjective_iff_epi (X:=X) p).mpr hpEpi
+   have localLift (x : X) : ∃ (f : Γ(X,⊤)) (s : F.obj.obj (op (X.basicOpen f))),
+       x ∈ X.basicOpen f ∧ p.hom.app _ s = G.obj.map (homOfLE le_top).op t := by
+     obtain ⟨V,i,⟨s,hs⟩,hx⟩ := hp.imageSieve_mem t x (show x ∈ (⊤ : X.Opens) from trivial)
+--- before/OriginalThickenedNormTraceSquare318.lean
++++ after/OriginalThickenedNormTraceSquare318.lean
+@@ -23,7 +23,12 @@
+     Units.map ((thickening R p).presheaf.map (homOfLE ((π R p).preimage_mono h)).op).hom.toMonoidHom
+       (sectionUnit R p V a) = sectionUnit R p W (X.presheaf.map (homOfLE h).op a) := by
+   dsimp only [sectionUnit]
+-  rw [InfinitesimalUnitCocycle318.unit_restrict]
++  have hr := InfinitesimalUnitCocycle318.unit_restrict (thickening R p)
++    (DualNumberInfinitesimalLines318.epsilon R p)
++    (DualNumberInfinitesimalLines318.epsilon_square R p)
++    ((π R p).preimage_mono h) ((π R p).app V a)
++  dsimp only [InfinitesimalUnitCocycle318.restrict] at hr
++  rw [hr]
+   congr 1
+   exact (congrArg (fun k => k a) ((π R p).naturality (homOfLE h).op)).symm
+ variable {Y : Scheme.{u}} [IsIntegral X] [IsIntegral Y]
+@@ -41,7 +46,9 @@
+     sectionUnit R q U (OpenDominantTrace318.trace f hY hfinite U a) := by
+   apply TopCat.Presheaf.IsSheaf.section_ext (OriginalThickenedUnitSheafNorm318.target R q).property
+   intro y hy
+-  obtain ⟨_,⟨V,hV,rfl⟩,hyV,hVU⟩ := Y.isBasis_affineOpens.exists_subset_of_mem_open hy U.isOpen
++  obtain ⟨_,⟨V₀,hV₀,rfl⟩,hyV,hVU⟩ := Y.isBasis_affineOpens.exists_subset_of_mem_open hy U.isOpen
++  let V : Y.Opens := V₀
++  have hV : IsAffineOpen V := hV₀
+   refine ⟨V,hVU,hyV,?_⟩
+   change Units.map ((thickening R q).presheaf.map (homOfLE ((π R q).preimage_mono hVU)).op).hom.toMonoidHom
+       ((OriginalThickenedUnitSheafNorm318.norm R p q f hY hfinite).hom.app (op U)

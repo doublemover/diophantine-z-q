@@ -1,0 +1,264 @@
+{
+  "status": "SOURCE_REVIEW_PENDING_HOSTED_UNVERIFIED",
+  "base_commit": "4ce7eda322f507e43be0c9be1be2e97449e82189",
+  "run": 43680185849,
+  "before_sha256": "a00edb76bafd85c1cd92cba3c21f734522a4d33570da5799b11fae1c3918dc3c",
+  "alternate_before_sha256": [
+    "bda7db9e164ce2b0e964b0658d6cf24aeec5db78d6631ee1bac165b9fe068314"
+  ],
+  "after_sha256": "c4036efc167b2daea093d6ead55b9d743ce890e426e686a8e9c77772038f6191",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "resources_changed": false,
+  "existing_public_telescopes_changed": false,
+  "new_helper_declarations": [
+    "private scalarTowerFromCompatibleMap",
+    "sourceMap_on_complex"
+  ],
+  "removed_diagnostic_observers": 19,
+  "obligations": [
+    {
+      "id": "required_inputs",
+      "required_input": "Original arbitrary branches b and each pivot i, actual quotient A, genuine sourceMap/OpenOrder, existing scalar actions and polynomial/OpenBase towers.",
+      "constructed_input": "Abstract scalarTowerFromCompatibleMap takes the existing R-actions independently; derive its hmap from sourceMap_on_polynomial specialized to complex scalar.",
+      "justification": "The generic hmap premise is discharged by the actual source map, not added as a public endpoint assumption.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "constructed_objects",
+      "required_input": "The unchanged sourceTower proposition and all previous localization maps/equivalences.",
+      "constructed_input": "Replace one concrete expanded proof with an opaque generic theorem, an opaque actual complex-map helper and one typed theorem application.",
+      "justification": "Existing sourceTower statement, native sourceAlgebra, sourceMap and all consumer declarations remain unchanged.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "index_and_domain_coverage",
+      "required_input": "All c:\u2102, all source elements and open-chart elements and all four pivots.",
+      "constructed_input": "Generic smul_assoc proof retains full source and target actions; concrete application supplies all exact carriers.",
+      "justification": "No sampling, nonvanishing assumption, domain restriction or smaller localization.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "transition_maps",
+      "required_input": "Original polynomial sourceMap_on_polynomial and its actual OpenBase scalar map.",
+      "constructed_input": "Specialize using algebraMap \u2102 \u2102[X] c directly, then existing scalar-tower composition equality.",
+      "justification": "No replacement ring homomorphism or scalar dictionary; the earlier failed canonical Algebra.toSMul constructor is not reintroduced.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "coefficient_and_scalar_factors",
+      "required_input": "Actual constant-polynomial and OpenBase images of c.",
+      "constructed_input": "Source helper has same exact complex scalar equality; generic multiplication and native algebraMap_smul prove associativity.",
+      "justification": "All scalar factors and action dictionaries preserved. Existing \u2102-actions are explicit SMul parameters, not synthesized replacement Algebra.toSMul actions.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "local_and_exceptional_cases",
+      "required_input": "Full source localization and explicit finite-branch chart.",
+      "constructed_input": "Only stage the observed sourceTower proof; retain source_localization and both actual localization equivalences unchanged.",
+      "justification": "No resource/heartbeats/recursion/transparency/import increase; potential kernel cost reduction remains unverified until hosted replay.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "identity_with_consumed_object",
+      "required_input": "Actual current cotangent61 source carrying nineteen identifier-only observers.",
+      "constructed_input": "Remove all observers to recover exact bda7 baseline, then apply the mathematical proof staging. Other lanes already contain that exact baseline.",
+      "justification": "Canonical successor may replace either authenticated diagnostic-before or byte-identical stripped baseline; after source is one common canonical version, no continuing diagnostic exception.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "downstream_dependency_effects",
+      "required_input": "Consumers of the same sourceTower and sourceLocalizationEquiv.",
+      "constructed_input": "One private generic proof and one actual polynomial-to-complex helper are new; original public theorem telescopes/types remain unchanged.",
+      "justification": "No research activation or target theorem assumption. Diagnostic source is historical evidence, not a repaired proof result.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    },
+    {
+      "id": "honesty_boundary",
+      "required_input": "Own cotangent61 run43680185849 at4ce7eda322f507e43be0c9be1be2e97449e82189: exit124180.103s and explicit line98:15 kernel deterministic timeout at sourceTower.",
+      "constructed_input": "Bind authentic own receipt/log, exact baseline-stripping check, native tower API, before/after diff and nine obligations.",
+      "justification": "No #check marker proves asynchronous kernel completion; explicit diagnostic location is stronger than last-marker inference but no full-module pass. No local Lean or resource/trust change.",
+      "source_references": [
+        "before/FourRootActualBranchLocalization318.lean",
+        "baseline/FourRootActualBranchLocalization318.lean",
+        "after/FourRootActualBranchLocalization318.lean",
+        "primary/FiniteBranchChart318.lean",
+        "primary/FourRootActualFiniteBranchChart318.lean",
+        "primary/FourRootActualFractionField318.lean",
+        "primary/FourRootAffineCoordinateRing318.lean",
+        "primary/LocalizationSourceTransport318.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.lean",
+        "primary/Mathlib-Algebra-Algebra-Tower.pin.json",
+        "primary/Mathlib-RingTheory-Localization-BaseChange.lean",
+        "primary/Mathlib-RingTheory-TensorProduct-Basic.lean",
+        "primary/ThreeRootOrder318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/intake.json",
+        "evidence/FourRootActualBranchLocalization318.log",
+        "SOURCE.diff"
+      ]
+    }
+  ]
+}

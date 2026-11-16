@@ -1,0 +1,3 @@
+# Gluing original frame scalar: exact preventive variant
+
+Exact reviewed positive92 scalar annotations applied to own published gluing33 variant. Preserve sole extra @[expose] iso, no wholesale replacement. Removing that extra exposure yields byte-identical canonical positive before/after. Own e17/run437442 gluing33 stops at DualFrame after93fullpasses; FrameChange remains unreached. This is preventive same-source propagation, not observed gluing success. Public hypotheses/maps/options/root order unchanged. Canonical review independently authored by Picard; geometry may review this variant propagation only. No local Lean or acceptance inference.

@@ -1,0 +1,84 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:30:6: error: 'change' tactic failed, pattern
+  (commonPoint V K c t y hy ht) ((infinityMap V c) ((algebraMap V (IntegralInfinityChart318.Order V c)) a)) =
+    (algebraMap V K) a
+is not definitionally equal to target
+  (((commonPoint V K c t y hy ht).comp (infinityMap V c).toRingHom).comp
+        (algebraMap V[X] (IntegralInfinityChart318.Order V c)))
+      (C a) =
+    (aeval ((algebraMap V K) ↑(c 0) / y 0)).toRingHom (C a)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:36:53: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) X
+in the target expression
+  (algebraMap V K) ↑(c 0) / y 0 = (aeval ((algebraMap V K) ↑(c 0) / y 0)).toRingHom X
+
+case h₂
+V : Type u
+K : Type v
+inst✝⁵ : CommRing V
+inst✝⁴ : IsDomain V
+inst✝³ : ValuationRing V
+inst✝² : Field K
+inst✝¹ : Algebra V K
+inst✝ : IsFractionRing V K
+c : Fin 4 → Vˣ
+t : K
+y : Fin 4 → K
+hy : ∀ (i : Fin 4), y i ^ 2 = (algebraMap V K) ↑(c i) * (t - (algebraMap V K) (contacts V i))
+ht : ¬IsLocalization.IsInteger V t
+p : V[X]
+⊢ (algebraMap V K) ↑(c 0) / y 0 = (aeval ((algebraMap V K) ↑(c 0) / y 0)).toRingHom X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:45:4: error: unsolved goals
+case h₁
+V : Type u
+K : Type v
+inst✝⁵ : CommRing V
+inst✝⁴ : IsDomain V
+inst✝³ : ValuationRing V
+inst✝² : Field K
+inst✝¹ : Algebra V K
+inst✝ : IsFractionRing V K
+u : V
+p : V[X]
+a : V
+⊢ (algebraMap V K) ((evalRingHom u) (C a)) = (aeval ((algebraMap V K) u)).toRingHom (C a)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:47:4: error: unsolved goals
+case h₂
+V : Type u
+K : Type v
+inst✝⁵ : CommRing V
+inst✝⁴ : IsDomain V
+inst✝³ : ValuationRing V
+inst✝² : Field K
+inst✝¹ : Algebra V K
+inst✝ : IsFractionRing V K
+u : V
+p : V[X]
+⊢ (algebraMap V K) ((evalRingHom u) X) = (aeval ((algebraMap V K) u)).toRingHom X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:46:36: warning: This simp argument is unused:
+  Polynomial.eval_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, Polynomial.aeval_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:46:54: warning: This simp argument is unused:
+  Polynomial.aeval_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, Polynomial.eval_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:47:36: warning: This simp argument is unused:
+  Polynomial.eval_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, Polynomial.aeval_X]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-parameter-evaluation-r15/IntegralValuativeInfinityExtension318.lean:47:54: warning: This simp argument is unused:
+  Polynomial.aeval_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [RingHom.comp_apply, Polynomial.eval_X]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

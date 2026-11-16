@@ -1,0 +1,10 @@
+# Independent source review: actual branch localization
+Verdict: source/API and current application review PASS for future hosted checking only. No Lean or Lake was run; kernel acceptance and timeout improvement are unverified.
+
+Exact envelope: pel-20261115/branch-localization-43667489535. SOURCE-HASHES.json SHA256 4c121ce815f938de8658f19bf8437ef8783a24cab35ffa3f0e1272f056c281b1; all 17 current bindings checked. APPLICATION.json 35ecef6af34d88282c78c108acb960b757d402986d596358a7edd5bf95e7543a. Before ba15c31b72c185188d81c479e1d641e153fcc4a2c7077e25dc34f3f239def2fa; after 4ffeebc2c478d3f3e7c369eea8a65123b851e3899e38b7ffd8eadbbda1972e07.
+
+Read both full sources, exact diff, current nine obligations, own cotangent57 failure log and pinned localization/tower/chart definitions. Native IsLocalization.tensor takes the exact submonoid and base localization instance; exposing the actual OpenBase Away carrier supplies that instance without an extra premise. The unchanged polynomial-source compatibility lemma is moved before the tower proof. of_algebraMap_smul proves compatibility with the existing scalar actions, using C c and the actual OpenBase tower; it does not replace the complex action with a rational-only one. The newly named sourceLocalizationAlgEquiv is the same native source-linear localization equivalence. Restriction of scalars and its commutes law retain the whole original source map.
+
+All arbitrary b and pivots i, original denominator, full localized carriers, public existing telescopes, imports and resource options remain. One constructed helper is added; no assumed equivalence or localization, branch distinctness, extra unit or excluded locus is introduced. Naming the exact equivalence is a plausible sharing repair, not a demonstrated performance result. Definitional carrier and instance coherence still require hosted Lean.
+
+Own current evidence: FiniteBranchChart completed in 2.820s; BranchLocalization failed in 166.342s after 51 successful root commands. The latter is not accepted. Copies in lanes which did not reach it require explicit preventive scope and current propagation review. No downstream or whole-lane claim follows.
