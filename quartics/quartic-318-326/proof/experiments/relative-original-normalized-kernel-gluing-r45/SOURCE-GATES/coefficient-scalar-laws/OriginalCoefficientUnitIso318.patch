@@ -1,0 +1,15 @@
+--- before/OriginalCoefficientUnitIso318.lean
++++ after/OriginalCoefficientUnitIso318.lean
+@@ -37,7 +37,9 @@
+   hom_inv_id := by rw [mul]; simpa only [Units.inv_mul] using one R p L
+   inv_hom_id := by rw [mul]; simpa only [Units.mul_inv] using one R p L
+ 
+-local instance : Module R Γ(L.object,⊤) := OriginalCoefficientCohomology318.sectionModule R p L ⊤
+-lemma hom_section (u : Rˣ) (s : Γ(L.object,⊤)) : (iso R p L u).hom.app ⊤ s=(u:R) • s :=
+-  apply R p L (u:R) ⊤ s
++lemma hom_section (u : Rˣ) (s : Γ(L.object,⊤)) :
++    letI : Module R Γ(L.object,⊤) := OriginalCoefficientCohomology318.sectionModule R p L ⊤
++    (iso R p L u).hom.app ⊤ s=(u:R) • s := by
++  letI : Module R Γ(L.object,⊤) := OriginalCoefficientCohomology318.sectionModule R p L ⊤
++  exact apply R p L (u:R) ⊤ s
+ end OriginalCoefficientUnitIso318

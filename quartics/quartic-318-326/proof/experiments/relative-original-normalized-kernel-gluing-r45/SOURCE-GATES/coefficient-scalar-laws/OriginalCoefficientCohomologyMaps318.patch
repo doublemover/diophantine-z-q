@@ -1,0 +1,77 @@
+--- before/OriginalCoefficientCohomologyMaps318.lean
++++ after/OriginalCoefficientCohomologyMaps318.lean
+@@ -23,38 +23,47 @@
+   exact Scheme.Modules.Hom.app_smul a _ _
+ 
+ variable (n : ℕ)
+-local instance : Module R (Sheaf.H (additive L) n) :=
+-  OriginalCoefficientCohomology318.cohomologyModule R p L n
+-local instance : Module R (Sheaf.H (additive N) n) :=
+-  OriginalCoefficientCohomology318.cohomologyModule R p N n
+ 
+ /-- The actual derived cohomology map is linear for original structural
+ coefficients. This does not define a new map through a Cech quotient. -/
+-@[expose] def map : Sheaf.H (additive L) n →ₗ[R] Sheaf.H (additive N) n where
+-  __ := Sheaf.H.map (additiveMap L N a) n
+-  map_smul' r x := by
+-    change Sheaf.H.map (additiveMap L N a) n
+-      (Sheaf.H.map (OriginalCoefficientCohomology318.multiply R p L r) n x) =
+-      Sheaf.H.map (OriginalCoefficientCohomology318.multiply R p N r) n
+-        (Sheaf.H.map (additiveMap L N a) n x)
+-    rw [← Sheaf.H.map_comp_apply,← Sheaf.H.map_comp_apply,coefficient_square]
++@[expose] def map :
++    letI : Module R (Sheaf.H (additive L) n) := OriginalCoefficientCohomology318.cohomologyModule R p L n
++    letI : Module R (Sheaf.H (additive N) n) := OriginalCoefficientCohomology318.cohomologyModule R p N n
++    Sheaf.H (additive L) n →ₗ[R] Sheaf.H (additive N) n := by
++  letI : Module R (Sheaf.H (additive L) n) := OriginalCoefficientCohomology318.cohomologyModule R p L n
++  letI : Module R (Sheaf.H (additive N) n) := OriginalCoefficientCohomology318.cohomologyModule R p N n
++  exact
++    { __ := Sheaf.H.map (additiveMap L N a) n
++      map_smul' r x := by
++        change Sheaf.H.map (additiveMap L N a) n
++          (Sheaf.H.map (OriginalCoefficientCohomology318.multiply R p L r) n x) =
++          Sheaf.H.map (OriginalCoefficientCohomology318.multiply R p N r) n
++            (Sheaf.H.map (additiveMap L N a) n x)
++        rw [← Sheaf.H.map_comp_apply,← Sheaf.H.map_comp_apply,coefficient_square]
++    }
+ 
+ /-- Original sheaf isomorphisms induce actual structural-linear Hn
+ isomorphisms, for later coefficient identity/composition comparisons. -/
+ @[expose] def equivalence (e : L.object ≅ N.object) :
+-    Sheaf.H (additive L) n ≃ₗ[R] Sheaf.H (additive N) n where
+-  __ := map R p L N e.hom n
+-  invFun := map R p N L e.inv n
+-  left_inv x := by
+-    change Sheaf.H.map (additiveMap N L e.inv) n (Sheaf.H.map (additiveMap L N e.hom) n x) = x
+-    rw [← Sheaf.H.map_comp_apply]
+-    have h : additiveMap L N e.hom ≫ additiveMap N L e.inv = 𝟙 _ := by
+-      rw [additiveMap,additiveMap,← Functor.map_comp,e.hom_inv_id,Functor.map_id]
+-    rw [h,Sheaf.H.map_id_apply]
+-  right_inv x := by
+-    change Sheaf.H.map (additiveMap L N e.hom) n (Sheaf.H.map (additiveMap N L e.inv) n x) = x
+-    rw [← Sheaf.H.map_comp_apply]
+-    have h : additiveMap N L e.inv ≫ additiveMap L N e.hom = 𝟙 _ := by
+-      rw [additiveMap,additiveMap,← Functor.map_comp,e.inv_hom_id,Functor.map_id]
+-    rw [h,Sheaf.H.map_id_apply]
++    letI : Module R (Sheaf.H (additive L) n) := OriginalCoefficientCohomology318.cohomologyModule R p L n
++    letI : Module R (Sheaf.H (additive N) n) := OriginalCoefficientCohomology318.cohomologyModule R p N n
++    Sheaf.H (additive L) n ≃ₗ[R] Sheaf.H (additive N) n := by
++  letI : Module R (Sheaf.H (additive L) n) := OriginalCoefficientCohomology318.cohomologyModule R p L n
++  letI : Module R (Sheaf.H (additive N) n) := OriginalCoefficientCohomology318.cohomologyModule R p N n
++  exact
++    { __ := map R p L N e.hom n
++      invFun := map R p N L e.inv n
++      left_inv x := by
++        change Sheaf.H.map (additiveMap N L e.inv) n (Sheaf.H.map (additiveMap L N e.hom) n x) = x
++        rw [← Sheaf.H.map_comp_apply]
++        have h : additiveMap L N e.hom ≫ additiveMap N L e.inv = 𝟙 _ := by
++          rw [additiveMap,additiveMap,← Functor.map_comp,e.hom_inv_id,Functor.map_id]
++        rw [h,Sheaf.H.map_id_apply]
++      right_inv x := by
++        change Sheaf.H.map (additiveMap L N e.hom) n (Sheaf.H.map (additiveMap N L e.inv) n x) = x
++        rw [← Sheaf.H.map_comp_apply]
++        have h : additiveMap N L e.inv ≫ additiveMap L N e.hom = 𝟙 _ := by
++          rw [additiveMap,additiveMap,← Functor.map_comp,e.inv_hom_id,Functor.map_id]
++        rw [h,Sheaf.H.map_id_apply]
++    }
+ end OriginalCoefficientCohomologyMaps318

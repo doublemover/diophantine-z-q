@@ -1,0 +1,67 @@
+{
+  "status": "FRESH_THREE_CONSUMER_EXPLICIT_DICTIONARY_REPAIR_SOURCE_ONLY",
+  "base_commit": "774c494bdb5b1ee6350025aab4c6ee55b2aa9dbc",
+  "source_packet": "relative-original-normalized-kernel-gluing-r44",
+  "repairs": [
+    {
+      "module": "OriginalCoefficientBoundary318",
+      "before_sha256": "e23d84df2fc55e199b932fa5937b2268980349b3c54ff8ad553b65a2a8ae2f4d",
+      "after_sha256": "7cb1ca40730f3b2fe4dce1215991b3a9ec6902d9ee21815b411220fc119a5f88"
+    },
+    {
+      "module": "OriginalCoefficientCohomologyMaps318",
+      "before_sha256": "e6c4505d4e30b2b032f4f46f3b2e8249b737d9b85d732c4242dee777dfe8978e",
+      "after_sha256": "6d9d657d9e4e38246c2cf21e873320255800bbdbbf955d5323595adaed42e0cb"
+    },
+    {
+      "module": "OriginalCoefficientUnitIso318",
+      "before_sha256": "defde5a90d75a82d4cbce8b6f6ba1a656dab41c8a85d402e4e842c2cdf92c2fe",
+      "after_sha256": "f7d7cb5adf3245d42a54f0c865274d8c3ae0c8bbf705b8742256d7e28569671a"
+    }
+  ],
+  "public_written_signatures_changed": true,
+  "semantic_reason": "Original local instance declarations reject p as uninferable. Bind precisely the same producer-owned sectionModule/cohomologyModule instances via letI in the exported types and bodies, restoring the intended structural p-dependent action and automatic R,p declaration parameters. No new premise or alternate action.",
+  "affected_declarations": [
+    "OriginalCoefficientBoundary318.linear",
+    "OriginalCoefficientCohomologyMaps318.map",
+    "OriginalCoefficientCohomologyMaps318.equivalence",
+    "OriginalCoefficientUnitIso318.hom_section"
+  ],
+  "imports_changed": false,
+  "resources_changed": false,
+  "local_lean_run": false,
+  "all_30_passed_sources_preserved": true,
+  "analysis": [
+    "Remove five rejected local instances with uninferable p; use local letI at each actual public type/body requiring the same dictionary.",
+    "All producer definitions, scalar maps, coefficient_square and native isomorphism construction remain unchanged; record proof bodies retained except their letI scope.",
+    "The exact cohomology carriers and original structural p-dependent dictionaries appear explicitly in signatures. This restores existing caller convention map R p L N a n rather than adding a mathematical assumption.",
+    "Downstream unknown fvar is not diagnosed independently; fix preceding module inference/argument errors first."
+  ],
+  "limitations": "Actual33-target shard30passes/audit286 and3consumererrors. Candidate source-only; no restored-declaration or downstream acceptance claim.",
+  "bindings": {
+    "CURRENT-CONTEXT.json": "91dd912ed2ffd72c29b434cee79bdce9a089647119a41f03c7db23d29d4225ef",
+    "OriginalCoefficientBoundary318.patch": "aa382b9bee2fdb93039892cb1ec5a38a166600f8adec7514a97220ef3f3525cd",
+    "OriginalCoefficientCohomologyMaps318.patch": "ff88a1b02c2334c89bca660a652e5f1acc9924684583316070a780c4ccf6ee69",
+    "OriginalCoefficientUnitIso318.patch": "49edf9a23c870f0994e32e6e8497c743618e398709604e8f9ac4bb20bad5b3f2",
+    "after/OriginalCoefficientBoundary318.lean": "7cb1ca40730f3b2fe4dce1215991b3a9ec6902d9ee21815b411220fc119a5f88",
+    "after/OriginalCoefficientCohomologyMaps318.lean": "6d9d657d9e4e38246c2cf21e873320255800bbdbbf955d5323595adaed42e0cb",
+    "after/OriginalCoefficientUnitIso318.lean": "f7d7cb5adf3245d42a54f0c865274d8c3ae0c8bbf705b8742256d7e28569671a",
+    "before/OriginalCoefficientBoundary318.lean": "e23d84df2fc55e199b932fa5937b2268980349b3c54ff8ad553b65a2a8ae2f4d",
+    "before/OriginalCoefficientCohomologyMaps318.lean": "e6c4505d4e30b2b032f4f46f3b2e8249b737d9b85d732c4242dee777dfe8978e",
+    "before/OriginalCoefficientUnitIso318.lean": "defde5a90d75a82d4cbce8b6f6ba1a656dab41c8a85d402e4e842c2cdf92c2fe",
+    "consumers/ContactCanonicalTensorFunctor318.lean": "c8a01ffb4ebe0e5c0d2f59110d2e9ef0b48ecc9c2f768c123026037790ce8c9e",
+    "consumers/ContactRelativeStructuralHOne318.lean": "4cb6e448d4ec2b9df67cfb5f281bfbd5fac71cefd55924fdfbc1ae5dcda74ae4",
+    "consumers/ContactZeroUnitScaling318.lean": "1c03318397092ec3a4c525ff0bf078b623d59fde41e6e5d729c680716fd761b3",
+    "hosted/BINDING-VERIFIED.json": "8fdfe0463f0e9e5329ad3b3502c00f94049f5549f43b4d1466db4f45d6d58f3e",
+    "hosted/INVENTORY.json": "5ec893f44969e46ddc441e6b4ca62d8cadc35e7da2d247fc9763402f98f3621d",
+    "hosted/OriginalCoefficientBoundary318.log": "eff248b537685f29182d1b8065a2e267319c7d9ff6723bfecb98912dba33d5f5",
+    "hosted/OriginalCoefficientCohomologyMaps318.log": "b2e529901fb10db8d7bb903d4a4ea9035bca42d5a3228685baba297b81f498f4",
+    "hosted/OriginalCoefficientUnitIso318.log": "c4589824ee811169faef90bcd77083e2e9ba42118b02ae87cd08c445952a034c",
+    "primary/LineSheafClass318.lean": "022b9d9867c07fb938ee6a7851acbddd0ab8599507e2f0e0edecb5d4890afe5b",
+    "primary/MayerVietorisCoefficientNaturality318.lean": "a016fdec2197d5895d6428dd11643133cfb53c2177f0af8a1e92d37b360058eb",
+    "primary/ModuleScalar318.lean": "f0acc624da78bde3ab8cfe2a63b4c66d8b28db86d2eb3c25da75855c06a8182a",
+    "primary/NonreducedLineMayerVietoris318.lean": "1a9567e5ccd0307e01677fe664f9088a008a6754f2d240a30d15d6103c84c219",
+    "primary/NonreducedLineRestriction318.lean": "90574320aa351a071b2c63123f9297e25579e4be3949d47326bf82b608e02ea2",
+    "primary/OriginalCoefficientCohomology318.lean": "afed3d7814539789816a8dd1067ff7471c708a6880af04fbdb19ab6060185c48"
+  }
+}

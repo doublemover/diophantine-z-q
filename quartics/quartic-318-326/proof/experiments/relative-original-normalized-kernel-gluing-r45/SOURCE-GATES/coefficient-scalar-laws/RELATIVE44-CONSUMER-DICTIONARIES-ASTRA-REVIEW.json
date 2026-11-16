@@ -1,0 +1,42 @@
+{
+  "status": "PASS_SOURCE_API_REPAIR_WITH_EXPLICIT_SIGNATURE_CORRECTION_NOT_LEAN",
+  "application_sha256": "66e34c8d26a3cc72b79e2c9e6f87bab73321d5ee94930ee1cc72c5bbfa614a0f",
+  "source_commit": "774c494bdb5b1ee6350025aab4c6ee55b2aa9dbc",
+  "repairs": [
+    {
+      "module": "OriginalCoefficientBoundary318",
+      "before_sha256": "e23d84df2fc55e199b932fa5937b2268980349b3c54ff8ad553b65a2a8ae2f4d",
+      "after_sha256": "7cb1ca40730f3b2fe4dce1215991b3a9ec6902d9ee21815b411220fc119a5f88"
+    },
+    {
+      "module": "OriginalCoefficientCohomologyMaps318",
+      "before_sha256": "e6c4505d4e30b2b032f4f46f3b2e8249b737d9b85d732c4242dee777dfe8978e",
+      "after_sha256": "6d9d657d9e4e38246c2cf21e873320255800bbdbbf955d5323595adaed42e0cb"
+    },
+    {
+      "module": "OriginalCoefficientUnitIso318",
+      "before_sha256": "defde5a90d75a82d4cbce8b6f6ba1a656dab41c8a85d402e4e842c2cdf92c2fe",
+      "after_sha256": "f7d7cb5adf3245d42a54f0c865274d8c3ae0c8bbf705b8742256d7e28569671a"
+    }
+  ],
+  "bindings_verified": 24,
+  "passed_sources_verified": 30,
+  "written_signature_changes": [
+    "OriginalCoefficientBoundary318.linear",
+    "OriginalCoefficientCohomologyMaps318.map",
+    "OriginalCoefficientCohomologyMaps318.equivalence",
+    "OriginalCoefficientUnitIso318.hom_section"
+  ],
+  "checks": [
+    "Fresh exact logs reject five local instances because structural p cannot be inferred from carrier. The replacements use letI with exactly the already checked exposed sectionModule/cohomologyModule definitions, not arbitrary Module parameters.",
+    "Exported types now explicitly retain R and p dependencies. Expected explicit order: linear R p L U V h; map R p L N a n; equivalence R p L N n e; hom_section R p L u s. No new hypothesis, chosen action, or alternate sheaf/cohomology carrier.",
+    "Matching body letI terms use the identical dictionaries as the public type. Existing record map_smul, inverse proofs, coefficient_square and scalar/unit maps remain unchanged aside from enclosing local scope/record syntax.",
+    "Reviewed downstream ContactRelativeStructuralHOne uses linear R projection L with exactly the producer section/cohomology actions; ContactCanonicalTensorFunctor uses map R projection L N a n with the same cohomologyModule; ContactZeroUnitScaling supplies identical sectionModule to hom_section.",
+    "All 30 checked source bytes including afed3d78 remain untouched. All six primary and three consumer snapshots match immutable execution source; imports and preexisting options unchanged."
+  ],
+  "limitations": [
+    "This corrects previously unaccepted exported types; it is not asserted to be definitionally equal to successful old declarations, which do not exist.",
+    "Exact elaborated telescopes, restored record elaboration, unknown-fvar cascade and downstream proof success require hosted Lean.",
+    "No local Lean, candidate acceptance or full packet acceptance."
+  ]
+}
