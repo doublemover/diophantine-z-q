@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r102/OriginalTensorUntwistRefinement318.lean:54:2: error: 'change' tactic failed, pattern
+  (OriginalTensorUntwistOver318.sections L N U e (W.ι ''ᵁ Z) ⋯)
+      ((ConcreteCategory.hom (Scheme.Modules.Hom.app (TensorOpenRestriction318.iso W.ι L.object N.object).inv Z))
+        (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n)) =
+    (OriginalTensorUntwistOver318.sections L N W (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm
+        (W.ι ''ᵁ Z) ⋯)
+      ((ConcreteCategory.hom (Scheme.Modules.Hom.app (TensorOpenRestriction318.iso W.ι L.object N.object).inv Z))
+        (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n))
+is not definitionally equal to target
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((TensorOpenRestriction318.iso W.ι L.object N.object).inv ≫
+              ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv) ≫
+            (Scheme.Modules.overEquiv W).functor.map (restrictedIso L N U e W h).hom ≫
+              ((Scheme.Modules.overFunctorEquiv W).app L.object).hom)
+          Z))
+      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((TensorOpenRestriction318.iso W.ι L.object N.object).inv ≫
+              ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv) ≫
+            (Scheme.Modules.overEquiv W).functor.map
+                (OriginalTensorUntwistOver318.iso L N W
+                    (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm).hom ≫
+              ((Scheme.Modules.overFunctorEquiv W).app L.object).hom)
+          Z))
+      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r102/OriginalTensorUntwistRefinement318.lean:75:2: error: Type mismatch
+  hi
+has type
+  (ConcreteCategory.hom ((restrictedIso L N U e W h).hom.val.app (op (Over.mk (homOfLE hV))))) s =
+    (ConcreteCategory.hom
+        ((OriginalTensorUntwistOver318.iso L N W
+                  (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm).hom.val.app
+          (op (Over.mk (homOfLE hV)))))
+      s
+but is expected to have type
+  (OriginalTensorUntwistOver318.sections L N U e V ⋯) s =
+    (OriginalTensorUntwistOver318.sections L N W (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm V hV) s
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OriginalTensorUntwistOver318.sections ↦ 43
+  OriginalTensorUntwistOver318.iso ↦ 27
