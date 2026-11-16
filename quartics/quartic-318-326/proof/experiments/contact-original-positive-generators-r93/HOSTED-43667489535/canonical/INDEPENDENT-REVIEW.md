@@ -1,0 +1,11 @@
+# Independent original whole-section equivalence repair review
+
+Source/current-application PASS for future hosted checking; no local Lean.
+
+Envelope arithmetic-20261114/line-section-equivalence-43667489535. All12 bindings checked, manifestefb3a0e93e097edcbde0bbeb9881143bd82301bcd2a57779e8014e052c130521. APPLICATION10e58d56c0bc7e23110af1be394d7d11368d0946f2f01838f8d6ce7c02b3940b. Candidate ContactOriginalLineSectionEquivalence318 c9b8fec5157f1df6593a367d57e840252ac5ec77213970cdbbc494a9cf68301a.
+
+Read complete source, exact diff and native whole-section coordinate/gluing inputs. The proof-local z:V Q(finiteRank c L):=v.val freezes the existing ambient vector type before rewriting positive/negative-image membership. Thus negative_image does not alter the dependent H0 subtype of v in the rewrite motive. Both memberships are still exactly v.property; final equality to z is definitionally equality to v.val. No vector, rank, transition, basis or scalar module is replaced.
+
+The unchanged proof chooses representatives using actual finite_image/infinity_image, verifies their full overlap equality by the SAME overlapCoordinates injectivity and finite_res/infinity_res, and uses original TwoOpen sheaf gluing. It proves whole matchingLinear surjectivity, not a dimension argument or chosen-generator surrogate. The endpoint now explicitly unfolds matchingLinear's codRestrict of globalCoordinates and globalCoordinates' original full-overlap restriction composition. Both native definitions were inspected; no upstream exposure or statement change is introduced. The actual LinearEquiv and finrank consumer remain the same.
+
+Own positive84 run43667489535/eeb2a2fb55e45c09bde7e013bef8f98d2f00be51 intake/prefix verified. Cohomology fullPASS20.363s and TwoOpen fullPASS1.470s;76 successful commands precede SectionEquivalence failure1.368s. Actual errors were the dependent-rewrite motive and later rfl endpoint; candidate elaboration still needs hosted confirmation. Nine obligations retain all unit twists, arbitrary original line, zero/all matching vectors, original whole-open cover and maps. Public signatures/hypotheses/imports and historical options unchanged; no new trust/resource setting, kernel claim or downstream acceptance.

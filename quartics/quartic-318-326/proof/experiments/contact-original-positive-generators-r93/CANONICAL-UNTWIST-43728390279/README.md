@@ -1,0 +1,7 @@
+# Actual original tensor untwisting scalar repair
+
+Inactive canonical source only, based on own positive89 replay43728390279 at a28f35d4c2678cbcd9633b289a8d0dd510cc0f5f:80 complete passes, Untwist fails2.370s, remaining roots unreached. The first failure is an untyped action of a chart-unit section on ambient module sections. Later missing e is a cascade; finiteIso/infinityIso separately encounter the hidden actual twist producer.
+
+Transport the exact frame coefficient with the original open-immersion appIso.inv into the ambient section ring. Native smul_restrictAppIso_hom proves the action agrees with the actual restricted module; restrictAppIso is the identity on underlying additive sections, not a chosen coordinate equivalence. Keep actual tensor/restriction/unit maps and all full-open sections. Update immediate image_pure and its arbitrary-subopen consumer using native Opens.ι_appIso, rather than assuming the scalar rings identical. Expose only the existing twist definition. No new frame, freeness, affine-only, domain, unit or nonvanishing hypotheses.
+
+Gluing31 has extra existing exposures on scalar,line,finiteFrame,infinityFrame; any preventive propagation must preserve those four, and add twist only. This positive source variant cannot wholesale replace that gluing producer. No root, compiler, budget or trust change. No local Lean or kernel acceptance. Full proofs and transported statement require hosted replay.
