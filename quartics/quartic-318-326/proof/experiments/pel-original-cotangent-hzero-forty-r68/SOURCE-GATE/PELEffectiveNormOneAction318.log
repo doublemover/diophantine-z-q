@@ -1,0 +1,79 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:17:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a₁ • ?a₂ • ?b
+in the target expression
+  (fun τ => u⁻¹ • τ) ((fun τ => u • τ) τ) = τ
+
+u : ↥normOneUnits
+τ : HalfPlane
+⊢ (fun τ => u⁻¹ • τ) ((fun τ => u • τ) τ) = τ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:18:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a₁ • ?a₂ • ?b
+in the target expression
+  (fun τ => u • τ) ((fun τ => u⁻¹ • τ) τ) = τ
+
+u : ↥normOneUnits
+τ : HalfPlane
+⊢ (fun τ => u • τ) ((fun τ => u⁻¹ • τ) τ) = τ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:20:18: error: tactic execution is stuck, goal contains metavariables
+  { toFun := fun τ => (u * v) • τ, invFun := fun τ => (u * v)⁻¹ • τ, left_inv := ⋯, right_inv := ⋯ } =
+    { toFun := fun τ => u • τ, invFun := fun τ => u⁻¹ • τ, left_inv := ⋯, right_inv := ⋯ } *
+      { toFun := fun τ => v • τ, invFun := fun τ => v⁻¹ • τ, left_inv := ⋯, right_inv := ⋯ }
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:34:0: error: Not a definitional equality: the left-hand side
+  effectiveMap u • τ
+is not definitionally equal to the right-hand side
+  u • τ
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:34:93: error: Type mismatch
+  rfl
+has type
+  ?m.13 = ?m.13
+but is expected to have type
+  effectiveMap u • τ = u • τ
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:41:4: error: 'change' tactic failed, pattern
+  effectiveMap u • basePoint = basePoint
+is not definitionally equal to target
+  u • basePoint = basePoint
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:48:4: error: Type mismatch
+  sign_parameter (↑u) h ↑τ
+has type
+  QuaternionicUnitPeriodTransport318.unitParameter PELQuaternionRealRepresentation318.representation
+      PELPrincipalOrderCoordinates318.order ↑u ↑τ =
+    ↑τ
+but is expected to have type
+  ↑(↑(effectiveMap u) τ) = ↑(↑1 τ)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:56:63: error: Application type mismatch: The argument
+  h
+has type
+  effectiveMap u • τ = τ
+but is expected to have type
+  u • τ = τ
+in the application
+  stabilizer_sign u τ h
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:65:13: error: Application type mismatch: The argument
+  hg
+has type
+  effectiveMap u ∈ {γ : { x : Equiv.Perm HalfPlane // x ∈ effectiveGroup } | ((fun x => γ • x) '' K ∩ L).Nonempty}
+but is expected to have type
+  u ∈ {γ : { x : (↥PELPrincipalOrderCoordinates318.order)ˣ // x ∈ normOneUnits } | ((fun x => γ • x) '' K ∩ L).Nonempty}
+in the application
+  And.intro hg
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 24
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r40/PELEffectiveNormOneAction318.lean:73:2: error: Type mismatch
+  base_holomorphic u
+has type
+  ContMDiff 𝓘(ℂ, ℂ) 𝓘(ℂ, ℂ) ω fun τ => u • τ
+but is expected to have type
+  ContMDiff 𝓘(ℂ, ℂ) 𝓘(ℂ, ℂ) ω fun τ => effectiveMap u • τ
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 12

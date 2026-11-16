@@ -1,0 +1,120 @@
+--- a/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r41/PELEffectiveNormOneAction318.lean
++++ b/quartics/quartic-318-326/proof/experiments/height-original-normal-infinity-trace-r41/PELEffectiveNormOneAction318.lean
+@@ -14,10 +14,18 @@
+   toFun u :=
+     { toFun := fun τ => u • τ
+       invFun := fun τ => u⁻¹ • τ
+-      left_inv τ := by rw [smul_smul,inv_mul_cancel,one_smul]
+-      right_inv τ := by rw [smul_smul,mul_inv_cancel,one_smul] }
++      left_inv τ := by
++        change u⁻¹ • (u • τ) = τ
++        rw [smul_smul,inv_mul_cancel,one_smul]
++      right_inv τ := by
++        change u • (u⁻¹ • τ) = τ
++        rw [smul_smul,mul_inv_cancel,one_smul] }
+   map_one' := by ext τ; exact one_smul _ _
+-  map_mul' u v := by ext τ; exact mul_smul u v τ
++  map_mul' u v := by
++    apply Equiv.ext
++    intro τ
++    change (u * v) • τ = u • (v • τ)
++    exact mul_smul u v τ
+ 
+ @[expose] def effectiveGroup : Subgroup (Equiv.Perm HalfPlane) := permutation.range
+ @[expose] def effectiveMap : normOneUnits →* effectiveGroup := permutation.rangeRestrict
+--- a/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r41/PELEffectiveNormOneAction318.lean
++++ b/quartics/quartic-318-326/proof/experiments/pel-original-character-ordered-biholomorph-r41/PELEffectiveNormOneAction318.lean
+@@ -14,10 +14,18 @@
+   toFun u :=
+     { toFun := fun τ => u • τ
+       invFun := fun τ => u⁻¹ • τ
+-      left_inv τ := by rw [smul_smul,inv_mul_cancel,one_smul]
+-      right_inv τ := by rw [smul_smul,mul_inv_cancel,one_smul] }
++      left_inv τ := by
++        change u⁻¹ • (u • τ) = τ
++        rw [smul_smul,inv_mul_cancel,one_smul]
++      right_inv τ := by
++        change u • (u⁻¹ • τ) = τ
++        rw [smul_smul,mul_inv_cancel,one_smul] }
+   map_one' := by ext τ; exact one_smul _ _
+-  map_mul' u v := by ext τ; exact mul_smul u v τ
++  map_mul' u v := by
++    apply Equiv.ext
++    intro τ
++    change (u * v) • τ = u • (v • τ)
++    exact mul_smul u v τ
+ 
+ @[expose] def effectiveGroup : Subgroup (Equiv.Perm HalfPlane) := permutation.range
+ @[expose] def effectiveMap : normOneUnits →* effectiveGroup := permutation.rangeRestrict
+--- a/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r67/PELEffectiveNormOneAction318.lean
++++ b/quartics/quartic-318-326/proof/experiments/pel-original-zero-local-length-r67/PELEffectiveNormOneAction318.lean
+@@ -14,10 +14,18 @@
+   toFun u :=
+     { toFun := fun τ => u • τ
+       invFun := fun τ => u⁻¹ • τ
+-      left_inv τ := by rw [smul_smul,inv_mul_cancel,one_smul]
+-      right_inv τ := by rw [smul_smul,mul_inv_cancel,one_smul] }
++      left_inv τ := by
++        change u⁻¹ • (u • τ) = τ
++        rw [smul_smul,inv_mul_cancel,one_smul]
++      right_inv τ := by
++        change u • (u⁻¹ • τ) = τ
++        rw [smul_smul,mul_inv_cancel,one_smul] }
+   map_one' := by ext τ; exact one_smul _ _
+-  map_mul' u v := by ext τ; exact mul_smul u v τ
++  map_mul' u v := by
++    apply Equiv.ext
++    intro τ
++    change (u * v) • τ = u • (v • τ)
++    exact mul_smul u v τ
+ 
+ @[expose] def effectiveGroup : Subgroup (Equiv.Perm HalfPlane) := permutation.range
+ @[expose] def effectiveMap : normOneUnits →* effectiveGroup := permutation.rangeRestrict
+--- a/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r67/PELEffectiveNormOneAction318.lean
++++ b/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r67/PELEffectiveNormOneAction318.lean
+@@ -14,10 +14,18 @@
+   toFun u :=
+     { toFun := fun τ => u • τ
+       invFun := fun τ => u⁻¹ • τ
+-      left_inv τ := by rw [smul_smul,inv_mul_cancel,one_smul]
+-      right_inv τ := by rw [smul_smul,mul_inv_cancel,one_smul] }
++      left_inv τ := by
++        change u⁻¹ • (u • τ) = τ
++        rw [smul_smul,inv_mul_cancel,one_smul]
++      right_inv τ := by
++        change u • (u⁻¹ • τ) = τ
++        rw [smul_smul,mul_inv_cancel,one_smul] }
+   map_one' := by ext τ; exact one_smul _ _
+-  map_mul' u v := by ext τ; exact mul_smul u v τ
++  map_mul' u v := by
++    apply Equiv.ext
++    intro τ
++    change (u * v) • τ = u • (v • τ)
++    exact mul_smul u v τ
+ 
+ @[expose] def effectiveGroup : Subgroup (Equiv.Perm HalfPlane) := permutation.range
+ @[expose] def effectiveMap : normOneUnits →* effectiveGroup := permutation.rangeRestrict
+--- a/quartics/quartic-318-326/proof/experiments/original-infinity-range-extension-r21/PELEffectiveNormOneAction318.lean
++++ b/quartics/quartic-318-326/proof/experiments/original-infinity-range-extension-r21/PELEffectiveNormOneAction318.lean
+@@ -14,10 +14,18 @@
+   toFun u :=
+     { toFun := fun τ => u • τ
+       invFun := fun τ => u⁻¹ • τ
+-      left_inv τ := by rw [smul_smul,inv_mul_cancel,one_smul]
+-      right_inv τ := by rw [smul_smul,mul_inv_cancel,one_smul] }
++      left_inv τ := by
++        change u⁻¹ • (u • τ) = τ
++        rw [smul_smul,inv_mul_cancel,one_smul]
++      right_inv τ := by
++        change u • (u⁻¹ • τ) = τ
++        rw [smul_smul,mul_inv_cancel,one_smul] }
+   map_one' := by ext τ; exact one_smul _ _
+-  map_mul' u v := by ext τ; exact mul_smul u v τ
++  map_mul' u v := by
++    apply Equiv.ext
++    intro τ
++    change (u * v) • τ = u • (v • τ)
++    exact mul_smul u v τ
+ 
+ @[expose] def effectiveGroup : Subgroup (Equiv.Perm HalfPlane) := permutation.range
+ @[expose] def effectiveMap : normOneUnits →* effectiveGroup := permutation.rangeRestrict
