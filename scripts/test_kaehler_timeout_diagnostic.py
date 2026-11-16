@@ -190,7 +190,7 @@ class Tests(unittest.TestCase):
         helper=d.TRANSPORT_HELPER
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',helper)
         self.assertIn('(transportedRegroup a i p q hp hq)',helper)
-        self.assertIn('subst p\n  subst q',helper)
+        self.assertIn('cases hp\n  cases hq\n  exact hx',helper)
         self.assertIn('ActualRootPivotCoordinates318.regroup_generator a i',helper)
         self.assertIn('exact transportedRegroupRoot',d.CANDIDATE_REGROUP_PROOF)
         self.assertIn('h0 hother',d.CANDIDATE_REGROUP_PROOF)
@@ -210,8 +210,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),3316)
-        self.assertEqual(d.digest(raw),'bd4cff194761fa3a02fee3566b2667fecc66d5389bf4dd27c26dc878eda9bad2')
+        self.assertEqual(len(raw.encode()),4495)
+        self.assertEqual(d.digest(raw),'bdfa3dd8ae9e46ba94ec4c40dd86eeb1f5f702b90637b2d3e89d9a6d39898392')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -220,9 +220,18 @@ class Tests(unittest.TestCase):
 
     def test_compatibility_theorem_is_complete_at_boundary(self):
         out=d.specimens(self.source())['complete_candidate_prefix']
-        self.assertIn('subst p\n  subst q\n  exact ActualRootPivotCoordinates318.regroup_generator a i',out)
+        self.assertIn('hp hq (FourRootPivot318.regroup a i)\n    (ActualRootPivotCoordinates318.regroup_generator a i)',out)
         self.assertLess(out.index('private theorem transportedRegroupRoot'),out.index('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER'))
         self.assertNotIn('local instance regrouped_commRing',out)
+
+    def test_abstract_transport_preserves_cast_order_and_native_witness(self):
+        helper=d.TRANSPORT_HELPER
+        self.assertIn('Eq.mpr (congrArg (fun z => F z q) hp)',helper)
+        self.assertIn('Eq.mpr (congrArg (fun z => F p₀ z) hq) x)',helper)
+        self.assertEqual(helper.count('private theorem transportProperty'),1)
+        self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',helper)
+        self.assertIn('exact transportProperty',helper)
+        self.assertNotIn('subst p',helper)
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.

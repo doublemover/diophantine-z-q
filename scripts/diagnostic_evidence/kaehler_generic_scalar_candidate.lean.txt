@@ -36,6 +36,18 @@ private theorem mappedSquare
   have hm := congrArg (algebraMap A B) h
   simpa only [map_pow, map_sub, ← IsScalarTower.algebraMap_apply] using hm.symm
 
+/-- Predicate transport across the same two index equalities, proved
+before specializing any algebraic carrier or dictionary. -/
+private theorem transportProperty
+    {α β : Type*} (F : α → β → Type*) (P : ∀ p q, F p q → Prop)
+    {p p₀ : α} {q q₀ : β} (hp : p = p₀) (hq : q = q₀)
+    (x : F p₀ q₀) (hx : P p₀ q₀ x) :
+    P p q (Eq.mpr (congrArg (fun z => F z q) hp)
+      (Eq.mpr (congrArg (fun z => F p₀ z) hq) x)) := by
+  cases hp
+  cases hq
+  exact hx
+
 /-- The exact sourceRegroup parameter transport, named separately so its
 complete declaration can be checked before the root-compatibility theorem. -/
 private def transportedRegroup
@@ -64,9 +76,19 @@ private theorem transportedRegroupRoot
           (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q)))
         inferInstance)
         (AdjoinRoot.root (QuadraticPresentation318.polynomial p)) := by
-  subst p
-  subst q
-  exact ActualRootPivotCoordinates318.regroup_generator a i
+  exact transportProperty
+    (fun p q => FourRootOrder318.Order a ≃ₐ[R]
+      TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q))
+    (fun p q e => e (FourRootOrderSigns318.generator a i) =
+      (@algebraMap (QuadraticPresentation318.RootRing p)
+        (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q))
+        (inferInstance : CommSemiring (QuadraticPresentation318.RootRing p))
+        (inferInstance : Semiring
+          (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q)))
+        inferInstance)
+        (AdjoinRoot.root (QuadraticPresentation318.polynomial p)))
+    hp hq (FourRootPivot318.regroup a i)
+    (ActualRootPivotCoordinates318.regroup_generator a i)
 
 variable (b:Fin 4→ℂ) (i:Fin 4)
 local instance regrouped_commRing : CommRing (RegroupedOrder b i) := inferInstance
