@@ -156,6 +156,14 @@ class CallbackTests(unittest.TestCase):
             self.assertEqual(seen,[True]);self.assertFalse(list(lib.iterdir()))
             self.assertEqual(r['status'],'INVENTORY_RECORDED');self.assertEqual(r['modules']['B']['status'],'compiler_error')
             self.assertFalse(r['packet_acceptance']);self.assertFalse((out/'quarantine').exists())
+    def test_inventory_checkout_preserves_parent_for_guard(self):
+        root=Path(__file__).resolve().parents[1]
+        workflow=(root/'.github/workflows/progress-inventory.yml').read_text()
+        inventory=workflow.split('  inventory:',1)[1]
+        checkout=inventory.split('      - id: checkout',1)[1].split('      - id: python',1)[0]
+        self.assertIn('          fetch-depth: 2\n',checkout)
+        self.assertIn('          sparse-checkout: |',checkout)
+
     def test_noncontact_hook_does_not_import_diagnostic(self):
         with patch('builtins.__import__',side_effect=AssertionError('should not import')):
             inv.observe_contact(None,None,None,{'packet':'other'},0)
