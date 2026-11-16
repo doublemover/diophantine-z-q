@@ -21,6 +21,9 @@ on:
       - 'scripts/test_small_prime_diagnostic.py'
       - 'scripts/diagnose_prepared_anchor_elaboration.py'
       - 'scripts/test_prepared_anchor_elaboration_diagnostic.py'
+      - 'scripts/test_kaehler_timeout_diagnostic.py'
+      - 'scripts/diagnose_kaehler_timeout.py'
+      - 'scripts/diagnostic_evidence/kaehler_timeout_source.lean.txt'
   workflow_dispatch:
     inputs:
       validation_lane:
@@ -102,6 +105,7 @@ jobs:
       - run: python -B scripts/test_picard_naturality_diagnostic.py
       - run: python -B scripts/test_small_prime_diagnostic.py
       - run: python -B scripts/test_prepared_anchor_elaboration_diagnostic.py
+      - run: python -B scripts/test_kaehler_timeout_diagnostic.py
       - id: plan
         env:
           REQUESTED_PACKETS_JSON: ${{ inputs.packets_json }}
@@ -466,6 +470,15 @@ jobs:
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_prepared_anchor_elaboration.py "$PACKET"
+      - name: Non-admitted exact Kaehler import and command timeout diagnostic
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'pel-original-cotangent-hzero-forty-r68'
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          cd quartics/quartic-318-326/proof/progress
+          lake env python -B ../../../../scripts/diagnose_kaehler_timeout.py "$PACKET"
       - name: Upload bounded results and error logs only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -515,6 +528,7 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-naturality/
             build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-decidable/
             build/progress-experiments/${{ matrix.packet }}/scratch-prepared-anchor-elaboration/
+            build/progress-experiments/${{ matrix.packet }}/scratch-kaehler-timeout/
           retention-days: 3
 # Tooling/source composites save only runtime or verified source transports. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.
