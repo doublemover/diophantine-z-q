@@ -1,0 +1,21 @@
+--- before.lean
++++ MonicComplexRootEnumeration318.lean
+@@ -13,14 +13,16 @@
+     (hdeg : Q.natDegree=m) :
+     ∃ r : Fin m → ℂ, Q=∏ i : Fin m, (X-C (r i)) ∧ ∀ i, Q.IsRoot (r i) := by
+   classical
++  have hroots : Q.roots.card = Q.natDegree :=
++    (IsAlgClosed.splits Q).natDegree_eq_card_roots.symm
+   let T := Q.roots.toEnumFinset
+   have hcard : T.card=m := by
+-    rw [Multiset.card_toEnumFinset,Polynomial.card_roots_eq_natDegree,hdeg]
++    rw [Multiset.card_toEnumFinset,hroots,hdeg]
+   let e : T ≃ Fin m := Finset.equivFinOfCardEq hcard
+   let r : Fin m → ℂ := fun i => (e.symm i).val.1
+   refine ⟨r,?_,?_⟩
+   · have hprod := Polynomial.prod_multiset_X_sub_C_of_monic_of_roots_card_eq hm
+-      (Polynomial.card_roots_eq_natDegree (p := Q))
++      hroots
+     rw [Multiset.prod_map_eq_prod_toEnumFinset] at hprod
+     calc
+       Q = ∏ i ∈ T, (X-C i.1) := hprod.symm
