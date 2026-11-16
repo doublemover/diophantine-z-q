@@ -1,0 +1,7 @@
+# Finite normal affine closure in the original field
+
+The first module constructs Q(T) as the fraction field of Z[T] by coefficient localization descent, retaining the parameter-preserving algebra. The second constructs integralClosure Z[T] L for the actual original Kummer field L, derives finite dimension from the four monic quadratic factors, and applies the trace-lattice finiteness theorem over normal Noetherian Z[T]. No Dedekind/principal-ring hypothesis is incorrectly asserted for Z[T]. It also derives Noetherianity, same fraction field and integral closedness.
+
+This is a candidate finite normal affine cover of the parameter line in the exact field, not yet a proved normalization morphism from the earlier integral four-root order: the explicit comparison of the two Z[T]→L scalar paths and the integral-order-to-closure map remain next. Reciprocal normalization and overlap compatibility/gluing also remain. Regularity and smoothness do not follow from normality. No global KS claim.
+
+Pinned native APIs: Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679, DedekindDomain/IntegralClosure (IsIntegralClosure.finite requires normal+Noetherian base, not dimension one), IntegralClosure/IntegrallyClosed (isIntegrallyClosedOfFiniteExtension), Polynomial/UniqueFactorization and Polynomial/Basic (normality via UFD and Hilbert basis theorem). Independent API/source review and hosted elaboration are required; no local Lean.

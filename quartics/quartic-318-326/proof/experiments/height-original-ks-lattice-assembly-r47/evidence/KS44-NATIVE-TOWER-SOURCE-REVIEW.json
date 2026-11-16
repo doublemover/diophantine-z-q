@@ -1,0 +1,41 @@
+{
+  "status": "PASS_MINIMAL_SOURCE_API_REVIEW_NOT_LEAN",
+  "application_sha256": "5b1c198103b360a291da506d2e2dc45d75bb54475cfefa5a47bbefa32e529b78",
+  "before_sha256": "f37fc03d59c84d6f9b74a8b50adcfb4f3a18a230955dc1a1d12309e97e8d87bd",
+  "candidate_sha256": "24eb2c277ac8ddc74b0d2d672ffa2799608f104306f9be1b25445a6b4cb2bb51",
+  "immutable_source_commit": "b0a27052b167ee4ef7ebea257fab57fedefffb7d",
+  "run_id": "43918768391",
+  "native_bindings": {
+    "AdjoinRoot.lean": {
+      "sha256": "51432e606471ffb8331b637394b693b4ddf5214d17182f44556dd182fbd7339d",
+      "git_blob": "8e7e87e31f479c46678d076b0b8e896d0c314d38"
+    },
+    "AlgebraTower.lean": {
+      "sha256": "a43bea3eb561f4851def5553e4f0e0ac00c55b5c2b0060e3acac0c53b8545e7a",
+      "git_blob": "84cf205796e2ee308e57b7066b1eec3d7a3d2827"
+    },
+    "AlgebraTensorProductBasic.lean": {
+      "sha256": "f0e8e9992eb6c6811068b7bf1830236c5ad02d52c8ecab6325416d6cdc9f7ff2",
+      "git_blob": "3cd6a5979e8d49ae1e51de6deb59c0c06eaf7439"
+    },
+    "LinearTensorProductDefs.lean": {
+      "sha256": "03cee05edc34ddcc45d751e910564d020224e618631ff9aa0d7444282ac777d6",
+      "git_blob": "9e066da4297fbfa7a4f270f24496d663f0f23a8f"
+    }
+  },
+  "passed_sources_preserved": 37,
+  "primary_sources_verified": 6,
+  "checks": [
+    "Sole proof-body replacement verified byte-exact; expected native IsScalarTower statement and all maps/definitions/public types/imports/options remain unchanged.",
+    "Fresh log distinguishes expected fieldAlgebra.toSMul / TensorProduct.instSMul / leftHasSMul from theorem-manufactured Algebra.toSMul projections.",
+    "L expands through OriginalIntegerFractionField and SourceFractionField abbreviations to nested KummerTensorField.Raw tensors of AdjoinRoot factors.",
+    "Pinned TensorProduct.isScalarTower at367 uses isScalarTower_left at347 with the native tensor scalar actions; applies recursively to nested left factors.",
+    "Pinned AdjoinRoot scalar-tower instance at113-116 reduces each quadratic factor to the existing base Z[X]-K-K tower. CompatibleSMul and commuting action requirements have native algebra/quotient/tensor instances; no replacement SMul or assumed original-specific compatibility added.",
+    "Exact six primary source snapshots and37 recorded passed source hashes match immutable published context."
+  ],
+  "limitations": [
+    "No local Lean or success prediction. Hosted must resolve the native recursive instances and all downstream integral-closure consumers under the exact action dictionaries.",
+    "Review does not assert that baseAlgebra projection is definitionally identical to every native action; it leaves the written expected action unchanged rather than forcing a conversion.",
+    "No full packet or new geometry acceptance; passing gluing source is untouched."
+  ]
+}
