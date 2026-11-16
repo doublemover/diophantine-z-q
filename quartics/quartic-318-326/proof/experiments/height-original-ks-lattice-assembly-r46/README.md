@@ -1,0 +1,5 @@
+# Minimal algebra-projection tower successor of KS45
+
+All 200 predecessor roots retain exact order; 199 sources remain byte-identical. The sole source change adds a second local Prop instance with explicitly selected Algebra.toSMul projections, proved by the unchanged composite algebraMap equation. The existing native tensor-action tower and all named algebras, maps, public statements, imports, assumptions, options and resource limits remain unchanged. No equality of distinct scalar dictionaries is assumed.
+
+Fresh KS45 checking recorded 37 compiler passes and a strict subset audit of 969 declarations. The prior native tower declaration no longer reports an error, but the failed module is not independently audited as accepted. Its four integral-closure consumers request the Algebra-bound tower, which this narrow source-only candidate supplies. Hosted synthesis and downstream checking remain required. Passing fraction-field and gluing sources, all other roots and prior evidence remain exact. No later geometry additions or local Lean. Only the active KS registry slot changes 45 to 46; no marker, scripts, workflows, baseline or unrelated packet changes.

@@ -1,0 +1,45 @@
+{
+  "status": "PASS_MINIMAL_EXPLICIT_ALGEBRA_TOWER_SOURCE_API_REVIEW_NOT_LEAN",
+  "application_sha256": "e2730ddf5fddac8a219e92939b23413bd90930cf35409780cf0f530fcebb42b2",
+  "before_sha256": "24eb2c277ac8ddc74b0d2d672ffa2799608f104306f9be1b25445a6b4cb2bb51",
+  "candidate_sha256": "a0a351f5d387e815254b1e66e979480c3cec21424cedd8488f34ff2d9ead666c",
+  "immutable_source_commit": "e63bb5c32fbc9c33f20e31e3e68936afcdcf1368",
+  "run_id": "43923710343",
+  "native_bindings": {
+    "AdjoinRoot.lean": {
+      "sha256": "51432e606471ffb8331b637394b693b4ddf5214d17182f44556dd182fbd7339d",
+      "git_blob": "8e7e87e31f479c46678d076b0b8e896d0c314d38"
+    },
+    "AlgebraTower.lean": {
+      "sha256": "a43bea3eb561f4851def5553e4f0e0ac00c55b5c2b0060e3acac0c53b8545e7a",
+      "git_blob": "84cf205796e2ee308e57b7066b1eec3d7a3d2827"
+    },
+    "AlgebraTensorProductBasic.lean": {
+      "sha256": "f0e8e9992eb6c6811068b7bf1830236c5ad02d52c8ecab6325416d6cdc9f7ff2",
+      "git_blob": "3cd6a5979e8d49ae1e51de6deb59c0c06eaf7439"
+    },
+    "LinearTensorProductDefs.lean": {
+      "sha256": "03cee05edc34ddcc45d751e910564d020224e618631ff9aa0d7444282ac777d6",
+      "git_blob": "9e066da4297fbfa7a4f270f24496d663f0f23a8f"
+    },
+    "DedekindIntegralClosure.lean": {
+      "sha256": "d02ec20448c11c767426105dd6d47b9a2cebe5cf58e577bc6ec806541530b752",
+      "git_blob": "0e2b84d90f033dffc0805aebac4ed9c8503977ed"
+    }
+  },
+  "passed_sources_preserved": 37,
+  "primary_sources_verified": 6,
+  "checks": [
+    "Exact sole addition of second local Prop instance; native baseTower and every existing source byte otherwise preserved. No replacement SMul/Algebra, map, public statement, import, option or limit.",
+    "Four actual consumer failures require IsScalarTower. Pinned closure API telescope binds Algebra A K, Algebra K L, Algebra A L before tower, fixing the corresponding Algebra.toSMul projections.",
+    "Explicit @IsScalarTower names exactly fieldAlgebra.toSMul, inferred existing Algebra K L projection and named baseAlgebra.toSMul. It does not request or substitute the native tensor scalar tower.",
+    "Pinned of_algebraMap_eq-prime constructs precisely these algebra-projection actions. Existing baseAlgebra definition is literally RingHom.comp.toAlgebra, so proposed rfl is the same named algebra-map composition, with no newly assumed coherence.",
+    "Second instance proves a proposition about existing actions; it cannot itself replace scalar actions. Both native/projection towers remain separately available to matching expected goals.",
+    "Six immutable primary producers and37 recorded passed sources match published context; gluing unchanged."
+  ],
+  "limitations": [
+    "No local Lean or hosted cure claim. Instance selection/definitional conversion and all four closure consumers require exact hosted replay.",
+    "Absence of an error at native baseTower in the prior failed module is not independent production acceptance of that declaration.",
+    "No full packet or additional geometry acceptance."
+  ]
+}

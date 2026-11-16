@@ -1,0 +1,16 @@
+--- before.lean
++++ IntegralOriginalGluingCompatibility318.lean
+@@ -73,9 +73,10 @@
+   · intro j
+     simp only [RingHom.comp_apply]
+     change commonRestriction R c (infinityMap R c (ThreeRootCoordinates318.generator _ j))=_
+-    rw [IntegralWholeOverlapGenerators318.infinity_generator,
+-      IntegralWholeGeneratorComparisons318.infinity_generator,
+-      IntegralOverlapRootGenerators318.infinityMap_generator]
++    conv_lhs => rw [IntegralWholeOverlapGenerators318.infinity_generator R c j]
++    conv_rhs =>
++      rw [IntegralWholeGeneratorComparisons318.infinity_generator R c j,
++        IntegralOverlapRootGenerators318.infinityMap_generator R c j]
+     rw [Algebra.smul_def,map_mul]
+     change commonRestriction R c
+       (↑(IntegralWholeOrderScalarMaps318.commonY R c)⁻¹:CommonOrder R c) *
