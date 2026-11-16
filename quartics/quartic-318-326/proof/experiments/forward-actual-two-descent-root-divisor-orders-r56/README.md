@@ -1,0 +1,7 @@
+# Prepared-anchor raw natural exponent repair attempt
+
+The exact pp.all diagnostic from hosted run43882128175 located all six escaped-variable occurrences in three implicit dictionaries for the final Homogeneous binder exponent2^16: HPow, OfNat2 and OfNat16. The unchanged theorem was rejected by the kernel; disabling optional cleanup was not a repair.
+
+Replace only that final exponent with Nat.pow (nat_lit 2) (nat_lit 16), using native raw literals to avoid those three synthesis sites. The intended natural exponent remains65536. The entire original proof body, other statement syntax, assumptions, imports and options remain exact. Ordinary cleanup and strict kernel checking remain enabled. No diagnostic option is copied into production.
+
+All1324 other predecessor sources and root order remain exact, including six passed pure-tower producers and the55 numerator correction. This successor revises55 and excludes held50. The anchor's dependency-closed focused target is106 roots. This is source/API-reviewed only, not a successful Lean theorem: the old declaration had no accepted compiled signature to compare against, so the claim is intended-statement preservation. Hosted elaboration, kernel checking and recursive assumption audit remain required. Even acceptance supplies only the existing conditional prepared-anchor theorem, not a homogeneous rational point, pointwise2-converse, or full arithmetic result.

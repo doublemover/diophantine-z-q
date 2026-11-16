@@ -1,0 +1,5 @@
+# pel-original-torsion-towers-r54
+
+Repair-only successor to pel-original-torsion-towers-r53; all 735 roots/order retained, 734 byte-identical. Only the failed PowerSectionLift consumer changes: close the exact residual scalar commutativity goal, and transport the SAME selected scalar section values through the original projection_add_period equality before applying the existing gauge-period identity and nonzero cancellation. No new telescope, premise, bundle, map, import or resource change. All51 passed sources, including LevelPowerSections and PolarizationPowerBundle, remain byte-identical.
+
+Targeted43882572762 compiled51 modules with recursive subset audit1021; only Lift failed, and its output was quarantined. This follow-up source has not run Lean. Full packet acceptance remains unestablished. Earlier immutable evidence retained without recursive copying. Local predecessor a91579e6 has exact publisheda4dd packet53 bytes; serial overlay must preserve current marker and unrelated packets.

@@ -1,0 +1,53 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r53/PELOriginalPowerSectionLift318.lean:36:58: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+N : ℕ
+s : HolomorphicSection τ hτ N
+a z : ComplexVectors
+ha : projection (P τ) z ∈ baseSet τ hτ a
+q : DiscreteComplexPeriodAtlas318.Quotient (P τ) := projection (P τ) z
+c : ComplexVectors := (core τ hτ).indexAt q
+hc : q ∈ baseSet τ hτ c
+he : factor τ hτ (shiftTo τ hτ a z) z = transition τ hτ c a (projection (P τ) z) * factor τ hτ (shiftTo τ hτ c z) z
+v : ℂ := s.value q
+⊢ transition τ hτ c a q ^ N * v = v * transition τ hτ c a (projection (P τ) z) ^ N
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r53/PELOriginalPowerSectionLift318.lean:50:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r53/PELOriginalPowerSectionLift318.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r53/PELOriginalPowerSectionLift318.lean:74:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r53/PELOriginalPowerSectionLift318.lean:98:63: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+N : ℕ
+s : HolomorphicSection τ hτ N
+l : ↥(L τ hτ)
+z : ComplexVectors
+⊢ 1 / gauge τ hτ N (z + ↑l) * s.value (projection (P τ) (z + ↑l)) =
+    factor τ hτ l z ^ N * (1 / (gauge τ hτ N (z + ↑l) * factor τ hτ l z ^ N) * s.value (projection (P τ) z))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r53/PELOriginalPowerSectionLift318.lean:99:18: warning: This simp argument is unused:
+  projection_add_period
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lift]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
