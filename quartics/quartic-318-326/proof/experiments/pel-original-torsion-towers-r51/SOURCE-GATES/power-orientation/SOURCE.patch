@@ -1,0 +1,11 @@
+--- before/PELOriginalPolarizationPowerBundle318.lean
++++ after/PELOriginalPolarizationPowerBundle318.lean
+@@ -82,7 +82,7 @@
+     continuousAt_id.prodMk (hc.continuousAt.comp ((chart τ hτ a).continuousAt ha))
+   apply h.congr_of_eventuallyEq
+   filter_upwards [(chart τ hτ a).open_source.mem_nhds ha] with r hr
+-  exact (local_formula τ hτ n f hf a r hr).symm
++  exact local_formula τ hτ n f hf a r hr
+ lemma coordinate_formula (n:ℕ) (f:ComplexVectors→ℂ)
+     (hf:∀l:L τ hτ,∀z,f (z+l.val)=factor τ hτ l z^n*f z)
+     (a z:ComplexVectors) (hz:z∈(chart τ hτ a).target):

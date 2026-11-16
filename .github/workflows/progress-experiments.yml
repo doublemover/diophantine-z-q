@@ -10,6 +10,8 @@ on:
       - 'scripts/plan_progress_inventory.py'
       - 'scripts/validate_progress_inventory_request.py'
       - 'scripts/test_progress_inventory.py'
+      - 'scripts/prepare_progress_sparse_checkout.py'
+      - 'scripts/test_progress_sparse_checkout.py'
       - '.github/workflows/progress-inventory.yml'
       - '.github/workflows/progress-experiments.yml'
       - '.github/actions/setup-pinned-*/**'
@@ -68,6 +70,7 @@ jobs:
       - run: python -B scripts/test_pinned_dependency_sources.py
       - run: python -B scripts/test_progress_experiment.py
       - run: python -B scripts/test_progress_inventory.py
+      - run: python -B scripts/test_progress_sparse_checkout.py
       - run: python -B scripts/test_generic_binder_diagnostic.py
       - run: python -B scripts/test_endpoint_diagnostic.py
       - run: python -B scripts/test_candidate_endpoint_diagnostic.py
@@ -151,9 +154,19 @@ jobs:
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, Node 24
+        with:
+          sparse-checkout: |
+            .github
+            scripts
+            quartics/quartic-318-326/proof/progress
       - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
+      - name: Materialize full packet and exact predecessor before validation
+        id: materialize
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: python -B scripts/prepare_progress_sparse_checkout.py --packet "$PACKET"
       - name: Restore previously audited baseline
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0, Node 24
         with:

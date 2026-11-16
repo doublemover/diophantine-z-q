@@ -1,7 +1,7 @@
 name: Progress Lean dependency-ready inventory
 
-# Diagnostic only. The separate marker-only push shares the main group;
-# publish implementation first and clear pending repair runs before launch.
+# Diagnostic only. One fixed independent inventory lane (at most four jobs).
+# Exact marker-only source validation remains mandatory; never cancel an active run.
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: progress-experiments-${{ github.ref }}
+  group: progress-inventory-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -39,6 +39,7 @@ jobs:
         id: request
         run: python -B scripts/validate_progress_inventory_request.py --output build/dependency-setup/inventory-request.json --github-output "$GITHUB_OUTPUT"
       - run: python -B scripts/test_progress_inventory.py
+      - run: python -B scripts/test_progress_sparse_checkout.py
       - id: plan
         run: python -B scripts/plan_progress_inventory.py --github-output "$GITHUB_OUTPUT"
       - name: Warm pinned compiler cache before inventory fan-out
@@ -72,10 +73,20 @@ jobs:
         run: echo "INVENTORY_DEADLINE=$(( $(date +%s) + WINDOW_MINUTES * 60 ))" >> "$GITHUB_ENV"
       - id: checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          sparse-checkout: |
+            .github
+            scripts
+            quartics/quartic-318-326/proof/progress
       - id: python
         uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
+      - name: Materialize full packet and exact predecessor before validation
+        id: materialize
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: python -B scripts/prepare_progress_sparse_checkout.py --packet "$PACKET"
       - name: Restore previously audited baseline
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
@@ -110,7 +121,7 @@ jobs:
           INVENTORY_SOURCE_COMMIT: ${{ needs.plan.outputs.source_commit }}
           INVENTORY_SOURCE_TREE: ${{ needs.plan.outputs.source_tree }}
           INVENTORY_REQUEST_SHA256: ${{ needs.plan.outputs.marker_sha256 }}
-          SETUP_OK: ${{ steps.dependency_sources.outcome == 'success' && steps.upstream.outcome == 'success' }}
+          SETUP_OK: ${{ steps.materialize.outcome == 'success' && steps.dependency_sources.outcome == 'success' && steps.upstream.outcome == 'success' }}
         run: |
           python -B scripts/check_progress_inventory.py --packet "$PACKET" \
             --cache "$GITHUB_WORKSPACE/.cache/progress-ci" \
