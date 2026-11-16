@@ -1,0 +1,11 @@
+--- a/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r48/ComplexPolynomialGrowth318.lean
++++ b/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r48/ComplexPolynomialGrowth318.lean
+@@ -61,7 +61,7 @@
+   · simpa only [p,Polynomial.eval_finsetSum,Polynomial.eval_monomial,sub_zero] using ht
+   · intro n hn
+     have hN : N < n := by
+-      have := Finset.notMem_range.mp hn
++      have hnot : ¬ n < N + 1 := fun hlt => hn (Finset.mem_range.mpr hlt)
+       omega
+     rw [high_derivative_zero f hf N C hC hb n hN,mul_zero,zero_mul]
+ end ComplexPolynomialGrowth318

@@ -1,0 +1,12 @@
+--- a/FieldLineClassTrivial318.lean
++++ b/FieldLineClassTrivial318.lean
+@@ -19,7 +19,8 @@
+   simpa only [Subsingleton.elim y x] using hi
+ @[expose] def trivialization (L : Line (Spec (CommRingCat.of K))) :
+     L.object ≅ SheafOfModules.unit (Spec (CommRingCat.of K)).ringCatSheaf := by
+-  obtain ⟨i,hi⟩ := exists_top_frame K L
++  let i := Classical.choose (exists_top_frame K L)
++  have hi : L.opens i = ⊤ := Classical.choose_spec (exists_top_frame K L)
+   have e : SheafOfModules.unit (⊤ : (Spec (CommRingCat.of K)).Opens).toScheme.ringCatSheaf ≅
+       L.object.restrict (⊤ : (Spec (CommRingCat.of K)).Opens).ι := by
+     rw [←hi]

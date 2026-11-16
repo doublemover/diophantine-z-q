@@ -1,0 +1,36 @@
+--- before.lean
++++ PELOriginalPolarizationPowerBundle318.lean
+@@ -7,8 +7,6 @@
+ open PELOriginalPolarizationTransitions318 PELOriginalPolarizationAutomorphy318
+ open PELOriginalPolarizationLineBundle318 Filter Topology
+ variable (τ:ℂ) (hτ:0<τ.im)
+-local instance discretePeriods:DiscreteTopology (P τ):=
+-  PELOriginalPeriodLattice318.original_discrete τ hτ
+ 
+ /-- Power of the ORIGINAL line cocycle on the SAME original atlas.
+ The base, selected gauges and all original transitions are retained. -/
+@@ -76,9 +74,12 @@
+   intro q
+   let a:ComplexVectors:=(core τ hτ).indexAt q
+   have ha:q∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at q
+-  apply ((powerCore τ hτ n).localTriv a).continuousAt_of_comp_left continuousAt_id ha
++  have hp : ContinuousAt (Bundle.TotalSpace.proj ∘ powerSection τ hτ n f) q := by
++    change ContinuousAt (fun r : Base τ => r) q
++    exact continuousAt_id
++  apply ((powerCore τ hτ n).localTriv a).continuousAt_of_comp_left hp ha
+   have h:ContinuousAt (fun r:Base τ=>(r,f (chart τ hτ a r))) q:=
+-    continuousAt_id.prodMk (hc.continuousAt.comp q ((chart τ hτ a).continuousAt ha))
++    continuousAt_id.prodMk (hc.continuousAt.comp ((chart τ hτ a).continuousAt ha))
+   apply h.congr_of_eventuallyEq
+   filter_upwards [(chart τ hτ a).open_source.mem_nhds ha] with r hr
+   exact (local_formula τ hτ n f hf a r hr).symm
+@@ -87,7 +88,9 @@
+     (a z:ComplexVectors) (hz:z∈(chart τ hτ a).target):
+     ((powerCore τ hτ n).localTriv a
+       (powerSection τ hτ n f (projection (P τ) z))).2=f z:=by
++  letI : DiscreteTopology (P τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
+   have hq:projection (P τ) z∈baseSet τ hτ a:=by
++    change projection (P τ) z ∈ (chart τ hτ a).source
+     simpa only [chart,localChart_symm] using (chart τ hτ a).map_target hz
+   rw [local_formula τ hτ n f hf a _ hq]
+   have he:chart τ hτ a (projection (P τ) z)=z:=by
