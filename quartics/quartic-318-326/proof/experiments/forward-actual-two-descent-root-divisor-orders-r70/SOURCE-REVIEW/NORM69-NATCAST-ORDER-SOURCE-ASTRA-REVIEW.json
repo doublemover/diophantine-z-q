@@ -1,0 +1,20 @@
+{
+  "status": "PASS_EXACT_NORM_CAST_ORDER_SOURCE_REPAIR_NOT_LEAN",
+  "candidate_sha256": "3c05c1f62487a666442807aa5d6f65e41bdaa89508fe13380f13fe2021a6e58d",
+  "before_sha256": "93a981b19fef1f4704fb681be4bbc8d2f4b0bd3adb2536b3d0f707ce50100b0e",
+  "source_commit": "298354d17666a704bdc18d580ac039bd5143af88",
+  "execution_commit": "ed03215a0bbd45fdad396ab4a05400b70dbb2f0e",
+  "run_id": 43950586409,
+  "log_sha256": "77537b900fa852209d4ebfdf801247cf13989502bf7a4c264277698d3c97d4ef",
+  "native_zsqrtd_snapshot_sha256": "10ff44e106c7a8e92472f253a6b27610a9265c67709805425a8641a7dff37ae3",
+  "checks": [
+    "Only the even-prime-power proof orders norm_natCast rewriting before simplification; reversing two-line edit restores all before bytes.",
+    "Witness remains natural cast of p^k. Native norm_natCast consumes this whole cast and yields integer product; natAbs_mul, casts and pow_add then target p^(k+k).",
+    "Exact reported residual was norm of the distributed cast-power, with norm_natCast unused; explicit pre-rewrite targets the unnormalized witness.",
+    "Public theorem hypotheses/types, imports/options/resources and odd/split/product arguments unchanged. Checked normdivision and split-prime dependencies unchanged."
+  ],
+  "limitations": [
+    "No local Lean or candidate acceptance; hosted simplifier outcome still required.",
+    "No necessity/signed-rational norm criterion, auxiliary selection or Hasse-Minkowski claim."
+  ]
+}
