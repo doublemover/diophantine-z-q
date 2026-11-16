@@ -1,0 +1,10 @@
+--- before/NormalizedWholeScalarMaps318.lean
++++ after/NormalizedWholeScalarMaps318.lean
+@@ -85,5 +85,6 @@
+       Polynomial.aeval (R:=R) (↑(commonT R d a)⁻¹:CommonOrder R d a) X
+     rw [Polynomial.aeval_X,reciprocalMap,Polynomial.aeval_X]
+     change algebraMap (Laurent R) (CommonOrder R d a) (↑(coordinate R)⁻¹:Laurent R)=_
+-    exact map_units_inv _ _
++    exact (Units.coe_map_inv
++      (algebraMap (Laurent R) (CommonOrder R d a)).toMonoidHom (coordinate R)).symm
+ end NormalizedWholeScalarMaps318
