@@ -1,0 +1,31 @@
+{
+  "status": "PASS_SOURCE_API_REPAIR_NOT_LEAN",
+  "bindings_sha256": "f1157ec9d94438df22906bf385cfb547967eef73003ba77d2a60b8d1583c1835",
+  "sources": {
+    "PrimaryTatePadicNaturality318": {
+      "before": "7d48500240119cfe97a46254311c6014cf98cde02071e9f81c26d926ac40b68c",
+      "after": "5ab91a6450bfdea21f1e6159313eeba23e8e73af223a865b9ec51ebc0672284a",
+      "log": "10dc4e18868344355a94272afe02cb196f1686bf28add2109028d72232684d1f"
+    },
+    "PrueferTatePadicModule318": {
+      "before": "66b2b86517a16ce1a932670ec2419aafa57b91639020889ce8a975e73dbd40a0",
+      "after": "08a77f207102ef4f78fd392a287ea08c208c8195b74331ddd85aad92cde0cb1f",
+      "log": "17ea4b89def6be0bd3ca6c2c564933a8786a05d339c3b2f9380e8a2ed4b6dfe6"
+    }
+  },
+  "run_id": "43903335604",
+  "source_commit": "0c567fc8116b032d333621605822f90c881f6a94",
+  "execution_commit": "753947e64555e32f82871c885431fc0e44a238f4",
+  "base_commit": "0ecd23b47bad499b7ad91e2f15bbc2af20c8175f",
+  "findings": [
+    "Each source differs by precisely one terminal tactic: unfold encode via simp only before the SAME correctly oriented mul_nsmul-prime identity. No definition/import/declaration/hypothesis/option changes.",
+    "Actual hosted residual goals have encode hiding multiplication of natural-number scalars. encode n a is literally a \u2022 circle n; unfolding makes both sides a \u2022 (b \u2022 circle n). Native mul_nsmul-prime is (a*b) \u2022 x = a \u2022 (b \u2022 x), as pinned pow_mul-prime/to_additive shows. Opposite equality orientations in the two consumers both simplify to reflexivity.",
+    "Existing private imports expose encode only in proof context, already present; no new opacity bypass or scalar module/action introduced.",
+    "Exact current before/log bytes and all nine hosted-passed producer hashes match immutable source/base61. The independent p-adic61 repairdd020dd1 remains unchanged."
+  ],
+  "native_evidence": "Previously independently pinned Monoid.lean lines454-460, disclosed extra terminal LF snapshot unchanged; orientation reviewed against native pow_mul-prime.",
+  "limitations": [
+    "No local Lean execution.",
+    "Candidate requires hosted compile/audit; prior selected11 still had two compiler errors."
+  ]
+}
