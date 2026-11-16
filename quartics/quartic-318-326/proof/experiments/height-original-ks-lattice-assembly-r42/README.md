@@ -1,0 +1,5 @@
+# Minimal localization-namespace successor of KS41
+
+All 200 predecessor roots retain their exact order; 199 sources remain byte-identical. The sole change qualifies the native theorem as IsLocalization.isLocalization_of_algEquiv. Its containing namespace remains open after a same-named nested section closes. This corrects the prior source review's namespace interpretation; no imports, statements, actual maps, scalar instances, other proof steps, or limits change.
+
+The fresh focused bootstrap run has 36 compiler passes and an audit of 916 declarations. IntegerPolynomialFractionField now passes and remains exact. OriginalIntegerFractionField has the sole reported error; the two normalization consumers were blocked, not passed. Previously passed gluing and all predecessor evidence remain exact. This source/API repair still requires hosted checking. No later geometry additions and no local Lean. Only the active KS registry slot changes41 to42; no marker, scripts, workflows, baseline, or unrelated packet changes.

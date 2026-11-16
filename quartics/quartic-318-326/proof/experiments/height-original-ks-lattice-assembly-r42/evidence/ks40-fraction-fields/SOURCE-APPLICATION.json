@@ -1,0 +1,49 @@
+{
+  "status": "SOURCE_REPAIR_CANDIDATE_NOT_LEAN",
+  "run_id": "43897325860",
+  "failed_packet": "height-original-ks-lattice-assembly-r40",
+  "immutable_source_commit": "0f4a63eae3dc79d3384741c8310dcdfad4269d66",
+  "modules": {
+    "OriginalIntegerFractionField318.lean": {
+      "before_sha256": "712848ffb8a516692b4f2c9790afee4aa9a91ed4f0252aecb405db2aa3fb7760",
+      "after_sha256": "b9631fcc38b2f0698e765dd05747cfaa867d9a24a3826e59926fd6b513780358",
+      "log_sha256": "2751947a6951838e83231e000536c5b84eb3eb66e155f97c683639fb31398032"
+    },
+    "IntegerPolynomialFractionField318.lean": {
+      "before_sha256": "5eae3b5d28b732d05e3848f1b6583a1d23e0e5a798bbfbd78f4f79f910733e26",
+      "after_sha256": "bf05890b2bdd57b8c1f70c52a728972067dac2d4ae7bc32f45d9a3e221a5d3ed",
+      "log_sha256": "47890d0fa3373affc4a85c0d2b989fa8a058a5ccbae7afff8b2c1141009aab10"
+    }
+  },
+  "primary": {
+    "geometry-ks40-gluing-congruence-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r40/IntegerPolynomialLocalization318.lean": "4b6e9ebbbb3ee836fd064e1a42b4082912400fd76c6a0830fbd0279ef34aeac3",
+    "geometry-ks40-gluing-congruence-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r40/OriginalIntegerAffineModel318.lean": "2ff831449f31761f1739bb93332e1a9507c8f53f31f54a506750ab02cb6e2e9a",
+    "geometry-ks40-gluing-congruence-integration/quartics/quartic-318-326/proof/progress/FractionFieldLocalizationDescent318.lean": "f0f6cec06ca7fb3bb8be3f8115c6937149dc0874272b6fb17eb71a137ae6bf50",
+    "geometry-ks40-gluing-congruence-integration/quartics/quartic-318-326/proof/progress/SourceFractionField318.lean": "0e79b9099556013b5ab8c0309955d8ae79d70fa75512951b20317d796250ada3"
+  },
+  "binding_verified_sha256": "5d81c77005bbed453e43651340a2ea5438966ce7e1ee1c3263fd4b622d6c7ddf",
+  "inventory_sha256": "3ed2a3d21fa676a10b43a173d2bebd36ba298bbadfe4cbe9a10798b95b759da0",
+  "native_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "native_paths": {
+    "RatFuncBasic.lean": "Mathlib/FieldTheory/RatFunc/Basic.lean",
+    "AlgebraTower.lean": "Mathlib/Algebra/Algebra/Tower.lean",
+    "LocalizationBasic.lean": "Mathlib/RingTheory/Localization/Basic.lean"
+  },
+  "native_sources": {
+    "RatFuncBasic.lean": "bbc1f1dfcb97a0b9725246974e4f5d7dd491d80dccc81a4746565b990719ed6e",
+    "AlgebraTower.lean": "a43bea3eb561f4851def5553e4f0e0ac00c55b5c2b0060e3acac0c53b8545e7a",
+    "LocalizationBasic.lean": "6d9e4c7516da1d3a1d60b8ba0446b51b878bc1a6585a5b6d0dc5b13d92d1b198"
+  },
+  "changes": [
+    "OriginalIntegerFractionField: open Polynomial restores intended polynomial type notation; call actual ROOT isLocalization_of_algEquiv API. No map/equivalence/claim change.",
+    "IntegerPolynomialFractionField: native RatFunc scalar_tower target proved by native instance; inside actual_fractionField choose the exact named fieldAlgebra.toSMul locally, and explicitly bind R/S/A for algebra-map scalar tower. The public named Algebra and all ring maps are unchanged."
+  ],
+  "new_assumptions": false,
+  "local_lean_run": false,
+  "hosted_success_claimed": false,
+  "preserved_gluing_sha256": "76b40ebc95fd92ecd6855cd0c5e1eedeb1ed6f87d176e241fb81402c371639ed",
+  "normalization_consumer_sources_preserved": [
+    "OriginalIntegerFiniteClosure318",
+    "OriginalIntegerNormalizationMap318"
+  ]
+}
