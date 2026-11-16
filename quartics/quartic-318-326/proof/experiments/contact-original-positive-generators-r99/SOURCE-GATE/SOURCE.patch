@@ -1,0 +1,11 @@
+--- a/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r98/OriginalRestrictionTopScalar318.lean
++++ b/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r98/OriginalRestrictionTopScalar318.lean
+@@ -26,7 +26,7 @@
+     (fun t : Γ(M,U.ι ''ᵁ ⊤) =>
+       M.presheaf.map (eqToHom (LineFrameTopScalar318.image_top U).symm).op t) h
+   rw [Scheme.Modules.map_smul] at ht
+-  simpa only [Scheme.Modules.restrictAppIso,Scheme.Opens.ι_appIso,
++  simpa [Scheme.Modules.restrictAppIso,Scheme.Opens.ι_appIso,
+     Iso.refl_hom,Iso.refl_inv,ConcreteCategory.id_apply,
+     AddCommGrpCat.hom_id,CommRingCat.hom_id,AddMonoidHom.id_apply,RingHom.id_apply] using ht
+ 
