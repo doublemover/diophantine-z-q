@@ -98,7 +98,7 @@ class ExperimentTests(unittest.TestCase):
         workflow = (ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
         self.assertIn("inputs.validation_lane == 'replay' && '-replay' || ''", workflow)
         self.assertIn('cancel-in-progress: false', workflow)
-        self.assertIn("inputs.validation_lane == 'replay' && 4 || 16", workflow)
+        self.assertIn("inputs.validation_lane == 'replay' && 4 || 8", workflow)
         self.assertIn('Selected-packet success is not full active-set or proof acceptance.', workflow)
 
     def fixture(self,root):

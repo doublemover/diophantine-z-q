@@ -216,7 +216,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(w.count('check_progress_experiment.py check --packet'), 1)
         self.assertIn('--seconds 180', w)
         self.assertIn('cancel-in-progress: false', w)
-        self.assertIn('&& 4 || 16', w)
+        self.assertIn('&& 4 || 8', w)
         self.assertIn('timeout-minutes: 30', w)
         self.assertLess(w.index('Warm verified dependency sources'), w.index('  first-check:'))
         self.assertIn('dependency-setup-${{ matrix.packet }}', w)
