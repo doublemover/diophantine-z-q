@@ -1,0 +1,53 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "manifest": {
+    "status": "SOURCE_CANDIDATE_NOT_LEAN",
+    "base_commit": "db101f3f719b8b4ee4914ec341114c7c87d49156",
+    "sources": {
+      "OriginalIntegerFiniteClosure318.lean": "37f9368e1a3ffa9162cbbc6dc86ac1aa2c4fa5c85b29dbfd80f04917c5ad56a5",
+      "IntegerPolynomialFractionField318.lean": "5eae3b5d28b732d05e3848f1b6583a1d23e0e5a798bbfbd78f4f79f910733e26"
+    },
+    "primary": {
+      "IntegerPolynomialLocalization318.lean": {
+        "path": "geometry-ks31-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r31/IntegerPolynomialLocalization318.lean",
+        "sha256": "17a032985dcab12c4176db76235acb346595864a1192592320a969c3d9d4bd2c"
+      },
+      "OriginalIntegerFractionField318.lean": {
+        "path": "geometry-ks31-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r31/OriginalIntegerFractionField318.lean",
+        "sha256": "712848ffb8a516692b4f2c9790afee4aa9a91ed4f0252aecb405db2aa3fb7760"
+      },
+      "FractionFieldLocalizationDescent318.lean": {
+        "path": "geometry-ks31-integration/quartics/quartic-318-326/proof/progress/FractionFieldLocalizationDescent318.lean",
+        "sha256": "f0f6cec06ca7fb3bb8be3f8115c6937149dc0874272b6fb17eb71a137ae6bf50"
+      },
+      "FourRootOrder318.lean": {
+        "path": "geometry-ks31-integration/quartics/quartic-318-326/proof/progress/FourRootOrder318.lean",
+        "sha256": "6c51a472e199bcc14b08169914d4c69e417e751046b94cb1b4ace6886944660b"
+      },
+      "KummerTensorField318.lean": {
+        "path": "geometry-ks31-integration/quartics/quartic-318-326/proof/progress/KummerTensorField318.lean",
+        "sha256": "239b64490aec84afca20d389da61f9ca26a77634fbb3af806d202b1529da2362"
+      }
+    },
+    "local_lean_run": false,
+    "regularity_proved": false,
+    "global_normalization_glued": false,
+    "closure_of_order_identified": false
+  },
+  "native_api_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "native_files_checked": [
+    "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
+    "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+    "Mathlib/FieldTheory/Perfect.lean"
+  ],
+  "findings": [
+    "Parameter-preserving Z[X]\u2192Q[X]\u2192RatFuncQ algebra map and scalar tower are literal composition. Injectivity via coefficients is exact; coefficient-localization fraction-field descent matches reviewed prior API.",
+    "FourRootOrder.Order and KummerTensorField.Raw use same parenthesized four-factor tensor carrier with same K-algebra; finite_free furnishes actual Module.Finite K L. source_raw_field.toField retains original commutative-ring structure, no arbitrary field replacement.",
+    "Base K=RatFuncQ has characteristic zero, hence native PerfectField.ofCharZero. Module.Finite implies algebraic extension; native perfect-field algebraic extension instance gives separability required by trace-lattice finiteness. No separability/finite extension hypothesis is smuggled in.",
+    "IsIntegralClosure.finite/isNoetherianRing require integrally closed Noetherian base, finite separable field extension and displayed scalar towers, not Dedekind/dimension1. Z[X] has domain/UFD normality and Noetherianity via imported standard polynomial instances.",
+    "Native integralClosure.isIntegrallyClosedOfFiniteExtension has exact K argument with R,L named; fraction-field and normality claims concern integralClosure Z[X] L only.",
+    "Original integral Order\u2192closure and comparison of its Z[X] scalar path with baseAlgebra are not proved here. Thus no claim this is already normalization of original order, no reciprocal/global gluing, regularity or smoothness.",
+    "All2source/5primary hashes exact. No admissions/new options/axioms; scalar-instance elaboration and all kernel verification remain hosted, not locally checked."
+  ],
+  "local_lean_run": false
+}

@@ -1,0 +1,16 @@
+--- before.lean
++++ IntegralFourRootOverlap318.lean
+@@ -60,10 +60,12 @@
+     (FourRootOrderOpenMaps318.baseChangedOrderMapAlong (reciprocalMap R).toRingHom
+       (reciprocalCoefficient d a))
+ 
++universe u
++
+ /-- Establish the composition on abstract ring carriers before specializing
+ large four-root tensor dictionaries. The supplied open map and equivalence
+ are retained exactly. -/
+-private lemma equiv_after_open {A B C : Type*} [CommRing A] [CommRing B] [CommRing C]
++private lemma equiv_after_open {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
+     (f : A →+* B) (e : B ≃+* C)
+     (hf : IsOpenImmersion (Spec.map (CommRingCat.ofHom f))) :
+     IsOpenImmersion (Spec.map (CommRingCat.ofHom (e.toRingHom.comp f))) := by
