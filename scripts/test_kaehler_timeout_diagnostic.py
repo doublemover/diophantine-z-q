@@ -68,7 +68,7 @@ class Tests(unittest.TestCase):
     def test_candidate_exact_reversible_source_scope(self):
         candidate=d.frozen_candidate(self.source())
         self.assertEqual(d.digest(candidate),d.CANDIDATE_SOURCE_SHA)
-        restored=candidate.replace(d.GENERIC_HELPER,'',1).replace(d.SQUARE_HELPER,'',1).replace(d.CANDIDATE_TARGET_PROOF,d.ORIGINAL_TARGET_PROOF,1).replace(d.CANDIDATE_SQUARE_PROOF,d.ORIGINAL_SQUARE_PROOF,1).replace(d.CANDIDATE_REGROUP_PROOF,d.ORIGINAL_REGROUP_PROOF,1)
+        restored=candidate.replace(d.GENERIC_HELPER,'',1).replace(d.SQUARE_HELPER,'',1).replace(d.TRANSPORT_HELPER,'',1).replace(d.CANDIDATE_TARGET_PROOF,d.ORIGINAL_TARGET_PROOF,1).replace(d.CANDIDATE_SQUARE_PROOF,d.ORIGINAL_SQUARE_PROOF,1).replace(d.CANDIDATE_REGROUP_PROOF,d.ORIGINAL_REGROUP_PROOF,1)
         self.assertEqual(restored,self.source())
         self.assertEqual(candidate.count('private theorem tensorScalarImage'),1)
     def test_direct_term_proof_scope(self):
@@ -128,13 +128,13 @@ class Tests(unittest.TestCase):
     def test_candidate_instrumentation_and_reversal(self):
         import re
         candidate=d.frozen_candidate(self.source());text=d.candidate_specimen(d.frozen_candidate(self.source()))
-        self.assertEqual(text.count('KAEHLER_CANDIDATE_'),25)
-        self.assertEqual(text.count(d.SUBSTEP_SCOPE),4)
+        self.assertEqual(text.count('KAEHLER_CANDIDATE_'),27)
+        self.assertEqual(text.count(d.SUBSTEP_SCOPE),5)
         self.assertNotIn('kaehler_final',text)
         self.assertNotIn('run_tac',text)
         # Remove only diagnostic markers/options, then restore original checkpoints.
         pattern=r'run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_([^"]+)"\n  out.flush'
-        for label in ['BEFORE_GENERIC_HELPER','AFTER_GENERIC_HELPER','BEFORE_MAPPED_SQUARE','AFTER_MAPPED_SQUARE']:
+        for label in ['BEFORE_GENERIC_HELPER','AFTER_GENERIC_HELPER','BEFORE_MAPPED_SQUARE','AFTER_MAPPED_SQUARE','BEFORE_TRANSPORT_HELPER','AFTER_TRANSPORT_HELPER']:
             block='run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_'+label+'"\n  out.flush\n'
             text=text.replace(block,'',1)
         def checkpoint(m):return '#eval (do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT '+m[1]+'"\n  out.flush : IO Unit)'
@@ -183,6 +183,18 @@ class Tests(unittest.TestCase):
         self.assertIn("'prefix_last_declaration':'regroup_root'",source)
         self.assertIn('not original production',source)
         self.assertIn('neither the target/full candidate nor production audit',source)
+
+    def test_transport_helper_preserves_equality_transports(self):
+        helper=d.TRANSPORT_HELPER
+        self.assertIn('by rw [hp,hq]; exact FourRootPivot318.regroup a i',helper)
+        self.assertIn('subst p\n  subst q',helper)
+        self.assertIn('ActualRootPivotCoordinates318.regroup_generator a i',helper)
+        self.assertIn('exact transportedRegroupRoot',d.CANDIDATE_REGROUP_PROOF)
+        self.assertIn('h0 hother',d.CANDIDATE_REGROUP_PROOF)
+        text=d.specimens(self.source())['complete_candidate_prefix']
+        self.assertEqual(text.count('private theorem transportedRegroupRoot'),1)
+        self.assertIn('KAEHLER_CANDIDATE_BEFORE_TRANSPORT_HELPER',text)
+        self.assertIn('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER',text)
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.

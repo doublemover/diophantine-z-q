@@ -82,7 +82,7 @@ def control_specimens(source):
 
 # Reviewed candidate is scratch-only. Original packet/timeout/prefix/baseline
 # authentication remains unchanged; only the second bounded specimen differs.
-CANDIDATE_SOURCE_SHA = '521e5ab4b216e7c689184f8d96725e4ddea159056e36a4f861e695c51b1b7a16'
+CANDIDATE_SOURCE_SHA = '75f75a72cca6f3b60ae1de2a1ed6b443bbbe0befef614b0a0ffa4eb3c6ff21bf'
 CANDIDATE_FIXTURE = Path(__file__).resolve().parent/'diagnostic_evidence/kaehler_generic_scalar_candidate.lean.txt'
 GENERIC_HELPER = '/-- Scalar coherence for the same tensor inclusion and algebra equivalence,\nproved over abstract dictionaries before specializing the original chart. -/\nprivate theorem tensorScalarImage\n    {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]\n    [Algebra R A] [Algebra R B] [Algebra A C]\n    (e : TensorProduct R A B ≃ₐ[A] C) (x : R) :\n    e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =\n      algebraMap A C (algebraMap R A x) := by\n  rw [AlgHom.commutes,\n    IsScalarTower.algebraMap_apply R A (TensorProduct R A B), AlgEquiv.commutes]\n\n'
 ORIGINAL_TARGET_PROOF = '  apply (sourceLocalizationEquiv b i).injective\n  rw [sourceCoordinate,AlgEquiv.apply_symm_apply,sourceLocalizationEquiv_on_source]\n  change orderCoordinate b i=localizedSourceEquiv b i\n    (Algebra.TensorProduct.includeRight (sourceRegroup b i\n      (FourRootAffineCoordinateRing318.coordinate b (some i))))\n  rw [regroup_root,AlgHom.commutes,\n    IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)\n      (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]\n  rfl\n'
@@ -91,8 +91,9 @@ SQUARE_HELPER = '/-- Transport the original square relation through the same sca
 ORIGINAL_SQUARE_PROOF = '  apply (sourceLocalizationEquiv b i).injective\n  rw [map_sub,map_pow,AlgEquiv.commutes,sourceCoordinate,AlgEquiv.apply_symm_apply]\n  rw [sourceParameter,sourceLocalizationEquiv_on_source]\n  change sourceMap b i (algebraMap ℂ[X] (FourRootActualFractionField318.A b) X)-_=_\n  rw [sourceMap_on_polynomial]\n  have h:=congrArg (algebraMap (OpenBase b i) (OpenOrder b i))\n    (FourRootActualFiniteBranchChart318.exact_square b i)\n  have hC(q:ℂ):algebraMap ℂ[X] (OpenOrder b i) (C q)=algebraMap ℂ (OpenOrder b i) q:=\n    (IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenOrder b i) q).symm\n  simpa only [map_sub,map_pow,orderCoordinate,baseCoordinate_root,\n    FourRootActualFiniteBranchChart318.root,FiniteBranchChart318.openRoot,\n    ←IsScalarTower.algebraMap_apply,hC] using h\n'
 CANDIDATE_SQUARE_PROOF = '  exact (mappedSquare (R := ℂ) (A := FourRootActualFractionField318.A b)\n    (B := SourceRing b i) (FourRootAffineCoordinateRing318.coordinate b none)\n    (FourRootAffineCoordinateRing318.coordinate b (some i)) (b i)\n    (FourRootAffineCoordinateRing318.relation b i)).trans\n      (congrArg (fun z : SourceRing b i => z ^ 2) (source_coordinate_original b i).symm)\n'
 ORIGINAL_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  change _ (FourRootAffineTensorPresentation318.toTensor b\n    (FourRootAffineCoordinateRing318.coordinate b (some i)))=_\n  rw [FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
-CANDIDATE_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  have ht : FourRootActualFractionField318.polynomialEquivalence b\n      (FourRootAffineCoordinateRing318.coordinate b (some i)) =\n      FourRootAffineTensorPresentation318.toTensor b\n        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl\n  rw [sourceRegroup, AlgEquiv.trans_apply, ht,\n    FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
-SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'complete_candidate_prefix': '42aaa83d595044067c60c2a610c7bc8941e20be7a687a6850d5744e090e3bf79'}
+TRANSPORT_HELPER = '/-- Root compatibility for the same regrouping equivalence transported\nalong the two parameter equalities used in sourceRegroup. -/\nprivate theorem transportedRegroupRoot\n    {R : Type*} [CommRing R] (a : Fin 4 → R) (i : Fin 4)\n    (p : R) (q : Fin 3 → R)\n    (hp : p = a (FourRootPivot318.indices i 0))\n    (hq : q = fun j => a (FourRootPivot318.indices i j.succ)) :\n    (show FourRootOrder318.Order a ≃ₐ[R]\n        TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q) from\n      by rw [hp,hq]; exact FourRootPivot318.regroup a i)\n        (FourRootOrderSigns318.generator a i) =\n      algebraMap (QuadraticPresentation318.RootRing p)\n        (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q))\n        (AdjoinRoot.root (QuadraticPresentation318.polynomial p)) := by\n  subst p\n  subst q\n  exact ActualRootPivotCoordinates318.regroup_generator a i\n\n'
+CANDIDATE_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  have ht : FourRootActualFractionField318.polynomialEquivalence b\n      (FourRootAffineCoordinateRing318.coordinate b (some i)) =\n      FourRootAffineTensorPresentation318.toTensor b\n        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl\n  rw [sourceRegroup, AlgEquiv.trans_apply, ht,\n    FourRootAffineTensorPresentation318.toTensor_root]\n  have h0 : LinearRootCoordinate318.parameter (1:ℂˣ) (b i) =\n      FourRootAffineTensorPresentation318.radicand b (FourRootPivot318.indices i 0) := by\n    change (Polynomial.C (1:ℂ):ℂ[X]) * (X-C (b i)) =\n      X-C (b (FourRootPivot318.indices i 0))\n    rw [Polynomial.C_1,one_mul,FourRootPivot318.indices_zero]\n  have hother : FiniteBranchChart318.other twists (otherBranch b i) =\n      (fun j => FourRootAffineTensorPresentation318.radicand b (FourRootPivot318.indices i j.succ)) := by\n    funext j\n    change (Polynomial.C (1:ℂ):ℂ[X]) * (X-C (b (FourRootPivot318.indices i j.succ))) =\n      X-C (b (FourRootPivot318.indices i j.succ))\n    rw [Polynomial.C_1,one_mul]\n  exact transportedRegroupRoot (FourRootAffineTensorPresentation318.radicand b) i\n    (LinearRootCoordinate318.parameter (1:ℂˣ) (b i))\n    (FiniteBranchChart318.other twists (otherBranch b i)) h0 hother\n'
+SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'complete_candidate_prefix': '01f95d9967355f0aee64a06818d9cd5cc6611cc58f1dc30e49e7e97be425fbd3'}
 
 def frozen_candidate(source):
     require(digest(source) == SOURCE_SHA, 'Frozen original source changed')
@@ -101,9 +102,10 @@ def frozen_candidate(source):
     require(candidate.count(GENERIC_HELPER) == 1 and
             candidate.count(CANDIDATE_TARGET_PROOF) == 1 and
             candidate.count(SQUARE_HELPER) == 1 and
+            candidate.count(TRANSPORT_HELPER) == 1 and
             candidate.count(CANDIDATE_SQUARE_PROOF) == 1 and
             candidate.count(CANDIDATE_REGROUP_PROOF) == 1, 'Candidate boundaries changed')
-    restored = candidate.replace(GENERIC_HELPER, '', 1).replace(SQUARE_HELPER, '', 1).replace(
+    restored = candidate.replace(GENERIC_HELPER, '', 1).replace(SQUARE_HELPER, '', 1).replace(TRANSPORT_HELPER, '', 1).replace(
         CANDIDATE_TARGET_PROOF, ORIGINAL_TARGET_PROOF, 1).replace(
         CANDIDATE_SQUARE_PROOF, ORIGINAL_SQUARE_PROOF, 1).replace(
         CANDIDATE_REGROUP_PROOF, ORIGINAL_REGROUP_PROOF, 1)
@@ -141,11 +143,13 @@ def candidate_specimen(candidate):
         SUBSTEP_SCOPE+GENERIC_HELPER+marker('AFTER_GENERIC_HELPER')+'\n', 1)
     text = text.replace(SQUARE_HELPER, marker('BEFORE_MAPPED_SQUARE')+'\n'+
         SUBSTEP_SCOPE+SQUARE_HELPER+marker('AFTER_MAPPED_SQUARE')+'\n', 1)
+    text = text.replace(TRANSPORT_HELPER, marker('BEFORE_TRANSPORT_HELPER')+'\n'+
+        SUBSTEP_SCOPE+TRANSPORT_HELPER+marker('AFTER_TRANSPORT_HELPER')+'\n', 1)
     for target in ['lemma source_coordinate_original:', 'lemma exact_square:']:
         text = scope_declaration(text, target)
     return text
 
-PREFIX_RAW_SHA = '95d66e3c3de27398b64c6d0b8ab56d02b488345f74df504dc1062fc19f4eb2fc'
+PREFIX_RAW_SHA = '7ba3bd44fbaa6ac53840f23098b94b5b7cda19b51a75e3452d3e29b5f0ee27e2'
 PREFIX_END = 'end FourRootActualBranchKaehler318\n'
 PREFIX_CHECKPOINT = '#eval (do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_source_coordinate_original"\n  out.flush : IO Unit)'
 PREFIX_MARKER = 'run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_before_source_coordinate_original"\n  out.flush'
@@ -284,11 +288,11 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_KAEHLER_COMPLETE_SYNTAX_CORRECTED_PREFIX_DIFFERENTIAL',
+    base = {'scope':'NON_ADMITTED_KAEHLER_COMPLETE_TRANSPORT_CORRECTED_PREFIX_DIFFERENTIAL',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
             'original_source_sha256':SOURCE_SHA,'candidate_source_sha256':CANDIDATE_SOURCE_SHA,
             'scratch_source_sha256':SCRATCH_SHAS,
-            'prefix_raw_sha256':PREFIX_RAW_SHA,'prefix_of':'syntax-corrected candidate, not original production',
+            'prefix_raw_sha256':PREFIX_RAW_SHA,'prefix_of':'transport-corrected candidate, not original production',
             'prefix_last_declaration':'regroup_root','target_declaration_included':False,
             'actual_head':os.environ.get('GITHUB_SHA'),'actual_run':os.environ.get('GITHUB_RUN_ID'),
             'production_source_changed':False,'production_limits_changed':False,
@@ -324,7 +328,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Fresh original timeout and own prefix plus the unchanged imports-only control precede a declaration-complete prefix of the syntax-corrected candidate, not original production. The second probe ends after regroup_root and closes its namespace; source_coordinate_original and every later declaration are excluded. This replaces the full-candidate second probe, never adds a third probe. Only full process exit and output can establish this prefix compile outcome. Checkpoints and profiles are traversal-only, including recovery; timeouts may hide deferred errors. Even prefix exit zero establishes neither the target/full candidate nor production audit, admission or proof acceptance. Same strict kernel/no-olean controls and two-probe budget; instrumentation may affect timing.'))
+        interpretation='Fresh original timeout and own prefix plus the unchanged imports-only control precede a declaration-complete prefix of the transport-corrected candidate, not original production. The second probe ends after regroup_root and closes its namespace; source_coordinate_original and every later declaration are excluded. This replaces the full-candidate second probe, never adds a third probe. Only full process exit and output can establish this prefix compile outcome. Checkpoints and profiles are traversal-only, including recovery; timeouts may hide deferred errors. Even prefix exit zero establishes neither the target/full candidate nor production audit, admission or proof acceptance. Same strict kernel/no-olean controls and two-probe budget; instrumentation may affect timing.'))
 
 if __name__ == '__main__':
     main()
