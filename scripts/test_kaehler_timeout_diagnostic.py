@@ -166,7 +166,9 @@ class Tests(unittest.TestCase):
         full=d.candidate_specimen(candidate)
         self.assertEqual(out,full[:full.index(d.PREFIX_MARKER)]+d.PREFIX_END)
         self.assertTrue(out.endswith(d.PREFIX_END))
-        self.assertIn('lemma regroup_root',out)
+        self.assertIn('private def transportedRegroup',out)
+        self.assertNotIn('private theorem transportedRegroupRoot',out)
+        self.assertNotIn('variable (b:Fin 4',out)
         for excluded in ['lemma source_coordinate_original:', 'lemma exact_square:', 'def sourceParameter', 'KAEHLER_CANDIDATE_before_source_coordinate_original']:
             self.assertNotIn(excluded,out)
         self.assertNotIn('/-- The exact original source coordinate',out)
@@ -180,21 +182,23 @@ class Tests(unittest.TestCase):
     def test_prefix_metadata_does_not_claim_full_candidate(self):
         source=(HERE/'diagnose_kaehler_timeout.py').read_text()
         self.assertIn("'target_declaration_included':False",source)
-        self.assertIn("'prefix_last_declaration':'regroup_root'",source)
+        self.assertIn("'prefix_last_declaration':'transportedRegroup'",source)
         self.assertIn('not original production',source)
         self.assertIn('neither the target/full candidate nor production audit',source)
 
     def test_transport_helper_preserves_equality_transports(self):
         helper=d.TRANSPORT_HELPER
-        self.assertIn('by rw [hp,hq]; exact FourRootPivot318.regroup a i',helper)
+        self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',helper)
+        self.assertIn('(transportedRegroup a i p q hp hq)',helper)
         self.assertIn('subst p\n  subst q',helper)
         self.assertIn('ActualRootPivotCoordinates318.regroup_generator a i',helper)
         self.assertIn('exact transportedRegroupRoot',d.CANDIDATE_REGROUP_PROOF)
         self.assertIn('h0 hother',d.CANDIDATE_REGROUP_PROOF)
         text=d.specimens(self.source())['complete_candidate_prefix']
-        self.assertEqual(text.count('private theorem transportedRegroupRoot'),1)
+        self.assertEqual(text.count('private theorem transportedRegroupRoot'),0)
+        self.assertEqual(text.count('private def transportedRegroup'),1)
         self.assertIn('KAEHLER_CANDIDATE_BEFORE_TRANSPORT_HELPER',text)
-        self.assertIn('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER',text)
+        self.assertNotIn('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER',text)
 
     def test_transport_helper_dictionary_arguments_are_explicit(self):
         helper=d.TRANSPORT_HELPER
@@ -202,6 +206,17 @@ class Tests(unittest.TestCase):
         self.assertIn('(inferInstance : CommSemiring (QuadraticPresentation318.RootRing p))',helper)
         self.assertIn('(inferInstance : Semiring',helper)
         self.assertIn('inferInstance)\n        (AdjoinRoot.root',helper)
+
+    def test_isolated_definition_prefix_has_no_compatibility_theorem(self):
+        candidate=d.frozen_candidate(self.source())
+        raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
+        self.assertEqual(len(raw.encode()),2326)
+        self.assertEqual(d.digest(raw),'30531585f279be430d9e92916b1371a2b91c303bff3011c547ce24e86205eec3')
+        out=d.specimens(self.source())['complete_candidate_prefix']
+        self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
+        for absent in ['private theorem transportedRegroupRoot','lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
+            self.assertNotIn(absent,out)
+        self.assertTrue(out.rstrip().endswith('end FourRootActualBranchKaehler318'))
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
