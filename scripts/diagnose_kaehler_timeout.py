@@ -14,7 +14,7 @@ MODULE = 'FourRootActualBranchKaehler318'
 DEPENDENCIES = {'FourRootActualBranchLocalization318','ActualEtaleFrameNormalization318','SquareCoordinateDifferential318','ActualRootPivotCoordinates318'}
 BASELINE_SOURCES = {'SquareCoordinateDifferential318': 'dc7711a87960735b1682f8ccfa9275be60b5bce135ab5386b36d12f06a2e908b'}
 SOURCE_SHA = '26e84b6a6e5f1d14263d71673cdfbbc520964630179cf9732fb2616b471d0b32'
-SCRATCH_SHAS = {'imports_only':'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59','command_trace':'c8d21c9ffa5b1a823e088243a59c9fa296627b272e329136ffe7a9cefb8d46c2'}
+SCRATCH_SHAS = {'imports_only':'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59','command_trace':'fb4b98362750454ca0d65c7591b58312657fa8ee194b52479617674dc994a483'}
 INTAKE_SHA = '6e0afdf648f8afae6195ad8ac836ac706f8e804a3bdf2572ce15f292d435f442'
 APPLICATION_SHA = 'bb069d50852d17b665734340b9ded0e32d373aadef7685c13e854998ee8b8128'
 RUNNER_SHA = 'f270b32bb08b551595e4b74cfbe3cb84ed26b3eef469894a7d4a7e5c574df7f2'
@@ -41,14 +41,16 @@ def no_compiled(root, module=None):
     require(not bad, 'Unexpected compiled artifacts: ' + ', '.join(bad))
 
 OLD_FINAL_TACTICS = '  rw [regroup_root,AlgHom.commutes,\n    IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)\n      (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]\n  rfl\n'
-SUBSTEP_FINAL_TACTICS = '  run_tac do\n    let emit : String → Lean.Elab.Tactic.TacticM Unit := fun label => do\n      let out ← IO.getStderr\n      out.putStrLn ("KAEHLER_SUBSTEP_" ++ label)\n      out.flush\n    emit "BEFORE_FINAL_RW"\n    Lean.Elab.Tactic.evalTactic (← `(tactic| rw [regroup_root,AlgHom.commutes,\n      IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)\n        (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]))\n    emit "AFTER_FINAL_RW"\n    emit "BEFORE_FINAL_RFL"\n    Lean.Elab.Tactic.evalTactic (← `(tactic| rfl))\n    emit "AFTER_FINAL_RFL"\n'
+SUBSTEP_FINAL_TACTICS = '  kaehler_final\n    (rw [regroup_root,AlgHom.commutes,\n      IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)\n        (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes])\n    (rfl)\n'
+SUBSTEP_TACTIC_DECL = 'syntax "kaehler_final " "(" tactic ")" "(" tactic ")" : tactic\nelab_rules : tactic\n  | `(tactic| kaehler_final ($rwTac:tactic) ($rflTac:tactic)) => do\n    let emit : String → Lean.Elab.Tactic.TacticM Unit := fun label => do\n      let out ← IO.getStderr\n      out.putStrLn ("KAEHLER_SUBSTEP_" ++ label)\n      out.flush\n    emit "BEFORE_FINAL_RW"\n    Lean.Elab.Tactic.evalTactic rwTac\n    emit "AFTER_FINAL_RW"\n    emit "BEFORE_FINAL_RFL"\n    Lean.Elab.Tactic.evalTactic rflTac\n    emit "AFTER_FINAL_RFL"\n\n'
 SUBSTEP_SCOPE = 'set_option trace.Elab.definition.header true in\nset_option trace.Elab.definition.value true in\n'
 
 def substep_specimen(text):
-    """Trace the exact final two tactics, without changing their quotations.
+    """Trace exact call-site tactic syntax with a predeclared elaborator wrapper.
 
-    Markers execute inside one run_tac so the final post-rfl marker can be
-    emitted even after rfl closes the last goal. No result is admitted.
+    Markers execute inside one predeclared elaborator, including after rfl
+    closes the last goal. Captured syntax preserves call-site identifier scopes.
+    The local run_tac compilation path is not used. No result is admitted.
     """
     target = 'lemma source_coordinate_original:'
     require(text.count(target) == 1, 'Target declaration boundary changed')
@@ -58,7 +60,7 @@ def substep_specimen(text):
     before = OLD_FINAL_TACTICS
     require(declaration.count(before.rstrip('\n')) == 1, 'Final tactic sequence changed')
     after = declaration.replace(before.rstrip('\n'), SUBSTEP_FINAL_TACTICS.rstrip('\n'), 1)
-    return text[:start] + SUBSTEP_SCOPE + after + text[end:]
+    return text[:start] + SUBSTEP_TACTIC_DECL + SUBSTEP_SCOPE + after + text[end:]
 
 def specimens(source):
     require(digest(source) == SOURCE_SHA, 'Frozen target source changed')
@@ -218,7 +220,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Imports-only must complete before command tracing. Flushed final-rw/rfl markers and scoped header/value traces localize completion boundaries, not root causes. Quoted final tactics are unchanged; instrumentation itself may affect elaboration. No automatic root-cause or proof-success conclusion.'))
+        interpretation='Imports-only must complete before command tracing. Flushed final-rw/rfl markers and scoped header/value traces localize completion boundaries, not root causes. Exact call-site tactic nodes run through a predeclared wrapper; instrumentation itself may affect elaboration. No automatic root-cause or proof-success conclusion.'))
 
 if __name__ == '__main__':
     main()

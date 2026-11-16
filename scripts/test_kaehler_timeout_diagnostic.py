@@ -22,6 +22,11 @@ class Tests(unittest.TestCase):
     def test_scoped_substep_instrumentation(self):
         text=d.specimens(self.source())['command_trace']
         self.assertEqual(text.count(d.SUBSTEP_SCOPE),1)
+        self.assertEqual(text.count(d.SUBSTEP_TACTIC_DECL),1)
+        self.assertLess(text.index(d.SUBSTEP_TACTIC_DECL),text.index(d.SUBSTEP_SCOPE))
+        self.assertNotIn('run_tac',text)
+        self.assertIn('Lean.Elab.Tactic.evalTactic rwTac',d.SUBSTEP_TACTIC_DECL)
+        self.assertIn('Lean.Elab.Tactic.evalTactic rflTac',d.SUBSTEP_TACTIC_DECL)
         self.assertIn(d.SUBSTEP_SCOPE+'lemma source_coordinate_original:',text)
         self.assertEqual(text.count(d.SUBSTEP_FINAL_TACTICS.rstrip('\n')),1)
         self.assertEqual(text.count('Lean.Elab.Tactic.evalTactic'),2)
@@ -30,11 +35,11 @@ class Tests(unittest.TestCase):
         self.assertLess(text.index('emit "BEFORE_FINAL_RW"'),text.index('emit "AFTER_FINAL_RW"'))
         self.assertLess(text.index('emit "BEFORE_FINAL_RFL"'),text.index('emit "AFTER_FINAL_RFL"'))
         # Undo only the instrumentation; exact old frozen diagnostic is restored.
-        restored=text.replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
+        restored=text.replace(d.SUBSTEP_TACTIC_DECL,'',1).replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
         self.assertEqual(d.digest(restored),'324766ba3fac040b7055810250f3b2639b45786f04729f2b6c7417a41f460955')
     def test_substep_boundaries_fail_closed(self):
         text=d.specimens(self.source())['command_trace']
-        original=text.replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
+        original=text.replace(d.SUBSTEP_TACTIC_DECL,'',1).replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
         for changed in [original.replace('lemma source_coordinate_original:','lemma moved:',1), original.replace(d.OLD_FINAL_TACTICS.rstrip('\n'),'  exact False.elim (by contradiction)',1)]:
             with self.assertRaises(ValueError):d.substep_specimen(changed)
     def test_tamper_rejected(self):
