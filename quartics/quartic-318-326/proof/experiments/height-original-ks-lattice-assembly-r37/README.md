@@ -1,0 +1,5 @@
+# Minimal gluing scalar expansion successor of KS36
+
+Published KS36 is the exact predecessor. All 197 roots retain their order; only IntegralOriginalGluingCompatibility318 changes, with 196 source files byte-identical. All previously passed sources, the KS36 overlap universe repair and KS35 gluing coercion normalization remain intact. A private generic ring-map scalar expansion lemma is instantiated with the exact original commonRestriction, Laurent inverse unit and signed finite root. Public statements, imports, maps, options and resource limits are unchanged.
+
+The exact source-bound fresh KS35 shard passed 63 roots and audited 1512 declarations, then reported the scalar-action rewrite mismatch. The candidate addresses that occurrence without assuming compiler success. All predecessor evidence remains byte-identical, and fresh source/log/inventory/binding/native snapshot/review are bound. Only the active KS registry slot changes r36 to r37. No other slots, markers, scripts, baseline files, or separate geometry drafts change. No local Lean.

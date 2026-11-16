@@ -1,0 +1,5 @@
+# pel-original-torsion-towers-r53
+
+Repair-only successor to pel-original-torsion-towers-r52; all 735 roots/order retained, 733 byte-identical. The independently reviewed pair fixes the exact narrower current consumer failures: named local Complex values before multiplication instead of erased type ascriptions; dsimp of the existing local lattice shift rather than treating it as a rewrite proof; explicit change of the same native dependent-fiber sum to Complex arithmetic. No new telescope, premise, bundle, map, import or resource change. All50 passed sources and the verified PolarizationPowerBundle are retained byte-identically.
+
+Targeted43878049753 compiled50 modules with recursive subset audit1006; both consumers failed and their outputs were quarantined. Neither follow-up source has run Lean. Full packet acceptance remains unestablished. Earlier immutable evidence retained without recursive copying. Local predecessor044b6b41 has exact published84bb packet52 bytes; serial overlay must preserve current marker and unrelated packets.

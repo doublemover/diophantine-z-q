@@ -1,0 +1,45 @@
+--- before/PELOriginalPowerSectionLift318.lean
++++ after/PELOriginalPowerSectionLift318.lean
+@@ -28,7 +28,8 @@
+ /-- The scalar representative is recovered from the actual selected
+ bundle gauge, rather than supplied as an extra section hypothesis. -/
+ @[expose] def lift(s:HolomorphicSection τ hτ N)(z:ComplexVectors):ℂ:=
+-  (gauge τ hτ N z)⁻¹*(s.value (projection (P τ) z) : ℂ)
++  let v : ℂ := s.value (projection (P τ) z)
++  (gauge τ hτ N z)⁻¹*v
+ lemma local_lift (s:HolomorphicSection τ hτ N)(a z:ComplexVectors)
+     (ha:projection (P τ) z∈baseSet τ hτ a):
+     ((powerCore τ hτ N).localTriv a (total τ hτ N s (projection (P τ) z))).2=
+@@ -37,9 +38,10 @@
+   let c:ComplexVectors:=(core τ hτ).indexAt q
+   have hc:q∈baseSet τ hτ c:=(core τ hτ).mem_baseSet_at q
+   have he:=factor_change τ hτ c a z hc ha
+-  change transition τ hτ c a q^N*(s.value q : ℂ)=
++  let v : ℂ := s.value q
++  change transition τ hτ c a q^N*v=
+     factor τ hτ (shiftTo τ hτ a z) z^N*
+-      ((factor τ hτ (shiftTo τ hτ c z) z^N)⁻¹*(s.value q : ℂ))
++      ((factor τ hτ (shiftTo τ hτ c z) z^N)⁻¹*v)
+   rw [he,mul_pow]
+   field_simp [pow_ne_zero N (nonzero τ hτ (shiftTo τ hτ c z) z)]
+ 
+--- before/PELOriginalLevelPowerSections318.lean
++++ after/PELOriginalLevelPowerSections318.lean
+@@ -82,11 +82,14 @@
+   have ha:q∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at q
+   let l:L τ hτ:=PELOriginalAutomorphyRepresentatives318.shiftTo τ hτ a z
+   have hs:z+l.val=chart τ hτ a q:=by
+-    rw [l,PELOriginalAutomorphyRepresentatives318.shiftTo_value τ hτ a z ha]
++    dsimp only [l]
++    rw [PELOriginalAutomorphyRepresentatives318.shiftTo_value τ hτ a z ha]
+     abel
+   have hval:∑r:Label N,c r*value τ hτ N r (chart τ hτ a q)=0:=by
+-    simpa only [Finset.sum_apply,Pi.smul_apply,Pi.zero_apply,smul_eq_mul,
+-      levelSection,powerSection] using congrFun hc q
++    have hq := congrFun hc q
++    simp only [Finset.sum_apply,Pi.smul_apply,Pi.zero_apply] at hq
++    change (∑r:Label N,c r • value τ hτ N r (chart τ hτ a q))=(0:ℂ) at hq
++    simpa only [smul_eq_mul] using hq
+   have he:factor τ hτ l z^N*(∑r:Label N,c r*value τ hτ N r z)=0:=by
+     rw [←hs] at hval
+     simp only [original_automorphy] at hval
