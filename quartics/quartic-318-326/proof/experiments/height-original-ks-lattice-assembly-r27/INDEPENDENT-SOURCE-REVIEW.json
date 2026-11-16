@@ -1,0 +1,36 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_AND_SOURCE_REVIEW_NOT_LEAN",
+  "base_commit": "cbd53f540fbf73e679bdcd37930b8ffa5762a5ae",
+  "sources": {
+    "OriginalIntegerAffineModel318.lean": "2ff831449f31761f1739bb93332e1a9507c8f53f31f54a506750ab02cb6e2e9a",
+    "IntegralScaledFourRootModel318.lean": "27cd4b0bb0ebb22fb2fe356c02fb7d9e04269bf11491b918738befb599c22fe6"
+  },
+  "primary_paths": {
+    "UnitScaledQuadraticOrder318.lean": "quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r24/UnitScaledQuadraticOrder318.lean",
+    "FourRootOrder318.lean": "quartics/quartic-318-326/proof/progress/FourRootOrder318.lean",
+    "ContactKummerOrder318.lean": "quartics/quartic-318-326/proof/progress/ContactKummerOrder318.lean",
+    "LinearContactSquareclass318.lean": "quartics/quartic-318-326/proof/progress/LinearContactSquareclass318.lean",
+    "QuadraticPresentation318.lean": "quartics/quartic-318-326/proof/progress/QuadraticPresentation318.lean"
+  },
+  "primary_hashes": {
+    "UnitScaledQuadraticOrder318.lean": "fec9737f46e6c492b64908ccb79dccfbe9798d70b27d716b5b03b4cf9295c69a",
+    "FourRootOrder318.lean": "6c51a472e199bcc14b08169914d4c69e417e751046b94cb1b4ace6886944660b",
+    "ContactKummerOrder318.lean": "ce37197fbebc55ff1e4654cbcabe00a97eac9552379ed0f3844393abfcf8fdf1",
+    "LinearContactSquareclass318.lean": "3fe0ad3ebef369a4ec50ca3a46f2dd281c12bd40971cb45eb1cad3722dc88758",
+    "QuadraticPresentation318.lean": "c1bf08402f64dc5373b9dd73e8c63e5c48515d1a7e57cff91d1986674b3232a7"
+  },
+  "declarations_reviewed": 19,
+  "local_lean_run": false,
+  "findings": [
+    "Independent fourScale uses tensor grouping exactly Pair01 tensor Pair23 and original unit root-scaling equivalences. genericFiber composes actual coefficient base change and explicit scaling, no assumed generic isomorphism.",
+    "Cleared coefficient numerator*denominator*(T-contact) equals rational signed twist*denominator^2*(T-contact); each denominator positive/nonzero gives a unit of Q[T]. No integral inversion, branch omission or sign erasure.",
+    "Finite/free rank16 follows monic quadratic tensor orders over Z[T]; no units or discriminant premises.",
+    "rationalFiber targets literal original SourceOrder. Embedding injection uses module freeness and coefficientwise injectivity of Z[T] to Q[T]; original SourceOrder domain then implies integral order domain.",
+    "Identified native polynomial coefficient algebra is not a global instance (pinned Mathlib/RingTheory/PolynomialAlgebra.lean explicitly notes diamond). Latest source corrects risk by exposing exact coefficientwise rationalPolynomialAlgebra and installing only locally. Both change statements now target that specified map.",
+    "Imports and5 primary hashes checked against cbd53f54. Rat.num_div_den and Units.map usages consistent with existing library/source patterns. No remaining specific source blocker identified; hosted elaboration still required.",
+    "No smoothness, properness, normality, bad-place cotangent generation, KS identity or completeness is proved. This is a genuine alternative integral affine domain model, not resolution of geometric extension problem.",
+    "Final rootScale uses explicit Polynomial.C.toMonoidHom for Units.map; removes coercion ambiguity without changing scale."
+  ],
+  "native_evidence": "geometry-integral-affine-model/native-review/PolynomialAlgebra.lean",
+  "native_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+}

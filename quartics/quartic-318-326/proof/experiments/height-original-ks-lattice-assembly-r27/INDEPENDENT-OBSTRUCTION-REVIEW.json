@@ -1,0 +1,28 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW",
+  "manifest": {
+    "source_sha256": "37f3846d8f48f448139fef73f66de868b7cd32e2ab5e05ef7a3a14253b636fb6",
+    "status": "SOURCE_CANDIDATE_NOT_LEAN",
+    "declarations": 5,
+    "new_axioms": false,
+    "bad_prime_generation_proved": false,
+    "base_commit": "cbd53f540fbf73e679bdcd37930b8ffa5762a5ae",
+    "producer_packet": "height-original-ks-lattice-assembly-r24",
+    "primary": {
+      "ActualFinitePlaceIntegers318.lean": "0535c4bf22fb78d3a790eb2a7ecb055aab4b20967a48983d2d013e20203e1c43",
+      "ContactArithmeticBase318.lean": "5ff3d6debfcdaa16674546d53e2807c1e7c2aa9c434012969192ef30d9ab75b1",
+      "ContactFinitePlaceBaseMap318.lean": "75fa1f121faa4a53851f2c434c2f14010c3602252ecb34b471e96350f6b99ca8",
+      "ContactArithmeticDenominator318.lean": "db90dd13952714ed55d71c03273857a19f8a5aa492415e3279484d52139e5fe5"
+    }
+  },
+  "local_lean_run": false,
+  "findings": [
+    "All five declarations reviewed; exact source and four pinned primary hashes match.",
+    "Integers v is the actual valuation subring and contains the canonical image of every integer. denominator c is an integer, so no extra membership assumption is necessary.",
+    "Unital ring maps preserve canonical integer casts; image of the inverted denominator must be a unit. No generic-field embedding compatibility is needed.",
+    "Unit norm equals one follows from nonnegative norm, bounds for unit and inverse, and multiplicativity.",
+    "Converse is exactly existing localization baseMap with denominator-unit hypothesis; hence no map from this specific inverted arithmetic base at any excluded place.",
+    "No claim that all possible arithmetic models or resolutions fail: a different base not inverting the bad prime is outside this obstruction. No geometric generation or KS conclusion.",
+    "No new assumptions, axioms, admissions or resource changes. No likely elaboration blocker found; hosted Lean remains necessary."
+  ]
+}
