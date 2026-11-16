@@ -39,6 +39,7 @@ jobs:
         id: request
         run: python -B scripts/validate_progress_inventory_request.py --output build/dependency-setup/inventory-request.json --github-output "$GITHUB_OUTPUT"
       - run: python -B scripts/test_progress_inventory.py
+      - run: python -B scripts/test_contact_refinement_diagnostic.py
       - run: python -B scripts/test_progress_sparse_checkout.py
       - id: plan
         run: python -B scripts/plan_progress_inventory.py --github-output "$GITHUB_OUTPUT"
@@ -145,4 +146,7 @@ jobs:
             build/progress-inventory/${{ matrix.artifact_key }}/INVENTORY.json
             build/progress-inventory/${{ matrix.artifact_key }}/logs/
             build/progress-inventory/${{ matrix.artifact_key }}/ExperimentAudit.lean
+            build/progress-inventory/${{ matrix.artifact_key }}/scratch-contact-refinement/*.json
+            build/progress-inventory/${{ matrix.artifact_key }}/scratch-contact-refinement/*.log
+            build/progress-inventory/${{ matrix.artifact_key }}/scratch-contact-refinement/*.lean.txt
           if-no-files-found: warn

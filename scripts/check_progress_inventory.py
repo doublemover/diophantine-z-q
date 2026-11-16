@@ -64,7 +64,7 @@ def compile_once(source, target, root, env, logs):
 
 
 def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compile_once,
-              clock=time.time):
+              clock=time.time, observer=None):
     """Pure scheduling seam: tests replace compilation, never execute Lean."""
     names = set(data['order'])
     rows = result['modules']
@@ -135,6 +135,13 @@ def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compi
                 else:
                     result['audit']['status'] = 'timeout' if details.get('timed_out') else 'audit_failed'
         result['status'] = 'INVENTORY_RECORDED'
+        if observer is not None:
+            checkpoint()
+            try:
+                observer(folder, output, env, result, deadline)
+            except Exception as error:
+                # Observation never changes accounting or bypasses finally cleanup.
+                print('Non-admitted inventory observation skipped: ' + str(error), flush=True)
     except BaseException as error:
         result.update(status='INVENTORY_ERROR', error=type(error).__name__ + ': ' + str(error))
         for name, row in rows.items():
@@ -160,6 +167,15 @@ def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compi
             all(r['status'] != 'not_selected' for r in rows.values()))
         result['all_packet_modules_compiled'] = len(successful) == len(names)
         checkpoint()
+
+
+def observe_contact(folder, output, env, result, deadline):
+    if (result.get('packet') != 'contact-original-positive-generators-r103' or
+        result.get('selection', {}).get('selection_sha256') !=
+            '79f521a554a00b0eb325202673309b68404fe1e99df13aa3c380a7a306fdab2b'):
+        return
+    import diagnose_contact_refinement
+    diagnose_contact_refinement.run(folder, output, env, result, deadline)
 
 
 def run(args, plan):
@@ -214,7 +230,7 @@ def run(args, plan):
                        for p in env['LEAN_PATH'].split(os.pathsep)):
                 raise ValueError('Missing pinned upstream artifact: ' + dep)
         result['status'] = 'INVENTORY_RUNNING'
-        inventory(folder, data, output, lib, env, result, args.deadline)
+        inventory(folder, data, output, lib, env, result, args.deadline, observer=observe_contact)
     except BaseException as error:
         if result['status'] not in ('INVENTORY_ERROR', 'INVENTORY_RECORDED'):
             result.update(status='SETUP_ERROR', error=type(error).__name__ + ': ' + str(error))
