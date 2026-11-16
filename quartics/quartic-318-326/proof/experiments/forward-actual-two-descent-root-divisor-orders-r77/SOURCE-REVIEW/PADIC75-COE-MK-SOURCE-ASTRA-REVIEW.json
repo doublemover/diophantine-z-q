@@ -1,0 +1,19 @@
+{
+  "status": "PASS_SOURCE_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a",
+  "before_sha256": "fa055bb4cab171b6e1c06ea9838c1f8d3907a8ff123f635bf7dfecc0cf65eae1",
+  "bindings_sha256": "d581fe0039792783841e8062004cf911a690c2f7de45048ecea94ddc37b3654e",
+  "native_ringhom_defs_sha256": "ff0e70bb2d9d51652038bb28f165b6f44e4ccf45102be0b96f5deaa7d0a56124",
+  "native_padic_ringhoms_sha256": "c56bf1519b51dd9a50dcbee80abc439fd0a2c1e2a9694582b9df0eda71e4839f",
+  "runtime_failure_receipt_sha256": "ccf179d0d2e09e68577e1055bc8e560b45803282d4ff817a3e816eb899ec4ae3",
+  "checks": [
+    "Exact one simp-site replacement only; all statements, assumptions, imports, resource limits and other proof bytes unchanged.",
+    "RingHom.coe_mk reduces explicit ring hom to its underlying monoid hom by rfl. Remaining concrete toFun application is definitionally the cast of appr2.",
+    "Pinned Padic RingHoms itself follows simp only[toZModPow,toZModHom,RingHom.coe_mk] by dsimp, supporting the exact reduction boundary.",
+    "Guarded <;> rfl reduces any remaining definitional projection and is safe when simp has already closed the goal. No separate MonoidHom.coe_mk lemma needed mathematically; actual simplifier/elaborator behavior still requires replay."
+  ],
+  "limits": [
+    "No local Lean or repaired module acceptance.",
+    "Zero passes in latest one-root shard and audit not_run_empty; no global claim."
+  ]
+}
