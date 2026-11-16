@@ -1,0 +1,129 @@
+name: Progress Lean dependency-ready inventory
+
+# Diagnostic only. The separate marker-only push shares the main group;
+# publish implementation first and clear pending repair runs before launch.
+on:
+  push:
+    branches:
+      - add-quartic-318-326
+    paths:
+      - .github/inventory-requests/progress.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: progress-experiments-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      has_packets: ${{ steps.plan.outputs.has_packets }}
+      base: ${{ steps.plan.outputs.base }}
+      snapshot: ${{ steps.plan.outputs.snapshot }}
+      source_commit: ${{ steps.request.outputs.source_commit }}
+      source_tree: ${{ steps.request.outputs.source_tree }}
+      marker_sha256: ${{ steps.request.outputs.marker_sha256 }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 2
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - name: Validate exact marker-only launch before any inventory planning
+        id: request
+        run: python -B scripts/validate_progress_inventory_request.py --output build/dependency-setup/inventory-request.json --github-output "$GITHUB_OUTPUT"
+      - run: python -B scripts/test_progress_inventory.py
+      - id: plan
+        run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
+      - name: Warm pinned compiler cache before inventory fan-out
+        if: steps.plan.outputs.has_packets == 'true'
+        uses: ./.github/actions/setup-pinned-lean
+      - name: Warm verified dependency sources before inventory fan-out
+        if: steps.plan.outputs.has_packets == 'true'
+        uses: ./.github/actions/setup-pinned-dependency-sources
+      - name: Preserve inventory plan setup evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: inventory-setup-plan
+          path: build/dependency-setup/
+          if-no-files-found: ignore
+
+  inventory:
+    needs: plan
+    if: needs.plan.outputs.has_packets == 'true'
+    name: Dependency-ready inventory ${{ matrix.packet }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - name: Set absolute inventory deadline including checkout and setup
+        run: echo "INVENTORY_DEADLINE=$(( $(date +%s) + 24 * 60 ))" >> "$GITHUB_ENV"
+      - id: checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - id: python
+        uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - name: Restore previously audited baseline
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: .cache/progress-ci
+          key: progress-v2-full-${{ needs.plan.outputs.base }}-${{ needs.plan.outputs.snapshot }}
+          restore-keys: |
+            progress-v2-full-${{ needs.plan.outputs.base }}-
+      - uses: ./.github/actions/setup-pinned-lean
+      - id: dependency_sources
+        uses: ./.github/actions/setup-pinned-dependency-sources
+      - name: Fetch exact pinned upstream artifacts
+        id: upstream
+        shell: bash
+        env:
+          PACKET: ${{ matrix.packet }}
+        run: |
+          set -euo pipefail
+          python -B scripts/check_progress_experiment.py targets --packet "$PACKET" > "$RUNNER_TEMP/inventory-targets.txt"
+          test -s "$RUNNER_TEMP/inventory-targets.txt"
+          python -B scripts/pinned_dependency_sources.py artifacts \
+            --project quartics/quartic-318-326/proof/progress \
+            --targets-file "$RUNNER_TEMP/inventory-targets.txt" \
+            --receipt "$GITHUB_WORKSPACE/build/dependency-setup/artifacts.json"
+      - name: Record dependency-ready inventory and successful-subset audit
+        if: always() && steps.checkout.outcome == 'success' && steps.python.outcome == 'success'
+        env:
+          PACKET: ${{ matrix.packet }}
+          INVENTORY_SOURCE_COMMIT: ${{ needs.plan.outputs.source_commit }}
+          INVENTORY_SOURCE_TREE: ${{ needs.plan.outputs.source_tree }}
+          INVENTORY_REQUEST_SHA256: ${{ needs.plan.outputs.marker_sha256 }}
+          SETUP_OK: ${{ steps.dependency_sources.outcome == 'success' && steps.upstream.outcome == 'success' }}
+        run: |
+          python -B scripts/check_progress_inventory.py --packet "$PACKET" \
+            --cache "$GITHUB_WORKSPACE/.cache/progress-ci" \
+            --output "$GITHUB_WORKSPACE/build/progress-inventory/$PACKET" \
+            --deadline "$INVENTORY_DEADLINE" --setup-ok "$SETUP_OK"
+      - name: Preserve inventory setup evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: inventory-setup-${{ matrix.packet }}
+          path: build/dependency-setup/
+          if-no-files-found: ignore
+      - name: Preserve inventory receipts and logs, never compiled artifacts
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: inventory-${{ matrix.packet }}
+          path: |
+            build/progress-inventory/${{ matrix.packet }}/INVENTORY.json
+            build/progress-inventory/${{ matrix.packet }}/logs/
+            build/progress-inventory/${{ matrix.packet }}/ExperimentAudit.lean
+          if-no-files-found: warn

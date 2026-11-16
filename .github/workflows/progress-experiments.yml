@@ -6,6 +6,10 @@ on:
       - 'quartics/quartic-318-326/proof/experiments/**'
       - 'scripts/check_progress_experiment.py'
       - 'scripts/test_progress_experiment.py'
+      - 'scripts/check_progress_inventory.py'
+      - 'scripts/validate_progress_inventory_request.py'
+      - 'scripts/test_progress_inventory.py'
+      - '.github/workflows/progress-inventory.yml'
       - '.github/workflows/progress-experiments.yml'
       - '.github/actions/setup-pinned-*/**'
       - 'scripts/setup_pinned_lean.sh'
@@ -52,6 +56,7 @@ jobs:
       - run: python -B scripts/test_ci_tooling.py
       - run: python -B scripts/test_pinned_dependency_sources.py
       - run: python -B scripts/test_progress_experiment.py
+      - run: python -B scripts/test_progress_inventory.py
       - run: python -B scripts/test_generic_binder_diagnostic.py
       - run: python -B scripts/test_endpoint_diagnostic.py
       - run: python -B scripts/test_candidate_endpoint_diagnostic.py
