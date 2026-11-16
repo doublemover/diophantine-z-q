@@ -1,0 +1,22 @@
+--- 
++++ 
+@@ -28,7 +28,8 @@
+       (-1:F3)^k.val := by
+   fin_cases k <;> fin_cases a <;> fin_cases b <;>
+     norm_num [finiteWord,finiteGenerator,PELReductionResidueField318.residue,
+-      QuadraticAlgebra.norm_def,pow_succ,pow_two]
++      QuadraticAlgebra.norm_def,pow_succ,pow_two] <;>
++    (change (_ : F3) = _; exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+ 
+ /-- EVERY norm-one unit of the literal order quotient has an actual
+ norm-one GLOBAL original-order lift. The larger72-element unit group is
+@@ -43,7 +44,8 @@
+     rw [←finite_word_norm k a b,hword]
+     exact hu
+   have hk : (-1:ℚ)^k.val=1 := by
+-    fin_cases k <;> norm_num at hn ⊢
++    fin_cases k <;> norm_num at hn ⊢ <;>
++      exact (@of_decide_eq_false _ (ZMod.decidableEq 3 (-1) 1) rfl) hn
+   refine ⟨globalWord k a b,?_,?_⟩
+   · apply Units.ext
+     apply quotientEquiv.injective

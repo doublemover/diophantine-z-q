@@ -1,0 +1,14 @@
+--- before/FourRootActualOrderAutomorphisms318.lean
++++ after/FourRootActualOrderAutomorphisms318.lean
+@@ -92,7 +92,10 @@
+   apply affineEmbedding_injective b
+   have hx:=congrArg (fun f:L b≃ₐ[K]L b=>f (affineEmbedding b x)) hf
+   rw [extend_embedding] at hx
+-  rw [polynomialSign_apply,FourRootActualGenericSigns318.affineEmbedding_equivariant]
++  rw [polynomialSign_apply]
++  change affineEmbedding b (FourRootCoordinateRingSigns318.finiteEnd b g x)=
++    affineEmbedding b (e x)
++  rw [FourRootActualGenericSigns318.affineEmbedding_equivariant]
+   simpa only [FourRootActualGenericSigns318.genericAutomorphism,hg] using hx
+ 
+ @[expose] def signEquivalence:FourBinaryCharacters318.Group≃(A b≃ₐ[P]A b):=

@@ -1,0 +1,62 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r85/FourRootUnitScale318.lean:31:58: error: unsolved goals
+case «0»
+R : Type u_1
+inst✝ : CommRing R
+a b : Fin 4 → R
+s : Rˣ
+h : ∀ (i : Fin 4), b i = a i * ↑s ^ 2
+⊢ ((AdjoinRoot.of (polynomial (a 0))) ↑s * AdjoinRoot.root (polynomial (a 0))) ⊗ₜ[R] 1 ⊗ₜ[R] 1 =
+    (↑s • AdjoinRoot.root (polynomial (a 0))) ⊗ₜ[R] 1 ⊗ₜ[R] 1
+
+case «1»
+R : Type u_1
+inst✝ : CommRing R
+a b : Fin 4 → R
+s : Rˣ
+h : ∀ (i : Fin 4), b i = a i * ↑s ^ 2
+⊢ 1 ⊗ₜ[R] ((AdjoinRoot.of (polynomial (a 1))) ↑s * AdjoinRoot.root (polynomial (a 1))) ⊗ₜ[R] 1 =
+    (↑s • 1) ⊗ₜ[R] AdjoinRoot.root (polynomial (a 1)) ⊗ₜ[R] 1
+
+case «2»
+R : Type u_1
+inst✝ : CommRing R
+a b : Fin 4 → R
+s : Rˣ
+h : ∀ (i : Fin 4), b i = a i * ↑s ^ 2
+⊢ 1 ⊗ₜ[R] (((AdjoinRoot.of (polynomial (a 2))) ↑s * AdjoinRoot.root (polynomial (a 2))) ⊗ₜ[R] 1) =
+    (↑s • 1) ⊗ₜ[R] (AdjoinRoot.root (polynomial (a 2)) ⊗ₜ[R] 1)
+
+case «3»
+R : Type u_1
+inst✝ : CommRing R
+a b : Fin 4 → R
+s : Rˣ
+h : ∀ (i : Fin 4), b i = a i * ↑s ^ 2
+⊢ 1 ⊗ₜ[R] (1 ⊗ₜ[R] ((AdjoinRoot.of (polynomial (a 3))) ↑s * AdjoinRoot.root (polynomial (a 3)))) =
+    (↑s • 1) ⊗ₜ[R] (1 ⊗ₜ[R] AdjoinRoot.root (polynomial (a 3)))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r85/FourRootUnitScale318.lean:33:35: warning: This simp argument is unused:
+  root_scale
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [four, generator, Algebra.TensorProduct.congr_apply, Algebra.TensorProduct.map_tmul, ← Algebra.smul_def,
+    TensorProduct.smul_tmul', TensorProduct.tmul_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r85/FourRootUnitScale318.lean:33:46: warning: This simp argument is unused:
+  ← Algebra.smul_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [four, generator, Algebra.TensorProduct.congr_apply, Algebra.TensorProduct.map_tmul, root_scale,
+    TensorProduct.smul_tmul', TensorProduct.tmul_smul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r85/FourRootUnitScale318.lean:34:29: warning: This simp argument is unused:
+  TensorProduct.tmul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [four, generator, Algebra.TensorProduct.congr_apply, Algebra.TensorProduct.map_tmul, root_scale,
+    ← Algebra.smul_def, TensorProduct.smul_tmul']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

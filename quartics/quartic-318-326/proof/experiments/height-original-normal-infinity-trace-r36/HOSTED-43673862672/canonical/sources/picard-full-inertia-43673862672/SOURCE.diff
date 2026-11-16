@@ -1,0 +1,25 @@
+--- before/FourRootFullFiniteInertia318.lean
++++ after/FourRootFullFiniteInertia318.lean
+@@ -15,7 +15,7 @@
+       (finitePrime b p).inertia (A b≃ₐ[P]A b) ↔
+     FourRootCoordinateRingSigns318.finiteEquiv b g∈
+       (finitePrime b p).inertia (A b≃ₐ[ℂ]A b):=by
+-  simp only [Ideal.mem_inertia]
++  simp only [Ideal.mem_inertia,AlgEquiv.smul_def]
+   change (∀x,FourRootActualOrderAutomorphisms318.polynomialSign b g x-x∈finitePrime b p) ↔ _
+   simp only [FourRootActualOrderAutomorphisms318.polynomialSign_apply]
+ 
+@@ -27,11 +27,13 @@
+     (fun g=>(polynomial_inertia_iff b g p).symm)).symm.trans
+       (FourRootInertiaLabelCardinality318.finiteEquivalence b hb j p hp)
+ 
++include hb in
+ theorem full_inertia_card (j:Fin 4) (p:FinitePoints b) (hp:p.val.1=b j):
+     Nat.card ((finitePrime b p).inertia (A b≃ₐ[P]A b))=2:=by
+   rw [Nat.card_congr (branchInertiaEquivalence b hb j p hp)]
+   simp
+ 
++include hb in
+ /-- Any full actual inertia automorphism has a UNIQUE original sign
+ label supported on the one ramified root. This still does not substitute
+ an inertia count for the separately required ramification-index theorem. -/

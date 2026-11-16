@@ -1,0 +1,5 @@
+# Existing pointed norm quotation repair
+Own exact960/run43790660415 five37:147 complete modules, NormRepresentative passed2.369s. Next OriginalPointedNormTrace318 failed7.077s with quoted preimage projection at local notation E, E.symm unknown and downstream omitted-argument/binder errors.
+Remove both local notation aliases and insert their exact original expressions at each use. This avoids notation quotation prechecking without changing quotPrecheck or any other option. All original cover proofs, actual pointed/H1 equivalence, determinant-normed transition construction and old transfer are retained. No replacement cohomological definition of norm is introduced.
+The now-elaborated original equivalence expression retains hU,hV,hUV in norm's intended telescope. This addresses the observed erroneous binder elision caused by the failed notation; all callers already explicitly supply these assumptions. No new mathematical premise.
+Existing theorem proofs are otherwise unchanged. Cascades and whole-module success remain hosted-unverified. Source/current/Lean gates remain separate; no local Lean or proof expansion.

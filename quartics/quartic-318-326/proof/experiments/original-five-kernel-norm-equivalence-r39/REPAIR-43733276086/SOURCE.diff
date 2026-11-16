@@ -1,0 +1,31 @@
+--- published34
++++ candidate
+@@ -33,7 +33,14 @@
+       Units.map ((thickening R p).presheaf.map
+       (homOfLE ((π R p).preimage_mono (f.preimage_mono
+         (le_inf (inf_le_left.trans inf_le_left) inf_le_right)))).op).hom.toMonoidHom _
+-    rw [sectionUnit_restrict,sectionUnit_restrict,sectionUnit_restrict]
++    rw [sectionUnit_restrict R p (f.preimage_mono
++        (show U i ⊓ U j ⊓ U k ≤ U i ⊓ U j from inf_le_left)) (c.transition i j),
++      sectionUnit_restrict R p (f.preimage_mono
++        (show U i ⊓ U j ⊓ U k ≤ U j ⊓ U k from
++          le_inf (inf_le_left.trans inf_le_right) inf_le_right)) (c.transition j k),
++      sectionUnit_restrict R p (f.preimage_mono
++        (show U i ⊓ U j ⊓ U k ≤ U i ⊓ U k from
++          le_inf (inf_le_left.trans inf_le_left) inf_le_right)) (c.transition i k)]
+     dsimp only [sectionUnit,InfinitesimalUnitCocycle318.unit]
+     rw [← InfinitesimalUnitCocycle318.infinitesimal_add, ← map_add]
+     exact congrArg (fun a => InfinitesimalUnitCocycle318.infinitesimal _ _ ((π R p).app _ a))
+@@ -66,8 +73,10 @@
+   intro i j
+   rw [norm_transition]
+   apply Units.ext
+-  change (reduction R q).app _ (1 + InfinitesimalUnitCocycle318.epsilon (thickening R q)
+-    (DualNumberInfinitesimalLines318.epsilon R q) _ * _) = 1
++  change (reduction R q).app (π R q ⁻¹ᵁ (U i ⊓ U j))
++    (1 + InfinitesimalUnitCocycle318.epsilon (thickening R q)
++      (DualNumberInfinitesimalLines318.epsilon R q) (π R q ⁻¹ᵁ (U i ⊓ U j)) *
++      (π R q).app (U i ⊓ U j) ((traceCocycle f hY hfinite U c).transition i j)) = 1
+   rw [map_add,map_one,map_mul,DualNumberInfinitesimalLines318.reduction_epsilon_open,
+     zero_mul,add_zero]
+ variable (hc : (⊤ : Y.Opens) ≤ ⨆ i,U i)

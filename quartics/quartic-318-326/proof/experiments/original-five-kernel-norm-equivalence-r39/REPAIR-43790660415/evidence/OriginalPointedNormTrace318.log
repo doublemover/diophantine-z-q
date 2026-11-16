@@ -1,0 +1,75 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:22:22: error: no macro or `[quot_precheck]` instance for syntax kind `Lean.Parser.Term.proj` found
+  (f : Scheme.Hom✝ _ _).base✝
+This means we cannot eagerly check your notation/quotation for unbound identifiers; you can use `set_option quotPrecheck false` to disable this check.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:30:80: error(lean.unknownIdentifier): Unknown identifier `«E».symm`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:35:36: error: Application type mismatch: The argument
+  hUV
+has type
+  IsAffineOpen (U ⊓ V)
+but is expected to have type
+  U ⊔ V = ⊤
+in the application
+  norm p q f hY hfinite U V hU hV hUV
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:50:36: error: Application type mismatch: The argument
+  hUV
+has type
+  IsAffineOpen (U ⊓ V)
+but is expected to have type
+  U ⊔ V = ⊤
+in the application
+  norm p q f hY hfinite U V hU hV hUV
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:55:5: error(lean.unknownIdentifier): Unknown identifier `hU.preimage`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:55:21: error(lean.unknownIdentifier): Unknown identifier `hV.preimage`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:55:37: error(lean.unknownIdentifier): Unknown identifier `hUV.preimage`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:53:90: error: unsolved goals
+R : Type
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+U V : Y.Opens
+hc : U ⊔ V = ⊤
+hf : f ≫ q = p
+x : ↑Γ(X, f ⁻¹ᵁ (U ⊓ V))
+⊢ sorry =
+    PointedLineDeformation318.classOf (reduction R q)
+      (OriginalTwoOpenNormRepresentative318.normDeformation p q f hY hfinite U V hc x)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:62:36: error: Application type mismatch: The argument
+  hUV
+has type
+  IsAffineOpen (U ⊓ V)
+but is expected to have type
+  U ⊔ V = ⊤
+in the application
+  norm p q f hY hfinite U V hU hV hUV
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:64:71: error(lean.unknownIdentifier): Unknown identifier `«E».symm`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:65:59: error(lean.unknownIdentifier): Unknown identifier `hUV`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r37/OriginalPointedNormTrace318.lean:64:85: error: unsolved goals
+R : Type
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+U V : Y.Opens
+hU : IsAffineOpen U
+hV : IsAffineOpen V
+hc : U ⊔ V = ⊤
+hf : f ≫ q = p
+L : Class R p
+⊢ sorry =
+    AffineHOnePointedDeformation318.map q U V hU hV hc
+      ((AffineHOneComparison318.transfer f (traceSheaf f hY hfinite)) sorry)

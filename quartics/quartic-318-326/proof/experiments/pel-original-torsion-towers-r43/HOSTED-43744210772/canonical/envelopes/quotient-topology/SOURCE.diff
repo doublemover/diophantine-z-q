@@ -1,0 +1,39 @@
+--- before/PELOriginalAutomorphyQuotientTopology318.lean
++++ sources/PELOriginalAutomorphyQuotientTopology318.lean
+@@ -32,15 +32,15 @@
+   have ha:projection (P τ) p.1∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at _
+   have hp:Continuous (fun (x : ComplexVectors × ℂ) =>projection (P τ) x.1):=
+     QuotientAddGroup.continuous_mk.comp continuous_fst
+-  apply ((core τ hτ).localTriv a).continuousAt_of_comp_left hp.continuousAt ha
++  apply ((core τ hτ).localTriv a).continuousAt_of_comp_left (f := toTotal τ hτ) (x := p) hp.continuousAt ha
+   have hc:ContinuousAt (fun (x : ComplexVectors × ℂ) =>
+       (projection (P τ) x.1,factor τ hτ (shiftTo τ hτ a p.1) x.1*x.2)) p:=
+     hp.continuousAt.prodMk
+       (((holomorphic τ hτ _).continuous.comp continuous_fst).continuousAt.mul continuousAt_snd)
+   apply hc.congr_of_eventuallyEq
+-  filter_upwards [(shiftTo_locally_constant τ hτ a p.1 ha).comp_tendsto continuousAt_fst,
++  filter_upwards [continuousAt_fst.eventually (shiftTo_locally_constant τ hτ a p.1 ha),
+     hp.continuousAt ((chart τ hτ a).open_source.mem_nhds ha)] with x hx hxa
+-  change _=(core τ hτ).localTriv a (toTotal τ hτ x)
++  change (core τ hτ).localTriv a (toTotal τ hτ x)=_
+   rw [local_representative τ hτ a x hxa,hx]
+ 
+ /-- Actual local representative of a point of the produced bundle, using
+@@ -64,6 +64,8 @@
+   · change projection (P τ) z∈baseSet τ hτ a
+     exact hza
+   · exact hp
++  change (core τ hτ).localTriv a (toTotal τ hτ (localRepresentative τ hτ a p))=
++    (core τ hτ).localTriv a p
+   rw [local_representative τ hτ a (localRepresentative τ hτ a p) hza]
+   change (projection (P τ) z,factor τ hτ (shiftTo τ hτ a z) z*
+     ((core τ hτ).localTriv a p).2)=(core τ hτ).localTriv a p
+@@ -86,7 +88,7 @@
+   apply hc.congr_of_eventuallyEq
+   filter_upwards [(projection_continuous τ hτ).continuousAt
+     ((chart τ hτ a).open_source.mem_nhds hp)] with r hr
+-  exact (inverse_locally_represented τ hτ a r hr).symm
++  exact inverse_locally_represented τ hτ a r hr
+ 
+ /-- HOMEOMORPHISM with the actual action-quotient topology on one side
+ and the independently constructed bundle-core topology on the other.

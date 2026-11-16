@@ -1,0 +1,35 @@
+--- IntegralRationalGlobalComparison318.lean.before
++++ IntegralRationalGlobalComparison318.lean
+@@ -13,6 +13,17 @@
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
+ variable (c : Fin 4 → ℚˣ)
++
++/-- These are the same source restrictions used to construct overlapEquiv,
++not newly chosen scalar actions on either overlap. -/
++local instance sourceOverlapAlgebra :
++    Algebra (IntegralSourceBranches318.SourceOrder ℚ c)
++      (IntegralOverlapChartMaps318.Overlap ℚ c) :=
++  IntegralFullOverlapLocalization318.sourceAlgebra ℚ c
++local instance originalSourceAlgebra :
++    Algebra (IntegralSourceBranches318.SourceOrder ℚ c)
++      (ContactKummerOrder318.OpenOrder c) :=
++  IntegralRationalFullOverlap318.originalAlgebra c
+ 
+ /-- These chart identifications are the contravariant spectra of the original
+ ring equivalences, not abstract affine isomorphisms chosen from dimensions. -/
+@@ -129,10 +140,12 @@
+   apply (ContactGlobalSmooth318.cover c).hom_ext
+   intro b
+   cases b
+-  · change SourceGlobalAffine318.chartEmbedding c ≫ (fromOriginal c ≫ toOriginal c) = _
++  · change SourceGlobalAffine318.chartEmbedding c ≫ (fromOriginal c ≫ toOriginal c) =
++      SourceGlobalAffine318.chartEmbedding c ≫ 𝟙 _
+     rw [←Category.assoc,finite_fromOriginal,Category.assoc,finite_toOriginal]
+     simp only [Iso.inv_hom_id_assoc,Category.comp_id]
+-  · change InfinityGlobalScheme318.chartEmbedding c ≫ (fromOriginal c ≫ toOriginal c) = _
++  · change InfinityGlobalScheme318.chartEmbedding c ≫ (fromOriginal c ≫ toOriginal c) =
++      InfinityGlobalScheme318.chartEmbedding c ≫ 𝟙 _
+     rw [←Category.assoc,infinity_fromOriginal,Category.assoc,infinity_toOriginal]
+     simp only [Iso.inv_hom_id_assoc,Category.comp_id]
+ 

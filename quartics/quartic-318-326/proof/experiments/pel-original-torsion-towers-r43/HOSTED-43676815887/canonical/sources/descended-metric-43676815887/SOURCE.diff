@@ -1,0 +1,11 @@
+--- before/PELOriginalDescendedMetric318.lean
++++ after/PELOriginalDescendedMetric318.lean
+@@ -68,7 +68,7 @@
+       (((chart τ hτ a).continuousAt hp).comp hproj |>.prodMk htriv.snd)
+   apply h.congr_of_eventuallyEq
+   filter_upwards [hproj ((chart τ hτ a).open_source.mem_nhds hp)] with x hx
+-  exact (local_formula τ hτ a x hx).symm
++  exact local_formula τ hτ a x hx
+ 
+ /-- Smoothness in EVERY original complex base chart and actual bundle
+ fiber coordinate. Equality is on the full chart domain, not at its center. -/

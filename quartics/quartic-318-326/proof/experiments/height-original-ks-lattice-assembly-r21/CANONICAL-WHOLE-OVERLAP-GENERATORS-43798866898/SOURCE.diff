@@ -1,0 +1,44 @@
+--- before/IntegralWholeOverlapGenerators318.lean
++++ sources/IntegralWholeOverlapGenerators318.lean
+@@ -18,8 +18,19 @@
+   fin_cases j <;>
+     simp [UnitScaledQuadraticOrder318.three,generator,
+       Algebra.TensorProduct.congr_apply,Algebra.TensorProduct.map_tmul,
+-      UnitScaledQuadraticOrder318.equiv_root,←Algebra.smul_def,
+-      TensorProduct.smul_tmul',TensorProduct.tmul_smul]
++      UnitScaledQuadraticOrder318.equiv_root,←AdjoinRoot.algebraMap_eq,←Algebra.smul_def,
++      ←TensorProduct.smul_tmul',TensorProduct.tmul_smul]
++
++universe u
++/-- Evaluate the existing bundled base-change map on abstract carriers,
++before a concrete Laurent carrier has two polynomial scalar actions. -/
++private theorem baseChangedOrderMapAlong_generator {A T : Type u}
++    [CommRing A] [CommRing T] (f : A →+* T) (a : Fin 3 → A) (j : Fin 3) :
++    baseChangedOrderMapAlong f a (generator a j) =
++      generator (fun i => f (a i)) j := by
++  letI : Algebra A T := f.toAlgebra
++  change coefficientMap a T (generator a j) = _
++  exact coefficientMap_generator a T j
+ 
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ 
+@@ -32,12 +43,12 @@
+ theorem infinity_generator (j : Fin 3) :
+     infinityMap R c (generator (IntegralInfinityChart318.coefficient R c) j)=
+       (↑(y R)⁻¹:Laurent R) • generator (finiteParameter R c) j := by
+-  letI : Algebra (Polynomial R) (Laurent R) := (reciprocalMap R c).toRingHom.toAlgebra
++  change (fullOverlap R c).symm
++    (baseChangedOrderMapAlong (reciprocalMap R c).toRingHom
++      (IntegralInfinityChart318.coefficient R c)
++      (generator (IntegralInfinityChart318.coefficient R c) j)) = _
++  rw [baseChangedOrderMapAlong_generator]
+   apply (fullOverlap R c).injective
+-  change fullOverlap R c ((fullOverlap R c).symm
+-    (infinityBaseChange R c
+-      (1 ⊗ₜ[Polynomial R] generator (IntegralInfinityChart318.coefficient R c) j))) = _
+-  rw [AlgEquiv.apply_symm_apply]
+-  change coefficientMap _ (Laurent R) (generator _ j)=_
+-  rw [coefficientMap_generator,map_smul,full_scale,smul_smul,Units.inv_mul,one_smul]
++  rw [AlgEquiv.apply_symm_apply,map_smul,full_scale,smul_smul,Units.inv_mul,one_smul]
++
+ end IntegralWholeOverlapGenerators318

@@ -1,0 +1,11 @@
+--- before/OriginalPointedNormTrace318.lean
++++ sources/OriginalPointedNormTrace318.lean
+@@ -56,7 +56,7 @@
+     (hU.preimage f) (hV.preimage f) (hUV.preimage f) (InverseImageMayerVietoris318.inverseImage_cover f.base U V hc) x]
+   rw [norm_classification (hf := hf),OriginalTraceBoundary318.transfer_boundary,
+     AffineHOnePointedDeformation318.map_boundary,OriginalTwoOpenNormRepresentative318.norm_class]
+-  all_goals rfl
++  all_goals first | exact hc | rfl
+ /-- The source class domain is ALL actual pointed lines. This conjugacy is a
+ THEOREM about the norm constructed from actual transitions, not its definition. -/
+ lemma norm_eq_original_transfer (hf : f ≫ q = p) (L : Class R p) :
