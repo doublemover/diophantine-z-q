@@ -1,0 +1,21 @@
+{
+  "status": "PASS_SPLIT_PRIME_API_REPAIR_SOURCE_NOT_LEAN",
+  "candidate_sha256": "e5b9ff92710e22bdabecd1943aff0a4d3afa4f03477b676d79436bcb8567aa49",
+  "bindings_sha256": "1a4d79454c77736ecc9accd4b08cd8aa8b17d9ad6130ba81236fdfeef99440df",
+  "source_commit": "47a969a705cd8e6f5c1327b678a8a59dd2c32241",
+  "execution_commit": "f68f3a08e05c412221f950745a3d2bcee98ed645",
+  "run_id": 43938887239,
+  "checks": [
+    "Five exact hosted proof/API failures addressed without theorem/assumption/import/option changes.",
+    "congrArg casts integer equality into ZMod directly, avoiding unsupported mod_cast direction.",
+    "Added additive AC normalization matches actual imaginary-coordinate order in displayed remainder goal.",
+    "Explicit reverse Nat.cast_lt then Int.natCast_natAbs matches native Int/Lemmas proof pattern.",
+    "Pinned Init/WF defines measure as WellFoundedRelation; .wf supplies native has_min instead of nonexistent measure_wf.",
+    "simp unfolds same f,v and Zsqrtd.lift; native Zsqrtd Basic has expose public section, so imported lift body is available unlike recent moduleTop case.",
+    "Minimal-kernel norm argument and split-prime result unchanged; checked normdivision producer and separate67 topology repair untouched."
+  ],
+  "limits": [
+    "No local Lean; casts/simp/natural inference still require focused hosted compilation and audit.",
+    "No complete norm criterion, auxiliary selection or global witness claim."
+  ]
+}

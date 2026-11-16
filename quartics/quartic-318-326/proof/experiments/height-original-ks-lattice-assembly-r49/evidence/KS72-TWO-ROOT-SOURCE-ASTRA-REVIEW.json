@@ -1,0 +1,47 @@
+{
+  "status": "SOURCE_API_REVIEW_PASS_NOT_LEAN",
+  "application_sha256": "f61b5582b700fe333202ea694a41b58830711b94697cef06f16d3627b8a124cc",
+  "run_id": "43864149692",
+  "source_commit": "d5cf3b7f29d54327c1a5f30584fb2c5f4de27723",
+  "source_tree": "77f41d6809df4efadb8fc52fefbef20a18816f96",
+  "execution_commit": "2bb2074c7ba7cf1e49fbf8e6bcd11fdc87314990",
+  "modules": {
+    "IntegerPolynomialLocalization318": {
+      "before_sha256": "b1a1dc756b5bac2116260495225421cc33ac7b146eae57d61054e40c620e65be",
+      "after_sha256": "4b6e9ebbbb3ee836fd064e1a42b4082912400fd76c6a0830fbd0279ef34aeac3",
+      "log_sha256": "b5776a65258a9892540def8b80619f0b66c5dc22d456a41e2e9d223af60d8273"
+    },
+    "IntegralFourRootOverlap318": {
+      "before_sha256": "02af88affb5f09d78793814bb3037b5a0b15d7937ba4a0930683deb7106864de",
+      "after_sha256": "0033bf527925d1559075c62395566d3b483e6599b2665ea779d8067cc6ea81a3",
+      "log_sha256": "989f32103062af051da79bca28b1f5258386f1acf3145f7bb1b4e4565b4c5ebf"
+    }
+  },
+  "checks": [
+    "All candidate/before/error-log/primary/native snapshot SHA256 bindings and inventory/accounting bindings exact. Before sources and four primary sources match immutable d5 source packet.",
+    "Exact inventory confirms two compiler errors and four unchanged primary compile passes. Inventory is 69 passes / 3 errors / 125 not selected, not packet acceptance.",
+    "Algebra.algebra_ext exists in pinned Algebra namespace; Eq.mp congrArg on IsLocalization uses equality.symm from native polynomial algebra to original named algebra, preserving denominators and original target instance.",
+    "Generic helper proves the identical Spec contravariant composition using supplied ring hom f and equivalence e; explicit IsIso and native IsOpenImmersion.comp retain exact prior open premise. Actual instantiation uses unchanged reciprocal map, fullOverlap and localization proof.",
+    "Public statement telescopes, actual maps, imports and options unchanged; only private generic lemma and proof bodies added/changed. No axiom/sorry/trust bypass or new public premise."
+  ],
+  "native_raw_blob_validation": {
+    "AlgebraDefs.lean": "d540d5fa819588cf2012d189d3b2cfd0552a7c23",
+    "Scheme.lean": "65142622f0f07aa21a2cd0f9962c2f4728d435a1",
+    "OpenImmersion.lean": "766ae8e39c91e9d38344f1b0ff60bdd05ee2323d",
+    "PolynomialAlgebra.lean": {
+      "snapshot_blob": "19e24ea22f6b2763fa27f2f3e456d9e97e34e449",
+      "pinned_remote_blob": "ce5f1ce9aa8905348f5ff07c15ff90b695e5ef3b",
+      "difference": "snapshot has exactly one extra trailing LF; removing it yields pinned raw blob. Snapshot SHA256 binding is accurate; not raw byte identity."
+    }
+  },
+  "limitations": [
+    "No local Lean executed. Generic helper elaboration and named-instance transport still require exact hosted compile.",
+    "No whole-packet acceptance, no assumption that other remaining errors are resolved."
+  ],
+  "exact_native_supplement": {
+    "path": "recovery-ks72-two-roots-43864149692/PINNED-NATIVE-SUPPLEMENT.json",
+    "sha256": "b502a3e5b10c51b7d3f487765dffefc3fc36995868f0f90d01a6dac76251e043",
+    "canonical_polynomial_sha256": "299800de42ea932530de3174d283ac26bb53f4b9668cd37a67bf840481aa8f02",
+    "verified_extra_single_LF_only": true
+  }
+}

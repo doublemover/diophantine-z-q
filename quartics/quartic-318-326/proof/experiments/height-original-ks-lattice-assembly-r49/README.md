@@ -1,0 +1,7 @@
+# Minimal unit-dependent algebra repair for N1
+
+All 202 KS48 predecessor roots retain exact order; 201 sources remain byte-identical. Only IntegralClosureAwayField318 changes. The explicit unit proof hx cannot be inferred from an Algebra (Localization.Away x) L goal, so the invalid generalized fieldAlgebra registration is removed. The same fieldAlgebra x hx is installed explicitly through letI in its dependent declaration types and proofs. AwayClosure captures this supplied algebra, and the remaining tower return types expose the actual hx-dependent action/carrier. This is an explicit type-telescope correction to previously uncompiled declarations, not a claim that the invalid registration was accepted. No Fact premise, alternative map or new mathematical assumption is introduced.
+
+Fresh N1 checking retained all 39 strict predecessor compiler passes and the authenticated 1033-declaration subset audit. The new generic localization helper failed at instance registration, and its actual overlap consumer was blocked. This single-source repair is reviewed only; instance inferability, reducibility and remaining scalar matching still require hosted checking. The exact target remains OriginalIntegerNormalizedOverlap318 with 41 packet roots and 180 baseline dependencies. No N2 or later geometry source is added.
+
+All old evidence, passing sources, named maps, imports, options and resource limits remain unchanged. Only the KS registry slot changes 48 to 49; no marker, scripts, workflows, baseline or unrelated packet changes. No local Lean.
