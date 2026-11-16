@@ -1,0 +1,44 @@
+--- before/OriginalCoefficientCohomology318.lean
++++ after/OriginalCoefficientCohomology318.lean
+@@ -38,8 +38,9 @@
+   ext U s
+   obtain ⟨U,rfl⟩ := Opposite.op_surjective U
+   change Γ(L.object,U) at s
+-  change (multiply R p L 0).hom.app (op U) s = 0
+-  rw [multiply_apply R p L 0 U s,map_zero,zero_smul]
++  change @Eq Γ(L.object,U)
++    ((ModuleScalar318.map L.object (scalar R p ⊤ 0)).app U s) (0 : Γ(L.object,U))
++  simp only [ModuleScalar318.map_apply,scalar_restrict,map_zero,zero_smul]
+ lemma multiply_one : multiply R p L 1 = 𝟙 _ := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U s
+@@ -52,19 +53,21 @@
+   ext U t
+   obtain ⟨U,rfl⟩ := Opposite.op_surjective U
+   change Γ(L.object,U) at t
+-  change (multiply R p L (r+s)).hom.app (op U) t =
+-    (multiply R p L r).hom.app (op U) t + (multiply R p L s).hom.app (op U) t
+-  rw [multiply_apply R p L (r+s) U t,multiply_apply R p L r U t,
+-    multiply_apply R p L s U t,map_add,add_smul]
++  change @Eq Γ(L.object,U)
++    ((ModuleScalar318.map L.object (scalar R p ⊤ (r+s))).app U t)
++    ((ModuleScalar318.map L.object (scalar R p ⊤ r)).app U t +
++      (ModuleScalar318.map L.object (scalar R p ⊤ s)).app U t)
++  simp only [ModuleScalar318.map_apply,scalar_restrict,map_add,add_smul]
+ lemma multiply_mul (r s : R) : multiply R p L (r*s) = multiply R p L s ≫ multiply R p L r := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U t
+   obtain ⟨U,rfl⟩ := Opposite.op_surjective U
+   change Γ(L.object,U) at t
+-  change (multiply R p L (r*s)).hom.app (op U) t =
+-    (multiply R p L r).hom.app (op U) ((multiply R p L s).hom.app (op U) t)
+-  rw [multiply_apply R p L (r*s) U t,multiply_apply R p L r U _,
+-    multiply_apply R p L s U t,map_mul,mul_smul]
++  change @Eq Γ(L.object,U)
++    ((ModuleScalar318.map L.object (scalar R p ⊤ (r*s))).app U t)
++    ((ModuleScalar318.map L.object (scalar R p ⊤ r)).app U
++      ((ModuleScalar318.map L.object (scalar R p ⊤ s)).app U t))
++  simp only [ModuleScalar318.map_apply,scalar_restrict,map_mul,mul_smul]
+ 
+ /-- Structural R action on the UNCHANGED actual derived Ext carrier,
+ induced directly by its actual coefficient endomorphisms. -/

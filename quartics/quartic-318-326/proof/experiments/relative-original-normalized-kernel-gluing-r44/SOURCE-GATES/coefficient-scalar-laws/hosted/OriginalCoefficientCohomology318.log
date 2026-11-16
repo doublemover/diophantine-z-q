@@ -1,0 +1,49 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r43/OriginalCoefficientCohomology318.lean:23:0: warning: Definition `OriginalCoefficientCohomology318.sectionModule` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r43/OriginalCoefficientCohomology318.lean:36:46: error: unsolved goals
+R : CommRingCat
+X : Scheme
+p : X ⟶ Spec R
+L : Line X
+U : TopologicalSpace.Opens ↥X
+s : ↑Γ(L.object, U)
+⊢ 0 = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r43/OriginalCoefficientCohomology318.lean:50:93: error: unsolved goals
+R : CommRingCat
+X : Scheme
+p : X ⟶ Spec R
+L : Line X
+r s : ↑R
+U : TopologicalSpace.Opens ↥X
+t : ↑Γ(L.object, U)
+⊢ (scalar R p U) r • t + (scalar R p U) s • t = (scalar R p U) r • t + (scalar R p U) s • t
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r43/OriginalCoefficientCohomology318.lean:66:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom ((multiply R p L r).hom.app (op U))) ?m.147
+in the target expression
+  (scalar R p U) (r * s) • t =
+    (ConcreteCategory.hom ((multiply R p L r).hom.app (op U)))
+      ((ConcreteCategory.hom ((multiply R p L s).hom.app (op U))) t)
+
+R : CommRingCat
+X : Scheme
+p : X ⟶ Spec R
+L : Line X
+r s : ↑R
+U : TopologicalSpace.Opens ↥X
+t : ↑Γ(L.object, U)
+⊢ (scalar R p U) (r * s) • t =
+    (ConcreteCategory.hom ((multiply R p L r).hom.app (op U)))
+      ((ConcreteCategory.hom ((multiply R p L s).hom.app (op U))) t)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (scalar R p U) (r * s) • t
+  has type
+    ↑Γ(L.object, U)
+  but is expected to have type
+    ↑((additive L).obj.obj (op U))
+  in the application
+    Eq ((scalar R p U) (r * s) • t)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r43/OriginalCoefficientCohomology318.lean:69:0: warning: Definition `OriginalCoefficientCohomology318.cohomologyModule` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
