@@ -1,0 +1,5 @@
+# Minimal gluing instance-alignment successor of KS37
+
+Published KS37 is the exact predecessor. All 197 roots retain their order; only IntegralOriginalGluingCompatibility318 changes, with 196 source files byte-identical. All passed sources, including the hosted-passed KS36 overlap repair, remain intact. The sole failed scalar-map rewrite now explicitly binds its original Laurent/CommonOrder/OldOverlap carriers and runs under scoped with_reducible_and_instances. The helper theorem, actual maps/scalars/generators, public statements, imports, options and resource limits are unchanged.
+
+The exact source-bound fresh KS37 shard passed 63 roots and audited 1512 declarations, then reported the RingHom semiring-dictionary mismatch at this helper instantiation. The candidate addresses that exact occurrence without claiming compiler success. All predecessor evidence remains byte-identical; fresh source/log/inventory/binding/native snapshot/review are bound. Only the active KS registry slot changes r37 to r38. No other slots, markers, scripts, baseline files, or separate geometry drafts change. No local Lean.
