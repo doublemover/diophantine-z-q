@@ -40,7 +40,7 @@ jobs:
         run: python -B scripts/validate_progress_inventory_request.py --output build/dependency-setup/inventory-request.json --github-output "$GITHUB_OUTPUT"
       - run: python -B scripts/test_progress_inventory.py
       - id: plan
-        run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
+        run: python -B scripts/plan_progress_inventory.py --github-output "$GITHUB_OUTPUT"
       - name: Warm pinned compiler cache before inventory fan-out
         if: steps.plan.outputs.has_packets == 'true'
         uses: ./.github/actions/setup-pinned-lean
@@ -58,16 +58,18 @@ jobs:
   inventory:
     needs: plan
     if: needs.plan.outputs.has_packets == 'true'
-    name: Dependency-ready inventory ${{ matrix.packet }}
+    name: Dependency-ready inventory ${{ matrix.artifact_key }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: ${{ matrix.job_minutes }}
     strategy:
       fail-fast: false
       max-parallel: 4
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     steps:
       - name: Set absolute inventory deadline including checkout and setup
-        run: echo "INVENTORY_DEADLINE=$(( $(date +%s) + 24 * 60 ))" >> "$GITHUB_ENV"
+        env:
+          WINDOW_MINUTES: ${{ matrix.window_minutes }}
+        run: echo "INVENTORY_DEADLINE=$(( $(date +%s) + WINDOW_MINUTES * 60 ))" >> "$GITHUB_ENV"
       - id: checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - id: python
@@ -101,6 +103,10 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && steps.python.outcome == 'success'
         env:
           PACKET: ${{ matrix.packet }}
+          ARTIFACT_KEY: ${{ matrix.artifact_key }}
+          TARGETS_JSON: ${{ matrix.targets_json }}
+          SELECTION_SHA256: ${{ matrix.selection_sha256 }}
+          WINDOW_MINUTES: ${{ matrix.window_minutes }}
           INVENTORY_SOURCE_COMMIT: ${{ needs.plan.outputs.source_commit }}
           INVENTORY_SOURCE_TREE: ${{ needs.plan.outputs.source_tree }}
           INVENTORY_REQUEST_SHA256: ${{ needs.plan.outputs.marker_sha256 }}
@@ -108,22 +114,23 @@ jobs:
         run: |
           python -B scripts/check_progress_inventory.py --packet "$PACKET" \
             --cache "$GITHUB_WORKSPACE/.cache/progress-ci" \
-            --output "$GITHUB_WORKSPACE/build/progress-inventory/$PACKET" \
-            --deadline "$INVENTORY_DEADLINE" --setup-ok "$SETUP_OK"
+            --output "$GITHUB_WORKSPACE/build/progress-inventory/$ARTIFACT_KEY" \
+            --targets-json "$TARGETS_JSON" --selection-sha256 "$SELECTION_SHA256" \
+            --window-minutes "$WINDOW_MINUTES" --deadline "$INVENTORY_DEADLINE" --setup-ok "$SETUP_OK"
       - name: Preserve inventory setup evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: inventory-setup-${{ matrix.packet }}
+          name: inventory-setup-${{ matrix.artifact_key }}
           path: build/dependency-setup/
           if-no-files-found: ignore
       - name: Preserve inventory receipts and logs, never compiled artifacts
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: inventory-${{ matrix.packet }}
+          name: inventory-${{ matrix.artifact_key }}
           path: |
-            build/progress-inventory/${{ matrix.packet }}/INVENTORY.json
-            build/progress-inventory/${{ matrix.packet }}/logs/
-            build/progress-inventory/${{ matrix.packet }}/ExperimentAudit.lean
+            build/progress-inventory/${{ matrix.artifact_key }}/INVENTORY.json
+            build/progress-inventory/${{ matrix.artifact_key }}/logs/
+            build/progress-inventory/${{ matrix.artifact_key }}/ExperimentAudit.lean
           if-no-files-found: warn

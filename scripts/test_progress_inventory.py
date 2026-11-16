@@ -265,7 +265,7 @@ class InventoryTests(unittest.TestCase):
             self.assertIn('WALL_CLOCK_LIMIT_EXCEEDED',(p/'logs/A.log').read_text())
 
     def test_hosted_guard_blocks_local_compilation(self):
-        with patch.dict(os.environ,{'GITHUB_ACTIONS':'false'}),patch('sys.argv',['x','--packet','x','--cache','x','--output','x','--deadline','1','--setup-ok','true']),patch.object(ci,'check_sources') as check:
+        with patch.dict(os.environ,{'GITHUB_ACTIONS':'false'}),patch('sys.argv',['x','--packet','x','--cache','x','--output','x','--deadline','1','--selection-sha256','0'*64,'--setup-ok','true']),patch.object(ci,'check_sources') as check:
             with self.assertRaisesRegex(RuntimeError,'hosted-only'):inv.main()
             check.assert_not_called()
 
@@ -285,7 +285,7 @@ class InventoryTests(unittest.TestCase):
         self.assertLess(s.index('id: request'),s.index('id: plan'))
         self.assertIn('group: progress-experiments-${{ github.ref }}',s)
         self.assertIn('cancel-in-progress: false',s);self.assertIn('max-parallel: 4',s)
-        self.assertIn('timeout-minutes: 30',s);self.assertIn('+ 24 * 60',s)
+        self.assertIn('timeout-minutes: ${{ matrix.job_minutes }}',s);self.assertIn('+ WINDOW_MINUTES * 60',s)
         self.assertNotIn('lake env',s);self.assertNotIn('continue-on-error:',s)
         self.assertIn("steps.dependency_sources.outcome == 'success' && steps.upstream.outcome == 'success'",s)
         upload=s.split('name: Preserve inventory receipts and logs',1)[1]
@@ -386,6 +386,144 @@ class RequestTests(unittest.TestCase):
         trigger=workflow.split('on:',1)[1].split('permissions:',1)[0]
         self.assertNotIn('scripts/',trigger);self.assertNotIn('.github/workflows/',trigger)
         self.assertIn(v.MARKER,trigger)
+
+
+class ShardTests(unittest.TestCase):
+    fixture = InventoryTests.fixture
+    compiler = InventoryTests.compiler
+    setup_fixture = InventoryTests.setup_fixture
+    # Every compile is the synthetic compiler above.
+    def test_closure_keeps_dependencies_skips_unrelated_prefix(self):
+        from plan_progress_inventory import selection
+        with tempfile.TemporaryDirectory() as t:
+            f,d,o,l,r=self.fixture(Path(t),{'Old':[], 'A':[], 'B':['A'], 'C':['B'], 'Other':[]})
+            chosen=selection('packet',ci.sha(f/'intake.json'),d,['C'])
+            self.assertEqual(chosen['selected_order'],['A','B','C'])
+            for n in d['order']:
+                if n not in chosen['selected_order']:r['modules'][n]['status']='not_selected'
+            fn,calls=self.compiler()
+            inv.inventory(f,d,o,l,{},r,1000,fn,lambda:0)
+            self.assertEqual(calls,['A','B','C','ExperimentAudit'])
+            self.assertEqual(r['counts'],{'not_selected':2,'compile_pass':3})
+            self.assertTrue(r['selected_dependency_ready_inventory_complete'])
+            self.assertFalse(r['dependency_ready_inventory_complete'])
+            self.assertFalse(r['all_packet_modules_compiled'])
+            self.assertFalse(r['packet_acceptance'])
+            self.assertEqual(r['audit']['modules'],['A','B','C'])
+
+    def test_selection_deterministic_and_exact_intake_bound(self):
+        from plan_progress_inventory import selection
+        with tempfile.TemporaryDirectory() as t:
+            f,d,_,_,_=self.fixture(Path(t),{'A':[], 'B':[], 'C':['A']})
+            a=selection('packet','1'*64,d,['C','B'])
+            self.assertEqual(a,selection('packet','1'*64,d,['B','C']))
+            self.assertNotEqual(a['selection_sha256'],selection('packet','2'*64,d,['C','B'])['selection_sha256'])
+            self.assertEqual(a['targets'],['B','C'])
+            for targets in ([],['Missing'],['A','A'],'A',[True]):
+                with self.subTest(targets=targets),self.assertRaises(ValueError):selection('packet','1'*64,d,targets)
+
+    def test_selected_budget_blockers_not_omitted_or_failure(self):
+        with tempfile.TemporaryDirectory() as t:
+            f,d,o,l,r=self.fixture(Path(t),{'Old':[], 'A':[], 'B':['A']})
+            r['modules']['Old']['status']='not_selected';fn,calls=self.compiler()
+            inv.inventory(f,d,o,l,{},r,419,fn,lambda:0)
+            self.assertEqual(calls,[])
+            self.assertEqual(r['modules']['B']['blocker_statuses'],{'A':'not_attempted_budget'})
+            self.assertEqual(r['modules']['Old']['status'],'not_selected')
+            self.assertFalse(r['selected_dependency_ready_inventory_complete'])
+
+    def test_selection_hash_mismatch_fails_before_environment(self):
+        with tempfile.TemporaryDirectory() as t:
+            f,d,args,plan=self.setup_fixture(Path(t));args.setup_ok=True;args.selection_sha256='0'*64
+            with patch.object(exp,'packet',return_value=(f,d,set(),set())),patch.object(ci,'environment') as environment:
+                with self.assertRaisesRegex(ValueError,'Selection identity'):inv.run(args,plan)
+                environment.assert_not_called()
+
+    def test_targeted_setup_failure_preserves_not_selected(self):
+        with tempfile.TemporaryDirectory() as t:
+            f,d,args,plan=self.setup_fixture(Path(t));args.targets=['A']
+            d['order'].append('Other');d['files']['Other.lean']={'sha256':'0'*64,'imports':[]}
+            with patch.object(exp,'packet',return_value=(f,d,set(),set())):
+                with self.assertRaisesRegex(ValueError,'setup did not succeed'):inv.run(args,plan)
+            rows=json.loads((args.output/'INVENTORY.json').read_text())['modules']
+            self.assertEqual(rows['Other']['status'],'not_selected');self.assertEqual(rows['A']['status'],'setup_error')
+
+    def test_plan_full_validation_and_active_scope(self):
+        from plan_progress_inventory import build
+        with tempfile.TemporaryDirectory() as t:
+            f,d,_,_,_=self.fixture(Path(t),{'A':[], 'B':['A'], 'Other':[]})
+            req={'schema':2,'source_commit':'1'*40,'source_tree':'2'*40,'request_id':'shard',
+                 'job_minutes':210,'shards':[{'packet':'packet','targets':['B']},{'packet':'packet','targets':['Other']}]}
+            packet=Mock(return_value=(f,d,set(),set()));publication=Mock()
+            plan={'base':'base','snapshot':'snapshot'}
+            result=build(req,plan,['packet'],packet,publication)
+            packet.assert_called_once_with('packet',plan);publication.assert_called_once_with([f])
+            rows=result['matrix']['include'];self.assertEqual(len(rows),2)
+            self.assertNotEqual(rows[0]['artifact_key'],rows[1]['artifact_key'])
+            self.assertEqual(rows[0]['job_minutes'],210);self.assertEqual(rows[0]['window_minutes'],204)
+            self.assertEqual(json.loads(rows[0]['targets_json']),['B'])
+            with self.assertRaisesRegex(ValueError,'not active'):build(req,plan,[],packet,publication)
+            packet.side_effect=ValueError('full packet hash mismatch')
+            with self.assertRaisesRegex(ValueError,'full packet hash mismatch'):build(req,plan,['packet'],packet,publication)
+
+    def test_schema1_preserves_full_packet_window_and_artifact_name(self):
+        from plan_progress_inventory import build
+        with tempfile.TemporaryDirectory() as t:
+            f,d,_,_,_=self.fixture(Path(t),{'A':[]})
+            req={'schema':1,'source_commit':'1'*40,'source_tree':'2'*40,'request_id':'old'}
+            result=build(req,{'base':'b','snapshot':'s'},['packet'],lambda *a:(f,d,set(),set()),lambda *a:None)
+            row=result['matrix']['include'][0]
+            self.assertEqual(row['targets_json'],'null');self.assertEqual(row['artifact_key'],'packet')
+            self.assertEqual((row['job_minutes'],row['window_minutes']),(30,24))
+
+    def test_schema2_shape_rejects_unbounded_or_ambiguous_requests(self):
+        from validate_progress_inventory_request import validate_shape
+        original={'schema':2,'source_commit':'1'*40,'source_tree':'2'*40,'request_id':'new',
+                  'job_minutes':210,'shards':[{'packet':'packet','targets':['A']}]}
+        validate_shape(original)
+        changes=[{'job_minutes':True},{'job_minutes':211},{'job_minutes':29},{'shards':[]},
+                 {'shards':original['shards']*17},{'shards':original['shards']*2},
+                 {'shards':[{'packet':'../bad','targets':None}]},
+                 {'shards':[{'packet':'packet','targets':[]}]},
+                 {'shards':[{'packet':'packet','targets':['A','A']}]},
+                 {'shards':[{'packet':'packet','targets':['A;bad']}]},
+                 {'shards':[{'packet':'packet','targets':['A'+str(i) for i in range(65)]}]},
+                 {'extra':True}]
+        for change in changes:
+            with self.subTest(change=change),self.assertRaises(ValueError):validate_shape({**original,**change})
+
+    def test_hosted_long_deadline_still_bounded(self):
+        argv=['x','--packet','x','--cache','x','--output','x','--deadline','12241',
+              '--window-minutes','204','--selection-sha256','0'*64,'--setup-ok','true']
+        with patch.dict(os.environ,{'GITHUB_ACTIONS':'true'}),patch('sys.argv',argv),patch.object(inv.time,'time',return_value=0),patch.object(ci,'check_sources') as check:
+            with self.assertRaisesRegex(ValueError,'bounded inventory'):inv.main()
+            check.assert_not_called()
+
+    def test_no_shard_implementation_in_production_check(self):
+        root=Path(__file__).resolve().parents[1]
+        production=(root/'scripts/check_progress_experiment.py').read_text()
+        self.assertNotIn('not_selected',production)
+        self.assertNotIn('targets_json',production)
+        workflow=(root/'.github/workflows/progress-inventory.yml').read_text()
+        self.assertIn('--selection-sha256 "$SELECTION_SHA256"',workflow)
+        self.assertIn('--targets-json "$TARGETS_JSON"',workflow)
+        self.assertIn('name: inventory-${{ matrix.artifact_key }}',workflow)
+        self.assertIn('scripts/plan_progress_inventory.py',workflow)
+        self.assertNotIn('download-artifact',workflow)
+        self.assertNotIn('cache/save',workflow)
+
+
+class ShardRequestTests(unittest.TestCase):
+    fixture = RequestTests.fixture
+    def test_real_git_schema2_source_binding(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);v,g,d,m,e,env,a=self.fixture(root)
+            d.update(schema=2,job_minutes=210,shards=[{'packet':'packet','targets':['A']}])
+            m.write_text(json.dumps(d));a();r=v.validate(root,e,env)
+            self.assertEqual(r['shards'],d['shards']);self.assertEqual(r['source_commit'],d['source_commit'])
+            self.assertFalse(r['proof_acceptance'])
+            (root/'source.txt').write_text('dirty shard compiler')
+            with self.assertRaisesRegex(ValueError,'worktree or index'):v.validate(root,e,env)
 
 
 if __name__=='__main__':

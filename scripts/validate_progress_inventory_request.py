@@ -25,6 +25,41 @@ def unique_object(pairs):
     return result
 
 
+def validate_shape(request):
+    """Bound execution requests before planning; no paths or shell text accepted."""
+    common = {'schema', 'source_commit', 'source_tree', 'request_id'}
+    if not isinstance(request, dict) or type(request.get('schema')) is not int:
+        raise ValueError('Unexpected request schema')
+    if request['schema'] == 1:
+        if set(request) != common:
+            raise ValueError('Unexpected request schema')
+        return
+    if request['schema'] != 2 or set(request) != common | {'job_minutes', 'shards'}:
+        raise ValueError('Unsupported request schema')
+    if type(request['job_minutes']) is not int or not 30 <= request['job_minutes'] <= 210:
+        raise ValueError('Inventory job window must be 30 through 210 minutes')
+    shards = request['shards']
+    if not isinstance(shards, list) or not 1 <= len(shards) <= 16:
+        raise ValueError('Require 1 through 16 bounded shards')
+    seen = set()
+    for shard in shards:
+        if not isinstance(shard, dict) or set(shard) != {'packet', 'targets'}:
+            raise ValueError('Unexpected shard schema')
+        packet, targets = shard['packet'], shard['targets']
+        if not isinstance(packet, str) or not re.fullmatch('[A-Za-z0-9_-]{1,160}', packet):
+            raise ValueError('Invalid packet name')
+        # null selects the entire existing packet, not a wildcard filesystem path.
+        if targets is not None:
+            if (not isinstance(targets, list) or not 1 <= len(targets) <= 64 or
+                any(not isinstance(n, str) or not re.fullmatch('[A-Za-z][A-Za-z0-9_]*', n) for n in targets) or
+                len(set(targets)) != len(targets)):
+                raise ValueError('Require 1 through 64 unique literal module targets, or null')
+        key = (packet, None if targets is None else tuple(sorted(targets)))
+        if key in seen:
+            raise ValueError('Duplicate shard')
+        seen.add(key)
+
+
 def validate(root, event, env):
     if env.get('GITHUB_EVENT_NAME') != 'push' or env.get('GITHUB_REF') != BRANCH:
         raise ValueError('Only the explicit feature-branch push route is permitted')
@@ -43,16 +78,13 @@ def validate(root, event, env):
     except subprocess.CalledProcessError as error:
         raise ValueError('Tracked worktree or index differs from the execution commit') from error
     raw = (root / MARKER).read_bytes()
-    if len(raw) > 4096 or git(root, 'show', head+':'+MARKER) != raw:
+    if len(raw) > 16384 or git(root, 'show', head+':'+MARKER) != raw:
         raise ValueError('Request is oversized or not the committed bytes')
     tree_entry = git(root, 'ls-tree', head, '--', MARKER).decode()
     if not tree_entry.startswith('100644 blob '):
         raise ValueError('Request must be an ordinary nonexecutable tracked file')
     request = json.loads(raw, object_pairs_hook=unique_object)
-    if not isinstance(request, dict) or set(request) != {'schema','source_commit','source_tree','request_id'}:
-        raise ValueError('Unexpected request schema')
-    if type(request['schema']) is not int or request['schema'] != 1:
-        raise ValueError('Unsupported request schema')
+    validate_shape(request)
     source, source_tree = request['source_commit'], request['source_tree']
     if any(not isinstance(x,str) or not re.fullmatch('[0-9a-f]{40}',x) for x in (source,source_tree)):
         raise ValueError('Request requires full immutable commit/tree IDs')

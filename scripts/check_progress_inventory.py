@@ -17,6 +17,7 @@ import subprocess
 import time
 import check_progress_experiment as experiment
 import check_progress_lean as ci
+from plan_progress_inventory import selection
 
 SECONDS = 180
 UPLOAD_RESERVE = 60
@@ -75,6 +76,8 @@ def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compi
     try:
         for name in data['order']:
             row = rows[name]
+            if row['status'] == 'not_selected':
+                continue
             dependencies = sorted(set(row['imports']) & names)
             blockers = [d for d in dependencies if rows[d]['status'] != 'compile_pass']
             if blockers:
@@ -152,6 +155,9 @@ def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compi
         result['dependency_ready_inventory_complete'] = not any(
             r['status'] in ('pending', 'running', 'interrupted', 'not_attempted_budget', 'not_attempted_interrupted', 'setup_error')
             for r in rows.values())
+        result['selected_dependency_ready_inventory_complete'] = result['dependency_ready_inventory_complete']
+        result['dependency_ready_inventory_complete'] = (result['dependency_ready_inventory_complete'] and
+            all(r['status'] != 'not_selected' for r in rows.values()))
         result['all_packet_modules_compiled'] = len(successful) == len(names)
         checkpoint()
 
@@ -159,7 +165,7 @@ def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compi
 def run(args, plan):
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
-    result = {'schema': 1, 'status': 'SETUP_PENDING', 'packet': args.packet,
+    result = {'schema': 2, 'status': 'SETUP_PENDING', 'packet': args.packet,
               'head_sha': os.environ.get('GITHUB_SHA'), 'run_id': os.environ.get('GITHUB_RUN_ID'),
               'requested_source_commit': os.environ.get('INVENTORY_SOURCE_COMMIT'),
               'requested_source_tree': os.environ.get('INVENTORY_SOURCE_TREE'),
@@ -174,7 +180,13 @@ def run(args, plan):
         folder, data, direct, external = experiment.packet(args.packet, plan)
         result['packet_sha256'] = ci.sha(folder / 'intake.json')
         result['order'] = data['order']
-        result['modules'] = {n: {'status': 'pending', 'source_sha256': data['files'][n+'.lean']['sha256'],
+        chosen = selection(args.packet, result['packet_sha256'], data, getattr(args, 'targets', None))
+        expected = getattr(args, 'selection_sha256', None)
+        if expected is not None and chosen['selection_sha256'] != expected:
+            raise ValueError('Selection identity differs from the exact validated plan')
+        result['selection'] = chosen
+        selected = set(chosen['selected_order'])
+        result['modules'] = {n: {'status': 'pending' if n in selected else 'not_selected', 'source_sha256': data['files'][n+'.lean']['sha256'],
                                 'imports': sorted(data['files'][n+'.lean']['imports']),
                                 'occurrence': args.packet + '/' + n} for n in data['order']}
         save(output / 'INVENTORY.json', result)
@@ -207,7 +219,8 @@ def run(args, plan):
         if result['status'] not in ('INVENTORY_ERROR', 'INVENTORY_RECORDED'):
             result.update(status='SETUP_ERROR', error=type(error).__name__ + ': ' + str(error))
             for row in result['modules'].values():
-                row['status'] = 'setup_error'
+                if row['status'] != 'not_selected':
+                    row['status'] = 'setup_error'
             result['dependency_ready_inventory_complete'] = False
             save(output / 'INVENTORY.json', result)
         raise
@@ -222,18 +235,24 @@ def main():
     p.add_argument('--cache', required=True, type=Path)
     p.add_argument('--output', required=True, type=Path)
     p.add_argument('--deadline', required=True, type=int)
+    p.add_argument('--targets-json', default='null')
+    p.add_argument('--selection-sha256', required=True)
+    p.add_argument('--window-minutes', type=int, default=24, choices=range(24, 205))
     p.add_argument('--setup-ok', choices=['true', 'false'], required=True)
     args = p.parse_args()
     args.setup_ok = args.setup_ok == 'true'
+    args.targets = json.loads(args.targets_json)
+    if not re.fullmatch('[0-9a-f]{64}', args.selection_sha256):
+        raise ValueError('Expected full selection SHA256')
     if os.environ.get('GITHUB_ACTIONS') != 'true':
         raise RuntimeError('Compiler inventory is hosted-only; use mocked unit tests locally')
-    if args.deadline > time.time() + 24 * 60:
-        raise ValueError('Inventory deadline exceeds the bounded 24-minute job window')
+    if args.deadline > time.time() + args.window_minutes * 60:
+        raise ValueError('Inventory deadline exceeds the explicit bounded inventory job window')
     ci.check_sources(ci.PROJECT)
     result = run(args, ci.derive_plan(early_depth=7))
     # A diagnostic run never declares PASS, even when every compile succeeds.
-    incomplete = not result['dependency_ready_inventory_complete']
-    failures = any(r['status'] != 'compile_pass' for r in result['modules'].values())
+    incomplete = not result['selected_dependency_ready_inventory_complete']
+    failures = any(r['status'] not in ('compile_pass', 'not_selected') for r in result['modules'].values())
     audit_failed = result['audit']['status'] != 'audit_pass'
     return 1 if incomplete or failures or audit_failed else 0
 
