@@ -1,0 +1,75 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r37/TwoChartCokernelBaseChange318.lean:42:41: error: don't know how to synthesize placeholder for argument `hf`
+context:
+R : Type u
+inst✝¹⁴ : CommRing R
+S : Type v
+inst✝¹³ : CommRing S
+inst✝¹² : Algebra R S
+A : Type u_1
+B : Type u_2
+M : Type u_3
+inst✝¹¹ : AddCommGroup A
+inst✝¹⁰ : AddCommGroup B
+inst✝⁹ : AddCommGroup M
+inst✝⁸ : Module R A
+inst✝⁷ : Module R B
+inst✝⁶ : Module R M
+A' : Type u_4
+B' : Type u_5
+M' : Type u_6
+inst✝⁵ : AddCommGroup A'
+inst✝⁴ : AddCommGroup B'
+inst✝³ : AddCommGroup M'
+inst✝² : Module S A'
+inst✝¹ : Module S B'
+inst✝ : Module S M'
+f : A →ₗ[R] M
+g : B →ₗ[R] M
+f' : A' →ₗ[S] M'
+g' : B' →ₗ[S] M'
+eA : S ⊗[R] A ≃ₗ[S] A'
+eB : S ⊗[R] B ≃ₗ[S] B'
+eM : S ⊗[R] M ≃ₗ[S] M'
+hf : ↑eM ∘ₗ LinearMap.baseChange S f = f' ∘ₗ ↑eA
+hg : ↑eM ∘ₗ LinearMap.baseChange S g = g' ∘ₗ ↑eB
+s : S
+m : M
+⊢ Submodule.map (↑eM) (ScalarExtensionQuotient318.image S f.range ⊔ ScalarExtensionQuotient318.image S g.range) =
+    f'.range ⊔ g'.range
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r37/TwoChartCokernelBaseChange318.lean:41:54: error: unsolved goals
+R : Type u
+inst✝¹⁴ : CommRing R
+S : Type v
+inst✝¹³ : CommRing S
+inst✝¹² : Algebra R S
+A : Type u_1
+B : Type u_2
+M : Type u_3
+inst✝¹¹ : AddCommGroup A
+inst✝¹⁰ : AddCommGroup B
+inst✝⁹ : AddCommGroup M
+inst✝⁸ : Module R A
+inst✝⁷ : Module R B
+inst✝⁶ : Module R M
+A' : Type u_4
+B' : Type u_5
+M' : Type u_6
+inst✝⁵ : AddCommGroup A'
+inst✝⁴ : AddCommGroup B'
+inst✝³ : AddCommGroup M'
+inst✝² : Module S A'
+inst✝¹ : Module S B'
+inst✝ : Module S M'
+f : A →ₗ[R] M
+g : B →ₗ[R] M
+f' : A' →ₗ[S] M'
+g' : B' →ₗ[S] M'
+eA : S ⊗[R] A ≃ₗ[S] A'
+eB : S ⊗[R] B ≃ₗ[S] B'
+eM : S ⊗[R] M ≃ₗ[S] M'
+hf : ↑eM ∘ₗ LinearMap.baseChange S f = f' ∘ₗ ↑eA
+hg : ↑eM ∘ₗ LinearMap.baseChange S g = g' ∘ₗ ↑eB
+s : S
+m : M
+⊢ (equivalence S f g f' g' eA eB eM hf hg) (s ⊗ₜ[R] (f.range ⊔ g.range).mkQ m) =
+    (f'.range ⊔ g'.range).mkQ (eM (s ⊗ₜ[R] m))

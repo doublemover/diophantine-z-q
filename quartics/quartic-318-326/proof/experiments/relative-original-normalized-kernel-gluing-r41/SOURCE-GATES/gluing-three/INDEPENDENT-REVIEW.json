@@ -1,0 +1,66 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW_HOSTED_UNVERIFIED",
+  "application": "picard-gluing-inventory-three-43818205337/canonical-r2/SOURCE-APPLICATION.json",
+  "application_sha256": "87c7ae679f35f37aa6ffbf41a48cdfc82e8324cdf0395716c32bff320f1f23bf",
+  "bindings_verified": 34,
+  "source_commit": "15d7899cfa9bfa318f9a0ef1a399c1e24a5b0bc3",
+  "run": 43818205337,
+  "packet": "relative-original-normalized-kernel-gluing-r37",
+  "modules": {
+    "OriginalCoefficientCohomology318": {
+      "before_sha256": "d54e6f541d52487d57c9c1b14b2bc7722294ab2f3a46d8cfac51a075f633e249",
+      "after_sha256": "3734cd862fb4235a3c4cde40774fd9234008b757fc163f42d3b84f0093a6b6e9"
+    },
+    "TwoChartCokernelBaseChange318": {
+      "before_sha256": "2dc08ebfd835051f0512cfac5ed7e0c6ff831e9e2f40941f1148166472407c59",
+      "after_sha256": "24995cbd6e36a145c364af89ec3f67c00c31e80ae228018a21c636cfdd4663b8"
+    },
+    "OriginalUnitOpenFunctoriality318": {
+      "before_sha256": "1a374c4c97dee31b12100b0f50b43930df4878a11f11aec7e4c4d895013b0b32",
+      "after_sha256": "121db512a6382894f2ded05a2789f4f70e1813170d6b71eb0a990d43dd1f2cae"
+    }
+  },
+  "actual_primary_origins_verified": 6,
+  "native_git_blobs_verified": [
+    {
+      "repository": "leanprover-community/mathlib4",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/CategoryTheory/Opposites.lean",
+      "git_blob": "1d94aa30600a47afc5b50731201df9c5f2f4d20d",
+      "sha256": "79ab9e08f1fb1f86865880463f696498b494e85ac9b880498bd174af70b3939f"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+      "git_blob": "9ec2231faecc3bde7793452f5cc71a9d7b4fbeb7",
+      "sha256": "8badaa98b48210f93dec51390327d334f3efc40a99dd16b7c8200901ecbb7e7a"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
+      "git_blob": "93208999961658fe1e079a952aa1dd94a9ea74ce",
+      "sha256": "8d886b21dc4ab48379e9c98653967307f7f57a97cc61f9db0dfd50d4d53353e8"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+      "git_blob": "2b78c631dcb6f1fd373a5c9d09eff590cf1d8cdc",
+      "sha256": "34704c016750807775c2dfb0b82f431dddc288382916c7327678b32283493219"
+    }
+  ],
+  "checks": [
+    "Opposite-open component goals use op U.unop at all eight occurrences; exact same sections and multiply_apply, no replacement scalar action.",
+    "Quotient representative proof supplies precisely the mapped-sup equality already used by the original equivalence. Both hf/hg comparison squares remain required.",
+    "Actual composite adjunction unit is normalized to fully typed nested sections; congrArg of the original forward associator followed by inv_hom_id_app has the correct direction and ambient open.",
+    "R2 changes only the newly reachable terminal rw/rfl separator to <;> rfl, retaining R1 immutable. This is preventive sequencing, not another observed compiler error.",
+    "All three original theorem statements, maps, domains and resource options unchanged. No flatness, reducedness or affine restriction added."
+  ],
+  "limits": [
+    "Source/API review only; no local Lean/compiler, no candidate acceptance, no current propagation review in this gate.",
+    "Full bodies and exact own logs read, unchanged hypotheses checked; inherited closure compilation is not claimed.",
+    "No source writes, uploads, publication or blocked jobs snapshot operation."
+  ]
+}

@@ -1,0 +1,69 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r37/OriginalUnitOpenFunctoriality318.lean:29:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ConcreteCategory.hom
+      (Scheme.Modules.Hom.app
+        (((Scheme.Modules.pullbackPushforwardAdjunction g).comp
+                  (Scheme.Modules.pullbackPushforwardAdjunction f)).unit.app
+            M ≫
+          (Scheme.Modules.pushforwardComp f g).hom.app ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M))
+        U))
+    s
+in the target expression
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackComp f g).hom.app M) (f ⁻¹ᵁ g ⁻¹ᵁ U)))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction f).unit.app ((Scheme.Modules.pullback g).obj M)) (g ⁻¹ᵁ U)))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M) U))
+          s)) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M) U))
+      s
+
+X Y Z : Scheme
+f : X ⟶ Y
+g : Y ⟶ Z
+M : Z.Modules
+U : Z.Opens
+s : ↑Γ(M, U)
+h :
+  ((Scheme.Modules.pullbackPushforwardAdjunction g).comp (Scheme.Modules.pullbackPushforwardAdjunction f)).unit.app M ≫
+      (Scheme.Modules.pushforwardComp f g).hom.app ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M) =
+    (Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M ≫
+      (Scheme.Modules.pushforward (f ≫ g)).map ((Scheme.Modules.pullbackComp f g).inv.app M)
+hs :
+  (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          (((Scheme.Modules.pullbackPushforwardAdjunction g).comp
+                    (Scheme.Modules.pullbackPushforwardAdjunction f)).unit.app
+              M ≫
+            (Scheme.Modules.pushforwardComp f g).hom.app
+              ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pullback f).obj M))
+          U))
+      s =
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackComp f g).inv.app M) (f ⁻¹ᵁ g ⁻¹ᵁ U)))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M) U))
+        s)
+⊢ (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackComp f g).hom.app M) (f ⁻¹ᵁ g ⁻¹ᵁ U)))
+      ((ConcreteCategory.hom
+          (Scheme.Modules.Hom.app
+            ((Scheme.Modules.pullbackPushforwardAdjunction f).unit.app ((Scheme.Modules.pullback g).obj M)) (g ⁻¹ᵁ U)))
+        ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M) U))
+          s)) =
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M) U))
+      s
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M) U)) s
+  has type
+    ↑Γ((Scheme.Modules.pullback g ⋙ Scheme.Modules.pushforward g).obj M, U)
+  but is expected to have type
+    ↑Γ((𝟭 Y.Modules).obj ((Scheme.Modules.pullback g).obj M), g ⁻¹ᵁ U)
+  in the application
+    (ConcreteCategory.hom
+        (Scheme.Modules.Hom.app
+          ((Scheme.Modules.pullbackPushforwardAdjunction f).unit.app ((Scheme.Modules.pullback g).obj M)) (g ⁻¹ᵁ U)))
+      ((ConcreteCategory.hom (Scheme.Modules.Hom.app ((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M) U))
+        s)

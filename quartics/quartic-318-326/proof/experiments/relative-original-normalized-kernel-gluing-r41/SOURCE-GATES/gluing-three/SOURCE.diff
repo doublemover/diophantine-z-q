@@ -1,0 +1,72 @@
+--- before/OriginalCoefficientCohomology318.lean
++++ sources/OriginalCoefficientCohomology318.lean
+@@ -36,24 +36,24 @@
+ lemma multiply_zero : multiply R p L 0 = 0 := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U s
+-  change (multiply R p L 0).hom.app U s = 0
++  change (multiply R p L 0).hom.app (op U.unop) s = 0
+   rw [multiply_apply,map_zero,zero_smul]
+ lemma multiply_one : multiply R p L 1 = 𝟙 _ := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U s
+-  change (multiply R p L 1).hom.app U s = s
++  change (multiply R p L 1).hom.app (op U.unop) s = s
+   rw [multiply_apply,map_one,one_smul]
+ lemma multiply_add (r s : R) : multiply R p L (r+s) = multiply R p L r + multiply R p L s := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U t
+-  change (multiply R p L (r+s)).hom.app U t =
+-    (multiply R p L r).hom.app U t + (multiply R p L s).hom.app U t
++  change (multiply R p L (r+s)).hom.app (op U.unop) t =
++    (multiply R p L r).hom.app (op U.unop) t + (multiply R p L s).hom.app (op U.unop) t
+   rw [multiply_apply,multiply_apply,multiply_apply,map_add,add_smul]
+ lemma multiply_mul (r s : R) : multiply R p L (r*s) = multiply R p L s ≫ multiply R p L r := by
+   apply CategoryTheory.Sheaf.hom_ext
+   ext U t
+-  change (multiply R p L (r*s)).hom.app U t =
+-    (multiply R p L r).hom.app U ((multiply R p L s).hom.app U t)
++  change (multiply R p L (r*s)).hom.app (op U.unop) t =
++    (multiply R p L r).hom.app (op U.unop) ((multiply R p L s).hom.app (op U.unop) t)
+   rw [multiply_apply,multiply_apply,multiply_apply,map_mul,mul_smul]
+ 
+ /-- Structural R action on the UNCHANGED actual derived Ext carrier,
+--- before/TwoChartCokernelBaseChange318.lean
++++ sources/TwoChartCokernelBaseChange318.lean
+@@ -39,9 +39,9 @@
+     equivalence S f g f' g' eA eB eM hf hg
+       (s ⊗ₜ[R] (f.range ⊔ g.range).mkQ m) =
+         (f'.range ⊔ g'.range).mkQ (eM (s ⊗ₜ[R] m)) := by
+-  change Submodule.Quotient.equiv _ _ eM _
++  change Submodule.Quotient.equiv _ _ eM (by
++    rw [Submodule.map_sup,left_image S f f' eA eM hf,right_image S g g' eB eM hg])
+     (ScalarExtensionQuotient318.twoImageEquivalence S f.range g.range
+       (s ⊗ₜ[R] (f.range ⊔ g.range).mkQ m)) = _
+-  rw [ScalarExtensionQuotient318.twoImageEquivalence_tmul]
+-  rfl
++  rw [ScalarExtensionQuotient318.twoImageEquivalence_tmul] <;> rfl
+ end TwoChartCokernelBaseChange318
+--- before/OriginalUnitOpenFunctoriality318.lean
++++ sources/OriginalUnitOpenFunctoriality318.lean
+@@ -24,12 +24,16 @@
+     (Scheme.Modules.pullbackComp f g).inv M
+   rw [Scheme.Modules.conjugateEquiv_pullbackComp_inv] at h
+   have hs := congrArg (fun q => q.app U s) h
+-  change _ = ((Scheme.Modules.pullbackComp f g).inv.app M).app (f ⁻¹ᵁ (g ⁻¹ᵁ U))
++  change (((Scheme.Modules.pullbackPushforwardAdjunction f).unit.app
++      ((Scheme.Modules.pullback g).obj M)).app (g ⁻¹ᵁ U)
++      (((Scheme.Modules.pullbackPushforwardAdjunction g).unit.app M).app U s)) =
++    ((Scheme.Modules.pullbackComp f g).inv.app M).app (f ⁻¹ᵁ (g ⁻¹ᵁ U))
+     (((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M).app U s) at hs
+-  rw [hs]
+-  exact congrArg (fun q => q.app (f ⁻¹ᵁ (g ⁻¹ᵁ U))
+-    (((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M).app U s))
+-      ((Scheme.Modules.pullbackComp f g).inv_hom_id_app M)
++  exact (congrArg (fun t =>
++    ((Scheme.Modules.pullbackComp f g).hom.app M).app (f ⁻¹ᵁ (g ⁻¹ᵁ U)) t) hs).trans
++      (congrArg (fun q => q.app (f ⁻¹ᵁ (g ⁻¹ᵁ U))
++        (((Scheme.Modules.pullbackPushforwardAdjunction (f ≫ g)).unit.app M).app U s))
++          ((Scheme.Modules.pullbackComp f g).inv_hom_id_app M))
+ 
+ lemma identity (M : X.Modules) (U : X.Opens) (s : Γ(M,U)) :
+     ((Scheme.Modules.pullbackId X).hom.app M).app U

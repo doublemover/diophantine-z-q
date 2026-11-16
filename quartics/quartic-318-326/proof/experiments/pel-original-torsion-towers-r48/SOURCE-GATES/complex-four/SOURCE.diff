@@ -1,0 +1,44 @@
+--- before/ComplexProjectiveMarkerPoint318
++++ sources/ComplexProjectiveMarkerPoint318
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.Analysis.Complex.Polynomial.Basic
+ public import CubicHomogeneousMarker318
+ public import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme
+ public section
+--- before/ProperIdealComplexPoint318
++++ sources/ProperIdealComplexPoint318
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.Analysis.Complex.Polynomial.Basic
+ public import Mathlib.RingTheory.Nullstellensatz
+ public section
+ noncomputable section
+--- before/ReducedComplexPointSeparation318
++++ sources/ReducedComplexPointSeparation318
+@@ -1,4 +1,5 @@
+ module
++public import Mathlib.Analysis.Complex.Polynomial.Basic
+ public import Mathlib.RingTheory.Nullstellensatz
+ public import Mathlib.RingTheory.Ideal.Quotient.Operations
+ public section
+--- before/HomogeneousEvaluationScaling318
++++ sources/HomogeneousEvaluationScaling318
+@@ -5,7 +5,7 @@
+ namespace HomogeneousEvaluationScaling318
+ variable {σ K:Type*}[CommRing K]
+ lemma monomial_scale(k:σ→₀ℕ)(a:K)(v:σ→K):
+-    k.prod(fun i e=>(a*v i)^e)=a^k.degree*k.prod(fun i e=>v i^e):=by
++    k.prod (fun i e=>(a*v i)^e)=a^k.degree*k.prod (fun i e=>v i^e):=by
+   classical
+   have hs:∀s:Finset σ,(∏i∈s,a^(k i))=a^(∑i∈s,k i):=by
+     intro s
+@@ -19,7 +19,7 @@
+     MvPolynomial.eval (fun i=>a*v i) p=a^n*MvPolynomial.eval v p:=by
+   classical
+   have he(w:σ→K):MvPolynomial.eval w p=∑k∈p.support,
+-      p.coeff k*k.prod(fun i e=>w i^e):=by
++      p.coeff k*k.prod (fun i e=>w i^e):=by
+     conv_lhs=>rw [←p.support_sum_monomial_coeff]
+     simp only [map_sum,MvPolynomial.eval_monomial]
+   rw [he,he,Finset.mul_sum]

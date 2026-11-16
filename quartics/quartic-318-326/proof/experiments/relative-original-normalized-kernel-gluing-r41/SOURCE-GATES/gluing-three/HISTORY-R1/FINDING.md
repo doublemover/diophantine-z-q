@@ -1,0 +1,1 @@
+Independent Probe source review requested goal-safe terminal rw ... <;> rfl because rewritten quotient representative may be reflexive already. This is a latent tactic sequencing correction, not an additional hosted observation. R1 source and contract retained unchanged.
