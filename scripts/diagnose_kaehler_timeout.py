@@ -63,6 +63,9 @@ def substep_specimen(text):
     return text[:start] + SUBSTEP_TACTIC_DECL + SUBSTEP_SCOPE + after + text[end:]
 
 def control_specimens(source):
+    """Frozen historical specimens. Only imports_only is executed; command_trace
+    retains diagnosed syntax defects for provenance, never as a clean control.
+    """
     require(digest(source) == SOURCE_SHA, 'Frozen target source changed')
     pattern = r'#eval \(do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT ([^"]+)"\n  out.flush : IO Unit\)'
     require(len(re.findall(pattern,source)) == 21, 'Checkpoint count changed')
@@ -79,15 +82,17 @@ def control_specimens(source):
 
 # Reviewed candidate is scratch-only. Original packet/timeout/prefix/baseline
 # authentication remains unchanged; only the second bounded specimen differs.
-CANDIDATE_SOURCE_SHA = '4c171cca07cc8be985cbc3066a57838930ff866b067189346fcddcd151d6ceaa'
+CANDIDATE_SOURCE_SHA = '521e5ab4b216e7c689184f8d96725e4ddea159056e36a4f861e695c51b1b7a16'
 CANDIDATE_FIXTURE = Path(__file__).resolve().parent/'diagnostic_evidence/kaehler_generic_scalar_candidate.lean.txt'
-GENERIC_HELPER = '/-- Scalar coherence for the same tensor inclusion and algebra equivalence,\nproved over abstract dictionaries before specializing the original chart. -/\nprivate theorem tensorScalarImage\n    {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]\n    [Algebra R A] [Algebra R B] [Algebra A C]\n    (e : A ⊗[R] B ≃ₐ[A] C) (x : R) :\n    e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =\n      algebraMap A C (algebraMap R A x) := by\n  rw [AlgHom.commutes,\n    IsScalarTower.algebraMap_apply R A (A ⊗[R] B), AlgEquiv.commutes]\n\n'
+GENERIC_HELPER = '/-- Scalar coherence for the same tensor inclusion and algebra equivalence,\nproved over abstract dictionaries before specializing the original chart. -/\nprivate theorem tensorScalarImage\n    {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]\n    [Algebra R A] [Algebra R B] [Algebra A C]\n    (e : TensorProduct R A B ≃ₐ[A] C) (x : R) :\n    e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =\n      algebraMap A C (algebraMap R A x) := by\n  rw [AlgHom.commutes,\n    IsScalarTower.algebraMap_apply R A (TensorProduct R A B), AlgEquiv.commutes]\n\n'
 ORIGINAL_TARGET_PROOF = '  apply (sourceLocalizationEquiv b i).injective\n  rw [sourceCoordinate,AlgEquiv.apply_symm_apply,sourceLocalizationEquiv_on_source]\n  change orderCoordinate b i=localizedSourceEquiv b i\n    (Algebra.TensorProduct.includeRight (sourceRegroup b i\n      (FourRootAffineCoordinateRing318.coordinate b (some i))))\n  rw [regroup_root,AlgHom.commutes,\n    IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)\n      (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]\n  rfl\n'
 CANDIDATE_TARGET_PROOF = '  exact (sourceLocalizationEquiv b i).symm_apply_eq.mpr\n    ((tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i)).symm.trans\n      ((congrArg (fun z : RegroupedOrder b i =>\n        localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))\n        (regroup_root b i)).symm.trans\n        (sourceLocalizationEquiv_on_source b i\n          (FourRootAffineCoordinateRing318.coordinate b (some i))).symm))\n'
 SQUARE_HELPER = '/-- Transport the original square relation through the same scalar tower. -/\nprivate theorem mappedSquare\n    {R A B : Type*} [CommRing R] [CommRing A] [CommRing B]\n    [Algebra R A] [Algebra R B] [Algebra A B] [IsScalarTower R A B]\n    (x y : A) (r : R) (h : y ^ 2 = x - algebraMap R A r) :\n    algebraMap A B x - algebraMap R B r = (algebraMap A B y) ^ 2 := by\n  have hm := congrArg (algebraMap A B) h\n  simpa only [map_pow, map_sub, ← IsScalarTower.algebraMap_apply] using hm.symm\n\n'
 ORIGINAL_SQUARE_PROOF = '  apply (sourceLocalizationEquiv b i).injective\n  rw [map_sub,map_pow,AlgEquiv.commutes,sourceCoordinate,AlgEquiv.apply_symm_apply]\n  rw [sourceParameter,sourceLocalizationEquiv_on_source]\n  change sourceMap b i (algebraMap ℂ[X] (FourRootActualFractionField318.A b) X)-_=_\n  rw [sourceMap_on_polynomial]\n  have h:=congrArg (algebraMap (OpenBase b i) (OpenOrder b i))\n    (FourRootActualFiniteBranchChart318.exact_square b i)\n  have hC(q:ℂ):algebraMap ℂ[X] (OpenOrder b i) (C q)=algebraMap ℂ (OpenOrder b i) q:=\n    (IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenOrder b i) q).symm\n  simpa only [map_sub,map_pow,orderCoordinate,baseCoordinate_root,\n    FourRootActualFiniteBranchChart318.root,FiniteBranchChart318.openRoot,\n    ←IsScalarTower.algebraMap_apply,hC] using h\n'
 CANDIDATE_SQUARE_PROOF = '  exact (mappedSquare (R := ℂ) (A := FourRootActualFractionField318.A b)\n    (B := SourceRing b i) (FourRootAffineCoordinateRing318.coordinate b none)\n    (FourRootAffineCoordinateRing318.coordinate b (some i)) (b i)\n    (FourRootAffineCoordinateRing318.relation b i)).trans\n      (congrArg (fun z : SourceRing b i => z ^ 2) (source_coordinate_original b i).symm)\n'
-SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'original_square_candidate': '8f78c519c168c2c9d77276c928f45bbfff01e01742bcc399b28f31baff77813b'}
+ORIGINAL_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  change _ (FourRootAffineTensorPresentation318.toTensor b\n    (FourRootAffineCoordinateRing318.coordinate b (some i)))=_\n  rw [FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
+CANDIDATE_REGROUP_PROOF = '  rw [baseCoordinate_root]\n  have ht : FourRootActualFractionField318.polynomialEquivalence b\n      (FourRootAffineCoordinateRing318.coordinate b (some i)) =\n      FourRootAffineTensorPresentation318.toTensor b\n        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl\n  rw [sourceRegroup, AlgEquiv.trans_apply, ht,\n    FourRootAffineTensorPresentation318.toTensor_root]\n  simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,\n    LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using\n    ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i\n'
+SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'syntax_corrected_candidate': '0258c180708e7bfb0f5030c6673ba66615902260c212188762ec57d1d09ce864'}
 
 def frozen_candidate(source):
     require(digest(source) == SOURCE_SHA, 'Frozen original source changed')
@@ -96,12 +101,31 @@ def frozen_candidate(source):
     require(candidate.count(GENERIC_HELPER) == 1 and
             candidate.count(CANDIDATE_TARGET_PROOF) == 1 and
             candidate.count(SQUARE_HELPER) == 1 and
-            candidate.count(CANDIDATE_SQUARE_PROOF) == 1, 'Candidate boundaries changed')
+            candidate.count(CANDIDATE_SQUARE_PROOF) == 1 and
+            candidate.count(CANDIDATE_REGROUP_PROOF) == 1, 'Candidate boundaries changed')
     restored = candidate.replace(GENERIC_HELPER, '', 1).replace(SQUARE_HELPER, '', 1).replace(
         CANDIDATE_TARGET_PROOF, ORIGINAL_TARGET_PROOF, 1).replace(
-        CANDIDATE_SQUARE_PROOF, ORIGINAL_SQUARE_PROOF, 1)
+        CANDIDATE_SQUARE_PROOF, ORIGINAL_SQUARE_PROOF, 1).replace(
+        CANDIDATE_REGROUP_PROOF, ORIGINAL_REGROUP_PROOF, 1)
     require(restored == source, 'Candidate changes exceed reviewed helper/proof substitution')
     return candidate
+
+def scope_declaration(text, target):
+    """Put scoped options before an attached doc comment, not between it and the declaration."""
+    require(text.count(target) == 1, 'Candidate target declaration boundary changed')
+    start = text.index(target)
+    doc = re.search(r'(?m)^/--(?:(?!-/)[\s\S])*-/\s*\Z', text[:start])
+    if doc is not None:
+        start = doc.start()
+    return text[:start] + SUBSTEP_SCOPE + text[start:]
+
+def compiler_outcome(row):
+    """Process outcome only: checkpoints and exit zero do not establish audited acceptance."""
+    if row.get('limit'):
+        return 'LIMIT_REACHED_NO_ACCEPTANCE'
+    if row['exit_code'] == 0:
+        return 'EXIT_ZERO_NO_AUDIT_OR_ADMISSION'
+    return 'COMPILER_FAILURE_NO_ACCEPTANCE'
 
 def candidate_specimen(candidate):
     require(digest(candidate) == CANDIDATE_SOURCE_SHA, 'Reviewed candidate changed')
@@ -118,14 +142,13 @@ def candidate_specimen(candidate):
     text = text.replace(SQUARE_HELPER, marker('BEFORE_MAPPED_SQUARE')+'\n'+
         SUBSTEP_SCOPE+SQUARE_HELPER+marker('AFTER_MAPPED_SQUARE')+'\n', 1)
     for target in ['lemma source_coordinate_original:', 'lemma exact_square:']:
-        require(text.count(target) == 1, 'Candidate target declaration boundary changed')
-        text = text.replace(target, SUBSTEP_SCOPE+target, 1)
+        text = scope_declaration(text, target)
     return text
 
 def specimens(source):
     control = control_specimens(source)
     result = {'imports_only': control['imports_only'],
-        'original_square_candidate': candidate_specimen(frozen_candidate(source))}
+        'syntax_corrected_candidate': candidate_specimen(frozen_candidate(source))}
     require({k:digest(v) for k,v in result.items()} == SCRATCH_SHAS,
         'Reviewed candidate specimen changed')
     return result
@@ -239,12 +262,13 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_KAEHLER_ORIGINAL_SQUARE_CANDIDATE_DIFFERENTIAL',
+    base = {'scope':'NON_ADMITTED_KAEHLER_SYNTAX_CORRECTED_CANDIDATE_DIFFERENTIAL',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
             'original_source_sha256':SOURCE_SHA,'candidate_source_sha256':CANDIDATE_SOURCE_SHA,
             'scratch_source_sha256':SCRATCH_SHAS,
             'actual_head':os.environ.get('GITHUB_SHA'),'actual_run':os.environ.get('GITHUB_RUN_ID'),
             'production_source_changed':False,'production_limits_changed':False,
+            'checkpoints_are_traversal_only':True,'timeouts_may_hide_deferred_errors':True,
             'full_packet_accepted':False,'proof_acceptance':False,'writes_olean':False}
     try:
         text, evidence = validate(packet, output)
@@ -259,7 +283,8 @@ def main():
         for name, specimen in text.items():
             source=root/(name+'.lean');source.write_text(specimen)
             (logs/(name+'.lean.txt')).write_text(specimen)
-            row=runner.bounded_memory(source,root,env,logs/(name+'.log')); rows.append(row)
+            row=runner.bounded_memory(source,root,env,logs/(name+'.log'))
+            row['compiler_outcome']=compiler_outcome(row); rows.append(row)
             no_compiled(root);no_compiled(output/'lib', MODULE)
             if name == 'imports_only' and (row['exit_code'] != 0 or row.get('limit') or
                 'KAEHLER_COMMAND_IMPORTS_ONLY_COMPLETE' not in (logs/(name+'.log')).read_text()):
@@ -275,7 +300,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Fresh original timeout and prefix plus imports-only control precede the separately reviewed original-square transport candidate. This replaces the old command-trace specimen, not the production source; total scratch budget stays two probes. Candidate success is diagnostic only, not production repair, packet audit or proof acceptance. Instrumentation may affect elaboration; marker intervals do not establish causes.'))
+        interpretation='Fresh original timeout and prefix plus imports-only control precede the separately reviewed syntax-corrected candidate. This replaces the old command-trace specimen, not the production source; total scratch budget stays two probes. Candidate success is diagnostic only, not production repair, packet audit or proof acceptance. Checkpoints and profiles record traversal only, including error recovery. Timeouts may hide deferred compiler messages. Only a complete exit/output can establish whether this specimen compiled; no checkpoint certifies a declaration. Even exit zero has no production audit or admission. Instrumentation may affect elaboration; marker intervals do not establish causes.'))
 
 if __name__ == '__main__':
     main()

@@ -21,11 +21,11 @@ proved over abstract dictionaries before specializing the original chart. -/
 private theorem tensorScalarImage
     {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]
     [Algebra R A] [Algebra R B] [Algebra A C]
-    (e : A ⊗[R] B ≃ₐ[A] C) (x : R) :
+    (e : TensorProduct R A B ≃ₐ[A] C) (x : R) :
     e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =
       algebraMap A C (algebraMap R A x) := by
   rw [AlgHom.commutes,
-    IsScalarTower.algebraMap_apply R A (A ⊗[R] B), AlgEquiv.commutes]
+    IsScalarTower.algebraMap_apply R A (TensorProduct R A B), AlgEquiv.commutes]
 
 /-- Transport the original square relation through the same scalar tower. -/
 private theorem mappedSquare
@@ -148,9 +148,12 @@ lemma regroup_root:
     sourceRegroup b i (FourRootAffineCoordinateRing318.coordinate b (some i))=
       algebraMap (BranchBase b i) (RegroupedOrder b i) (baseCoordinate b i):=by
   rw [baseCoordinate_root]
-  change _ (FourRootAffineTensorPresentation318.toTensor b
-    (FourRootAffineCoordinateRing318.coordinate b (some i)))=_
-  rw [FourRootAffineTensorPresentation318.toTensor_root]
+  have ht : FourRootActualFractionField318.polynomialEquivalence b
+      (FourRootAffineCoordinateRing318.coordinate b (some i)) =
+      FourRootAffineTensorPresentation318.toTensor b
+        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl
+  rw [sourceRegroup, AlgEquiv.trans_apply, ht,
+    FourRootAffineTensorPresentation318.toTensor_root]
   simpa only [FourRootAffineTensorPresentation318.radicand,FourRootPivot318.indices_zero,
     LinearRootCoordinate318.parameter,Units.val_one,map_one,one_mul] using
     ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i
