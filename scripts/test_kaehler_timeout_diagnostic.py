@@ -168,7 +168,7 @@ class Tests(unittest.TestCase):
         self.assertTrue(out.endswith(d.PREFIX_END))
         self.assertIn('private def transportedRegroup',out)
         self.assertNotIn('private theorem transportedRegroupRoot',out)
-        self.assertIn('private def transportedRegroupRootStatement',out)
+        self.assertIn('private theorem explicitCastRegroupRoot',out)
         self.assertNotIn('variable (b:Fin 4',out)
         for excluded in ['lemma source_coordinate_original:', 'lemma exact_square:', 'def sourceParameter', 'KAEHLER_CANDIDATE_before_source_coordinate_original']:
             self.assertNotIn(excluded,out)
@@ -183,7 +183,7 @@ class Tests(unittest.TestCase):
     def test_prefix_metadata_does_not_claim_full_candidate(self):
         source=(HERE/'diagnose_kaehler_timeout.py').read_text()
         self.assertIn("'target_declaration_included':False",source)
-        self.assertIn("'prefix_last_declaration':'transportedRegroupRootStatement'",source)
+        self.assertIn("'prefix_last_declaration':'explicitCastRegroupRoot'",source)
         self.assertIn('not original production',source)
         self.assertIn('neither the target/full candidate nor production audit',source)
 
@@ -211,18 +211,18 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),3747)
-        self.assertEqual(d.digest(raw),'7a369c60f1beac58b3f96daa719a8cf7a43b8f398c642fba8c3916f586e20a5f')
+        self.assertEqual(len(raw.encode()),5920)
+        self.assertEqual(d.digest(raw),'6c03c9d073e0f6914c9cf436c1b81510ce3d01bc50bc76972bd1bf4df943ba36')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
             self.assertNotIn(absent,out)
         self.assertTrue(out.rstrip().endswith('end FourRootActualBranchKaehler318'))
 
-    def test_statement_definition_complete_and_theorem_excluded(self):
+    def test_explicit_cast_proof_complete_and_original_theorem_excluded(self):
         out=d.specimens(self.source())['complete_candidate_prefix']
-        self.assertIn('private def transportedRegroupRootStatement',out)
-        self.assertIn(' : Prop :=',out)
+        self.assertIn('private theorem explicitCastRegroupRoot',out)
+        self.assertIn('exact transportProperty',out)
         self.assertNotIn('private theorem transportedRegroupRoot',out)
         self.assertNotIn('local instance regrouped_commRing',out)
         self.assertNotIn('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER',out)
@@ -236,13 +236,22 @@ class Tests(unittest.TestCase):
         self.assertIn('exact transportProperty',helper)
         self.assertNotIn('subst p',helper)
 
-    def test_statement_definition_asserts_no_compatibility_proof(self):
+    def test_explicit_cast_root_has_native_witness_and_no_bridge(self):
         out=d.specimens(self.source())['complete_candidate_prefix']
-        statement=out[out.index('private def transportedRegroupRootStatement'):out.index(d.PREFIX_END)]
-        self.assertNotIn(':= by',statement)
-        self.assertNotIn('exact transportProperty',statement)
-        self.assertNotIn('sorry',statement)
-        self.assertNotIn('axiom',statement)
+        proof=out[out.index('private theorem explicitCastRegroupRoot'):out.index(d.PREFIX_END)]
+        self.assertEqual(proof.count('(Eq.mpr'),2)
+        self.assertIn('exact transportProperty',proof)
+        self.assertIn('(ActualRootPivotCoordinates318.regroup_generator a i)',proof)
+        self.assertNotIn('(transportedRegroup a i p q hp hq)',proof)
+        self.assertNotIn('sorry',proof)
+        self.assertNotIn('axiom',proof)
+
+    def test_explicit_cast_full_candidate_insertion_is_reversible(self):
+        candidate=d.frozen_candidate(self.source())
+        start=candidate.index('/-- Diagnostic proof partition: native root compatibility')
+        end=candidate.index('/-- Root compatibility for the same regrouping equivalence transported',start)
+        restored=candidate[:start]+candidate[end:]
+        self.assertEqual(d.digest(restored),'d441a34bcd756cf2c4b70ead2bdcae31aa3981808d4d2536f46d11fc299fe325')
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
