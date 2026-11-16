@@ -1,0 +1,12 @@
+--- before/ContactOriginalLineSectionEquivalence318.lean
++++ after/ContactOriginalLineSectionEquivalence318.lean
+@@ -30,7 +30,8 @@
+     L.object.presheaf.map (homOfLE inf_le_right :
+       finiteOpen c ⊓ infinityOpen c ⟶ infinityOpen c).op (infinitySectionsEquiv c L b) := by
+     apply (overlapCoordinates c L).injective
+-    rw [finite_res,infinity_res,AddEquiv.symm_apply_apply,AddEquiv.symm_apply_apply,ha,hb]
++    rw [finite_res,infinity_res,AddEquiv.symm_apply_apply,AddEquiv.symm_apply_apply]
++    exact ha.trans hb.symm
+   obtain ⟨s,hs,ht⟩ := OriginalModuleTwoOpenGluing318.exists_gluing L.object
+     (finiteOpen c) (infinityOpen c) (cover c)
+     (finiteSectionsEquiv c L a) (infinitySectionsEquiv c L b) hab

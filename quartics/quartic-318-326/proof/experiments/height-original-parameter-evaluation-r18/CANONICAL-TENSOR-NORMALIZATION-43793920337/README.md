@@ -1,0 +1,5 @@
+Existing proof-only tensor scalar normalization repair. Both own9f89/run43793920337 receipts have71 complete passes then FourRootUnitScale failure (center2.621s/24unreached; parameter2.370s/34unreached). Actual logs now retain two residuals, cases2 and3, not four: scalar in inner right tensor versus outer left tensor. This is NOT partial module acceptance.
+
+Reverse only native smul_tmul' in both existing simp blocks: (s•x) tensor y becomes s•(x tensor y), so nested scalars are pulled outward. Native tmul_smul already pulls scalar from right factor outward. Prior forward smul_tmul' pushed scalar back into left factor, obstructing two-level common normal form. No native-map/scalar-dictionary substitution or option change. IndividualScales remains preventive/unreached. Definitions, all public types/hypotheses, original signed units and whole tensor orders unchanged. Zero/nonunit radicands/collisions/characteristic2 retained; no inverse2.
+
+Two one-character proof changes only. Source/API and current independent reviews required, future own hosted replay unverified. No local Lean, research expansion, upload or active checkout edit.

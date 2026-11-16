@@ -1,0 +1,11 @@
+--- before/OriginalModuleTwoOpenGluing318.lean
++++ after/OriginalModuleTwoOpenGluing318.lean
+@@ -22,7 +22,7 @@
+   have hc : ⊤ ≤ iSup W := by
+     exact (le_of_eq hcover.symm).trans (sup_le (le_iSup W ⟨0⟩) (le_iSup W ⟨1⟩))
+   let basePieces : ∀ i : Fin 2, Γ(M, (![U,V] i)) :=
+-    Fin.cases a (Fin.cases b Fin.elim0)
++    Fin.cases a (Fin.cases b (fun i => Fin.elim0 i))
+   let pieces : ∀ i, Γ(M,W i) := fun i => basePieces i.down
+   have hswap : M.presheaf.map (homOfLE inf_le_left : V ⊓ U ⟶ V).op b =
+       M.presheaf.map (homOfLE inf_le_right : V ⊓ U ⟶ U).op a := by

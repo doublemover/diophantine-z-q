@@ -1,0 +1,26 @@
+--- IntegralRationalGlobalComparison318.lean.before
++++ IntegralRationalGlobalComparison318.lean
+@@ -56,15 +56,17 @@
+ theorem infinity_inverse_square :
+     (overlapIso c).inv ≫ intoInfinity ℚ c =
+       ContactOverlapMaps318.infinityInclusion c ≫ (infinityIso c).inv := by
+-  apply spec_inverse_square
++  have h := spec_inverse_square
+     (CommRingCat.ofHom (IntegralOverlapChartMaps318.infinityMap ℚ c).toRingHom)
+     (CommRingCat.ofHom (InfinityOverlapLocalization318.toOpen c))
+     (rationalOrderEquiv c).toRingEquiv.toCommRingCatIso
+-    (overlapEquiv c).toRingEquiv.toCommRingCatIso
+-  apply CommRingCat.hom_ext
+-  apply RingHom.ext
+-  intro a
+-  exact IntegralRationalInfinityMap318.infinity_restriction c a
++    (overlapEquiv c).toRingEquiv.toCommRingCatIso (by
++      apply CommRingCat.hom_ext
++      apply RingHom.ext
++      intro a
++      exact IntegralRationalInfinityMap318.infinity_restriction c a)
++  simpa only [overlapIso, intoInfinity, ContactOverlapMaps318.infinityInclusion,
++    infinityIso] using h
+ 
+ theorem finite_square :
+     intoFinite ℚ c ≫ (finiteIso c).hom =

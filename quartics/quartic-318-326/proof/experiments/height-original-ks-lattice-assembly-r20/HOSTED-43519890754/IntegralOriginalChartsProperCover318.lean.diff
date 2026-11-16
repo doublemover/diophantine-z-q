@@ -1,0 +1,13 @@
+--- r8/IntegralOriginalChartsProperCover318.lean
++++ candidate/IntegralOriginalChartsProperCover318.lean
+@@ -11,7 +11,9 @@
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+ 
+ theorem originalSource_range : (originalSourceChart R c).opensRange=(finiteChart R c).opensRange := by
+-  rw [originalSourceChart,Scheme.Hom.opensRange_comp_of_isIso]
++  change (Spec.map (IntegralWholeFiniteComparison318.comparison R c).symm.toRingEquiv.toCommRingCatIso.hom ≫
++    finiteChart R c).opensRange = (finiteChart R c).opensRange
++  exact Scheme.Hom.opensRange_comp_of_isIso _ _
+ 
+ /-- The original WHOLE finite source and the original RESTRICTED infinity
+ chart already cover the newly constructed proper model. All omitted infinity

@@ -1,0 +1,11 @@
+--- before/ContactOriginalLineHOneFinite318.lean
++++ after/ContactOriginalLineHOneFinite318.lean
+@@ -11,7 +11,7 @@
+ /-- The exact Laurent quotient produced from the SAME original arbitrary
+ line is rational-linearly isomorphic to its ORIGINAL global derived H1.
+ The target action comes from actual coefficient endomorphisms. -/
+-def equivalence : LaurentCechFinite318.H1 (transition c L) ≃ₗ[ℚ] H1 c L :=
++@[expose] def equivalence : LaurentCechFinite318.H1 (transition c L) ≃ₗ[ℚ] H1 c L :=
+   (Submodule.quotEquivOfEq _ _ (ContactOriginalLaurentBoundary318.kernel_eq_boundary c L).symm).trans
+     ((boundaryLinear c L).quotKerEquivOfSurjective (boundary_surjective c L))
+ 
