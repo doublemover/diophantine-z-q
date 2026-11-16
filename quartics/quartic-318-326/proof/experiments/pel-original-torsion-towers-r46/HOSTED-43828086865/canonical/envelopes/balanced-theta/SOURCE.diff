@@ -1,0 +1,44 @@
+--- before/PELOriginalBalancedThetaProducts318.lean
++++ sources/PELOriginalBalancedThetaProducts318.lean
+@@ -1,5 +1,6 @@
+ module
+ public import PELOriginalThetaLineSection318
++public import Mathlib.Algebra.BigOperators.GroupWithZero.Finset
+ public section
+ noncomputable section
+ namespace PELOriginalBalancedThetaProducts318
+@@ -27,7 +28,7 @@
+   induction s using Finset.induction_on with
+   | empty => simp [form,PELOriginalHermitianForm318.zero_left]
+   | @insert j s hj ih =>
+-    rw [Finset.prod_insert hj,Finset.sum_insert hj,Finset.card_insert_of_not_mem hj,
++    rw [Finset.prod_insert hj,Finset.sum_insert hj,Finset.card_insert_of_notMem hj,
+       factor_translate,ih,pow_succ,form_add_left,mul_add,Complex.exp_add]
+     ring
+ 
+@@ -41,9 +42,15 @@
+     induction s using Finset.induction_on with
+     | empty => simpa using (differentiable_const (1:ℂ))
+     | @insert j s hj ih =>
+-      simpa only [Finset.prod_insert hj] using
++      have hd : Differentiable ℂ
++          ((fun z : ComplexVectors => F (z+a j)) * fun z => ∏k∈s,F (z+a k)) :=
+         ((PELOriginalGaugedTheta318.holomorphic τ hτ).comp
+           (differentiable_id.add_const (a j))).mul ih
++      have he : (fun z : ComplexVectors => ∏k∈insert j s,F (z+a k)) =
++          ((fun z : ComplexVectors => F (z+a j)) * fun z => ∏k∈s,F (z+a k)) := by
++        funext z
++        exact Finset.prod_insert hj
++      exact he.symm ▸ hd
+   exact h Finset.univ
+ 
+ /-- Entire balanced translated products have EXACTLY the n-th power
+@@ -62,7 +69,7 @@
+ lemma product_nonzero_iff (n:ℕ) (a:Fin n→ComplexVectors) (z:ComplexVectors):
+     product τ hτ n a z≠0↔∀j,F (z+a j)≠0:=by
+   classical
+-  simp [product]
++  simp only [product,Finset.prod_ne_zero_iff,Finset.mem_univ,forall_const]
+ 
+ /-- Concrete balanced pairs, suitable for generation of the square of
+ this SAME original line; no accidental flat twist survives. -/

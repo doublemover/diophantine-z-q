@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:20:6: error(lean.unknownIdentifier): Unknown identifier `hB`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:18:75: error: unsolved goals
+B : ComplexVectors →ₗ[ℂ] ComplexVectors →ₗ[ℂ] ℂ
+z w : ComplexVectors
+⊢ (B z) z + (B w) z + ((B z) w + (B w) w) = (B z) z + 2 * (B z) w + (B w) w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:39:21: error(lean.unknownIdentifier): Unknown identifier `hB`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:35:43: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+B : ComplexVectors →ₗ[ℂ] ComplexVectors →ₗ[ℂ] ℂ
+p : Pair
+z : ComplexVectors
+⊢ ↑Real.pi / 2 * (B (z + standardPeriod τ p)) (z + standardPeriod τ p) +
+      (-↑Real.pi * Complex.I * quadratic τ (p.2 0, p.2 1) - 2 * ↑Real.pi * Complex.I * linear (p.2 0, p.2 1) z) =
+    ↑Real.pi *
+          (normalizedHermitian τ hτ z (standardPeriod τ p) +
+            normalizedHermitian τ hτ (standardPeriod τ p) (standardPeriod τ p) / 2) +
+        ↑Real.pi * Complex.I * ↑(canonicalQuadratic p) +
+      ↑Real.pi / 2 * (B z) z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:50:41: error(lean.unknownIdentifier): Unknown identifier `hB`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:50:44: error(lean.unknownIdentifier): Unknown identifier `hperiod`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r42/PELOriginalThetaHermitianGauge318.lean:48:51: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+B : ComplexVectors →ₗ[ℂ] ComplexVectors →ₗ[ℂ] ℂ
+p : Pair
+z : ComplexVectors
+⊢ gauge B (z + standardPeriod τ p) * multiplier τ (p.2 0, p.2 1) z * theta τ z =
+    normalizedFactor τ hτ p z * gaugedTheta τ B z

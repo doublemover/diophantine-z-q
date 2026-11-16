@@ -1,0 +1,29 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_REVIEW_HOSTED_UNVERIFIED",
+  "application_sha256": "855c408de56596758812a4266401b6ae7306f018b4f143e3e3fbaf7908650320",
+  "after_sha256": "e0c5de33bc6d09879e3359b1c86edbf60983decde75b3797127d5816b2bd1a10",
+  "verified_bindings": 13,
+  "own_head": "c842cb1b6ee005190150f0274187fa54dc78fd40",
+  "own_run": 43807653104,
+  "own_packet": "pel-original-torsion-towers-r43",
+  "own_receipt": {
+    "full_passes": 63,
+    "failure": {
+      "exit_code": 1,
+      "module": "PELOriginalThetaHermitianGauge318",
+      "seconds": 1.518
+    },
+    "unreached": 671
+  },
+  "source_review": [
+    "Read full before/after and all six actual producer/caller bodies; exact own c842 Git bytes verified.",
+    "Sole terminal rfl replaced by simp only [gaugedTheta,mul_assoc] in original_factor.",
+    "Actual hosted residual is (factor*gauge)*theta=factor*gaugedTheta; exposed gaugedTheta is literally gauge*theta. Definition unfolding and right-associated complex multiplication address this exact residual without commutation or new scalar identification.",
+    "All hB/hperiod/positive-imaginary hypotheses, statements, definitions, imports, options, and preceding multiplier proof unchanged. Concrete matrix caller derives hB and hperiod and existing consumers pass them."
+  ],
+  "limits": [
+    "No local Lean run or candidate compilation claim.",
+    "Only this source gate released; successor propagation remains separate.",
+    "No new premises, proof roots, resource changes or blanket downstream acceptance."
+  ]
+}

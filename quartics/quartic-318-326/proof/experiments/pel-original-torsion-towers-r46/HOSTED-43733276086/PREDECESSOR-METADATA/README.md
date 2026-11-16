@@ -1,0 +1,9 @@
+# pel-original-torsion-towers-r38
+
+Exact source-only successor to pel-original-torsion-towers-r37, own run43728390279 ata28f35d4c2678cbcd9633b289a8d0dd510cc0f5f: 58 full draft passes then PELOriginalAutomorphyRepresentatives318 fails2.02s. 735 roots unchanged order; 1 changed copies/734 unchanged.
+
+Observed own failed-root delta (Kaehler diagnostic only): PELOriginalAutomorphyRepresentatives318. Preventive/unreached matching copies: . Every matching canonical root is exact reviewed after bytes: changed before copies are propagated, already-after copies remain unchanged. Own receipt, predecessor metadata and historical source maps preserved; older SOURCE-MAP classifications are historical, current COPY-BINDINGS/intake govern this revision.
+
+Four actual-frontier mathematical proof-presentation repairs retain every public signature and original object/map/scalar: explicit categorical composition, separate total-space base/fiber equality, actual F3 decidable dictionary with unchanged81/72/9 cases, explicit original orbit action. Reviewed OverlapPoint same-before copies receive preventive explicit actual overlap codomain in native localization API. Kaehler changes are DIAGNOSTIC ONLY:21 finite inert #check string markers, not a mathematical repair. Removing those lines recovers exact source bytes. They indicate command progress, never proof/kernel completion or timeout cause. All existing body/options/import bytes retained there; same ordinary single180s invocation, NO existing2MiB cap exists or is claimed. No workflow/compiler/resource/trust/root change, new premise or local Lean.
+
+No repaired module is claimed to pass. Complete packet/declaration audit requires hosted replay. Omitted finite-flat and inactive Picard/obstruction research remain outside this unchanged root scope. No root/import/accepted baseline/toolchain/budget change. Any Kaehler copy is checkpoint-only, not mathematical repair.

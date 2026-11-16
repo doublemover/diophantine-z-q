@@ -1,0 +1,12 @@
+# DVRNormalizedFiniteOrder exact current source repair
+
+Scoped source/current-contract PASS for future hosted checking only. No local Lean/Lake/compiler. Read complete before/after, own error log, seven bound source/evidence files and all nine local obligations; hashes verify. Independently matched published compactr4 intake/APP and exact command prefix: RootPointMaps fullPASS2.119s, FiniteOrder FAIL2.921s after9 draft passes,7 later draft roots unreached,19 baseline dependencies reused.
+
+The original t-dependent evaluationAlgebra was an invalid typeclass declaration because t cannot be inferred from Algebra V[X] V. The candidate makes the SAME Polynomial.evalRingHom t algebra a named exposed definition, and explicitly installs it in pointMap and its consumer proof bodies. root_relation's public result type now explicitly binds that algebra with letI; its proof exposes actual polynomial evaluation before the same coefficient evaluation identities. This is a disclosed public type/instance-scope change, not a new external Algebra premise. d,a,t,z,hz remain the actual arbitrary-ring data, with full polynomial and all four signed-root formulas.
+
+pointMap remains the native fourMap ring hom with that exact evaluation algebra. Native evalRingHom and current reviewed RootPointMaps signatures agree. exists_integral_model is byte-identical, retaining every coefficient DVR place with integral t, actual nonunit twists/exponents0or1 and specified square multipliers. Existing resource options are unchanged. No domain/regularity/maximal-model or good-locus assumption is added. Source-level inspection found no blocker; future hosted elaboration remains necessary.
+
+Historical disclosure: published compactr4's verification.required_input clause incorrectly retained older r2 2-pass/DVR/14-unreached prose, although its own fields, receipt and README correctly described r3 8/1/8. My prior propagation review missed that clause. Preserve the published snapshot unchanged; r5 must explicitly correct the current clause to its own r4 9/1/7 FiniteOrder evidence. This does not alter any source hash or authentic replay outcome.
+
+SOURCE-APPc8bcc277b02824c2ec690863a4d7ff6b1cb524c8d82e7075552f57339b1548e6; before11c6c53faf8dd4cdb500d64017553d8a828d489803c5cf2b8cf5669306ecd4c9; afterce71b36bbe38dbf6aea169b878b6615965c111b4cdfde302fdfed835e511c261.
+Supplemental external native Eval.Defs SHA afa7c31da6dcf12342807acae8aaacb8f634cc79214f8fecfe0bbead0ba38b9b (outside unchanged source contract).

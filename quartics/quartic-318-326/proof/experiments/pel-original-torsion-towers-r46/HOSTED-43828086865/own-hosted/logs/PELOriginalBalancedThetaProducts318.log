@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r45/PELOriginalBalancedThetaProducts318.lean:30:51: error(lean.unknownIdentifier): Unknown constant `Finset.card_insert_of_not_mem`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r45/PELOriginalBalancedThetaProducts318.lean:42:15: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r45/PELOriginalBalancedThetaProducts318.lean:44:6: error: Type mismatch: After simplification, term
+  Differentiable.mul
+    (Differentiable.comp (PELOriginalGaugedTheta318.holomorphic τ hτ)
+      (Differentiable.add_const (a j) differentiable_id))
+    ih
+ has type
+  @Differentiable ℂ DenselyNormedField.toNontriviallyNormedField ComplexVectors Pi.normedAddCommGroup.toAddCommGroup
+    Pi.normedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ℂ
+    NormedField.toNormedCommRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℂ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ((F ∘ fun y => id y + a j) * fun z => ∏ j ∈ s, F (z + a j))
+but is expected to have type
+  @Differentiable ℂ DenselyNormedField.toNontriviallyNormedField ComplexVectors Pi.addCommGroup
+    (Pi.Function.module (Fin 2) ℂ ℂ) Pi.topologicalSpace ℂ Complex.addCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace fun z => F (z + a j) * ∏ j ∈ s, F (z + a j)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 32
+  Real.instAdd ↦ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r45/PELOriginalBalancedThetaProducts318.lean:63:41: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+n : ℕ
+a : Fin n → ComplexVectors
+z : ComplexVectors
+⊢ ¬∏ j, F (z + a j) = 0 ↔ ∀ (j : Fin n), ¬F (z + a j) = 0

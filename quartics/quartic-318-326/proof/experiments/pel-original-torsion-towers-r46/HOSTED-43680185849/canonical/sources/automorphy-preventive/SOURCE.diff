@@ -1,0 +1,154 @@
+--- before/PELOriginalAutomorphyQuotient318.lean
++++ after/PELOriginalAutomorphyQuotient318.lean
+@@ -8,10 +8,9 @@
+ open PELOriginalPolarizationLineBundle318 PELOriginalPeriodLattice318
+ open PELOriginalAutomorphyRepresentatives318 PELOriginalDescendedMetric318
+ variable (τ:ℂ) (hτ:0<τ.im)
+-local instance discretePeriods:DiscreteTopology (P τ):=original_discrete τ hτ
+ 
+ /-- Literal orbit relation of the constructed original lattice action. -/
+-@[expose] def orbitSetoid:Setoid (ComplexVectors×ℂ) where
++@[expose] def orbitSetoid:Setoid (ComplexVectors × ℂ) where
+   r p q:=∃l:L τ hτ,action τ hτ l p=q
+   iseqv:=⟨fun p=>⟨0,action_zero τ hτ p⟩,
+     by
+@@ -46,13 +45,14 @@
+ 
+ /-- Exact full fibers, including the zero section, are ORIGINAL action
+ orbits. The fiber multiplier is nonzero because it is the actual exponential. -/
+-theorem exact_orbits (p q:ComplexVectors×ℂ):
++theorem exact_orbits (p q:ComplexVectors × ℂ):
+     toTotal τ hτ p=toTotal τ hτ q↔(orbitSetoid τ hτ).r p q:=by
+   constructor
+   · intro he
+     have hp:projection (P τ) p.1=projection (P τ) q.1:=congrArg
+       (fun r:Total τ hτ=>r.1) he
+     have hm:q.1-p.1∈lattice τ hτ:=by
++      change q.1-p.1∈(lattice τ hτ).toAddSubgroup
+       rw [←exact_period_subgroup τ hτ]
+       apply (QuotientAddGroup.eq_zero_iff _).mp
+       change (QuotientAddGroup.mk' (P τ)) (_-_)=0
+@@ -82,7 +82,7 @@
+   · intro p
+     obtain ⟨x,hx⟩:=representative_surjective τ hτ p
+     exact ⟨Quotient.mk _ x,hx⟩)
+-lemma actual_representative (p:ComplexVectors×ℂ):
++lemma actual_representative (p:ComplexVectors × ℂ):
+     equivalence τ hτ (Quotient.mk _ p)=toTotal τ hτ p:=rfl
+ 
+ /-- The actual orbit quotient metric is well-defined from the original
+--- before/PELOriginalAutomorphyQuotientTopology318.lean
++++ after/PELOriginalAutomorphyQuotientTopology318.lean
+@@ -10,11 +10,11 @@
+ open PELOriginalAutomorphyRepresentatives318 PELOriginalAutomorphyQuotient318
+ open Filter Topology
+ variable (τ:ℂ) (hτ:0<τ.im)
+-local instance discretePeriods:DiscreteTopology (P τ):=original_discrete τ hτ
+ 
+ lemma shiftTo_locally_constant (a z:ComplexVectors)
+     (ha:projection (P τ) z∈baseSet τ hτ a):
+     ∀ᶠw in 𝓝 z,shiftTo τ hτ a w=shiftTo τ hτ a z:=by
++  letI : DiscreteTopology (P τ) := original_discrete τ hτ
+   obtain ⟨d,_,hd⟩:=local_inverse_translation (P τ) a z ha
+   have hz:=Filter.EventuallyEq.eq_of_nhds hd
+   have hp:Continuous (projection (P τ)):=QuotientAddGroup.continuous_mk
+@@ -30,10 +30,10 @@
+   intro p
+   let a:ComplexVectors:=(core τ hτ).indexAt (projection (P τ) p.1)
+   have ha:projection (P τ) p.1∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at _
+-  have hp:Continuous (fun x:ComplexVectors×ℂ=>projection (P τ) x.1):=
++  have hp:Continuous (fun (x : ComplexVectors × ℂ) =>projection (P τ) x.1):=
+     QuotientAddGroup.continuous_mk.comp continuous_fst
+   apply ((core τ hτ).localTriv a).continuousAt_of_comp_left hp.continuousAt ha
+-  have hc:ContinuousAt (fun x:ComplexVectors×ℂ=>
++  have hc:ContinuousAt (fun (x : ComplexVectors × ℂ) =>
+       (projection (P τ) x.1,factor τ hτ (shiftTo τ hτ a p.1) x.1*x.2)) p:=
+     hp.continuousAt.prodMk
+       (((holomorphic τ hτ _).continuous.comp continuous_fst).continuousAt.mul continuousAt_snd)
+@@ -45,11 +45,11 @@
+ 
+ /-- Actual local representative of a point of the produced bundle, using
+ its genuine local trivialization and the original quotient covering lift. -/
+-@[expose] def localRepresentative (a:ComplexVectors) (p:Total τ hτ):ComplexVectors×ℂ:=
++@[expose] def localRepresentative (a:ComplexVectors) (p:Total τ hτ):ComplexVectors × ℂ:=
+   (chart τ hτ a p.1,((core τ hτ).localTriv a p).2)
+ lemma localRepresentative_continuousAt (a:ComplexVectors) (p:Total τ hτ)
+     (hp:p.1∈baseSet τ hτ a):ContinuousAt (localRepresentative τ hτ a) p:=
+-  (((chart τ hτ a).continuousAt hp).comp p (projection_continuous τ hτ).continuousAt).prodMk
++  (((chart τ hτ a).continuousAt hp).comp (projection_continuous τ hτ).continuousAt).prodMk
+     (((core τ hτ).localTriv a).continuousAt hp).snd
+ lemma localRepresentative_rightInverse (a:ComplexVectors) (p:Total τ hτ)
+     (hp:p.1∈baseSet τ hτ a):toTotal τ hτ (localRepresentative τ hτ a p)=p:=by
+@@ -82,7 +82,7 @@
+   have hp:p.1∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at _
+   have hc:ContinuousAt (fun r:Total τ hτ=>
+       (Quotient.mk (orbitSetoid τ hτ) (localRepresentative τ hτ a r))) p:=
+-    continuous_quotient_mk'.continuousAt.comp p (localRepresentative_continuousAt τ hτ a p hp)
++    continuous_quotient_mk'.continuousAt.comp (localRepresentative_continuousAt τ hτ a p hp)
+   apply hc.congr_of_eventuallyEq
+   filter_upwards [(projection_continuous τ hτ).continuousAt
+     ((chart τ hτ a).open_source.mem_nhds hp)] with r hr
+@@ -95,6 +95,6 @@
+   toEquiv:=equivalence τ hτ
+   continuous_toFun:=(continuous_representative τ hτ).quotient_lift _
+   continuous_invFun:=inverse_continuous τ hτ
+-lemma homeomorph_representative (p:ComplexVectors×ℂ):
++lemma homeomorph_representative (p:ComplexVectors × ℂ):
+     homeomorph τ hτ (Quotient.mk _ p)=toTotal τ hτ p:=rfl
+ end PELOriginalAutomorphyQuotientTopology318
+--- before/PELOriginalHyperplanePullbackHolomorphy318.lean
++++ after/PELOriginalHyperplanePullbackHolomorphy318.lean
+@@ -8,13 +8,13 @@
+ open PELOriginalPolarizationPowerBundle318 PELOriginalLevelTheta318 PELOriginalLevelPowerSections318
+ open PELOriginalHyperplanePullback318 PELOriginalHyperplanePullbackTopology318
+ variable (τ:ℂ)(hτ:0<τ.im)(n:ℕ)
+-@[expose] def originalCoordinates(a:ComplexVectors)(p:PowerTotal τ hτ (n+2)):ComplexVectors×ℂ:=
++@[expose] def originalCoordinates(a:ComplexVectors)(p:PowerTotal τ hτ (n+2)):ComplexVectors × ℂ:=
+   (chart τ hτ a p.1,((powerCore τ hτ (n+2)).localTriv a p).2)
+-@[expose] def pullbackCoordinates(a:ComplexVectors)(j:Label (n+2))(p:PullbackTotal τ hτ n):ComplexVectors×ℂ:=
++@[expose] def pullbackCoordinates(a:ComplexVectors)(j:Label (n+2))(p:PullbackTotal τ hτ n):ComplexVectors × ℂ:=
+   (chart τ hτ a p.1,((pullbackCore τ hτ n).localTriv j p).2)
+-@[expose] def forwardLocal(j:Label (n+2))(p:ComplexVectors×ℂ):ComplexVectors×ℂ:=
++@[expose] def forwardLocal(j:Label (n+2))(p:ComplexVectors × ℂ):ComplexVectors × ℂ:=
+   (p.1,p.2/value τ hτ (n+2) j p.1)
+-@[expose] def inverseLocal(j:Label (n+2))(p:ComplexVectors×ℂ):ComplexVectors×ℂ:=
++@[expose] def inverseLocal(j:Label (n+2))(p:ComplexVectors × ℂ):ComplexVectors × ℂ:=
+   (p.1,value τ hτ (n+2) j p.1*p.2)
+ lemma coefficient_original(a:ComplexVectors)(j:Label (n+2))(q:Base τ)
+     (ha:q∈baseSet τ hτ a):
+@@ -47,7 +47,7 @@
+       (congrArg (fun c:ℂ=>c*((pullbackCore τ hτ n).localTriv j p).2)
+         (coefficient_original τ hτ n a j p.1 ha))
+ 
+-lemma forward_holomorphic(j:Label (n+2))(p:ComplexVectors×ℂ)
++lemma forward_holomorphic(j:Label (n+2))(p:ComplexVectors × ℂ)
+     (hp:value τ hτ (n+2) j p.1≠0):DifferentiableAt ℂ (forwardLocal τ hτ n j) p:=
+   differentiableAt_fst.prodMk (differentiableAt_snd.div
+     ((PELOriginalLevelPowerSections318.holomorphic τ hτ (n+2) j p.1).comp p differentiableAt_fst) hp)
+--- before/PELOriginalThetaLineSection318.lean
++++ after/PELOriginalThetaLineSection318.lean
+@@ -9,7 +9,6 @@
+ open PELOriginalAutomorphyRepresentatives318 PELOriginalDescendedMetric318
+ open Filter Topology
+ variable (τ:ℂ) (hτ:0<τ.im)
+-local instance discretePeriods:DiscreteTopology (P τ):=original_discrete τ hτ
+ local notation "F" => PELOriginalGaugedTheta318.value τ hτ
+ 
+ /-- Actual global section of the previously constructed original line.
+@@ -53,7 +52,7 @@
+   have ha:q∈baseSet τ hτ a:=(core τ hτ).mem_baseSet_at q
+   apply ((core τ hτ).localTriv a).continuousAt_of_comp_left continuousAt_id ha
+   have hc:ContinuousAt (fun r:Base τ=>(r,F (chart τ hτ a r))) q:=
+-    continuousAt_id.prodMk ((PELOriginalGaugedTheta318.holomorphic τ hτ).continuous.continuousAt.comp q
++    continuousAt_id.prodMk ((PELOriginalGaugedTheta318.holomorphic τ hτ).continuous.continuousAt.comp
+       ((chart τ hτ a).continuousAt ha))
+   apply hc.congr_of_eventuallyEq
+   filter_upwards [(chart τ hτ a).open_source.mem_nhds ha] with r hr
+@@ -61,6 +60,7 @@
+ 
+ lemma original_holomorphic_formula (a z:ComplexVectors) (hz:z∈(chart τ hτ a).target):
+     ((core τ hτ).localTriv a (thetaSection τ hτ (projection (P τ) z))).2=F z:=by
++  letI : DiscreteTopology (P τ) := original_discrete τ hτ
+   have hq:projection (P τ) z∈baseSet τ hτ a:=by
+     simpa only [chart,localChart_symm] using (chart τ hτ a).map_target hz
+   rw [local_formula τ hτ a _ hq]

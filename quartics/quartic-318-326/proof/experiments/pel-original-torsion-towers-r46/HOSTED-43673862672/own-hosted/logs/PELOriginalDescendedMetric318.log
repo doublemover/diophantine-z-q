@@ -1,0 +1,57 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:12:0: error: This instance has 1 argument that cannot be inferred using typeclass synthesis. Specifically
+
+  argument 2: `(hτ : 0 < τ.im)`
+
+These arguments are not instance-implicit and appear neither in another instance-implicit argument nor the return type, so they cannot be inferred using typeclass synthesis.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:25:14: error: Ambiguous term
+  action
+Possible interpretations:
+  PELOriginalPolarizationAutomorphy318.action : (τ : ℂ) →
+    (hτ : 0 < τ.im) → ↥(L τ hτ) → ComplexVectors × ℂ → ComplexVectors × ℂ
+  
+  QuaternionicRealPeriod318.action : RealMatrices → ComplexVectors → ComplexVectors
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:25:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  squaredNorm τ hτ (PELOriginalPolarizationAutomorphy318.action τ hτ (shift τ hτ a b q) (↑(chart τ hτ a) q, v)) =
+    squaredNorm τ hτ (↑(chart τ hτ a) q, v)
+but is expected to have type
+  squaredNorm τ hτ (↑(chart τ hτ b) q, factor τ hτ (shift τ hτ a b q) (↑(chart τ hτ a) q) * v) =
+    squaredNorm τ hτ (↑(chart τ hτ a) q, v)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 6
+  Real.instAdd ↦ 5
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:47:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul ℂ (Fiber τ hτ q) ?m.38
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:47:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Fiber τ hτ q)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:69:98: error: Application type mismatch: The argument
+  p
+has type
+  Total τ hτ
+of sort `Type` but is expected to have type
+  ContinuousAt ?m.138 ?m.139
+of sort `Prop` in the application
+  ContinuousAt.comp
+    (Continuous.continuousAt (ContDiff.continuous (PELOriginalMetricSmoothCoefficient318.smooth_local_metric τ hτ))) p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:70:45: error: Application type mismatch: The argument
+  p
+has type
+  Total τ hτ
+of sort `Type` but is expected to have type
+  ContinuousAt Bundle.TotalSpace.proj p
+of sort `Prop` in the application
+  ContinuousAt.comp (OpenPartialHomeomorph.continuousAt (chart τ hτ a) hp) p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:85:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Membership.mem (Base τ) (Set (Base τ)) Set.instMembership (localChart (P τ) a).source (projection (P τ) z)
+but is expected to have type
+  @Membership.mem (DiscreteComplexPeriodAtlas318.Quotient (P τ)) (Set (Base τ)) Set.instMembership (baseSet τ hτ a)
+    (projection (P τ) z)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r33/PELOriginalDescendedMetric318.lean:90:42: error: unexpected token '=>'; expected term
