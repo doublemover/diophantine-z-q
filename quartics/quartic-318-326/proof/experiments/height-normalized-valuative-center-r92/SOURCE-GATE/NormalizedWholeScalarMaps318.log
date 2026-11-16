@@ -1,0 +1,63 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:25:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:28:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Semiring (Laurent R ⊗[R[X]] InfinityOrder R d a)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:24:72: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+d a : Fin 4 → R
+p : R[X]
+this : Algebra R[X] (Laurent R) := (reciprocalMap R).toAlgebra
+⊢ (fullOverlap R d a).symm
+      ((infinityBaseChange R d a)
+        ((algebraMap R[X] (Laurent R ⊗[R[X]] FourRootOrder318.Order (DVRNormalizedInfinityOrder318.coefficient R d a)))
+          p)) =
+    (algebraMap (Laurent R) (CommonOrder R d a)) ((reciprocalMap R) p)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:40:45: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) (C ?r)
+in the target expression
+  (algebraMap (Laurent R) (CommonOrder R d a)) ((algebraMap R[X] (Laurent R)) (C r)) =
+    (aeval ↑(commonT R d a)).toRingHom (C r)
+
+case h₁
+R : Type u_1
+inst✝ : CommRing R
+d a : Fin 4 → R
+r : R
+⊢ (algebraMap (Laurent R) (CommonOrder R d a)) ((algebraMap R[X] (Laurent R)) (C r)) =
+    (aeval ↑(commonT R d a)).toRingHom (C r)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:42:45: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) X
+in the target expression
+  (algebraMap (Laurent R) (CommonOrder R d a)) ((algebraMap R[X] (Laurent R)) X) = (aeval ↑(commonT R d a)).toRingHom X
+
+case h₂
+R : Type u_1
+inst✝ : CommRing R
+d a : Fin 4 → R
+⊢ (algebraMap (Laurent R) (CommonOrder R d a)) ((algebraMap R[X] (Laurent R)) X) = (aeval ↑(commonT R d a)).toRingHom X
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:51:2: error: unsolved goals
+case h₁
+R : Type u_1
+inst✝ : CommRing R
+d a : Fin 4 → R
+r : R
+⊢ (algebraMap R (CommonOrder R d a)) r = (aeval ↑(commonT R d a)⁻¹).toRingHom (C r)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-normalized-valuative-center-r91/NormalizedWholeScalarMaps318.lean:54:47: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (aeval ?x) X
+in the target expression
+  (algebraMap (Laurent R) (CommonOrder R d a)) ((reciprocalMap R) X) = (aeval ↑(commonT R d a)⁻¹).toRingHom X
+
+case h₂
+R : Type u_1
+inst✝ : CommRing R
+d a : Fin 4 → R
+⊢ (algebraMap (Laurent R) (CommonOrder R d a)) ((reciprocalMap R) X) = (aeval ↑(commonT R d a)⁻¹).toRingHom X
