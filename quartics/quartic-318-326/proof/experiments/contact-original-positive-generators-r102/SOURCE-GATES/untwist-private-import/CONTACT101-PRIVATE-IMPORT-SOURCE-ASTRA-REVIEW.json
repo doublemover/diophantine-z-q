@@ -1,0 +1,22 @@
+{
+  "status": "PASS_PRIVATE_IMPORT_SOURCE_REVIEW_NOT_LEAN",
+  "application_sha256": "478c3f4928113154d189e56d9cb3be32b6c724b4cc39a775f0abc4cf5c01dde9",
+  "candidate_sha256": "477f84f1a7babb02f68ae999f2d9e7edb8d1663d47da4b84d2d0d87a00ab5ddd",
+  "bindings_verified": 15,
+  "passed_context_sources": 41,
+  "pinned_primary_api": {
+    "url": "https://raw.githubusercontent.com/leanprover/lean4/eb6cafb7290e8bd5f2937522d8d804f58f02bafc/src/Lean/Parser/Module.lean",
+    "lines": "100-105",
+    "finding": "Parser explicitly rejects public import all and recommends separate public import plus import all to expose private data only in private scope."
+  },
+  "checks": [
+    "Exactly one private import-all line; removal restores fe0c4513 byte-exact, including all proofs/statements/maps/options.",
+    "Existing producer publicly imported unchanged; private import exposes its body for proof use rather than changing producer API.",
+    "Current exact failure is unavailable moduleTop unfold; no claim that remaining mapIso conversion already succeeds.",
+    "All41 passed source identities plus primary/consumer and hosted failure bindings checked."
+  ],
+  "limits": [
+    "No local Lean; imported body reduction and final top_square conversion remain hosted obligations.",
+    "No different scalar action, new premise, public export expansion or resource change."
+  ]
+}
