@@ -1,0 +1,7 @@
+# Minimal explicit open-localization proof for N2
+
+All 204 KS53 predecessor roots retain exact order; 203 sources remain byte-identical. Only the intoInfinity_open proof in OriginalIntegerReciprocalNormalization318 changes. The existing overlapAlgebra c and overlap_localization c are supplied explicitly to the native IsOpenImmersion.of_isLocalization theorem with literal Closure and Overlap carriers. This bypasses instance synthesis without selecting a different algebra or map. The native conclusion uses exactly the algebraMap defining the unchanged inclusion and intoInfinity. No public type, mathematical claim, assumption, import, option or resource limit changes.
+
+Fresh KS53 checking recorded 51 strict passes and independently authenticated subset audit 1309. The reciprocal normalization module reports only a localization-instance synthesis error; prior tower, inclusion rfl and whnf diagnostics are absent. That does not establish module acceptance. This source-reviewed proof correction requires hosted replay. The exact target remains OriginalIntegerReciprocalNormalization318 with 52 packet roots and 180 baseline dependencies. No gluing or later geometry is added.
+
+All prior evidence and passed source bytes are preserved. Only the KS registry slot changes 53 to 54; no marker, scripts, workflows, baseline or unrelated packet changes. No local Lean or new proof acceptance claim.
