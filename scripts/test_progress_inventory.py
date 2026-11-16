@@ -197,6 +197,61 @@ class InventoryTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'Missing pinned upstream'):inv.run(args,plan)
                 fallback.assert_not_called();sweep.assert_not_called()
 
+    def project_environment_fixture(self, root):
+        project = root / 'pinned-project'; project.mkdir()
+        (project / 'lean-toolchain').write_text('leanprover/lean4:v4.35.0\n')
+        rev = 'a' * 40
+        (project / 'lake-manifest.json').write_text(json.dumps({'packages': [{'name': 'fake', 'rev': rev}]}))
+        package = project / '.lake/packages/fake'
+        (package / '.lake/build/lib/lean').mkdir(parents=True)
+        return project, package, rev
+
+    def check_project_environment(self, failure=None):
+        # Real ci.environment logic, synthetic sources and mocked Git/Lean only.
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); f,d,args,plan = self.setup_fixture(root); args.setup_ok = True
+            project,package,rev = self.project_environment_fixture(root)
+            original = Path.cwd(); calls = []
+            def output(command, **kwargs):
+                calls.append(command)
+                if command == ['git', 'rev-parse', 'HEAD']:
+                    self.assertEqual(kwargs['cwd'], package); return rev + '\n'
+                self.assertEqual(command, ['lean', '--version'])
+                if Path.cwd() != project:
+                    raise subprocess.CalledProcessError(1, command, stderr='no default toolchain configured')
+                if failure == 'missing':
+                    raise subprocess.CalledProcessError(1, command, stderr='pinned toolchain unavailable')
+                return 'Lean (version 0.0.0, wrong)' if failure else 'Lean (version 4.35.0, commit eb6cafb7290e)'
+            def clean(command, **kwargs):
+                self.assertEqual(command, ['git', 'diff', '--quiet', 'HEAD', '--'])
+                self.assertEqual(kwargs['cwd'], package); self.assertTrue(kwargs['check'])
+            with patch.object(exp, 'packet', return_value=(f,d,set(),set())), patch.object(exp, 'restore_baseline', return_value={}), patch.object(ci, 'PROJECT', project), patch.object(ci.subprocess, 'check_output', side_effect=output), patch.object(ci.subprocess, 'run', side_effect=clean) as cleanliness, patch.object(inv, 'inventory') as sweep:
+                # Demonstrate that the uncorrected repo-root call has no default.
+                with self.assertRaises(subprocess.CalledProcessError): ci.environment(project, root/'unused')
+                if failure:
+                    with self.assertRaises((ValueError, subprocess.CalledProcessError)): inv.run(args,plan)
+                    sweep.assert_not_called()
+                    receipt=json.loads((args.output/'INVENTORY.json').read_text())
+                    self.assertEqual(receipt['status'],'SETUP_ERROR')
+                    self.assertEqual(receipt['modules']['A']['status'],'setup_error')
+                    self.assertEqual(receipt['audit']['status'],'not_run')
+                else:
+                    inv.run(args,plan); sweep.assert_called_once()
+                    env=sweep.call_args.args[4]
+                    self.assertEqual(env['LEAN_PATH'],os.pathsep.join([str(args.output/'lib'),str(package/'.lake/build/lib/lean')]))
+                self.assertEqual(cleanliness.call_count,2)
+                self.assertEqual(calls.count(['lean','--version']),2)
+            self.assertEqual(Path.cwd(),original)
+
+    def test_no_default_toolchain_uses_real_pinned_project_environment(self):
+        self.check_project_environment()
+
+    def test_wrong_project_compiler_keeps_setup_failure_and_restores_cwd(self):
+        self.check_project_environment('wrong')
+
+    def test_missing_project_compiler_keeps_setup_failure_and_restores_cwd(self):
+        self.check_project_environment('missing')
+
     def test_compile_timeout_kills_group_preserves_fixed_flags(self):
         with tempfile.TemporaryDirectory() as t:
             p=Path(t);source=p/'A.lean';source.write_text('module')

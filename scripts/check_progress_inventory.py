@@ -5,6 +5,7 @@ No cross-run experiment artifact reuse. A successful compile may supply only
 later imports in this same isolated sweep. The recursive subset audit is separate.
 """
 import argparse
+from contextlib import chdir
 from collections import Counter
 import json
 import os
@@ -184,7 +185,10 @@ def run(args, plan):
         lib.mkdir()
         baseline = experiment.restore_baseline(args.cache.resolve(), lib, plan, needed)
         result['verified_baseline_modules'] = baseline
-        env, version = ci.environment(ci.PROJECT, lib)
+        # Elan selects the exact project toolchain, not a machine-wide default.
+        # Keep setup-failure accounting outside any Lake invocation.
+        with chdir(ci.PROJECT):
+            env, version = ci.environment(ci.PROJECT, lib)
         result['toolchain'] = version
         result['checker_sha256'] = ci.sha(Path(__file__))
         result['production_checker_sha256'] = ci.sha(Path(experiment.__file__))
