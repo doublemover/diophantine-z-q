@@ -1,0 +1,19 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_AND_SOURCE_REVIEW_NOT_LEAN",
+  "source_sha256": "f91fb92c149e25893dd49d54bf8075dbd13112b56a1cc9cb7a836d2b28b22da8",
+  "primary": {
+    "path": "recovery-squareclass-thin-integration/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r37/ActualTwoDescentPointExtraction318.lean",
+    "sha256": "b3ecb59940ec1a3b7e4462a885d934b569ec9ee59537e8c381f12422daf08148"
+  },
+  "local_lean_run": false,
+  "independent_exact_rational_checks": 5,
+  "findings": [
+    "Identity x-n=16*beta^2*t^2=v^2 and x+3n=4*beta*(beta-3t^2)^2=beta*u^2 hold polynomially. y=beta*(beta+3t^2)*u*v then satisfies y^2=x*(x-n)*(x+3n). All ring proofs plausible.",
+    "beta>0 and t^2>beta give both beta-t^2 and beta-9t^2 negative, hence n>0. x nonzero follows positivity; u=0 contradicts beta<t^2 and square nonnegativity; t nonzero and beta positive give v nonzero, hence y nonzero.",
+    "Canonical t=beta+1 satisfies bound because beta^2+beta+1>0. Thus exists_positive_twist has exactly its advertised rational positive-twist existence scope.",
+    "Point fields and equations exactly match actual r37 KummerPoint. All declarations/imports preserve that convention, with no local/Selmer surrogate, added axioms, admissions, options or proof weakening.",
+    "Author corrected contradictory ordinate-zero docstring before final hash. Final source explicitly avoids asserting elliptic-group order; y nonzero alone would not prove infinite order.",
+    "Does not supply points for both n and n*theta at one common n; does not match prime-pattern selected n or four forced poles at one source index; no full completeness or required Realization claimed.",
+    "No specific source elaboration blocker found. Source-level review and exact arithmetic checks are not Lean/kernel verification."
+  ]
+}

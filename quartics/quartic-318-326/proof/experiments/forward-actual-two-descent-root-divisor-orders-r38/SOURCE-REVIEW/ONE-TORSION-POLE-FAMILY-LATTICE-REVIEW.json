@@ -1,0 +1,18 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "source_sha256": "7e9ebab088f5253f508b0f29f188c72de351e01594e88e3d1ec6109a8a2b8f5f",
+  "primary_base": "cbd53f540fbf73e679bdcd37930b8ffa5762a5ae",
+  "primary_hashes": {
+    "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r35/NormalizedPolePoints318.lean": "410995ba113f37dfcb54261e61eb6b90fde58242a4fa0eed79282e99ad060542",
+    "quartics/quartic-318-326/proof/progress/PadeDenominatorNonvanishing.lean": "f1bf7e3a634941de5ee6173f1d8111cdd75e3e926bf0546cb8fc804f5371bc82"
+  },
+  "local_lean_run": false,
+  "findings": [
+    "Certificate e=s=17,p=0,q=b*k: first equation vanishes; second right side is17*b^2*(1156-51*b), hence exactly17*b^2*k^2 under51*b+k^2=1156. The displayed congrArg supplies the multiplied equation needed by nlinarith; no division or nonzero assumptions hidden.",
+    "Positive bounded pole requires289<k^2<1156 and yields b=(1156-k^2)/51 in(0,17). second_ordinate_ne uses b>0 andk^2>289 to ensure q nonzero.",
+    "Example k18,b832/51 satisfies all exact identities and bounds. Complement is35/867. If r^2 equals it, (51r)^2=105, impossible by rational_square_gap at integer n105,k10 with100<105<121. Square-gap theorem proves integral rational squares lie at integer squares; no false blanket rational-square gap assumption.",
+    "Imports resolve existing Certificate and exact rational_square_gap API; proof tactics available through NormalizedPolePoints318 Mathlib.Tactic import. No new axioms, admissions, options, unsafe or evaluators.",
+    "No arbitrary-pole existence theorem, forced-pole coverage, common four-pole CRT-index realization, Anchor or geometric soundness/completeness is asserted. Family demonstrably extends earlier square-complement sufficient family but remains a restricted locus.",
+    "No specific likely elaboration blocker found; hosted Lean remains necessary."
+  ]
+}
