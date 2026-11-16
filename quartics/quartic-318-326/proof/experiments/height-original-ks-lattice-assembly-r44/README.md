@@ -1,0 +1,5 @@
+# Minimal finite-closure tower successor of KS43
+
+All 200 predecessor roots retain exact order; 199 sources remain byte-identical. The sole change gives explicit R=Z[X], S=K, A=L c arguments to the existing scalar-tower construction. Its rfl witness and actual parameter-preserving maps are unchanged. No assumptions, imports, public statements, scalar structures, options or resource limits change.
+
+Fresh KS43 checking recorded 37 compiler passes and a strict subset audit of 969 declarations. Both fraction-field modules now pass. OriginalIntegerFiniteClosure has the first remaining error: a partially applied tower theorem inferred the same ring; downstream missing-tower diagnostics follow. The normalization map remains blocked. This source repair still requires hosted checking. Passed fraction-field and gluing sources, all other roots and all prior evidence stay exact. No later geometry additions or local Lean. Only the active KS registry slot changes 43 to 44; no marker, scripts, workflows, baseline or unrelated packet changes.
