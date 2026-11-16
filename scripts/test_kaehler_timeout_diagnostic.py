@@ -184,7 +184,7 @@ class Tests(unittest.TestCase):
     def test_prefix_metadata_does_not_claim_full_candidate(self):
         source=(HERE/'diagnose_kaehler_timeout.py').read_text()
         self.assertIn("'target_declaration_included':False",source)
-        self.assertIn("'prefix_last_declaration':'explicitCastRegroupRootStatement'",source)
+        self.assertIn("'prefix_last_declaration':'nativeRegroupRootSpecialization'",source)
         self.assertIn('not original production',source)
         self.assertIn('neither the target/full candidate nor production audit',source)
 
@@ -212,8 +212,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),5099)
-        self.assertEqual(d.digest(raw),'c6a2df526afa1f725d970021079940e1a108a539d9ec9e6af5ef9af22bb9aa17')
+        self.assertEqual(len(raw.encode()),6206)
+        self.assertEqual(d.digest(raw),'10af81b32380b134441d57f1b6b176bcdd93d2bc788a860ef50c9e62e7560363')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -240,7 +240,7 @@ class Tests(unittest.TestCase):
 
     def test_explicit_cast_statement_asserts_no_proof(self):
         out=d.specimens(self.source())['complete_candidate_prefix']
-        statement=out[out.index('private def explicitCastRegroupRootStatement'):out.index(d.PREFIX_END)]
+        statement=out[out.index('private def explicitCastRegroupRootStatement'):out.index('/-- Diagnostic native-law specialization')]
         self.assertEqual(statement.count('(Eq.mpr'),2)
         for absent in ['exact transportProperty',':= by','sorry','axiom']:
             self.assertNotIn(absent,statement)
@@ -253,10 +253,23 @@ class Tests(unittest.TestCase):
 
     def test_explicit_statement_exact_theorem_proposition(self):
         candidate=d.frozen_candidate(self.source())
-        definition=candidate[candidate.index('private def explicitCastRegroupRootStatement'):candidate.index(d.PREFIX_CHECKPOINT)].strip()
+        definition=candidate[candidate.index('private def explicitCastRegroupRootStatement'):candidate.index('/-- Diagnostic native-law specialization')].strip()
         theorem=candidate[candidate.index('private theorem explicitCastRegroupRoot'):candidate.index('/-- Root compatibility for the same regrouping equivalence transported')].strip()
         header=theorem[:theorem.index(' := by')]
         self.assertEqual(definition.replace('private def explicitCastRegroupRootStatement','private theorem explicitCastRegroupRoot').replace(' : Prop :=',' :'),header)
+
+    def test_native_root_prefix_exact_witness_and_reversal(self):
+        candidate=d.frozen_candidate(self.source())
+        start=candidate.index('/-- Diagnostic native-law specialization')
+        end=candidate.index(d.PREFIX_CHECKPOINT)
+        self.assertEqual(d.digest(candidate[:start]+candidate[end:]),'df77ccd20768536bd23b86e0997ae47c1e55c820d9cc55c91fad21595b298281')
+        out=d.specimens(self.source())['complete_candidate_prefix']
+        proof=out[out.index('private theorem nativeRegroupRootSpecialization'):out.index(d.PREFIX_END)]
+        self.assertIn('exact ActualRootPivotCoordinates318.regroup_generator a i',proof)
+        self.assertNotIn('Eq.mpr',proof)
+        self.assertNotIn('transportProperty',proof)
+        self.assertNotIn('sorry',proof)
+        self.assertNotIn('axiom',proof)
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
