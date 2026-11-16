@@ -31,6 +31,11 @@ on:
         options:
           - main
           - replay
+      packets_json:
+        description: 'Replay only: JSON array of active packet names; leave blank for all active packets'
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -98,7 +103,23 @@ jobs:
       - run: python -B scripts/test_small_prime_diagnostic.py
       - run: python -B scripts/test_prepared_anchor_elaboration_diagnostic.py
       - id: plan
-        run: python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT"
+        env:
+          REQUESTED_PACKETS_JSON: ${{ inputs.packets_json }}
+          VALIDATION_LANE: ${{ inputs.validation_lane }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$REQUESTED_PACKETS_JSON" ]] && [[ "$GITHUB_EVENT_NAME" != workflow_dispatch || "$VALIDATION_LANE" != replay ]]; then
+            echo 'Focused packet selection requires the explicit bounded replay lane.' >&2
+            exit 1
+          fi
+          python -B scripts/check_progress_experiment.py plan --github-output "$GITHUB_OUTPUT" --packets-json "$REQUESTED_PACKETS_JSON"
+      - name: Record replay scope
+        env:
+          SCOPE: ${{ steps.plan.outputs.selection_scope }}
+          SELECTED: ${{ steps.plan.outputs.selected_packet_count }}
+          ACTIVE: ${{ steps.plan.outputs.active_packet_count }}
+        run: |
+          printf 'Replay scope: %s (%s of %s active packets). Selected-packet success is not full active-set or proof acceptance.\n' "$SCOPE" "$SELECTED" "$ACTIVE" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Warm pinned compiler cache before matrix fan-out
         if: steps.plan.outputs.has_packets == 'true'

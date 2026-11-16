@@ -270,21 +270,53 @@ def run(args,plan):
     finally:ci.write_json(output/'RESULT.json',result)
 
 
+def select_packets(active, requested_json=None):
+    """Select complete active packets, never individual modules or weaker audits.
+
+    An omitted/blank selector preserves the full replay. Explicit selections
+    must be nonempty and contain distinct active packet names. Registry order
+    is retained so callers cannot reorder dependency-independent lane priority.
+    """
+    if (not isinstance(active, list) or len(active) > 16
+            or any(not isinstance(n, str) or not re.fullmatch(r'[a-z][a-z0-9-]*', n)
+                   for n in active) or len(active) != len(set(active))):
+        raise ValueError('Invalid experiment matrix')
+    if requested_json is None or not requested_json.strip():
+        return list(active)
+    try:
+        requested = json.loads(requested_json)
+    except (ValueError, TypeError) as error:
+        raise ValueError('Packet selector must be a JSON array of active names') from error
+    if (not isinstance(requested, list) or not requested or len(requested) > 16
+            or any(not isinstance(n, str) for n in requested)
+            or len(requested) != len(set(requested))
+            or any(n not in active for n in requested)):
+        raise ValueError('Packet selector must contain distinct active packet names')
+    return [n for n in active if n in requested]
+
+
 def main():
     if not __debug__:raise RuntimeError('Do not run with Python -O')
     a=argparse.ArgumentParser(description=__doc__);a.add_argument('command',choices=['plan','targets','check'])
     a.add_argument('--packet');a.add_argument('--cache',type=Path);a.add_argument('--output',type=Path)
     a.add_argument('--github-output',type=Path);a.add_argument('--seconds',type=int,default=180,choices=range(30,601))
+    a.add_argument('--packets-json', help='Plan only: JSON array of active packet names; blank means all')
     args=a.parse_args()
+    if args.packets_json is not None and args.command != 'plan':
+        a.error('--packets-json is only valid for plan')
     if args.command != 'targets': ci.check_sources(ci.PROJECT)
     plan=ci.derive_plan(early_depth=7)
     if args.command=='plan':
-        names=json.loads((EXPERIMENTS/'packets.json').read_text())['active_packets']
-        if len(names)!=len(set(names)) or len(names)>16:raise ValueError('Invalid experiment matrix')
-        for n in names:packet(n,plan)
-        check_application_publication([EXPERIMENTS / n for n in names])
+        active=json.loads((EXPERIMENTS/'packets.json').read_text())['active_packets']
+        names=select_packets(active,args.packets_json)
+        # Selection changes hosted scheduling only: all active source and
+        # publication-admission checks still run, including unselected lanes.
+        for n in active:packet(n,plan)
+        check_application_publication([EXPERIMENTS / n for n in active])
         d={'matrix':{'packet':names},'base':plan['base'],'snapshot':plan['snapshot'],
-           'has_packets':'true' if names else 'false'};print(json.dumps(d))
+           'has_packets':'true' if names else 'false',
+           'selection_scope':'all_active' if names == active else 'selected_active_only',
+           'active_packet_count':str(len(active)), 'selected_packet_count':str(len(names))};print(json.dumps(d))
         if args.github_output:
             with args.github_output.open('a') as f:
                 for k,v in d.items():f.write(k+'='+(json.dumps(v,separators=(',',':')) if isinstance(v,dict) else v)+'\n')

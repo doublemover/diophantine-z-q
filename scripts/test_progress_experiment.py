@@ -1,6 +1,7 @@
 """Fail-closed source/cache admission and isolated experiment regression tests."""
 import copy
 import json
+import os
 import subprocess
 from pathlib import Path
 import tempfile
@@ -10,6 +11,96 @@ import check_progress_experiment as e
 import check_progress_lean as ci
 
 class ExperimentTests(unittest.TestCase):
+    def test_packet_selection_default_full_and_registry_order(self):
+        active = ['one', 'two', 'three']
+        for selector in [None, '', '  \n']:
+            self.assertEqual(e.select_packets(active, selector), active)
+        self.assertEqual(e.select_packets(active, '["three","one"]'), ['one', 'three'])
+        self.assertEqual(e.select_packets(active, '["two"]'), ['two'])
+        self.assertEqual(e.select_packets([], ''), [])
+
+    def test_packet_selection_rejects_bad_or_inactive_requests(self):
+        for selector in ['[]', 'null', '{}', '"one"', '[1]', '[true]',
+                         '[{}]', '[[]]', '["one","one"]', '["old"]',
+                         '["../one"]', '["one\\ntwo"]', '["one",]',
+                         '["one"]; touch /tmp/invalid', json.dumps(['one'] * 17)]:
+            with self.subTest(selector=selector), self.assertRaises(ValueError):
+                e.select_packets(['one', 'two'], selector)
+
+    def test_packet_selection_rejects_invalid_registry_even_when_subset_valid(self):
+        for active in [None, {}, 'one', ['one', 'one'], ['../one'], [1],
+                       ['p'+str(i) for i in range(17)]]:
+            with self.subTest(active=active), self.assertRaises(ValueError):
+                e.select_packets(active, '["one"]')
+
+    def test_selected_plan_still_admits_all_active_sources_and_publication(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t)
+            ci.write_json(root/'packets.json', {'active_packets': ['one', 'two', 'three']})
+            output = root/'out'
+            with patch.object(e, 'EXPERIMENTS', root), patch.object(e.ci, 'check_sources') as sources, \
+                 patch.object(e.ci, 'derive_plan', return_value={'base':'b', 'snapshot':'s'}), \
+                 patch.object(e, 'packet') as admission, \
+                 patch.object(e, 'check_application_publication') as publication, \
+                 patch('sys.argv', ['check', 'plan', '--packets-json', '["three","one"]',
+                                    '--github-output', str(output)]):
+                e.main()
+            sources.assert_called_once()
+            self.assertEqual([c.args[0] for c in admission.call_args_list], ['one','two','three'])
+            self.assertEqual(publication.call_args.args[0], [root/n for n in ['one','two','three']])
+            text = output.read_text()
+            self.assertIn('matrix={"packet":["one","three"]}\n', text)
+            self.assertIn('selection_scope=selected_active_only\n', text)
+            self.assertIn('active_packet_count=3\nselected_packet_count=2\n', text)
+
+    def test_unselected_admission_failure_blocks_selected_plan(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t)
+            ci.write_json(root/'packets.json', {'active_packets': ['one', 'two']})
+            def check(name, plan):
+                if name == 'two': raise ValueError('unselected source invalid')
+            with patch.object(e, 'EXPERIMENTS', root), patch.object(e.ci, 'check_sources'), \
+                 patch.object(e.ci, 'derive_plan', return_value={}), patch.object(e, 'packet', side_effect=check), \
+                 patch('sys.argv', ['check', 'plan', '--packets-json', '["one"]']), \
+                 self.assertRaisesRegex(ValueError, 'unselected source invalid'):
+                e.main()
+
+    def test_selector_is_not_a_check_or_targets_bypass(self):
+        for command in ['check', 'targets']:
+            with patch('sys.argv', ['check', command, '--packets-json', '["one"]']), \
+                 patch.object(e.ci, 'check_sources') as sources, self.assertRaises(SystemExit):
+                e.main()
+            sources.assert_not_called()
+
+    def test_workflow_selector_guard_and_shell_safe_argument(self):
+        workflow = (ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
+        block = workflow.split('      - id: plan\n', 1)[1].split('      - name: Record replay scope', 1)[0]
+        script = '\n'.join(line[10:] for line in block.split('        run: |\n', 1)[1].splitlines())
+        self.assertNotIn('${{', script)  # Inputs are env values, never shell source.
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t)
+            wrapper = 'python() { printf "%s\\n" "$@" > "$CAPTURE"; };\n'+script
+            selector = '["one;$(touch '+str(root/'injected')+')"]'
+            for event, lane, value, allowed in [
+                    ('push','', '', True), ('workflow_dispatch','main','',True),
+                    ('workflow_dispatch','replay','["one"]',True),
+                    ('push','replay','["one"]',False),
+                    ('workflow_dispatch','main','["one"]',False),
+                    ('workflow_dispatch','replay',selector,True)]:
+                env = dict(os.environ, GITHUB_EVENT_NAME=event, VALIDATION_LANE=lane,
+                           REQUESTED_PACKETS_JSON=value, GITHUB_OUTPUT=str(root/'out'), CAPTURE=str(root/'args'))
+                result = subprocess.run(['bash','-c',wrapper], env=env, capture_output=True)
+                self.assertEqual(result.returncode == 0, allowed)
+                if allowed: self.assertIn(value, (root/'args').read_text())
+            self.assertFalse((root/'injected').exists())
+
+    def test_focused_replay_keeps_bounded_isolated_non_canceling_lane(self):
+        workflow = (ci.ROOT/'.github/workflows/progress-experiments.yml').read_text()
+        self.assertIn("inputs.validation_lane == 'replay' && '-replay' || ''", workflow)
+        self.assertIn('cancel-in-progress: false', workflow)
+        self.assertIn("inputs.validation_lane == 'replay' && 4 || 16", workflow)
+        self.assertIn('Selected-packet success is not full active-set or proof acceptance.', workflow)
+
     def fixture(self,root):
         p=root/'sample';p.mkdir()
         (p/'Draft.lean').write_text('module\npublic import Base\npublic def answer : Nat := 42\n')
