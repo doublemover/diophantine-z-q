@@ -1,0 +1,11 @@
+--- before/PELRealRationalProportionality318.lean
++++ after/PELRealRationalProportionality318.lean
+@@ -49,7 +49,7 @@
+ 
+ theorem trace_conjugation (u : Bˣ) (x : B) :
+     reducedTrace ((u:B)*x*(↑u⁻¹:B))=reducedTrace x := by
+-  rw [trace_mul_comm,←mul_assoc,Units.inv_val,one_mul]
++  rw [trace_mul_comm,←mul_assoc,Units.inv_mul,one_mul]
+ 
+ theorem inertia_coordinate_ne_zero (i : Fin 5) :
+     (PELInertiaNormalizerData318.element i).imI≠0 := by

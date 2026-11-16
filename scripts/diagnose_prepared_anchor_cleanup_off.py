@@ -13,8 +13,8 @@ ci = control.ci
 PACKET = control.PACKET
 MODULE = control.MODULE
 CONTROL_SCRIPT_SHA = '0f088e409f3450949f3a08a0d9dd2e5f4a14e6bef360921ddf76ec34695ba51b'
-SCOPE = 'set_option cleanup.letToHave false in\n' + control.SCOPE
-SCRATCH_SHA = '4498c02be67868b7615f841c9c80b4841736938469c22aca57d96b9aa8daa16a'
+SCOPE = 'set_option pp.all true in\nset_option cleanup.letToHave false in\n' + control.SCOPE
+SCRATCH_SHA = 'b39e3f35a770674747f0a5f8b11a63a85111dbd54e9bbaf6f181f258c052e115'
 LABEL = 'scratch-prepared-anchor-cleanup-off'
 TRACE_ERROR = '[Meta.letToHave] 💥️ unknown free variable `_fvar.499`'
 HEADER_OK = '[Elab.definition.header] ✅️ PreparedAnchorSource318.current_source_prepared_anchor'
@@ -87,7 +87,9 @@ def main():
             'original_source_sha256': control.SOURCE_SHA, 'scratch_source_sha256': SCRATCH_SHA,
             'production_source_changed': False, 'production_limits_changed': False,
             'full_packet_accepted': False, 'proof_acceptance': False, 'writes_olean': False,
-            'optional_elaborator_cleanup_disabled_in_scratch_only': True}
+            'optional_elaborator_cleanup_disabled_in_scratch_only': True,
+            'explicit_pretty_print_only': True,
+            'prior_cleanup_off_kernel_rejection_run': '43872584793'}
     try:
         text, evidence, control_artifacts = validate(packet, output)
     except (ValueError, OSError, KeyError, json.JSONDecodeError) as exc:
@@ -119,7 +121,9 @@ def main():
         evidence=evidence, trace_only_control_artifacts=control_artifacts, variant=row,
         interpretation='Only the optional let-to-have cleanup is disabled in a separate scratch '
         'specimen with the exact theorem statement/proof and strict kernel checking. '
-        'Compare completed header/value traces, exit and later errors. Even exit zero is '
+        'Explicit pretty printing exposes hidden proof/implicit arguments in the kernel-rejected '
+        'type to locate an escaped free variable; this is not a cleanup-off repair. '
+        'Printer truncation remains possible and is inconclusive. Even exit zero is '
         'diagnostic only: no production repair, emitted olean, recursive audit or proof acceptance.'))
 
 if __name__ == '__main__':

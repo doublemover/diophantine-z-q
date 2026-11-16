@@ -45,6 +45,9 @@ class Tests(unittest.TestCase):
     def test_exact_scoped_specimen(self):
         t = d.specimen(S); self.assertEqual(t.replace(d.SCOPE, '', 1), S)
         self.assertEqual(t.count('set_option cleanup.letToHave false in'), 1)
+        self.assertEqual(t.count('set_option pp.all true in'), 1)
+        self.assertEqual(d.control.digest(t.replace('set_option pp.all true in\n', '', 1)),
+                         '4498c02be67868b7615f841c9c80b4841736938469c22aca57d96b9aa8daa16a')
         self.assertEqual(d.control.digest(t), d.SCRATCH_SHA)
         self.assertNotIn('sorry', t); self.assertNotIn('axiom ', t)
         self.assertEqual(t.count('set_option maxHeartbeats 1000000'), 1)
