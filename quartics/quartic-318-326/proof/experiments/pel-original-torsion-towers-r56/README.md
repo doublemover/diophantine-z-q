@@ -1,0 +1,5 @@
+# pel-original-torsion-towers-r56
+
+Repair-only successor to pel-original-torsion-towers-r55; all 735 roots/order retained, 734 byte-identical. Only one proof line changes in PowerSectionDescent: restate the existing shift-zero fact with the explicit indexAt q, definitionally equal to its local alias a. This matches the actual residual after projection simplification. Original ascend/descend definitions, correspondence carrier and public statements are unchanged. No new premise, topology, bundle, map, import or resource setting. All45 passed sources, particularly repaired PowerSectionLift, remain byte-identical.
+
+Targeted43894617425 compiled45 modules with recursive subset audit910; only Descent failed and its output was quarantined. This candidate has not run Lean; full packet acceptance remains unestablished. Earlier immutable evidence retained without recursive copying. Local predecessor1be17ddd has exact published76f25c94 packet55 bytes; serial overlay must preserve current marker and unrelated packets.

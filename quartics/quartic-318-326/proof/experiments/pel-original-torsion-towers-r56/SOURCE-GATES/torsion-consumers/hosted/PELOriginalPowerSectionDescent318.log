@@ -1,0 +1,49 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r55/PELOriginalPowerSectionDescent318.lean:40:58: error: unsolved goals
+τ : ℂ
+hτ : 0 < τ.im
+N : ℕ
+s : HolomorphicSection τ hτ N
+q : Base τ
+a : ComplexVectors := (core τ hτ).indexAt q
+ha : q ∈ baseSet τ hτ a
+z : ComplexVectors := ↑(chart τ hτ a) q
+hz : z ∈ (chart τ hτ a).target
+hp : projection (P τ) z = q
+hs : shiftTo τ hτ a z = 0
+f : Base τ → ℂ := fun q => s.value q
+⊢ (factor τ hτ (shiftTo τ hτ ((core τ hτ).indexAt q) z) z ^ N)⁻¹ * f q = f q
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r55/PELOriginalPowerSectionDescent318.lean:50:16: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, zero_factor, one_pow, inv_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r55/PELOriginalPowerSectionDescent318.lean:50:19: warning: This simp argument is unused:
+  zero_factor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hs, one_pow, inv_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r55/PELOriginalPowerSectionDescent318.lean:50:31: warning: This simp argument is unused:
+  one_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hs, zero_factor, inv_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r55/PELOriginalPowerSectionDescent318.lean:50:39: warning: This simp argument is unused:
+  inv_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hs, zero_factor, one_pow, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r55/PELOriginalPowerSectionDescent318.lean:50:47: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hs, zero_factor, one_pow, inv_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

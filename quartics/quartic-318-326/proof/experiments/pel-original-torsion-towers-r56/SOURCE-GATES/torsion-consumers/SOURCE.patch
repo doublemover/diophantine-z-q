@@ -1,0 +1,10 @@
+--- before/PELOriginalPowerSectionDescent318.lean
++++ after/PELOriginalPowerSectionDescent318.lean
+@@ -44,6 +44,7 @@
+   have hz:z∈(chart τ hτ a).target:=(chart τ hτ a).map_source ha
+   have hp:projection (P τ) z=q:=section_projection τ hτ a q ha
+   have hs:shiftTo τ hτ a z=0:=target_shift_zero τ hτ a z hz
++  change shiftTo τ hτ ((core τ hτ).indexAt q) z = 0 at hs
+   let f : Base τ → ℂ := fun q => s.value q
+   change (factor τ hτ (shiftTo τ hτ ((core τ hτ).indexAt (projection (P τ) z)) z) z^N)⁻¹*
+     f (projection (P τ) z)=f q
