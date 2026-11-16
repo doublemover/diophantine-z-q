@@ -1,0 +1,22 @@
+{
+  "status": "PASS_SOURCE_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "fa055bb4cab171b6e1c06ea9838c1f8d3907a8ff123f635bf7dfecc0cf65eae1",
+  "before_sha256": "6f6ede89f9742b76e495422a4e268ea8ffaedf3825cdce7d2ad51bc14c1d8526",
+  "bindings_sha256": "c921361036c6c13d5587d8078cf635c8a8258df23a70fd0304c1ef011c619c2a",
+  "runtime_failure_receipt_sha256": "cba7421eb28a11ad21fe6a46bfd13d01d5751f83f2871ad4055d74df71822a52",
+  "native_snapshot_sha256": "c56bf1519b51dd9a50dcbee80abc439fd0a2c1e2a9694582b9df0eda71e4839f",
+  "changes": [
+    "hmap explicitly unfolds toZModPow/toZModHom to native appr function and normalizes Int.cast_natCast.",
+    "Ring-hom maps distribute over the original polynomial before hmap rewrites individual coordinates, preventing rep of the entire residual."
+  ],
+  "checks": [
+    "Exact two replacements recover immutable failed source; every other byte unchanged.",
+    "Pinned native toZModHom.toFun is cast of f; toZModPow specializes f to appr at n.",
+    "The first simp phase excludes hmap and preserves polynomial structure before coordinate conversion.",
+    "No changed declarations, assumptions, imports, scalar actions, limits or producer files."
+  ],
+  "limits": [
+    "Source/API assessment only; simp closure and elaboration require fresh strict hosted compilation and audit.",
+    "No Qp bridge acceptance or local-global conclusion."
+  ]
+}
