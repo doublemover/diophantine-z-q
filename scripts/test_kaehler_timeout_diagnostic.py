@@ -184,7 +184,7 @@ class Tests(unittest.TestCase):
     def test_prefix_metadata_does_not_claim_full_candidate(self):
         source=(HERE/'diagnose_kaehler_timeout.py').read_text()
         self.assertIn("'target_declaration_included':False",source)
-        self.assertIn("'prefix_last_declaration':'nativeRegroupRootSpecialization'",source)
+        self.assertIn("'prefix_last_declaration':'innerQCastRegroupRoot'",source)
         self.assertIn('not original production',source)
         self.assertIn('neither the target/full candidate nor production audit',source)
 
@@ -212,8 +212,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),6206)
-        self.assertEqual(d.digest(raw),'10af81b32380b134441d57f1b6b176bcdd93d2bc788a860ef50c9e62e7560363')
+        self.assertEqual(len(raw.encode()),8386)
+        self.assertEqual(d.digest(raw),'68e900d6d989a4e2553d98b1e9086639099493b4dc322bed85da124f2c914d03')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -224,7 +224,7 @@ class Tests(unittest.TestCase):
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('private def explicitCastRegroupRootStatement',out)
         self.assertNotIn('private theorem explicitCastRegroupRoot',out)
-        self.assertNotIn('exact transportProperty',out)
+        self.assertNotIn('exact transportProperty',out[:out.index('/-- Diagnostic one-transport partition')])
         self.assertNotIn('private theorem transportedRegroupRoot',out)
         self.assertNotIn('local instance regrouped_commRing',out)
         self.assertNotIn('KAEHLER_CANDIDATE_AFTER_TRANSPORT_HELPER',out)
@@ -264,10 +264,26 @@ class Tests(unittest.TestCase):
         end=candidate.index(d.PREFIX_CHECKPOINT)
         self.assertEqual(d.digest(candidate[:start]+candidate[end:]),'df77ccd20768536bd23b86e0997ae47c1e55c820d9cc55c91fad21595b298281')
         out=d.specimens(self.source())['complete_candidate_prefix']
-        proof=out[out.index('private theorem nativeRegroupRootSpecialization'):out.index(d.PREFIX_END)]
+        proof=out[out.index('private theorem nativeRegroupRootSpecialization'):out.index('/-- Diagnostic one-transport partition')]
         self.assertIn('exact ActualRootPivotCoordinates318.regroup_generator a i',proof)
         self.assertNotIn('Eq.mpr',proof)
         self.assertNotIn('transportProperty',proof)
+        self.assertNotIn('sorry',proof)
+        self.assertNotIn('axiom',proof)
+
+    def test_inner_q_prefix_exact_partition_and_reversal(self):
+        candidate=d.frozen_candidate(self.source())
+        start=candidate.index('/-- Diagnostic one-transport partition')
+        end=candidate.index(d.PREFIX_CHECKPOINT)
+        self.assertEqual(d.digest(candidate[:start]+candidate[end:]),'22bc3db3670727d3209fca63b4f54316ea43dfbd0f2957b0a9545c8323376066')
+        out=d.specimens(self.source())['complete_candidate_prefix']
+        proof=out[out.index('private theorem innerQCastRegroupRoot'):out.index(d.PREFIX_END)]
+        self.assertIn('Eq.mpr',proof)
+        self.assertIn('transportProperty',proof)
+        self.assertIn('nativeRegroupRootSpecialization',proof)
+        self.assertNotIn('private theorem explicitCastRegroupRoot',out)
+        self.assertNotIn('private theorem transportedRegroupRoot',out)
+        self.assertNotIn('variable (b:Fin 4',out)
         self.assertNotIn('sorry',proof)
         self.assertNotIn('axiom',proof)
 
