@@ -1,0 +1,22 @@
+--- before/ContactOriginalLineSectionEquivalence318.lean
++++ after/ContactOriginalLineSectionEquivalence318.lean
+@@ -1,5 +1,6 @@
+ module
+ public import ContactOriginalLineCohomologyFinite318
++import all ContactOriginalLineSectionsFinite318
+ public import OriginalModuleTwoOpenGluing318
+ public section
+ noncomputable section
+@@ -22,10 +23,8 @@
+   have hx : z∈positive := v.property.1
+   have hy : z∈negative.map (LaurentTransitionBounds318.underlying (transition c L)) := v.property.2
+   rw [ContactOriginalLaurentBoundary318.negative_image] at hy
+-  rw [← finite_image c L] at hx
+-  rw [← infinity_image c L] at hy
+-  obtain ⟨a,ha⟩ := hx
+-  obtain ⟨b,hb⟩ := hy
++  obtain ⟨a,ha⟩ := (Set.ext_iff.mp (finite_image c L) z).mpr hx
++  obtain ⟨b,hb⟩ := (Set.ext_iff.mp (infinity_image c L) z).mpr hy
+   have hab : L.object.presheaf.map (homOfLE inf_le_left :
+       finiteOpen c ⊓ infinityOpen c ⟶ finiteOpen c).op (finiteSectionsEquiv c L a) =
+     L.object.presheaf.map (homOfLE inf_le_right :

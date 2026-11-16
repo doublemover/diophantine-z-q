@@ -1,0 +1,9 @@
+# contact-original-positive-generators-r90
+
+Unaccepted source successor to OWN positive89. Exact own run43733276086 at 58cac25d has80 complete passes then Untwist failure2.220s,26roots unreached. First failure is chart coefficient acting on ambient module; missing e cascades; hidden twist causes separate finiteIso/infinityIso failures. Own source/intake/RESULT/log retained. No borrowed receipt or partial declaration acceptance.
+
+Three exact independently source-reviewed changes: expose only actual twist producer, transport frame coefficient by actual appIso.inv in pure/image_pure, prove via native restricted scalar law, and update immediate arbitrary-subopen consumer with native ι_appIso. No new scalar-action assumption, re-chosen frame, locus restriction or changed section. Entire original tensor/over-open maps retained. Arbitrary-subopen pure remains unchanged. OriginalTensorUntwistOver is preventive/unreached; not claimed compiler-tested. Other gluing variants have extra exposures and are separately owned, not replaced here.
+
+107roots same order,3revised/104byte-exact predecessor copies,0new. Current metadata refreshed and original copies retained under IMMEDIATE-PREDECESSOR-43728390279. Prior nested outcomes/contracts remain historical. No baseline/resource/trust/compiler/workflow change or inactive obstruction source included. Full new hosted replay still required; no local Lean, whole positive-generation proof, model/KS or GeometricRealization acceptance.
+
+LATEST-EVIDENCE REFRESH ONLY: exact approved positive90 source/intake unchanged; source review retains original evidence, current own positive89 at58cac25d/run43733276086 reproduces80pass/Untwist2.220s/26unreached. Prior approved90 APP/contract/copy record/review retained under PRIOR-REVIEWED90-43728390279. No candidate90 compilation or acceptance.

@@ -1,0 +1,34 @@
+--- before
++++ after
+@@ -67,18 +67,19 @@
+     (homOfLE (show finiteOpen c ⊓ infinityOpen c ≤ ⊤ from le_top)).op) := by
+   intro s t h
+   let U : Fin 2 → (ContactProjectiveModel318.model c).Opens := ![finiteOpen c,infinityOpen c]
++  have hcover : ⊤ ≤ iSup U :=
++    (le_of_eq (cover c).symm).trans (sup_le (le_iSup U 0) (le_iSup U 1))
+   apply TopCat.Sheaf.eq_of_locally_eq'
+     (⟨L.object.presheaf,L.object.isSheaf⟩ : TopCat.Sheaf AddCommGrpCat _)
+-    U ⊤ (fun _ => homOfLE le_top) ?_ s t
+-  · exact (le_of_eq (cover c).symm).trans (sup_le (le_iSup U 0) (le_iSup U 1))
+-  · intro i
+-    fin_cases i
+-    · change L.object.presheaf.map (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op s =
+-        L.object.presheaf.map (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op t
+-      apply finite_original_injective c L
+-      simpa only [← Functor.map_comp_apply] using h
+-    · change L.object.presheaf.map (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op s =
+-        L.object.presheaf.map (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op t
+-      apply infinity_original_injective c L
+-      simpa only [← Functor.map_comp_apply] using h
++    U ⊤ (fun _ => homOfLE le_top) hcover s t
++  intro i
++  fin_cases i
++  · change L.object.presheaf.map (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op s =
++      L.object.presheaf.map (homOfLE (show finiteOpen c ≤ ⊤ from le_top)).op t
++    apply finite_original_injective c L
++    simpa only [← Functor.map_comp_apply] using h
++  · change L.object.presheaf.map (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op s =
++      L.object.presheaf.map (homOfLE (show infinityOpen c ≤ ⊤ from le_top)).op t
++    apply infinity_original_injective c L
++    simpa only [← Functor.map_comp_apply] using h
+ end ContactWholeChartRestrictionInjective318

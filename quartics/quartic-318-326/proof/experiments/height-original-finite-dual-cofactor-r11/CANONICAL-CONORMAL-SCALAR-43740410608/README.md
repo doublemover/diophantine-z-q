@@ -1,0 +1,5 @@
+# Exact actual conormal scalar-additivity application
+
+Inactive source based on own compact10 at694f2601/run43740410608:15 full passes, SourceConormalRelations fails6.431s,1root unreached. Prior unknown derivation identifiers are absent, but no partial module acceptance inferred. Sole logged error is add_smul rewrite after two_mul: target already literally (root+root) smul Droot = root smul Droot + root smul Droot, while generic rewrite cannot match scalar dictionaries.
+
+Keep successful two_mul rewrite, then apply native add_smul with both ACTUAL source roots and explicit ACTUAL KaehlerDifferential.D R A root as arguments. This constrains native scalar and module carriers before expected-type conversion instead of asking rewrite to infer from an underspecified pattern. No replacement scalar action, added assumption, new equality lemma premise, public type/body elsewhere, options/import/budget/workflow change. Exact native ModuleDefs and full producer/downstream consumer retained. Concrete elaboration still untested; this is not proof that dictionaries convert in hosted Lean.

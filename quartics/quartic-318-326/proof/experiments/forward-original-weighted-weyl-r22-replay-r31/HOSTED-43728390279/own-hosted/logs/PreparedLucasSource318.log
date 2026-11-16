@@ -1,0 +1,489 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r27/PreparedLucasSource318.lean:79:56: error: unsolved goals
+a : ℤ
+A₂ A₃ d : ℕ
+hdepth₂ : 6 ≤ A₂
+hd : d ≠ 0
+labels : Fin 4 → ℤ := FixedArithmeticLabels318.labels a A₂ A₃ d hd
+hn : ∀ (j : Fin 4), FixedArithmeticLabels318.labels a A₂ A₃ d hd j ≠ 0
+hn1 : labels 1 ≠ 1
+t : ℚ
+ht :
+  ∀ (Pi Mminus Mplus L h₀ e B : ℕ),
+    0 < Pi →
+      0 < Mminus →
+        0 < Mplus →
+          0 < L →
+            Pi.Coprime Mplus →
+              Pi.Coprime L →
+                Mminus.Coprime Mplus →
+                  Mplus.Coprime L →
+                    Mminus.gcd L = 16 →
+                      64 ∣ L →
+                        64 ∣ h₀ →
+                          ∃ h,
+                            B < h ∧
+                              h ≡ 0 [MOD Pi ^ e * Mminus] ∧
+                                h ≡ 1 [MOD Mplus] ∧
+                                  h ≡ h₀ [MOD L] ∧
+                                    1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU ↑h))| ∧
+                                      (∀ (j : Fin 4),
+                                          RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h)
+                                              (CoherentMultiplePrefix318.v labels ↑h) j =
+                                            CoherentMultipleCharts318.fixedRoot (labels j)) ∧
+                                        have pre := ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t;
+                                        (∀ (j : Fin 3), 0 < pre (190 + 51 * ↑j) ∧ pre (190 + 51 * ↑j) < 17) ∧
+                                          (0 < scalarB (↑a) labels ↑h ∧ scalarB (↑a) labels ↑h < 17) ∧
+                                            (IsSquare ↑(scalarB (↑a) labels ↑h) ∧
+                                                IsSquare ↑(scalarB (↑a) labels ↑h) ∧
+                                                  IsSquare ↑(scalarB (↑a) labels ↑h)) ∧
+                                              ((∀ (p : ℕ),
+                                                    Nat.Prime p →
+                                                      0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+                                                        padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                            padicValRat p
+                                                              (DetectorGateWitness318.witness (↑a) labels (↑h) 37) ∧
+                                                          padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                              padicValRat p
+                                                                (2 *
+                                                                  DetectorGateWitness318.witness (↑a) labels (↑h) 33) ∧
+                                                            2 *
+                                                                  padicValRat p
+                                                                    (DetectorGateWitness318.witness (↑a) labels (↑h)
+                                                                      37) +
+                                                                29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                              2 *
+                                                                padicValRat p
+                                                                  (ActualScalarRoot318.inverseNorm (labels 1))) →
+                                                  IsSquare (scalarB (↑a) labels ↑h).den ∧
+                                                    padicValRat 2 (scalarB (↑a) labels ↑h) = 4 ∧
+                                                      padicValRat 3 (scalarB (↑a) labels ↑h) = 2 ∧
+                                                        padicValRat 17 (scalarB (↑a) labels ↑h) = 2) ∧
+                                                ∀ (P₀ : Realization (pre 190)) (P₁ : Realization (pre 241))
+                                                  (P₂ : Realization (pre 292))
+                                                  (P₃ : Realization (scalarB (↑a) labels ↑h))
+                                                  (A :
+                                                    ScalarCompleteSource318.Anchor (↑Current318FinalPolynomial.scale)
+                                                      (FixedDetectorScales318.normProduct labels)
+                                                      (ActualScalarRoot318.inverseNorm (labels 1))),
+                                                  HasSolution (stage0 ↑Current318FinalPolynomial.scale) ↑a
+Pi Mminus Mplus L h₀ e B : ℕ
+hPi : 0 < Pi
+hMm : 0 < Mminus
+hMp : 0 < Mplus
+hL : 0 < L
+hPm : Pi.Coprime Mplus
+hPL : Pi.Coprime L
+hmp : Mminus.Coprime Mplus
+hpL : Mplus.Coprime L
+hmL : Mminus.gcd L = 16
+hdivL : 64 ∣ L
+hdivh₀ : 64 ∣ h₀
+hmodL : ScalarPreparedResidues318.modulus A₂ A₃ ∣ L
+hmod₀ : h₀ ≡ ScalarPreparedResidues318.residue A₂ A₃ [MOD ScalarPreparedResidues318.modulus A₂ A₃]
+h : ℕ
+hbig : B < h
+hA : h ≡ 0 [MOD Pi ^ e * Mminus]
+hP : h ≡ 1 [MOD Mplus]
+hL' : h ≡ h₀ [MOD L]
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU ↑h))|
+hroots :
+  ∀ (j : Fin 4),
+    RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h) (CoherentMultiplePrefix318.v labels ↑h) j =
+      CoherentMultipleCharts318.fixedRoot (labels j)
+hbs :
+  ∀ (j : Fin 3),
+    0 < ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t (190 + 51 * ↑j) ∧
+      ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t (190 + 51 * ↑j) < 17
+hscalarB : 0 < scalarB (↑a) labels ↑h ∧ scalarB (↑a) labels ↑h < 17
+hsquares : IsSquare ↑(scalarB (↑a) labels ↑h) ∧ IsSquare ↑(scalarB (↑a) labels ↑h) ∧ IsSquare ↑(scalarB (↑a) labels ↑h)
+hprep_old :
+  (∀ (p : ℕ),
+      Nat.Prime p →
+        0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+          padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+              padicValRat p (DetectorGateWitness318.witness (↑a) labels (↑h) 37) ∧
+            padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                padicValRat p (2 * DetectorGateWitness318.witness (↑a) labels (↑h) 33) ∧
+              2 * padicValRat p (DetectorGateWitness318.witness (↑a) labels (↑h) 37) +
+                  29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                2 * padicValRat p (ActualScalarRoot318.inverseNorm (labels 1))) →
+    IsSquare (scalarB (↑a) labels ↑h).den ∧
+      padicValRat 2 (scalarB (↑a) labels ↑h) = 4 ∧
+        padicValRat 3 (scalarB (↑a) labels ↑h) = 2 ∧ padicValRat 17 (scalarB (↑a) labels ↑h) = 2
+hfinish :
+  ∀ (P₀ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 190))
+    (P₁ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 241))
+    (P₂ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 292))
+    (P₃ : Realization (scalarB (↑a) labels ↑h))
+    (A :
+      ScalarCompleteSource318.Anchor (↑Current318FinalPolynomial.scale) (FixedDetectorScales318.normProduct labels)
+        (ActualScalarRoot318.inverseNorm (labels 1))),
+    HasSolution (stage0 ↑Current318FinalPolynomial.scale) ↑a
+hunits :
+  padicValRat 2
+        (ScalarForwardWitness318.W
+          (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) ↑h)
+          (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1)) =
+      0 ∧
+    padicValRat 3
+        (ScalarForwardWitness318.W
+          (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) ↑h)
+          (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1)) =
+      0
+hprep :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      p ≠ 2 →
+        p ≠ 3 →
+          0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+            padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                padicValRat p
+                  (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 37) ∧
+              padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                  padicValRat p
+                    (2 * DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 33) ∧
+                2 *
+                      padicValRat p
+                        (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 37) +
+                    29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                  2 * padicValRat p (ActualScalarRoot318.inverseNorm (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1))
+w : Assignment := DetectorGateWitness318.witness (↑a) labels ↑h
+hin : w 0 = ↑a
+hz : ScalarForwardWitness318.W w (labels 1) = 0
+hb :
+  0 <
+    114444 * ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels (↑h) 0) *
+      (ScalarForwardWitness318.W (DetectorGateWitness318.witness (↑a) labels ↑h) (labels 1) /
+          (1 + 114444 * ScalarForwardWitness318.inputR (DetectorGateWitness318.witness (↑a) labels (↑h) 0))) ^
+        2
+⊢ False
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r27/PreparedLucasSource318.lean:84:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  DetectorGateWitness318.witness ?q ?labels ?h 37
+in the target expression
+  w 37 ≠ 0
+
+a : ℤ
+A₂ A₃ d : ℕ
+hdepth₂ : 6 ≤ A₂
+hd : d ≠ 0
+labels : Fin 4 → ℤ := FixedArithmeticLabels318.labels a A₂ A₃ d hd
+hn : ∀ (j : Fin 4), FixedArithmeticLabels318.labels a A₂ A₃ d hd j ≠ 0
+hn1 : labels 1 ≠ 1
+t : ℚ
+ht :
+  ∀ (Pi Mminus Mplus L h₀ e B : ℕ),
+    0 < Pi →
+      0 < Mminus →
+        0 < Mplus →
+          0 < L →
+            Pi.Coprime Mplus →
+              Pi.Coprime L →
+                Mminus.Coprime Mplus →
+                  Mplus.Coprime L →
+                    Mminus.gcd L = 16 →
+                      64 ∣ L →
+                        64 ∣ h₀ →
+                          ∃ h,
+                            B < h ∧
+                              h ≡ 0 [MOD Pi ^ e * Mminus] ∧
+                                h ≡ 1 [MOD Mplus] ∧
+                                  h ≡ h₀ [MOD L] ∧
+                                    1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU ↑h))| ∧
+                                      (∀ (j : Fin 4),
+                                          RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h)
+                                              (CoherentMultiplePrefix318.v labels ↑h) j =
+                                            CoherentMultipleCharts318.fixedRoot (labels j)) ∧
+                                        have pre := ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t;
+                                        (∀ (j : Fin 3), 0 < pre (190 + 51 * ↑j) ∧ pre (190 + 51 * ↑j) < 17) ∧
+                                          (0 < scalarB (↑a) labels ↑h ∧ scalarB (↑a) labels ↑h < 17) ∧
+                                            (IsSquare ↑(scalarB (↑a) labels ↑h) ∧
+                                                IsSquare ↑(scalarB (↑a) labels ↑h) ∧
+                                                  IsSquare ↑(scalarB (↑a) labels ↑h)) ∧
+                                              ((∀ (p : ℕ),
+                                                    Nat.Prime p →
+                                                      0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+                                                        padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                            padicValRat p
+                                                              (DetectorGateWitness318.witness (↑a) labels (↑h) 37) ∧
+                                                          padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                              padicValRat p
+                                                                (2 *
+                                                                  DetectorGateWitness318.witness (↑a) labels (↑h) 33) ∧
+                                                            2 *
+                                                                  padicValRat p
+                                                                    (DetectorGateWitness318.witness (↑a) labels (↑h)
+                                                                      37) +
+                                                                29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                              2 *
+                                                                padicValRat p
+                                                                  (ActualScalarRoot318.inverseNorm (labels 1))) →
+                                                  IsSquare (scalarB (↑a) labels ↑h).den ∧
+                                                    padicValRat 2 (scalarB (↑a) labels ↑h) = 4 ∧
+                                                      padicValRat 3 (scalarB (↑a) labels ↑h) = 2 ∧
+                                                        padicValRat 17 (scalarB (↑a) labels ↑h) = 2) ∧
+                                                ∀ (P₀ : Realization (pre 190)) (P₁ : Realization (pre 241))
+                                                  (P₂ : Realization (pre 292))
+                                                  (P₃ : Realization (scalarB (↑a) labels ↑h))
+                                                  (A :
+                                                    ScalarCompleteSource318.Anchor (↑Current318FinalPolynomial.scale)
+                                                      (FixedDetectorScales318.normProduct labels)
+                                                      (ActualScalarRoot318.inverseNorm (labels 1))),
+                                                  HasSolution (stage0 ↑Current318FinalPolynomial.scale) ↑a
+Pi Mminus Mplus L h₀ e B : ℕ
+hPi : 0 < Pi
+hMm : 0 < Mminus
+hMp : 0 < Mplus
+hL : 0 < L
+hPm : Pi.Coprime Mplus
+hPL : Pi.Coprime L
+hmp : Mminus.Coprime Mplus
+hpL : Mplus.Coprime L
+hmL : Mminus.gcd L = 16
+hdivL : 64 ∣ L
+hdivh₀ : 64 ∣ h₀
+hmodL : ScalarPreparedResidues318.modulus A₂ A₃ ∣ L
+hmod₀ : h₀ ≡ ScalarPreparedResidues318.residue A₂ A₃ [MOD ScalarPreparedResidues318.modulus A₂ A₃]
+h : ℕ
+hbig : B < h
+hA : h ≡ 0 [MOD Pi ^ e * Mminus]
+hP : h ≡ 1 [MOD Mplus]
+hL' : h ≡ h₀ [MOD L]
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU ↑h))|
+hroots :
+  ∀ (j : Fin 4),
+    RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h) (CoherentMultiplePrefix318.v labels ↑h) j =
+      CoherentMultipleCharts318.fixedRoot (labels j)
+hbs :
+  ∀ (j : Fin 3),
+    0 < ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t (190 + 51 * ↑j) ∧
+      ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t (190 + 51 * ↑j) < 17
+hscalarB : 0 < scalarB (↑a) labels ↑h ∧ scalarB (↑a) labels ↑h < 17
+hsquares : IsSquare ↑(scalarB (↑a) labels ↑h) ∧ IsSquare ↑(scalarB (↑a) labels ↑h) ∧ IsSquare ↑(scalarB (↑a) labels ↑h)
+hprep_old :
+  (∀ (p : ℕ),
+      Nat.Prime p →
+        0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+          padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+              padicValRat p (DetectorGateWitness318.witness (↑a) labels (↑h) 37) ∧
+            padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                padicValRat p (2 * DetectorGateWitness318.witness (↑a) labels (↑h) 33) ∧
+              2 * padicValRat p (DetectorGateWitness318.witness (↑a) labels (↑h) 37) +
+                  29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                2 * padicValRat p (ActualScalarRoot318.inverseNorm (labels 1))) →
+    IsSquare (scalarB (↑a) labels ↑h).den ∧
+      padicValRat 2 (scalarB (↑a) labels ↑h) = 4 ∧
+        padicValRat 3 (scalarB (↑a) labels ↑h) = 2 ∧ padicValRat 17 (scalarB (↑a) labels ↑h) = 2
+hfinish :
+  ∀ (P₀ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 190))
+    (P₁ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 241))
+    (P₂ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 292))
+    (P₃ : Realization (scalarB (↑a) labels ↑h))
+    (A :
+      ScalarCompleteSource318.Anchor (↑Current318FinalPolynomial.scale) (FixedDetectorScales318.normProduct labels)
+        (ActualScalarRoot318.inverseNorm (labels 1))),
+    HasSolution (stage0 ↑Current318FinalPolynomial.scale) ↑a
+hunits :
+  padicValRat 2
+        (ScalarForwardWitness318.W
+          (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) ↑h)
+          (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1)) =
+      0 ∧
+    padicValRat 3
+        (ScalarForwardWitness318.W
+          (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) ↑h)
+          (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1)) =
+      0
+hprep :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      p ≠ 2 →
+        p ≠ 3 →
+          0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+            padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                padicValRat p
+                  (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 37) ∧
+              padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                  padicValRat p
+                    (2 * DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 33) ∧
+                2 *
+                      padicValRat p
+                        (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 37) +
+                    29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                  2 * padicValRat p (ActualScalarRoot318.inverseNorm (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1))
+w : Assignment := DetectorGateWitness318.witness (↑a) labels ↑h
+hin : w 0 = ↑a
+hW : ScalarForwardWitness318.W w (labels 1) ≠ 0
+⊢ w 37 ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r27/PreparedLucasSource318.lean:89:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  DetectorGateWitness318.witness ?q ?labels ?h 33
+in the target expression
+  w 33 ≠ 0
+
+a : ℤ
+A₂ A₃ d : ℕ
+hdepth₂ : 6 ≤ A₂
+hd : d ≠ 0
+labels : Fin 4 → ℤ := FixedArithmeticLabels318.labels a A₂ A₃ d hd
+hn : ∀ (j : Fin 4), FixedArithmeticLabels318.labels a A₂ A₃ d hd j ≠ 0
+hn1 : labels 1 ≠ 1
+t : ℚ
+ht :
+  ∀ (Pi Mminus Mplus L h₀ e B : ℕ),
+    0 < Pi →
+      0 < Mminus →
+        0 < Mplus →
+          0 < L →
+            Pi.Coprime Mplus →
+              Pi.Coprime L →
+                Mminus.Coprime Mplus →
+                  Mplus.Coprime L →
+                    Mminus.gcd L = 16 →
+                      64 ∣ L →
+                        64 ∣ h₀ →
+                          ∃ h,
+                            B < h ∧
+                              h ≡ 0 [MOD Pi ^ e * Mminus] ∧
+                                h ≡ 1 [MOD Mplus] ∧
+                                  h ≡ h₀ [MOD L] ∧
+                                    1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU ↑h))| ∧
+                                      (∀ (j : Fin 4),
+                                          RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h)
+                                              (CoherentMultiplePrefix318.v labels ↑h) j =
+                                            CoherentMultipleCharts318.fixedRoot (labels j)) ∧
+                                        have pre := ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t;
+                                        (∀ (j : Fin 3), 0 < pre (190 + 51 * ↑j) ∧ pre (190 + 51 * ↑j) < 17) ∧
+                                          (0 < scalarB (↑a) labels ↑h ∧ scalarB (↑a) labels ↑h < 17) ∧
+                                            (IsSquare ↑(scalarB (↑a) labels ↑h) ∧
+                                                IsSquare ↑(scalarB (↑a) labels ↑h) ∧
+                                                  IsSquare ↑(scalarB (↑a) labels ↑h)) ∧
+                                              ((∀ (p : ℕ),
+                                                    Nat.Prime p →
+                                                      0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+                                                        padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                            padicValRat p
+                                                              (DetectorGateWitness318.witness (↑a) labels (↑h) 37) ∧
+                                                          padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                              padicValRat p
+                                                                (2 *
+                                                                  DetectorGateWitness318.witness (↑a) labels (↑h) 33) ∧
+                                                            2 *
+                                                                  padicValRat p
+                                                                    (DetectorGateWitness318.witness (↑a) labels (↑h)
+                                                                      37) +
+                                                                29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                                                              2 *
+                                                                padicValRat p
+                                                                  (ActualScalarRoot318.inverseNorm (labels 1))) →
+                                                  IsSquare (scalarB (↑a) labels ↑h).den ∧
+                                                    padicValRat 2 (scalarB (↑a) labels ↑h) = 4 ∧
+                                                      padicValRat 3 (scalarB (↑a) labels ↑h) = 2 ∧
+                                                        padicValRat 17 (scalarB (↑a) labels ↑h) = 2) ∧
+                                                ∀ (P₀ : Realization (pre 190)) (P₁ : Realization (pre 241))
+                                                  (P₂ : Realization (pre 292))
+                                                  (P₃ : Realization (scalarB (↑a) labels ↑h))
+                                                  (A :
+                                                    ScalarCompleteSource318.Anchor (↑Current318FinalPolynomial.scale)
+                                                      (FixedDetectorScales318.normProduct labels)
+                                                      (ActualScalarRoot318.inverseNorm (labels 1))),
+                                                  HasSolution (stage0 ↑Current318FinalPolynomial.scale) ↑a
+Pi Mminus Mplus L h₀ e B : ℕ
+hPi : 0 < Pi
+hMm : 0 < Mminus
+hMp : 0 < Mplus
+hL : 0 < L
+hPm : Pi.Coprime Mplus
+hPL : Pi.Coprime L
+hmp : Mminus.Coprime Mplus
+hpL : Mplus.Coprime L
+hmL : Mminus.gcd L = 16
+hdivL : 64 ∣ L
+hdivh₀ : 64 ∣ h₀
+hmodL : ScalarPreparedResidues318.modulus A₂ A₃ ∣ L
+hmod₀ : h₀ ≡ ScalarPreparedResidues318.residue A₂ A₃ [MOD ScalarPreparedResidues318.modulus A₂ A₃]
+h : ℕ
+hbig : B < h
+hA : h ≡ 0 [MOD Pi ^ e * Mminus]
+hP : h ≡ 1 [MOD Mplus]
+hL' : h ≡ h₀ [MOD L]
+hscalar : 1 / 100 < |↑(normCoefficient (CoherentMultipleCharts318.chartU ↑h))|
+hroots :
+  ∀ (j : Fin 4),
+    RealGuardWitness318.root (CoherentMultiplePrefix318.u labels ↑h) (CoherentMultiplePrefix318.v labels ↑h) j =
+      CoherentMultipleCharts318.fixedRoot (labels j)
+hbs :
+  ∀ (j : Fin 3),
+    0 < ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t (190 + 51 * ↑j) ∧
+      ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t (190 + 51 * ↑j) < 17
+hscalarB : 0 < scalarB (↑a) labels ↑h ∧ scalarB (↑a) labels ↑h < 17
+hsquares : IsSquare ↑(scalarB (↑a) labels ↑h) ∧ IsSquare ↑(scalarB (↑a) labels ↑h) ∧ IsSquare ↑(scalarB (↑a) labels ↑h)
+hprep_old :
+  (∀ (p : ℕ),
+      Nat.Prime p →
+        0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+          padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+              padicValRat p (DetectorGateWitness318.witness (↑a) labels (↑h) 37) ∧
+            padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                padicValRat p (2 * DetectorGateWitness318.witness (↑a) labels (↑h) 33) ∧
+              2 * padicValRat p (DetectorGateWitness318.witness (↑a) labels (↑h) 37) +
+                  29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                2 * padicValRat p (ActualScalarRoot318.inverseNorm (labels 1))) →
+    IsSquare (scalarB (↑a) labels ↑h).den ∧
+      padicValRat 2 (scalarB (↑a) labels ↑h) = 4 ∧
+        padicValRat 3 (scalarB (↑a) labels ↑h) = 2 ∧ padicValRat 17 (scalarB (↑a) labels ↑h) = 2
+hfinish :
+  ∀ (P₀ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 190))
+    (P₁ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 241))
+    (P₂ : Realization (ThreeDetectorUniformFamily318.witness (↑a) labels (↑h) t 292))
+    (P₃ : Realization (scalarB (↑a) labels ↑h))
+    (A :
+      ScalarCompleteSource318.Anchor (↑Current318FinalPolynomial.scale) (FixedDetectorScales318.normProduct labels)
+        (ActualScalarRoot318.inverseNorm (labels 1))),
+    HasSolution (stage0 ↑Current318FinalPolynomial.scale) ↑a
+hunits :
+  padicValRat 2
+        (ScalarForwardWitness318.W
+          (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) ↑h)
+          (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1)) =
+      0 ∧
+    padicValRat 3
+        (ScalarForwardWitness318.W
+          (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) ↑h)
+          (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1)) =
+      0
+hprep :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      p ≠ 2 →
+        p ≠ 3 →
+          0 < padicValRat p (114444 * ScalarForwardWitness318.inputR ↑a) →
+            padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                padicValRat p
+                  (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 37) ∧
+              padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                  padicValRat p
+                    (2 * DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 33) ∧
+                2 *
+                      padicValRat p
+                        (DetectorGateWitness318.witness (↑a) (FixedArithmeticLabels318.labels a A₂ A₃ d hd) (↑h) 37) +
+                    29 * padicValRat p (ScalarForwardWitness318.inputR ↑a) <
+                  2 * padicValRat p (ActualScalarRoot318.inverseNorm (FixedArithmeticLabels318.labels a A₂ A₃ d hd 1))
+w : Assignment := DetectorGateWitness318.witness (↑a) labels ↑h
+hin : w 0 = ↑a
+hW : ScalarForwardWitness318.W w (labels 1) ≠ 0
+hH : w 37 ≠ 0
+⊢ w 33 ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r27/PreparedLucasSource318.lean:105:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-original-weighted-weyl-r22-replay-r27/PreparedLucasSource318.lean:82:85: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scalarB, ScalarForwardWitness318.poleInput, ScalarForwardWitness318.quotient] at hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

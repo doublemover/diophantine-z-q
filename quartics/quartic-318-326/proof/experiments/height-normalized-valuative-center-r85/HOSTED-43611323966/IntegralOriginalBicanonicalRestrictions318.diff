@@ -1,0 +1,66 @@
+--- before/IntegralOriginalBicanonicalRestrictions318.lean
++++ after/IntegralOriginalBicanonicalRestrictions318.lean
+@@ -89,10 +89,27 @@
+     (tensor c).presheaf.map (homOfLE (show ContactGlobalBicanonical318.opens c (some i)≤⊤ from le_top)).op
+       (originalQ c n) := by
+   letI := spec_algEquiv_open (IntegralRationalFiniteAtlas318.branchEquiv c i)
+-  unfold branchQ
+-  rw [weightedSquare_restrict_to _ _ _ (IntegralRationalFiniteAtlas318.branchEquiv c i).toAlgHom
+-    (ContactIntrinsicFrames318.branchEmbedding c i)
+-    (ContactIntrinsicFrames318.branch_structure c i) (branch_route c i) (branchLE c i)]
++  have transport :
++      (tensor c).presheaf.map (homOfLE (branchLE c i)).op (branchQ c i n) =
++        weightedSquare (ContactIntrinsicFrames318.branchEmbedding c i)
++          (ContactIntrinsicDifferentials318.structureMap c)
++          (ContactIntrinsicFrames318.branch_structure c i)
++          ((IntegralRationalFiniteAtlas318.branchEquiv c i).toAlgHom
++            (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n))
++          (AlgHomDifferential318.map (IntegralRationalFiniteAtlas318.branchEquiv c i).toAlgHom
++            (KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i)
++              (IntegralBranchCoordinates318.sourceCoordinate ℚ c i))) :=
++    weightedSquare_restrict_to
++      (R := ℚ) (S := IntegralBranchCoordinates318.B ℚ c i)
++      (T := ContactIntrinsicFrames318.BranchRing c i)
++      (branchEmbedding c i) (ContactIntrinsicDifferentials318.structureMap c)
++      (branch_structure c i) (IntegralRationalFiniteAtlas318.branchEquiv c i).toAlgHom
++      (ContactIntrinsicFrames318.branchEmbedding c i)
++      (ContactIntrinsicFrames318.branch_structure c i) (branch_route c i) (branchLE c i)
++      (IntegralGlobalBicanonicalPair318.branchCoefficient ℚ c i n)
++      (KaehlerDifferential.D ℚ (IntegralBranchCoordinates318.B ℚ c i)
++        (IntegralBranchCoordinates318.sourceCoordinate ℚ c i))
++  rw [transport]
+   rw [IntegralRationalBranchCoefficients318.scaled_coefficient,
+     IntegralRationalBranchCoefficients318.differential,weightedSquare_integer]
+   by_cases hn : n=0
+@@ -108,10 +125,27 @@
+     (tensor c).presheaf.map (homOfLE (show ContactGlobalBicanonical318.opens c none≤⊤ from le_top)).op
+       (originalQ c n) := by
+   letI := spec_algEquiv_open (IntegralInfinityOriginalField318.rationalOrderEquiv c)
+-  unfold infinityQ
+-  rw [weightedSquare_restrict_to _ _ _ (IntegralInfinityOriginalField318.rationalOrderEquiv c).toAlgHom
+-    (InfinityGlobalScheme318.chartEmbedding c)
+-    (InfinityStructureSmooth318.chartEmbedding_over_Q c) (infinity_route c) (infinityLE c)]
++  have transport :
++      (tensor c).presheaf.map (homOfLE (infinityLE c)).op (infinityQ c n) =
++        weightedSquare (InfinityGlobalScheme318.chartEmbedding c)
++          (ContactIntrinsicDifferentials318.structureMap c)
++          (InfinityStructureSmooth318.chartEmbedding_over_Q c)
++          ((IntegralInfinityOriginalField318.rationalOrderEquiv c).toAlgHom
++            (IntegralGlobalBicanonicalPair318.infinityCoefficient ℚ c n))
++          (AlgHomDifferential318.map (IntegralInfinityOriginalField318.rationalOrderEquiv c).toAlgHom
++            (KaehlerDifferential.D ℚ (IntegralInfinityChart318.Order ℚ c)
++              (IntegralInfinityChart318.coordinate ℚ c))) :=
++    weightedSquare_restrict_to
++      (R := ℚ) (S := IntegralInfinityChart318.Order ℚ c)
++      (T := InfinityGlobalChart318.InfinityOrder c)
++      (infinityEmbedding c) (ContactIntrinsicDifferentials318.structureMap c)
++      (infinity_structure c) (IntegralInfinityOriginalField318.rationalOrderEquiv c).toAlgHom
++      (InfinityGlobalScheme318.chartEmbedding c)
++      (InfinityStructureSmooth318.chartEmbedding_over_Q c) (infinity_route c) (infinityLE c)
++      (IntegralGlobalBicanonicalPair318.infinityCoefficient ℚ c n)
++      (KaehlerDifferential.D ℚ (IntegralInfinityChart318.Order ℚ c)
++        (IntegralInfinityChart318.coordinate ℚ c))
++  rw [transport]
+   rw [IntegralRationalInfinityCoefficients318.scaled_coefficient,
+     IntegralRationalInfinityCoefficients318.differential,weightedSquare_integer]
+   by_cases hn : n=0

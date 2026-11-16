@@ -1,0 +1,141 @@
+{
+  "author": "geometry_lean",
+  "producer": "geometry_lean",
+  "status": "SOURCE_CANDIDATE_REVIEW_PENDING",
+  "run": 43670426442,
+  "head": "7cbf02dd9bed3447c5d46502ebeb4f4c7aa7221b",
+  "before_sha256": "d565adbedae7af76700a270af774e1400fc3c7c1ca8e64d4a103d82acd63fab5",
+  "after_sha256": "8a73e62e8d0817576a8fcedc26cf4a62d3fb92a997c9a12b6b71490b34e435d4",
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "new_source_acceptance": false,
+  "change": "Replace malformed congr1 with a typed power identity hz; rewrite that identity into the full product and normalize associativity by ring. All public declarations, hypotheses, proof binders and existing options unchanged.",
+  "obligations": [
+    {
+      "id": "inputs",
+      "required_input": "Actual DVR V, coefficient fraction field K, irreducible pi, nonzero actual c.",
+      "constructed_input": "Same integer valuation n and unit u from the native DVR theorem.",
+      "justification": "No new algebra, unit or sign premise.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "objects",
+      "required_input": "Literal original twist c and normalized coefficient u*pi^e.",
+      "constructed_input": "Same Fin2 parity exponent and actual field square multiplier.",
+      "justification": "No alternate twist or unnamed square class substituted.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "domain",
+      "required_input": "Every nonzero c including negative valuation n.",
+      "constructed_input": "Retains integer zpow for n/2 and positive residue e.",
+      "justification": "No integrality or nonnegative valuation assumption added.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "maps",
+      "required_input": "Actual algebraMap V K and original twist equality.",
+      "constructed_input": "Proof now isolates a typed power identity, then rewrites the full product.",
+      "justification": "No externally supplied normalizer or equality.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "scalars",
+      "required_input": "Original unit u, uniformizer pi, parity e, actual square multiplier.",
+      "constructed_input": "All factors retained exactly; associativity discharged by ring.",
+      "justification": "No nonunit factor canceled in V.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "consumer",
+      "required_input": "normalize_four simultaneous original twist normalization.",
+      "constructed_input": "Existing consumer unchanged, preserving every index and contact parameter.",
+      "justification": "Whole dual/cofactor consumers remain downstream.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "exceptions",
+      "required_input": "Actual current congr1 matched coefficient against product coefficient.",
+      "constructed_input": "Typed hz isolates pi^n before exponent rewrite and integer/natural conversion.",
+      "justification": "Public types, proof binders, hypotheses and resource options unchanged.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "residual_geometry",
+      "required_input": "Remaining normalized order, whole finite dual, cofactor, intrinsic dualizing, maximal model, KS210.",
+      "constructed_input": "Not claimed by this isolated normalization proof repair.",
+      "justification": "No all-place evaluator or GeometricRealization acceptance.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    },
+    {
+      "id": "verification",
+      "required_input": "Own run43670426442 intake60e0d0aa:2 draft passes,1 failure,14 unreached,19 baseline reused.",
+      "constructed_input": "Authentic RESULT and exact full module failure plus independent source review.",
+      "justification": "No local Lean or successor acceptance.",
+      "source_refs": [
+        "sources/DVRTwistSquareNormalization318.lean"
+      ],
+      "evidence": [
+        "evidence/RESULT.json",
+        "evidence/DVRTwistSquareNormalization318.log"
+      ]
+    }
+  ],
+  "bindings": {
+    "sources/DVRTwistSquareNormalization318.lean": "8a73e62e8d0817576a8fcedc26cf4a62d3fb92a997c9a12b6b71490b34e435d4",
+    "before/DVRTwistSquareNormalization318.lean": "d565adbedae7af76700a270af774e1400fc3c7c1ca8e64d4a103d82acd63fab5",
+    "evidence/RESULT.json": "02f2dab19a931d1f69639b9909c06c95a23a56e811a9d3fe1c9b86346f538e96",
+    "evidence/DVRTwistSquareNormalization318.log": "62379a0b964f2fab08d86c89ff8f4fdef8bc255f913c0960ca9b206ed57a9422",
+    "primary/Mathlib_Algebra_GroupWithZero_Basic.lean": "b8b8308afdd08c773e15a3450d04a295ac53330799f48864603bbbd6d5c63b38",
+    "primary/Mathlib_RingTheory_DiscreteValuationRing_Basic.lean": "0c46fc5c9ec7e5d3151e89090076936837a2f3321da36337328172031a5fd610"
+  },
+  "native_pin": "leanprover-community/mathlib4@56a005855ea17e0b0958f73ec801ae140b0a1679"
+}

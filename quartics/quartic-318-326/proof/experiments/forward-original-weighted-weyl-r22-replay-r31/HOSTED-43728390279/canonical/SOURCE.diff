@@ -1,0 +1,24 @@
+--- before/PreparedLucasSource318
++++ after/PreparedLucasSource318
+@@ -78,17 +78,20 @@
+   have hin : w 0=(a:ℚ) := DetectorGateWitness318.witness_input _ _ _
+   have hW : ScalarForwardWitness318.W w (labels 1)≠0 := by
+     intro hz
++    dsimp only [w] at hz
+     have hb := hscalarB.1
+     simp [scalarB,ScalarForwardWitness318.poleInput,ScalarForwardWitness318.quotient,hz] at hb
+   have hH : w 37≠0 := by
++    dsimp only [w]
+     rw [ScalarActualInputs318.detector37]
+     have he : (normCoefficient (CoherentMultipleCharts318.chartU (h:ℤ)):ℝ)≠0 :=
+       abs_pos.mp (by linarith)
+     exact_mod_cast he
+   have hf : w 33≠0 := by
++    dsimp only [w]
+     rw [ScalarActualInputs318.detector33]
+     apply ScalarPackedLocalUnit318.half_trace_ne
+-    simpa only [ScalarActualInputs318.detector37] using hH
++    simpa only [w, ScalarActualInputs318.detector37] using hH
+   have hr : ScalarForwardWitness318.inputR (w 0)≠0 := by
+     rw [hin]
+     linarith [ScalarForwardWitness318.integer_inputR_large a]
