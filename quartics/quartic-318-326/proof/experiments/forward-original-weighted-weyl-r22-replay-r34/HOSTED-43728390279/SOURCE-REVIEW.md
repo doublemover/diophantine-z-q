@@ -1,0 +1,15 @@
+# Independent PreparedLucasSource alias-normalization review
+
+Reviewer: resume_probe. Result: PASS bounded source/API review, not Lean acceptance.
+
+Canonical APPLICATION:71d14c3c15c5d5e2b3ac803fc9cc684cd45536c95dc503f96e73a4381e711961. Source before:9b0f9b6c453073a4344ff3cf33b3adc4284abef79df870508526a6c10ad52573. Source after:b2baaf7456224d01df694d8682dc24ac79fbcae9d042e6937f75062771cd5fda.
+
+Read complete candidate/diff, all nine clauses and actual failure contexts; chased relevant native scalarB/W/quotient/poleInput, witness_input, detector33/37, half_trace_ne, actual_unit, actual_square_denominator and actual_pole_thresholds definitions/signatures. Independently verified all20 bindings, ten project primary files against published descent27 bytes, both own before sources/intakes and both actual hosted RESULT/log files against authenticated run43728390279 at a28f35d. Both lanes have110 complete passes then PreparedLucasSource failure; no earlier source declaration in the failed file accepted separately.
+
+The candidate is exactly four local-let normalizations, verified by reconstructing it from the before bytes with those replacements. No other byte changes. The native scalarB is poleInput of the actual DetectorGateWitness witness at labels1; poleInput is114444*inputR(w0)*(W/(1+114444*inputR(w0)))^2. The observed hW goal retains hz:W w labels1=0 while hb contains the expanded same witness. Unfolding only local w in hz supplies the identical zero occurrence needed for the existing contradiction from scalarB positivity, without cancellation or an assumption on a denominator.
+
+The native detector37 theorem gives the exact normCoefficient(chartU h); unfolding local w in hH exposes its rewrite target, then the original absolute lower bound proves nonzero. Native detector33 gives exactly (chartU h)^2.re; the original half_trace_ne consumes the norm's nonzero fact. Unfolding w in that goal and in the simpa input makes these the same actual assignment. No detector coefficient/index, signed label, witness, ring action, chart, scalar or global object changes.
+
+The full public theorem telescope and outcome, arbitrary integer a, depths/d/moduli/CRT conditions, eventual rational t, same chosen h, exceptional2/3 proofs, hprep for other primes, all four Realization premises and final Anchor are unchanged. Downstream actual_unit and denominator/threshold calls consume the original w,labels1,hin,hW,hunit and units. No new premise substitutes for a missing construction. Existing imports/options (including maxHeartbeats1000000), trust policy and resource budgets unchanged; no new source roots, exposed global declarations or admission.
+
+Released for separate immutable descent28/weighted28 current propagation review and hosted replay. No local Lean/Lake/compiler, candidate compilation, packet acceptance, baseline promotion or final arithmetic theorem claimed. This review certifies exact source scope and native dependency compatibility, not future elaboration success.

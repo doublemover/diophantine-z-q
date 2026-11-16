@@ -1,0 +1,13 @@
+# Actual source specialization and native conormal relations
+
+Inactive source draft, no kernel verification and no local Lean. No active packet is changed.
+
+`NormalizedCofactorSourceNaturality318` constructs dual-number coefficient transport along an actual algebra map f from the original normalized source A to any commutative R-algebra S. The whole source self-jet, including every polynomial and all four quotient roots, equals the cofactor jet at their actual images. Thus the previously constructed cofactor point tangent is the specialization f(D_A x) of the genuine integral source-ring derivation, not an unrelated assumed functional. No assertion makes that tangent a derivation of S itself. No unit hypothesis, sign replacement, division, domain or DVR assumption occurs.
+
+`NormalizedSourceConormalRelations318` differentiates the actual quadratic quotient relation in the genuine universal differential module Ω_{A/R}, obtaining (2 z_i) dz_i = d_i dT. It constructs the native A-linear contraction from the actual integral source derivation and computes its values on dT and dz_i. Applying it to the conormal relation retains exactly the full determinant M and the root cofactor b_i: (2 z_i)b_i=d_i M, including nonunit twists and residue characteristic2.
+
+This is an actual differential relation, not yet the assertion that these relations form a complete presentation, are a regular sequence, or identify a determinant line with relative dualizing cohomology. The target A of the contraction is not relabeled as a dualizing sheaf. In particular, the nonunit factors must NOT be canceled to assert equality of integral cotangent and dualizing images. On z²=pi(T-a), the factor pi distinguishing dz from the usual hypersurface dualizing generator remains material.
+
+The preceding batch constructs native extensions of D_A to actual localizations. This batch now relates the source derivation to point specialization, but does not yet prove the normalized source is a domain or identify its fraction field with the original generic model. No local ring is declared a DVR, no arithmetic uniformizer is asserted to be a reduced vertical uniformizer, and no maximal regular-model identification is assumed. Actual generic-model maps, normal/regular model construction, a complete conormal presentation and dualizing fundamental-class comparison, original global section extension, KS210 and metrics remain open.
+
+Every new root and its entire custom import closure is bound. Older source-only reviews are not hosted successes. The separately corrected proof-binder overlay remains frozen and authoritative where imported. No resources, admissions, trust flags, or active experiment registries change.

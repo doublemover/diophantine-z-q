@@ -1,0 +1,58 @@
+--- before/PELOriginalDescendedMetric318.lean
++++ after/PELOriginalDescendedMetric318.lean
+@@ -9,8 +9,6 @@
+ open PELOriginalPolarizationLineBundle318 PELOriginalPolarizationMetric318
+ open Filter Topology
+ variable (τ:ℂ) (hτ:0<τ.im)
+-local instance discretePeriods:DiscreteTopology (P τ):=
+-  PELOriginalPeriodLattice318.original_discrete τ hτ
+ 
+ /-- Exact metric compatibility on every TRUE overlap of the original
+ quotient covering charts. The same automorphy factor as the bundle is used. -/
+@@ -22,7 +20,7 @@
+     rw [shift_value τ hτ a b q ha hb]
+     abel
+   have h:=squaredNorm_action τ hτ (shift τ hτ a b q) (chart τ hτ a q,v)
+-  simpa only [action,transition,hs] using h
++  simpa only [PELOriginalPolarizationAutomorphy318.action,transition,hs] using h
+ 
+ /-- Positive squared Hermitian norm on the ACTUAL produced bundle.
+ The core's selected fiber representative is used only for the definition;
+@@ -44,7 +42,7 @@
+   lt_of_le_of_ne (nonnegative τ hτ p) (Ne.symm ((zero_iff τ hτ p).not.mpr hp))
+ lemma fiber_scaling (q:Base τ) (a:ℂ) (v:Fiber τ hτ q):
+     metric τ hτ ⟨q,a • v⟩=‖a‖^2*metric τ hτ ⟨q,v⟩:=by
+-  change ‖a*v‖^2*_=‖a‖^2*(‖v‖^2*_)
++  change ‖a*(show ℂ from v)‖^2*_=‖a‖^2*(‖(show ℂ from v)‖^2*_)
+   rw [norm_mul,mul_pow,mul_assoc]
+ 
+ /-- Actual bundle-trivialization inverse, not a newly chosen fiber
+@@ -66,8 +64,8 @@
+     (core τ hτ).localTriv a |>.continuousAt hp
+   have h:ContinuousAt (fun x:Total τ hτ=>squaredNorm τ hτ
+       (chart τ hτ a x.1,((core τ hτ).localTriv a x).2)) p:=
+-    (PELOriginalMetricSmoothCoefficient318.smooth_local_metric τ hτ).continuous.continuousAt.comp p
+-      (((chart τ hτ a).continuousAt hp).comp p hproj |>.prodMk htriv.snd)
++    (PELOriginalMetricSmoothCoefficient318.smooth_local_metric τ hτ).continuous.continuousAt.comp
++      (((chart τ hτ a).continuousAt hp).comp hproj |>.prodMk htriv.snd)
+   apply h.congr_of_eventuallyEq
+   filter_upwards [hproj ((chart τ hτ a).open_source.mem_nhds hp)] with x hx
+   exact (local_formula τ hτ a x hx).symm
+@@ -80,14 +78,16 @@
+       (core τ hτ).coordChange a
+         ((core τ hτ).indexAt (projection (P τ) z)) (projection (P τ) z) v⟩=
+       squaredNorm τ hτ (z,v):=by
++  letI : DiscreteTopology (P τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
+   have hq:projection (P τ) z∈baseSet τ hτ a:=by
++    change projection (P τ) z∈(chart τ hτ a).source
+     have h:=(chart τ hτ a).map_target hz
+     simpa only [chart,localChart_symm] using h
+   rw [inverse_local_formula τ hτ a _ hq]
+   have h:=(chart τ hτ a).right_inv hz
+   simpa only [chart,localChart_symm] using congrArg (fun w=>squaredNorm τ hτ (w,v)) h
+ theorem smooth_in_original_coordinates (a:ComplexVectors):
+-    ContDiffOn ℝ ⊤ (fun p:ComplexVectors×ℂ=>
++    ContDiffOn ℝ ⊤ (fun (p : ComplexVectors × ℂ) =>
+       metric τ hτ ⟨projection (P τ) p.1,
+         (core τ hτ).coordChange a
+           ((core τ hτ).indexAt (projection (P τ) p.1)) (projection (P τ) p.1) p.2⟩)

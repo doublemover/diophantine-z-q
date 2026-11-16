@@ -1,0 +1,55 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:27:20: warning: `TensorProduct.induction_on` has been deprecated: Use `TensorProduct.inductionOn` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} [inst : CommSemiring R] {M : Type u_5} {N : Type u_6} [inst_1 : AddCommMonoid M]
+    [inst_2 : AddCommMonoid N] [inst_3 : Module R M] [inst_4 : Module R N] {motive : M ⊗[R] N → Prop} (z : M ⊗[R] N),
+    (∀ (x : M) (y : N), motive (x ⊗ₜ[R] y)) → (∀ (x y : M ⊗[R] N), motive x → motive y → motive (x + y)) → motive z
+instead of
+  ∀ {R : Type u_1} [inst : CommSemiring R] {M : Type u_5} {N : Type u_6} [inst_1 : AddCommMonoid M]
+    [inst_2 : AddCommMonoid N] [inst_3 : Module R M] [inst_4 : Module R N] {motive : M ⊗[R] N → Prop} (z : M ⊗[R] N),
+    motive 0 →
+      (∀ (x : M) (y : N), motive (x ⊗ₜ[R] y)) → (∀ (x y : M ⊗[R] N), motive x → motive y → motive (x + y)) → motive z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:30:21: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [map_add, hx, hy]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:39:69: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSMul ↑Γ(SheafOfModules.unit X.ringCatSheaf, U) ↑Γ(M, U) ?m.38
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:40:9: error: Type mismatch
+  (ConcreteCategory.hom (Scheme.Modules.Hom.app (OriginalTensorRightUnit318.iso M).hom U))
+      ((ConcreteCategory.hom (Scheme.Modules.Hom.app (TensorSheafFunctor318.congr (Iso.refl M) e).hom U))
+        (IntrinsicTensorSheaf318.pure M N U m n)) =
+    ?m.67
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Sort u_1
+of sort `Type u_1`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:49:6: warning: declaration uses `sorry`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:50:5: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:60:2: warning: Unused tactic linter: `rw [pure, pure, he, ModuleScalar318.map_apply, ModuleScalar318.map_apply]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:61:2: warning: Unused tactic linter: `change
+  ((X.presheaf.map (homOfLE le_top).op a) * (f.hom.app U n)) • m =
+    (X.presheaf.map (homOfLE le_top).op a) • ((f.hom.app U n) • m)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:63:2: warning: Unused tactic linter: `exact mul_smul _ _ _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:61:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/contact-original-positive-generators-r91/OriginalTensorFrameChange318.lean:63:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`

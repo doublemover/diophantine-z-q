@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r38/OriginalPointedNormTrace318.lean:24:20: warning: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r38/OriginalPointedNormTrace318.lean:59:12: error: Tactic `rfl` failed: The left-hand side
+  U ⊔ V
+is not definitionally equal to the right-hand side
+  ⊤
+
+case hc
+R : Type
+inst✝⁴ : CommRing R
+X Y : Scheme
+inst✝³ : AlgebraicGeometry.IsIntegral X
+inst✝² : AlgebraicGeometry.IsIntegral Y
+p : X ⟶ base R
+q : Y ⟶ base R
+f : X ⟶ Y
+inst✝¹ : IsDominant f
+inst✝ : IsFinite f
+hY : NormalAffineBasis318.HasBasis Y
+hfinite : FiniteDimensional ↑Y.functionField ↑X.functionField
+U V : Y.Opens
+hU : IsAffineOpen U
+hV : IsAffineOpen V
+hUV : IsAffineOpen (U ⊓ V)
+hc : U ⊔ V = ⊤
+hf : f ≫ q = p
+x : ↑Γ(X, f ⁻¹ᵁ (U ⊓ V))
+⊢ U ⊔ V = ⊤

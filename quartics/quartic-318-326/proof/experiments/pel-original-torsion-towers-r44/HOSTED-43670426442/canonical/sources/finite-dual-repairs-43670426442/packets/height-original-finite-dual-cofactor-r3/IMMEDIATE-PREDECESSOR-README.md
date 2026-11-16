@@ -1,0 +1,11 @@
+# height-original-finite-dual-cofactor-r2
+
+Unaccepted successor to its OWN first research packet height-original-finite-dual-cofactor-r1. Own run43667489535 at exact eeb2a2fb55e45c09bde7e013bef8f98d2f00be51 used intake b831e56d4c9625cf9fb61e8db9513841a7b3c0f14766b5ea1837d77537135e7d. QuadraticFiniteDual318 failed its full check in2.321s. ZERO of17 draft roots passed,19 accepted baseline dependencies were reused, and the later16 draft roots were unreached. No predecessor/site acceptance or receipt is borrowed.
+
+Only QuadraticFiniteDual318 changes: native imₗ receives its actual radicand b and zero linear coefficient explicitly; the inner linear-map scalar proof normalizes the RingHom.id expected scalar through change; the existing quadratic trace proof cites its native scoped numeral real/imaginary projection lemmas explicitly. The pairing_apply rfl is retained after its defining residue elaborates. Declarations, intended types, arbitrary commutative-base hypotheses, perfect pairing/inverse and all nonunit factors are unchanged. No unit/domain/separability premise, resource increase or admission is introduced.
+
+The source chain remains the same17 draft roots plus19 exact accepted-baseline dependencies,36 custom sources total. Order unchanged. CURRENT-SOURCE-CLOSURE records the one reviewed current repair; RESEARCH source reports and closure remain historical source-only envelopes. Native baseline restore and recursive axiom checks remain required. No full-module or final audit success is claimed for the successor.
+
+The lane still constructs genuine finite Hom duality and an actual finite-projection cotangent class with M and root cofactors retained. It does not identify an intrinsic relative dualizing sheaf/fundamental class or original maximal regular model; no integral section/KS210/metric/GeometricRealization theorem follows. Later inactive native trace, whole conormal, field/coherence source drafts are NOT appended here.
+
+This successor keeps the distinct research lane and does not mutate parameter/evaluator/finite controls. Site85 remains preserved/inactive/unfixed after the prior authorized registry displacement and is not this packet's source predecessor. Sixteen-lane cap and all existing resource/trust flags remain unchanged. Final current propagation review is attached outside frozen APPLICATION bytes.

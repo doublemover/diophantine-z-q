@@ -1,0 +1,20 @@
+--- before/OriginalSignChartPreservation318.lean
++++ sources/OriginalSignChartPreservation318.lean
+@@ -21,7 +21,7 @@
+     SourceGlobalAffine318.chartEmbedding_range units]
+   change signMap b ⁻¹ᵁ ((ContactProjectiveModel318.modelMap units) ⁻¹ᵁ
+     (JLineAtlas318.chart ℚ 1 ''ᵁ ⊤)) = _
+-  rw [← Scheme.Hom.comp_preimage,ContactGlobalSigns318.over_line]
++  rw [← Scheme.Hom.comp_preimage,ContactGlobalSigns318.over_line] <;> rfl
+ 
+ /-- The whole infinity neighborhood, not just its generic point, is invariant as well. -/
+ theorem infinity_preimage (b : Fin 4 → Bool) : signMap b ⁻¹ᵁ infinityOpen = infinityOpen := by
+@@ -29,7 +29,7 @@
+     InfinityGlobalScheme318.chartEmbedding_range units]
+   change signMap b ⁻¹ᵁ ((ContactProjectiveModel318.modelMap units) ⁻¹ᵁ
+     (InfinityGlobalBase318.baseOpen units ''ᵁ ⊤)) = _
+-  rw [← Scheme.Hom.comp_preimage,ContactGlobalSigns318.over_line]
++  rw [← Scheme.Hom.comp_preimage,ContactGlobalSigns318.over_line] <;> rfl
+ 
+ theorem overlap_preimage (b : Fin 4 → Bool) :
+     signMap b ⁻¹ᵁ (finiteOpen ⊓ infinityOpen) = finiteOpen ⊓ infinityOpen := by

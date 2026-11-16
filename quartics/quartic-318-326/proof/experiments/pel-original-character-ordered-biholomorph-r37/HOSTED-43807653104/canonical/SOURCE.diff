@@ -1,0 +1,46 @@
+--- before/PELNormOneTraceObstruction318
++++ after/PELNormOneTraceObstruction318
+@@ -27,9 +27,9 @@
+   ring
+ 
+ lemma mod_five_obstruction (x : ZMod 5) : 2*x^2≠1 := by
+-  fin_cases x <;> norm_num
++  fin_cases x <;> exact @of_decide_eq_false _ (ZMod.decidableEq 5 _ _) rfl
+ lemma mod_seven_obstruction (x : ZMod 7) : 5*x^2≠4 := by
+-  fin_cases x <;> norm_num
++  fin_cases x <;> exact @of_decide_eq_false _ (ZMod.decidableEq 7 _ _) rfl
+ 
+ /-- The trace-zero elliptic possibility is excluded in the SAME original
+ order by its exact norm form at five, not by a classification assumption. -/
+@@ -40,6 +40,11 @@
+   have hm := congrArg (Int.castRingHom (ZMod 5)) he
+   have hz : 2*(a 3:ZMod 5)^2=1 := by
+     norm_num at hm ⊢
++    have h5 : (5 : ZMod 5) = 0 := @of_decide_eq_true _ (ZMod.decidableEq 5 _ _) rfl
++    have h840 : (840 : ZMod 5) = 0 := @of_decide_eq_true _ (ZMod.decidableEq 5 _ _) rfl
++    have h168 : (168 : ZMod 5) = -2 := @of_decide_eq_true _ (ZMod.decidableEq 5 _ _) rfl
++    have hm4 : (-4 : ZMod 5) = 1 := @of_decide_eq_true _ (ZMod.decidableEq 5 _ _) rfl
++    simp only [h5,h840,h168,hm4] at hm
+     linear_combination -hm
+   exact mod_five_obstruction _ hz
+ 
+@@ -51,6 +56,10 @@
+   have hm := congrArg (Int.castRingHom (ZMod 7)) he
+   have hz : 5*(a 2:ZMod 7)^2=4 := by
+     norm_num at hm ⊢
++    have h840 : (840 : ZMod 7) = 0 := @of_decide_eq_true _ (ZMod.decidableEq 7 _ _) rfl
++    have h168 : (168 : ZMod 7) = 0 := @of_decide_eq_true _ (ZMod.decidableEq 7 _ _) rfl
++    have hm3 : (-3 : ZMod 7) = 4 := @of_decide_eq_true _ (ZMod.decidableEq 7 _ _) rfl
++    simp only [h840,h168,hm3] at hm
+     linear_combination -hm
+   exact mod_seven_obstruction _ hz
+ 
+@@ -66,7 +75,7 @@
+   have hbZ : integralTrace a^2≤4 := by
+     rw [←ha,original_trace] at hb
+     exact_mod_cast hb
+-  have hlow : -2≤integralTrace a := by nlinarith
++  have hlow : -2 ≤ integralTrace a := by nlinarith
+   have hupp : integralTrace a≤2 := by nlinarith
+   have hn0 := trace_ne_zero a hnZ
+   have hn1 := trace_sq_ne_one a hnZ

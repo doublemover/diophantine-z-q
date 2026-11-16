@@ -1,0 +1,44 @@
+--- IntegralOriginalCommonRestriction318.lean.before
++++ IntegralOriginalCommonRestriction318.lean
+@@ -27,6 +27,17 @@
+     liftOfAlgHom (L := L) x f h ((1 : L) ⊗ₜ[A] b) = f b := by
+   simp only [liftOfAlgHom, LocalizedTensorRestriction318.lift_right,
+     AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom]
++/-- Use the original explicit unit and its image equation to construct the
++same IsUnit witness while the carrier structures are still abstract. -/
++@[expose] def liftOfAlgHomUnit (u : Tˣ)
++    (hu : f (algebraMap A B x) = (u : T)) : L ⊗[A] B →+* T :=
++  liftOfAlgHom (L := L) x f (by rw [hu]; exact u.isUnit)
++
++@[simp] theorem liftOfAlgHomUnit_right (u : Tˣ)
++    (hu : f (algebraMap A B x) = (u : T)) (b : B) :
++    liftOfAlgHomUnit (L := L) x f u hu ((1 : L) ⊗ₜ[A] b) = f b := by
++  simp only [liftOfAlgHomUnit, liftOfAlgHom_right]
++
+ end AlgHomLift
+ 
+ variable (R : Type*) [CommRing R] (c : Fin 4 → Rˣ)
+@@ -77,18 +88,18 @@
+ /-- The old overlap maps into the full punctured order by the genuine
+ localization universal property, without discarding any whole-order points. -/
+ @[expose] def commonRestriction : CommonOrder R c →+* OldOverlap R c :=
+-  (liftOfAlgHom (k := R) (A := R[X]) (L := Laurent R)
++  (liftOfAlgHomUnit (k := R) (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c) (finiteRestriction_unit R c)).comp
++    (finiteRestriction R c) (oldY R c) (finiteRestriction_X R c)).comp
+       (finiteBaseChange R c).symm.toRingHom
+ 
+ theorem common_finite (a : FiniteOrder R c) :
+     commonRestriction R c (finiteMap R c a)=finiteRestriction R c a := by
+-  change liftOfAlgHom (k := R) (A := R[X]) (L := Laurent R)
++  change liftOfAlgHomUnit (k := R) (A := R[X]) (L := Laurent R)
+     (B := FiniteOrder R c) (T := OldOverlap R c) (X : R[X])
+-    (finiteRestriction R c) (finiteRestriction_unit R c)
++    (finiteRestriction R c) (oldY R c) (finiteRestriction_X R c)
+     ((finiteBaseChange R c).symm (finiteBaseChange R c ((1 : Laurent R) ⊗ₜ[R[X]] a))) = _
+-  rw [AlgEquiv.symm_apply_apply,liftOfAlgHom_right]
++  rw [AlgEquiv.symm_apply_apply,liftOfAlgHomUnit_right]
+ 
+ theorem common_y :
+     commonRestriction R c (IntegralWholeOrderScalarMaps318.commonY R c)=oldY R c := by

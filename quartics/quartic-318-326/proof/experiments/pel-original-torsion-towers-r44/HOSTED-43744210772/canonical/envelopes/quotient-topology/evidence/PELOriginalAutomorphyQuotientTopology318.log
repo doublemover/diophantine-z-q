@@ -1,0 +1,49 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r40/PELOriginalAutomorphyQuotientTopology318.lean:17:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r40/PELOriginalAutomorphyQuotientTopology318.lean:35:76: error: Application type mismatch: The argument
+  ha
+has type
+  projection (P τ) p.1 ∈ baseSet τ hτ a
+but is expected to have type
+  Bundle.TotalSpace.proj (?m.89 ?m.90) ∈ ((core τ hτ).localTriv a).baseSet
+in the application
+  Bundle.Trivialization.continuousAt_of_comp_left ((core τ hτ).localTriv a) ?m.97 ha
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r40/PELOriginalAutomorphyQuotientTopology318.lean:41:18: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  shiftTo_locally_constant τ hτ a p.1 ha
+has type
+  (𝓝 p.1).1 {x | (fun w => shiftTo τ hτ a w = shiftTo τ hτ a p.1) x}
+which does not have the necessary form.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r40/PELOriginalAutomorphyQuotientTopology318.lean:43:2: error: 'change' tactic failed, pattern
+  ?m.230 = ↑((core τ hτ).localTriv a) (toTotal τ hτ x)
+is not definitionally equal to target
+  (↑((core τ hτ).localTriv a) ∘ toTotal τ hτ) x = (projection (P τ) x.1, factor τ hτ (shiftTo τ hτ a p.1) x.1 * x.2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r40/PELOriginalAutomorphyQuotientTopology318.lean:67:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑((core τ hτ).localTriv a) (toTotal τ hτ (localRepresentative τ hτ a p))
+in the target expression
+  ↑((core τ hτ).localTriv a).toOpenPartialHomeomorph (toTotal τ hτ (localRepresentative τ hτ a p)) =
+    ↑((core τ hτ).localTriv a).toOpenPartialHomeomorph p
+
+case a
+τ : ℂ
+hτ : 0 < τ.im
+a : ComplexVectors
+p : Total τ hτ
+hp : p.proj ∈ baseSet τ hτ a
+z : ComplexVectors := ⋯
+hz : projection (P τ) z = p.proj
+hza : projection (P τ) z ∈ baseSet τ hτ a
+hs : shiftTo τ hτ a z = 0
+⊢ ↑((core τ hτ).localTriv a).toOpenPartialHomeomorph (toTotal τ hτ (localRepresentative τ hτ a p)) =
+    ↑((core τ hτ).localTriv a).toOpenPartialHomeomorph p
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r40/PELOriginalAutomorphyQuotientTopology318.lean:89:2: error: Type mismatch
+  Eq.symm (inverse_locally_represented τ hτ a r hr)
+has type
+  ⟦localRepresentative τ hτ a r⟧ = (equivalence τ hτ).symm r
+but is expected to have type
+  (equivalence τ hτ).symm r = ⟦localRepresentative τ hτ a r⟧

@@ -1,0 +1,12 @@
+--- before/FourRootActualBranchLocalization318.lean
++++ sources/FourRootActualBranchLocalization318.lean
+@@ -90,7 +90,8 @@
+     (hmap:∀r:R,algebraMap A B (algebraMap P A (algebraMap R P r))=
+       algebraMap C B (algebraMap R C r)):IsScalarTower R A B:=by
+   refine ⟨fun r a z=>?_⟩
+-  change algebraMap A B (r • a)*z=r • (algebraMap A B a*z)
++  rw [Algebra.smul_def (R:=A) (A:=B) (r • a) z,
++    Algebra.smul_def (R:=A) (A:=B) a z]
+   have hca:(r • a:A)=algebraMap P A (algebraMap R P r)*a:=
+     (IsScalarTower.algebraMap_smul (R:=R) P r a).symm
+   rw [hca,map_mul,hmap,mul_assoc]

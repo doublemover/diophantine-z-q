@@ -1,0 +1,55 @@
+FourRootActualFiniteBranchChart318.sourceRegroup (b : Fin 4 → ℂ) (i : Fin 4) :
+  FourRootActualFractionField318.A b ≃ₐ[FourRootAffineTensorPresentation318.P] RegroupedOrder b i
+FourRootActualBranchLocalization318.polyAlgebra (b : Fin 4 → ℂ) : Algebra ℂ[X] (FourRootActualFractionField318.A b)
+FourRootActualBranchLocalization318.polyTower (b : Fin 4 → ℂ) :
+  IsScalarTower ℂ ℂ[X] (FourRootActualFractionField318.A b)
+FourRootActualBranchLocalization318.regrouped_commRing (b : Fin 4 → ℂ) (i : Fin 4) : CommRing (RegroupedOrder b i)
+FourRootActualBranchLocalization318.regrouped_algebra (b : Fin 4 → ℂ) (i : Fin 4) :
+  Algebra (BranchBase b i) (RegroupedOrder b i)
+FourRootActualBranchLocalization318.regroupedToOpen (b : Fin 4 → ℂ) (i : Fin 4) : RegroupedOrder b i →+* OpenOrder b i
+FourRootActualBranchLocalization318.regroupedAlgebra (b : Fin 4 → ℂ) (i : Fin 4) :
+  Algebra (RegroupedOrder b i) (OpenOrder b i)
+FourRootActualBranchLocalization318.regroupedEquiv (b : Fin 4 → ℂ) (i : Fin 4) :
+  RegroupedOrder b i ⊗[BranchBase b i] OpenBase b i ≃ₐ[RegroupedOrder b i] OpenOrder b i
+FourRootActualBranchLocalization318.regroupedDenominator (b : Fin 4 → ℂ) (i : Fin 4) : RegroupedOrder b i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r61/FourRootActualBranchLocalization318.lean:47:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r61/FourRootActualBranchLocalization318.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourRootActualBranchLocalization318.regrouped_localization (b : Fin 4 → ℂ) (i : Fin 4) :
+  IsLocalization.Away (regroupedDenominator b i) (OpenOrder b i)
+FourRootActualBranchLocalization318.sourceMap (b : Fin 4 → ℂ) (i : Fin 4) :
+  FourRootActualFractionField318.A b →+* OpenOrder b i
+FourRootActualBranchLocalization318.sourceAlgebra (b : Fin 4 → ℂ) (i : Fin 4) :
+  Algebra (FourRootActualFractionField318.A b) (OpenOrder b i)
+FourRootActualBranchLocalization318.denominator_compatibility (b : Fin 4 → ℂ) (i : Fin 4) :
+  (sourceRegroup b i) (denominator b i) = regroupedDenominator b i
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r61/FourRootActualBranchLocalization318.lean:75:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+FourRootActualBranchLocalization318.source_localization (b : Fin 4 → ℂ) (i : Fin 4) :
+  IsLocalization.Away (denominator b i) (OpenOrder b i)
+FourRootActualBranchLocalization318.sourceMap_on_polynomial (b : Fin 4 → ℂ) (i : Fin 4) (p : ℂ[X]) :
+  (sourceMap b i) ((algebraMap ℂ[X] (FourRootActualFractionField318.A b)) p) =
+    (algebraMap (OpenBase b i) (OpenOrder b i)) ((algebraMap ℂ[X] (OpenBase b i)) p)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-cotangent-hzero-forty-r61/FourRootActualBranchLocalization318.lean:98:15: error: (kernel) deterministic timeout
+FourRootActualBranchLocalization318.sourceTower (b : Fin 4 → ℂ) (i : Fin 4) :
+  IsScalarTower ℂ (FourRootActualFractionField
+WALL_CLOCK_LIMIT_EXCEEDED

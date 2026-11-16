@@ -1,0 +1,28 @@
+--- before/OriginalRestrictionTopScalar318.lean
++++ sources/OriginalRestrictionTopScalar318.lean
+@@ -21,7 +21,13 @@
+   change M.presheaf.map (eqToHom (LineFrameTopScalar318.image_top U).symm).op (a • s) =
+     X.presheaf.map (eqToHom (LineFrameTopScalar318.image_top U).symm).op a •
+       M.presheaf.map (eqToHom (LineFrameTopScalar318.image_top U).symm).op s
+-  exact Scheme.Modules.map_smul M (eqToHom (LineFrameTopScalar318.image_top U).symm) a s
++  have h := Scheme.Modules.smul_restrictAppIso_hom_apply U.ι M ⊤ a s
++  have ht := congrArg
++    (fun t : Γ(M,U.ι ''ᵁ ⊤) =>
++      M.presheaf.map (eqToHom (LineFrameTopScalar318.image_top U).symm).op t) h
++  rw [Scheme.Modules.map_smul] at ht
++  simpa only [Scheme.Modules.restrictAppIso,Scheme.Opens.ι_appIso,
++    Iso.refl_hom,Iso.refl_inv,ConcreteCategory.id_apply] using ht
+ 
+ /-- The original ModuleScalar action on the open subscheme corresponds to
+ exactly the original ambient coefficient action, with no transported guess. -/
+@@ -30,6 +36,9 @@
+       (LineFrameTopScalar318.ringTop U).hom a • moduleTop M U s := by
+   rw [ModuleScalar318.map_apply]
+   change moduleTop M U ((U.toScheme.presheaf.map (𝟙 (op ⊤)) a) • s) = _
+-  rw [Functor.map_id,ConcreteCategory.id_apply]
++  have hi : U.toScheme.presheaf.map (𝟙 (op ⊤)) a = a :=
++    congrArg (fun g : Γ(U.toScheme,⊤) ⟶ Γ(U.toScheme,⊤) => g a)
++      (U.toScheme.presheaf.map_id (op ⊤))
++  rw [hi]
+   exact scalar M U a s
+ end OriginalRestrictionTopScalar318

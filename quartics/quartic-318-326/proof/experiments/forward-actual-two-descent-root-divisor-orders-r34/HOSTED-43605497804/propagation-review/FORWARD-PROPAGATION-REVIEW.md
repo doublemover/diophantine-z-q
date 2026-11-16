@@ -1,0 +1,30 @@
+# Independent forward r17 pair propagation review
+
+Reviewer: geometry_repair_resume. Author: arithmetic_repair_resume.
+Verdict: PASS for the frozen current source, contracts and propagation only. No local Lean/compiler was run. This is not a full-module, kernel, packet or arithmetic acceptance, and it does not establish resolution of the production timeout.
+
+## Exact identities and own evidence
+
+The immediate predecessors are the descent r16 and weighted-Weyl replay r16 packets at published 4c5562395a9891e0d79fa5808926ebf9b2781470. The reviewed successors are forward-actual-two-descent-root-divisor-orders-r17 (APP d39756cfde044cfac546b4bfc79f779733671aa3ab1d881f1d67ad282eca2395) and forward-original-weighted-weyl-r22-replay-r17 (APP e39a90551dc2925848986522a39c772baaecf8d1b850bb7ef82f46ae8277a6f2).
+
+Each packet retains its own run 43605497804 RESULT, exact predecessor intake and full artifact. The descent artifact is 14118622613, ZIP e4d538818cc79be241735712e57eaf29216c98e5efa22aeeb4aad68fad2f49d4; the weighted artifact is 14119065928, ZIP c53e4ae7ae407b67066b1745f22f3873d9310c379187c4cc261a4f985d3abfd6. Their ordinary first 99 commands pass, then ScalarSmallPrimePreparation318 exits 124 at 180.311 and 180.492 seconds respectively. I verified the API digests, complete ZIP CRCs and every retained extracted member against these actual archives. The successful weighted retry ZIP, not the empty initial download, is bound.
+
+Only the descent artifact emitted the five supplementary probes. Both successors label that evidence as supporting-descent-diagnostics, rather than presenting it as a weighted own result. The exact DIAGNOSTIC hash is e07fb7e2cd88b4650242e768229851e396015b57441b7d4fd7b55fee189e7322. The marked process reaches CONVERT_TWO and the split process reaches UNIT_2, not VALUE_2; the abstract unit control exits 0 in 1.334 seconds while the four other probes meet their separate 90-second wall limits. These markers support a contextual proof-elaboration hypothesis only; they do not certify completed production declarations or isolate a unique cause. No probe output is promoted to an import, cached proof or axiom.
+
+## Exact source and original consumer
+
+The sole changed source in each complete closure is ScalarSmallPrimePreparation318, e808d212ea6cd4edc8fe7ca8b839b19b80480adfacddf0671d227ce6ee8bec9e to 6903b836d5f5a08954574cc67bfb9981ddba7ab60b9bb3b973362450da82c2e3. The new private multiplier_units theorem proves the same three elementary nondivisibility facts before the large concrete context. actual_multiplier_values instantiates it at the exact three integerA_shapes witnesses and uses its three projections in the unchanged value_scaled_unit applications. An exact inverse removes the helper and call, restores only the three inline omega terms, and recovers every predecessor byte.
+
+All five public theorem statements, integerA_shapes/value_scaled_unit bodies, actual_pole_thresholds and actual_preparation remain unchanged, as do all imports/options. The pre-existing maxHeartbeats 0 is not added or increased. The native 180-second production limit and diagnostic limits are unchanged. The source review by lean_review_resume and all 45 bound companions per packet match the exact propagated source.
+
+I read both current READMEs, APPLICATION.md, all eighteen structured obligations, the changed source and the actual AllScalarSupportPreparation318 consumer. The nine obligations in each packet preserve: (1) the original public results; (2) the actual multiplier and pole data; (3) every integer a and all three primes 2, 3 and 17; (4) the exact integerR/inputR cast and original witness map; (5) the literal coefficient 114444 and forms 16*(1+8*k2), 9*(1+3*k3), 289*(8+17*k17); (6) the valuations 4/2/2 and same normalizations; (7) the original hypotheses, with elementary unit conditions proved rather than supplied; (8) the original labels, indexes and exceptional-case domain, without a smaller surrogate; and (9) the exact downstream actual_pole_thresholds and prepared_of_units route to original SmallPrepared, unchanged w0=(a:Q), W and support_value. The third unit extraction is same-form source propagation, not an independently reached production error. No rational pole, norm, prime-existence or global theorem is newly assumed or proved by this repair.
+
+## Independent propagation checks
+
+Both complete ordered module sets match their immediate predecessors: 1,299 sources with 1,298 byte-identical reused files, and 1,304 sources with 1,303 byte-identical reused files. All 2,603 predecessor/source occurrences were independently compared with published Git objects, not merely owner hashes. Current intake source hashes, SOURCE-COPIES maps, all eight revision aliases, raw APPs, 375 APP bindings, project primaries, own RESULT order and original intake identities recompute. Each source-review manifest and all of its retained companions recompute.
+
+The actual native packet and application-binding checks pass on isolated real copies, not the frozen owner trees. Each of the eight deliberately false classification aliases is rejected in each packet, sixteen negative controls total. The native 31 Python static/mock tests and audit-history self-test pass. These tests do not run Lean. The owner retains the initial validation-root setup rejection; this review independently uses real predecessor copies within its own temporary validation root and does not treat the earlier rejection as proof evidence.
+
+## Freeze boundary
+
+No source, intake, README or obligation text change is requested. Preserve the exact two reviewed raw APPs and all currently bound historical receipts before adding this report and every listed reviewer_evidence byte metadata-only. Do not overwrite a receipt named by a preserved APP without retaining its old bytes. The final merged publication/index review is separate. Only the next authentic hosted full-module run can test whether this extraction resolves the concrete timeout and exposes the remaining declarations.

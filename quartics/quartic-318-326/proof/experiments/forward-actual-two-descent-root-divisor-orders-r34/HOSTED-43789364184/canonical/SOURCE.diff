@@ -1,0 +1,26 @@
+--- before/AnchorLocalSquareProduction318
++++ after/AnchorLocalSquareProduction318
+@@ -65,9 +65,9 @@
+   rw [Int.dvd_iff_emod_eq_zero] at hdZ
+   have hd : Odd (r.den:ℤ) := Int.odd_iff.mpr (by omega)
+   have hm : (3*r.num^2-2*(r.den:ℤ)^2-1)%8=0 := by
+-    simp only [Int.sub_emod,Int.mul_emod,odd_square_mod_eight _ hn,
+-      odd_square_mod_eight _ hd]
+-    norm_num
++    have hn8 := odd_square_mod_eight _ hn
++    have hd8 := odd_square_mod_eight _ hd
++    omega
+   obtain ⟨k,hk⟩ := Int.dvd_iff_emod_eq_zero.mpr hm
+   have he : 3*r.num^2-2*(r.den:ℤ)^2=1+8*k := by omega
+   apply rational_radicand_square
+@@ -89,7 +89,9 @@
+     push_cast
+     ring
+   have hb := PadicInt.norm_le_one ((r.den:ℤ_[3])^2-(r.num:ℤ_[3])^2)
+-  rw [he,norm_mul,PadicInt.norm_p,norm_mul,htwo,hden]
++  have hp : ‖(3:ℤ_[3])‖=(3:ℝ)⁻¹ := by
++    simpa only [Nat.cast_ofNat] using (PadicInt.norm_p (p:=3))
++  rw [he,norm_mul,hp,norm_mul,htwo,hden]
+   norm_num
+   nlinarith
+ 

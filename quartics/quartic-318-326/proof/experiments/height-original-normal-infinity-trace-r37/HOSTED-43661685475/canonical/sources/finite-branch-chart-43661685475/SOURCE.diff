@@ -1,0 +1,19 @@
+--- before/FourRootActualFiniteBranchChart318.lean
++++ after/FourRootActualFiniteBranchChart318.lean
+@@ -40,7 +40,7 @@
+     simpa only [RegroupedOrder,FiniteBranchChart318.OriginalOrder,
+       FiniteBranchChart318.BranchBase,LinearRootCoordinate318.Root,
+       FiniteBranchChart318.other,LinearRootCoordinate318.parameter,
+-      twists,otherBranch,radicand,Units.val_one,map_one,one_mul,indices_zero]
++      twists,otherBranch,radicand,Units.val_one,Polynomial.C_1,map_one,one_mul,indices_zero]
+       using FourRootPivot318.regroup (radicand b) i)
+ @[expose] def localizedSourceEquiv:
+     OpenBase b i⊗[BranchBase b i]RegroupedOrder b i≃ₐ[OpenBase b i]OpenOrder b i:=
+@@ -68,6 +68,6 @@
+ @[expose] def root:OpenBase b i:=
+   FiniteBranchChart318.openRoot (1:ℂˣ) (b i) twists (otherBranch b i)
+ lemma exact_square:algebraMap P (OpenBase b i) (X-C (b i))=(root b i)^2:=by
+-  simpa only [Units.inv_one,Units.val_one,map_one,one_mul,root] using
++  simpa only [inv_one,Units.val_one,map_one,one_mul,root] using
+     FiniteBranchChart318.open_contact_square (1:ℂˣ) (b i) twists (otherBranch b i)
+ end FourRootActualFiniteBranchChart318

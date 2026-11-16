@@ -1,0 +1,24 @@
+--- before/PELOriginalThetaConvergence318.lean
++++ after/PELOriginalThetaConvergence318.lean
+@@ -24,7 +24,9 @@
+   congr 1 <;> ring
+ include hτ in
+ lemma oneBound_summable (S:ℝ):Summable (oneBound τ S):=by
+-  simpa only [oneBound,pow_zero,one_mul,Int.cast_abs] using
++  change Summable (fun n : ℤ =>
++    Real.exp (-Real.pi*(coercive τ*(n:ℝ)^2-2*S*|(n:ℝ)|)))
++  simpa only [pow_zero,one_mul,Int.cast_abs] using
+     summable_pow_mul_jacobiTheta₂_term_bound S (coercive_positive τ hτ) 0
+ include hτ in
+ lemma bound_summable (S:ℝ):Summable (bound τ S):=
+@@ -54,9 +56,9 @@
+   have hp:=mul_le_mul_of_nonneg_left hsum Real.pi_pos.le
+   nlinarith
+ 
++include hτ in
+ /-- Genuine absolute convergence of the full two-dimensional theta
+ series for the actual original quaternionic period matrix. -/
+-include hτ in
+ lemma summable (z:ComplexVectors):Summable (fun n:Index=>term τ n z):=by
+   let S:=max |(z 0).im| |(z 1).im|
+   exact (bound_summable τ hτ S).of_norm_bounded

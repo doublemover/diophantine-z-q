@@ -1,0 +1,13 @@
+--- before/NonreducedAffineLineHOne318.lean
++++ sources/NonreducedAffineLineHOne318.lean
+@@ -37,7 +37,9 @@
+     e.inv ≫ F.map (OriginalAffineLineDualFrame318.back R L i)
+   have ht : ∑ i, a i ≫ b i = 𝟙 (additiveLine R L) := by
+     simp only [a,b,Category.assoc,Iso.hom_inv_id_assoc,← Functor.map_comp,
+-      ← Functor.map_sum,OriginalAffineLineDualFrame318.total,Functor.map_id]
++      ← Functor.map_sum]
++    exact (congrArg (fun k : L.object ⟶ L.object => F.map k)
++      (OriginalAffineLineDualFrame318.total R L)).trans (F.map_id L.object)
+   exact ExtFiniteRetractVanishing318.eq_zero
+     (fun _ : Fin (OriginalAffineLineDualFrame318.moduleFrame R L).n =>
+       StructureAdditiveSheaf318.sheaf (Spec R)) a b ht 1

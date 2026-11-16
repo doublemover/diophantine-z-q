@@ -1,0 +1,13 @@
+--- before/PELPrimeIsogenyFibers318.lean
++++ after/PELPrimeIsogenyFibers318.lean
+@@ -12,7 +12,9 @@
+ @[expose] def additiveFiberEquiv {A B : Type*} [AddCommGroup A] [AddCommGroup B]
+     (f : A →+ B) (a : A) (b : B) (ha : f a=b) : f.ker ≃ {x : A // f x=b} where
+   toFun x := ⟨x.val+a,by rw [map_add,x.property,zero_add,ha]⟩
+-  invFun y := ⟨y.val-a,by rw [map_sub,y.property,ha,sub_self]⟩
++  invFun y := ⟨y.val-a,by
++    change f (y.val-a)=0
++    rw [map_sub,y.property,ha,sub_self]⟩
+   left_inv x := by apply Subtype.ext; exact add_sub_cancel_right x.val a
+   right_inv y := by apply Subtype.ext; exact sub_add_cancel y.val a
+ 

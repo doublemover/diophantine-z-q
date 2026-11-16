@@ -1,0 +1,31 @@
+--- before/PELEffectivePositiveLevel318
++++ after/PELEffectivePositiveLevel318
+@@ -11,8 +11,7 @@
+ @[expose] def minusOne : normOne := ⟨-1,by
+   apply (mem_normOne _).mpr
+   change QuadraticAlgebra.norm (PELActualLevelThreeQuotient318.quotientResidue (-1))=1
+-  rw [map_neg,map_one]
+-  norm_num [QuadraticAlgebra.norm_def]⟩
++  rw [map_neg,map_one,QuadraticAlgebra.norm_neg,QuadraticAlgebra.norm_one]⟩
+ @[expose] def signs : Subgroup normOne := Subgroup.zpowers minusOne
+ 
+ theorem minusOne_mul : minusOne*minusOne=1 := by
+@@ -56,7 +55,7 @@
+   intro u
+   apply Subtype.ext
+   apply Units.ext
+-  change (-1:QuotientOrder)*(u.val:QuotientOrder)=(u.val:QuotientOrder)*(-1:QuotientOrder)
++  change (u.val:QuotientOrder)*(-1:QuotientOrder)=(-1:QuotientOrder)*(u.val:QuotientOrder)
+   simp
+ 
+ theorem signs_card : Nat.card signs=2 := by
+@@ -78,7 +77,8 @@
+ abbrev EffectivePositiveLevel := normOne ⧸ signs
+ 
+ theorem effective_level_card : Nat.card EffectivePositiveLevel=18 := by
+-  have h := Subgroup.card_eq_card_quotient_mul_card_subgroup signs
++  have h : Nat.card normOne = Nat.card EffectivePositiveLevel * Nat.card signs :=
++    Subgroup.card_eq_card_quotient_mul_card_subgroup signs
+   rw [normOne_card,signs_card] at h
+   omega
+ 

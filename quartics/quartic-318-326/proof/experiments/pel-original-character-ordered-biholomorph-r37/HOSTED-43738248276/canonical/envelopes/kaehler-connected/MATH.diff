@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -17,6 +17,13 @@
+ set_option backward.isDefEq.respectTransparency false
+ set_option backward.isDefEq.respectTransparency.types false
+ variable (b:Fin 4→ℂ) (i:Fin 4)
++local instance regrouped_commRing : CommRing (RegroupedOrder b i) := inferInstance
++local instance regrouped_algebra : Algebra (BranchBase b i) (RegroupedOrder b i) := inferInstance
++local instance openBaseLocalization : IsLocalization.Away (branchDenominator b i) (OpenBase b i) := by
++  change IsLocalization.Away
++    (FiniteBranchChart318.denominator (1:ℂˣ) (b i) twists (otherBranch b i))
++    (Localization.Away (FiniteBranchChart318.denominator (1:ℂˣ) (b i) twists (otherBranch b i)))
++  infer_instance
+ #eval (do
+   let out ← IO.getStdout
+   out.putStrLn "PEL_KAEHLER_CHECKPOINT before_polyAlgebra"

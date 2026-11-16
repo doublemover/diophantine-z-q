@@ -1,0 +1,11 @@
+--- before/ScalarLocalSquares318.lean
++++ after/ScalarLocalSquares318.lean
+@@ -16,7 +16,7 @@
+   let F : Polynomial ℤ_[p] := X^2-C v
+   have hF (x : ℤ_[p]) : F.aeval x=x^2-v := by simp [F]
+   have hd : F.derivative.aeval u=2*u := by
+-    simp [F] <;> ring
++    simp [F] <;> ring_nf <;> simp
+   have hn : ‖F.aeval u‖< ‖F.derivative.aeval u‖^2 := by
+     rw [hF,hd]
+     exact hnear

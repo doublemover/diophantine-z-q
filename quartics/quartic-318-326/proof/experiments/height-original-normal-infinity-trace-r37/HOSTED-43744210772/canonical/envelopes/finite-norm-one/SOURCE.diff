@@ -1,0 +1,35 @@
+--- before/PELFiniteNormOneGroup318.lean
++++ sources/PELFiniteNormOneGroup318.lean
+@@ -26,7 +26,10 @@
+   have hne := u.ne_zero
+   have hv : (u:F3)=1 ∨ (u:F3)= -1 := by
+     generalize h : (u:F3)=x at hne ⊢
+-    fin_cases x <;> norm_num at hne ⊢
++    fin_cases x
++    · exact False.elim (hne rfl)
++    · exact Or.inl rfl
++    · exact Or.inr (@of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl)
+   rcases hv with h | h
+   · exact Or.inl (Units.ext h)
+   · exact Or.inr (Units.ext h)
+@@ -37,7 +40,10 @@
+   constructor
+   · intro i j h
+     have hv := congrArg (fun u : F3ˣ => (u:F3)) h
+-    fin_cases i <;> fin_cases j <;> norm_num [twoUnits] at hv ⊢
++    fin_cases i <;> fin_cases j <;> norm_num [twoUnits] at hv ⊢ <;>
++      first
++      | exact (@of_decide_eq_false _ (ZMod.decidableEq 3 1 (-1)) rfl) hv
++      | exact (@of_decide_eq_false _ (ZMod.decidableEq 3 (-1) 1) rfl) hv
+   · intro u
+     rcases residue_units u with h | h
+     · exact ⟨0,by simp [twoUnits,h]⟩
+@@ -53,6 +59,8 @@
+     (PELReductionResidueField318.residue (reduction (generator 0:PELPrincipalOrderCoordinates318.order)))= -1
+   rw [generator_reduction]
+   norm_num [finiteGenerator,PELReductionResidueField318.residue,QuadraticAlgebra.norm_def]
++  change (_ : F3) = _
++  exact @of_decide_eq_true _ (ZMod.decidableEq 3 _ _) rfl
+ 
+ theorem unitNorm_surjective : Function.Surjective unitNorm := by
+   intro u

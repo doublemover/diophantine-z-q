@@ -1,0 +1,40 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r20/ScalarHalfTraceDepth318.lean:29:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat ?m.121 ↑?m.121
+in the target expression
+  padicValRat 2 2 + ↑2 * padicValRat 2 u.im = 1 + 2 * padicValRat 2 u.im
+
+u : K
+hn : normCoefficient u ≠ 0
+ha : ¬u.re = 0
+hb : ¬u.im = 0
+hf : u.re ^ 2 + 2 * u.im ^ 2 ≠ 0
+⊢ padicValRat 2 2 + ↑2 * padicValRat 2 u.im = 1 + 2 * padicValRat 2 u.im
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r20/ScalarHalfTraceDepth318.lean:29:24: error: unsolved goals
+u : K
+hn : normCoefficient u ≠ 0
+ha : ¬u.re = 0
+hb : ¬u.im = 0
+hf : u.re ^ 2 + 2 * u.im ^ 2 ≠ 0
+⊢ 1 < ?m.121
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r20/ScalarHalfTraceDepth318.lean:33:5: error: unsolved goals
+u : K
+hn : normCoefficient u ≠ 0
+ha : ¬u.re = 0
+hb : ¬u.im = 0
+hf : u.re ^ 2 + 2 * u.im ^ 2 ≠ 0
+hterm : padicValRat 2 (2 * u.im ^ 2) = 1 + 2 * padicValRat 2 u.im
+⊢ Fact (Nat.Prime 2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r20/ScalarHalfTraceDepth318.lean:36:4: error: Type mismatch: After simplification, term
+  AnchorNorm318.norm_two_value u.re u.im ha hb
+ has type
+  @Eq ℤ (padicValRat 2 (AnchorNorm318.norm (ConcreteG8Domain.pair u.re u.im)))
+    (min (2 * padicValRat 2 u.re) (1 + 2 * padicValRat 2 u.im))
+but is expected to have type
+  @Eq ℤ (padicValRat 2 (AnchorNorm318.norm u)) (min (2 * padicValRat 2 u.re) (1 + 2 * padicValRat 2 u.im))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r20/ScalarHalfTraceDepth318.lean:58:4: error: Type mismatch: After simplification, term
+  AnchorNorm318.norm_three_value u.re u.im ha hb
+ has type
+  @Eq ℤ (padicValRat 3 (AnchorNorm318.norm (ConcreteG8Domain.pair u.re u.im)))
+    (2 * min (padicValRat 3 u.re) (padicValRat 3 u.im))
+but is expected to have type
+  @Eq ℤ (padicValRat 3 (AnchorNorm318.norm u)) (2 * min (padicValRat 3 u.re) (padicValRat 3 u.im))

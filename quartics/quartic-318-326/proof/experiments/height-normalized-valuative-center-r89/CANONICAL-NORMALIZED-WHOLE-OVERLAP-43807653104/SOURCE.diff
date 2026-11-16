@@ -1,0 +1,27 @@
+--- before/NormalizedWholeOverlap318.lean
++++ sources/NormalizedWholeOverlap318.lean
+@@ -51,11 +51,20 @@
+       FourRootOrder318.Order (finiteParameter R d a) :=
+   FourRootOrder318.baseChange (DVRNormalizedFiniteOrder318.coefficient R d a) (Laurent R)
+ 
++/-- Construct the original four-root base change under its supplied scalar
++map before specializing the concrete Laurent carrier. -/
++@[expose] def baseChangeAlong {S T : Type*} [CommRing S] [CommRing T]
++    (f : S →+* T) (b : Fin 4 → S) :
++    letI : Algebra S T := f.toAlgebra
++    T ⊗[S] FourRootOrder318.Order b ≃ₐ[T]
++      FourRootOrder318.Order (fun i => f (b i)) := by
++  letI : Algebra S T := f.toAlgebra
++  exact FourRootOrder318.baseChange b T
++
+ section Reciprocal
+ local instance reciprocalAlgebra : Algebra R[X] (Laurent R) := (reciprocalMap R).toRingHom.toAlgebra
+-@[expose] def infinityBaseChange :
+-    Laurent R ⊗[R[X]] InfinityOrder R d a ≃ₐ[Laurent R]
+-      FourRootOrder318.Order (infinityParameter R d a) :=
+-  FourRootOrder318.baseChange (DVRNormalizedInfinityOrder318.coefficient R d a) (Laurent R)
++@[expose] def infinityBaseChange :=
++  baseChangeAlong (reciprocalMap R).toRingHom
++    (DVRNormalizedInfinityOrder318.coefficient R d a)
+ end Reciprocal
+ end NormalizedWholeOverlap318

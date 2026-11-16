@@ -1,0 +1,18 @@
+--- before/FourRootUnitScale318.lean
++++ sources/FourRootUnitScale318.lean
+@@ -31,5 +31,5 @@
+     four a b s h (generator b i)=(s:R) • generator a i := by
+   fin_cases i <;> simp [four,generator,Algebra.TensorProduct.congr_apply,
+     Algebra.TensorProduct.map_tmul,root_scale,←AdjoinRoot.algebraMap_eq,←Algebra.smul_def,
+-    TensorProduct.smul_tmul',TensorProduct.tmul_smul]
++    ←TensorProduct.smul_tmul',TensorProduct.tmul_smul]
+ end FourRootUnitScale318
+--- before/FourRootIndividualScales318.lean
++++ sources/FourRootIndividualScales318.lean
+@@ -26,5 +26,5 @@
+     four a b s h (generator b i)=(s i:R) • generator a i := by
+   fin_cases i <;> simp [four,generator,Algebra.TensorProduct.congr_apply,
+     Algebra.TensorProduct.map_tmul,FourRootUnitScale318.root_scale,←AdjoinRoot.algebraMap_eq,←Algebra.smul_def,
+-    TensorProduct.smul_tmul',TensorProduct.tmul_smul]
++    ←TensorProduct.smul_tmul',TensorProduct.tmul_smul]
+ end FourRootIndividualScales318

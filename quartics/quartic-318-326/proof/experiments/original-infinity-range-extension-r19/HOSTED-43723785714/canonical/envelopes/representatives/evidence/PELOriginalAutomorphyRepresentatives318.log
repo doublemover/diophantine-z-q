@@ -1,0 +1,38 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r36/PELOriginalAutomorphyRepresentatives318.lean:80:14: error: Ambiguous term
+  action
+Possible interpretations:
+  PELOriginalPolarizationAutomorphy318.action : (τ : ℂ) →
+    (hτ : 0 < τ.im) → ↥(L τ hτ) → ComplexVectors × ℂ → ComplexVectors × ℂ
+  
+  QuaternionicRealPeriod318.action : RealMatrices → ComplexVectors → ComplexVectors
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r36/PELOriginalAutomorphyRepresentatives318.lean:80:2: error: Type mismatch: After simplification, term
+  he
+ has type
+  PELOriginalPolarizationMetric318.squaredNorm τ hτ
+      (PELOriginalPolarizationAutomorphy318.action τ hτ (shiftTo τ hτ a p.1) p) =
+    PELOriginalPolarizationMetric318.squaredNorm τ hτ p
+but is expected to have type
+  metric τ hτ (toTotal τ hτ p) = PELOriginalPolarizationMetric318.squaredNorm τ hτ p
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 7
+  Real.instAdd ↦ 5
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r36/PELOriginalAutomorphyRepresentatives318.lean:97:21: error: Ambiguous term
+  action
+Possible interpretations:
+  PELOriginalPolarizationAutomorphy318.action : (τ : ℂ) →
+    (hτ : 0 < τ.im) → ↥(L τ hτ) → ComplexVectors × ℂ → ComplexVectors × ℂ
+  
+  QuaternionicRealPeriod318.action : RealMatrices → ComplexVectors → ComplexVectors
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r36/PELOriginalAutomorphyRepresentatives318.lean:99:2: error: 'change' tactic failed, pattern
+  factor τ hτ (shiftTo τ hτ a (p.1 + ↑l)) (p.1 + ↑l) * (factor τ hτ l p.1 * p.2) =
+    factor τ hτ (shiftTo τ hτ a p.1) p.1 * p.2
+is not definitionally equal to target
+  projection (P τ) (PELOriginalPolarizationAutomorphy318.action τ hτ l p).1 = projection (P τ) p.1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r36/PELOriginalAutomorphyRepresentatives318.lean:97:28: warning: This simp argument is unused:
+  projection_add_period
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [toTotal, action]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

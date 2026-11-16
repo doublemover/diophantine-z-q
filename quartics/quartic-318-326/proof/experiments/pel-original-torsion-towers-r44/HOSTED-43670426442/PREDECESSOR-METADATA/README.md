@@ -1,0 +1,11 @@
+# pel-original-torsion-towers-r32
+
+Source-only successor to pel-original-torsion-towers-r31, exact hosted run43667489535 at eeb2a2fb55e45c09bde7e013bef8f98d2f00be51. Own first failed module: PELOriginalLevelThetaFourier318 (9.442s). Full 735 roots in unchanged order; 1 changed copies and 734 unchanged.
+
+Canonical scope present: PELOriginalLevelThetaFourier318. Own observed failed-source repair: PELOriginalLevelThetaFourier318. Preventive/unreached matching repairs: .
+
+Existing public theorem and definition types and retained binders are preserved. BranchLocalization adds a constructed source-linear localization equivalence helper, not an assumption, and moves its unchanged polynomial compatibility lemma before sourceTower. No resource option changes. Prior retained proof-only hypotheses remain explicit.
+
+Actual full-module advances in this run include Residues and Cokernel in character/trace/infinity, Cardinality in zero, FiniteBranchChart in cotangent, and ThetaRealTorus in torsion. Current repairs address the distinct next failures: typed integral period linearity and quaternion representation multiplication; explicit finiteEquiv/finiteEnd carrier; tensor localization base instance and existing scalar-tower compatibility; root-global Fourier theorem; exact mod3 symbolic coefficient identities. IntegralInfinityArithmeticDomain is preventive and unreached in trace only, preserving trace's own IntegralPeriodMap failure. All original domains, maps, exceptional cases and existing theorem hypotheses remain. The source-linear localization helper proposes reuse of the same map rather than larger resource budgets; no performance improvement is asserted before hosting.
+
+Every matching canonical root is propagated byte-identically. Each source has its own exact independently reviewed nine-obligation contract; packet obligations below include only clauses for sources present here. Own predecessor metadata and authentic outputs are preserved, not rewritten. Older distinct Restrictions, other lattice lanes and new analytic/quartic research remain outside scope. No added roots or new research activation in the 535-root infinity packet, no local Lean/Lake, resource/trust changes or endpoint acceptance claim.

@@ -1,0 +1,10 @@
+--- before/PolynomialOrderIsomorphismInertia318.lean
++++ sources/PolynomialOrderIsomorphismInertia318.lean
+@@ -14,6 +14,7 @@
+   left_inv g:=by ext x;simp only [AlgEquiv.trans_apply,AlgEquiv.symm_apply_apply]
+   right_inv g:=by ext x;simp only [AlgEquiv.trans_apply,AlgEquiv.apply_symm_apply]
+ 
++include e in
+ lemma invariant (h:Algebra.IsInvariant R T (T≃ₐ[R]T)):
+     Algebra.IsInvariant R S (S≃ₐ[R]S):=by
+   constructor

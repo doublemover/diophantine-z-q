@@ -1,0 +1,101 @@
+--- before/FourRootActualBranchLocalization318.lean
++++ after/FourRootActualBranchLocalization318.lean
+@@ -35,11 +35,16 @@
+ 
+ lemma regrouped_localization : IsLocalization.Away (regroupedDenominator b i) (OpenOrder b i):=by
+   let D:=branchDenominator b i
++  letI:IsLocalization.Away D (OpenBase b i):=by
++    change IsLocalization.Away
++      (FiniteBranchChart318.denominator (1:ℂˣ) (b i) twists (otherBranch b i))
++      (Localization.Away (FiniteBranchChart318.denominator (1:ℂˣ) (b i) twists (otherBranch b i)))
++    infer_instance
+   letI:IsLocalization.Away (regroupedDenominator b i)
+       (RegroupedOrder b i⊗[BranchBase b i]OpenBase b i):=by
+     simpa only [regroupedDenominator,Algebra.algebraMapSubmonoid_powers] using
+-      (inferInstance : IsLocalization (Algebra.algebraMapSubmonoid (RegroupedOrder b i)
+-        (Submonoid.powers D)) (RegroupedOrder b i⊗[BranchBase b i]OpenBase b i))
++      (IsLocalization.tensor (S:=RegroupedOrder b i) (A:=OpenBase b i)
++        (Submonoid.powers D))
+   exact IsLocalization.isLocalization_of_algEquiv
+     (S:=RegroupedOrder b i⊗[BranchBase b i]OpenBase b i) _ (regroupedEquiv b i)
+ 
+@@ -61,39 +66,6 @@
+   exact LocalizationSourceTransport318.away (sourceRegroup b i).toRingEquiv
+     (FourRootActualFiniteBranchChart318.denominator b i) (fun _=>rfl)
+ 
+-/-- Complex scalars are inherited through the genuine polynomial-base
+-maps, not justified by the rational-only universal ring hom argument. -/
+-local instance sourceTower : IsScalarTower ℂ (FourRootActualFractionField318.A b) (OpenOrder b i):=by
+-  apply IsScalarTower.of_algebraMap_eq
+-  intro z
+-  change algebraMap ℂ (OpenOrder b i) z=sourceMap b i (algebraMap ℂ (FourRootActualFractionField318.A b) z)
+-  unfold sourceMap regroupedToOpen
+-  simp only [RingHom.comp_apply]
+-  rw [show algebraMap ℂ (FourRootActualFractionField318.A b) z=
+-    algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C z) from (Polynomial.aeval_C _ z).symm,
+-    AlgEquiv.commutes]
+-  rw [IsScalarTower.algebraMap_apply ℂ[X] (BranchBase b i) (RegroupedOrder b i),
+-    AlgHom.commutes,IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)
+-      (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]
+-  simp only [←IsScalarTower.algebraMap_apply]
+-  rfl
+-
+-/-- The full original source's principal open, with its actual complex
+-scalar structure, is precisely the whole explicit finite-branch chart. -/
+-@[expose] def sourceLocalizationEquiv :
+-    Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)≃ₐ[ℂ]OpenOrder b i:=by
+-  letI:=source_localization b i
+-  exact (IsLocalization.algEquiv (Submonoid.powers (FourRootActualFiniteBranchChart318.denominator b i))
+-    (Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)) (OpenOrder b i)).restrictScalars ℂ
+-
+-@[simp] lemma sourceLocalizationEquiv_on_source (z:FourRootActualFractionField318.A b) :
+-    sourceLocalizationEquiv b i
+-      (algebraMap (FourRootActualFractionField318.A b)
+-        (Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)) z)=sourceMap b i z:=by
+-  letI:=source_localization b i
+-  exact (IsLocalization.algEquiv (Submonoid.powers (FourRootActualFiniteBranchChart318.denominator b i))
+-    (Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)) (OpenOrder b i)).commutes z
+-
+ lemma sourceMap_on_polynomial (p:ℂ[X]) :
+     sourceMap b i (algebraMap ℂ[X] (FourRootActualFractionField318.A b) p)=
+       algebraMap (OpenBase b i) (OpenOrder b i) (algebraMap ℂ[X] (OpenBase b i) p):=by
+@@ -106,4 +78,39 @@
+     (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]
+   rw [←IsScalarTower.algebraMap_apply ℂ[X] (BranchBase b i) (OpenBase b i)]
+ 
++/-- Complex scalars act through the genuine polynomial/OpenBase tower.
++Use the existing scalar actions instead of replacing tensor scalar dictionaries. -/
++local instance sourceTower : IsScalarTower ℂ (FourRootActualFractionField318.A b) (OpenOrder b i):=by
++  apply IsScalarTower.of_algebraMap_smul
++  intro c z
++  have hc:=sourceMap_on_polynomial b i (C c)
++  rw [show algebraMap ℂ[X] (FourRootActualFractionField318.A b) (C c)=
++    algebraMap ℂ (FourRootActualFractionField318.A b) c from Polynomial.aeval_C _ c] at hc
++  rw [←IsScalarTower.algebraMap_apply ℂ ℂ[X] (OpenBase b i)] at hc
++  change sourceMap b i (algebraMap ℂ (FourRootActualFractionField318.A b) c)*z=c • z
++  rw [hc,←Algebra.smul_def]
++  exact IsScalarTower.algebraMap_smul (R:=ℂ) (OpenBase b i) c z
++
++/-- Name the SAME source-linear localization equivalence before restricting
++scalars, so later coherence checks reuse this exact map instead of expanding
++separate large localization-instance constructions. -/
++@[expose] def sourceLocalizationAlgEquiv :
++    Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)≃ₐ[FourRootActualFractionField318.A b]OpenOrder b i:=by
++  letI:=source_localization b i
++  exact IsLocalization.algEquiv (Submonoid.powers (FourRootActualFiniteBranchChart318.denominator b i))
++    (Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)) (OpenOrder b i)
++
++/-- The full original source's principal open, with its actual complex
++scalar structure, is precisely the whole explicit finite-branch chart. -/
++@[expose] def sourceLocalizationEquiv :
++    Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)≃ₐ[ℂ]OpenOrder b i:=
++  (sourceLocalizationAlgEquiv b i).restrictScalars ℂ
++
++@[simp] lemma sourceLocalizationEquiv_on_source (z:FourRootActualFractionField318.A b) :
++    sourceLocalizationEquiv b i
++      (algebraMap (FourRootActualFractionField318.A b)
++        (Localization.Away (FourRootActualFiniteBranchChart318.denominator b i)) z)=sourceMap b i z:=
++  (sourceLocalizationAlgEquiv b i).commutes z
++
++
+ end FourRootActualBranchLocalization318
