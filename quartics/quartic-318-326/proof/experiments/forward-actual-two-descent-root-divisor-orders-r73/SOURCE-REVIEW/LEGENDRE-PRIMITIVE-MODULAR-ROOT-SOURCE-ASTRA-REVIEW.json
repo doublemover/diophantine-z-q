@@ -1,0 +1,17 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_MATHEMATICAL_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede",
+  "bindings_sha256": "e08106d8cd8ed78c8ada0fb398352230fa71ffe2f0dfde57d881c6fd81f75cb6",
+  "findings": [
+    "Hypotheses are explicit: prime p, p not dividing B, residual divisible by p\u00b2, and at least one of x,z,w nonzero modulo p. No global solution is assumed.",
+    "If x=0 modulo p, the reduced equation forces z\u00b2=0, hence z=0 in the prime field. Substitute x=pX,z=pZ and cancel one nonzero integer p. Reduction modulo p then forces B*w\u00b2=0; invertibility of B yields w=0, contradicting primitivity.",
+    "Thus x is nonzero modulo p and the original reduced equation gives a=(z/x)\u00b2. The final IsSquare witness uses the correct equality orientation.",
+    "The argument includes p=2 and p dividing a: no division by 2 or by a occurs. It proves only a square modulo p, not a prescribed 2-adic squareclass modulo 4 or 8.",
+    "ZMod.intCast_zmod_eq_zero_iff_dvd and division-square witness pattern match already strict-checked inert-prime source; nonzero cancellation API matches checked split-prime source."
+  ],
+  "limitations": [
+    "No local Lean or hosted acceptance. Cast simplification and linear_combination elaboration remain compiler obligations.",
+    "Still required: primitive residue extraction from local solutions, coefficient normalization, CRT/centered root selection and complete terminating descent including exceptional cases.",
+    "No arbitrary local-global theorem or completed original auxiliary selection."
+  ]
+}
