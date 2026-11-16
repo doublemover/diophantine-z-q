@@ -134,6 +134,32 @@ class GuardTests(unittest.TestCase):
             d.run(self.folder,self.out,{'LEAN_PATH':'mock'},self.r,1000)
         record=json.loads((self.out/d.LABEL/'DIAGNOSTIC.json').read_text());self.assertEqual(record['status'],'RECORDED')
         self.assertEqual(before,(self.out/'INVENTORY.json').read_bytes());self.assertFalse(record['proof_acceptance'])
+    def test_environment_recheck_uses_exact_project_cwd(self):
+        before=Path.cwd()
+        def environment(project,lib):
+            self.assertEqual(Path.cwd(),self.project)
+            self.assertEqual(project,self.project)
+            self.assertEqual(lib,self.out/'lib')
+            return {'LEAN_PATH':'mock'},'MOCK'
+        def compiler(source,root,env,log):
+            self.assertEqual(Path.cwd(),before)
+            log.write_text('MOCK');return {'exit_code':1,'limit':None}
+        with patch.object(d.ci,'environment',side_effect=environment),patch.object(d.bounded,'bounded_memory',side_effect=compiler):
+            d.run(self.folder,self.out,{'LEAN_PATH':'mock'},self.r,1000)
+        self.assertEqual(Path.cwd(),before)
+        self.assertEqual(json.loads((self.out/d.LABEL/'DIAGNOSTIC.json').read_text())['status'],'RECORDED')
+
+    def test_environment_failure_restores_cwd_and_skips(self):
+        before=Path.cwd()
+        def environment(project,lib):
+            self.assertEqual(Path.cwd(),self.project)
+            raise ValueError('MOCK wrong compiler pin')
+        with patch.object(d.ci,'environment',side_effect=environment),patch.object(d.bounded,'bounded_memory') as compiler:
+            d.run(self.folder,self.out,{'LEAN_PATH':'mock'},self.r,1000)
+        self.assertEqual(Path.cwd(),before);compiler.assert_not_called()
+        record=json.loads((self.out/d.LABEL/'DIAGNOSTIC.json').read_text())
+        self.assertEqual(record['status'],'SKIPPED_OR_INVALID');self.assertFalse(record['probe_executed'])
+
     def test_mock_mutation_invalidates(self):
         def compiler(source,root,env,log):
             log.write_text('MOCK');(self.out/'INVENTORY.json').write_text('{}');return {'exit_code':0}

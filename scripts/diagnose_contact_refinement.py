@@ -4,6 +4,7 @@
 Never changes admission, packet acceptance, proof source, cache, or limits.
 This hook is synchronous: existing inventory finally still removes all draft binaries.
 """
+from contextlib import chdir
 import hashlib
 import json
 import os
@@ -209,7 +210,8 @@ def run(folder, output, env, result, deadline):
     try:
         text, watched, evidence = validate(folder, output, result, deadline)
         # Validate compiler/pins/search path again; no inherited unchecked project library.
-        exact_env, version = ci.environment(ci.PROJECT, output/'lib')
+        with chdir(ci.PROJECT):
+            exact_env, version = ci.environment(ci.PROJECT, output/'lib')
         require(exact_env.get('LEAN_PATH') == env.get('LEAN_PATH') and version == result['toolchain'],
                 'Compiler environment changed')
         logs.mkdir()
