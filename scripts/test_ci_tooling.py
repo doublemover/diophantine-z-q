@@ -65,7 +65,7 @@ class ToolingTests(unittest.TestCase):
         self.assertIn("group: progress-experiments-${{ github.ref }}${{ " + condition +
                       " && '-replay' || '' }}", text)
         self.assertIn('cancel-in-progress: false', text)
-        self.assertIn('max-parallel: ${{ ' + condition + ' && 4 || 16 }}', text)
+        self.assertIn('max-parallel: ${{ ' + condition + ' && 4 || 8 }}', text)
         concurrency = text.split('concurrency:\n', 1)[1].split('\njobs:', 1)[0]
         self.assertNotIn('github.sha', concurrency)
         self.assertNotIn('github.run_id', concurrency)
