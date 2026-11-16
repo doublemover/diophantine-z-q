@@ -1,0 +1,30 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_AND_SOURCE_REVIEW",
+  "base_commit": "e25501be92fe865fddb0f67a1028ca354881c571",
+  "producer_packet": "height-original-ks-lattice-assembly-r24",
+  "new_sources": {
+    "FinitePlaceTwoSectionGeneration318.lean": "5b9886c9a8ff8ce9d73a9083c1db5942b2b5456d7f95cba6a794e2c41604ad27",
+    "OriginalSectionCotangentComparison318.lean": "8f7412d960d31a81b1bc0b7c5b79db23fb2bcf300b5aee96e70026cc1c9fdff6"
+  },
+  "primary": {
+    "FinitePlaceTwoSectionLattice318.lean": "4f686e82e56563a5e94cc0a35b1eb7f74d255e82d640ece2fa5f595751771820",
+    "OriginalMinimalExcludedSections318.lean": "242ae1781fb209368637a025ab8d5a4a5b8aa3421874ad1cabd2dea01a678cae",
+    "OriginalFiniteNormAssembly318.lean": "80c22907af071cb7a9cb5cd29d658f1b4423485d005f09d016f23287317d908a",
+    "OriginalSectionLatticeGeneration318.lean": "caa2b75312d4f8fe6e909d40c692298372d9d836ed63b7ac619c42812e8b32c1",
+    "OriginalGoodCotangentLattice318.lean": "21f85e5d0971ac5b3b402720f3cc6a930cec8c8b64e2bd9d197d1b2bfaac8b9e",
+    "OriginalExcludedPlaceData318.lean": "b68642b01ed520b813edb5d9f1eca1bb62813ed58658fc1e867db76d96a9bcda"
+  },
+  "local_lean_run": false,
+  "kernel_verified": false,
+  "declarations_reviewed": 9,
+  "findings": [
+    "Generic norm criterion proves equality of actual embedded lattices, using nonzero a and g; reverse generator criterion requires both sections contained. No abstract rank-one substitution.",
+    "Good-place comparison retains exactly v(denominator c)=1 plus original nonzero-parameter hypotheses; reuses original_pair_span for the same point, frame and valuation ring.",
+    "Excluded-place statement is an equivalence only, not proof of geometric equality.",
+    "Excluded branch definitional reduction is valid: excludedNorm reduces to inverse valuation of minimalGenerators.generator; structure projection reduces to generator at subtype.val=v. Both definitions exposed; no proof-dependent mathematical change.",
+    "All-place norm positivity and bounds inherit existing theorems with constructed minimalGenerators. Finite multiplicative support inherits finite_support, which proves support contained in union of original good-place exceptional finite set and finite excluded denominator places; no support premise is added.",
+    "All primary hashes match pinned KS24 tree; required generation theorem is in public transitive import closure. New source hygiene has no sorry, axiom, unsafe, new options or native evaluators.",
+    "No likely elaboration blocker identified by inspection; hosted Lean is still required.",
+    "No bad-prime geometric generation, global cotangent/dualizing/Hodge provenance, factor210 KS identification, height bound or completeness result is established. Existing consumers are unchanged."
+  ]
+}
