@@ -1,0 +1,5 @@
+# Minimal fraction-field repair successor of KS40
+
+All 200 predecessor roots retain their exact order; 198 sources remain byte-identical. Only the two actual fraction-field failures from authenticated run43897325860 change. OriginalIntegerFractionField restores Polynomial notation and uses the native root localization-equivalence theorem. IntegerPolynomialFractionField uses the native public scalar tower, then explicitly selects the unchanged composed algebra action and tower inside its fraction-field proof.
+
+The fresh predecessor shard has 67 compile passes and an audit of 1584 declarations. The full 64-root gluing closure passed, including the repaired gluing theorem; all those sources remain exact. The finite closure and normalization-map consumers remain unchanged and were blocked, not passed. Both new repairs have independent source/API review only and still need hosted elaboration. No later geometry additions, new assumptions, weakened statements, resource-limit changes, or local Lean. Only the active KS registry slot changes 40 to 41; no marker, scripts, workflows, baseline, or unrelated packet changes.
