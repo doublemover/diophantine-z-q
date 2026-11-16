@@ -1,0 +1,24 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "source_sha256": "38af52092b6118e4e09a4c7c97b032143e950c96ad521f8513b4c6b76dcb48c8",
+  "primary": {
+    "commit": "7b2316f71e429bdbba036d35832181b358af0e9d",
+    "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r38/ExplicitPositiveKummer318.lean",
+    "sha256": "71ec9b438699e25ec47435ed01931cd85bcfbfb4e628012210fb83b9e7c90166"
+  },
+  "native_api": {
+    "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "path": "Mathlib/Data/ZMod/Basic.lean",
+    "signature": "intCast_zmod_eq_zero_iff_dvd (a : Z) (b : N): (a:ZMod b)=0 iff (b:Z) divides a"
+  },
+  "declarations_reviewed": 3,
+  "local_lean_run": false,
+  "findings": [
+    "Field zero-product case split yields beta=0, beta=t^2, or beta=9*t^2=(3*t)^2. Valid over ANY field including characteristics2 and3; no odd-prime premise needed for IsSquare.",
+    "At primes dividing beta, conclusion is square-zero, not a nonzero quadratic residue. The theorem does not prove Legendre symbol+1, unramified splitting or beta nonzero. Such interpretations require at least p not dividing beta and appropriate odd-prime/quadratic-field hypotheses.",
+    "Fact p.Prime supplies field ZMod p; pinned native integer-cast/divisibility theorem has exactly used argument order and direction. Cast normalization uses ring hom identities and preserves original polynomial.",
+    "integer_parameter is exact rational cast of integer beta*(beta-t^2)*(beta-9*t^2); no change of parameter. Prime-support result is for integer beta,t, not unrestricted rational denominators.",
+    "No selected-prime freedom, simultaneous n/n*theta point existence, prescribed prime-pattern matching or completeness conclusion. Even if integer parameter is0, theorem is valid: every prime divides0 and zero-product reasoning still supplies residue square.",
+    "Source hygiene has no axioms/admissions/new options; no specific likely elaboration blocker found. No local Lean or kernel verification."
+  ]
+}
