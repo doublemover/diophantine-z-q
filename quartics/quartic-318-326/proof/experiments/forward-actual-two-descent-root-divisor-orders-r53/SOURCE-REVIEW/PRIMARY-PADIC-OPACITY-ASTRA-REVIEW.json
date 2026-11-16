@@ -1,0 +1,33 @@
+{
+  "status": "SOURCE_API_REVIEW_PASS_NOT_LEAN",
+  "bindings": {
+    "run": "43872386391",
+    "source_prefix": "72c4b67e",
+    "predecessor_packet_commit": "51ed8c2f07752e66b4d5e94e4cf44c2ff9d742c9",
+    "before_sha256": "c81d8e1972e6a60d1cbe8509102eadf50813dcd8f91c8db34e72b5bfc94e1a1e",
+    "after_sha256": "3a365818221f8251b1fed410c5f127387e34e3c6bb2976f4cb51822a5554a05c",
+    "log_sha256": "4afbd1a500bbc1769eee6baa8845abbb0fdb42f151d78a6f11e165d3cadb5e45",
+    "changes": [
+      "Separate import all of same public tower module",
+      "Expose scalar body",
+      "Expose naturalModule body"
+    ],
+    "passed_preserved": {
+      "DyadicPrueferCarrier318": "6b8a0beb29168494a44ed001ac41c1c35fe8450ac184bae9173cc870a90d53f7",
+      "DyadicResidueInverseLimit318": "2b46601d2faeb6386bc7dbdd99245e91e0658e56558468d21242fb613e4ecc52",
+      "BoundedPrimaryTowerVanishing318": "803050aefb670cefcb619b81fa30a9994a08e6dc3287abb37915849e2408abf8",
+      "PrimaryTateTower318": "28fa2548917134265cd9f948b777c38bf49a96440dab8353c71805d3de0dd36e"
+    },
+    "no_local_lean": true,
+    "candidate_lean_acceptance": false
+  },
+  "checks": [
+    "Exact source72c4 predecessor and hosted error log bound; RESULT has four successful predecessor compiles then this failure; intake hash matches immutable52.",
+    "Removing only new private import-all line and two expose attributes recovers exact before bytes, including all proof and definition bodies, public statements and hypotheses.",
+    "Pinned MutualDef makes exposed bodies public; pinned BuiltinTerm.elabByTactic switches proof subterms back to private context, where private import-all gives access to hidden tower predicate. Thus constructor/property proofs need not expose or modify passed tower producer.",
+    "Pinned DefEqAttrib requires definitions unfolded by exported rfl to be exposed. Both naturalModule and scalar are now exposed, preserving original residue-coordinate action and additive structure.",
+    "No axiom, bypass, changed compiler option, changed mathematical premise or proof body. Full hosted elaboration remains required; secondary errors may be cascades, not independently assumed solved."
+  ],
+  "native_evidence_sha256": "7efd4f55a351072128cdbc78c0f7106815009b95e17efacca7ee6900a763ead1",
+  "local_lean_run": false
+}
