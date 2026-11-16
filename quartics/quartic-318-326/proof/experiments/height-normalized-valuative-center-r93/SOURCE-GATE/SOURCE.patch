@@ -1,0 +1,25 @@
+--- before/NormalizedWholeScalarMaps318.lean
++++ after/NormalizedWholeScalarMaps318.lean
+@@ -41,7 +41,12 @@
+     (baseChangedOrderMapAlong (reciprocalMap R).toRingHom
+       (DVRNormalizedInfinityOrder318.coefficient R d a)
+       (algebraMap R[X] (InfinityOrder R d a) p)) = _
+-  rw [baseChangedOrderMapAlong_scalar, AlgEquiv.commutes]
++  rw [baseChangedOrderMapAlong_scalar]
++  change (fullOverlap R d a).symm
++    (algebraMap (Laurent R) (FourRootOrder318.Order (infinityParameter R d a))
++      (reciprocalMap R p)) =
++    algebraMap (Laurent R) (CommonOrder R d a) (reciprocalMap R p)
++  exact (fullOverlap R d a).symm.commutes (reciprocalMap R p)
+ 
+ @[expose] def commonT : (CommonOrder R d a)ˣ :=
+   Units.map (algebraMap (Laurent R) (CommonOrder R d a)).toMonoidHom (coordinate R)
+@@ -78,7 +83,7 @@
+   · rw [RingHom.comp_apply,infinity_polynomial]
+     change algebraMap (Laurent R) (CommonOrder R d a) (reciprocalMap R X) =
+       Polynomial.aeval (R:=R) (↑(commonT R d a)⁻¹:CommonOrder R d a) X
+-    rw [Polynomial.aeval_X]
++    rw [Polynomial.aeval_X,reciprocalMap,Polynomial.aeval_X]
+     change algebraMap (Laurent R) (CommonOrder R d a) (↑(coordinate R)⁻¹:Laurent R)=_
+     exact map_units_inv _ _
+ end NormalizedWholeScalarMaps318
