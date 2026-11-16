@@ -9,6 +9,8 @@ on:
       - '.github/workflows/progress-experiments.yml'
       - '.github/actions/setup-pinned-*/**'
       - 'scripts/setup_pinned_lean.sh'
+      - 'scripts/pinned_dependency_sources.py'
+      - 'scripts/test_pinned_dependency_sources.py'
       - 'scripts/test_ci_tooling.py'
   workflow_dispatch:
     inputs:
@@ -46,6 +48,7 @@ jobs:
         with:
           python-version: '3.12.14'
       - run: python -B scripts/test_ci_tooling.py
+      - run: python -B scripts/test_pinned_dependency_sources.py
       - run: python -B scripts/test_progress_experiment.py
       - run: python -B scripts/test_generic_binder_diagnostic.py
       - run: python -B scripts/test_endpoint_diagnostic.py
@@ -89,6 +92,16 @@ jobs:
       - name: Warm pinned compiler cache before matrix fan-out
         if: steps.plan.outputs.has_packets == 'true'
         uses: ./.github/actions/setup-pinned-lean
+      - name: Warm verified dependency sources before matrix fan-out
+        if: steps.plan.outputs.has_packets == 'true'
+        uses: ./.github/actions/setup-pinned-dependency-sources
+      - name: Preserve plan dependency setup receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: dependency-setup-plan
+          path: build/dependency-setup/
+          if-no-files-found: ignore
 
   first-check:
     needs: plan
@@ -113,6 +126,8 @@ jobs:
           restore-keys: |
             progress-v2-full-${{ needs.plan.outputs.base }}-
       - uses: ./.github/actions/setup-pinned-lean
+      - id: dependency_sources
+        uses: ./.github/actions/setup-pinned-dependency-sources
       - name: Fetch exact pinned upstream artifacts
         shell: bash
         env:
@@ -122,10 +137,19 @@ jobs:
           python -B scripts/check_progress_experiment.py targets --packet "$PACKET" > "$RUNNER_TEMP/experiment-targets.txt"
           mapfile -t targets < "$RUNNER_TEMP/experiment-targets.txt"
           test "${#targets[@]}" -gt 0
-          cd quartics/quartic-318-326/proof/progress
-          lake exe cache get "${targets[@]}"
+          python -B scripts/pinned_dependency_sources.py artifacts \
+            --project quartics/quartic-318-326/proof/progress \
+            --targets-file "$RUNNER_TEMP/experiment-targets.txt" \
+            --receipt "$GITHUB_WORKSPACE/build/dependency-setup/artifacts.json"
+      - name: Preserve dependency setup receipt even when acquisition fails
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: dependency-setup-${{ matrix.packet }}
+          path: build/dependency-setup/
+          if-no-files-found: ignore
       - name: Non-admitted original generic-field binder signatures
-        if: always() && startsWith(matrix.packet, 'pel-original-character-')
+        if: always() && steps.dependency_sources.outcome == 'success' && startsWith(matrix.packet, 'pel-original-character-')
         shell: bash
         run: |
           set -euo pipefail
@@ -140,14 +164,14 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_progress_experiment.py check --packet "$PACKET" --cache "$GITHUB_WORKSPACE/.cache/progress-ci" --output "$GITHUB_WORKSPACE/build/progress-experiments/$PACKET" --seconds 180
       - name: Separate exact source-word core smoke check
-        if: always() && matrix.packet == 'relative-original-cartesian-frame-parameter-r3'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'relative-original-cartesian-frame-parameter-r3'
         shell: bash
         run: |
           set -euo pipefail
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/check_source_word_core_smoke.py
       - name: Non-admitted endpoint scratch diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r26'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r26'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -156,7 +180,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_original_endpoint.py --packet "$PACKET"
       - name: Non-admitted candidate endpoint and edge diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r27'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r27'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -165,7 +189,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_candidate_endpoint.py --packet "$PACKET"
       - name: Non-admitted edge elaboration bisection
-        if: always() && matrix.packet == 'contact-relative-site-descent-r27'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r27'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -174,7 +198,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_edge_elaboration.py --packet "$PACKET"
       - name: Non-admitted named-arrow edge verification
-        if: always() && matrix.packet == 'contact-relative-site-descent-r29'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r29'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -183,7 +207,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_named_edge.py --packet "$PACKET"
       - name: Non-admitted original and named-identity diagonal profiling
-        if: always() && matrix.packet == 'contact-relative-site-descent-r30'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r30'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -192,7 +216,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_identity.py --packet "$PACKET"
       - name: Non-admitted opaque diagonal split prefix and full verification
-        if: always() && matrix.packet == 'contact-relative-site-descent-r33'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r33'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -201,7 +225,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_split.py "$PACKET"
       - name: Non-admitted abstract iso formula and concrete conversion diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r34'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r34'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -210,7 +234,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_formula.py "$PACKET"
       - name: Non-admitted named projections and componentwise diagonal diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r35'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r35'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -219,7 +243,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_components.py "$PACKET"
       - name: Non-admitted explicit functor map carrier diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r36'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r36'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -227,7 +251,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_map_carriers.py "$PACKET"
       - name: Non-admitted explicit map consumer diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r38'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r38'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -235,7 +259,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_explicit_consumers.py "$PACKET"
       - name: Non-admitted typed split specialization diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r39'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r39'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -243,7 +267,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_split_specialization.py "$PACKET"
       - name: Non-admitted explicit producer diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r40'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r40'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -251,7 +275,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_producer.py "$PACKET"
       - name: Non-admitted faithful counit composition diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r41'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r41'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -259,7 +283,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_counit.py "$PACKET"
       - name: Non-admitted isolated final diagonal diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r42'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r42'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -267,7 +291,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_final.py "$PACKET"
       - name: Non-admitted final diagonal constituent diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r43'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r43'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -275,7 +299,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_final_steps.py "$PACKET"
       - name: Non-admitted opaque final and actual downstream consumer diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r44'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r44'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -283,7 +307,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_opaque_final.py "$PACKET"
       - name: Non-admitted typed concrete diagonal witness diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r45'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r45'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -291,7 +315,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_concrete_witnesses.py "$PACKET"
       - name: Non-admitted exact split-map carrier diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r46'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r46'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -299,7 +323,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_split_map_carriers.py "$PACKET"
       - name: Non-admitted unchanged diagonal and actual consumer diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r47'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r47'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -307,7 +331,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_consumer_transpose.py "$PACKET"
       - name: Non-admitted typed consumer carrier diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r48'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r48'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -315,7 +339,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_diagonal_consumer_carriers.py "$PACKET"
       - name: Non-admitted actual overlap morphism diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r49'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r49'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -323,7 +347,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_overlap_morphism_carriers.py "$PACKET"
       - name: Non-admitted actual overlap coherence diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r50'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r50'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -331,7 +355,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_overlap_morphism_coherence.py "$PACKET"
       - name: Non-admitted actual tensor transport diagnostics
-        if: failure() && matrix.packet == 'contact-relative-site-descent-r57'
+        if: failure() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r57'
         env:
           PACKET: ${{ matrix.packet }}
         run: |
@@ -339,7 +363,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_tensor_transport_faces.py "$PACKET"
       - name: Non-admitted exact center prefix diagnostics
-        if: always() && matrix.packet == 'height-normalized-valuative-center-r50'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'height-normalized-valuative-center-r50'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -348,7 +372,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_center_prefixes.py "$PACKET"
       - name: Non-admitted exact geometry frontier diagnostics
-        if: always() && (matrix.packet == 'height-normalized-valuative-center-r64' || matrix.packet == 'height-original-ks-lattice-assembly-r15')
+        if: always() && steps.dependency_sources.outcome == 'success' && (matrix.packet == 'height-normalized-valuative-center-r64' || matrix.packet == 'height-original-ks-lattice-assembly-r15')
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -357,7 +381,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_geometry_frontiers.py "$PACKET"
       - name: Non-admitted exact Common expression boundary diagnostics
-        if: always() && matrix.packet == 'height-original-ks-lattice-assembly-r16'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'height-original-ks-lattice-assembly-r16'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -366,7 +390,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_common_dictionary_conversion.py "$PACKET"
       - name: Non-admitted exact Picard helper diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r83'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -375,7 +399,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_picard_reconstructed_overlap.py "$PACKET"
       - name: Non-admitted exact Picard A B and assembled diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r83'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -384,7 +408,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_picard_overlap_fragments.py "$PACKET"
       - name: Non-admitted exact Picard canonical naturality diagnostics
-        if: always() && matrix.packet == 'contact-relative-site-descent-r83'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'contact-relative-site-descent-r83'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -393,7 +417,7 @@ jobs:
           cd quartics/quartic-318-326/proof/progress
           lake env python -B ../../../../scripts/diagnose_picard_naturality.py "$PACKET"
       - name: Non-admitted targeted small-prime Decidable localization
-        if: always() && matrix.packet == 'forward-actual-two-descent-root-divisor-orders-r16'
+        if: always() && steps.dependency_sources.outcome == 'success' && matrix.packet == 'forward-actual-two-descent-root-divisor-orders-r16'
         shell: bash
         env:
           PACKET: ${{ matrix.packet }}
@@ -450,5 +474,5 @@ jobs:
             build/progress-experiments/${{ matrix.packet }}/scratch-picard-naturality/
             build/progress-experiments/${{ matrix.packet }}/scratch-small-prime-decidable/
           retention-days: 3
-# Only the tooling composite actions save runtime caches. Experimental proof
+# Tooling/source composites save only runtime or verified source transports. Experimental proof
 # artifacts never enter the accepted baseline or any project artifact cache.

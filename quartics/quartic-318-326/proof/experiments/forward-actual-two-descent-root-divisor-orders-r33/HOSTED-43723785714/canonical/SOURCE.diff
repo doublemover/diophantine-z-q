@@ -1,0 +1,48 @@
+--- /workspace/scratch/41c6d5925c0e/arithmetic-packaging-43723785714/canonical/before/FixedArithmeticLabels318.lean	2026-11-15 08:52:27.134500012 -0500
++++ /workspace/scratch/41c6d5925c0e/arithmetic-packaging-43723785714/canonical/after/FixedArithmeticLabels318.lean	2026-11-15 08:52:27.134587403 -0500
+@@ -10,12 +10,11 @@
+ @[expose] def inputBeta (a : ℤ) : ℤ := 3723*(2*a+1)^2
+ 
+ lemma beta_positive_odd (a : ℤ) : 0< inputBeta a ∧ Odd (inputBeta a) := by
+-  have hm : (2*a+1)%2=1 := by omega
+   have hn : 2*a+1≠0 := by omega
+   refine ⟨by unfold inputBeta; positivity,?_⟩
+-  apply Int.odd_iff.mpr
+-  simp only [inputBeta,Int.mul_emod,Int.pow_emod,hm]
+-  norm_num
++  refine ⟨7446*a^2+7446*a+1861, ?_⟩
++  unfold inputBeta
++  ring
+ 
+ structure LucasData (s : ℤ) where
+   t : ℤ
+@@ -44,7 +43,9 @@
+   intro j
+   fin_cases j <;> simp only [labels,Matrix.cons_val_zero,Matrix.cons_val_succ]
+   · exact (beta_positive_odd a).1
+-  · have h := (label_domains A B d hd).1; omega
++  · change 0 < scalarLabel A B d
++    have h := (label_domains A B d hd).1
++    omega
+   · exact (lucasData A B d hd).t_pos
+   · exact (lucasData A B d hd).z_pos
+ 
+--- /workspace/scratch/41c6d5925c0e/arithmetic-packaging-43723785714/canonical/before/ContactOriginalTwistingLine318.lean	2026-11-15 08:52:27.134793443 -0500
++++ /workspace/scratch/41c6d5925c0e/arithmetic-packaging-43723785714/canonical/after/ContactOriginalTwistingLine318.lean	2026-11-15 08:52:27.134918320 -0500
+@@ -20,14 +20,14 @@
+     (projection c).appTop ≫ ((into c).appIso ⊤).inv ≫
+     (ContactProjectiveModel318.model c).presheaf.map (eqToHom (overlap_image c).symm).op).hom
+ 
+-def monomialUnit (d : ℤ) : (LaurentPolynomial ℚ)ˣ where
++@[expose] def monomialUnit (d : ℤ) : (LaurentPolynomial ℚ)ˣ where
+   val := LaurentPolynomial.T d
+   inv := LaurentPolynomial.T (-d)
+   val_inv := by rw [← LaurentPolynomial.T_add,add_neg_cancel,LaurentPolynomial.T_zero]
+   inv_val := by rw [← LaurentPolynomial.T_add,neg_add_cancel,LaurentPolynomial.T_zero]
+ 
+ /-- A genuine invertible original regular function, not a formal symbol. -/
+-def transitionUnit (d : ℤ) :
++@[expose] def transitionUnit (d : ℤ) :
+     Γ(ContactProjectiveModel318.model c,finiteOpen c ⊓ infinityOpen c)ˣ :=
+   Units.map (scalar c).toMonoidHom (monomialUnit d)
+ 

@@ -1,0 +1,29 @@
+--- before/FourRootActualFiniteBranchChart318.lean
++++ after/FourRootActualFiniteBranchChart318.lean
+@@ -37,11 +37,21 @@
+ root, with the unchanged complex-polynomial base retained. -/
+ @[expose] def sourceRegroup:A b≃ₐ[P]RegroupedOrder b i:=
+   (polynomialEquivalence b).trans (by
+-    simpa only [RegroupedOrder,FiniteBranchChart318.OriginalOrder,
+-      FiniteBranchChart318.BranchBase,LinearRootCoordinate318.Root,
+-      FiniteBranchChart318.other,LinearRootCoordinate318.parameter,
+-      twists,otherBranch,radicand,Units.val_one,Polynomial.C_1,map_one,one_mul,indices_zero]
+-      using FourRootPivot318.regroup (radicand b) i)
++    have h0 : LinearRootCoordinate318.parameter (1:ℂˣ) (b i)=
++        radicand b (indices i 0) := by
++      change (Polynomial.C (1:ℂ):P)*(X-C (b i))=X-C (b (indices i 0))
++      rw [Polynomial.C_1,one_mul,indices_zero]
++    have hother : FiniteBranchChart318.other twists (otherBranch b i)=
++        (fun j=>radicand b (indices i j.succ)) := by
++      funext j
++      change (Polynomial.C (1:ℂ):P)*(X-C (b (indices i j.succ)))=
++        X-C (b (indices i j.succ))
++      rw [Polynomial.C_1,one_mul]
++    change FourRootOrder318.Order (radicand b)≃ₐ[P]
++      (QuadraticPresentation318.RootRing (LinearRootCoordinate318.parameter (1:ℂˣ) (b i))⊗[P]
++        ThreeRootOrder318.Order (FiniteBranchChart318.other twists (otherBranch b i)))
++    rw [h0,hother]
++    exact FourRootPivot318.regroup (radicand b) i)
+ @[expose] def localizedSourceEquiv:
+     OpenBase b i⊗[BranchBase b i]RegroupedOrder b i≃ₐ[OpenBase b i]OpenOrder b i:=
+   FiniteBranchChart318.localizedOrderEquiv (1:ℂˣ) (b i) twists (otherBranch b i)

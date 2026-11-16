@@ -1,0 +1,21 @@
+--- own-gluing33
++++ variant-after
+@@ -36,7 +36,7 @@
+ 
+ lemma pure (e : N ≅ SheafOfModules.unit X.ringCatSheaf)
+     (U : X.Opens) (m : Γ(M,U)) (n : Γ(N,U)) :
+-    (iso M N e).hom.app U (IntrinsicTensorSheaf318.pure M N U m n) = (e.hom.app U n) • m := by
++    (iso M N e).hom.app U (IntrinsicTensorSheaf318.pure M N U m n) = (show Γ(X,U) from e.hom.app U n) • m := by
+   change (OriginalTensorRightUnit318.iso M).hom.app U
+     ((TensorSheafFunctor318.congr (Iso.refl M) e).hom.app U
+       (IntrinsicTensorSheaf318.pure M N U m n)) = _
+@@ -58,7 +58,7 @@
+     (ModuleScalar318.map M a).app U
+       ((iso M N f).hom.app U (IntrinsicTensorSheaf318.pure M N U m n))
+   rw [pure,pure,he,ModuleScalar318.map_apply,ModuleScalar318.map_apply]
+-  change ((X.presheaf.map (homOfLE le_top).op a) * (f.hom.app U n)) • m =
+-    (X.presheaf.map (homOfLE le_top).op a) • ((f.hom.app U n) • m)
++  change ((X.presheaf.map (homOfLE le_top).op a) * (show Γ(X,U) from f.hom.app U n)) • m =
++    (X.presheaf.map (homOfLE le_top).op a) • ((show Γ(X,U) from f.hom.app U n) • m)
+   exact mul_smul _ _ _
+ end OriginalTensorFrameChange318

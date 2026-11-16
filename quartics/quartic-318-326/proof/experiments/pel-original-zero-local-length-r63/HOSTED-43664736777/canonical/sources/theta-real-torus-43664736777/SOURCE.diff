@@ -1,0 +1,11 @@
+--- before/PELOriginalThetaRealTorus318.lean
++++ after/PELOriginalThetaRealTorus318.lean
+@@ -49,7 +49,7 @@
+     torusTerm τ n (torusPoint x)=term τ n (realPoint x):=by
+   simp only [torusTerm,ContinuousMap.smul_apply,smul_eq_mul,coefficient,
+     mFourier,ContinuousMap.coe_mk,Fin.prod_univ_two,frequency,Matrix.cons_val_zero,
+-    Matrix.cons_val_one,torusPoint,AddCircle.fourier_coe_apply,Complex.ofReal_one,div_one]
++    Matrix.cons_val_one,torusPoint,_root_.fourier_coe_apply,Complex.ofReal_one,div_one]
+   simp only [term,linear,Pi.zero_apply,mul_zero,add_zero,Complex.exp_zero]
+   rw [←Complex.exp_add,←Complex.exp_add]
+   congr 1

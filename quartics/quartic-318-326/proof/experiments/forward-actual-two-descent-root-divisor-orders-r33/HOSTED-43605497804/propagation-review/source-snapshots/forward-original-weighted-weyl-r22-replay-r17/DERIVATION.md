@@ -1,0 +1,23 @@
+# Small-prime multiplier: isolate the elementary unit proofs
+
+## Actual evidence and bounded inference
+
+The own run43605497804 at published4c5562395a9891e0d79fa5808926ebf9b2781470 stops at ScalarSmallPrimePreparation318 on both forward-r16 packets with the ordinary180-second cap. The authentic descent artifact14118622613 contains the independently bounded targeted five-case experiment. Its ZIP SHA256 is e4d538818cc79be241735712e57eaf29216c98e5efa22aeeb4aad68fad2f49d4. The complete RESULT, intake/application/source identities, all five exact generated sources, raw logs and profiler control are checked by verify_diagnostic.py.
+
+The exact cumulative first-three-declaration process and its marked/split variants all reach their90-second diagnostic wall, not the2MiB log cap. The marked variant reaches CONVERT_TWO. The split variant emits UNIT_2 before the contextual elementary nondivisibility proof but never emits VALUE_2. The independent abstract_three_unit_control completes with exit0 in1.334seconds. The historical-r15 control also reaches its90-second wall and remains source-different. Markers alone do not establish proof/kernel/finalization completion; these observations only support a contextual elementary-unit bottleneck. They do not establish that removing it will make the complete module or subsequent declarations pass.
+
+## Exact source change
+
+The new private multiplier_units lemma has the exact formula and proof body of the independently completed abstract control, with only its declaration name/private visibility changed. For arbitrary integers k2,k3,k17 it proves2 does not divide1+8*k2,3 does not divide1+3*k3, and17 does not divide8+17*k17. The small omega proofs are elaborated before the large integer-shape hypotheses are introduced. The lemma is a proved declaration, not an axiom, evaluator, native_decide, admitted scratch object or supplied mathematical assumption. The diagnostic profiler/markers are NOT copied into production.
+
+The existing actual_multiplier_values still obtains all three actual witnesses from integerA_shapes a, with the same coefficient114444, same integerR/inputR cast and literal normal forms16*(1+8*k2),9*(1+3*k3),289*(8+17*k17). It instantiates the lemma at precisely those three integers and passes the corresponding conjunction projection to the unchanged value_scaled_unit applications. The three inline by-omega unit proofs are replaced and nothing else. The same convert/norm_num statements remain. An exact inverse check removes the helper/call and restores those three proof terms to recover the predecessor byte-for-byte.
+
+All five original public theorem statements, integerA_shapes/value_scaled_unit proof bodies, complete actual_pole_thresholds and actual_preparation declarations, imports and all resource options remain identical. In particular the pre-existing maxHeartbeats0 is not added/increased; ordinary180-second and diagnostic caps/flags are not changed. No original coefficient, actual multiplier, index, hypothesis or local unit conclusion is weakened. The third branch is source-supported propagation of the same elementary proof extraction, not an independently reached production failure.
+
+## Direct consumers and residuals
+
+actual_pole_thresholds directly consumes actual_multiplier_values at the same integer input a, substitutes the literal witness w0=(a:Q), and combines it with the original W-unit valuations through support_value. This exact body remains unchanged. AllScalarSupportPreparation318.prepared_of_units consumes actual_pole_thresholds and the actual local-square producer to form original SmallPrepared at the same h/labels. actual_preparation also consumes actual_multiplier_values and actual_pole_thresholds without a statement or proof-body edit. Those source files and their exact published bytes are retained as primary evidence.
+
+The domain remains every integer a, all three actual prime values2/3/17, the original rational inputR multiplier and its valuations4/2/2. Unit conditions are proved for those exact linear forms, not assumed for arbitrary multiplier data. There is no change to the downstream rational pole, denominator support, same-index four-point consumer, norm producer or prime-existence theorem. No global arithmetic theorem is established by this repair.
+
+Independent source/contract review and packet propagation remain required. No local Lean or compiler run is performed. A completed nonadmitted abstract diagnostic process is not a production-module, packet, recursive axiom or whole-proof pass. Full-module timeout resolution and later declaration elaboration remain hosted-pending.

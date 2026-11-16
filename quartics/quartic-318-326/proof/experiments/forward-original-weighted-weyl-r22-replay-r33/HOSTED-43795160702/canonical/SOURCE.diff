@@ -1,0 +1,32 @@
+--- before/PreparedAnchorSource318
++++ after/PreparedAnchorSource318
+@@ -58,19 +58,21 @@
+        ∀ P₃ : Realization (scalarB (a:ℚ) labels (h:ℤ)),
+        ∀ H : PhysicalAnchorFromHomogeneous318.Homogeneous labels (2^16), HasSolution (stage0 (Current318FinalPolynomial.scale:ℚ)) (a:ℚ)) := by
+   dsimp only
+-  let d' := PreparedAnchorLabels318.multiplier (2^16) d
+-  have hd' : d'≠0 := PreparedAnchorLabels318.multiplier_ne (2^16) d hd
+-  let labels := FixedArithmeticLabels318.labels a A₂ A₃ d' hd'
+-  obtain ⟨hlabels,hrelations,hevent⟩ :=
+-    PreparedLucasSource318.current_source_prepared_lucas a A₂ A₃ d' hdepth₂ hd'
++  have hsource := PreparedLucasSource318.current_source_prepared_lucas a A₂ A₃
++    (PreparedAnchorLabels318.multiplier (2^16) d) hdepth₂
++    (PreparedAnchorLabels318.multiplier_ne (2^16) d hd)
+   refine ⟨PhysicalAnchorFromHomogeneous318.actual_current_locals a A₂ A₃ d hd,
+-    hlabels,hrelations,?_⟩
+-  filter_upwards [hevent] with t ht
++    hsource.1,hsource.2.1,?_⟩
++  apply hsource.2.2.mono
++  intro t ht
+   intro Pi Mminus Mplus L h₀ e B hPi hMm hMp hL hPm hPL hmp hpL hmL hdivL hdivh₀ hmodL hmod₀
+   obtain ⟨h,hbig,hA,hP,hL',hscalar,hroots,hbs,hscalarB,hunits,hsquares,hprep,hfinish⟩ :=
+     ht Pi Mminus Mplus L h₀ e B hPi hMm hMp hL hPm hPL hmp hpL hmL hdivL hdivh₀ hmodL hmod₀
+   refine ⟨h,hbig,hA,hP,hL',hscalar,hroots,hbs,hscalarB,hunits,hsquares,hprep,?_⟩
+   intro P₀ P₁ P₂ P₃ H
+-  exact hfinish P₀ P₁ P₂ P₃ (PhysicalAnchorFromHomogeneous318.currentAnchor labels H)
++  exact hfinish P₀ P₁ P₂ P₃ (PhysicalAnchorFromHomogeneous318.currentAnchor
++    (FixedArithmeticLabels318.labels a A₂ A₃
++      (PreparedAnchorLabels318.multiplier (2^16) d)
++      (PreparedAnchorLabels318.multiplier_ne (2^16) d hd)) H)
+ 
+ end PreparedAnchorSource318

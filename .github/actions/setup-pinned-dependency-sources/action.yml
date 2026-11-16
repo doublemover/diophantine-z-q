@@ -1,0 +1,24 @@
+name: Verified pinned dependency sources
+description: Source-only Git bundles, never project or Mathlib compiled artifacts.
+runs:
+  using: composite
+  steps:
+    - id: sources
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: .cache/pinned-dependency-sources
+        key: dependency-sources-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('quartics/quartic-318-326/proof/progress/lake-manifest.json', 'quartics/quartic-318-326/proof/progress/lean-toolchain', 'quartics/quartic-318-326/proof/progress/lakefile.toml', 'scripts/pinned_dependency_sources.py', '.github/actions/setup-pinned-dependency-sources/action.yml') }}
+    - name: Reconstruct and verify every locked dependency source before Lake
+      shell: bash
+      run: |
+        python -B scripts/pinned_dependency_sources.py sources \
+          --project quartics/quartic-318-326/proof/progress \
+          --cache .cache/pinned-dependency-sources \
+          --receipt "$GITHUB_WORKSPACE/build/dependency-setup/sources.json"
+    - name: Save verified source bundles only
+      if: steps.sources.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: .cache/pinned-dependency-sources
+        key: dependency-sources-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('quartics/quartic-318-326/proof/progress/lake-manifest.json', 'quartics/quartic-318-326/proof/progress/lean-toolchain', 'quartics/quartic-318-326/proof/progress/lakefile.toml', 'scripts/pinned_dependency_sources.py', '.github/actions/setup-pinned-dependency-sources/action.yml') }}

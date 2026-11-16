@@ -1,0 +1,11 @@
+--- before/NonreducedAffineLineLifting318.lean
++++ sources/NonreducedAffineLineLifting318.lean
+@@ -19,7 +19,7 @@
+   let y : S.X₃.H' 0 ⊤ := (zeroEquiv S.X₃ ⊤).symm s
+   have hz : y.comp hS.extClass (by rfl : 0+1=1) = 0 := by
+     apply ExtFiniteRetractVanishing318.eq_zero
+-      (fun _ : PUnit => NonreducedLineRestriction318.additive L)
++      (fun _ : PUnit.{1} => NonreducedLineRestriction318.additive L)
+       (fun _ => e.hom) (fun _ => e.inv) (by simp) 1
+     intro i z
+     exact NonreducedAffineLineHOne318.eq_zero R L ⊤ (isAffineOpen_top _) z

@@ -1,0 +1,28 @@
+--- before/ActualAnchorRatio318
++++ after/ActualAnchorRatio318
+@@ -34,8 +34,10 @@
+     simpa using AnchorNorm318.rational_unit_value 2 3 1 (by norm_num) (by norm_num)
+   have h30 : padicValRat 3 (4096:ℚ)=0 := by
+     simpa using AnchorNorm318.rational_unit_value 3 4096 1 (by norm_num) (by norm_num)
++  have hself2 : padicValRat 2 (2:ℚ)=1 := by
++    simpa using (padicValRat.self (p := 2) (by norm_num))
+   have h212 : padicValRat 2 (4096:ℚ)=12 := by
+-    rw [show (4096:ℚ)=2^12 by norm_num,padicValRat.pow,padicValRat.self (p := 2) (by norm_num)]
++    rw [show (4096:ℚ)=2^12 by norm_num,padicValRat.pow,hself2]
+     norm_num
+   obtain ⟨p2,p3⟩ := actual_product_depths labels hn
+   have hfirst2 : padicValRat 2 (4096*normProduct labels)=0 := by
+@@ -55,10 +57,12 @@
+   have heven : Even (labels 1-1) := by
+     obtain ⟨k,hk⟩ := hn 1
+     exact ⟨k,by omega⟩
++  have hself3 : padicValRat 3 (3:ℚ)=1 := by
++    simpa using (padicValRat.self (p := 3) (by norm_num))
+   have hsecond3 : 0≤padicValRat 3
+       (ActualScalarRoot318.inverseNorm (labels 1)/(3:ℚ)^N) := by
+     rw [padicValRat.div hI hs,scalar_norm_three _ hn0 hn1 heven,
+-      padicValRat.pow,padicValRat.self (p := 3) (by norm_num)]
++      padicValRat.pow,hself3]
+     norm_num
+     omega
+   have hsum := padicValRat.min_le_padicValRat_add (p:=3) hr

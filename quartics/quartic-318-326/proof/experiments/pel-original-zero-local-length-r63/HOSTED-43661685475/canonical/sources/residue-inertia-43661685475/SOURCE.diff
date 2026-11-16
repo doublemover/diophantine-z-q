@@ -1,0 +1,22 @@
+--- before/FourRootActualResidueInertia318.lean
++++ after/FourRootActualResidueInertia318.lean
+@@ -38,7 +38,8 @@
+     FourRootCoordinateRingSigns318.finiteEquiv b g∈
+       (finitePrime b p).inertia (FourRootAffineCoordinateRing318.Ring b≃ₐ[ℂ]FourRootAffineCoordinateRing318.Ring b) ↔
+       ∀i,p.val.2 i≠0→coordinate (F:=ℂ) i g=1:=by
+-  rw [kernel_inertia_iff]
++  rw [finitePrime, kernel_inertia_iff (finiteEvaluation b p)
++    (FourRootCoordinateRingSigns318.finiteEquiv b g)]
+   rw [←(FourRootAffineCoordinateRing318.pointEquiv b).injective.eq_iff]
+   change FourRootAffineCoordinateRing318.point b
+     ((finiteEvaluation b p).comp (FourRootCoordinateRingSigns318.finiteEnd b g))=
+@@ -90,7 +91,8 @@
+     FourRootCoordinateRingSigns318.infinityEquiv b g∈
+       (infinityPrime b p).inertia (FourRootInfinityCoordinateRing318.Ring b≃ₐ[ℂ]FourRootInfinityCoordinateRing318.Ring b) ↔
+       ∀i,coordinate (F:=ℂ) i g=coordinate (F:=ℂ) 0 g:=by
+-  rw [kernel_inertia_iff]
++  rw [infinityPrime, kernel_inertia_iff (infinityEvaluation b p)
++    (FourRootCoordinateRingSigns318.infinityEquiv b g)]
+   have he:((infinityEvaluation b p).comp (FourRootCoordinateRingSigns318.infinityEquiv b g).toAlgHom=
+       infinityEvaluation b p) ↔
+       FourRootNormalizedSignAction318.infinity b g p=p:=by
