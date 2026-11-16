@@ -154,15 +154,13 @@ signed generator of the actual quotient ring. -/
 lemma source_coordinate_original:
     sourceCoordinate b i=algebraMap (FourRootActualFractionField318.A b) (SourceRing b i)
       (FourRootAffineCoordinateRing318.coordinate b (some i)):=by
-  apply (sourceLocalizationEquiv b i).injective
-  rw [sourceCoordinate,AlgEquiv.apply_symm_apply,sourceLocalizationEquiv_on_source]
-  change orderCoordinate b i=localizedSourceEquiv b i
-    (Algebra.TensorProduct.includeRight (sourceRegroup b i
-      (FourRootAffineCoordinateRing318.coordinate b (some i))))
-  exact (tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i)).symm.trans
-    (congrArg (fun z : RegroupedOrder b i =>
-      localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))
-      (regroup_root b i)).symm
+  exact (sourceLocalizationEquiv b i).symm_apply_eq.mpr
+    ((tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i)).symm.trans
+      ((congrArg (fun z : RegroupedOrder b i =>
+        localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))
+        (regroup_root b i)).symm.trans
+        (sourceLocalizationEquiv_on_source b i
+          (FourRootAffineCoordinateRing318.coordinate b (some i))).symm))
 #eval (do
   let out ← IO.getStdout
   out.putStrLn "PEL_KAEHLER_CHECKPOINT before_sourceParameter"

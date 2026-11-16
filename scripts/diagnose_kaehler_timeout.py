@@ -79,20 +79,21 @@ def control_specimens(source):
 
 # Reviewed candidate is scratch-only. Original packet/timeout/prefix/baseline
 # authentication remains unchanged; only the second bounded specimen differs.
-CANDIDATE_SOURCE_SHA = '8071c5469ecd4d72e2ace99a6deac2c301042669be403698e2913c03af174459'
+CANDIDATE_SOURCE_SHA = '7893a252e2fff121f1943f02ca272903197a4a210f8956b84ea60fb415859f04'
 CANDIDATE_FIXTURE = Path(__file__).resolve().parent/'diagnostic_evidence/kaehler_generic_scalar_candidate.lean.txt'
 GENERIC_HELPER = '/-- Scalar coherence for the same tensor inclusion and algebra equivalence,\nproved over abstract dictionaries before specializing the original chart. -/\nprivate theorem tensorScalarImage\n    {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]\n    [Algebra R A] [Algebra R B] [Algebra A C]\n    (e : A ⊗[R] B ≃ₐ[A] C) (x : R) :\n    e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =\n      algebraMap A C (algebraMap R A x) := by\n  rw [AlgHom.commutes,\n    IsScalarTower.algebraMap_apply R A (A ⊗[R] B), AlgEquiv.commutes]\n\n'
-CANDIDATE_FINAL_TACTICS = '  exact (tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i)).symm.trans\n    (congrArg (fun z : RegroupedOrder b i =>\n      localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))\n      (regroup_root b i)).symm\n'
-SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'generic_scalar_candidate': '254e10b403433511aa08f35db8d4e478d9b1b02f9d4b94bcceaea24ec497d4ed'}
+ORIGINAL_TARGET_PROOF = '  apply (sourceLocalizationEquiv b i).injective\n  rw [sourceCoordinate,AlgEquiv.apply_symm_apply,sourceLocalizationEquiv_on_source]\n  change orderCoordinate b i=localizedSourceEquiv b i\n    (Algebra.TensorProduct.includeRight (sourceRegroup b i\n      (FourRootAffineCoordinateRing318.coordinate b (some i))))\n  rw [regroup_root,AlgHom.commutes,\n    IsScalarTower.algebraMap_apply (BranchBase b i) (OpenBase b i)\n      (OpenBase b i⊗[BranchBase b i]RegroupedOrder b i),AlgEquiv.commutes]\n  rfl\n'
+CANDIDATE_TARGET_PROOF = '  exact (sourceLocalizationEquiv b i).symm_apply_eq.mpr\n    ((tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i)).symm.trans\n      ((congrArg (fun z : RegroupedOrder b i =>\n        localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))\n        (regroup_root b i)).symm.trans\n        (sourceLocalizationEquiv_on_source b i\n          (FourRootAffineCoordinateRing318.coordinate b (some i))).symm))\n'
+SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'direct_term_candidate': 'c458e52e4b7a02015896ab1e72861280473123ed212ca6176b1fd4426bf23247'}
 
 def frozen_candidate(source):
     require(digest(source) == SOURCE_SHA, 'Frozen original source changed')
     candidate = CANDIDATE_FIXTURE.read_text()
     require(digest(candidate) == CANDIDATE_SOURCE_SHA, 'Reviewed candidate changed')
     require(candidate.count(GENERIC_HELPER) == 1 and
-            candidate.count(CANDIDATE_FINAL_TACTICS) == 1, 'Candidate boundaries changed')
+            candidate.count(CANDIDATE_TARGET_PROOF) == 1, 'Candidate boundaries changed')
     restored = candidate.replace(GENERIC_HELPER, '', 1).replace(
-        CANDIDATE_FINAL_TACTICS, OLD_FINAL_TACTICS, 1)
+        CANDIDATE_TARGET_PROOF, ORIGINAL_TARGET_PROOF, 1)
     require(restored == source, 'Candidate changes exceed reviewed helper/proof substitution')
     return candidate
 
@@ -115,7 +116,7 @@ def candidate_specimen(candidate):
 def specimens(source):
     control = control_specimens(source)
     result = {'imports_only': control['imports_only'],
-        'generic_scalar_candidate': candidate_specimen(frozen_candidate(source))}
+        'direct_term_candidate': candidate_specimen(frozen_candidate(source))}
     require({k:digest(v) for k,v in result.items()} == SCRATCH_SHAS,
         'Reviewed candidate specimen changed')
     return result
@@ -229,7 +230,7 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_KAEHLER_GENERIC_SCALAR_CANDIDATE_DIFFERENTIAL',
+    base = {'scope':'NON_ADMITTED_KAEHLER_DIRECT_TERM_CANDIDATE_DIFFERENTIAL',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
             'original_source_sha256':SOURCE_SHA,'candidate_source_sha256':CANDIDATE_SOURCE_SHA,
             'scratch_source_sha256':SCRATCH_SHAS,
@@ -265,7 +266,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Fresh original timeout and prefix plus imports-only control precede the separately reviewed generic-scalar candidate. This replaces the old command-trace specimen, not the production source; total scratch budget stays two probes. Candidate success is diagnostic only, not production repair, packet audit or proof acceptance. Instrumentation may affect elaboration; marker intervals do not establish causes.'))
+        interpretation='Fresh original timeout and prefix plus imports-only control precede the separately reviewed direct-term candidate. This replaces the old command-trace specimen, not the production source; total scratch budget stays two probes. Candidate success is diagnostic only, not production repair, packet audit or proof acceptance. Instrumentation may affect elaboration; marker intervals do not establish causes.'))
 
 if __name__ == '__main__':
     main()

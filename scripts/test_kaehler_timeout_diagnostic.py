@@ -68,18 +68,27 @@ class Tests(unittest.TestCase):
     def test_candidate_exact_reversible_source_scope(self):
         candidate=d.frozen_candidate(self.source())
         self.assertEqual(d.digest(candidate),d.CANDIDATE_SOURCE_SHA)
-        restored=candidate.replace(d.GENERIC_HELPER,'',1).replace(d.CANDIDATE_FINAL_TACTICS,d.OLD_FINAL_TACTICS,1)
+        restored=candidate.replace(d.GENERIC_HELPER,'',1).replace(d.CANDIDATE_TARGET_PROOF,d.ORIGINAL_TARGET_PROOF,1)
         self.assertEqual(restored,self.source())
         self.assertEqual(candidate.count('private theorem tensorScalarImage'),1)
+    def test_direct_term_proof_scope(self):
+        proof=d.CANDIDATE_TARGET_PROOF
+        self.assertIn('(sourceLocalizationEquiv b i).symm_apply_eq.mpr',proof)
+        self.assertIn('sourceLocalizationEquiv_on_source b i',proof)
+        self.assertNotIn('  apply ',proof)
+        self.assertNotIn('  rw ',proof)
+        self.assertNotIn('  change ',proof)
+        self.assertEqual(self.source().count(d.ORIGINAL_TARGET_PROOF),1)
+        self.assertEqual(d.frozen_candidate(self.source()).count(proof),1)
     def test_candidate_two_probe_budget_and_hashes(self):
         out=d.specimens(self.source())
-        self.assertEqual(list(out),['imports_only','generic_scalar_candidate'])
+        self.assertEqual(list(out),['imports_only','direct_term_candidate'])
         self.assertEqual({k:d.digest(v) for k,v in out.items()},d.SCRATCH_SHAS)
         self.assertEqual(out['imports_only'],d.control_specimens(self.source())['imports_only'])
         self.assertEqual(d.SECONDS,90);self.assertEqual(d.MAX_BYTES,2*1024*1024)
     def test_candidate_instrumentation_and_reversal(self):
         import re
-        candidate=d.frozen_candidate(self.source());text=d.specimens(self.source())['generic_scalar_candidate']
+        candidate=d.frozen_candidate(self.source());text=d.specimens(self.source())['direct_term_candidate']
         self.assertEqual(text.count('KAEHLER_CANDIDATE_'),23)
         self.assertEqual(text.count(d.SUBSTEP_SCOPE),2)
         self.assertNotIn('kaehler_final',text)
