@@ -14,13 +14,13 @@ class Tests(unittest.TestCase):
     def source(self):
         return (HERE/'diagnostic_evidence/kaehler_timeout_source.lean.txt').read_text()
     def test_exact_specimens(self):
-        out=d.specimens(self.source())
-        self.assertEqual({k:d.digest(v) for k,v in out.items()},d.SCRATCH_SHAS)
+        out=d.control_specimens(self.source())
+        self.assertEqual({k:d.digest(v) for k,v in out.items()},d.CONTROL_SCRATCH_SHAS)
         for value in out.values():
             self.assertLess(value.index('set_option stderrAsMessages false'),value.index('run_cmd'))
         self.assertEqual(out['command_trace'].count('KAEHLER_COMMAND_'),21)
     def test_scoped_substep_instrumentation(self):
-        text=d.specimens(self.source())['command_trace']
+        text=d.control_specimens(self.source())['command_trace']
         self.assertEqual(text.count(d.SUBSTEP_SCOPE),1)
         self.assertEqual(text.count(d.SUBSTEP_TACTIC_DECL),1)
         self.assertLess(text.index(d.SUBSTEP_TACTIC_DECL),text.index(d.SUBSTEP_SCOPE))
@@ -38,7 +38,7 @@ class Tests(unittest.TestCase):
         restored=text.replace(d.SUBSTEP_TACTIC_DECL,'',1).replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
         self.assertEqual(d.digest(restored),'324766ba3fac040b7055810250f3b2639b45786f04729f2b6c7417a41f460955')
     def test_substep_boundaries_fail_closed(self):
-        text=d.specimens(self.source())['command_trace']
+        text=d.control_specimens(self.source())['command_trace']
         original=text.replace(d.SUBSTEP_TACTIC_DECL,'',1).replace(d.SUBSTEP_SCOPE,'',1).replace(d.SUBSTEP_FINAL_TACTICS.rstrip('\n'),d.OLD_FINAL_TACTICS.rstrip('\n'),1)
         for changed in [original.replace('lemma source_coordinate_original:','lemma moved:',1), original.replace(d.OLD_FINAL_TACTICS.rstrip('\n'),'  exact False.elim (by contradiction)',1)]:
             with self.assertRaises(ValueError):d.substep_specimen(changed)
@@ -64,6 +64,52 @@ class Tests(unittest.TestCase):
         self.assertIn("matrix.packet == '"+d.PACKET+"'",hook)
         self.assertIn("steps.dependency_sources.outcome == 'success'",hook)
         self.assertIn('build/progress-experiments/${{ matrix.packet }}/scratch-kaehler-timeout/',workflow)
+
+    def test_candidate_exact_reversible_source_scope(self):
+        candidate=d.frozen_candidate(self.source())
+        self.assertEqual(d.digest(candidate),d.CANDIDATE_SOURCE_SHA)
+        restored=candidate.replace(d.GENERIC_HELPER,'',1).replace(d.CANDIDATE_FINAL_TACTICS,d.OLD_FINAL_TACTICS,1)
+        self.assertEqual(restored,self.source())
+        self.assertEqual(candidate.count('private theorem tensorScalarImage'),1)
+    def test_candidate_two_probe_budget_and_hashes(self):
+        out=d.specimens(self.source())
+        self.assertEqual(list(out),['imports_only','generic_scalar_candidate'])
+        self.assertEqual({k:d.digest(v) for k,v in out.items()},d.SCRATCH_SHAS)
+        self.assertEqual(out['imports_only'],d.control_specimens(self.source())['imports_only'])
+        self.assertEqual(d.SECONDS,90);self.assertEqual(d.MAX_BYTES,2*1024*1024)
+    def test_candidate_instrumentation_and_reversal(self):
+        import re
+        candidate=d.frozen_candidate(self.source());text=d.specimens(self.source())['generic_scalar_candidate']
+        self.assertEqual(text.count('KAEHLER_CANDIDATE_'),23)
+        self.assertEqual(text.count(d.SUBSTEP_SCOPE),2)
+        self.assertNotIn('kaehler_final',text)
+        self.assertNotIn('run_tac',text)
+        # Remove only diagnostic markers/options, then restore original checkpoints.
+        pattern=r'run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_([^"]+)"\n  out.flush'
+        for label in ['BEFORE_GENERIC_HELPER','AFTER_GENERIC_HELPER']:
+            block='run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_'+label+'"\n  out.flush\n'
+            text=text.replace(block,'',1)
+        def checkpoint(m):return '#eval (do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT '+m[1]+'"\n  out.flush : IO Unit)'
+        text=re.sub(pattern,checkpoint,text).replace(d.SUBSTEP_SCOPE,'').replace('set_option stderrAsMessages false\n','',1).replace('set_option profiler true\nset_option profiler.threshold 10\n','',1)
+        self.assertEqual(text,candidate)
+    def test_candidate_tamper_fails_closed(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'candidate.txt';path.write_text(d.CANDIDATE_FIXTURE.read_text()+'\n')
+            with patch.object(d,'CANDIDATE_FIXTURE',path):
+                with self.assertRaisesRegex(ValueError,'Reviewed candidate changed'):d.specimens(self.source())
+        with self.assertRaisesRegex(ValueError,'Reviewed candidate changed'):d.candidate_specimen('bad')
+    def test_original_authentication_and_runtime_core_unchanged(self):
+        import ast,hashlib
+        source=(HERE/'diagnose_kaehler_timeout.py').read_text();tree=ast.parse(source)
+        expected={'no_compiled': '8f344b5bdf2b1f08f3ed7d66aa1540806788caf92adef9baed47741c1e8adebb', 'baseline_dependency_evidence': '7c9da57f5d34bf330f6d2d17ca7df38b5ba87f104fe72440c7fed07b790407e4', 'validate': 'dbce238559d75795fa197f8e079a5608c3d5459de86712e4c103406264a57d79'}
+        for node in tree.body:
+            if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name in expected:
+                self.assertEqual(hashlib.sha256(ast.get_source_segment(source,node).encode()).hexdigest(),expected[node.name])
+        self.assertIn("'candidate_source_sha256':CANDIDATE_SOURCE_SHA",source)
+        self.assertIn('probe_wall_cap_sum_seconds=2*SECONDS',source)
+        self.assertIn("'full_packet_accepted':False,'proof_acceptance':False,'writes_olean':False",source)
+
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
         import hashlib, json

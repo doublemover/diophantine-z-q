@@ -14,7 +14,7 @@ MODULE = 'FourRootActualBranchKaehler318'
 DEPENDENCIES = {'FourRootActualBranchLocalization318','ActualEtaleFrameNormalization318','SquareCoordinateDifferential318','ActualRootPivotCoordinates318'}
 BASELINE_SOURCES = {'SquareCoordinateDifferential318': 'dc7711a87960735b1682f8ccfa9275be60b5bce135ab5386b36d12f06a2e908b'}
 SOURCE_SHA = '26e84b6a6e5f1d14263d71673cdfbbc520964630179cf9732fb2616b471d0b32'
-SCRATCH_SHAS = {'imports_only':'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59','command_trace':'fb4b98362750454ca0d65c7591b58312657fa8ee194b52479617674dc994a483'}
+CONTROL_SCRATCH_SHAS = {'imports_only':'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59','command_trace':'fb4b98362750454ca0d65c7591b58312657fa8ee194b52479617674dc994a483'}
 INTAKE_SHA = '6e0afdf648f8afae6195ad8ac836ac706f8e804a3bdf2572ce15f292d435f442'
 APPLICATION_SHA = 'bb069d50852d17b665734340b9ded0e32d373aadef7685c13e854998ee8b8128'
 RUNNER_SHA = 'f270b32bb08b551595e4b74cfbe3cb84ed26b3eef469894a7d4a7e5c574df7f2'
@@ -62,7 +62,7 @@ def substep_specimen(text):
     after = declaration.replace(before.rstrip('\n'), SUBSTEP_FINAL_TACTICS.rstrip('\n'), 1)
     return text[:start] + SUBSTEP_TACTIC_DECL + SUBSTEP_SCOPE + after + text[end:]
 
-def specimens(source):
+def control_specimens(source):
     require(digest(source) == SOURCE_SHA, 'Frozen target source changed')
     pattern = r'#eval \(do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT ([^"]+)"\n  out.flush : IO Unit\)'
     require(len(re.findall(pattern,source)) == 21, 'Checkpoint count changed')
@@ -74,8 +74,52 @@ def specimens(source):
     text = text.replace('public section\n','public section\nset_option profiler true\nset_option profiler.threshold 10\n',1)
     text = substep_specimen(text)
     result = {'imports_only':imports+'set_option stderrAsMessages false\n'+marker('IMPORTS_ONLY_COMPLETE')+'\n','command_trace':text}
-    require({k:digest(v) for k,v in result.items()} == SCRATCH_SHAS, 'Reviewed specimen changed')
+    require({k:digest(v) for k,v in result.items()} == CONTROL_SCRATCH_SHAS, 'Reviewed specimen changed')
     return result
+
+# Reviewed candidate is scratch-only. Original packet/timeout/prefix/baseline
+# authentication remains unchanged; only the second bounded specimen differs.
+CANDIDATE_SOURCE_SHA = '8071c5469ecd4d72e2ace99a6deac2c301042669be403698e2913c03af174459'
+CANDIDATE_FIXTURE = Path(__file__).resolve().parent/'diagnostic_evidence/kaehler_generic_scalar_candidate.lean.txt'
+GENERIC_HELPER = '/-- Scalar coherence for the same tensor inclusion and algebra equivalence,\nproved over abstract dictionaries before specializing the original chart. -/\nprivate theorem tensorScalarImage\n    {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]\n    [Algebra R A] [Algebra R B] [Algebra A C]\n    (e : A ⊗[R] B ≃ₐ[A] C) (x : R) :\n    e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =\n      algebraMap A C (algebraMap R A x) := by\n  rw [AlgHom.commutes,\n    IsScalarTower.algebraMap_apply R A (A ⊗[R] B), AlgEquiv.commutes]\n\n'
+CANDIDATE_FINAL_TACTICS = '  exact (tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i)).symm.trans\n    (congrArg (fun z : RegroupedOrder b i =>\n      localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))\n      (regroup_root b i)).symm\n'
+SCRATCH_SHAS = {'imports_only': 'f1897fcc4789b38cf94da1e8ce4cbf9876709002c2d54252ba63ae7f6f4dbb59', 'generic_scalar_candidate': '254e10b403433511aa08f35db8d4e478d9b1b02f9d4b94bcceaea24ec497d4ed'}
+
+def frozen_candidate(source):
+    require(digest(source) == SOURCE_SHA, 'Frozen original source changed')
+    candidate = CANDIDATE_FIXTURE.read_text()
+    require(digest(candidate) == CANDIDATE_SOURCE_SHA, 'Reviewed candidate changed')
+    require(candidate.count(GENERIC_HELPER) == 1 and
+            candidate.count(CANDIDATE_FINAL_TACTICS) == 1, 'Candidate boundaries changed')
+    restored = candidate.replace(GENERIC_HELPER, '', 1).replace(
+        CANDIDATE_FINAL_TACTICS, OLD_FINAL_TACTICS, 1)
+    require(restored == source, 'Candidate changes exceed reviewed helper/proof substitution')
+    return candidate
+
+def candidate_specimen(candidate):
+    require(digest(candidate) == CANDIDATE_SOURCE_SHA, 'Reviewed candidate changed')
+    pattern = r'#eval \(do\n  let out ← IO.getStdout\n  out.putStrLn "PEL_KAEHLER_CHECKPOINT ([^"]+)"\n  out.flush : IO Unit\)'
+    require(len(re.findall(pattern, candidate)) == 21, 'Candidate checkpoint count changed')
+    def marker(label):
+        return 'run_cmd Lean.Elab.Command.liftIO do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_CANDIDATE_'+label+'"\n  out.flush'
+    imports = candidate[:candidate.index('#eval')]
+    text = re.sub(pattern, lambda m: marker(m[1]), candidate)
+    text = text.replace(imports, imports+'set_option stderrAsMessages false\n', 1)
+    text = text.replace('public section\n', 'public section\nset_option profiler true\nset_option profiler.threshold 10\n', 1)
+    text = text.replace(GENERIC_HELPER, marker('BEFORE_GENERIC_HELPER')+'\n'+
+        SUBSTEP_SCOPE+GENERIC_HELPER+marker('AFTER_GENERIC_HELPER')+'\n', 1)
+    target = 'lemma source_coordinate_original:'
+    require(text.count(target) == 1, 'Candidate target declaration boundary changed')
+    return text.replace(target, SUBSTEP_SCOPE+target, 1)
+
+def specimens(source):
+    control = control_specimens(source)
+    result = {'imports_only': control['imports_only'],
+        'generic_scalar_candidate': candidate_specimen(frozen_candidate(source))}
+    require({k:digest(v) for k,v in result.items()} == SCRATCH_SHAS,
+        'Reviewed candidate specimen changed')
+    return result
+
 
 def baseline_dependency_evidence(output, result, successful_prefix):
     """Read-only authentication of the one direct import from the audited baseline.
@@ -185,9 +229,10 @@ def main():
     packet = ci.ROOT/'quartics/quartic-318-326/proof/experiments'/a.packet
     output = ci.ROOT/'build/progress-experiments'/a.packet
     logs = output/LABEL;logs.mkdir(parents=True, exist_ok=False)
-    base = {'scope':'NON_ADMITTED_KAEHLER_IMPORT_AND_COMMAND_TIMEOUT_DIAGNOSTIC',
+    base = {'scope':'NON_ADMITTED_KAEHLER_GENERIC_SCALAR_CANDIDATE_DIFFERENTIAL',
             'packet':PACKET,'packet_intake_sha256':INTAKE_SHA,'packet_application_sha256':APPLICATION_SHA,
-            'original_source_sha256':SOURCE_SHA,'scratch_source_sha256':SCRATCH_SHAS,
+            'original_source_sha256':SOURCE_SHA,'candidate_source_sha256':CANDIDATE_SOURCE_SHA,
+            'scratch_source_sha256':SCRATCH_SHAS,
             'actual_head':os.environ.get('GITHUB_SHA'),'actual_run':os.environ.get('GITHUB_RUN_ID'),
             'production_source_changed':False,'production_limits_changed':False,
             'full_packet_accepted':False,'proof_acceptance':False,'writes_olean':False}
@@ -220,7 +265,7 @@ def main():
     ci.write_json(logs/'DIAGNOSTIC.json',dict(base,status='RECORDED',probe_executed=True,
         toolchain=version,seconds_per_probe=SECONDS,probe_wall_cap_sum_seconds=2*SECONDS,
         bytes_per_probe=MAX_BYTES,strict_flags=list(EXPECTED_FLAGS),evidence=evidence,variants=rows,
-        interpretation='Imports-only must complete before command tracing. Flushed final-rw/rfl markers and scoped header/value traces localize completion boundaries, not root causes. Exact call-site tactic nodes run through a predeclared wrapper; instrumentation itself may affect elaboration. No automatic root-cause or proof-success conclusion.'))
+        interpretation='Fresh original timeout and prefix plus imports-only control precede the separately reviewed generic-scalar candidate. This replaces the old command-trace specimen, not the production source; total scratch budget stays two probes. Candidate success is diagnostic only, not production repair, packet audit or proof acceptance. Instrumentation may affect elaboration; marker intervals do not establish causes.'))
 
 if __name__ == '__main__':
     main()
