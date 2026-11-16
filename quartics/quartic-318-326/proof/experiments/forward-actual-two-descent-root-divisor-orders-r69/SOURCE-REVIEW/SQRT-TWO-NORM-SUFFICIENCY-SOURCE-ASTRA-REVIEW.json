@@ -1,0 +1,22 @@
+{
+  "status": "PASS_SOURCE_MATHEMATICAL_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "93a981b19fef1f4704fb681be4bbc8d2f4b0bd3adb2536b3d0f707ce50100b0e",
+  "split_prime_dependency_sha256": "f7fef2e307b38487dea402a3b8b4f7eb85eefe4f28de7af03aa2d3cc4d54ea31",
+  "native_factorization_snapshot_sha256": "3705a6df7792e6a694716a0ff7855edc648f51aee89cfee2a7fc8058b3a77672",
+  "checks": [
+    "Norm of powers/products follows multiplicativity and Int.natAbs_mul.",
+    "Even exponent branch uses scalar integer p^k whose norm is p^(k+k); square2 branch raises actual split-prime witness to exponent.",
+    "For every prime factor, nonsquare2 hypothesis supplies even factorization exponent; otherwise classical case split supplies actual modular square root.",
+    "Finite choice of prime witnesses and exact product of norm values gives n. Empty prime-factor set handles n=1 without extra premise.",
+    "Pinned Nat.prod_primeFactors_pow_factorization states n=product; final symm orientation is correct."
+  ],
+  "scope": [
+    "For nonzero natural n, even exponents at nonsquare2 primes suffice for an integral element of absolute norm n.",
+    "No residue-class classification, necessary direction, signed norm or rational bridge, auxiliary k/ell selection or Hasse-Minkowski claimed."
+  ],
+  "limitations": [
+    "Depends on still-uncompiled split-prime proof and pending normdivision strict check. Source inspection does not validate Lean elaboration.",
+    "Keep unpublished and do not layer further candidates before base strict feedback.",
+    "Native snapshot inspected and hash-bound; fresh raw Git identity not claimed by this review."
+  ]
+}
