@@ -1,0 +1,44 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_REPAIR_REVIEW_NOT_LEAN",
+  "reviewer": "review_character",
+  "manifest_sha256": "f95e6e03a56a2d030e908c875696613c8ba6101f7ec7b97281d3f04a81a503f3",
+  "base_commit": "cbd53f540fbf73e679bdcd37930b8ffa5762a5ae",
+  "packet": "original-five-kernel-norm-equivalence-r41",
+  "evidence_run": 43830035707,
+  "evidence_artifact_id": 14210659815,
+  "sources": [
+    {
+      "module": "WeierstrassBoundaryClass318",
+      "before_sha256": "d0ca7c0506af53ba23128dbc7bef12d0519b20e09a5a192b0b9d9605238e35db",
+      "after_sha256": "df45dceff31202a45908687407e578a416a7c57a748cfd29ad89276d85abf72a",
+      "log_sha256": "ad9046772baa0e4f56fc1f8806b648ed651f4b6d52d0943d969511565699737f"
+    },
+    {
+      "module": "OriginalSimplePoleResidues318",
+      "before_sha256": "233860740f1e915865595b51b72cb32ec5be6b83a0f71bc789698260a5ebafff",
+      "after_sha256": "c9a55a4f59da35170fc00537908161f996d574f377034b71eb2158717afdff7b",
+      "log_sha256": "4b5a2cf2e273039c36848102e6fa78fc5d242c2adf74e1c3b8a7fc07eab4c4c9"
+    },
+    {
+      "module": "OriginalOpenTraceDeck318",
+      "before_sha256": "153d5321ddf99f9b5aef554ae24f2ee76b1f3f25c19154d03f476cc8c7eca7f5",
+      "after_sha256": "b7f0b80b732b996330994575d88766adf7e1aefb7e3f1ec8577c529e1f416819",
+      "log_sha256": "c39f4d3587644b988c2b0e670c8030944a2aead084002d26029b3c65fe29e607"
+    }
+  ],
+  "checks": [
+    "Current cbd53f54 source bytes equal frozen before hashes and exact historical compiler-error pairs in artifact inventory.",
+    "Read all three before/after sources and actual compiler error logs, not only summaries.",
+    "Weierstrass: explicitly unfolds original chart/overlap wrappers and composition evaluation; uses same pushout condition.",
+    "Simple residues: unfolds original inclusion wrapper equal to toOpen; uses actual inclusion_coordinate theorem and explicit Finsupp evaluation, preserving original scalar/index/domain.",
+    "Trace deck: typed simpa transports dependent IsDominant instance proof in map_comp; original generic-field map and deck equality retained. Trace proof unfolds actual constructed fieldEquiv and supplies exact original germ.",
+    "Read native/current primary map_comp, fieldEquiv, inclusion, clear_poleTerm, inclusion_coordinate and chart definitions.",
+    "No public theorem statement, hypotheses, imports, options, mathematical objects or consumer changes."
+  ],
+  "limits": [
+    "No local Lean, no proof-pass or packet acceptance claim. Hosted elaboration required, including dependent simp and coercion behavior.",
+    "This review covers exact three sources in current five-kernel41 context; immutable successor metadata, full bindings and registry need independent integration review."
+  ],
+  "no_local_lean": true,
+  "findings": []
+}
