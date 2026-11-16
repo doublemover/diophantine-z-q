@@ -1,0 +1,5 @@
+# Finite-field anchor isotropy elaboration repair
+
+Fresh anchor108 run43894617425 again passed the106-root anchor dependency closure and audited4045 declarations. FiniteAnchorIsotropy then failed at an outdated ZMod theorem name, the cast-of2 degree goal, and a rewrite treating the local polynomial g as an equality. Use the existing natCast_eq_zero_iff theorem, normalize the explicit numeral cast, and unfold g with dsimp before the same degree_sub_C step.
+
+Only these three exact proof failures are addressed. Mathematical statements, definitions, assumptions, field-size bound, finite-field existence argument, integer lift and imports are unchanged. All1324 other predecessor sources and order remain exact, including the106 passed anchor dependencies and independent pure58 correction. This successor revises58 and excludes held50. No local Lean or full arithmetic result is claimed; the same108-root focused hosted check must validate the correction and then reach the previously blocked p-adic module.
