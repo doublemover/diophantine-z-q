@@ -1,0 +1,32 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r51/PELOriginalLevelPowerSections318.lean:20:44: error(lean.unknownIdentifier): Unknown identifier `hτ`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r51/PELOriginalLevelPowerSections318.lean:22:28: error: Application type mismatch: The argument
+  hτ
+has type
+  0 < τ.im
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  @normalized_holomorphic τ hτ
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLT ↦ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r51/PELOriginalLevelPowerSections318.lean:31:2: error: Tactic `rfl` failed: The left-hand side
+  normalizedFactor τ hτ p z ^ N * PELOriginalThetaHermitianGauge318.gauge (bilinearMap τ) z ^ N * levelTheta τ N r z
+is not definitionally equal to the right-hand side
+  normalizedFactor τ hτ p z ^ N * normalizedValue τ N r z
+
+τ : ℂ
+hτ : 0 < τ.im
+N : ℕ
+inst✝ : NeZero N
+r : Label N
+p : PELOriginalSymplecticCoordinates318.Pair
+z : ComplexVectors
+⊢ normalizedFactor τ hτ p z ^ N * PELOriginalThetaHermitianGauge318.gauge (bilinearMap τ) z ^ N * levelTheta τ N r z =
+    normalizedFactor τ hτ p z ^ N * normalizedValue τ N r z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/pel-original-torsion-towers-r51/PELOriginalLevelPowerSections318.lean:72:40: error: Type mismatch
+  fun q => (levelSection τ hτ N r q).snd
+has type
+  (q : Base τ) → (powerCore τ hτ N).Fiber (levelSection τ hτ N r q).proj
+but is expected to have type
+  ?m.8

@@ -1,0 +1,5 @@
+# Minimal gluing coercion repair successor of KS34
+
+The published KS34 is the exact predecessor. All 197 roots retain their order; exactly IntegralOriginalGluingCompatibility318 changes, with 196 source files byte-identical. The newly reviewed KS34 polynomial-localization and overlap repairs and both earlier compiler-passed repairs are preserved. The sole change normalizes the focused RHS AlgHom/toRingHom coercion between its existing generator rewrites, using the two pinned native coercion lemmas. Public statements, imports, maps, options and resource limits are unchanged.
+
+The exact source-bound fresh KS33 log shows the earlier heartbeat was replaced by a concrete rewrite-pattern mismatch at this occurrence. This candidate addresses that mismatch; it is not a compiler-success claim. Predecessor evidence remains byte-identical, and the fresh source/log/result/native snapshot/independent review are bound. Only the active KS registry slot changes r34 to r35. No other slots, markers, scripts, baseline files, or separate normalization/resolution sources change. No local Lean.

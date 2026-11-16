@@ -1,0 +1,59 @@
+{
+  "status": "CURRENT_DOWNSTREAM_COMPILER_REPAIRS_SOURCE_ONLY",
+  "base_commit": "72c4b67ea4a79c3de74b05dedb807c61eb492eef",
+  "source_packet": "pel-original-torsion-towers-r51",
+  "modules": {
+    "PELOriginalPowerSectionLift318": {
+      "before_sha256": "2a9547d60837982768fe9aca0b72ae13e39df76050b0e9a0426d34b80d881ec1",
+      "after_sha256": "a8f771afcc1c00c1a5b8c67429a1b1298106c708890faacc88e60f0046d37005"
+    },
+    "PELOriginalLevelPowerSections318": {
+      "before_sha256": "7040851d5e18bf66e80a229da83c26c0e2191633aaa4db1312386fc4aa715fec",
+      "after_sha256": "c2aa3c579f8af542b76ba588468bcd34d5954e17f53e464a6b607819e91ca842"
+    }
+  },
+  "passed_producer_changed": false,
+  "passed_producer_sha256": "a9ddfc08e26ce14e0aa7d59bd1548b59fd718f4218fcb80b639b03907e89b993",
+  "imports_changed": false,
+  "resources_changed": false,
+  "local_lean_run": false,
+  "binder_correction": {
+    "normalized_holomorphic": "Explicitly include existing positive-imaginary section hypothesis h\u03c4, already used in original proof and supplied by its existing caller. This repairs a dropped telescope argument; it is not a claim that the broken declaration had already exposed that argument."
+  },
+  "public_type_ascription": {
+    "sections_independent": "Fix dependent-function codomain to the SAME PowerFiber \u03c4 h\u03c4 N q, instead of leaving it syntactically dependent on the section label through total-space.proj."
+  },
+  "analysis": [
+    "Replace invalid global-style local instance with proof-scoped letI using the same original_discrete \u03c4 h\u03c4 proof.",
+    "Explicit \u2102 type ascriptions on the native underlying PowerFiber value permit scalar multiplication; no new fiber equivalence or algebra instance is introduced. Native exposed Fiber is the original model fiber.",
+    "Normalize membership to the same original chart source; rewrite the chart value at fixed target instead of transporting the chart center through hc \u25b8.",
+    "Unfold same normalizedValue and use multiplication associativity after existing automorphy rewrites."
+  ],
+  "limitations": "Both consumers failed current hosted checks. Failed-output sorry warnings are elaborator cascades, not admitted artifacts or source placeholders. Passed PowerBundle retained byte-for-byte. No candidate compile or packet acceptance; downstream proof steps may reveal further issues on replay.",
+  "bindings": {
+    "CURRENT-CONTEXT.json": "41aa306efc1abe901db42aad864fcaad67349f314952f3086c32567bb912cbf5",
+    "HOSTED-RECEIPTS.json": "ffae0e84e0e146733cbf59249b2e51c04686b37b784e08e5278db9f53e53f222",
+    "SOURCE.patch": "18c1306e4d77ab768b057d7f35b268065878a6eceba1fe74076e3a4977bc6de7",
+    "after/PELOriginalLevelPowerSections318.lean": "c2aa3c579f8af542b76ba588468bcd34d5954e17f53e464a6b607819e91ca842",
+    "after/PELOriginalPowerSectionLift318.lean": "a8f771afcc1c00c1a5b8c67429a1b1298106c708890faacc88e60f0046d37005",
+    "before/PELOriginalLevelPowerSections318.lean": "7040851d5e18bf66e80a229da83c26c0e2191633aaa4db1312386fc4aa715fec",
+    "before/PELOriginalPowerSectionLift318.lean": "2a9547d60837982768fe9aca0b72ae13e39df76050b0e9a0426d34b80d881ec1",
+    "consumers/PELOriginalBalancedPowerSections318.lean": "cbf562ec8244495b3e9ff309a48420012af32d4f00e1b91f0fdb7d88309a45da",
+    "consumers/PELOriginalLevelThetaNegation318.lean": "60ac3449c97a88f2767ee27ec81b6c70e72964c26f4db8da69723c89608c6315",
+    "consumers/PELOriginalPowerSectionDescent318.lean": "f66b11d116abc3d4f126e1c08cca544e1c272432fbb06993c49dc1bd375767ce",
+    "consumers/PELOriginalWholeSectionSpanning318.lean": "1177fe358aeb0fb3636a549118ed4a419aecfcf26f325151ce6c7d10a280fca3",
+    "hosted/NORMAL-RESULT.json": "fea76c6c8c0a410f9e4e9691478d267683383c33fb01c19422311aa16cabd264",
+    "hosted/PELOriginalLevelPowerSections318.log": "942c12b54a03482efd594f298ead87b2e6304e6330d89e6ab8e30dd8dcef6952",
+    "hosted/PELOriginalPowerSectionLift318.log": "f567cbf61e576f972ee1e1554bc61fe9190eb84b9b2b7bdcac1c2e1bd9895884",
+    "native/FiberBundleBasic.lean": "bd37af190377797a11806509d0e65230748bcd7de6dfd32911fafb5d360b991e",
+    "native/PINS.json": "a72516003e091efe08915d032290ef5f564c466da07c47d72d3d94889d0a64e3",
+    "native/VectorBundleBasic.lean": "46d087d777ebeb41ba6a240f69d82a583bd220500044045880f05047685fc218",
+    "primary/DiscreteComplexPeriodAtlas318.lean": "1dcc1f06c07ac8b83ffe36c602ad54fdc55af80c4f824c95d37abcdf801cab62",
+    "primary/PELOriginalAutomorphyRepresentatives318.lean": "12420d6390e110cfdc80e65dc8a9e257eba0e51b3a2202e0886a0bd0d237cc1a",
+    "primary/PELOriginalLevelTheta318.lean": "d1045e124819de09e1bcb0132610e0cdd4bc9b8baa04649098c9f071344fa594",
+    "primary/PELOriginalLevelThetaIndependence318.lean": "e9c945403321b3a6c048d5acf4966da2e982779ddc13e142709dfcc67453bc7a",
+    "primary/PELOriginalPeriodLattice318.lean": "73ad32fa01802d57638d7c421fafc384ca03e1d5190d5ce52a2fd180ec3f0afb",
+    "primary/PELOriginalPolarizationPowerBundle318.lean": "a9ddfc08e26ce14e0aa7d59bd1548b59fd718f4218fcb80b639b03907e89b993",
+    "primary/PELOriginalPolarizationTransitions318.lean": "ab34bd2d8e239908e60e28c906bb4542961efb39138071e59334816dd8e18f74"
+  }
+}

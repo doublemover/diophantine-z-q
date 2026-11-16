@@ -1,0 +1,95 @@
+--- before/PELOriginalPowerSectionLift318.lean
++++ after/PELOriginalPowerSectionLift318.lean
+@@ -8,8 +8,6 @@
+ open PELOriginalPolarizationPowerBundle318 PELOriginalPolarizationAutomorphy318
+ open PELOriginalAutomorphyRepresentatives318
+ variable (τ:ℂ) (hτ:0<τ.im) (N:ℕ)
+-local instance discretePeriods:DiscreteTopology (P τ):=
+-  PELOriginalPeriodLattice318.original_discrete τ hτ
+ 
+ /-- ALL sections of the actual original power bundle whose coefficients
+ are holomorphic in its genuine local trivializations. No automorphic
+@@ -30,7 +28,7 @@
+ /-- The scalar representative is recovered from the actual selected
+ bundle gauge, rather than supplied as an extra section hypothesis. -/
+ @[expose] def lift(s:HolomorphicSection τ hτ N)(z:ComplexVectors):ℂ:=
+-  (gauge τ hτ N z)⁻¹*s.value (projection (P τ) z)
++  (gauge τ hτ N z)⁻¹*(s.value (projection (P τ) z) : ℂ)
+ lemma local_lift (s:HolomorphicSection τ hτ N)(a z:ComplexVectors)
+     (ha:projection (P τ) z∈baseSet τ hτ a):
+     ((powerCore τ hτ N).localTriv a (total τ hτ N s (projection (P τ) z))).2=
+@@ -39,15 +37,17 @@
+   let c:ComplexVectors:=(core τ hτ).indexAt q
+   have hc:q∈baseSet τ hτ c:=(core τ hτ).mem_baseSet_at q
+   have he:=factor_change τ hτ c a z hc ha
+-  change transition τ hτ c a q^N*s.value q=
++  change transition τ hτ c a q^N*(s.value q : ℂ)=
+     factor τ hτ (shiftTo τ hτ a z) z^N*
+-      ((factor τ hτ (shiftTo τ hτ c z) z^N)⁻¹*s.value q)
++      ((factor τ hτ (shiftTo τ hτ c z) z^N)⁻¹*(s.value q : ℂ))
+   rw [he,mul_pow]
+   field_simp [pow_ne_zero N (nonzero τ hτ (shiftTo τ hτ c z) z)]
+ 
+ lemma target_shift_zero(a z:ComplexVectors)(hz:z∈(chart τ hτ a).target):
+     shiftTo τ hτ a z=0:=by
++  letI : DiscreteTopology (P τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
+   have ha:projection (P τ) z∈baseSet τ hτ a:=by
++    change projection (P τ) z ∈ (chart τ hτ a).source
+     simpa only [chart,localChart_symm] using (chart τ hτ a).map_target hz
+   apply Subtype.ext
+   rw [shiftTo_value τ hτ a z ha]
+@@ -58,7 +58,9 @@
+     (hz:z∈(chart τ hτ a).target):
+     lift τ hτ N s z=
+       ((powerCore τ hτ N).localTriv a (total τ hτ N s (projection (P τ) z))).2:=by
++  letI : DiscreteTopology (P τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
+   have ha:projection (P τ) z∈baseSet τ hτ a:=by
++    change projection (P τ) z ∈ (chart τ hτ a).source
+     simpa only [chart,localChart_symm] using (chart τ hτ a).map_target hz
+   simpa only [target_shift_zero τ hτ a z hz,zero_factor,one_pow,one_mul] using
+     (local_lift τ hτ N s a z ha).symm
+@@ -67,11 +69,14 @@
+ variables, by the supplied definition of holomorphy in ORIGINAL bundle
+ charts and the derived gauge-independent chart formula. -/
+ theorem entire(s:HolomorphicSection τ hτ N):Differentiable ℂ (lift τ hτ N s):=by
++  letI : DiscreteTopology (P τ) := PELOriginalPeriodLattice318.original_discrete τ hτ
+   intro z
+   have hp:projection (P τ) z∈(chart τ hτ z).source:=localChart_center (P τ) z
+   have hc:chart τ hτ z (projection (P τ) z)=z:=
+     (quotient_localHomeomorph (P τ)).localInverseAt_apply_self
+-  have hz:z∈(chart τ hτ z).target:=hc ▸ (chart τ hτ z).map_source hp
++  have hz:z∈(chart τ hτ z).target:=by
++    have hz' := (chart τ hτ z).map_source hp
++    rwa [hc] at hz'
+   have hd:=((s.holomorphic z) z hz).differentiableAt
+     ((chart τ hτ z).open_target.mem_nhds hz)
+   apply hd.congr_of_eventuallyEq
+--- before/PELOriginalLevelPowerSections318.lean
++++ after/PELOriginalLevelPowerSections318.lean
+@@ -15,6 +15,7 @@
+   gauge (bilinearMap τ) z^N*levelTheta τ N r z
+ @[expose] def value (r:Label N) (z:ComplexVectors):ℂ:=
+   normalizedValue τ N r (normalization τ hτ z)
++include hτ in
+ lemma normalized_holomorphic (r:Label N):Differentiable ℂ (normalizedValue τ N r):=
+   (((gauge_smooth τ).differentiable (by simp)).pow N).mul
+     (PELOriginalLevelTheta318.holomorphic τ hτ N r)
+@@ -28,7 +29,7 @@
+   rw [normalizedValue,PELOriginalLevelTheta318.original_period]
+   rw [←mul_assoc,←mul_pow,exact_multiplier τ hτ (bilinearMap τ)
+     (PELOriginalThetaGaugeMatrix318.symmetric τ) (period_difference τ hτ),mul_pow]
+-  rfl
++  rw [normalizedValue,mul_assoc]
+ lemma original_automorphy (r:Label N) (l:L τ hτ) (z:ComplexVectors):
+     value τ hτ N r (z+l.val)=factor τ hτ l z^N*value τ hτ N r z:=by
+   simp only [value,map_add,period_exact]
+@@ -69,7 +70,8 @@
+ fiber gauges. Passing from those gauges back to ANY covering point uses
+ the proved original action and its nonzero factor, not a chosen lift. -/
+ theorem sections_independent:
+-    LinearIndependent ℂ (fun r:Label N=>fun q:Base τ=>(levelSection τ hτ N r q).2):=by
++    LinearIndependent ℂ (fun r:Label N=>fun q:Base τ=>
++      (show PowerFiber τ hτ N q from (levelSection τ hτ N r q).2)):=by
+   classical
+   apply Fintype.linearIndependent_iff.mpr
+   intro c hc

@@ -1,0 +1,5 @@
+# pel-original-torsion-towers-r52
+
+Repair-only successor to pel-original-torsion-towers-r51; all 735 roots/order retained, 733 byte-identical. The independently reviewed pair fixes exact hosted consumer binder, fiber elaboration and chart-witness failures. The normalized_holomorphic declaration explicitly restores existing hτ positivity hypothesis used by its original proof and caller; this is a disclosed telescope correction. sections_independent explicitly fixes the SAME PowerFiber codomain. No new premise, replacement bundle, source import or resource change. Verified PolarizationPowerBundle remains byte-identical.
+
+Normal43872386391 passed69 modules then LevelPowerSections failed. Targeted43872526226 passed44 modules and recursive subset audit867 then PowerSectionLift failed. Neither candidate has run Lean. Full packet acceptance remains unestablished. Earlier immutable evidence retained, not recursively copied. Local predecessor f9c1c120 has exact published72c4 packet51 bytes; serial overlay must preserve current marker and unrelated packets.
