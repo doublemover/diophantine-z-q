@@ -1,0 +1,54 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r45/OriginalCoefficientCohomologyMaps318.lean:60:70: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun x => id <$> x
+in the target expression
+  (SheafOfModules.toSheaf X.ringCatSheaf).map (𝟙 L.object) = 𝟙 (additive L)
+
+R : CommRingCat
+X : Scheme
+p : X ⟶ Spec R
+L N : Line X
+a : L.object ⟶ N.object
+n : ℕ
+e : L.object ≅ N.object
+this✝ : Module (↑R) (Sheaf.H (additive L) n) := OriginalCoefficientCohomology318.cohomologyModule R p L n
+this : Module (↑R) (Sheaf.H (additive N) n) := OriginalCoefficientCohomology318.cohomologyModule R p N n
+x : Sheaf.H (additive L) n
+⊢ (SheafOfModules.toSheaf X.ringCatSheaf).map (𝟙 L.object) = 𝟙 (additive L)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    SheafOfModules X.ringCatSheaf
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/relative-original-normalized-kernel-gluing-r45/OriginalCoefficientCohomologyMaps318.lean:66:70: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun x => id <$> x
+in the target expression
+  (SheafOfModules.toSheaf X.ringCatSheaf).map (𝟙 N.object) = 𝟙 (additive N)
+
+R : CommRingCat
+X : Scheme
+p : X ⟶ Spec R
+L N : Line X
+a : L.object ⟶ N.object
+n : ℕ
+e : L.object ≅ N.object
+this✝ : Module (↑R) (Sheaf.H (additive L) n) := OriginalCoefficientCohomology318.cohomologyModule R p L n
+this : Module (↑R) (Sheaf.H (additive N) n) := OriginalCoefficientCohomology318.cohomologyModule R p N n
+x : Sheaf.H (additive N) n
+⊢ (SheafOfModules.toSheaf X.ringCatSheaf).map (𝟙 N.object) = 𝟙 (additive N)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    X.ringCatSheaf
+  has type
+    TopCat.Sheaf RingCat ↑X.toPresheafedSpace
+  but is expected to have type
+    Sheaf (Opens.grothendieckTopology ↥X) RingCat
+  in the application
+    SheafOfModules X.ringCatSheaf

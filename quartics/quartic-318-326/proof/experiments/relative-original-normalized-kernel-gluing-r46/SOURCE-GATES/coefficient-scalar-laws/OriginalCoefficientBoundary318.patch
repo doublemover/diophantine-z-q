@@ -1,0 +1,13 @@
+--- before/OriginalCoefficientBoundary318.lean
++++ after/OriginalCoefficientBoundary318.lean
+@@ -23,7 +23,8 @@
+         change NonreducedLineMayerVietoris318.boundary L U V h (scalar R p (U ⊓ V) r • s) =
+           Sheaf.H.map (multiply R p L r) 1 (NonreducedLineMayerVietoris318.boundary L U V h s)
+         rw [← multiply_apply]
+-        simpa only [NonreducedLineMayerVietoris318.boundary] using
+-          MayerVietorisCoefficientNaturality318.sectionBoundary_naturality (multiply R p L r) U V h s
++        change @Eq (Sheaf.H (NonreducedLineRestriction318.additive L) 1) _ _
++        exact MayerVietorisCoefficientNaturality318.sectionBoundary_naturality
++          (multiply R p L r) U V h s
+     }
+ end OriginalCoefficientBoundary318
