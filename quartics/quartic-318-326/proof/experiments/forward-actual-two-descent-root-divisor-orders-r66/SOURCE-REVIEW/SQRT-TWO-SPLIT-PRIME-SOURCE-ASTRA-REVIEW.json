@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SOURCE_MATHEMATICAL_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "f7fef2e307b38487dea402a3b8b4f7eb85eefe4f28de7af03aa2d3cc4d54ea31",
+  "dependency_candidate_sha256": "c62fb8362d518f57224116178ab9579cefdb5652d39ae240286ae2c6fb617c1a",
+  "bindings_sha256": "b1c012c19ef95ec45a27c322fc38ac2ec00998fbb510720a00cb2988406fb13b",
+  "native_snapshot_hashes": {
+    "Mathlib-NumberTheory-Zsqrtd-Basic.lean.txt": "10ff44e106c7a8e92472f253a6b27610a9265c67709805425a8641a7dff37ae3",
+    "Mathlib-Order-WellFounded.lean.txt": "307dff78d064cba190a5a10cc3742097b25b4e4f3ac5abdd3f5f7cbafc414646",
+    "Mathlib-Data-Nat-Prime-Basic.lean.txt": "ccf3b7998166e3dde7a8dc4056ec1de6316cdb2ab3d6d016b8fe3f592175d5b9",
+    "Mathlib-Algebra-Order-Round-56a005.lean.txt": "7b0c14601dbfc125edcaad462fde9db9b2ef48087dce6c835d752bd5c76b3ed9"
+  },
+  "checks": [
+    "The modular square root is the only arithmetic input beyond primality; p=2 is not improperly excluded.",
+    "Nonzero integer norm proved using nonsquare2; strict norm division transfers to Zsqrtd2 with exact multiplication coefficients.",
+    "WellFounded.has_min telescope supplies no smaller kernel member; remainder remains in kernel and must vanish, giving actual divisibility.",
+    "Kernel is proper because target ZMod p is a nontrivial field; a kernel generator cannot be a unit.",
+    "g divides p, so its positive absolute norm divides p\u00b2; native Nat.dvd_prime_pow yields exponents0,1,2.",
+    "Exponent0 contradicts nonunit. Exponent2 forces quotient norm1 and a unit, hence p divides g and (-a.val,1); imaginary coefficient forces p dividing1.",
+    "Native Zsqrtd.lift, norm_eq_zero, norm_eq_one_iff, intCast_dvd and norm_natCast/norm_mul telescopes inspected; hash-bound snapshots match."
+  ],
+  "limits": [
+    "No local Lean; implicit inference, simp/cast elaboration and final kernel audit remain hosted obligations.",
+    "Native snapshots hash-bound but fresh raw Git identities not claimed.",
+    "Dependency norm-division ingredient still awaiting hosted success; do not package dependent layer before that check.",
+    "No full integer norm criterion, auxiliary k/ell selection, Hasse-Minkowski theorem or actual anchor witness."
+  ]
+}
