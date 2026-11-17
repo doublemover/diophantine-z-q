@@ -1,0 +1,31 @@
+--- before/InfinityBasisUnitCoefficients318
++++ after/InfinityBasisUnitCoefficients318
+@@ -37,7 +37,7 @@
+     InfinityOrderCoordinates318.generator c 2 ^ (s.2.2 : ℕ)) ^ 2 = _
+   rcases s with ⟨i,j,k⟩
+   fin_cases i <;> fin_cases j <;> fin_cases k <;>
+-    simp [squareCoefficient,mul_pow,generator_square]
++    simp [squareCoefficient,mul_pow,generator_square,Algebra.TensorProduct.one_def]
+ 
+ /-- The unit ratio product is exactly the named coordinate basis vector. -/
+ theorem ratioProduct_basis (i : Fin 4) : InfinityCharacterUnits318.ratioProduct c i =
+@@ -52,7 +52,7 @@
+   simp only [InfinityOrderCoordinates318.generator_eq_ratio]
+   fin_cases i <;>
+     simp [InfinityCharacterUnits318.ratioProduct,SourceCharacterFields318.complement_eq,SourceTwistArithmetic318.complement,
+-      InfinityCharacterUnits318.indexedRatio,smallIndex,Fin.prod_univ_succ]
++      InfinityCharacterUnits318.indexedRatio,smallIndex,Fin.prod_univ_succ,Fin.cases,mul_assoc]
+ 
+ /-- Unit coefficients remain nonzero under the original u=0 point. -/
+ theorem evaluated_inverse_ne_zero (s : ThreeIndex) :
+--- before/OriginalOpenTraceDeck318
++++ after/OriginalOpenTraceDeck318
+@@ -64,7 +64,7 @@
+     letI : Nonempty (f ⁻¹ᵁ U) := DominantFunctionField318.preimage_nonempty f U
+     letI := AffineDominantNorm318.fieldAlgebra f
+     apply Y.germToFunctionField_injective U
+-    rw [OpenDominantTrace318.trace_embedding,OpenDominantTrace318.trace_embedding,section_germ]
++    rw [OpenDominantTrace318.trace_embedding,OpenDominantTrace318.trace_embedding,section_germ f e h U s]
+     calc
+       Algebra.trace Y.functionField X.functionField
+           (OpenFunctionField318.fieldEquiv e.hom
