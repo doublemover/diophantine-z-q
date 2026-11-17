@@ -1,0 +1,17 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_MATHEMATICAL_REVIEW_NOT_LEAN",
+  "candidate_sha256": "60f3b92dc87ed63ef67cf1d5665569bf7bdc6762e795089d320adc51dc14a29f",
+  "bindings_sha256": "3819da2efbdd84f3e0ddc6d729cdc22ef54792807e3c4f7e598ff9c9195891b8",
+  "supersedes_source_review_for": "e84771021a1af693c0533dd169aeec4dbdd4263bc5e5a9797c0e2e66a4c30953",
+  "findings": [
+    "Prior witness ascent and strict integer coefficient bound unchanged.",
+    "New affine_transfer uses the same norm composition: norm(tu+av,u+tv)=(t\u00b2-a)(u\u00b2-av\u00b2)=c*b\u00b2. Dividing both coordinates by nonzero b gives norm c over any Field.",
+    "Both signs plus are consistent with the norm composition. No characteristic or squareclass assumption is added. The reverse implication is a second specialization with b,c exchanged and c nonzero.",
+    "Proof uses only ring normalization and cancellation by hb, with no local-global premise."
+  ],
+  "limitations": [
+    "No local Lean or hosted compiler acceptance.",
+    "Obtaining affine witnesses from local homogeneous solutions, modular-root construction including shared primes and 2-adic requirements, normalization/reordering, zero branches, and complete induction are not proved here.",
+    "This is an actual algebraic descent step, not a global witness or completed Hasse-Minkowski theorem."
+  ]
+}
