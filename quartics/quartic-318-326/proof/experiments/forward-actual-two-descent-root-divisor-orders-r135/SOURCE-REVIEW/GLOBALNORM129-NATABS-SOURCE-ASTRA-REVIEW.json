@@ -1,0 +1,11 @@
+{
+  "status": "PASS_EXACT_SOURCE_REPAIR_NOT_LEAN",
+  "source_sha256": "b860fee9ffaf2de6187dc9a56dfe1edb63492e951fd2300b65fa180b15e223b7",
+  "before_sha256": "d066ebffbef2476f2ddb7814122cc0a74e379d7393f7f4dfdd74259b670dabee",
+  "bindings_sha256": "8ef937cdcf76f317232323127272f81321e84dd44dffdf1b6f0e6389d233ff35",
+  "scope": "Only sigma-case simplification restricted to natAbs multiplication, whole natural cast, negation, one and unit multiplications. Statements, imports, choices and four checked producers unchanged.",
+  "reason": "After hprod and hw the goal is the same natural product times q versus absolute value of signed casts. The explicit simp list keeps the whole Nat product cast intact and removes only sign/absolute-value operations, avoiding the observed expanded Int product residual.",
+  "limits": [
+    "No fresh Lean success or full coherent endpoint acceptance. Preserve immutable134; stage separate successor."
+  ]
+}
