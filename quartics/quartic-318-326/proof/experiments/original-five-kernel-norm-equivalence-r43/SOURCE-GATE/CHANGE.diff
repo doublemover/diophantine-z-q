@@ -1,0 +1,27 @@
+--- before
++++ after
+@@ -28,8 +28,11 @@
+ 
+ theorem target_boundary_surjective : Function.Surjective
+     (MayerVietorisSectionKernel318.sectionBoundary (StructureAdditiveSheaf318.sheaf Target)
+-      finiteOpen infinityOpen target_cover) :=
+-  AffineCoverHOnePresentation318.boundary_surjective finiteOpen infinityOpen
++      finiteOpen infinityOpen target_cover) := by
++  letI : IsAffine (ShortAffineScheme318.scheme A B) := by
++    dsimp only [ShortAffineScheme318.scheme]
++    infer_instance
++  exact AffineCoverHOnePresentation318.boundary_surjective finiteOpen infinityOpen
+     (isAffineOpen_opensRange (WeierstrassGluing318.finiteChart A B))
+     (isAffineOpen_opensRange (WeierstrassGluing318.infinityChart A B)) target_cover
+ 
+@@ -55,7 +58,9 @@
+     finiteOpen infinityOpen target_cover target_boundary_surjective x
+ 
+ theorem even_separates : ∀ i : Fin 4, ∃ b : Fin 4 → Bool,
+-    epsilon none b = 1 ∧ epsilon (some i) b = -1 := by decide
++    epsilon none b = 1 ∧ epsilon (some i) b = -1 := by
++  intro i
++  exact epsilon_separates none (some i) (by simp)
+ 
+ /-- Among all five actual coordinates, the even-sign fixed subspace is exactly the full-root line. -/
+ theorem fixed_line (y : ActualSourceHOnePullbacks318.SourceHOne)

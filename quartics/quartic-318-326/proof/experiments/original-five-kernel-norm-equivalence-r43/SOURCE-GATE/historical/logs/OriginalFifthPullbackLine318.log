@@ -1,0 +1,69 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r42/OriginalFifthPullbackLine318.lean:33:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsAffine (ShortAffineScheme318.scheme A B)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/original-five-kernel-norm-equivalence-r42/OriginalFifthPullbackLine318.lean:58:55: error: Tactic `decide` failed to reduce
+  @decide (∀ (i : Fin 4), ∃ b, epsilon none b = 1 ∧ epsilon (some i) b = -1)
+    (Nat.decidableForallFin fun i => ∃ b, epsilon none b = 1 ∧ epsilon (some i) b = -1)
+to `true` or `false`.
+
+After unfolding the instances `decidable_of_decidable_of_iff`, `decidable_of_iff`, `instDecidableAnd`, `instDecidableEqRat`, `isTrue`, `Finset.decidableDExistsFinset`, `Finset.decidableExistsAndFinset`, `Finset.decidableExistsAndFinsetCoe`, `Fintype.decidableExistsFintype`, `Int.decEq`, `Int.instDecidableEq`, `List.decidableBEx`, `Multiset.decidableDexistsMultiset`, `Multiset.decidableExistsMultiset`, `Nat.decidableBallLT`, `Nat.decidableForallFin`, and `instDecidableEqRat.decEq`, reduction got stuck at
+  match
+    (((fun j =>
+              if
+                  ↑⟨{ toFun := fun f a => f a ⋯, inj' := ⋯ }
+                            (Multiset.Pi.cons
+                              ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                                  ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                              ((fun i => i) ⟨0, ⋯⟩) true
+                              (Multiset.Pi.cons
+                                ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                                ((fun i => i) ⟨1, ⋯⟩) true
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  true
+                                  (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true
+                                    (Multiset.Pi.empty fun a => Bool))))),
+                          ⋯⟩
+                      j =
+                    true then
+                -1
+              else 1)
+            ((fun i => i) ⟨0, ⋯⟩)).mul
+        (List.foldr (fun x1 x2 => x1 * x2) 1
+          (List.map
+            (fun j =>
+              if
+                  ↑⟨{ toFun := fun f a => f a ⋯, inj' := ⋯ }
+                            (Multiset.Pi.cons
+                              ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+                                  ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []))⟧
+                              ((fun i => i) ⟨0, ⋯⟩) true
+                              (Multiset.Pi.cons
+                                ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩
+                                    ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])⟧
+                                ((fun i => i) ⟨1, ⋯⟩) true
+                                (Multiset.Pi.cons ⟦(fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ []⟧ ((fun i => i) ⟨2, ⋯⟩)
+                                  true
+                                  (Multiset.Pi.cons ⟦[]⟧ ((fun i => i) ⟨3, ⋯⟩) true
+                                    (Multiset.Pi.empty fun a => Bool))))),
+                          ⋯⟩
+                      j =
+                    true then
+                -1
+              else 1)
+            ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, ⋯⟩
+              ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨2, ⋯⟩ ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨3, ⋯⟩ [])))))).num,
+    ↑1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | { decide := true, reflects_decide := h } => isTrue ⋯
+    | { decide := false, reflects_decide := h } => isFalse ⋯
