@@ -1,0 +1,18 @@
+{
+  "status": "PASS_EXACT_NORM_COERCION_SOURCE_REPAIR_NOT_LEAN",
+  "source_sha256": "2aee917b3c75c03091e7e28fbc62262d93d3fa2caaa1b31b8da79fe621be989d",
+  "before_sha256": "74d14dc87ddbcbfb6f9e16e9057ed058490f2aa9dcdcb1def45711e09e92ce93",
+  "bindings_sha256": "f86719800134b1ec93b58b9ba51d24d1943b3b485062f63ceea3b1ce39fe604c",
+  "native_snapshot_sha256": "b78618e81f9550d0fc31e823966ec4c45537fbede71d3564be88d778f2ad558a",
+  "runtime_review_sha256": "c42b9262f2f943cb5309d63f7f3163e5f9cfbc61949bcc23c5a7b65f3774541a",
+  "checks": [
+    "Exact immutable failing74d source and authenticated log bound.",
+    "Only reversed implicit norm_coe rewritten to forward PadicInt.norm_coe u. Native theorem exactly rewrites norm of Qp coercion to norm of the same u.",
+    "Explicit u fixes theorem instantiation; subsequent hu,hEQnorm and division normalization unchanged.",
+    "No definitions, theorem types, hypotheses, imports, limits or other proof terms changed; strict613e producer untouched."
+  ],
+  "limits": [
+    "Source/API gate only. Explicit term instantiation does not guarantee remaining rewrite transparency or dependent casts elaborate; full strict hosted replay required.",
+    "Finite composition remains held and must rebase explicitly to this corrected source after acceptance."
+  ]
+}
