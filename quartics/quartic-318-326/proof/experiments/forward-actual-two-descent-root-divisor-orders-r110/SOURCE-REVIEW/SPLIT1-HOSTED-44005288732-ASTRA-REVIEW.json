@@ -1,0 +1,50 @@
+{
+  "status": "AUTHENTICATED_EXACT_HOSTED_OUTCOME",
+  "run_id": "44005288732",
+  "source_commit": "30f1c952617dac16288bbf36c5972facec63bdfa",
+  "execution_commit": "7223d8ccfc81b84b67fa9c943968ff85a84f574c",
+  "selection_sha256": "fcdbb75245dfbe3cc1222794c49932a37b801eaaf188c10fe03d59c3b58bbcc3",
+  "inventory_sha256": "cafb4152da944e224140f49b5431cc4056894d29cf0c7070d6b35f674b8c2e44",
+  "passed": [],
+  "failed": [
+    {
+      "name": "AuxiliarySplitResidues318",
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r104",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/forward-actual-two-descent-root-divisor-orders-r104-sfcdbb75245dfbe3c/quarantine/AuxiliarySplitResidues318/AuxiliarySplitResidues318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r104/AuxiliarySplitResidues318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "ab2f18ddb4349bce5208ce22d67c1ed3cfda86e82997ec61d493197bde0ad7ee",
+      "occurrence": "forward-actual-two-descent-root-divisor-orders-r104/AuxiliarySplitResidues318",
+      "root_causes": [
+        "AuxiliarySplitResidues318"
+      ],
+      "seconds": 1.317,
+      "source_sha256": "4e7fc8571673736d2ffb3987c3e4f48ed1aa0232cb83884de6714255352db19a",
+      "status": "compiler_error",
+      "timed_out": false
+    }
+  ],
+  "audit_declarations": null,
+  "scope": "AuxiliarySplitResidues3184e7fc857 fails22:6 Jacobi integer-cast literal rewrite matching, zero passes and no audit; no residue classifier acceptance.",
+  "checks": [
+    "Exact immutable full packet source hashes, marker-only execution, request, intake, selection and actual import closure.",
+    "Selected strict exit codes and log hashes, recorded dependency artifact identities, audit restricted to successful modules.",
+    "Audit recursively excludes axioms other than propext, Quot.sound, Classical.choice. No audit claimed for empty successful set."
+  ],
+  "limits": [
+    "No local Lean; no downloaded binary rehash; selected closure only."
+  ]
+}
