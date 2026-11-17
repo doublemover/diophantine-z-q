@@ -1,0 +1,27 @@
+--- before/OriginalTensorUntwistRefinement318.lean
++++ after/OriginalTensorUntwistRefinement318.lean
+@@ -76,8 +76,22 @@
+     ((Scheme.Modules.overFunctorEquiv W).app (LineSheafTensor318.line L N).object).inv)).mp
+   apply OriginalTensorFrameChange318.pure_ext (L.object.restrict W.ι) (N.object.restrict W.ι)
+   intro Z m n
+-  erw [overComparison_apply, overComparison_apply]
+-  erw [restrictedIso, overRestriction_apply]
++  refine (overComparison_apply (LineSheafTensor318.line L N).object L.object W
++    (restrictedIso L N U e W h).hom
++    (IntrinsicTensorSheaf318.tensor (L.object.restrict W.ι) (N.object.restrict W.ι))
++    (TensorOpenRestriction318.iso W.ι L.object N.object).inv Z
++    (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n)).trans ?_
++  refine Eq.trans ?_ (overComparison_apply (LineSheafTensor318.line L N).object L.object W
++    (OriginalTensorUntwistOver318.iso L N W
++      (OpenLineFrameRefinement318.frame N.object U e.symm W h).symm).hom
++    (IntrinsicTensorSheaf318.tensor (L.object.restrict W.ι) (N.object.restrict W.ι))
++    (TensorOpenRestriction318.iso W.ι L.object N.object).inv Z
++    (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n)).symm
++  refine (overRestriction_apply (LineSheafTensor318.line L N).object L.object U W h
++    (OriginalTensorUntwistOver318.iso L N U e) (W.ι ''ᵁ Z)
++    (show W.ι ''ᵁ Z ≤ W from by simpa using W.ι.image_le_opensRange Z)
++    ((TensorOpenRestriction318.iso W.ι L.object N.object).inv.app Z
++      (IntrinsicTensorSheaf318.pure (L.object.restrict W.ι) (N.object.restrict W.ι) Z m n))).trans ?_
+   change OriginalTensorUntwistOver318.sections L N U e (W.ι ''ᵁ Z)
+       ((show W.ι ''ᵁ Z ≤ W from by simpa using W.ι.image_le_opensRange Z).trans h)
+       ((TensorOpenRestriction318.iso W.ι L.object N.object).inv.app Z
