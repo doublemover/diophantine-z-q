@@ -1,0 +1,54 @@
+{
+  "status": "PASS_RENEWED_EXACT_RUNTIME_AUTHENTICATION",
+  "run_id": "43966070264",
+  "source": "82cc3dca61fbea69e4d1ac90661cdb8532bc6a88",
+  "execution": "933a2b86b3e136063940d301003bcd7a49a8cd21",
+  "inventory_sha256": "e78c3bdfd260bcdfb211a2ceaa3dc7a04d414e3011defd9eafe60fceb9458c69",
+  "accepted_sources": {
+    "SqrtTwoNormDivision318": "c62fb8362d518f57224116178ab9579cefdb5652d39ae240286ae2c6fb617c1a",
+    "SqrtTwoSplitPrime318": "e5b9ff92710e22bdabecd1943aff0a4d3afa4f03477b676d79436bcb8567aa49",
+    "SqrtTwoNormSufficiency318": "3c05c1f62487a666442807aa5d6f65e41bdaa89508fe13380f13fe2021a6e58d",
+    "SqrtTwoExactNorm318": "bfb0b749a546765266158311670d577396aac5983178842c8ecaf37388effd10"
+  },
+  "counts": {
+    "compile_pass": 4,
+    "not_selected": 1326
+  },
+  "audit": {
+    "command": [
+      "lean",
+      "-j1",
+      "-M",
+      "6144",
+      "-Ddebug.skipKernelTC=false",
+      "-R",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/forward-actual-two-descent-root-divisor-orders-r71-s58e17b8efd00e49a",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/forward-actual-two-descent-root-divisor-orders-r71-s58e17b8efd00e49a/ExperimentAudit.lean"
+    ],
+    "declarations": 16,
+    "exit_code": 0,
+    "log_sha256": "e7c89832bf724ff6016434b155285a160b992e6b0d6e3fa31cd870f5e53b4520",
+    "modules": [
+      "SqrtTwoNormDivision318",
+      "SqrtTwoSplitPrime318",
+      "SqrtTwoNormSufficiency318",
+      "SqrtTwoExactNorm318"
+    ],
+    "seconds": 1.67,
+    "status": "audit_pass",
+    "timed_out": false
+  },
+  "checks": [
+    "Exact source marker closure checker log bindings independently verified",
+    "Exact recursive allowed-axiom audit source regenerated"
+  ],
+  "limits": [
+    "Only exact passed selected subset accepted; any failed target excluded",
+    "No binary artifact rehash or fullpacket claim"
+  ],
+  "scope": [
+    "prime_power constructs absolute norm p^e from even e or square2 modp",
+    "exact_of_absolute corrects either sign using norm(1+sqrt2)=-1",
+    "integer_norm constructs signed integer norm from inert-prime exponent parity; no selected auxiliary t constructed"
+  ]
+}
