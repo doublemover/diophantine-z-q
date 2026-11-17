@@ -1,0 +1,5 @@
+# Actual global rational-model isomorphism
+
+All 238 KS68 predecessor source bytes, order and evidence are unchanged. Five new sources use projection-friendly canonical chart isomorphisms to identify BOTH arrows of the full actual rational-cover intersection, then descend the global comparison. Inverse descent is established on the full original-model intersection by its actual dominant common-field point, reducedness, and separatedness of the actual rational fiber. Both inverse identities are proved on the entire covers, not inferred from objectwise chart isomorphisms.
+
+The single strongest endpoint has 106 draft and 180 baseline dependencies. All pending predecessor, repaired and new sources require strict hosted compilation and audit. Source and static review do not establish Lean acceptance. This package makes no arithmetic special-fiber regularity, geometric-generation, Kodaira–Spencer or final Diophantine claim. No prior map, assumption, proof limit or source is changed. Only the new packet and registry68-to-69 slot are modified.

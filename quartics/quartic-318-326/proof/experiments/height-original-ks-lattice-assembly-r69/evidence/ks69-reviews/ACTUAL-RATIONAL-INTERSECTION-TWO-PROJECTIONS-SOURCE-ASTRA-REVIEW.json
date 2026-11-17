@@ -1,0 +1,27 @@
+{
+  "status": "PASS_MATH_SOURCE_API_REVIEW_NOT_LEAN",
+  "applications": {
+    "geometry-integer-chart-basechange-iso-20261117-v2": "6a505a1ec799e220bed6ab4ba0eb282b3080e28c16df3d24bb3cb42b69be39d3",
+    "geometry-rational-intersection-projections-20261117": "21ebd4485385eec563e52d3dec0d96a1369cd43635b3a76c38e491d3d56e5813"
+  },
+  "sources": {
+    "IntegerChartBaseChangeIso318": "400c0cc600dc4c5336152c66f0f2eeb246b06812da3136da58ad4843d2e297a7",
+    "OriginalIntegerRationalIntersectionProjections318": "8211c9064b958b2819e102baf5ae502a136052d52355b7895ecdf1f53e65989e",
+    "IntegerRationalTensorHomExt318": "83ab3fe66b757288b680c1bc2c33ad8171e8d92c7d62083fd47081b842e67d0f"
+  },
+  "checks": [
+    "Every frozen primary/native/source binding rehashed",
+    "Helper v2 only adds reassoc attributes; pullback pasting then congrHom ha rfl and Spec tensor iso oriented correctly",
+    "Tensor hom_ext uses isomorphism cancellation and both categorical pullback projections, not an unjustified affine extensionality assumption",
+    "Actual full cover intersection uses original integral intersection_square iso inverse; finite and reciprocal original-ring projections follow its two actual legs",
+    "Integer-only rational coefficient projection fixed by canonical base-change map",
+    "Literal fromFinite/fromInfinity maps compared by their original-ring and Q projections; right Q leg uses actual pullback.condition",
+    "No chart-only overlap subset substitutes for full categorical intersection"
+  ],
+  "scope": "Both projections of full actual rational cover intersection identified with literal finite/reciprocal tensor inclusions.",
+  "limits": [
+    "No local Lean or compiled acceptance; dependent instances/definitional chart conversions and simp elaboration require strict replay",
+    "Global descent still must use these exact finiteIso/infinityIso or prove equality with previously chosen chart isos; objectwise-isomorphic choices cannot silently be substituted",
+    "No global isomorphism or arithmetic bad-prime regularity established by this source gate"
+  ]
+}

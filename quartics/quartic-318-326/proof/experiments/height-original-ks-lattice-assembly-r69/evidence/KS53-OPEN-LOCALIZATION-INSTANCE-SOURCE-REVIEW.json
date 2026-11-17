@@ -1,0 +1,23 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "8af622b19066b72f07993afae46a9bc9787f46a57a2da0e3ad2bc61ef242123c",
+  "application_sha256": "862da56ee7a8ae50a2ae7bd32f460125b9ab906a625e9888658d9ee45f7e2725",
+  "immutable_source_commit": "5d2b5f79bfb7831b26e0075926f8bddb02c2fc06",
+  "passed_sources_verified": 51,
+  "native_sources": {
+    "OpenImmersion.lean": "e6ef208c555f44692fe28963ad0f9a04faf0f051e8d0fc4a041c35474b6585c1"
+  },
+  "native_git_blobs": {
+    "OpenImmersion.lean": "766ae8e39c91e9d38344f1b0ff60bdd05ee2323d"
+  },
+  "findings": [
+    "Only intoInfinity_open proof changes; all definitions, statement, algebra maps, scalar actions, imports and resource limits unchanged.",
+    "Native explicit telescope is R,S,CommRing R,CommRing S,Algebra R S,f,IsLocalization.Away f S, matching the candidate argument order exactly.",
+    "The supplied overlap_localization is the existing localization statement for the same actual Closure and Overlap carriers and overlapAlgebra; no fresh localization assumption or alternate action is added.",
+    "Native conclusion is Spec.map of algebraMap under overlapAlgebra. Existing inclusion is that same generic closureAlgebra map and intoInfinity is its literal Spec.map."
+  ],
+  "limitations": [
+    "No local Lean or hosted cure claim; explicit application and definitional comparison remain compiler obligations.",
+    "Native bytes match declared Git blob; no remote native fetch performed by this reviewer."
+  ]
+}
