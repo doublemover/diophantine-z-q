@@ -1,0 +1,17 @@
+{
+  "status": "PASS_SOURCE_REVIEW_HOLD_FOR_DEPENDENCY_STRICT",
+  "source_sha256": "c72ab89737a7a222c362ecba80ead812855efa2042fb1287654f81a2aeea6f9f",
+  "bindings_sha256": "b9fb71cb13f12a6235ff735e89612bc083e0b1861fc8610993cf75db34bb0fd5",
+  "dependency_sha256": "8f4b2f7c3567fb535796177be58fed55625771e4a2b4973f231e213c43d17c4e",
+  "checks": [
+    "Ratio-square lemma multiplies by denominator squared and uses both explicit nonzero residues before Legendre eq_one",
+    "Selected C=p*epsilon*R*U and t=p*sigma*2^alpha*R*q: cancel R character using its square-one, then sigma using square-one; sign epsilon*sigma*U is correct",
+    "Unselected t=-A*q yields square 6*A*q; explicit units make it nonzero; J6=1 and JA squared=1 give Jq=JA",
+    "Native Legendre sq_one and eq_one_iff signatures and namespaced Jacobi conversion checked"
+  ],
+  "scope": "Per-prime identities from actual B norms, supplied prime/complement units, signs and local J2 or J6. No factor support construction or q existence.",
+  "limits": [
+    "BadPrime producer not yet strict accepted; no packaging until dependency rebase",
+    "No global auxiliary selection or theorem acceptance; concrete Lean elaboration pending"
+  ]
+}
