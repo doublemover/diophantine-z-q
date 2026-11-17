@@ -212,8 +212,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),8386)
-        self.assertEqual(d.digest(raw),'68e900d6d989a4e2553d98b1e9086639099493b4dc322bed85da124f2c914d03')
+        self.assertEqual(len(raw.encode()),7609)
+        self.assertEqual(d.digest(raw),'b72b89ed51a7def212d597a9ac1ee5a599829e358a9949e72bdf395b4328ad2f')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -279,13 +279,22 @@ class Tests(unittest.TestCase):
         out=d.specimens(self.source())['complete_candidate_prefix']
         proof=out[out.index('private theorem innerQCastRegroupRoot'):out.index(d.PREFIX_END)]
         self.assertIn('Eq.mpr',proof)
-        self.assertIn('transportProperty',proof)
+        self.assertIn('subst q',proof)
+        self.assertNotIn('transportProperty',proof)
         self.assertIn('nativeRegroupRootSpecialization',proof)
         self.assertNotIn('private theorem explicitCastRegroupRoot',out)
         self.assertNotIn('private theorem transportedRegroupRoot',out)
         self.assertNotIn('variable (b:Fin 4',out)
         self.assertNotIn('sorry',proof)
         self.assertNotIn('axiom',proof)
+
+    def test_inner_q_elimination_reverses_previous_candidate(self):
+        candidate=d.frozen_candidate(self.source())
+        old_proof='private theorem innerQCastRegroupRoot\n    {R : Type*} [CommRing R] (a : Fin 4 → R) (i : Fin 4)\n    (q : Fin 3 → R)\n    (hq : q = fun j => a (FourRootPivot318.indices i j.succ)) :\n    (Eq.mpr\n        (congrArg (fun v : Fin 3 → R => FourRootOrder318.Order a ≃ₐ[R]\n          TensorProduct R\n            (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)))\n            (ThreeRootOrder318.Order v)) hq)\n        (FourRootPivot318.regroup a i))\n        (FourRootOrderSigns318.generator a i) =\n      (@algebraMap (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)))\n        (TensorProduct R (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))) (ThreeRootOrder318.Order q))\n        (inferInstance : CommSemiring (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))))\n        (inferInstance : Semiring\n          (TensorProduct R (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))) (ThreeRootOrder318.Order q)))\n        inferInstance)\n        (AdjoinRoot.root (QuadraticPresentation318.polynomial (a (FourRootPivot318.indices i 0)))) := by\n  exact transportProperty\n    (fun p q => FourRootOrder318.Order a ≃ₐ[R]\n      TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q))\n    (fun p q e => e (FourRootOrderSigns318.generator a i) =\n      (@algebraMap (QuadraticPresentation318.RootRing p)\n        (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q))\n        (inferInstance : CommSemiring (QuadraticPresentation318.RootRing p))\n        (inferInstance : Semiring\n          (TensorProduct R (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q)))\n        inferInstance)\n        (AdjoinRoot.root (QuadraticPresentation318.polynomial p)))\n    (rfl : a (FourRootPivot318.indices i 0) = a (FourRootPivot318.indices i 0))\n    hq (FourRootPivot318.regroup a i)\n    (nativeRegroupRootSpecialization a i)\n\n'
+        new_proof='private theorem innerQCastRegroupRoot\n    {R : Type*} [CommRing R] (a : Fin 4 → R) (i : Fin 4)\n    (q : Fin 3 → R)\n    (hq : q = fun j => a (FourRootPivot318.indices i j.succ)) :\n    (Eq.mpr\n        (congrArg (fun v : Fin 3 → R => FourRootOrder318.Order a ≃ₐ[R]\n          TensorProduct R\n            (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)))\n            (ThreeRootOrder318.Order v)) hq)\n        (FourRootPivot318.regroup a i))\n        (FourRootOrderSigns318.generator a i) =\n      (@algebraMap (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0)))\n        (TensorProduct R (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))) (ThreeRootOrder318.Order q))\n        (inferInstance : CommSemiring (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))))\n        (inferInstance : Semiring\n          (TensorProduct R (QuadraticPresentation318.RootRing (a (FourRootPivot318.indices i 0))) (ThreeRootOrder318.Order q)))\n        inferInstance)\n        (AdjoinRoot.root (QuadraticPresentation318.polynomial (a (FourRootPivot318.indices i 0)))) := by\n  subst q\n  exact nativeRegroupRootSpecialization a i\n\n'
+        self.assertEqual(candidate.count(new_proof),1)
+        self.assertEqual(d.digest(candidate.replace(new_proof,old_proof)),'5c901ab9e2f3abf6a8ee8e3891840ba84e720039f3fdab909ec063769e82485a')
+        self.assertEqual(old_proof.split(' := by')[0],new_proof.split(' := by')[0])
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
