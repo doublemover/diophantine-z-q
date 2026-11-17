@@ -1,0 +1,28 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r37/IntegralOriginalGluingCompatibility318.lean:88:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.226 (↑(y R)⁻¹ • ThreeRootCoordinates318.generator (finiteParameter R c) j)
+in the target expression
+  (commonRestriction R c) (↑(y R)⁻¹ • ThreeRootCoordinates318.generator (finiteParameter R c) j) =
+    ↑(IntegralInfinityCommonBase318.rootUnit R c)⁻¹ •
+      1 ⊗ₜ[IntegralSourceBranches318.OpenBase R c 0] IntegralOverlapRootGenerators318.finiteGenerator R c j
+
+case refine_2
+R : Type u_1
+inst✝ : CommRing R
+c : Fin 4 → Rˣ
+j : Fin 3
+⊢ (commonRestriction R c) (↑(y R)⁻¹ • ThreeRootCoordinates318.generator (finiteParameter R c) j) =
+    ↑(IntegralInfinityCommonBase318.rootUnit R c)⁻¹ •
+      1 ⊗ₜ[IntegralSourceBranches318.OpenBase R c 0] IntegralOverlapRootGenerators318.finiteGenerator R c j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r37/IntegralOriginalGluingCompatibility318.lean:88:22: error: Application type mismatch: The argument
+  commonRestriction R c
+has type
+  @RingHom (CommonOrder R c) (OldOverlap R c) Algebra.TensorProduct.instNonAssocSemiring
+    Algebra.TensorProduct.instNonAssocSemiring
+but is expected to have type
+  @RingHom (ThreeRootOrder318.Order (finiteParameter R c)) ?m.220 Algebra.TensorProduct.instSemiring.toNonAssocSemiring
+    Semiring.toNonAssocSemiring
+in the application
+  ring_map_smul (commonRestriction R c)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  OreLocalization.instAdd ↦ 32
