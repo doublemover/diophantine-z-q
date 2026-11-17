@@ -1,0 +1,19 @@
+{
+  "status": "PASS_NARROW_NATIVE_ONLY_MATHEMATICAL_SOURCE_NOT_LEAN",
+  "source_sha256": "48422583ebe817a27ebaed1ae28ef13d3a8c9fee53d293ca9c26e45304793768",
+  "bindings_sha256": "9f3e94cd0b624f8c72a29d4e8e1e52969928061795546b19d56d0c5baebd6090",
+  "native_snapshot_hashes": {
+    "Mathlib-JacobiSymbol.lean.txt": "71532b48a7f8de5a1fa880e29bc1c2c1927f6fbdf8b73085d233a81f7160bef1"
+  },
+  "checks": [
+    "Native quadratic_reciprocity_if with a=P,b=U states signed J(U/P)=J(P/U). Rewriting the latter factor and sq_one for gcd(U,P)=1 gives exact reciprocal product sign.",
+    "Odd P,U exclude zero, allow1. Exact Int.gcd hypothesis supplies sq_one with correct numerator/denominator, no unproved coprimality conversion.",
+    "Sign product proof exhausts both odd residues modulo4 and sigma=\u00b11. Positive epsilon with PU=1mod4 gives matching parity; negative epsilon with PU=3mod4 and real-compatible sigma=-1 gives opposite parity and cancels signs.",
+    "The finite cancellation is conditional on exact sign/coprime inputs; local symbol identities, J(2/U), actual coefficient decomposition and selected prime remain separate obligations."
+  ],
+  "limits": [
+    "No local Lean; theorem orientation/typeclass/tactic elaboration requires strict complete check and audit.",
+    "Connector text snapshot hash verified; no raw Git blob identity claim.",
+    "No auxiliary-prime selection, full product over local primes, global anchor or local-global theorem completed."
+  ]
+}
