@@ -1,0 +1,10 @@
+--- before.lean
++++ FiniteOrderIntegralClosureMap318.lean
+@@ -12,6 +12,7 @@
+ @[expose] def fieldAlgebra : Algebra B L := f.toRingHom.toAlgebra
+ 
+ /-- Finite-order integrality is transported by the actual injective algebra map. -/
++include hf in
+ theorem image_integral (b : B) : IsIntegral R (f b) :=
+   (isIntegral_algHom_iff f hf).2 (IsIntegral.of_finite R b)
+ 
