@@ -1,0 +1,5 @@
+# Actual continuous first Cassels–Tate cochain ingredient
+
+Two source-reviewed modules construct an actual locally constant geometric half cochain for an existing actual E[2]-valued continuous Galois cocycle. Twice the cochain is the original cocycle and four times it is zero. Its genuine Galois coboundary is locally constant, valued in the original E[2], and satisfies the cocycle identity. This is not a supplied pairing wrapper. Normalization, the actual Weil-cup/local-invariant construction, descent to the canonical maximal-divisible quotient, alternation and zero radical remain unproved. No reduced-Sha pairing, RC statement, positive rank or rational point is inferred.
+
+The full target has911 experiment roots (909 predecessor roots and2 new sources). This is a source/interface context, not checked dependency acceptance. Strict compilation under unchanged budgets and recursive allowed-axiom audit are required. All r144 predecessor source bytes are retained. The embedded Kummer-coordinate precision addendum corrects ancillary published144 evidence without changing any Lean source or acceptance status.

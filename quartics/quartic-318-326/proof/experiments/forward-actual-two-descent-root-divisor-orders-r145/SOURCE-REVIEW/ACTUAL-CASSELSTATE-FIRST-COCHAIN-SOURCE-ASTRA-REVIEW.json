@@ -1,0 +1,73 @@
+{
+  "status": "PASS_NARROW_MATH_SOURCE_API_REVIEW_NOT_LEAN",
+  "source_sha256": "db750a3f1a10ead5db12abd27db51752687a5a4c1c77beec9e578788d4724f3d",
+  "bindings_sha256": "a5be02baa57b3c553b7ca1573b2f633ce7c0d327f4ebf252e32be3a0e3cf81e7",
+  "base": "1e0a8ffb3a3e2cd7d40fcaae2767e4e2d1ba1f77",
+  "contexts": [
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFieldContinuousGaloisCocycles318.lean",
+      "sha256": "6a08d304eb8ad3f6cabf42b0e0793e720de49b4b5f84d3a92ff5b71f4941925d"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFieldAlgebraicClosureHalving318.lean",
+      "sha256": "9170128845c417726930590c6f4c4393b7b3d427ba8172d936e1b7555bf97c7a"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFieldGaloisPointAction318.lean",
+      "sha256": "5318024860b4643fe27ac63c356c08e9abd9c5cab5a9041d33868727276b1716"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFieldGaloisTwoTorsion318.lean",
+      "sha256": "c1f7261039e10110228a936f6babf778c6651c67a79d7b81e84b7933f9ba065e"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentOriginalContinuousCup318.lean",
+      "sha256": "ee90120d2210b02ae1534d5dc23b6e457957a2ea824864388d6e3d9980973080"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentBinaryCupBoundaries318.lean",
+      "sha256": "1bb0bbe85a6543f5db733d280016a09d5eba105740d32910e866f89933a37e1f"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentCupRestriction318.lean",
+      "sha256": "3263e3677d9115b4bef89951e0af286bab5ccfb0f035a509d2314a9c8edb6e11"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentActualShaReducedDuality318.lean",
+      "sha256": "fc1b45914e35347693e44606cb0d2b8641981ca380f491adac2d40edfe9ddcda"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentGeometricPowerTorsion318.lean",
+      "sha256": "33aa8238bce2b087b56849e9ad7573afca4e8c3b3ad5639cd3536dbaaf4d0ba3",
+      "purpose": "Exact existing map_nsmul/nsmul_sub usage on original geometric point carrier"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFullBoundaryHom318.lean",
+      "sha256": "d1c99fb2f7759f7b07365b5d1520deb2874ada414e809df08e6474cf6ae67df6",
+      "purpose": "Exact existing map_nsmul/nsmul_sub usage on original geometric point carrier"
+    }
+  ],
+  "native": [
+    {
+      "path": "LocallyConstant.Basic.native.lean.txt",
+      "sha256": "e3bb2d2c51ec6c7a390319f826bf2564394cc486adb0ca524f128cf8fdbf8270",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Topology/LocallyConstant/Basic.lean",
+      "declaration": "IsLocallyConstant.comp; arbitrary codomain function"
+    }
+  ],
+  "checks": [
+    "Original values are in the actual closed geometric E[2], with homomorphism law valid because this curve has full rational two-torsion",
+    "Fixed geometric halving function is composed with locally constant cocycle; native IsLocallyConstant.comp accepts arbitrary codomain function, so no continuous choice or equivariant-halving assumption",
+    "Doubling equals original value; repeated doubling gives four-torsion",
+    "Actual Galois defect doubles to zero by additive Galois action and rational E[2] invariance, so subtype really is geometric E[2]",
+    "Second coboundary cancels by actual_galois_mul and associativity, not a binary proxy action",
+    "Final originalValue_mul uses exact projected map_mul, avoiding no-goals tactic sequence"
+  ],
+  "scope": "Locally constant geometric half cochain and algebraic E[2]-valued Galois defect satisfying cocycle identity.",
+  "limits": [
+    "Joint local constancy of defect not yet proved",
+    "Half cochain need not be a cocycle, Galois-equivariant or normalized at identity",
+    "No Weil pairing identification, local invariant, global reciprocity, Cassels-Tate pairing, quotient radical or actual reduced duality producer",
+    "No local Lean, runtime or transitive dependency acceptance"
+  ]
+}
