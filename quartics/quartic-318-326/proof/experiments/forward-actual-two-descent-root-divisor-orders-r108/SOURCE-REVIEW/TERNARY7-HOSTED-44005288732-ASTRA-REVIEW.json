@@ -1,0 +1,85 @@
+{
+  "status": "AUTHENTICATED_EXACT_HOSTED_OUTCOME",
+  "run_id": "44005288732",
+  "source_commit": "30f1c952617dac16288bbf36c5972facec63bdfa",
+  "execution_commit": "7223d8ccfc81b84b67fa9c943968ff85a84f574c",
+  "selection_sha256": "cc7210bc3ef78eb7ac50b57ffbfa54acd7081c35814c4a7481975a793b5d4764",
+  "inventory_sha256": "07e4843b2d29fd58e843786c346b46d24b69301f05063f98ad0d57b32fcef032",
+  "passed": [
+    {
+      "name": "LegendreNormDescentStep318",
+      "sha256": "ac1ab26fdb293590427000782cf2efd3e5bb5f0419d73add8ed7d265eed6f9b7",
+      "seconds": 2.119
+    },
+    {
+      "name": "LegendreCenteredRoot318",
+      "sha256": "8c20070c343fc2e25d82731f8f04b4a6d0fb8dc828de117d36bf940368c3536b",
+      "seconds": 1.468
+    },
+    {
+      "name": "LegendreSquarefreeCRT318",
+      "sha256": "4bd5f2ff209bfbb0c1852bc068b0149e43b8722fd16e0c5a55f3091b8ac9a141",
+      "seconds": 1.568
+    },
+    {
+      "name": "LegendreHomogeneousAffine318",
+      "sha256": "59b218a81abcd7a11047f7fde2be1c6b0fd18ad7242eb7bedd03cd1741ad6a6d",
+      "seconds": 1.617
+    },
+    {
+      "name": "LegendrePadicPrimitiveResidues318",
+      "sha256": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a",
+      "seconds": 1.818
+    },
+    {
+      "name": "LegendrePrimitiveModularRoot318",
+      "sha256": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede",
+      "seconds": 1.718
+    }
+  ],
+  "failed": [
+    {
+      "name": "LegendreTernaryDescent318",
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r104",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/forward-actual-two-descent-root-divisor-orders-r104-scc7210bc3ef78eb7/quarantine/LegendreTernaryDescent318/LegendreTernaryDescent318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r104/LegendreTernaryDescent318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "LegendreCenteredRoot318",
+        "LegendreHomogeneousAffine318",
+        "LegendreNormDescentStep318",
+        "LegendrePadicPrimitiveResidues318",
+        "LegendrePrimitiveModularRoot318",
+        "LegendreSquarefreeCRT318"
+      ],
+      "log_sha256": "b1582a0bf17476a616253bcf9f534098eb3100c00231fa9e5c98ed50d865a391",
+      "occurrence": "forward-actual-two-descent-root-divisor-orders-r104/LegendreTernaryDescent318",
+      "root_causes": [
+        "LegendreTernaryDescent318"
+      ],
+      "seconds": 2.519,
+      "source_sha256": "67ccaeb1027b8dd5c862d55b37a9bee7119e7352e9442159a197920ed13f6745",
+      "status": "compiler_error",
+      "timed_out": false
+    }
+  ],
+  "audit_declarations": 17,
+  "scope": "Six exact dependencies strictly pass and are recursively audited. Ternary induction67ccaeb1 fails at151:47 integer abs versus natAbs cast comparison; target not accepted or audited. Its source theorem assumes only literal real/all-Qp nonzero homogeneous solutions, not a rational solution; no axiom/sorry added. No ternary or original quaternary global conclusion.",
+  "checks": [
+    "Exact immutable full packet source hashes, marker-only execution, request, intake, selection and actual import closure.",
+    "Selected strict exit codes and log hashes, recorded dependency artifact identities, audit restricted to successful modules.",
+    "Audit recursively excludes axioms other than propext, Quot.sound, Classical.choice. No audit claimed for empty successful set."
+  ],
+  "limits": [
+    "No local Lean; no downloaded binary rehash; selected closure only."
+  ]
+}
