@@ -1,0 +1,21 @@
+{
+  "status": "PASS_NONZERO_COMMON_VALUE_MATH_SOURCE_NOT_LEAN_HOLD_FOR_CHECKED_DEPENDENCY",
+  "source_sha256": "74cad871b4efae670226aec751ec9b35d9d4e5972439a3de828d412d717b56ed",
+  "bindings_sha256": "fd3a13a10f95e9f4d99653b1b1742c04d3f69a534170d995ec500178ecb0a447",
+  "dependency": {
+    "module": "LegendreHomogeneousAffine318",
+    "sha256": "59b218a81abcd7a11047f7fde2be1c6b0fd18ad7242eb7bedd03cd1741ad6a6d",
+    "strict_status": "pending80"
+  },
+  "checks": [
+    "Nonzero initial A-value uses supplied coordinates unchanged, reversing exact equality for B.",
+    "When both values zero but A-vector nonzero, characteristic-zero gives2 nonzero; affine extraction for coefficient2 and targetC gives A-valueC, while B(1,0)=C. hC ensures selected common value nonzero.",
+    "When A-vector zero, global nontriviality forces B-vector nonzero. Multiplying B equation byC gives nonzero homogeneous norm6C vector(y,CT,0); CT=0 impliesT=0 by hC.",
+    "Affine extraction at coefficient6C and targetC gives u\u00b2-6Cv\u00b2=C. Division byC makes B(u/C,v)=1; A(1,0)=1. All division/nonzero obligations explicitly discharged by hC and CharZero.",
+    "C nonzero and characteristic-zero are the only coefficient restrictions. No assumption of nonzero initial common value or local-global theorem is introduced."
+  ],
+  "limits": [
+    "No local Lean; affine59b218 dependency strict replay pending. Keep unpublished until that dependency passes and exact rebase is recorded.",
+    "A single supplied field-valued isotropic point yields a nonzero common value; no simultaneous approximation, squareclass prescription, auxiliary prime or global rational point existence."
+  ]
+}
