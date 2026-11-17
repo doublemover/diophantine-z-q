@@ -1,0 +1,18 @@
+{
+  "status": "PASS_SOURCE_API_CORRECTION_NOT_LEAN",
+  "application_sha256": "75aacceee3b45a3221cae196c6b5e737b2369e2d8305a25a7102e7620d354796",
+  "source_sha256": "fb0a43cdf20e7f88c7d468640f1e9753bf04d2cfc355bf7e45a9ac8c19329002",
+  "before_sha256": "b9631fcc38b2f0698e765dd05747cfaa867d9a24a3826e59926fd6b513780358",
+  "run_id": "43903335604",
+  "source_commit": "0c567fc8116b032d333621605822f90c881f6a94",
+  "log_sha256": "bc9744da736548a2f0ec666b786d319176da45faee599d615e4e58e1442a157e",
+  "findings": [
+    "Exactly one theorem identifier is qualified; actual localization/equivalence/maps, imports, statements, instances and limits unchanged.",
+    "Native line114 opens namespace IsLocalization; line116 opens same-named section; line321 closes only section; theorem327 is still in namespace until436. Correct API is IsLocalization.isLocalization_of_algEquiv.",
+    "Earlier reviewer assertion of root namespace was incorrect. This correction explicitly supersedes that API finding in KS40-FRACTION-FIELDS-REPAIR-ASTRA-REVIEW.json; immutable old receipt is retained as historical evidence.",
+    "36 current hosted-passed roots source identities checked, including IntegerPolynomialFractionField bf05890b. Passed gluing76b40ebc remains unchanged.",
+    "The offbranch AwayStalk root call is separately affected and must be corrected/rebased; its old source/API approval cannot be read as validating that name."
+  ],
+  "local_lean_run": false,
+  "hosted_candidate_success": false
+}

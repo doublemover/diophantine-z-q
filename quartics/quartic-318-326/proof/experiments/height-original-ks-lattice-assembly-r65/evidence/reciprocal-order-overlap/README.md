@@ -1,0 +1,5 @@
+# Independent reciprocal-order overlap bridge
+
+New source, not restoration of the lost reciprocal-order normalization source. It specializes the strictly checked generic localization helper to the actual reciprocal four-root coefficients and the existing fullOverlap equivalence. The reciprocal polynomial-to-Laurent action is selected explicitly after fixing the common order and its Laurent action. map_identity pins the exact previous infinityMap. Localization/injectivity and the exact coefficient square use no common-field theorem, domain assumption on the order, finite-closure premise or regularity assumption.
+
+This source does NOT import OriginalIntegerCommonField318: it is genuinely independent of the currently failed/pending KS60/61 target. All imported draft sources match strict passes in the authenticated56-module subset, but this new specialization has not been compiled. Actual dictionary conversion and performance remain hosted obligations. No fraction-field, order normalization, finiteness, properness or regularity conclusion is included. No publication is requested by this standalone package.
