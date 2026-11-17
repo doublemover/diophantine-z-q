@@ -1,0 +1,22 @@
+{
+  "status": "PASS_GOOD_PRIME_LOCAL_PRODUCER_MATH_SOURCE_NOT_LEAN",
+  "source_sha256": "545b3a842f1b7025cf98d1a855f071be103b17199c2238febc6915a89f988f9f",
+  "bindings_sha256": "84313de04e7bef72a63d533a3897a1bba6d32d14802fbc3f95819c56b6883121",
+  "native_snapshots": {
+    "Mathlib-Padics-Hensel.lean.txt": "5e40d7fb8f6353bf30fe8b6451b9e3198ad88b92a7658c382731dba79cd84a63",
+    "Mathlib-FieldTheory-Finite-Basic.lean.txt": "995f6c6feb2501019e6f064fdb00d6db67ebf1bc00d5a7b1b451a32cb8716005"
+  },
+  "project_dependencies": [],
+  "checks": [
+    "At odd p with a nonzero modulo p, f=Z\u00b2 and g=-aX\u00b2-b both degree2; pinned finite quadratic image theorem gives f(z)+g(x)=0, hence z\u00b2-a*x\u00b2=b. b may be0 in finite lemma.",
+    "For p not dividing2b, F(W)=Z\u00b2-aXi\u00b2-bW\u00b2 has value divisible byp at1 and derivative-2b of norm1. Exact primitive finite representatives supply congruence.",
+    "Integer norm unit proof derives norm1 from PadicInt upper bound and not-divisible criterion; no local-solubility assumption.",
+    "Pinned Hensel conclusion includes root and norm(w-1)<1, forcing w nonzero. Divide Xi,Z by w in Qp to obtain actual affine norm representation; all denominator nonzero conditions explicit.",
+    "Signed integer a,b and all odd primes outsideab supported, no positivity/squarefree premise. Native-only module, no uncompiled project dependency."
+  ],
+  "scope": "Constructs Qp binary norm witness at ordinary good primes, not at2 or primes dividingab; no global point or auxiliary prime selection.",
+  "limits": [
+    "No local Lean; polynomial degree, cast, simp and Hensel application elaboration require strict replay/audit.",
+    "Native text hashes verified, not raw Git blob identities."
+  ]
+}
