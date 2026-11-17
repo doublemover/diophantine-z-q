@@ -1,0 +1,28 @@
+--- before
++++ after
+@@ -44,7 +44,7 @@
+   all_goals rfl
+ 
+ theorem zpow_add (m n : ℤ) : zpow A B (m+n) = zpow A B m * zpow A B n := by
+-  rw [zpow,LaurentPolynomial.T_add,map_mul]
++  simp only [zpow,LaurentPolynomial.T_add,map_mul]
+ 
+ theorem zpow_zero : zpow A B 0 = 1 := by rw [zpow,LaurentPolynomial.T_zero,map_one]
+ 
+@@ -56,7 +56,7 @@
+     algebraMap ℚ (Model A B) B * zpow A B 3 := by
+   have h := AdjoinRoot.eval₂_root (polynomial A B)
+   change (polynomial A B).eval₂ (algebraMap Coeff (Model A B)) (x A B) = 0 at h
+-  simp only [polynomial,eval₂_add,eval₂_mul,eval₂_pow,eval₂_X,eval₂_C,map_mul,map_sub] at h
++  simp only [polynomial,eval₂_add,eval₂_sub,eval₂_mul,eval₂_pow,eval₂_X,eval₂_C,map_mul,map_sub] at h
+   have hc (q : ℚ) : algebraMap Coeff (Model A B) (LaurentPolynomial.C q) =
+       algebraMap ℚ (Model A B) q := by
+     exact (IsScalarTower.algebraMap_apply ℚ Coeff (Model A B) q).symm
+@@ -89,6 +89,7 @@
+ theorem overlapMap_base (a : InfinityChart318.Ring A B) :
+     overlapMap A B (algebraMap (InfinityChart318.Ring A B) _ a) = infinityMap A B a := by
+   simp only [overlapMap,IsLocalization.Away.liftAlgHom_apply,IsLocalization.Away.lift_eq]
++  rfl
+ 
+ @[simp] theorem overlapMap_ix : overlapMap A B (WeierstrassOverlap318.ix A B) = x A B := by
+   rw [WeierstrassOverlap318.ix,overlapMap_base,infinityMap_x]
