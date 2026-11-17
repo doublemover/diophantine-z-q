@@ -17,11 +17,11 @@ import check_progress_experiment as experiment
 import validate_progress_inventory_request as request_guard
 from plan_progress_inventory import selection
 ci = bounded.ci
-PACKET = 'contact-original-positive-generators-r103'
+PACKET = 'contact-original-positive-generators-r105'
 MODULE = 'OriginalTensorUntwistRefinement318'
-SOURCE_SHA = 'b8a94e1c84192875292db0ce087e6a7810d413013e6a1afd7ea50a7afb306949'
-INTAKE_SHA = '7add5a1b5dbd547051e5d27f60bfcb338cb042bad4fc27cb6c93c5a0e73a434c'
-SELECTION_SHA = '79f521a554a00b0eb325202673309b68404fe1e99df13aa3c380a7a306fdab2b'
+SOURCE_SHA = '8d35325efa88351ff11a4316070e173aa8cca69574327158af99c86e490bdd41'
+INTAKE_SHA = 'b00db9607a9b7c021de71678c7310e73157d7e417ff38571bff7bd465f52d94a'
+SELECTION_SHA = 'ac478364f9fa9be7f5b2eb9eb7ff963d915890a7992fc10c8db9c288ea169123'
 BOUNDED_SHA = 'f270b32bb08b551595e4b74cfbe3cb84ed26b3eef469894a7d4a7e5c574df7f2'
 LIMITS_SHA = '1d9e0fd76754d37372f24995469592a3707fe0d3ebf5c55518752449f80a3c00'
 FLAGS = ['-j1', '-M', '6144', '-Ddebug.skipKernelTC=false']

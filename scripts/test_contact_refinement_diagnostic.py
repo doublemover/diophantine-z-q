@@ -195,5 +195,25 @@ class CallbackTests(unittest.TestCase):
             inv.observe_contact(None,None,None,{'packet':'other'},0)
 
 
+
+class FrozenActivationTests(unittest.TestCase):
+    def test_exact105_activation_and_stale103_rejected(self):
+        self.assertEqual(d.PACKET, 'contact-original-positive-generators-r105')
+        self.assertEqual(d.SOURCE_SHA, '8d35325efa88351ff11a4316070e173aa8cca69574327158af99c86e490bdd41')
+        self.assertEqual(d.INTAKE_SHA, 'b00db9607a9b7c021de71678c7310e73157d7e417ff38571bff7bd465f52d94a')
+        self.assertEqual(d.SELECTION_SHA, 'ac478364f9fa9be7f5b2eb9eb7ff963d915890a7992fc10c8db9c288ea169123')
+        result={'packet':d.PACKET,'selection':{'selection_sha256':d.SELECTION_SHA}}
+        self.assertTrue(d.activated(result))
+        with patch.object(d,'run') as probe:
+            inv.observe_contact(None,None,None,result,1000)
+        probe.assert_called_once_with(None,None,None,result,1000)
+        for packet,selector in [('contact-original-positive-generators-r103',d.SELECTION_SHA),
+          (d.PACKET,'79f521a554a00b0eb325202673309b68404fe1e99df13aa3c380a7a306fdab2b')]:
+            stale={'packet':packet,'selection':{'selection_sha256':selector}}
+            self.assertFalse(d.activated(stale))
+            with patch.object(d,'run') as probe:
+                inv.observe_contact(None,None,None,stale,1000)
+            probe.assert_not_called()
+
 if __name__=='__main__':
     unittest.main()

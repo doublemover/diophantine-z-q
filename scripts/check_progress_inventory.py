@@ -170,9 +170,9 @@ def inventory(folder, data, output, lib, env, result, deadline, compile_fn=compi
 
 
 def observe_contact(folder, output, env, result, deadline):
-    if (result.get('packet') != 'contact-original-positive-generators-r103' or
+    if (result.get('packet') != 'contact-original-positive-generators-r105' or
         result.get('selection', {}).get('selection_sha256') !=
-            '79f521a554a00b0eb325202673309b68404fe1e99df13aa3c380a7a306fdab2b'):
+            'ac478364f9fa9be7f5b2eb9eb7ff963d915890a7992fc10c8db9c288ea169123'):
         return
     import diagnose_contact_refinement
     diagnose_contact_refinement.run(folder, output, env, result, deadline)
