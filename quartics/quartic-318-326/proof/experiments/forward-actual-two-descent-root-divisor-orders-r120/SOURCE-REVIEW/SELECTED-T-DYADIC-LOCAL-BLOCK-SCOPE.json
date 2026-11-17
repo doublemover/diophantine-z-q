@@ -1,0 +1,44 @@
+{
+  "status": "EXACT_LOCAL_BLOCK_SCOPE_RECORD_NOT_ASSEMBLED_ACCEPTANCE",
+  "source_bindings": {
+    "PadicSquareNormalization318": "0232cca178cffd348d09e23a65c3ad4f9126c5bcb66a7e684d71d22e65c36020",
+    "AuxiliaryLocalUnitClass318": "2aee917b3c75c03091e7e28fbc62262d93d3fa2caaa1b31b8da79fe621be989d",
+    "AuxiliaryDyadicValue318": "eb9fc055a13a8a7710a3766704abe3d424600fa542e405b740d96748c75496fb",
+    "AuxiliaryActualFiniteValues318": "18061d0e892cc37d14ea4837a13f2fb6076b5bfc1c85cc7ad990bdc17e62bd4c",
+    "AuxiliarySupportFactorization318": "1e8148d34db915f632ee2076a8ee43ee67e49cbd40e72d2c2d5feb5b6da9007d"
+  },
+  "named_obligations": {
+    "SELECTED_T_DYADIC_BOUND": {
+      "statement": "For the constructed selected integer t=sign*D*q, with 2 in the finite prime support, q outside that support, sign=+/-1 and every alpha in {0,1}, v2(t)=alpha(2)<=1.",
+      "mechanism": "Normalize each original nonzero local common value by dividing all four coordinates by a common square root factor. alpha=v(original)%2. Construct a NEW selected integer with exactly these prime exponents; distinct-prime complementary product and q are 2-adic units.",
+      "source_lines": {
+        "PadicSquareNormalization318": "9-17,43-56",
+        "AuxiliaryActualFiniteValues318": "20-27,39-44,61-74",
+        "AuxiliaryLocalUnitClass318": "11-26"
+      },
+      "acceptance": "Normalization and complement-unit producers strictly checked. ActualFiniteValues wrapper and final literal valuation identity/assembly not yet strictly checked."
+    },
+    "EVEN_SELECTED_T_HALF_MOD_EIGHT": {
+      "statement": "In alpha(2)=1 branch, write selected t=2*v with v odd. Actual both binary norm equations and C mod8=1 imply v mod8=7, hence t/2 mod8=7.",
+      "source_lines": {
+        "AuxiliaryDyadicValue318": "21-28,49-65"
+      },
+      "acceptance": "even_common_value strictly accepted in run44072201148, four-root closure/audit65. Applying it to the selected integer still requires the structural t=2*v and Odd v construction."
+    },
+    "ODD_SELECTED_T_MOD_EIGHT": {
+      "statement": "In alpha(2)=0 branch the selected integer is odd; the same actual local norms imply t mod8=1.",
+      "source_lines": {
+        "AuxiliaryDyadicValue318": "34-47"
+      },
+      "acceptance": "unit_common_value strictly accepted in same exact run; selected-integer structural instantiation remains separate."
+    }
+  },
+  "explicit_exclusion": "No valuation<=1 assertion is made for arbitrary locally represented common values. Values with valuation>=2 are possible and are normalized up to a square; the chosen selected integer is a different value in the same local squareclass.",
+  "remaining_obligations": [
+    "Strict check finite115 and rebase/strict-check ActualFiniteValues18061.",
+    "Choose Dirichlet bound at least every prime in S, so q outside S; do not silently omit this condition.",
+    "Strict-check structural support factorization and assemble literal v2 identity or equivalent odd/2-times-odd case split.",
+    "Instantiate accepted dyadic lemmas on the same selected integer."
+  ],
+  "local_lean_run": false
+}
