@@ -9,7 +9,7 @@ public import ActualRootPivotCoordinates318
   out.putStrLn "PEL_KAEHLER_CHECKPOINT imports_processed"
   out.flush : IO Unit)
 syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term
-@[term_elab kaehlerObserveTerm]
+@[local term_elab kaehlerObserveTerm]
 private meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do
   let out ← IO.getStderr
   out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"

@@ -212,8 +212,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),7701)
-        self.assertEqual(d.digest(raw),'aa00aa19668de763e9aae7b526b0789c38a72e735d94a896d105bd930b82ff1c')
+        self.assertEqual(len(raw.encode()),7707)
+        self.assertEqual(d.digest(raw),'75601a6afdbccc708dce9201bc55ecd9df3c4100c4ff61eda96467a336207840')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -367,6 +367,14 @@ class Tests(unittest.TestCase):
         for excluded in ['FourRootPivot318.regroup','nativeRegroupRootSpecialization','(rfl :','    hq','private def innerQTransportAbstractInput','private def innerQTransportFunction','private def innerQTransportProof','private theorem innerQCastRegroupRoot','private theorem explicitCastRegroupRoot','private theorem transportedRegroupRoot','variable (b:Fin 4','sorry','axiom ']:
             self.assertNotIn(excluded,body)
 
+
+    def test_local_observer_registration_only_change(self):
+        candidate=d.frozen_candidate(self.source())
+        self.assertEqual(candidate.count('@[local term_elab kaehlerObserveTerm]'),1)
+        historical=candidate.replace('@[local term_elab kaehlerObserveTerm]', '@[term_elab kaehlerObserveTerm]',1)
+        self.assertEqual(d.digest(historical),'2c6cc50359716d89958b9fedee19457ff38f1ee42d44dc50dfd6824d41af6a28')
+        with self.assertRaises(ValueError):d.without_stage_observer(historical)
+        self.assertIn('private meta def elabKaehlerObserveTerm',candidate)
 
     def test_stage_observer_exact_reversal_and_matching_control_import(self):
         candidate=d.frozen_candidate(self.source())
