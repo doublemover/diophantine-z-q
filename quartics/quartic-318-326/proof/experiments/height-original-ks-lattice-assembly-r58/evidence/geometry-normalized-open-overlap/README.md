@@ -1,0 +1,11 @@
+# Original integer normalized finite overlap
+
+Two source candidates construct the exact localization of the finite normalization chart. The generic module extends the original base-to-field map along coordinate localization, constructs the inclusion of integral closures inside that SAME field, verifies both scalar towers, and applies the pinned native theorem that integral closure commutes with localization. The concrete module discharges the coordinate-unit hypothesis in the original Kummer field using the exact fraction-field map Z[T] -> Q(T) -> L, obtains an actual open immersion, and retains the original integer order map and its injectivity.
+
+Only the coordinate T is inverted. No integer prime, twist, root, or discriminant is inverted. No hypothesis of normality/regularity/smoothness/generation/KS is added. The generic unit condition is discharged by the concrete parameter proof; it is not an unproved geometric premise.
+
+Still missing: construction of the reciprocal normalization with its reciprocal scalar action in L, comparison of its localized closure with this common overlap, gluing of the normalized charts, finiteness over the earlier proper whole-order model, regularity/resolution, dualizing/cotangent comparison and geometric section generation, then KS. Normality does NOT imply regularity. This packet proves none of those downstream statements.
+
+Native API sources copied from mathlib commit 56a005855ea17e0b0958f73ec801ae140b0a1679. Native IsLocalization.Away.integralClosure is applied with S = Sf = L and Rf = Localization.Away T; localization of L at the nonzero parameter is the identity, justified by away_of_isUnit_of_bijective. All native scalar-tower premises are explicitly constructed or the canonical integralClosure tower.
+
+No local Lean executed. These are source candidates pending independent bounded review and hosted kernel elaboration, not verified theorems. Hosted plan: append IntegralClosureAwayField318 then OriginalIntegerNormalizedOverlap318 after OriginalIntegerNormalizationMap318, preserving all predecessor bytes. Check the generic extended-field algebra/towers before the concrete original-field specialization and open-immersion instance.

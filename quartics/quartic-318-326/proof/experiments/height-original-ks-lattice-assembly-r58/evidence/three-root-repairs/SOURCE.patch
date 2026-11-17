@@ -1,0 +1,73 @@
+--- before/FourRootVanishingFiber318.lean
++++ FourRootVanishingFiber318.lean
+@@ -30,7 +30,8 @@
+ 
+ theorem basis_root (a : Fin 4 → R) (i : Fin 4) :
+     orderBasis a (rootIndex i) = FourRootOrderSigns318.generator a i := by
+-  fin_cases i <;> simp [orderBasis, rootIndex, FourRootOrderSigns318.generator]
++  fin_cases i <;> simp [orderBasis, rootIndex, FourRootOrderSigns318.generator,
++    ← Algebra.TensorProduct.one_def]
+ 
+ theorem generator_ne_zero [Nontrivial R] (a : Fin 4 → R) (i : Fin 4) :
+     FourRootOrderSigns318.generator a i ≠ 0 := by
+--- before/IntegralSourceArithmeticDomain318.lean
++++ IntegralSourceArithmeticDomain318.lean
+@@ -22,7 +22,7 @@
+ 
+ theorem contacts_map (i : Fin 4) :
+     algebraMap R ℚ (contacts R i) = LinearContactSquareclass318.contacts i := by
+-  fin_cases i <;> norm_num [contacts,LinearContactSquareclass318.contacts]
++  fin_cases i <;> norm_num [contacts,LinearContactSquareclass318.contacts, _root_.map_ofNat]
+ 
+ theorem coefficient_map (i : Fin 4) :
+     algebraMap R[X] ℚ[X] (coefficient R c i) =
+@@ -58,7 +58,7 @@
+   letI : Module.Free R[X] (SourceOrder R c) :=
+     (FourRootOrder318.finite_free (coefficient R c)).2
+   have hi : Function.Injective (algebraMap R[X] ℚ[X]) :=
+-    Polynomial.map_injective hR
++    Polynomial.map_injective (algebraMap R ℚ) hR
+   exact (rationalBaseChange R c).injective.comp
+     (Algebra.TensorProduct.includeRight_injective (R := R[X]) (A := ℚ[X])
+       (B := SourceOrder R c) hi)
+--- before/IntegralOriginalGluingCompatibility318.lean
++++ IntegralOriginalGluingCompatibility318.lean
+@@ -13,7 +13,7 @@
+ set_option backward.isDefEq.respectTransparency.types false
+ /-- Evaluate the original reciprocal unit through an algebra hom before
+ specializing its concrete localization/tensor dictionaries. -/
+-private theorem reciprocal_unit_image {k A B : Type*} [CommRing k] [CommRing A] [CommRing B]
++private theorem reciprocal_unit_image {k A B : Type*} [CommSemiring k] [Semiring A] [Semiring B]
+     [Algebra k A] [Algebra k B] (f : A →ₐ[k] B) (c : kˣ) (u : Aˣ) :
+     algebraMap k B (c : k) * (↑(Units.map f.toMonoidHom u)⁻¹ : B) =
+       f (↑(Units.map (algebraMap k A).toMonoidHom c * u⁻¹) : A) := by
+@@ -55,20 +55,23 @@
+       (IntegralOriginalInfinityEmbedding318.ringMap R c)) ?_ ?_
+   · apply Polynomial.ringHom_ext
+     · intro r
++      simp only [RingHom.comp_apply]
+       change commonRestriction R c (infinityMap R c
+         (algebraMap R[X] (InfinityOrder R c) (C r))) = _
+-      rw [IntegralWholeOrderScalarMaps318.infinity_polynomial]
+-      change commonRestriction R c (algebraMap R (CommonOrder R c) r)=_
++      rw [IntegralWholeOrderScalarMaps318.infinity_polynomial,
++        reciprocalMap, Polynomial.aeval_C,
++        ← IsScalarTower.algebraMap_apply R (Laurent R) (CommonOrder R c)]
+       rw [common_constant,IntegralOriginalInfinityEmbedding318.polynomial]
+       exact ((IntegralOverlapChartMaps318.infinityMap R c).commutes r).symm
+-    · change commonRestriction R c (infinityMap R c
++    · simp only [RingHom.comp_apply]
++      change commonRestriction R c (infinityMap R c
+         (algebraMap R[X] (InfinityOrder R c) X)) = _
+-      rw [IntegralWholeOrderScalarMaps318.infinity_polynomial]
+-      change commonRestriction R c
+-        (algebraMap (Laurent R) (CommonOrder R c) (u R c)) = _
++      rw [IntegralWholeOrderScalarMaps318.infinity_polynomial,
++        reciprocalMap, Polynomial.aeval_X]
+       rw [common_u,IntegralOriginalInfinityEmbedding318.polynomial]
+       exact (IntegralOverlapChartMaps318.infinity_coordinate R c).symm
+   · intro j
++    simp only [RingHom.comp_apply]
+     change commonRestriction R c (infinityMap R c (ThreeRootCoordinates318.generator _ j))=_
+     rw [IntegralWholeOverlapGenerators318.infinity_generator,
+       IntegralWholeGeneratorComparisons318.infinity_generator,

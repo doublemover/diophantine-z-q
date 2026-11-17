@@ -1,0 +1,45 @@
+--- before/IntegralFourRootOverlap318.lean
++++ sources/IntegralFourRootOverlap318.lean
+@@ -60,21 +60,29 @@
+     (FourRootOrderOpenMaps318.baseChangedOrderMapAlong (reciprocalMap R).toRingHom
+       (reciprocalCoefficient d a))
+ 
+-instance infinityMap_open : IsOpenImmersion (Spec.map (CommRingCat.ofHom (infinityMap R d a))) := by
+-  letI : IsOpenImmersion (Spec.map (CommRingCat.ofHom
+-      (FourRootOrderOpenMaps318.baseChangedOrderMapAlong (reciprocalMap R).toRingHom
+-        (reciprocalCoefficient d a)))) :=
+-    FourRootOrderOpenMaps318.baseChangedOrderMapAlong_open (reciprocalMap R).toRingHom
+-      (reciprocalCoefficient d a) (X:R[X])
+-      (IntegralWholeReciprocalLocalization318.reciprocal_localization R (fun _ => 1))
+-  have h : Spec.map (CommRingCat.ofHom (infinityMap R d a)) =
+-      Spec.map (fullOverlap R d a).toRingEquiv.toCommRingCatIso.hom ≫
+-      Spec.map (CommRingCat.ofHom
+-        (FourRootOrderOpenMaps318.baseChangedOrderMapAlong (reciprocalMap R).toRingHom
+-          (reciprocalCoefficient d a))) := by
++/-- Establish the composition on abstract ring carriers before specializing
++large four-root tensor dictionaries. The supplied open map and equivalence
++are retained exactly. -/
++private lemma equiv_after_open {A B C : Type*} [CommRing A] [CommRing B] [CommRing C]
++    (f : A →+* B) (e : B ≃+* C)
++    (hf : IsOpenImmersion (Spec.map (CommRingCat.ofHom f))) :
++    IsOpenImmersion (Spec.map (CommRingCat.ofHom (e.toRingHom.comp f))) := by
++  letI : IsOpenImmersion (Spec.map (CommRingCat.ofHom f)) := hf
++  letI : IsIso (Spec.map e.toCommRingCatIso.hom) := inferInstance
++  have h : Spec.map (CommRingCat.ofHom (e.toRingHom.comp f)) =
++      Spec.map e.toCommRingCatIso.hom ≫ Spec.map (CommRingCat.ofHom f) := by
+     rw [← Spec.map_comp]
+     rfl
+   rw [h]
+-  infer_instance
++  exact IsOpenImmersion.comp _ _
++
++instance infinityMap_open : IsOpenImmersion (Spec.map (CommRingCat.ofHom (infinityMap R d a))) := by
++  exact equiv_after_open
++    (FourRootOrderOpenMaps318.baseChangedOrderMapAlong (reciprocalMap R).toRingHom
++      (reciprocalCoefficient d a))
++    (fullOverlap R d a).toRingEquiv
++    (FourRootOrderOpenMaps318.baseChangedOrderMapAlong_open (reciprocalMap R).toRingHom
++      (reciprocalCoefficient d a) (X:R[X])
++      (IntegralWholeReciprocalLocalization318.reciprocal_localization R (fun _ => 1)))
+ 
+ end IntegralFourRootOverlap318
