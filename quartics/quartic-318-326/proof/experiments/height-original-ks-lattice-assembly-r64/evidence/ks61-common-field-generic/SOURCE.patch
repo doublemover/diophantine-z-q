@@ -1,0 +1,62 @@
+--- before.lean
++++ OriginalIntegerCommonField318.lean
+@@ -7,6 +7,39 @@
+ noncomputable section
+ namespace OriginalIntegerCommonField318
+ open Polynomial
++
++/-- Resolve the exact map/algebra conversion on symbolic four-root carriers,
++prior to inserting the rational-unit twist expressions. -/
++private theorem finite_localization_generic (R : Type*) [CommRing R]
++    (d a : Fin 4 → R) :
++    letI : Algebra (IntegralFourRootReciprocalCharts318.FiniteOrder d a)
++        (IntegralFourRootOverlap318.CommonOrder R d a) :=
++      (IntegralFourRootOverlap318.finiteMap R d a).toAlgebra
++    IsLocalization.Away
++      (algebraMap R[X] (IntegralFourRootReciprocalCharts318.FiniteOrder d a) X)
++      (IntegralFourRootOverlap318.CommonOrder R d a) := by
++  letI : Algebra (IntegralFourRootReciprocalCharts318.FiniteOrder d a)
++      (IntegralFourRootOverlap318.CommonOrder R d a) :=
++    (IntegralFourRootOverlap318.finiteMap R d a).toAlgebra
++  exact FourRootOrderLocalizationMaps318.localization
++    (A := R[X]) (T := IntegralWholeReciprocalOverlap318.Laurent R)
++    (C := IntegralFourRootOverlap318.CommonOrder R d a)
++    (IntegralFourRootReciprocalCharts318.finiteCoefficient d a)
++    (RingEquiv.refl (IntegralFourRootOverlap318.CommonOrder R d a)) (X : R[X])
++
++/-- Injectivity uses the same proved localization and the actual free-order
++parameter regularity; no order-domain hypothesis is added. -/
++private theorem finiteMap_injective_generic (R : Type*) [CommRing R] [IsDomain R]
++    (d a : Fin 4 → R) : Function.Injective (IntegralFourRootOverlap318.finiteMap R d a) := by
++  letI : Algebra (IntegralFourRootReciprocalCharts318.FiniteOrder d a)
++      (IntegralFourRootOverlap318.CommonOrder R d a) :=
++    (IntegralFourRootOverlap318.finiteMap R d a).toAlgebra
++  letI := finite_localization_generic R d a
++  exact IsLocalization.injective (IntegralFourRootOverlap318.CommonOrder R d a)
++    (Submonoid.powers_le.mpr (FourRootOrderLocalizationMaps318.scalar_regular
++      (IntegralFourRootReciprocalCharts318.finiteCoefficient d a) (X : R[X])
++      Polynomial.X_ne_zero))
++
+ attribute [local instance] OriginalIntegerFiniteClosure318.baseAlgebra
+ attribute [local instance] OriginalIntegerFractionField318.integerFieldAlgebra
+ attribute [local instance] OriginalIntegerReciprocalNormalization318.laurentAlgebra
+@@ -30,15 +63,12 @@
+ /-- Only the actual parameter is inverted, not an integer or a root. -/
+ theorem finite_localization :
+     IsLocalization.Away (algebraMap ℤ[X] (Order c) X) (CommonOrder c) := by
+-  exact FourRootOrderLocalizationMaps318.localization
+-    (A := ℤ[X]) (T := Laurent) (C := CommonOrder c)
+-    (OriginalIntegerAffineModel318.coefficient c) (RingEquiv.refl (CommonOrder c)) (X : ℤ[X])
++  exact finite_localization_generic ℤ
++    (OriginalIntegerReciprocalCharts318.integralTwist c) OriginalIntegerAffineModel318.contacts
+ 
+ theorem finiteMap_injective : Function.Injective (finiteMap c) := by
+-  exact FourRootOrderLocalizationMaps318.map_injective
+-    (A := ℤ[X]) (T := Laurent) (C := CommonOrder c)
+-    (OriginalIntegerAffineModel318.coefficient c) (RingEquiv.refl (CommonOrder c))
+-    (X : ℤ[X]) Polynomial.X_ne_zero
++  exact finiteMap_injective_generic ℤ
++    (OriginalIntegerReciprocalCharts318.integralTwist c) OriginalIntegerAffineModel318.contacts
+ 
+ /-- The literal coefficient square for the existing finite chart map. -/
+ theorem finite_polynomial (p : ℤ[X]) :

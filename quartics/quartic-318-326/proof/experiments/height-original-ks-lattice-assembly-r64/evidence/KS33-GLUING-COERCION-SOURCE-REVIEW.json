@@ -1,0 +1,36 @@
+{
+  "status": "SOURCE_API_REVIEW_PASS_NOT_LEAN",
+  "application_sha256": "e1ba645a7505cc3af7e47402ae632cede258edb571a84d1817f8f44c4c4f9cd1",
+  "source": {
+    "status": "SOURCE_REPAIR_CANDIDATE_NOT_LEAN",
+    "run_id": "43872386391",
+    "failed_packet": "height-original-ks-lattice-assembly-r33",
+    "immutable_source_commit": "72c4b67ea4a79c3de74b05dedb807c61eb492eef",
+    "packet_intake_sha256": "e9cd9143525b580fb17a71f4e9ecf20c46bbca8a17c1a4209e127f6f304825e7",
+    "module": "IntegralOriginalGluingCompatibility318",
+    "before_sha256": "da4f3f95adb6ebdab8faa6bd52a61e5851fe496febc8c9824c747411b5ae5899",
+    "after_sha256": "6f42687f145e86d2ea63ccee3fe2cfe82927c46e0f357d6eeeda860b25a9f32e",
+    "log_sha256": "6e39a0b235aa48f36d9dd8fdccc70a95cb195b7c544e0a61353bf19070709f5a",
+    "result_sha256": "cc20938d48aab0f7c217914e52cbc0a87a3b9c33c7ab944546d68646769cd11e",
+    "primary": {
+      "geometry-ks34-two-roots-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r33/IntegralWholeOverlapGenerators318.lean": "33b8a7a6edf9514a09aa0ed8e546cfb64f6f1100d2b2caa19072917d5f654010",
+      "geometry-ks34-two-roots-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r33/IntegralWholeGeneratorComparisons318.lean": "f03383b3b517d969dee7ba397775bca69caa4d689cdeb9ac18873368a0d50ced",
+      "geometry-ks34-two-roots-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r33/IntegralOverlapRootGenerators318.lean": "5e4552fb4140257c523c59b8480c8241d751b19610b0f4348858c4d4f020215c"
+    },
+    "native_mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "native_path": "Mathlib/Algebra/Algebra/Hom.lean",
+    "native_git_blob": "928a7294ea28641e445137a41c485c9fd23f4486",
+    "native_sha256": "839f7471fed0a18fbe9d132c70eee788f5003e621ba59e649c8d7ea7bfbc34d8",
+    "change": "Normalize only the focused RHS AlgHom-to-RingHom coercion after the generator comparison and before its exact infinityMap_generator rewrite",
+    "public_statements_imports_options_unchanged": true,
+    "new_assumptions": false,
+    "local_lean_run": false,
+    "hosted_success_claimed": false
+  },
+  "checks": [
+    "Exact normal43872386391 KS33 result/intake and failed source72c4/log bound; all three producer snapshots match immutable source.",
+    "Compiler prints exact coercion mismatch: AlgHom application versus same AlgHom.toRingHom application. Native pinned toRingHom_eq_coe and coe_toRingHom are both rfl equalities.",
+    "Focused RHS simplification normalizes only same map coercions before existing exact infinityMap_generator rewrite; no changed generators, scalar maps, public statements, premises, imports or options.",
+    "No local Lean; next rewrite and downstream tactics remain hosted obligations."
+  ]
+}

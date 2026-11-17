@@ -1,0 +1,24 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "149f9e14e3c97736bf4ce17f155b82e38a8d74a2d8ddec48ffca3d96bb7a421e",
+  "application_sha256": "c5cef12c655f5b7657e8d9ba508c51eec250732aeccb5e3d2fa80d6946325bf8",
+  "immutable_source_commit": "5057039455eb295f5b910a7f41d4f8657635934e",
+  "passed_sources_verified": 51,
+  "native_sources": {
+    "AlgebraDefs.lean": "8cd3931aa8f1e5295c6b7892a70dcf8f7e231df28ff0b6bed1a20b14a5f5a64c"
+  },
+  "native_git_blobs": {
+    "AlgebraDefs.lean": "d540d5fa819588cf2012d189d3b2cfd0552a7c23"
+  },
+  "findings": [
+    "Exactly one concrete inclusion body replacement; all surrounding definitions, types, reciprocal actions, proofs, imports and resource options unchanged.",
+    "The already checked generic closureAlgebra is inclusion.toRingHom.toAlgebra. Native RingHom.algebraMap_toAlgebra is rfl, so explicitly projecting algebraMap from this algebra selects the identical underlying RingHom.",
+    "The source and target carriers are explicit, and the three reciprocal algebras/tower passed into closureAlgebra remain the same. No finite-parameter versus reciprocal-action equality is asserted.",
+    "Adjacent existing overlapAlgebra uses precisely this closureAlgebra application; the change avoids specialization of AlgHom.toRingHom requiring a separately inferred target base Algebra."
+  ],
+  "limitations": [
+    "No local Lean. Exact elaboration and conversion remain hosted obligations.",
+    "Later inclusion_val rfl and intoInfinity_open whnf failures are not claimed fixed before replay.",
+    "Raw native bytes match the advertised Git blob identity; no remote native fetch performed by this review."
+  ]
+}

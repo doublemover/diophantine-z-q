@@ -1,0 +1,22 @@
+--- before/IntegerPolynomialLocalization318.lean
++++ sources/IntegerPolynomialLocalization318.lean
+@@ -17,7 +17,7 @@
+ named semireducible algebra while searching for the polynomial pushout. -/
+ theorem rationalPolynomialAlgebra_eq_native :
+     OriginalIntegerAffineModel318.rationalPolynomialAlgebra = Polynomial.algebra ℤ ℚ :=
+-  algebra_ext _ _ (fun _ => rfl)
++  Algebra.algebra_ext _ _ (fun _ => rfl)
+ 
+ /-- The coefficientwise rational polynomial algebra is the actual integer
+ coefficient localization, with the named coefficient algebra fixed. -/
+@@ -27,6 +27,9 @@
+     rw [Algebra.isLocalization_iff_isPushout (nonZeroDivisors ℤ) ℚ,
+       Algebra.IsPushout.comm]
+     infer_instance
+-  simpa only [rationalPolynomialAlgebra_eq_native] using h
++  exact Eq.mp (congrArg
++    (fun a : Algebra ℤ[X] ℚ[X] =>
++      @IsLocalization ℤ[X] _ denominators ℚ[X] _ a)
++    rationalPolynomialAlgebra_eq_native.symm) h
+ 
+ end IntegerPolynomialLocalization318
