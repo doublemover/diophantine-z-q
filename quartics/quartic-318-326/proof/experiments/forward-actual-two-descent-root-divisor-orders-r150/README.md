@@ -1,0 +1,9 @@
+# Actual closure-unit coefficient transport and abstract H2
+
+This source-only successor retains all 1413 predecessor Lean sources byte-for-byte, including the PrefixLocalRegularity318 right-half simplification repair, and preserves their relative order. Three new modules transport the existing coordinate defect into the actual algebraic-closure unit group with its genuine Galois action, construct everywhere local unit-valued primitives of that same restricted defect, and package the ambiguity between coordinate-derived local primitives as a native abstract degree-two cohomology class. The actual unit action is not replaced with a trivial action.
+
+Local constancy is proved separately from the native abstract H2 construction. No comparison with continuous cohomology, geometric Weil pairing, global primitive, Brauer invariant, finite support, reciprocity, choice-independent Cassels-Tate value, alternation, radical, reduced duality, rational points, rank, or final Diophantine theorem is asserted. Existing rank and infinitude consumers acquire no new assumptions.
+
+The target ActualCasselsTateUnitCohomology318 has 1181 packet modules and 222 baseline dependencies. Source review is not Lean acceptance. Strict hosted compilation and recursive audit under unchanged settings remain required. No local Lean compiler was run.
+
+This packet contains only Lean source plus freshly generated intake, inheritance, application, target-closure metadata and this README. No SOURCE-REVIEW directory, hosted log, result archive, review receipt, or copied evidence file is included. The predecessor is referenced at commit c42aa464a0ec66aacbc96a0bea08b6c68c88509c, path quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r149; that reference is provenance, not a current acceptance claim. The predecessor packet, all unrelated paths, and the hosted request marker remain unchanged.
