@@ -1,0 +1,24 @@
+{
+  "status": "DEPENDENT_ALGEBRA_SOURCE_CORRECTION_NOT_LEAN",
+  "source": "recovery-n4a-order-localization-dependent-algebra/FourRootOrderLocalizationMaps318.lean",
+  "before_sha256": "a3c2d2cd51ffa5ad8b8817a33d456f8b4cbb66024c0505612d49ec5f398dc072",
+  "after_sha256": "9c96ff230ba505643bbd861934dcd5c7d73fe54459e12d1a4baa37a579aa6b90",
+  "bindings": {
+    "geometry-n4a-order-localization-rebase/REBASE.json": "4a0ca23178077b948dedb76e956ab086fc4174b5a4c9e590dfd468cd047febc6",
+    "resume-independent-review/N4A-ORDER-LOCALIZATION-DEPENDENCY-REBASE-ASTRA-REVIEW.json": "39b270f29e4cb3c51466c5940a5a7ae38bbeb0568d0cdd3853771537c9ddce9e",
+    "geometry-ks56-fraction-field-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r56/FourRootOrderOpenMaps318.lean": "2de89c9d14f69962dc24f333228c2881501d1d65027c8b7bbacf501b7f27fca6",
+    "geometry-ks56-fraction-field-integration/quartics/quartic-318-326/proof/experiments/height-original-ks-lattice-assembly-r56/IntegralClosureAwayField318.lean": "0aaf95e3f02b421dfb6bad931f59071619c2959f1e6bf02f46aceae73dc3ad18",
+    "geometry-reciprocal-order-map/sources/OriginalIntegerCommonField318.lean": "23e57b7ff9a5a29408d2e864cd7cefe38a49fb55a630b31480fbc375b6b4fbe9",
+    "geometry-reciprocal-order-map/sources/OriginalIntegerReciprocalOrderNormalization318.lean": "9240d624a6931ff50113707f2e949fb2eb8c8822902869d33a708e2a4152cba5",
+    "geometry-reciprocal-order-map/MANIFEST.json": "9cc485510272f0947033263c9b145f2f026f4eac7e3e6bcf2b0e11b669eebd35"
+  },
+  "change": "Remove non-inferable local instance registration. Capture the explicitly supplied sourceAlgebra a e in localizedEquiv/localization dependent types and proof bodies, and install that exact algebra in map_injective proof.",
+  "scope": "Explicit dependent action telescope correction, not identical implicit instance telescope. Algebra data/map/equivalence/claims unchanged; no new hypothesis or Fact instance.",
+  "exact_action": "sourceAlgebra a e remains exactly (e.toRingHom.comp actualBaseChangeMap).toAlgebra. Each dependent carrier and localization proposition now retains e via explicit letI, rather than expecting synthesis to recover an equivalence absent from the class result type.",
+  "consumer_audit": "Only two standalone future consumers: OriginalIntegerCommonField318 and OriginalIntegerReciprocalOrderNormalization318. Both already define their explicit finiteAlgebra/commonAlgebra as sourceAlgebra with the same e supplied to localization/map_injective. They remain uncompiled and are not packaged in this checkpoint.",
+  "imports_options_limits_unchanged": true,
+  "new_assumptions": false,
+  "local_lean_run": false,
+  "hosted_success_claimed": false,
+  "remaining_obligations": "Tensor-product instances, localizedEquiv scalar compatibility and native localization transport still require hosted elaboration; no proof success claimed."
+}

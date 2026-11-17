@@ -1,0 +1,18 @@
+{
+  "status": "PASS_BOUNDED_MATHEMATICAL_SOURCE_API_REVIEW_NOT_LEAN",
+  "manifest_sha256": "d1c6d02bc9628880db7c86a17cb56d40a352a5c264bcffd19e99e1c7415f29ad",
+  "source_sha256": "30d5eb155af421b80671c277dd3714ce5158cd2ede7da13d53bbe95ba0880510",
+  "all_source_and_primary_manifest_hashes_verified": true,
+  "native_api_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "findings": [
+    "The polynomial embedding compatibility proof repeats the exact SourceFractionField embedding_on_polynomial pattern for the named root-scaled rational-fiber equivalence. Composing gives the literal Z[X] to Q[X] to Q(T) to L path, not an assumed scalar compatibility.",
+    "The integer order is finite over Z[X] by its explicit four monic factors. IsIntegral.of_finite and mapping by the displayed algebra hom give membership in integralClosure Z[X] L; injection follows from the actual composed field embedding.",
+    "Transitivity uses Algebra.IsIntegral.of_finite for the original order; tower_top proves the reverse direction. All scalar-tower hypotheses are provided by the proved embedding compatibility.",
+    "Pinned IsIntegralClosure requires Algebra Order L and Algebra Closure L, but does not require Algebra Order Closure. Thus the predicate correctly precedes closureAlgebra. Its native inclusion is subtype value; integral_iff gives exactly the required image characterization.",
+    "The subsequently constructed closureAlgebra uses the same toClosure map. Its Z[X] scalar tower follows from AlgHom.commutes; Module.Finite.of_restrictScalars_finite then proves finiteness over the actual order from the separately proved Z[X] finiteness.",
+    "The dependency closure was re-read, and all two earlier fraction-field sources, two finite-closure sources and their manifest primary hashes were checked. No arbitrary field replacement, assumed normality, separability or finite extension premise was found.",
+    "No sorry, new axiom, trust bypass or changed option in this source. This is an affine normalization comparison only; global normalized gluing, regularity and smoothness are not established. Hosted elaboration remains required."
+  ],
+  "local_lean_run": false,
+  "lean_acceptance": false
+}
