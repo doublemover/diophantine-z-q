@@ -1,0 +1,18 @@
+{
+  "status": "PASS_CONDITIONAL_THREE_ADIC_SOURCE_HOLD_SHARED_DEPENDENCY",
+  "source_sha256": "7c2d3e977343e0ff55915f12f087dd9a72d5c8c4d57faa80a50831b45730368d",
+  "bindings_sha256": "d2a10b3f511d72a5ea7f6327d39e87e4c564fcc6c95d81cbfa1981cf63ce3ce5",
+  "dependencies": {
+    "LegendrePadicPrimitiveResidues318.lean": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a",
+    "LegendreSharedPrimeResidue318.lean": "33be5747937a4b7e4a9699b88410037c55d0dd4b2ab3327e503014d35fe363b7"
+  },
+  "checks": [
+    "General shared norm inserts nonzero homogeneous coordinate1, invokes actual Qp primitive extraction, then passes exactly the resulting primitive p-squared congruence to shared-prime ratio theorem. No integral or unit-vector premise added.",
+    "Specialization uses a=2C,b=-2t,x=T,z=6Y. Multiplying actual B equality by-6 gives the displayed transformed equation with correct signs.",
+    "C=1mod3 makes2C a unit; ratio -(-2t)/(2C)=t uses only this unit and nonzero2, not division by t.",
+    "IsSquare includes0, so separate3-not-dividing-t is correctly used before three kernel-decidable square cases prove t=1mod3.",
+    "No claim transformed primitive denominator remains1; its unit property is derived internally by shared-prime producer."
+  ],
+  "scope": "Encodes conditional actual B-side mod3 deduction, and general local shared-prime ratio extraction. Does not construct B local solution, selected t, nondivisibility from A, new-prime compatibility or global point.",
+  "hold": "Do not package until shared-prime33be5747 strictly passes, with exact dependency rebase if corrected. Qp2153 already checked; no local Lean or new proof acceptance."
+}
