@@ -1,0 +1,49 @@
+{
+  "status": "PASS_LOCAL_COCHAIN_MATH_SOURCE_API_REVIEW_NOT_LEAN",
+  "source_sha256": "69615d6b6d45712f540862d743b69c847eccb5fa53fd177fc8f68f5b73d5bf1a",
+  "bindings_sha256": "bae7b528fd3d98a02749fb0928fa60d89066b7b062d6e653a53ab0479f791cee",
+  "contexts": [
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentTorsionIntoFullCocycles318.lean",
+      "sha256": "a9467cf1f054b2ae83fb1846edb2e46597cb8d60725933d57f605029f511c167"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFullEllipticHOneKernel318.lean",
+      "sha256": "d136bfa8208228fa044cf6c6accc5b53fddaa32e626279bebe0f840f185de458"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFieldHalvingCocycle318.lean",
+      "sha256": "c6c80931a8a6d592ef4d60876a7310864f6865ef6f735c900de8ac01c0b791b1"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFieldGaloisLocallyConstant318.lean",
+      "sha256": "c3cf97a172001e48bb2f2d1634f57a81e8639e54eace7efb5ad1137b2d815e17"
+    },
+    {
+      "path": "recovery-actual-cassels-tate-cochain-lift/ActualCasselsTateFirstCochainLift318.lean",
+      "sha256": "db750a3f1a10ead5db12abd27db51752687a5a4c1c77beec9e578788d4724f3d"
+    },
+    {
+      "path": "recovery-actual-cassels-tate-cochain-lift/ActualCasselsTateContinuousDefect318.lean",
+      "sha256": "d6f749c160c63f3a932ff90880ed932b4a5ae79833a73bce1fac16de5f06fc6f"
+    },
+    {
+      "path": "recovery-actual-cassels-tate-defect-cup/ActualCasselsTateDefectCup318.lean",
+      "sha256": "66c7027e7b5dbc50d0fa2eba42090a393364cfa4f6a1111547bbf7717ab1d639"
+    }
+  ],
+  "checks": [
+    "Exact actual_full_class_zero states literal geometric cocycle equals sigmaQ-minusQ, with correct orientation",
+    "TorsionFullCocycle is pointwise actual E2 inclusion; import-all permits definitional projection, not a changed representation",
+    "Single fixed geometric R=halfQ gives2deltaR=deltaQ; subtracting from half cochain therefore lies in actual E2",
+    "Continuity uses already-proved half cochain and actual orbit of fixed R, no locally varying choice",
+    "Coboundary of deltaR cancels; rational E2 action removes Galois term in final additive equality"
+  ],
+  "scope": "Given actual full elliptic H1 class zero over the same field F, constructs locally constant E2 correction b with db equal actual half defect.",
+  "limits": [
+    "The vanishing hypothesis is retained, not proved globally or for an arbitrary Sha class overQ",
+    "Application at local fields still must transport the global representative into that field and match actual local Sha vanishing",
+    "No Weil identification, Brauer invariant/reciprocity, global H3 trivialization or actual CT duality",
+    "No local Lean or dependency acceptance"
+  ]
+}

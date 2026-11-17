@@ -1,0 +1,53 @@
+{
+  "status": "PASS_SCOPED_MATH_SOURCE_API_REVIEW_NOT_LEAN",
+  "sources": {
+    "ActualCasselsTateShaLocalPrimitives318.lean": "2610c97c48ea56ad1e5700d9cd1771a38f9fb407f7580d9a3f3e272e5afd48e4",
+    "ActualCasselsTateLocalCupCorrection318.lean": "faec58ce569f53d70db985a0c267d15a17fdaebc61fb030305f8f00d0317a31a"
+  },
+  "bindings_sha256": "4e4895becd1f5a11d6f8bb99662ca800d2369ce58a20d8e4d7558712e86dddde",
+  "contexts": [
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentActualShaDefinition318.lean",
+      "sha256": "402488bd160cc38d8cdfcc34fe09bd229b8b4baa3d998850e2e864f9c61dfd4e"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFullLocalClassRestriction318.lean",
+      "sha256": "e3cee7fe5006576a6d892bdbd559ec100284296ab2c0db46f571cd8b3c857be8"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentFullCocycleRestriction318.lean",
+      "sha256": "4903d6198c9052e3b0ec88e6641eb1dc96e0374145084ec8f5873349f6f3748b"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentContinuousCocycleRestriction318.lean",
+      "sha256": "895c8bf48b49bf864466fb6c27cec705bef8c005e85016eb150126893f7fb902"
+    },
+    {
+      "path": "quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r144/ActualTwoDescentOriginalTorsionPairing318.lean",
+      "sha256": "7dbff9a7aea1e2fa704cb19d4519639ac944a5c69a4cefb9717924992fe444de"
+    },
+    {
+      "path": "recovery-actual-cassels-tate-local-adjustment/ActualCasselsTateLocalAdjustment318.lean",
+      "sha256": "69615d6b6d45712f540862d743b69c847eccb5fa53fd177fc8f68f5b73d5bf1a"
+    },
+    {
+      "path": "recovery-actual-cassels-tate-defect-cup/ActualCasselsTateDefectCup318.lean",
+      "sha256": "66c7027e7b5dbc50d0fa2eba42090a393364cfa4f6a1111547bbf7717ab1d639"
+    }
+  ],
+  "checks": [
+    "Cup correction B(b_sigma,psi_tau) has coboundary signs +,-,+,-; psi multiplication and bilinearity cancel to B(db,psi)",
+    "Joint local constancy is product of fixed locally constant b and original E2 cocycle, followed by fixed coordinate pairing",
+    "actualSha is literal full continuous H1 with representative locally trivial at real and every prime place",
+    "Equality of full classes transfers local triviality to the specified torsion representative using actual_full_local_class_eq with hz.symm",
+    "Literal actual_full_restriction_torsion converts full cocycle restriction into specified torsion restriction",
+    "No chosen global Sha representative or continuous family of halves is substituted implicitly"
+  ],
+  "scope": "Constructs locally constant coordinate-cup primitives for defectCup freshly formed over each local field from restricted torsion representatives.",
+  "critical_distinction": "The displayed RHS uses local half choice after restriction. It is NOT yet identified with restriction of the globally chosen half defect or global degree3 cup. That literal compatibility requires a separate transferred-global-half construction.",
+  "limits": [
+    "No local Lean or accepted dependency assertion",
+    "No implicit global H1/Sha vanishing; actualSha membership is explicit and used only for local vanishing",
+    "No geometric Weil identification, Brauer/local invariant, global H3 vanishing, CT pairing, quotient descent or radical theorem"
+  ]
+}
