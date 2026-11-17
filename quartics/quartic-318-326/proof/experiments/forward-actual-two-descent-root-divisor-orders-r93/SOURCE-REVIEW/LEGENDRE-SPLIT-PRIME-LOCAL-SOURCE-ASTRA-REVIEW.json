@@ -1,0 +1,19 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_MATH_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "66fdb1352fd7fcb13c0db7fab17b414c81e1d5dddd54a909bb26992c962b32f6",
+  "bindings_sha256": "a5743379ab6ecef4976f8c95d6cf3c66f12246f76dd35a35311ae870da512bef",
+  "checked_dependency": {
+    "LegendreHomogeneousAffine318": "59b218a81abcd7a11047f7fde2be1c6b0fd18ad7242eb7bedd03cd1741ad6a6d"
+  },
+  "dependency_runtime_receipt_sha256": "86127d9cbf35493f44031d4c43a7d83887280bf919b8dd800e6ea51ee7b3a6f9",
+  "findings": [
+    "For odd p and p not dividing a, supplied modular square root is nonzero. Its integer representative R is a p-unit and R\u00b2-a divisible by p.",
+    "Hensel polynomial X\u00b2-a at R has derivative2R of norm1, while error has norm<1. Literal typed p-adic norm-two fact avoids earlier good-prime cast mismatch. Native Hensel yields actual p-adic square root, not an assumed local solution.",
+    "For arbitrary integer b, the actual nonzero homogeneous vector (1,s,0) with s\u00b2=a and a nonzero meets the strict-checked affine extraction telescope. Output coordinate order is correctly swapped to z\u00b2-a*x\u00b2=b.",
+    "No p-nondivisibility condition on b is needed; p2 excluded explicitly. No reciprocity result or modular square hypothesis is silently discharged."
+  ],
+  "limits": [
+    "No local Lean or formal acceptance. Cast and Hensel elaboration require strict hosted check.",
+    "Only one checked experiment dependency; no chosen auxiliary prime or global rational solution."
+  ]
+}
