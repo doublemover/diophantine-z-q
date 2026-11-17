@@ -1,0 +1,70 @@
+module
+public import Mathlib.RingTheory.Localization.Integral
+public import Mathlib.RingTheory.Localization.Away.Basic
+public section
+noncomputable section
+namespace IntegralClosureAwayField318
+variable {A L : Type*} [CommRing A] [Field L] [Algebra A L]
+variable (x : A) (hx : IsUnit (algebraMap A L x))
+
+/-- Extend the given coefficient map, rather than choose an unrelated
+algebra structure on the ambient field. -/
+@[expose] def fieldMap : Localization.Away x →+* L :=
+  IsLocalization.Away.lift x hx
+
+@[expose] def fieldAlgebra : Algebra (Localization.Away x) L :=
+  (fieldMap x hx).toAlgebra
+attribute [local instance] fieldAlgebra
+
+@[simp] theorem fieldMap_on_base (a : A) :
+    fieldMap x hx (algebraMap A (Localization.Away x) a) = algebraMap A L a :=
+  IsLocalization.Away.lift_eq x hx a
+
+instance fieldTower : IsScalarTower A (Localization.Away x) L :=
+  IsScalarTower.of_algebraMap_eq (fun a => (fieldMap_on_base x hx a).symm)
+
+abbrev Closure := integralClosure A L
+abbrev AwayClosure := integralClosure (Localization.Away x) L
+
+/-- The actual inclusion between closures inside the SAME ambient field.
+The integrality proof uses the explicitly extended coefficient action. -/
+@[expose] def inclusion : Closure (A := A) (L := L) →ₐ[A] AwayClosure x hx where
+  toFun z := ⟨z.val, z.property.tower_top⟩
+  map_one' := Subtype.ext rfl
+  map_zero' := Subtype.ext rfl
+  map_add' _ _ := Subtype.ext rfl
+  map_mul' _ _ := Subtype.ext rfl
+  commutes' _ := Subtype.ext rfl
+
+@[simp] theorem inclusion_val (z : Closure (A := A) (L := L)) :
+    (inclusion x hx z).val = z.val := rfl
+
+theorem inclusion_injective : Function.Injective (inclusion x hx) := by
+  intro z w h
+  exact Subtype.ext (congrArg Subtype.val h)
+
+@[expose] def closureAlgebra :
+    Algebra (Closure (A := A) (L := L)) (AwayClosure x hx) :=
+  (inclusion x hx).toRingHom.toAlgebra
+attribute [local instance] closureAlgebra
+
+instance closureBaseTower :
+    IsScalarTower A (Closure (A := A) (L := L)) (AwayClosure x hx) :=
+  IsScalarTower.of_algebraMap_eq (fun a => ((inclusion x hx).commutes a).symm)
+
+instance closureFieldTower :
+    IsScalarTower (Closure (A := A) (L := L)) (AwayClosure x hx) L :=
+  IsScalarTower.of_algebraMap_eq' rfl
+
+/-- Normalization commutes with this coordinate localization. All scalar
+maps and compatibility instances above are constructed, not hypotheses.
+Only the coordinate x is inverted; this does not invert residue primes. -/
+theorem localization :
+    IsLocalization.Away (algebraMap A (Closure (A := A) (L := L)) x)
+      (AwayClosure x hx) := by
+  letI : IsLocalization.Away (algebraMap A L x) L :=
+    IsLocalization.away_of_isUnit_of_bijective L hx Function.bijective_id
+  exact IsLocalization.Away.integralClosure (S := L)
+    (Rf := Localization.Away x) (Sf := L) x
+
+end IntegralClosureAwayField318
