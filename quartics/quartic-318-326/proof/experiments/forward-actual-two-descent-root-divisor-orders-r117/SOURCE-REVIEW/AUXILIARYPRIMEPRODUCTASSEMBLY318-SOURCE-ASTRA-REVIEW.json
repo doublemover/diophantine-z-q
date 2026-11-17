@@ -1,0 +1,22 @@
+{
+  "status": "PASS_SOURCE_MATH_API_NOT_LEAN",
+  "candidate_sha256": "efbd671179a2a6f9cd70e7207d19661b091fa65e0334d4c9d9f3281f71a7b279",
+  "bindings_sha256": "1632d2d5066e3626b248f08f6984f73bef1560ba38daeaee2baff9f67323cab2",
+  "dependency_sources": {
+    "AuxiliaryJacobiProduct318": "0f78b15f2de9c6e0459c042353e51c610de58f62600b94b0658480bb28758a78",
+    "AuxiliarySignedReciprocity318": "c57e309ac2cf66ebc31943cb45894ada9f7d481adce8ea3710629de452d8c88b"
+  },
+  "checks": [
+    "Prime factor LIST product includes multiplicities; nonzero n suffices, no squarefree premise",
+    "Odd P,U ensure positivity and allow P=1 or U=1",
+    "Multiplicativity expands J(q/P) and J(q/U); J(2/U)=1 removes 2^alpha factor",
+    "Exact real-compatible sign product consumes gcd(U,P)=1 and supplied sign cases",
+    "Signed reciprocity with C=1 mod24 and |C|=P*U produces IsSquare(6C mod q)"
+  ],
+  "limits": [
+    "Per-prime selected/unselected character identities, J(2/U)=1, J(6/q)=1, support/sign data and prime q are explicit inputs, not produced",
+    "epsilon is not explicitly equated to sign(C); no logical gap because supplied sign cases suffice for the conditional product, but actual instantiation must establish correct identities/sign",
+    "Historical QR dependencies match immutable source but strict artifacts not newly rehydrated by this source gate",
+    "No local Lean; elaboration and strict runtime acceptance pending"
+  ]
+}
