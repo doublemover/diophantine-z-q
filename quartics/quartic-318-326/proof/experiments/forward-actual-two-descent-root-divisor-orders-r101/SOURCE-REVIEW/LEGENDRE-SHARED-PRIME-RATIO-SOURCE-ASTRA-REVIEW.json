@@ -1,0 +1,17 @@
+{
+  "status": "PASS_SHARED_PRIME_RATIO_SOURCE_NOT_LEAN",
+  "source_sha256": "7096a5332db80bc58c751230dce1e8d0f47c2ce5f6b2742b76d65addd0a86f4e",
+  "bindings_sha256": "7d5478eafab5dd4a271dc1eb6222bcc4fb9fddad89880d4771778bc2ece294cc",
+  "checked_api_pattern_source_sha256": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede",
+  "checks": [
+    "Modp reduction gives z\u00b2=0, hence p|z. Substitution z=pZ into exact p\u00b2 divisibility then cancels nonzero integerp, not a zero field element.",
+    "Second reduction gives a*x\u00b2+b*w\u00b2=0 modp. Ifw=0, a unit forcesx=0, contradicting primitivity together withp|z. Thus w and a are valid denominators.",
+    "Ratio x/w squares to -b/a with correct minus sign. Works atp2 and whenb is divisible byp; root may be0.",
+    "No hidden p\u2224b premise; applications requiring Jacobi symbol1 must separately prove nonzero numerator. Only first coefficient has exactly onep factor; documentation interpreted accordingly.",
+    "Native-only source using cast/cancellation APIs already present in strict modular-root pattern."
+  ],
+  "limits": [
+    "No local Lean; simplification/cancellation elaboration and full audit remain pending.",
+    "No primitive residue production, actual bad-prime compatibility, prime selection or global witness established by this standalone lemma."
+  ]
+}
