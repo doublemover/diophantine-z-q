@@ -1,0 +1,18 @@
+{
+  "status": "PASS_AMBIENT_SECTION_OPERAND_SOURCE_REVIEW_NOT_LEAN",
+  "candidate_sha256": "64e914bff68d52b30a8346ddefbd9b0eca3c9ff0d51efc1d32f86846249c9fd5",
+  "application_sha256": "e211b8cff916ffb0ed019cc425fd557bc6546146dcdef95f50e9005ce37a0c68",
+  "bindings_verified": 15,
+  "passed_context_sources": 43,
+  "runtime_review_sha256": "dca463d7b4344eea6d7e8f46e4654dd8fb46c90cbf8ebf82caa07ed9dd90b9fa",
+  "findings": [
+    "Only m in the final scalar action receives the exact ambient section type annotation, matching the already rewritten producer pure law. No new map or coercion function is introduced.",
+    "The scalar has type \u0393(X,image Z); annotated m has type \u0393(L.object,image Z), so instance inference selects the original ambient module action, rather than searching for mixed ambient/restricted carriers.",
+    "The same m is definitionally identified with the ambient section carrier as in earlier original change. f.symm already supplies the ambient expected type for n.",
+    "All15 bindings, seven primary/one consumer and43 passed immutable identities verified; remaining proof, signatures, imports, options and limits unchanged."
+  ],
+  "limits": [
+    "No local Lean, compile acceptance or cure claim. Exact carrier and double-symmetry definitional conversion remains hosted obligation.",
+    "Prior runtime only identifies completed failure at final simp, not a general performance cause."
+  ]
+}

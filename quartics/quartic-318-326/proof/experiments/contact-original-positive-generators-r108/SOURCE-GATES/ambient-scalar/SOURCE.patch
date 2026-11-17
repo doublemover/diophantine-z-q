@@ -1,0 +1,11 @@
+--- before/OriginalTensorUntwistRefinement318.lean
++++ after/OriginalTensorUntwistRefinement318.lean
+@@ -104,7 +104,7 @@
+   rw [restriction_inv_pure,OriginalTensorUntwistOver318.pure,OriginalTensorUntwistOver318.pure]
+   exact (congrArg
+     (fun f : Γ(X,W.ι ''ᵁ Z) ≃ₗ[Γ(X,W.ι ''ᵁ Z)] Γ(N.object,W.ι ''ᵁ Z) =>
+-      f.symm n • m)
++      f.symm n • (show Γ(L.object,W.ι ''ᵁ Z) from m))
+     (OpenLineFrameRefinement318.coordinates N.object U e.symm W h (W.ι ''ᵁ Z)
+       (show W.ι ''ᵁ Z ≤ W from by simpa using W.ι.image_le_opensRange Z))).symm
+ 
