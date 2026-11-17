@@ -1,0 +1,18 @@
+{
+  "status": "PASS_POSITIVE_DEPTH_RESIDUE_SOURCE_NOT_LEAN",
+  "source_sha256": "6b2cb26a8affe6fab3e8425915a2b25f633ae313efa55cdc97db383bf85ad108",
+  "bindings_sha256": "163fbb83372f99953905dc9f84e0b023bae101ef50f3cd45dc72055bd59e8236",
+  "checked_dependency_receipt_sha256": "71f0fcc3550dc6c4ae7e7581666ee187a0e865dc912e40e9723d1ec51d23715e",
+  "native_ringhoms_snapshot_sha256": "c56bf1519b51dd9a50dcbee80abc439fd0a2c1e2a9694582b9df0eda71e4839f",
+  "checks": [
+    "Reuses strict-checked primitive_integral_solution with actual supplied nonzero Qp point; no new integrality/unit premise.",
+    "Representative q.appr k and toZModPow k use identical checked projection reduction and ring-map polynomial calculation with arbitrary k.",
+    "appr_spec gives p^k divisibility; hk>0 gives p divides p^k via native dvd_pow_self, also used in pinned RingHoms. Thus divisibility of all integer representatives would contradict original primitivity.",
+    "Modulus cast p^k is rewritten before exact ZMod cast divisibility criterion; applies every prime including2 and all positive k.",
+    "k=4 supplies mod16 residue data, not the additional local norm residue tables or selection theorem."
+  ],
+  "limits": [
+    "No local Lean; generalized exponent, casts and inference require strict replay.",
+    "Supplied local solution remains a premise; no local/global point existence or auxiliary prime construction."
+  ]
+}

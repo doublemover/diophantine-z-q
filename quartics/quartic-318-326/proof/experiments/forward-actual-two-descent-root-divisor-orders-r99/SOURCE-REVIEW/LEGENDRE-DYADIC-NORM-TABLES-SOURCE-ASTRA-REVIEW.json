@@ -1,0 +1,24 @@
+{
+  "status": "PASS_DYADIC_TABLE_SOURCE_MATH_REVIEW_NOT_LEAN",
+  "source_sha256": "06cb582b3c138c4a55bfb3d57a30d075520f3e4f18b4888c915326fcf431580b",
+  "bindings_sha256": "eaf4790b051c65282d50dfdefe64d54c3cb02bf48d76031262054065a61b42f2",
+  "native_snapshots": {
+    "Mathlib-Algebra-Ring-Int-Parity.lean.txt": "fc2242f0d7f277e861b310f925207ceb4a75991602048da631821c666871e5bd"
+  },
+  "checks": [
+    "Primitive mod4 relation with a=2 mod4 forces w odd: w even would imply z,x even.",
+    "Odd t then z odd; squares mod8 give unit classes1 and1-a.",
+    "For t=2v with v odd, mod4 forces z even and x,w odd; full mod16 square classes before division give v=7 or a-1 mod8 for a=2 or6 mod16.",
+    "Pinned sq_emod_four states x\u00b2 mod4=x mod2; native odd-square divisibility lemma inspected.",
+    "Independent finite residue enumeration found no counterexamples; this is a mathematical diagnostic, not compiler verification."
+  ],
+  "diagnostic_valid_cases": [
+    256,
+    1024
+  ],
+  "limits": [
+    "No local Lean. Elaborating norm_num/omega modular normal forms and strict audit remain unverified.",
+    "The valuation-one coefficient assumption is a mod16=2 or6, not merely mod8.",
+    "Actual Qp primitive residues, common-value valuation normalization, finite local squareclasses and prime selection remain separate bridges."
+  ]
+}
