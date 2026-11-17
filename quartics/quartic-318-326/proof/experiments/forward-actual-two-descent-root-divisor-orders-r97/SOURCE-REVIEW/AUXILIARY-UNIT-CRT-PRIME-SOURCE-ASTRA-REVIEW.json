@@ -1,0 +1,23 @@
+{
+  "status": "PASS_FINITE_UNIT_CRT_DIRICHLET_SOURCE_NOT_LEAN",
+  "source_sha256": "b84d6608cc48655c454ecc6e54688c71159115d0502a6e55c99ac1120594aba3",
+  "bindings_sha256": "6bc7f9e0270e135377a69d43b74018481b8b4fce08d9d1331c98c5a59c573528",
+  "native_snapshots": {
+    "Mathlib-Data-Nat-ChineseRemainder.lean.txt": "751512508289a381efc022ea73fe91f82b3f7177412beb57b24bebfc42adc4d9",
+    "Mathlib-Nat-ModEq.lean.txt": "09ca6494bc31f0203fba7aba7182d4ee2b9a753119ec416e7e5675aff18de222",
+    "Mathlib-NumberTheory-LSeries-PrimesInAP.lean.txt": "99cdf2031141c1acdad1027d14761b8f6a99a759321d82ae0f8b2e6ae0cc347c",
+    "Mathlib-Nat-GCD-BigOperators.lean.txt": "1b710dd432132ea5c50daff2d87b7902cfb25f6407b0987324ffb542924751c6"
+  },
+  "checks": [
+    "Native chineseRemainderOfFinset a m S hm hpair returns the required congruence subtype. Pairwise coprime nonzero moduli are explicit hypotheses.",
+    "gcd_eq has the correct orientation: gcd assembled residue modulus equals gcd supplied unit residue modulus. coprime_prod_right_iff proves global class coprimality.",
+    "Exact native Nat.forall_exists_prime_gt_and_modEq accepts bound N, nonzero product modulus and proved coprimality; no assumed prime existence.",
+    "Prime congruence reduces along each modulus dividing product, then composes with original CRT residue; global gcd transports similarly.",
+    "Empty S and modulus1 allowed: product1 and vacuous constraints remain valid. No positivity or pairwise distinct residue premise needed."
+  ],
+  "scope": "Constructs arbitrarily large prime satisfying supplied compatible finite unit residues. Does not construct actual p-adic squareclass residues, prove their unit/pairwise-modulus conditions, or derive new-prime norm compatibility.",
+  "limits": [
+    "No local Lean; native argument inference and full strict audit remain pending.",
+    "Native text snapshot hashes bound; no raw Git blob authentication claim."
+  ]
+}
