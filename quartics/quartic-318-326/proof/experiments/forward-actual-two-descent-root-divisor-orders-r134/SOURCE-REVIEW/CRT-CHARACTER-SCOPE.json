@@ -1,0 +1,39 @@
+{
+  "status": "MATHEMATICAL_SOURCE_SCOPE_NOT_NEW_RUNTIME_ACCEPTANCE",
+  "fixed_support": "S={2,3} union primeFactors(|C|), C fixed signed squarefree normalized coefficient; q never added to S",
+  "quantifier_order": [
+    "Fix C and S.",
+    "Choose sigma from sign C before D, alpha or q.",
+    "Choose actual local common values, square-normalize to p^alpha_p*u_p.",
+    "Set E_p=sigma*product_{r in S without p} r^alpha_r.",
+    "Set k_2=3 and k_p=1 at odd p; n_p=(u_p/E_p).appr(k_p).",
+    "CRT gives fixed unit class r modulo M=product p^k_p.",
+    "Dirichlet supplies arbitrarily large prime q in that class.",
+    "Large bound N+sum S excludes q from S.",
+    "All such primes preserve both norms at each p in S; separate compatibility proves the exceptional-q splitting."
+  ],
+  "residue_freedom": "One explicit approximation residue is chosen inside the required squareclass. Different square representatives have the same Legendre sign; signs are not independent CRT control bits.",
+  "characters": {
+    "selected_p": "J(q,p)=J(epsilon*sigma*U,p)",
+    "unselected_p": "J(q,p)=J(-sigma*2^alpha2*P,p)",
+    "product": "J(q,|C|)=1 follows from reciprocal/sign product, not simply from q mod24.",
+    "signed_reciprocity": "C=1 mod4 implies J(C,q)=J(q,|C|), including negative C; negative numerator and QR signs cancel.",
+    "q23": "J(2,q)=J(6,q)=1, while chi_{-8}(q)=-1. Actual A field is Q(sqrt(+2)), character chi_8, not chi_{-8}.",
+    "counterexample_to_mod24_alone": "C=97,q=23 gives J(C,q)=J(5,23)=-1; full bad-prime residue conditions are necessary.",
+    "branch_sanity_example": "C=P=sigma=1, alpha2=1, q=23,t=46: 8^2-2*3^2=46=10^2-6*3^2; t/2=23=7 mod8. Not claimed original prepared parameters."
+  },
+  "conductor": "For signed squarefree C=1 mod24, d=6C is squarefree and d=6 mod8; fundamental discriminant24C has 2-part8. No extra conductor prime lies outside S. This discriminant assertion is mathematical, not a new compiled discriminant lemma.",
+  "current_holds": [
+    "Finite122 cast repair and actual finite wrapper not yet accepted.",
+    "Actual coefficient-character assembler7220 source reviewed, held for123/125 runtime.",
+    "Complement126 and caller127 published but strict checks pending.",
+    "Global specialized actual-c producer not yet compiled; four elliptic realization inputs remain separate."
+  ],
+  "sources": {
+    "LocalUnitClass": "lines45-83, particularly ratio60 and residue62",
+    "UnitSquareclass": "unit_residue67-83, n=u.appr k at70",
+    "FiniteSquareclasses": "lines12-52 fix inputs and residue choices before Dirichlet q",
+    "PrimeCRT": "lines19-30 CRT class, coprimality and Nat.forall_exists_prime_gt_and_modEq",
+    "SignedReciprocity": "lines10-34 signed identity;39-45 target positive6C"
+  }
+}

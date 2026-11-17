@@ -1,0 +1,7 @@
+# Coherent actual prepared rational anchor candidate
+
+This is one complete, independently source-reviewed specialized no-hglobal proof chain, staged for a single strict dependency-closed test rather than claiming isolated uncompiled layers as results. Target ActualPreparedRationalAnchor318.prepared_representation has only a:Int, A B N d:Nat and d!=0 as inputs. It derives actual normalized coefficient/local vectors, fixes support and sign before CRT/Dirichlet, proves exceptional-prime compatibility from the same finite common norms, constructs global A/B values, applies retained rational anisotropy, and restores the literal target3*r^2-2.
+
+Eight new source modules plus one exact Complement126 proof repair. The latter uses bounded residue cases and controlled rewrites, not raised limits. All1369 other predecessor sources are byte-identical. Exact target closure161 and source hashes are embedded. EVERY closure root and recursive audit must pass before endpoint acceptance. Source/interface review is not elaboration/kernel checking; prior strict-dependency holds are superseded only for this explicitly authorized coherent test, never for acceptance.
+
+No arbitrary q-class, hglobal axiom, q-adic point, global norm or elliptic realization is supplied to the final theorem. Four elliptic realizations, original whole quartic result and global geometry remain outside this endpoint. Existing pending inventories remain protected by serial integration.
