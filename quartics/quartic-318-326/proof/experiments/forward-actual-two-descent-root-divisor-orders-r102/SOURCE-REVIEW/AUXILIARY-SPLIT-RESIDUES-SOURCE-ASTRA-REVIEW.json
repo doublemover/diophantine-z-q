@@ -1,0 +1,20 @@
+{
+  "status": "PASS_NATIVE_ONLY_MATHEMATICAL_SOURCE_REVIEW_NOT_LEAN",
+  "source_sha256": "4e7fc8571673736d2ffb3987c3e4f48ed1aa0232cb83884de6714255352db19a",
+  "bindings_sha256": "9ab18a3de13b9187d33a157cde31c15f452abe326e7185d2ff0e58098349151c",
+  "native_snapshots": {
+    "Mathlib-JacobiSymbol.lean.txt": "71532b48a7f8de5a1fa880e29bc1c2c1927f6fbdf8b73085d233a81f7160bef1",
+    "Mathlib-ZModChar.lean.txt": "900e4a4f324135a0e29994b9d95605fa10bea14c5ab34b510d1d356a80c4aeaa"
+  },
+  "checks": [
+    "Multiplicativity and J2=J6=1 give J3=1 without an additional coprimality assumption.",
+    "Native at_two and chi8 natural residue formula include both mod2 and mod8, matching both rewrites.",
+    "Native quadratic_reciprocity_if has exact oddness premises and sign orientation; reduction of J(n/3) uses mod_left and integer/natural modulus cast.",
+    "All 24 cases reduce the two character constraints; independent finite arithmetic check leaves exactly1 and23. This check is diagnostic, not Lean proof.",
+    "Odd n excludes0; n=1 is permitted and satisfies conclusion. Composite denominators are legitimate because the claims concern Jacobi characters, not primality."
+  ],
+  "scope": "Conditional residue classification for any odd natural denominator with supplied J2=J6=1. Does not establish those symbol values for an actual finite parity product or selected prime. Native-only imports; no uncompiled experiment dependency.",
+  "limits": [
+    "No local Lean; tactic simplification and exact elaboration require strict hosted checking."
+  ]
+}
