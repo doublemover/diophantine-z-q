@@ -1,0 +1,111 @@
+{
+  "status": "SOURCE_ONLY_PORTABLE_EXACT_EIGHT_ROOT_CONTEXT",
+  "target": "RCTwoAdicBinaryCongruence318.exists_nonzero_character",
+  "order": [
+    "RCBooleanCube318",
+    "RCBooleanCommonZero318",
+    "RCBinaryDigit318",
+    "RCBooleanDigitPolynomial318",
+    "RCFiniteBinaryCongruence318",
+    "RCSignCharacterCongruence318",
+    "RCIntegralGroupRingCongruence318",
+    "RCTwoAdicBinaryCongruence318"
+  ],
+  "sources": {
+    "RCBooleanCube318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanCube318.lean",
+      "sha256": "e787f24e800cfb5db5387ac47b468b215b1a24ad949ba582588751a931de2d05",
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Degrees",
+        "Mathlib.Data.ZMod.Defs",
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Algebra.BigOperators.Finsupp.Basic"
+      ]
+    },
+    "RCBooleanCommonZero318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanCommonZero318.lean",
+      "sha256": "e85ed07333c2ae94fb257da95fed5614474421b931db133908fbf187284053b0",
+      "imports": [
+        "RCBooleanCube318"
+      ]
+    },
+    "RCBinaryDigit318": {
+      "path": "recovery-rc-binary-congruences/RCBinaryDigit318.lean",
+      "sha256": "4f461910995f0c99aaad7f0205c67159de9896fe54fe835e70cbee1b599f5342",
+      "imports": [
+        "Mathlib.Data.Nat.Choose.Lucas",
+        "Mathlib.Tactic"
+      ]
+    },
+    "RCBooleanDigitPolynomial318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanDigitPolynomial318.lean",
+      "sha256": "ba6922c8ffcb9aac0abddd6864d7e4109aa19b0ee33949d1f41ce5e5a68c340e",
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Degrees",
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.Data.Nat.Choose.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    "RCFiniteBinaryCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCFiniteBinaryCongruence318.lean",
+      "sha256": "cdc116dd1c314a495a1210a927bfc65ac7be02e6acb2c4d37f8434624ab0d066",
+      "imports": [
+        "RCBooleanCommonZero318",
+        "RCBinaryDigit318",
+        "RCBooleanDigitPolynomial318"
+      ]
+    },
+    "RCSignCharacterCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCSignCharacterCongruence318.lean",
+      "sha256": "a20f07255f87fba34cb18b3fbf5c41afa52a458a2a7dfcff67880052b0f99912",
+      "imports": [
+        "RCFiniteBinaryCongruence318",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic"
+      ]
+    },
+    "RCIntegralGroupRingCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCIntegralGroupRingCongruence318.lean",
+      "sha256": "8c91ac63fc38d3644afdfa30d240cfcb6f4a2f053492d19991cf3370422aa6df",
+      "imports": [
+        "RCSignCharacterCongruence318"
+      ]
+    },
+    "RCTwoAdicBinaryCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCTwoAdicBinaryCongruence318.lean",
+      "sha256": "8841fde0dcac6acf68cdd72897e7059c957cffdc3843b7b97b0f917cd5b83a14",
+      "imports": [
+        "RCIntegralGroupRingCongruence318",
+        "Mathlib.NumberTheory.Padics.RingHoms"
+      ]
+    }
+  },
+  "baseline_import": "ZInQ.BooleanCube",
+  "baseline_sha256": "e787f24e800cfb5db5387ac47b468b215b1a24ad949ba582588751a931de2d05",
+  "native_snapshots": {
+    "recovery-rc-binary-congruences/native/ChooseBasic.lean": "a3ade1e64b5a1ab661c56c0cc18e56236be35503ea5d77646d1fbe139a8f2fd9",
+    "recovery-rc-binary-congruences/native/BooleanCube.lean": "e787f24e800cfb5db5387ac47b468b215b1a24ad949ba582588751a931de2d05",
+    "recovery-rc-binary-congruences/native/MvPolynomialDegrees.lean": "d7d8dab1bb228470da49bfdfe024251f7d1f656a7258acaa56febe3550940f2a",
+    "recovery-rc-binary-congruences/native/ZModBasic.lean": "52533f423ad161351ece7b8419f3ad8fac848a6216bb6433ffaf1e4421f364f6",
+    "recovery-rc-binary-congruences/native/PadicRingHoms.lean": "c56bf1519b51dd9a50dcbee80abc439fd0a2c1e2a9694582b9df0eda71e4839f",
+    "recovery-rc-binary-congruences/native/PolynomialCoeff.lean": "de56bbfd25ae1900dc343eeaf1984abb48e6072d53da56eba9a00d5919667555",
+    "recovery-rc-binary-congruences/native/ChooseLucas.lean": "eee1fc459ba9e6389736ac5960196ec3a9ece3838df2a394709aacd16e78efcd",
+    "recovery-rc-binary-congruences/native/FinsetBigOperatorsDefs.lean": "710646cfc1c9a4b851ce57c336f072acb8aa1aeb8d4a1f4aca6551c96fee66f9",
+    "recovery-rc-binary-congruences/native/ListBigOperatorsBasic.lean": "d9d86133accd66c543bbaf9d618a31f955ed9167716102ab7861a5c5c3125391",
+    "recovery-rc-binary-congruences/native/BinomialDigit.lean": "fe5d4b16780fc9a0df21ab1c83cf220bb2f261575781020729a473bdb1899a30"
+  },
+  "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "exact_scope": "Actual coefficients z:Fin r\u2192(Fin b\u2192ZMod2)\u2192Z_2 and r*(2^M-1)<b produce nonzero x and native toZModPow M equality of each literal sign evaluation and augmentation. M=0 included. Explicit polynomials, finite signed coefficient reduction and actual 2-adic residue lift are constructed, not supplied.",
+  "global_boundary": "No actual CT pairing or reduced-Sha radical theorem, missing-vertex global-complex theorem, RC analytic rank, or point existence follows in this candidate.",
+  "lean_run": false,
+  "portability": {
+    "reason": "check_progress_experiment.ci.derive_plan module_keys does not include ZInQ.BooleanCube. Exact project proof must be compiled/audited as an experiment root; do not assume baseline acceptance.",
+    "source_byte_identity": true,
+    "commonzero_before_sha256": "57c9f4df2b01e0af9863403a06620472347332fb3028cfa795a38fc896e5bcca",
+    "commonzero_after_sha256": "e85ed07333c2ae94fb257da95fed5614474421b931db133908fbf187284053b0",
+    "only_commonzero_change": "public import ZInQ.BooleanCube -> public import RCBooleanCube318",
+    "root_count": 8,
+    "source_namespace_and_all_proof_bytes_unchanged": true
+  }
+}

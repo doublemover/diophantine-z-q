@@ -1,0 +1,58 @@
+{
+  "status": "PASS_FINITE_TWO_ADIC_MATH_SOURCE_API_CONTEXT_NOT_LEAN",
+  "bindings_sha256": "1d2c660c51e9ec45ea56743f924e11c5f1a016867228ba2b79acfaa87784167a",
+  "sources": {
+    "RCBooleanCommonZero318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanCommonZero318.lean",
+      "sha256": "57c9f4df2b01e0af9863403a06620472347332fb3028cfa795a38fc896e5bcca"
+    },
+    "RCBinaryDigit318": {
+      "path": "recovery-rc-binary-congruences/RCBinaryDigit318.lean",
+      "sha256": "4f461910995f0c99aaad7f0205c67159de9896fe54fe835e70cbee1b599f5342"
+    },
+    "RCBooleanDigitPolynomial318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanDigitPolynomial318.lean",
+      "sha256": "ba6922c8ffcb9aac0abddd6864d7e4109aa19b0ee33949d1f41ce5e5a68c340e"
+    },
+    "RCFiniteBinaryCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCFiniteBinaryCongruence318.lean",
+      "sha256": "cdc116dd1c314a495a1210a927bfc65ac7be02e6acb2c4d37f8434624ab0d066"
+    },
+    "RCSignCharacterCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCSignCharacterCongruence318.lean",
+      "sha256": "a20f07255f87fba34cb18b3fbf5c41afa52a458a2a7dfcff67880052b0f99912"
+    },
+    "RCIntegralGroupRingCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCIntegralGroupRingCongruence318.lean",
+      "sha256": "8c91ac63fc38d3644afdfa30d240cfcb6f4a2f053492d19991cf3370422aa6df"
+    },
+    "RCTwoAdicBinaryCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCTwoAdicBinaryCongruence318.lean",
+      "sha256": "8841fde0dcac6acf68cdd72897e7059c957cffdc3843b7b97b0f917cd5b83a14"
+    }
+  },
+  "order": [
+    "RCBooleanCommonZero318",
+    "RCBinaryDigit318",
+    "RCBooleanDigitPolynomial318",
+    "RCFiniteBinaryCongruence318",
+    "RCSignCharacterCongruence318",
+    "RCIntegralGroupRingCongruence318",
+    "RCTwoAdicBinaryCongruence318"
+  ],
+  "baseline_sha256": "e787f24e800cfb5db5387ac47b468b215b1a24ad949ba582588751a931de2d05",
+  "checks": [
+    "Native toZModPow M is actual ring hom Z2 to ZMod(2^M)",
+    "Each coefficient residue has explicit natural val representative, cast back equals actual residue",
+    "Full finite Boolean group enumeration transports signed-list congruence to actual finite sums",
+    "Integer divisibility gives equality in exact ZMod(2^M); ring-hom sum/product/integer-cast preservation transports to two-adic inputs",
+    "M0 modulus1 case included; strict dimension bound still guarantees b>0/nonzero character",
+    "Seven exact source hashes/order and pinned native snapshots bound; baseline BooleanCube matches immutable source"
+  ],
+  "scope": "Actual coefficients z:Fin r\u2192(Fin b\u2192ZMod2)\u2192Z_2 and r*(2^M-1)<b produce nonzero x and native toZModPow M equality of each literal sign evaluation and augmentation. M=0 included. Explicit polynomials, finite signed coefficient reduction and actual 2-adic residue lift are constructed, not supplied.",
+  "limits": [
+    "No Lean or baseline/dependency runtime acceptance",
+    "This proves only explicit finite-character evaluation expressions, not a bundled universal Selmer-family or missing-vertex construction",
+    "No CT pairing/reduced-Sha radical, analytic RC or point-existence result"
+  ]
+}

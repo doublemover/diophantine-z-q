@@ -1,0 +1,95 @@
+{
+  "status": "PASS_EXACT_PORTABLE_SOURCE_CONTEXT_NOT_LEAN",
+  "bindings_sha256": "73fd25b81d2575218361ce9a7abd3065c169bb6a2868a195b7aa2dd8d8e17287",
+  "sources": {
+    "RCBooleanCube318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanCube318.lean",
+      "sha256": "e787f24e800cfb5db5387ac47b468b215b1a24ad949ba582588751a931de2d05",
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Degrees",
+        "Mathlib.Data.ZMod.Defs",
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Algebra.BigOperators.Finsupp.Basic"
+      ]
+    },
+    "RCBooleanCommonZero318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanCommonZero318.lean",
+      "sha256": "e85ed07333c2ae94fb257da95fed5614474421b931db133908fbf187284053b0",
+      "imports": [
+        "RCBooleanCube318"
+      ]
+    },
+    "RCBinaryDigit318": {
+      "path": "recovery-rc-binary-congruences/RCBinaryDigit318.lean",
+      "sha256": "4f461910995f0c99aaad7f0205c67159de9896fe54fe835e70cbee1b599f5342",
+      "imports": [
+        "Mathlib.Data.Nat.Choose.Lucas",
+        "Mathlib.Tactic"
+      ]
+    },
+    "RCBooleanDigitPolynomial318": {
+      "path": "recovery-rc-binary-congruences/RCBooleanDigitPolynomial318.lean",
+      "sha256": "ba6922c8ffcb9aac0abddd6864d7e4109aa19b0ee33949d1f41ce5e5a68c340e",
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Degrees",
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.Data.Nat.Choose.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    "RCFiniteBinaryCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCFiniteBinaryCongruence318.lean",
+      "sha256": "cdc116dd1c314a495a1210a927bfc65ac7be02e6acb2c4d37f8434624ab0d066",
+      "imports": [
+        "RCBooleanCommonZero318",
+        "RCBinaryDigit318",
+        "RCBooleanDigitPolynomial318"
+      ]
+    },
+    "RCSignCharacterCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCSignCharacterCongruence318.lean",
+      "sha256": "a20f07255f87fba34cb18b3fbf5c41afa52a458a2a7dfcff67880052b0f99912",
+      "imports": [
+        "RCFiniteBinaryCongruence318",
+        "Mathlib.Algebra.BigOperators.Group.List.Basic"
+      ]
+    },
+    "RCIntegralGroupRingCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCIntegralGroupRingCongruence318.lean",
+      "sha256": "8c91ac63fc38d3644afdfa30d240cfcb6f4a2f053492d19991cf3370422aa6df",
+      "imports": [
+        "RCSignCharacterCongruence318"
+      ]
+    },
+    "RCTwoAdicBinaryCongruence318": {
+      "path": "recovery-rc-binary-congruences/RCTwoAdicBinaryCongruence318.lean",
+      "sha256": "8841fde0dcac6acf68cdd72897e7059c957cffdc3843b7b97b0f917cd5b83a14",
+      "imports": [
+        "RCIntegralGroupRingCongruence318",
+        "Mathlib.NumberTheory.Padics.RingHoms"
+      ]
+    }
+  },
+  "order": [
+    "RCBooleanCube318",
+    "RCBooleanCommonZero318",
+    "RCBinaryDigit318",
+    "RCBooleanDigitPolynomial318",
+    "RCFiniteBinaryCongruence318",
+    "RCSignCharacterCongruence318",
+    "RCIntegralGroupRingCongruence318",
+    "RCTwoAdicBinaryCongruence318"
+  ],
+  "checks": [
+    "RCBooleanCube source byte-identical to immutable project proof including namespace/proof bodies/line endings",
+    "Only CommonZero import changes; original57c9 bytes preserved and all six other sources unchanged",
+    "Exactly8 transitive experiment roots/topological order independently rederived; all remaining imports nativeMathlib",
+    "Copied parity proof must itself undergo strict compilation/recursive audit; no unavailable baseline assumption"
+  ],
+  "scope": "Actual coefficients z:Fin r\u2192(Fin b\u2192ZMod2)\u2192Z_2 and r*(2^M-1)<b produce nonzero x and native toZModPow M equality of each literal sign evaluation and augmentation. M=0 included. Explicit polynomials, finite signed coefficient reduction and actual 2-adic residue lift are constructed, not supplied.",
+  "limits": [
+    "Earlier seven-root receipts remain historical; this gate binds portable eight-root context",
+    "No Lean acceptance or global RC/CT/rank/point result"
+  ]
+}

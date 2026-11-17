@@ -1,0 +1,7 @@
+# Constructed finite binary congruences for actual 2-adic coefficients
+
+Eight experiment roots comprise seven newly constructed finite proof modules plus the byte-identical existing project BooleanCube proof. That project module is not in this runner’s baseline module_keys, so it is explicitly compiled and recursively audited here rather than assumed accepted. Its namespace and proof bytes remain unchanged. The common-zero module changes only its import path to the included parity module. Historical seven-source receipts are paired with the explicit eight-root portability gate.
+
+The final theorem constructs a nonzero Boolean character when b > r(2^M-1), for arbitrary actual 2-adic coefficient functions. Every sign evaluation and augmentation has the same image under native toZModPow M. Explicit generating coefficients have proved ordinary degree bounds and actual binomial evaluations; native Lucas gives the binary digit relation; coefficient reduction and sign-sum identities remove all supplied-polynomial, supplied-degree and positivity premises. M=0 is also covered.
+
+This is the finite binary-congruence ingredient used in the RC manuscript, not a restricted converse, actual reduced-Sha pairing, global diagram, analytic rank or rational point theorem. All eight roots require strict compilation and recursive allowed-axiom audit. The independent finite diagnostic is only a diagnostic, never Lean acceptance. Every r146 source is preserved unchanged.
