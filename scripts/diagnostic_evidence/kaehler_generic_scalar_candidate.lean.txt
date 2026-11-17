@@ -1,5 +1,6 @@
 module
 meta import Lean.Elab.Term
+meta import Lean.Meta.Check
 public import FourRootActualBranchLocalization318
 public import ActualEtaleFrameNormalization318
 public import SquareCoordinateDifferential318
@@ -27,7 +28,17 @@ private meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx exp
   Lean.Elab.Term.synthesizeSyntheticMVarsNoPostponing
   out.putStrLn "KAEHLER_OBSERVER_AFTER_SYNTHETIC_MVARS"
   out.flush
-  return checked
+  out.putStrLn "KAEHLER_OBSERVER_BEFORE_INSTANTIATE_MVARS"
+  out.flush
+  let instantiated ← Lean.instantiateMVars checked
+  out.putStrLn "KAEHLER_OBSERVER_AFTER_INSTANTIATE_MVARS"
+  out.flush
+  out.putStrLn "KAEHLER_OBSERVER_BEFORE_META_CHECK"
+  out.flush
+  Lean.Meta.check instantiated
+  out.putStrLn "KAEHLER_OBSERVER_AFTER_META_CHECK"
+  out.flush
+  return instantiated
 
 public section
 noncomputable section
