@@ -1,0 +1,46 @@
+{
+  "status": "PASS_HOSTED_SELECTED_SUBSET_AUTHENTICATION_NOT_FULL_PACKET",
+  "source_commit": "3a0fb639b033829687d2e795385c38f681a11095",
+  "source_tree": "76dd7ac56aa157ac7a793f96551f3887aea77593",
+  "execution_commit": "87209929ad2ac8141c1e85b13b8f7bce73dea814",
+  "run_id": "43972786530",
+  "packet": "forward-actual-two-descent-root-divisor-orders-r74",
+  "selection_sha256": "45ff7522f758e7e63d8f45c2090b1a953c04ab4b99ffaa1153555fa3f2da8b12",
+  "inventory_sha256": "5f887c2951561ba2d04ace6bb9efee1bbabc6e51fdcbf59890d52cc5c1628410",
+  "checks": [
+    "marker-only child and exact request",
+    "all1332 immutable source hashes",
+    "selection recomputed from actual source imports",
+    "all selected emitted log hashes",
+    "strict kernel flags and successful exits",
+    "recorded dependency artifact hashes agree with producer receipts",
+    "1-module recursive axiom audit imports/log/exit",
+    "immutable checker hashes"
+  ],
+  "final_repaired_modules": {
+    "LegendrePrimitiveModularRoot318": {
+      "source_sha256": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede",
+      "seconds": 1.568
+    }
+  },
+  "dependency_closed_packet_subset": [
+    "LegendrePrimitiveModularRoot318"
+  ],
+  "closure_size": 1,
+  "selected_union_counts": {
+    "compile_pass": 1,
+    "not_selected": 1331
+  },
+  "audit_declarations": 1,
+  "audit_modules": 1,
+  "limitations": [
+    "The selected dependency-closed module pass strict compilation and recursive audit.",
+    "No whole1332-root packet acceptance.",
+    "Recorded compiled-artifact hashes cross-checked between receipts, not independently rehashed against downloaded binaries.",
+    "No local Lean execution."
+  ],
+  "scope": [
+    "For every prime p, p not dividing B and primitive integer x,z,w satisfying z^2-a*x^2-p*B*w^2 divisible by p^2 imply IsSquare(a : ZMod p). Includes p=2 and p dividing a; no coprimality assumption on a.",
+    "Only the modular-root implication is checked, not the Qp-to-primitive bridge, CRT/normalization/induction, or a local-global theorem."
+  ]
+}

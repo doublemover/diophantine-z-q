@@ -1,0 +1,35 @@
+{
+  "status": "PASS_MATHEMATICAL_SOURCE_STRUCTURE_NOT_LEAN_NOT_READY_FOR_FULL_CHECKPOINT",
+  "source_sha256": "68a1b7104f376f9f18e1cafdcdf9f09877d3cc6dbd712ceb8920d295ac5e59d0",
+  "bindings_sha256": "f46a5feb728830cb5f3c5e4bb78cb0d859c7f8652af44227cba42f31087445a6",
+  "dependencies": {
+    "completeness-primary-selmer-transfer-20261116/legendre-homogeneous-affine/LegendreHomogeneousAffine318.lean": "1557b6170f97590a2eabd0bf4cb28f9f3d3fd8cb0e7fb36288380cfd701c2e4a",
+    "completeness-primary-selmer-transfer-20261116/legendre-descent-step/LegendreNormDescentStep318.lean": "60f3b92dc87ed63ef67cf1d5665569bf7bdc6762e795089d320adc51dc14a29f",
+    "completeness-primary-selmer-transfer-20261116/legendre-squarefree-crt/LegendreSquarefreeCRT318.lean": "ea1d6afff98ada8017cc354ca8b0e9c5d73c6a951a2fc9481f800c5a58977b9f",
+    "completeness-primary-selmer-transfer-20261116/legendre-centered-root/LegendreCenteredRoot318.lean": "f35d2f42a815707d6558fcaad34e4e7ea661a2672e3fecd2549e17f599f24f3c",
+    "completeness-primary-selmer-transfer-20261116/legendre-modular-root/LegendrePrimitiveModularRoot318.lean": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede",
+    "completeness-primary-selmer-transfer-20261116/legendre-padic-coe-mk-repair/LegendrePadicPrimitiveResidues318.lean": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a"
+  },
+  "findings": [
+    "Sol and Everywhere contain literal nonzero homogeneous points over R and each Qp, not a local-global premise. Final theorem has only integer coefficients plus Everywhere; no assumed rational point.",
+    "Zero coefficients have explicit rational isotropic vectors. Nonzero coefficients are normalized by actual integer square factors, nonzero in every characteristic-zero field; square_factor_left preserves nontriviality in both directions.",
+    "Squarefree core orders absolute coefficient sizes without changing sum measure. Small |b|<=1 forces signed units; a=1 or b=1 has explicit vector, and (-1,-1) contradicts real nontriviality by sum-of-squares.",
+    "At each prime dividing squarefree b, prime_factor_once provides b=pB with p not dividing B. Checked Qp primitive-residue and modular-root leaves give a square modulo p, including shared coefficient primes and p2. CRT and centered root produce actual t,c; no extra root existence premise.",
+    "c=0 yields a=t\u00b2 and explicit rational vector(1,t,0). Otherwise |c|<|b| and squarefree normalization e\u00b2*d=c gives |d|<=|c|, so sum |a|+|d| strictly decreases even when |a|=|b|. Recursive call uses strictly smaller Nat measure, not an assumed theorem at equal measure.",
+    "descend_at obtains affine norm b from supplied nonzero homogeneous point using a!=0, transfers to norm c with b!=0, and makes homogeneous d point(V,U,e). e!=0 guarantees nontriviality; no missing denominator/unit condition.",
+    "ascend_at converts recursive d point to affine norm d using a!=0, multiplies both coordinates by e to get norm c, then reverse transfer with c!=0 and t\u00b2-a=c*b gives norm b and w=1. No nonzero-coordinate assumption leaks into the recursive result.",
+    "Global normalization applies separately over real, every Qp, and Q, keeping literal integer casts and exact signed coefficients. No Hilbert-symbol/reciprocity result assumed in this ternary descent."
+  ],
+  "pending_strict_dependencies": [
+    "LegendreHomogeneousAffine318 (checkpoint78 pending)",
+    "LegendreNormDescentStep318",
+    "LegendreSquarefreeCRT318",
+    "LegendreCenteredRoot318"
+  ],
+  "limits": [
+    "Mathematical and source-structure review only; no local Lean, no compiled full induction or formal theorem acceptance.",
+    "Native/tactic elaboration, casts, strong-induction generalization and local instance inference remain strict replay obligations.",
+    "Keep full induction unpackaged until dependency checkpoints pass and are rebased explicitly.",
+    "This is ternary local-global conditional on all local homogeneous solutions. It does not solve the original quaternary auxiliary-prime compatibility/selection, prepared-target anchor, or four simultaneous elliptic realizations."
+  ]
+}
