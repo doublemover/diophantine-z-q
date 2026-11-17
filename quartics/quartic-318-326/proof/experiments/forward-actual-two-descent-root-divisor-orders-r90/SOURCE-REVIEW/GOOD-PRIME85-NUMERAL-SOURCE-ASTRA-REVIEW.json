@@ -1,0 +1,15 @@
+{
+  "status": "PASS_NARROW_SOURCE_API_REPAIR_NOT_LEAN",
+  "before_sha256": "545b3a842f1b7025cf98d1a855f071be103b17199c2238febc6915a89f988f9f",
+  "candidate_sha256": "a4593ea2137177c69156420a2c80c2b61a4ab7fc4023c2660d311eb6c9ccf6a8",
+  "bindings_sha256": "f974a663dfac5bbc6efd3a71c0a47f0a39e0dd30fd550e5b6fb8fab15d25cc41",
+  "immutable_before_commit": "4b2c58aebcdb3eea2b4caf65d5172a3469f057c7",
+  "findings": [
+    "Exact hosted rewrite compares norm of an integer-cast two against norm of literal p-adic two. The sole changed line explicitly types the latter and normalizes the cast using simpa.",
+    "Existing hunit proof derives norm-one from norm-le-one and nondivisibility, with no coprimality API mismatch.",
+    "No assumptions, public statements, imports, options, other proof lines or resource changes. Full hosted replay remains required."
+  ],
+  "limitations": [
+    "No local Lean, no fresh compile success, no alteration to pending run provenance."
+  ]
+}
