@@ -1,0 +1,24 @@
+{
+  "status": "PASS_SOURCE_MATH_AND_INSPECTED_NATIVE_API_NOT_LEAN",
+  "candidate_sha256": "f35d2f42a815707d6558fcaad34e4e7ea661a2672e3fecd2549e17f599f24f3c",
+  "bindings_sha256": "ae12f95861a786936c43c5a7a0c35f6ae781c2d0e8b96efde6a076d37e35379d",
+  "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "native_snapshot_hashes": {
+    "Mathlib-Ring-Abs.lean.txt": "32039088b1d41c17e978ef033621a67d57155906595588158bb113be00e3ff11",
+    "Mathlib-ZMod-ValMinAbs.lean.txt": "3b5636a202a23dbd7f07a44c8cf937d25803ae0d8f14982b8e3bc9ab9f4fad66"
+  },
+  "checks": [
+    "Nonzero signed b yields NeZero |b|. Native valMinAbs represents actual supplied root; integer-cast criterion gives |b| dividing t\u00b2-a, native abs_dvd changes to b dividing same numerator.",
+    "Divisibility witness orientation gives t\u00b2-a=b*c exactly, including negative b. No quotient nonzero assumption added.",
+    "Native natAbs_valMinAbs_le gives |t|<=floor(|b|/2); omega/cast step targets 2|t|<=|b|. Covers b=\u00b11 and even-modulus midpoint without strict-bound assertion.",
+    "No squarefree requirement or root existence manufacture: the supplied modular square root remains explicit."
+  ],
+  "replay_obligations": [
+    "Lean elaboration, instance availability, implicit inference, exact_mod_cast/simp/induction syntax require strict hosted replay."
+  ],
+  "limits": [
+    "No local Lean or theorem acceptance.",
+    "No normalization transport over Q/Qp, complete shrinking induction, or global local-to-global theorem.",
+    "No auxiliary-prime compatibility/selection conclusion."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_MATH_AND_INSPECTED_NATIVE_API_NOT_LEAN",
+  "candidate_sha256": "ea1d6afff98ada8017cc354ca8b0e9c5d73c6a951a2fc9481f800c5a58977b9f",
+  "bindings_sha256": "d043cf6ec9de93456993749a7981ec894376bcb5d9217174a595d4ed2075b75b",
+  "mathlib_pin": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "native_snapshot_hashes": {
+    "Mathlib-Data-Nat-Squarefree.lean.txt": "ca120f6c191bc98599f8db61672f16a101a2d51751d6c1c6252eb5867a53ed67",
+    "Mathlib-NumberTheory-SumTwoSquares.lean.txt": "3c31a4c6ec1c4bb3372c5a73c502823f95c14ec4d9afc559a62d55c29db652ca",
+    "Mathlib-Algebra-Squarefree-Basic.lean.txt": "04afdaaca92e0fdfe3615ac93128702cb4cb8a7890972e6f2a3d6ec1afb58762"
+  },
+  "checks": [
+    "Signed normalization uses native exists_sq_mul_squarefree with e squared first; n nonzero forces e,d nonzero and divisor natAbs bound gives |d|<=|n|. Negative n and unit coefficients are included.",
+    "CRT maps actual product-square witness backward through native ZMod.chineseRemainder ring equivalence. Coprimality premise explicit; modulus0 edge cases covered by native equivalence, not division.",
+    "Squarefree induction follows pinned SumTwoSquares prime-product proof. Zero modulus excluded by Squarefree, modulus1 uses subsingleton; squarefree(p*n) excludes p|n, yielding coprimality and recursive squarefree n.",
+    "Integer prime-factor-once lemma uses native Int.squarefree_iff_prime_sq_not_dvd, retaining signed b. No hidden a-coprimality or odd-prime restriction."
+  ],
+  "replay_obligations": [
+    "Lean elaboration, instance availability, implicit inference, exact_mod_cast/simp/induction syntax require strict hosted replay."
+  ],
+  "limits": [
+    "No local Lean or theorem acceptance.",
+    "No normalization transport over Q/Qp, complete shrinking induction, or global local-to-global theorem.",
+    "No auxiliary-prime compatibility/selection conclusion."
+  ],
+  "additional_native_inspected": {
+    "path": "geometry-prime-three-second-point/native/ZModBasic.lean",
+    "sha256": "f86120453447f00e0c87188381e0e8d15e0d8c85a080c8f8a8ba2da04f5e2f8a",
+    "declaration": "ZMod.chineseRemainder at889, explicit zero-product cases retained"
+  }
+}
