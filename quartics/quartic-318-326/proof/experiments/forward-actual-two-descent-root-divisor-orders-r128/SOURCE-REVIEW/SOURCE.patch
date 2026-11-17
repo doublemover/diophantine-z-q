@@ -1,0 +1,28 @@
+--- before.lean
++++ LocalIndexRegularity318.lean
+@@ -69,13 +69,13 @@
+ section Field
+ variable {F : Type*} [NormedField F] {h₀ : ℤ} {f g : ℤ → F}
+ lemma add (hf : Regular h₀ f) (hg : Regular h₀ g) : Regular h₀ (fun h => f h+g h) :=
+-  comp (pair hf hg) (by fun_prop)
++  comp (g := fun z : F × F => z.1+z.2) (pair hf hg) (by fun_prop)
+ lemma sub (hf : Regular h₀ f) (hg : Regular h₀ g) : Regular h₀ (fun h => f h-g h) :=
+-  comp (pair hf hg) (by fun_prop)
++  comp (g := fun z : F × F => z.1-z.2) (pair hf hg) (by fun_prop)
+ lemma mul (hf : Regular h₀ f) (hg : Regular h₀ g) : Regular h₀ (fun h => f h*g h) :=
+-  comp (pair hf hg) (by fun_prop)
++  comp (g := fun z : F × F => z.1*z.2) (pair hf hg) (by fun_prop)
+ lemma neg (hf : Regular h₀ f) : Regular h₀ (fun h => -f h) := comp hf (by fun_prop)
+-lemma pow (hf : Regular h₀ f) (n : ℕ) : Regular h₀ (fun h => f h^n) := comp hf (by fun_prop)
++lemma pow (hf : Regular h₀ f) (n : ℕ) : Regular h₀ (fun h => f h^n) := comp (g := fun x : F => x^n) hf (continuousAt_pow (f h₀) n)
+ lemma inv (hf : Regular h₀ f) (hn : f h₀≠0) : Regular h₀ (fun h => (f h)⁻¹) :=
+   comp hf (continuousAt_inv₀ hn)
+ lemma div (hf : Regular h₀ f) (hg : Regular h₀ g) (hn : g h₀≠0) :
+@@ -96,6 +96,7 @@
+   have hi : a+b*(h₀+((4*6^E:ℕ):ℤ)*m)=a+b*h₀+4*(6:ℤ)^E*(b*m) := by
+     push_cast
+     ring
++  change ActualOrbitLocalFilter318.error p (a+b*(h₀+((4*6^E:ℕ):ℤ)*m)) ∈ V
+   rw [hi]
+   exact hm
+ 
