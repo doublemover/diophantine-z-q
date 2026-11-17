@@ -1,0 +1,7 @@
+# Minimal localization dictionary repair, exact recovery
+
+All 207 KS58 roots retain exact order; 206 sources remain byte-identical. The sole change is the native localization transport application in FourRootOrderLocalizationMaps318: actual tensor S and target C are explicit, and with_reducible_and_instances is scoped to this application. The same localized equivalence, original source algebra, maps and hypotheses are retained. No global option or resource limit changes.
+
+KS58 retains 39 strict passes with subset audit 999 and reports one tensor-semiring dictionary mismatch. The selected source is byte-identical to the previously reviewed but unpublished candidate6e9d7577, recovered from the immutable published predecessor and recorded exact delta. The original uncommitted application/review bytes were lost during rollback. This packet binds a new explicit recovery manifest, rehydrated exact log/inventory, freshly retrieved pinned native theorem and a fresh independent source review, rather than fabricating old receipts.
+
+The restored published branch contains the exact same KS58 subtree. All old committed evidence is copied unchanged, and the preserved old application is separately frozen. This is a one-source correction, not a new geometric layer. Exact target remains FourRootOrderLocalizationMaps318, 40 packet roots plus 179 baseline dependencies. Only the KS registry slot changes 58 to 59. No scripts, marker, baseline, workflows or other packets change. Static checks do not establish Lean acceptance; strict hosted replay remains required.
