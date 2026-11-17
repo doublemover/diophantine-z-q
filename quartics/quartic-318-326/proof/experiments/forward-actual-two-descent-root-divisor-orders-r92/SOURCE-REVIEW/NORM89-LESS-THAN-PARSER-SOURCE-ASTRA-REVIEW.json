@@ -1,0 +1,15 @@
+{
+  "status": "PASS_MINIMAL_PARSER_SOURCE_REPAIR_NOT_LEAN",
+  "before_sha256": "60f3b92dc87ed63ef67cf1d5665569bf7bdc6762e795089d320adc51dc14a29f",
+  "candidate_sha256": "5e38e53e07b159fd768c870be6206ac1e5e2470c6531f123d51ed1ff878b25d1",
+  "bindings_sha256": "9054e5eb929d9cfb313fd19cd0a722905440b51f1684eee5d0287b90dfddc44d",
+  "runtime_receipt_sha256": "a54ba6206724c397e00031aceb237370f5601759109ff90fb9c6ec9cadc707bd",
+  "findings": [
+    "Exactly two ASCII spaces added, separating intended < comparison from adjacent absolute-value bar. All proof bodies, imports, options and intended mathematical conditions unchanged.",
+    "Actual log reports unexpected := and function application of |c| to b, consistent with accidental <| token.",
+    "This repairs an unaccepted malformed declaration; no equivalence to an accepted previous kernel signature is asserted."
+  ],
+  "limits": [
+    "No local Lean or completed repair acceptance. Full strict replay and audit required."
+  ]
+}
