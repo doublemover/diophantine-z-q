@@ -1,0 +1,15 @@
+--- before
++++ after
+@@ -34,10 +34,8 @@
+   · rintro ⟨z,rfl⟩
+     refine ⟨⟨WeierstrassGluing318.intoAffine A B z,rfl⟩,
+       ⟨WeierstrassGluing318.intoInfinity A B z,?_⟩⟩
+-    simpa only [overlapEmbedding,WeierstrassGluing318.finiteChart,
+-      WeierstrassGluing318.infinityChart,Scheme.Hom.comp_apply] using
+-      congrArg (fun g => g z) (pushout.condition
+-      (f:=WeierstrassGluing318.intoAffine A B) (g:=WeierstrassGluing318.intoInfinity A B)).symm
++    simpa only [overlapEmbedding,Scheme.Hom.comp_apply] using
++      congrArg (fun g => g z) (WeierstrassChartPullback318.square A B).w.symm
+   · rintro ⟨⟨a,ha⟩,⟨b,hb⟩⟩
+     obtain ⟨z,hza,hzb⟩ := WeierstrassChartPullback318.exists_overlap A B a b (ha.trans hb.symm)
+     refine ⟨z,?_⟩
