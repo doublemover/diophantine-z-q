@@ -1,0 +1,9 @@
+# Prime-three and rational normalization root repairs
+
+This source-only successor preserves all 259 KS72 modules in the same order. Exactly eight modules change: seven independently source-reviewed compiler-root repairs and a two-keyword visibility correction in OriginalPrimeThreeLocalizedCotangent318. The other 251 sources remain byte-for-byte unchanged, including all 81 distinct previously compiled source identities checked during packaging.
+
+The prime-three repairs make quotient arithmetic and scalar-tower maps explicit, supply the native localization API, and correct exposed-definition helper visibility. The rational repairs use native pullback projection rewrites, normalize contravariant Spec composition, capture symbolic tensor localization before specializing, and apply bounded declaration-local recursion depth 4096 to two reciprocal constructions. No theorem premise, endpoint, or geometric object is weakened; hosted compilation is still required.
+
+The two intended strict replay targets are OriginalPrimeThreeNonregularSchemePoint318 (70 packet roots and 183 baseline dependencies) and OriginalIntegerRationalGlobalIsomorphism318 (106 packet roots and 180 baseline dependencies). The former concerns the actual untwisted normalization at prime three, not a resolution or a later regular model. This is not a kernel-verified counterexample, completed Diophantine theorem, rational-point determination, or rank result.
+
+No local Lean compiler was run. No hosted logs, result archives, review receipts, or evidence directories are included. All byte bindings are confined to this packet's source and metadata. Nonbinding predecessor and review locators record provenance only. The predecessor packet and hosted request marker are unchanged; source parent 6e7fda336c3cc134162b2613ea625125b1b1519c may remain staged until its serial publication guard permits integration.
