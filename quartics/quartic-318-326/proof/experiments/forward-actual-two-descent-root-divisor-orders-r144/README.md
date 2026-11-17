@@ -1,0 +1,5 @@
+# Literal original four-pole preparation and conditional finite descent
+
+One new module connects the original contact slots190/241/292 and original scalarB, at the same original index and labels, to the coherent preparation-to-finite-descent theorem. It supplies no replacement poles. The original contact/scalar preparation and scalar-domain hypotheses remain explicit. Coefficient residues/support/mutual symbols/finite controls are constructed downstream, while genuine rational-point infinitude on both twists for every pole remains an explicit final implication input.
+
+The literal target has792 experiment roots. Its union with the corrected162-root no-hglobal consumer is844, as independently source/interface-reviewed in the embedded context; these numbers are not acceptance claims. The context was frozen over142 plus the exact correction now immutable143, so all hashes are unchanged. All r143 predecessor bytes are preserved. No new point existence, Sha vanishing or RC axiom is introduced. Hosted chooses bounded coverage using actual intake order and exact hashes; strict compilation and recursive audit remain required.
