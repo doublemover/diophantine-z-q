@@ -1,0 +1,11 @@
+# Actual rational cover and simultaneous four-pole source bridge
+
+This source-only successor preserves all 1416 predecessor Lean sources byte-for-byte and in the same relative order. Four added modules construct exact rational quadratic-cover to original KummerPoint conversion and its converse, a reversible three-quadric formulation with the SAME reconstructed n, an explicit rational conic family reducing the simultaneous condition to k^2 F_beta(T)=theta F_beta(t), and all-four actual-pole realization consumers.
+
+The original convention (x+3n,x-n)=(beta*u^2,v^2), beta and theta from the literal Classes b, the complete Fin 4 index set, and every nonzero coordinate condition are retained. F_beta(t)=(t^2-beta)(t^2-9beta) and the family parameter is F_beta(t)/(4beta). The parameterized family is sufficient data at its constructed n; it is not asserted to satisfy an independently selected finite-descent n. The separate actual_four_prepared_covers consumer explicitly requires covers at the particular n constructed by finite descent.
+
+No rational solution of the cover or simultaneous equation is asserted to exist. No rank, group infinitude, Sha vanishing, local-to-global theorem, or final Diophantine result is inferred. This formalizes the previously recorded informal cover algebra rather than closing the genuine global rational existence obligation.
+
+The two targets ['ActualPreparedFourCoverConsumer318', 'ActualTwoDescentParametricCover318'] have 795 packet modules and 222 baseline dependencies in their union closure. Source review and exact symbolic identity checks are not Lean acceptance. Strict hosted compilation and recursive audit under unchanged settings remain required. No local Lean compiler was run.
+
+This packet contains only Lean source and freshly generated intake, inheritance, application, target-closure metadata and this README. No SOURCE-REVIEW directory, hosted log, result archive, review receipt, or copied evidence file is included. Predecessor provenance is commit 2fb0b53190d13cb83e288c8474b9fb042ba9ae78, path quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r150; it is not an acceptance claim. The predecessor packet, unrelated paths and hosted request marker remain unchanged.
