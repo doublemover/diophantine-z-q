@@ -1,0 +1,41 @@
+--- before.lean
++++ OriginalIntegerCommonField318.lean
+@@ -31,10 +31,12 @@
+ theorem finite_localization :
+     IsLocalization.Away (algebraMap ℤ[X] (Order c) X) (CommonOrder c) := by
+   exact FourRootOrderLocalizationMaps318.localization
++    (A := ℤ[X]) (T := Laurent) (C := CommonOrder c)
+     (OriginalIntegerAffineModel318.coefficient c) (RingEquiv.refl (CommonOrder c)) (X : ℤ[X])
+ 
+ theorem finiteMap_injective : Function.Injective (finiteMap c) := by
+   exact FourRootOrderLocalizationMaps318.map_injective
++    (A := ℤ[X]) (T := Laurent) (C := CommonOrder c)
+     (OriginalIntegerAffineModel318.coefficient c) (RingEquiv.refl (CommonOrder c))
+     (X : ℤ[X]) Polynomial.X_ne_zero
+ 
+@@ -45,7 +47,7 @@
+   IntegralFourRootScalarMaps318.finite_polynomial ℤ
+     (OriginalIntegerReciprocalCharts318.integralTwist c) OriginalIntegerAffineModel318.contacts p
+ 
+-private theorem parameter_unit : IsUnit
++theorem parameter_unit : IsUnit
+     (OriginalIntegerFractionField318.fieldEmbedding c (algebraMap ℤ[X] (Order c) X)) := by
+   rw [OriginalIntegerNormalizationMap318.fieldEmbedding_on_polynomial]
+   exact OriginalIntegerNormalizedOverlap318.parameterUnit c
+@@ -53,12 +55,14 @@
+ /-- Extend the already injective integer-order embedding into the SAME original field. -/
+ @[expose] def fieldMap : CommonOrder c →+* L c := by
+   letI := finite_localization c
+-  exact IsLocalization.Away.lift (algebraMap ℤ[X] (Order c) X) (parameter_unit c)
++  exact IsLocalization.Away.lift (S := CommonOrder c)
++    (g := OriginalIntegerFractionField318.fieldEmbedding c) (algebraMap ℤ[X] (Order c) X) (parameter_unit c)
+ 
+ theorem fieldMap_on_finite (z : Order c) :
+     fieldMap c (finiteMap c z) = OriginalIntegerFractionField318.fieldEmbedding c z := by
+   letI := finite_localization c
+-  exact IsLocalization.Away.lift_eq (algebraMap ℤ[X] (Order c) X) (parameter_unit c) z
++  exact IsLocalization.Away.lift_eq (S := CommonOrder c)
++    (g := OriginalIntegerFractionField318.fieldEmbedding c) (algebraMap ℤ[X] (Order c) X) (parameter_unit c) z
+ 
+ theorem fieldMap_injective : Function.Injective (fieldMap c) := by
+   letI := finite_localization c

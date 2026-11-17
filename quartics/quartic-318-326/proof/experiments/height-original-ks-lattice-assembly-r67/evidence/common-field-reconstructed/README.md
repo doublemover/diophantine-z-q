@@ -1,0 +1,7 @@
+# Reconstructed common-order field embedding
+
+The unpublished OriginalIntegerCommonField318 source formerly recorded as SHA23e57b7f was not found after the workspace rollback: a workspace-wide filename search, the current published Git tree, and the reviewer's restored workspace found no bytes. The historical three-source review survives, but is not acceptance of this reconstruction. This is freshly written source, not hash recovery or restoration of the lost file.
+
+The candidate specializes the now strictly checked FourRootOrderLocalizationMaps318 to the actual finiteMap with the identity target equivalence, extends the already checked integer embedding by native Away.lift, proves injectivity from its exact restriction, and proves the same original fraction field. Laurent agreement is proved by native localization uniqueness on Z[X]. No new map is postulated, no twist/prime/root is inverted beyond the actual parameter, and no extra action coherence is assumed. The field scalar tower explicitly uses the named algebra projections. Normalization/finiteness/regularity/global claims are outside this file.
+
+All 207 existing roots remain untouched. This one-source candidate requires fresh mathematical/source/API review and exact dependency rebase. No local Lean has run and no compiler acceptance is claimed. Any future packet must select this new source explicitly; the historical lost SHA is not the selected source.

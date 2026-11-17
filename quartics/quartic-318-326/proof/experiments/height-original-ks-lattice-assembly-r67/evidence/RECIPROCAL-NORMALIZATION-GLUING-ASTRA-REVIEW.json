@@ -1,0 +1,15 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW_NOT_LEAN",
+  "manifest_sha256": "873452311a662eaa0c154a2e9374afaa2e4281bcc4b3743dc183413c50b1a5a2",
+  "all_source_and_primary_hashes_verified": true,
+  "findings": [
+    "Generic helper assumes standard displayed A/B/L algebras and their scalar tower, constructs the literal same-element closure inclusion and both required closure towers. It derives the ambient coordinate unit by mapping the localized base unit, then applies the already checked native integralClosure localization theorem.",
+    "Specialization captures laurentAlgebra before reciprocalBaseAlgebra is introduced. Thus Laurent to L is exactly the prior finite-chart fieldMap; only the Z[X] to L action is changed to its composition with the actual reciprocal polynomial map.",
+    "IntegralFourRootOverlap.reciprocalMap is definitionally the earlier reciprocal map at auxiliary units all1. The imported reciprocal_localization therefore has exactly the selected reciprocal Laurent algebra. It inverts only the coordinate, not root factors, primes or twists.",
+    "The common overlap is integralClosure Laurent L under the same captured Laurent to L map. Its definition does not depend on the subsequently changed Z[X] algebra. Hence reciprocal inclusion/localization genuinely target the same finite-chart overlap carrier, while the reciprocal Closure remains over its distinct parameter action. Scalar-instance elaboration still requires hosted validation.",
+    "The second Spec map has exactly that closure inclusion as its algebra map, so its open immersion follows from actual localization. Both source maps of the pushout have identical overlap source. GenericOpenPushout.square and native open-immersion colimit instances provide actual chart maps and intersection square.",
+    "No admissions, new axioms or option changes. This builds gluing of parameter integral closures, not an identified finite normalization of the proper whole-order model. Reciprocal order identification, reciprocal finite/fraction-field proofs, finite global map, properness, regularity and KS remain explicit gaps."
+  ],
+  "local_lean_run": false,
+  "lean_acceptance": false
+}
