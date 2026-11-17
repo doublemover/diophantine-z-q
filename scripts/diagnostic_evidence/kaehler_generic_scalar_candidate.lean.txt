@@ -22,6 +22,11 @@ private meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx exp
   let checked ← Lean.Elab.Term.ensureHasType expectedType? result
   out.putStrLn "KAEHLER_OBSERVER_AFTER_ENSURE_TYPE"
   out.flush
+  out.putStrLn "KAEHLER_OBSERVER_BEFORE_SYNTHETIC_MVARS"
+  out.flush
+  Lean.Elab.Term.synthesizeSyntheticMVarsNoPostponing
+  out.putStrLn "KAEHLER_OBSERVER_AFTER_SYNTHETIC_MVARS"
+  out.flush
   return checked
 
 public section

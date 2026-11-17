@@ -212,8 +212,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),7905)
-        self.assertEqual(d.digest(raw),'4e082cc7a23b8c6c83369c733d63dfd46f14a117b66a5d59c85e52f85f7bde0c')
+        self.assertEqual(len(raw.encode()),8096)
+        self.assertEqual(d.digest(raw),'cb29bc0b08b96f66cd026bbf3fc491480531616bc1d63146a1977c1a0d5d23d6')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -371,6 +371,7 @@ class Tests(unittest.TestCase):
     def test_local_observer_registration_only_change(self):
         candidate=d.frozen_candidate(self.source())
         self.assertEqual(candidate.count('@[local term_elab kaehlerObserveTerm]'),1)
+        candidate=candidate.replace(d.STAGE_OBSERVER,'syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  out.putStrLn "KAEHLER_OBSERVER_BEFORE_ENSURE_TYPE"\n  out.flush\n  let checked ← Lean.Elab.Term.ensureHasType expectedType? result\n  out.putStrLn "KAEHLER_OBSERVER_AFTER_ENSURE_TYPE"\n  out.flush\n  return checked\n\n',1)
         candidate=candidate.replace('syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  out.putStrLn "KAEHLER_OBSERVER_BEFORE_ENSURE_TYPE"\n  out.flush\n  let checked ← Lean.Elab.Term.ensureHasType expectedType? result\n  out.putStrLn "KAEHLER_OBSERVER_AFTER_ENSURE_TYPE"\n  out.flush\n  return checked\n\n','syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  return result\n\n',1)
         historical=candidate.replace('@[local term_elab kaehlerObserveTerm]', '@[term_elab kaehlerObserveTerm]',1)
         self.assertEqual(d.digest(historical),'2c6cc50359716d89958b9fedee19457ff38f1ee42d44dc50dfd6824d41af6a28')
@@ -390,7 +391,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(prefix.count(d.STAGE_WRAPPED),1)
         self.assertIn('Lean.Elab.Term.elabTerm stx[1] expectedType?',d.STAGE_OBSERVER)
         self.assertIn('return checked',d.STAGE_OBSERVER)
-        self.assertEqual(d.STAGE_OBSERVER.count('out.flush'),4)
+        self.assertEqual(d.STAGE_OBSERVER.count('out.flush'),6)
         self.assertNotIn('catch',d.STAGE_OBSERVER)
         self.assertNotIn('getMessages',d.STAGE_OBSERVER)
         self.assertNotIn('sorry',d.STAGE_OBSERVER)
@@ -417,6 +418,19 @@ class Tests(unittest.TestCase):
         self.assertLess(d.STAGE_OBSERVER.index('let checked'),d.STAGE_OBSERVER.index('AFTER_ENSURE_TYPE'))
         self.assertIn('return checked',d.STAGE_OBSERVER)
         for bad in [candidate.replace('expectedType? result','none result',1),candidate.replace('return checked','return result',1)]:
+            with self.assertRaises(ValueError):d.without_stage_observer(bad)
+
+    def test_synthetic_stage_exact_differential_and_reversal(self):
+        candidate=d.frozen_candidate(self.source())
+        previous=candidate.replace(d.STAGE_OBSERVER,'syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  out.putStrLn "KAEHLER_OBSERVER_BEFORE_ENSURE_TYPE"\n  out.flush\n  let checked ← Lean.Elab.Term.ensureHasType expectedType? result\n  out.putStrLn "KAEHLER_OBSERVER_AFTER_ENSURE_TYPE"\n  out.flush\n  return checked\n\n',1)
+        self.assertEqual(d.digest(previous),'1a9da679bca86cdec736a7e377fc28301317d9f4cfa77563f9b300859042411d')
+        call='Lean.Elab.Term.synthesizeSyntheticMVarsNoPostponing'
+        self.assertEqual(d.STAGE_OBSERVER.count(call),1)
+        self.assertLess(d.STAGE_OBSERVER.index('AFTER_ENSURE_TYPE'),d.STAGE_OBSERVER.index('BEFORE_SYNTHETIC_MVARS'))
+        self.assertLess(d.STAGE_OBSERVER.index('BEFORE_SYNTHETIC_MVARS'),d.STAGE_OBSERVER.index(call))
+        self.assertLess(d.STAGE_OBSERVER.index(call),d.STAGE_OBSERVER.index('AFTER_SYNTHETIC_MVARS'))
+        self.assertLess(d.STAGE_OBSERVER.index('AFTER_SYNTHETIC_MVARS'),d.STAGE_OBSERVER.index('return checked'))
+        for bad in [candidate.replace(call,call+' (ignoreStuckTC := true)',1),candidate.replace(call,'pure ()',1)]:
             with self.assertRaises(ValueError):d.without_stage_observer(bad)
 
     def baseline_fixture(self, root):
