@@ -1,0 +1,25 @@
+{
+  "status": "PASS_EXACT_MAP_AND_SCALAR_SOURCE_REPAIR_NOT_LEAN",
+  "application_sha256": "1065b299ec79eb1458b39eff834cfc8fb335e957b0571d07c87860304ff82a5c",
+  "source_sha256": "d696af6f5e2f282968f3ad8679d2448c9c82a2e88501e467806487e38a066431",
+  "before_sha256": "9c96ff230ba505643bbd861934dcd5c7d73fe54459e12d1a4baa37a579aa6b90",
+  "passed_sources_verified": 39,
+  "native_sha256_and_git_blobs_verified": {
+    "AlgebraTower.lean": "a43bea3eb561f4851def5553e4f0e0ac00c55b5c2b0060e3acac0c53b8545e7a",
+    "AlgebraTensorProductBasic.lean": "f0e8e9992eb6c6811068b7bf1830236c5ad02d52c8ecab6325416d6cdc9f7ff2",
+    "LinearTensorProductDefs.lean": "03cee05edc34ddcc45d751e910564d020224e618631ff9aa0d7444282ac777d6",
+    "AdjoinRoot.lean": "51432e606471ffb8331b637394b693b4ddf5214d17182f44556dd182fbd7339d"
+  },
+  "runtime_review_sha256": "a3259eeafa55bac06b504db9a10a152120e538eebd50ef458098230bc0cf2083",
+  "checks": [
+    "Exact two-site delta and immutable failed source/log/39passed producers bound.",
+    "Map replacement expands the checked wrapper body verbatim with same baseChange/includeRight and e. Underlying baseChange has independent R/S universes, retaining auxiliary A/T/C generality rather than narrowing it. At existing same-universe callers the map identity is definitional unfolding.",
+    "algebraMap_smul says algebraMap x acting on z equals native x acting on z. Its symmetry followed by hz proves the exact x-smul-z zero equation; Order self-action is multiplication.",
+    "Pinned tensor isScalarTower_right supports native module-to-multiplication coherence rather than asserting native SMul definitionally equals Algebra.toSMul. No global scalar-action override.",
+    "Public written types, sourceAlgebra dependent context, maps, imports, options and limits otherwise unchanged."
+  ],
+  "limits": [
+    "No local Lean; direct composition dictionary conversion, actual tower synthesis and downstream declarations require strict replay.",
+    "Wrapper universe mismatch is a source-level issue, not an established causal diagnosis of whnf timeout. Later errors are not all assumed to be cascades."
+  ]
+}
