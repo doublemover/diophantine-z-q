@@ -1,0 +1,30 @@
+{
+  "status": "PASS_EXACT_TWO_LEAF_API_REPAIRS_NOT_LEAN",
+  "bindings_sha256": "58ba302b22ad4fc43f9650e0d13ebb5d2778b09c7ae7528dbc962b0d14b93c3f",
+  "sources": {
+    "LegendreSquarefreeCRT318": {
+      "before": "ea1d6afff98ada8017cc354ca8b0e9c5d73c6a951a2fc9481f800c5a58977b9f",
+      "after": "4bd5f2ff209bfbb0c1852bc068b0149e43b8722fd16e0c5a55f3091b8ac9a141",
+      "log_sha256": "a6816fae4381eff81ae744780d871a4cd6eb67c864fa179b9973c24e335d6891"
+    },
+    "LegendreCenteredRoot318": {
+      "before": "f35d2f42a815707d6558fcaad34e4e7ea661a2672e3fecd2549e17f599f24f3c",
+      "after": "8c20070c343fc2e25d82731f8f04b4a6d0fb8dc828de117d36bf940368c3536b",
+      "log_sha256": "3019a08bfe96a289b91b8aadb22c51112bb36b2337405f8a797c85c502c36090"
+    }
+  },
+  "native_snapshots": {
+    "Mathlib-Data-Nat-Factorization-Induction.lean.txt": "5377d735f9284021f16e1b20092b654a0e33b896b72d129020baded1fcdbfd6a"
+  },
+  "runtime_failure_receipt_sha256": "a58469d9645e62877cbffd736e8f2cd3f809f27ee4381c91926e8b5ad312c371",
+  "checks": [
+    "Both immutable before sources and exact error logs matched. Only enumerated proof/API/import changes occur.",
+    "Natural inequalities first cast to explicit integer inequalities, then natCast_natAbs rewrites to absolute values. No changed bounds or added positivity premise.",
+    "Int.cast_mul handles actual residual cast of valMinAbs*valMinAbs after pow_two expansion, preserving same modular-root identity.",
+    "Explicit Factorization.Induction import exposes actual root-level induction_on_primes with zero/one/prime_mul telescope and same prime multiplication motive. Prior Nat namespace claim was wrong and corrected."
+  ],
+  "limits": [
+    "No local Lean or cure claim. Native induction generalization, branch proofs and simp closure still need complete strict hosted check/audit.",
+    "No changes to mathematical statements, hypotheses, resource limits or other packet sources."
+  ]
+}
