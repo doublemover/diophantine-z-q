@@ -1,0 +1,18 @@
+{
+  "status": "PASS_PROOF_DECOMPOSITION_SOURCE_NOT_LEAN_NOT_PERFORMANCE_ACCEPTANCE",
+  "source_sha256": "4730775aea891e3fda7a5120525c3ee4466af111abe2ea86a4e1a293416aeda6",
+  "before_sha256": "06cb582b3c138c4a55bfb3d57a30d075520f3e4f18b4888c915326fcf431580b",
+  "bindings_sha256": "8efd90283045bc383496248be0f02592b33870f78043e0bd6c1f5acbaba88d82",
+  "exact_failure_log_sha256": "2d0febe99235bbc448653f94e490e45a27ed4c1fe80132c6254aa6f4836b45f6",
+  "checks": [
+    "All four public theorem headers exactly unchanged. Original first three declaration bodies and imports preserved; no options or limits added.",
+    "Private square filters follow residues0,1,4,9 modulo16 and parity; denominator oddness remains derived from primitive mod4 data, never an added public premise.",
+    "Unit table reduces z,w odd squares to1 modulo8 and x square to0,1,4. Even table uses odd x,w and even z modulo16 before division by2, retaining a modulo16 rather than weakening to modulo8.",
+    "Isolated finite helpers carry only residue variables and linear modular constraints after rfl cases. Independently enumerated48 unit/128 even tuples, zero counterexamples; diagnostic only, not proof acceptance.",
+    "No change to checked Qp/depth producers or actual mathematical outputs."
+  ],
+  "limits": [
+    "Native simp/omega elaboration and per-declaration resource use remain strict hosted obligations. Smaller contexts are a justified design, not evidence timeout is cured.",
+    "No local Lean or dyadic-table acceptance."
+  ]
+}

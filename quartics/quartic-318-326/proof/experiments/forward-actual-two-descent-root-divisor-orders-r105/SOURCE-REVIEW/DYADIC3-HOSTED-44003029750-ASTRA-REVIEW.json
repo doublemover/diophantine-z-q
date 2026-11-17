@@ -1,0 +1,61 @@
+{
+  "status": "AUTHENTICATED_EXACT_HOSTED_OUTCOME",
+  "run_id": "44003029750",
+  "source_commit": "7cbe9164d36c157174742b5abe960f94501a1141",
+  "execution_commit": "2634e066a96ff6fc565b8f89df946c00debc651a",
+  "selection_sha256": "36dd1c1b6747677395584aa8b96a454ea8638b8fd7e24a74f0a1012d9b0b7ffd",
+  "inventory_sha256": "1e618843d77c80b6f5fd779b26d3ba8e1bada06e40b75e3e6cf1ee5e615f68f6",
+  "passed": [
+    {
+      "name": "LegendrePadicPrimitiveResidues318",
+      "sha256": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a",
+      "seconds": 1.969
+    },
+    {
+      "name": "LegendrePadicResidueDepth318",
+      "sha256": "6b2cb26a8affe6fab3e8425915a2b25f633ae313efa55cdc97db383bf85ad108",
+      "seconds": 1.718
+    }
+  ],
+  "failed": [
+    {
+      "name": "LegendreDyadicNormTables318",
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r101",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/forward-actual-two-descent-root-divisor-orders-r101-s36dd1c1b67476773/quarantine/LegendreDyadicNormTables318/LegendreDyadicNormTables318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/forward-actual-two-descent-root-divisor-orders-r101/LegendreDyadicNormTables318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "Mathlib.Algebra.Ring.Int.Parity",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "2d0febe99235bbc448653f94e490e45a27ed4c1fe80132c6254aa6f4836b45f6",
+      "occurrence": "forward-actual-two-descent-root-divisor-orders-r101/LegendreDyadicNormTables318",
+      "root_causes": [
+        "LegendreDyadicNormTables318"
+      ],
+      "seconds": 15.355,
+      "source_sha256": "06cb582b3c138c4a55bfb3d57a30d075520f3e4f18b4888c915326fcf431580b",
+      "status": "compiler_error",
+      "timed_out": false
+    }
+  ],
+  "audit_declarations": 7,
+  "scope": "Qp primitive residues and arbitrary positive-depth extraction strictly pass; dyadic tables fail resource checks. No dyadic-table or assembled compatibility acceptance.",
+  "checks": [
+    "Exact immutable full packet source hashes, marker-only execution, request, intake, selection and actual import closure.",
+    "Selected strict exit codes and log hashes, recorded dependency artifact identities, audit restricted to successful modules.",
+    "Audit recursively excludes axioms other than propext, Quot.sound, Classical.choice. No audit claimed for empty successful set."
+  ],
+  "limits": [
+    "No local Lean; no downloaded binary rehash; selected closure only."
+  ]
+}
