@@ -1,0 +1,23 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_API_REVIEW_NOT_LEAN",
+  "candidate_sha256": "881fdbb187f4765fd971790ace8ac8495117821adec9e97c76f3590f8047b8c2",
+  "bindings_sha256": "a6d257fabc7356611cfb3b6216881b2e423486261c963d67dc9c69176af8f217",
+  "dependencies": {
+    "LegendrePadicPrimitiveResidues318": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a",
+    "LegendrePrimitiveModularRoot318": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede"
+  },
+  "dependency_runtime_receipts": {
+    "PADIC77-ONE-HOSTED-43979792804-ASTRA-REVIEW.json": "71f0fcc3550dc6c4ae7e7581666ee187a0e865dc912e40e9723d1ec51d23715e",
+    "MODULAR73-ONE-HOSTED-43972786530-ASTRA-REVIEW.json": "8670def8248f8a75bec4c37f1d6de8004ddf4c80e699849d9041d5903904c491"
+  },
+  "findings": [
+    "An actual affine local norm yields nonzero homogeneous vector (x,z,1); checked Qp residue extraction supplies primitive integer coordinates modulo p\u00b2. Checked modular-root theorem applies with coefficient pB and p not dividing B, including p2.",
+    "For odd p, two is nonzero modulo p; native Legendre eq_one_iff and to_jacobiSym give Jacobi(2,p)=1 with exact orientation.",
+    "At p3, finite ZMod3 square enumeration contradicts square2; hence an exactly-one-factor3 locally represented integer is excluded.",
+    "This legitimately postpones the parity restriction until after choosing an integer with actual local norm representations; no squareclass or chosen-prime assumption is silently discharged."
+  ],
+  "limits": [
+    "No local Lean or formal acceptance. Native cast simplification and finite cases remain hosted obligations.",
+    "No selected prime, finite residue class assembly, ternary local-global or rational anchor conclusion."
+  ]
+}
