@@ -1,0 +1,36 @@
+{
+  "status": "AUTHENTICATED_EXACT_HOSTED_OUTCOME",
+  "run_id": "44000133379",
+  "source_commit": "b110f0203db0fa2059a6f1d84c1d5bdaa89b2f35",
+  "execution_commit": "550610834010d3547622dcccf970b6a62a7c0c37",
+  "selection_sha256": "c4ecb8b614fea7a2bae4e5b6c0c3f90e1f108b929b620839a1779cfad881b360",
+  "inventory_sha256": "a61b8fbca086a3f7d9c803453c37f19e4458bb6d19e23c416be84bd04a743f94",
+  "passed": [
+    {
+      "name": "LegendrePadicPrimitiveResidues318",
+      "sha256": "2153b6e48df03197296394c6901027b756c00a370e4d89efe439eba211bada6a",
+      "seconds": 1.718
+    },
+    {
+      "name": "LegendrePrimitiveModularRoot318",
+      "sha256": "b33f644f12827926745f9a3239cf6dd89a586fbed94c5087cab560c3a1390ede",
+      "seconds": 1.469
+    },
+    {
+      "name": "LocalNormPrimeSplitting318",
+      "sha256": "d8cfca368073e90411bc7eb8bf8b22a1b37b5fcc34a0a08664133edd77568fa5",
+      "seconds": 1.367
+    }
+  ],
+  "failed": [],
+  "audit_declarations": 9,
+  "scope": "From a supplied local norm solution and exact once p-divisibility of integer t, derives IsSquare(a modp) for arbitrary integer a; specializing a=2 at odd p gives Jacobi2=1, and excludes exact-once3-divisibility. The local solution and exact valuation premise remain inputs; no actual prime selection or global point.",
+  "checks": [
+    "Exact immutable full packet source hashes, marker-only execution, request, intake, selection and actual import closure.",
+    "Selected strict exit codes and log hashes, recorded dependency artifact identities, audit restricted to successful modules.",
+    "Audit recursively excludes axioms other than propext, Quot.sound, Classical.choice. No audit claimed for empty successful set."
+  ],
+  "limits": [
+    "No local Lean; no downloaded binary rehash; selected closure only."
+  ]
+}
