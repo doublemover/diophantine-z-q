@@ -17,7 +17,12 @@ private meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx exp
   let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?
   out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"
   out.flush
-  return result
+  out.putStrLn "KAEHLER_OBSERVER_BEFORE_ENSURE_TYPE"
+  out.flush
+  let checked ← Lean.Elab.Term.ensureHasType expectedType? result
+  out.putStrLn "KAEHLER_OBSERVER_AFTER_ENSURE_TYPE"
+  out.flush
+  return checked
 
 public section
 noncomputable section

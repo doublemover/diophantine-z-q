@@ -212,8 +212,8 @@ class Tests(unittest.TestCase):
     def test_compatibility_prefix_has_no_concrete_variables(self):
         candidate=d.frozen_candidate(self.source())
         raw=candidate[:candidate.index(d.PREFIX_CHECKPOINT)]
-        self.assertEqual(len(raw.encode()),7707)
-        self.assertEqual(d.digest(raw),'75601a6afdbccc708dce9201bc55ecd9df3c4100c4ff61eda96467a336207840')
+        self.assertEqual(len(raw.encode()),7905)
+        self.assertEqual(d.digest(raw),'4e082cc7a23b8c6c83369c733d63dfd46f14a117b66a5d59c85e52f85f7bde0c')
         out=d.specimens(self.source())['complete_candidate_prefix']
         self.assertIn('rw [hp,hq]\n  exact FourRootPivot318.regroup a i',out)
         for absent in ['lemma regroup_root','variable (b:Fin 4','sorry','axiom ']:
@@ -371,6 +371,7 @@ class Tests(unittest.TestCase):
     def test_local_observer_registration_only_change(self):
         candidate=d.frozen_candidate(self.source())
         self.assertEqual(candidate.count('@[local term_elab kaehlerObserveTerm]'),1)
+        candidate=candidate.replace('syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  out.putStrLn "KAEHLER_OBSERVER_BEFORE_ENSURE_TYPE"\n  out.flush\n  let checked ← Lean.Elab.Term.ensureHasType expectedType? result\n  out.putStrLn "KAEHLER_OBSERVER_AFTER_ENSURE_TYPE"\n  out.flush\n  return checked\n\n','syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  return result\n\n',1)
         historical=candidate.replace('@[local term_elab kaehlerObserveTerm]', '@[term_elab kaehlerObserveTerm]',1)
         self.assertEqual(d.digest(historical),'2c6cc50359716d89958b9fedee19457ff38f1ee42d44dc50dfd6824d41af6a28')
         with self.assertRaises(ValueError):d.without_stage_observer(historical)
@@ -388,8 +389,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(prefix.count(d.STAGE_OBSERVER),1)
         self.assertEqual(prefix.count(d.STAGE_WRAPPED),1)
         self.assertIn('Lean.Elab.Term.elabTerm stx[1] expectedType?',d.STAGE_OBSERVER)
-        self.assertIn('return result',d.STAGE_OBSERVER)
-        self.assertEqual(d.STAGE_OBSERVER.count('out.flush'),2)
+        self.assertIn('return checked',d.STAGE_OBSERVER)
+        self.assertEqual(d.STAGE_OBSERVER.count('out.flush'),4)
         self.assertNotIn('catch',d.STAGE_OBSERVER)
         self.assertNotIn('getMessages',d.STAGE_OBSERVER)
         self.assertNotIn('sorry',d.STAGE_OBSERVER)
@@ -397,7 +398,7 @@ class Tests(unittest.TestCase):
 
     def test_stage_observer_tamper_fails_closed(self):
         candidate=d.frozen_candidate(self.source())
-        for bad in [candidate.replace(d.STAGE_IMPORT,'',1), candidate.replace('return result','return default',1),candidate.replace('expectedType?','none',1),candidate.replace(d.STAGE_WRAPPED,d.STAGE_UNWRAPPED,1)]:
+        for bad in [candidate.replace(d.STAGE_IMPORT,'',1), candidate.replace('return checked','return default',1),candidate.replace('expectedType?','none',1),candidate.replace(d.STAGE_WRAPPED,d.STAGE_UNWRAPPED,1)]:
             with self.assertRaises(ValueError):d.without_stage_observer(bad)
 
     def test_stage_observer_is_not_a_pass_signal(self):
@@ -406,6 +407,17 @@ class Tests(unittest.TestCase):
         self.assertIn('inherited error recovery, postponed work or retries',source)
         self.assertEqual(d.compiler_outcome({'exit_code':-9,'limit':'SCRATCH_WALL_LIMIT'}),'LIMIT_REACHED_NO_ACCEPTANCE')
         self.assertIn('TERM',d.STAGE_OBSERVER)
+
+    def test_ensure_type_exact_differential_and_reversal(self):
+        candidate=d.frozen_candidate(self.source())
+        previous=candidate.replace(d.STAGE_OBSERVER,'syntax (name := kaehlerObserveTerm) "kaehler_observe% " term : term\n@[local term_elab kaehlerObserveTerm]\nprivate meta def elabKaehlerObserveTerm : Lean.Elab.Term.TermElab := fun stx expectedType? => do\n  let out ← IO.getStderr\n  out.putStrLn "KAEHLER_OBSERVER_BEGIN_DELEGATED_TERM"\n  out.flush\n  let result ← Lean.Elab.Term.elabTerm stx[1] expectedType?\n  out.putStrLn "KAEHLER_OBSERVER_RETURNED_FROM_ELAB_TERM"\n  out.flush\n  return result\n\n',1)
+        self.assertEqual(d.digest(previous),'4de8c3eb2d42be43dac561e879035109b2b8ac16ee73e73646e06ce4e1da31d5')
+        self.assertEqual(d.STAGE_OBSERVER.count('Lean.Elab.Term.ensureHasType expectedType? result'),1)
+        self.assertLess(d.STAGE_OBSERVER.index('BEFORE_ENSURE_TYPE'),d.STAGE_OBSERVER.index('let checked'))
+        self.assertLess(d.STAGE_OBSERVER.index('let checked'),d.STAGE_OBSERVER.index('AFTER_ENSURE_TYPE'))
+        self.assertIn('return checked',d.STAGE_OBSERVER)
+        for bad in [candidate.replace('expectedType? result','none result',1),candidate.replace('return checked','return result',1)]:
+            with self.assertRaises(ValueError):d.without_stage_observer(bad)
 
     def baseline_fixture(self, root):
         # Synthetic artifact bytes test authentication, never Lean compilation.
