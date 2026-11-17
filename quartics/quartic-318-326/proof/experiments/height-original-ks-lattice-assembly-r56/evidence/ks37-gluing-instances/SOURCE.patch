@@ -1,0 +1,15 @@
+--- published-KS37
++++ candidate-KS38
+@@ -85,8 +85,10 @@
+       rw [IntegralWholeGeneratorComparisons318.infinity_generator R c j]
+       simp only [AlgHom.toRingHom_eq_coe, AlgHom.coe_toRingHom]
+       rw [IntegralOverlapRootGenerators318.infinityMap_generator R c j]
+-    rw [ring_map_smul (commonRestriction R c) (↑(y R)⁻¹ : Laurent R)
+-      (ThreeRootCoordinates318.generator (finiteParameter R c) j)]
++    with_reducible_and_instances
++      rw [ring_map_smul (k := Laurent R) (A := CommonOrder R c) (B := OldOverlap R c)
++        (commonRestriction R c) (↑(y R)⁻¹ : Laurent R)
++        (ThreeRootCoordinates318.generator (finiteParameter R c) j)]
+     change commonRestriction R c
+       (↑(IntegralWholeOrderScalarMaps318.commonY R c)⁻¹:CommonOrder R c) *
+         commonRestriction R c (ThreeRootCoordinates318.generator (finiteParameter R c) j)=_

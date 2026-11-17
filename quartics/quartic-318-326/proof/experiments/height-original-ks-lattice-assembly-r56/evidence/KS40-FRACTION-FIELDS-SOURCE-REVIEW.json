@@ -1,0 +1,37 @@
+{
+  "status": "PASS_SOURCE_API_REPAIR_NOT_LEAN",
+  "application_sha256": "c076bf30aae69ec3851216aced23c57867397239f092cb5f07ef4c8d46063fb4",
+  "modules": {
+    "OriginalIntegerFractionField318.lean": {
+      "before_sha256": "712848ffb8a516692b4f2c9790afee4aa9a91ed4f0252aecb405db2aa3fb7760",
+      "after_sha256": "b9631fcc38b2f0698e765dd05747cfaa867d9a24a3826e59926fd6b513780358",
+      "log_sha256": "2751947a6951838e83231e000536c5b84eb3eb66e155f97c683639fb31398032"
+    },
+    "IntegerPolynomialFractionField318.lean": {
+      "before_sha256": "5eae3b5d28b732d05e3848f1b6583a1d23e0e5a798bbfbd78f4f79f910733e26",
+      "after_sha256": "bf05890b2bdd57b8c1f70c52a728972067dac2d4ae7bc32f45d9a3e221a5d3ed",
+      "log_sha256": "47890d0fa3373affc4a85c0d2b989fa8a058a5ccbae7afff8b2c1141009aab10"
+    }
+  },
+  "immutable_source_commit": "0f4a63eae3dc79d3384741c8310dcdfad4269d66",
+  "run_id": "43897325860",
+  "native_raw_blobs": {
+    "RatFuncBasic.lean": "3136333b1bd643a85442241c1ab809a5ba72a078",
+    "AlgebraTower.lean": "84cf205796e2ee308e57b7066b1eec3d7a3d2827",
+    "LocalizationBasic.lean": "4d65d54983201aca7a0ff4a34a4ccdc8a6efe173"
+  },
+  "native_verification": "RatFuncBasic and AlgebraTower fetched independently at exact mathlib pin and byte-identical; LocalizationBasic matches previously independently verified raw blob.",
+  "findings": [
+    "OriginalIntegerFractionField opens Polynomial to restore intended polynomial notation and uses root isLocalization_of_algEquiv with unchanged original-order AlgEquiv and denominators. The previous source did not elaborate; no accepted old signature is claimed.",
+    "Public scalar_tower retains its written target and native RatFunc SMul; RatFunc.Basic native tower instance at lines197-208 supplies this target. No global scalar instance override.",
+    "Inside actual_fractionField only, explicit SMul is precisely fieldAlgebra.toSMul. The named Algebra and its composite ring map are unchanged. Explicit R/S/A on of_algebraMap_eq-prime has definitionally the same composite algebra map, so FaithfulSMul proof and localization descent use consistent named algebra projections.",
+    "IsFractionRing result depends on the unchanged Algebra, not an independently supplied replacement map. Faithfulness and fraction-field descent remain derived, not assumed.",
+    "No public theorem premise, ring map, field, denominator submonoid, resource option, passed producer or consumer source changed."
+  ],
+  "hosted_preservation": "Exact current67passes and gluing64closure authenticated separately in KS40-GLUING64-HOSTED-43897325860-ASTRA-REVIEW.json; this gate changes only two compiler-error roots.",
+  "limitations": [
+    "No local Lean executed.",
+    "Native instance selection and remaining elaboration must be tested hosted.",
+    "Neither repaired root nor normalization branch is yet Lean accepted."
+  ]
+}
