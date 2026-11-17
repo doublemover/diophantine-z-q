@@ -1,0 +1,7 @@
+# Exact geometry repair and actual overlap checkpoint
+
+Six exact compiler-root corrections address the authenticated geometry89 run, preserving all 73 strict-passed source bytes and audit1607 evidence. They fix documentation/include parsing, two explicit topology/Scheme types, finite-span membership coercion, rational tensor/regularity inference, and symbolic reciprocal AlgHom/tower specialization. The two computational helpers needed by exposed definitions are explicitly public/exposed. No proof limits/imports are changed and no theorem is weakened.
+
+Six separately reviewed additions identify both rational charts' exact original generic point, prove the two actual literal rational-overlap arrows to the original model equal by reducedness/dominance/separatedness, identify the full categorical rational-cover intersection with the literal tensor common overlap, and establish tensor/base-change naturality on both projections. These are actual arrow/intersection statements, not a claimed global isomorphism. Final composition of the intersection projection squares and global descent still remain.
+
+All 232 predecessor roots/order are retained, 226 with unchanged source bytes. The four-target closure has 101 draft and 180 baseline dependencies. All repaired, pending and new dependencies require strict hosted compilation/audit. Source/static gates are not Lean acceptance. No arithmetic bad-fiber regularity, geometric generation, Kodaira–Spencer theorem or final Diophantine result is claimed. Only this new packet and registry67→68 are modified.

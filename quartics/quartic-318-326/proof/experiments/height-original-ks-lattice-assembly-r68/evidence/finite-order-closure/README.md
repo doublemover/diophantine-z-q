@@ -1,0 +1,7 @@
+# Generic finite-order integral-closure bridge
+
+This is a new generic lemma package, not the actual reciprocal-order normalization theorem. Its inputs are explicit commutative rings R and B, a field L, R-algebra structures, Module.Finite R B, and an injective R-algebra map f:B→L where injectivity is needed. It defines the B-action on L from this exact f and never adds an unidentified coherence premise. The fieldAlgebra parameter f is bound explicitly through letI in dependent theorem types and bodies, not registered as an uninferable instance.
+
+The output is the same-element B→integralClosure R L algebra map and injectivity, exact integrality-over-B iff integrality-over-R, and IsIntegralClosure with the literal supplied B-action. It does not assert L is a fraction field, the closure is finite, the order is normal, or any original model is regular. No original-specific premise is asserted or hidden: the later actual reciprocal application must construct its injective field AlgHom and prove its coefficient compatibility first. Pending KS61 common-field and the new reciprocal overlap draft are NOT imported here.
+
+The proof pattern generalizes the previously checked finite-chart normalization argument, with native pinned theorem snapshots and an explicit typed subtype projection. This new source has not run through Lean. Fresh independent review and eventual strict compilation remain required.
