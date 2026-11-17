@@ -1,0 +1,48 @@
+--- before/OriginalFivePullbackIndependence318.lean
++++ after/OriginalFivePullbackIndependence318.lean
+@@ -51,7 +51,8 @@
+ theorem sumLinear_surjective (hnonzero : TargetsNonzero) : Function.Surjective sumLinear := by
+   have hle := LinearMap.finrank_le_finrank_of_injective sumLinear_injective
+   have hge := target_product_finrank_ge_five hnonzero
+-  have hsource := ActualSourceHOneResidueBasis318.source_finrank_eq_five
++  have hsource : Module.finrank ℚ SourceHOne ≤ 5 :=
++    ActualSourceHOneRationalSpanning318.source_finrank_le_five
+   have heq : Module.finrank ℚ ((i : Index) → TargetHOne i) = Module.finrank ℚ SourceHOne := by
+     omega
+   exact (LinearMap.injective_iff_surjective_of_finrank_eq_finrank heq).mp sumLinear_injective
+--- before/OriginalOpenTraceDeck318.lean
++++ after/OriginalOpenTraceDeck318.lean
+@@ -65,9 +65,18 @@
+     letI := AffineDominantNorm318.fieldAlgebra f
+     apply Y.germToFunctionField_injective U
+     rw [OpenDominantTrace318.trace_embedding,OpenDominantTrace318.trace_embedding,section_germ]
+-    simpa only [fieldEquiv] using
+-      (Algebra.trace_eq_of_algEquiv (fieldEquiv f e h)
+-        (X.germToFunctionField (f ⁻¹ᵁ U) s))
++    calc
++      Algebra.trace Y.functionField X.functionField
++          (OpenFunctionField318.fieldEquiv e.hom
++            (X.germToFunctionField (f ⁻¹ᵁ U) s)) =
++          Algebra.trace Y.functionField X.functionField
++            (fieldEquiv f e h (X.germToFunctionField (f ⁻¹ᵁ U) s)) :=
++        congrArg (Algebra.trace Y.functionField X.functionField)
++          (show OpenFunctionField318.fieldEquiv e.hom
++              (X.germToFunctionField (f ⁻¹ᵁ U) s) =
++            fieldEquiv f e h (X.germToFunctionField (f ⁻¹ᵁ U) s) from rfl)
++      _ = _ := Algebra.trace_eq_of_algEquiv (fieldEquiv f e h)
++        (X.germToFunctionField (f ⁻¹ᵁ U) s)
+   · letI := OpenDominantTrace318.empty_subsingleton U hu
+     exact Subsingleton.elim _ _
+ 
+--- before/OriginalSimplePoleResidues318.lean
++++ after/OriginalSimplePoleResidues318.lean
+@@ -123,7 +123,8 @@
+   rw [he]
+   change (Finsupp.applyAddHom (0,i)) (∑ j, Finsupp.single (0,j) (q j)) = _
+   rw [map_sum]
+-  simp only [Finsupp.applyAddHom,Finsupp.single_apply]
++  change (∑ j, (Finsupp.single (0,j) (q j)) (0,i)) = _
++  simp only [Finsupp.single_apply]
+   simpa only [Prod.mk.injEq,true_and,Finset.sum_ite_eq',Finset.mem_univ,ite_true]
+     using simple_coefficients c a b q h i
+ 
