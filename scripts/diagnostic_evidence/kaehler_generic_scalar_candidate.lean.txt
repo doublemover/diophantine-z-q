@@ -150,6 +150,7 @@ private theorem nativeRegroupRootSpecialization
         (AdjoinRoot.root (QuadraticPresentation318.polynomial (a (FourRootPivot318.indices i 0)))) := by
   exact ActualRootPivotCoordinates318.regroup_generator a i
 
+set_option cleanup.letToHave false in
 /-- Diagnostic family/predicate partition: specialize only the original
 family and predicate. All indices, equality proofs, equivalence and native
 witness remain arguments; no concrete transport conclusion is asserted. -/
