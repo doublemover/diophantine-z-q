@@ -1,0 +1,19 @@
+{
+  "status": "PASS_SOURCE_MATH_API_REVIEW_NOT_LEAN",
+  "source_sha256": "0232cca178cffd348d09e23a65c3ad4f9126c5bcb66a7e684d71d22e65c36020",
+  "bindings_sha256": "0b0e25498305638d0668b732305765ef8ac092d575ff9cedb70aef8bd818abfe",
+  "native_snapshots": {
+    "Mathlib-PadicNumbers.lean.txt": "6de8595a604a9a3ad1b4c8d8f5e16aa0dc79a7a67309a2670b55d9885e873514"
+  },
+  "checks": [
+    "For every nonzero t set v=valuation(t), alpha=v mod2, e=v/2, u=t*p^(-v), s=p^e. Native norms give normu=p^(-v)*p^v=1, so u is integral.",
+    "Integer Euclidean quotient/remainder identity alpha+2e=v includes negative v; alpha is0 or1. zpow nonzero handles negative e without an integrality assumption on t or s.",
+    "Literal factorization p^alpha*u*s\u00b2=t follows exponent cancellation. In particular v=-1 gives alpha1,e=-1, not a truncated natural exponent.",
+    "Dividing all four coordinates by same nonzero s transports both binary forms from t=v*s\u00b2 to v; hs\u00b2 ensures actual cancellation. Field lemma needs no extra characteristic assumption."
+  ],
+  "limits": [
+    "No local Lean; exact tactic elaboration, casts and full strict audit remain pending.",
+    "No actual auxiliary prime selection, global point or local-global theorem proved by these standalone lemmas.",
+    "Pinned native text snapshots bound, no raw Git blob authentication claim."
+  ]
+}

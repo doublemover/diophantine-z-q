@@ -1,0 +1,22 @@
+{
+  "status": "PASS_SOURCE_MATH_API_REVIEW_NOT_LEAN",
+  "source_sha256": "753faf6e2eade68f4230d49e386feadc9a6b62a4cad5f198b2b3933ed09a8645",
+  "bindings_sha256": "31065722d454d48653ac76a6ead82688672c7b797ab4db98dd79659723b7a273",
+  "native_snapshots": {
+    "Mathlib-Padics-Hensel.lean.txt": "5e40d7fb8f6353bf30fe8b6451b9e3198ad88b92a7658c382731dba79cd84a63",
+    "Mathlib-Padic-RingHoms.lean.txt": "c56bf1519b51dd9a50dcbee80abc439fd0a2c1e2a9694582b9df0eda71e4839f",
+    "Mathlib-PadicIntegers.lean.txt": "b78618e81f9550d0fc31e823966ec4c45537fbede71d3564be88d778f2ad558a"
+  },
+  "checks": [
+    "Hensel polynomial u*X\u00b2-v at1 has error u-v and derivative2u. Unit normu makes derivative norm exactly norm2; strict square-derivative bound is the native Hensel hypothesis.",
+    "Native root closeness is norm(s-1)<norm2; s=0 contradicts norm2<=1, so multiplier genuinely nonzero. Root equation orients v=u*s\u00b2.",
+    "Odd prime: p not dividing2 makes norm2=1, and p divisibility gives strict error<1. Atp2: error divisible8 has norm<=1/8<1/4=norm2\u00b2. No unsupported modulo4 shortcut.",
+    "Positive-depth approximation yields difference divisiblep. If integer approximation had norm<1, nonarchimedean inequality would contradict normu=1; hence its integer residue is a unit without an added premise.",
+    "Integer CRT congruence m-n divisiblep^k casts into the same principal ideal, then ideal subtraction gives u-m. No residue-class transport direction reversal."
+  ],
+  "limits": [
+    "No local Lean; exact tactic elaboration, casts and full strict audit remain pending.",
+    "No actual auxiliary prime selection, global point or local-global theorem proved by these standalone lemmas.",
+    "Pinned native text snapshots bound, no raw Git blob authentication claim."
+  ]
+}
