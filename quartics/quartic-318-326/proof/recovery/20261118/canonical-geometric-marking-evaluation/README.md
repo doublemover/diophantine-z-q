@@ -1,0 +1,2 @@
+# Canonical geometric evaluation of a marking algebra
+A finite étale algebra over a field splits canonically over a separably closed extension by evaluation on its prime points. An equivariant surjection from primitive markings onto these actual primes suffices to embed the invariants into functions on marked orbits, hence bound their rank by the true Γ_H index. This source does not assert existence of the full marking cover or an identification with its modular function field. Independently reviewed as research source, not a kernel result.
