@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 import check_quartic_consumer_bindings as bindings
+from check_quartic318_326 import copy_replay_inputs
 
 ROOT = Path(__file__).resolve().parents[1]
 path = ROOT / 'quartics/quartic-318-326/proof/progress/verify_manifest.py'
@@ -17,6 +18,24 @@ manifest = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(manifest)
 
 class IntegrationTests(unittest.TestCase):
+    def test_replay_copy_excludes_only_diagnostic_experiment_tree(self):
+        with tempfile.TemporaryDirectory() as temp:
+            source, dest = Path(temp) / "original", Path(temp) / "detached"
+            keep = ["proof/progress/module.lean", "proof/components/manifest.json",
+                    "proof/experiments-adjacent/example", "unrelated/experiments/fixture",
+                    "proof/receipts/fresh-rebuild/source-check.json"]
+            omit = ["proof/experiments/matrix/diagnostic", "other/.cache/old"]
+            for name in keep + omit:
+                path = source / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(name)
+            copy_replay_inputs(source, dest)
+            self.assertEqual(sorted(p.relative_to(dest).as_posix() for p in
+                                    dest.rglob("*") if p.is_file()), sorted(keep))
+            for name in keep:
+                self.assertEqual((dest / name).read_bytes(), (source / name).read_bytes())
+            self.assertFalse((dest / "proof/experiments").exists())
+
     def test_source_admission_rejects_kernel_and_axiom_escapes(self):
         for bad in ['set_option debug.skipKernelTC true', 'set_option skipKernelTC true',
                     'unsafe def x := 1', '@[implemented_by y] def x := 1',
