@@ -529,4 +529,6 @@ class ShardRequestTests(unittest.TestCase):
 
 
 if __name__=='__main__':
+    # These mocked observation guards run during planning; they never invoke Lean.
+    from test_zero72_prefixes import GuardTests as Zero72GuardTests, FrozenPrefixTests
     unittest.main()

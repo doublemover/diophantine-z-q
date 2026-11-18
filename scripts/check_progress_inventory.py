@@ -178,6 +178,16 @@ def observe_contact(folder, output, env, result, deadline):
     diagnose_contact_refinement.run(folder, output, env, result, deadline)
 
 
+def observe_diagnostics(folder, output, env, result, deadline):
+    if result.get('packet') == 'pel-original-zero-local-length-r72' and (
+            result.get('selection', {}).get('selection_sha256') ==
+            'd291531b2c808956614c3b020f6289f11c693022c81957ab611672d35ca74821'):
+        import diagnose_zero72_prefixes
+        diagnose_zero72_prefixes.run(folder, output, env, result, deadline)
+    else:
+        observe_contact(folder, output, env, result, deadline)
+
+
 def run(args, plan):
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
@@ -230,7 +240,7 @@ def run(args, plan):
                        for p in env['LEAN_PATH'].split(os.pathsep)):
                 raise ValueError('Missing pinned upstream artifact: ' + dep)
         result['status'] = 'INVENTORY_RUNNING'
-        inventory(folder, data, output, lib, env, result, args.deadline, observer=observe_contact)
+        inventory(folder, data, output, lib, env, result, args.deadline, observer=observe_diagnostics)
     except BaseException as error:
         if result['status'] not in ('INVENTORY_ERROR', 'INVENTORY_RECORDED'):
             result.update(status='SETUP_ERROR', error=type(error).__name__ + ': ' + str(error))
