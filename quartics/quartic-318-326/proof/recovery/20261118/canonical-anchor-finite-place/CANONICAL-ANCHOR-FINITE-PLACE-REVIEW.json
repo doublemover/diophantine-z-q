@@ -1,0 +1,74 @@
+{
+  "reviewer": "Independent review62",
+  "verdict": "PASS mathematical argument, historical cross-bindings and finite replay; no Lean execution",
+  "files": {
+    "README.md": "550e57972c90859ad28e9eba085ef0a8e0890c24ad390360e688aa8a130882c8",
+    "FINITE-REPLAY.json": "f42dc860909b40ae4f591abd4d9b006a445762c79cad56cbfa45108ee39c7778",
+    "verify.py": "93eda0e93f1d3f525b67c4e2b5bdcee0c5df3deddf81ad708cce067ec9f648d7"
+  },
+  "historical_evidence": {
+    "4f1d08e1655c45a4a5664b60d46ee9d4f4eca434349b4d68a44831c03d2cceae": [
+      "quartic-native-cover-conic-family-source-backup-2026-11-17.zip",
+      "recovery-actual-conic-anchor-family-20261117/APPLICATION.md"
+    ],
+    "29dac40f32521e2ea83d3ab5c197742213c585e5ea8e9648d512b2aefb888ba4": [
+      "quartic-pascal155-reviewed-source-backup-2026-11-17.zip",
+      "standalone/recovery-actual-anchor-local-solubility-20261117/LOCAL-SOLUBILITY.md"
+    ],
+    "daddcd18f23ae404cd83a2e1dd7966a716dbfc59b5fb1697882dadf31ede5052": [
+      "quartic-selected-local-d1-source-backup-2026-11-17.zip",
+      "recovery-anchor-one-split-quartic-20261117/ONE-SPLIT-CONTRACT.md"
+    ],
+    "0d2cedeae39d33f520dfa0ce63f27564d5faf99b3fa089ec11a7251fadd31abf": [
+      "quartic-rees-anchor-rank-source-backup-2026-11-17.zip",
+      "recovery-actual-anchor-integer-twist-20261117/APPLICATION.md"
+    ],
+    "f4ca4fddc6afecd93539e71698908a840b9ea1d5ae412ae70160b30b035a7849": [
+      "quartic-synthetic-cassels-pairing-source-backup-2026-11-17.zip",
+      "recovery-anchor-explicit-pairing-row-20261117/PAIRING.md"
+    ]
+  },
+  "argument": [
+    "Canonical beta=17m since 17 \u2224 m. d=thetaPrime*e\u00b2 and seed u\u00b2=4\u22123b0/17 yield Gamma point (u,z/17,4 thetaPrime e), W nonzero. Conic secant keeps both GLOBAL squareclasses, so same point on same Gamma; auxiliary conic criterion need not hold after transfer. Historical fixed-N equivalence then constructs realization at integer beta*thetaPrime.",
+    "For fixed prepared theta>1, full d=1 quartic connects by h=1/(17r), e=J/[theta(1+3beta h\u00b2)]. h=0 or above infinity would need theta a square; J=0 requires beta square. Positive product with r>0 is either r\u00b2<c or r\u00b2>9c; involution r->3c/r fixes d,z and interchanges these intervals. Matching both GLOBAL classes (not finite-local) supplies rational X,Z solving conic exactly. theta=1 is excluded from iff. No deduction about remaining Selmer fibre or other n.",
+    "At good split unit c, r\u00b2\u2212c valuation 1 or 2 and residual ratio chosen by lifting simple root; r\u00b2\u22129c contributes \u22128c, denominator square unit. At nonsplit c, D* can only have even valuation; choose r=0 mod p for square unit class; for nonsquare twist its smooth projective genus-one curve over Fp has point by Hasse-Weil; branch and infinity points nonrational. No local denominator nonunit obstruction.",
+    "CRT finite congruences and fresh q factor of 17mH\u00b2\u22121 avoiding all excluded primes; simple root enforces v_q(d)=1, D* has v_q=0. Weak approximation applies to secant rational functions at finite local slopes (C+d lambda\u00b2\u22600), preserving nonzero coordinates, precision, square denominator at m and preparation. Thus all chosen places match but global complement differs.",
+    "Historical example is separate synthetic fixed first class. Original PAIRING.md explicitly applies the kernel-zero fibre and nontrivial Cassels row; in this paper only a conditional application. No proof of inconsistency, no original indexed pole, no unconditional new Sha obstruction or removal."
+  ],
+  "primary_reference": "https://math.mit.edu/~poonen/papers/Qpoints.pdf#page=220 (Corollary 7.2.1, hypotheses checked)",
+  "replay": {
+    "status": "EXACT_FINITE_REPLAY",
+    "small_unramified_local_tests": 10128,
+    "canonical_anchor_theta": 157782598801,
+    "older_obstructed_target": {
+      "m": 171523458450570241,
+      "theta": 943689409057,
+      "D": "943689409057/419889427230685359025",
+      "all_m_primes": [
+        409,
+        2857,
+        3673,
+        6121,
+        6529
+      ],
+      "other_odd_test_primes": [
+        5,
+        7,
+        11,
+        13,
+        19,
+        23,
+        31,
+        41,
+        73,
+        131,
+        577,
+        1367,
+        9133
+      ],
+      "forced_global_difference_prime": 53,
+      "seed_r": "7117319715690439868183553871938477774181740797024104656937024992696265770696",
+      "seed_d_numerator_digits": 305
+    }
+  }
+}
