@@ -1,0 +1,3 @@
+# Continuous degree-three comparison, completion-source supplement
+
+Fresh reconstruction, not recovery of historical bytes. Requires the earlier faces/coordinates/boundary source packet 0431b794 and recovered continuous unit differential/obstruction modules bbff7bdc and 5c6d1528. This supplement joins the literal native topological-category cycle projection to the same-representative degree-three class for all Galois closure units with their actual action, and to the explicit quotient and the particular elliptic defect. Static and mathematical source review only, not kernel acceptance. No local Lean, no unconditional arithmetic vanishing, no proof of the Milne premise and no rank conclusion.

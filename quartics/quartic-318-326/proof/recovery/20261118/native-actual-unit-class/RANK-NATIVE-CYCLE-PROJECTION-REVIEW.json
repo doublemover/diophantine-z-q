@@ -1,0 +1,12 @@
+{
+  "reviewer": "Independent review62",
+  "status": "Mathematical and static/API source pass after identified explicit binder correction. Not Lean acceptance.",
+  "sha256": "5580226ceaa041a0522e2006429d9eca263e5c6669c39140aa33f0ed4b50c2e6",
+  "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "checks": [
+    "Explicit LeftHomologyData ker/coker matches pinned TopModuleCat.Homology constructor; local transparency mirrored. Submodule.Quotient.mk_eq_zero takes explicit p, fixed from previous source. LinearMap.mem_range is Iff.rfl; literal algebraic range.",
+    "h.homology\u03c0_comp_homologyIso_hom converts actual projection to h.\u03c0; h.cyclesIso_hom_comp_i converts actual cycle inclusion to concrete kernel subtype, h.f'_i gives factor of actual preceding morphism.",
+    "Forward maps zero across homologyIso and lifts in actual range. Reverse concrete h.i injective (subtype), comparison infers range, then reflects zero using bijectivity of homologyIso.hom. Source API confirmed at pinned LeftHomology, Homology, EpiMono, Quotient/Defs, Submodule/Range; no transfer of category equality by definitional equality."
+  ],
+  "scope": "Generic short complex of topological modules; does not construct actual Galois unit TopRep or same-defect specialization by itself."
+}
