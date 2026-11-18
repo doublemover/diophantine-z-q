@@ -1,0 +1,24 @@
+{
+  "reviewer": "Independent review62",
+  "status": "PASS mathematical theorem, pinned source + byte-identical finite replay; no Lean",
+  "files": {
+    "SHA256SUMS": "52555e58207ada268cdc9d836c3571d27bbc2f5e20ed4995478a0d4c3aedaddc",
+    "README.md": "f51e00ed6d15731d5ec3aa740c3315de61d89d30b0b4942970ed0a909261587e",
+    "FINITE-REPLAY.json": "d0d752f778a9c307c907acc9dd5798cb009ad4d480132fd88d061d43ff80f4cd",
+    "verify.py": "718d0934037d45689a08ee93a073a671a15c0996974cd35f6781ee3a1da804eb"
+  },
+  "checks": [
+    "p=1 mod8; \u03b616 primitive in Fp\u00b2 since 16|p\u00b2\u22121. r0=\u03b6\u00b2+\u03b6\u207b\u00b2 in Fp with square 2 and s=\u03b6+\u03b6\u207b\u00b9 has square 2+r0\u22600. Frobenius fixes or negates s at p=1,9 mod16, respectively. \u03c7(2+r0)=s^(p\u22121); \u03c7(r0)=2^((p\u22121)/4), hence H iff \u03c7(1+r0)=1. \u03c7(-1)=1 makes opposite root character identical.",
+    "Duplication implies square x(R) since denominator nonzero and R not O. Converse checked all four explicit halving identities symbolically mod r\u00b2\u22122,u\u00b2\u22125r+1 in Q[r,u] (monic, hence works also over Fp); x=0=d contradiction if affine y vanishes p\u22602,7. Existing branch-halving formula distinguished from new criterion.",
+    "\u03c7(7)=\u22121 separates exactly one \u03c7(3\u2212r)=\u22121. None of the three finite 2-torsion points can be a double there: some nonzero translated difference \u00b1d is nonsquare. Finite abelian group has no 4-torsion => 2E odd-order subgroup. On \u03c7(d)=+1 side full E[4] proved by three explicit nonzero halves for target torsion then kernel of size 4; any nondouble has 4 dividing its order.",
+    "H equivalent to both signed points being doubles, not generally odd; in mixed-7 case H iff some signed order odd, identified nonsquare-d root guaranteed but may not be unique. Along any such family choosing odd roots as plus solves only dyadic constraints for L=16,h0=0, not odd shared-factor or full CRT. Examples 41,761,953 cross-check essential caveats."
+  ],
+  "replay_counts": {
+    "primes": 129,
+    "signed_curves": 258,
+    "mixed7": 69,
+    "mixed7_pass": 35,
+    "mixed7_fail": 34
+  },
+  "limits": "No global trace, full 15-value record, original parameter witness, exact total orders from H or Lean acceptance."
+}
