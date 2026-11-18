@@ -1,0 +1,52 @@
+{
+  "reviewer": "Independent review62",
+  "status": "PASS exact arithmetic theorem, source and finite reproduction",
+  "members": {
+    "FIXTURE.json": "b6761791c40b252a66154ff179be2ba792198eeea32a2d1027bca6c13772a951",
+    "overlap.py": "b73123d543472ef9d9f3b29d14dc8f3be1589d0dbe9f4d6d76843bc2fde297e2",
+    "README.md": "512c3ce5e352fe00763935aa00f3d0f46451624d72a4f717459118c1ffb390e7",
+    "FINITE-REPLAY.json": "8fda2fda68de62e41268af4c26949222a6925e1b69a249daf19f2fbfd82940ed",
+    "verify.py": "ca89d9fb2254c05b7c6b05884dd63a81f5c929cacce0aee66d1478fc6dda1891"
+  },
+  "checks": [
+    "Require positive valid bounds, exact kill tests, correctly identified keys and certified prime support; identity prescreen applies before overlap collection. Input support completeness is checked, primality remains oracle contract.",
+    "Trimming one active prime with n|T invariant leaves v_l(T)=v_l(n), other primes unaffected. All primes affecting gcd with Pi or L active at every relevant key, preserving exact valuations of the two gcds involving L (including mixed Pi^3 and LCM valuations) and gcd(Pi,plus). Distinct-key cross conflicts are shared active primes; same repeated key across sides conflicts iff order>1, from normalization for identity.",
+    "All pairwise CRT compatibility constraints at arbitrary h0,L follow. Bounds generate a subprogression of true solutions; not equal periods or every h. Worst-case overlap gcd can itself demand hard/full factorization, no unconditional polynomial-time total guarantee.",
+    "Compared literal five-row primes/order/root fixtures against independently reviewed shared-clearing data. At 154-bit bounds only gcds <=128 are factored, active 2 and 5; 43 strip oracle calls (additional initial kill/identity calls not counted), 3 nonminimal terminal bounds, one orientation unchanged."
+  ],
+  "reviewer_exhaustive": {
+    "independent_orientation_equivalences": 307200,
+    "trims_not_exact_order": 2192
+  },
+  "authors_replayed": {
+    "generic": {
+      "random_full_graphs": 400,
+      "random_direct_CRT_checks": 4800,
+      "random_with_opaque_excess": 270,
+      "full_exhaustive_assignments": 32768,
+      "full_exhaustive_successes": 1,
+      "private_composite_bits": 648
+    },
+    "linked_prime_row": {
+      "certified_by_kill_tests": 10,
+      "largest_input_bits": 154,
+      "largest_factored_gcd": 128,
+      "active_primes": [
+        2,
+        5
+      ],
+      "scalar_strip_tests": 43,
+      "nonminimal_final_multiples": 3,
+      "satisfying_assignments": [
+        [
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  "scope": "No all-15 Values record, true selected integer input, or Lean acceptance."
+}
