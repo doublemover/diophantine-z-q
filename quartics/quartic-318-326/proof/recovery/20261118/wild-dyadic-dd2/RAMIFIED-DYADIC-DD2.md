@@ -1,0 +1,48 @@
+# All fourth-root odd valuations with a common odd sign type in the first three roots
+
+Write d,a∈{+1,−1}. The direct wild construction for q=(1,1,1,2) extends to **all four** base patterns q⁰=(d,d,d,2a), times arbitrary independent rational squareclasses unramified at 2. Thus the actual parameter-preserving twist has an explicit proper flat regular model over Z whenever the first three signed squarefree representatives are odd and are all congruent modulo 4, and the fourth has odd 2-adic valuation. This new bound is independent of its odd unit part. This does not cover unequal first-three odd sign types, or an even representative in one of the first three slots. The generic field, prime indexing and degree sixteen convention are as in RAMIFIED-DYADIC-0002.
+
+## Direct normalization and the unit cluster
+
+With u=r₀,h=(r₁−u)/2,k=(r₂−u)/2,w=r₃, the finite chart has
+    T=d u²,    h²+uh=−8d,   k²+uk=−19208d,   w²=2f,    f=a(d u²+343).
+On the reciprocal neighbourhood of infinity x=1/u, s=d x², H=h/u,K=k/u,W=w/u:
+    H²+H=−8d x²,   K²+K=−19208d x²,    W²=2a(d+343x²).
+These are independent monic algebras in the same generic field of rank 16, with exact Laurent overlap, S₂ and R₁: at dyadic u≠0,1 the first two first derivatives and f are units; at infinity x=0 the latter coefficient is a unit, and the first two derivatives remain units. Only codimension-two finite points P (u=0) and the four u=1 labels remain. Characteristic zero stays smooth. See the baseline for the regular-parameter test when 2 divides the w-equation exactly once. Thus these are the normalized rings themselves. Over F=Q(√d,√(2a)) the roots of the untwisted field split the scalars; the semilinear group conjugates constants and multiplies the first three untwisted roots by χ_d and the fourth by χ_(2a). By branch independence and field degrees the invariant field is precisely the twist. Intersection of its field with the actual full integral closures recovers these explicit coordinate algebras, without wild descent of a modification.
+
+Here is one formula for all four u=1 neighbourhoods. Write v=u−1; set m=0 for d=1 and m=1 for d=−1, W'=w−2m, and c₁=(a(343+d)−2m²)/4. The integer c₁ exists: 343+1=344 is divisible by 4, while for d=−1, 342a−2 is divisible by 4 for either sign of a. Then
+     W'²+4mW'=2ad v²+4ad v+8c₁.
+Blow up the reduced point (2,v,W') étale-locally under the h,k sheet labels. The 2 and v directions cover (the equation forces the W' direction to vanish when both vanish). On the 2 chart W'=2Y,v=2V:
+     Y²=2(ad(V²+V)+c₁−mY).
+Off the zero locus of V²+V+c₁ mod 2 the chart is regular by the linear 2 test. Near that zero locus the displayed coefficient of 2 is a new coordinate étale-locally since its V-derivative is ad(2V+1), a unit there; Y²=2t is an ordinary node. The polynomial is always separable, so the geometric points are simple and the reduced finite center descends without a rationality assumption. On the v chart 2=vQ, W'=vZ:
+     vQ=2,  Z²=vQ(ad+adQ+c₁Q²−m QZ).
+On Q≠0 use the previous chart. Above v=Q=0 there is one point with Z=0 and the tangent form Z²−vQ in the regular local ambient with parameters v,Q,Z. Its smooth conic resolves by one ordinary point blowup. Both first-stage chart rings are monic over their regular base chart with scale a nonzerodivisor, and scale inversion restores the original presentation, proving these are saturated. As in the baseline, after the first simultaneous point blowup, blow up the whole reduced nonregular union over the four labels. This resolves every direction, including residue field extensions.
+
+## Four middle-cluster calculations reduce to two
+
+At P, 2=w²/f. After three ordinary preparations, using the actual two-chart construction of RAMIFIED-DYADIC-0002,
+    u=w³ S,  A=h/w³, B=k/w³, f=f₀+ad w⁶ S²,  f₀=343a,
+    A²+SA=G,  B²+SB=2401G,  G=−d/f³.
+For n=0,1,2 the same formulas have u=wⁿS and RHS −d w^(6−2n)/f³; the scale test with two independent monics, w,S-direction coverage and S-chart étaleness are unchanged by signs. At n=3, C from the first equation and w²=2f is regular with parameters w,p=A−1, because w is a nonzerodivisor and C/(w)=F₂[A,A⁻¹]. Put e=B/A−1−2400 as before. The actual remaining quadratic is
+    e(e+t')=H w¹⁰,    t'=4801−d/(f³ A²),  H=−75·2401/f⁵ .
+Here the right side is independent of d except through f; expansion always gives −2400·2401. Define c=(4801−d/f₀³)/2 and D₀=(d/f₀³−d/f³)/w⁶, regular by the difference of cubes. Then
+    A²t'=2c+w⁶D₀+4801(2p+p²).
+In particular t'∈(w,p)². Blow up (w,p), then normalize as a finite quadratic on each regular base blowup chart C_b (scale b=w or p) by adjoining E=e/b², equation E(E+t'/b²)=Hw¹⁰/b⁴. As in the baseline, monic freeness gives the true generic embedding, and regularity except finitely many closed points gives normality via R₁/S₂. All following computations are inside these exact charts. In the p-direction at w/p=0, the coefficient t'/p² reduces to 1, so this new algebra is étale. The other directions are all in the w chart p=wP, where
+    T₁=t'/w²=(c/f + w⁴D₀ + 4801(wP/f+P²))/(1+wP)²,
+    E(E+T₁)=Hw⁶.
+When da=+1, c is odd, and T₁ mod w=1+P². At P=1,z=P−1, T₁≡w mod (w,z)². Indeed c/f₀+4801 is even, f−f₀∈(w⁶), and the wP term is the only linear contribution. As in RAMIFIED-DYADIC-0002 the regular parameters E,V=E+T₁,z have w of order exactly two modulo E,V: the further quotient by w has length two defined by z². Two crossing-origin ordinary blowups give exponent 8, then four more finish. This is valid for d=a=−1 as well as for d=a=+1.
+
+When da=−1, c is even: 4801+343⁻³≡0 mod 8. T₁ mod w=P², so the sole remaining point is P=E=w=0. In the base chart C_w with parameters w,P there T₁∈(w,P)² (c is even and 2=w²/f). At this point the ambient equation has no linear part, and remains a dimension-two surface. Blow up the **second nonreduced ideal (w,P)**, then normalize, now adjoining E₂=E/b² for scale b=w or P:
+    E₂(E₂+T₁/b²)=Hw⁶/b⁴ .
+Again this is monic with b a nonzerodivisor over the regular base blowup chart, same degree-two fraction field after inverting b. In the P chart at w/P=0, the coefficient T₁/P² reduces to 1, hence étale. On its complementary w chart put P=wQ, so A=1+w²Q and the exact formula simplifies to
+    T₂=t'/w⁴=(c₂/f²+w²D₀+4801(Q/f+Q²))/(1+w²Q)²,   c₂=(4801−d/f₀³)/4,
+    E₂(E₂+T₂)=H w².
+Here c₂ is even, so T₂ mod w=Q²+Q. There are two distinct degree-one base points Q=0,1 and no other non-étale direction. At each of these two points E₂=0, the derivative of T₂ modulo w in Q is 1. Thus w,E₂,V₂=E₂+T₂ form regular ambient parameters: modulo w the classes E₂ and V₂ are independent tangent parameters. Their exact equation E₂V₂=Hw² has a smooth exceptional projective conic in characteristic two, and a single ordinary point blowup at each resolves it, with all three native scale charts saturated as in TERMINAL §III. The two origins can be blown up in one reduced union. These checks give the normality promised for the second finite chart. For the **first** normalized chart in this case, its sole non-étale exceptional point was already codimension two (finite flat over C_w). It is a monic hypersurface and smooth/regular off this point, so it was itself normal before the second blowup, as required. Neither normalized blowup is replaced by a naive unsaturated strict transform.
+
+## Equivariance of both nonreduced ideals, and gluing
+
+For any deck sign ε, w'=ε₃w and A'=ε₃(ε₁A+((ε₁−ε₀)/2)S). The first ideal (w,A−1) is stable by S=A⁻¹−A modulo w and 2∈(w²). Its normalized blowup is functorial. On its w chart in the da=−1 case P=(A−1)/w. The exact identity S=A(t'−4802) follows from A²+SA=G and t'=4801+G/A². Since t'=w²T₁ and 4802 is a multiple of 2, S is divisible by w² there. Thus under the lifted signs P' is ±P plus terms in (w): the term (±1−1)/w is zero or ±2/w=±w/f, and the remaining term is an integer multiple of S/w. The inverse signs give equality of the second ideal (w,P) with its image. The w chart used here is stable (the w homogeneous generator transforms by a unit); the support is just one closed point since modulo w,P the E-equation is E²=0. Hence this is equality of intrinsic ideal sheaves after extension by the unit ideal off the closed support. Both normalizations commute with ensuing **étale** base change. In the da=−1 case the final two reduced nodes are taken as their entire nonregular union, not individually fixed by assumption. All other center invariance follows from fibre-label unions or uniqueness as in the baseline.
+
+Now descend over the scalar square roots of the *ratios* q_i/q⁰_i only, finite étale near 2 by assumption. This descends the stable ideals, native blowups and finite normalizations to the actual twist, retains regularity and the precise generic field, and glues across an actual unmodified base open to the earlier arbitrary-twist model over D(2) exactly as in RAMIFIED-DYADIC-0002. All modifications are proper and the resulting integral model is flat over Z. Explicitly, choose d to match the common first-three signed squarefree residues modulo 4, and a to match the signed odd part of the fourth coordinate after reducing its odd valuation to 1 by a square; every ratio then has odd signed squarefree representative ≡1 mod4. This proves the stated range. For instance (3,7,11,−2) uses d=a=−1 and (3,7,11,2) uses d=−1,a=+1; their final normalized charts differ. No arbitrary wild twist, semistability, minimality, rank or Lean acceptance asserted.
+
+References: [Serre criterion](https://stacks.math.columbia.edu/tag/031S), [étale normalization](https://stacks.math.columbia.edu/tag/0ABP), [flat base change of blowups](https://stacks.math.columbia.edu/tag/0805).
