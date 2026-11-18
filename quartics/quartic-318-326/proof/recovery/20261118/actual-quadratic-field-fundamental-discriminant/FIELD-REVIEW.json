@@ -1,0 +1,17 @@
+{
+  "status": "PASS theory and static source review; no Lean run",
+  "sources": {
+    "ActualQuadraticFieldDiscriminant318.lean": "fd49e88e03dbd045a270c9d41fc51a7131603ca685fb0b9ccf930c4b33798239",
+    "ActualCMQuadraticDiscriminantBound318.lean": "226c2c3a36ef7326d5f07a3c5c20f9d36da4da9811e7e805bb04cb28ff70c52f"
+  },
+  "checks": [
+    "RingOfIntegers.rank identifies integral finrank with absolute field degree; reindex the actual Z-basis to Fin 2. Primitivity of the coordinates (a,b) of 1 follows by multiplying by B0 and taking its first coordinate; the displayed inverse integral matrices have determinant c*a+d*b=1. Basis.ofEquivFun therefore has zeroth vector 1 (inverse applied to delta_0).",
+    "In basis (1,theta), theta\u00b2=a+t theta, trace(theta)=t, trace(1)=2, trace(theta\u00b2)=2a+t\u00b2. True Gram determinant =t\u00b2+4a, identified in direction Algebra.discr Z B = NumberField.discr K by pinned Mathlib. The previous integral discriminant theorem supplies fundamentality, not assumed in the endpoint.",
+    "Literal application gives |disc K|<=4 S for actual degree-two subfield of actual F under the still-required ring-of-integers unramifiedness outside specified contact support. No construction of CM fiber or number fields, no global formalization inferred."
+  ],
+  "mathlib_source_pins": {
+    "review62-Basis-Defs.lean": "c7515a8d80da8d0135ebfdb919919a03be684aaa0e8e8b325598f8e6757370c0",
+    "review62-NumberField-Basic.lean": "274c1010666fcdd4a1b6d9cdc120d54f3b54fe2a8cdf57bf40f0a363aa2229ff",
+    "review62-field-discrdefs.lean": "f77569aab06be3e18ab24d34ea678de4b77d12016a7af4ca642305af7c13922d"
+  }
+}
