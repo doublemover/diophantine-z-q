@@ -1,0 +1,270 @@
+module
+public import FourRootActualBranchLocalization318
+public import ActualEtaleFrameNormalization318
+public import SquareCoordinateDifferential318
+public import ActualRootPivotCoordinates318
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT imports_processed"
+  out.flush : IO Unit)
+public section
+noncomputable section
+namespace FourRootActualBranchKaehler318
+open Polynomial FourRootActualFiniteBranchChart318 FourRootActualBranchLocalization318
+open ActualEtaleFrameNormalization318
+set_option maxHeartbeats 800000
+set_option synthInstance.maxSize 256
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+/-- Scalar coherence for the same tensor inclusion and algebra equivalence,
+proved over abstract dictionaries before specializing the original chart. -/
+private theorem tensorScalarImage
+    {R A B C : Type*} [CommRing R] [CommRing A] [CommRing B] [CommRing C]
+    [Algebra R A] [Algebra R B] [Algebra A C]
+    (e : TensorProduct R A B ≃ₐ[A] C) (x : R) :
+    e (Algebra.TensorProduct.includeRight (algebraMap R B x)) =
+      algebraMap A C (algebraMap R A x) := by
+  rw [AlgHom.commutes,
+    IsScalarTower.algebraMap_apply R A (TensorProduct R A B), AlgEquiv.commutes]
+
+/-- Transport the original square relation through the same scalar tower. -/
+private theorem mappedSquare
+    {R A B : Type*} [CommRing R] [CommRing A] [CommRing B]
+    [Algebra R A] [Algebra R B] [Algebra A B] [IsScalarTower R A B]
+    (x y : A) (r : R) (h : y ^ 2 = x - algebraMap R A r) :
+    algebraMap A B x - algebraMap R B r = (algebraMap A B y) ^ 2 := by
+  have hm := congrArg (algebraMap A B) h
+  simpa only [map_pow, map_sub, ← IsScalarTower.algebraMap_apply] using hm.symm
+
+/-- Compose the same coordinate square over abstract carriers, before
+specializing the original localization and tensor dictionaries. -/
+private theorem inverseCoordinate
+    {A B C D : Type*} (e : A ≃ B) (r : C → A) (f : C → D) (g : D → B)
+    (x : C) (d : D) (y : B)
+    (hf : f x = d) (hg : g d = y) (he : e (r x) = g (f x)) :
+    e.symm y = r x := by
+  apply e.injective
+  rw [e.apply_symm_apply, he, hf, hg]
+
+/-- Apply the same evaluated identity after transporting its input at two
+indices. The equality induction itself knows nothing about tensor rings,
+algebra dictionaries or the particular choice of coordinate. -/
+private theorem regroupGeneratorTransport
+    {P Q : Type*} (F : P → Q → Type*) (D : P → Q → Type*)
+    (evalAt : (p : P) → (q : Q) → F p q → D p q)
+    (valueAt : (p : P) → (q : Q) → D p q)
+    {p p₀ : P} {q q₀ : Q} (hp : p = p₀) (hq : q = q₀)
+    (e : F p₀ q₀) (he : evalAt p₀ q₀ e = valueAt p₀ q₀) :
+    evalAt p q (show F p q from by
+      rw [hp, hq]
+      exact e) = valueAt p q := by
+  subst p
+  subst q
+  exact he
+
+variable (b:Fin 4→ℂ) (i:Fin 4)
+local instance regrouped_commRing : CommRing (RegroupedOrder b i) := inferInstance
+local instance regrouped_algebra : Algebra (BranchBase b i) (RegroupedOrder b i) := inferInstance
+local instance openBaseLocalization : IsLocalization.Away (branchDenominator b i) (OpenBase b i) := by
+  change IsLocalization.Away
+    (FiniteBranchChart318.denominator (1:ℂˣ) (b i) twists (otherBranch b i))
+    (Localization.Away (FiniteBranchChart318.denominator (1:ℂˣ) (b i) twists (otherBranch b i)))
+  infer_instance
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_polyAlgebra"
+  out.flush : IO Unit)
+local instance polyAlgebra:Algebra ℂ[X] (FourRootActualFractionField318.A b):=
+  (Polynomial.aeval (FourRootAffineCoordinateRing318.coordinate b none)).toAlgebra
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_SourceRing"
+  out.flush : IO Unit)
+abbrev SourceRing:=Localization.Away (denominator b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_baseFrame"
+  out.flush : IO Unit)
+@[expose] def baseFrame:KaehlerDifferential ℂ (BranchBase b i)≃ₗ[BranchBase b i]BranchBase b i:=
+  EtaleDifferentialFrame318.ofAlgEquiv
+    (LinearRootCoordinate318.coordinateEquiv (1:ℂˣ) (b i)).symm
+    (KaehlerDifferential.polynomialEquiv ℂ)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_openBaseFrame"
+  out.flush : IO Unit)
+@[expose] def openBaseFrame:KaehlerDifferential ℂ (OpenBase b i)≃ₗ[OpenBase b i]OpenBase b i:=by
+  letI:=Algebra.FormallyEtale.of_isLocalization (Rₘ:=OpenBase b i)
+    (Submonoid.powers (branchDenominator b i))
+  exact EtaleDifferentialFrame318.ofFormallyEtale (baseFrame b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_orderFrame"
+  out.flush : IO Unit)
+@[expose] def orderFrame:KaehlerDifferential ℂ (OpenOrder b i)≃ₗ[OpenOrder b i]OpenOrder b i:=by
+  letI:Algebra.Etale (OpenBase b i) (OpenOrder b i):=(finite_free_etale b i).2.2
+  exact EtaleDifferentialFrame318.ofFormallyEtale (openBaseFrame b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_sourceFrame"
+  out.flush : IO Unit)
+/-- An actual free intrinsic cotangent frame on the genuine principal
+localization of the SAME five-variable affine quotient. -/
+@[expose] def sourceFrame:KaehlerDifferential ℂ (SourceRing b i)≃ₗ[SourceRing b i]SourceRing b i:=
+  EtaleDifferentialFrame318.ofAlgEquiv (sourceLocalizationEquiv b i).symm (orderFrame b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_baseCoordinate"
+  out.flush : IO Unit)
+@[expose] def baseCoordinate:BranchBase b i:=
+  (LinearRootCoordinate318.coordinateEquiv (1:ℂˣ) (b i)).symm X
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_baseCoordinate_root"
+  out.flush : IO Unit)
+lemma baseCoordinate_root:baseCoordinate b i=
+    AdjoinRoot.root (QuadraticPresentation318.polynomial
+      (LinearRootCoordinate318.parameter (1:ℂˣ) (b i))):=
+  LinearRootCoordinate318.inverse_X (1:ℂˣ) (b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_base_normalized"
+  out.flush : IO Unit)
+lemma base_normalized:baseFrame b i (KaehlerDifferential.D ℂ _ (baseCoordinate b i))=1:=by
+  rw [baseFrame,baseCoordinate,ofAlgEquiv_D_image,
+    KaehlerDifferential.polynomialEquiv_D,Polynomial.derivative_X,map_one]
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_orderCoordinate"
+  out.flush : IO Unit)
+@[expose] def orderCoordinate:OpenOrder b i:=
+  algebraMap (OpenBase b i) (OpenOrder b i)
+    (algebraMap (BranchBase b i) (OpenBase b i) (baseCoordinate b i))
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_order_normalized"
+  out.flush : IO Unit)
+lemma order_normalized:orderFrame b i (KaehlerDifferential.D ℂ _ (orderCoordinate b i))=1:=by
+  letI:=Algebra.FormallyEtale.of_isLocalization (Rₘ:=OpenBase b i)
+    (Submonoid.powers (branchDenominator b i))
+  letI:Algebra.Etale (OpenBase b i) (OpenOrder b i):=(finite_free_etale b i).2.2
+  change EtaleDifferentialFrame318.ofFormallyEtale (openBaseFrame b i)
+    (KaehlerDifferential.D ℂ _ (algebraMap _ _ _))=1
+  rw [ofFormallyEtale_D]
+  change algebraMap _ _ (EtaleDifferentialFrame318.ofFormallyEtale (baseFrame b i)
+    (KaehlerDifferential.D ℂ _ (algebraMap _ _ _)))=1
+  rw [ofFormallyEtale_D,base_normalized,map_one,map_one]
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_sourceCoordinate"
+  out.flush : IO Unit)
+@[expose] def sourceCoordinate:SourceRing b i:=
+  (sourceLocalizationEquiv b i).symm (orderCoordinate b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_source_normalized"
+  out.flush : IO Unit)
+lemma source_normalized:sourceFrame b i (KaehlerDifferential.D ℂ _ (sourceCoordinate b i))=1:=by
+  rw [sourceFrame,sourceCoordinate,ofAlgEquiv_D_image,order_normalized,map_one]
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_regroup_root"
+  out.flush : IO Unit)
+lemma regroup_root:
+    sourceRegroup b i (FourRootAffineCoordinateRing318.coordinate b (some i))=
+      algebraMap (BranchBase b i) (RegroupedOrder b i) (baseCoordinate b i):=by
+  rw [baseCoordinate_root]
+  have ht : FourRootActualFractionField318.polynomialEquivalence b
+      (FourRootAffineCoordinateRing318.coordinate b (some i)) =
+      FourRootAffineTensorPresentation318.toTensor b
+        (FourRootAffineCoordinateRing318.coordinate b (some i)) := rfl
+  rw [sourceRegroup, AlgEquiv.trans_apply, ht,
+    FourRootAffineTensorPresentation318.toTensor_root]
+  have h0 : LinearRootCoordinate318.parameter (1:ℂˣ) (b i) =
+      FourRootAffineTensorPresentation318.radicand b (FourRootPivot318.indices i 0) := by
+    change (Polynomial.C (1:ℂ):ℂ[X]) * (X-C (b i)) =
+      X-C (b (FourRootPivot318.indices i 0))
+    rw [Polynomial.C_1,one_mul,FourRootPivot318.indices_zero]
+  have hother : FiniteBranchChart318.other twists (otherBranch b i) =
+      (fun j => FourRootAffineTensorPresentation318.radicand b (FourRootPivot318.indices i j.succ)) := by
+    funext j
+    change (Polynomial.C (1:ℂ):ℂ[X]) * (X-C (b (FourRootPivot318.indices i j.succ))) =
+      X-C (b (FourRootPivot318.indices i j.succ))
+    rw [Polynomial.C_1,one_mul]
+  let T (p : ℂ[X]) (q : Fin 3 → ℂ[X]) :=
+    TensorProduct ℂ[X] (QuadraticPresentation318.RootRing p) (ThreeRootOrder318.Order q)
+  let E (p : ℂ[X]) (q : Fin 3 → ℂ[X]) :=
+    FourRootOrder318.Order (FourRootAffineTensorPresentation318.radicand b) ≃ₐ[ℂ[X]] T p q
+  exact regroupGeneratorTransport E T
+    (fun p q (e : E p q) => e (FourRootOrderSigns318.generator
+      (FourRootAffineTensorPresentation318.radicand b) i))
+    (fun p q => (@algebraMap (QuadraticPresentation318.RootRing p) (T p q)
+      (inferInstance : CommSemiring (QuadraticPresentation318.RootRing p))
+      (inferInstance : Semiring (T p q)) inferInstance)
+      (AdjoinRoot.root (QuadraticPresentation318.polynomial p)))
+    h0 hother (FourRootPivot318.regroup (FourRootAffineTensorPresentation318.radicand b) i)
+    (ActualRootPivotCoordinates318.regroup_generator (FourRootAffineTensorPresentation318.radicand b) i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_source_coordinate_original"
+  out.flush : IO Unit)
+/-- No root choice: the normalized coordinate is the literal original
+signed generator of the actual quotient ring. -/
+lemma source_coordinate_original:
+    sourceCoordinate b i=algebraMap (FourRootActualFractionField318.A b) (SourceRing b i)
+      (FourRootAffineCoordinateRing318.coordinate b (some i)):=by
+  exact inverseCoordinate
+    (sourceLocalizationEquiv b i).toEquiv
+    (algebraMap (FourRootActualFractionField318.A b) (SourceRing b i))
+    (sourceRegroup b i)
+    (fun z : RegroupedOrder b i =>
+      localizedSourceEquiv b i (Algebra.TensorProduct.includeRight z))
+    (FourRootAffineCoordinateRing318.coordinate b (some i))
+    (algebraMap (BranchBase b i) (RegroupedOrder b i) (baseCoordinate b i))
+    (orderCoordinate b i)
+    (regroup_root b i)
+    (tensorScalarImage (localizedSourceEquiv b i) (baseCoordinate b i))
+    (sourceLocalizationEquiv_on_source b i
+      (FourRootAffineCoordinateRing318.coordinate b (some i)))
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_sourceParameter"
+  out.flush : IO Unit)
+@[expose] def sourceParameter:SourceRing b i:=
+  algebraMap (FourRootActualFractionField318.A b) (SourceRing b i)
+    (FourRootAffineCoordinateRing318.coordinate b none)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_exact_square"
+  out.flush : IO Unit)
+lemma exact_square:sourceParameter b i-algebraMap ℂ (SourceRing b i) (b i)=
+    (sourceCoordinate b i)^2:=by
+  exact (mappedSquare (R := ℂ) (A := FourRootActualFractionField318.A b)
+    (B := SourceRing b i) (FourRootAffineCoordinateRing318.coordinate b none)
+    (FourRootAffineCoordinateRing318.coordinate b (some i)) (b i)
+    (FourRootAffineCoordinateRing318.relation b i)).trans
+      (congrArg (fun z : SourceRing b i => z ^ 2) (source_coordinate_original b i).symm)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_parameter_differential"
+  out.flush : IO Unit)
+/-- The derivative of the ACTUAL unshifted projective parameter has
+coefficient 2z in the normalized intrinsic frame, on the entire chart. -/
+theorem parameter_differential:
+    KaehlerDifferential.D ℂ (SourceRing b i) (sourceParameter b i)=
+      (2*sourceCoordinate b i) • KaehlerDifferential.D ℂ (SourceRing b i) (sourceCoordinate b i):=by
+  simpa only [map_one,mul_one] using
+    SquareCoordinateDifferential318.D_of_square (sourceParameter b i) (sourceCoordinate b i)
+      (b i) (1:ℂ) (by simpa only [map_one,one_mul] using exact_square b i)
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_parameter_coefficient"
+  out.flush : IO Unit)
+theorem parameter_coefficient:
+    sourceFrame b i (KaehlerDifferential.D ℂ _ (sourceParameter b i))=2*sourceCoordinate b i:=by
+  rw [parameter_differential,map_smul,source_normalized,smul_eq_mul,mul_one]
+#eval (do
+  let out ← IO.getStdout
+  out.putStrLn "PEL_KAEHLER_CHECKPOINT before_namespace_end"
+  out.flush : IO Unit)
+end FourRootActualBranchKaehler318
