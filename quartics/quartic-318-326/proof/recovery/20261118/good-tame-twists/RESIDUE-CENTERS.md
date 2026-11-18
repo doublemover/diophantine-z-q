@@ -1,0 +1,10 @@
+# Counting closed centers over the original finite residue field
+
+This is an addendum to TAME-GOOD-PRIMES.md (SHA-256 607300b9e88b41dbba3c28abef13f6ac573d8cea8a6507c5c155604f07950ac6). Fix one ramified p∤210 that contributes eight geometric nodes. Write m_i=v_p(q_i), a_i=p^(−m_i)q_i∈Z_(p)× and e_i=m_i mod 2. Scaling the generic root by a rational power of p replaces the twist coefficient by p^{e_i}a_i; its normalized field/chart does not change.
+
+* For I={j}, the three sheet labels over T=b_j are square roots of the units λ_i=ā_i·(b_j−b_i) mod p, for i≠j. Indeed the three unramified rescaled roots are integral and specialize to precisely these roots. The preceding local invariant description shows that their three signs distinguish all eight geometric nodes.
+* For I={0,1,2,3}, the labels at s=0 are square roots of λ_i=ā_i/ā₀ mod p, for i=1,2,3. The three rescaled ratios r_i/r₀ have squares (a_i/a₀)(1−b_i s), hence are integral units in a neighbourhood of infinity, even before marking the signs. Their signs are exactly the ones in the invariant calculation. No sign for the ramified uniformizer is an extra residue generator.
+
+On each triple of roots Frobenius multiplies the i-th root by λ_i^((p−1)/2), the quadratic character ±1 in F_p. Its action on the eight sign triples is translation by this single three-bit mask. Therefore the intrinsic reduced union consists of **eight F_p-rational closed points if all three λ_i are squares, or four degree-two closed points with residue F_{p²} otherwise**. There are no mixed or higher residue degrees for these centers. A different choice of root scale changes λ_i by a square, so this criterion does not depend on that choice. This counts the center over F_p, not the exceptional components or all rational points of the model.
+
+For q=(13,1,1,1), p=13 and j=0 the three residues are 7,11,5. Their sixth powers are each −1 in F₁₃, so the extra blowup center consists of four degree-two points over F₁₃ (eight geometric points). For q=(13,13,1,1) the prior no-fixed-sheet conclusion means there are no singular centers at 13.
