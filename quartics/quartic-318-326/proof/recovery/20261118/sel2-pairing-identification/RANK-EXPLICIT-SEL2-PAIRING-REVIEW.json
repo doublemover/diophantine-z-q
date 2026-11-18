@@ -1,0 +1,32 @@
+{
+  "reviewer": "Independent review62",
+  "status": "PASS source-bound paper identification of admissible cochains, separate static-only Lean components",
+  "sources": {
+    "SEL2-EXPLICIT-CASSELS-TATE.md": "e9ae56fc4e4b41983aa9fc5386eeb3310bb03fa316e1b0359510786f0ad46e43",
+    "ActualCasselsTateKummerFourLocalLift318.lean": "605a6cb5e6e47866168bbb75967dda0f9f69b64a455b2f64292f21497f8a915c",
+    "ActualCasselsTateTwoWeilUniqueness318.lean": "d735e1bf7104f9af879f4504a14e8ecbb16053d9267e8842e7aa814fa32f0a09"
+  },
+  "upstream_sha256": {
+    "ActualCasselsTateRestrictedHalf318": "ce00955a7caabe65af3f537224d497a4dbd0dc13a5d844bfc7a2f209cbbc7e81",
+    "ActualCasselsTateFirstCochainLift318": "db750a3f1a10ead5db12abd27db51752687a5a4c1c77beec9e578788d4724f3d",
+    "ActualCasselsTateLocalAdjustment318": "69615d6b6d45712f540862d743b69c847eccb5fa53fd177fc8f68f5b73d5bf1a",
+    "ActualCasselsTateDefectCup318": "66c7027e7b5dbc50d0fa2eba42090a393364cfa4f6a1111547bbf7717ab1d639",
+    "ActualCasselsTateUnitDefect318": "d8e7d56653e37a33e61774c27cee97cb73de14b3af67eb9808c89a6b1e7004e4",
+    "ActualCasselsTateLocalCupCorrection318": "faec58ce569f53d70db985a0c267d15a17fdaebc61fb030305f8f00d0317a31a",
+    "ActualTwoDescentFieldGaloisFixedRational318": "1206db57f1e2de57aee8b522c4c7b166b561ccaa485380987367690191ef9f48",
+    "ActualTwoDescentOriginalPerfectPairing318": "8a34b7edc7e3f17d75634411d7fdfdcf51b9b39c5bc225310e786cbe23553ee6",
+    "ActualTwoDescentOriginalTorsionPairing318": "7dbff9a7aea1e2fa704cb19d4519639ac944a5c69a4cefb9717924992fe444de",
+    "ActualTwoDescentBinarySymplectic318": "5eba5e6e0916249d2119ecb8e83c703db2bfe652205437f0f01ae76b9614be8f"
+  },
+  "primary": [
+    "Morgan\u2013Smith, The Cassels\u2013Tate pairing for finite Galois modules (arXiv:2103.08530), Def 3.2, Prop 3.3, 3.5, 3.6 and sec 6.1 including Prop 6.1",
+    "Sutherland MIT 18.783 2023 Thm 23.29: geometric e_2 is perfect alternating"
+  ],
+  "checks": [
+    "Binary plane has unique nondegenerate alternating bilinear form; independently enumerated all 16 bilinear matrices. Actual binaryPairing is x1*y2\u2212x2*y1, on explicit equivariant E[2] via torsionBinaryEquiv. Therefore exact sign and cup table, not a higher Weil pairing result. Nontrivial global coefficient actions are not silently trivialized: evaluation uses rational E[2] and signs.",
+    "[2] followed by [2] gives exact decorated E[2],E[4],E[2] with dual Kummer condition. Requires BOTH representatives map to locally trivial full classes. Pointwise chosen Q_v witnesses \u03c7_v=\u03c3Q_v\u2212Q_v, 2Q_v rational, R_v=half(Q_v), 4R_v=2Q_v. \u2113_v=\u03c3R_v\u2212R_v is actual [4]-Kummer local lift projecting to given representative. restrictedHalf is transported GLOBAL choice and difference is genuine source restrictedAdjustment, not independently reselected local half.",
+    "Compared with Def 3.2 printed p11: evaluation of \u03b9^-1 df\u222a\u03c8 followed by local correction \u03b3_v=(f_v\u2212\u2113_v)\u222a\u03c8_v\u2212\u03b5_v (quotient in unit notation). Restricted real coordinate prior plus Milne produces sign-valued \u03b5, not an arbitrary local primitive. At all but finitely many places finite etale [4]-division of integral fixed point is unramified, cochains factor some finite cyclic quotient in arguments; sign-valued 2-cocycle inflates to zero after C_2r\u2192C_r. All local invariants including real are thus well-defined and finitely supported.",
+    "Section 6.1 directly identifies pullback from classical Sha[2]\u00d7Sha[2]; kernels on both Sel_2 slots are images of Sel_4. Under the three previously stated reduced-duality bounds, finite pairing zero yields 2-Sel lifts; no rank, rational-point, finiteness or exclusion of divisible primary Sha follows.",
+    "Source review only: binary form uniqueness amended to optional ring tactic; source local_kummer_four uses actual fixed point rational descent and half_difference. Source components do not construct global pairing, formalize primary references or imply hosted acceptance."
+  ]
+}
