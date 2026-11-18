@@ -1,0 +1,40 @@
+{
+  "cases": 512,
+  "mixed_origins": {
+    "[-1, -1, 1, -1]": 6,
+    "[-1, -1, 1, 1]": 4,
+    "[-1, 1, -1, -1]": 6,
+    "[-1, 1, -1, 1]": 4,
+    "[-1, 1, 1, -1]": 6,
+    "[-1, 1, 1, 1]": 4,
+    "[1, -1, -1, -1]": 6,
+    "[1, -1, -1, 1]": 4,
+    "[1, -1, 1, -1]": 6,
+    "[1, -1, 1, 1]": 4,
+    "[1, 1, -1, -1]": 6,
+    "[1, 1, -1, 1]": 4
+  },
+  "histogram": {
+    "(7, 28)": 4,
+    "(4, 16)": 148,
+    "(6, 24)": 12,
+    "(5, 20)": 68,
+    "(7, 24)": 12,
+    "(4, 12)": 92,
+    "(6, 20)": 12,
+    "(5, 16)": 28,
+    "(3, 12)": 96,
+    "(2, 8)": 40
+  },
+  "status": "PASS: independent exact all-512 polynomial-ring audit and all twelve total-space origin checks; no Lean or blowup loop",
+  "bound": {
+    "MATH.md": "2bb923be86527c444bc6ad553298036a9e4612d087f08b2907b9e0e258e0e67e",
+    "engine.py": "a176a58e44bb2a943a4349068e3cf6e36bc260709f9d9b4d8b70c4877b05b7b1",
+    "run_all.py": "db12f808824ee82df69786889cdf73640505bae9fa4398f54faecf69521d70d5",
+    "origins.py": "67a3fc0af8c4d8d57488fefb541916c7051fa671d23de51b988040a8da6b0d3e",
+    "origin-report.json": "16cfa7035cf34ed1d856a48fdabf518782842d82515606102b072175a8fd3a9c",
+    "initial-bases-512.jsonl.gz": "54b2a3dd4a929edb6e26eb4466f6612767ab33f25de90a33e36aa7a270594b7e"
+  },
+  "method": "From final numerator vectors, in PARI Q[t] (no supplied structure-table or engine call), recomputed determinant, inverse, integral raw inclusion, every one of 512*136 polynomial products including all coefficients and 2-adic denominators. Independently isolated sixteenth powers by splitting powers mod 16, used PARI matker over F2(t) to find radical at the generic vertical point, lifted its basis into the generic local DVR, and verified injectivity of the 256-by-16 endomorphism test mod 2 by full rank even after degree-11 residue specialization. Hence generic vertical order maximal; finite free algebra is Cohen\u2013Macaulay/S2, and char-zero normalized by independent branch roots, giving normality on each full dyadic chart by R1. Independently recovered reduced fibres and mixed linear terms on all twelve reported mixed odd origins.",
+  "scope": "All ordered representatives in {\u00b11,\u00b12}^4, both charts; arbitrary variations require unramified comparison, not literal reuse of basis. No special fibre smoothness, count of blowups, or resolution from this dataset."
+}
