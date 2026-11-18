@@ -1,0 +1,50 @@
+{
+  "reviewer": "independent review62",
+  "status": "PASS exact paper and finite certificates, no Lean run",
+  "members": {
+    "ROW-SPECIFIC.json": "e9e006c07c93b629d959bc98d7c374cf82cef181c8929fdcd81a3eb05690b582",
+    "SHARED-CLEARING-ROW.json": "96dd47731cea88fac430f2e42caa9916e79029ec01d35692cb4c7072dc3ddb68",
+    "SHARED-COVERAGE.json": "0e8f5d7c2a2bcf35799002d04aa65591f8d054dbb370f636fcd661e95bfde4a7",
+    "README.md": "ade85ab0dad59a04dbdf7eaa921402703310e912223d59a9a482debaae2a9a9e",
+    "FINITE-REPLAY.json": "614647406bb95327520791449cbfec4ee3174ff086af9f7b4dfb9d620e156f30",
+    "verify.py": "375474e6fc7fb7dcd4a5c8e5e0dd5148138546ebc95fc2ae1862fef11a521ec4"
+  },
+  "controls": [
+    {
+      "file": "ROW-SPECIFIC.json",
+      "prime_cert_dag": 115,
+      "exact_order_certificates": 10,
+      "orientation_candidates": 32,
+      "valid": 1,
+      "sixth_gcds": null
+    },
+    {
+      "file": "SHARED-CLEARING-ROW.json",
+      "prime_cert_dag": 241,
+      "exact_order_certificates": 10,
+      "orientation_candidates": 32,
+      "valid": 1,
+      "sixth_gcds": null
+    },
+    {
+      "file": "SHARED-COVERAGE.json",
+      "prime_cert_dag": 286,
+      "exact_order_certificates": 12,
+      "orientation_candidates": 256,
+      "valid": 0,
+      "sixth_gcds": [
+        17,
+        116
+      ]
+    }
+  ],
+  "method": [
+    "Independent affine group-law scalar multiplication (not authors Jacobian code); full Lucas certificate recursion, complete order-drop coordinates, direct 32/256-bit CRT enumeration, explicit CRT reconstruction, reduced root/factor checks.",
+    "Recomputed fixedRoot(1)=1\u22127sqrt(2)/4 from R; odd-label sign does not change its fourth power. Exact arithmetic in Q(sqrt2) gives both real/norm scales. Rechecked all 15 k=-root*A\u00b2/scale\u00b2 are INTEGERS (not just evaluated multiples integral).",
+    "Good-reduction model at both Hensel choices: p>3, p\u22607 gives 3\u2212r a unit, discriminant unit; affine x integral implies integral y, v(x) negative implies v(y)=3v(x)/2 and reduction to O. Thus standard reduction homomorphism kernel equals literal formal subgroup, so exact R image order equals quotient order, no surjectivity required."
+  ],
+  "limits": [
+    "Only one linked five-position row suits diagnostic L=16,h0=0 and row-specific Pi. Strong sample clears all 15 but seven positions composite, sixth prime conflicts with mandatory orientation; two remaining zero-root copies not new primes.",
+    "Artificial label tuple \u22121, not shown to come from affine integer inputs, no all-15 Values, full merged Pi, continuity or real guard, trace identity or global source."
+  ]
+}
