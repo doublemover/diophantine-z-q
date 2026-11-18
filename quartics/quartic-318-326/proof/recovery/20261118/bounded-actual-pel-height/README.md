@@ -1,0 +1,3 @@
+# Bounded same-surface projective-height seam
+
+Scale the two actually evaluated bicanonical vectors by 210. Their finite integrality in the Hodge-square lattice follows via the supplied genuine squared Kodaira–Spencer image inclusion, and the archimedean budget is exactly multiplied by 210 in the same frame. The result is the strict original projective-height bound, without importing the entire CM/non-CM producer. This computes the height from the given actual vectors and lattice data. It does not construct the PEL fiber or an unconditional Lean proof of FiveContact49Height. New source: mathematical/static review only unless a later, separate hosted receipt provides kernel verification.
