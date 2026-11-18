@@ -1,0 +1,23 @@
+# Guaranteed clean genus-character detectors for either prescribed rational twist
+
+The shifted CM-field construction does not require that the unshifted field itself split at 2. Use this freedom *before choosing rank witnesses*. For an original q₀-supported pair write n=Aq₀ with A≡5 mod12. Rechoose q′≡q₀ at every other old prime and q′≡11A⁻¹ mod24. This is 7 mod12 for either value A=5 or 17 mod24. CRT/Dirichlet, quadratic reciprocity and unchanged mod12 give the exact same two original finite Selmer matrices on the newly chosen products, not transport of old rational points. Now both targets m=n,nθ are 11 mod24 (θ≡1 mod24). Their imaginary unrevised fields at 2 are inert, but they will not be used for the CM point. The actual Rédei kernel computation applies with no requirement of split 2.
+
+For either m pick the two opposite primal/dual edges i,j of the previous proof. Choose prime k≡13 mod24 with precisely the prescribed two nonresidues at support primes of m, avoiding all finite exclusions including the complementary original primes. Since k≡1 mod4, the exact two-edge matrix proof still works. The NEW negative fundamental discriminant D' = −km is 1 mod24, so 2 and 3 split and the fixed actual level-48 CM map applies. The new 2-class group is elementary, and the genus character χ_k (signed divisor k≡1 mod4) has s-sign + since k>0 and (k/48)=(k/3)=+1. Its signed Heegner trace is rational on the exact target E_m. Gross–Zagier I.6.3 and biquadratic L-factorization give
+
+    W_k nontorsion  iff  L(E^(k),1)·L′(E_m,1) ≠0.
+
+Here E=E₋₁ is our base curve. **The fixed factor never vanishes for these new primes.** In [Yoshida, Some variants of the congruent number problem II, Theorems 3.2 and 3.8](https://www.jstage.jst.go.jp/article/kyushujm/56/1/56_1_147/_pdf/-char/ja), the curve denoted E_k has equation y²=x(x+k)(x−3k). This is E^(k)=E₋k in our notation, not our E_k. Yoshida's 2π/3 coefficient c(k) is nonzero for every prime k≡13 mod24; the proof computes 4 modulo 8. His Theorem 3.2 identifies this with nonvanishing of the central value unconditionally (not a BSD converse). Accordingly
+
+    W_k nontorsion  iff  L′(E_m,1) ≠0,
+
+in a genus-only field, with no unknown auxiliary analytic hypothesis. These clean, rational-marked character tests can be set up for *both* m of every original pole after the same q₀ rechoice. The auxiliary primes may differ between the two; for the ray contacts the common edge choice at one β prime and q₀ lets the same k work on both graphs. Neither selecting k nor the theorem about its own curve proves the signed trace nontorsion; the missing claim remains genuinely about the original rational projection. If θ=1 there is only one test.
+
+**Exact integer test for a single shared auxiliary packet.** If instead one wants to use solely the FULL CM discriminant −knθ for both target traces, the χ_(kθ) trace has central partner E^(kθ). For θ>1 coprime to k, this is a composite twist and Yoshida's prime theorem does not settle it. But there is a necessary and sufficient, finite, exact certificate:
+
+    C(a) = #{(x,y,z)∈Z³ : x²+3y²+144z²=a}
+         − #{(x,y,z)∈Z³ : 3x²+9y²+16z²=a}.
+    L(E^(a),1)≠0  iff  C(a)≠0
+
+for positive squarefree a>1 in the classes 1,7,13 mod24. Indeed this is Yoshida's c₂π/₃(a), the Fourier coefficient of Φ_(3,−3) in his Theorems 0.2, 2.1 and 3.2 above. The omitted unary theta correction is supported only on perfect squares, and a>1 is squarefree. Thus the only extra partner predicate for the shared detector is the integer inequality C(kθ)≠0. The same test covers the earlier k=1-mod24 choices at k and kθ; no assertion that the composite coefficient never vanishes is made. Computing C by finishing the x-square after enumerating y,z needs no floating arithmetic.
+
+**Controls.** The earlier 1-mod24 seed values a=73,409,457,29857 give exact differences −8,0,−16,−16, respectively, agreeing with the even-value and obstruction certificates. At β=17,θ=409 take q₀=19, k=109. Then n=323 and nθ=132107 are exactly the two previously verified rational-rank-one numerical curves, not an original common assignment. k≡13 mod24 adds precisely the two symmetric edges at q₀ and 17 on both old matrices. The two shifted fields are split and have 4-rank zero. C(109)=−4 and C(109·409)=16, so the full packet alone has both rational projections nontorsion by the previously proved nonzero derivatives. For the separate matrix control β=17,θ=457, q₀=43, k=2029 both fixed factors also pass; this only certifies eligibility/central factors, not positive ranks at these latter new parameters. These checks use literal Legendre bits and counted integer points. No native Lean or indexed nonvanishing is claimed.
