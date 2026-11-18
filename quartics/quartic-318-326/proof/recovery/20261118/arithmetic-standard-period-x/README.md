@@ -1,0 +1,2 @@
+# Standard-period x-coordinate on the actual arithmetic model
+For an admissible period the true scaling from y²=x³−3j₀x−2j₀ to the normalized Eisenstein model has inverse square 12E₄/E₆. This yields the actual arithmetic x-coordinate for the standard marking, represented by the period 1/N, as (12E₄/E₆)·℘(1/N;Λτ)/(2π)². This x-value does not depend on the sign of the chosen square root. N>1 excludes the point at infinity; j=0 and 1728 are excluded when dividing by the form. Independent source review, not a kernel pass or the complete irreducibility theorem in Lean.
