@@ -1,0 +1,10 @@
+# Direct height comparison with the original Hodge norm
+Fix the genuine Hodge metrized frame H and its degree hYuan before choosing any losses. In the original two evaluated sections a₀,a₁=t·a₀, t=32u/v, write C=2765952000²·4·12540153541944538512 and d=[K:Q]. The numerical goal is pointHeight(u,v)<2(hYuan−log π)+120. It does not logically require equality with the canonical model metric if the following quantitative estimates can instead be proved for H.
+
+Use the auxiliary comparison frame with archimedean norm H² and finite norm |210|ᵥH². It has degree 2 hYuan+log 210, and no assertion is made that it is canonically geometric. The two honest bounds are |aᵢ|ʷH²≤C at infinity and |210aᵢ|ᵥH²≤1 at finite places. Alternatively a positive integer N may clear both finite bounds and an archimedean factor E>0 may multiply C, provided NE≤2²⁸. Strictness follows from π<4, 16·32·210·C<2¹⁴⁵ and 173log2<120. The real logarithmic room is about 20.0546; 28log2 is a conservative proof-friendly budget.
+
+More generally compute positive local losses Lʷ=max(1,maxᵢ|aᵢ|ʷH²/C) and Lᵥ=max(1,maxᵢ|210aᵢ|ᵥH²). The latter have finite multiplicative support. If [Σʷ mʷlog Lʷ+Σᵥ log Lᵥ]/d≤28log2, the exact original strict height bound follows without a single simultaneous denominator. This is a scalar criterion to prove, not a uniform evaluation of the losses.
+
+For the stronger already-existing fixed-good-lattice KS consumer, with Hodge generator βᵥ fixed, its bad-place generator is forced up to units. One may choose βᵥ²/210 directly. Existence of an admissible bad record plus all-place image equality is equivalent to: the actual good cotangent generator αᵥ satisfies |210αᵥ|=|βᵥ|², and both original sections satisfy |210aᵢ|≤|βᵥ|² at each bad place. This equivalence is not geometric cotangent-lattice provenance.
+
+The files are independently reviewed formal source candidates, not hosted or kernel-accepted here. No evidence in this packet constructs the genuine Hodge frame, sets its normalization, proves the needed uniform bound, or closes the main Diophantine theorem.
