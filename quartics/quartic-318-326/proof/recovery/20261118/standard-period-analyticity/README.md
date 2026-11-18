@@ -1,0 +1,2 @@
+# Analyticity at the actual standard period 1/N
+For each N>1, the value of the lattice Weierstrass function at 1/N is holomorphic as the lattice parameter varies on the upper half-plane. The proof uses the explicit nonsingular period, the genuine summands, the strict radius inequality |1/N|<1, and a uniform summable bound. The omitted origin summand restores exactly N². This extends the earlier 1/3-only argument and does not alone prove irreducibility. Independently checked static Lean research sources, not a hosted kernel pass.
