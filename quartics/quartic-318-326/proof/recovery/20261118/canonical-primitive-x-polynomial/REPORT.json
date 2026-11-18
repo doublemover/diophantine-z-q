@@ -1,0 +1,13 @@
+{
+  "status": "PASS independent mathematical and static source review; no kernel run",
+  "sources": {
+    "CanonicalPrimitiveXPolynomial318.lean": "9b66af45598aae8c1c27ecaf125da0b6bd165562dbd7018ed0d74872542c4a32",
+    "GaloisFiniteRootPolynomial318.lean": "c6783a80f24b49ceb742d6fe55f8fa0352fc73fc7fc9d0c84d6f4c5dee9b2d28"
+  },
+  "checks": [
+    "Finite stable set of distinct coordinates is actually permuted: inverse Galois action gives reverse inclusion. Its monic product has fixed coefficients, hence a unique base-field lift. Over the splitting field the roots have multiplicity one. This gives separability and degree equal to the number of distinct coordinates even for an empty set.",
+    "The mark range uses actual order-N points, deduplicating x-values rather than assuming order/2. Simultaneous finite Galois realization produces *all* geometric primitive marks at the chosen embedding of arithmetic Q(j) into C. The N>1 hypothesis excludes infinity for the geometric interpretation. N=2 retains all three distinct affine points; N=1 uses the separate j-line argument.",
+    "Intrinsic inequality now takes its actual constructed polynomial and assumes irreducibility only, not an externally chosen polynomial, root condition or numerical degree. Substitution and non-monic normalization in the earlier field result remain valid. The new module does not prove irreducibility or identify a modular curve in Lean; that is the previously verified external point-marking comparison.",
+    "Checked orientation of fixed coefficients, monic_map_iff and nodup/splitting, forward and inverse simultaneous-field root directions, and final explicit annihilation lambda."
+  ]
+}
