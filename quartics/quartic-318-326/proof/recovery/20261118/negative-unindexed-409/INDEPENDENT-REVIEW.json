@@ -1,0 +1,16 @@
+{
+  "status": "PASS independent mathematical source and exact arithmetic review; not Lean or universal result",
+  "files": {
+    "SHA256SUMS": "a7233aae406c3ec71591edfb90ece218a0f7c6fcca5504d2f72a4a620bacbd03",
+    "NEGATIVE-N17-409.md": "5ddf8d1a47f9533eaaeccaaa9b7e1722b7b23e8eb633b5b80d0695f4eac33a4e",
+    "check.py": "95ca97e2b7880745c78d0d4de5c7591beee4dffa6f0746cd3597f3fcff5593e7",
+    "REPLAY.json": "28546eccfb737cdd80d8c990f8a8687078c8c08b7d7300314538a934478699c5"
+  },
+  "checks": [
+    "Recomputed full rational local Kummer images independently with a separate squareclass encoding, torsion plus local-square x witnesses and certified expected cardinalities; enumerated all 1024 global signed pairs. Only the negative two candidates (17,3),(17,1227) and companion D=(1,409).",
+    "Checked all three tangent plane equations, three basepoints, projective origin convention and relative primitive tangent divisor at every other finite prime. Direct independent Hensel branches gave p2 with sqrt409=5 mod64, terms (1,1,-1); p3 with sqrt409=-1 mod3 and p17 with sqrt409=1 mod17 all positive, so same global sign as alternate frozen branches. At 409 second arguments all squares and point with a=0 exists; real positive factors.",
+    "Nontrivial pairing with A and A+D follows by alternation; both candidates excluded. For y1=0, E=B or -B/3; negative rescales by uv/3 with x=9 beta (S/v)^2, positive rescales by uv with x=beta(S/v)^2 and translates by T_N into theta class. Exact swap gives Enew=EV/S\u00b2,Snew=V/S,y1new=y2/S\u00b3,y2new=y1(V/S)\u00b3. Nonzero B,V,S prevent degenerate branches.",
+    "Replayed frozen checker byte-identically; independently confirmed unconditional PARI ellrank upper=0 as optional cross-check only. No dependency on PARI for this proof."
+  ],
+  "scope": "Specific fixed prepared b=(204/1073)^2 and beta17 theta409; the positive anchor and explicit nonzero PointPair are separate verified facts. No claim about four prescribed indexed poles."
+}
