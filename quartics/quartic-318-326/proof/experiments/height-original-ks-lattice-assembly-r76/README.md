@@ -1,0 +1,3 @@
+# Two independent geometry lemmas: targeted hosted diagnostic
+
+Retain all 259 exact sources and order in height-original-ks-lattice-assembly-r75; append ProperRegularPrincipalOpen318 (principal-open topology) and DyadicSignCoordinates318 (algebraic identities). The two-target selector has two packet modules and no baseline project dependency. Mathlib and the pinned Lean toolchain are still needed. No prior compilation or acceptance transfers. Not the 302-module private diagnostic closure, not a proof of properness, regularity, sign descent, rank or the 318/326 theorem. No changes to predecessor files or accepted snapshot. The parent bound in INHERITANCE is a source provenance anchor, not evidence for a successful run.
