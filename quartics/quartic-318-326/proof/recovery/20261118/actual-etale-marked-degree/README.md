@@ -1,0 +1,5 @@
+# Finite étale algebraic j-fibres and the sharp generic degree bound
+
+On D(f) of the complex affine j-line, localization extends evaluation at any c with f(c)≠0. Arbitrarily large such values exist since the polynomial roots form a finite set. For a finite free étale chart algebra A, its geometric fibre at c is C⊗A. Its prime spectrum has cardinality equal to the rank: a finite étale algebra over C splits as copies of C indexed by its primes. Base change preserves free rank and the compatible fraction fields have the same generic degree.
+
+Consequently an injection of geometric points on the chart into the actual marked analytic fibre for each c suffices to bound the degree. The unconditional analytic-fibre bound at large c, the true congruence index, and the polarized Galois argument yield the strict 97/32 degree bound under the explicitly listed field, representation, conductor, chart and comparison inputs. There is no assumed numerical covering degree or nebentypus index. The specific modular algebra and its point comparison remain to be constructed; static review only, not Lean acceptance.
