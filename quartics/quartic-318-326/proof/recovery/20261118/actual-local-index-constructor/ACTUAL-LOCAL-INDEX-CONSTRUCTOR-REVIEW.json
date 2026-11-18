@@ -1,0 +1,19 @@
+{
+  "status": "PASS independently source checked on a0950ac7; paper/finite, not native elaboration",
+  "manifest": "db5260f384db48f1cc58f96a88ea97de1f6c388697d0b9e3546bb15886fe8c9f",
+  "inputs": {
+    "real_enclosure.py": "35d546b80a5903a6b224937ff7446b96b8ea766c6979a5f397c9488a21257db0",
+    "ORDERS.json": "a85bbadd2704a8693911bb98e79326462ce7ce31b594b0e54685c462beed2faa",
+    "SHA256SUMS": "db5260f384db48f1cc58f96a88ea97de1f6c388697d0b9e3546bb15886fe8c9f",
+    "README.md": "ccc40d91eff0892560a25c1dd40fcfeb6b16340843d5ea5ea1977db02795daf0",
+    "REPLAY.json": "f1a6f81381fc2c3125396dc872181e0ee87c4cb5c1c3a12d4bd8c6531e21f339",
+    "verify.py": "86a71f5608f2d348650ec4c7d78c2e3df8711bcb8f41dcb59bb128fb454c46b1"
+  },
+  "checks": [
+    "Recovered original scalarLabel, multiplier 3^N, actual slot 1, actual curve and norm, Prepared and strict scalar_domain and projective prefix/head tail source. The guard is shifted-half-trace minus unshifted-half-trace even at h=0,1; valuations distinct otherwise and min=3+2v2(label).",
+    "PARI ellorder on actual P=2R reconfirmed orders 5,5,2 at inert 11 and two components of 17; at two 1489 roots independently computed v(x(oP))=-2,-2 and x([89]P)=1110 at sqrt2=382. Inactive components have unit U (no (0,0) in nonformal reductions). Formal parameter depth differences for both-active, single-active and actual J as claimed.",
+    "Verified 10 support primes, per-place Q=2*depthgap-15*v(r); integer source norm + half trace at 2/3, genuine norm formula and integral unit at every odd p|r and 11,17. m\u22611 mod8,3,17. Independent rigorous 2000-bit dyadic grid computation produced exact enclosure for Norm U_h between \u221250452284917358\u00b710^-15 and \u221250452284917357\u00b710^-15. Source upper bound follows from norm guard and fixed labels.",
+    "Verified true row positions (four source linear combinations for C.second) and untouched raw slots: 248 prefix, 19 scalar construction, 16 first/bookkeeping, plus true Hasse-Minkowski row with nonzero affine denominator from anisotropy. Prior 284 relaxation not new by itself; actual coherent Sel2 only on scalar where all hypotheses produced.",
+    "Byte-exact replay. Distinguish freely chosen large rational contact parameter from demanded split/contact/CRT production. Neither original full assignment nor published CI theorem."
+  ]
+}
