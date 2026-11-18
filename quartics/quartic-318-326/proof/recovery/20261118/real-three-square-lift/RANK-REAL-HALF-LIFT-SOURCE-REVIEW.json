@@ -1,0 +1,17 @@
+{
+  "reviewer": "Independent review62",
+  "verdict": "PASS algebraic proof and static candidate; uncompiled",
+  "source": {
+    "ActualCasselsTateRealThreeSquareLift318.lean": "59a3b06519e713b82daaf4300185f7b71669b71ff7dd6b2613706baf9ff12f86"
+  },
+  "checks": [
+    "Boolean product is xor, nonidentity acts by negation. The five closed specializations imply c000=c010=0,c011=-c001,c101=c100-c001,c110=c100.",
+    "2v=f(c100+c001+c111); b00=0,b01=f(c001),b10=-f(c100),b11=-v. In the 111 case the alternating boundary is 2v-f(c100)-f(c001)=f(c111), and all other entries match without hv.",
+    "Source final tactic uses closing abel1 in first branch, then rewrites hv; not evidence of elaboration."
+  ],
+  "additional_exhaustive_test": {
+    "models": "Z/m -> Z/(2m), x maps to 2x, m=1..12; all triples of independent variables; check 16 closed equations and 8 boundary values",
+    "cochains": 6084
+  },
+  "exclusions": "Abstract inversion action only, no identification of cyclotomic module or global primitive by this source alone."
+}
