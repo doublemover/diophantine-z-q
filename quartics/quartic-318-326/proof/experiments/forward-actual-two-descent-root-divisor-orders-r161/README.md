@@ -1,0 +1,3 @@
+# Native continuous cochain and cycle projection source repairs
+
+Change only the two independent root modules which failed strict hosted elaboration in the original five-source test. Replace three rejected notation declarations with the literal nine native cochain object annotations, preserve the scoped option on concreteLeft while attaching its docstring to the definition, and import the pinned concrete-category theorem referenced by the unchanged homology-isomorphism argument. All other definitions, proofs, predecessor sources and the three previously blocked leaves are preserved. No kernel acceptance, arithmetic class, generic lift or pairing nonzero result is inferred. Replay the same full five-module dependency closure under the ordinary strict flags.
