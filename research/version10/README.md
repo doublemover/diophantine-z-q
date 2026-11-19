@@ -2,7 +2,7 @@
 
 This supplement contains the current TeX/PDF, the nine-point response to [Issue 2](https://github.com/elliotglazer/diophantine-z-q/issues/2), the source and convention register, and the exact revision and inventory checkers. It also contains the Version 9 supplement as a nested archive so that the unchanged polynomial data and its audit can be retrieved alongside this revision.
 
-Download [z-in-q-version10-supplement.zip](z-in-q-version10-supplement.zip). [SUPPLEMENT.json](SUPPLEMENT.json) records its SHA-256 and contents. It is a supplement to the [Version 7 full history](../../handoff/README.md), not a replacement for that archive. No conversational transcript is included.
+Download [z-in-q-version10-supplement.zip](https://github.com/doublemover/diophantine-z-q/blob/08a38fcb0693fd793a4ffa5a59806747eedb330b/research/version10/z-in-q-version10-supplement.zip). [SUPPLEMENT.json](SUPPLEMENT.json) records its SHA-256 and contents. It is a supplement to the [Version 7 full history](../../handoff/README.md), not a replacement for that archive. No conversational transcript is included.
 
 Start with [the review dispositions](../../docs/manuscript-revisions/version10/README.md). The exact source pins distinguish published originals, corrected author versions, historical metadata and unpublished attribution sources. New unpublished arithmetic results are not assumed. The archive does not claim a completed Lean proof or fresh independent validation of the entire manuscript.
 

@@ -6,7 +6,7 @@ The manuscript author field is blank, and the BibTeX entries intentionally omit 
 
 ## Version 13 supplement
 
-The [Version 13 supplement guide](../research/version13/README.md) identifies `z-in-q-version13-supplement.zip`, the reviewed manuscript, the 394/411-variable packet, application inventory and review records. The archive is assembled from the final checked release state. Its receipt records the exact file hash and size; the [Version 12 supplement](../research/version12/README.md) remains a separate historical reference.
+The [Version 13 supplement guide](../research/version13/README.md) identifies `z-in-q-version13-supplement.zip`, the reviewed manuscript, the 394/411-variable packet, application inventory and review records. The archive is assembled from the final checked release state. Supplement ZIPs are not tracked in the current source tree. The version guides link to the exact archived copies; see also the [historical supplement checksums](../research/SUPPLEMENT-ARCHIVE-SHA256SUMS). Its receipt records the exact file hash and size; the [Version 12 supplement](../research/version12/README.md) remains a separate historical reference.
 
 ## Version 6 handoffs
 

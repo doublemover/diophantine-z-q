@@ -12,7 +12,7 @@ import diagnose_prepared_anchor_elaboration as control
 ci = control.ci
 PACKET = control.PACKET
 MODULE = control.MODULE
-CONTROL_SCRIPT_SHA = '0f088e409f3450949f3a08a0d9dd2e5f4a14e6bef360921ddf76ec34695ba51b'
+CONTROL_SCRIPT_SHA = 'f6439ba7d9aa6283bc4d9249f136671ebff6d0aca6162be406c5efdeb31c08b7'
 SCOPE = 'set_option pp.all true in\nset_option cleanup.letToHave false in\n' + control.SCOPE
 SCRATCH_SHA = 'b39e3f35a770674747f0a5f8b11a63a85111dbd54e9bbaf6f181f258c052e115'
 LABEL = 'scratch-prepared-anchor-cleanup-off'

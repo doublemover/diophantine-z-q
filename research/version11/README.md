@@ -1,6 +1,6 @@
 # Version 11 research supplement
 
-Download [z-in-q-version11-supplement.zip](z-in-q-version11-supplement.zip), with [hash and contents receipt](SUPPLEMENT.json).
+Download [z-in-q-version11-supplement.zip](https://github.com/doublemover/diophantine-z-q/blob/08a38fcb0693fd793a4ffa5a59806747eedb330b/research/version11/z-in-q-version11-supplement.zip), with [hash and contents receipt](SUPPLEMENT.json).
 
 The archive contains the current TeX and PDF, Kato index/norm/interface audits, the independent final acceptance, the original-Mazur source audit, and the revised protocol and executable checks. It also includes the unchanged Version 10 supplement, which preserves the preceding source and polynomial records. It contains no conversational transcript or credentials.
 

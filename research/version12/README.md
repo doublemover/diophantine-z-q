@@ -1,6 +1,6 @@
 # Version 12 research supplement
 
-Download [z-in-q-version12-supplement.zip](z-in-q-version12-supplement.zip), with [hash and size receipt](SUPPLEMENT.json).
+Download [z-in-q-version12-supplement.zip](https://github.com/doublemover/diophantine-z-q/blob/08a38fcb0693fd793a4ffa5a59806747eedb330b/research/version12/z-in-q-version12-supplement.zip), with [hash and size receipt](SUPPLEMENT.json).
 
 The archive includes the exact current manuscript, the portable 498/514-variable construction, application inventory, independent reviews, protocol records and selected reports from all ten optimization approaches. It embeds the unchanged Version 11 supplement, preserving earlier research records. It contains no conversational transcript or credentials.
 

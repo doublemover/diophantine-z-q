@@ -8,6 +8,6 @@ Starting with Version 13, the manuscript's version subtitle has no trailing peri
 
 Before release, apply the existing [audit integration protocol](audit-history/PROTOCOL.md). Check the exact polynomial, its connection to the arithmetic construction, the source-application inventory, independent review and the final manuscript. Finite coefficient checks alone do not establish the defining property.
 
-Publish matching versioned TeX and PDF files, coefficient tables, reproducible checks, current documentation, review records and the research supplement to both project repositories. Retain the original large construction and the stated coefficient representation distinctions. Keep earlier reviewed versions as historical records. Verify the latest checks in both repositories.
+Publish matching versioned TeX and PDF files, coefficient tables, reproducible checks, current documentation, review records and the research supplement to both project repositories. Retain the original large construction and the stated coefficient representation distinctions. Keep earlier reviewed versions as historical records. Publish packaged ZIPs as release assets, not tracked source files; the normal build uses checked-in source and records. Verify the latest checks in both repositories.
 
 This is a publication threshold, not a claim of mathematical minimality or a substitute for review. Other substantive repairs may require a release before the next optimization milestone.
