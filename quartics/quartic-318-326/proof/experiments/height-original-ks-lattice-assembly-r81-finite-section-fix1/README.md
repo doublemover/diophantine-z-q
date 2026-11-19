@@ -1,0 +1,3 @@
+# Finite section values on the original PEL chart: scoped repair
+
+This revision groups each factor of the four-term vertical denominator inside the product, and aligns the fraction and nonzero witnesses with the ring homomorphism used to evaluate the section coefficients. The three public theorem statements, input chart hypotheses and 267 sibling module files are unchanged. The [prior single-module check](https://github.com/doublemover/diophantine-z-q/actions/runs/44503672850) failed to compile the previous source; no declaration was audited. The repaired source has no hosted verdict. Its conclusion concerns one specified integral affine chart and place, not a construction for all places or a proof of the quartic cases.
