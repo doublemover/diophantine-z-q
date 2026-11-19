@@ -19,3 +19,5 @@ The [November 4 research handoff](https://github.com/elliotglazer/diophantine-z-
 No DOI is recorded in the repository's citation metadata. A GitHub release and a DOI deposit are separate records. Any later deposit should identify the exact manuscript, polynomial, evidence files and hashes it preserves, and should respect the blank-author convention. Add a DOI to the citation metadata only after the deposit exists and its contents have been checked.
 
 See [third-party notices](../THIRD_PARTY_NOTICES.md) for the attribution and redistribution scope of the mathematical sources, software and historical archive.
+
+Generated supplement ZIPs are not stored in Git. See the [historical supplement checksums](../research/SUPPLEMENT-ARCHIVE-SHA256SUMS) to verify an existing copy.

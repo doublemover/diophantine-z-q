@@ -5,7 +5,7 @@ from pathlib import Path,PurePosixPath
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('archive',type=Path)
-    ap.add_argument('--sha256',required=True,help='Archive digest from the repository SHA256SUMS')
+    ap.add_argument('--sha256',required=True,help='Archive digest from SUPPLEMENT.json or the historical supplement checksums')
     ap.add_argument('--extract',type=Path)
     a=ap.parse_args()
     if hashlib.sha256(a.archive.read_bytes()).hexdigest()!=a.sha256:
