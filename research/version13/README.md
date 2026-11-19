@@ -1,6 +1,6 @@
 # Version 13 research supplement
 
-The supplement is packaged as [z-in-q-version13-supplement.zip](https://github.com/doublemover/diophantine-z-q/blob/08a38fcb0693fd793a4ffa5a59806747eedb330b/research/version13/z-in-q-version13-supplement.zip) after the final manuscript, contracts and release checks are complete. Its packaging receipt records the exact hash and size. The archive target is not itself an approval of an unfinished snapshot.
+The supplement was packaged as `z-in-q-version13-supplement.zip` after the final manuscript, contracts and release checks are complete. Its packaging receipt records the exact hash and size. The archive target is not itself an approval of an unfinished snapshot. The historical ZIP is no longer stored in Git; the receipt can verify an existing copy.
 
 The handoff preserves the November 7, 2026 manuscript, the portable 394/411-variable construction, complete coefficient tables, application inventory, independent review records and the selected research evidence. The [Version 12 supplement](../version12/README.md) remains the preceding historical reference. The archive contains no conversational transcript or credentials.
 
