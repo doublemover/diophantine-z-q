@@ -1,0 +1,9 @@
+# Fixed 178, N=15: a conditional integer-defining quartic
+
+The 87,020-byte ASCII file `quartic178-N15.txt` is the complete integer polynomial. It has 3,494 monomials, 365-bit maximum coefficients and **178 variables total**, including its rational input. Rational solutions project exactly onto the integers under the arithmetic hypotheses listed in PROOF.md. No ordinary abc assumption is added; this is not an unconditional result or a minimality claim.
+
+Two earlier helper slots are no longer needed because the two new contact identities measure the full algebraic quantity **z²x(Q₁)+x(Q₂)+x(Q₃)+x(Q₄)**, rather than the unweighted sum. The moving-weight local-to-global height estimate, treatment of denominators and torsion, revised integer-witness shifts, and arithmetic thresholds are given in PROOF.md. This gives a new polynomial, not a reversible deletion of two coordinates on every old solution. The older 180/181 and unparameterized 167/165 are unchanged.
+
+Run `python -B replay.py` from this folder to verify the exhaustive manifest, regenerate the exact SOS and literal, and run the separate inverse-aggregate check and rational height-budget checks. No network, compilation, or installation is required for this replay; the optional older donor replay in `donor/replay_all.py` additionally uses SymPy. `QUADRICS.json` contains the 150 integral residuals and `POLYNOMIAL.json` their collected sum of squares.
+
+This is an adaptation of the included three-contact 180 source and the arithmetic materials derived from José Brox, [diophantine-z-q_improvements](https://github.com/JoseBrox/diophantine-z-q_improvements), pinned at d3a8c223; their source attribution and CC BY 4.0 license are retained (donor/donor180/donor165/V74-LICENSE.txt). The moving-weight extension and 178-variable result are not stated by the original author.
