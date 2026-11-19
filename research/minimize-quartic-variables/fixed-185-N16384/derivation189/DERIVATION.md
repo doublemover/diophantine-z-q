@@ -1,0 +1,1 @@
+See the 185 companion HEIGHT-AND-CONTACTS.md for the mathematical proof of the three-contact fixed 189. This symbolic 189 is the intermediate for the independently verified 185 replacement. No unconditional or Lean claim. For a fixed signed-hex stream, run python specialize.py then python verify.py in a disposable working copy.
