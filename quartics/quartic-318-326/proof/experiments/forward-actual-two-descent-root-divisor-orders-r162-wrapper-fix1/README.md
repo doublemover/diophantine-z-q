@@ -1,0 +1,3 @@
+# Repair the original rational gain-chord wrapper
+
+This revision repairs the proof of `ActualRationalGainChord318.literal_iff` and adds `import all RationalGainChord318` to give that proof access to the existing definition of `Gains`. The theorem statement, the set of modules it depends on, and the other 1,428 module files are unchanged. On the predecessor, the two prerequisites compiled and the wrapper failed in [the scoped hosted check](https://github.com/doublemover/diophantine-z-q/actions/runs/44489377517). The previous audit covered the successful prerequisites only. This revision carries no hosted verdict, rational witness, or rank claim.
