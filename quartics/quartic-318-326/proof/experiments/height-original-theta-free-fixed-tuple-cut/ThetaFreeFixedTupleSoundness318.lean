@@ -3,6 +3,7 @@ public import ThetaFreeSelectedCut318
 public import FixedTupleHeightGate318
 import all CleanSparseHeightCut318
 import all FixedTupleHeightGate318
+import all ThetaFreeSelectedCut318
 public section
 noncomputable section
 
