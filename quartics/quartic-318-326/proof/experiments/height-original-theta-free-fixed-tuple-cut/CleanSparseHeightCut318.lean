@@ -27,6 +27,13 @@ def SharpExtreme : Prop := ∀u v:ℤ, IsCoprime u v → (∀j:Fin 5,forms u v j
 def IntegerExtreme : Prop := ∀u v:ℤ, IsCoprime u v → (∀j:Fin 5,forms u v j≠0) →
     Extreme u v → size u v < (S u v)^(27506231*(S u v)^2)
 
+/-- Compare the old scale without evaluating the power of exponent 300. -/
+private theorem old_scale_floor : (2:ℝ)^68 ≤ 2^68*((210:ℝ)^300)^2 := by
+  have h210 : (1:ℝ) ≤ (210:ℝ)^300 := one_le_pow₀ (by norm_num : (1:ℝ) ≤ 210)
+  have hsq : (1:ℝ) ≤ ((210:ℝ)^300)^2 := one_le_pow₀ h210
+  simpa only [mul_one] using
+    mul_le_mul_of_nonneg_left hsq (pow_nonneg (by norm_num : (0:ℝ) ≤ 2) 68)
+
 /-- Outside the bit-length cut there is no new geometry, CM or transcendental
 certificate. The implication is for the clean old target, not the sharp bound. -/
 theorem automatic {u v:ℤ} (hc:IsCoprime u v) (hn:∀j:Fin 5,forms u v j≠0)
@@ -42,7 +49,8 @@ theorem automatic {u v:ℤ} (hc:IsCoprime u v) (hn:∀j:Fin 5,forms u v j≠0)
     (pow_nonneg (Nat.cast_nonneg (S u v):0≤(S u v:ℝ)) 6)
   have hpow : (S u v:ℝ)^6≤(S u v:ℝ)^((49:ℝ)/8) := by
     rw [←Real.rpow_natCast];apply Real.rpow_le_rpow_of_exponent_le hs;norm_num
-  have hscale:=mul_le_mul_of_nonneg_right (by norm_num : (1:ℝ)≤2^68*((210:ℝ)^300)^2)
+  have hscale:=mul_le_mul_of_nonneg_right
+    ((show (1:ℝ) ≤ (2:ℝ)^68 by norm_num).trans old_scale_floor)
     (Real.rpow_nonneg (Nat.cast_nonneg (S u v):0≤(S u v:ℝ)) ((49:ℝ)/8))
   rw [height_log hc];unfold target;linarith
 
@@ -59,7 +67,10 @@ theorem literal (H:SharpExtreme) : FiveContact49Height := by
   apply five_iff_old_extreme.mpr
   intro u v hc hn he
   let s:ℝ:=S u v
-  have hs : 1≤s := by exact_mod_cast support_pos u v
+  have hsN : 1 ≤ S u v := Nat.succ_le_of_lt (support_pos u v)
+  have hs : 1≤s := by
+    change (1:ℝ) ≤ (S u v:ℝ)
+    exact_mod_cast hsN
   have hp : 0<s := lt_of_lt_of_le zero_lt_one hs
   have h:=H u v hc hn he
   change pointHeight u v<27506231*(s^2*Real.log s) at h
@@ -69,7 +80,8 @@ theorem literal (H:SharpExtreme) : FiveContact49Height := by
   have hpow : s^3≤s^((49:ℝ)/8) := by
     rw [←Real.rpow_natCast];apply Real.rpow_le_rpow_of_exponent_le hs;norm_num
   have h1:=mul_le_mul_of_nonneg_left (h3.trans hpow) (by norm_num : (0:ℝ)≤27506231)
-  have h2:=mul_le_mul_of_nonneg_right (by norm_num : (27506231:ℝ)≤2^68*((210:ℝ)^300)^2)
+  have h2:=mul_le_mul_of_nonneg_right
+    ((show (27506231:ℝ) ≤ (2:ℝ)^68 by norm_num).trans old_scale_floor)
     (Real.rpow_nonneg hp.le ((49:ℝ)/8))
   change pointHeight u v<2^68*((210:ℝ)^300)^2*s^((49:ℝ)/8)+128
   linarith
