@@ -1,0 +1,79 @@
+{
+  "status": "exact r5 hosted compiler diagnostics; no r6 verdict",
+  "artifact": {
+    "id": 14644416388,
+    "run_id": 44764701066,
+    "sha256": "0361881ef842410975d5a25f38421a2c08913bdd114414dde2f830df9beb9e8b"
+  },
+  "predecessor_packet": "ct-original-local-restriction-reduced-r5",
+  "predecessor_packet_sha256": "abf7c5a2cb1dbeec88dab79d62e43a3ab39a599f6d09d92db7d7569f163e0419",
+  "predecessor_head": "35ce5361e501700d9a6c67d58a4961eb4d5a92eb",
+  "predecessor_source": "f487b0d40ed2c930d061e1db64b969530d5716da",
+  "predecessor_source_tree": "cdcee400743d1c1e943a12b7847bc5e1226a640d",
+  "predecessor_selection": {
+    "intake_sha256": "abf7c5a2cb1dbeec88dab79d62e43a3ab39a599f6d09d92db7d7569f163e0419",
+    "packet": "ct-original-local-restriction-reduced-r5",
+    "selected_order": [
+      "ActualTwoDescentFieldMapNonzero318",
+      "ActualTwoDescentClosureParameterNonzero318",
+      "CTOriginalEllipticModel318",
+      "CTOriginalEllipticFieldCoordinates318",
+      "CTOriginalGeometricGaloisAction318",
+      "ActualTwoDescentActualGeometricCoboundary318",
+      "ActualTwoDescentActualGaloisOrbitLocallyConstant318",
+      "CTOriginalFullEllipticRepresentation318",
+      "CTOriginalContinuousEllipticCocycles318",
+      "CTOriginalFiniteWeierstrassCarrier318",
+      "CTOriginalActualEllipticFieldMap318",
+      "CTOriginalClosureFieldEmbedding318",
+      "CTOriginalPointCoordinates318",
+      "CTOriginalGeometricPointTransport318",
+      "CTOriginalGeometricRestrictionAction318",
+      "CTOriginalFullCocycleRestriction318"
+    ],
+    "selection_sha256": "4e4192468d776affc150cca592f3e9f3cd37ace301b0fc748c1d6ae22cb23b03",
+    "targets": [
+      "CTOriginalFullCocycleRestriction318"
+    ]
+  },
+  "counts": {
+    "compile_pass": 15,
+    "compiler_error": 1,
+    "not_selected": 14
+  },
+  "audited_declaration_count": 164,
+  "audit_log_sha256": "9ea44e94e897f97b05a1d4df398f92a99de4e4bb1d119f7563bacda9463a4a69",
+  "diagnostics": {
+    "CTOriginalFullCocycleRestriction318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r5",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r5-s4e4192468d776aff/quarantine/CTOriginalFullCocycleRestriction318/CTOriginalFullCocycleRestriction318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r5/CTOriginalFullCocycleRestriction318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualTwoDescentActualGeometricCoboundary318",
+        "CTOriginalContinuousEllipticCocycles318",
+        "CTOriginalFullEllipticRepresentation318",
+        "CTOriginalGeometricRestrictionAction318"
+      ],
+      "log_sha256": "43c0d448be7f1d3616ddff819f709de0f382269cdd1a41784acf651b4dd49d37",
+      "occurrence": "ct-original-local-restriction-reduced-r5/CTOriginalFullCocycleRestriction318",
+      "root_causes": [
+        "CTOriginalFullCocycleRestriction318"
+      ],
+      "seconds": 1.367,
+      "source_sha256": "ea7c94326b39a64767f406e6d13c7246bc12d3bd6e45e6bf32799a5e65065255",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r5/CTOriginalFullCocycleRestriction318.lean:34:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ↑↑z (?g * ?h)\nin the target expression\n  (closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) σ * (Field.absoluteGaloisGroup.map f) τ)) =\n    ((fullEllipticRep (f n) ⋯).ρ σ) ((closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) τ))) +\n      (closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) σ))\n\nF : Type\ninst✝⁵ : Field F\ninst✝⁴ : CharZero F\ninst✝³ : DecidableEq F\nL : Type\ninst✝² : Field L\ninst✝¹ : CharZero L\ninst✝ : DecidableEq L\nf : F →+* L\nn : F\nhn : n ≠ 0\nz : ↥(continuousFullCocycles n hn)\nσ τ : Field.absoluteGaloisGroup L\n⊢ (closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) σ * (Field.absoluteGaloisGroup.map f) τ)) =\n    ((fullEllipticRep (f n) ⋯).ρ σ) ((closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) τ))) +\n      (closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) σ))\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    ↑z ((Field.absoluteGaloisGroup.map f) σ * (Field.absoluteGaloisGroup.map f) τ)\n  has type\n    ↑(fullEllipticRep n hn)\n  but is expected to have type\n    Point ((algebraMap F Qbar) n)\n  in the application\n    (closurePointMap f n hn) (↑z ((Field.absoluteGaloisGroup.map f) σ * (Field.absoluteGaloisGroup.map f) τ))\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r5/CTOriginalFullCocycleRestriction318.lean:40:80: error: unsolved goals\nF : Type\ninst✝⁵ : Field F\ninst✝⁴ : CharZero F\ninst✝³ : DecidableEq F\nL : Type\ninst✝² : Field L\ninst✝¹ : CharZero L\ninst✝ : DecidableEq L\nf : F →+* L\nn : F\nhn : n ≠ 0\nQ : Point ((algebraMap F Qbar) n)\nσ : Field.absoluteGaloisGroup L\n⊢ (ActualTwoDescentFieldGaloisPointAction318.galoisPointHom σ (f n) ⋯) ((closurePointMap f n hn) Q) -\n      (closurePointMap f n hn) Q =\n    ↑↑(fullBoundary (f n) ⋯ ((closurePointMap f n hn) Q)) σ\n"
+    }
+  }
+}
