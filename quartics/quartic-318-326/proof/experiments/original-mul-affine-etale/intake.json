@@ -1,0 +1,87 @@
+{
+  "packet": "original-mul-affine-etale",
+  "status": "SOURCE_ONLY_REVIEW",
+  "order": [
+    "SelectedLiteralTorsionKernel318",
+    "ActualInfinitySquareZero318",
+    "ActualLiteralIdentityJet318",
+    "ActualNonSplitIdealChart318",
+    "ActualNonSplitIdentityLifts318",
+    "ActualMulAffineCharts318",
+    "ActualMulAffineFormallyEtale318",
+    "ActualMulAffineEtale318"
+  ],
+  "files": {
+    "SelectedLiteralTorsionKernel318.lean": {
+      "sha256": "10b0857b7b1281efd4af2811d68c985ad90d388368487511ce372afe825236c7",
+      "imports": [
+        "CubicClosedImmersion318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+        "Mathlib.GroupTheory.OrderOfElement"
+      ]
+    },
+    "ActualInfinitySquareZero318.lean": {
+      "sha256": "f5632f190a1a2c70aef3de4c59963e179c22e1053d4c5ced3949486f2c0fe2cd",
+      "imports": [
+        "InfinityChart318",
+        "Mathlib.Algebra.TrivSqZeroExt.Basic",
+        "Mathlib.LinearAlgebra.Prod"
+      ]
+    },
+    "ActualLiteralIdentityJet318.lean": {
+      "sha256": "59ab8c3ac02a58eaa17ef710ee813b74176114a7c3aadd3d7db489f1f83413ce",
+      "imports": [
+        "ActualInfinitySquareZero318",
+        "AffineProductEvaluation318",
+        "InfinityBoundaryScheme318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.RingTheory.Spectrum.Prime.RingHom",
+        "SelectedLiteralTorsionKernel318",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualNonSplitIdealChart318.lean": {
+      "sha256": "314b67a1c2d403b01b354984fa59723350e89ffd1154f444f91e024244e0a7a3",
+      "imports": [
+        "ActualInfinitySquareZero318",
+        "Mathlib.Algebra.Module.Opposite",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations"
+      ]
+    },
+    "ActualNonSplitIdentityLifts318.lean": {
+      "sha256": "706d5348dd6d19a61e7ca3462e3cd8aefa5f59e6d92d99977062dc9e1df4cdea",
+      "imports": [
+        "ActualLiteralIdentityJet318",
+        "ActualNonSplitIdealChart318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.Tactic.Abel",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulAffineCharts318.lean": {
+      "sha256": "e7f95f496c7b23a77d8bab32c7458aa472bf04bd7e95ac77f9f150b5a81e13ed",
+      "imports": [
+        "ActualNonSplitIdentityLifts318",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulAffineFormallyEtale318.lean": {
+      "sha256": "aa5e230d3f7863308afde0968f8b676f842a9f3d4b6b27c27ef5e3003c01f536",
+      "imports": [
+        "ActualMulAffineCharts318",
+        "Mathlib.RingTheory.Etale.Basic",
+        "Mathlib.RingTheory.Smooth.Basic",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulAffineEtale318.lean": {
+      "sha256": "64edb8f87703d3d2087a7f6c2866110efd312b65a7e882682ca87f723d9ee9df",
+      "imports": [
+        "ActualMulAffineFormallyEtale318",
+        "Mathlib.RingTheory.FinitePresentation"
+      ]
+    }
+  }
+}
