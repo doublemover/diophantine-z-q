@@ -1,0 +1,17 @@
+# Independent cold review: the direct level-48 CM mark and its Hilbert trace
+
+Reviewed the exact parent manifest
+`9ed66e14c678d33176ea9c160a3b3a4ad1ba6987e38461208e552d78cc3c4239`
+and `EXACT-HILBERT-DESCENT-OF-THE-LOW-MARK.md`
+`fe9dc82094c3a22232a66dda1b18ebfc91d1b0828f9cafaf0b330d681d90f563`.
+The three exact parent hashes passed and its finite matrix checker reproduced its JSON byte-for-byte. Source/paper review only; no compiled or new arithmetic rank claim.
+
+The dyadic lattices admit the same exact conductor-four multiplier order and their literal quotient is cyclic of order 16. Modulo 16 the order-action polynomial rules out conductors 1 and 2 for a same-order invertible source; this is not a minimality theorem for arbitrary oriented pairs. At 3 the actual chosen cyclic branch is preserved in the calculation of the Fricke offset: the swap involution is `diag(1,-1/3) W3` in the stipulated lattice chain, and the dyadic offset is an order-three torus class killed on the maximal class group.
+
+The local vector calculation uses the actual conductor-48 new line. Casselman's dimensions are 1 on the plus line and 2 on the minus side because the determinant twist is the actual conductor-24 curve. The genus-zero group of index 24 with six cusps excludes trivial action of the centered Klein group. Therefore the three nontrivial axes occur, the relative order-two torus unit acts by +1 from the exact trace comparison, and projection of the newvector to torus invariants has squared norm ratio 1/3. This is the varying-vector case of [Cai–Shu–Tian, Theorem 1.6 and Proposition 2.5](https://arxiv.org/pdf/1408.1733), not a claim that the displayed Eichler order at 2 contains the maximal torus order. [He–Hu–Tian, introduction and Corollary 3.2](https://www.sciengine.com/doi/pdf/C674839BE2234E14B7ACCE693F245CF6) confirms the two conductors, the based map’s order-two cusp image and the indicated sign table. The exact coordinate (3,0) comes from the same explicit based quotient.
+
+The descended invariance is an equality of actual points: rational normalizer gamma represents the finite relative order-two torus action, since for each local marked representative `tg` one has `tg gamma K = t u g K` at every prime. At 2 this is the explicit centered residue calculation; away from 2 gamma lies in the prescribed standard level. The rational representative has determinant one and acts by the analytic inverse under right translation. The map composed with the half-shift equals its negative by the odd Fourier exponents and the fixed base cusp; the Fricke constant cancels twice in the conjugate shift. Hence the three-term sum descends exactly to the ordinary Hilbert class field and the full conductor-four trace is twice the full Hilbert trace.
+
+For odd suborbits, the literal Fricke sum is the nonzero rational 2-torsion point. The Hilbert field is unramified over the rational local fields at 2 and 3, so no nonzero rational 2-torsion point can be halved there, and conjugation plus the prime-3 offset cannot take a torsion point to the Fricke constant. The resulting nontorsion detects some 2-power-order **ordinary class** character. It does not imply nonvanishing for the trivial character: the selected four-rank gate makes the doubled class subgroup even, and the permitted proper genus terms include differently signed twists. No full trivial trace, paired result, or production point follows.
+
+Cold review: Vesper, independent review lane.
