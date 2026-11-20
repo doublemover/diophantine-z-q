@@ -1,0 +1,53 @@
+{
+  "packet": "height-original-theta-free-fixed-tuple-cut",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "CONDITIONAL_SELECTED_POINT_TO_LITERAL_317_325_SOUNDNESS_ONLY",
+  "order": [
+    "CleanSparseHeightCut318",
+    "ActualTwoSourceHeightGate318",
+    "FixedTupleHeightGate318",
+    "ThetaFreeSelectedCut318",
+    "ThetaFreeFixedTupleSoundness318"
+  ],
+  "files": {
+    "CleanSparseHeightCut318.lean": {
+      "sha256": "fb1b25af4908908f6eb8fa87307bce670c0dc618ebaf1d75d0b688834d03b2b1",
+      "imports": [
+        "ContactHeight318"
+      ]
+    },
+    "ActualTwoSourceHeightGate318.lean": {
+      "sha256": "09e68e26480df8f546a7f0e1a2ad6622ac82cfa684e160f39f7ab59b11f7c5f4",
+      "imports": [
+        "CleanSparseHeightCut318",
+        "Current318FinalPolynomial",
+        "LiteralSoundness318326"
+      ]
+    },
+    "FixedTupleHeightGate318.lean": {
+      "sha256": "65e7c67ff46730c6fdaf5d07cec6563b603d6117529df530c8a446d38db6e4a1",
+      "imports": [
+        "ActualTwoSourceHeightGate318",
+        "CleanSparseHeightCut318",
+        "Current318FinalBridge",
+        "Current318FinalPolynomial",
+        "Current326Bridge"
+      ]
+    },
+    "ThetaFreeSelectedCut318.lean": {
+      "sha256": "d29a9a811d132ce20f62035f576f86430787aed2a3f97ef1cd39d94860221089",
+      "imports": [
+        "CMIsogeny318",
+        "ContactHeight318"
+      ]
+    },
+    "ThetaFreeFixedTupleSoundness318.lean": {
+      "sha256": "b752742928b5946817b607608c3f6d64a0aea71bd773022a796dbb686cbcd471",
+      "imports": [
+        "CleanSparseHeightCut318",
+        "FixedTupleHeightGate318",
+        "ThetaFreeSelectedCut318"
+      ]
+    }
+  }
+}
