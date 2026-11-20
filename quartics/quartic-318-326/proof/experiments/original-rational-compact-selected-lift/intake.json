@@ -1,0 +1,56 @@
+{
+  "packet": "original-rational-compact-selected-lift",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "ORIGINAL_RATIONAL_COMPACT_SELECTED_LIFT",
+  "order": [
+    "SelectedProjectiveJScalar318",
+    "SelectedProjectiveJScalarPullback318",
+    "SelectedCanonicalCompactScalar318",
+    "SelectedGenericCompactNormalization318",
+    "SelectedRationalCompactScalarLift318"
+  ],
+  "files": {
+    "SelectedProjectiveJScalar318.lean": {
+      "sha256": "9a4db506f06e516e32dcf1807d593f4fbb58c5a04d1384577036a2a8f6edef3d",
+      "imports": [
+        "JLineAtlas318",
+        "Mathlib.Algebra.Polynomial.AlgebraMap",
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Functor",
+        "Mathlib.RingTheory.MvPolynomial.Ideal"
+      ]
+    },
+    "SelectedProjectiveJScalarPullback318.lean": {
+      "sha256": "8596789957ecd3bfa5318f5e19da3a4deda01e32dce212c46153ff728843f72a",
+      "imports": [
+        "JLineAtlas318",
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Basic",
+        "Mathlib.RingTheory.PolynomialAlgebra",
+        "SelectedProjectiveJScalar318"
+      ]
+    },
+    "SelectedCanonicalCompactScalar318.lean": {
+      "sha256": "9391abb89504dee8209cb959ca79b8a34ba5093c71fc9b822dca7055b3dc4352",
+      "imports": [
+        "SelectedProjectiveJScalarPullback318"
+      ]
+    },
+    "SelectedGenericCompactNormalization318.lean": {
+      "sha256": "e0493c847164da59f396b42e379580ba5531d39188c8ba2827129225a9d6543b",
+      "imports": [
+        "CommonOpenFunctionField318",
+        "Mathlib.AlgebraicGeometry.ZariskisMainTheorem",
+        "NormalAffineOpen318",
+        "ProjectiveJLine318"
+      ]
+    },
+    "SelectedRationalCompactScalarLift318.lean": {
+      "sha256": "2e410a18b44c84745f678e2cd8556e88935f60fba10cea350edf4bf2b326997a",
+      "imports": [
+        "SelectedCanonicalCompactScalar318",
+        "SelectedGenericCompactNormalization318"
+      ]
+    }
+  }
+}
