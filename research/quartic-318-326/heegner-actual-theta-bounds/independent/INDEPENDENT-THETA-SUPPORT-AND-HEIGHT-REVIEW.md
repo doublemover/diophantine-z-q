@@ -1,0 +1,17 @@
+# Independent review: actual theta support and expanded input
+
+**Scope:** fixed materialized a=0 scalar and preliminary q=1199923, no actual class-group computation, no accepted production prime, no mod-13 coefficient or global point assertion.
+
+I checked the exact note `7159e6c919fd48879d6b74f021d4aefbfef7593195aa3c3fd37352d76d7a77c4` and its manifest. The scalar evaluator changes the inherited exact arithmetic only by removing the previous rank-dependent pruning, using the necessary beta square sign, and selecting the literal D=1 condition. An odd square-class prime not dividing beta may not come from a pole of c: that gives an even valuation of delta. Thus all nonexceptional candidates have nonzero square beta and satisfy D=1 in the residue field. The sieve, per-component checked annihilator, formal substitution through chart zeros, bounded machine integer arithmetic, and counts of pole cases have the intended scope. The proof that an i-pole cannot yet occur uses the inherited Gaussian lower bound; an h-pole is excluded only when N has negative valuation and Q positive, and unresolved leading cancellation would be counted separately. No such unresolved or failed annihilator case occurs in the frozen outputs. The finite exceptional list is closed by 2/3, the beta and R supports, the four fixed normalizer denominator primes, and the directly replayed p=7 row. I byte-replayed the p=7 JSON and spot-replayed 11 through 1,000,000 and 199,950,000 through 200,000,000. I did not independently rerun the entire 200M sweep; its range, branch completeness and frozen logs were inspected. The four recorded hits have their prior exact valuation-one controls.
+
+The four-factor product is 13 modulo 24 and the actual positive squarefree representative theta is 1 modulo 24. At least one more factor therefore occurs and each further factor exceeds 200,000,000. With q=1199923 prime to delta and q=3 modulo 4, the fundamental discriminant is -q*theta; the resulting lower bound has 113 bits. Neither the factor count nor the associated class-group test is decided.
+
+Separately, I replayed the full original affine ball computation modulo 3^262188. I then reimplemented the point calculation using inversion-free Jacobian addition/doubling and conservative weighted rescaling, with only a final unit inversion. The explicit integer i/h has 3-valuation 65547. Formal multiplication increases the parameter valuation by at least that amount, so the full correction R*Q^2 vanishes modulo 3^262188. The weighted computation retains 262634 safe digits (v3(Z)=v3(U)=5) and agrees byte-for-byte with the original hex residue including final newline, SHA-256 `756e95c8710a46822f373a9d528ee9e6f3a0dd820ab0d8e9b343f7e6bd656285`. The independent Euclidean checker visits 121065 convergents; the only positive bounded remainder exceeds its denominator and that denominator is not a square. The Legendre convergent argument uses reduced H/Z^2, and the actual real lower margin >8/9 then proves at least 207779 bits for reduced raw H. This number does **not** bound the squarefree part or fundamental discriminant at that scale.
+
+Portable replay (GMP headers and C++17):
+```sh
+g++ -O3 -std=c++17 check_3adic_jacobian.cpp -lgmpxx -lgmp -o /tmp/check-3adic-jacobian
+/tmp/check-3adic-jacobian | python3 -B check_3adic_cf.py
+```
+
+Signed: /s/ high_review_ci. Independent mathematical and arithmetic-source review only; no Lean or hosted certification.
