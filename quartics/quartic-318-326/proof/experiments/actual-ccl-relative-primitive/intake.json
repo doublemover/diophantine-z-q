@@ -1,0 +1,66 @@
+{
+  "packet": "actual-ccl-relative-primitive",
+  "status": "SOURCE_ONLY_REVIEW",
+  "order": [
+    "ActualOldKummerRelativeLift318",
+    "ActualCCLRetainedH22Boundary318",
+    "ActualOldPlaceDivisionNorm318",
+    "ActualSupportedPrimitiveRetention318",
+    "ActualGlobalTraceTorsionSupported318",
+    "ActualCCLRelativePrimitive318"
+  ],
+  "files": {
+    "ActualOldKummerRelativeLift318.lean": {
+      "sha256": "8f392d803e887c523b885ea93b595ef544cb3f1c7fbae900c1d284c967d78c78",
+      "imports": [
+        "Mathlib.Algebra.Group.End",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "ActualCCLRetainedH22Boundary318.lean": {
+      "sha256": "d1ebced1dcd104c88831cf5c08b4b464afa97bd91d17ade76a142328a7bc612f",
+      "imports": [
+        "ActualOldKummerRelativeLift318",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.Group.Action.Pi",
+        "Mathlib.Algebra.Group.Action.Prod",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "ActualOldPlaceDivisionNorm318.lean": {
+      "sha256": "ff87deed7b5d69a8f56b81b1fa03c3cdf425d0f66e26212cb8e3f5183b3ee596",
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.BigOperators.GroupWithZero.Action",
+        "Mathlib.Algebra.Group.End",
+        "Mathlib.Algebra.Module.Basic",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "ActualSupportedPrimitiveRetention318.lean": {
+      "sha256": "fcc626cb148bf36300dadd448d1599932d0606844147f3d0c11073227906925f",
+      "imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Algebra.Group.End",
+        "Mathlib.Algebra.Module.LinearMap.Defs",
+        "Mathlib.Algebra.Module.Pi",
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "ActualGlobalTraceTorsionSupported318.lean": {
+      "sha256": "c6214e55d01e075b40a65732abb6bb7c6ad8230c7386187aa5d96f5035ee3d90",
+      "imports": [
+        "ActualOldPlaceDivisionNorm318",
+        "ActualSupportedPrimitiveRetention318"
+      ]
+    },
+    "ActualCCLRelativePrimitive318.lean": {
+      "sha256": "cbdc017b91e4fb5911e9bbc8d4f75a71a9586abc8ee03f22529a71c86271068f",
+      "imports": [
+        "ActualCCLRetainedH22Boundary318",
+        "ActualGlobalTraceTorsionSupported318"
+      ]
+    }
+  }
+}
