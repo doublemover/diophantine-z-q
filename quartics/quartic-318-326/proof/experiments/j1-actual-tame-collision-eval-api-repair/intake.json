@@ -1,0 +1,51 @@
+{
+  "packet": "j1-actual-tame-collision-eval-api-repair",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "J1_ACTUAL_TAME_COLLISION_EVAL_API_REPAIR",
+  "order": [
+    "SelectedShortOrdinaryRatio318",
+    "SelectedShortTameContact318",
+    "SelectedJOneExactMinorLoss318",
+    "SelectedCollisionHalfCost318",
+    "SelectedActualTameCollisionEval318"
+  ],
+  "files": {
+    "SelectedShortOrdinaryRatio318.lean": {
+      "sha256": "ff33895cc522c85ec46c4abd39c01acd887e57894f04c331387fc576daecf3a9",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.EllipticCurve.NormalForms",
+        "Mathlib.Tactic"
+      ]
+    },
+    "SelectedShortTameContact318.lean": {
+      "sha256": "6604163014b0a75f470ef24ad66ae529efb0fae365d50a3592a8b1a145afeecb",
+      "imports": [
+        "Mathlib.RingTheory.Derivation.Basic",
+        "SelectedShortOrdinaryRatio318"
+      ]
+    },
+    "SelectedJOneExactMinorLoss318.lean": {
+      "sha256": "e9545b862f4a738d3952cfb4e98cb05bde5cb2dac29338a655321e999e3c07d0",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.NumberTheory.NumberField.ProductFormula",
+        "Mathlib.Tactic"
+      ]
+    },
+    "SelectedCollisionHalfCost318.lean": {
+      "sha256": "e9d4e27e221833ede35cd7ae998468b21aeaa5b7c2f7e7f456132f3607e1b791",
+      "imports": [
+        "SelectedJOneExactMinorLoss318"
+      ]
+    },
+    "SelectedActualTameCollisionEval318.lean": {
+      "sha256": "1c612fca107b2de4d101687469338e60059a6d3cf58d702a8f98427de180b3af",
+      "imports": [
+        "SelectedCollisionHalfCost318",
+        "SelectedJOneExactMinorLoss318",
+        "SelectedShortTameContact318"
+      ]
+    }
+  }
+}
