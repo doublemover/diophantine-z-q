@@ -1,0 +1,122 @@
+{
+  "packet": "descent-original-ray-aggregate-r2",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "ORIGINAL_SAME_OCCUPIED_ROW_EXACT_ANCHOR_DEFECT_AND_SIGNED_LOWER_LEDGER_ONLY",
+  "order": [
+    "ActualRayPeriodicRectangle318",
+    "ActualRayConductorRows318",
+    "ActualRayInteriorBox318",
+    "OriginalInteriorTelescoping318",
+    "ActualRayLiteralInteriorWeight318",
+    "ActualRayInteriorMassRectangles318",
+    "ActualRayConditionalLower318",
+    "ActualPointedCyclicPairing318",
+    "ActualRayPointedAnchor318",
+    "ActualPointedPhysicalRow318",
+    "ActualRayAggregateLedger318",
+    "ActualRayOccupiedLower318",
+    "ActualOccupiedAnchorAggregate318"
+  ],
+  "files": {
+    "ActualRayPeriodicRectangle318.lean": {
+      "sha256": "0cc57909c7d79dc132af8cd49dc01f1453fe9fb9a3db4e6e00be753ed5ee5f75",
+      "imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "ActualRayConductorRows318.lean": {
+      "sha256": "88647c3d955a0e4f48638252296884ac36c8c785fa52e58c68a1e7f90c2a863a",
+      "imports": [
+        "ActualRayPeriodicRectangle318",
+        "Mathlib.Algebra.BigOperators.Fin",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+        "Mathlib.Data.Fintype.Card",
+        "Mathlib.Data.Nat.GCD.Basic"
+      ]
+    },
+    "ActualRayInteriorBox318.lean": {
+      "sha256": "9bcdb8fdbe0b66da89ed74ff2a50799ac3dda50732187a3f204be30501d97ab4",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "OriginalInteriorTelescoping318.lean": {
+      "sha256": "32def3a55982206257d1828c80c99ab85f512db796c4d20e1d5903177fc6e6d0",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualRayLiteralInteriorWeight318.lean": {
+      "sha256": "7399d11e1207b7cdc3d1cf8bd8609c72539ed97431ecc157e349cdd79e9fe52e",
+      "imports": [
+        "ActualRayConductorRows318",
+        "ActualRayInteriorBox318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayInteriorMassRectangles318.lean": {
+      "sha256": "b8720c0996828642cac8562c774bc3d6d8d328d72a50b9e718d30271bbe38634",
+      "imports": [
+        "ActualRayLiteralInteriorWeight318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayConditionalLower318.lean": {
+      "sha256": "9ad77c57714b4fe98706098f35a3c5a89dc3ee30d935ba3fdd6b5ca28ea171e3",
+      "imports": [
+        "ActualRayInteriorMassRectangles318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualPointedCyclicPairing318.lean": {
+      "sha256": "f60fc5973e832f8c30608b83b5ddeaaa98cd2f57eddfc41c469237b5a9000df9",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualRayPointedAnchor318.lean": {
+      "sha256": "310ecd001c3b233d0a5efd15ffb0940ae8b3af055fdb3cbf3c77e919b964c6f5",
+      "imports": [
+        "ActualPointedCyclicPairing318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualPointedPhysicalRow318.lean": {
+      "sha256": "0532e294c05357576b9765c272f16d7ac652cc81bc7b423fa562a5ad36015e30",
+      "imports": [
+        "ActualRayConditionalLower318",
+        "ActualRayPointedAnchor318"
+      ]
+    },
+    "ActualRayAggregateLedger318.lean": {
+      "sha256": "67769373d4322959610bb9219b19d887aa043092029ac2d68fb881a47862d4df",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualRayOccupiedLower318.lean": {
+      "sha256": "04f2b68b481e772222e7daf37280e13aaac4bccc87923d863198aee8ea83d0dc",
+      "imports": [
+        "ActualRayConditionalLower318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualOccupiedAnchorAggregate318.lean": {
+      "sha256": "ad6de9d94b10970f687b3ef66567ca70a06aec0d04598c7d5808f7173fb1fbad",
+      "imports": [
+        "ActualPointedPhysicalRow318",
+        "ActualRayAggregateLedger318",
+        "ActualRayOccupiedLower318",
+        "ActualRayPointedAnchor318",
+        "OriginalInteriorTelescoping318"
+      ]
+    }
+  }
+}
