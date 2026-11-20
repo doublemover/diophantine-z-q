@@ -1,0 +1,24 @@
+# Independent check: shorter odd auxiliaries and fixed-d compatibility
+
+Independent mathematical/source review, 2026-11-20. Exact items reviewed:
+
+| Item | SHA-256 |
+|---|---|
+| SHORTER-ODD-AUXILIARIES-AND-LOCAL-COUNTERCONTROL.md | b77a6965b0da8f55361ada97666da853d8d8822d5c311c8ae26c0aaa750191a1 |
+| SHORT-AUXILIARIES-CALIBRATION.json | 7862e774c0adfbecd60c57fb305ff2a024eee68f021eb25c84300372ff6bb388 |
+| SHORT-MATCHED-LOCAL-COUNTERCONTROL.json | 32cfbd34e2b0e10fdd9e07fb4cf0601256516f47f8d3fdce94be4f7b9534a68b |
+| FIXED-D-FORCED-LOCAL-VALUATION-AND-POINTWISE-EXAMPLE.md | e3ef870aca06ff2c2b269746bac975f8d726379a3bb86a6f8b09116046918d51 |
+| FIXED-D323-POSITIVE-M1079-SEED.json | 602d288b65501daab60af44c6e385f00743e54cf37bff46ac85fd6c1bc89dcfc |
+| INFINITE-MOD13-UNITS-BUT-NOT-SELECTED-SUPPORT.md (r2) | 6003a52817a2a69f77f96eb0e3b8474bedb8e49660c5f09167d7160f2cf64f1d |
+
+**Arithmetic replay.** With the old exact Python lattice enumerator, without the new C++ replacement, checked the five class contributions in both seeds, both reference rows, the positive and negative rows at each of 1931 and 2579, and the new index 348517. Also independently checked the positive seed 37 for auxiliary −35. Read the same exact marked-order book; this is an independent enumeration path, not a second construction of the geometric orbit. The early positive 37 and phase-normalized negative −35 coefficients reduce to 12 and 10 respectively in the seed chain. With the new auxiliaries 37 and −35 the two reference coefficients reduce to 12 and 9. Their product squared reduces to 3, and the original reference toric period squared reduces to 4; hence the calibration constant is 10. The quartic character at 53 is retained: on each row its two possible arguments are opposite, and extracting their common unit phase does not change the product with complex conjugation.
+
+The relevant local signs (at 2, 3, 53) for +37 and −35 are (−,+,+) and (−,+,−), so they qualify as the opposite-sign auxiliary seeds in Section 9 of [Sirolli–Tornaría](https://arxiv.org/html/2107.04483). Their final Theorem B and Proposition 8.1, not merely the initially restricted calculation, permit the common factors 5,7 in the new positive reference. The same q29 norm character and determinant-one marked frames are used. The two matched d-controls really are prime and have the same listed quadratic tests, yet give squared residues 0 and 1.
+
+**Infinitude.** The unit-only extra sieve restriction in r2 is necessary for its direct descent from all nonzero indices to squarefree nonzero indices. The fixed-d extension handles the genuinely different forced-divisor case: at each q dividing d, the coefficient operator V_q after a signed unit-character projection after U_q picks exactly D=qj with q not dividing j. Thus that forced prime cannot be in the squarepart, even though it enters the level. [James–Ono, Proposition 3](https://uva.theopenscholar.com/files/ken-ono/files/043.pdf) supplies both operator level/character changes; their characters cancel on composing the two operators at the raised level. The ordinary good-prime T(p²) recurrence remains at every prime that can appear in a retained squarepart, including 13. The contradiction from [Bruinier–Ono, Theorem 1(2) and Remark (1)](https://www.mathematik.tu-darmstadt.de/media/algebra/homepages/bruinier/publikationen/halfint.pdf) uses finite squareclass support, requires 13 not to enter the level, and applies to these integral algebraic coefficients. The residual image argument uses the actual split Tate valuation 2 at 3 and the already verified Frobenius discriminants 10 and 11 at 5 and 7; in the multiquadratic splitting subgroup, a trace-zero determinant-3 element provides the contradicting Hecke prime.
+
+In the explicit fixed-d instance d=323 and m=1079, index 348517 gives positive residue 4; quotient symbols at 17,19 are (+,−) and both primes split in Q(sqrt(−1079)). The m-divisibility by 13 introduces no level prime because it is not forced by the sieve; d is prime to 13. Removing d from a surviving squarefree D yields the same fixed d and an actual compatible squarefree m. This is not simultaneous nonvanishing for a second d over the same m.
+
+**Pointwise scope.** The bounded 2579 control with m=455 yields actual raw toric square 1. Applying the previously checked actual Fricke descent to the unweighted D=1 Gauss-mapped orbit gives a rational point. Good reduction at 37 has orders 32 or 44 in degree 1, and 1408 in degree 2, all prime to 13, so its nonzero finite 13-projection rules out torsion. This is an existence statement for that specific E_2579, not explicit rational coordinates. Neither paper establishes a unit for a production selected index or a full prime tuple, any missing scalar witness, general rank, or Lean compilation.
+
+Reviewed by the independent verification lane.
