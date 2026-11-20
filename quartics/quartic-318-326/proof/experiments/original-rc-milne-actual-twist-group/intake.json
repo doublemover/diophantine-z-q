@@ -1,0 +1,60 @@
+{
+  "packet": "original-rc-milne-actual-twist-group",
+  "status": "SOURCE_ONLY_REVIEW",
+  "order": [
+    "ActualTwoDescentEllipticModel318",
+    "OriginalRCMilneSplitQuadratic318",
+    "OriginalRCMilneProjectiveTwist318",
+    "OriginalRCMilneSplitLocal318",
+    "OriginalRCMilneTwistPointGroup318"
+  ],
+  "files": {
+    "ActualTwoDescentEllipticModel318.lean": {
+      "sha256": "3784002b86832afa9da8edeceee46ffbfe07b1c9e1a3c564798199ab8323813a",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalRCMilneSplitQuadratic318.lean": {
+      "sha256": "e90f43a8fb662d88e7a99a45f3db5a63ae75612c83c0a932f0d308c455c5467d",
+      "imports": [
+        "Mathlib.Algebra.Algebra.Prod",
+        "Mathlib.Algebra.QuadraticAlgebra.BaseChange",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalRCMilneProjectiveTwist318.lean": {
+      "sha256": "33216783c5bf76df2d5a23beea497da3c181e98de6b7826f16c2ec34caed5ea7",
+      "imports": [
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring",
+        "OriginalRCMilneSplitQuadratic318"
+      ]
+    },
+    "OriginalRCMilneSplitLocal318.lean": {
+      "sha256": "4da15958fe2060808a69e8791af1984c9606d945147be089ed9fa54635c8973b",
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.SetTheory.Cardinal.Finite",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "OriginalRCMilneTwistPointGroup318.lean": {
+      "sha256": "a82c715966f44df5d006dd5f1a05e80d67c1b47a3060093f51589bf9802dc410",
+      "imports": [
+        "ActualTwoDescentEllipticModel318",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring",
+        "OriginalRCMilneProjectiveTwist318",
+        "OriginalRCMilneSplitLocal318"
+      ]
+    }
+  }
+}
