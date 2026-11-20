@@ -1,0 +1,159 @@
+{
+  "packet": "ct-original-real-invariant-r2",
+  "status": "SOURCE_ONLY_REVIEW",
+  "scope": "ACTUAL_REAL_LOCAL_FIELD_UNIT_CANONICAL_INVARIANT",
+  "order": [
+    "CTActualKrullCoordinateOrbit318",
+    "CTFieldPrimitiveBoundary318",
+    "CTOriginalClosureFieldEmbedding318",
+    "CTFieldPrimitiveRestriction318",
+    "CTContinuousFieldHTwo318",
+    "CTLocalInvariantDescent318",
+    "CTActualGlobalReciprocity318",
+    "CTActualCorrectedGlobalValue318",
+    "CTComplexUnitNorm318",
+    "CTCyclicTwoBar318",
+    "CTRealClosureConjugation318",
+    "CTRealNativeBar318",
+    "CTRealNativeNormClass318",
+    "CTRealNativeInvariant318",
+    "CTActualRealInvariantSupplier318"
+  ],
+  "files": {
+    "CTActualKrullCoordinateOrbit318.lean": {
+      "imports": [
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+        "Mathlib.FieldTheory.Galois.Profinite",
+        "Mathlib.Topology.LocallyConstant.Basic"
+      ],
+      "sha256": "1d8a8ee4df648a0b340e4c7c4a06db6e4f4e92989fe279789a6b6aa8d5c06384"
+    },
+    "CTFieldPrimitiveBoundary318.lean": {
+      "imports": [
+        "Mathlib.FieldTheory.Galois.Profinite",
+        "Mathlib.GroupTheory.QuotientGroup.Defs",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic",
+        "Mathlib.RingTheory.RootsOfUnity.Basic",
+        "Mathlib.Topology.LocallyConstant.Basic"
+      ],
+      "sha256": "34d5dbfcc518392d6d61f2c478bad243740679084c18a9ddc73cad5e00f5fb79"
+    },
+    "CTOriginalClosureFieldEmbedding318.lean": {
+      "imports": [
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup"
+      ],
+      "sha256": "1fb1be6e454d7cebb9b4e04bcbeaafbf873cc671773a5421aec913173ac47418"
+    },
+    "CTFieldPrimitiveRestriction318.lean": {
+      "imports": [
+        "CTFieldPrimitiveBoundary318",
+        "CTOriginalClosureFieldEmbedding318",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality"
+      ],
+      "sha256": "ba7ecbc0c22a4fc331b675e7f8fe646de1318796092cea27c04909296ac80d3e"
+    },
+    "CTContinuousFieldHTwo318.lean": {
+      "imports": [
+        "CTActualKrullCoordinateOrbit318",
+        "CTFieldPrimitiveRestriction318",
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "sha256": "4619fc5c2acc5130176e97e60de6e0bae01cf895c5659f6c0dc6559ec3ba8043"
+    },
+    "CTLocalInvariantDescent318.lean": {
+      "imports": [
+        "CTContinuousFieldHTwo318",
+        "CTFieldPrimitiveRestriction318",
+        "Mathlib.Topology.Instances.AddCircle.Defs"
+      ],
+      "sha256": "178092e9355a665f04bb14968ffcea32814fcf8793586fcfd94fb8ff6e2b438d"
+    },
+    "CTActualGlobalReciprocity318.lean": {
+      "imports": [
+        "CTContinuousFieldHTwo318",
+        "CTFieldPrimitiveBoundary318",
+        "CTFieldPrimitiveRestriction318",
+        "CTLocalInvariantDescent318",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.NumberTheory.Padics.PadicNumbers",
+        "Mathlib.Tactic.Abel"
+      ],
+      "sha256": "2329cb19cbd43024a678aee81b684d4db5d808b4a4b6a6c16235c95a0b43f91a"
+    },
+    "CTActualCorrectedGlobalValue318.lean": {
+      "imports": [
+        "CTActualGlobalReciprocity318",
+        "CTContinuousFieldHTwo318",
+        "CTFieldPrimitiveBoundary318"
+      ],
+      "sha256": "99f7cb7b5cdeb2a8a32dc70ba189111b621eae7f8eb1fcfbb218fd360d729e9b"
+    },
+    "CTComplexUnitNorm318.lean": {
+      "imports": [
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Basic.Complex.Basic"
+      ],
+      "sha256": "4cfdfbcf92f3b0116b899ad6509bea32b2df37a8c13de1adf90901b47565d751"
+    },
+    "CTCyclicTwoBar318.lean": {
+      "imports": [
+        "Mathlib.Algebra.Group.Hom.Instances",
+        "Mathlib.Tactic.Abel"
+      ],
+      "sha256": "cea919539a526a9523f933d3ae428c5d63b5e01fce32ecd17f47f05fc9a0065f"
+    },
+    "CTRealClosureConjugation318.lean": {
+      "imports": [
+        "Mathlib.Analysis.Complex.Polynomial.Basic",
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+        "Mathlib.FieldTheory.Galois.Profinite",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "sha256": "054bb188f55264ccb3d86771fe53c5e16dea977bcb5df0bba05b48fdd1912e72"
+    },
+    "CTRealNativeBar318.lean": {
+      "imports": [
+        "CTContinuousFieldHTwo318",
+        "CTCyclicTwoBar318",
+        "CTRealClosureConjugation318",
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "sha256": "f0d41b0da8bf15f6b0dc2b6f5b24259b4a08b530474a635845c4215285c8fc99"
+    },
+    "CTRealNativeNormClass318.lean": {
+      "imports": [
+        "CTComplexUnitNorm318",
+        "CTRealNativeBar318",
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "sha256": "019af56e0a30431f27c820a9820ecb607eee936659b073c6069f4180b641fce2"
+    },
+    "CTRealNativeInvariant318.lean": {
+      "imports": [
+        "CTContinuousFieldHTwo318",
+        "CTLocalInvariantDescent318",
+        "CTRealNativeNormClass318",
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "sha256": "cb93f601a8ed4eccff6964220a5ed936b568a9519af909e18853f32468e8ac5d"
+    },
+    "CTActualRealInvariantSupplier318.lean": {
+      "imports": [
+        "CTActualCorrectedGlobalValue318",
+        "CTRealNativeInvariant318"
+      ],
+      "sha256": "9ee1f6f6a2008458bcf8c584001e0fa21a8bf91aff256cad98bbd2bbe2a876b6"
+    }
+  }
+}
