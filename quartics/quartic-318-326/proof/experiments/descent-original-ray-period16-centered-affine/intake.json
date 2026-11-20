@@ -1,0 +1,138 @@
+{
+  "packet": "descent-original-ray-period16-centered-affine",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "ORIGINAL_RAY_DYADIC_WHEEL_WRAPS_AND_CONDITIONAL_CENTERED_AFFINE_ONLY",
+  "order": [
+    "ActualDyadicRayReference318",
+    "ActualRayCubePeriod16318",
+    "ActualCenteredCellCancellation318",
+    "ActualRayPeriodicRectangle318",
+    "ActualRayConductorRows318",
+    "OriginalInteriorTelescoping318",
+    "ActualSquarefreeWheelConductor16318",
+    "ActualRayInteriorBox318",
+    "ActualRayLiteralInteriorWeight318",
+    "ActualRayInteriorMassRectangles318",
+    "ActualRayConditionalLower318",
+    "ActualRayOccupiedLower318",
+    "ActualRayPeriod16Interface318",
+    "ActualWrappedAffineCube318",
+    "ActualAffineCubeDiagonal318"
+  ],
+  "files": {
+    "ActualDyadicRayReference318.lean": {
+      "sha256": "379b7b8b1ebb6e8f9cddabde83ef18995cfd375d982aff16fd3ca5f9b22e55d4",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualRayCubePeriod16318.lean": {
+      "sha256": "519fa4c2ae4727c10e0a350a779555f69c50df921cefa07f447c3e813a08f5c4",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualCenteredCellCancellation318.lean": {
+      "sha256": "038a05eb2bb001d254f4aa210a0bc0861be07c452be2cec3dee52621b653a01c",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualRayPeriodicRectangle318.lean": {
+      "sha256": "0cc57909c7d79dc132af8cd49dc01f1453fe9fb9a3db4e6e00be753ed5ee5f75",
+      "imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "ActualRayConductorRows318.lean": {
+      "sha256": "88647c3d955a0e4f48638252296884ac36c8c785fa52e58c68a1e7f90c2a863a",
+      "imports": [
+        "ActualRayPeriodicRectangle318",
+        "Mathlib.Algebra.BigOperators.Fin",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+        "Mathlib.Data.Fintype.Card",
+        "Mathlib.Data.Nat.GCD.Basic"
+      ]
+    },
+    "OriginalInteriorTelescoping318.lean": {
+      "sha256": "32def3a55982206257d1828c80c99ab85f512db796c4d20e1d5903177fc6e6d0",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualSquarefreeWheelConductor16318.lean": {
+      "sha256": "011483de9f37d927618dce6b55a1f51595b22ae96999953d4c702b5fab65e3f4",
+      "imports": [
+        "ActualRayConductorRows318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayInteriorBox318.lean": {
+      "sha256": "9bcdb8fdbe0b66da89ed74ff2a50799ac3dda50732187a3f204be30501d97ab4",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    "ActualRayLiteralInteriorWeight318.lean": {
+      "sha256": "7399d11e1207b7cdc3d1cf8bd8609c72539ed97431ecc157e349cdd79e9fe52e",
+      "imports": [
+        "ActualRayConductorRows318",
+        "ActualRayInteriorBox318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayInteriorMassRectangles318.lean": {
+      "sha256": "b8720c0996828642cac8562c774bc3d6d8d328d72a50b9e718d30271bbe38634",
+      "imports": [
+        "ActualRayLiteralInteriorWeight318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayConditionalLower318.lean": {
+      "sha256": "9ad77c57714b4fe98706098f35a3c5a89dc3ee30d935ba3fdd6b5ca28ea171e3",
+      "imports": [
+        "ActualRayInteriorMassRectangles318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayOccupiedLower318.lean": {
+      "sha256": "04f2b68b481e772222e7daf37280e13aaac4bccc87923d863198aee8ea83d0dc",
+      "imports": [
+        "ActualRayConditionalLower318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualRayPeriod16Interface318.lean": {
+      "sha256": "f1c862fedddaa0a7b043d0db434a201ca5ad892bfb35e651fc674d5513d548b7",
+      "imports": [
+        "ActualRayCubePeriod16318",
+        "ActualRayOccupiedLower318",
+        "ActualSquarefreeWheelConductor16318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualWrappedAffineCube318.lean": {
+      "sha256": "203dcced402df095d0dc4b38154fbd03ec473561c9a5dd51e83a757852e49b8c",
+      "imports": [
+        "ActualRayPeriod16Interface318",
+        "OriginalInteriorTelescoping318"
+      ]
+    },
+    "ActualAffineCubeDiagonal318.lean": {
+      "sha256": "606a2fd3eec19ddb4df0f679385eaf375a1be9c830b29d51fa9166c54f6b7e09",
+      "imports": [
+        "ActualCenteredCellCancellation318",
+        "ActualRayPeriod16Interface318",
+        "ActualWrappedAffineCube318",
+        "OriginalInteriorTelescoping318"
+      ]
+    }
+  }
+}
