@@ -1,0 +1,51 @@
+# Varying the auxiliary CM field without changing the actual 53 / 13 test vector
+
+Paper extension for independent review. It reuses the fixed arithmetic sources, not the underlying assertion of nonvanishing. No new Lean result, no rechoice of a prescribed auxiliary field, and no production scalar/linked pole is constructed here.
+
+## Precise hypotheses and conclusion
+
+Let p=53, N=48p, E₀=E₋₁, and keep the actual based low map φ₀:X₀(48)→E₀, the same 416 marked supersingular points X over 𝔽ₚ², and the actual reduction λ of φ₀ after projection onto E₀[13] in E₀(𝔽ₚ²). Let F be the fixed real algebraic Hecke lift with that same reduction, and let g denote its weight-two, trivial-character JL newform of level N. Retain the same algebraic normalization, all complex conjugates evaluated at the same chosen prime above 13, and the same two ST weight systems as in the reviewed fixed reference (m₀,d₀)=(455,323).
+
+Take positive squarefree m,d with
+- m≡23 (mod 24), d≡11 (mod 24), (m/53)=(d/53)=−1;
+- gcd(md,2·3·53)=gcd(m,d)=1;
+- every prime of d splits in K=ℚ(√−m).
+
+For the literal level-48d² oriented Heegner orbit over the Hilbert class field of K, take the same based Gauss-translate modular map to E_d, with one actual choice of Weil/Gauss phase. Define s(m,d)∈𝔽₁₃ to be the coefficient of the unmultiplied trace after reduction and the same [224] projection, using the Gauss twist of the original generator. The sign of the generator or Gauss phase is immaterial below. Then
+```
+s(m,d)^2 =
+  10 · A₊(md) conj(A₊(md)) · A₋(d) conj(A₋(d))   in 𝔽₁₃,
+```
+where the A's are weighted theta values on the very same fixed definite 416-label lattice using F, and the right hand side is reduced in the retained coefficient place. Equivalently one may insert the previously reviewed real signed reduction for A₊ since its weights are real. The two positive-index conventions are those of the reference: A₋(d) corresponds to fundamental discriminant −d, A₊(md) to +md. This is a test of the same finite elliptic trace, not of the order of its residue group, and a zero test implies no global vanishing. For a fixed actual correction L the test of the corrected trace multiplies this equality by (L mod 13)^2; unchanged finite detectability requires 13∤L.
+
+## Actual specialization and same marked double cosets
+
+The order at conductor d is 𝒪_d. The Gauss translation of a source oriented form (A,B,C), 48d²|A, has primitive low form
+```
+(A',B',C') = (dA, dB−2Aa, dC−Ba+(A/d)a²),   a∈(ℤ/d)×.
+```
+The new discriminant is −md², the 48-level root is dB mod96, and C'≡−Ba at q|d. The prime-to-d represented norm C' therefore reads the genus character χ=χ₋d∘Nm, so the old Gauss sign differs by the one constant χ₋d(−B). B mod d is fixed over the entire chosen source orbit. Both end orders at low level have the same conductor d: at q|d the low map is prime-to-q level and sees the same lattice, and the torus-stable marked level at 2,3 does not change its maximal local CM order there.
+
+For each original maximal-order ideal class, the mixed q-lines are exactly the non-axis lines on the split two-dimensional q-torsion. The quotient of the two split torus unit groups by the diagonal, modulo q, acts simply transitively on those q−1 lines. The all-mixed orbit is exactly the full Pic(𝒪_d) fiber over that original class: the same split unit quotients compute the kernel of Pic(𝒪_d)→Pic(𝒪_K), as the units are ±1 in both. This is a bijection of class labels in characteristic zero, not a claim that their reductions are distinct.
+
+Use Cornut–Jetchev, *Liftings of Reduction Maps for Quaternion Algebras* ([§§4.6–4.10; Cor. 4.1](https://webusers.imj-prg.fr/~christophe.cornut/papers/liftings.pdf#page=13)). The same chosen place over p on the characteristic-zero CM orbit yields its actual geometric reduction on X₀(48); the map on pairs of Tate lattices is the induced map away from p (thus preserving the actual cyclic 48 subgroup), and at p the inert prime is handled by their division factor. Their adelic map is equivariant for the class action; using arithmetic versus geometric reciprocity inverts all labels together and does not change quadratic χ. There is no need to assert that geometric reductions remember the unreduced class uniquely. Also p is prime to d, and the inert prime p𝒪_K acts trivially on Pic(𝒪_d), since the corresponding 𝒪_d-ideal is p𝒪_d. Thus the actual CM orbit reduces over 𝔽ₚ², not a new finite extension in which λ might mean a different 13-primary group. The same arithmetic holds for the source order with level 48d² prime to p. The low reductions and the standard Gauss formula therefore give, up to one global sign, the reduction of the unaveraged definite period below. No summand is dropped when several classes have the same reduced marked point.
+
+Let X=B×backslash B̂×/R̂× be the reference marked Eichler-level-48/Discr-p model and choose one actual reduced low CM point [b] with its own embedding ι:K→End⁰(E_b). In the common model this gives an embedding K→B with 𝒪_d=K∩B∩bR̂b⁻¹ (local optimality, Cornut–Jetchev above); take R_b = B∩bR̂b⁻¹. The same Pic(𝒪_d) orbit in X is t↦[ι(t)b]. This follows from their Tate-lattice reduction map and projection to marked points, not from an arbitrary change of definite identifications. Translation
+```
+B×backslash B̂×/(bR̂b⁻¹)×  →  X,    [x] ↦ [xb]
+```
+is an exact bijection, and identifies F_b(x)=F(xb) with F. The left orders and stabilizer weights at corresponding labels are equal. Thus the same Petersson/height norm is retained, rather than a norm varying with m or a new unit scalar in the residue read.
+
+## CST application, including all places
+
+Use Cai–Shu–Tian, *Explicit Gross–Zagier and Waldspurger Formulae* ([Def. 1.3–1.4, Thm. 1.10, Prop. 3.7](https://arxiv.org/pdf/1408.1733)). Here the character χ is trivial on ℚ-idele scalars (their norm is a square), conductor c=d because the split local characters on both unit components have exact conductor q for q|d, and Σ₁={53}, c₁=d, N₂=53. The exact R_b is admissible: discriminant N; optimal intersection 𝒪_d; and the two additional requirements at gcd(c₁,N) are vacuous. At 2 and 3 it is the actual marked Eichler order with the split maximal torus order, not a new local vector. At 53 it is the unique maximal order of the division algebra, with K unramified quadratic and χ₅₃ trivial because norms have even valuation. On the division factor the representation is the unramified sign of the reduced norm (JL Steinberg twist), whose restriction to K₅₃× is likewise trivial. At all other finite places F_b is R_b×-fixed; this includes q|d, where changing the embedding to its actual optimal conductor-q position, rather than changing the abstract spherical vector, is essential. These are precisely the tests for V(π,χ), one-dimensional by Prop. 3.7. Weight two gives the required trivial definite archimedean component.
+
+For clarity, the local root identity can be checked for this χ before using admissibility. Induction is the sum of quadratic characters for the fundamental discriminants −d and md. At a split K-place they agree locally, so the self-dual local signs multiply to +1. At a finite place dividing m the g-local representation is unramified, the −d twist unramified and the md twist ramified quadratic. Its epsilon product is χ_md(−1)=η_K(−1) by the unramified principal-series Gauss product (trivial central character). At an inert good place off dmN the local signs are +1. At 53 the two unramified twists of Steinberg have opposite signs since their characters differ at 53 by −1; η₅₃(−1)=1. At infinity the sign twist of the weight-two real discrete-series parameter is isomorphic to itself; product +1 and η_∞(−1)=−1. Thus the only nonsplit quaternion places are 53 and ∞ for the same representation. This uses no numerical nonvanishing of a new central value.
+
+Put P(m,d) = Σ_t χ(t)F([ι(t)b]), unaveraged. CST 1.10 applies, since N and c=d are coprime, D_K is prime to N, and the Jacquet–Langlands form is of parallel weight two. No common-discriminant Euler factors are removed. The CM unit index and kernel from the Q class group in its u factor are both 1. Formula 1.10 pairs F_b with itself, so the factor in |P|² is √(m d²)=√m d, times the product of the two classical central L-values and fixed nonzero factors. When divided by the fixed reference the sole varying external factor is (√m d)/(√455·323). The archimedean completion is the same for these twists of the same weight-two representation.
+
+For ST 9.1–9.2 the actual discriminant types, in the order (∞;2,3,53), are (−;−,+,−) for −d and (+;−,+,+) for md. They are precisely the reference types of the same newform g, so the same two fixed weighted lattice sources apply. Ramified overlap with a fixed auxiliary weight is allowed by ST Theorem B and its Proposition 8.1 as in the fixed reference. The product of the reciprocal square roots in the two ST formulas cancels (√m d)/(√455·323) exactly. This is an equality of real absolute squares of algebraic periods and weighted values, hence an algebraic equality over one field containing the values and their conjugates. Existing reference data have |P_ref|²→4 and the weighted product→3 in 𝔽₁₃; the latter is a unit. Reducing the algebraic equality now yields the stated constant 10. No choice at a newly moved place above 13 and no assumption that complex conjugation fixes the chosen place is used.
+
+## Literal scalar scope
+
+These hypotheses may be tested separately on a candidate d and a candidate dθ. The genus condition is splitting of every actual support prime in its chosen field, not merely that the entire signed squareclass is a square at m. The known four θ factors' split screens, and the actual same-index fact that θ is a square unit at 53, do not assert full support, the actual retained conductor/auxiliary choice, or any nonzero weighted coefficient for the large selected d. It is possible to reuse the same formulas in a different compatible field or on two independently compatible fields when the underlying arithmetic argument permits those choices. It is not possible to transfer the nonzero reference coefficient to a different fundamental index merely by changing the field. This note neither expands the huge scalar nor recomputes the 9,792-branch alternate control.
