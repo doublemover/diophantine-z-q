@@ -1,0 +1,170 @@
+{
+  "status": "exact r4 hosted compiler diagnostics; no r5 verdict",
+  "artifact": {
+    "id": 14642397313,
+    "run_id": 44762353521,
+    "sha256": "30c0f53fe22af042b8010479777f4d52d7996f51bdbf51113d475b152e7d2da7"
+  },
+  "predecessor_packet": "ct-original-local-restriction-reduced-r4",
+  "predecessor_packet_sha256": "ab7618ba0a0909a4e3258a2375e6456b96926773c5bcba140dea97c666fe6357",
+  "predecessor_head": "42cc0ec95a49859d757e6de0da1abdd3a2c54134",
+  "predecessor_source": "83a223951785373e6dbd63c6f8ef8570e7357a16",
+  "predecessor_source_tree": "6fba9afdcd06bad8318bf9a532d49af6cf0a2c41",
+  "predecessor_selection": {
+    "intake_sha256": "ab7618ba0a0909a4e3258a2375e6456b96926773c5bcba140dea97c666fe6357",
+    "packet": "ct-original-local-restriction-reduced-r4",
+    "selected_order": [
+      "ActualTwoDescentFieldMapNonzero318",
+      "ActualTwoDescentClosureParameterNonzero318",
+      "CTOriginalEllipticModel318",
+      "CTOriginalEllipticFieldCoordinates318",
+      "CTOriginalGeometricGaloisAction318",
+      "ActualTwoDescentActualGeometricCoboundary318",
+      "ActualTwoDescentActualGaloisOrbitLocallyConstant318",
+      "CTOriginalFullEllipticRepresentation318",
+      "CTOriginalContinuousEllipticCocycles318",
+      "CTOriginalFiniteWeierstrassCarrier318",
+      "CTOriginalActualEllipticFieldMap318",
+      "CTOriginalClosureFieldEmbedding318",
+      "CTOriginalPointCoordinates318",
+      "CTOriginalGeometricPointTransport318",
+      "CTOriginalGeometricRestrictionAction318",
+      "CTOriginalFullCocycleRestriction318"
+    ],
+    "selection_sha256": "6af8e4c23d5402eb745fbf430e5d86942cc28e5cfe1acdfcd15b569412c846bd",
+    "targets": [
+      "CTOriginalFullCocycleRestriction318"
+    ]
+  },
+  "counts": {
+    "blocked_by_import": 2,
+    "compile_pass": 10,
+    "compiler_error": 4,
+    "not_selected": 14
+  },
+  "audited_declaration_count": 98,
+  "audit_log_sha256": "e2f4b7cebd6f43083688500cfca2a688c59a1800bdf9e267610ba6f83e644655",
+  "diagnostics": {
+    "ActualTwoDescentActualGaloisOrbitLocallyConstant318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r4-s6af8e4c23d5402eb/quarantine/ActualTwoDescentActualGaloisOrbitLocallyConstant318/ActualTwoDescentActualGaloisOrbitLocallyConstant318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "CTOriginalEllipticModel318",
+        "CTOriginalGeometricGaloisAction318",
+        "Mathlib.Topology.LocallyConstant.Basic"
+      ],
+      "log_sha256": "7dda7347e32c0648380822a69a2b48b199e8a913c645aac900816a66f5418a72",
+      "occurrence": "ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318",
+      "root_causes": [
+        "ActualTwoDescentActualGaloisOrbitLocallyConstant318"
+      ],
+      "seconds": 1.469,
+      "source_sha256": "ea11a7223640a34ac3f529232e7f487e0bbbaa40d08cb125a315243d93689b48",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:21:11: error: Type mismatch\n  MulAction.stabilizer Gal(Qbar/F) x\nhas type\n  Subgroup Gal(Qbar/F)\nbut is expected to have type\n  Set GalQ\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:18:40: error: unsolved goals\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nx : Qbar\nσ : GalQ\n⊢ ∃ U,\n    IsOpen U ∧\n      σ ∈ U ∧\n        ∀ x' ∈ U,\n          (have this := x';\n              this)\n              x =\n            (have this := σ;\n              this)\n              x\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:39:15: error: unsolved goals\ncase some\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nn : F\nhn : n ≠ 0\nx y : Qbar\nh : (curve ((algebraMap F Qbar) n)).toAffine.Nonsingular x y\nσ : GalQ\nU : Set GalQ\nhU : IsOpen U\nhσU : σ ∈ U\nhx :\n  ∀ x' ∈ U,\n    (have this := x';\n        this)\n        x =\n      (have this := σ;\n        this)\n        x\nV : Set GalQ\nhV : IsOpen V\nhσV : σ ∈ V\nhy :\n  ∀ x' ∈ V,\n    (have this := x';\n        this)\n        y =\n      (have this := σ;\n        this)\n        y\nτ : GalQ\nhτ : τ ∈ U ∩ V\n⊢ { toFun := galoisPoint τ n hn, map_zero' := ⋯ } (WeierstrassCurve.Affine.Point.some x y h) =\n    { toFun := galoisPoint σ n hn, map_zero' := ⋯ } (WeierstrassCurve.Affine.Point.some x y h)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:46:50: warning: This simp argument is unused:\n  ZeroHom.coe_mk\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [galoisPointHom, AddMonoidHom.coe_mk, galoisPoint, point, hx τ hτ.1, hy τ hτ.2]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:46:65: warning: This simp argument is unused:\n  galoisPoint\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [galoisPointHom, AddMonoidHom.coe_mk, ZeroHom.coe_mk, point, hx τ hτ.1, hy τ hτ.2]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:46:77: warning: This simp argument is unused:\n  point\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [galoisPointHom, AddMonoidHom.coe_mk, ZeroHom.coe_mk, galoisPoint, hx τ hτ.1, hy τ hτ.2]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:46:83: warning: This simp argument is unused:\n  hx τ hτ.1\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [galoisPointHom, AddMonoidHom.coe_mk, ZeroHom.coe_mk, galoisPoint, point, hy τ hτ.2]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGaloisOrbitLocallyConstant318.lean:46:93: warning: This simp argument is unused:\n  hy τ hτ.2\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [galoisPointHom, AddMonoidHom.coe_mk, ZeroHom.coe_mk, galoisPoint, point, hx τ hτ.1]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+    },
+    "ActualTwoDescentActualGeometricCoboundary318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r4-s6af8e4c23d5402eb/quarantine/ActualTwoDescentActualGeometricCoboundary318/ActualTwoDescentActualGeometricCoboundary318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGeometricCoboundary318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "CTOriginalGeometricGaloisAction318",
+        "Mathlib.Tactic.Abel"
+      ],
+      "log_sha256": "a0803f157a6975493ad6466eaded5ced5d65976b131a3e6946a7ee9d9c3af280",
+      "occurrence": "ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGeometricCoboundary318",
+      "root_causes": [
+        "ActualTwoDescentActualGeometricCoboundary318"
+      ],
+      "seconds": 1.469,
+      "source_sha256": "a3396408c59a2c0b83caefa6f1fea2bb06f7c05bf145de986e52ede24134ef00",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "Try this:\n  [apply] abel_nf\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGeometricCoboundary318.lean:18:107: error: unsolved goals\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nn : F\nhn : n ≠ 0\nQ : Point ((algebraMap F Qbar) n)\nσ τ : GalQ\n⊢ (galoisPointHom (σ * τ) n hn) Q + -1 • Q = -1 • Q + (galoisPointHom σ n hn) ((galoisPointHom τ n hn) Q)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/ActualTwoDescentActualGeometricCoboundary318.lean:19:28: warning: This simp argument is unused:\n  actual_galois_mul\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [halfDifference, map_sub]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+    },
+    "CTOriginalFullEllipticRepresentation318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r4-s6af8e4c23d5402eb/quarantine/CTOriginalFullEllipticRepresentation318/CTOriginalFullEllipticRepresentation318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/CTOriginalFullEllipticRepresentation318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "CTOriginalGeometricGaloisAction318",
+        "Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree"
+      ],
+      "log_sha256": "8b79f89e9ff005e9e8f00939fc1d17efb75b9f9a6168abb6ca3c7a76ba381f52",
+      "occurrence": "ct-original-local-restriction-reduced-r4/CTOriginalFullEllipticRepresentation318",
+      "root_causes": [
+        "CTOriginalFullEllipticRepresentation318"
+      ],
+      "seconds": 1.621,
+      "source_sha256": "7a76a54d80cf4e5e3ff8df53c863593852dfa9a1928ca2b4a248288472fe500b",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/CTOriginalFullEllipticRepresentation318.lean:31:0: error: Not a definitional equality: the left-hand side\n  ((fullEllipticRep n hn).ρ σ) P\nis not definitionally equal to the right-hand side\n  (galoisPointHom σ n hn) P\n\nNote: This theorem is exported from the current module. This requires that all definitions that need to be unfolded to prove this theorem must be exposed.\n"
+    },
+    "CTOriginalGeometricRestrictionAction318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r4-s6af8e4c23d5402eb/quarantine/CTOriginalGeometricRestrictionAction318/CTOriginalGeometricRestrictionAction318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/CTOriginalGeometricRestrictionAction318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualTwoDescentFieldMapNonzero318",
+        "CTOriginalEllipticModel318",
+        "CTOriginalFiniteWeierstrassCarrier318",
+        "CTOriginalGeometricGaloisAction318",
+        "CTOriginalGeometricPointTransport318",
+        "CTOriginalPointCoordinates318"
+      ],
+      "log_sha256": "a5ce556449e08912a01c2a07a691c024c643746dbc62d24e98d19a3b9bd03210",
+      "occurrence": "ct-original-local-restriction-reduced-r4/CTOriginalGeometricRestrictionAction318",
+      "root_causes": [
+        "CTOriginalGeometricRestrictionAction318"
+      ],
+      "seconds": 1.519,
+      "source_sha256": "15c9ceb13ecdae3115efe210f3fcd1ebb14eb3eb501567326e0f0590830bc6db",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/CTOriginalGeometricRestrictionAction318.lean:38:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  NeZero 3\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r4/CTOriginalGeometricRestrictionAction318.lean:37:84: error: unsolved goals\nF : Type\ninst✝⁵ : Field F\ninst✝⁴ : CharZero F\ninst✝³ : DecidableEq F\nL : Type\ninst✝² : Field L\ninst✝¹ : CharZero L\ninst✝ : DecidableEq L\nf : F →+* L\nn : F\nhn : n ≠ 0\nσ : Field.absoluteGaloisGroup L\nP : Point ((algebraMap F Qbar) n)\n⊢ NeZero 3\n"
+    }
+  }
+}
