@@ -1,0 +1,95 @@
+{
+  "status": "exact full r10 hosted compiler diagnostics; no r11 verdict",
+  "artifact": {
+    "id": 14651461391,
+    "run_id": 44778112316,
+    "sha256": "6eedcea557f6ea0bf443242505d6f7adb01156ace9050833e4b0dfad8d06a638"
+  },
+  "predecessor_packet": "ct-original-local-restriction-reduced-r10",
+  "predecessor_packet_sha256": "f90ca5c6a6d7dc1e4f2df6494a66ad6ced5679bdedc929fa5d594aa40d12c258",
+  "predecessor_head": "2b4e086a27e459d277495cf36ee0b2f3c7807d86",
+  "predecessor_source": "dcb06486f71567e1c5d20b11e747b9ca6f7fcbee",
+  "predecessor_source_tree": "0f8f9144ec061bab25447fd7d82b1d083cae7150",
+  "predecessor_selection": {
+    "intake_sha256": "f90ca5c6a6d7dc1e4f2df6494a66ad6ced5679bdedc929fa5d594aa40d12c258",
+    "packet": "ct-original-local-restriction-reduced-r10",
+    "selected_order": [
+      "ActualTwoDescentFieldMapNonzero318",
+      "ActualTwoDescentClosureParameterNonzero318",
+      "CTOriginalEllipticModel318",
+      "CTOriginalEllipticFieldCoordinates318",
+      "CTOriginalGeometricGaloisAction318",
+      "ActualTwoDescentActualGeometricCoboundary318",
+      "ActualTwoDescentActualGaloisOrbitLocallyConstant318",
+      "CTOriginalFullEllipticRepresentation318",
+      "CTOriginalContinuousEllipticCocycles318",
+      "CTOriginalFiniteWeierstrassCarrier318",
+      "CTOriginalActualEllipticFieldMap318",
+      "CTOriginalClosureFieldEmbedding318",
+      "CTOriginalPointCoordinates318",
+      "CTOriginalGeometricPointTransport318",
+      "CTOriginalGeometricRestrictionAction318",
+      "CTOriginalFullCocycleRestriction318",
+      "CTOriginalFullEllipticHOneKernel318",
+      "CTOriginalFullLocalClassRestriction318",
+      "CTOriginalActualShaDefinition318",
+      "CTOriginalActualShaPrimary318",
+      "CTOriginalStablePrimaryCore318",
+      "CTOriginalReducedPrimaryQuotient318",
+      "CTOriginalActualShaReducedPrimary318",
+      "CTOriginalActualShaReducedDuality318",
+      "CTOriginalRationalFixedPoints318",
+      "CTOriginalFullBoundaryHom318",
+      "CTOriginalContinuousShaKernel318",
+      "CTPrimaryPowerRoots318",
+      "FiniteInvolutionPrimaryCore318",
+      "CTOriginalDyadicReducedDescent318"
+    ],
+    "selection_sha256": "8a7d2dae16e301dfddd5b2abcb07e78c47a90b13ceed8772992ccde63da1655e",
+    "targets": [
+      "CTOriginalDyadicReducedDescent318"
+    ]
+  },
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 28,
+    "compiler_error": 1
+  },
+  "audited_declaration_count": 287,
+  "audit_log_sha256": "b894bc178f3e952b991a5ae9e287a05d2dd0f2043ad7cd7838e7a9a2cd802594",
+  "diagnostics": {
+    "CTOriginalContinuousShaKernel318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r10",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r10-s8a7d2dae16e301df/quarantine/CTOriginalContinuousShaKernel318/CTOriginalContinuousShaKernel318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r10/CTOriginalContinuousShaKernel318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "CTOriginalActualShaDefinition318",
+        "CTOriginalContinuousEllipticCocycles318",
+        "CTOriginalFullBoundaryHom318",
+        "CTOriginalFullCocycleRestriction318",
+        "CTOriginalFullEllipticHOneKernel318",
+        "Mathlib.GroupTheory.QuotientGroup.Basic"
+      ],
+      "log_sha256": "2fe180bdbb145ade1af38d717b2032c308082c07b4e3f428a4dc6054e18ef627",
+      "occurrence": "ct-original-local-restriction-reduced-r10/CTOriginalContinuousShaKernel318",
+      "root_causes": [
+        "CTOriginalContinuousShaKernel318"
+      ],
+      "seconds": 7.334,
+      "source_sha256": "002319ec0ddbfeaecdb9ff253e9d95a416ff161f80999c47cdcdef93418b860b",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r10/CTOriginalContinuousShaKernel318.lean:30:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  AddZero (Point ((algebraMap F (AlgebraicClosure F)) n))\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r10/CTOriginalContinuousShaKernel318.lean:33:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  HAdd (Point ((algebraMap F (AlgebraicClosure F)) n)) (Point ((algebraMap F (AlgebraicClosure F)) n)) ?m.71\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r10/CTOriginalContinuousShaKernel318.lean:36:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  AddGroup (Point ((algebraMap F (AlgebraicClosure F)) n))\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n"
+    }
+  }
+}
