@@ -1,0 +1,72 @@
+{
+  "packet": "original-actual-period-additive",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "ORIGINAL_ACTUAL_PERIOD_ADDITIVE",
+  "order": [
+    "AnalyticSquaredDerivative318",
+    "SelectedPeriodReciprocalPole318",
+    "SelectedPeriodCubicSurjectivity318",
+    "SelectedPeriodCubicNonsingular318",
+    "SelectedGenuinePeriodMark318",
+    "SelectedPeriodPointGroup318",
+    "SelectedPeriodMarkedPointGroup318"
+  ],
+  "files": {
+    "AnalyticSquaredDerivative318.lean": {
+      "sha256": "f97e8d6d365036a2dfbd33187c7e712b21e1c10af8810ca12d358ceaffe3de96",
+      "imports": [
+        "Mathlib.Analysis.Analytic.Order",
+        "Mathlib.Analysis.Meromorphic.Order"
+      ]
+    },
+    "SelectedPeriodReciprocalPole318.lean": {
+      "sha256": "a81507b92e5880c4ebd7f2d0671ed3af2e1fb9811c52bf5954296d7117718207",
+      "imports": [
+        "Mathlib.Analysis.Complex.Liouville",
+        "Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass",
+        "Mathlib.Tactic"
+      ]
+    },
+    "SelectedPeriodCubicSurjectivity318.lean": {
+      "sha256": "17efd0490ace0629b0d77f2b0d138f55c04f8bf826afd7dc1dd333d112141a92",
+      "imports": [
+        "SelectedPeriodReciprocalPole318"
+      ]
+    },
+    "SelectedPeriodCubicNonsingular318.lean": {
+      "sha256": "0676c1a20a6d06b23f916996b170f091434b5cf4c0fc61ae5f042b19d3f55df8",
+      "imports": [
+        "AnalyticSquaredDerivative318",
+        "SelectedPeriodCubicSurjectivity318"
+      ]
+    },
+    "SelectedGenuinePeriodMark318.lean": {
+      "sha256": "85eabb0af2626b07b2afe534459b7e4a89a096a0f145d47999c90a9089b74390",
+      "imports": [
+        "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass",
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.LinearAlgebra.LinearIndependent.Lemmas",
+        "Mathlib.Tactic"
+      ]
+    },
+    "SelectedPeriodPointGroup318.lean": {
+      "sha256": "e2f45023f890e70e3f9aa85aa6fe1d17f013a93695e6196c5cb14465d3ff0654",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "NormalizedWeierstrass318",
+        "SelectedPeriodCubicNonsingular318",
+        "WeierstrassAvoidance318",
+        "WeierstrassChord318"
+      ]
+    },
+    "SelectedPeriodMarkedPointGroup318.lean": {
+      "sha256": "33c68da5d35b80ad7e2bc8cbae9f19760c7a00f18ef8c912be9bd8daae4bf5f9",
+      "imports": [
+        "SelectedGenuinePeriodMark318",
+        "SelectedPeriodPointGroup318"
+      ]
+    }
+  }
+}
