@@ -1,0 +1,66 @@
+{
+  "provenance": "Earlier hosted artifact, read-only; precisely two diagnostic repairs, no claim successor compiles",
+  "artifact_id": "14633443990",
+  "artifact_bytes_sha256": "f7b5ce9f0c5c14adf9535a85e91d094ec046ea15887041cfb508603684eae267",
+  "inventory_sha256": "7622530c4edd9839a0fdaec7eda97f9fbda5978504eb9f6f77050c8cbca9e2a4",
+  "prior_head_sha": "5d9c0cfa62c65ee25805ab088c25be9cd70987d1",
+  "prior_source_commit": "dfb1a3a1c88f0d23c08e9e9ccc1f851c240fdd49",
+  "prior_run_id": "44748203775",
+  "prior_request_sha256": "91413925be59e38b3ae838d1390d4a7905781c4a28031505196516c6d50e2295",
+  "prior_selection_sha256": "adee2c1ab3078c97a92799fca0c4f171b560337efe8be59700dd7ff601b85ebd",
+  "prior_verified_counts": {
+    "blocked_by_import": 9,
+    "compile_pass": 5,
+    "compiler_error": 2,
+    "not_selected": 14
+  },
+  "prior_partial_audit_declarations": 30,
+  "compiler_error_modules": {
+    "CTOriginalClosureFieldEmbedding318": {
+      "input_lines": [
+        25,
+        31
+      ],
+      "summary": "Use explicit AlgEquiv before applying field automorphisms; the absolute Galois group is a semireducible def and function coercion from that head failed.",
+      "upstream_git_blob": "df9d6df96b4d2d74ee22d9125c6f685f7101066d",
+      "prior_source_sha256": "d8be6efcdc02d405fcca96b755fa5187b8f0c1e71ed6cfea44bfed5b2146f257",
+      "prior_raw_log_sha256": "b80f564c8b21fa93dcf0643521ee69931ea636b665bd9cfa5c4a27289a89785e",
+      "successor_source_sha256": "1fb1be6e454d7cebb9b4e04bcbeaafbf873cc671773a5421aec913173ac47418",
+      "errors": [
+        {
+          "position": "25:18",
+          "message": "Function expected at\n  (Field.absoluteGaloisGroup.map f) σ\nbut this term has type\n  Field.absoluteGaloisGroup F\n\nNote: Expected a function because this term is being applied to the argument\n  x"
+        },
+        {
+          "position": "25:57",
+          "message": "Function expected at\n  σ\nbut this term has type\n  Field.absoluteGaloisGroup L\n\nNote: Expected a function because this term is being applied to the argument\n  (closureMap f x)"
+        },
+        {
+          "position": "31:6",
+          "message": "Function expected at\n  σ\nbut this term has type\n  Field.absoluteGaloisGroup L\n\nNote: Expected a function because this term is being applied to the argument\n  (algebraMap (AlgebraicClosure F) (AlgebraicClosure L) x)"
+        }
+      ]
+    },
+    "CTOriginalEllipticFieldCoordinates318": {
+      "input_lines": [
+        18,
+        40
+      ],
+      "summary": "Add literal map_ofNat for coefficients 2 and 3; use named x₁,y₁,x₂,ℓ to match the pinned map_addY binder order.",
+      "upstream_git_blob": "4a3d102483d6d151630c06ab77c1f534b3ed6414",
+      "prior_source_sha256": "32c3db977eab7b02182392e85ed290d27bdcd35c8d84bdf41627fc73fe0a5a82",
+      "prior_raw_log_sha256": "e8a9ac2dc70f2c311781bbf26e51702962818d06d3fac409b1825ca90afb6780",
+      "successor_source_sha256": "47da369051a2bccd523c6f73d8dacd812c07b274fb106c4bc45e3701e753596d",
+      "errors": [
+        {
+          "position": "18:98",
+          "message": "unsolved goals\ncase a₂\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\n⊢ f 2 = 2 ∨ n = 0\n\ncase a₄\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\n⊢ f 3 = 3 ∨ n = 0"
+        },
+        {
+          "position": "40:2",
+          "message": "Type mismatch\n  WeierstrassCurve.Affine.map_addY f x₁ x₂ y m\nhas type\n  (WeierstrassCurve.Affine.map ?m.36 f).addY (f x₁) (f y) (f x₂) (f m) =\n    f (WeierstrassCurve.Affine.addY ?m.36 x₁ y x₂ m)\nbut is expected to have type\n  ((curve n).toAffine.map f).addY (f x₁) (f x₂) (f y) (f m) = f ((curve n).toAffine.addY x₁ x₂ y m)"
+        }
+      ]
+    }
+  }
+}
