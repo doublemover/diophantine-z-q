@@ -1,0 +1,101 @@
+{
+  "packet": "original-actual-artin-orbit-r1",
+  "status": "SOURCE_ONLY_REVIEW",
+  "order": [
+    "ActualTwoDescentEllipticModel318",
+    "ActualTwoDescentEllipticFieldCoordinates318",
+    "ActualTwoDescentSquareClassFieldMap318",
+    "ActualTwoDescentActualEllipticFieldMap318",
+    "ActualTwoDescentAlgebraicClosureHalving318",
+    "ActualTwoDescentGaloisPointAction318",
+    "ActualTwoDescentGaloisFixedRational318",
+    "ActualSelectedIndexedFrickeTrace318",
+    "ActualCMLatticeDualOrientation318",
+    "ActualSelectedArtinOrbit318"
+  ],
+  "files": {
+    "ActualTwoDescentEllipticModel318.lean": {
+      "sha256": "3784002b86832afa9da8edeceee46ffbfe07b1c9e1a3c564798199ab8323813a",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "ActualTwoDescentEllipticFieldCoordinates318.lean": {
+      "sha256": "bfcf15b9a186a7968f47fbec76f439fad9be63b4425cba8ac6d3865e6c57664c",
+      "imports": [
+        "ActualTwoDescentEllipticModel318"
+      ]
+    },
+    "ActualTwoDescentSquareClassFieldMap318.lean": {
+      "sha256": "f666e010f1fd0d60bd51fbae2d6682223f2b49d3d7057af7cfd47b9d1f592918",
+      "imports": [
+        "ActualTwoDescentEllipticFieldCoordinates318"
+      ]
+    },
+    "ActualTwoDescentActualEllipticFieldMap318.lean": {
+      "sha256": "cf76b3f0bc9a9c23145bdd026dfe5c87a66c219f7b90ae5c6b9d73ef0a8cd716",
+      "imports": [
+        "ActualTwoDescentEllipticModel318",
+        "ActualTwoDescentSquareClassFieldMap318"
+      ]
+    },
+    "ActualTwoDescentAlgebraicClosureHalving318.lean": {
+      "sha256": "11471e4e6aa93379714dad63bd7daab7b160bf19c6aec133beaa450b30227597",
+      "imports": [
+        "ActualTwoDescentActualEllipticFieldMap318",
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+        "Mathlib.FieldTheory.Galois.Infinite"
+      ]
+    },
+    "ActualTwoDescentGaloisPointAction318.lean": {
+      "sha256": "d8c6c04157b5a1cdb5ec77d797d3035682ec5e1b1945e72625437c811141f4a9",
+      "imports": [
+        "ActualTwoDescentAlgebraicClosureHalving318",
+        "ActualTwoDescentEllipticModel318"
+      ]
+    },
+    "ActualTwoDescentGaloisFixedRational318.lean": {
+      "sha256": "ee33de328dc4255a540f00611b0c3270daefb25d89b4e6137fc360ece659c8ca",
+      "imports": [
+        "ActualTwoDescentActualEllipticFieldMap318",
+        "ActualTwoDescentEllipticModel318",
+        "ActualTwoDescentGaloisPointAction318"
+      ]
+    },
+    "ActualSelectedIndexedFrickeTrace318.lean": {
+      "sha256": "e844cbfb31952c8ba3281890f8b26fb4357be658d06cde4260718b277b96d1a5",
+      "imports": [
+        "ActualTwoDescentGaloisFixedRational318",
+        "Mathlib.Algebra.Group.Equiv.Basic",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.FieldTheory.IntermediateField.Adjoin.Basic",
+        "Mathlib.NumberTheory.NumberField.ClassNumber",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "ActualCMLatticeDualOrientation318.lean": {
+      "sha256": "f48de2392cd5f85a6e1d0c423d429262f5db3c1174b0d84572ccd9d363a3f04b",
+      "imports": [
+        "Mathlib.Data.Complex.Basic",
+        "Mathlib.GroupTheory.QuotientGroup.Defs",
+        "Mathlib.NumberTheory.NumberField.FractionalIdeal",
+        "Mathlib.RingTheory.ClassGroup.Basic"
+      ]
+    },
+    "ActualSelectedArtinOrbit318.lean": {
+      "sha256": "ce82195fb7ccd07e2fdecf92ddc1413a7030c7264c2581fd892391abc72c54d0",
+      "imports": [
+        "ActualCMLatticeDualOrientation318",
+        "ActualSelectedIndexedFrickeTrace318",
+        "ActualTwoDescentEllipticModel318",
+        "ActualTwoDescentGaloisPointAction318",
+        "Mathlib.FieldTheory.Galois.Basic",
+        "Mathlib.FieldTheory.Normal.Basic"
+      ]
+    }
+  }
+}
