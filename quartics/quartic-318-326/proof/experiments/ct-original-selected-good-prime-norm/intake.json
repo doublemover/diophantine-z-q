@@ -1,0 +1,153 @@
+{
+  "packet": "ct-original-selected-good-prime-norm",
+  "status": "SOURCE_ONLY_REVIEW",
+  "scope": "ACTUAL_SELECTED_PADIC_GOOD_PRIME_FIXED_INTEGRAL_UNIT_NORM",
+  "order": [
+    "CTOriginalClosureFieldEmbedding318",
+    "CTActualSelectedPadicLayer318",
+    "CTFiniteResidueNorm318",
+    "CTPadicUnitNormHensel318",
+    "CTUnramifiedResidueBasis318",
+    "CTPadicUnramifiedProjectedNorm318",
+    "CTPadicSelectedValuationRing318",
+    "CTActualSelectedPadicValuation318",
+    "CTActualSelectedGlobalPrime318",
+    "CTLocalOrderUnramified318",
+    "CTActualSelectedImageOrder318",
+    "CTActualSelectedOrderFraction318",
+    "CTHenselianFiniteIdempotent318",
+    "CTPadicAdicFiniteComplete318",
+    "CTActualSelectedImageOrderLocal318"
+  ],
+  "files": {
+    "CTOriginalClosureFieldEmbedding318.lean": {
+      "sha256": "1fb1be6e454d7cebb9b4e04bcbeaafbf873cc671773a5421aec913173ac47418",
+      "imports": [
+        "Mathlib.FieldTheory.AbsoluteGaloisGroup"
+      ]
+    },
+    "CTActualSelectedPadicLayer318.lean": {
+      "sha256": "e48c32cb83aebe1ec93bb5a0c642e0570eeaf60d11a34d0d44b1ecec5e11a37d",
+      "imports": [
+        "CTOriginalClosureFieldEmbedding318",
+        "Mathlib.FieldTheory.Galois.Profinite",
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.NumberTheory.Padics.PadicNumbers"
+      ]
+    },
+    "CTFiniteResidueNorm318.lean": {
+      "sha256": "192f5275e368f050d98cbc40d295d7520d20122e11791cc1e70295435284a5fc",
+      "imports": [
+        "Mathlib.FieldTheory.Finite.Trace",
+        "Mathlib.GroupTheory.SpecificGroups.Cyclic.Subgroup"
+      ]
+    },
+    "CTPadicUnitNormHensel318.lean": {
+      "sha256": "f0233bf158227d095ca340873f1b00c2660315e4e806d86452a48dbf3c2f2d7b",
+      "imports": [
+        "CTFiniteResidueNorm318",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+        "Mathlib.NumberTheory.Padics.Hensel",
+        "Mathlib.NumberTheory.Padics.RingHoms",
+        "Mathlib.RingTheory.LocalRing.ResidueField.Basic",
+        "Mathlib.RingTheory.LocalRing.RingHom.Basic",
+        "Mathlib.RingTheory.Trace.Basic"
+      ]
+    },
+    "CTUnramifiedResidueBasis318.lean": {
+      "sha256": "8a485e49cc3e85c0810d2214c168240b9135a8df5c275dc30f67fdde83b9f8ff",
+      "imports": [
+        "Mathlib.LinearAlgebra.TensorProduct.Basis",
+        "Mathlib.RingTheory.TensorProduct.Quotient",
+        "Mathlib.RingTheory.Unramified.LocalRing"
+      ]
+    },
+    "CTPadicUnramifiedProjectedNorm318.lean": {
+      "sha256": "f5eec2a12bfb4e4f25720bd2c54cf906f4accc6f71b4dbd3be3342a8baf48c49",
+      "imports": [
+        "CTPadicUnitNormHensel318",
+        "CTUnramifiedResidueBasis318",
+        "Mathlib.RingTheory.Algebraic.Integral",
+        "Mathlib.RingTheory.Localization.NormTrace",
+        "Mathlib.RingTheory.Norm.Transitivity",
+        "Mathlib.RingTheory.Valuation.Integers"
+      ]
+    },
+    "CTPadicSelectedValuationRing318.lean": {
+      "sha256": "83b9144a70f621ec3ee1e5a8bd973388096afc546c9b3910fdbe5e9d13525e8d",
+      "imports": [
+        "CTPadicUnramifiedProjectedNorm318",
+        "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+        "Mathlib.RingTheory.Valuation.Extension"
+      ]
+    },
+    "CTActualSelectedPadicValuation318.lean": {
+      "sha256": "e59489bc2a1763b4dcfbe7d9ae3a37274c821f90a4deb6fef84443809f7d637b",
+      "imports": [
+        "CTActualSelectedPadicLayer318",
+        "CTPadicSelectedValuationRing318"
+      ]
+    },
+    "CTActualSelectedGlobalPrime318.lean": {
+      "sha256": "feb679a5ca57b1fa987d8470436692b7df0d3b226ff63fa40b578f68b6ad5264",
+      "imports": [
+        "CTActualSelectedPadicValuation318",
+        "Mathlib.NumberTheory.NumberField.Discriminant.Different",
+        "Mathlib.RingTheory.Valuation.Integral"
+      ]
+    },
+    "CTLocalOrderUnramified318.lean": {
+      "sha256": "4b3c9436eca2a4107f84fd4de98a751a95e59ee423bfb6c5e9b7483ff9098446",
+      "imports": [
+        "Mathlib.RingTheory.Localization.AtPrime.Basic",
+        "Mathlib.RingTheory.Unramified.LocalRing"
+      ]
+    },
+    "CTActualSelectedImageOrder318.lean": {
+      "sha256": "8567a4b91b3512032705a07cdc4952e44bd83d8d4ecfe1a8a9cffb9cde6e6416",
+      "imports": [
+        "CTActualSelectedGlobalPrime318",
+        "CTLocalOrderUnramified318",
+        "Mathlib.RingTheory.DiscreteValuationRing.TFAE",
+        "Mathlib.RingTheory.EssentialFiniteness",
+        "Mathlib.RingTheory.TensorProduct.Finite"
+      ]
+    },
+    "CTActualSelectedOrderFraction318.lean": {
+      "sha256": "6175b8655ad3d40c655d6582ccf054ddae8d37bcc21ca4a7a7a5504d9913f4f8",
+      "imports": [
+        "CTActualSelectedGlobalPrime318",
+        "CTActualSelectedImageOrder318",
+        "Mathlib.RingTheory.Valuation.ValuationRing"
+      ]
+    },
+    "CTHenselianFiniteIdempotent318.lean": {
+      "sha256": "ebef46808748bab1dc82f1270dac1ad2a080bbe9490dc6864cb7af6405fc31a7",
+      "imports": [
+        "Mathlib.RingTheory.Artinian.Ring",
+        "Mathlib.RingTheory.Henselian",
+        "Mathlib.Tactic.LinearCombination"
+      ]
+    },
+    "CTPadicAdicFiniteComplete318.lean": {
+      "sha256": "2bb9c0e5918c7f981b47dfddee521490c5dfca5a76798d21d5d4ed8c818e6469",
+      "imports": [
+        "Mathlib.LinearAlgebra.TensorProduct.Associator",
+        "Mathlib.NumberTheory.Padics.PadicIntegers",
+        "Mathlib.RingTheory.AdicCompletion.AsTensorProduct",
+        "Mathlib.RingTheory.AdicCompletion.Topology"
+      ]
+    },
+    "CTActualSelectedImageOrderLocal318.lean": {
+      "sha256": "e9d74b187a119d6144d12dcc28d4cac21df74df10402f3ebeb6f3ece7090fdd3",
+      "imports": [
+        "CTActualSelectedOrderFraction318",
+        "CTHenselianFiniteIdempotent318",
+        "CTPadicAdicFiniteComplete318",
+        "Mathlib.RingTheory.Finiteness.Quotient",
+        "Mathlib.RingTheory.Ideal.GoingUp",
+        "Mathlib.RingTheory.Localization.Basic"
+      ]
+    }
+  }
+}
