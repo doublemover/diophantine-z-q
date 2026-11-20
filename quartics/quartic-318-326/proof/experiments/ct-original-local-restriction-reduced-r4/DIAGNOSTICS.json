@@ -1,0 +1,112 @@
+{
+  "status": "exact r3a hosted compiler diagnostics; no r4 verdict",
+  "artifact": {
+    "id": 14640612155,
+    "run_id": 44758926436,
+    "sha256": "0392482bfeac75e8f6d4b4236a8c90fd14867e6d5b34390f12a594d3de5511de"
+  },
+  "predecessor_packet": "ct-original-local-restriction-reduced-r3a",
+  "predecessor_packet_sha256": "24804957a7322cab8723061fa344a85e4f385cb44c792fb87bc6cd82226ce8c0",
+  "predecessor_head": "22cad8c7d1cb29eb0ba2279be06a2a24f83b82fe",
+  "predecessor_source": "b19e80058b5a6a47f4e9055fa9a5ae32b1482c4c",
+  "predecessor_source_tree": "ec0e4e19db27084bc0a31c942043b6239c311848",
+  "predecessor_selection": {
+    "intake_sha256": "24804957a7322cab8723061fa344a85e4f385cb44c792fb87bc6cd82226ce8c0",
+    "packet": "ct-original-local-restriction-reduced-r3a",
+    "selected_order": [
+      "ActualTwoDescentFieldMapNonzero318",
+      "ActualTwoDescentClosureParameterNonzero318",
+      "CTOriginalEllipticModel318",
+      "CTOriginalEllipticFieldCoordinates318",
+      "CTOriginalGeometricGaloisAction318",
+      "ActualTwoDescentActualGeometricCoboundary318",
+      "ActualTwoDescentActualGaloisOrbitLocallyConstant318",
+      "CTOriginalFullEllipticRepresentation318",
+      "CTOriginalContinuousEllipticCocycles318",
+      "CTOriginalFiniteWeierstrassCarrier318",
+      "CTOriginalActualEllipticFieldMap318",
+      "CTOriginalClosureFieldEmbedding318",
+      "CTOriginalPointCoordinates318",
+      "CTOriginalGeometricPointTransport318",
+      "CTOriginalGeometricRestrictionAction318",
+      "CTOriginalFullCocycleRestriction318"
+    ],
+    "selection_sha256": "005af54a848dde87f14b6edfa97f0bc3b32c7d188787f4aa64facf71234198b2",
+    "targets": [
+      "CTOriginalFullCocycleRestriction318"
+    ]
+  },
+  "counts": {
+    "blocked_by_import": 6,
+    "compile_pass": 8,
+    "compiler_error": 2,
+    "not_selected": 14
+  },
+  "audited_declaration_count": 58,
+  "audit_log_sha256": "c7dee86907ff49c3f988fa27daee9bac0c201616b00a62f1beef24c52702a0e8",
+  "diagnostics": {
+    "CTOriginalGeometricGaloisAction318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r3a-s005af54a848dde87/quarantine/CTOriginalGeometricGaloisAction318/CTOriginalGeometricGaloisAction318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualTwoDescentClosureParameterNonzero318",
+        "CTOriginalEllipticFieldCoordinates318",
+        "CTOriginalEllipticModel318"
+      ],
+      "log_sha256": "0d027ebf9c94169f71c4ee87eb846f43a3f36846dbac5d0a1a6c66b8cc3132a8",
+      "occurrence": "ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318",
+      "root_causes": [
+        "CTOriginalGeometricGaloisAction318"
+      ],
+      "seconds": 1.719,
+      "source_sha256": "13df7ec97f43a357b529a05ea47d3d784eae96cc3b7722677eb98d586e00dc4c",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean:20:2: error: Type mismatch: After simplification, term\n  actual_negY_map σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n) x y\n has type\n  @Eq Qbar\n    ((curve (σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n))).toAffine.negY (σ.toRingEquiv.toRingHom x)\n      (σ.toRingEquiv.toRingHom y))\n    (σ.toRingEquiv.toRingHom ((curve ((algebraMap F Qbar) n)).toAffine.negY x y))\nbut is expected to have type\n  @Eq Qbar ((curve ((algebraMap F Qbar) n)).toAffine.negY (σ x) (σ y))\n    (σ ((curve ((algebraMap F Qbar) n)).toAffine.negY x y))\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean:25:2: error: Type mismatch: After simplification, term\n  actual_slope_map σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n) x₁ x₂ y₁ y₂\n has type\n  (curve (σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n))).toAffine.slope (σ.toRingEquiv.toRingHom x₁)\n      (σ.toRingEquiv.toRingHom x₂) (σ.toRingEquiv.toRingHom y₁) (σ.toRingEquiv.toRingHom y₂) =\n    σ.toRingEquiv.toRingHom ((curve ((algebraMap F Qbar) n)).toAffine.slope x₁ x₂ y₁ y₂)\nbut is expected to have type\n  (curve ((algebraMap F Qbar) n)).toAffine.slope (σ x₁) (σ x₂) (σ y₁) (σ y₂) =\n    σ ((curve ((algebraMap F Qbar) n)).toAffine.slope x₁ x₂ y₁ y₂)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean:30:2: error: Type mismatch: After simplification, term\n  actual_addX_map σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n) x₁ x₂ l\n has type\n  (curve (σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n))).toAffine.addX (σ.toRingEquiv.toRingHom x₁)\n      (σ.toRingEquiv.toRingHom x₂) (σ.toRingEquiv.toRingHom l) =\n    σ.toRingEquiv.toRingHom ((curve ((algebraMap F Qbar) n)).toAffine.addX x₁ x₂ l)\nbut is expected to have type\n  (curve ((algebraMap F Qbar) n)).toAffine.addX (σ x₁) (σ x₂) (σ l) =\n    σ ((curve ((algebraMap F Qbar) n)).toAffine.addX x₁ x₂ l)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean:35:2: error: Type mismatch: After simplification, term\n  actual_addY_map σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n) x₁ x₂ y₁ l\n has type\n  (curve (σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n))).toAffine.addY (σ.toRingEquiv.toRingHom x₁)\n      (σ.toRingEquiv.toRingHom x₂) (σ.toRingEquiv.toRingHom y₁) (σ.toRingEquiv.toRingHom l) =\n    σ.toRingEquiv.toRingHom ((curve ((algebraMap F Qbar) n)).toAffine.addY x₁ x₂ y₁ l)\nbut is expected to have type\n  (curve ((algebraMap F Qbar) n)).toAffine.addY (σ x₁) (σ x₂) (σ y₁) (σ l) =\n    σ ((curve ((algebraMap F Qbar) n)).toAffine.addY x₁ x₂ y₁ l)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean:40:6: error: Type mismatch: After simplification, term\n  actual_curve_equation_map σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n) x y\n    ((curve_equation ((algebraMap F Qbar) n) x y).mp h.left)\n has type\n  σ.toRingEquiv.toRingHom y ^ 2 =\n    σ.toRingEquiv.toRingHom x * (σ.toRingEquiv.toRingHom x - σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n)) *\n      (σ.toRingEquiv.toRingHom x + 3 * σ.toRingEquiv.toRingHom ((algebraMap F Qbar) n))\nbut is expected to have type\n  σ y ^ 2 = σ x * (σ x - (algebraMap F Qbar) n) * (σ x + 3 * (algebraMap F Qbar) n)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricGaloisAction318.lean:42:6: warning: declaration uses `sorry`\n"
+    },
+    "CTOriginalGeometricPointTransport318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r3a-s005af54a848dde87/quarantine/CTOriginalGeometricPointTransport318/CTOriginalGeometricPointTransport318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricPointTransport318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualTwoDescentClosureParameterNonzero318",
+        "CTOriginalActualEllipticFieldMap318",
+        "CTOriginalClosureFieldEmbedding318",
+        "CTOriginalEllipticModel318",
+        "CTOriginalFiniteWeierstrassCarrier318",
+        "CTOriginalPointCoordinates318"
+      ],
+      "log_sha256": "a6315a84efb0177d3545c1b91353b8d5681e4d826d438402a47155ea78dfd9d0",
+      "occurrence": "ct-original-local-restriction-reduced-r3a/CTOriginalGeometricPointTransport318",
+      "root_causes": [
+        "CTOriginalGeometricPointTransport318"
+      ],
+      "seconds": 1.218,
+      "source_sha256": "7064f0537705f8781dd70715cbff1a80391476ec35351bc893f8405ec494d6db",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricPointTransport318.lean:40:0: warning: automatically included section variable(s) unused in theorem `ActualTwoDescentGeometricPointTransport318.actual_closure_point_coordinates`:\n  [DecidableEq L]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq L] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricPointTransport318.lean:49:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  NeZero 3\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r3a/CTOriginalGeometricPointTransport318.lean:47:121: error: unsolved goals\nF : Type\ninst✝⁵ : Field F\ninst✝⁴ : CharZero F\ninst✝³ : DecidableEq F\nL : Type\ninst✝² : Field L\ninst✝¹ : CharZero L\ninst✝ : DecidableEq L\nf : F →+* L\nn : F\nhn : n ≠ 0\nP Q : Point ((algebraMap F Qbar) n)\nh : (closurePointMap f n hn) P = (closurePointMap f n hn) Q\n⊢ NeZero 3\n"
+    }
+  }
+}
