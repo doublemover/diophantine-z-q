@@ -1,0 +1,146 @@
+{
+  "packet": "selected-actual-primitive-kernel-affine",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "SELECTED_ACTUAL_PRIMITIVE_KERNEL_AFFINE",
+  "order": [
+    "ActualEtaleLocallyQuasiFinite318",
+    "ActualInfinitySquareZero318",
+    "SelectedLiteralTorsionKernel318",
+    "ActualLiteralIdentityJet318",
+    "ActualNonSplitIdealChart318",
+    "ActualNonSplitIdentityLifts318",
+    "ActualMulAffineCharts318",
+    "ActualMulAffineFormallyEtale318",
+    "ActualMulAffineEtale318",
+    "ActualMulGlobalEtale318",
+    "ActualMulKernelFiniteEtale318",
+    "SelectedPrimitiveOpen318",
+    "SelectedPrimitiveAffineSign318",
+    "SelectedActualPrimitiveKernelAffine318"
+  ],
+  "files": {
+    "ActualEtaleLocallyQuasiFinite318.lean": {
+      "sha256": "cd1262742e528894a566051bf75c4b6b3df3f792431aedd5335b6be4d256cac4",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiFinite",
+        "Mathlib.RingTheory.Unramified.Field"
+      ]
+    },
+    "ActualInfinitySquareZero318.lean": {
+      "sha256": "f5632f190a1a2c70aef3de4c59963e179c22e1053d4c5ced3949486f2c0fe2cd",
+      "imports": [
+        "InfinityChart318",
+        "Mathlib.Algebra.TrivSqZeroExt.Basic",
+        "Mathlib.LinearAlgebra.Prod"
+      ]
+    },
+    "SelectedLiteralTorsionKernel318.lean": {
+      "sha256": "10b0857b7b1281efd4af2811d68c985ad90d388368487511ce372afe825236c7",
+      "imports": [
+        "CubicClosedImmersion318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+        "Mathlib.GroupTheory.OrderOfElement"
+      ]
+    },
+    "ActualLiteralIdentityJet318.lean": {
+      "sha256": "59ab8c3ac02a58eaa17ef710ee813b74176114a7c3aadd3d7db489f1f83413ce",
+      "imports": [
+        "ActualInfinitySquareZero318",
+        "AffineProductEvaluation318",
+        "InfinityBoundaryScheme318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.RingTheory.Spectrum.Prime.RingHom",
+        "SelectedLiteralTorsionKernel318",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualNonSplitIdealChart318.lean": {
+      "sha256": "314b67a1c2d403b01b354984fa59723350e89ffd1154f444f91e024244e0a7a3",
+      "imports": [
+        "ActualInfinitySquareZero318",
+        "Mathlib.Algebra.Module.Opposite",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations"
+      ]
+    },
+    "ActualNonSplitIdentityLifts318.lean": {
+      "sha256": "706d5348dd6d19a61e7ca3462e3cd8aefa5f59e6d92d99977062dc9e1df4cdea",
+      "imports": [
+        "ActualLiteralIdentityJet318",
+        "ActualNonSplitIdealChart318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.Tactic.Abel",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulAffineCharts318.lean": {
+      "sha256": "e7f95f496c7b23a77d8bab32c7458aa472bf04bd7e95ac77f9f150b5a81e13ed",
+      "imports": [
+        "ActualNonSplitIdentityLifts318",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulAffineFormallyEtale318.lean": {
+      "sha256": "aa5e230d3f7863308afde0968f8b676f842a9f3d4b6b27c27ef5e3003c01f536",
+      "imports": [
+        "ActualMulAffineCharts318",
+        "Mathlib.RingTheory.Etale.Basic",
+        "Mathlib.RingTheory.Smooth.Basic",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulAffineEtale318.lean": {
+      "sha256": "64edb8f87703d3d2087a7f6c2866110efd312b65a7e882682ca87f723d9ee9df",
+      "imports": [
+        "ActualMulAffineFormallyEtale318",
+        "Mathlib.RingTheory.FinitePresentation"
+      ]
+    },
+    "ActualMulGlobalEtale318.lean": {
+      "sha256": "8742036f6a14368bc39ea8e71cf5312bbed91407bbabc022d301775c29c59cd4",
+      "imports": [
+        "ActualMulAffineEtale318",
+        "Mathlib.AlgebraicGeometry.Gluing",
+        "WeierstrassGluing318"
+      ]
+    },
+    "ActualMulKernelFiniteEtale318.lean": {
+      "sha256": "9d0949b64a83d6218d13251a9e407845701c67bbf521398380935e6099893e6e",
+      "imports": [
+        "ActualEtaleLocallyQuasiFinite318",
+        "ActualMulGlobalEtale318",
+        "Mathlib.AlgebraicGeometry.ZariskisMainTheorem",
+        "WeierstrassGluing318"
+      ]
+    },
+    "SelectedPrimitiveOpen318.lean": {
+      "sha256": "fc10ad3b3ff0365faf8394c7c71e32701e9eac757ee02356ac28bfc24bd8539d",
+      "imports": [
+        "LiteralSchemePointGroup318",
+        "Mathlib.AlgebraicGeometry.Morphisms.Etale",
+        "Mathlib.AlgebraicGeometry.Morphisms.FlatMono",
+        "Mathlib.GroupTheory.OrderOfElement",
+        "SelectedLiteralTorsionKernel318"
+      ]
+    },
+    "SelectedPrimitiveAffineSign318.lean": {
+      "sha256": "0907d0ba92aab34a7f2add98cdcb6419778ed7d9d2b825a725df8f7cd80f716b",
+      "imports": [
+        "CompletedFieldPoints318",
+        "LiteralSchemePointGroup318",
+        "Mathlib.AlgebraicGeometry.ResidueField",
+        "NegationPoints318",
+        "SelectedPrimitiveOpen318"
+      ]
+    },
+    "SelectedActualPrimitiveKernelAffine318.lean": {
+      "sha256": "28c0736ac855ecd48408c95a769b6678fdd2d7532f3b14885966c343d94d706e",
+      "imports": [
+        "ActualMulKernelFiniteEtale318",
+        "SelectedPrimitiveAffineSign318"
+      ]
+    }
+  }
+}
