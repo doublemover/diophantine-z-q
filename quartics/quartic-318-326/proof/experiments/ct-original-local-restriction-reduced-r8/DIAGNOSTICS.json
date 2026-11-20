@@ -1,0 +1,122 @@
+{
+  "status": "exact full r7 hosted compiler diagnostics; no r8 verdict",
+  "artifact": {
+    "id": 14647142417,
+    "run_id": 44769948184,
+    "sha256": "5250f1410cd6c9c6dac8885b6eff4b35ec5320754ffb8cf782d780ba0b1406ce"
+  },
+  "predecessor_packet": "ct-original-local-restriction-reduced-r7",
+  "predecessor_packet_sha256": "2bf7acfe6f7727bb461eade05c7cc7fccfdb7b311a775f3ad6eb6b00466386c6",
+  "predecessor_head": "28cd2f66195c401bc52a8fea851b00a5f7d5393a",
+  "predecessor_source": "18c6a9103296876a9b1014ae44ce6c879c65490d",
+  "predecessor_source_tree": "0a47364d335893a5477a2c6e413144e5c0327126",
+  "predecessor_selection": {
+    "intake_sha256": "2bf7acfe6f7727bb461eade05c7cc7fccfdb7b311a775f3ad6eb6b00466386c6",
+    "packet": "ct-original-local-restriction-reduced-r7",
+    "selected_order": [
+      "ActualTwoDescentFieldMapNonzero318",
+      "ActualTwoDescentClosureParameterNonzero318",
+      "CTOriginalEllipticModel318",
+      "CTOriginalEllipticFieldCoordinates318",
+      "CTOriginalGeometricGaloisAction318",
+      "ActualTwoDescentActualGeometricCoboundary318",
+      "ActualTwoDescentActualGaloisOrbitLocallyConstant318",
+      "CTOriginalFullEllipticRepresentation318",
+      "CTOriginalContinuousEllipticCocycles318",
+      "CTOriginalFiniteWeierstrassCarrier318",
+      "CTOriginalActualEllipticFieldMap318",
+      "CTOriginalClosureFieldEmbedding318",
+      "CTOriginalPointCoordinates318",
+      "CTOriginalGeometricPointTransport318",
+      "CTOriginalGeometricRestrictionAction318",
+      "CTOriginalFullCocycleRestriction318",
+      "CTOriginalFullEllipticHOneKernel318",
+      "CTOriginalFullLocalClassRestriction318",
+      "CTOriginalActualShaDefinition318",
+      "CTOriginalActualShaPrimary318",
+      "CTOriginalStablePrimaryCore318",
+      "CTOriginalReducedPrimaryQuotient318",
+      "CTOriginalActualShaReducedPrimary318",
+      "CTOriginalActualShaReducedDuality318",
+      "CTOriginalRationalFixedPoints318",
+      "CTOriginalFullBoundaryHom318",
+      "CTOriginalContinuousShaKernel318",
+      "CTPrimaryPowerRoots318",
+      "FiniteInvolutionPrimaryCore318",
+      "CTOriginalDyadicReducedDescent318"
+    ],
+    "selection_sha256": "ae6b8d41f475dba3fabb91548bce749e70516caa027a3ba40d3bd8bf39a3756d",
+    "targets": [
+      "CTOriginalDyadicReducedDescent318"
+    ]
+  },
+  "counts": {
+    "blocked_by_import": 3,
+    "compile_pass": 25,
+    "compiler_error": 2
+  },
+  "audited_declaration_count": 259,
+  "audit_log_sha256": "be1dbf8bd415185a6ea8743e39ee9f21050aa6798e6528fd5cb9e69d5ecc103b",
+  "diagnostics": {
+    "CTOriginalRationalFixedPoints318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r7-sae6b8d41f475dba3/quarantine/CTOriginalRationalFixedPoints318/CTOriginalRationalFixedPoints318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "CTOriginalActualEllipticFieldMap318",
+        "CTOriginalEllipticModel318",
+        "CTOriginalGeometricGaloisAction318"
+      ],
+      "log_sha256": "a48a3f81b2ab79d0d96fde6aad2243ec36cd1246f705792311fec6325c0a13f7",
+      "occurrence": "ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318",
+      "root_causes": [
+        "CTOriginalRationalFixedPoints318"
+      ],
+      "seconds": 1.017,
+      "source_sha256": "40050b2bee92a6c104bb2c5cb8c8e83e6f9d8807b384ee67a0ea316dccf05560",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean:26:15: error: unsolved goals\ncase some\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nσ : GalQ\nn : F\nhn : n ≠ 0\nx y : F\nh : (curve n).toAffine.Nonsingular x y\n⊢ { toFun := galoisPoint σ n hn, map_zero' := ⋯ }\n      ({ toFun := pointMap (algebraMap F Qbar) n hn, map_zero' := ⋯ } (WeierstrassCurve.Affine.Point.some x y h)) =\n    { toFun := pointMap (algebraMap F Qbar) n hn, map_zero' := ⋯ } (WeierstrassCurve.Affine.Point.some x y h)\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean:26:83: warning: This simp argument is unused:\n  ZeroHom.coe_mk\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [rationalPointMap, ellipticFieldMap, AddMonoidHom.coe_mk, pointMap, galoisPointHom, galoisPoint,\n    point, σ.commutes]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean:27:6: warning: This simp argument is unused:\n  pointMap\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [rationalPointMap, ellipticFieldMap, AddMonoidHom.coe_mk, ZeroHom.coe_mk, galoisPointHom,\n    galoisPoint, point, σ.commutes]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean:27:30: warning: This simp argument is unused:\n  galoisPoint\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [rationalPointMap, ellipticFieldMap, AddMonoidHom.coe_mk, ZeroHom.coe_mk, pointMap, galoisPointHom,\n    point, σ.commutes]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean:27:42: warning: This simp argument is unused:\n  point\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [rationalPointMap, ellipticFieldMap, AddMonoidHom.coe_mk, ZeroHom.coe_mk, pointMap, galoisPointHom,\n    galoisPoint, σ.commutes]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/CTOriginalRationalFixedPoints318.lean:27:48: warning: This simp argument is unused:\n  σ.commutes\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [rationalPointMap, ellipticFieldMap, AddMonoidHom.coe_mk, ZeroHom.coe_mk, pointMap, galoisPointHom,\n    galoisPoint, point]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+    },
+    "FiniteInvolutionPrimaryCore318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/ct-original-local-restriction-reduced-r7-sae6b8d41f475dba3/quarantine/FiniteInvolutionPrimaryCore318/FiniteInvolutionPrimaryCore318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/FiniteInvolutionPrimaryCore318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "Mathlib.Data.Finset.Lattice.Fold",
+        "Mathlib.Data.Nat.Factorization.Basic",
+        "Mathlib.GroupTheory.PGroup"
+      ],
+      "log_sha256": "73525e42d9656d5836b904818de5149fa410afc7cf63a873b579661c42698b50",
+      "occurrence": "ct-original-local-restriction-reduced-r7/FiniteInvolutionPrimaryCore318",
+      "root_causes": [
+        "FiniteInvolutionPrimaryCore318"
+      ],
+      "seconds": 0.816,
+      "source_sha256": "8714363635fe592548e96dadf03764fb262702c8a8f5ef551aaab82b4c505d0b",
+      "status": "compiler_error",
+      "timed_out": false,
+      "log": "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/FiniteInvolutionPrimaryCore318.lean:30:2: warning: Try this: \n  letI̵\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/FiniteInvolutionPrimaryCore318.lean:31:2: warning: Try this: \n  haveI̵\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/FiniteInvolutionPrimaryCore318.lean:36:2: warning: Try this: \n  letI̵\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/ct-original-local-restriction-reduced-r7/FiniteInvolutionPrimaryCore318.lean:82:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?a ^ (?m * ?n)\nin the target expression\n  (fun x => x ^ (2 ^ k * a)) r = x\n\nG : Type u_1\ninst✝ : CommGroup G\nhP : IsPGroup 2 G\nhFin : Finite ↥(powMonoidHom 2).ker\nC : Subgroup G\nhC : ∀ (x : G), x ∈ C ↔ ∀ (k : ℕ), ∃ z, z ^ 2 ^ k = x\nhSq : ∀ (x : ↥C), ∃ r, r ^ 2 = x\nhDepth : ∀ (k : ℕ) (x : ↥C), ∃ r, r ^ 2 ^ k = x\nhPC : IsPGroup 2 ↥C\nk a : ℕ\nha : Odd a\nhm : 2 ^ k * a ≠ 0\nx : ↥C\ne : ↥C ≃ ↥C := hPC.powEquiv ⋯\ns : ↥C\nhs : e s = x\nr : ↥C\nhr : r ^ 2 ^ k = s\n⊢ (fun x => x ^ (2 ^ k * a)) r = x\n"
+    }
+  }
+}

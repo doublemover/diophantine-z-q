@@ -1,0 +1,63 @@
+module
+public import CTOriginalGeometricGaloisAction318
+public import Mathlib.Topology.LocallyConstant.Basic
+import all CTOriginalEllipticModel318
+import all CTOriginalGeometricGaloisAction318
+import all Mathlib.FieldTheory.AbsoluteGaloisGroup
+public section
+noncomputable section
+namespace ActualTwoDescentFieldGaloisLocallyConstant318
+set_option maxHeartbeats 16000000
+variable {F : Type} [Field F] [CharZero F] [DecidableEq F]
+local notation "Qbar" => AlgebraicClosure F
+local notation "GalQ" => Field.absoluteGaloisGroup F
+open ActualTwoDescentEllipticModel318 ActualTwoDescentFieldGaloisPointAction318
+local instance : DecidableEq Qbar := Classical.decEq _
+
+/-- Each algebraic coordinate has an OPEN stabilizer in the actual Krull topology. -/
+lemma actual_galois_coordinate_locally_constant (x : Qbar) : IsLocallyConstant (fun σ : GalQ =>
+    (show Qbar ≃ₐ[F] Qbar from σ) x) := by
+  apply (IsLocallyConstant.iff_exists_open _).mpr
+  intro σ
+  let H : Subgroup (Qbar ≃ₐ[F] Qbar) := MulAction.stabilizer (Qbar ≃ₐ[F] Qbar) x
+  let C : Set (Qbar ≃ₐ[F] Qbar) := ↑H
+  let S : Set GalQ := C
+  have hC : IsOpen C := stabilizer_isOpen_of_isIntegral x
+  have hS : IsOpen S := by
+    change IsOpen C
+    exact hC
+  refine ⟨(fun τ : GalQ => σ⁻¹*τ) ⁻¹' S,hS.preimage (continuous_const.mul continuous_id),?_,?_⟩
+  · let s : Qbar ≃ₐ[F] Qbar := σ
+    change s⁻¹*s ∈ H
+    simpa only [inv_mul_cancel] using H.one_mem
+  · intro τ hτ
+    let s : Qbar ≃ₐ[F] Qbar := σ
+    let t : Qbar ≃ₐ[F] Qbar := τ
+    have hmem : s⁻¹*t ∈ H := by
+      change s⁻¹*t ∈ H at hτ
+      exact hτ
+    have he : (s⁻¹*t) x = x := hmem
+    have h : s (s.symm (t x)) = s x := congrArg s he
+    change t x = s x
+    simpa only [s.apply_symm_apply] using h
+
+lemma actual_galois_point_locally_constant (n : F) (hn : n ≠ 0) (Q : Point (algebraMap F Qbar n)) :
+    IsLocallyConstant (fun σ : GalQ => galoisPointHom σ n hn Q) := by
+  cases Q with
+  | zero => exact IsLocallyConstant.const 0
+  | some x y h =>
+    apply (IsLocallyConstant.iff_exists_open _).mpr
+    intro σ
+    obtain ⟨U,hU,hσU,hx⟩ := (IsLocallyConstant.iff_exists_open _).mp (actual_galois_coordinate_locally_constant x) σ
+    obtain ⟨V,hV,hσV,hy⟩ := (IsLocallyConstant.iff_exists_open _).mp (actual_galois_coordinate_locally_constant y) σ
+    refine ⟨U∩V,hU.inter hV,⟨hσU,hσV⟩,?_⟩
+    intro τ hτ
+    let s : Qbar ≃ₐ[F] Qbar := σ
+    let t : Qbar ≃ₐ[F] Qbar := τ
+    have htx : t x = s x := hx τ hτ.1
+    have hty : t y = s y := hy τ hτ.2
+    change galoisPoint t n hn (.some x y h) = galoisPoint s n hn (.some x y h)
+    dsimp only [galoisPoint,point]
+    congr 1 <;> assumption
+
+end ActualTwoDescentFieldGaloisLocallyConstant318

@@ -1,0 +1,123 @@
+module
+public import CTOriginalEllipticFieldCoordinates318
+public import ActualTwoDescentClosureParameterNonzero318
+import all CTOriginalEllipticModel318
+public section
+noncomputable section
+namespace ActualTwoDescentFieldGaloisPointAction318
+set_option maxHeartbeats 16000000
+variable {F : Type} [Field F] [CharZero F] [DecidableEq F]
+local notation "Qbar" => AlgebraicClosure F
+-- Literal presentation of Field.absoluteGaloisGroup F, to resolve coordinate coercions.
+local notation "GalQ" => (Qbar ≃ₐ[F] Qbar)
+
+open ActualTwoDescentEllipticModel318 ActualTwoDescentEllipticFieldCoordinates318
+open ActualTwoDescentFieldAlgebraicClosureHalving318
+local instance : DecidableEq Qbar := Classical.decEq _
+
+private theorem ringHom_fixed_parameter (σ : GalQ) (n : F) :
+    σ.toRingHom (algebraMap F Qbar n) = algebraMap F Qbar n := by
+  change σ (algebraMap F Qbar n) = algebraMap F Qbar n
+  exact σ.commutes n
+
+lemma galois_negY (σ : GalQ) (n : F) (x y : Qbar) :
+    (curve (algebraMap F Qbar n)).toAffine.negY (σ x) (σ y)=σ ((curve (algebraMap F Qbar n)).toAffine.negY x y) := by
+  have hmap := actual_negY_map σ.toRingHom (algebraMap F Qbar n) x y
+  rw [ringHom_fixed_parameter σ n] at hmap
+  change (curve (algebraMap F Qbar n)).toAffine.negY (σ.toRingHom x) (σ.toRingHom y) =
+    σ.toRingHom ((curve (algebraMap F Qbar n)).toAffine.negY x y)
+  exact hmap
+
+lemma galois_slope (σ : GalQ) (n : F) (x₁ x₂ y₁ y₂ : Qbar) :
+    (curve (algebraMap F Qbar n)).toAffine.slope (σ x₁) (σ x₂) (σ y₁) (σ y₂)=
+      σ ((curve (algebraMap F Qbar n)).toAffine.slope x₁ x₂ y₁ y₂) := by
+  have hmap := actual_slope_map σ.toRingHom (algebraMap F Qbar n) x₁ x₂ y₁ y₂
+  rw [ringHom_fixed_parameter σ n] at hmap
+  change (curve (algebraMap F Qbar n)).toAffine.slope
+    (σ.toRingHom x₁) (σ.toRingHom x₂) (σ.toRingHom y₁) (σ.toRingHom y₂) =
+      σ.toRingHom ((curve (algebraMap F Qbar n)).toAffine.slope x₁ x₂ y₁ y₂)
+  exact hmap
+
+lemma galois_addX (σ : GalQ) (n : F) (x₁ x₂ l : Qbar) :
+    (curve (algebraMap F Qbar n)).toAffine.addX (σ x₁) (σ x₂) (σ l)=
+      σ ((curve (algebraMap F Qbar n)).toAffine.addX x₁ x₂ l) := by
+  have hmap := actual_addX_map σ.toRingHom (algebraMap F Qbar n) x₁ x₂ l
+  rw [ringHom_fixed_parameter σ n] at hmap
+  change (curve (algebraMap F Qbar n)).toAffine.addX
+    (σ.toRingHom x₁) (σ.toRingHom x₂) (σ.toRingHom l) =
+      σ.toRingHom ((curve (algebraMap F Qbar n)).toAffine.addX x₁ x₂ l)
+  exact hmap
+
+lemma galois_addY (σ : GalQ) (n : F) (x₁ x₂ y₁ l : Qbar) :
+    (curve (algebraMap F Qbar n)).toAffine.addY (σ x₁) (σ x₂) (σ y₁) (σ l)=
+      σ ((curve (algebraMap F Qbar n)).toAffine.addY x₁ x₂ y₁ l) := by
+  have hmap := actual_addY_map σ.toRingHom (algebraMap F Qbar n) x₁ x₂ y₁ l
+  rw [ringHom_fixed_parameter σ n] at hmap
+  change (curve (algebraMap F Qbar n)).toAffine.addY
+    (σ.toRingHom x₁) (σ.toRingHom x₂) (σ.toRingHom y₁) (σ.toRingHom l) =
+      σ.toRingHom ((curve (algebraMap F Qbar n)).toAffine.addY x₁ x₂ y₁ l)
+  exact hmap
+
+def galoisPoint (σ : GalQ) (n : F) (hn : n ≠ 0) : Point (algebraMap F Qbar n) → Point (algebraMap F Qbar n)
+  | .zero => .zero
+  | .some x y h => point _ (σ x) (σ y) (rational_parameter_ne n hn) (by
+      have hmap := actual_curve_equation_map σ.toRingHom (algebraMap F Qbar n) x y
+        ((curve_equation _ x y).mp h.left)
+      rw [ringHom_fixed_parameter σ n] at hmap
+      change (σ.toRingHom y)^2 =
+        σ.toRingHom x * (σ.toRingHom x - algebraMap F Qbar n) *
+          (σ.toRingHom x + 3 * algebraMap F Qbar n)
+      exact hmap)
+
+lemma actual_galois_point_add (σ : GalQ) (n : F) (hn : n ≠ 0) (P Q : Point (algebraMap F Qbar n)) :
+    galoisPoint σ n hn (P+Q)=galoisPoint σ n hn P+galoisPoint σ n hn Q := by
+  cases P with
+  | zero => cases Q <;> rfl
+  | some x₁ y₁ h₁ =>
+    cases Q with
+    | zero => rfl
+    | some x₂ y₂ h₂ =>
+      by_cases hxy : x₁=x₂ ∧ y₁=(curve (algebraMap F Qbar n)).toAffine.negY x₂ y₂
+      · rw [WeierstrassCurve.Affine.Point.add_of_Y_eq hxy.1 hxy.2]
+        dsimp [galoisPoint,point]
+        symm
+        apply WeierstrassCurve.Affine.Point.add_of_Y_eq (congrArg σ hxy.1)
+        rw [galois_negY,hxy.2]
+      · have hfxy : ¬(σ x₁=σ x₂ ∧ σ y₁=(curve (algebraMap F Qbar n)).toAffine.negY (σ x₂) (σ y₂)) := by
+          rintro ⟨hx,hy⟩
+          rw [galois_negY] at hy
+          exact hxy ⟨σ.injective hx,σ.injective hy⟩
+        rw [WeierstrassCurve.Affine.Point.add_some hxy]
+        dsimp [galoisPoint,point]
+        rw [WeierstrassCurve.Affine.Point.add_some hfxy]
+        congr 1
+        · change σ ((curve (algebraMap F Qbar n)).toAffine.addX x₁ x₂
+              ((curve (algebraMap F Qbar n)).toAffine.slope x₁ x₂ y₁ y₂)) =
+            (curve (algebraMap F Qbar n)).toAffine.addX (σ x₁) (σ x₂)
+              ((curve (algebraMap F Qbar n)).toAffine.slope (σ x₁) (σ x₂) (σ y₁) (σ y₂))
+          rw [galois_slope,galois_addX]
+        · change σ ((curve (algebraMap F Qbar n)).toAffine.addY x₁ x₂ y₁
+              ((curve (algebraMap F Qbar n)).toAffine.slope x₁ x₂ y₁ y₂)) =
+            (curve (algebraMap F Qbar n)).toAffine.addY (σ x₁) (σ x₂) (σ y₁)
+              ((curve (algebraMap F Qbar n)).toAffine.slope (σ x₁) (σ x₂) (σ y₁) (σ y₂))
+          rw [galois_slope,galois_addY]
+
+def galoisPointHom (σ : GalQ) (n : F) (hn : n ≠ 0) : Point (algebraMap F Qbar n) →+ Point (algebraMap F Qbar n) where
+  toFun := galoisPoint σ n hn
+  map_zero' := rfl
+  map_add' := actual_galois_point_add σ n hn
+
+lemma actual_galois_one (n : F) (hn : n ≠ 0) (P : Point (algebraMap F Qbar n)) :
+    galoisPointHom 1 n hn P=P := by
+  cases P with
+  | zero => rfl
+  | some x y h =>
+    change point (algebraMap F Qbar n) ((1 : GalQ) x) ((1 : GalQ) y)
+      (rational_parameter_ne n hn) (by simpa only [AlgEquiv.one_apply] using
+        (curve_equation (algebraMap F Qbar n) x y).mp h.left) = .some x y h
+    simp only [AlgEquiv.one_apply,point]
+
+lemma actual_galois_mul (σ τ : GalQ) (n : F) (hn : n ≠ 0) (P : Point (algebraMap F Qbar n)) :
+    galoisPointHom (σ*τ) n hn P=galoisPointHom σ n hn (galoisPointHom τ n hn P) := by cases P <;> rfl
+
+end ActualTwoDescentFieldGaloisPointAction318
