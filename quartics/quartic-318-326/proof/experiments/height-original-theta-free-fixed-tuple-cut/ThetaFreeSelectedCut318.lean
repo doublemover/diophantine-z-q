@@ -66,6 +66,7 @@ theorem hom_field_576 {S g n D:ℝ} (hb:11185621387570686764517810≤S) (hg:1≤
   norm_num only [Nat.cast_ofNat] at hlog
   change Real.log (n+1)≤6*x at hlog
   have hlogn : Real.log n≤6*x := (Real.log_le_log (by linarith) (by linarith : n≤n+1)).trans hlog
+  have hlognn : 0 ≤ Real.log (n+1) := Real.log_nonneg (by linarith only [hn])
   have hm : 2*n*(1+Real.log n)*Real.log (n+1)≤2*(8*g)*(7*x)*(6*x) := by
     gcongr <;> first | assumption | positivity | linarith [Real.log_nonneg hn]
   have h2 : 3*n*Real.log 2≤24*g := by
