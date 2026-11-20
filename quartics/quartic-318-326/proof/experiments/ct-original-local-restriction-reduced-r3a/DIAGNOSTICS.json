@@ -1,0 +1,191 @@
+{
+  "provenance": "Earlier hosted artifact, read-only; precisely two diagnostic repairs, no claim successor compiles",
+  "artifact_id": "14634749669",
+  "artifact_bytes_sha256": "1a642fb63e9f06f682347b9189ffae6c95d5b643f30fec08cef04665fcf985e8",
+  "inventory_sha256": "1556d5fa2403dd31cbbadf98c8a14fddc72cfde839e0009815a62f59d1d2a638",
+  "prior_head_sha": "5e2340bb3938868ec1d6d523240bd35c2a309e58",
+  "prior_source_commit": "f98ea01e4da1d78fd0df2c5d1c9787aadb5ec826",
+  "prior_run_id": "44750767449",
+  "prior_request_sha256": "db4b6f3d86df74e15bf8141e0efb341e7770b3f69acf0c4e92dc4313f49184fa",
+  "prior_selection_sha256": "b4c62f1e7bb1aad7dcc9b35f8df6a07c75d936bb17d7da875ff60d752b54e30b",
+  "prior_verified_counts": {
+    "blocked_by_import": 7,
+    "compile_pass": 7,
+    "compiler_error": 2,
+    "not_selected": 14
+  },
+  "prior_partial_audit_declarations": 43,
+  "compiler_error_modules": {
+    "CTOriginalActualEllipticFieldMap318": {
+      "input_lines": [
+        24,
+        27,
+        43,
+        59
+      ],
+      "summary": "Use literal zero constructors as in pinned Point.map case reduction; specify closed addX/addY coordinate equations and both image nonzero/nonsingular arguments.",
+      "upstream_git_blob": "cf286abce5445fc7b5572694c1e074ce7a859c23",
+      "prior_source_sha256": "e2d833a646d0c598ec19d1b954e5b9e2f103ff5285a2747cbd03a86657e0ac39",
+      "prior_raw_log_sha256": "4d3374a9894e2241952e34019280448638c726071e7772315e0180300cab17c6",
+      "successor_source_sha256": "1436d0f179d55b2a88adf31defcd040e44d3db95b82b86736037e09e0be8d7da",
+      "errors": [
+        {
+          "position": "24:9",
+          "message": "unsolved goals\ncase zero\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\nhn : n ≠ 0\nQ : Point n\n⊢ (match WeierstrassCurve.Affine.Point.zero + Q with\n    | WeierstrassCurve.Affine.Point.zero => WeierstrassCurve.Affine.Point.zero\n    | WeierstrassCurve.Affine.Point.some x y h => point (f n) (f x) (f y) ⋯ ⋯) =\n    WeierstrassCurve.Affine.Point.zero +\n      match Q with\n      | WeierstrassCurve.Affine.Point.zero => WeierstrassCurve.Affine.Point.zero\n      | WeierstrassCurve.Affine.Point.some x y h => point (f n) (f x) (f y) ⋯ ⋯"
+        },
+        {
+          "position": "27:11",
+          "message": "unsolved goals\ncase some.zero\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\nhn : n ≠ 0\nx₁ y₁ : K\nh₁ : (curve n).toAffine.Nonsingular x₁ y₁\n⊢ (match WeierstrassCurve.Affine.Point.some x₁ y₁ h₁ + WeierstrassCurve.Affine.Point.zero with\n    | WeierstrassCurve.Affine.Point.zero => WeierstrassCurve.Affine.Point.zero\n    | WeierstrassCurve.Affine.Point.some x y h => point (f n) (f x) (f y) ⋯ ⋯) =\n    point (f n) (f x₁) (f y₁) ⋯ ⋯ + WeierstrassCurve.Affine.Point.zero"
+        },
+        {
+          "position": "43:8",
+          "message": "unsolved goals\ncase neg.e_x\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\nhn : n ≠ 0\nx₁ y₁ : K\nh₁ : (curve n).toAffine.Nonsingular x₁ y₁\nx₂ y₂ : K\nh₂ : (curve n).toAffine.Nonsingular x₂ y₂\nhxy : ¬(x₁ = x₂ ∧ y₁ = (curve n).toAffine.negY x₂ y₂)\nhfxy : ¬(f x₁ = f x₂ ∧ f y₁ = (curve (f n)).toAffine.negY (f x₂) (f y₂))\n⊢ f\n      ((curve n).toAffine.slope x₁ x₂ y₁ y₂ ^ 2 + (curve n).toAffine.a₁ * (curve n).toAffine.slope x₁ x₂ y₁ y₂ -\n            (curve n).toAffine.a₂ -\n          x₁ -\n        x₂) =\n    f ((curve n).toAffine.addX x₁ x₂ ((curve n).toAffine.slope x₁ x₂ y₁ y₂))"
+        },
+        {
+          "position": "59:60",
+          "message": "don't know how to synthesize placeholder for argument `hc`\ncontext:\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\nhn : n ≠ 0\nx y : K\nh : (curve n).toAffine.Nonsingular x y\nhe : pointMap f n hn WeierstrassCurve.Affine.Point.zero = pointMap f n hn (WeierstrassCurve.Affine.Point.some x y h)\n⊢ f y ^ 2 = f x * (f x - f n) * (f x + 3 * f n)"
+        },
+        {
+          "position": "59:58",
+          "message": "don't know how to synthesize placeholder for argument `hn`\ncontext:\nK : Type u_1\ninst✝⁵ : Field K\ninst✝⁴ : CharZero K\nL : Type u_2\ninst✝³ : Field L\ninst✝² : CharZero L\ninst✝¹ : DecidableEq K\ninst✝ : DecidableEq L\nf : K →+* L\nn : K\nhn : n ≠ 0\nx y : K\nh : (curve n).toAffine.Nonsingular x y\nhe : pointMap f n hn WeierstrassCurve.Affine.Point.zero = pointMap f n hn (WeierstrassCurve.Affine.Point.some x y h)\n⊢ f n ≠ 0"
+        }
+      ]
+    },
+    "CTOriginalGeometricGaloisAction318": {
+      "input_lines": [
+        18,
+        22,
+        23,
+        27,
+        28,
+        32,
+        33,
+        38,
+        44,
+        47,
+        53,
+        55,
+        72
+      ],
+      "summary": "Present the actual absolute Galois group by its definition (algebraic equivalences) to resolve function applications; same affine point formulas; explicit zero/noninverse and one constructor reductions.",
+      "upstream_git_blob": "df9d6df96b4d2d74ee22d9125c6f685f7101066d",
+      "prior_source_sha256": "50eb9d8abd93edc234a6f6ed3c81c32da3ee54d24d59e72d8827a37fe7445981",
+      "prior_raw_log_sha256": "c8f86c3a44f0b1f28acc7be0667f734049953a028c4c7d58800f58d0465f0515",
+      "successor_source_sha256": "13df7ec97f43a357b529a05ea47d3d784eae96cc3b7722677eb98d586e00dc4c",
+      "errors": [
+        {
+          "position": "18:49",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x"
+        },
+        {
+          "position": "18:55",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  y"
+        },
+        {
+          "position": "18:60",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)"
+        },
+        {
+          "position": "22:50",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x₁"
+        },
+        {
+          "position": "22:57",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x₂"
+        },
+        {
+          "position": "22:64",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  y₁"
+        },
+        {
+          "position": "22:71",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  y₂"
+        },
+        {
+          "position": "23:6",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)"
+        },
+        {
+          "position": "27:49",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x₁"
+        },
+        {
+          "position": "27:56",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x₂"
+        },
+        {
+          "position": "27:63",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  l"
+        },
+        {
+          "position": "28:6",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)"
+        },
+        {
+          "position": "32:49",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x₁"
+        },
+        {
+          "position": "32:56",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  x₂"
+        },
+        {
+          "position": "32:63",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  y₁"
+        },
+        {
+          "position": "32:70",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  l"
+        },
+        {
+          "position": "33:6",
+          "message": "Function expected at\n  σ\nbut this term has type\n  failed to pretty print expression (use 'set_option pp.rawOnError true' for raw representation)\n\nNote: Expected a function because this term is being applied to the argument\n  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)"
+        },
+        {
+          "position": "38:28",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  x"
+        },
+        {
+          "position": "38:34",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  y"
+        },
+        {
+          "position": "44:9",
+          "message": "unsolved goals\ncase zero\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nσ : GalQ\nn : F\nhn : n ≠ 0\nQ : Point ((algebraMap F Qbar) n)\n⊢ (match WeierstrassCurve.Affine.Point.zero + Q with\n    | WeierstrassCurve.Affine.Point.zero => WeierstrassCurve.Affine.Point.zero\n    | WeierstrassCurve.Affine.Point.some x y h => point ((algebraMap F Qbar) n) sorry sorry ⋯ ⋯) =\n    WeierstrassCurve.Affine.Point.zero +\n      match Q with\n      | WeierstrassCurve.Affine.Point.zero => WeierstrassCurve.Affine.Point.zero\n      | WeierstrassCurve.Affine.Point.some x y h => point ((algebraMap F Qbar) n) sorry sorry ⋯ ⋯"
+        },
+        {
+          "position": "47:11",
+          "message": "unsolved goals\ncase some.zero\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nσ : GalQ\nn : F\nhn : n ≠ 0\nx₁ y₁ : Qbar\nh₁ : (curve ((algebraMap F Qbar) n)).toAffine.Nonsingular x₁ y₁\n⊢ (match WeierstrassCurve.Affine.Point.some x₁ y₁ h₁ + WeierstrassCurve.Affine.Point.zero with\n    | WeierstrassCurve.Affine.Point.zero => WeierstrassCurve.Affine.Point.zero\n    | WeierstrassCurve.Affine.Point.some x y h => point ((algebraMap F Qbar) n) sorry sorry ⋯ ⋯) =\n    point ((algebraMap F Qbar) n) sorry sorry ⋯ ⋯ + WeierstrassCurve.Affine.Point.zero"
+        },
+        {
+          "position": "55:22",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  x₁"
+        },
+        {
+          "position": "55:27",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  x₂"
+        },
+        {
+          "position": "55:34",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  y₁"
+        },
+        {
+          "position": "55:84",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  x₂"
+        },
+        {
+          "position": "55:91",
+          "message": "Function expected at\n  σ\nbut this term has type\n  GalQ\n\nNote: Expected a function because this term is being applied to the argument\n  y₂"
+        },
+        {
+          "position": "53:66",
+          "message": "Application type mismatch: The argument\n  σ\nhas type\n  GalQ\nbut is expected to have type\n  Qbar → ?m.162\nin the application\n  congrArg σ"
+        },
+        {
+          "position": "72:48",
+          "message": "Tactic `rfl` failed: The left-hand side\n  (galoisPointHom 1 n hn) (WeierstrassCurve.Affine.Point.some x✝ y✝ h✝)\nis not definitionally equal to the right-hand side\n  WeierstrassCurve.Affine.Point.some x✝ y✝ h✝\n\ncase some\nF : Type\ninst✝² : Field F\ninst✝¹ : CharZero F\ninst✝ : DecidableEq F\nn : F\nhn : n ≠ 0\nx✝ y✝ : Qbar\nh✝ : (curve ((algebraMap F Qbar) n)).toAffine.Nonsingular x✝ y✝\n⊢ (galoisPointHom 1 n hn) (WeierstrassCurve.Affine.Point.some x✝ y✝ h✝) = WeierstrassCurve.Affine.Point.some x✝ y✝ h✝"
+        }
+      ]
+    }
+  }
+}
