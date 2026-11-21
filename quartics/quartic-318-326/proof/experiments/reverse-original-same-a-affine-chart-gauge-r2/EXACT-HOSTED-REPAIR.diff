@@ -1,0 +1,12 @@
+--- SelectedSameADualNumberFlatCoefficient318.lean:r1
++++ SelectedSameADualNumberFlatCoefficient318.lean:r2
+@@ -98,7 +98,8 @@
+       _ = e t := congrArg e hy
+       _ = m := her
+   · rintro ⟨n, rfl⟩
+-    rw [← mul_smul, epsilon_square, zero_smul]
++    rw [← mul_smul, epsilon_square]
++    exact zero_smul (TrivSqZeroExt k k) n
+ 
+ variable (C : Type*) [CommRing C] [Algebra (TrivSqZeroExt k k) C]
+ 
