@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r4/ActualRayConductorRows318.lean:116:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, ?f ↑i
+in the target expression
+  ∑ i ∈ Finset.range E, ∑ x ∈ Finset.range E, fold g F W (↑b + 1) (↑c) i x = ∑ x, ∑ y, fold g F W (↑b + 1) ↑c ↑x ↑y
+
+g : ℕ → ℕ → ℝ
+F W E : ℕ
+hW : 0 < W
+K : Fin W → Fin W → ℝ
+e : Fin W × Fin E ≃ Fin (W * E) := digits W E hW
+G : Fin (W * E) → Fin (W * E) → ℝ := fun U V => K (e.symm U).1 (e.symm V).1 * g ((↑U + 1) % F) (↑V % F)
+hLabels : ∀ (b c : Fin W) (x y : Fin E), G (e (b, x)) (e (c, y)) = K b c * fold g F W (↑b + 1) ↑c ↑x ↑y
+b c : Fin W
+⊢ ∑ i ∈ Finset.range E, ∑ x ∈ Finset.range E, fold g F W (↑b + 1) (↑c) i x = ∑ x, ∑ y, fold g F W (↑b + 1) ↑c ↑x ↑y
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r4/ActualRayConductorRows318.lean:166:13: error: unsolved goals
+ι : Type u_1
+S : Finset ι
+g : ℕ → ℕ → ℝ
+F W : ℕ
+hW : 0 < W
+hF : 0 < F
+b c a z : ι → ℕ
+n m : ℕ
+A : ℝ
+hval : ∀ (i j : ℕ), 0 ≤ g i j ∧ g i j ≤ A
+E : ℕ := W.lcm F / W
+f : ι → ℕ → ℕ → ℝ := fun j => fold g F W (b j) (c j)
+H : ι → ℝ := fun j => rectangle (f j) (a j) (z j) n m - ↑n * ↑m * mean (f j) E
+⊢ ↑S.card * (↑E * (↑n + ↑m) * A) = ↑S.card * (↑(W.lcm F / W) * (↑n + ↑m) * A)
