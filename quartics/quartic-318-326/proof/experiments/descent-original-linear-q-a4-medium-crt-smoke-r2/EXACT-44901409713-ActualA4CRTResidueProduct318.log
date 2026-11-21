@@ -1,0 +1,56 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:32:40: error: unsolved goals
+l d : ℕ
+h : l.Coprime d
+Ω : Finset (Vec (ZMod l))
+D : Finset (Vec (ZMod d))
+⊢ (Ω.product D).card = Ω.card * D.card
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:32:76: warning: This simp argument is unused:
+  Finset.card_product
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [joint, Finset.card_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:37:55: error(lean.invalidField): Invalid field `map_intCast`: The environment does not contain `RingEquiv.map_intCast`, so it is not possible to project the field `map_intCast` from an expression
+  ZMod.chineseRemainder h
+of type
+  ZMod (l * d) ≃+* ZMod l × ZMod d
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:38:55: error(lean.invalidField): Invalid field `map_intCast`: The environment does not contain `RingEquiv.map_intCast`, so it is not possible to project the field `map_intCast` from an expression
+  ZMod.chineseRemainder h
+of type
+  ZMod (l * d) ≃+* ZMod l × ZMod d
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:46:42: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ {x | residue (l * d) B x ∈ Finset.map (vecCRT h).symm.toEmbedding (Ω.product D)}
+but is expected to have type
+  ?m.28 ∈ Finset.map ?m.26 ?m.27
+in the application
+  Finset.mem_map.mp hx
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:52:4: error: Type mismatch
+  Finset.mem_map.mpr (Exists.intro (residue l B x, residue d B x) ⟨Finset.mem_product.mpr hx, ?m.57⟩)
+has type
+  ?m.41 ∈ Finset.map ?m.39 (Ω ×ˢ D)
+but is expected to have type
+  x ∈ {x | residue (l * d) B x ∈ Finset.map (vecCRT h).symm.toEmbedding (Ω.product D)}
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:43:22: warning: This simp argument is unused:
+  Finset.mem_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [accepted, Finset.mem_univ, true_and, joint]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:43:40: warning: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [accepted, Finset.mem_filter, true_and, joint]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-medium-crt-smoke-r1/ActualA4CRTResidueProduct318.lean:43:56: warning: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [accepted, Finset.mem_filter, Finset.mem_univ, joint]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
