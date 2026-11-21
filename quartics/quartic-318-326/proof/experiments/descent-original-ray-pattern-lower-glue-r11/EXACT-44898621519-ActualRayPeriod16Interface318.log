@@ -1,0 +1,42 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r9/ActualRayPeriod16Interface318.lean:31:2: error: Type mismatch: After simplification, term
+  partialSeries_physical H y N (positive_wheel y)
+ has type
+  partialSeries H y N =
+    (∑
+        U ∈
+          @Finset.univ (Fin (wheel y * ((wheel y).lcm H.conductor / wheel y)))
+            (Fin.fintype (wheel y * ((wheel y).lcm H.conductor / wheel y))),
+        ∑ V,
+          unitMask H y N ((digits (wheel y) ((wheel y).lcm H.conductor / wheel y) ⋯).symm U).1
+              ((digits (wheel y) ((wheel y).lcm H.conductor / wheel y) ⋯).symm V).1 *
+            table H.conductor H.k (fun i => H.ci i - H.K) H.fiber ((↑U + 1) % H.conductor) (↑V % H.conductor)) /
+      (alpha y ^ H.k * ↑(wheel y * 16) ^ 2)
+but is expected to have type
+  partialSeries H y N =
+    (∑ U ∈ @Finset.univ (Fin (wheel y * 16)) (Fin.fintype (wheel y * 16)),
+        ∑ V,
+          unitMask H y N ((digits (wheel y) 16 ⋯).symm U).1 ((digits (wheel y) 16 ⋯).symm V).1 *
+            table H.conductor H.k (fun i => H.ci i - H.K) H.fiber ((↑U + 1) % H.conductor) (↑V % H.conductor)) /
+      (alpha y ^ H.k * ↑(wheel y * 16) ^ 2)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r9/ActualRayPeriod16Interface318.lean:40:12: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r9/ActualRayPeriod16Interface318.lean:40:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r9/ActualRayPeriod16Interface318.lean:74:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r9/ActualRayPeriod16Interface318.lean:78:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑?m % ↑?n
+in the target expression
+  ↑p.natAbs % 32 = 17
+
+ray : ℕ → Prop
+hr : RayDyadic ray
+p : ℤ
+hp : p % 32 ≠ 17
+h : 0 < p ∧ Nat.Prime p.natAbs ∧ ray p.natAbs
+hNat : p.natAbs % 32 = 17
+⊢ ↑p.natAbs % 32 = 17
