@@ -1,0 +1,180 @@
+--- r2/SelectedSameAActualFibreSheafArrows318.lean
++++ r3/SelectedSameAActualFibreSheafArrows318.lean
+@@ -5,6 +5,7 @@
+ public import ModuleTopExt318
+ public import Mathlib.Algebra.TrivSqZeroExt.Basic
+ public import Mathlib.Algebra.Homology.ShortComplex.Basic
++public import Mathlib.Topology.Sheaves.Sheaf
+ 
+ /-!
+ # The two genuine sheaf maps of the actual directional fibre row
+@@ -69,7 +70,9 @@
+   change ρ.appTop (epsilonSection σ) = a.appTop ((Scheme.ΓSpecIso (CommRingCat.of k)).inv
+     (pr k (eps k))) at he
+   rw [he]
+-  have hp : pr k (eps k) = 0 := TrivSqZeroExt.fst_inr _ _
++  have hp : pr k (eps k) = 0 := by
++    change (TrivSqZeroExt.inr (R := k) (1 : k)).fst = 0
++    exact TrivSqZeroExt.fst_inr (R := k) (1 : k)
+   rw [hp, map_zero, map_zero]
+ 
+ abbrev omegaX := FamilyIntrinsicDifferentials318.omega (xOverK σ)
+@@ -98,20 +101,22 @@
+ include h in
+ private theorem raw_composite_zero :
+     rawLeft σ ≫ IntrinsicDifferentialPullback318.map ρ a (xOverK σ) (fibre_over_k σ ρ a h) = 0 := by
+-  let q := IntrinsicDifferentialPullback318.map ρ a (xOverK σ) (fibre_over_k σ ρ a h)
+-  have hv := IntrinsicDifferentialPullback318.map_D ρ a (xOverK σ)
+-    (fibre_over_k σ ρ a h) ⊤ (epsilonSection σ)
+-  change q.app ⊤ ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d (epsilonSection σ)) =
+-    (FamilyIntrinsicDifferentials318.D a).d (ρ.appTop (epsilonSection σ)) at hv
+-  rw [epsilon_on_fibre_zero σ ρ a h] at hv
++  let q : omegaX σ ⟶ (Scheme.Modules.pushforward ρ).obj (omegaA a) :=
++    IntrinsicDifferentialPullback318.map ρ a (xOverK σ) (fibre_over_k σ ρ a h)
++  let w : Γ(omegaX σ, ⊤) := (FamilyIntrinsicDifferentials318.D (xOverK σ)).d
++    (epsilonSection σ)
++  have hv : q.app ⊤ w = (FamilyIntrinsicDifferentials318.D a).d
++      (ρ.appTop (epsilonSection σ)) :=
++    IntrinsicDifferentialPullback318.globalSection_D ρ a (xOverK σ)
++      (fibre_over_k σ ρ a h) (epsilonSection σ)
+   have hz : (FamilyIntrinsicDifferentials318.D a).d (X := op (⊤ : A.Opens)) 0 = 0 :=
+     AddMonoidHom.map_zero ((FamilyIntrinsicDifferentials318.D a).d (X := op (⊤ : A.Opens)))
+-  have hv' := hv.trans hz
+-  change ModuleGlobalSections318.ofTop _ ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d
+-    (epsilonSection σ)) ≫ q = 0
++  have hv' : q.app ⊤ w = 0 :=
++    hv.trans ((congrArg (FamilyIntrinsicDifferentials318.D a).d
++      (epsilon_on_fibre_zero σ ρ a h)).trans hz)
++  change ModuleGlobalSections318.ofTop (omegaX σ) w ≫ q = 0
+   rw [ModuleTopMorphisms318.ofTop_comp, hv']
+   apply ModuleTopExt318.ext
+-  change (ModuleGlobalSections318.ofTop _ 0).val.app (op ⊤) (show Γ(X, ⊤) from 1) = _
+   rw [ModuleTopMorphisms318.ofTop_top_one]
+   simp
+ 
+@@ -139,8 +144,11 @@
+ /-- The very same row viewed in additive sheaves for the genuine H0 boundary.
+ The underlying-sheaf functor is additive; it is not an arbitrary functor input. -/
+ noncomputable def additiveComplex := by
+-  let F : A.Modules ⥤ TopCat.Sheaf AddCommGrpCat.{u} A := SheafOfModules.toSheaf A.ringCatSheaf
+-  letI : F.Additive := inferInstanceAs (SheafOfModules.toSheaf A.ringCatSheaf).Additive
++  let F : A.Modules ⥤ Sheaf (TopologicalSpace.Opens.grothendieckTopology (A : TopCat.{u}))
++      AddCommGrpCat.{u} := SheafOfModules.toSheaf A.ringCatSheaf
++  letI : F.PreservesZeroMorphisms := inferInstanceAs
++    (SheafOfModules.toSheaf.{u} A.ringCatSheaf).PreservesZeroMorphisms
+   exact (moduleComplex σ ρ a h).map F
+ 
++end
+ end SelectedSameAActualFibreSheafArrows318
+--- r2/SelectedSameAAffinePulledUnitBeta318.lean
++++ r3/SelectedSameAAffinePulledUnitBeta318.lean
+@@ -39,16 +39,24 @@
+   have hi : (TildePullback318.pullbackIso r).hom.app M ≫
+       (tilde.functor T).map (𝟙 ((ModuleCat.extendScalars r.hom).obj M)) =
+       (TildePullback318.pullbackIso r).hom.app M := by
+-    rw [(tilde.functor T).map_id, Category.comp_id]
++    rw [(tilde.functor T).map_id] <;> exact Category.comp_id _
+   rw [hi, Adjunction.homEquiv_unit] at hh
+   have hv := congrArg (fun q => q m) hh
+   change (PushforwardGlobalSections318.globalIso r (tilde (R := T) ((ModuleCat.extendScalars r.hom).obj M))).hom
+     (((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map r)).homEquiv _ _ ((TildePullback318.pullbackIso r).hom.app M)).app ⊤
+       ((tilde.isoTop (R := S) M).hom m)) = _
+     at hv
+-  rw [InvariantTransition318.globalIso_apply] at hv
+-  rw [ModuleCat.extendRestrictScalarsAdj_homEquiv_apply] at hv
+-  exact hv
++  let E := (ModuleCat.extendScalars r.hom).obj M
++  let adj := ModuleCat.extendRestrictScalarsAdj r.hom
++  let i := (tilde.isoTop (R := T) E).hom
++  have hr : adj.homEquiv M E (𝟙 E) m = ((1 : T) ⊗ₜ[S, r.hom] m) :=
++    ModuleCat.extendRestrictScalarsAdj_homEquiv_apply (𝟙 E) m
++  change _ = i (adj.homEquiv M E (𝟙 E) m) at hv
++  have hg := InvariantTransition318.globalIso_apply r (tilde (R := T) E)
++    (((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map r)).homEquiv _ _
++      ((TildePullback318.pullbackIso r).hom.app M)).app ⊤
++      ((tilde.isoTop (R := S) M).hom m))
++  exact hg.symm.trans (hv.trans (congrArg (fun b : E => i b) hr))
+ 
+ /-- This compares the actual pulled sheaf-module map with the honest
+ module scalar-extension section, not an arbitrarily rescaled value. -/
+@@ -73,9 +81,18 @@
+   change ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map r)).homEquiv _ _ ((TildePullback318.pullbackIso r).hom.app M)).app ⊤
+     (a.val.app (op ⊤) (show Γ(Spec S, ⊤) from 1)) =
+       b.val.app (op ⊤) ((Spec.map r).appTop 1)
+-  rw [map_one]
+-  unfold a b
+-  rw [ModuleTopMorphisms318.ofTop_top_one, ModuleTopMorphisms318.ofTop_top_one]
+-  exact adjoint_at_tilde r M m
++  have ha : a.val.app (op ⊤) (show Γ(Spec S, ⊤) from 1) =
++      (tilde.isoTop (R := S) M).hom m :=
++    ModuleTopMorphisms318.ofTop_top_one _
++  have hb : b.val.app (op ⊤) (show Γ(Spec T, ⊤) from 1) =
++      (tilde.isoTop (R := T) ((ModuleCat.extendScalars r.hom).obj M)).hom
++        ((1 : T) ⊗ₜ[S, r.hom] m) :=
++    ModuleTopMorphisms318.ofTop_top_one _
++  have h1 : (Spec.map r).appTop (1 : Γ(Spec S, ⊤)) = (1 : Γ(Spec T, ⊤)) :=
++    (Spec.map r).appTop.hom.map_one
++  exact (congrArg (fun v => ((Scheme.Modules.pullbackPushforwardAdjunction
++    (Spec.map r)).homEquiv _ _ ((TildePullback318.pullbackIso r).hom.app M)).app ⊤ v)
++      ha).trans ((adjoint_at_tilde r M m).trans
++      (hb.symm.trans (congrArg (fun v : Γ(Spec T, ⊤) => b.val.app (op ⊤) v) h1.symm)))
+ 
+ end SelectedSameAAffinePulledUnitBeta318
+--- r2/SelectedSameAFibreAffineProjection318.lean
++++ r3/SelectedSameAFibreAffineProjection318.lean
+@@ -124,6 +124,7 @@
+   rw [← Spec.map_comp]
+   congr 1
+   apply CommRingCat.hom_ext
++  apply RingHom.ext
+   intro s
+   exact (IsScalarTower.algebraMap_apply k C B s).symm
+ 
+@@ -151,26 +152,28 @@
+   let m := (tilde.isoTop (R := CommRingCat.of C) (M k C)).hom
+   change m ≫ moduleSpecΓFunctor.map (ic ≫ pd) =
+     m ≫ moduleSpecΓFunctor.map (cs ≫ (Scheme.Modules.pushforward f).map ib)
+-  have he : (m ≫ moduleSpecΓFunctor.map (ic ≫ pd)).hom.toAddMonoidHom =
+-      (m ≫ moduleSpecΓFunctor.map (cs ≫ (Scheme.Modules.pushforward f).map ib)).hom.toAddMonoidHom := by
+-    apply KaehlerAdditiveExt318.ext
+-    · intro x
+-      have hb := CanonicalDifferentialSheafMap318.global_image_D (R := k) (S := C) (T := B) x
+-      rw [InvariantTransition318.globalIso_apply] at hb
+-      change pd.val.app (op ⊤) ((moduleSpecΓFunctor.map ic) (m (KaehlerDifferential.D k C x))) =
+-        (moduleSpecΓFunctor.map ib) ((moduleSpecΓFunctor.map cs) (m (KaehlerDifferential.D k C x)))
+-      rw [AffineIntrinsicNormalization318.algebra_D, IntrinsicDifferentialPullback318.map_D,
+-        hb, AffineIntrinsicNormalization318.algebra_D]
++  apply ModuleCat.hom_ext
++  apply Derivation.liftKaehlerDifferential_unique
++  apply Derivation.ext
++  intro x
++  have hb := CanonicalDifferentialSheafMap318.global_image_D (R := k) (S := C) (T := B) x
++  rw [InvariantTransition318.globalIso_apply] at hb
++  change pd.val.app (op ⊤) ((moduleSpecΓFunctor.map ic) (m (KaehlerDifferential.D k C x))) =
++    (moduleSpecΓFunctor.map ib) ((moduleSpecΓFunctor.map cs) (m (KaehlerDifferential.D k C x)))
++  calc
++    _ = (FamilyIntrinsicDifferentials318.D (overK k B)).d
++        (f.appTop ((Scheme.ΓSpecIso (CommRingCat.of C)).inv x)) := by
++      rw [AffineIntrinsicNormalization318.algebra_D]
++      exact IntrinsicDifferentialPullback318.map_D f (overK k B) (overK k C)
++        (over_comp k C B) ⊤ ((Scheme.ΓSpecIso (CommRingCat.of C)).inv x)
++    _ = (FamilyIntrinsicDifferentials318.D (overK k B)).d
++        ((Scheme.ΓSpecIso (CommRingCat.of B)).inv (algebraMap C B x)) := by
+       have hΓ := congrArg (fun g => g x) (Scheme.ΓSpecIso_inv_naturality (r C B))
+       exact congrArg ((FamilyIntrinsicDifferentials318.D (overK k B)).d) hΓ.symm
+-    · intro x w hw
+-      change (m ≫ moduleSpecΓFunctor.map (ic ≫ pd)) (x • w) =
+-        (m ≫ moduleSpecΓFunctor.map (cs ≫ (Scheme.Modules.pushforward f).map ib)) (x • w)
+-      rw [map_smul, map_smul]
+-      exact congrArg (fun v => x • v) hw
+-  apply ModuleCat.hom_ext
+-  apply LinearMap.ext
+-  intro w
+-  exact DFunLike.congr_fun he w
++    _ = _ := by
++      exact ((congrArg (fun v : Γ(CanonicalDifferentialSheafMap318.targetSheaf
++          (R := k) (T := B), ⊤) => (moduleSpecΓFunctor.map ib) v) hb).trans
++        (AffineIntrinsicNormalization318.algebra_D (R := k) (S := B) (algebraMap C B x))).symm
+ 
++end
+ end SelectedSameAFibreAffineProjection318
