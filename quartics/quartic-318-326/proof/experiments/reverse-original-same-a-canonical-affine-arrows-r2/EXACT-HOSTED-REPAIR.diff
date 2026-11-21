@@ -1,0 +1,222 @@
+--- reverse-original-same-a-canonical-affine-arrows-r1/SelectedSameAActualFibreSheafArrows318.lean
++++ reverse-original-same-a-canonical-affine-arrows-r2/SelectedSameAActualFibreSheafArrows318.lean
+@@ -21,6 +21,9 @@
+ namespace SelectedSameAActualFibreSheafArrows318
+ 
+ universe u
++noncomputable section
++set_option backward.isDefEq.respectTransparency.types false
++set_option backward.isDefEq.respectTransparency false
+ 
+ variable {k : Type u} [CommRing k]
+ variable {X A : Scheme.{u}}
+@@ -45,6 +48,7 @@
+   have hk : CommRingCat.ofHom (inc k) ≫ CommRingCat.ofHom (pr k) =
+       𝟙 (CommRingCat.of k) := by
+     apply CommRingCat.hom_ext
++    apply RingHom.ext
+     intro t
+     change (TrivSqZeroExt.inl t : D k).fst = t
+     exact TrivSqZeroExt.fst_inl _ _
+@@ -65,7 +69,7 @@
+   change ρ.appTop (epsilonSection σ) = a.appTop ((Scheme.ΓSpecIso (CommRingCat.of k)).inv
+     (pr k (eps k))) at he
+   rw [he]
+-  have hp : pr k (eps k) = 0 := TrivSqZeroExt.fst_inr _
++  have hp : pr k (eps k) = 0 := TrivSqZeroExt.fst_inr _ _
+   rw [hp, map_zero, map_zero]
+ 
+ abbrev omegaX := FamilyIntrinsicDifferentials318.omega (xOverK σ)
+@@ -99,10 +103,13 @@
+     (fibre_over_k σ ρ a h) ⊤ (epsilonSection σ)
+   change q.app ⊤ ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d (epsilonSection σ)) =
+     (FamilyIntrinsicDifferentials318.D a).d (ρ.appTop (epsilonSection σ)) at hv
+-  rw [epsilon_on_fibre_zero σ ρ a h, map_zero] at hv
++  rw [epsilon_on_fibre_zero σ ρ a h] at hv
++  have hz : (FamilyIntrinsicDifferentials318.D a).d (X := op (⊤ : A.Opens)) 0 = 0 :=
++    AddMonoidHom.map_zero ((FamilyIntrinsicDifferentials318.D a).d (X := op (⊤ : A.Opens)))
++  have hv' := hv.trans hz
+   change ModuleGlobalSections318.ofTop _ ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d
+     (epsilonSection σ)) ≫ q = 0
+-  rw [ModuleTopMorphisms318.ofTop_comp, hv]
++  rw [ModuleTopMorphisms318.ofTop_comp, hv']
+   apply ModuleTopExt318.ext
+   change (ModuleGlobalSections318.ofTop _ 0).val.app (op ⊤) (show Γ(X, ⊤) from 1) = _
+   rw [ModuleTopMorphisms318.ofTop_top_one]
+@@ -110,13 +117,18 @@
+ 
+ include h in
+ theorem composite_zero : left σ ρ ≫ right σ ρ a h = 0 := by
+-  change ((IdentityCotangent318.pullbackUnitIso ρ).inv ≫
+-      (Scheme.Modules.pullback ρ).map (rawLeft σ)) ≫
+-        ((Scheme.Modules.pullbackPushforwardAdjunction ρ).homEquiv _ _).symm
+-          (IntrinsicDifferentialPullback318.map ρ a (xOverK σ) (fibre_over_k σ ρ a h)) = 0
+-  rw [Category.assoc, ← Adjunction.homEquiv_naturality_left_symm, raw_composite_zero σ ρ a h]
+-  -- The actual pullback is additive; only its preservation of zero is used here.
+-  simp only [Adjunction.homEquiv_counit, Functor.map_zero, Limits.zero_comp, Limits.comp_zero]
++  let u : (Scheme.Modules.pullback ρ).obj (unit X) ≅ unit A :=
++    IdentityCotangent318.pullbackUnitIso ρ
++  let p := IntrinsicDifferentialPullback318.map ρ a (xOverK σ) (fibre_over_k σ ρ a h)
++  let adj := Scheme.Modules.pullbackPushforwardAdjunction ρ
++  have hp : rawLeft σ ≫ p = 0 := raw_composite_zero σ ρ a h
++  have hn : (Scheme.Modules.pullback ρ).map (rawLeft σ) ≫ right σ ρ a h =
++      (0 : (Scheme.Modules.pullback ρ).obj (unit X) ⟶ omegaA a) := by
++    change (Scheme.Modules.pullback ρ).map (rawLeft σ) ≫ (adj.homEquiv _ _).symm p = _
++    rw [← Adjunction.homEquiv_naturality_left_symm, hp, Adjunction.homEquiv_counit,
++      Functor.map_zero, Limits.zero_comp]
++  change (u.inv ≫ (Scheme.Modules.pullback ρ).map (rawLeft σ)) ≫ right σ ρ a h = _
++  rw [Category.assoc, hn, Limits.comp_zero]
+ 
+ include h in
+ /-- The actual module complex, with no short exactness postulated. -/
+@@ -126,7 +138,9 @@
+ include h in
+ /-- The very same row viewed in additive sheaves for the genuine H0 boundary.
+ The underlying-sheaf functor is additive; it is not an arbitrary functor input. -/
+-noncomputable def additiveComplex :=
+-  (moduleComplex σ ρ a h).map (SheafOfModules.toSheaf A.ringCatSheaf)
++noncomputable def additiveComplex := by
++  let F : A.Modules ⥤ TopCat.Sheaf AddCommGrpCat.{u} A := SheafOfModules.toSheaf A.ringCatSheaf
++  letI : F.Additive := inferInstanceAs (SheafOfModules.toSheaf A.ringCatSheaf).Additive
++  exact (moduleComplex σ ρ a h).map F
+ 
+ end SelectedSameAActualFibreSheafArrows318
+--- reverse-original-same-a-canonical-affine-arrows-r1/SelectedSameAFibreAffineProjection318.lean
++++ reverse-original-same-a-canonical-affine-arrows-r2/SelectedSameAFibreAffineProjection318.lean
+@@ -26,6 +26,7 @@
+ namespace SelectedSameAFibreAffineProjection318
+ 
+ universe u
++noncomputable section
+ variable (k C B : Type u) [CommRing k] [CommRing C] [CommRing B]
+   [Algebra k C] [Algebra k B] [Algebra C B] [IsScalarTower k C B]
+ 
+@@ -58,7 +59,10 @@
+     (ModuleCat.extendRestrictScalarsAdj (algebraMap C B)).homEquiv _ _ (rightLinear k C B) =
+       CanonicalDifferentialSheafMap318.differentialModuleMap (R := k) (S := C) (T := B) := by
+   ext w
+-  rw [ModuleCat.extendRestrictScalarsAdj_homEquiv_apply, rightLinear_tmul, one_smul] <;> rfl
++  change (ModuleCat.extendRestrictScalarsAdj (algebraMap C B)).homEquiv _ _
++      (rightLinear k C B) (KaehlerDifferential.D k C w) =
++    KaehlerDifferential.map k k C B (KaehlerDifferential.D k C w)
++  rw [ModuleCat.extendRestrictScalarsAdj_homEquiv_apply, rightLinear_tmul, one_smul]
+ 
+ /-- The canonical affine differential map, transposed to the true pullback. -/
+ @[expose] noncomputable def right :
+@@ -86,7 +90,8 @@
+       (rightLinear k C B)
+   simp only [CommRingCat.hom_ofHom] at hh
+   rw [rightLinear_adjoint k C B] at hh
+-  simpa only [CanonicalDifferentialSheafMap318.targetSheaf,
++  simpa only [CanonicalDifferentialSheafMap318.pushedSheaf,
++    CanonicalDifferentialSheafMap318.targetSheaf,
+     CanonicalDifferentialSheafMap318.sourceSheaf, CanonicalDifferentialSheafMap318.baseMap,
+     AffineDifferentialSheaf318.differentialSheaf, tilde.functor, CommRingCat.hom_ofHom,
+     CanonicalDifferentialSheafMap318.moduleToGlobal, Category.assoc,
+@@ -111,11 +116,11 @@
+     ← Functor.map_comp] <;> rfl
+ 
+ abbrev chart (T : Type u) [CommRing T] := Spec (CommRingCat.of T)
+-abbrev over (T : Type u) [CommRing T] [Algebra k T] :
++abbrev overK (T : Type u) [CommRing T] [Algebra k T] :
+     chart T ⟶ chart k := Spec.map (CommRingCat.ofHom (algebraMap k T))
+ 
+ /-- The genuine affines' base triangle follows from the scalar tower. -/
+-theorem over_comp : Spec.map (r C B) ≫ over k C = over k B := by
++theorem over_comp : Spec.map (r C B) ≫ overK k C = overK k B := by
+   rw [← Spec.map_comp]
+   congr 1
+   apply CommRingCat.hom_ext
+@@ -128,12 +133,12 @@
+     (Scheme.Modules.pullback (Spec.map (r C B))).map
+         (AffineIntrinsicNormalization318.algebraIso (R := k) (S := C)).hom ≫
+       IntrinsicDifferentialPullback318.pullbackMap (Spec.map (r C B))
+-        (over k B) (over k C) (over_comp k C B) =
++        (overK k B) (overK k C) (over_comp k C B) =
+     right k C B ≫ (AffineIntrinsicNormalization318.algebraIso (R := k) (S := B)).hom := by
+   let f := Spec.map (r C B)
+   let ic := (AffineIntrinsicNormalization318.algebraIso (R := k) (S := C)).hom
+   let ib := (AffineIntrinsicNormalization318.algebraIso (R := k) (S := B)).hom
+-  let pd := IntrinsicDifferentialPullback318.map f (over k B) (over k C) (over_comp k C B)
++  let pd := IntrinsicDifferentialPullback318.map f (overK k B) (overK k C) (over_comp k C B)
+   let cs := CanonicalDifferentialSheafMap318.sheafMap (R := k) (S := C) (T := B)
+   apply ((Scheme.Modules.pullbackPushforwardAdjunction f).homEquiv _ _).injective
+   rw [Adjunction.homEquiv_naturality_left, Adjunction.homEquiv_naturality_right,
+@@ -157,7 +162,7 @@
+       rw [AffineIntrinsicNormalization318.algebra_D, IntrinsicDifferentialPullback318.map_D,
+         hb, AffineIntrinsicNormalization318.algebra_D]
+       have hΓ := congrArg (fun g => g x) (Scheme.ΓSpecIso_inv_naturality (r C B))
+-      exact congrArg ((FamilyIntrinsicDifferentials318.D (over k B)).d) hΓ.symm
++      exact congrArg ((FamilyIntrinsicDifferentials318.D (overK k B)).d) hΓ.symm
+     · intro x w hw
+       change (m ≫ moduleSpecΓFunctor.map (ic ≫ pd)) (x • w) =
+         (m ≫ moduleSpecΓFunctor.map (cs ≫ (Scheme.Modules.pushforward f).map ib)) (x • w)
+--- reverse-original-same-a-canonical-affine-arrows-r1/SelectedSameAIntrinsicPullbackSquare318.lean
++++ reverse-original-same-a-canonical-affine-arrows-r2/SelectedSameAIntrinsicPullbackSquare318.lean
+@@ -72,7 +72,12 @@
+     IntrinsicDifferentialPullback318.pullbackMap_adjoint]
+   apply UniversalSheafDifferentials318.hom_ext (FamilyIntrinsicDifferentials318.coefficients q)
+   ext W s
+-  rw [IntrinsicDifferentialPullback318.map_D, FamilyRestrictionNormalization318.adjoint_D]
++  change (PD j (j ≫ q) q rfl).val.app W ((FamilyIntrinsicDifferentials318.D q).d s) =
++    (((Scheme.Modules.restrictAdjunction j).homEquiv _ _
++      (FamilyRestrictionNormalization318.iso j q).hom).val.app W)
++      ((FamilyIntrinsicDifferentials318.D q).d s)
++  exact (IntrinsicDifferentialPullback318.map_D j (j ≫ q) q rfl W.unop s).trans
++    (FamilyRestrictionNormalization318.adjoint_D j q W.unop s).symm
+ 
+ private theorem pullback_congr {f g : X ⟶ Y} (e : f = g)
+     (p : X ⟶ Spec R) (q : Y ⟶ Spec R) (hf : f ≫ q = p) (hg : g ≫ q = p) :
+--- reverse-original-same-a-canonical-affine-arrows-r1/SelectedSameAUnitOpenSquare318.lean
++++ reverse-original-same-a-canonical-affine-arrows-r2/SelectedSameAUnitOpenSquare318.lean
+@@ -50,15 +50,21 @@
+   let cR := (Scheme.Modules.pullbackComp r j).inv.app M
+   let eq := (Scheme.Modules.pullbackCongr sq).hom.app M
+   have hj : (e j).inv.app M ≫ (ur j).hom = (ul j).hom := by
+-    rw [← RestrictionPullbackCoherence318.restrict_unit j, ← Category.assoc]
+-    simp only [Iso.inv_hom_id_app, Category.id_comp]
++    have he := RestrictionPullbackCoherence318.restrict_unit j
++    change (e j).hom.app M ≫ (ul j).hom = (ur j).hom at he
++    calc
++      _ = (e j).inv.app M ≫ (e j).hom.app M ≫ (ul j).hom := by rw [he]
++      _ = _ := by
++        rw [← Category.assoc]
++        exact (congrArg (fun f => f ≫ (ul j).hom) ((e j).inv_hom_id_app M)).trans
++          (Category.id_comp _)
+   have hr : cR ≫ (F r).map ((ul j).hom) ≫ (ul r).hom = (ul (r ≫ j)).hom :=
+     PullbackUnitComposition318.inverse_composition r j
+   have hl : (F l).map ((ul f).inv) ≫ cL ≫ (ul (l ≫ f)).hom = (ul l).hom := by
+     change (F l).map ((ul f).inv) ≫
+       (Scheme.Modules.pullbackComp l f).hom.app (unit Y) ≫ (ul (l ≫ f)).hom = _
+     rw [PullbackUnitComposition318.composition l f]
+-    simp only [← Functor.map_comp_assoc, Iso.inv_hom_id, Functor.map_id, Category.id_comp]
++    rw [← Functor.map_comp_assoc, Iso.inv_hom_id, (F l).map_id, Category.id_comp]
+   have hc : (PullbackChartNaturality318.chartNatIso f j l r sq).hom.app M =
+       (PullbackLineFrames318.chartIso f j l r sq M).hom :=
+     congrArg Iso.hom (PullbackChartNaturality318.app_eq f j l r sq M)
+--- reverse-original-same-a-canonical-affine-arrows-r1/SelectedSameAAffinePulledUnitBeta318.lean
++++ reverse-original-same-a-canonical-affine-arrows-r2/SelectedSameAAffinePulledUnitBeta318.lean
+@@ -36,8 +36,11 @@
+         ((tilde.isoTop (R := S) M).hom m) =
+       (tilde.isoTop (R := T) ((ModuleCat.extendScalars r.hom).obj M)).hom ((1 : T) ⊗ₜ[S, r.hom] m) := by
+   have hh := TildeComparison318.global_composite r M ((ModuleCat.extendScalars r.hom).obj M) (𝟙 ((ModuleCat.extendScalars r.hom).obj M))
+-  simp only [Functor.map_id, Category.comp_id] at hh
+-  rw [Adjunction.homEquiv_unit] at hh
++  have hi : (TildePullback318.pullbackIso r).hom.app M ≫
++      (tilde.functor T).map (𝟙 ((ModuleCat.extendScalars r.hom).obj M)) =
++      (TildePullback318.pullbackIso r).hom.app M := by
++    rw [(tilde.functor T).map_id, Category.comp_id]
++  rw [hi, Adjunction.homEquiv_unit] at hh
+   have hv := congrArg (fun q => q m) hh
+   change (PushforwardGlobalSections318.globalIso r (tilde (R := T) ((ModuleCat.extendScalars r.hom).obj M))).hom
+     (((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map r)).homEquiv _ _ ((TildePullback318.pullbackIso r).hom.app M)).app ⊤
+@@ -68,7 +71,8 @@
+     PullbackScalar318.adjoint_unit]
+   apply ModuleTopExt318.ext
+   change ((Scheme.Modules.pullbackPushforwardAdjunction (Spec.map r)).homEquiv _ _ ((TildePullback318.pullbackIso r).hom.app M)).app ⊤
+-    (a.app ⊤ (show Γ(Spec S, ⊤) from 1)) = b.app ⊤ ((Spec.map r).appTop 1)
++    (a.val.app (op ⊤) (show Γ(Spec S, ⊤) from 1)) =
++      b.val.app (op ⊤) ((Spec.map r).appTop 1)
+   rw [map_one]
+   unfold a b
+   rw [ModuleTopMorphisms318.ofTop_top_one, ModuleTopMorphisms318.ofTop_top_one]
