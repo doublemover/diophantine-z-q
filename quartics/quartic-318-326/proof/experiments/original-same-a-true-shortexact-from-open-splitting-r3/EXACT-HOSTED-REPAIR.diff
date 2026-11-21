@@ -1,0 +1,37 @@
+--- r2/SelectedActualAdditiveStalkLocalExact318.lean
++++ r3/SelectedActualAdditiveStalkLocalExact318.lean
+@@ -61,7 +61,7 @@
+     TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} x
+ 
+ include hSite in
+-private instance actualStalkZero (x : X) : (AStalk x).PreservesZeroMorphisms :=
++private theorem actualStalkZero (x : X) : (AStalk x).PreservesZeroMorphisms :=
+   inferInstanceAs ((TopCat.Sheaf.forget AddCommGrpCat.{u} (X : TopCat.{u}) ⋙
+     TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} x).PreservesZeroMorphisms)
+ 
+@@ -71,7 +71,9 @@
+     [∀ i, IsOpenImmersion (j i)]
+     (hCover : ∀ x : X, ∃ (i : I) (y : W i), j i y = x)
+     (hSplit : ∀ i, Nonempty ((S.map (Scheme.Modules.restrictFunctor (j i))).Splitting))
+-    (x : X) : ((additiveRow S).map (AStalk x)).ShortExact := by
++    (x : X) :
++    letI : (AStalk x).PreservesZeroMorphisms := actualStalkZero (X := X) x
++    ((additiveRow S).map (AStalk x)).ShortExact := by
+   obtain ⟨i, y, rfl⟩ := hCover x
+   obtain ⟨b⟩ := hSplit i
+   let Fl := Scheme.Modules.toPresheaf (W i) ⋙ TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} y
+@@ -102,12 +104,14 @@
+     apply (L.exact_iff_mono rfl).mp
+     apply (TopCat.Sheaf.exact_iff_stalkFunctor_map_exact L).2
+     intro x
++    letI : (AStalk x).PreservesZeroMorphisms := actualStalkZero (X := X) x
+     apply ((L.map (AStalk x)).exact_iff_mono (by simp [L])).mpr
+     exact (h x).mono_f
+   · let P := ShortComplex.mk R.g (0 : R.X₃ ⟶ R.X₃) (by simp)
+     apply (P.exact_iff_epi rfl).mp
+     apply (TopCat.Sheaf.exact_iff_stalkFunctor_map_exact P).2
+     intro x
++    letI : (AStalk x).PreservesZeroMorphisms := actualStalkZero (X := X) x
+     apply ((P.map (AStalk x)).exact_iff_epi (by simp [P])).mpr
+     exact (h x).epi_g
+ 
