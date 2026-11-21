@@ -1,0 +1,15 @@
+--- r4/SelectedActualAdditiveStalkLocalExact318.lean
++++ r5/SelectedActualAdditiveStalkLocalExact318.lean
+@@ -88,7 +88,11 @@
+   let K := TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} (j i y)
+   let E₀ : F ⋙ G ≅ Scheme.Modules.toPresheaf X :=
+     SheafOfModules.toSheafCompSheafToPresheafIso X.ringCatSheaf
+-  let E : F ⋙ (G ⋙ K) ≅ Fr := (Functor.associator F G K).symm ≪≫ isoWhiskerRight E₀ K
++  let E : F ⋙ (G ⋙ K) ≅ Fr := (Functor.associator F G K).symm ≪≫ Functor.isoWhiskerRight E₀ K
++  letI : F.PreservesZeroMorphisms := inferInstanceAs (actualAdditive X).PreservesZeroMorphisms
++  letI : (G ⋙ K).PreservesZeroMorphisms := actualStalkZero (X := X) (j i y)
++  letI : (F ⋙ (G ⋙ K)).PreservesZeroMorphisms :=
++    Functor.preservesZeroMorphisms_comp F (G ⋙ K)
+   have h' := ShortComplex.shortExact_of_iso (S.mapNatIso E).symm h
+   simpa only [additiveRow, F, G, K, AStalk, ← ShortComplex.map_comp] using h'
+ 
