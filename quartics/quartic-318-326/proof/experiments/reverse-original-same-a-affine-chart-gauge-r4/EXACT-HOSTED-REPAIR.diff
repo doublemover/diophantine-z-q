@@ -1,0 +1,11 @@
+--- r3/SelectedSameAAffineChartGauge318.lean
++++ r4/SelectedSameAAffineChartGauge318.lean
+@@ -50,6 +50,8 @@
+ variable (ρ : C →ₐ[k] B) (s₁ s₂ : B →ₐ[k] C)
+ variable (h₁ : ∀ a, ρ (s₁ a) = a) (h₂ : ∀ a, ρ (s₂ a) = a)
+ variable (hker : RingHom.ker ρ.toRingHom = Ideal.span ({epsilonIn k C} : Set C))
++
++include ρ h₁ h₂ hker
+ 
+ /-- Existence and uniqueness for the actual first-order difference, before assuming Leibniz. -/
+ theorem existsUnique_differenceCoefficient (a : B) :
