@@ -8,17 +8,17 @@ sixteen cells, seventeenth pilot and three selected new support primes
 are local conditions on one actual cover.
 
 At an inherited nonmoving incidence the exact original (w_p^2)
-supplies an actual (C_2) point. Its elliptic projection (Q_p)
-has (x=Dw_p^2) and Kummer class (alpha_p). Distinct nonzero
+supplies an actual (C_2) point. Its elliptic projection \(Q_p\)
+has \(x=Dw_p^2\) and Kummer class \(\alpha_p\). Distinct nonzero
 root residues ensure this is an ordinary affine point with all
 three relevant linear factors nonzero. The allowable raw local
 4-classes are exactly the two choices for an image point over
 (pm Q_p):
-(kappa_4(Q_p)+jlanglealpha_pangle). To check this directly,
-(jkappa_2(Q_p)=kappa_4(2Q_p)) and (3Q_pequiv-Q_p) modulo
+\(\kappa_4(Q_p)+jlanglealpha_p\rangle\). To check this directly,
+\(jkappa_2(Q_p)=\kappa_4(2Q_p)\) and (3Q_pequiv-Q_p) modulo
 4. A Kummer 4-class with this value presents the local cover
 as multiplication by 4 followed by a translation, so it has a
-point over the stated sign of (Q_p). Use of both signs avoids
+point over the stated sign of \(Q_p\). Use of both signs avoids
 the harmless convention sign. Isomorphism of its projection
 to the literal 2-cover is over (E_D): the literal squared
 parameter is read by (x/D), and deck ambiguity cannot change it.
@@ -26,12 +26,12 @@ This argument does not assert both signs of (w) occur in the
 image of a fixed 4-cover projection.
 
 The local difference before (j) is
-(M_p=kappa_2(E_D(mathbf Q_p)[2])+langlealpha_pangle);
+(M_p=\kappa_2(E_D(\mathbf Q_p)[2])+langlealpha_p\rangle);
 the first summand is exactly the coefficient kernel. The same
 rational (t)-root (T) changes the normalized target to
-(kappa_4(Q_p+T)) modulo (jlanglealpha_pangle).
-The normalized mark (alpha_p+kappa_2(T)) belongs to (M_p),
-so it annihilates every new dual tester in (M_p^perp).
+\(\kappa_4(Q_p+T)\) modulo \(jlanglealpha_p\rangle\).
+The normalized mark \(\alpha_p+\kappa_2(T)\) belongs to \(M_p\),
+so it annihilates every new dual tester in \(M_p^perp\).
 All prescribed targets remain ordinary Kummer lifts. Thus
 their pairing functional still kills rational torsion and the
 mark, and the primary Poitou–Tate and pointed Smith-cocycle
