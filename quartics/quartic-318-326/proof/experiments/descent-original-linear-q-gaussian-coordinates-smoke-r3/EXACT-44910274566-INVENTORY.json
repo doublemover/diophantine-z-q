@@ -1,0 +1,154 @@
+{
+  "all_packet_modules_compiled": false,
+  "audit": {
+    "command": [
+      "lean",
+      "-j1",
+      "-M",
+      "6144",
+      "-Ddebug.skipKernelTC=false",
+      "-R",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-gaussian-coordinates-smoke-r2-sb19cd3233dc9d987",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-gaussian-coordinates-smoke-r2-sb19cd3233dc9d987/ExperimentAudit.lean"
+    ],
+    "declarations": 34,
+    "exit_code": 0,
+    "log_sha256": "fb53b6cd4fae889de1e448609b1ce2d2e79591e40cd173ac6753a91d4a1c5129",
+    "modules": [
+      "ActualGaussianDegreeOneGenerator318"
+    ],
+    "seconds": 2.271,
+    "status": "audit_pass",
+    "timed_out": false
+  },
+  "baseline_key": "859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d",
+  "baseline_snapshot": "768c64ba67b1e1901c7492948ef3b1e727f49e38641664e00d435d45d8bc96a8",
+  "checker_sha256": "a27802ce62f2cf6f227f65ff57b51b7e587588c88c92e54cd1b8c437d7396c8d",
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 1,
+    "compiler_error": 1
+  },
+  "deadline_epoch": 1795272326,
+  "dependency_ready_inventory_complete": true,
+  "experiment_artifact_reuse": false,
+  "head_sha": "08a1e714576b6139c45010cde0cfae0c885242f6",
+  "module_seconds": 180,
+  "modules": {
+    "ActualGaussianDegreeOneGenerator318": {
+      "artifacts": {
+        ".ir": "146d1ada2e4353d71404147e30164d67f444041a6713a008b637321b073a023b",
+        ".olean": "e9998e82e9372c85233fb9f0c18c7bde39e9cd36ad93422f30703a3b804ecf4d",
+        ".olean.private": "b3d5ad672a962ac96cf381bf5695439e3f4a995c4b110594ff8cc891268bacf9",
+        ".olean.server": "298abaf859a1c741923ac69c8a0813ddf3d80519f7e55c7a8a7e588a7989fbe8"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-gaussian-coordinates-smoke-r2",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-gaussian-coordinates-smoke-r2-sb19cd3233dc9d987/quarantine/ActualGaussianDegreeOneGenerator318/ActualGaussianDegreeOneGenerator318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-gaussian-coordinates-smoke-r2/ActualGaussianDegreeOneGenerator318.lean"
+      ],
+      "dependency_artifacts": {},
+      "exit_code": 0,
+      "imports": [
+        "Mathlib"
+      ],
+      "log_sha256": "0ce330cc22469f7110cf7f67a0fbdb76d87cba7df9d4aea5349fbe640365aeaa",
+      "occurrence": "descent-original-linear-q-gaussian-coordinates-smoke-r2/ActualGaussianDegreeOneGenerator318",
+      "root_causes": [],
+      "seconds": 3.624,
+      "source_sha256": "2f9132f31809a00720c8d952b76d45de068f63c2aec89e57b4c54d5a71595d58",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianResidueOrbit318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-gaussian-coordinates-smoke-r2",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-gaussian-coordinates-smoke-r2-sb19cd3233dc9d987/quarantine/ActualGaussianResidueOrbit318/ActualGaussianResidueOrbit318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-gaussian-coordinates-smoke-r2/ActualGaussianResidueOrbit318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualGaussianDegreeOneGenerator318"
+      ],
+      "log_sha256": "c2207a39420ccdfbc8cc421d572af8276d1aa2b5639951b458be10e3e62baf37",
+      "occurrence": "descent-original-linear-q-gaussian-coordinates-smoke-r2/ActualGaussianResidueOrbit318",
+      "root_causes": [
+        "ActualGaussianResidueOrbit318"
+      ],
+      "seconds": 2.972,
+      "source_sha256": "827620be48d1684d803f6dacb3433961e6c387fcecfbc4d8da5201e9b8f9e813",
+      "status": "compiler_error",
+      "timed_out": false
+    },
+    "ActualLinearQGaussianResidueCoordinates318": {
+      "blocker_statuses": {
+        "ActualGaussianResidueOrbit318": "compiler_error"
+      },
+      "direct_blockers": [
+        "ActualGaussianResidueOrbit318"
+      ],
+      "imports": [
+        "ActualGaussianResidueOrbit318"
+      ],
+      "occurrence": "descent-original-linear-q-gaussian-coordinates-smoke-r2/ActualLinearQGaussianResidueCoordinates318",
+      "root_causes": [
+        "ActualGaussianResidueOrbit318"
+      ],
+      "source_sha256": "1c0e4ba8379e5e2e9e2e8d4c3ec4a6a862abb52d5828a233b916bf7b5508f5bf",
+      "status": "blocked_by_import"
+    }
+  },
+  "new_source_acceptance": false,
+  "order": [
+    "ActualGaussianDegreeOneGenerator318",
+    "ActualGaussianResidueOrbit318",
+    "ActualLinearQGaussianResidueCoordinates318"
+  ],
+  "packet": "descent-original-linear-q-gaussian-coordinates-smoke-r2",
+  "packet_acceptance": false,
+  "packet_sha256": "aec21deeab9600d4693711580b45cabbc60ef4c354ac5d8cc7c44adf64b67354",
+  "production_checker_sha256": "4abfb411e506170329f1a8b7d982ff05278b90c9bc2980b0781c58be9e39c96f",
+  "request_sha256": "bdd9acbb06130a4cdbfb1402607f421723aeb88a9e9c3204241f959610503a04",
+  "requested_source_commit": "3f22a0253111e48d477c683ef4c63bad146b879c",
+  "requested_source_tree": "934473d72df8b741dae22014c34ef810fafe6b75",
+  "run_id": "44910274566",
+  "schema": 2,
+  "scope": "Diagnostic dependency-ready sweep only; ordinary full packet audit remains required",
+  "selected_dependency_ready_inventory_complete": true,
+  "selection": {
+    "intake_sha256": "aec21deeab9600d4693711580b45cabbc60ef4c354ac5d8cc7c44adf64b67354",
+    "packet": "descent-original-linear-q-gaussian-coordinates-smoke-r2",
+    "selected_order": [
+      "ActualGaussianDegreeOneGenerator318",
+      "ActualGaussianResidueOrbit318",
+      "ActualLinearQGaussianResidueCoordinates318"
+    ],
+    "selection_sha256": "b19cd3233dc9d9872dc5e36b52a0f5e4c16386d2a7ff765e3c1c3e765af15598",
+    "targets": [
+      "ActualLinearQGaussianResidueCoordinates318"
+    ]
+  },
+  "status": "INVENTORY_RECORDED",
+  "strict_flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "verified_baseline_modules": {}
+}
