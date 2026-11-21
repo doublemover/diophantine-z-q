@@ -1,0 +1,70 @@
+# The first-arm mark can be read by a quadratic character in a smaller CM field
+
+For the original first balanced arm, the norm-one generator of the **good** marked CM ideal lies in the degree-four CM subfield $\mathbf Q(\sqrt3,\sqrt{D/17})$. In that field a single old helper gives an explicit unramified quadratic character distinguishing the two possible mark classes. This does not contradict the order-sixteen bound in the larger field: the ideal and the character are used in a different field before extension. The resulting aggregate only needs **unsigned** intersection parities. No numerical original discriminant, aggregate value, trace or rational point is asserted.
+
+## 1. Descent of the actual good norm-one generator
+
+Keep $D=-n$ fundamental, $n\equiv23\bmod24$, with the actual original first arm $n=\beta q_0\prod I_i$, $u=1,v=\theta$ and no repair prime. Write
+$$
+ L=\mathbf Q(\sqrt3,\sqrt{17},\sqrt{D/17}),\qquad
+ J=\mathbf Q(\sqrt3,\sqrt{D/17}),\qquad E=\mathbf Q(\sqrt3).
+$$
+Let $c$ denote the ambient complex conjugation; in the displayed generators of $L$ it only negates $\sqrt{D/17}$. Let $\tau$ be the automorphism of $L/K(\sqrt3)$ negating $\sqrt{17}$, with $K=\mathbf Q(\sqrt D)$. Thus it also negates $\sqrt{D/17}$. The product $\sigma=c\tau$ only negates $\sqrt{17}$, and its fixed field is exactly $J$.
+
+Let $U_{\rm good}\in L^\times$ be the actual norm-one element obtained by deleting the first two prime components from the level-48 coherent root product: divide by $\alpha/\bar\alpha$ with $\alpha$ supported only at 2 and 3, as in the exact ideal-recovery theorem. This leaves the modeled residue phases at every odd comparison prime unchanged, since the removed factor reduces to $+1$ there. Its fractional ideal $\mathfrak U_{\rm good}$ has the known oriented good exponents. In particular above $p>3$ the exponent is the absolute ramification degree times
+$$
+ \sum_{\chi_{17}=-1} I_{\mathfrak a}
+ - \sum_{\chi_{17}=+1} I_{\mathfrak a},
+$$
+with $I_{\mathfrak a}$ the actual marked intersection valuation at the fixed target $T=(3+2\sqrt3,2(3+2\sqrt3))$.
+
+The restriction of $\tau$ to the genus subfield $K(\sqrt{17})$ is its nontrivial automorphism. Any extension to the CM orbit field preserving $K(\sqrt3)$ acts on the level orbit by a class with $\chi_{17}=-1$. It fixes $T$, interchanges the two genus halves, and carries the entire intersection configuration at one place to the other with the same term multiplicities. Consequently $\tau(\mathfrak U_{\rm good})=\mathfrak U_{\rm good}^{-1}$: this holds at every good place by the exact signed formula, and at 2 and 3 because the exponents were removed. Also $c(\mathfrak U_{\rm good})=\mathfrak U_{\rm good}^{-1}$ since $U_{\rm good}\bar U_{\rm good}=1$. Therefore $\sigma$ fixes the ideal. The ratio $\sigma(U_{\rm good})/U_{\rm good}$ is a global norm-one unit, so it is $\pm1$ (the norm-one condition forces all complex absolute values to be one, and $\mu(L)=\{\pm1\}$).
+
+The minus sign is impossible. It would give $U_{\rm good}=\sqrt{17}\,V$ with $V\in J$. At each $\mathfrak P\mid17$ in $L$, the field $J$ is unramified over $\mathbf Q_{17}$ (both defining radicands are units), and $L/J$ has degree two and ramification index two. Thus the valuation of $\sqrt{17}\,V$ at $\mathfrak P$ is odd. The established exact 17-parity theorem gives even exponent there. We conclude
+$$
+           U_{\rm good}\in J^\times,\qquad
+           N_{J/E}(U_{\rm good})=1.
+$$
+In particular the exact fractional ideal $(U_{\rm good})_J$ is obtained by descending good exponents at unramified places of $L/J$, and dividing them by two at 17. Both residue signs at the original comparison primes are unchanged: this is the very same element, not an arbitrary norm from $L$.
+
+For direct generator recovery the trace-minimum method is now degree four. In the integral tensor basis from discriminants $12,D/17$ (coprime), the rational coefficient coordinates on $1,\sqrt3,\sqrt{D/17},\sqrt{3D/17}$ have trace Gram
+$$
+ 4\,\operatorname{diag}(1,3,n/17,3n/17).
+$$
+On the exact fractional ideal $(U_{\rm good})_J$ the only shortest vectors are $\pm U_{\rm good}$ with squared norm 4: multiply by its norm-one generator and use the arithmetic-geometric mean of the four embedding absolute squares for a nonzero algebraic integer. Equality forces a unit with every absolute value one, hence $\pm1$. The full ideal, not just its parity, is needed for this lattice route.
+
+## 2. The same relative marking relation in $J$
+
+The field $E$ has ordinary class number one by Minkowski's bound $\sqrt{12}/2<2$. It contains all real comparison residues. The primes of $E$ ramified in $J$ are exactly those above the rational primes of $n/17$: the radicand $D/17$ is a square at 2 and 3, is a unit at 17, and has odd valuation at all those remaining rational discriminant primes. At each of them the extension of residue fields is trivial and $\sqrt{D/17}$ is a uniformizer. Thus the total relative ramified ideal is principal, generated by $\sqrt{D/17}$. Put
+$$
+ \mathfrak B_J=\prod_{p\mid\beta/17}\ \prod_{\mathfrak p\mid p\text{ in }J}\mathfrak p .
+$$
+Take a fractional ideal $\mathfrak b_J$ supported on at most one member of each $c$-pair and with $(U_{\rm good})_J=\mathfrak b_J/\bar{\mathfrak b}_J$. Choose it with no support at relative ramified primes (their norm-one orders vanish). Hilbert 90 in $J/E$ writes $U_{\rm good}=A/\bar A$ with $A\in J^\times$. The ideal $(A)/\mathfrak b_J$ is $c$-invariant, hence is the extension of an ideal of $E$ times powers of the relative ramified primes, with their exponents taken modulo two. At any of those primes $\mathfrak p$, reduction of $U_{\rm good}$ is $(-1)^{v_{\mathfrak p}(A)}$ since $c$ fixes the residue and negates the uniformizer.
+
+Here all primes of $n/17$ split in the fixed CM field $\mathbf Q(\sqrt{-3})$ (including $q_0\equiv7\bmod24$), so the earlier no-collision phase formula at all of them applies. In the exact selected Selmer basis the first valuation parity of the rational quarter is a constant torsion bit plus its mark bit times the $\beta$-indicator; the constant is the $q_0$ comparison bit since $q_0\nmid\beta$. This is the same residue phase in $J$: the comparison property was established on $U_{\rm good}$ in $L$ and reduction into an extension of residue fields preserves the two signs. The valuation pattern of $A$ is thus a constant plus the lower marked set $\beta/17$. Removing the principal total ramified product and the principal $E$ ideal gives
+$$
+ [\mathfrak b_J]=1\quad\text{if the mark bit is zero},\qquad
+ [\mathfrak b_J]=[\mathfrak B_J]\quad\text{if it is one}.
+$$
+In particular the smaller-field determinant detects the **same** rational quarter parity up to its permitted rational torsion correction.
+
+## 3. An explicit quadratic detector from one literal helper
+
+Choose one actual old helper $I$ incident to the 17-column, so $(17/I)=-1$, $I\equiv1\bmod24$ and $I\nmid\beta$. Such a helper exists in either original three/four-helper array: the masks are $(3,5,9)$ or $(3,5,9,65)$ with the low bit at 17. Also $(\beta/I)=+1$, since the actual global mark has valuation pair $(0,0)$ at $I$ and the literal local Kummer image of the four rational torsion classes has distinct valuation pairs. Thus the mark is the trivial local squareclass at $I$.
+
+The prime $I$ splits in $E$. As $\mathrm{Cl}(E)=1$, either prime has an integral generator $t_0=a+b\sqrt3$ with $N_{E/\mathbf Q}(t_0)=I$ (the norm cannot be $-I$ since $a^2-3b^2$ reduces to a square modulo 3 and $I\equiv1\bmod3$). At the unique dyadic place of $E$, its norm is a square in $\mathbf Q_2^\times$. A norm-square element in a quadratic local extension has a rational squareclass representative: divide by a rational square root of its norm, write the resulting norm-one element as $x/\bar x$ by Hilbert 90, and observe $x/\bar x$ has the class of $N(x)$. The rational local squareclasses modulo the kernel $\{1,3\}$ in $\mathbf Q_2(\sqrt3)$ can be represented by $1,2,5,10$. The unramified subgroup of these is $\{1,5\}$, since $\mathbf Q_2(\sqrt5)$ is unramified and $\mathbf Q_2(\sqrt3)$ is ramified. The unit $\epsilon=2+\sqrt3=(1+\sqrt3)^2/2$ has class 2. Therefore choose $t=t_0$ or $t_0\epsilon$ so its dyadic Kummer class is unramified. The norm remains $I$.
+
+The extension $J(\sqrt t)/J$ is unramified at all finite primes. At dyadic primes this is the just-proved local condition after base change. Away from $I$ at odd primes $t$ is a unit. At the selected $E$-prime over $I$ its order one becomes order two in the ramified extension $J/E$, so after dividing a uniformizer square it too is a unit; the other branch already is a unit. There are no real places of $J$. Its quadratic Artin character $\chi_t$ on $\mathrm{Cl}(J)$ distinguishes the marked class:
+$$
+ \chi_t(\mathfrak B_J)
+   =\prod_{p\mid\beta/17}\left(\frac{N_{E/\mathbf Q}t}{p}\right)
+   =\left(\frac{\beta/17}{I}\right)
+   =-1 .
+$$
+In the first equality each genuine $p$ splits in $E$ and the two relative ramified primes have the original residue field $\mathbf F_p$, so the product of their two unit symbols is the rational norm symbol. In the second equality all primes are $1\bmod4$ and quadratic reciprocity applies. This proves the extension is nontrivial as well. Pulling this character up to $L$ via the norm does not detect $\mathfrak B_L$: the latter is the extension of $\mathfrak B_J$, and norm of that extension is its square. The previously computed minimal order in $\mathrm{Cl}(L)$ is unaffected.
+
+## 4. The unsigned good aggregate that remains
+
+For each conjugate split pair in $J/E$ choose either prime. The two $\chi_t$ values agree (the character comes from $E$), so evaluate $\chi_t(\mathfrak b_J)$ by its factors each to the **parity** of the good ideal exponent there. At good $p\ne17$ the surviving primes are unramified in $L/J$ and in $L/\mathbf Q$; ramified $p\mid n,\ p\ne17$ give no signed contribution by the earlier no-collision or inertia argument. Since the unramified intersection lengths are integers, this exponent modulo two is the sum of the ordinary unsigned marked lengths there: the genus sign is immaterial. No absolute Weil orientation is needed. At 17 the exponent in $J$ is half the known even exponent in $L$; for the exact first-arm helpers the unsigned positive-$k$ representation parity gives precisely that remaining bit. At the chosen $E$-prime over 17, the residue degree is two, so $\chi_t=(I/17)=-1$ there by the finite-field norm. Thus this ramified component can actually enter the detector, but requires only the positive-$k$ parity.
+
+At a good split prime of $E$ the individual character test is a quadratic residue of $t=a+b\sqrt3$ in the chosen residue root; at a good inert prime of $E$ it is the rational Legendre symbol $(I/p)$ by the finite-field norm. The computation is therefore a product of explicit quadratic residue signs weighted by unsigned intersection parities and the special 17 bit. It is not yet evaluated on a numerical admissible input; neither the lattice result nor this character supplies the intersection aggregate. No rank or rational point follows without that computation or an independent producer.
