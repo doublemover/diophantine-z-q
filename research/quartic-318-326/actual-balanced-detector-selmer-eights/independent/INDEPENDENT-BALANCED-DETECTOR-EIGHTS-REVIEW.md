@@ -1,0 +1,11 @@
+# Independent review: one final prime keeps both marked two-Selmer eights
+
+**PASS** for the exact author manifest `2aba4b0f33fef90976d2319160a84c81338ac33845d6f7d0b1f3df0b5364b112` and paper `4b2d39bf6b4f5e9dda8e33482c723dfba02569f8a0e285c005c646aa35d5fe6e`. I checked the manifest and the finite arithmetic replay byte for byte, the previously published companion paper `21c692023d5085335ff0ff4a31a943906acd27dc44549560fe63e2f86431fd9f`, and the stated generic native endpoints by exact source.
+
+For either original detector phase, appending either divisor of the same (	heta) leaves the old deleted sharp core unchanged when the side has trivial aggregate symbols on the old rows. A shared repair prime prescribed by (r\equiv u^{-1}\bmod 24\beta) fixes the aggregate symbols for both sides. Its two diagonal rows agree because their difference is the character of the **whole** (	heta) at (r), equal to one by quadratic reciprocity; the individual reverse-direction signs need not be one. The common repair pivot can thus be chosen once by Schur complement. The remaining two side supports are disjoint and each extra diagonal is controlled by a unique residue of the same (q_0); no symmetry of off-diagonal entries or independent (q_0)'s is assumed. The finite replay includes both asymmetric deleted cores and a genuine reciprocity test with two negative reverse individual signs.
+
+The exact conclusion is stronger than preserving a formal kernel vector: the full (L\beta=0) and unchanged support symbols give actual local Kummer points on arbitrary finite prime lists via the pinned generic support theorem. The original residue conditions supply the exact dyadic and triadic rows, and actual real/good rows complete the literal mark. Thus using the same ((\beta,1)) mark, the exact all-place result applies to both cardinalities, each eight. Their relative twist is still the one original (	heta).
+
+This is an existential re-selection for a fixed actual detector when its companion support is given, not one newly produced numeric detector, preserved historical auxiliaries, a useful absolute conductor bound, a rank lower bound, or a marked rational point.
+
+Signed: independent exact mathematical and replay review, 2026-11-21.
