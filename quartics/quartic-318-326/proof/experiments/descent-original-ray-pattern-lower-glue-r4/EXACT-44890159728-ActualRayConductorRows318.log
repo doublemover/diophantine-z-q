@@ -1,0 +1,39 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r3/ActualRayConductorRows318.lean:37:0: error: Not a definitional equality: the left-hand side
+  ↑((digits W E hW) (b, x))
+is not definitionally equal to the right-hand side
+  ↑b + W * ↑x
+
+Note: This theorem is exported from the current module. This requires that all definitions that need to be unfolded to prove this theorem must be exposed.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r3/ActualRayConductorRows318.lean:107:58: error: unsolved goals
+g : ℕ → ℕ → ℝ
+F W E : ℕ
+hW : 0 < W
+K : Fin W → Fin W → ℝ
+e : Fin W × Fin E ≃ Fin (W * E) := digits W E hW
+G : Fin (W * E) → Fin (W * E) → ℝ := fun U V => K (e.symm U).1 (e.symm V).1 * g ((↑U + 1) % F) (↑V % F)
+b c : Fin W
+x y : Fin E
+⊢ K b c * g ((↑b + W * ↑x + 1) % F) ((↑c + W * ↑y) % F) = K b c * g ((↑b + 1 + W * ↑x) % F) ((↑c + W * ↑y) % F)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r3/ActualRayConductorRows318.lean:117:15: error: `simp` made no progress
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r3/ActualRayConductorRows318.lean:110:40: warning: This simp argument is unused:
+  digits_apply_positive
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Equiv.symm_apply_apply, e, digits_apply, fold]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-ray-pattern-lower-glue-r3/ActualRayConductorRows318.lean:158:13: error: unsolved goals
+ι : Type u_1
+S : Finset ι
+g : ℕ → ℕ → ℝ
+F W : ℕ
+hW : 0 < W
+hF : 0 < F
+b c a z : ι → ℕ
+n m : ℕ
+A : ℝ
+hval : ∀ (i j : ℕ), 0 ≤ g i j ∧ g i j ≤ A
+E : ℕ := W.lcm F / W
+f : ι → ℕ → ℕ → ℝ := fun j => fold g F W (b j) (c j)
+H : ι → ℝ := fun j => rectangle (f j) (a j) (z j) n m - ↑n * ↑m * mean (f j) E
+⊢ ((E = W.lcm F / W ∨ ↑n + ↑m = 0) ∨ A = 0) ∨ S = ∅
