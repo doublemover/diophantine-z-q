@@ -1,0 +1,96 @@
+module
+public import IntrinsicAffineSectionEquiv318
+public import IntrinsicChartNaturality318
+public section
+noncomputable section
+open AlgebraicGeometry CategoryTheory Opposite
+
+namespace SelectedIntrinsicGlobalToAffine318
+
+universe u
+variable {Y : Scheme.{u}} {R S : Type u} [CommRing R] [CommRing S] [Algebra R S]
+variable (j : Spec (CommRingCat.of S) ⟶ Y) [IsOpenImmersion j]
+variable (p : Y ⟶ Spec (CommRingCat.of R))
+variable (h : j ≫ p = Spec.map (CommRingCat.ofHom (algebraMap R S)))
+
+abbrev sectionArrow : op (⊤ : Y.Opens) ⟶ op (j ''ᵁ ⊤) :=
+  (homOfLE (show j ''ᵁ ⊤ ≤ ⊤ from le_top)).op
+
+/-- Pull back the original global scalar to the actual affine ring. -/
+@[expose] def restrictRegular : Γ(Y,⊤) →+* S :=
+  (j.appTop ≫ (Scheme.ΓSpecIso (CommRingCat.of S)).hom).hom
+
+abbrev chartScalar (a : S) : Γ(Y,j ''ᵁ ⊤) :=
+  (j.appIso ⊤).inv ((Scheme.ΓSpecIso (CommRingCat.of S)).inv a)
+
+theorem restrictRegular_norm (a : Γ(Y,⊤)) :
+    Y.presheaf.map (sectionArrow j) a = chartScalar j (restrictRegular j a) := by
+  have hh : Y.presheaf.map (sectionArrow j) ≫ (j.appIso ⊤).hom = j.appTop := by
+    rw [Scheme.Hom.appIso_hom',Scheme.Hom.map_appLE]
+    change j.appTop ≫ (Spec (CommRingCat.of S)).presheaf.map (𝟙 (op ⊤)) = j.appTop
+    rw [Functor.map_id,Category.comp_id]
+  apply (ConcreteCategory.bijective_of_isIso ((j.appIso ⊤).hom)).injective
+  change (j.appIso ⊤).hom (Y.presheaf.map (sectionArrow j) a) =
+    (j.appIso ⊤).hom ((j.appIso ⊤).inv ((Scheme.ΓSpecIso (CommRingCat.of S)).inv
+      ((Scheme.ΓSpecIso (CommRingCat.of S)).hom (j.appTop a))))
+  rw [Iso.inv_hom_id_apply,Iso.hom_inv_id_apply]
+  exact congrArg (fun f => f a) hh
+
+/-- Restrict the actual global intrinsic differential to the actual open
+immersion, then identify that restriction with its ordinary Kähler element. -/
+@[expose] def restrict :
+    Γ(FamilyIntrinsicDifferentials318.omega p,⊤) →+ KaehlerDifferential R S :=
+  (IntrinsicAffineSectionEquiv318.equivalence j p h).symm.toAddMonoidHom.comp
+    ((FamilyIntrinsicDifferentials318.omega p).presheaf.map (sectionArrow j)).hom
+
+theorem restrict_norm (ω : Γ(FamilyIntrinsicDifferentials318.omega p,⊤)) :
+    IntrinsicChartSections318.sectionMap j p h (restrict j p h ω) =
+      (FamilyIntrinsicDifferentials318.omega p).presheaf.map (sectionArrow j) ω := by
+  rw [← IntrinsicAffineSectionEquiv318.apply_eq]
+  exact (IntrinsicAffineSectionEquiv318.equivalence j p h).apply_symm_apply _
+
+/-- Ordinary differentiation on the same affine chart is literally
+restriction of the global intrinsic derivation. -/
+theorem restrict_D (a : Γ(Y,⊤)) :
+    restrict j p h ((FamilyIntrinsicDifferentials318.D p).d a) =
+      KaehlerDifferential.D R S (restrictRegular j a) := by
+  apply (IntrinsicAffineSectionEquiv318.sectionMap_bijective j p h).1
+  rw [restrict_norm,IntrinsicChartSections318.section_D,← restrictRegular_norm j a]
+  exact ((FamilyIntrinsicDifferentials318.D p).d_map (sectionArrow j) a).symm
+
+theorem restrict_smul (a : Γ(Y,⊤)) (ω : Γ(FamilyIntrinsicDifferentials318.omega p,⊤)) :
+    restrict j p h (a • ω) = (restrictRegular j a) • restrict j p h ω := by
+  apply (IntrinsicAffineSectionEquiv318.sectionMap_bijective j p h).1
+  rw [restrict_norm,IntrinsicChartSections318.section_smul,← restrictRegular_norm j a,restrict_norm]
+  exact (FamilyIntrinsicDifferentials318.omega p).val.map_smul (sectionArrow j) a ω
+
+section Nested
+variable {T : Type u} [CommRing T] [Algebra R T]
+variable (f : S →ₐ[R] T) [IsOpenImmersion (Spec.map (CommRingCat.ofHom f.toRingHom))]
+variable (hT : (Spec.map (CommRingCat.ofHom f.toRingHom) ≫ j) ≫ p =
+  Spec.map (CommRingCat.ofHom (algebraMap R T)))
+
+/-- The compact section restricted directly to the actual smaller chart
+equals the universal differential image of its original chart restriction. -/
+theorem restrict_nested (ω : Γ(FamilyIntrinsicDifferentials318.omega p,⊤)) :
+    restrict (Spec.map (CommRingCat.ofHom f.toRingHom) ≫ j) p hT ω =
+      AlgHomDifferential318.map f (restrict j p h ω) := by
+  let k := Spec.map (CommRingCat.ofHom f.toRingHom)
+  let A := (FamilyIntrinsicDifferentials318.omega p).presheaf
+  let i := (homOfLE (OpenChartSections318.imageLE k j)).op
+  have hi : sectionArrow (k ≫ j) = sectionArrow j ≫ i := Subsingleton.elim _ _
+  apply (IntrinsicAffineSectionEquiv318.sectionMap_bijective (k ≫ j) p hT).1
+  calc
+    _ = A.map (sectionArrow (k ≫ j)) ω := restrict_norm (k ≫ j) p hT ω
+    _ = A.map i (A.map (sectionArrow j) ω) := by
+      rw [hi]
+      exact CategoryTheory.Functor.map_comp_apply _ _ _ _
+    _ = A.map i (IntrinsicChartSections318.sectionMap j p h (restrict j p h ω)) := by
+      rw [restrict_norm]
+    _ = _ := IntrinsicChartNaturality318.section_restrict f j p h hT (restrict j p h ω)
+
+end Nested
+end SelectedIntrinsicGlobalToAffine318
+
+#print axioms SelectedIntrinsicGlobalToAffine318.restrict_D
+#print axioms SelectedIntrinsicGlobalToAffine318.restrict_nested
