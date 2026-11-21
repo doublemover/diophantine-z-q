@@ -1,0 +1,106 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-smallplace-literal-r2/ActualLinearQSmallPlaceLiteral318.lean:163:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  padicValRat p (weight c u A q)
+in the target expression
+  -B < padicValRat p (weights c u A q ((fun i => i) ⟨0, ⋯⟩))
+
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : ℕ → ℚ
+c u A q : ℚ
+hc : c ≠ 0
+hu : u ≠ 0
+hA : A ≠ 0
+hq : q ≠ 0
+huv : padicValRat p u = 0
+hqv : padicValRat p q = 0
+hdeep : padicValRat p c < padicValRat p A
+n : Fin 5 → ℚ
+hn : ∀ (i : Fin 5), n i ≠ 0
+hnu : ∀ (i : Fin 5), padicValRat p (n i) = 0
+hPr : factorProduct c u A q = ∏ i, n i
+B : ℤ
+hCoeff : ∀ e ∈ coefficients w, ↑B ≤ (val p) e.2.1 ∧ ↑B ≤ (val p) e.2.2
+hdepth : ∀ e ∈ {4, 64, 244}, -B < 6 * padicValRat p A + e * padicValRat p c
+T : ℚ := parameter c u A q
+hDe : A ^ 2 * q ≠ 0
+hT : T ≠ 0
+hTv : padicValRat p T = 2 * padicValRat p c - 2 * padicValRat p A
+hΔ : delta c u A q ≠ 0
+hΔv : padicValRat p (delta c u A q) = 2 * padicValRat p c - 2 * padicValRat p A
+hNP : factorProduct c u A q ≠ 0
+hNPv : padicValRat p (factorProduct c u A q) = 0
+hF : contact T ≠ 0
+hFv : padicValRat p (contact T) = 10 * padicValRat p c - 10 * padicValRat p A
+hW : weight c u A q ≠ 0
+hWv : padicValRat p (weight c u A q) = 6 * padicValRat p A + 4 * padicValRat p c
+⊢ -B < padicValRat p (weights c u A q ((fun i => i) ⟨0, ⋯⟩))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-smallplace-literal-r2/ActualLinearQSmallPlaceLiteral318.lean:168:6: error: linarith failed to find a contradiction
+case «1»
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : ℕ → ℚ
+c u A q : ℚ
+hc : c ≠ 0
+hu : u ≠ 0
+hA : A ≠ 0
+hq : q ≠ 0
+huv : padicValRat p u = 0
+hqv : padicValRat p q = 0
+hdeep : padicValRat p c < padicValRat p A
+n : Fin 5 → ℚ
+hn : ∀ (i : Fin 5), n i ≠ 0
+hnu : ∀ (i : Fin 5), padicValRat p (n i) = 0
+hPr : factorProduct c u A q = ∏ i, n i
+B : ℤ
+hCoeff : ∀ e ∈ coefficients w, ↑B ≤ (val p) e.2.1 ∧ ↑B ≤ (val p) e.2.2
+hdepth : ∀ e ∈ {4, 64, 244}, -B < 6 * padicValRat p A + e * padicValRat p c
+T : ℚ := parameter c u A q
+hDe : A ^ 2 * q ≠ 0
+hT : T ≠ 0
+hTv : padicValRat p T = 2 * padicValRat p c - 2 * padicValRat p A
+hΔ : delta c u A q ≠ 0
+hΔv : padicValRat p (delta c u A q) = 2 * padicValRat p c - 2 * padicValRat p A
+hNP : factorProduct c u A q ≠ 0
+hNPv : padicValRat p (factorProduct c u A q) = 0
+hF : contact T ≠ 0
+hFv : padicValRat p (contact T) = 10 * padicValRat p c - 10 * padicValRat p A
+hW : weight c u A q ≠ 0
+hWv : padicValRat p (weight c u A q) = 6 * padicValRat p A + 4 * padicValRat p c
+a✝ : ↑7 * (6 * padicValRat p A + 4 * padicValRat p c) + ↑18 * (2 * padicValRat p c - 2 * padicValRat p A) ≤ -B
+⊢ False
+failed
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-smallplace-literal-r2/ActualLinearQSmallPlaceLiteral318.lean:173:6: error: linarith failed to find a contradiction
+case «2»
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : ℕ → ℚ
+c u A q : ℚ
+hc : c ≠ 0
+hu : u ≠ 0
+hA : A ≠ 0
+hq : q ≠ 0
+huv : padicValRat p u = 0
+hqv : padicValRat p q = 0
+hdeep : padicValRat p c < padicValRat p A
+n : Fin 5 → ℚ
+hn : ∀ (i : Fin 5), n i ≠ 0
+hnu : ∀ (i : Fin 5), padicValRat p (n i) = 0
+hPr : factorProduct c u A q = ∏ i, n i
+B : ℤ
+hCoeff : ∀ e ∈ coefficients w, ↑B ≤ (val p) e.2.1 ∧ ↑B ≤ (val p) e.2.2
+hdepth : ∀ e ∈ {4, 64, 244}, -B < 6 * padicValRat p A + e * padicValRat p c
+T : ℚ := parameter c u A q
+hDe : A ^ 2 * q ≠ 0
+hT : T ≠ 0
+hTv : padicValRat p T = 2 * padicValRat p c - 2 * padicValRat p A
+hΔ : delta c u A q ≠ 0
+hΔv : padicValRat p (delta c u A q) = 2 * padicValRat p c - 2 * padicValRat p A
+hNP : factorProduct c u A q ≠ 0
+hNPv : padicValRat p (factorProduct c u A q) = 0
+hF : contact T ≠ 0
+hFv : padicValRat p (contact T) = 10 * padicValRat p c - 10 * padicValRat p A
+hW : weight c u A q ≠ 0
+hWv : padicValRat p (weight c u A q) = 6 * padicValRat p A + 4 * padicValRat p c
+a✝ : ↑25 * (6 * padicValRat p A + 4 * padicValRat p c) + ↑72 * (2 * padicValRat p c - 2 * padicValRat p A) ≤ -B
+⊢ False
+failed
