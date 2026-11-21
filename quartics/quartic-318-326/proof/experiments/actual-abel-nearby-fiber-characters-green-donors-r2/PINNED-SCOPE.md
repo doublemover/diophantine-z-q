@@ -1,0 +1,12 @@
+# Nearby genuine complex characters of the actual entire normalization fibre
+
+Uncompiled source. This packet joins the independently carried nearby determinant argument and the literal finite complex fibre characterization of spectral values. Its terminal theorem takes the actual finite free polynomial-ring algebra (B), its chosen basis, one element (b), and an existing character (f_0) with the specified value of (J). It produces actual (B	o_{mathbf C}mathbf C) characters over **every sufficiently nearby base value** and within the prescribed positive radius on the evaluation of (b).
+
+The fibre at (z) is the **entire** algebra (mathbf Cotimes_{mathbf C[J],,Jmapsto z} B). The two arrows are the actual tensor inclusion and tensor universal property, with the original values on the whole algebra. The matrix comparison is entrywise using the canonical base-changed basis and left multiplication, so the specialized matrix in the analytic lemma is the actual matrix of the specialized element, not a substitute matrix. No separability, reducedness, simple eigenvalue, or analytification equivalence is assumed.
+
+Pinned Mathlib commit `56a005855ea17e0b0958f73ec801ae140b0a1679`:
+- [Tensor basis](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/TensorProduct/Basis.lean#L62-L74): `Module.Basis.baseChange_repr_tmul`, `baseChange_apply`.
+- [Tensor algebra scalar and right inclusion](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/RingTheory/TensorProduct/Basic.lean#L250-L288); [tensor universal property and pure tensor readout](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/RingTheory/TensorProduct/Maps.lean#L145-L169).
+- [Literal multiplication matrix and its entries](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Matrix/ToLin.lean#L939-L967); the two independent underlying producer packets have their own pinned manifests.
+
+This does not yet establish simultaneous closeness on all chart coordinates: the next actual density argument chooses (b) by CRT to separate (f_0) from the other points of its given fibre, uses boundedness of the genuine character basis coordinates, and recovers a limit in the closed evaluation-coordinate model. No claim about global regularity of the chosen centre.
