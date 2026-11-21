@@ -1,0 +1,47 @@
+--- r5/SelectedSameAMarkedAffineInjection318.lean
++++ r6/SelectedSameAMarkedAffineInjection318.lean
+@@ -65,11 +65,17 @@
+   rw [ModuleTopMorphisms318.ofTop_top_one, ModuleTopMorphisms318.ofTop_top_one,
+     IntrinsicChartNormalization318.differential]
+   let i := (homOfLE (show j ''ᵁ ⊤ ≤ ⊤ from le_top)).op
+-  rw [← (FamilyIntrinsicDifferentials318.D (xOverK σ)).d_map i]
+-  apply congrArg ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d (X := op (j ''ᵁ ⊤)))
+-  rw [← eps_on_chart σ j hσ]
++  have hres :=
++    ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d_map i (epsilonSection σ)).symm
++  change (omegaX σ).presheaf.map i
++      ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d (epsilonSection σ)) =
++    (FamilyIntrinsicDifferentials318.D (xOverK σ)).d (X := op (j ''ᵁ ⊤))
++      (X.presheaf.map i (epsilonSection σ)) at hres
++  refine hres.trans ?_
+   have hc := congrArg (fun f => f (epsilonSection σ)) (j.app_appIso_inv ⊤)
+-  exact hc.symm
++  exact congrArg
++    ((FamilyIntrinsicDifferentials318.D (xOverK σ)).d (X := op (j ''ᵁ ⊤)))
++    (hc.symm.trans (congrArg (fun x => (j.appIso ⊤).inv x) (eps_on_chart σ j hσ)))
+ 
+ /-- Canonical left-arrow generator, expressed as an actual sheaf-module
+ map over the literal reduction chart. -/
+@@ -100,10 +106,18 @@
+     ← show (PullbackChartNaturality318.chartNatIso ρ j l (Spec.map r) hsq).hom.app (omegaX σ) =
+         (PullbackLineFrames318.chartIso ρ j l (Spec.map r) hsq (omegaX σ)).hom from
+           congrArg Iso.hom (PullbackChartNaturality318.app_eq ρ j l (Spec.map r) hsq (omegaX σ)), hs]
+-  unfold PulledCoordinateMaps318.map
+-  rw [Functor.map_comp]
+-  simp only [Category.assoc, ← Functor.map_comp_assoc, Iso.hom_inv_id,
+-    Functor.map_id, Category.id_comp]
++  let E := IntrinsicChartNormalization318.iso j (xOverK σ) hj
++  let p := (SelectedSameAFibreAffineProjection318.tensorIso k C B).hom
++  have hi : F.map E.hom ≫ F.map E.inv = 𝟙 _ :=
++    ((F.map_comp E.hom E.inv).symm.trans
++      (congrArg (fun f => F.map f) E.hom_inv_id)).trans (F.map_id _)
++  have hip : F.map E.hom ≫ F.map E.inv ≫ p = p := by
++    rw [← Category.assoc, hi, Category.id_comp]
++  have hcomp : F.map (t ≫ E.hom) ≫ F.map E.inv ≫ p = F.map t ≫ p := by
++    simp only [F.map_comp, Category.assoc, hip]
++  change (IdentityCotangent318.pullbackUnitIso (Spec.map r)).inv ≫
++    (F.map (t ≫ E.hom) ≫ F.map E.inv ≫ p) = _
++  rw [hcomp]
+   change PulledCoordinateMaps318.map (Spec.map r) t ≫
+     (SelectedSameAFibreAffineProjection318.tensorIso k C B).hom = _
+   simp only [SelectedSameAFibreAffineProjection318.tensorIso, Iso.trans_hom,
