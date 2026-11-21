@@ -1,0 +1,11 @@
+# Independent review: seventh moment of the odd ordinary Weber slice
+
+21 November 2026. I checked the exact author checksum manifest `4f37d9ffc7c46258153a119aded6bd4bc6fce0226ab06b66b0e952e43af1a348` and paper `f1fd3937187ea57b94d85e76e6e9084219cb4cf50abbbb13742d880784318ef8`. The complete standard-library replay reproduced the exact JSON byte-for-byte, and the independent CLI input with factors 47 and 37 returned phase 1.
+
+At an odd-degree ordinary place, the authenticated reciprocal-$j$ branch has a unique cube root in the same residue field. The horizontal-neighbour equation implies trace zero for that root. On the canonical binary model, the unique order-four abscissa has fourth power equal to the reciprocal $j$; its ordinate equation has trace-zero right side. The next abscissa equation is Artin–Schreier and has a solution exactly when reciprocal $j$ has trace zero. A half at that abscissa is rational because its Frobenius conjugate could only be its negative, which would negate its rational order-four double. The common maximal CM Frobenius generator, up to conjugacy and sign, has its sign fixed by rational four-torsion. Even orbit count on a whole genuine six-character genus slice cancels the third-power trace. Newton identities give the seventh trace as $e_7+e_2e_5$ from a genuine slice jet. The two extra cube branches contribute another copy of the same trace, so pooling all three branches gives zero even on the positive control.
+
+On the complete controls the exact point counts recover precisely the maximal ordinary classes: the trace discriminants are fundamental, and recovered orbit counts equal the independently enumerated class numbers. At discriminant −22967, prime-2 and horizontal prime-3 moves preserve the selected genus character; the two computed connected components exhaust its two equal-size true slices. The verified controls are a positive whole slice at −119 and zero on both slices at −22967. The norm inequality limits the author's full-field scan as a constructor for real source sizes, not every possible algorithm.
+
+This scope assumes the actual authenticated branch and complete jet. It evaluates neither a production jet nor its bit, and asserts neither a mark nor a rank.
+
+Signed: Independent reviewer, Quartic 318/326.
