@@ -1,0 +1,11 @@
+# Independent review: eighth divisibility of the selected raw level-48 trace
+
+21 November 2026. Exact author checksum manifest `80aa266cd00c1c392169333c3ed89c9599753fee3d3c2ae6d8da0f521de144dd` and proof `86d7ee1682cc5a5c13962e4b21072aaebfa22f842bca7ec35458273211f341a5`, independently checked byte for byte.
+
+Four independent removable prime genus characters give the exact indexed identity between sixteen copies of one joint slice, the raw trace, and fifteen weighted traces. Both selected test places are retained. For each shorter discriminant the independent ramified classes at 17 and the retained genuine mark prime give class number divisible by four: the norm of their product is too small for a nonrational principal generator, and a rational generator would have square norm. This argument does not require a Selmer count on the shorter side. The inertia–Fricke index pairing then makes the shorter trace reduce to zero at both retained places.
+
+The signed genus height ratio bounds the prime-two valuation of the free-coefficient ratio; a weighted quarter up to rational two-torsion has an odd-multiplier comparison with the shorter raw trace. In the torsion case the weighted quarter can be chosen zero. Thus both reductions of each quarter have the same two-primary projection, namely the same rational named torsion point. Each selected genus character is trivial on the level ideal and on the real inertia/conjugation factor at either retained place, so the joint slice is stable and four times its reduction is zero. The common genus field is unramified at 2 and 3; it cannot contain any of the three quadratic square roots necessary to halve rational two-torsion on the original level-48 curve. The orthogonality difference is therefore one same rational two-torsion point. The previously checked quarter reduction parity and exact selected Selmer basis kill the mark of the existing rational quarter, giving an actual rational eighth of the raw trace.
+
+This applies on each already selected arm satisfying the stated hypotheses, not arbitrary scalar poles or shorter twists. The result makes the earlier quarter-level readout equal in the cases it covers. It neither proves the raw trace zero or nonzero nor supplies an evaluated mark, a rational point witness, or rank.
+
+Signed: Independent reviewer, Quartic 318/326.
