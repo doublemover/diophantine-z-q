@@ -1,0 +1,15 @@
+# Native opening for the actual two-affine normalization density proof
+
+**Status:** static source, not built or accepted by Lean. These are two mathematical proof producers, with no project module donors.
+
+1. `SelectedActualAbelNearbySpecializationRoot318.exists_root_of_norm_eval_lt` proves the polynomial estimate with every root counted with multiplicity. Its direct neighborhood consequence `eventually_specialized_root_near` specializes the coefficients of one literal polynomial in (mathbf C[J][T]) at the actual complex parameter. It allows repeated roots, needs no chosen branch, and gives existence in any positive prescribed radius from a root of the limiting fibre.
+2. `SelectedActualAbelNearbyMatrixSpectrum318.eventually_det_zero_near` specializes the same whole characteristic polynomial of a matrix over (mathbf C[J]), with no generic separability hypothesis. Use the actual left multiplication matrix of the CRT-separating element in an actual finite-free normalization basis. This owner produces determinant-zero witnesses; neither realization by characters nor gluing their limits is an input or a claimed output.
+
+Dependencies were checked against mathlib commit `56a005855ea17e0b0958f73ec801ae140b0a1679`:
+
+* [Complex polynomial algebraic closure](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Complex/Polynomial/Basic.lean#L34-L49): the actual instance `Complex.isAlgClosed`.
+* [Splits](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Polynomial/Splits.lean#L271-L288): evaluation of monic polynomials as the full multiset product; its count equality `Splits.natDegree_eq_card_roots` is used in the pinned complex polynomial file.
+* [Evaluation](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Polynomial/Eval/Defs.lean#L535-L576) and [polynomial induction](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Polynomial/Basic.lean#L862-L871): coefficient specialization is literal evaluation of `p.eval (C u)`, making continuity elementary.
+* [Matrix characteristic polynomial](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean#L128-L165) and [monicity](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean#L105-L118): exact change of coefficients and evaluation as `det (scalar a - M)`.
+
+The complete finite-free density and ordered Abel degree are separate paper results. The next native step is to produce, in the actual finite-dimensional specialized algebra, a complex character attaining the given determinant-zero value (using nonunit, maximal quotient, and algebraic closedness), then to build the closed basis-coordinate model and its pointwise-evaluation topology.
