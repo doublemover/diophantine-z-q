@@ -1,0 +1,9 @@
+# Actual slot190: odd contact forces deep indexed norm
+
+This is a paper-only extension to the [fixed-index known-contact-support appendix](https://github.com/doublemover/diophantine-z-q/tree/f18ab4ed1/research/quartic-318-326/actual-slot190-known-contact-support). It uses the identical original unscaled slot190, retained retuned index, literal order of fold coefficients, and PointPair endpoint.
+
+- [Author theorem and fixed-index depth rows](linked-detector-w37-depth-r1/ACTUAL-CONTACT-FORCES-DEEP-W37.md): if an odd contact valuation is e > 0, the unit scale and unit Delta conditions hold, and p is not 2, 3, 7, or 17, then existence of a literal PointPair requires v_p(w37) >= 3e+1, where w37 is the original norm of the indexed coefficient. This bound uses parity, not unit assumptions on the other coefficients. Away from the specified fixed contact exceptions, every new eligible odd-support prime must therefore divide the actual w37 numerator to at least fourth power.
+- [Independent paper and arithmetic review](joined-slot190-w37-depth-cold-r1/INDEPENDENT-DEPTH-REVIEW.md): all fourteen split reduction arms at the seven nominated primes are checked using a separate algorithm. In each pair both arms have depth one, hence the norm has valuation two. In particular the nominated symbol tuple involving 313, 577, and 1489 cannot give a PointPair.
+- The [shared input JSON](rc-linked-four-pole-common-q-r1/ACTUAL-COMMON-Q-SCALAR-PREFIX.json) is an exact local copy of the pinned appendix input (SHA-256 5a70adc6e54b42f7d5d289b00a3e0311b7a938e39c489e7a2c3e3781736e2be7). No download or library overlay is needed to replay the two checks.
+
+Run sh replay.sh with Python 3 and sha256sum. This verifies the source bytes and replays both exact bounded arithmetic checks. It does not factor the full w37 numerator, certify that the finite roster exhausts its fourth-power support, or produce a rational point. This is paper arithmetic, not a new Lean kernel result.
