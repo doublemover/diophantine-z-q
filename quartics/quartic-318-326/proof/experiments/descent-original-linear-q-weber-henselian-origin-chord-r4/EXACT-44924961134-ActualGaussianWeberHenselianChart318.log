@@ -1,0 +1,56 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:24:4: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:47:69: error: unsolved goals
+R : Type u_1
+inst✝¹ : CommRing R
+inst✝ : IsLocalRing R
+t w v : R
+ht : t ∈ maximalIdeal R
+hw : identityChart t w
+hv : identityChart t v
+ht0 : (residue R) t = 0
+⊢ 1 ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:48:61: warning: This simp argument is unused:
+  one_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, map_one, map_mul, ht0, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:71:4: error: Type mismatch: After simplification, term
+  isUnit_one
+ has type
+  True
+but is expected to have type
+  IsUnit (1 - eval 0 (derivative (C t ^ 4)))
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:79:63: error: unsolved goals
+R : Type u_1
+inst✝² : CommRing R
+inst✝¹ : IsLocalRing R
+inst✝ : HenselianLocalRing R
+t : R
+ht : t ∈ maximalIdeal R
+f : R[X] := X ^ 2 + (X - C (t ^ 4))
+hdeg : (X - C (t ^ 4)).degree < 2
+hf : f.Monic
+h0 : eval 0 f ∈ maximalIdeal R
+h1 : IsUnit (eval 0 (derivative f))
+r : R
+hr : f.IsRoot r
+hr0 : r - 0 ∈ maximalIdeal R
+hrI : r ∈ maximalIdeal R
+hprod : r * (1 + r) = t ^ 4
+hrZ : (residue R) r = 0
+⊢ 1 ≠ 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:80:44: warning: This simp argument is unused:
+  one_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, map_one, hrZ, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-henselian-origin-chord-r1/ActualGaussianWeberHenselianChart318.lean:57:8: warning: Overlapping instance parameters in `chart_exists`:
+
+⚠️ `[IsLocalRing R]` and `[HenselianLocalRing R]` each imply `[Nontrivial R]`.
+💡️ Of these, `[IsLocalRing R]` may be removed.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
