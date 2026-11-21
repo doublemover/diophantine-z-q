@@ -1,0 +1,21 @@
+# Independent cold review: the marked class is invisible to quadratic and base-arm quartic characters
+
+**Decision: PASS in the precise classical scope.** Exact source binding:
+
+| Result | Paper SHA-256 | Checksum-list SHA-256 |
+| --- | --- | --- |
+| Quadratic genus obstruction | `9ebfd5382aca7956109e91584026cf5a43444aaf2902d46e64c42c845c1341ef` | `5f57475b8573d6c981a362274b9d317da786ed093cacad21ae0b5c9192338e29` |
+| Necessary and sufficient quartic conic test | `539f5fc2597fbc45b6596cdd9149d0fe6535367462689f1ecbcdc8193bf6a5d0` | `57154f579fa8e0f22019353b086fef2c44122ded2a6d15525163d953d7fde68d` |
+| No quartic separator on first arm | `f50c02fb01ca1b099bcd7c7a6947a2b76674ce1e7d9e4a7369c94d7717a29bdd` | `8ce4071a98a3da554ad3bd1ce94296cf9c41355afb88f4ba6ef2b317b37e969a` |
+
+Verified all list entries and both finite author replays byte for byte. Independently recomputed the fixed real quartic discriminant and Minkowski bound (153/8), the only required prime ideal norms (2, 9, 13), and the displayed norm generators.
+
+**Quadratic blindness on either arm.** In the relative CM extension of the fixed real quartic, ordinary class number one makes conjugation inversion on ideal classes. A stable quadratic class character gives a degree-four extension of the real quartic; actual ambient complex conjugation has order two and is nontrivial on the CM field, so the degree-four group is biquadratic. Multiplying its residue signs over the genuine marked primes reduces to the rational norm squareclass and reciprocity. The literal local Kummer indices, not just Selmer dimension, make every residual symbol +1: at marked primes the element is the torsion image with valuation pair (1,0), and at other new twist primes it is the local identity. The marked ambiguous class is itself nonprincipal by even versus odd orders at the full relative ramification set. It is an exact nonzero order-two element of twice the class group.
+
+**Exact quartic test.** A quadratic norm conic on the same twist gives a square root of that marked ideal class. Positive norm units (at most two squareclass generators) account for the ambiguity not represented by invariant ideals, by Hilbert 90. The denominator of the **trace**, including at 2, exactly records the norm of the split-side fractional ideal; Hilbert reciprocity evaluates the character via a generator in the fixed real quartic without factoring the denominator. The character has a fourth-order lift precisely if trivial on the entire order-two subgroup, and this lift separates the marked class precisely if its square is nontrivial on the conic ideal. Tests obtained merely from the quadratic subfield Q(√17) are blind, including at places ramifying in the real quartic, since extension contributes an even exponent there.
+
+**Actual first-arm stronger obstruction.** The rational norm conic for β gives the same valid square root and a rational positive trace denominator after division by √17: the rational trace has positive order at 17. For every quadratic character killing the ramified ideal classes, −1 is a residue square at all actual first-arm relative ramifiers, including the residue-degree-two primes over the shared q₀. The norm to Q of its Kummer parameter is therefore a local norm from the imaginary quadratic field at all finite places and positive by reciprocity. Its bits at both 17 and q₀ are zero. I matched the directed row-denominator Laplacian, the correction and both exact binary-mask rows to the archived companion-selector paper with SHA-256 `21c692023d5085335ff0ff4a31a943906acd27dc44549560fe63e2f86431fd9f`. The two Hilbert sign factors at a selected norm prime cancel; the resulting ordinary Laplacian vector is unchanged by the rank-one correction. The literal invertible deletion forces zero, i.e. a rational square norm. Thus no quartic unramified character distinguishes the only two possible sign classes on the first arm: its marked class is a nonzero element of four times the class group.
+
+No corresponding unrestricted quartic claim about the companion arm, higher-order separator, full signed Heegner ideal, rank, marked point, or native Lean result is certified.
+
+Signed: independent cold mathematical and replay reviewer, 2026-11-21.
