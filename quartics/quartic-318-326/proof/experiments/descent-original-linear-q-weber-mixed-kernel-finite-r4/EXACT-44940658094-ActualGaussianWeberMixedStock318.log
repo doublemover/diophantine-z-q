@@ -1,0 +1,138 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-mixed-kernel-finite-r3/ActualGaussianWeberMixedStock318.lean:43:24: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-mixed-kernel-finite-r3/ActualGaussianWeberMixedStock318.lean:109:53: error: unsolved goals
+F : Type u_1
+inst✝¹ : Field F
+V : ValuationSubring F
+inst✝ : DecidableEq F
+h2 : 2 ≠ 0
+a b : ↥V
+hQ : (curve F).toAffine.Nonsingular (V.subtype a) (V.subtype b)
+x y : F
+hn : (curve F).toAffine.Nonsingular x y
+hP : specialize V h2 (Point.some x y hn) = Point.zero
+hx : x ∉ V
+hx0 : x ≠ 0
+hy0 : y ≠ 0
+T : OriginData V (Point.some x y hn)
+K : IntegralData V T.t T.w a b
+A : F := V.subtype a
+B : F := V.subtype b
+t : F := V.subtype T.t
+w : F := V.subtype T.w
+u : F := V.subtype K.u
+beta : F := V.subtype K.beta
+X : F := V.subtype K.X
+Y : F := V.subtype K.Y
+ell : F := (curve F).toAffine.slope x A y B
+hnAB : x ≠ A
+htn : t ≠ 0
+ht : t = -x / y
+hw0 : w = -1 / y
+hw : w ≠ 0
+ex : x = t / w
+ey : y = -1 / w
+hChart : identityChart t w
+hEqQ : B ^ 2 = A ^ 3 - A
+hwu : w = t ^ 3 * u
+hDen : (t - A * w) * beta = t
+hd : t - A * w ≠ 0
+hSquare : (-(1 + B * w) / (t - A * w)) ^ 2 - t / w - 2 * A = t * u * beta ^ 2 * H t w A B
+hShift : (1 + B * w) / (t - A * w) * (t * u * beta ^ 2 * H t w A B) = (1 + B * w) * u * beta ^ 3 * H t w A B
+hxD : t / w - A ≠ 0
+hSlope : ell = -(1 + B * w) / (t - A * w)
+hLine : ell * (x - A) = y - B
+⊢ 2 * V.subtype b + (3 * V.subtype a ^ 2 - 1) * V.subtype T.t - (V.subtype a ^ 3 + V.subtype a) * V.subtype T.w =
+    2 * B + (3 * A ^ 2 - 1) * t - (A ^ 3 + A) * w
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-mixed-kernel-finite-r3/ActualGaussianWeberMixedStock318.lean:111:42: error: unsolved goals
+F : Type u_1
+inst✝¹ : Field F
+V : ValuationSubring F
+inst✝ : DecidableEq F
+h2 : 2 ≠ 0
+a b : ↥V
+hQ : (curve F).toAffine.Nonsingular (V.subtype a) (V.subtype b)
+x y : F
+hn : (curve F).toAffine.Nonsingular x y
+hP : specialize V h2 (Point.some x y hn) = Point.zero
+hx : x ∉ V
+hx0 : x ≠ 0
+hy0 : y ≠ 0
+T : OriginData V (Point.some x y hn)
+K : IntegralData V T.t T.w a b
+A : F := V.subtype a
+B : F := V.subtype b
+t : F := V.subtype T.t
+w : F := V.subtype T.w
+u : F := V.subtype K.u
+beta : F := V.subtype K.beta
+X : F := V.subtype K.X
+Y : F := V.subtype K.Y
+ell : F := (curve F).toAffine.slope x A y B
+hnAB : x ≠ A
+htn : t ≠ 0
+ht : t = -x / y
+hw0 : w = -1 / y
+hw : w ≠ 0
+ex : x = t / w
+ey : y = -1 / w
+hChart : identityChart t w
+hEqQ : B ^ 2 = A ^ 3 - A
+hwu : w = t ^ 3 * u
+hDen : (t - A * w) * beta = t
+hd : t - A * w ≠ 0
+hSquare : (-(1 + B * w) / (t - A * w)) ^ 2 - t / w - 2 * A = t * u * beta ^ 2 * H t w A B
+hShift : (1 + B * w) / (t - A * w) * (t * u * beta ^ 2 * H t w A B) = (1 + B * w) * u * beta ^ 3 * H t w A B
+hxD : t / w - A ≠ 0
+hSlope : ell = -(1 + B * w) / (t - A * w)
+hLine : ell * (x - A) = y - B
+hH : V.subtype (H T.t T.w a b) = H t w A B
+⊢ V.subtype a + V.subtype T.t * V.subtype K.u * V.subtype K.beta ^ 2 * H t w A B = A + t * u * beta ^ 2 * H t w A B
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-mixed-kernel-finite-r3/ActualGaussianWeberMixedStock318.lean:115:50: error: unsolved goals
+F : Type u_1
+inst✝¹ : Field F
+V : ValuationSubring F
+inst✝ : DecidableEq F
+h2 : 2 ≠ 0
+a b : ↥V
+hQ : (curve F).toAffine.Nonsingular (V.subtype a) (V.subtype b)
+x y : F
+hn : (curve F).toAffine.Nonsingular x y
+hP : specialize V h2 (Point.some x y hn) = Point.zero
+hx : x ∉ V
+hx0 : x ≠ 0
+hy0 : y ≠ 0
+T : OriginData V (Point.some x y hn)
+K : IntegralData V T.t T.w a b
+A : F := V.subtype a
+B : F := V.subtype b
+t : F := V.subtype T.t
+w : F := V.subtype T.w
+u : F := V.subtype K.u
+beta : F := V.subtype K.beta
+X : F := V.subtype K.X
+Y : F := V.subtype K.Y
+ell : F := (curve F).toAffine.slope x A y B
+hnAB : x ≠ A
+htn : t ≠ 0
+ht : t = -x / y
+hw0 : w = -1 / y
+hw : w ≠ 0
+ex : x = t / w
+ey : y = -1 / w
+hChart : identityChart t w
+hEqQ : B ^ 2 = A ^ 3 - A
+hwu : w = t ^ 3 * u
+hDen : (t - A * w) * beta = t
+hd : t - A * w ≠ 0
+hSquare : (-(1 + B * w) / (t - A * w)) ^ 2 - t / w - 2 * A = t * u * beta ^ 2 * H t w A B
+hShift : (1 + B * w) / (t - A * w) * (t * u * beta ^ 2 * H t w A B) = (1 + B * w) * u * beta ^ 3 * H t w A B
+hxD : t / w - A ≠ 0
+hSlope : ell = -(1 + B * w) / (t - A * w)
+hLine : ell * (x - A) = y - B
+hH : V.subtype (H T.t T.w a b) = H t w A B
+hX : X = A + t * u * beta ^ 2 * H t w A B
+⊢ -V.subtype b + (1 + V.subtype b * V.subtype T.w) * V.subtype K.u * V.subtype K.beta ^ 3 * H t w A B =
+    -B + (1 + B * w) * u * beta ^ 3 * H t w A B
