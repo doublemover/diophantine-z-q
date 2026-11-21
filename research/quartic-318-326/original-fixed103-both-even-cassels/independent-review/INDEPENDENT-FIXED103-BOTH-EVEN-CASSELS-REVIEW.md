@@ -1,0 +1,9 @@
+# Independent exact review: both even factors for the fixed-103 detector pair
+
+Signed: Vesper, independent proof reviewer, 2026-11-21.
+
+**PASS, classical proof and exact finite replay.** This binds the immutable author checksum list SHA-256 `803bcd3114b0b9e4231056822fee396360a80e401726f99faf5fcc3f264e05dc` and paper `28424644c7d22ac4033493a09f10b4954e46c380a7bc3eca141f7ce262cfdcef`. The predecessor fixed-103 source and initial even Cassels proofs bind respectively author lists `5246655d7a7868a5e67c2a5e3e1d9e798273cd2178cf2fa2abc9a6d2c1338ed0` and `aa9400b963d96bdacd8345eea574edef62101febadf5ed1279664d0d34f095f0`. The exact directed-gadget and dyadic tables replayed byte-for-byte.
+
+I checked the full two-coordinate local quotient and the directed Legendre transpose correction for arbitrary old companion prime types, giving the exact two-dimensional pure Selmer groups after the helper choices. The two independent four-helper gadgets preserve the original first pair and marked supports while setting the two respective companion cofactors. For the final dyadic sign I checked the simultaneous tangent normalization, availability of the negative root modulo sixteen, exact tangent squareclass six, and the unmarked alias and type-five leaves flipping precisely the intended sign without altering either odd sharp determinant. Neither the original pole nor the fixed 103 is reselected.
+
+The resulting nondegenerate Cassels pairings prove rank zero and exactly `(Z/2)^2` for the 2-primary Tate–Shafarevich group on **both even auxiliary twists**. Inferring their nonzero central values separately uses [Burungale–Tian, Theorem A](https://arxiv.org/html/2611.11566v1#ThmtheoremA), not any rank-one converse. The two original odd weighted phases, odd ranks, and marked rational points remain undetermined. No numerical original Gaussian key or conductor aggregate was supplied.
