@@ -1,0 +1,38 @@
+{
+  "packet": "actual-abel-discarded-product-slices-green-jacobian",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "ACTUAL_ABEL_DISCARDED_PRODUCT_SLICES_GREEN_JACOBIAN",
+  "order": [
+    "SelectedActualAbelComplexSheetJacobian318",
+    "SelectedActualAbelExceptionalSetNull318",
+    "SelectedActualAbelDiscardedProductSlices318"
+  ],
+  "files": {
+    "SelectedActualAbelComplexSheetJacobian318.lean": {
+      "sha256": "e343fc48806579b9813351ba8dd57ba2b2b300e341bc1f3a81f691915ee5adec",
+      "imports": [
+        "Mathlib.Analysis.Calculus.FDeriv.RestrictScalars",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.LinearAlgebra.Complex.FiniteDimensional",
+        "Mathlib.MeasureTheory.Function.Jacobian",
+        "Mathlib.RingTheory.Norm.Transitivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "SelectedActualAbelExceptionalSetNull318.lean": {
+      "sha256": "823048ab5f73ac4d471f15e26c06b7ab17adc7d37d6d667f0547c76b3fbb3f25",
+      "imports": [
+        "Mathlib.MeasureTheory.Measure.WithDensity",
+        "SelectedActualAbelComplexSheetJacobian318"
+      ]
+    },
+    "SelectedActualAbelDiscardedProductSlices318.lean": {
+      "sha256": "b4da8e815c24830af893e6b343c56f8331e88699c7c7daa3dcdbbde2bf6e1e77",
+      "imports": [
+        "Mathlib.MeasureTheory.Constructions.Pi",
+        "Mathlib.MeasureTheory.Measure.Typeclasses.NullSingletonClass",
+        "SelectedActualAbelExceptionalSetNull318"
+      ]
+    }
+  }
+}
