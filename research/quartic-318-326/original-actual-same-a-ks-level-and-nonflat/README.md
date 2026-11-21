@@ -1,0 +1,10 @@
+# The same normalized Kodaira–Spencer map under both level maps and nonflat specialization
+
+Two independently reviewed arguments for the reverse direction use the same original discriminant-210 polarized surface A, not the distinct modular Jacobian.
+
+1. [Fine levels 3, 11 and 33](ACTUAL-FINE-LEVELS-SHARE-THE-NORMALIZED-KS-MAP.md): under the two actual finite étale forgetful maps, the normalized determinant map Ψ/210 agrees exactly, not just up to a unit or equality of image ideals. The resulting degree identity compares the Hodge determinant to one Petersson dualizing line on the same height field.
+2. [Integral specialization to the actual trait](ACTUAL-SAME-A-NONFLAT-KS-AND-THE-FINITE-PRIME-ROW.md): first push the relative-differential extension to the dualizing line and pull that locally split extension to the trait. The canonical Picard tangent identifies the endpoint H¹ under arbitrary base change, so the same Čech differences give the same KS map. The literal old two tensors have exact finite norm equal to their integral dualizing coefficient norms. No flatness assumption, recomputed invariant Hom, or division in the residue field is used.
+
+The [signed independent review](review/INDEPENDENT-ACTUAL-LEVEL-KS-AND-NONFLAT-REVIEW.md) binds the two immutable originals and reports the exact classical and source scope. The primary references are [Yuan v2 §1](https://arxiv.org/html/2205.11334v2#S1), [Liu–Lorenzini–Raynaud, Proposition 1.3](https://math.stanford.edu/~conrad/BSDseminar/refs/BSDAT.pdf), and [Lan, Theorem 1.3.2.3](https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision-dense.pdf). Companion proof context is copied under background; its references to historical native owners are not imported here.
+
+This is an exact classical comparison and a precise statement of the finite native seam, not a Lean implementation of it or a new final reverse proof. It changes none of the existing thresholds. The independently green augmentation result and separate pending nonflat source selection are not part of this paper package. Run sha256sum -c SHA256SUMS in this directory to verify exact file bytes.
