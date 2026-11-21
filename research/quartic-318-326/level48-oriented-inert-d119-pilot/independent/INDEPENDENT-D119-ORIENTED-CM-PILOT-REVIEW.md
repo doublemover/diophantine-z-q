@@ -1,0 +1,11 @@
+# Independent review: exact inert level-48 pilot for D = −119
+
+**PASS, exact mathematical paper and executable toy calculation.** The author manifest SHA-256 is c2ed5f8b85a16c02d1c591670bcf8b36caac51b22012742cec4e64258e992ed5, paper 100c0efd6b1232056f65cac680feb6eecbf071b09746b89a3be3ab1669d7bbbd, and emitted JSON 8cfca028b915bd6c059853447faeb5c50bbee67f58ac4816e4b25f336bfcc85d. Both source files, their manifest and the output checksum checked; the complete replay reproduced the JSON bytes independently.
+
+The endomorphism ω = 1 + ρ + π gives the actual maximal-order embedding: 1 + 2ρ anticommutes with π, and the two squares are −3 and −29 respectively. The resulting embedding and its prime-to-29 eigenlines lift to one compatible conductor-one CM seed. The reduced forms exhaust the ten classes; the prime at 2 has five distinct powers and the chosen prime at 3 is outside that subgroup. This indexes the entire oriented class orbit with multiplicity, not only different underlying supersingular j-invariants.
+
+The transported primitive eigenvectors retain the chosen ideal kernels. For the degree-four flag the second translated quotient has b′ = 4u(a+2u) and discriminant factor (a−2u)²; with the source formula this gives the stated two exact degeneracies of 64u/(a−2u), which select the actual flag rather than guessing from a finite collision. The level-eight second degeneracy is t(t+8), as derived from the Atkin–Lehner formulas despite the printed t(t+4), and the level-sixteen and level-forty-eight comparisons then retain the actual prime-to-29 flags. The ten level-forty-eight lifts have unique matches in the exact finite chart used in the replay. The source normalizations and the two checked modular degeneracy maps are from [Colò, Appendix A](https://www.leonardocolo.com/documents/thesis/PhD_Thesis.pdf#page=252).
+
+The finite image sum is (27,16√2), its quadruple (17,24√2) is nonzero, and the latter specializes under the chosen twist isomorphism to (7,10) on the reduction of E₁₁₉. The independent rational point in the note is only on this toy twist. Neither literal original detector discriminants, their oriented class multiplicities, an actual detector finite trace, nor original rank or rational marks are certified here. No Lean was run.
+
+Signed: independent exact mathematical and replay review, 2026-11-21 UTC.
