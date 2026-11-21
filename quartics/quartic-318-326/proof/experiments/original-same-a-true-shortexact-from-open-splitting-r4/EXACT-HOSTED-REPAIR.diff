@@ -1,0 +1,42 @@
+--- r3/SelectedActualAdditiveStalkLocalExact318.lean
++++ r4/SelectedActualAdditiveStalkLocalExact318.lean
+@@ -83,8 +83,14 @@
+   have ec : Scheme.Modules.restrictFunctor (j i) ⋙ Fl ≅ Fr :=
+     Scheme.Modules.restrictStalkNatIso (j i) y
+   have h := ShortComplex.shortExact_of_iso (S.mapNatIso ec) hb
+-  simpa only [additiveRow, actualAdditive, ← ShortComplex.map_comp, Fr, Scheme.Modules.toPresheaf,
+-    Scheme.Modules.toPresheafOfModules, SheafOfModules.toSheaf, TopCat.Sheaf.forget] using h
++  let F := actualAdditive X
++  let G := TopCat.Sheaf.forget AddCommGrpCat.{u} (X : TopCat.{u})
++  let K := TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} (j i y)
++  let E₀ : F ⋙ G ≅ Scheme.Modules.toPresheaf X :=
++    SheafOfModules.toSheafCompSheafToPresheafIso X.ringCatSheaf
++  let E : F ⋙ (G ⋙ K) ≅ Fr := (Functor.associator F G K).symm ≪≫ isoWhiskerRight E₀ K
++  have h' := ShortComplex.shortExact_of_iso (S.mapNatIso E).symm h
++  simpa only [additiveRow, F, G, K, AStalk, ← ShortComplex.map_comp] using h'
+ 
+ include hSite in
+ /-- An actual open cover on which this very module complex splits produces
+@@ -105,14 +111,20 @@
+     apply (TopCat.Sheaf.exact_iff_stalkFunctor_map_exact L).2
+     intro x
+     letI : (AStalk x).PreservesZeroMorphisms := actualStalkZero (X := X) x
+-    apply ((L.map (AStalk x)).exact_iff_mono (by simp [L])).mpr
++    have hzero : (L.map (AStalk x)).f = 0 := by
++      change (AStalk x).map (0 : R.X₁ ⟶ R.X₁) = 0
++      exact (AStalk x).map_zero _ _
++    apply ((L.map (AStalk x)).exact_iff_mono hzero).mpr
+     exact (h x).mono_f
+   · let P := ShortComplex.mk R.g (0 : R.X₃ ⟶ R.X₃) (by simp)
+     apply (P.exact_iff_epi rfl).mp
+     apply (TopCat.Sheaf.exact_iff_stalkFunctor_map_exact P).2
+     intro x
+     letI : (AStalk x).PreservesZeroMorphisms := actualStalkZero (X := X) x
+-    apply ((P.map (AStalk x)).exact_iff_epi (by simp [P])).mpr
++    have hzero : (P.map (AStalk x)).g = 0 := by
++      change (AStalk x).map (0 : R.X₃ ⟶ R.X₃) = 0
++      exact (AStalk x).map_zero _ _
++    apply ((P.map (AStalk x)).exact_iff_epi hzero).mpr
+     exact (h x).epi_g
+ 
+ end SelectedActualAdditiveStalkLocalExact318
