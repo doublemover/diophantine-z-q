@@ -1,0 +1,50 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r4/ActualA4LinearNormCard318.lean:51:6: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r4/ActualA4LinearNormCard318.lean:51:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r4/ActualA4LinearNormCard318.lean:121:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r4/ActualA4LinearNormCard318.lean:142:13: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r4/ActualA4LinearNormCard318.lean:114:91: error: unsolved goals
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+hF : ringChar F ≠ 2
+h2 : 2 ≠ 0
+a b : F
+ha : a ≠ 0
+hb : b ≠ 0
+hFinite : ∀ (t : F), Finite (NormFiber t)
+hSum :
+  ∀ (f : F → F),
+    Nat.card ((t : F) × NormFiber t × NormFiber (f t)) = ∑ t, Nat.card (NormFiber t) * Nat.card (NormFiber (f t))
+hLeft : (zeroSet a b).card = Nat.card ((t : F) × NormFiber t × NormFiber (-a / b * t))
+hRight : Nat.card (NormDifference 0) = ∑ t, Nat.card (NormFiber t) * Nat.card (NormFiber (t - 0))
+hC : (zeroSet a b).card = Nat.card (NormDifference 0)
+⊢ (-↑(Fintype.card F) + ↑(Fintype.card F) ^ 3 + if True then ↑(Fintype.card F) ^ 2 else 0) =
+    -↑(Fintype.card F) + ↑(Fintype.card F) ^ 2 + ↑(Fintype.card F) ^ 3
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r4/ActualA4LinearNormCard318.lean:142:13: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
