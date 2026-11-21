@@ -1,0 +1,196 @@
+--- LSG/Weierstrass/SigmaDef.lean
++++ ActualVendorLSGWeierstrassSigmaDef318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.ZetaDef
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassZetaDef318
+ 
+ /-!
+ # The Weierstrass `σ` function
+--- LSG/Weierstrass/SigmaQuasiPeriod.lean
++++ ActualVendorLSGWeierstrassSigmaQuasiPeriod318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.SigmaDef
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassSigmaDef318
+ 
+ /-!
+ # Quasi-periodicity of `ζ` and `σ`
+--- LSG/Weierstrass/ZetaQuasiPeriod.lean
++++ ActualVendorLSGWeierstrassZetaQuasiPeriod318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.SigmaQuasiPeriod
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassSigmaQuasiPeriod318
+ 
+ /-!
+ # Quasi-periodicity of `ζ` at every point
+--- LSG/Weierstrass/Legendre.lean
++++ ActualVendorLSGWeierstrassLegendre318.lean
+@@ -2,9 +2,12 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.ZetaQuasiPeriod
+-import LSG.Weierstrass.RectInv
+-import LSG.Weierstrass.Basic
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassZetaQuasiPeriod318
++import ActualVendorLSGWeierstrassRectInv318
++import ActualVendorLSGWeierstrassBasic318
+ 
+ /-!
+ # Legendre's relation
+--- LSG/Weierstrass/Residue.lean
++++ ActualVendorLSGWeierstrassResidue318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.Legendre
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassLegendre318
+ 
+ /-!
+ # Elliptic functions with at most one simple pole are constant
+--- LSG/Weierstrass/SigmaSign.lean
++++ ActualVendorLSGWeierstrassSigmaSign318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.SigmaQuasiPeriod
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassSigmaQuasiPeriod318
+ 
+ /-!
+ # Quasi-periodicity of `σ` for every period
+--- LSG/Weierstrass/Degree.lean
++++ ActualVendorLSGWeierstrassDegree318.lean
+@@ -2,8 +2,11 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.Residue
+-import LSG.Weierstrass.SigmaSign
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassResidue318
++import ActualVendorLSGWeierstrassSigmaSign318
+ 
+ /-!
+ # `℘` has degree two
+--- LSG/Weierstrass/Addition.lean
++++ ActualVendorLSGWeierstrassAddition318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.Degree
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassDegree318
+ 
+ /-!
+ # The addition theorem for `℘`
+--- LSG/Weierstrass/Dictionary.lean
++++ ActualVendorLSGWeierstrassDictionary318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.Addition
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassAddition318
+ 
+ /-!
+ # The analytic–algebraic dictionary: `z ↦ (℘(z), ℘'(z)/2)` is a group homomorphism
+--- LSG/LemniscateIndep/Symm.lean
++++ ActualVendorLSGLemniscateIndepSymm318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.Weierstrass.Addition
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGWeierstrassAddition318
+ 
+ /-!
+ # Symmetries of a square lattice `a ℤ[i]` (`a > 0` real)
+--- LSG/LemniscateIndep/RealLine.lean
++++ ActualVendorLSGLemniscateIndepRealLine318.lean
+@@ -2,8 +2,11 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.LemniscateIndep.Integral
+-import LSG.LemniscateIndep.Symm
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGLemniscateIndepIntegral318
++import ActualVendorLSGLemniscateIndepSymm318
+ 
+ /-!
+ # `℘` on the real segment `(0, a/2]` of a square lattice `a ℤ[i]`
+--- LSG/LemniscateIndep/Main.lean
++++ ActualVendorLSGLemniscateIndepMain318.lean
+@@ -2,7 +2,10 @@
+ Copyright (c) 2026. All rights reserved.
+ Released under Apache 2.0 license.
+ -/
+-import LSG.LemniscateIndep.RealLine
++/-
++Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++-/
++import ActualVendorLSGLemniscateIndepRealLine318
+ 
+ /-!
+ # The lemniscatic lattice `ϖ ℤ[i]` has `g₂ = 4`, `g₃ = 0`
+--- ActualLSGWeierstrassSurjectivity318.lean (author original)
++++ ActualLSGWeierstrassSurjectivity318.lean (flat)
+@@ -1,5 +1,5 @@
+ module
+-public import LSG.Weierstrass.Dictionary
++public import ActualVendorLSGWeierstrassDictionary318
+ public section
+ noncomputable section
+ 
+--- ActualLSGLemniscaticWeberUniformization318.lean (author original)
++++ ActualLSGLemniscaticWeberUniformization318.lean (flat)
+@@ -1,7 +1,7 @@
+ module
+ public import ActualLSGWeierstrassSurjectivity318
+ public import ActualGaussianWeberComplexUniformizationFibres318
+-public import LSG.LemniscateIndep.Main
++public import ActualVendorLSGLemniscateIndepMain318
+ public section
+ noncomputable section
+ 

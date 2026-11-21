@@ -1,0 +1,13 @@
+# Independent exact review: pinned elliptic-function source and reversible flat packet
+
+Signed: Vesper, independent proof/CI reviewer, 2026-11-21.
+
+**PASS, source provenance, math and preparation to test, not a Lean build.** This review binds the public-notice derivation archive SHA-256 `c87ff7e36f58ed99eac042093e2248803bcb17236fa5db6b2c15f48258b0626c`, standalone selected packet `bc6c2119b83d4dc3c36b7697b66da1e8c5e1513447975e8b3417fd7e1fef897f`, outer list `9360906d52426d2d29384c45b261ad6b48ff304c6e2769923f480b2d7719eced`, packet list `c6c9b34fe5bedd56f6872bd95648b5fb9ae1bd418c0059403175eab00531e910`, and exact reverse ledger `138e55801d8e5f91acdd0f7b9fabc15b008b3d74c5585931502add9d8fc14b5e`.
+
+I independently obtained the actual sixteen upstream module Git blobs at [the pinned Krisman commit](https://github.com/telaviv/waldschmidt-subgroup-theorem/tree/e116a28c34810a802868965d00d2ae986fa627e7) and checked their recursive import graph. The only external imports in this slice are Mathlib, pinned to the same 56a005855ea17e0b0958f73ec801ae140b0a1679. The exact Apache-2.0 license blob, authors' notices, and source newline conventions are retained. Both encoded copies of the candidate packet match. Each of the twelve vendored files with changed content carries an explicit modification notice immediately after the original copyright header; the other four files are byte-identical to upstream despite their local filename changes. My independent decoder removed exactly those notices and reversed only listed import-module tokens; all remaining bytes and corresponding original Git blob hashes matched. The original author adapters are unchanged apart from paths in their flat copies.
+
+The pinned production source validator and planner independently give 17/0 selector `4f8157c4522dbad5c21cfa18eb46dc3495501613f626109e66f4984f2c4755d2` and optional 13/0 selector `2f3b073444ad764fcf2279a0dc0f36120d675e726e4d406a3e0e2ad7b17a604a`, with exact intake `6b68852239072d2d288223e83f9db85b09c5df23643786fcd85ad03ddee41639`.
+
+The generic omitted-value reciprocal has a literal removable bound at the lattice, and constancy on its complement would contradict the upstream exact two collision classes. This reaches the two possible ordinates by negation, infinity by the lattice branch, and identifies the kernel. The pinned square-period normalization supplies the literal coefficients; the separately stored positive-I continuation has the expected lattice rescaling and chain-rule sign. That continuation is not an owner in the 17/0 selector, and this review certifies neither its machine check nor any completed original CM/Frobenius or rank theorem.
+
+No source was installed, pushed, or compiled by this review.
