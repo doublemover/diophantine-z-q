@@ -1,0 +1,29 @@
+--- r3/SelectedSameAActualFibreSheafArrows318.lean
++++ r4/SelectedSameAActualFibreSheafArrows318.lean
+@@ -116,9 +116,14 @@
+       (epsilon_on_fibre_zero σ ρ a h)).trans hz)
+   change ModuleGlobalSections318.ofTop (omegaX σ) w ≫ q = 0
+   rw [ModuleTopMorphisms318.ofTop_comp, hv']
+-  apply ModuleTopExt318.ext
+-  rw [ModuleTopMorphisms318.ofTop_top_one]
+-  simp
++  let Z : X.Modules := (Scheme.Modules.pushforward ρ).obj (omegaA a)
++  apply Scheme.Modules.hom_ext
++  intro U
++  ext t
++  change (ModuleGlobalSections318.ofTop Z (0 : Γ(Z, ⊤))).val.app
++      (op U) (show Γ(X, U) from t) = 0
++  exact (ModuleGlobalSections318.ofTop_apply Z (0 : Γ(Z, ⊤)) U
++    (show Γ(X, U) from t)).trans (by rw [map_zero, smul_zero])
+ 
+ include h in
+ theorem composite_zero : left σ ρ ≫ right σ ρ a h = 0 := by
+@@ -144,7 +149,7 @@
+ /-- The very same row viewed in additive sheaves for the genuine H0 boundary.
+ The underlying-sheaf functor is additive; it is not an arbitrary functor input. -/
+ noncomputable def additiveComplex := by
+-  let F : A.Modules ⥤ Sheaf (TopologicalSpace.Opens.grothendieckTopology (A : TopCat.{u}))
++  let F : A.Modules ⥤ Sheaf (_root_.Opens.grothendieckTopology (A : TopCat.{u}))
+       AddCommGrpCat.{u} := SheafOfModules.toSheaf A.ringCatSheaf
+   letI : F.PreservesZeroMorphisms := inferInstanceAs
+     (SheafOfModules.toSheaf.{u} A.ringCatSheaf).PreservesZeroMorphisms
