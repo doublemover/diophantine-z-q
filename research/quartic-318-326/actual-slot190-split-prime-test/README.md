@@ -1,0 +1,7 @@
+# Actual slot190: a positive local retune, with exact scope
+
+[The singleton proof](linked-detector-new-split-singleton-r1/ACTUAL-SINGLETON-VARYING-H-LOCAL-TRACE.md) gives one actual new positive h and the original unscaled detector slot190 with unit trace and valuation exactly one at the selected split prime 3162001. It retains J, the four literal labels and the listed old scalar residue rows, not the exact old scalar or its global support. The real margin at that very residue is verified by outward intervals, and the local proof uses the full half-point orders and all sixteen original weighted leaves. [Independent cold review](joined-positive-singleton-cold-r1/INDEPENDENT-REVIEW.md) confirms this exact one-prime scope.
+
+[The inert p=67 check](SAME-T-INERT-67-OBSTRUCTION.md) explains why the **same displayed numerical t** is nevertheless not a rational PointPair witness for any admissible h. This does not interfere with the split-prime proof or rule out other choices of t in the progression. [Independent p=67 review](joined-positive-singleton-cold-r1/INDEPENDENT-SAME-T-P67.md) is included; its copied Markdown has the typographic backslash restored before mod, with no arithmetic change. There is no claimed full prime support, three-detector denominator result, rational point, or Lean result.
+
+Run sh replay.sh with Python 3 and sha256sum. All arithmetic inputs and the exact original helper programs are bundled and pinned. The replay uses no network, broad search, or large expanded elliptic coordinates.
