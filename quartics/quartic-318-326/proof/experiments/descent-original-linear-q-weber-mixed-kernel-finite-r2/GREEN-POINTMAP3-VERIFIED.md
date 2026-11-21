@@ -1,0 +1,14 @@
+# Exact strict PointMap 3 selection
+
+Run 44932054428, asset 14718148040, compiled 3 selected modules and audited 33 declarations.
+Three additional physical files were not selected. No baseline, no reuse, and no source
+acceptance. Only actual affinely integral same-place residue reduction and its point
+surjectivity at a Henselian place are in this new scope; no stock group law is asserted.
+
+Requested source a8f1069b870fddeb5abbb07b74ed8c4c05a052dc, tree b56580b023a82766f365ac39ff20eb18836e116b, marker c3a75336bd074ad619f484d630939ce9b14d6ac7.
+Intake 9c8ad8d035ba64d663454ac1774d38542c74516788cf1fabf7dd94f64531e26e; selector d40c85a8b7f6605633f8e8acc58102f96ff907fd87abf0fd11baed25582facad.
+Inventory b5955ccf392c32a6ee4efa7ed634531c9acd2228cb9e7921f77f5974e64c7406; official ZIP 25d9d1e56434e1fbe583a4712ed36e7a060af216412ad7977d649a3813309dc9.
+
+- ActualGaussianWeberHenselianChart318: 83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762
+- ActualGaussianWeberHenselianAffineLift318: 390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0
+- ActualGaussianWeberHenselianPointMap318: 789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec
