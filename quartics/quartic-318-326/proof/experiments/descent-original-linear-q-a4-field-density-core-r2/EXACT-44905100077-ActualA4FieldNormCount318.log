@@ -1,0 +1,168 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:17:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Fintype.card ↑T
+in the target expression
+  ↑(Fintype.card { r // r ^ 2 = a }) = (quadraticChar F) a + 1
+
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+hF : ringChar F ≠ 2
+a : F
+T : Set F := {r | r ^ 2 = a}
+hT : T.toFinset.card = Fintype.card ↑T
+⊢ ↑(Fintype.card { r // r ^ 2 = a }) = (quadraticChar F) a + 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:23:0: warning: automatically included section variable(s) unused in theorem `ActualA4FieldNormCount318.first_ne`:
+  [Fintype F]
+  [DecidableEq F]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype F] [DecidableEq F] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:39:10: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a * (↑z).1⁻¹ = (↑z).2
+Error: Application type mismatch: The argument
+  z
+has type
+  Hyperbola t
+but is expected to have type
+  { z // z.1 * z.2 = _a }
+in the application
+  ↑z
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case snd
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+t : F
+ht : t ≠ 0
+z : Hyperbola t
+⊢ t * (↑z).1⁻¹ = (↑z).2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    z
+  has type
+    Hyperbola t
+  but is expected to have type
+    { z // z.1 * z.2 = t }
+  in the application
+    ↑z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:48:44: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:48:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:108:86: error: unsolved goals
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+he : ∑ x ∈ Finset.univ.erase 0, (quadraticChar F) (x ^ 2) = ↑(Finset.univ.erase 0).card
+hs : ↑(Fintype.card F - 1) + (quadraticChar F) 0 = ∑ x, (quadraticChar F) (x ^ 2)
+⊢ ↑(Fintype.card F) - 1 + (quadraticChar F) 0 = ↑(Fintype.card F) - 1
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:121:44: warning: This simp argument is unused:
+  map_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zero_pow (by decide : (2 : ℕ) ≠ 0), add_zero, Finset.card_erase_of_mem (Finset.mem_univ (0 : F)),
+    Finset.card_univ] at hs
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:121:53: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zero_pow (by decide : (2 : ℕ) ≠ 0), map_zero, Finset.card_erase_of_mem (Finset.mem_univ (0 : F)),
+    Finset.card_univ] at hs
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:175:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:177:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:185:40: error: unsolved goals
+case pos
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+A B : ℤ
+s t : F
+h0 : t = 0
+hs : t = s
+⊢ ((A * B + A * if s = 0 then B else 0) + A ^ 2 + B * if s = 0 then B else 0) =
+    (A * B + A ^ 2 + if 0 = s then A * B else 0) + if 0 = s then B ^ 2 else 0
+
+case neg
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+A B : ℤ
+s t : F
+h0 : t = 0
+hs : ¬t = s
+⊢ ((A * B + A * if s = 0 then B else 0) + A ^ 2 + B * if s = 0 then B else 0) =
+    (A * B + A ^ 2 + if 0 = s then A * B else 0) + if 0 = s then B ^ 2 else 0
+
+case pos
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+A B : ℤ
+s t : F
+h0 : ¬t = 0
+hs : t = s
+⊢ (A * if s = 0 then B else 0) + A * B + A ^ 2 + (if s = 0 then B else 0) * B =
+    (A * B + A ^ 2 + if s = 0 then A * B else 0) + if s = 0 then B ^ 2 else 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:191:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:198:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:199:11: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:191:24: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r1/ActualA4FieldNormCount318.lean:211:4: error: `simp` made no progress
