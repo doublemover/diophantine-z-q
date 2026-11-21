@@ -1,0 +1,13 @@
+# Independent review: same-Jacobian Abel derivative and exact Haar scale
+
+**PASS, exact mathematical paper.** The author manifest SHA-256 is c8e71145e72d6c9f28b0822573083a08d3c044abc805d08302b67717b72c353e, and the paper SHA-256 is b9f3c9855aeca1e367d8abe44e95934f29da3cf6af478f3254d5c531c45c75a7. All manifest members were independently rehashed.
+
+The invariant forms come from pullback by the actual pointed Abel map into the Jacobian of the same algebraic curve. [Milne's Jacobian Varieties, Proposition 2.2](https://jmilne.org/math/xnotes/JVs.pdf#page=6) supplies exactly this pullback isomorphism. The [exponential of this abelian variety, Milne's Abelian Varieties, Proposition 2.1](https://www.jmilne.org/math/CourseNotes/AV.pdf#page=16) has derivative the identity and full lattice kernel. In the resulting frame, local lifts change by lattice constants, their ordered sum has derivative with columns of the original period coefficients, and the expansion at width w gives precisely the factor (2πi/w) q rather than a normalization against dq/q.
+
+The half-open translates of the actual lattice box form a disjoint partition. Reindexing them on any injective logarithm chart compares the pushed measure to the literal Euclidean restriction without a probability renormalization. I checked the wedge orientation sign through i^(g²) = i^g (−1)^(g(g−1)/2); the 2^g denominator is exactly the one from the g ordered complex area pairs. The original hyperbolic density cancels against the stated invariant product weight in the same period rectangle, leaving the squared complex derivative determinant.
+
+For a regular target, degree-g Riemann–Roch gives an effective representative. Repeated coordinates force dependent columns; evaluation at the distinct points has zero kernel, so h⁰(K−D)=0 and h⁰(D)=1. There is one effective divisor and exactly g! ordered preimages. Compactness and local invertibility give a genuine complete sheet neighborhood there. The exceptional target is compact and null; the critical source has zero determinant weight, and the rest transfers nullity on countably many inverse charts. These facts give the stated global g!-fold pushforward in the paper's scope, with the same actual source and target measures.
+
+This result uses the literally selected ordinary modular uniformization and compact cusp disks plus the algebraic curve, Jacobian and Abel map. It does not identify the Jacobian with a separate abelian variety, assert that a chosen arithmetic point is regular, or construct the full analytic geometry or a height bound in Lean. No Lean was run for this review.
+
+Signed: independent exact mathematical review, 2026-11-21 UTC.
