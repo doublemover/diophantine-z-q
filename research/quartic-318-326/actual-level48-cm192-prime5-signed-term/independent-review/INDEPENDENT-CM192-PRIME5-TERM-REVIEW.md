@@ -1,0 +1,21 @@
+# Independent cold review: one genuine signed simple CM intersection term at 5
+
+**PASS in the stated classical scope.** Exact bindings:
+
+| Author result | Paper SHA-256 | Checksum-list SHA-256 |
+| --- | --- | --- |
+| Fixed prime-5 calibration, display r2 | `d831fff520b817adba397439bbb5644d00afb83a73ccce028d090a45128d10df` | `aecd5caae4923f54d00df8d4a903d699d56629c9d6dde653ae6edfaf14573495` |
+| Exact good unramified length | `b5b39fccbdcc175ddef6e5f8fc8eb3830e07de3018d73de868a6c44b240b20b2` | `df72a1721cb67d3917ab6b9bd0da7a162b9a3934f1322cf4a3a4b4b55d9470d6` |
+| Production of a single signed simple term | `0383f3ac3661925aac3f037236cc7ad5a06e40cbe54425a0edc7746f3fc9a3d9` | `be23f884b1adf48e3d0a29547865ca5bb7d51d3c025da64f1650456e1a41fad3` |
+
+All exact manifests verify. The display-only successor retains both machine files unchanged; the standard-library finite replay matches the exact JSON.
+
+**The same two marked fixed flags and their signed local receiver.** The actual normalized functions are those of [Colò, Appendix A](https://www.leonardocolo.com/documents/thesis/PhD_Thesis.pdf). The degree-eight chains match the two distinct characteristic-zero target j-invariants before reduction, not by equating the common reduced j-value. The Fricke-fixed full level is the kernel of the unique degree-48 CM element up to sign. In the calibrated 2-adic lattice, the action of (1+u)/2 on the basis 1,v gives precisely the stated integral congruence, and its action on 1/v gives the actual order-16 eigenvalue. Transport of the order-three eigenscalar and of the nonzero 17-torsion pairing retains the displayed orientation. Direct multiplication using ω²=ω−1 gives both determinant linear forms and Miller pairing verifies the absolute root via the Gauss sum. The p=5 tangent root matches the normalized [Deuring correspondence](https://people.math.wisc.edu/~tonghaiyang/deuring.pdf), with the specified prime-to-5 cyclic flag lifted by finite étaleness.
+
+**Unramified intersection depth.** The anticommuting part w has odd division-algebra order equal to the rational valuation of its reduced norm, and the diagonal part is a unit. In the maximal unramified case [Li, Theorem 3.1 (3.3)](https://arxiv.org/html/1902.10789) gives exactly (v(w)+1)/2. Marked Serre–Tate comparison transports that length to the same elliptic pair, not an unmarked j-discriminant. At each literal flag the derivative of the actual map is a unit: the X-coordinate and the target t=y/x are local parameters with the displayed derivatives and unit values at every p>3. Thus this is the exact term length for a supplied normalized collision, not an evaluation of the signed sum.
+
+**Actual first-arm term production.** The argument retains the literal fixed first arm and both selected Selmer eights. It requires the already admissible shared-prime row to admit a 5-unit residue making the moving imaginary order inert at 5. A fixed smooth ternary solution is selected at every relevant place; at 2 and 3 these are the prescribed level eigenscalars, at 5 the named tangent and nonzero anti-linear unit ensure length one, and at 17 a nonzero isotropic vector with either prescribed spin lifts smoothly. The congruence modulo H times the rational modulus makes A=Q(V)/H an integer prime to that modulus. Choosing W by CRT keeps the resulting positive definite binary form primitive. Its properly invertible ideal works even if its order is nonmaximal: first remove conductor factors by a principal adjustment preserving the prescribed modulus, then use an actual ray class prime in the maximal order. The ray generator is an order unit at the conductor and descends, and its congruence on the original ideal basis forces the coordinates X≡1, Y≡0. The represented prime therefore retains the original rational row even after division by H. The output is an actual single term for infinitely many suitable shared primes, under the stated compatibility; applying the argument with the opposite spin need not produce the same primes.
+
+No signed total at 5 or elsewhere, ideal parity, coherent global sign, point, or rank was computed. The ramified-17 length is not part of this good unramified result.
+
+Signed: independent cold mathematical and replay reviewer, 2026-11-21.

@@ -1,0 +1,23 @@
+# Exact length of an unramified good CM −192 collision
+
+Let $D=-n$ be a fundamental discriminant of a selected original detector twist, and let $p>3$ be inert in both $K=\mathbf Q(\sqrt D)$ and $K_0=\mathbf Q(\sqrt{-3})$ (in particular $p\nmid D$). This note determines the multiplicity of **each** supplied normalized collision with either of the actual marked CM −192 flags over $T=(3+2\sqrt3,2(3+2\sqrt3))$. It is not the ramified formula at 17, nor a signed count.
+
+Write $v=4\sqrt{-3}$ in the fixed order, and $u$ for the normalized image of $\sqrt D$ in the reduced flagged endomorphism ring. The actual cyclic 48-level is $\ker v$. As in the exact support reduction, the integer $s=-\operatorname{Trd}(uv)/2$ annihilates this cyclic group (use $\omega_Dv+v\omega_D=v-s$), hence $s=48k$ for some $k\in\mathbf Z$. Decompose $u=kv+w$ over the fixed local quadratic field; $w$ anti-commutes with $v$. Its norm is
+$$
+ \operatorname{Nrd}(w)=n-48k^2=N_k>0 .
+$$
+In the quaternion division algebra at $p$, let $v_{\mathcal D}$ take value one on a division-algebra uniformizer, equivalently $v_{\mathcal D}=v_p\circ\operatorname{Nrd}$. Then $v_{\mathcal D}(w)=v_p(N_k)$, an odd positive integer: the anti-linear line is $K_{0,p}\Pi$, with $\Pi$ of reduced norm of depth one, whereas norms from $K_{0,p}$ have even depth. Write $w=\gamma\Pi$ with $v_p(\gamma)=(v_p(N_k)-1)/2$. Since $u$ is a unit and $w$ has positive depth, its diagonal component $kv$ is a unit as well.
+
+**Exact formula.** For this reduced embedding the normalized valuation of intersection with the chosen flag, measured with $v_p(p)=1$, is
+$$
+ I(u,p)=rac{v_p(N_k)+1}{2}=1+v_p(\gamma).
+$$
+The trace sum uses this scalar once per normalized class index, with that index's actual genus sign.
+
+To prove the formula, pass to a common strict complete unramified base $W=W(\overline{\mathbf F}_p)$. The fixed CM order has conductor eight and its local action of the unramified quadratic maximal order is therefore full. Its height-two formal group with this action is the canonical height-one lift as a formal unramified-quadratic module. The moving CM action likewise has maximal unramified local order. Both deformations can be compared over $W$ with their chosen tangent roots.
+
+A lift of $u$ on the fixed formal group modulo $p^j$ is exactly a lift of the moving quadratic action: rigidity of endomorphisms of the $p$-divisible group gives $u^2=D$ for the lift, and the tangent eigenvalue is the unique root of $X^2-D$ lifting the specified residue, by $p\nmid2D$. Thus the lifted action has exactly the required Lie normalization. The canonical lift as a formal module of height one has no deformation parameter, including on the Artinian base $W/p^j$; the underlying formal deformations agree exactly when the action with that normalization lifts. This is also the canonical CM lift comparison in [Gross–Zagier, *On singular moduli*, Proposition 2.7](https://wstein.org/papers/bib/gross-zagier-on_singular_moduli.pdf). The lift comparison passes to elliptic curves with fixed special-fibre identification by [Serre–Tate deformation theory (Katz, §1)](https://web.math.princeton.edu/~nmk/old/serretatelocmod.pdf); the level subgroup is uniquely continued by finite étaleness and the two level eigenscalars remain the specified ones. Automorphisms of the flagged fibre act trivially on local deformations (only $\pm 1$, since an order-3 or order-4 automorphism cannot preserve a cyclic 16-subgroup).
+
+Now apply the maximal unramified case of [Li, *On Gross–Keating's result of lifting endomorphisms for formal modules*, Theorems 1.1 and 3.1](https://arxiv.org/html/1902.10789), which computes the canonical lifting length (Gross's Proposition 3.3). Here $u$ is an automorphism of the special formal group because $p\nmid D$, and neither its diagonal nor its anti-diagonal part is zero. The anti-diagonal component in Li's convention is $w$ up to sign, so the largest $j$ for which $u$ lifts to $W/p^j$ is exactly $(v_{\mathcal D}(w)+1)/2$. Equivalently the endomorphisms of the fixed lift modulo $p^j$ are the diagonal maximal order plus the anti-diagonal lattice $p^{j-1}O_{K_{0,p}}\Pi$.
+
+Finally the actual map to $E_0$ is étale at both marked flags at all $p>3$. In the long chart, $t=X-1/X=y/x$, and $X=1\pm\sqrt2$ has $dt/dX=\pm2\sqrt2/X$ (a unit). The long chart ordinate $Y=4\sqrt3 X^2$ is nonzero. On $E_0$, $t^2=x-2-3/x$, and at $T$ both $t$ and $1+3/x^2=6(x+1)/x^2$ are units: $x$ and $x+1$ have norms $-3$ and $4$. Thus the same comparison length is the valuation of intersection with $T$ in the actual elliptic function. There is no stack denominator and no ramification of either CM base at these primes. The formula provides no simplification of the required signed sum.
