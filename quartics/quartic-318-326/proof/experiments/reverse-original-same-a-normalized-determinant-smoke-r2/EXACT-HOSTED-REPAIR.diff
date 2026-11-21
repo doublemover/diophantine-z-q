@@ -1,0 +1,20 @@
+--- r1/SelectedSameAPrimitiveKSSpecialization318.lean
++++ r2/SelectedSameAPrimitiveKSSpecialization318.lean
+@@ -21,7 +21,7 @@
+   exact ⟨e 1, e.symm 1, h, he⟩
+ 
+ @[simp] theorem frameUnit_val (e : R ≃ₗ[R] R) :
+-    ((frameUnit e : Rˣ) : R) = e 1 := rfl
++    ((frameUnit e : Rˣ) : R) = e 1 := by unfold frameUnit <;> rfl
+ end
+ 
+ variable {R S L M N V : Type*}
+@@ -40,7 +40,7 @@
+ @[simp] theorem specializedUnit_val (ev : R →+* S) (h : M ≃ₗ[R] R)
+     (d : N ≃ₗ[R] R) (normalized : M ≃ₗ[R] N) :
+     ((specializedUnit ev h d normalized : Sˣ) : S) =
+-      ev (d (normalized (h.symm 1))) := rfl
++      ev (d (normalized (h.symm 1))) := by unfold specializedUnit frameUnit <;> rfl
+ 
+ /-- Apply actual KS base change on *one* primitive tensor. Here `dt2`
+ is the selected generic (dt)^2, and `τ` is its *linear* dt coefficient
