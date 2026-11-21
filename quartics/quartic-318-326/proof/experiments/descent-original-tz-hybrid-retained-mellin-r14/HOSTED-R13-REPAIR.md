@@ -1,0 +1,3 @@
+# Exact retained mean r13 → r14 terminal lexical repair
+
+Exact hosted diagnostic 44878323107: 38/39 compiled, 631 declarations audited. Direct compiler errors were only in ActualTZHybridMeanAverage318, first at line 42 (vertical-bar adjacency to *) and then at line 117 (vertical-bar adjacency to ≤i, where the i of intervalError forms the infix token). Ignore the resulting X, ntervalError and Lattice cascade; the actual equality and interval theorem are untouched. Three ASCII spaces only, no proofs/expressions/fields/metadata scope changes; preserved all 129 peer source bytes, all import edges and the ordered original 39 selection. No local Lean or remote action.
