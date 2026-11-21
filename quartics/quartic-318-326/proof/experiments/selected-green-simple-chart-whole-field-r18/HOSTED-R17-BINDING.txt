@@ -1,0 +1,27 @@
+project pin 558a130e12a461d9b380b44510d457f0d3d8a29d
+hosted predecessor run 44875015714
+hosted source 803c3914c2d6200cb02b07d6b8922ac9bac64031
+hosted source tree e071211d63367d1e52d84db06a616ab216c6eecb
+archive attachments/5ab49c7b-361d-43d7-ac04-35fce9a9ee07/github-actions-artifact-14696007221.zip
+archive sha256 823486888eadc807230a3553bede9a37b68ad1cc06f093591d89bfc24c7ed38d
+inventory sha256 2f526124a3a665b2f2431d552efe96cf174431fe1fdbe4dd7979fe4b36f5f5b9
+audit sha256 0043e7d9dcc5745b63baea6b16813b8ff42e1fa55c0fe49e942a0206a2b6788c
+40 compile_pass, 574 audited. All 43 source SHA verified. Only WholeOrdinaryPath changed; 42 peers and all 298 original baseline rows byte-identical.
+Exact L33 only: both topologies are now native but simp did not see equality of expected periodCoordinates and pair. Prove a standalone funext equality by explicit period pair after change, then rewrite ContinuousAt using that equality.
+Previous green whole_chart_image and included proof visibility unchanged, no theorem statements, assumptions or limits altered.
+SelectedWholeOrdinaryPath318 predecessor 4715234df02fa1617b0cb66a243cf58e38034f1cdcfa1785aebae181ebfb1085
+SelectedWholeOrdinaryPath318 successor 1d766d09ecc2454cfd06ab4f14fb112f0b99fb3144be692e3966ab3a942372c3
+SelectedWholeOrdinaryPath318 log 1432fb87053a8c63ef6f555bce6921caafe570005993ed4f84b30224e1811155
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/selected-green-simple-chart-whole-field-r17/SelectedWholeOrdinaryPath318.lean:33:2: error: Type mismatch: After simplification, term
+  ContinuousAt.prodMk hJ hX
+ has type
+  @ContinuousAt UpperHalfPlane (ℂ × ℂ) UpperHalfPlane.instTopologicalSpace instTopologicalSpaceProd
+    (fun x => (ActualQJ318.jInvariant x, arithmeticX N x)) τ
+but is expected to have type
+  @ContinuousAt UpperHalfPlane (ℂ × ℂ) UpperHalfPlane.instTopologicalSpace instTopologicalSpaceProd
+    (periodCoordinates N) τ
+'SelectedWholeOrdinaryPath318.whole_chart_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SelectedWholeOrdinaryPath318.whole_chart_pathConnected' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
