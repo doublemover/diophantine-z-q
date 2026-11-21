@@ -1,0 +1,27 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r3/ActualRayPointedAnchor318.lean:25:0: error: Not a definitional equality: the left-hand side
+  center r j x
+is not definitionally equal to the right-hand side
+  primeAt r j x - meanAt r j x
+
+Note: This theorem is exported from the current module. This requires that all definitions that need to be unfolded to prove this theorem must be exposed.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r3/ActualRayPointedAnchor318.lean:49:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r3/ActualRayPointedAnchor318.lean:49:12: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r3/ActualRayPointedAnchor318.lean:136:74: error: unsolved goals
+r : Row
+hn : 0 < r.n
+B : ℕ → ℝ := fun j => mass r (blend (f r) (mean r) r.k j)
+step : ∀ j < r.k, B (j + 1) - B j = correlation r hn j (center r j)
+hpartial : ∀ j ≤ r.k, B j - B 0 = ∑ i ∈ Finset.range j, correlation r hn i (center r i)
+hlast : B r.k = mass r fun z => ∏ i ∈ Finset.range r.k, f r i z
+⊢ mass r (blend (f r) (mean r) r.k 0) = mass r fun z => ∏ i ∈ Finset.range r.k, mean r i z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r3/ActualRayPointedAnchor318.lean:137:12: warning: This simp argument is unused:
+  blend
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

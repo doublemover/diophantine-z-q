@@ -1,0 +1,38 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r2/OriginalInteriorTelescoping318.lean:69:30: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r2/OriginalInteriorTelescoping318.lean:69:56: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r2/OriginalInteriorTelescoping318.lean:88:4: error: Type mismatch: After simplification, term
+  hh
+ has type
+  @LE.le ℝ Real.instLE
+    |mass r fun z => (f r j z - mean r j z) * ∏ i ∈ (Finset.range r.k).erase j, if i < j then f r i z else mean r i z|
+    eps
+but is expected to have type
+  @LE.le ℝ Real.instLE
+    |∑ x,
+        dummy r x * ((f r j x - mean r j x) * ∏ i ∈ (Finset.range r.k).erase j, if i < j then f r i x else mean r i x)|
+    eps
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r2/OriginalInteriorTelescoping318.lean:106:75: error: unsolved goals
+r : Row
+eps : ℝ
+bud : MixedBudget r eps
+B : ℕ → ℝ := fun j => mass r (blend (f r) (mean r) r.k j)
+step : ∀ j < r.k, |B (j + 1) - B j| ≤ eps
+H : ∀ j ≤ r.k, |B j - B 0| ≤ ↑j * eps
+last : B r.k = mass r fun z => ∏ i ∈ Finset.range r.k, f r i z
+⊢ mass r (blend (f r) (mean r) r.k 0) = mass r fun z => ∏ i ∈ Finset.range r.k, mean r i z
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-tz-actual-mixed-row-smoke-r2/OriginalInteriorTelescoping318.lean:107:12: warning: This simp argument is unused:
+  blend
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [B]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
