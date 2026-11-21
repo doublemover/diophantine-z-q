@@ -1,0 +1,17 @@
+# Independent review: exact same-pole zero-direction Cassels test
+
+**Reviewed:** `ct-original-k0-contact-cassels-r1/MANIFEST.json`, SHA-256
+`83388f7bdf3d03a041ffe1856457b734165756aa2ff864fa1a5caea536829707`.
+The exact note `ACTUAL-CONTACT-CASSELS-REJECTION.md` has SHA-256
+`2773222fe5d70d077e787b160d321320f9a653aaa654fb3bacec1989b34b02df`.
+All packet checksums and four upstream manifest references matched local exact bytes; the Python replay matched its JSON byte for byte.
+
+**Verdict:** The same numerical pole's zero-direction class \((1,C,C)\), with \(\mu=A/D^2\) reduced and \(C=D^2-A\), pairs against an admitted positive \(\beta\)-supported tuple \((d_1,d_2,d_3)\) by the Jacobi sign \((D/d_1)\). The support is the actual six linear-q contacts together with 17; the 17-local image rules out 17 in all three coordinates of such a tuple. A negative sign excludes both a rational point on this marked quartic and a Selmer-4 lift. This does not use finiteness of Sha: the alternating Cassels pairing on the 2-Selmer group already has the Selmer-4 image as its kernel. See [Fisher–Schaefer–Stoll, Theorem 5.2](https://arxiv.org/pdf/0710.2079) for comparison of the pairings and [Fisher, introduction](https://arxiv.org/pdf/2208.14977) for the kernel.
+
+* The normalized tangent points meet the three actual conics; at each contact the residues are \(2,6D^3,D\). Both 2 and 6 are square there. Since \(d_1d_2d_3\) is square, the combined contribution at a contact is \((D/p)^{v_p(d_1)}\). At 17 the stripped class of \(3\beta\) in the local torsion image is nonsquare, whereas every allowed divisor with its 17 factor stripped is a square unit. The remaining \(d_i\) are squares at 2, 3, 17, and the real place.
+* At primes outside these seven places the \(d_i\) are units. At primes dividing \(A\), \(C\), or \(A+3D^2\) the displayed tangent test points have unit entries. Elsewhere, including \(p\mid D\), the projective tangent times its opposite is a unit times a square; primitiveness forces the opposite to be a unit whenever the chosen tangent is a nonunit. Thus the actual local symbols there are all trivial. Integral scaling and tangent rescaling do not change the global Hilbert product.
+* The six-column condition for \((d,1,d)\) is an exact membership test for this support and shape: the old six contact rows, a first-coordinate square row at \(p\mid C\), and a third-coordinate square row when \(p\mid A\) has positive even depth and \((-3\beta/p)=+1\). At the other even-depth collision the local image is all four unit pairs; at \(p\mid A+3D^2\) the separate slot is already 1, so the ever-present diagonal unit line suffices. The finite test is not a dimension or kernel assertion for the full Selmer group.
+* The standalone infinite rejector construction is genuine for each allowed numerical support/graph. The CRT keeps \(D\) prime to the six contacts and 17 with one negative contact sign. The exact identity \(C=(D-2d)^2-d(12r)^2\), with primitive \(D-2d,12r\), forces all primes dividing \(C\) to split in \(\mathbb Q(\sqrt d)\); the additional odd support row for \(A\) is empty. Growing \(a=12\cdot2^{Mk}\) preserves the needed odd residues and gives positive nonsquare \(C\), distinct \(0<b<17\), and every numerical Ready guard. This does not assert any \(b\) produced by the original linked fold has the negative sign, or exclude norm directions other than zero.
+
+Independent mathematical/source cold review: high_review_ci. No Lean execution, push, or production rank inference.
+
