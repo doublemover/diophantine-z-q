@@ -1,0 +1,14 @@
+# Strict hosted Weber origin chord r4 evidence
+
+Official GitHub run 44929939508, asset 14717352535. All three selected, 12 audited;
+no baseline or artifact reuse. Scope is local chart, affine Henselian lift and
+order-five algebra, not native global Frobenius, full quartic, or source acceptance.
+
+Source 822b4584c25625706df091217512f501eb49cb68, tree 20b016b02ad013a8a56ca89e0ade5e6c3def9aa0; marker 5665a533e9fdf2d26eed2292e04654429c5a8a40.
+Intake d489f40eaac771f3436c1dcd56f9e21bb74ed10ab0fa61c10a0c1ca09d53b481; exact selector 24d11942d74dddf34fa5a453bebaa41a5679a220dd87d37dd7bfa3a17a9619c6.
+Official ZIP bf438d569839031c57f5b327a4af070aae624d12224688ed096b9799e56bbf54; raw inventory ed37ef61e6d9979a8c3ad4c45c3262c12423eb1979e81739f25a7ad4ebe1bb6c.
+
+Exact selected source digests and read-back audit:
+- ActualGaussianWeberHenselianChart318: 83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762
+- ActualGaussianWeberHenselianAffineLift318: 390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0
+- ActualGaussianWeberFormalChord318: 239a16bea2ce390840c4f112b0e0bf87de4ce4278b600f8bb14b188ba0cf878d
