@@ -1,0 +1,38 @@
+--- reverse-original-same-a-genuine-boundary-lifts-r1/SelectedSameAGenuineBoundaryLifts318.lean
++++ reverse-original-same-a-genuine-boundary-lifts-r2/SelectedSameAGenuineBoundaryLifts318.lean
+@@ -21,16 +21,15 @@
+ 
+ variable (X : TopCat.{u})
+ local notation "J" => Opens.grothendieckTopology X
+-local notation "Sh" => Sheaf J AddCommGrpCat.{u}
+ local notation "T" => (⊤ : Opens X)
+-variable [HasSheafify J AddCommGrpCat.{u}] [HasExt.{w} Sh]
++variable [HasSheafify J AddCommGrpCat.{u}] [HasExt.{w} (Sheaf (Opens.grothendieckTopology X) AddCommGrpCat.{u})]
+ 
+ /-- The usual H0 boundary applied to a section on the literal top open. -/
+-noncomputable def boundary {S : ShortComplex Sh} (hS : S.ShortExact) :
++noncomputable def boundary {S : ShortComplex (Sheaf (Opens.grothendieckTopology X) AddCommGrpCat.{u})} (hS : S.ShortExact) :
+     S.X₃.obj.obj (op T) →+ S.X₁.H 1 :=
+   (Sheaf.H.δ hS 0 1 rfl).comp (Sheaf.H.equiv₀ S.X₃ isTerminalTop).symm.toAddMonoidHom
+ 
+-theorem boundary_natural {S S' : ShortComplex Sh}
++theorem boundary_natural {S S' : ShortComplex (Sheaf (Opens.grothendieckTopology X) AddCommGrpCat.{u})}
+     (hS : S.ShortExact) (hS' : S'.ShortExact) (g : S ⟶ S')
+     (s : S.X₃.obj.obj (op T)) :
+     boundary X hS' (g.τ₃.hom.app (op T) s) =
+@@ -42,13 +41,13 @@
+ 
+ /-- The actual global-section map lifts a global form whose actual
+ connecting class is zero. -/
+-theorem actual_global_lift {S : ShortComplex Sh} (hS : S.ShortExact)
++theorem actual_global_lift {S : ShortComplex (Sheaf (Opens.grothendieckTopology X) AddCommGrpCat.{u})} (hS : S.ShortExact)
+     (s : S.X₃.obj.obj (op T)) (h : boundary X hS s = 0) :
+     ∃ t : S.X₂.obj.obj (op T), S.g.hom.app (op T) t = s :=
+   Sheaf.H.longSequence_equiv₀_exact₃ hS isTerminalTop s h
+ 
+ /-- In the application these are the two actual invariant basis forms. -/
+-theorem two_actual_global_lifts {S : ShortComplex Sh} (hS : S.ShortExact)
++theorem two_actual_global_lifts {S : ShortComplex (Sheaf (Opens.grothendieckTopology X) AddCommGrpCat.{u})} (hS : S.ShortExact)
+     (s₁ s₂ : S.X₃.obj.obj (op T)) (h₁ : boundary X hS s₁ = 0) (h₂ : boundary X hS s₂ = 0) :
+     ∃ t₁ t₂ : S.X₂.obj.obj (op T),
+       S.g.hom.app (op T) t₁ = s₁ ∧ S.g.hom.app (op T) t₂ = s₂ := by
