@@ -1,0 +1,15 @@
+--- r4/SelectedSameAActualAffineMiddle318.lean
++++ r5/SelectedSameAActualAffineMiddle318.lean
+@@ -87,8 +87,10 @@
+   have hpa : pb ≫ aa.inv = F.map ax.inv ≫ pa := by
+     calc
+       pb ≫ aa.inv = F.map ax.inv ≫ (F.map ax.hom ≫ pb) ≫ aa.inv := by
+-        simp only [← Category.assoc, ← Functor.map_comp, Iso.inv_hom_id,
+-          Functor.map_id, Category.id_comp]
++        simp only [← Category.assoc, ← Functor.map_comp, Iso.inv_hom_id]
++        have hId : F.map (𝟙 (FamilyIntrinsicDifferentials318.omega
++            (sMap (algebraMap k C)))) = 𝟙 _ := F.map_id _
++        rw [hId, Category.id_comp]
+       _ = F.map ax.inv ≫ pa := by
+         rw [hpb]
+         simp only [Category.assoc, Iso.hom_inv_id, Category.comp_id]

@@ -1,0 +1,248 @@
+{
+  "all_packet_modules_compiled": false,
+  "audit": {
+    "command": [
+      "lean",
+      "-j1",
+      "-M",
+      "6144",
+      "-Ddebug.skipKernelTC=false",
+      "-R",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-integer-galois-r3-s2861e678e7ed6b3b",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-integer-galois-r3-s2861e678e7ed6b3b/ExperimentAudit.lean"
+    ],
+    "declarations": 67,
+    "exit_code": 0,
+    "log_sha256": "cf05183f6eebd2ca5c4015ac50e00e2841d7ff8913c263754fdbadf9bb755a40",
+    "modules": [
+      "ActualGaussianWeberSelectedGaussianPrime318",
+      "ActualGaussianWeberChosenPlaceLift318",
+      "ActualGaussianWeberIntegralPrimeAbove318"
+    ],
+    "seconds": 1.116,
+    "status": "audit_pass",
+    "timed_out": false
+  },
+  "baseline_key": "859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d",
+  "baseline_snapshot": "768c64ba67b1e1901c7492948ef3b1e727f49e38641664e00d435d45d8bc96a8",
+  "checker_sha256": "a27802ce62f2cf6f227f65ff57b51b7e587588c88c92e54cd1b8c437d7396c8d",
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 3,
+    "compiler_error": 1
+  },
+  "deadline_epoch": 1795299000,
+  "dependency_ready_inventory_complete": true,
+  "experiment_artifact_reuse": false,
+  "head_sha": "60491390c75724d3aa91264a265f23c0cbcdc634",
+  "module_seconds": 180,
+  "modules": {
+    "ActualGaussianWeberChosenPlaceLift318": {
+      "artifacts": {
+        ".ir": "3e5efe4b105d1a0d4cde2e447a166a2c1620ddd864e7cf0b63056fac25c86d24",
+        ".olean": "2a4c879853275cc7305d2114532aa794cdf16e90f83513706845fedc54e848dd",
+        ".olean.private": "9affa73530e42f6f8b3bd3945d052e27fbde60f8f0d4fa280702fd135976aed6",
+        ".olean.server": "fce1d1957770809956a27a2a5976b06cdb08a685f4fbc5810f2dcc973a3f33dc"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-integer-galois-r3-s2861e678e7ed6b3b/quarantine/ActualGaussianWeberChosenPlaceLift318/ActualGaussianWeberChosenPlaceLift318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberChosenPlaceLift318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberSelectedGaussianPrime318": {
+          ".ir": "20b3b7ea3afcfab780b8431cf5d5cb3bb88a3bb12731f6901c65d8fc473b72de",
+          ".olean": "2af3ab9185fdf7f1ee06edcfa0c5fbf4b20a2cc71b2cc6f528e5d3cc050542ba",
+          ".olean.private": "f850815f1ff5e407a7407abba3ece40bc21996a986cc3497a6b96c4ee4a180be",
+          ".olean.server": "f64db6a9f3fe74566961c2ef2c24266d138f055dbd2ed1257057796989836156"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberSelectedGaussianPrime318",
+        "Mathlib.SetTheory.Cardinal.Finite"
+      ],
+      "log_sha256": "dcf21f188c7282e436171fc36b83d4f0d6eb3849aada8270a32f7d168e715354",
+      "occurrence": "descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberChosenPlaceLift318",
+      "root_causes": [],
+      "seconds": 1.667,
+      "source_sha256": "635a33f09097c29f7510e71ec5dce0199bdd627fb08abb32c4905fa7b1117aa0",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberIntegerGaloisGroup318": {
+      "blocker_statuses": {
+        "ActualGaussianWeberIntegerModel318": "compiler_error"
+      },
+      "direct_blockers": [
+        "ActualGaussianWeberIntegerModel318"
+      ],
+      "imports": [
+        "ActualGaussianWeberIntegerModel318",
+        "Mathlib.FieldTheory.Galois.IsGaloisGroup",
+        "Mathlib.RingTheory.Flat.TorsionFree"
+      ],
+      "occurrence": "descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberIntegerGaloisGroup318",
+      "root_causes": [
+        "ActualGaussianWeberIntegerModel318"
+      ],
+      "source_sha256": "9bcd85b57af8fcc881142144835e3ee9115cbfe47e513df6a9060ce0e8254a12",
+      "status": "blocked_by_import"
+    },
+    "ActualGaussianWeberIntegerModel318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-integer-galois-r3-s2861e678e7ed6b3b/quarantine/ActualGaussianWeberIntegerModel318/ActualGaussianWeberIntegerModel318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberIntegerModel318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualGaussianWeberIntegralPrimeAbove318",
+        "Mathlib.NumberTheory.NumberField.Basic",
+        "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed"
+      ],
+      "log_sha256": "fa6f4a18f601b35f6b9eba693ce0fdc433f768b71624c03a443ab268dea77f30",
+      "occurrence": "descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberIntegerModel318",
+      "root_causes": [
+        "ActualGaussianWeberIntegerModel318"
+      ],
+      "seconds": 1.818,
+      "source_sha256": "c630023d733a555d47cd06c187ab8631e101f7bc04c695f83075ade0776c523b",
+      "status": "compiler_error",
+      "timed_out": false
+    },
+    "ActualGaussianWeberIntegralPrimeAbove318": {
+      "artifacts": {
+        ".ir": "1416ae4d56ed9a481a9a773997197cbb89a6c8bf24a66fea3662ffe9249ea8a3",
+        ".olean": "ebce6b269b1d3830b5c427d945b209d00767ae9cf9100c619d07504bf94ac6ff",
+        ".olean.private": "d9181365a91cbacf7540bc86b347085ec67bbe1eb665a7ca317f8fd1b7205ed5",
+        ".olean.server": "71fce35d7fcdb1e0eaf549fa30c6d9dd1d1a46d8edcabf9c2eba63d1b81a2b8b"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-integer-galois-r3-s2861e678e7ed6b3b/quarantine/ActualGaussianWeberIntegralPrimeAbove318/ActualGaussianWeberIntegralPrimeAbove318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberIntegralPrimeAbove318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberChosenPlaceLift318": {
+          ".ir": "3e5efe4b105d1a0d4cde2e447a166a2c1620ddd864e7cf0b63056fac25c86d24",
+          ".olean": "2a4c879853275cc7305d2114532aa794cdf16e90f83513706845fedc54e848dd",
+          ".olean.private": "9affa73530e42f6f8b3bd3945d052e27fbde60f8f0d4fa280702fd135976aed6",
+          ".olean.server": "fce1d1957770809956a27a2a5976b06cdb08a685f4fbc5810f2dcc973a3f33dc"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberChosenPlaceLift318",
+        "Mathlib.RingTheory.Ideal.GoingUp"
+      ],
+      "log_sha256": "b3c475bc5a49d7b9192914320acf883b3fe0ebb7621e846de1dc3e2f158137d0",
+      "occurrence": "descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberIntegralPrimeAbove318",
+      "root_causes": [],
+      "seconds": 1.166,
+      "source_sha256": "4e0bc3717105528ae672d55ff2a36cc65c56cc948b95e7c338817233ad57d411",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberSelectedGaussianPrime318": {
+      "artifacts": {
+        ".ir": "20b3b7ea3afcfab780b8431cf5d5cb3bb88a3bb12731f6901c65d8fc473b72de",
+        ".olean": "2af3ab9185fdf7f1ee06edcfa0c5fbf4b20a2cc71b2cc6f528e5d3cc050542ba",
+        ".olean.private": "f850815f1ff5e407a7407abba3ece40bc21996a986cc3497a6b96c4ee4a180be",
+        ".olean.server": "f64db6a9f3fe74566961c2ef2c24266d138f055dbd2ed1257057796989836156"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-integer-galois-r3-s2861e678e7ed6b3b/quarantine/ActualGaussianWeberSelectedGaussianPrime318/ActualGaussianWeberSelectedGaussianPrime318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberSelectedGaussianPrime318.lean"
+      ],
+      "dependency_artifacts": {},
+      "exit_code": 0,
+      "imports": [
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.NumberTheory.Zsqrtd.GaussianInt",
+        "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "0a60683c21c46b48b3dc7680fbb91860d7ea36be5af9438117ed0947fa7658f6",
+      "occurrence": "descent-original-linear-q-weber-integer-galois-r3/ActualGaussianWeberSelectedGaussianPrime318",
+      "root_causes": [],
+      "seconds": 2.869,
+      "source_sha256": "9437609080ce5d875301578985a8e0de2ade0f2f7affb73e21868366fd203103",
+      "status": "compile_pass",
+      "timed_out": false
+    }
+  },
+  "new_source_acceptance": false,
+  "order": [
+    "ActualGaussianWeberSelectedGaussianPrime318",
+    "ActualGaussianWeberChosenPlaceLift318",
+    "ActualGaussianWeberIntegralPrimeAbove318",
+    "ActualGaussianWeberIntegerModel318",
+    "ActualGaussianWeberIntegerGaloisGroup318"
+  ],
+  "packet": "descent-original-linear-q-weber-integer-galois-r3",
+  "packet_acceptance": false,
+  "packet_sha256": "cc41f7db880a11f062f7e3777c2d7f4785e99f208cb8b30d68b4ac8f72f42783",
+  "production_checker_sha256": "4abfb411e506170329f1a8b7d982ff05278b90c9bc2980b0781c58be9e39c96f",
+  "request_sha256": "3cfd2ba824e0feece17a6d62b0254141831a9d93d14f9f49ee7bde6da7dd2977",
+  "requested_source_commit": "c82e3735d74a924b7ad2bcae81c159ce3da47d3c",
+  "requested_source_tree": "4bc3d547892e679004af844a5d49b27a36a980a6",
+  "run_id": "44950105827",
+  "schema": 2,
+  "scope": "Diagnostic dependency-ready sweep only; ordinary full packet audit remains required",
+  "selected_dependency_ready_inventory_complete": true,
+  "selection": {
+    "intake_sha256": "cc41f7db880a11f062f7e3777c2d7f4785e99f208cb8b30d68b4ac8f72f42783",
+    "packet": "descent-original-linear-q-weber-integer-galois-r3",
+    "selected_order": [
+      "ActualGaussianWeberSelectedGaussianPrime318",
+      "ActualGaussianWeberChosenPlaceLift318",
+      "ActualGaussianWeberIntegralPrimeAbove318",
+      "ActualGaussianWeberIntegerModel318",
+      "ActualGaussianWeberIntegerGaloisGroup318"
+    ],
+    "selection_sha256": "2861e678e7ed6b3b99022ed8c3774964593c3c062f84a9ec1474eaf242d1b6a7",
+    "targets": [
+      "ActualGaussianWeberIntegerGaloisGroup318"
+    ]
+  },
+  "status": "INVENTORY_RECORDED",
+  "strict_flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "verified_baseline_modules": {}
+}
