@@ -1,0 +1,48 @@
+--- r4/SelectedSameAAffineChartGauge318.lean
++++ r5/SelectedSameAAffineChartGauge318.lean
+@@ -146,22 +146,27 @@
+ /-- Exact unreduced coordinate chart change. The first coordinate and constants stay fixed. -/
+ theorem chartTransition_apply (x : TrivSqZeroExt B B) :
+     chartTransition k C B ρ s₁ s₂ h₁ h₂ hker x =
+-      ((x.fst, x.snd + differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst) :
++      (TrivSqZeroExt.inl x.fst +
++      TrivSqZeroExt.inr (x.snd + differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst) :
+         TrivSqZeroExt B B) := by
+   let F₁ := chartOfSection k C B s₁.toRingHom ρ.toRingHom h₁ hker
+   let F₂ := chartOfSection k C B s₂.toRingHom ρ.toRingHom h₂ hker
+   unfold chartTransition
+   change F₁.symm (F₂ x) =
+-    ((x.fst, x.snd + differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst) :
+-      TrivSqZeroExt B B)
++    (TrivSqZeroExt.inl x.fst +
++      TrivSqZeroExt.inr (x.snd + differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst) :
++        TrivSqZeroExt B B)
+   apply F₁.injective
+   rw [RingEquiv.apply_symm_apply]
+   change chartOfSection k C B s₂.toRingHom ρ.toRingHom h₂ hker x =
+     chartOfSection k C B s₁.toRingHom ρ.toRingHom h₁ hker
+-      ((x.fst, x.snd + differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst) :
++      (TrivSqZeroExt.inl x.fst +
++      TrivSqZeroExt.inr (x.snd + differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst) :
+         TrivSqZeroExt B B)
+   rw [chartOfSection_apply k C B s₂.toRingHom, chartOfSection_apply k C B s₁.toRingHom]
+-  simp only [TrivSqZeroExt.fst_mk, TrivSqZeroExt.snd_mk, map_add, mul_add]
++  simp only [TrivSqZeroExt.fst_add, TrivSqZeroExt.snd_add,
++    TrivSqZeroExt.fst_inl, TrivSqZeroExt.fst_inr, TrivSqZeroExt.snd_inl, TrivSqZeroExt.snd_inr,
++    add_zero, zero_add, AlgHom.coe_toRingHom, map_add, mul_add]
+   change s₂ x.fst + epsilonIn k C * s₂ x.snd =
+     s₁ x.fst + (epsilonIn k C * s₁ x.snd +
+       epsilonIn k C * s₁ (differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker x.fst))
+@@ -187,8 +192,10 @@
+   apply Derivation.ext
+   intro a
+   apply epsilon_lift_injective k C B ρ s₁ h₁ hker
+-  rw [Derivation.add_apply, map_add, mul_add,
+-    differenceDerivation_beta k C B ρ s₁ s₃,
++  rw [Derivation.add_apply]
++  change epsilonIn k C * s₁ (differenceDerivation k C B ρ s₁ s₃ h₁ h₃ hker a) =
++    epsilonIn k C * s₁ (differenceDerivation k C B ρ s₁ s₂ h₁ h₂ hker a + d a)
++  rw [map_add s₁, mul_add, differenceDerivation_beta k C B ρ s₁ s₃,
+     differenceDerivation_beta k C B ρ s₁ s₂]
+   change s₃ a - s₁ a = s₂ a - s₁ a + epsilonIn k C * s₁ (d a)
+   rw [epsilon_mul_eq_of_eq_reduction k C B ρ hker ((h₁ (d a)).trans (h₂ (d a)).symm)]
