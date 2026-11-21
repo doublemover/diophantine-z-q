@@ -1,0 +1,15 @@
+# An exact maximal endomorphism order at the helper 673
+
+Use the literal base model $A_0:y^2=x^3+132x+88$, $j=209$, on the degree-17/337 framed fibre. Define $\pi$ to be 673-power Frobenius. An actual separable degree-three endomorphism $\omega$ is obtained by Vélu and scaling the quotient back to this model. The abscissa of its kernel pair and the scaling factor are given in the exact replay against the same old fourth-degree coefficient field and model bases. Its relations are
+$$
+ \omega^2-\omega+3=0,\qquad \pi^2=-673,\qquad \pi\omega=(1-\omega)\pi .
+$$
+The first identity is checked on the full 32-division (the degree of the difference is at most $(6+\sqrt3)^2<32^2$); the latter two are checked on the product of that division and two independent generators of the 337-division (their difference degrees are bounded by $4\cdot673^2$ and $(2\sqrt{3\cdot673}+\sqrt{673})^2$, respectively). A nonzero endomorphism cannot kill a subgroup larger than its degree. This certifies an actual order here; a chosen abstract CM isomorphism is not used.
+
+Put $v=2\omega-1$. The order $R=\mathbf Z[1,\omega,\pi,\omega\pi]$ has reduced discriminant $11\cdot673$ by its trace form; equivalently the norm of $a+b\omega+(c+d\omega)\pi$ is $a^2+ab+3b^2+673(c^2+cd+3d^2)$. Since the geometric supersingular endomorphism order is maximal of discriminant 673, the missing index is exactly 11. To recover that index in the actual endomorphism ring, the replay finds a genuine order-11 point in $A_0(\mathbf F_{673^5})$. The polynomial $X^5-X+2$ is irreducible because $X^{673^5}=X$ modulo it and it has no linear root. On $A_0[11]$ Frobenius has distinct eigenvalues $3,-3$, and its fifth power is respectively $1,-1$, so the point spans the 3-eigenspace. In this calculation $\omega$ at a kernel-separated abscissa is evaluated in the quadratic tensor extension using its exact degree-three x-map, with denominators cleared. Its value is not $[6]P$: even the abscissae differ. Consequently $v$ does not kill that eigenspace. As $v$ has degree 11, is nilpotent modulo 11, and interchanges the two eigenspaces by anticommutation with $\pi$, it kills the other one. Thus $v(\pi-3)$ kills the whole 11-division. Factoring through $[11]$ is an actual integral endomorphism of degree 62. The order
+$$
+ \mathcal O=\mathbf Z\left\langle1,\omega,\omega\pi,\frac{(2\omega-1)(\pi-3)}{11}\right\rangle
+$$
+therefore equals $\operatorname{End}(A_0)$. The replacement of $\pi$ by the last displayed element has index 11 and certifies maximality, not just a nonmaximal suborder.
+
+In the fixed degree-337 source row, if $P,Q$ are its replay's original 337-basis, then $(P,\omega P)$ is a basis because $-11$ is nonsquare modulo 337. The replay computes $Q=(51,86)$ and $\pi(P)=(125,184)$ in these coordinates. At level 32 and 3 the two endomorphism matrices are computed on the exact old stored basis; the last order element acts by the exact inverse of 11. The resulting order and frame action are sufficient for integral Hom lattices of the other models. No selected twist or weighted product is evaluated here.
