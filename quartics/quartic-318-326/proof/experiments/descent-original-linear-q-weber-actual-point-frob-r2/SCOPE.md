@@ -1,0 +1,3 @@
+# Actual chosen-prime point Frobenius, r2
+
+The exact 44959588339 replay compiled all ten donor owners and rejected only PlaceEquivariance; ActualPointFrob was blocked without execution. This immutable revision fixes only the exact diagnosed owner: use the named valuation-subtype coercion for the inverse; explicitly unfold its restriction before checking forward subtype values; and use the literal ring-hom head for the source/target separation in the dependent point reduction. The ten already-green source owners and actual arithmetic terminal are byte-identical. No interface, choice of prime, or valuation statement changes. No host result claimed for r2.
