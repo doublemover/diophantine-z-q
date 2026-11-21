@@ -1,0 +1,16 @@
+--- r2/SelectedSameAADualNumberAffineChart318.lean
++++ r3/SelectedSameAADualNumberAffineChart318.lean
+@@ -99,9 +99,10 @@
+   · intro z
+     have hz : ρ (z - s (ρ z)) = 0 := by rw [map_sub, hs, sub_self]
+     obtain ⟨b, hb, _⟩ := existsUnique_coefficient k C ρ s hs hker _ hz
+-    refine ⟨(ρ z, b), ?_⟩
+-    rw [chartHom_apply]
+-    change s (ρ z) + epsilonIn k C * s b = z
++    refine ⟨(TrivSqZeroExt.inl (ρ z) + TrivSqZeroExt.inr b : TrivSqZeroExt B B), ?_⟩
++    simp only [chartHom_apply, TrivSqZeroExt.fst_add, TrivSqZeroExt.snd_add,
++      TrivSqZeroExt.fst_inl, TrivSqZeroExt.fst_inr, TrivSqZeroExt.snd_inl, TrivSqZeroExt.snd_inr,
++      add_zero, zero_add]
+     rw [hb]
+     ring
+ 
