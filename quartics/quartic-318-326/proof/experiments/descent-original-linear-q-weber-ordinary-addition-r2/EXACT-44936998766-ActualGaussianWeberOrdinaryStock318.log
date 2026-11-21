@@ -1,0 +1,29 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-ordinary-addition-r1/ActualGaussianWeberOrdinaryStock318.lean:51:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -Point.some (V.subtype a) (V.subtype b) hn
+in the target expression
+  specialize V h2 (-Point.some x y hn) = -specialize V h2 (Point.some x y hn)
+
+case pos
+F : Type u_1
+inst✝ : Field F
+V : ValuationSubring F
+h2 : 2 ≠ 0
+x y : F
+hn : (curve F).toAffine.Nonsingular x y
+hx : x ∈ V
+a : ↥V := ⟨x, hx⟩
+b : ↥V := ⟨y, ⋯⟩
+hNeg : (curve F).toAffine.Nonsingular (V.subtype a) (V.subtype (-b))
+hStock : -Point.some (V.subtype a) (V.subtype b) hn = Point.some (V.subtype a) (V.subtype (-b)) hNeg
+hU : (curve (ResidueField ↥V)).toAffine.Nonsingular ((residue ↥V) a) ((residue ↥V) b)
+hRed : specialize V h2 (Point.some x y hn) = Point.some ((residue ↥V) a) ((residue ↥V) b) hU
+hUN : (curve (ResidueField ↥V)).toAffine.Nonsingular ((residue ↥V) a) ((residue ↥V) (-b))
+hRedN :
+  specialize V h2 (Point.some (V.subtype a) (V.subtype (-b)) hNeg) = Point.some ((residue ↥V) a) ((residue ↥V) (-b)) hUN
+⊢ specialize V h2 (-Point.some x y hn) = -specialize V h2 (Point.some x y hn)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-ordinary-addition-r1/ActualGaussianWeberOrdinaryStock318.lean:114:124: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-ordinary-addition-r1/ActualGaussianWeberOrdinaryStock318.lean:114:124: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
