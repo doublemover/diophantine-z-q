@@ -1,0 +1,73 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:24:10: error: typeclass instance problem is stuck
+  IsFractionRing (𝓞 L) ?m.51
+
+Note: Lean will not try to resolve this typeclass instance problem because the third, fourth, and fifth type arguments to `IsFractionRing` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:28:30: error: Application type mismatch: The argument
+  j
+has type
+  ZMod p
+of sort `Type` but is expected to have type
+  ResidueField ↥(AtPlace L w)
+of sort `Type u_1` in the application
+  (residueArithmeticFrob L w) j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:66:32: error: Application type mismatch: The argument
+  j
+has type
+  ZMod p
+of sort `Type` but is expected to have type
+  ResidueField ↥(AtPlace L w)
+of sort `Type u_1` in the application
+  (residueArithmeticFrob L w) j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:72:30: error: Application type mismatch: The argument
+  j
+has type
+  ZMod p
+of sort `Type` but is expected to have type
+  ResidueField ↥(AtPlace L w)
+of sort `Type u_1` in the application
+  (residueArithmeticFrob L w) j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:86:46: error: Application type mismatch: The argument
+  j
+has type
+  ZMod p
+of sort `Type` but is expected to have type
+  ResidueField ↥(AtPlace L w)
+of sort `Type u_1` in the application
+  (residueArithmeticFrob L w) j
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:82:6: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:87:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-point-frob-r2/ActualGaussianWeberActualPointFrob318.lean:86:97: error: unsolved goals
+L : Type u_1
+inst✝⁵ : Field L
+inst✝⁴ : NumberField L
+inst✝³ : Algebra Base L
+inst✝² : FiniteDimensional Base L
+inst✝¹ : IsGalois Base L
+p : ℕ
+inst✝ : Fact (Nat.Prime p)
+w : HeightOneSpectrum (𝓞 L)
+j : ZMod p
+hj : j ^ 2 = -1
+hUnder : SignedAt L w j hj
+h2 : 2 ≠ 0
+P : WP L
+this : Algebra GaussianInt (𝓞 L) := integralAlgebra (algebraMap Base L)
+⊢ let hR := ⋯;
+  specialize (AtPlace L w) hR (onCurvePoint (arithAt L w).toRingEquiv.toRingHom ⋯ P) =
+    onCurvePoint sorry hR (specialize (AtPlace L w) hR P)

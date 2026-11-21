@@ -1,0 +1,3 @@
+# Literal chosen local arithmetic to the actual stock point Frobenius, r4
+
+The exact PointFrob12r3 run 44962228515 compiled and audited eleven selected owners and 177 declarations. The final owner alone failed to infer the literal rational prime at the restriction rewrite and the ambient fraction field for the body-local nonzero-2 proof. This immutable repair applies the same already checked residue transport at the explicit selected field, place, prime and residue argument, and spells out the body-local proof type. It preserves the theorem statements, imports, twelve-module selected order and all eleven accepted peer bytes. Geometric identification with Gaussian [π] remains separate. No r4 hosted claim yet.
