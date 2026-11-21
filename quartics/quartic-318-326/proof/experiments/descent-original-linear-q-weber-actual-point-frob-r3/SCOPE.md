@@ -1,0 +1,3 @@
+# Literal chosen local arithmetic to the actual stock point Frobenius, r3
+
+The exact PointFrob12r2 replay 44960643830 compiled eleven selected owners, including PlaceEquivariance, while the final point owner could not determine the ambient L during actual_residue_char. This immutable revision supplies the exact field and whole residue type/characteristic in that one local instance, as already verified in LocalFrob7r4. It changes one line in one owner and preserves the same twelve-module selector order and all eleven green bytes. Geometric identification with Gaussian [π] remains separate; there is no r3 hosted claim yet.
