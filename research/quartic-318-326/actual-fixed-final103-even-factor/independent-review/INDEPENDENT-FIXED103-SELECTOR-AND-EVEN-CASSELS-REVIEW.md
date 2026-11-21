@@ -1,0 +1,11 @@
+# Independent exact review: fixed final prime 103 and the first even Cassels factor
+
+Signed: Vesper, independent proof reviewer, 2026-11-21.
+
+**PASS, classical proof and small graph replay.** This review binds the original fixed-103 selector author list SHA-256 `5246655d7a7868a5e67c2a5e3e1d9e798273cd2178cf2fa2abc9a6d2c1338ed0` and paper `43bb56580ae2e26367340d207aee539b147b45acf322c359dc9aea9fc3d470c1`, and the first even factor list `aa9400b963d96bdacd8345eea574edef62101febadf5ed1279664d0d34f095f0` and paper `76fdb656a6dd01198f717f74435960019335fb6bbf4d539047e376e3ccafbdac`. I verified both lists and independently ran the exact finite selector replay.
+
+The fixed local protection adds the independent prime branch at 103 on the old actual source, not a new underlying contact polynomial or an alteration to the required Gaussian branch at 7. Deep common denominator enlargement protects both split 103 arms on one exact index progression. I verified the spanning-tree Schur gadgets, the sharpening rank-one cancellation for the type-five leaf and the paired companion paths that allow each successive pivot to be set while fixing 103. The exact same-marker Selmer size-eight consumer uses its size parameter zero; this does not assert a fixed 103 exceeding arbitrary lower bounds.
+
+For the first even auxiliary twist, the complete local doubling table gives exactly two pure generators. I checked the simultaneously normalized tangent points from a quadratic norm equation and all local pairings, in particular the dyadic sign: the two choices of the first tangent differ at valuation one and their product is minus the second squareclass times a rational square, so both valuations are odd. The resulting nondegenerate Cassels pairing gives algebraic rank zero and precisely four elements of the 2-primary Tate–Shafarevich group. The separate analytic deduction uses [Burungale–Tian, Theorem A](https://arxiv.org/html/2611.11566v1) with abelian two-division field and zero 2-Selmer corank. It controls the even factor only.
+
+The chosen imaginary ring-class base is fixed at discriminant −1751. The actual first-arm conductor and its primitive weighted phase remain uncomputed. No materialized original key, second-arm even theorem, target rank, or marked rational point follows.
