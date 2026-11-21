@@ -1,0 +1,16 @@
+# Independent review: one Gaussian norm on an exact same-squarepair representative
+
+Reviewed exact `ct-original-k0-gaussian-one-norm-wa-r1/MANIFEST.json` SHA-256
+`f43c3eb9ce2c2edcf151787c331734e1ab7418316e8ee6897137019dcff7359d` and
+`SAME-SQUAREPAIR-GAUSSIAN-NORM-VIA-CHATELET.md` SHA-256
+`2c58ae4c418011eb9f472eefd19ac4f8bfd2340caab9b91c3723a1018bc0f2fe`.
+All authored checksums and three exact upstream pins matched.
+
+**Verdict.** From any numerical Ready pole with nonsquare complement there are distinct same-squarepair numerical Ready poles \(\mu'=A'/(D')^2\) for which the positive integer \((A'+3(D')^2)/3\) is a sum of two integer squares. The old support balls may be retained arbitrarily deeply. This enforces the one Gaussian norm only.
+
+* The literal conic \(\beta c^2+\theta e^2=1\) is parametrized by the three specified basepoint-free homogeneous quadratics of degree two. Their map to the smooth conic has degree one since its hyperplane bundle has degree two. This proves that the scalar polynomial \(F(k)=v^2+(\mu/3)u^2\) sees exactly the four zeros \(c^2=-3/\beta,e^2=4/\theta\), not an extraneous base point or a higher-degree pullback. Their common root field is \(\mathbb Q(\sqrt{-3\beta},\sqrt{\theta})\). Its two negative quadratic subfields have odd 17-valuation (also odd 3-valuation), and the remaining quadratic class is positive; none is \(\mathbb Q(\sqrt{-1})\). Thus the genuine Gaussian norm polynomial is separable and irreducible even over \(\mathbb Q(\sqrt{-1})\).
+* At the old finite support the *same* Ready point has norm-compatible \(g=1+\mu/3\): square units at 2 and 3, units at the old \(A,C\) sites \(p\ge5\), and even valuation at the old denominator sites. At split primes every nonzero value is a norm. At remaining inert \(p\ge7\), the good projective conic has \(p+1>6\) residual points; excluding its at most two infinity points and four zeros of \(g\) leaves a unit value, which lifts and is a local norm. The real affine conic has positive \(g\). The old-support approximation is consequently an open restriction with an actual local point at each prescribed place; arbitrary balls centered at a non-norm value are not asserted.
+* Freshly checked [Colliot-Thélène's account of the original joint theorem, Part 3](https://api.repository.cam.ac.uk/server/api/core/bitstreams/7bbfcdef-68c3-4bb3-8a3f-a51453ec01a5/content) and the [1987 original publication, II](https://geodesic.mathdoc.fr/item/JRAM_1987__374_152896/). The irreducible cubic/quartic Châtelet case gives unconditional Hasse principle and weak approximation, distinct from the Schinzel-dependent arbitrary-degree assertion. Apply it to a smooth proper model and use finite open conditions to remain in the literal affine chart. The ordered squareclasses persist exactly, and retaining positive \(A\)-depth at each prime of \(\beta\) ensures every negative \(\mu'\)-depth is even. Retained 3-depth makes \((A'+3(D')^2)/3\) integral. The rational Gaussian norm of this positive integer is an integer sum of two squares, by the unramified odd inert valuation criterion and the standard two-squares theorem.
+
+No simultaneous primitive \(\sqrt3\)-norm on \(C'\), specified full lift, marked genus-one rational point, or numerical original fold output is proved. Independent mathematical/source cold review: high_review_ci. No Lean run or remote operation.
+
