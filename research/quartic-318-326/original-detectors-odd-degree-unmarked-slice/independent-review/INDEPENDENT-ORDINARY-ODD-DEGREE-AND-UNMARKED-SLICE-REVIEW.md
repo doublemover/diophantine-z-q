@@ -1,0 +1,13 @@
+# Independent review: the exact unmarked ordinary slice and odd residue degree
+
+Signed: Vesper, independent mathematical reviewer, 2026-11-21. Disposition: PASS for the exact two reductions, not the production of a slice or bit.
+
+Exact author SHA256SUMS and paper pairs verified:
+- Unmarked ordinary slice resultant: e5120e022da787aee01e7e5f8db477fa90e8b2f97eba47ac21041f555533da69 / 0656594a6840c53e5f1da36b92c14a9619969d47d3b538f46e33532ff0ecb3e3.
+- Actual first-arm odd residue-degree refinement: d29de9dd60f392da60e005faea374a190569696e2148b2493b6ad41e088d0d93 / e1df73e3733829303d053b33a157e5e24bc3cfabfe95274a637541f84dc14a57.
+
+I checked the split ordinary canonical-lift argument for both the maximal-order source and the horizontal and vertical 3-neighbors. Equality of the reduced unmarked reciprocal j values forces the same canonical lift; thus no two maximal-order source roots collide, and the conductor-3 vertical neighbors do not enter the slice. The exact degree-four neighbor relation is separable at ordinary nonzero values. Its two horizontal roots form genuine undirected cycles, each edge counted once by the level orientation, and the algebra norm of the quadratic-neighbor product counts that edge twice. The sum of edge differences is zero and their third and fifth power sums agree by the edge equation, giving precisely the sixth coefficient of the norm.
+
+On the actual symmetric first arm, the invertible rank-one sharp correction gives 4-rank one. I checked the precise hypotheses of Stevenhagen's [Rédei reciprocity](https://arxiv.org/abs/1806.06250), especially Definition 7.1, equations (35)-(39), Definition 7.8 and Theorem 7.9. The quartic row can be selected while retaining every literal quadratic prime symbol to make 8-rank zero. With the infinity part fixed, the fixed dihedral central Artin choice at the same moving final prime independently sets the remaining prime-over-2 symbol to zero: the whole cyclotomic CRT has the same biquadratic restriction for both lifts. Thus that actual residue class degree is odd. The two Frobenius eigenslots on 3-torsion stay distinct, and their neighbor sum is the unique cube root of the source. This gives the single power-sum trace after the specialization, not just a heuristic shortcut.
+
+Both versions require the reciprocal-j polynomial of one true full genus slice; the whole Hilbert orbit polynomial is not a substitute. The odd-degree condition is proven for the first arm under reselection of the final prime, not an already fixed exact prime. The companion extension explicitly requires additional fixed conditions. No actual slice polynomial, live bit, marked point or rank is supplied.
