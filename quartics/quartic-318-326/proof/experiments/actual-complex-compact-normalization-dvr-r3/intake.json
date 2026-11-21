@@ -1,0 +1,55 @@
+{
+  "packet": "actual-complex-compact-normalization-dvr-r3",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "ACTUAL_COMPLEX_COMPACT_NORMALIZATION_DVR_R3",
+  "order": [
+    "SelectedActualComplexReciprocalRatFunc318",
+    "SelectedActualComplexGenericChartClosures318",
+    "SelectedActualComplexGenericCompactNormal318",
+    "SelectedActualAbelFiniteNormalChartDVR318",
+    "SelectedActualComplexCompactOriginalDVR318"
+  ],
+  "files": {
+    "SelectedActualComplexReciprocalRatFunc318.lean": {
+      "sha256": "56b2698bd4d048ef71bb1bfb27b2ba479e80898d3cde03d763d02db77e9c74f3",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.FieldTheory.RatFunc.AsPolynomial",
+        "Mathlib.RingTheory.Algebraic.Integral",
+        "Mathlib.RingTheory.Localization.LocalizationLocalization"
+      ]
+    },
+    "SelectedActualComplexGenericChartClosures318.lean": {
+      "sha256": "7954d0b56bd61d5fb38aab0f0ee2be61ddec8308c378a23961aa06d92557f8a3",
+      "imports": [
+        "JLineOverlap318",
+        "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+        "Mathlib.RingTheory.Polynomial.UniqueFactorization",
+        "SelectedActualComplexReciprocalRatFunc318"
+      ]
+    },
+    "SelectedActualComplexGenericCompactNormal318.lean": {
+      "sha256": "4172f28cbeb95fa908a6b7fb01dd6ecb6407a5b80ec3239bc14ba91f0669d2fe",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.QuasiSeparated",
+        "NormalChart318",
+        "SelectedActualComplexGenericChartClosures318"
+      ]
+    },
+    "SelectedActualAbelFiniteNormalChartDVR318.lean": {
+      "sha256": "56aec9ab6ad8e0f53eaac74909cec081426ccb6330ea4a2f0e832ce087962a2d",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.FieldDivision",
+        "Mathlib.AlgebraicGeometry.FunctionField",
+        "Mathlib.RingTheory.DedekindDomain.Dvr"
+      ]
+    },
+    "SelectedActualComplexCompactOriginalDVR318.lean": {
+      "sha256": "bdc5359d81cd2e99cd8a8a851099847dd460c46c74e9e64c35da7fcc2424ad36",
+      "imports": [
+        "SelectedActualAbelFiniteNormalChartDVR318",
+        "SelectedActualComplexGenericCompactNormal318"
+      ]
+    }
+  }
+}
