@@ -1,0 +1,11 @@
+# Independent exact review: full input-zero scalar and existential four-Ready handoff
+
+Signed: Vesper, independent proof reviewer, 2026-11-21.
+
+**PASS, classical proof and exact finite replay, with distinct scopes.** This binds the immutable author list SHA-256 `9dc74e33f8afb1fdb40aae98ed766ab5bedb8f8cb63b828c4bc04f401e9b34f5`, full-scalar paper `70fe749a0fd78c02212ba0212169d3c66d506265cd1a3091183b96c345bd2986`, and separate existential-handoff paper `32586939c5d28abf22f63a54a8549ae5e5e07cf880dfadef162d765350d0d115`. The bound standard-library replay and recorded values match byte-for-byte.
+
+For the **archived fixed index**, the new 52422-bit scalar label gives the exact native full-support preparation, with real range and square denominator. I verified the original local unit lemmas at 2 and 3 and every remaining multiplier prime, including the inert prime 5 where the unknown initial formal depth cancels and its norm valuation difference doubles. The physical row-287 anchor exists by the exact local–global argument at the minimum necessary translated 3-depth. The three detector cells in this fixed-index proof are certified at the single old order-only prime; this keeps neither the old numerical scalar nor its old companion class.
+
+Separately, the **existential handoff** makes new choices of source index and denominator prime for that now-fixed tuple. I checked the published original prime theorem and exact native `finite_unit_progression`, `prepared_of_units`, `join`, and `prepared_family` contracts. The nonzero actual preparation residue is retained; the true contact forms have thirteen distinct merged slopes plus the separate order-only denominator prime. The literal (Q) and real rectangle are fixed before the wheel cutoff and asymptotic size. The denominator prime joins the signed quarter LCMs but not the cubed contact product. Thus the physical anchor and all four *Ready* inputs exist on a single actual source, without substituting the archived numerical (h,q). In the handoff's terminology each detector first squareclass has six **genuine** primes, plus the prepared factor 17, hence seven prime factors in total.
+
+Neither proof supplies numerical values of the eventual key or anchor coordinates, the global PointPairs, a marked rational point, or rank. No Lean execution is certified here.
