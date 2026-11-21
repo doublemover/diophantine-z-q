@@ -1,0 +1,17 @@
+# Independent paper check: primary Weber Frobenius and the same linear prime count
+
+**Result:** pass on these exact paper bytes and the mathematical scope below.
+
+- `PRIMARY-FROBENIUS-NO-RESIDUAL-DEGREE.md`: SHA-256 `30217a670b59c8b80801dec9fcf5c5b40dc0bcf48bb02faa098fafbbbc5f5300`.
+- `EXACT-TORUS-COUNT-AND-FT-HANDOFF.md`: SHA-256 `81a7cbec19dff44fcab4c21314e06c36912198a37ab10764429b0ed3ab48800c`.
+
+For (E:y^2=x^3-x) and the indicated (J), the lift to the complex elliptic torus has derivative (i) in the literal parameter (-x/y). Thus the same ([\pi]) has index (p), not the degree of an independently chosen residual scheme map. Counting complete generic fibers above the even (x)-map gives degree (p) for the characteristic-zero rational function (x([\pi]P)). At the chosen place the primitive Gauss model reduces to the same geometric generic point; multiplication of initial forms is justified by the residual equation giving a domain. Same-place reduction and translation by the literal nonzero fixed 2-torsion point force a nonconstant affine generic image, so the primitive (x)-denominator cannot be identically zero in the residue field. Its surviving rational function has degree at most (p).
+
+The tangent of ([\pi]) is zero because (pi), not its conjugate, vanishes at the selected residue embedding. At any permissible finite translate of the origin, the (x)-coordinate has first derivative (2y
+e0). The translated formal arc also rules out an unexpected image at infinity where the reduced rational function is finite. Thus the residual (x)-function has derivative zero and is a rational function of (X^p). With degree at most (p), nonconstancy and the actual pole at infinity make it affine in (X^p). Negation and the three simple branch roots then give the corresponding residual unit rotation of the full two coordinates. Equality on the cofinite good locus extends to all points by translation. Finally the literal (Q=(i,1-i)) has double (T=(0,0)) and exact annihilator ((1+i)^3); positive Frobenius fixes it, giving the primary unit with the stated orientation. No residual degree formula, claimed residual automorphism classification, or change of chosen place supplies those steps.
+
+For the companion, I checked the algebraic group identification and positive Frobenius tag on the same fixed Weber field, and compared the analytic normalization directly with [Frei–Tinková v3, Theorem 1.4 and formulas (1.9)–(1.15)](https://arxiv.org/html/2408.17441v3). Each tag is a two-element conjugacy class with the stated abelian restriction. The ordinary local factor counts the actual nonparallel zero lines through the origin. At the fixed base there is one compatible residue pair on the same raw ((q,u)) grid, with factor ((8B_0/U_0)^r/(2B_0)^2), not an additional Euler phi or Chebotarev density. The safety condition is applied in the actual norm fibers, preserving the positive multiplicative lower bound; the later exclusion and folding remain on the common carrier.
+
+This review is for the paper argument with its stated classical inputs (in particular complex elliptic uniformization, same-place specialization, and Frei–Tinková's affine distribution theorem). It is not a claim that the full specialization/analytic theorem is Lean-verified, that the displayed result supplies a marked rational point, or that the original forward implication is closed.
+
+Signed: independent mathematical review, 2026-11-21.
