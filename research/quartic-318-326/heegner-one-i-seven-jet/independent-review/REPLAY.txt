@@ -1,0 +1,4 @@
+Packet working directory: actual-one-I-seven-jet-quadrics-r1
+sha256sum -c SHA256SUMS
+python3 -B check_seven_jet_quadrics.py --k 2 --bound 500000 --workers 3 | cmp - EXACT-COMPLETE-59-DEPTH2.json
+Observed: manifest OK at all five entries; FULL-3776 exact byte replay.
