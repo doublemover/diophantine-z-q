@@ -1,0 +1,9 @@
+# Independent exact review: ordinary edge cover and pure Hecke cancellation
+
+Signed: Vesper, independent proof reviewer, 2026-11-21.
+
+**PASS, classical proof and exact finite replay.** This review binds the revised author checksum list SHA-256 `5628738277ec91211a71f9947b226516f4e311b60ac57990b6c70b2bfdae7141`, paper `27e764a0deec5fc5da41a6199875601674b2cf581403c3aefd47ebc09ab5e262`, standard-library checker `d6a42f440d20b504da5c3ad4520ab9e7730c29e9963d9a2f81edd2cb1f6a0ef7` and recorded JSON `00c1ff6f44ed57192b3ffe2afcd19eebd7d6072a60a67583f063fcd675e0c7e2`. Both checksums and the nine-prime finite eta-series trace replay agree byte-for-byte.
+
+I independently checked the two reversal lifts and their elliptic Artin–Schreier quotients. The cubic moment on an indexed genus slice requires stability under the selected horizontal 3-ideal as well as Frobenius; the revised paper says this explicitly. The uniform Hecke statement itself is independent of that restriction: on an arbitrary ordinary closed point, the canonical connected branch and its indexed prime-to-six kernel lifts transport the same logarithm identity; the Frobenius difference telescopes, and the even Hecke eigenvalue kills the residual modulo sixteen. Triviality is over the fixed ground field, not merely its algebraic closure: the geometric case is excluded by the point bound and the nontrivial constant case by odd-degree point tests. The secondary norm count on the $j$-line and the source/target degeneracy commutation give the degree-five class cancellation. I checked that pulling back while retaining a marked kernel keeps odd pole order at the supersingular puncture, since the effective flag stabilizer has order three.
+
+This concerns the complete pure Hecke trace and the appropriate complete descending conductor multiset. It neither evaluates the primitive genus-slice phase of a selected discriminant nor establishes a rank or rational point.
