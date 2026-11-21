@@ -1,0 +1,50 @@
+--- r1/SelectedActualAdditiveStalkLocalExact318.lean
++++ r2/SelectedActualAdditiveStalkLocalExact318.lean
+@@ -13,6 +13,7 @@
+ -/
+ 
+ public section
++noncomputable section
+ 
+ open CategoryTheory AlgebraicGeometry Limits
+ 
+@@ -22,8 +23,6 @@
+ set_option maxHeartbeats 650000
+ set_option backward.isDefEq.respectTransparency.types false
+ set_option backward.isDefEq.respectTransparency false
+-
+-noncomputable section
+ 
+ private instance underlyingPresheafAdditive (X : Scheme.{u}) :
+     (Scheme.Modules.toPresheaf X).Additive := by
+@@ -54,11 +53,19 @@
+ /-- The row on the additive sheaves of the same actual modules. -/
+ @[expose] def additiveRow := S.map (actualAdditive X)
+ 
+-variable [HasSheafify (_root_.Opens.grothendieckTopology (X : TopCat.{u})) AddCommGrpCat.{u}]
++variable [hSite : HasSheafify (_root_.Opens.grothendieckTopology (X : TopCat.{u})) AddCommGrpCat.{u}]
+ 
+-private abbrev AStalk (x : X) :=
+-  TopCat.Sheaf.forget AddCommGrpCat.{u} X ⋙ TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} x
++private abbrev AStalk (x : X) :
++    TopCat.Sheaf AddCommGrpCat.{u} (X : TopCat.{u}) ⥤ AddCommGrpCat.{u} :=
++  TopCat.Sheaf.forget AddCommGrpCat.{u} (X : TopCat.{u}) ⋙
++    TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} x
+ 
++include hSite in
++private instance actualStalkZero (x : X) : (AStalk x).PreservesZeroMorphisms :=
++  inferInstanceAs ((TopCat.Sheaf.forget AddCommGrpCat.{u} (X : TopCat.{u}) ⋙
++    TopCat.Presheaf.stalkFunctor AddCommGrpCat.{u} x).PreservesZeroMorphisms)
++
++include hSite in
+ private theorem actualStalkShortExact
+     {I : Type v} (W : I → Scheme.{u}) (j : ∀ i, W i ⟶ X)
+     [∀ i, IsOpenImmersion (j i)]
+@@ -77,6 +84,7 @@
+   simpa only [additiveRow, actualAdditive, ← ShortComplex.map_comp, Fr, Scheme.Modules.toPresheaf,
+     Scheme.Modules.toPresheafOfModules, SheafOfModules.toSheaf, TopCat.Sheaf.forget] using h
+ 
++include hSite in
+ /-- An actual open cover on which this very module complex splits produces
+ the additive short-exact hypothesis for the actual global boundary. No
+ abstract exact complex dependent on a choice of component is introduced. -/
