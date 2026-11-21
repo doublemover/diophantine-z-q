@@ -1,0 +1,41 @@
+--- r6/SelectedSameAMarkedAffineInjection318.lean
++++ r7/SelectedSameAMarkedAffineInjection318.lean
+@@ -122,19 +122,25 @@
+     (SelectedSameAFibreAffineProjection318.tensorIso k C B).hom = _
+   simp only [SelectedSameAFibreAffineProjection318.tensorIso, Iso.trans_hom,
+     Iso.app_hom, Functor.mapIso_hom]
+-  rw [← Category.assoc, ht, ModuleTopMorphisms318.ofTop_comp]
++  rw [← Category.assoc, ht]
++  let M := ModuleCat.of C (KaehlerDifferential k C)
++  let P := (ModuleCat.extendScalars r.hom).obj M
++  let Q := ModuleCat.of B (B ⊗[C] KaehlerDifferential k C)
++  let z : P := (1 : B) ⊗ₜ[C, r.hom] b
++  let z' : Q := (1 : B) ⊗ₜ[C] b
++  let w := (tilde.isoTop (R := CommRingCat.of B) P).hom z
++  let β := (tilde.functor (CommRingCat.of B)).map α
++  change ModuleGlobalSections318.ofTop (tilde (R := CommRingCat.of B) P) w ≫ β =
++    ModuleGlobalSections318.ofTop (tilde (R := CommRingCat.of B) Q)
++      ((tilde.isoTop (R := CommRingCat.of B) Q).hom z')
++  have hcomp₀ := ModuleTopMorphisms318.ofTop_comp w β
++  refine hcomp₀.trans ?_
+   have hn := (tilde.toTildeΓNatIso (R := CommRingCat.of B)).hom.naturality α
+-  have hv := congrArg (fun f => f ((1 : B) ⊗ₜ[C, algebraMap C B] b)) hn
+-  change (tilde.isoTop (R := CommRingCat.of B) (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C))).hom
+-      (α ((1 : B) ⊗ₜ[C, algebraMap C B] b)) =
+-    ((tilde.functor (CommRingCat.of B)).map α).app ⊤
+-      ((tilde.isoTop (R := CommRingCat.of B) _).hom ((1 : B) ⊗ₜ[C, algebraMap C B] b)) at hv
+-  rw [← hv]
+-  change _ = ModuleGlobalSections318.ofTop (tilde (R := CommRingCat.of B) (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C)))
+-    ((tilde.isoTop (R := CommRingCat.of B) (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C))).hom ((1 : B) ⊗ₜ[C] b))
+-  change ModuleGlobalSections318.ofTop (tilde (R := CommRingCat.of B) (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C)))
+-    ((tilde.isoTop (R := CommRingCat.of B) (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C))).hom
+-      (ScalarExtensionTensor318.tensorEquiv (T := B) (ModuleCat.of C (KaehlerDifferential k C)) ((1 : B) ⊗ₜ[C, algebraMap C B] b))) = _
+-  rw [ScalarExtensionTensor318.tensorEquiv_tmul]
++  have hv := congrArg (fun f => f z) hn
++  change (tilde.isoTop (R := CommRingCat.of B) Q).hom (α z) = β.app ⊤ w at hv
++  have hz : α z = z' :=
++    ScalarExtensionTensor318.tensorEquiv_tmul (T := B) M (1 : B) b
++  exact congrArg (ModuleGlobalSections318.ofTop (tilde (R := CommRingCat.of B) Q))
++    (hv.symm.trans (congrArg (fun v : Q => (tilde.isoTop (R := CommRingCat.of B) Q).hom v) hz))
+ 
+ end SelectedSameAMarkedAffineInjection318
