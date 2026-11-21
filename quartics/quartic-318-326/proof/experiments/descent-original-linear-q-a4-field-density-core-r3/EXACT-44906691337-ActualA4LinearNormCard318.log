@@ -1,0 +1,108 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:51:6: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:51:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:88:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (NormFiber 0 × NormFiber 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:90:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(?m * ?n)
+in the target expression
+  ↑(Fintype.card (NormFiber 0 × NormFiber 0)) =
+    (↑(Fintype.card F) + (↑(Fintype.card F) - 1) * (quadraticChar F) (-1)) ^ 2
+
+case refine_2
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+hF : ringChar F ≠ 2
+H : core.card = Fintype.card (NormFiber 0 × NormFiber 0)
+⊢ ↑(Fintype.card (NormFiber 0 × NormFiber 0)) =
+    (↑(Fintype.card F) + (↑(Fintype.card F) - 1) * (quadraticChar F) (-1)) ^ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:89:30: warning: This simp argument is unused:
+  Fintype.card_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.card_coe] at H
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:95:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (NormFiber 0 × F × F)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:99:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Nat.card (NormFiber 0))
+in the target expression
+  ↑(Nat.card (NormFiber 0 × F × F)) = (↑(Nat.card F) + (↑(Nat.card F) - 1) * (quadraticChar F) (-1)) * ↑(Nat.card F) ^ 2
+
+case refine_2
+F : Type u_1
+inst✝² : Field F
+inst✝¹ : Fintype F
+inst✝ : DecidableEq F
+hF : ringChar F ≠ 2
+a : F
+ha : a ≠ 0
+H : (zeroSet a 0).card = Fintype.card (NormFiber 0 × F × F)
+⊢ ↑(Nat.card (NormFiber 0 × F × F)) = (↑(Nat.card F) + (↑(Nat.card F) - 1) * (quadraticChar F) (-1)) * ↑(Nat.card F) ^ 2
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:96:30: warning: This simp argument is unused:
+  Fintype.card_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.card_coe] at H
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:98:13: warning: This simp argument is unused:
+  Nat.cast_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Nat.card_eq_fintype_card]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:113:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ((t : F) × NormFiber t × NormFiber (-a / b * t))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:117:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (NormDifference 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:114:30: warning: This simp argument is unused:
+  Fintype.card_sigma
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.card_coe, Fintype.card_prod] at H
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:114:49: warning: This simp argument is unused:
+  Fintype.card_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.card_coe, Fintype.card_sigma] at H
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:116:13: warning: This simp argument is unused:
+  Nat.card_eq_fintype_card
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.card_sigma, Fintype.card_prod, sub_zero] at hND
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:116:38: warning: This simp argument is unused:
+  Fintype.card_sigma
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.card_eq_fintype_card, Fintype.card_prod, sub_zero] at hND
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean:116:57: warning: This simp argument is unused:
+  Fintype.card_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.card_eq_fintype_card, Fintype.card_sigma, sub_zero] at hND
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

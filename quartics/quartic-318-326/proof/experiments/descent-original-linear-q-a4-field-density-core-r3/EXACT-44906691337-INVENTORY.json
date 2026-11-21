@@ -1,0 +1,156 @@
+{
+  "all_packet_modules_compiled": false,
+  "audit": {
+    "command": [
+      "lean",
+      "-j1",
+      "-M",
+      "6144",
+      "-Ddebug.skipKernelTC=false",
+      "-R",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-a4-field-density-core-r2-sc84f667f2426ac20",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-a4-field-density-core-r2-sc84f667f2426ac20/ExperimentAudit.lean"
+    ],
+    "declarations": 42,
+    "exit_code": 0,
+    "log_sha256": "21bd3f0b3514d3b7f1903fa0a75aed5be714b9ba5400ba6db865a0a32ae02a06",
+    "modules": [
+      "ActualA4FieldNormCount318"
+    ],
+    "seconds": 1.117,
+    "status": "audit_pass",
+    "timed_out": false
+  },
+  "baseline_key": "859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d",
+  "baseline_snapshot": "768c64ba67b1e1901c7492948ef3b1e727f49e38641664e00d435d45d8bc96a8",
+  "checker_sha256": "a27802ce62f2cf6f227f65ff57b51b7e587588c88c92e54cd1b8c437d7396c8d",
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 1,
+    "compiler_error": 1
+  },
+  "deadline_epoch": 1795269500,
+  "dependency_ready_inventory_complete": true,
+  "experiment_artifact_reuse": false,
+  "head_sha": "6f179365830ea15a66600e596260e1d3f5eed6e9",
+  "module_seconds": 180,
+  "modules": {
+    "ActualA4FieldNormCount318": {
+      "artifacts": {
+        ".ir": "40ad461b8a67cd9b4a3f393f514fc55d3663013357b94b385837a15d6300439c",
+        ".olean": "8c9b3a552ff66715748e3e71ecb1aaed5a183274dfe4c10d3aa1e826a76c95a8",
+        ".olean.private": "e0a5bd18a0769a3ab2b5c8fe454347e3e73edf5c35fcae3a2c17d026defd2666",
+        ".olean.server": "a42ccae0b005e3a0c90240e83e686a29247446983e785d00cea7455ae557bea2"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-a4-field-density-core-r2-sc84f667f2426ac20/quarantine/ActualA4FieldNormCount318/ActualA4FieldNormCount318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4FieldNormCount318.lean"
+      ],
+      "dependency_artifacts": {},
+      "exit_code": 0,
+      "imports": [
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "ed156461c80180cd1ae8785624af87f0a8ea26c16ed72f9fba078a0405cd8543",
+      "occurrence": "descent-original-linear-q-a4-field-density-core-r2/ActualA4FieldNormCount318",
+      "root_causes": [],
+      "seconds": 2.419,
+      "source_sha256": "e2621026675108be62c8c6530516f125b20a1b077e95e5f284c5d4d1ee978ad2",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualA4LinearNormCard318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-a4-field-density-core-r2-sc84f667f2426ac20/quarantine/ActualA4LinearNormCard318/ActualA4LinearNormCard318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualA4FieldNormCount318"
+      ],
+      "log_sha256": "7543f8a24ad0d200b56f2f502ddb6b47b52026ed96d217c740ad362f66ff0d52",
+      "occurrence": "descent-original-linear-q-a4-field-density-core-r2/ActualA4LinearNormCard318",
+      "root_causes": [
+        "ActualA4LinearNormCard318"
+      ],
+      "seconds": 1.817,
+      "source_sha256": "b3a7fec68a163be9568a89c40599af05e971aa5d08fc8673b615eb5175a61e6e",
+      "status": "compiler_error",
+      "timed_out": false
+    },
+    "ActualA4ProjectiveUnion318": {
+      "blocker_statuses": {
+        "ActualA4LinearNormCard318": "compiler_error"
+      },
+      "direct_blockers": [
+        "ActualA4LinearNormCard318"
+      ],
+      "imports": [
+        "ActualA4LinearNormCard318"
+      ],
+      "occurrence": "descent-original-linear-q-a4-field-density-core-r2/ActualA4ProjectiveUnion318",
+      "root_causes": [
+        "ActualA4LinearNormCard318"
+      ],
+      "source_sha256": "ddd161988975e1af71edcb53ec3b4b494d8152e932f10e8c913fa7436194ce25",
+      "status": "blocked_by_import"
+    }
+  },
+  "new_source_acceptance": false,
+  "order": [
+    "ActualA4FieldNormCount318",
+    "ActualA4LinearNormCard318",
+    "ActualA4ProjectiveUnion318"
+  ],
+  "packet": "descent-original-linear-q-a4-field-density-core-r2",
+  "packet_acceptance": false,
+  "packet_sha256": "4d40c0438bfa90cab0037c04ae532418a6b46004477679a64bf51d8a5e25ee86",
+  "production_checker_sha256": "4abfb411e506170329f1a8b7d982ff05278b90c9bc2980b0781c58be9e39c96f",
+  "request_sha256": "ea29f5d6fe270fcbcdb47a9c3977b4f1f17a2ad3bdabf369fe6f3d485bd6caec",
+  "requested_source_commit": "1490f313803637fcc45f39410516b50e0547c83a",
+  "requested_source_tree": "04b1c0eae31c471929e37ac1903eef6ace03425f",
+  "run_id": "44906691337",
+  "schema": 2,
+  "scope": "Diagnostic dependency-ready sweep only; ordinary full packet audit remains required",
+  "selected_dependency_ready_inventory_complete": true,
+  "selection": {
+    "intake_sha256": "4d40c0438bfa90cab0037c04ae532418a6b46004477679a64bf51d8a5e25ee86",
+    "packet": "descent-original-linear-q-a4-field-density-core-r2",
+    "selected_order": [
+      "ActualA4FieldNormCount318",
+      "ActualA4LinearNormCard318",
+      "ActualA4ProjectiveUnion318"
+    ],
+    "selection_sha256": "c84f667f2426ac20c9bef98825fa93d965aa0eaeb9daaad234deb7c8ae026f2d",
+    "targets": [
+      "ActualA4ProjectiveUnion318"
+    ]
+  },
+  "status": "INVENTORY_RECORDED",
+  "strict_flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "verified_baseline_modules": {}
+}
