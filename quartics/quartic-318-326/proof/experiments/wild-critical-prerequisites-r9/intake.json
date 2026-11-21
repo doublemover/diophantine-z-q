@@ -1,0 +1,214 @@
+{
+  "packet": "wild-critical-prerequisites-r9",
+  "status": "DRAFT_HOSTED_PENDING",
+  "scope": "WILD_CRITICAL_PREREQUISITES_R9",
+  "order": [
+    "SelectedGeneralizedJCurve318",
+    "SelectedGeneralizedInfinityJets318",
+    "SelectedGeneralizedAffineInfinity318",
+    "SelectedGeneralizedInfinityCartier318",
+    "SelectedGeneralizedProjectiveOverlap318",
+    "SelectedGeneralizedAffineJacobianCover318",
+    "SelectedGeneralizedLocalizedOverlap318",
+    "SelectedGeneralizedGluedCarrier318",
+    "SelectedGeneralizedHomogeneousProjective318",
+    "SelectedGeneralizedProjectiveMap318",
+    "SelectedGeneralizedProjectiveChartPullbacks318",
+    "SelectedGeneralizedProjectiveProper318",
+    "SelectedGeneralizedSmoothProperCarrier318",
+    "SelectedCanonicalFiniteAffine318",
+    "SelectedGeneralizedInstallOriginOpen318",
+    "SelectedActualKernelOriginPullbackChart318",
+    "SelectedActualAugmentedCotangent318",
+    "SelectedGeneralizedInfinityActualJets318",
+    "SelectedGeneralizedGeometricIdentityJets318",
+    "SelectedGeneralizedGeometricJetAxes318",
+    "SelectedGeneralizedGeometricMulJet318",
+    "SelectedActualKernelOriginConormal318",
+    "SelectedIntegralSectionLine318",
+    "SelectedNoetherDiagonalTrace318"
+  ],
+  "files": {
+    "SelectedGeneralizedJCurve318.lean": {
+      "sha256": "1432f6bfd94d16b129fc28211942c399e092bf5275a8f48b2f81a39c20df31f1",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "SelectedGeneralizedInfinityJets318.lean": {
+      "sha256": "c8162e7c51e1cebe9f0884c8067e08486d7251c296dd00eed6ef10518ef0da34",
+      "imports": [
+        "Mathlib.Algebra.TrivSqZeroExt.Basic",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic",
+        "SelectedGeneralizedJCurve318"
+      ]
+    },
+    "SelectedGeneralizedAffineInfinity318.lean": {
+      "sha256": "0bf095893a7906b51245a4d4c53d544e375d210a46f89924000edd5f2371763d",
+      "imports": [
+        "JacobianLocalSmooth318",
+        "Mathlib.RingTheory.Derivation.Basic",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations",
+        "Mathlib.Tactic.FinCases",
+        "SelectedGeneralizedInfinityJets318"
+      ]
+    },
+    "SelectedGeneralizedInfinityCartier318.lean": {
+      "sha256": "9713abb2be8b97c67bff7b3015b444822a1b2abc86d656b794ac9ccaf4d726a8",
+      "imports": [
+        "Mathlib.Tactic.LinearCombination",
+        "SelectedGeneralizedAffineInfinity318"
+      ]
+    },
+    "SelectedGeneralizedProjectiveOverlap318.lean": {
+      "sha256": "15349fe7b4cc638713385b4084d6bfe742a73f282febbb9ab17d16158a63afc2",
+      "imports": [
+        "SelectedGeneralizedAffineInfinity318"
+      ]
+    },
+    "SelectedGeneralizedAffineJacobianCover318.lean": {
+      "sha256": "ada31f4044a9b615da20e01e6b88edc9a2e88ae8b4d5b93a1dfbb813139ebcfb",
+      "imports": [
+        "Mathlib.Tactic.LinearCombination",
+        "SelectedGeneralizedProjectiveOverlap318"
+      ]
+    },
+    "SelectedGeneralizedLocalizedOverlap318.lean": {
+      "sha256": "a5077d8fd4d716cc4ac685fa457e03037bbbc3047c8af3fbc0355e18be0f46db",
+      "imports": [
+        "SelectedGeneralizedAffineJacobianCover318"
+      ]
+    },
+    "SelectedGeneralizedGluedCarrier318.lean": {
+      "sha256": "8fe3a6444a2747b46ec0ef4fa84c50ce8b3b86e94a3f6cd40680eba7a8941a30",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Gluing",
+        "Mathlib.AlgebraicGeometry.Limits",
+        "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion",
+        "SelectedGeneralizedLocalizedOverlap318"
+      ]
+    },
+    "SelectedGeneralizedHomogeneousProjective318.lean": {
+      "sha256": "bf0b4ce6cebbb61c2d6fb4f2fbee6b2e4a4ea928f1b75e3d007f291a516dce4d",
+      "imports": [
+        "Mathlib.Tactic.LinearCombination",
+        "ProjectiveAtlas318",
+        "SelectedGeneralizedProjectiveOverlap318"
+      ]
+    },
+    "SelectedGeneralizedProjectiveMap318.lean": {
+      "sha256": "8cd2ac32a94760d7bb2d02c4cf43f0c31b349f705ec7a9360e4995c6a65b63f9",
+      "imports": [
+        "ProjectiveEvaluation318",
+        "SelectedGeneralizedGluedCarrier318",
+        "SelectedGeneralizedHomogeneousProjective318"
+      ]
+    },
+    "SelectedGeneralizedProjectiveChartPullbacks318.lean": {
+      "sha256": "ef5bc26d3c020cc4e3b448aa8650da2c7f57042f31fabb8eed729e04d4893fbb",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+        "SelectedGeneralizedProjectiveMap318"
+      ]
+    },
+    "SelectedGeneralizedProjectiveProper318.lean": {
+      "sha256": "3ea08a158c09b46ee486fb0021dd5aac3f9fcbecfccfef40ec9615309e0e6bbf",
+      "imports": [
+        "Mathlib.RingTheory.Spectrum.Prime.RingHom",
+        "SelectedGeneralizedProjectiveChartPullbacks318"
+      ]
+    },
+    "SelectedGeneralizedSmoothProperCarrier318.lean": {
+      "sha256": "44380bd9be95b436635ec0673f3de9cef80d50cf5c076a75462570c436a619b4",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.Smooth",
+        "SelectedGeneralizedInfinityCartier318",
+        "SelectedGeneralizedProjectiveProper318"
+      ]
+    },
+    "SelectedCanonicalFiniteAffine318.lean": {
+      "sha256": "2183bd5a75d2b982c6283225630f6fbefc82b4c6ba755f432500b93ec530b1b7",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.Finite",
+        "Mathlib.AlgebraicGeometry.Morphisms.Flat",
+        "Mathlib.RingTheory.LocalRing.Module"
+      ]
+    },
+    "SelectedGeneralizedInstallOriginOpen318.lean": {
+      "sha256": "5d57deed88d65fac2e415f922d0ee5acfaabb27eab02a99404c0f6586b8c84e5",
+      "imports": [
+        "SelectedGeneralizedGluedCarrier318",
+        "SelectedGeneralizedInfinityCartier318"
+      ]
+    },
+    "SelectedActualKernelOriginPullbackChart318.lean": {
+      "sha256": "6d373662c6bae3c9a6459dd1ff90af24caf59cc2a3ae5da9d36ae11ba5f16d71",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "SelectedCanonicalFiniteAffine318",
+        "SelectedGeneralizedInstallOriginOpen318"
+      ]
+    },
+    "SelectedActualAugmentedCotangent318.lean": {
+      "sha256": "7f95f1c4288eb6d5480e7bf32a6c998adc67cb77101c7c4399b58d09b90cf187",
+      "imports": [
+        "Mathlib.Algebra.Module.Opposite",
+        "Mathlib.Algebra.TrivSqZeroExt.Basic",
+        "Mathlib.RingTheory.Ideal.Cotangent",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "SelectedGeneralizedInfinityActualJets318.lean": {
+      "sha256": "2349e21d8bf2db865d1010d4606814079e0ab7d0a47114d2dbf1e0d6283318dc",
+      "imports": [
+        "SelectedGeneralizedInfinityCartier318"
+      ]
+    },
+    "SelectedGeneralizedGeometricIdentityJets318.lean": {
+      "sha256": "a6e361a7f879fbec32909677e0f3e6a461c0d7985eed620893d21154a10263dd",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.AffineScheme",
+        "Mathlib.RingTheory.Spectrum.Prime.RingHom",
+        "SelectedGeneralizedInfinityActualJets318",
+        "SelectedGeneralizedInstallOriginOpen318"
+      ]
+    },
+    "SelectedGeneralizedGeometricJetAxes318.lean": {
+      "sha256": "2da48dd66254127f722ad2b8749e36a60d01b8dd143f5906c3ad7bc128bd239b",
+      "imports": [
+        "Mathlib.LinearAlgebra.Prod",
+        "SelectedGeneralizedGeometricIdentityJets318"
+      ]
+    },
+    "SelectedGeneralizedGeometricMulJet318.lean": {
+      "sha256": "c4f79eef0f2ea50f7c5afd09496aaf2bafc6018349e1627df112c3af689c421b",
+      "imports": [
+        "SelectedGeneralizedGeometricJetAxes318"
+      ]
+    },
+    "SelectedActualKernelOriginConormal318.lean": {
+      "sha256": "3838204e3c30f7f35f886d55c9823f8d07ed9b1e0b4421af2b021dd5965caaeb",
+      "imports": [
+        "Mathlib.RingTheory.Noetherian.Basic",
+        "SelectedActualAugmentedCotangent318",
+        "SelectedGeneralizedGeometricMulJet318"
+      ]
+    },
+    "SelectedIntegralSectionLine318.lean": {
+      "sha256": "bb358675c109e1e5985cfe159048dc885a8daea4744bbd109b44fa18b0006e10",
+      "imports": [
+        "Mathlib.LinearAlgebra.TensorProduct.Tower",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "SelectedNoetherDiagonalTrace318.lean": {
+      "sha256": "0b6c52d61d84053543a522b2f9eed5945265cdfd4aa1c849f70949622b119d05",
+      "imports": [
+        "Mathlib.RingTheory.TensorProduct.Maps",
+        "Mathlib.RingTheory.Trace.Defs",
+        "SelectedIntegralSectionLine318"
+      ]
+    }
+  }
+}
