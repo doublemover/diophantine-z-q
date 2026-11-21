@@ -1,0 +1,114 @@
+module
+public import SelectedGeneralizedInfinityJets318
+public import JacobianLocalSmooth318
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+public import Mathlib.RingTheory.Derivation.Basic
+public import Mathlib.Tactic.FinCases
+public section
+noncomputable section
+open MvPolynomial Algebra
+
+namespace SelectedGeneralizedAffineInfinity318
+
+variable {R : Type*} [CommRing R]
+
+/-- Explicit dehomogenization of the actual generalized projective
+equation on Y≠0, with (t,z)=(X/Y,Z/Y) and d=J−1728. -/
+@[expose] def equation (d : Rˣ) : MvPolynomial (Fin 2) R :=
+  X 1 + X 0*X 1 - X 0^3 + C (36*(↑d⁻¹ : R))*X 0*X 1^2 +
+    C (↑d⁻¹ : R)*X 1^3
+
+@[expose] def equations (d : Rˣ) : Unit → MvPolynomial (Fin 2) R :=
+  fun _ => equation d
+
+abbrev Chart (d : Rˣ) := MvPolynomial (Fin 2) R ⧸ Ideal.span (Set.range (equations d))
+
+@[expose] def parameter (d : Rˣ) : Chart d := Ideal.Quotient.mk _ (X 0)
+@[expose] def ordinate (d : Rˣ) : Chart d := Ideal.Quotient.mk _ (X 1)
+
+theorem dehomogenizes {D : Type*} [CommRing D] [Algebra R D] (d : Rˣ) (t z : D) :
+    ((SelectedGeneralizedJCurve318.curve d).baseChange D).toProjective.Equation ![t,1,z] ↔
+      MvPolynomial.aeval ![t,z] (equation d) = 0 := by
+  rw [WeierstrassCurve.Projective.equation_iff]
+  change (1:D)^2*z +(algebraMap R D 1)*t*1*z +(algebraMap R D 0)*1*z^2 -
+    (t^3+(algebraMap R D 0)*t^2*z+(algebraMap R D (-36*(↑d⁻¹ : R)))*t*z^2+
+      (algebraMap R D (-(↑d⁻¹ : R)))*z^3) = 0 ↔ _
+  simp only [equation,map_add,map_sub,map_mul,map_pow,map_one,map_zero,map_neg,map_ofNat,
+    MvPolynomial.aeval_X,MvPolynomial.aeval_C,Matrix.cons_val_zero,Matrix.cons_val_one]
+  constructor <;> intro h
+  · convert h using 1 <;> ring
+  · convert h using 1 <;> ring
+
+/-- The actual one-relation chart with independent variable t and
+submersive coordinate z. -/
+@[expose] def presentation (d : Rˣ) : PreSubmersivePresentation R (Chart d) (Fin 2) Unit :=
+  PreSubmersivePresentation.naive (v := equations d) (fun _ => 1)
+    (fun _ _ _ => Subsingleton.elim _ _)
+
+theorem partial_ordinate (d : Rˣ) : pderiv 1 (equation d) =
+    1 + X 0 + C (72*(↑d⁻¹ : R))*X 0*X 1 + C (3*(↑d⁻¹ : R))*X 1^2 := by
+  have h36 : (pderiv (1:Fin 2)) (36 : MvPolynomial (Fin 2) R) = 0 := by
+    simpa only [Nat.cast_ofNat] using
+      ((pderiv (R := R) (1:Fin 2)).map_natCast 36)
+  simp [equation,C_mul,map_ofNat,h36] <;> ring
+
+/-- Genuine affine polynomial evaluation at (0,0), before imposing
+the same chart equation. -/
+@[expose] def originEval : MvPolynomial (Fin 2) R →ₐ[R] R :=
+  MvPolynomial.aeval (fun _ : Fin 2 => (0:R))
+
+private theorem origin_vanishes (d : Rˣ) (f : MvPolynomial (Fin 2) R)
+    (hf : f ∈ Ideal.span (Set.range (equations d))) : originEval f = 0 := by
+  have hk : Ideal.span (Set.range (equations d)) ≤ RingHom.ker (originEval (R := R)).toRingHom := by
+    apply Ideal.span_le.mpr
+    rintro _ ⟨_,rfl⟩
+    change originEval (equation d) = 0
+    simp [originEval,equation]
+  exact hk hf
+
+/-- The origin is an actual augmentation of the specified chart ring. -/
+@[expose] def origin (d : Rˣ) : Chart d →ₐ[R] R :=
+  Ideal.Quotient.liftₐ _ originEval (by exact origin_vanishes d)
+
+private theorem origin_on_quotient (d : Rˣ) (f : MvPolynomial (Fin 2) R) :
+    origin d (Ideal.Quotient.mk _ f) = originEval f := by
+  have h := Ideal.Quotient.liftₐ_comp (Ideal.span (Set.range (equations d)))
+    (originEval (R := R)) (origin_vanishes d)
+  have hf := AlgHom.congr_fun h f
+  change origin d (Ideal.Quotient.mk _ f) = originEval f at hf
+  exact hf
+
+@[simp] theorem origin_parameter (d : Rˣ) : origin d (parameter d) = 0 := by
+  rw [parameter,origin_on_quotient]
+  exact MvPolynomial.aeval_X _ _
+
+@[simp] theorem origin_ordinate (d : Rˣ) : origin d (ordinate d) = 0 := by
+  rw [ordinate,origin_on_quotient]
+  exact MvPolynomial.aeval_X _ _
+
+private theorem jacobian_quotient (d : Rˣ) :
+    (presentation d).jacobian = Ideal.Quotient.mk _ (pderiv 1 (equation d)) := by
+  rw [PreSubmersivePresentation.jacobian_eq_jacobiMatrix_det,Matrix.det_unique,
+    PreSubmersivePresentation.jacobiMatrix_apply]
+  rfl
+
+theorem origin_jacobian (d : Rˣ) : origin d (presentation d).jacobian = 1 := by
+  rw [jacobian_quotient,partial_ordinate,origin_on_quotient]
+  simp [originEval]
+
+abbrev SmoothChart (d : Rˣ) := Localization.Away (presentation d).jacobian
+
+instance smooth (d : Rˣ) : Algebra.Smooth R (SmoothChart d) := by
+  have := JacobianLocalSmooth318.localization_jacobian (presentation d)
+  infer_instance
+
+/-- The same augmentation lands in the actual smooth neighborhood
+because the derivative specializes to the literal scalar 1. -/
+@[expose] def smoothOrigin (d : Rˣ) : SmoothChart d →ₐ[R] R :=
+  IsLocalization.Away.liftAlgHom (f := origin d) (presentation d).jacobian
+    (by rw [origin_jacobian]; exact isUnit_one)
+
+end SelectedGeneralizedAffineInfinity318
+
+#print axioms SelectedGeneralizedAffineInfinity318.dehomogenizes
+#print axioms SelectedGeneralizedAffineInfinity318.smoothOrigin
