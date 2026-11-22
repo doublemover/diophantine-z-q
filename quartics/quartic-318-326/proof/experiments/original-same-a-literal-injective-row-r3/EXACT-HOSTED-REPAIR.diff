@@ -1,0 +1,12 @@
+--- r2/SelectedSameALiteralInjectiveRow318.lean
++++ r3/SelectedSameALiteralInjectiveRow318.lean
+@@ -101,7 +101,7 @@
+     _ = evalH (factor X hOld lambdaA).τ₁ :=
+       SelectedSameAGenuineBoundaryLifts318.boundary_natural
+         X hOld (target_shortExact X L) (factor X hOld lambdaA) z
+-    _ = evalH lambdaA := congrArg evalH (factor_left X hOld lambdaA)
+-    _ = _ := rfl
++    _ = Sheaf.H.map lambdaA 1 (SelectedSameAGenuineBoundaryLifts318.boundary X hOld z) :=
++      congrArg evalH (factor_left X hOld lambdaA)
+ 
+ end SelectedSameALiteralInjectiveRow318
