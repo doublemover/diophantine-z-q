@@ -1,0 +1,177 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:34:25: error: unsolved goals
+case hV
+X : Scheme
+U : X.Opens
+hU : IsAffineOpen U
+s : Spec ↧ℂ ⟶ X
+hs : ⊤ ≤ s ⁻¹ᵁ U
+hTop : Spec.map (Scheme.ΓSpecIso ↧ℂ).hom ≫ ⋯.fromSpec = 𝟙 (Spec ↧ℂ)
+⊢ IsAffineOpen ⊤
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:77:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => Scheme.Hom.app q V ≫ Scheme.Hom.appLE ν (q ⁻¹ᵁ V) ⊤ hν = Scheme.Hom.appLE _a V ⊤ hν
+Error: Application type mismatch: The argument
+  hν
+has type
+  ⊤ ≤ ν ⁻¹ᵁ U
+but is expected to have type
+  ⊤ ≤ _a ⁻¹ᵁ V
+in the application
+  Scheme.Hom.appLE _a V ⊤ hν
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Limits.getColimitCocone ↦ 119
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+F : Type
+inst✝¹ : Field F
+inst✝ : Algebra JField F
+aC : Algebra ℂ F
+tC : IsScalarTower ℂ JField F
+a : ℂ[X]
+this : Algebra ℂ[X] F := (polynomial F 1).toAlgebra
+R : CommRingCat := ↧ℂ[X]
+K₀ : CommRingCat := ↧F
+φ : R ⟶ K₀ := CommRingCat.ofHom (polynomial F 1)
+c : Spec ↧ℂ[X] ⟶ ProjectiveJLine318.scheme ℂ := JLineAtlas318.chart ℂ 1
+V : (ProjectiveJLine318.scheme ℂ).Opens := ↑(targetCover 1)
+U : (model F).Opens := ↑(sourceCover F 1)
+f : Spec ↧F ⟶ ProjectiveJLine318.scheme ℂ := genericMap F
+ν : Spec ↧F ⟶ Scheme.Hom.normalization f := Scheme.Hom.toNormalization f
+q : model F ⟶ ProjectiveJLine318.scheme ℂ := modelMap F
+hf : f = Spec.map φ ≫ c
+hWhole : f ⁻¹ᵁ V = ⊤
+hν : ⊤ ≤ ν ⁻¹ᵁ U
+hC : Scheme.Hom.appLE f V ⊤ ⋯ ≫ (Scheme.ΓSpecIso K₀).hom = (NormalizationChart318.targetSections c).hom ≫ φ
+h : Scheme.Hom.app q V ≫ Scheme.Hom.appLE ν (q ⁻¹ᵁ V) ⊤ hν = Scheme.Hom.appLE (ν ≫ q) V ⊤ hν
+⊢ Scheme.Hom.app q V ≫ Scheme.Hom.appLE ν U ⊤ hν = Scheme.Hom.appLE f V ⊤ ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:106:52: error: unsolved goals
+R : CommRingCat := ↧ℂ[X]
+c : Spec ↧ℂ[X] ⟶ ProjectiveJLine318.scheme ℂ := JLineAtlas318.chart ℂ 1
+V : ↑(ProjectiveJLine318.scheme ℂ).affineOpens := targetCover 1
+ht : ⊤ ≤ c ⁻¹ᵁ ↑V
+⊢ Scheme.Hom.appLE c (c ''ᵁ ⊤) ⊤ ⋯ ≫ (Scheme.ΓSpecIso ↧ℂ[X]).hom = Scheme.Hom.appLE c ↑V ⊤ ht ≫ (Scheme.ΓSpecIso R).hom
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:111:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (NormalizationChart318.targetSections c).hom
+in the target expression
+  let R := ↧ℂ[X];
+  let c := JLineAtlas318.chart ℂ 1;
+  let V := targetCover 1;
+  Spec.map (NormalizationChart318.targetSections c).hom ≫ IsAffineOpen.fromSpec ⋯ = c
+
+R : CommRingCat := ↧ℂ[X]
+c : Spec ↧ℂ[X] ⟶ ProjectiveJLine318.scheme ℂ := JLineAtlas318.chart ℂ 1
+V : ↑(ProjectiveJLine318.scheme ℂ).affineOpens := targetCover 1
+ht : ⊤ ≤ c ⁻¹ᵁ ↑V
+hΓ : (NormalizationChart318.targetSections c).hom = Scheme.Hom.appLE c ↑V ⊤ ht ≫ (Scheme.ΓSpecIso R).hom
+hId : Spec.map (Scheme.ΓSpecIso R).hom ≫ ⋯.fromSpec = 𝟙 (Spec R)
+⊢ let R := ↧ℂ[X];
+  let c := JLineAtlas318.chart ℂ 1;
+  let V := targetCover 1;
+  Spec.map (NormalizationChart318.targetSections c).hom ≫ IsAffineOpen.fromSpec ⋯ = c
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    V.property
+  has type
+    ↑V ∈ (ProjectiveJLine318.scheme ℂ).affineOpens
+  but is expected to have type
+    IsAffineOpen ↑V
+  in the application
+    IsAffineOpen.fromSpec ⋯
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:149:4: error: Type mismatch: After simplification, term
+  IsAffineOpen.SpecMap_appLE_fromSpec q V.property U.property le_rfl
+ has type
+  Spec.map (Scheme.Hom.appLE q ↑V ↑U ⋯) ≫ IsAffineOpen.fromSpec ⋯ = IsAffineOpen.fromSpec ⋯ ≫ q
+but is expected to have type
+  Spec.map (Scheme.Hom.app q ↑V) ≫ IsAffineOpen.fromSpec ⋯ = IsAffineOpen.fromSpec ⋯ ≫ q
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  inv ↦ 28
+  Limits.getColimitCocone ↦ 4050
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:206:77: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Generic 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  Generic
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:216:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:217:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:218:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:219:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:220:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:223:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r7/SelectedActualMarkedEllipticSchemeBranch318.lean:224:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'SelectedActualMarkedEllipticSchemeBranch318.finiteJ_complex_point_over' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedEllipticSchemeBranch318.finiteJ_complex_point_unique_by_puncture' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedEllipticSchemeBranch318.actual_marked_elliptic_scheme_branch' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
