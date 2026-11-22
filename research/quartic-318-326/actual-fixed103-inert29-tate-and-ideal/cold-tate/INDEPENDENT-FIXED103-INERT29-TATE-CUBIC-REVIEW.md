@@ -1,0 +1,11 @@
+# Independent review: the primitive order-nine test by a cubic residue
+
+**Disposition: PASS, exact equivalence and bounded obstructions.** The exact author checksum list is `c5a2659758dcb4dc72e846e8e855ffffa253e086068ee580d57a2ecf5629369e`; the exact reviewed paper SHA-256 is `831aa64099a0d131044f245cf925bc2b2005609927e624c941cfb0c095ebc916`. All files verified, and the complete fixed 224-label Python replay reproduced the exact output byte for byte, including the six-edge cycle and the fixed conductor-241 reference. “Maximal-order part” in the opening means order nine versus order dividing three in the finite receiver, not a replacement of the moving ring class order by its maximal order.
+
+The fixed rational two-torsion shift makes the evaluation of the order-three tangent a unit on every listed supersingular marked flag. The divisor pair and exponent 280 use the explicit convention of [Bruin, Theorem 4.1](https://pub.math.leidenuniv.nl/~bruinpj/tate-pairing.pdf). Rationality of the tangent and shift over the prime field gives inversion under Frobenius, so the anti-projected order-nine generator is detected by exponent 560. At an inert eligible prime 29 the rational ideal (29) is principal in the prime-to-29 order, so the ring class and relative quadratic fields use the same residue field of size 841. The chosen oriented ratio of the two half-norms gives the signed product with its true class-index multiplicities. Opposite orientation just inverts it.
+
+The exact nonzero alternating cycle rules out a sum of unary functions on the two displayed parameter sets before aggregation. For the genuine horizontal characteristic-zero tangent zeros, the two chart depths give nonintegral j on both sheets, excluding CM. The unipotent cusp conditions force every local congruence character through the residual diagonal unit groups at 2 and 3, a 2-group, and so exclude the claimed compact unramified cyclic cubic congruence lift. Neither obstruction rules out other simultaneous joint-level or post-aggregation identities.
+
+A noncube is equivalent to exact order nine. A cube still allows order three and is not a rank obstruction. No moving relative norm or original detector point is evaluated here.
+
+**Signed:** Independent quartic cold reviewer, 2026-11-22 UTC. Classical proof and exact auxiliary replay; not a Lean kernel receipt.
