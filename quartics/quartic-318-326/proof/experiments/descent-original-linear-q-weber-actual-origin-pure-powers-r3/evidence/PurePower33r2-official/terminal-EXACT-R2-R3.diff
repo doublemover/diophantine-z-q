@@ -1,0 +1,17 @@
+--- r2/ActualGaussianWeberActualOriginPurePowers318.lean
++++ r3/ActualGaussianWeberActualOriginPurePowers318.lean
+@@ -169,12 +169,12 @@
+   have htop := congrArg (fun P : k[X] => P.coeff (p+p)) hP0
+   have hmid := congrArg (fun P : k[X] => P.coeff p) hP0
+   have hab : d₁*d₀=0 := by
+-    simpa only [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,if_pos rfl,
++    simpa only [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,if_pos rfl,if_true,
+       if_neg h₁',if_neg (Ne.symm h₁'),if_neg h₂',if_neg (Ne.symm h₂'),
+       add_zero,sub_zero,coeff_zero] using htop
+   have hb : d₀=0 := (mul_eq_zero.mp hab).resolve_left hd
+   have hmid' : d₀^2-d₁^2+1=0 := by
+-    simpa only [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,if_pos rfl,
++    simpa only [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,if_pos rfl,if_true,
+       if_neg hp.ne',if_neg (Ne.symm hp.ne'),if_neg h₁',if_neg (Ne.symm h₁'),
+       zero_add,sub_zero,coeff_zero] using hmid
+   have hs : d₁^2=1 := by

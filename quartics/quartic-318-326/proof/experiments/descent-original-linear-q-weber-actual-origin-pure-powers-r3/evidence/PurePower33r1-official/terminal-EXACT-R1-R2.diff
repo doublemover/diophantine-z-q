@@ -1,0 +1,29 @@
+--- r1/ActualGaussianWeberActualOriginPurePowers318.lean
++++ r2/ActualGaussianWeberActualOriginPurePowers318.lean
+@@ -101,7 +101,7 @@
+     _ = (constGeneric k b + constGeneric k a * (xGeneric k)^p) / constGeneric k c := by
+       rw [hA,hB,map_add,map_mul,map_pow,hC,hC,hC,hX]
+     _ = _ := by
+-      simp only [map_div₀,div_eq_mul_inv]
++      rw [map_div₀ (constGeneric k) a c,map_div₀ (constGeneric k) b c]
+       ring
+ 
+ private theorem polynomial_injects (k : Type*) [Field k] :
+@@ -169,11 +169,14 @@
+   have htop := congrArg (fun P : k[X] => P.coeff (p+p)) hP0
+   have hmid := congrArg (fun P : k[X] => P.coeff p) hP0
+   have hab : d₁*d₀=0 := by
+-    simpa [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,h₁',h₂',Ne.symm h₁',Ne.symm h₂'] using htop
++    simpa only [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,if_pos rfl,
++      if_neg h₁',if_neg (Ne.symm h₁'),if_neg h₂',if_neg (Ne.symm h₂'),
++      add_zero,sub_zero,coeff_zero] using htop
+   have hb : d₀=0 := (mul_eq_zero.mp hab).resolve_left hd
+   have hmid' : d₀^2-d₁^2+1=0 := by
+-    simpa [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,hp.ne',Ne.symm hp.ne',
+-      h₁',Ne.symm h₁'] using hmid
++    simpa only [P,coeff_sub,coeff_add,coeff_C_mul_X_pow,coeff_C,if_pos rfl,
++      if_neg hp.ne',if_neg (Ne.symm hp.ne'),if_neg h₁',if_neg (Ne.symm h₁'),
++      zero_add,sub_zero,coeff_zero] using hmid
+   have hs : d₁^2=1 := by
+     rw [hb,zero_pow (by decide : (2:ℕ) ≠ 0)] at hmid'
+     linear_combination -hmid'
