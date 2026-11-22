@@ -1,0 +1,34 @@
+--- r2/SelectedSameAOldChartArrows318.lean
++++ r3/SelectedSameAOldChartArrows318.lean
+@@ -125,11 +125,27 @@
+   have ht :
+       (SelectedSameAActualTildeTensorNaturality318.tensorIso C B N).hom =
+         (SelectedSameAFibreAffineProjection318.tensorIso k C B).hom := rfl
++  let tilB := tilde.functor (CommRingCat.of B)
++  let cancel :=
++    (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
++  let L := ModuleCat.ofHom
++    (AlgebraTensorModule.lTensor B B (KaehlerDifferential.mapBaseChange k T C))
++  have hfac : ModuleCat.ofHom (SelectedSameAOldCotangentFibreSplit318.leftOnFibre k T C B) =
++      cancel.inv ≫ L := by
++    unfold SelectedSameAOldCotangentFibreSplit318.leftOnFibre
++    exact ModuleCat.ofHom_comp _ _
++  have hc : tilB.map cancel.hom ≫
++      tilB.map (ModuleCat.ofHom (SelectedSameAOldCotangentFibreSplit318.leftOnFibre k T C B)) =
++      tilB.map L := by
++    calc
++      _ = tilB.map cancel.hom ≫ tilB.map (cancel.inv ≫ L) :=
++        congrArg (fun f => tilB.map cancel.hom ≫ tilB.map f) hfac
++      _ = tilB.map (cancel.hom ≫ cancel.inv ≫ L) :=
++        (tilB.map_comp cancel.hom (cancel.inv ≫ L)).symm
++      _ = _ := congrArg (fun f => tilB.map f) (Iso.hom_inv_id_assoc cancel L)
++  dsimp only [tilB, cancel, L] at hc
+   rw [← ht]
+-  simp only [Category.assoc, hN, ← Functor.map_comp_assoc,
+-    SelectedSameAOldCotangentFibreSplit318.leftOnFibre, ModuleCat.ofHom_comp,
+-    Iso.hom_inv_id_assoc, Category.id_comp]
+-  rfl
++  simp only [Category.assoc, hN, hc] <;> rfl
+ 
+ /-- The old two literal arrows are now present together on this one chart. -/
+ theorem old_affine_pair_ready :
