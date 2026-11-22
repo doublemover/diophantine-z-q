@@ -1,0 +1,48 @@
+--- r4/SelectedSameAOldFibreRingSquare318.lean
++++ r5/SelectedSameAOldFibreRingSquare318.lean
+@@ -88,4 +88,6 @@
+     affine_structure_from_scalar p hU ▸ h
+   exact (HasRingHomProperty.Spec_iff (P := @Smooth)).mp h'
+ 
++end
++
+ end SelectedSameAOldFibreRingSquare318
+--- r4/SelectedSameAOldChartArrows318.lean
++++ r5/SelectedSameAOldChartArrows318.lean
+@@ -62,7 +62,7 @@
+     SelectedSameAActualTildeTensorNaturality318.tensorIso C B
+       (ModuleCat.of C (C ⊗[T] KaehlerDifferential k T)) ≪≫
+     (tilde.functor (CommRingCat.of B)).mapIso
+-      (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
++      (TensorProduct.AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
+ 
+ theorem old_right_normalized :
+     (res l).map (PB i a q hi) ≫ (oldTarget a l hl).hom =
+@@ -119,7 +119,7 @@
+   change _ = _ ≫ (F r).map (affineOldSource p j hs).hom ≫
+     (SelectedSameAActualTildeTensorNaturality318.tensorIso C B M).hom ≫
+     (tilde.functor (CommRingCat.of B)).map
+-      (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso.hom ≫
++      (TensorProduct.AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso.hom ≫
+     (tilde.functor (CommRingCat.of B)).map
+       (ModuleCat.ofHom (SelectedSameAOldCotangentFibreSplit318.leftOnFibre k T C B))
+   have ht :
+@@ -127,9 +127,9 @@
+         (SelectedSameAFibreAffineProjection318.tensorIso k C B).hom := rfl
+   let tilB := tilde.functor (CommRingCat.of B)
+   let cancel :=
+-    (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
++    (TensorProduct.AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
+   let L := ModuleCat.ofHom
+-    (AlgebraTensorModule.lTensor B B (KaehlerDifferential.mapBaseChange k T C))
++    (TensorProduct.AlgebraTensorModule.lTensor B B (KaehlerDifferential.mapBaseChange k T C))
+   have hfac : ModuleCat.ofHom (SelectedSameAOldCotangentFibreSplit318.leftOnFibre k T C B) =
+       cancel.inv ≫ L := by
+     unfold SelectedSameAOldCotangentFibreSplit318.leftOnFibre
+@@ -157,4 +157,6 @@
+         (ModuleCat.ofHom (KaehlerDifferential.mapBaseChange k C B))) :=
+   ⟨old_left_normalized p q i j l hp hj hs hr, old_right_normalized q a i j l hi hj hl hr⟩
+ 
++end
++
+ end SelectedSameAOldChartArrows318

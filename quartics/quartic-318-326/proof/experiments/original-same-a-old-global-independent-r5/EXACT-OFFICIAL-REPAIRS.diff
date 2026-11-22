@@ -1,0 +1,202 @@
+--- r3/SelectedSameAActualAffineSpecPushout318.lean
++++ r4/SelectedSameAActualAffineSpecPushout318.lean
+@@ -42,4 +42,6 @@
+     IsPullback.of_map_of_faithful (F := Scheme.Spec) H
+   exact CommRingCat.isPushout_iff_isPushout.mp h.unop
+ 
++end
++
+ end SelectedSameAActualAffineSpecPushout318
+--- r3/SelectedSameAActualTildeTensorNaturality318.lean
++++ r4/SelectedSameAActualTildeTensorNaturality318.lean
+@@ -2,6 +2,7 @@
+ 
+ public import ScalarExtensionTensor318
+ public import TildePullback318
++public import Mathlib.LinearAlgebra.TensorProduct.Tower
+ 
+ /-!
+ # The actual tilde pullback compares natural tensor maps, not just objects
+@@ -30,7 +31,7 @@
+     (ModuleCat.extendScalars (algebraMap C B)).map e ≫
+         (ScalarExtensionTensor318.tensorEquiv (T := B) N).toModuleIso.hom =
+       (ScalarExtensionTensor318.tensorEquiv (T := B) M).toModuleIso.hom ≫
+-        ModuleCat.ofHom (AlgebraTensorModule.lTensor B B e.hom) := by
++        ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B e.hom) := by
+   apply ModuleCat.hom_ext
+   apply LinearMap.ext
+   intro x
+@@ -41,10 +42,10 @@
+     change ScalarExtensionTensor318.tensorEquiv (T := B) N
+       ((ModuleCat.extendScalars (algebraMap C B)).map e
+         (b ⊗ₜ[C, algebraMap C B] m)) =
+-      AlgebraTensorModule.lTensor B B e.hom
++      TensorProduct.AlgebraTensorModule.lTensor B B e.hom
+         (ScalarExtensionTensor318.tensorEquiv (T := B) M (b ⊗ₜ[C, algebraMap C B] m))
+     rw [ModuleCat.ExtendScalars.map_tmul, ScalarExtensionTensor318.tensorEquiv_tmul,
+-      ScalarExtensionTensor318.tensorEquiv_tmul, AlgebraTensorModule.lTensor_tmul] <;> rfl
++      ScalarExtensionTensor318.tensorEquiv_tmul, TensorProduct.AlgebraTensorModule.lTensor_tmul] <;> rfl
+ 
+ /-- Actual sheaf comparison, with no condition on the affine morphism. -/
+ @[expose] def tensorIso (M : ModuleCat.{u} C) :
+@@ -61,7 +62,7 @@
+     (Scheme.Modules.pullback (Spec.map (CommRingCat.ofHom (algebraMap C B)))).map
+         ((tilde.functor (CommRingCat.of C)).map e) ≫ (tensorIso C B N).hom =
+       (tensorIso C B M).hom ≫ (tilde.functor (CommRingCat.of B)).map
+-        (ModuleCat.ofHom (AlgebraTensorModule.lTensor B B e.hom)) := by
++        (ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B e.hom)) := by
+   have h := (TildePullback318.pullbackIso (CommRingCat.ofHom (algebraMap C B))).hom.naturality e
+   simp only [Functor.comp_map, CommRingCat.hom_ofHom] at h
+   simp only [tensorIso, Iso.trans_hom, Iso.app_hom, Functor.mapIso_hom, Category.assoc]
+@@ -71,4 +72,6 @@
+     (ScalarExtensionTensor318.tensorEquiv (T := B) N).toModuleIso.hom
+   rw [← hcompose, tensorEquiv_naturality C B, Functor.map_comp]
+ 
++end
++
+ end SelectedSameAActualTildeTensorNaturality318
+--- r3/SelectedSameAOldMarkedCompositeZero318.lean
++++ r4/SelectedSameAOldMarkedCompositeZero318.lean
+@@ -47,7 +47,7 @@
+     refine ⟨(Scheme.ΓSpecIso (CommRingCat.of k)).hom s, ?_⟩
+     have hTop : (homOfLE (show (⊤ : X.Opens) ≤ ⊤ from le_top)).op =
+         𝟙 (op (⊤ : X.Opens)) := Subsingleton.elim _ _
+-    change (((Scheme.ΓSpecIso (CommRingCat.of k)).inv ≫ (𝟙 X).appTop) ≫
++    change (((Scheme.ΓSpecIso (CommRingCat.of k)).inv ≫ (𝟙 X : Scheme.Hom X X).appTop) ≫
+       X.presheaf.map (homOfLE (show (⊤ : X.Opens) ≤ ⊤ from le_top)).op)
+         ((Scheme.ΓSpecIso (CommRingCat.of k)).hom s) = s
+     rw [Scheme.Hom.id_appTop, Category.comp_id, hTop, Functor.map_id,
+--- r3/SelectedSameAOldAffineJacobian318.lean
++++ r4/SelectedSameAOldAffineJacobian318.lean
+@@ -110,8 +110,12 @@
+       (F r).map I.inv ≫ SelectedSameAFibreAffineProjection318.right k T C := by
+     calc
+       _ = (F r).map I.inv ≫ ((F r).map I.hom ≫ PB r t b hrt) ≫ J.inv := by
+-        simp only [← Category.assoc, ← Functor.map_comp, Iso.inv_hom_id, Functor.map_id,
+-          Category.id_comp]
++        simp only [← Category.assoc, ← Functor.map_comp, Iso.inv_hom_id]
++        have hMapId : (F r).map (𝟙 (Ω b)) = 𝟙 ((F r).obj (Ω b)) :=
++          (F r).map_id (Ω b)
++        change PB r t b hrt ≫ J.inv =
++          ((F r).map (𝟙 (Ω b)) ≫ PB r t b hrt) ≫ J.inv
++        rw [hMapId, Category.id_comp]
+       _ = _ := by rw [hx]; simp only [Category.assoc, Iso.hom_inv_id, Category.comp_id]
+   simp only [IntrinsicChartNormalization318.iso, affineOldSource,
+     Iso.trans_hom, Iso.trans_inv, Iso.symm_hom, Iso.symm_inv, Functor.mapIso_hom, Category.assoc]
+@@ -122,4 +126,6 @@
+   simp only [Category.assoc, hy]
+   rw [← SelectedSameAFibreAffineProjection318.right_on_tensor k T C]
+ 
++end
++
+ end SelectedSameAOldAffineJacobian318
+--- r3/SelectedSameAOldCotangentFibreSplit318.lean
++++ r4/SelectedSameAOldCotangentFibreSplit318.lean
+@@ -1,6 +1,7 @@
+ module
+ 
+ public import SelectedSameASmoothTransitivitySplit318
++import all SelectedSameASmoothTransitivitySplit318
+ public import Mathlib.RingTheory.Kaehler.TensorProduct
+ public import Mathlib.LinearAlgebra.TensorProduct.Tower
+ 
+@@ -30,19 +31,19 @@
+ presupposed reconciliation between scalar restriction presentations. -/
+ @[expose] def actualTensor : ModuleCat.{u} C ⥤ ModuleCat.{u} B where
+   obj M := ModuleCat.of B (B ⊗[C] M)
+-  map f := ModuleCat.ofHom (AlgebraTensorModule.lTensor B B f.hom)
++  map f := ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B f.hom)
+   map_id M := by
+     apply ModuleCat.hom_ext
+-    exact AlgebraTensorModule.lTensor_id
++    exact TensorProduct.AlgebraTensorModule.lTensor_id
+   map_comp f g := by
+     apply ModuleCat.hom_ext
+-    exact AlgebraTensorModule.lTensor_comp (A := B) (M := B) g.hom f.hom
++    exact TensorProduct.AlgebraTensorModule.lTensor_comp (A := B) (M := B) g.hom f.hom
+ 
+ instance actualTensor_additive : (actualTensor C B).Additive where
+   map_add := by
+     intro M N f g
+     apply ModuleCat.hom_ext
+-    exact map_add (AlgebraTensorModule.lTensor B B) f.hom g.hom
++    exact map_add (TensorProduct.AlgebraTensorModule.lTensor B B) f.hom g.hom
+ 
+ end ExtensionFunctor
+ 
+@@ -56,14 +57,14 @@
+ /-- On the same actual fibre, this is the pullback of the first map,
+ re-associating the true three scalar extensions. -/
+ @[expose] def leftOnFibre : B ⊗[T] KaehlerDifferential k T →ₗ[B] B ⊗[C] KaehlerDifferential k C :=
+-  (AlgebraTensorModule.lTensor B B (jacobian k T C)).comp
+-    (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).symm.toLinearMap
++  (TensorProduct.AlgebraTensorModule.lTensor B B (jacobian k T C)).comp
++    (TensorProduct.AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).symm.toLinearMap
+ 
+ /-- Whole-map normalization: the base-changed relative quotient is
+ the literal differential projection on the true affine fibre. -/
+ theorem rightOnFibre :
+     (KaehlerDifferential.tensorKaehlerEquiv T k C B).toLinearMap.comp
+-      (AlgebraTensorModule.lTensor B B (relativeProjection k T C)) =
++      (TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C)) =
+     KaehlerDifferential.mapBaseChange k C B := by
+   apply LinearMap.ext
+   intro x
+@@ -76,14 +77,14 @@
+       trivial
+     refine Submodule.span_induction (p := fun v _ => ∀ b : B,
+       ((KaehlerDifferential.tensorKaehlerEquiv T k C B).toLinearMap.comp
+-        (AlgebraTensorModule.lTensor B B (relativeProjection k T C))) (b ⊗ₜ[C] v) =
++        (TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C))) (b ⊗ₜ[C] v) =
+       KaehlerDifferential.mapBaseChange k C B (b ⊗ₜ[C] v)) ?_ ?_ ?_ ?_ hω a
+     · rintro _ ⟨z, rfl⟩ b
+       change KaehlerDifferential.tensorKaehlerEquiv T k C B
+-        (AlgebraTensorModule.lTensor B B (relativeProjection k T C)
++        (TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C)
+           (b ⊗ₜ[C] KaehlerDifferential.D k C z)) =
+         KaehlerDifferential.mapBaseChange k C B (b ⊗ₜ[C] KaehlerDifferential.D k C z)
+-      rw [AlgebraTensorModule.lTensor_tmul, KaehlerDifferential.map_D,
++      rw [TensorProduct.AlgebraTensorModule.lTensor_tmul, KaehlerDifferential.map_D,
+         KaehlerDifferential.tensorKaehlerEquiv_tmul_D, KaehlerDifferential.mapBaseChange_tmul,
+         KaehlerDifferential.map_D]
+     · intro b
+@@ -94,12 +95,12 @@
+       rw [← TensorProduct.smul_tmul]
+       exact hv (c • b)
+ 
+-private theorem fibre_comp_zero :
++theorem fibre_comp_zero :
+     ModuleCat.ofHom (leftOnFibre k T C B) ≫
+       ModuleCat.ofHom (KaehlerDifferential.mapBaseChange k C B) = 0 := by
+-  let L := ModuleCat.ofHom (AlgebraTensorModule.lTensor B B (jacobian k T C))
+-  let P := ModuleCat.ofHom (AlgebraTensorModule.lTensor B B (relativeProjection k T C))
+-  let e := (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
++  let L := ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (jacobian k T C))
++  let P := ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C))
++  let e := (TensorProduct.AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
+   let f := (KaehlerDifferential.tensorKaehlerEquiv T k C B).toModuleIso
+   have h : L ≫ P = 0 := ((smoothTransitivityRow k T C).map (actualTensor C B)).zero
+   calc
+@@ -120,17 +121,19 @@
+ theorem oldFibreRow_split [Algebra.FormallySmooth T C] :
+     Nonempty ((oldFibreRow k T C B).Splitting) := by
+   obtain ⟨sp⟩ := split_before_reduction k T C
+-  let e := (AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
++  let e := (TensorProduct.AlgebraTensorModule.cancelBaseChange T C B B (KaehlerDifferential k T)).toModuleIso
+   let f := (KaehlerDifferential.tensorKaehlerEquiv T k C B).toModuleIso
+   have iso : ((smoothTransitivityRow k T C).map (actualTensor C B)) ≅ oldFibreRow k T C B := by
+     refine ShortComplex.isoMk e (Iso.refl _) f ?_ ?_
+     · change e.hom ≫ ModuleCat.ofHom (leftOnFibre k T C B) = _ ≫ 𝟙 _
+       have hh : ModuleCat.ofHom (leftOnFibre k T C B) = e.inv ≫
+-          ModuleCat.ofHom (AlgebraTensorModule.lTensor B B (jacobian k T C)) := rfl
++          ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (jacobian k T C)) := rfl
+       rw [hh, Iso.hom_inv_id_assoc, Category.comp_id] <;> rfl
+     · change 𝟙 _ ≫ ModuleCat.ofHom (KaehlerDifferential.mapBaseChange k C B) =
+-        ModuleCat.ofHom (AlgebraTensorModule.lTensor B B (relativeProjection k T C)) ≫ f.hom
++        ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C)) ≫ f.hom
+       rw [Category.id_comp, ← ModuleCat.ofHom_comp, rightOnFibre]
+   exact ⟨(sp.map (actualTensor C B)).ofIso iso⟩
+ 
++end
++
+ end SelectedSameAOldCotangentFibreSplit318
