@@ -1,0 +1,14 @@
+--- r2/ActualGaussianComplexTorusCore318.lean
++++ r3/ActualGaussianComplexTorusCore318.lean
+@@ -36,6 +36,10 @@
+ 
+ theorem scalar_on (a : GaussianInt) (x : ℂ) : scalar a (V x)=V (iota a*x) := by
+   unfold scalar
+-  rw [QuotientAddGroup.lift_mk'] <;> rfl
++  have h := DFunLike.congr_fun
++    (QuotientAddGroup.lift_comp_mk' lattice (scaled a) (scaled_kills a)) x
++  change (QuotientAddGroup.lift lattice (scaled a) (scaled_kills a)) (V x) =
++    (scaled a) x at h
++  exact h.trans (show (scaled a) x = V (iota a*x) from rfl)
+ 
+ end ActualGaussianComplexTorusKernel318
