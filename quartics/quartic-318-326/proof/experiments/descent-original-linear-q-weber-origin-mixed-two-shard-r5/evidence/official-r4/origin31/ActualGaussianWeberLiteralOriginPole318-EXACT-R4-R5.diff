@@ -1,0 +1,11 @@
+--- r4/ActualGaussianWeberLiteralOriginPole318.lean
++++ r5/ActualGaussianWeberLiteralOriginPole318.lean
+@@ -60,7 +60,7 @@
+     rw [map_add,map_zsmul,map_zsmul]
+     change a • specialize V hR P + b • specialize V hR (turn hF (V.subtype I) hIF P)=0
+     have hZero : specialize V hR P=0 := hO
+-    simp only [hZero,hTurn,smul_zero,zero_add]
++    simp only [hZero,hTurn,zsmul_zero,zero_add]
+   rw [hG] at hGO
+   have hr : r∉V := (specialize_some_eq_zero V hR hw).mp hGO
+   exact lt_of_not_ge (fun hdeg => hr (degree_le_at_pole_integral V (constVal k) hx A B hB hdeg))

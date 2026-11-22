@@ -1,0 +1,57 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-origin-mixed-two-shard-r4/ActualGaussianWeberLiteralOriginPole318.lean:58:49: error: unsolved goals
+k : Type u_1
+inst✝¹ : Field k
+inst✝ : DecidableEq (ActualGaussianWeberGaussLocalization318.FunctionField k)
+h2 : 2 ≠ 0
+i : k
+hi : i ^ 2 = -1
+a b : ℤ
+A B : k[X]
+hB : B ≠ 0
+u v : ActualGaussianWeberGaussLocalization318.FunctionField k
+hn : (curve (ActualGaussianWeberGaussLocalization318.FunctionField k)).toAffine.Nonsingular u v
+hGen :
+  (gaussian ⋯ ((constGeneric k) i) ⋯ a b) (ActualGaussianWeberOddNormGeneric318.genericPoint k h2) = Point.some u v hn
+hRat : u = (fractionMap k) ((AdjoinRoot.of (relation k)) A) / (fractionMap k) ((AdjoinRoot.of (relation k)) B)
+V : ValuationSubring (FormalField k) := FormalValuation k
+hF : 2 ≠ 0 := formal_two_ne k h2
+hR : 2 ≠ 0 := formal_residue_two_ne k h2
+I : ↥(FormalValuation k) := (constVal k) i
+hI : I ^ 2 = -1 :=
+  Eq.mp
+    (congr (congrArg Eq (map_pow (constVal k) i 2))
+      (Eq.trans (map_neg (constVal k) 1) (congrArg Neg.neg (map_one (constVal k)))))
+    (congrArg (⇑(constVal k)) hi)
+hIF : V.subtype I ^ 2 = -1 := chosen_square_generic V I hI
+G : WP (FormalField k) →+ WP (FormalField k) := gaussian hF (V.subtype I) hIF a b
+x y : FormalField k
+hP : (curve (FormalField k)).toAffine.Nonsingular x y
+hO : specialize (FormalValuation k) ⋯ (Point.some x y hP) = Point.zero
+right✝ : -x / y = (FormalValuation k).subtype (parameter k)
+hx : x ∉ V
+hiEval : Function.Injective ⇑(eval₂RingHom (constField k) x)
+P : (curve (FormalField k)).toAffine.Point := Point.some x y hP
+r : FormalField k := eval₂ (constField k) x A / eval₂ (constField k) x B
+w : FormalField k
+hw : (curve (FormalField k)).toAffine.Nonsingular (eval₂ (constField k) x A / eval₂ (constField k) x B) w
+hActual :
+  (gaussian hF ((constField k) i) ⋯ a b) (Point.some x y ⋯) =
+    Point.some (eval₂ (constField k) x A / eval₂ (constField k) x B) w hw
+hG : G P = Point.some r w hw
+hTurn : specialize V hR (turn hF (V.subtype I) hIF P) = 0
+hZero : specialize V hR P = 0
+⊢ a • 0 + b • 0 = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-origin-mixed-two-shard-r4/ActualGaussianWeberLiteralOriginPole318.lean:63:27: warning: This simp argument is unused:
+  smul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hZero, hTurn, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-origin-mixed-two-shard-r4/ActualGaussianWeberLiteralOriginPole318.lean:63:37: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hZero, hTurn, smul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

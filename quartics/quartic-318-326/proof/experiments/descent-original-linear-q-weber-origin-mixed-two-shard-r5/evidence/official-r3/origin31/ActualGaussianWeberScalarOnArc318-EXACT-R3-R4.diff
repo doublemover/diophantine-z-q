@@ -1,0 +1,11 @@
+--- r3/ActualGaussianWeberScalarOnArc318.lean
++++ r4/ActualGaussianWeberScalarOnArc318.lean
+@@ -56,7 +56,7 @@
+       (arcEmbedding_polynomial c x y he hx B)
+   change onCurvePoint e h2F (Point.some u v huv)=_ at hC'
+   rw [point_some] at hC'
+-  let hV := mapped_nonsingular e h2F huv
++  let hV := ActualGaussianWeberPlaceEquivariance318.mapped_nonsingular e h2F huv
+   have hNew : (curve F).toAffine.Nonsingular (A.eval₂ c x/B.eval₂ c x) (e v) := by
+     rw [←heval]
+     exact hV
