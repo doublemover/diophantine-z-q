@@ -1,0 +1,30 @@
+--- descent-original-linear-q-weber-selected-primefield-chart-transport-r1/ActualGaussianWeberSelectedPrimeFieldChart318.lean
++++ descent-original-linear-q-weber-selected-primefield-chart-transport-r2/ActualGaussianWeberSelectedPrimeFieldChart318.lean
+@@ -11,13 +11,24 @@
+ open ActualGaussianWeberQuadraticGenericChart318 ActualGaussianWeberGenericChartDomain318
+ open ActualGaussianWeberGaussLocalization318 ActualGaussianWeberTranslationFunctionField318
+ 
++private theorem along_chart_injective {K L : Type*} [Field K] [Field L] (f : K→+*L) :
++    Function.Injective (((fractionMap L).comp (mapChart f)) : Chart K→+*FunctionField L) := by
++  intro A B h
++  have h' : fractionMap L (mapChart f A)=fractionMap L (mapChart f B) := h
++  exact mapChart_injective f f.injective (fractionMap_injective L h')
++
+ @[expose] def along_coefficients {K L : Type*} [Field K] [Field L] (f : K→+*L) :
+     FunctionField K→+*FunctionField L :=
+-  IsFractionRing.lift ((fractionMap_injective L).comp (mapChart_injective f f.injective))
++  IsFractionRing.lift (K := FunctionField K)
++    (g := (((fractionMap L).comp (mapChart f)) : Chart K→+*FunctionField L))
++    (along_chart_injective f)
+ 
+ private theorem along_chart {K L : Type*} [Field K] [Field L] (f : K→+*L) (z : Chart K) :
+-    along_coefficients f (fractionMap K z)=fractionMap L (mapChart f z) :=
+-  IsFractionRing.lift_algebraMap ((fractionMap_injective L).comp (mapChart_injective f f.injective)) z
++    along_coefficients f (fractionMap K z)=fractionMap L (mapChart f z) := by
++  unfold along_coefficients
++  exact IsFractionRing.lift_algebraMap (K := FunctionField K)
++    (g := (((fractionMap L).comp (mapChart f)) : Chart K→+*FunctionField L))
++    (along_chart_injective f) z
+ 
+ private theorem along_polynomial {K L : Type*} [Field K] [Field L]
+     (f : K→+*L) (P : K[X]) :
