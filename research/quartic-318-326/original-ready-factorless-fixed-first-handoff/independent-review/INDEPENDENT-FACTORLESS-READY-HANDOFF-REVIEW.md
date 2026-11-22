@@ -1,0 +1,16 @@
+# Independent exact review: a fixed first mark and one local companion per Ready pole
+
+**Pass, November 22, 2026 (UTC).** Exact author checksum-list SHA-256
+`4e142e87dffb2aa8f9eb88a72fcf43328d43d3fb54f9ac95402ac0eeb0c56a61`;
+paper `2eab4bfa7cd17ab6092d4e76bef04811bed59e7ab64928cc962b483d635cd48e`.
+Every author checksum and a fresh standard-library byte replay passed.
+
+I read the exact native `NormalizedPolePoints318` and `PreparedIntegerSource318` at the two pinned hashes and matched the actual `ThreeDetectorUniformFamily318.witness_squareclass` source (SHA-256 `df9f80935c672c24ed8d095be490c4253951c69af224fbf8236d9d54737fe42b`). Its squareFactor is the literal fold; exponent five in the positive linear key indeed leaves $q^3$ in the denominator of $r_j$ and one factor $q$ in $d_j$. The rational identity for the complement then binds its exact squareclass.
+
+For $B=17b$, $z=1/100$, I independently expanded both ordered first-mark identities, checked $0<T<B$ and $y_1\ne0$, and checked the raw substitution $s=Bv$, $y_2=B^4vw$ in the actual native equation. Its homogeneous integer form permits an unreduced coefficient pair without changing the rational witness. Real positivity ensures $δ,T\ne0$ and excludes $v=0$ for global affine points. The native consumer does not require $y_2\ne0$ or a rank argument.
+
+The local classification is exhaustive. The stated positive Ready depths at 2, 3 and 17 give $δ$ square, and a negative odd valuation at any other place is ruled out by the square reduced denominator. If $B$ has positive odd valuation at another place, $δ$ is a square unit. If $B$ is square, the required full ordered local Kummer class is trivial; if $δ$ is square, twist transfer preserves the already explicit ordered first mark. Otherwise at $p\ge5$, both relevant depths are even: unit nonsquare $Bz^2$ cannot equal either numerator root modulo $p$, and any denominator depth of $T/B$ is even. Unit rescaling of the good full-$2$-torsion twist gives the four ordered unit Kummer pairs, including $([B],1)$. To see even valuations directly, a finite near-root point has only one possibly nonunit difference and the cubic forces even depth there; a point with negative-depth abscissa has three equal depths and again even depth. The standard specialized torsion differences are units. Good reduction and invertible formal doubling give quotient size four. I also checked all such unit Kummer images and the associated nonzero-coordinate quartic residue or simple branch condition for every prime from 5 through 47. At every place an open coset allows avoiding the finitely many points above the roots and the origin.
+
+Thus the exact conditional substitution is valid for an already Ready literal pole, without factoring its complement or retaining the fixed helper selector. The old compact literal scalar permits an immediate instance of the **conditional** companion certificate. The eventual common index is still required for all three simultaneous detectors, and an actual affine rational point is still required on each of the four corresponding quartics. No such point is established here; the local groups, homogeneous witness format, and nonoriginal control do not solve rational existence. The independent generic index-two lemma is separate from this signed scope.
+
+**Independent reviewer: Vesper.**
