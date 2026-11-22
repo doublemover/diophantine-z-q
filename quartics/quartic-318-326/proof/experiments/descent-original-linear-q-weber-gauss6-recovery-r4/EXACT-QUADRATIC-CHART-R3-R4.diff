@@ -1,0 +1,28 @@
+--- r3/ActualGaussianWeberQuadraticGenericChart318.lean
++++ r4/ActualGaussianWeberQuadraticGenericChart318.lean
+@@ -63,8 +63,8 @@
+   · subst n
+     simp [linearPolynomial,coeff_C,coeff_monomial]
+   have hn : q.natDegree<n := by omega
+-  simp [linearPolynomial,coeff_C,coeff_monomial,h0,h0.symm,h1,h1.symm,
+-    coeff_eq_zero_of_natDegree_lt hn]
++  have h10 : 1 ≠ n := fun e => h1 e.symm
++  simp [linearPolynomial,coeff_C,coeff_monomial,h0,h10,coeff_eq_zero_of_natDegree_lt hn]
+ 
+ theorem element_coefficients {R : Type*} [CommRing R] [Nontrivial R] {a b c d : R[X]}
+     (h : (element a b : Chart R)=element c d) : a=c ∧ b=d := by
+@@ -98,8 +98,12 @@
+   refine ⟨q.coeff 0,q.coeff 1,?_⟩
+   rw [element_mk,linear_eq q hq]
+   rw [←hu]
+-  simpa only [q,←AdjoinRoot.modByMonicHom_mk] using
+-    (AdjoinRoot.mk_leftInverse (rel_monic R) (AdjoinRoot.mk (relation R) u))
++  have hMk : AdjoinRoot.mk (relation R)
++      (AdjoinRoot.modByMonicHom (rel_monic R) (AdjoinRoot.mk (relation R) u)) =
++      AdjoinRoot.mk (relation R) u :=
++    AdjoinRoot.mk_leftInverse (rel_monic R) (AdjoinRoot.mk (relation R) u)
++  rw [AdjoinRoot.modByMonicHom_mk] at hMk
++  exact hMk
+ 
+ theorem element_map {R S : Type*} [CommRing R] [CommRing S] (f : R→+*S) (a b : R[X]) :
+     mapChart f (element a b)=element (a.map f) (b.map f) := by
