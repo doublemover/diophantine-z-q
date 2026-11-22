@@ -1,0 +1,67 @@
+--- r5/SelectedSameAOldMarkedCompositeZero318.lean
++++ r6/SelectedSameAOldMarkedCompositeZero318.lean
+@@ -50,10 +50,18 @@
+     change (((Scheme.ΓSpecIso (CommRingCat.of k)).inv ≫ (𝟙 X : Scheme.Hom X X).appTop) ≫
+       X.presheaf.map (homOfLE (show (⊤ : X.Opens) ≤ ⊤ from le_top)).op)
+         ((Scheme.ΓSpecIso (CommRingCat.of k)).hom s) = s
+-    rw [Scheme.Hom.id_appTop, Category.comp_id, hTop, Functor.map_id,
+-      Category.comp_id]
+-    exact congrArg (fun f : Γ(X, ⊤) ⟶ Γ(X, ⊤) => f s)
+-      (Scheme.ΓSpecIso (CommRingCat.of k)).hom_inv_id
++    rw [Scheme.Hom.id_appTop, Category.comp_id, hTop]
++    have hMapId :
++        X.presheaf.map (𝟙 (op (⊤ : X.Opens))) = 𝟙 (Γ(X, ⊤)) :=
++      X.presheaf.map_id _
++    have hInv : (Scheme.ΓSpecIso (CommRingCat.of k)).inv ≫
++        X.presheaf.map (𝟙 (op (⊤ : X.Opens))) =
++        (Scheme.ΓSpecIso (CommRingCat.of k)).inv :=
++      (congrArg (fun g : Γ(X, ⊤) ⟶ Γ(X, ⊤) =>
++        (Scheme.ΓSpecIso (CommRingCat.of k)).inv ≫ g) hMapId).trans (Category.comp_id _)
++    have he := congrArg (fun f : CommRingCat.of k ⟶ Γ(X, ⊤) =>
++      f ((Scheme.ΓSpecIso (CommRingCat.of k)).hom s)) hInv
++    exact he.trans (Iso.hom_inv_id_apply (Scheme.ΓSpecIso (CommRingCat.of k)) s)
+   · intro s
+     refine ⟨0, ?_⟩
+     change (_ : (structureSheafInType k k).1.obj (op U)) = s
+--- r5/SelectedSameAOldCotangentFibreSplit318.lean
++++ r6/SelectedSameAOldCotangentFibreSplit318.lean
+@@ -87,6 +87,7 @@
+       rw [TensorProduct.AlgebraTensorModule.lTensor_tmul, KaehlerDifferential.map_D,
+         KaehlerDifferential.tensorKaehlerEquiv_tmul_D, KaehlerDifferential.mapBaseChange_tmul,
+         KaehlerDifferential.map_D]
++      simp only [Algebra.algebraMap_self_apply]
+     · intro b
+       simp
+     · intro v w _ _ hv hw b
+@@ -125,13 +126,24 @@
+   let f := (KaehlerDifferential.tensorKaehlerEquiv T k C B).toModuleIso
+   have iso : ((smoothTransitivityRow k T C).map (actualTensor C B)) ≅ oldFibreRow k T C B := by
+     refine ShortComplex.isoMk e (Iso.refl _) f ?_ ?_
+-    · change e.hom ≫ ModuleCat.ofHom (leftOnFibre k T C B) = _ ≫ 𝟙 _
+-      have hh : ModuleCat.ofHom (leftOnFibre k T C B) = e.inv ≫
+-          ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (jacobian k T C)) := rfl
+-      rw [hh, Iso.hom_inv_id_assoc, Category.comp_id] <;> rfl
+-    · change 𝟙 _ ≫ ModuleCat.ofHom (KaehlerDifferential.mapBaseChange k C B) =
+-        ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C)) ≫ f.hom
+-      rw [Category.id_comp, ← ModuleCat.ofHom_comp, rightOnFibre]
++    · let L := ModuleCat.ofHom (TensorProduct.AlgebraTensorModule.lTensor B B (jacobian k T C))
++      change e.hom ≫ ModuleCat.ofHom (leftOnFibre k T C B) =
++        L ≫ 𝟙 (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C))
++      have hh : ModuleCat.ofHom (leftOnFibre k T C B) = e.inv ≫ L := rfl
++      calc
++        _ = e.hom ≫ e.inv ≫ L := congrArg (fun g => e.hom ≫ g) hh
++        _ = L := Iso.hom_inv_id_assoc e L
++        _ = _ := (Category.comp_id L).symm
++    · let P := TensorProduct.AlgebraTensorModule.lTensor B B (relativeProjection k T C)
++      let F := (KaehlerDifferential.tensorKaehlerEquiv T k C B).toLinearMap
++      let Q := ModuleCat.ofHom (KaehlerDifferential.mapBaseChange k C B)
++      change 𝟙 (ModuleCat.of B (B ⊗[C] KaehlerDifferential k C)) ≫ Q =
++        ModuleCat.ofHom P ≫ ModuleCat.ofHom F
++      calc
++        _ = Q := Category.id_comp Q
++        _ = ModuleCat.ofHom (F.comp P) :=
++          congrArg (fun g => ModuleCat.ofHom g) (rightOnFibre k T C B).symm
++        _ = _ := ModuleCat.ofHom_comp P F
+   exact ⟨(sp.map (actualTensor C B)).ofIso iso⟩
+ 
+ end
