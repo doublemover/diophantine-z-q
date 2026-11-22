@@ -1,0 +1,37 @@
+--- stale/ActualGaussianWeberPrimitiveRational318.lean
++++ recovery/ActualGaussianWeberPrimitiveRational318.lean
+@@ -104,4 +104,34 @@
+   · exact Or.inl (normalize_primitive V A d hD hA n e)
+   · exact Or.inr (normalize_primitive V B d hD hB' n e)
+ 
++/-- One simultaneous scale for a finite family of polynomial
++coefficients, including the four coefficient slots of two elements
++of the literal quadratic chart. -/
++theorem primitive_family {I : Type*} [Fintype I] (P : I→K[X]) (hP : ∃ i, P i≠0) :
++    ∃ (d : K) (Q : I→V[X]), d≠0 ∧
++      (∀ i, C d*(Q i).map V.subtype=P i) ∧
++      (∀ i, (Q i).natDegree≤(P i).natDegree) ∧
++      ∃ i, (Q i).map (residue V)≠0 := by
++  classical
++  let S := (Finset.univ : Finset I).biUnion (fun i => (P i).support.image (P i).coeff)
++  have hS : S.Nonempty := by
++    obtain ⟨i,hi⟩ := hP
++    obtain ⟨n,hn⟩ := support_nonempty.mpr hi
++    exact ⟨(P i).coeff n,Finset.mem_biUnion.mpr
++      ⟨i,Finset.mem_univ _,Finset.mem_image_of_mem _ hn⟩⟩
++  obtain ⟨d,hd,hmax⟩ := Finset.exists_max_image S V.valuation hS
++  obtain ⟨i,_,hi⟩ := Finset.mem_biUnion.mp hd
++  obtain ⟨j,hj,he⟩ := Finset.mem_image.mp hi
++  have hd0 : d≠0 := he ▸ mem_support_iff.mp hj
++  have hAll (i : I) (n : ℕ) : (P i).coeff n/d∈V := by
++    by_cases hzero : (P i).coeff n=0
++    · rw [hzero,zero_div]
++      exact V.zero_mem
++    · exact contained_quotient V _ _ hd0 (hmax _ (Finset.mem_biUnion.mpr
++        ⟨i,Finset.mem_univ _,Finset.mem_image_of_mem _ (mem_support_iff.mpr hzero)⟩))
++  refine ⟨d,(fun i => normalize V (P i) d (hAll i)),hd0,?_,?_,?_⟩
++  · exact fun i => normalize_scale V (P i) d hd0 (hAll i)
++  · exact fun i => normalize_natDegree V (P i) d (hAll i)
++  · exact ⟨i,normalize_primitive V (P i) d hd0 (hAll i) j he⟩
++
+ end ActualGaussianWeberPrimitiveRational318
