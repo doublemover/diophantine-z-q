@@ -1,0 +1,11 @@
+# Independent review: exact good-prime oriented fixed-241 valuations
+
+**Disposition: exact classical proof passes in its stated good-prime scope.** Author checksum-list SHA-256 `da4671a426c54b2b1515f310cb542d4bcbba4e7195253bd462249ea202650469`; author paper SHA-256 `5b558eca3aeaf3afbc2ef69990e6f51fc2603065225a3024805d3e926119d5d5`. The fixed real CM support is the corrected calibration at checksum-list `c763e955648ab6ecc2873fdf2250e69478270cc6cf07a7b63d0c87f5aa528517`, not an earlier exploratory calibration.
+
+- At primes outside the stated exclusions, the unique ascending 241-kernel on the moving vertical source is lifted at the fixed side through finite étale torsion. The resulting dual-line indexing is bijective, counts each literal flag with its stated multiplicity and preserves the intersection length. The same marked maximal-order CM correspondence chooses the inert Lie embedding and cyclic level lines, not both conjugate choices. See [Cornut–Jetchev, Corollary 4.1](https://arxiv.org/pdf/1012.0725v1).
+- [Lauter–Viray, Proposition 4.1 and (6.6)](https://arxiv.org/pdf/1206.6942) identify the individual unramified inert thickening. The moving trace-zero quaternion component has an odd norm depth, giving exactly half that depth plus one half. The prime-to-residue-characteristic cyclic flags add no thickening condition after the literal reductions agree. The split ordinary cases contribute zero, and the constant vertical good-fibre contribution cancels.
+- The principal ordered analytic frame has determinant 2, a square modulo 241. With the named Gauss-sum root, rescaling or transporting a line produces the prescribed finite norm and isogeny-degree factors, not an independent sign per prime. The full Weil-frame label and compatible radical place give the signs before taking binary norms, whose exponents are pushed with relative residue degree. No unsigned total CM valuation is substituted.
+
+The result specifies finite inputs for actual **good-prime** oriented ideal exponents. It neither evaluates a moving exponent nor treats exceptional primes, constructs the calibrated endomorphism-order tables, evaluates the CM ratio, or proves a nonzero primitive coefficient, point or rank.
+
+Signed: independent quartic review, 2026-11-22 UTC.
