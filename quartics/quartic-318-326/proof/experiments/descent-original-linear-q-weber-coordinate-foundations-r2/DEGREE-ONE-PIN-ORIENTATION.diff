@@ -1,0 +1,29 @@
+--- r1/ActualGaussianWeberNormalizedAbscissaDegree318.lean
++++ r2/ActualGaussianWeberNormalizedAbscissaDegree318.lean
+@@ -54,20 +54,20 @@
+     (hcap : max A.natDegree B.natDegree ≤ p) :
+     U.natDegree ≤ 1 ∧ W.natDegree ≤ 1 ∧
+       (U.natDegree=1 ∨ W.natDegree=1) := by
+-  have h₁ : U.natDegree * p ≤ p := by
++  have h₁ : p * U.natDegree ≤ p := by
+     have h := (le_max_left A.natDegree B.natDegree).trans hcap
+     rwa [←hA,natDegree_pow] at h
+-  have h₂ : W.natDegree * p ≤ p := by
++  have h₂ : p * W.natDegree ≤ p := by
+     have h := (le_max_right A.natDegree B.natDegree).trans hcap
+     rwa [←hB,natDegree_pow] at h
+   have hU : U.natDegree ≤ 1 :=
+-    Nat.le_of_mul_le_mul_right (by simpa only [one_mul] using h₁) hp
++    Nat.le_of_mul_le_mul_left (by simpa only [mul_one] using h₁) hp
+   have hW : W.natDegree ≤ 1 :=
+-    Nat.le_of_mul_le_mul_right (by simpa only [one_mul] using h₂) hp
++    Nat.le_of_mul_le_mul_left (by simpa only [mul_one] using h₂) hp
+   have hNot : ¬(U.natDegree=0 ∧ W.natDegree=0) := by
+     rintro ⟨hu,hw⟩
+-    have zA : A.natDegree = 0 := by rw [←hA,natDegree_pow,hu,zero_mul]
+-    have zB : B.natDegree = 0 := by rw [←hB,natDegree_pow,hw,zero_mul]
++    have zA : A.natDegree = 0 := by rw [←hA,natDegree_pow,hu,mul_zero]
++    have zB : B.natDegree = 0 := by rw [←hB,natDegree_pow,hw,mul_zero]
+     rw [zA,zB,max_self] at hne
+     exact (Nat.lt_irrefl 0) hne
+   exact ⟨hU,hW,by omega⟩
