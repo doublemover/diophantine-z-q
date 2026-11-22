@@ -1,0 +1,79 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:35:0: warning: automatically included section variable(s) unused in theorem `SelectedActualMarkedCuspPunctureEvaluation318.originalCuspLift_projection`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:39:8: warning: automatically included section variable(s) unused in theorem `_private.SelectedActualMarkedCuspPunctureEvaluation318.0.SelectedActualMarkedCuspPunctureEvaluation318.j_eq_of_projection_eq`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:147:13: error(lean.unknownIdentifier): Unknown identifier `Periodic.qParam`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:171:31: error: unsolved goals
+N : ℕ
+inst✝ : NeZero N
+hN : 5 ≤ N
+c : ↑(End N)
+p : (OpenJModel318.Base N)[X]
+hRoots : fullRootSet N p
+t : Period
+q : ℂ
+hq : q ∈ punctured (AllCuspOverlap318.width N hN c) 2
+ha : Admissible (originalCuspLift N hN c q)
+z : OrdinaryRoot N p
+w : ℝ := AllCuspOverlap318.width N hN c
+g : SL(2, ℤ) := representative N c
+hw : 0 < w := AllCuspOverlap318.width_pos N hN c
+τ : ↑(high 2)
+hτ : qMap w 2 hw τ = ⟨q, hq⟩
+hqt : sorry = q
+hpr : cuspInverse N hN c q = quotientMap N (g • ↑τ)
+hJ : ActualQJ318.jInvariant (g • ↑τ) = ActualQJ318.jInvariant (originalCuspLift N hN c q)
+ha₀ : Admissible (g • ↑τ)
+a : Period := ⟨g • ↑τ, ha₀⟩
+r : ℂ → ℂ := WidthLocalInverse318.inverse w hw ↑↑τ
+hr : AnalyticAt ℂ r q
+hrq : r q = ↑↑τ
+s : ℂ → ℍ := fun v => g • ↑ofComplex (r v)
+hs : s q = ↑a
+g₀ : GL (Fin 2) ℝ := Matrix.SpecialLinearGroup.toGL ((Matrix.SpecialLinearGroup.map (Int.castRingHom ℝ)) g)
+⊢ 0 < ((↑g).map fun x => ↑x).det
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:181:4: error: Type mismatch
+  ordinary_ring_analytic N p
+    (Decidable.byContradiction fun a => original_cusp_ordinary_section_analytic._proof_1_1 N hN a) hRoots a z
+has type
+  AnalyticAt ℂ (fun z_1 => (atDisk N p hRoots a z_1) z) ↑↑a
+but is expected to have type
+  AnalyticAt ℂ (fun v => (atDisk N p hRoots t v) z) ↑↑a
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Complex.mulAux ↦ 462
+  Real.instAdd ↦ 6
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:182:19: error: Application type mismatch: The argument
+  hsA
+has type
+  AnalyticAt ℂ (fun v => ↑(s v)) q
+but is expected to have type
+  AnalyticAt ℂ UpperHalfPlane.coe (s q)
+in the application
+  AnalyticAt.comp hOld hsA
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:182:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup ℍ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2/SelectedActualMarkedCuspPunctureEvaluation318.lean:183:2: error: No goals to be solved
+'SelectedActualMarkedCuspPunctureEvaluation318.atCusp_of_ordinary_lift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedCuspPunctureEvaluation318.eventually_ordinary_at_original_cusp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedCuspPunctureEvaluation318.original_cusp_ordinary_section_analytic' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedCuspPunctureEvaluation318.original_cusp_polynomial_evaluation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
