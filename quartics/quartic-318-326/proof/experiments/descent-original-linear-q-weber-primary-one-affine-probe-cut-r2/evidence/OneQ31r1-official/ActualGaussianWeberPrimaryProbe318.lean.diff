@@ -1,0 +1,14 @@
+--- descent-original-linear-q-weber-primary-one-affine-probe-cut-r1/ActualGaussianWeberPrimaryProbe318.lean
++++ descent-original-linear-q-weber-primary-one-affine-probe-cut-r2/ActualGaussianWeberPrimaryProbe318.lean
+@@ -57,7 +57,10 @@
+   have hB : ¬(i=i ∧ y=e.negY i y) := by
+     intro H
+     apply hy
+-    simpa only [literal_negY] using H.2
++    have hNeg : e.negY i y= -y := by
++      change (curve K).toAffine.negY i y= -y
++      exact literal_negY K i y
++    exact H.2.trans hNeg
+   have hs : e.slope i i y y= -(1+i) := by
+     rw [literal_tangent_slope rfl hy]
+     apply (div_eq_iff (mul_ne_zero h2 hy0)).mpr

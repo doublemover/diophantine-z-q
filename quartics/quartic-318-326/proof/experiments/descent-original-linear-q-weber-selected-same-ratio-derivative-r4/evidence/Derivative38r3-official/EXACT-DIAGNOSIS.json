@@ -1,0 +1,92 @@
+{
+  "audit_declarations": 693,
+  "changes": {
+    "ActualGaussianWeberSelectedSameRatioDerivative318": {
+      "errors": [
+        [
+          50,
+          "Unknown identifier `yChart`"
+        ],
+        [
+          53,
+          "Unknown identifier `yChart`"
+        ],
+        [
+          99,
+          "Type mismatch: After simplification, term"
+        ],
+        [
+          106,
+          "Type mismatch: After simplification, term"
+        ]
+      ],
+      "evidence_fragments": [
+        "Unknown identifier `yChart`",
+        "c iL ^ 2 = c (-1)",
+        "(residueFormal L) ((residue \u21a5V) ((constVal L) iL))"
+      ],
+      "hunks": [
+        [
+          "(yChart k : Chart k)",
+          "(ActualGaussianWeberTranslationChart318.yChart k : Chart k)"
+        ],
+        [
+          "[element,yChart,map_zero,map_one,zero_mul,zero_add,one_mul]",
+          "[element,ActualGaussianWeberTranslationChart318.yChart,map_zero,map_one,\n      zero_mul,zero_add,one_mul]"
+        ],
+        [
+          "  have hj : j^2= -1 := by simpa only [map_pow,map_neg,map_one] using congrArg c hiL",
+          "  have hj : j^2= -1 := by\n    change (c iL)^2=(-1:V)\n    calc\n      _ = c (iL^2) := (map_pow c iL 2).symm\n      _ = c (-1) := congrArg c hiL\n      _ = -(c 1) := map_neg c (1:L)\n      _ = _ := congrArg (fun z : V => -z) (map_one c)"
+        ],
+        [
+          "    simpa only [map_add,map_mul,map_zero,map_intCast,j,c,residueFormal_const] using hSL",
+          "    have hjr : residueFormal L (residue V j)=iL := by\n      change residueFormal L (residue (FormalValuation L) (constVal L iL))=iL\n      exact residueFormal_const L iL\n    simpa only [map_add,map_mul,map_zero,map_intCast,hjr] using hSL"
+        ]
+      ],
+      "log_sha256": "6048a997e25d69890e3477bb2235c53b0f419ca49f8a6edccca336d7fb1c329f"
+    }
+  },
+  "counts": {
+    "compile_pass": 37,
+    "compiler_error": 1
+  },
+  "evidence_prefix": "evidence/Derivative38r3-official/",
+  "head": "ActualGaussianWeberSelectedSameRatioDerivative318",
+  "identity": {
+    "asset": 14749860557,
+    "audit": "2d1ab14bab36e38b4de11560966c2878f2e8d0ab8e2014b5df598d5eeeaaccac",
+    "inv": "2066eb1f58c90774c349107d81db5be17f0d72d19f62762362852e4f475cfa9b",
+    "job": 137169681675,
+    "marker": "e5e9ac99af59cd5e59897d13ee47040e6adee18c",
+    "run": 45009245653,
+    "source": "6d81ca6c91f3514f9843c3966af2c2d778df0df7",
+    "tree": "19ca61eed1f78d4fd6099141af6dcb19f7c2a92c",
+    "zip": "8ba26658baf79ca2660de920542e945348ec6e80c0903b075287e67f8772e0b6"
+  },
+  "packet": "descent-original-linear-q-weber-selected-same-ratio-derivative-r4",
+  "previous_application": "f90b1bcd7c6cdb34e56b6b7898b54b00c4b856e9f21529c56cc46f88476436a0",
+  "previous_intake": "0dd1fe172029a449451bc2248f6ab23892d4e05f37e51eabd17c2279f8fee398",
+  "previous_packet": "descent-original-linear-q-weber-selected-same-ratio-derivative-r3",
+  "previous_selector": "90de34309b6ac5a39b9ccc50a8b35bc221d73bb594122fcc0f67479355c9224f",
+  "previous_tar": "1aa6dc11cf3867ce2553533d671d20db0ce81717534a106ce02088be0375e243",
+  "scope_file": "DERIVATIVE-SCOPE.md",
+  "selectors": [
+    [
+      "ActualGaussianWeberSameRatioJetCross318",
+      5
+    ],
+    [
+      "ActualGaussianWeberOriginJet318",
+      17
+    ],
+    [
+      "ActualGaussianWeberStationaryScalar318",
+      20
+    ],
+    [
+      "ActualGaussianWeberSelectedSameRatioDerivative318",
+      38
+    ]
+  ],
+  "smallest_repair_scope": 38
+}

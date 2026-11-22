@@ -1,0 +1,64 @@
+{
+  "audit_declarations": 529,
+  "changes": {
+    "ActualGaussianWeberPrimaryProbe318": {
+      "errors": [
+        [
+          60,
+          "Type mismatch: After simplification, term"
+        ]
+      ],
+      "evidence_fragments": [
+        "y = e.negY i y",
+        "y = -y"
+      ],
+      "hunks": [
+        [
+          "    simpa only [literal_negY] using H.2",
+          "    have hNeg : e.negY i y= -y := by\n      change (curve K).toAffine.negY i y= -y\n      exact literal_negY K i y\n    exact H.2.trans hNeg"
+        ]
+      ],
+      "log_sha256": "5b2dfc4c91d821398f04659f177edec02e671edfbb7acb2898ddf2e070e0be85"
+    }
+  },
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 29,
+    "compiler_error": 1
+  },
+  "evidence_prefix": "evidence/OneQ31r1-official/",
+  "head": "ActualGaussianWeberPrimaryOneAffineProbe318",
+  "identity": {
+    "asset": 14749077850,
+    "audit": "d312532e7e64661da8a6f61a5c9e34f581489f86ca4c747400c41f72d2ef7ac1",
+    "inv": "7ab971d0fe2053a2917b6bb3104386b8f7bdf6a5757bc70fdbab720f31f55408",
+    "job": 137169681839,
+    "marker": "e5e9ac99af59cd5e59897d13ee47040e6adee18c",
+    "run": 45009245653,
+    "source": "6d81ca6c91f3514f9843c3966af2c2d778df0df7",
+    "tree": "19ca61eed1f78d4fd6099141af6dcb19f7c2a92c",
+    "zip": "a65bd01b5ec9f9b0eafa5ece62ea418b0387c501067cb5099d921152cc8cc2b1"
+  },
+  "packet": "descent-original-linear-q-weber-primary-one-affine-probe-cut-r2",
+  "previous_application": "5231059d2776013f289a3c72999cf3073e9fa4e3c47adb58e21b2f1e7467714c",
+  "previous_intake": "d5ee30a9ae2d4b2f0727863c440924ec84b127ecc2805ebe4c69ba71f2371e68",
+  "previous_packet": "descent-original-linear-q-weber-primary-one-affine-probe-cut-r1",
+  "previous_selector": "af291d590a41f0157eeb312fcd0bb27bde337c412b37520c38d04ed20c662ec9",
+  "previous_tar": "fd68adfed847982bc5cf033c621d67b3acad301ee94448589e90e81a797baf29",
+  "scope_file": "ONEQ-SCOPE.md",
+  "selectors": [
+    [
+      "ActualGaussianWeberFixedXAffineHenselProbe318",
+      5
+    ],
+    [
+      "ActualGaussianWeberPrimaryProbe318",
+      5
+    ],
+    [
+      "ActualGaussianWeberPrimaryOneAffineProbe318",
+      31
+    ]
+  ],
+  "smallest_repair_scope": 5
+}

@@ -1,0 +1,42 @@
+--- descent-original-linear-q-weber-selected-same-ratio-derivative-r3/ActualGaussianWeberSelectedSameRatioDerivative318.lean
++++ descent-original-linear-q-weber-selected-same-ratio-derivative-r4/ActualGaussianWeberSelectedSameRatioDerivative318.lean
+@@ -47,10 +47,11 @@
+ 
+ private theorem generic_ordinate_ne : yGeneric k ≠ 0 := by
+   intro h
+-  have hC : (yChart k : Chart k)=0 := fractionMap_injective k
++  have hC : (ActualGaussianWeberTranslationChart318.yChart k : Chart k)=0 := fractionMap_injective k
+     (h.trans (map_zero (fractionMap k)).symm)
+   have hE : (element (0:k[X]) 1 : Chart k)=element 0 0 := by
+-    simpa only [element,yChart,map_zero,map_one,zero_mul,zero_add,one_mul] using hC
++    simpa only [element,ActualGaussianWeberTranslationChart318.yChart,map_zero,map_one,
++      zero_mul,zero_add,one_mul] using hC
+   exact one_ne_zero (element_coefficients hE).2
+ 
+ private theorem abscissa_eq {F : Type*} [Field F] {x y z w : F}
+@@ -96,14 +97,23 @@
+   let iL := e i
+   have hiL : iL^2= -1 := by simpa only [map_pow,map_neg,map_one] using congrArg e hi
+   let j := c iL
+-  have hj : j^2= -1 := by simpa only [map_pow,map_neg,map_one] using congrArg c hiL
++  have hj : j^2= -1 := by
++    change (c iL)^2=(-1:V)
++    calc
++      _ = c (iL^2) := (map_pow c iL 2).symm
++      _ = c (-1) := congrArg c hiL
++      _ = -(c 1) := map_neg c (1:L)
++      _ = _ := congrArg (fun z : V => -z) (map_one c)
+   let hjF := chosen_square_generic V j hj
+   let G := gaussian hF (f iL) hjF a b
+   have hSL : (a:L)+(b:L)*iL=0 := by
+     simpa only [map_add,map_mul,map_zero,map_intCast] using congrArg e hSelected
+   have hSel : (a:ResidueField V)+(b:ResidueField V)*residue V j=0 := by
+     apply (residueFormal L).injective
+-    simpa only [map_add,map_mul,map_zero,map_intCast,j,c,residueFormal_const] using hSL
++    have hjr : residueFormal L (residue V j)=iL := by
++      change residueFormal L (residue (FormalValuation L) (constVal L iL))=iL
++      exact residueFormal_const L iL
++    simpa only [map_add,map_mul,map_zero,map_intCast,hjr] using hSL
+   obtain ⟨pX,pY,hp,hP,hT⟩ := formal_origin_arc L hL
+   let P := Point.some pX pY hp
+   have hPar : tCoord P=V.subtype t := hT

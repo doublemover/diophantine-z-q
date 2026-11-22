@@ -1,0 +1,18 @@
+--- r2/ActualGaussianWeberOriginJet318.lean
++++ r3/ActualGaussianWeberOriginJet318.lean
+@@ -65,6 +65,7 @@
+   | Point.zero => 0
+   | Point.some _ y _ => y
+ 
++include hF in
+ /-- Actual first jet from the same finite anchor T₀=(0,0).
+ The two-origin chord and its order-five estimate are not involved. -/
+ theorem add_witness (ht : t∈maximalIdeal V) {P Q : WP F}
+@@ -112,6 +113,7 @@
+     simp only [map_mul,map_neg,he,hd,hvr,mul_one]
+     ring
+ 
++include hF in
+ /-- Actual subgroup on which the normalized first jet is defined. -/
+ @[expose] def scaledOrigin (ht : t∈maximalIdeal V) : AddSubgroup (WP F) where
+   carrier := {P | Nonempty (Witness V h2 t P)}
