@@ -1,0 +1,5 @@
+# Marked cusp order-one revision 7, exact section type qualifications
+
+Official predecessor was run 45027611942, selected job 137224177112, asset 14757065474, with 60 compiled owners, 867 audited declarations, and 329 verified baseline keys. SchemeStalkHolomorphicV2 failed and the terminal was blocked. Relative to the unhosted r6, this adds exactly one identical namespace qualification in the terminal's own section binding, appearing there at old L67 under the same exact pair of open namespaces. Thus exactly two Lean sources change relative to the official r5, each by replacing the same bare End N with FiniteCuspEnds318.End N. The existing r6 stalk owner is byte-identical. Neither proof body, theorem text nor imports change, and all 60 other sources and project closure are unchanged.
+
+The terminal ambiguity is an independently identified static defect, not a hosted result. No local Lean, dispatch, push, or positive compile claim. The physical official ZIP is only validation evidence; this text artifact binds its SHA, inventory and raw log hashes.

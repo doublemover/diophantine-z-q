@@ -1,0 +1,41 @@
+--- r2/ActualGaussianWeberNamedLocalInclusion318.lean
++++ r3/ActualGaussianWeberNamedLocalInclusion318.lean
+@@ -173,8 +173,17 @@
+       actualLocalInclusion L W v w hwv x := by
+   let A := OldLocal L W v
+   let B := AtPlace L w
+-  let f : A→ₐ[ℤ]B := (actualLocalInclusion L W v w hwv).toIntAlgHom
++  let F : A→+*B := actualLocalInclusion L W v w hwv
++  let f : A→ₐ[ℤ]B := {
++    F with
++    commutes' := fun n => by
++      calc
++        F (algebraMap ℤ A n) = F (n:A) := congrArg F (eq_intCast (algebraMap ℤ A) n)
++        _ = (n:B) := map_intCast F n
++        _ = algebraMap ℤ B n := (eq_intCast (algebraMap ℤ B) n).symm }
+   let g : B→ₐ[ℤ]B := (localFrob L w j hj hUnder).toRingHom.toIntAlgHom
++  have hf (a : A) : f a=F a := rfl
++  have hg (b : B) : g b=localFrob L w j hj hUnder b := rfl
+   letI : Algebra.FormallyUnramified ℤ A := inferInstanceAs
+     (Algebra.IsUnramifiedAt ℤ v.asIdeal)
+   have hMax : (maximalIdeal B : Ideal B)≠⊤ := Ideal.IsPrime.ne_top'
+@@ -182,11 +191,14 @@
+     apply Algebra.FormallyUnramified.ext_of_iInf (maximalIdeal B)
+       (Ideal.iInf_pow_eq_bot_of_isLocalRing (maximalIdeal B) hMax)
+     intro a
+-    change residue B (localFrob L w j hj hUnder
+-        (actualLocalInclusion L W v w hwv a))=
+-      residue B (actualLocalInclusion L W v w hwv a)
+-    exact actualLocalInclusion_residue_frobenius_fixed L W v w j hj hUnder hwv hSplit a
+-  exact DFunLike.congr_fun hEq x
++    have h := actualLocalInclusion_residue_frobenius_fixed L W v w j hj hUnder hwv hSplit a
++    change Ideal.Quotient.mk (maximalIdeal B) (localFrob L w j hj hUnder (F a))=
++      Ideal.Quotient.mk (maximalIdeal B) (F a) at h
++    rw [AlgHom.comp_apply,hf,hg]
++    exact h
++  have hx := AlgHom.congr_fun hEq x
++  rw [AlgHom.comp_apply,hf,hg] at hx
++  exact hx
+ 
+ end Frobenius
+ 
