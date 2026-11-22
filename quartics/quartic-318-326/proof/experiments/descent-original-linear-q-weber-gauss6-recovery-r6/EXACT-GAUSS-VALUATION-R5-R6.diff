@@ -1,0 +1,26 @@
+--- r5/ActualGaussianWeberGaussValuation318.lean
++++ r6/ActualGaussianWeberGaussValuation318.lean
+@@ -40,13 +40,19 @@
+   have eb₀ : C d*(Q (true,false)).map V.subtype=B₀ := hQ (true,false)
+   have eb₁ : C d*(Q (true,true)).map V.subtype=B₁ := hQ (true,true)
+   refine ⟨d,a,b,hd,?_,?_,?_⟩
+-  · rw [a,element_map,mul_element,ea₀,ea₁,hA]
+-  · rw [b,element_map,mul_element,eb₀,eb₁,hBs]
++  · change AdjoinRoot.of (relation K) (C d) *
++      mapChart V.subtype (element (Q (false,false)) (Q (false,true))) = A
++    rw [element_map,mul_element,ea₀,ea₁,hA]
++  · change AdjoinRoot.of (relation K) (C d) *
++      mapChart V.subtype (element (Q (true,false)) (Q (true,true))) = B
++    rw [element_map,mul_element,eb₀,eb₁,hBs]
+   · by_contra! H
+     have ha := H.1
+     have hb := H.2
+-    rw [a,element_map,←element_zero (ResidueField V)] at ha
+-    rw [b,element_map,←element_zero (ResidueField V)] at hb
++    change mapChart (residue V) (element (Q (false,false)) (Q (false,true))) = 0 at ha
++    change mapChart (residue V) (element (Q (true,false)) (Q (true,true))) = 0 at hb
++    rw [element_map,←element_zero (ResidueField V)] at ha
++    rw [element_map,←element_zero (ResidueField V)] at hb
+     obtain ⟨ha₀,ha₁⟩ := element_coefficients ha
+     obtain ⟨hb₀,hb₁⟩ := element_coefficients hb
+     apply hi

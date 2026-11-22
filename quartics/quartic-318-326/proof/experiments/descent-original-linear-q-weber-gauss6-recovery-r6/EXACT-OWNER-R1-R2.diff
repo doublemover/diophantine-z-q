@@ -1,0 +1,30 @@
+--- r1/ActualGaussianWeberPrimitiveRational318.lean
++++ r2/ActualGaussianWeberPrimitiveRational318.lean
+@@ -22,13 +22,13 @@
+   exact c.property
+ 
+ private def normalize (A : K[X]) (d : K) (h : ∀ n, A.coeff n/d∈V) : V[X] :=
+-  Polynomial.ofFinsupp (Finsupp.onFinset A.support
++  Polynomial.ofFinsupp (AddMonoidAlgebra.ofCoeff (Finsupp.onFinset A.support
+     (fun n => (⟨A.coeff n/d,h n⟩ : V))
+-    (fun n hn => mem_support_iff.mpr (fun e => hn (Subtype.ext (by simp [e])))))
++    (fun n hn => mem_support_iff.mpr (fun e => hn (Subtype.ext (by simp [e]))))))
+ 
+ private theorem normalize_coeff (A : K[X]) (d : K) (h : ∀ n, A.coeff n/d∈V) (n : ℕ) :
+     (normalize V A d h).coeff n=(⟨A.coeff n/d,h n⟩:V) := by
+-  rw [normalize,coeff_ofFinsupp,Finsupp.onFinset_apply]
++  simp only [normalize,coeff_ofFinsupp,AddMonoidAlgebra.coeff_ofCoeff,Finsupp.onFinset_apply]
+ 
+ private theorem normalize_scale (A : K[X]) (d : K) (hd : d≠0) (h : ∀ n, A.coeff n/d∈V) :
+     C d*(normalize V A d h).map V.subtype=A := by
+@@ -42,7 +42,9 @@
+   apply natDegree_le_iff_coeff_eq_zero.mpr
+   intro n hn
+   rw [normalize_coeff]
+-  exact Subtype.ext (by rw [coeff_eq_zero_of_natDegree_lt hn,zero_div] <;> rfl)
++  apply Subtype.ext
++  change A.coeff n / d = 0
++  rw [coeff_eq_zero_of_natDegree_lt hn,zero_div]
+ 
+ private theorem normalize_primitive (A : K[X]) (d : K) (hd : d≠0)
+     (h : ∀ n, A.coeff n/d∈V) (n : ℕ) (hn : A.coeff n=d) :
