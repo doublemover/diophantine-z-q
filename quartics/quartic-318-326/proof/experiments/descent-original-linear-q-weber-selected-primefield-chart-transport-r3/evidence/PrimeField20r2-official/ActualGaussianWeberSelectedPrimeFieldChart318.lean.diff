@@ -1,0 +1,11 @@
+--- descent-original-linear-q-weber-selected-primefield-chart-transport-r2/ActualGaussianWeberSelectedPrimeFieldChart318.lean
++++ descent-original-linear-q-weber-selected-primefield-chart-transport-r3/ActualGaussianWeberSelectedPrimeFieldChart318.lean
+@@ -11,7 +11,7 @@
+ open ActualGaussianWeberQuadraticGenericChart318 ActualGaussianWeberGenericChartDomain318
+ open ActualGaussianWeberGaussLocalization318 ActualGaussianWeberTranslationFunctionField318
+ 
+-private theorem along_chart_injective {K L : Type*} [Field K] [Field L] (f : K→+*L) :
++theorem along_chart_injective {K L : Type*} [Field K] [Field L] (f : K→+*L) :
+     Function.Injective (((fractionMap L).comp (mapChart f)) : Chart K→+*FunctionField L) := by
+   intro A B h
+   have h' : fractionMap L (mapChart f A)=fractionMap L (mapChart f B) := h
