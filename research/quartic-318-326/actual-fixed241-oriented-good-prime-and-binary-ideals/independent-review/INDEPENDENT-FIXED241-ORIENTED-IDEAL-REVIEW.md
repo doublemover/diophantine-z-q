@@ -1,0 +1,19 @@
+# Independent review: the fixed-241 oriented-ideal receiver
+
+**Disposition: both conditional classical proofs and exact finite controls pass.** Exact author files and manifests:
+
+| Scope | Paper SHA-256 | Author manifest SHA-256 |
+|---|---|---|
+| Fixed-241 good-prime oriented intersections | `2de7caa61282bd1be2036d514d4d60c89d6bd792f177310596585c2e978f9abd` | `5edc7075891e89fdc72e697a0baf4d0daf2b39fd09be952038cef3872ac2eb92` |
+| Exceptional zeros and four binary ideals | `4d2f0dee6d29ff4f93f9af78a866c93399e379f9213daf4db0ade15b5d988bda` | `127d48b5903e21fb7507b9c93ccd895278b39154edb81e1411f363f06dd5444f` |
+
+The second author's static row/group-ring replay reproduced the exact JSON, SHA-256 `fbf78efd1d4d31ba57f1bdbde9738b255e1dc48b118142f037c961366f7d5cb3`. The separately verified real-calibration donor is manifest `c763e955648ab6ecc2873fdf2250e69478270cc6cf07a7b63d0c87f5aa528517`, paper `da2dc6db1eaffc78b37dc61644f72b617bdd2770dbd96646932bdc70a169b581`: its complete signed rows use only CM field Q(sqrt(−5)) and totally real coefficient field Q(sqrt(5), sqrt(6)). The old exploratory real calibration is not a donor.
+
+- At good primes the two étale arrows of the fixed degree-241 correspondence transport equality over every thickening to the maximal-order moving ancestor and one of the fixed dual quotients. Ordered flags and repeated indexed occurrences are retained. The named quadratic Gauss sum and the principal analytic line normalize the quadratic sign: determinant 2 is a square at 241, changes of allowed symplectic frame or Weil convention preserve its sign, and ideal degree transport contributes the same quadratic character as the true class. Noncentral automorphisms do not fix the full flag: a primitive order-three automorphism has invertible difference from 1 on 16-torsion; order four would require a unit square equal to −1 modulo 16.
+- At unramified inert good primes, [Lauter–Viray, (6.6) and Proposition 4.1](https://arxiv.org/pdf/1206.6942) and [normalized Deuring lifting](https://uva.theopenscholar.com/files/ken-ono/files/092.pdf) give the positive integral thickness from the second coordinate in the fixed local quaternion decomposition. Passing Lie and exact level conditions is essential. The odd valuation and finite shell bound only candidate support; the marked embedding enumeration is a further computation.
+- A compatible **new** original source refinement protects 5 while retaining the older rays, not every frozen selection. At 7 the fixed auxiliary CM field is split. At 2 and 3 the chosen ordinary level component stays pure across the actual class orbit; the formally connected-branch description, with the dual involution on the étale branch, gives one vertical order, and no horizontal component meets those actual marked sections. Odd ramified target primes unramified in the coefficient field have fixed conjugation and zero inverse-conjugation valuation. The common vertical orders cancel against the nontrivial quadratic character.
+- The four anti-character norm operators have group-ring coefficients 4 at the identity, 0 at complex conjugation, and 2 elsewhere. Inverse conjugation gives their product equal to the fourth power. These norms push oriented ideals to four actual imaginary quadratic fields; in each, the principal norm-one generator is recovered up to sign by shortest-vector reduction of the integral binary lattice. Reducing at the named primes at 29 recovers the same cubic class; no independent conjugation or unsigned norm can replace these inputs.
+
+This is a conditional exact ideal-computation interface for the fixed conductor 241 and moving fundamental base on the stated arms. It does not give a fixed-index saturation claim, an evaluated moving exponent or ideal, a primitive nonzero coefficient, a marked rational point, or rank.
+
+Signed: independent quartic review, 2026-11-22 UTC.
