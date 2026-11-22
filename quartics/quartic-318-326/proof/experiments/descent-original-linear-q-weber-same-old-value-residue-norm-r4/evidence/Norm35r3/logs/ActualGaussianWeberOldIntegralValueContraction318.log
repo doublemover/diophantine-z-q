@@ -1,0 +1,52 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-same-old-value-residue-norm-r3/ActualGaussianWeberOldIntegralValueContraction318.lean:76:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?f 0
+in the target expression
+  (IsLocalization.AtPrime.equivQuotMaximalIdeal v.asIdeal A).symm 0 = 0
+
+L : Type u_1
+inst✝³ : Field L
+inst✝² : NumberField L
+inst✝¹ : Algebra Base L
+W : IntermediateField Base L
+inst✝ : NumberField ↥W
+v : HeightOneSpectrum (𝓞 ↥W)
+w : HeightOneSpectrum (𝓞 L)
+hwv : SameContraction L W v w
+z : ↥W
+hzB : (algebraMap (↥W) L) z ∈ AtPlace L w
+A : Type u_1 := OldLocal L W v
+C : ValuationSubring ↥W := AtPlace (↥W) v
+B : ValuationSubring L := AtPlace L w
+e : A ≃ₐ[𝓞 ↥W] ↥C := IsLocalization.algEquiv v.asIdeal.primeCompl A ↥C
+he : C.subtype.comp e.toRingEquiv.toRingHom = oldLocalToField L W v
+heval : ∀ (a : A), C.subtype (e a) = (oldLocalToField L W v) a
+hzC : z ∉ C
+hz : z ≠ 0
+b : ↥B := ⟨(algebraMap (↥W) L) z, hzB⟩
+c : ↥C := ⟨z⁻¹, ⋯⟩
+a : A := e.symm c
+ha : (oldLocalToField L W v) a = z⁻¹
+haU : ¬IsUnit a
+hr : (residue A) a = 0
+⊢ (IsLocalization.AtPrime.equivQuotMaximalIdeal v.asIdeal A).symm 0 = 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    0
+  has type
+    ResidueField A
+  but is expected to have type
+    A ⧸ maximalIdeal A
+  in the application
+    (IsLocalization.AtPrime.equivQuotMaximalIdeal v.asIdeal A).symm 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-same-old-value-residue-norm-r3/ActualGaussianWeberOldIntegralValueContraction318.lean:86:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsSimpleRing ↥B
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-same-old-value-residue-norm-r3/ActualGaussianWeberOldIntegralValueContraction318.lean:87:10: error: No goals to be solved
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-same-old-value-residue-norm-r3/ActualGaussianWeberOldIntegralValueContraction318.lean:108:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsSimpleRing ↥B
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-same-old-value-residue-norm-r3/ActualGaussianWeberOldIntegralValueContraction318.lean:109:4: error: No goals to be solved

@@ -1,0 +1,7 @@
+# Marked cusp uniformizer order-one revision 8
+
+Official run 45029396608, job 137229643871, asset 14757357083. Physically checked 61 strict source/log rows, 887 declarations and all 329 baseline keys and Git sources, with only SelectedActualMarkedCuspUniformizerOrderOneV2_318 failing. The two application/type mismatches explicitly report the same Hol.germ opacity. This candidate adds a proof-only import of the already-selected Hol owner, aligns that actual subtype representative with explicit unfolding, and reuses the exact accepted Finite-J zero-germ representative pattern. 
+
+The additional direct error is the terminal declaration's 200000-heartbeat whnf timeout. This candidate moves the geometry-independent rotation-to-constancy and order calculation into a private abstract helper over the three rings B/F/L with exact typed maps; the actual theorem keeps precisely the same model, prime, chart equivalence and public dependent telescope. Its final separation proof still uses exactly the same t,c, literal J and marked x, and the existing same-field fraction argument. No timeout budget, new assumptions or public types changed. It is unverified whether the concrete residue/constant setup or terminal application still reaches the original limit.
+
+Only the terminal owner changes; the exact prior 61 sources are byte-equal and the closure stays at 329. No local Lean, dispatch or push. The official asset is provenance only and is not part of this text package.

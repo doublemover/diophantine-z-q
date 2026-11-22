@@ -1,0 +1,33 @@
+--- r3/ActualGaussianWeberOldIntegralValueContraction318.lean
++++ r4/ActualGaussianWeberOldIntegralValueContraction318.lean
+@@ -72,8 +72,10 @@
+       by_contra h
+       exact haU ((residue_ne_zero_iff_isUnit a).mp h)
+     have hOld : oldLocalResidue L W v a=0 := by
+-      change (IsLocalization.AtPrime.equivQuotMaximalIdeal v.asIdeal A).symm (residue A a)=0
+-      rw [hr,map_zero]
++      let E := IsLocalization.AtPrime.equivQuotMaximalIdeal v.asIdeal A
++      have hQ : Ideal.Quotient.mk (maximalIdeal A) a=(0 : A ⧸ maximalIdeal A) := hr
++      change E.symm (Ideal.Quotient.mk (maximalIdeal A) a)=0
++      exact (congrArg (fun z : A ⧸ maximalIdeal A => E.symm z) hQ).trans E.symm.map_zero
+     let f := actualLocalInclusion L W v w hwv
+     have hUpper : residue B (f a)=0 := by
+       calc
+@@ -83,7 +85,7 @@
+     have hField : B.subtype (f a)=algebraMap W L (oldLocalToField L W v a) :=
+       DFunLike.congr_fun (actualLocalInclusion_field_triangle L W v w hwv) a
+     have hProd : f a*b=1 := by
+-      apply B.subtype.injective
++      apply B.subtype_injective
+       rw [map_mul,map_one,hField,ha]
+       change algebraMap W L (z⁻¹)*algebraMap W L z=1
+       rw [←map_mul,inv_mul_cancel₀ hz,map_one]
+@@ -105,7 +107,7 @@
+   let f := actualLocalInclusion L W v w hwv
+   let e := oldQuotientIntoActualResidue L W v w hwv
+   have hfx : f a=x := by
+-    apply B.subtype.injective
++    apply B.subtype_injective
+     calc
+       _ = algebraMap W L (oldLocalToField L W v a) :=
+         DFunLike.congr_fun (actualLocalInclusion_field_triangle L W v w hwv) a
