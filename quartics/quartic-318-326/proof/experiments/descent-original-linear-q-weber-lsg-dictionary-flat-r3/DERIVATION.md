@@ -1,0 +1,20 @@
+# Exact reversible flattening for the Gaussian-Weber elliptic dictionary
+
+This is a scratch derivation, not a dependency install, a repository change, or a hosted/kernel result. No original upstream source file is edited. The actual remote branch and workflows were not touched.
+
+Upstream is Shawn Krisman's Apache-2.0 waldschmidt-subgroup-theorem, Git commit e116a28c34810a802868965d00d2ae986fa627e7. See the exact original license at original/LICENSE, upstream source copyright headers, and the verified provenance in UPSTREAM-SOURCE-PIN.json. The exact upstream Git blob of the license is 261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64. The root NOTICE path is absent at this commit. The original lake manifest pins identical Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679 and Lean v4.35.0. None of the chosen 16 source files imports StrongSix; only the author's complete project has that separate dependency.
+
+The official run 44964465513 of the earlier exact licensed packet reported
+four import-root processes aborted from excessive memory under the unchanged
+Lean -M6144 limit. No native source error was reported. This revision
+replaces only the umbrella Mathlib import in the four root sources with
+explicit pinned Mathlib modules, to be tested in isolation first. The
+replacement stock module names and Git blob hashes are in
+STOCK-IMPORTS-PIN.json, including the mathematical prerequisites inherited
+by downstream unchanged sources. No CI, evaluator, or proof change.
+
+The project experiment planner only accepts bare module names. The recorded derivative source is thus made by replacing qualified paths in local import lines and renaming files into a flat packet. Each of the twelve upstream files whose import bytes changed also has a prominent, separate modification notice after its unchanged original copyright comment; the four other upstream files receive notices for their replacement stock import list. Every other byte (including the original headers, newline sequences, options, statement text, definitions, proofs, namespaces and other dotted names) is identical. The output ledger records every original import line, expanded stock import byte block, and the precise notice offset and bytes, with original and derivative Git/SHA256 hashes. Removing the noticed insertion before undoing the stock import replacement and local import renaming recovers the exact upstream bytes. Upstream external Mathlib imports are not changed.
+
+The 1/0 and combined 4/0 options select only independent repaired import roots. The 13 selected source owner option is the dictionary and new generic expE surjectivity/kernel, not the final normalized original curve. The 17 owner option additionally includes the previously written exact real period normalization (it pulls in four extra upstream files not imported by the Dictionary). This is the selected union of two independent mathematical milestones, not an analytic replacement for the Gaussian fibre source or quantitative FT. The positive-I/current stock curve adapter continuation remains exact source with only its own LSG import path adjusted, but is not in this first runnable packet: it separately imports the project's working Gaussian scalar/torus fibre cohort.
+
+Reproduce with stage.py and the repository's pinned check_progress_lean/check_progress_experiment/plan_progress_inventory Python scripts on PYTHONPATH. The derivation does not run Lean or alter the host configuration.
