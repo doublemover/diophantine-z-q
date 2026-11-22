@@ -1,0 +1,19 @@
+--- r1/SelectedSameALiteralInjectiveRow318.lean
++++ r2/SelectedSameALiteralInjectiveRow318.lean
+@@ -95,8 +95,13 @@
+     SelectedSameAGenuineBoundaryLifts318.boundary X (target_shortExact X L)
+         ((factor X hOld lambdaA).τ₃.hom.app (op (⊤ : TopologicalSpace.Opens X)) z) =
+       Sheaf.H.map lambdaA 1 (SelectedSameAGenuineBoundaryLifts318.boundary X hOld z) := by
+-  simpa only [factor_left] using
+-    SelectedSameAGenuineBoundaryLifts318.boundary_natural
+-      X hOld (target_shortExact X L) (factor X hOld lambdaA) z
++  let beta := SelectedSameAGenuineBoundaryLifts318.boundary X hOld z
++  let evalH : (S.X₁ ⟶ L) → L.H 1 := fun f => Sheaf.H.map f 1 beta
++  calc
++    _ = evalH (factor X hOld lambdaA).τ₁ :=
++      SelectedSameAGenuineBoundaryLifts318.boundary_natural
++        X hOld (target_shortExact X L) (factor X hOld lambdaA) z
++    _ = evalH lambdaA := congrArg evalH (factor_left X hOld lambdaA)
++    _ = _ := rfl
+ 
+ end SelectedSameALiteralInjectiveRow318
