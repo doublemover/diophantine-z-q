@@ -1,0 +1,52 @@
+--- actual-literal-marked-ordinary-normalization-r4/SelectedActualLiteralMarkedOrdinaryNormalization318.lean
++++ actual-literal-marked-ordinary-normalization-r5/SelectedActualLiteralMarkedOrdinaryNormalization318.lean
+@@ -61,25 +61,37 @@
+       ∀ z : C N p, q (e z) = literalWholeTensor N p (z ⊗ₜ[Base] (1 : Generic)) := by
+   let F := K N p
+   letI : Field F := (whole_isField N p hf).toField
+-  letI : Algebra ℂ[X] F := (polynomial F 1).toAlgebra
++  letI aPB : Algebra ℂ[X] Base := inferInstance
++  letI aPF : Algebra ℂ[X] F := (polynomial F 1).toAlgebra
+   letI : Algebra Base (RatFunc ℂ) := ratscalar
+   letI : IsScalarTower ℂ[X] Base (RatFunc ℂ) := rattower
+-  letI : Algebra Base F := ordinaryFieldAlgebra N p
+-  letI : IsScalarTower ℂ[X] Base F := by
+-    refine IsScalarTower.of_algebraMap_eq (R := ℂ[X]) (S := Base) (A := F) ?_
+-    intro a
+-    change polynomial F 1 a =
+-      algebraMap (RatFunc ℂ) F (algebraMap Base (RatFunc ℂ) (algebraMap ℂ[X] Base a))
+-    have h₁ : basePolynomial 1 = algebraMap ℂ[X] (RatFunc ℂ) := by simp [basePolynomial]
+-    rw [← IsScalarTower.algebraMap_apply ℂ[X] Base (RatFunc ℂ),
+-      polynomial,RingHom.comp_apply,h₁]
++  letI aBF : Algebra Base F := ordinaryFieldAlgebra N p
++  have hRat (a : ℂ[X]) :
++      algebraMap Base (RatFunc ℂ) (algebraMap ℂ[X] Base a) =
++        algebraMap ℂ[X] (RatFunc ℂ) a :=
++    (IsScalarTower.algebraMap_apply ℂ[X] Base (RatFunc ℂ) a).symm
++  letI : SMul ℂ[X] Base := aPB.toSMul
++  letI : SMul Base F := aBF.toSMul
++  letI : SMul ℂ[X] F := aPF.toSMul
++  letI tPF : @IsScalarTower ℂ[X] Base F aPB.toSMul aBF.toSMul aPF.toSMul :=
++    @IsScalarTower.of_algebraMap_eq ℂ[X] Base F inferInstance inferInstance
++      inferInstance aPB aBF aPF (by
++        intro a
++        change polynomial F 1 a =
++          algebraMap (RatFunc ℂ) F (algebraMap Base (RatFunc ℂ) (algebraMap ℂ[X] Base a))
++        have h₁ : basePolynomial 1 = algebraMap ℂ[X] (RatFunc ℂ) := by simp [basePolynomial]
++        rw [hRat,polynomial,RingHom.comp_apply,h₁])
+   let dB : B F := algebraMap ℂ[X] (B F) denominator
+   have hM : Algebra.algebraMapSubmonoid (B F) (Submonoid.powers denominator) =
+       Submonoid.powers dB := by
+     unfold Algebra.algebraMapSubmonoid
+     exact Submonoid.map_powers _ _
+-  letI : IsLocalization.Away dB (O F) := hM ▸ (inferInstance :
+-    IsLocalization (Algebra.algebraMapSubmonoid (B F) (Submonoid.powers denominator)) (O F))
++  have hLoc : IsLocalization
++      (Algebra.algebraMapSubmonoid (B F) (Submonoid.powers denominator)) (O F) :=
++    inferInstance
++  letI : IsLocalization.Away dB (O F) := by
++    change IsLocalization (Submonoid.powers dB) (O F)
++    exact Eq.mp (congrArg (fun M : Submonoid (B F) => IsLocalization M (O F)) hM) hLoc
+   have hdinj : Function.Injective (polynomial F 1) := by
+     letI : Algebra ℂ[X] JField := (basePolynomial 1).toAlgebra
+     letI : IsFractionRing ℂ[X] JField := base_fractionRing 1
