@@ -1,0 +1,66 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2-r2/SelectedActualMarkedCuspPunctureEvaluation318.lean:35:0: warning: automatically included section variable(s) unused in theorem `SelectedActualMarkedCuspPunctureEvaluation318.originalCuspLift_projection`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2-r2/SelectedActualMarkedCuspPunctureEvaluation318.lean:39:8: warning: automatically included section variable(s) unused in theorem `_private.SelectedActualMarkedCuspPunctureEvaluation318.0.SelectedActualMarkedCuspPunctureEvaluation318.j_eq_of_projection_eq`:
+  [NeZero N]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero N] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-cusp-uniformizer-order-one-witness-v2-r2/SelectedActualMarkedCuspPunctureEvaluation318.lean:195:38: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  r q
+in the target expression
+  (Complex.im ∘ r) q ∈ Ioi 2
+
+N : ℕ
+inst✝ : NeZero N
+hN : 5 ≤ N
+c : ↑(End N)
+p : (OpenJModel318.Base N)[X]
+hRoots : fullRootSet N p
+t : Period
+q : ℂ
+hq : q ∈ punctured (AllCuspOverlap318.width N hN c) 2
+ha : Admissible (originalCuspLift N hN c q)
+z : OrdinaryRoot N p
+w : ℝ := AllCuspOverlap318.width N hN c
+g : SL(2, ℤ) := representative N c
+hw : 0 < w := AllCuspOverlap318.width_pos N hN c
+τ : ↑(high 2)
+hτ : qMap w 2 hw τ = ⟨q, hq⟩
+hqt : Function.Periodic.qParam w ↑↑τ = q
+hpr : cuspInverse N hN c q = quotientMap N (g • ↑τ)
+hJ : ActualQJ318.jInvariant (g • ↑τ) = ActualQJ318.jInvariant (originalCuspLift N hN c q)
+ha₀ : Admissible (g • ↑τ)
+a : Period := ⟨g • ↑τ, ha₀⟩
+r : ℂ → ℂ := WidthLocalInverse318.inverse w hw ↑↑τ
+hr : AnalyticAt ℂ r q
+hrq : r q = ↑↑τ
+s : ℂ → ℍ := fun v => g • ↑ofComplex (r v)
+hs : s q = ↑a
+g₀ : GL (Fin 2) ℝ := Matrix.SpecialLinearGroup.toGL ((Matrix.SpecialLinearGroup.map (Int.castRingHom ℝ)) g)
+gR : SL(2, ℝ) := (Matrix.SpecialLinearGroup.map (Int.castRingHom ℝ)) g
+hg₀ : 0 < (↑g₀).det
+hsA : AnalyticAt ℂ (fun v => ↑(s v)) q
+liftC : ℂ → ℂ := fun v => ↑(s v)
+eval : ℂ → ℂ := fun v => (atDisk N p hRoots a v) z
+hOld : AnalyticAt ℂ eval (liftC q)
+hLift : AnalyticAt ℂ liftC q
+hComp : AnalyticAt ℂ (eval ∘ liftC) q
+⊢ (Complex.im ∘ r) q ∈ Ioi 2
+'SelectedActualMarkedCuspPunctureEvaluation318.atCusp_of_ordinary_lift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedCuspPunctureEvaluation318.eventually_ordinary_at_original_cusp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedCuspPunctureEvaluation318.original_cusp_ordinary_section_analytic' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'SelectedActualMarkedCuspPunctureEvaluation318.original_cusp_polynomial_evaluation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
