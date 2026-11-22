@@ -1,0 +1,15 @@
+--- r4/ActualGaussianWeberGaussLocalization318.lean
++++ r5/ActualGaussianWeberGaussLocalization318.lean
+@@ -137,7 +137,11 @@
+   let e := (IsFractionRing.injective (Chart L) (FunctionField L)).comp
+     (AdjoinRoot.of.injective_of_monic_of_degree_pos hm hdeg)
+   intro h
+-  exact hA (e (h.trans (map_zero _).symm))
++  have hzero : algebraMap (Chart L) (FunctionField L)
++      (AdjoinRoot.of (relation L) (0 : L[X])) = 0 := by
++    simpa only [RingHom.comp_apply] using
++      ((algebraMap (Chart L) (FunctionField L)).comp (AdjoinRoot.of (relation L))).map_zero
++  exact hA (e (h.trans hzero.symm))
+ 
+ /-- If the literal generic x-coordinate is finite in the actual
+ Gauss localization, the reduced function-field value has an x-rational

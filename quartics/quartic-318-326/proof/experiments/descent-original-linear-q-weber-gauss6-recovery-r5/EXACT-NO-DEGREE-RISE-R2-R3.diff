@@ -1,0 +1,18 @@
+--- r2/ActualGaussianWeberRationalNoDegreeRise318.lean
++++ r3/ActualGaussianWeberRationalNoDegreeRise318.lean
+@@ -91,8 +91,13 @@
+     rw [←T.den_eq,e,mul_zero]
+   refine ⟨T,hd,natDegree_map_le.trans T.num_degree,natDegree_map_le.trans T.den_degree,?_,?_⟩
+   · apply rational_cross hg hB
+-    rw [←T.num_eq,←T.den_eq]
+-    ring
++    calc
++      T.num.map V.subtype * B =
++          T.num.map V.subtype * (C T.scale * T.den.map V.subtype) :=
++        congrArg (fun d : K[X] => T.num.map V.subtype * d) T.den_eq.symm
++      _ = T.den.map V.subtype * (C T.scale * T.num.map V.subtype) := by ring
++      _ = T.den.map V.subtype * A :=
++        congrArg (fun c : K[X] => T.den.map V.subtype * c) T.num_eq
+   · intro c d h hn
+     exact rational_cross hd hn (reduced_cross V T c d h)
+ 
