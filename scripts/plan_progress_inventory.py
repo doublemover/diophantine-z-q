@@ -70,6 +70,7 @@ def main():
         raise RuntimeError('Do not use Python -O')
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--github-output', required=True, type=Path)
+    p.add_argument('--baseline-upstream-targets', type=Path)
     args = p.parse_args()
     # Revalidate committed marker and clean execution tree, not an editable JSON receipt.
     import os
@@ -78,8 +79,20 @@ def main():
     raw = json.loads((ci.ROOT / request.MARKER).read_text(), object_pairs_hook=request.unique_object)
     ci.check_sources(ci.PROJECT)
     plan = ci.derive_plan(early_depth=7)
-    active = json.loads((experiment.EXPERIMENTS / 'packets.json').read_text())['active_packets']
+    from prepare_progress_sparse_checkout import EXPERIMENTS, read_json
+    active = read_json(ci.ROOT, validated['execution_commit'],
+                       EXPERIMENTS + '/packets.json')['active_packets']
     result = build(raw, plan, active)
+    if args.baseline_upstream_targets is not None and result['has_packets'] == 'true':
+        # Stable common seed. Packet-specific imports remain native per-job
+        # lookups so a proof edit cannot invalidate the shared baseline cache.
+        targets = sorted({n for n in plan['upstream']
+                          if n.split('.')[0] not in {'Lean', 'Std', 'Init'}})
+        if not targets:
+            raise ValueError('Expected nonempty baseline upstream targets')
+        encoded = ('\n'.join(targets) + '\n').encode()
+        args.baseline_upstream_targets.write_bytes(encoded)
+        result['baseline_upstream_targets_sha256'] = hashlib.sha256(encoded).hexdigest()
     print(json.dumps({'request_sha256': validated['marker_sha256'], **result}))
     with args.github_output.open('a') as f:
         for k, v in result.items():

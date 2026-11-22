@@ -3,11 +3,13 @@
 import importlib.util,json,os,pathlib,shutil,subprocess,tempfile,unittest,textwrap
 from unittest.mock import patch
 import prepare_progress_sparse_checkout as s
+import validate_progress_inventory_request as request
 class SparseCheckoutTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)
   self.g('init','-q');self.g('config','user.name','SourceTest');self.g('config','user.email','source-test@example.invalid')
   self.write('scripts/prepare_progress_sparse_checkout.py',pathlib.Path(s.__file__).read_text())
+  self.write('scripts/validate_progress_inventory_request.py',pathlib.Path(request.__file__).read_text())
   self.write('.github/actions/example/action.yml','name: example\n')
   self.write('quartics/quartic-318-326/proof/progress/Base.lean','-- baseline preserved\n')
   self.write('lean/lean-toolchain','leanprover/lean4:v4.35.0\n')
@@ -61,6 +63,56 @@ class SparseCheckoutTests(unittest.TestCase):
   self.sparse();self.assertFalse((self.root/s.EXPERIMENTS/'test-r2').exists());r=self.command();self.assertEqual(r.returncode,0,r.stderr)
   for name in ['test-r1','test-r2']:self.assertTrue((self.root/s.EXPERIMENTS/name/'evidence/deep/report.txt').is_file())
   self.assertFalse((self.root/s.EXPERIMENTS/'irrelevant-r1').exists());self.assertEqual(self.g('diff','HEAD'),'');self.assertEqual(self.g('diff','--cached','HEAD'),'')
+ def request_fixture(self, schema, names):
+  self.write(s.EXPERIMENTS+'/packets.json',{'active_packets':['test-r2','extra-r1','irrelevant-r1']})
+  self.write(s.EXPERIMENTS+'/extra-r1/intake.json',{})
+  self.write(s.EXPERIMENTS+'/extra-r1/Root.lean','-- second active packet\n')
+  self.commit()
+  source=self.head
+  req={'schema':schema,'source_commit':source,'source_tree':self.g('rev-parse','HEAD^{tree}'),'request_id':'fixture'}
+  if schema==2: req.update(job_minutes=30,shards=names)
+  self.write(request.MARKER,req);self.commit()
+  event={'ref':request.BRANCH,'deleted':False,'forced':False,'after':self.head,'before':source}
+  self.write('event.json',event)
+  return event
+ def request_command(self,event):
+  self.write('event.json',event)
+  env=dict(os.environ,GITHUB_SHA=self.head,GITHUB_REF=request.BRANCH,GITHUB_EVENT_NAME='push',
+           GITHUB_EVENT_PATH=str(self.root/'event.json'))
+  return subprocess.run(['python3','-B',str(self.root/'scripts/prepare_progress_sparse_checkout.py'),
+                         '--from-request'],capture_output=True,text=True,env=env)
+ def test_inventory_plan_materializes_requested_union_only(self):
+  event=self.request_fixture(2,[{'packet':'test-r2','targets':['Root']},
+                                {'packet':'extra-r1','targets':None},
+                                {'packet':'test-r2','targets':['Other']}])
+  self.sparse()
+  r=self.request_command(event); self.assertEqual(r.returncode,0,r.stderr)
+  self.assertEqual(json.loads(r.stdout)['full_directories'],
+    [s.EXPERIMENTS+'/'+name for name in ['test-r2','test-r1','extra-r1']])
+  self.assertTrue((self.root/s.EXPERIMENTS/'test-r1/evidence/deep/report.txt').is_file())
+  self.assertFalse((self.root/s.EXPERIMENTS/'irrelevant-r1').exists())
+  self.assertEqual(self.g('diff','HEAD'),'')
+ def test_inventory_plan_legacy_materializes_all_active(self):
+  event=self.request_fixture(1,[]);self.sparse()
+  r=self.request_command(event);self.assertEqual(r.returncode,0,r.stderr)
+  self.assertTrue((self.root/s.EXPERIMENTS/'irrelevant-r1/Root.lean').is_file())
+ def test_inventory_plan_legacy_empty_does_not_materialize_any_packet(self):
+  self.write(s.EXPERIMENTS+'/packets.json',{'active_packets':[]});self.commit()
+  source=self.head
+  self.write(request.MARKER,{'schema':1,'source_commit':source,
+    'source_tree':self.g('rev-parse','HEAD^{tree}'),'request_id':'empty'})
+  self.commit();self.sparse()
+  r=self.request_command({'ref':request.BRANCH,'deleted':False,'forced':False,
+                           'after':self.head,'before':source})
+  self.assertEqual(r.returncode,0,r.stderr)
+  self.assertEqual(json.loads(r.stdout)['full_directories'],[])
+  self.assertFalse((self.root/s.EXPERIMENTS/'test-r2').exists())
+  self.assertEqual(s.read_json(self.root,self.head,s.EXPERIMENTS+'/packets.json'),{'active_packets':[]})
+ def test_inventory_plan_rejects_invalid_event_before_adding_paths(self):
+  event=self.request_fixture(2,[{'packet':'test-r2','targets':None}]);self.sparse()
+  event['forced']=True
+  r=self.request_command(event);self.assertNotEqual(r.returncode,0)
+  self.assertFalse((self.root/s.EXPERIMENTS/'test-r2').exists())
  def test_dry_run_no_materialization(self):
   self.sparse();r=self.command('--dry-run');self.assertEqual(r.returncode,0,r.stderr);self.assertFalse((self.root/s.EXPERIMENTS/'test-r2').exists())
  def test_wrong_event_head(self):self.sparse();self.assertNotEqual(self.command(head='0'*40).returncode,0)

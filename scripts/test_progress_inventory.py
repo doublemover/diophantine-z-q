@@ -297,6 +297,16 @@ class InventoryTests(unittest.TestCase):
         self.assertIn('scripts/test_progress_inventory.py',normal)
         self.assertIn('check_progress_experiment.py check --packet',normal)
         self.assertNotIn('check_progress_inventory.py --packet',normal)
+        self.assertIn('prepare_progress_sparse_checkout.py --from-request',s)
+        self.assertLess(s.index('id: request'),s.index('prepare_progress_sparse_checkout.py --from-request'))
+        self.assertLess(s.index('prepare_progress_sparse_checkout.py --from-request'),s.index('id: plan'))
+        self.assertEqual(s.count('uses: ./.github/actions/setup-inventory-mathlib-cache'),2)
+        self.assertIn('mode: warm',s);self.assertIn('mode: restore',s)
+        self.assertIn('steps.mathlib_cache.outputs.ready',s)
+        self.assertIn('inventory-mathlib-fallback',s)
+        self.assertIn('scripts/pinned_dependency_sources.py artifacts',s)
+        setup_status=next(line for line in s.splitlines() if 'SETUP_OK:' in line)
+        self.assertNotIn('mathlib_cache',setup_status)  # optional cache is not audit evidence
 
 
 class RequestTests(unittest.TestCase):

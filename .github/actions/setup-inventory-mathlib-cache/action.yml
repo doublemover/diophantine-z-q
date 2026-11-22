@@ -1,0 +1,106 @@
+name: Exact inventory Mathlib download cache
+description: Transport only checked compressed upstream Mathlib files, never local Lean build output.
+inputs:
+  mode:
+    description: "warm in the source-validated plan job; restore in a matrix worker"
+    required: true
+  cache-key:
+    description: "Exact platform and lock identity, ending in the baseline target-file SHA-256"
+    required: true
+  targets-file:
+    description: "Sorted baseline upstream module names, required only in warm mode"
+    required: false
+    default: ''
+outputs:
+  ready:
+    description: "True only when the exact catalog and every upstream file passed verification"
+    value: ${{ steps.result.outputs.ready }}
+  cache-dir:
+    description: "The verified native Mathlib cache directory; empty unless ready is true"
+    value: ${{ steps.result.outputs.cache-dir }}
+runs:
+  using: composite
+  steps:
+    - id: prepare
+      name: Clear isolated Mathlib transport directory
+      continue-on-error: true
+      shell: bash
+      env:
+        CACHE_KEY: ${{ inputs.cache-key }}
+        MODE: ${{ inputs.mode }}
+      run: |
+        set -euo pipefail
+        [[ "$MODE" == warm || "$MODE" == restore ]]
+        python -B "$GITHUB_WORKSPACE/scripts/inventory_mathlib_cache.py" prepare --cache-key "$CACHE_KEY"
+    - id: restore
+      name: Restore exact compressed Mathlib cache
+      if: steps.prepare.outcome == 'success'
+      continue-on-error: true
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ runner.temp }}/inventory-mathlib
+        key: ${{ inputs.cache-key }}
+    - id: verify
+      name: Check Mathlib cache identity, flat file list and byte digests
+      if: steps.prepare.outcome == 'success'
+      continue-on-error: true
+      shell: bash
+      env:
+        CACHE_KEY: ${{ inputs.cache-key }}
+        CACHE_HIT: ${{ steps.restore.outputs.cache-hit }}
+        RESTORE_OUTCOME: ${{ steps.restore.outcome }}
+      run: |
+        set -euo pipefail
+        [[ "$RESTORE_OUTCOME" == success ]] || CACHE_HIT=''
+        python -B "$GITHUB_WORKSPACE/scripts/inventory_mathlib_cache.py" restore \
+          --cache-key "$CACHE_KEY" --cache-hit "$CACHE_HIT"
+    - id: lean
+      name: Set up exact Lean only on a warm cache miss
+      if: inputs.mode == 'warm' && steps.verify.outputs.status == 'missing'
+      continue-on-error: true
+      uses: ./.github/actions/setup-pinned-lean
+    - id: sources
+      name: Reconstruct and verify locked Mathlib sources before warming
+      if: inputs.mode == 'warm' && steps.verify.outputs.status == 'missing' && steps.lean.outcome == 'success'
+      continue-on-error: true
+      uses: ./.github/actions/setup-pinned-dependency-sources
+    - id: warm
+      name: Fetch only the baseline upstream modules using pinned native cache get-
+      if: inputs.mode == 'warm' && steps.sources.outcome == 'success'
+      continue-on-error: true
+      shell: bash
+      env:
+        CACHE_KEY: ${{ inputs.cache-key }}
+        TARGETS_FILE: ${{ inputs.targets-file }}
+      run: |
+        set -euo pipefail
+        python -B "$GITHUB_WORKSPACE/scripts/inventory_mathlib_cache.py" warm \
+          --cache-key "$CACHE_KEY" --targets-file "$TARGETS_FILE" \
+          --project "$GITHUB_WORKSPACE/quartics/quartic-318-326/proof/progress"
+    - name: Save only the complete compressed upstream cache
+      if: inputs.mode == 'warm' && steps.warm.outcome == 'success' && steps.warm.outputs.status == 'ready'
+      continue-on-error: true
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ runner.temp }}/inventory-mathlib
+        key: ${{ inputs.cache-key }}
+    - id: result
+      name: Expose only a verified upstream archive directory
+      if: always()
+      shell: bash
+      env:
+        MODE: ${{ inputs.mode }}
+        RESTORE_STATUS: ${{ steps.verify.outputs.status }}
+        WARM_STATUS: ${{ steps.warm.outputs.status }}
+        VERIFY_OUTCOME: ${{ steps.verify.outcome }}
+        WARM_OUTCOME: ${{ steps.warm.outcome }}
+      run: |
+        set -euo pipefail
+        [[ "$VERIFY_OUTCOME" == success ]] || RESTORE_STATUS=''
+        [[ "$WARM_OUTCOME" == success ]] || WARM_STATUS=''
+        if [[ "$MODE" == restore && "$RESTORE_STATUS" == ready ]] ||
+           [[ "$MODE" == warm && ( "$RESTORE_STATUS" == ready || "$WARM_STATUS" == ready ) ]]; then
+          printf 'ready=true\ncache-dir=%s\n' "$RUNNER_TEMP/inventory-mathlib" >> "$GITHUB_OUTPUT"
+        else
+          printf 'ready=false\ncache-dir=\n' >> "$GITHUB_OUTPUT"
+        fi
