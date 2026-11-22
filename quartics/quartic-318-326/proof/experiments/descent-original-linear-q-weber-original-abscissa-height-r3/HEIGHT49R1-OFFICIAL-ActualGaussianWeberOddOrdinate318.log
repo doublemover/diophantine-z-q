@@ -1,0 +1,97 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:23:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (Chart k) ((ofX k) a) ((ofX k) b)
+but is expected to have type
+  @Eq (Chart k) ((AdjoinRoot.of (relation k)) a) ((AdjoinRoot.of (relation k)) b)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:33:39: error(lean.unknownIdentifier): Unknown identifier `reflected_root`
+
+Note: A private declaration `reflected_root` (from the current module) exists but would need to be public to access here.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:54:54: error: Application type mismatch: The argument
+  reflect_injective k
+has type
+  Function.Injective ⇑(reflectChart k)
+but is expected to have type
+  Function.Injective fun x => x
+in the application
+  Function.Injective.comp (fractionMap_injective k) (reflect_injective k)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:58:65: error: Application type mismatch: The argument
+  reflect_injective k
+has type
+  Function.Injective ⇑(reflectChart k)
+but is expected to have type
+  Function.Injective fun x => x
+in the application
+  Function.Injective.comp (fractionMap_injective k) (reflect_injective k)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:62:45: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:62:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:66:44: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:66:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:70:45: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:70:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:88:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:112:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  -?b / ?a
+in the target expression
+  -((fractionMap k) Z / (fractionMap k) E) = (fractionMap k) ((reflectChart k) Z) / (fractionMap k) E
+
+k : Type u_1
+inst✝ : Field k
+h2 : 2 ≠ 0
+v : ActualGaussianWeberGaussLocalization318.FunctionField k
+h : (reflectFrac k) v = -v
+this : IsDomain (Chart k) := chart_isDomain k
+N D : Chart k
+hD₀ : D ∈ nonZeroDivisors (Chart k)
+hv :
+  (algebraMap (Chart k) (ActualGaussianWeberGaussLocalization318.FunctionField k)) N /
+      (algebraMap (Chart k) (ActualGaussianWeberGaussLocalization318.FunctionField k)) D =
+    v
+hD : D ≠ 0
+hv' : v = (fractionMap k) N / (fractionMap k) D
+E : Chart k := D * (reflectChart k) D
+Z : Chart k := N * (reflectChart k) D
+hDr : (reflectChart k) D ≠ 0
+hE : E ≠ 0
+he0 : (fractionMap k) E ≠ 0
+hRE : (reflectChart k) E = E
+hEq : v = (fractionMap k) Z / (fractionMap k) E
+hh : -((fractionMap k) Z / (fractionMap k) E) = (fractionMap k) ((reflectChart k) Z) / (fractionMap k) E
+⊢ (fractionMap k) ((reflectChart k) Z) = (fractionMap k) (-Z)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:201:0: warning: automatically included section variable(s) unused in theorem `ActualGaussianWeberOddOrdinate318.cleared_ordinate`:
+  [DecidableEq (ActualGaussianWeberGaussLocalization318.FunctionField k)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq (ActualGaussianWeberGaussLocalization318.FunctionField k)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:236:60: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:238:31: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:236:60: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r1/ActualGaussianWeberOddOrdinate318.lean:238:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

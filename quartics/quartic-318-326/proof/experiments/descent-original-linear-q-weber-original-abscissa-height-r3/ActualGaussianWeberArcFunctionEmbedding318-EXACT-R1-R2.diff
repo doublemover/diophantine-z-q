@@ -1,0 +1,13 @@
+--- r1/ActualGaussianWeberArcFunctionEmbedding318.lean
++++ r2/ActualGaussianWeberArcFunctionEmbedding318.lean
+@@ -69,7 +69,9 @@
+     rw [←hAB,chartEval_element] at hz
+     change f A+f B*y=0 at hz
+     by_cases hb : B=0
+-    · have hA : A=0 := hx (by rw [hb,map_zero,zero_mul,add_zero] at hz; exact hz)
++    · have hA : A=0 := hx (by
++        rw [hb,map_zero,zero_mul,add_zero] at hz
++        exact hz.trans (map_zero f).symm)
+       rw [←hAB,hA,hb]
+       simp [element]
+     · have hBV : f B≠0 := fun h => hb (hx (h.trans (map_zero f).symm))

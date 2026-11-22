@@ -1,0 +1,14 @@
+--- r2/ActualGaussianWeberOddOrdinate318.lean
++++ r3/ActualGaussianWeberOddOrdinate318.lean
+@@ -117,9 +117,8 @@
+       rw [hEq,map_div₀,reflect_frac_chart,reflect_frac_chart,hRE]
+     rw [h,hEq,←neg_div] at hh
+     rw [map_neg]
+-    exact mul_right_cancel₀ he0 (by
+-      have q := congrArg (fun u : FunctionField k => u*fractionMap k E) hh.symm
+-      simpa only [div_mul_cancel₀ _ he0] using q)
++    have q := congrArg (fun u : FunctionField k => u*fractionMap k E) hh.symm
++    simpa only [div_mul_cancel₀ _ he0] using q
+   obtain ⟨U,V,hN⟩ := element_surjective Z
+   obtain ⟨C,D₁,hDe⟩ := element_surjective E
+   have eD : -D₁=D₁ := by

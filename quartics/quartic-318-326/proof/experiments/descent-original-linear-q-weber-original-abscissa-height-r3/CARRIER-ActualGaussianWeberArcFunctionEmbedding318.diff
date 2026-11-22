@@ -1,0 +1,12 @@
+--- held/ActualGaussianWeberArcFunctionEmbedding318.lean
++++ new/ActualGaussianWeberArcFunctionEmbedding318.lean
+@@ -49,7 +49,8 @@
+ 
+ @[expose] def chartEval (c : k→+*F) (x y : F) (he : y^2=x^3-x) : Chart k→+*F :=
+   AdjoinRoot.lift (eval₂RingHom c x) y (by
+-    rw [relation,eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow]
++    change (((X : (k[X])[X])^2 - C ((X : k[X])^3-X))).eval₂ (eval₂RingHom c x) y=0
++    rw [eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow]
+     rw [show (eval₂RingHom c x) X=x from eval₂_X _ _]
+     exact sub_eq_zero.mpr he)
+ 

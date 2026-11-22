@@ -1,0 +1,49 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r2/ActualGaussianWeberComplexFibreDegree318.lean:35:51: error: Function expected at
+  natDegree_mul_le
+but this term has type
+  (?m.182 * ?m.183).natDegree ≤ natDegree ?m.182 + natDegree ?m.183
+
+Note: Expected a function because this term is being applied to the argument
+  _
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r2/ActualGaussianWeberComplexFibreDegree318.lean:73:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r2/ActualGaussianWeberComplexFibreDegree318.lean:78:21: error: unsolved goals
+K : Type u_1
+inst✝² : Field K
+inst✝¹ : Algebra K ℂ
+inst✝ : DecidableEq ℂ
+A B : K[X]
+hAB : IsCoprime A B
+hB : B ≠ 0
+c : ℂ
+hc : Transcendental K c
+f : K →+* ℂ := algebraMap K ℂ
+N : ℕ := max A.natDegree B.natDegree
+P : ℂ[X] := map f A - C c * map f B
+hAdeg : (map f A).natDegree = A.natDegree
+hBdeg : (map f B).natDegree = B.natDegree
+hProd : (C c * map f B).natDegree ≤ N
+hLe : P.natDegree ≤ N
+hn : ¬N = 0
+hTop : P.coeff N ≠ 0
+hDeg : P.natDegree = N
+this : CharZero K :=
+  {
+    cast_injective := fun ⦃m n⦄ h =>
+      Nat.cast_injective (Eq.mp (congr (congrArg Eq (map_natCast f m)) (map_natCast f n)) (congrArg (⇑f) h)) }
+D : K[X] := derivative A * B - A * derivative B
+e : D = 0
+he : derivative A * B = A * derivative B
+hA : derivative A = 0
+hB' : derivative B = 0
+⊢ max 0 0 = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r2/ActualGaussianWeberComplexFibreDegree318.lean:86:22: error: failed to synthesize
+  Algebra ℂ ?K
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,13 @@
+--- held/ActualGaussianWeberOddOrdinate318.lean
++++ new/ActualGaussianWeberOddOrdinate318.lean
+@@ -24,7 +24,9 @@
+   exact (element_coefficients h').1
+ 
+ private theorem reflected_root : (relation k).eval₂ (ofX k) (-yChart k)=0 := by
+-  rw [relation,eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow,neg_sq]
++  change (((X : (k[X])[X])^2 - C ((X : k[X])^3-X))).eval₂ (ofX k) (-yChart k)=0
++  rw [eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow,neg_sq]
++  change (yChart k)^2-((xChart k)^3-xChart k)=0
+   exact sub_eq_zero.mpr (equation_chart k)
+ 
+ @[expose] def reflectChart : Chart k→+*Chart k :=

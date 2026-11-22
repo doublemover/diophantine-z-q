@@ -1,0 +1,23 @@
+--- r2/ActualGaussianWeberComplexFibreDegree318.lean
++++ r3/ActualGaussianWeberComplexFibreDegree318.lean
+@@ -32,7 +32,7 @@
+     natDegree_map_eq_of_injective f.injective B
+   have hProd : (C c * B.map f).natDegree ≤ N := by
+     calc
+-      _ ≤ (C c).natDegree + (B.map f).natDegree := natDegree_mul_le _ _
++      _ ≤ (C c).natDegree + (B.map f).natDegree := natDegree_mul_le
+       _ = B.natDegree := by rw [natDegree_C,hBdeg,zero_add]
+       _ ≤ N := le_max_right _ _
+   have hLe : P.natDegree ≤ N :=
+@@ -81,9 +81,9 @@
+     obtain ⟨hA,hB'⟩ := derivative_zero_of_coprime_cross hAB he
+     apply hn
+     change max A.natDegree B.natDegree = 0
+-    rw [Polynomial.derivative_eq_zero.mp hA,Polynomial.derivative_eq_zero.mp hB']
++    rw [Polynomial.derivative_eq_zero.mp hA,Polynomial.derivative_eq_zero.mp hB'] <;> rfl
+   have hSep : P.Separable := by
+-    rw [separable_def,Polynomial.isCoprime_iff_aeval_ne_zero_of_isAlgClosed ℂ]
++    rw [separable_def,Polynomial.isCoprime_iff_aeval_ne_zero_of_isAlgClosed ℂ ℂ P P.derivative]
+     intro x
+     simp only [coe_aeval_eq_eval]
+     by_cases h : P.eval x = 0
