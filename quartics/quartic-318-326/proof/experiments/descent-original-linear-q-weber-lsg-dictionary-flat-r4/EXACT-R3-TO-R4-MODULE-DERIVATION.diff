@@ -1,0 +1,342 @@
+--- ActualVendorLSGWeierstrassZetaDef318.lean (r3)
++++ ActualVendorLSGWeierstrassZetaDef318.lean (r4)
+@@ -4,19 +4,23 @@
+ -/
+ /-
+ Modification notice: the Mathlib umbrella import was replaced by explicit stock modules for this proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import Mathlib.Analysis.Calculus.LogDerivUniformlyOn
+-import Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn
+-import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
+-import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
+-import Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass
+-import Mathlib.Tactic.FieldSimp
+-import Mathlib.Tactic.FunProp
+-import Mathlib.Tactic.GCongr
+-import Mathlib.Tactic.Linarith
+-import Mathlib.Tactic.LinearCombination
+-import Mathlib.Tactic.Positivity
+-import Mathlib.Tactic.Ring
++module
++public import Mathlib.Analysis.Calculus.LogDerivUniformlyOn
++public import Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn
++public import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
++public import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
++public import Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass
++public import Mathlib.Tactic.FieldSimp
++public import Mathlib.Tactic.FunProp
++public import Mathlib.Tactic.GCongr
++public import Mathlib.Tactic.Linarith
++public import Mathlib.Tactic.LinearCombination
++public import Mathlib.Tactic.Positivity
++public import Mathlib.Tactic.Ring
++
++@[expose] public section
+ 
+ /-!
+ # The Weierstrass `ζ` function
+--- ActualVendorLSGWeierstrassSigmaDef318.lean (r3)
++++ ActualVendorLSGWeierstrassSigmaDef318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassZetaDef318
++module
++public import ActualVendorLSGWeierstrassZetaDef318
++
++@[expose] public section
+ 
+ /-!
+ # The Weierstrass `σ` function
+--- ActualVendorLSGWeierstrassSigmaQuasiPeriod318.lean (r3)
++++ ActualVendorLSGWeierstrassSigmaQuasiPeriod318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassSigmaDef318
++module
++public import ActualVendorLSGWeierstrassSigmaDef318
++
++@[expose] public section
+ 
+ /-!
+ # Quasi-periodicity of `ζ` and `σ`
+--- ActualVendorLSGWeierstrassZetaQuasiPeriod318.lean (r3)
++++ ActualVendorLSGWeierstrassZetaQuasiPeriod318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassSigmaQuasiPeriod318
++module
++public import ActualVendorLSGWeierstrassSigmaQuasiPeriod318
++
++@[expose] public section
+ 
+ /-!
+ # Quasi-periodicity of `ζ` at every point
+--- ActualVendorLSGWeierstrassRectInv318.lean (r3)
++++ ActualVendorLSGWeierstrassRectInv318.lean (r4)
+@@ -4,13 +4,17 @@
+ -/
+ /-
+ Modification notice: the Mathlib umbrella import was replaced by explicit stock modules for this proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import Mathlib.Analysis.Complex.CauchyIntegral
+-import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
+-import Mathlib.Tactic.FunProp
+-import Mathlib.Tactic.Linarith
+-import Mathlib.Tactic.LinearCombination
+-import Mathlib.Tactic.Ring
++module
++public import Mathlib.Analysis.Complex.CauchyIntegral
++public import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
++public import Mathlib.Tactic.FunProp
++public import Mathlib.Tactic.Linarith
++public import Mathlib.Tactic.LinearCombination
++public import Mathlib.Tactic.Ring
++
++@[expose] public section
+ 
+ /-!
+ # The boundary integral of `1/z` over a rectangle centred at `0`
+--- ActualVendorLSGWeierstrassBasic318.lean (r3)
++++ ActualVendorLSGWeierstrassBasic318.lean (r4)
+@@ -4,23 +4,27 @@
+ -/
+ /-
+ Modification notice: the Mathlib umbrella import was replaced by explicit stock modules for this proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import Mathlib.Algebra.MvPolynomial.Equiv
+-import Mathlib.Algebra.Polynomial.Roots
+-import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
+-import Mathlib.Analysis.Complex.Exponential
+-import Mathlib.Analysis.Complex.Liouville
+-import Mathlib.Analysis.Normed.Module.Connected
+-import Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass
+-import Mathlib.Combinatorics.Nullstellensatz
+-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+-import Mathlib.Tactic.FieldSimp
+-import Mathlib.Tactic.FinCases
+-import Mathlib.Tactic.FunProp
+-import Mathlib.Tactic.Linarith
+-import Mathlib.Tactic.LinearCombination
+-import Mathlib.Tactic.Positivity
+-import Mathlib.Tactic.Ring
++module
++public import Mathlib.Algebra.MvPolynomial.Equiv
++public import Mathlib.Algebra.Polynomial.Roots
++public import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
++public import Mathlib.Analysis.Complex.Exponential
++public import Mathlib.Analysis.Complex.Liouville
++public import Mathlib.Analysis.Normed.Module.Connected
++public import Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass
++public import Mathlib.Combinatorics.Nullstellensatz
++public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
++public import Mathlib.Tactic.FieldSimp
++public import Mathlib.Tactic.FinCases
++public import Mathlib.Tactic.FunProp
++public import Mathlib.Tactic.Linarith
++public import Mathlib.Tactic.LinearCombination
++public import Mathlib.Tactic.Positivity
++public import Mathlib.Tactic.Ring
++
++@[expose] public section
+ 
+ /-!
+ # Basic facts about `℘` for a `PeriodPair`
+--- ActualVendorLSGWeierstrassLegendre318.lean (r3)
++++ ActualVendorLSGWeierstrassLegendre318.lean (r4)
+@@ -4,10 +4,14 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassZetaQuasiPeriod318
+-import ActualVendorLSGWeierstrassRectInv318
+-import ActualVendorLSGWeierstrassBasic318
++module
++public import ActualVendorLSGWeierstrassZetaQuasiPeriod318
++public import ActualVendorLSGWeierstrassRectInv318
++public import ActualVendorLSGWeierstrassBasic318
++
++@[expose] public section
+ 
+ /-!
+ # Legendre's relation
+--- ActualVendorLSGWeierstrassResidue318.lean (r3)
++++ ActualVendorLSGWeierstrassResidue318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassLegendre318
++module
++public import ActualVendorLSGWeierstrassLegendre318
++
++@[expose] public section
+ 
+ /-!
+ # Elliptic functions with at most one simple pole are constant
+--- ActualVendorLSGWeierstrassSigmaSign318.lean (r3)
++++ ActualVendorLSGWeierstrassSigmaSign318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassSigmaQuasiPeriod318
++module
++public import ActualVendorLSGWeierstrassSigmaQuasiPeriod318
++
++@[expose] public section
+ 
+ /-!
+ # Quasi-periodicity of `σ` for every period
+--- ActualVendorLSGWeierstrassDegree318.lean (r3)
++++ ActualVendorLSGWeierstrassDegree318.lean (r4)
+@@ -4,9 +4,13 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassResidue318
+-import ActualVendorLSGWeierstrassSigmaSign318
++module
++public import ActualVendorLSGWeierstrassResidue318
++public import ActualVendorLSGWeierstrassSigmaSign318
++
++@[expose] public section
+ 
+ /-!
+ # `℘` has degree two
+--- ActualVendorLSGWeierstrassAddition318.lean (r3)
++++ ActualVendorLSGWeierstrassAddition318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassDegree318
++module
++public import ActualVendorLSGWeierstrassDegree318
++
++@[expose] public section
+ 
+ /-!
+ # The addition theorem for `℘`
+--- ActualVendorLSGWeierstrassDictionary318.lean (r3)
++++ ActualVendorLSGWeierstrassDictionary318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassAddition318
++module
++public import ActualVendorLSGWeierstrassAddition318
++
++@[expose] public section
+ 
+ /-!
+ # The analytic–algebraic dictionary: `z ↦ (℘(z), ℘'(z)/2)` is a group homomorphism
+--- ActualVendorLSGLemniscateIndepIntegral318.lean (r3)
++++ ActualVendorLSGLemniscateIndepIntegral318.lean (r4)
+@@ -4,16 +4,20 @@
+ -/
+ /-
+ Modification notice: the Mathlib umbrella import was replaced by explicit stock modules for this proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+-import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
+-import Mathlib.MeasureTheory.Function.JacobianOneDim
+-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+-import Mathlib.Tactic.FieldSimp
+-import Mathlib.Tactic.FunProp
+-import Mathlib.Tactic.Linarith
+-import Mathlib.Tactic.Positivity
+-import Mathlib.Tactic.Ring
++module
++public import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
++public import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
++public import Mathlib.MeasureTheory.Function.JacobianOneDim
++public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
++public import Mathlib.Tactic.FieldSimp
++public import Mathlib.Tactic.FunProp
++public import Mathlib.Tactic.Linarith
++public import Mathlib.Tactic.Positivity
++public import Mathlib.Tactic.Ring
++
++@[expose] public section
+ 
+ /-!
+ # The lemniscate constant and its integral
+--- ActualVendorLSGLemniscateIndepSymm318.lean (r3)
++++ ActualVendorLSGLemniscateIndepSymm318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGWeierstrassAddition318
++module
++public import ActualVendorLSGWeierstrassAddition318
++
++@[expose] public section
+ 
+ /-!
+ # Symmetries of a square lattice `a ℤ[i]` (`a > 0` real)
+--- ActualVendorLSGLemniscateIndepRealLine318.lean (r3)
++++ ActualVendorLSGLemniscateIndepRealLine318.lean (r4)
+@@ -4,9 +4,13 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGLemniscateIndepIntegral318
+-import ActualVendorLSGLemniscateIndepSymm318
++module
++public import ActualVendorLSGLemniscateIndepIntegral318
++public import ActualVendorLSGLemniscateIndepSymm318
++
++@[expose] public section
+ 
+ /-!
+ # `℘` on the real segment `(0, a/2]` of a square lattice `a ℤ[i]`
+--- ActualVendorLSGLemniscateIndepMain318.lean (r3)
++++ ActualVendorLSGLemniscateIndepMain318.lean (r4)
+@@ -4,8 +4,12 @@
+ -/
+ /-
+ Modification notice: local module imports were renamed to flatten this file for the quartic proof packet.
++Modification notice: Lean module header and public imports/section were added for the production axiom audit.
+ -/
+-import ActualVendorLSGLemniscateIndepRealLine318
++module
++public import ActualVendorLSGLemniscateIndepRealLine318
++
++@[expose] public section
+ 
+ /-!
+ # The lemniscatic lattice `ϖ ℤ[i]` has `g₂ = 4`, `g₃ = 0`
