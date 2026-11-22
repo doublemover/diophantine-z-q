@@ -1,0 +1,60 @@
+{
+  "files": {
+    "ActualGaussianWeberHenselianAffineLift318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianChart318"
+      ],
+      "sha256": "390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0"
+    },
+    "ActualGaussianWeberHenselianChart318.lean": {
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Monic",
+        "Mathlib.RingTheory.Henselian",
+        "Mathlib.Tactic"
+      ],
+      "sha256": "83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762"
+    },
+    "ActualGaussianWeberHenselianPointMap318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianAffineLift318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.RingTheory.Valuation.ValuationSubring"
+      ],
+      "sha256": "789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec"
+    },
+    "ActualGaussianWeberOrdinarySlope318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula"
+      ],
+      "sha256": "328e14700486bf9932164cee1376b650cb6ad91ba813cd283c23632b391c395b"
+    },
+    "ActualGaussianWeberPlaceEquivariance318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318",
+        "Mathlib.Algebra.CharP.Frobenius",
+        "Mathlib.RingTheory.LocalRing.ResidueField.Basic"
+      ],
+      "sha256": "d8d850d05c1aa899d61dbb32708d3ee5297ccc51f777ea9b405c8fb7bdae119e"
+    },
+    "ActualGaussianWeberStockCoordinateHom318.lean": {
+      "imports": [
+        "ActualGaussianWeberOrdinarySlope318",
+        "ActualGaussianWeberPlaceEquivariance318"
+      ],
+      "sha256": "24658eb12a3818158f3dc6231c31cbbd870cf99d20d6413af0de924c324e7e77"
+    }
+  },
+  "order": [
+    "ActualGaussianWeberHenselianChart318",
+    "ActualGaussianWeberHenselianAffineLift318",
+    "ActualGaussianWeberHenselianPointMap318",
+    "ActualGaussianWeberOrdinarySlope318",
+    "ActualGaussianWeberPlaceEquivariance318",
+    "ActualGaussianWeberStockCoordinateHom318"
+  ],
+  "packet": "descent-original-linear-q-weber-stock-coordinate-hom-r1",
+  "schema_version": 1,
+  "scope": "ORIGINAL_STOCK_FIELD_COORDINATE_POINT_MAP_IS_ADDITIVE",
+  "status": "DRAFT_HOSTED_PENDING"
+}
