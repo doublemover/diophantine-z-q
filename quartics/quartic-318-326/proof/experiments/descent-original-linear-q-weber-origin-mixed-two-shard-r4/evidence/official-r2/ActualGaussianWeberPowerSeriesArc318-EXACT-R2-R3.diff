@@ -1,0 +1,27 @@
+--- r2/ActualGaussianWeberPowerSeriesArc318.lean
++++ r3/ActualGaussianWeberPowerSeriesArc318.lean
+@@ -3,6 +3,7 @@
+ public import Mathlib.RingTheory.LaurentSeries
+ public import Mathlib.RingTheory.AdicCompletion.Completeness
+ public import Mathlib.RingTheory.LocalRing.RingHom.Basic
++import Mathlib.RingTheory.AdicCompletion.Topology
+ public section
+ noncomputable section
+ 
+@@ -133,10 +134,12 @@
+         x*T^2=T^3/W := by unfold x; field_simp [hW0] <;> ring
+         _ = 1+T*W := (div_eq_iff hW0).2 (by linear_combination -he)
+     have ez := congrArg (residue V) ee
+-    have ht0 := (residue_eq_zero_iff t).2 (parameter_small k)
+-    simp only [map_add,map_mul,map_pow,map_one,ht0,
+-      zero_pow (by decide : (2:ℕ)≠0),zero_mul,mul_zero,add_zero] at ez
+-    exact zero_ne_one ez
++    have ht0 : residue V t=0 := (residue_eq_zero_iff t).2 (parameter_small k)
++    have ez' : residue V z*(residue V t)^2=1+residue V t*residue V w := by
++      simpa only [map_add,map_mul,map_pow,map_one] using ez
++    rw [ht0] at ez'
++    exact zero_ne_one (by
++      simpa only [zero_pow (show (2:ℕ)≠0 by decide),zero_mul,mul_zero,add_zero] using ez')
+   let h := nonsing_of_equation (formal_two_ne k h2) hE
+   refine ⟨x,y,h,(specialize_some_eq_zero V (formal_residue_two_ne k h2) h).mpr hx,?_⟩
+   unfold x y

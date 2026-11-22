@@ -1,0 +1,11 @@
+--- r3/ActualGaussianWeberPowerSeriesArc318.lean
++++ r4/ActualGaussianWeberPowerSeriesArc318.lean
+@@ -45,7 +45,7 @@
+   have hFC := (IsAdicComplete.congr_ringEquiv (maximalIdeal (PowerSeries k)) (seriesEquiv k)).2 hPS
+   rw [IsLocalRing.map_ringEquiv_maximalIdeal] at hFC
+   letI : IsAdicComplete (maximalIdeal (FormalValuation k)) (FormalValuation k) := hFC
+-  refine ⟨inferInstance,?_⟩
++  refine { is_henselian := ?_ }
+   intro f hf a ha hu
+   exact HenselianRing.is_henselian f hf a ha (hu.map (Ideal.Quotient.mk _))
+ 

@@ -1,0 +1,27 @@
+--- actual-literal-marked-ordinary-normalization-r3/SelectedActualLiteralMarkedOrdinaryNormalization318.lean
++++ actual-literal-marked-ordinary-normalization-r4/SelectedActualLiteralMarkedOrdinaryNormalization318.lean
+@@ -17,11 +17,11 @@
+ 
+ variable (N : ℕ) [NeZero N] (p : (OpenJModel318.Base N)[X])
+ 
+-abbrev B (F : Type*) [Field F] [Algebra JField F] :=
++abbrev B (F : Type) [Field F] [Algebra JField F] :=
+   letI : Algebra ℂ[X] F := (polynomial F 1).toAlgebra
+   integralClosure ℂ[X] F
+ 
+-abbrev O (F : Type*) [Field F] [Algebra JField F] :=
++abbrev O (F : Type) [Field F] [Algebra JField F] :=
+   letI : Algebra ℂ[X] F := (polynomial F 1).toAlgebra
+   Localization (Algebra.algebraMapSubmonoid (B F) (Submonoid.powers denominator))
+ 
+@@ -65,7 +65,9 @@
+   letI : Algebra Base (RatFunc ℂ) := ratscalar
+   letI : IsScalarTower ℂ[X] Base (RatFunc ℂ) := rattower
+   letI : Algebra Base F := ordinaryFieldAlgebra N p
+-  letI : IsScalarTower ℂ[X] Base F := IsScalarTower.of_algebraMap_eq fun a => by
++  letI : IsScalarTower ℂ[X] Base F := by
++    refine IsScalarTower.of_algebraMap_eq (R := ℂ[X]) (S := Base) (A := F) ?_
++    intro a
+     change polynomial F 1 a =
+       algebraMap (RatFunc ℂ) F (algebraMap Base (RatFunc ℂ) (algebraMap ℂ[X] Base a))
+     have h₁ : basePolynomial 1 = algebraMap ℂ[X] (RatFunc ℂ) := by simp [basePolynomial]

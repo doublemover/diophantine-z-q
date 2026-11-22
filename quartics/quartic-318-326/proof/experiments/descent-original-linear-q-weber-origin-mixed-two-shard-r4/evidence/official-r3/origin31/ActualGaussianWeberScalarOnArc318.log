@@ -1,0 +1,43 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-origin-mixed-two-shard-r3/ActualGaussianWeberScalarOnArc318.lean:59:12: error(lean.unknownIdentifier): Unknown identifier `mapped_nonsingular`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-origin-mixed-two-shard-r3/ActualGaussianWeberScalarOnArc318.lean:35:50: error: unsolved goals
+k : Type u_1
+F : Type u_2
+inst✝³ : Field k
+inst✝² : Field F
+inst✝¹ : DecidableEq F
+inst✝ : DecidableEq (ActualGaussianWeberGaussLocalization318.FunctionField k)
+c : k →+* F
+h2k : 2 ≠ 0
+h2F : 2 ≠ 0
+i : k
+hi : i ^ 2 = -1
+a b : ℤ
+A B : k[X]
+x y : F
+he : y ^ 2 = x ^ 3 - x
+hx : Function.Injective ⇑(eval₂RingHom c x)
+u v : ActualGaussianWeberGaussLocalization318.FunctionField k
+huv : (curve (ActualGaussianWeberGaussLocalization318.FunctionField k)).toAffine.Nonsingular u v
+hGen :
+  (gaussian ⋯ ((constGeneric k) i) ⋯ a b) (ActualGaussianWeberOddNormGeneric318.genericPoint k h2k) = Point.some u v huv
+hRat : u = (fractionMap k) ((AdjoinRoot.of (relation k)) A) / (fractionMap k) ((AdjoinRoot.of (relation k)) B)
+e : ActualGaussianWeberGaussLocalization318.FunctionField k →+* F := arcEmbedding c x y he hx
+S : WP (ActualGaussianWeberGaussLocalization318.FunctionField k) →+ WP F := coordinateHom e h2F
+hk : 2 ≠ 0 := function_two_ne k h2k
+hiGen : (constGeneric k) i ^ 2 = -1 :=
+  Eq.mp
+    (congr (congrArg Eq (map_pow (constGeneric k) i 2))
+      (Eq.trans (map_neg (constGeneric k) 1) (congrArg Neg.neg (map_one (constGeneric k)))))
+    (congrArg (⇑(constGeneric k)) hi)
+hiF : c i ^ 2 = -1 :=
+  Eq.mp (congr (congrArg Eq (map_pow c i 2)) (Eq.trans (map_neg c 1) (congrArg Neg.neg (map_one c)))) (congrArg (⇑c) hi)
+hg : S (ActualGaussianWeberOddNormGeneric318.genericPoint k h2k) = Point.some x y ⋯
+hC :
+  (coordinateHom e h2F)
+      ((gaussian hk ((constGeneric k) i) hiGen a b) (ActualGaussianWeberOddNormGeneric318.genericPoint k h2k)) =
+    (gaussian h2F (c i) hiF a b) ((coordinateHom e h2F) (ActualGaussianWeberOddNormGeneric318.genericPoint k h2k))
+heval : e u = eval₂ c x A / eval₂ c x B
+hC' : Point.some (e u) (e v) ⋯ = (gaussian h2F (c i) hiF a b) (Point.some x y ⋯)
+⊢ ∃ q,
+    ∃ (h : (curve F).toAffine.Nonsingular (eval₂ c x A / eval₂ c x B) q),
+      (gaussian h2F (c i) ⋯ a b) (Point.some x y ⋯) = Point.some (eval₂ c x A / eval₂ c x B) q h
