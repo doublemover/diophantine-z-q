@@ -1,0 +1,30 @@
+--- ActualLSGWeierstrassSurjectivity318.lean (r6)
++++ ActualLSGWeierstrassSurjectivity318.lean (r7)
+@@ -10,6 +10,7 @@
+ open scoped Topology
+ 
+ private theorem lattice_discr (L : PeriodPair) : Discr (L.lattice : Set ℂ) := by
++  change Discr {u : ℂ | u ∈ L.lattice}
+   simpa only [add_zero] using discr_add L 0
+ 
+ /-- At a lattice pole the reciprocal of an omitted wp value is
+@@ -68,7 +69,9 @@
+   have hSame : f w=f z := (hk w hwL).trans (hk z hz).symm
+   have hSame' : L.weierstrassP w-c = L.weierstrassP z-c := by
+     exact inv_injective hSame
+-  have he := (weierstrassP_eq_iff L hz hwL).mp (sub_right_cancel hSame')
++  have hWP : L.weierstrassP w = L.weierstrassP z := by
++    linear_combination hSame'
++  have he := (weierstrassP_eq_iff L hz hwL).mp hWP
+   exact hw (Or.inr he)
+ 
+ private theorem equation_y_square (L : PeriodPair) {x y : ℂ}
+@@ -107,7 +110,7 @@
+ 
+ /-- Kernel is exactly the original period lattice, including the
+ infinity branch, not just ⊇ from periodicity. -/
+-theorem expHom_kernel (L : PeriodPair) : (expHom L).ker=L.lattice := by
++theorem expHom_kernel (L : PeriodPair) : (expHom L).ker=L.lattice.toAddSubgroup := by
+   ext x
+   change expE L x=0 ↔ x∈L.lattice
+   by_cases h : x∈L.lattice
