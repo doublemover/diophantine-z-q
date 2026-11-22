@@ -1,0 +1,74 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:36:18: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:36:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:103:13: error: unsolved goals
+k : Type u_1
+inst✝¹ : Field k
+p : ℕ
+inst✝ : CharP k p
+hp : 0 < p
+R : RatFunc k
+u : ActualGaussianWeberGaussLocalization318.FunctionField k
+hRat : u = (fractionMap k) ((AdjoinRoot.of (relation k)) R.num) / (fractionMap k) ((AdjoinRoot.of (relation k)) R.denom)
+hDeriv : derivative R.num * R.denom - R.num * derivative R.denom = 0
+hCap : max R.num.natDegree R.denom.natDegree ≤ p
+hPole : R.denom.natDegree < R.num.natDegree
+hA : R.num = C (R.num.coeff 0) + C (R.num.coeff p) * X ^ p
+hB : R.denom = C (R.denom.coeff 0)
+h₁ : R.num.coeff p ≠ 0
+h₀ : R.denom.coeff 0 ≠ 0
+f : k[X] →+* ActualGaussianWeberGaussLocalization318.FunctionField k := polyImage k
+hC : ∀ (s : k), f (C s) = (constGeneric k) s
+hX : f X = xGeneric k
+a : k := R.num.coeff p
+b : k := R.num.coeff 0
+c : k := R.denom.coeff 0
+⊢ (constGeneric k) b * ((constGeneric k) c)⁻¹ + (constGeneric k) a * xGeneric k ^ p * ((constGeneric k) c)⁻¹ =
+    xGeneric k ^ p * (constGeneric k) (a * c⁻¹) + (constGeneric k) (c⁻¹ * b)
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:104:17: warning: This simp argument is unused:
+  map_div₀
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:172:4: error: Type mismatch: After simplification, term
+  htop
+ has type
+  ((C d₁ * C d₀ * X ^ (p + p)).coeff (p + p) + ((C d₀ ^ 2).coeff p - (C d₁ ^ 2).coeff p + (coeff 1) p) -
+      if p = 0 then d₁ * d₀ else 0) =
+    0
+but is expected to have type
+  d₁ = 0 ∨ d₀ = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:175:4: error: Type mismatch: After simplification, term
+  hmid
+ has type
+  (C d₁ * C d₀ * X ^ (p + p)).coeff p + ((C d₀ ^ 2 - C d₁ ^ 2 + 1) * X ^ p).coeff p = 0
+but is expected to have type
+  d₀ ^ 2 - d₁ ^ 2 + 1 = 0
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  instMul ↦ 16
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:236:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:223:19: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-origin-pure-powers-r1/ActualGaussianWeberActualOriginPurePowers318.lean:223:19: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
