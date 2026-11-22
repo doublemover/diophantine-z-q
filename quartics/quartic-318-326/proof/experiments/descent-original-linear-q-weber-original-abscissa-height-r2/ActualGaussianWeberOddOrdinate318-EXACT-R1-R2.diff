@@ -1,0 +1,52 @@
+--- r1/ActualGaussianWeberOddOrdinate318.lean
++++ r2/ActualGaussianWeberOddOrdinate318.lean
+@@ -20,7 +20,7 @@
+ theorem ofX_injective : Function.Injective (ofX k) := by
+   intro a b h
+   have h' : (element a (0:k[X]) : Chart k)=element b 0 := by
+-    simpa only [element,map_zero,zero_mul,add_zero] using h
++    simpa only [ofX,element,map_zero,zero_mul,add_zero] using h
+   exact (element_coefficients h').1
+ 
+ private theorem reflected_root : (relation k).eval₂ (ofX k) (-yChart k)=0 := by
+@@ -30,7 +30,7 @@
+   exact sub_eq_zero.mpr (equation_chart k)
+ 
+ @[expose] def reflectChart : Chart k→+*Chart k :=
+-  AdjoinRoot.lift (ofX k) (-yChart k) (reflected_root k)
++  AdjoinRoot.lift (ofX k) (-yChart k) (by exact reflected_root k)
+ 
+ theorem reflect_polynomial (P : k[X]) : reflectChart k (ofX k P)=ofX k P :=
+   AdjoinRoot.lift_of (reflected_root k)
+@@ -50,12 +50,18 @@
+ theorem reflect_injective : Function.Injective (reflectChart k) :=
+   Function.LeftInverse.injective (reflect_twice k)
+ 
+-@[expose] def reflectFrac : FunctionField k→+*FunctionField k :=
+-  IsFractionRing.lift ((fractionMap_injective k).comp (reflect_injective k))
++@[expose] def reflectFrac : FunctionField k→+*FunctionField k := by
++  have h : Function.Injective ((fractionMap k).comp (reflectChart k)) := by
++    intro a b e
++    exact reflect_injective k (fractionMap_injective k e)
++  exact IsFractionRing.lift h
+ 
+ theorem reflect_frac_chart (z : Chart k) :
+-    reflectFrac k (fractionMap k z)=fractionMap k (reflectChart k z) :=
+-  IsFractionRing.lift_algebraMap ((fractionMap_injective k).comp (reflect_injective k)) z
++    reflectFrac k (fractionMap k z)=fractionMap k (reflectChart k z) := by
++  have h : Function.Injective ((fractionMap k).comp (reflectChart k)) := by
++    intro a b e
++    exact reflect_injective k (fractionMap_injective k e)
++  exact IsFractionRing.lift_algebraMap h z
+ 
+ theorem reflect_frac_x : reflectFrac k (xGeneric k)=xGeneric k := by
+   change reflectFrac k (fractionMap k (ofX k X))=_
+@@ -109,7 +115,7 @@
+     apply fractionMap_injective k
+     have hh : reflectFrac k v=fractionMap k (reflectChart k Z)/fractionMap k E := by
+       rw [hEq,map_div₀,reflect_frac_chart,reflect_frac_chart,hRE]
+-    rw [h,hEq,neg_div] at hh
++    rw [h,hEq,←neg_div] at hh
+     rw [map_neg]
+     exact mul_right_cancel₀ he0 (by
+       have q := congrArg (fun u : FunctionField k => u*fractionMap k E) hh.symm

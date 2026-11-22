@@ -1,0 +1,14 @@
+--- r1/ActualGaussianWeberRationalDerivativeCap318.lean
++++ r2/ActualGaussianWeberRationalDerivativeCap318.lean
+@@ -35,7 +35,10 @@
+   have he : (n-1)+1 = n := by omega
+   have h := coeff_derivative A (n-1)
+   rw [hA,coeff_zero,he] at h
+-  exact (mul_eq_zero.mp h.symm).resolve_right hc
++  have hcast : (((n-1)+1 : ℕ) : K) ≠ 0 := by simpa only [he] using hc
++  have hsum : ((n-1 : ℕ) : K)+1 ≠ 0 := by
++    simpa only [Nat.cast_add,Nat.cast_one] using hcast
++  exact (mul_eq_zero.mp h.symm).resolve_right hsum
+ 
+ /-- The literal degree ≤p bound and zero derivative leave only exponents 0 and p. -/
+ theorem capped_polynomial {p : ℕ} [CharP K p] (hp : 0 < p) (A : K[X])
