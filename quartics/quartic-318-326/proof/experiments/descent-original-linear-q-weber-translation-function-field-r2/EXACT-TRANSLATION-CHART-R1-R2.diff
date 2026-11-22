@@ -1,0 +1,27 @@
+--- r1/ActualGaussianWeberTranslationChart318.lean
++++ r2/ActualGaussianWeberTranslationChart318.lean
+@@ -26,8 +26,11 @@
+     (AdjoinRoot.of.injective_of_monic_of_degree_pos hm hd (h.trans (map_zero _).symm))
+ 
+ theorem equation_chart : (yChart K)^2=(xChart K)^3-xChart K := by
+-  have h := AdjoinRoot.eval₂_root (relation K)
+-  rw [relation,eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow] at h
++  have h : (((X : (K[X])[X])^2 - C ((X : K[X])^3 - X))).eval₂
++      (AdjoinRoot.of (relation K)) (AdjoinRoot.root (relation K)) = 0 :=
++    AdjoinRoot.eval₂_root (relation K)
++  rw [eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow] at h
++  change (yChart K)^2 - ((xChart K)^3 - xChart K) = 0 at h
+   exact sub_eq_zero.mp h
+ 
+ theorem map_xChart {L : Type*} [CommRing L] (f : K→+*L) :
+@@ -71,7 +74,9 @@
+ 
+ theorem translated_root :
+     (relation K).eval₂ (xMap K) (w K*(zi K)^2)=0 := by
+-  rw [relation,eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow]
++  change (((X : (K[X])[X])^2 - C ((X : K[X])^3 - X))).eval₂
++    (xMap K) (w K*(zi K)^2) = 0
++  rw [eval₂_sub,eval₂_pow,eval₂_X,eval₂_C,map_sub,map_pow]
+   rw [show xMap K X = -zi K from eval₂_X _ _]
+   exact sub_eq_zero.mpr (equation_translated K)
+ 
