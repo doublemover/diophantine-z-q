@@ -1,0 +1,59 @@
+# Actual global additive short exactness for the literal closed fibre
+
+Input the actual smooth deformation over k[ε] and its actual closed
+fibre pullback square. The proposed endpoint constructs the required
+affine cover, extracts from the genuine structure maps both scalar
+algebras and the actual square-zero reduction, identifies its two
+affine cotangent arrows, constructs the local splitting from an actual
+formal-smooth section and additive coefficient retraction, and passes
+to the actual additive stalks on the original opens site. It does not
+take an independently specified exact row or a preselected splitting.
+
+Exactly eleven owner bytes come from strict canonical-arrows, affine
+gauge, and additive local-stalk runs; the nine other owners are proposed source. Four nested
+selectors are recorded, including the real 5/0 reduction prefix and the
+16/83 actual chart-level splitting. The 20/83 selection is the first
+consumer that applies the green criterion to splittings it constructs.
+The largest gate proves only the original additive closed-fibre row
+from its actual smoothness/pullback and the concrete sheafification
+infrastructure. The higher Kodaira–Spencer connecting comparison,
+global tangent-faithfulness, representability, and original height
+cut are later. No local Lean execution.
+
+## Exact repair after hosted r3
+
+Official run 44963559754 found 11/20 compiled, 83 baseline, 213 audited
+declarations; four independent failing owners and five blocked. This
+successor changes those four owners only, preserving all 16 other bytes.
+The reported fixes are: noncomputable actual Kähler submodule; the stock
+exactness import and typed categorical split evaluations; typed nilpotent
+coefficient eliminators, named first tensor projection and reducible exact
+base algebra; typed actual appLE associativity. Unchecked source. The
+whole original scheme and the actual local affine splits are unchanged.
+
+## Exact repair after hosted r4
+
+Official run 44965439089 found 14/20 compiled, 83 baseline, 254 audited
+declarations; two failing owners and four blocked. Only the two directly
+failed owners change. The affine quotient-to-tensor proof uses the self
+scalar tower of the literal dual-number algebra; this is the exact
+Mathlib instance reported missing at two sites. The Čech epsilon
+coefficient uses a typed private whole-chart definition and actual
+chart evaluation, not a hygienic macro expansion of its contextual
+parameters. Explicitly include flatness and the section/kernel equalities
+to preserve the intended coefficient/derivation ABI. No actual
+sheaf row, chart, scalar, or output change. Unchecked source.
+
+## Exact repair after hosted r5
+
+Official run 44966861880 found 15/20 compiled, 83 baseline, 288 audited
+declarations, two direct failures and three blocked. Only the two
+directly failed owners change. The three coefficient proofs now use the
+explicit residue algebra action rather than asking `change` to equate it
+definitionally with multiplication. This is the same already elaborated
+action identity from the proof of the coefficient derivation.
+The true affine fibre theorem gets proof-only visibility of the existing
+canonical scalar map and a typed specialization of the already proved
+ambient Scheme.Hom.appLE, exactly at the previously unexposed reduction.
+No structure map or premise changes. The just-green literal fibre kernel
+and every other peer have unchanged exact source bytes. No local Lean.
