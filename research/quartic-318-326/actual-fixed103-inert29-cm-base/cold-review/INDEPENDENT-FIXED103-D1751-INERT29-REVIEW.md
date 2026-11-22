@@ -1,0 +1,9 @@
+# Independent exact review: fixed 48-class base and signed conductor kernels at 29
+
+Signed: Vesper, independent proof reviewer, 2026-11-21.
+
+**PASS, classical proof and exact 48-index finite replay.** This binds revised author list SHA-256 `2001a9fcdc11e804bd2fd9b2ec9c8c45ec52d1dedc3c2e68300f18597fcc28a7`, paper `dc9fe67fd91c069d04a7d8830bf956078d522d436ec055a97086b1e0d9a932ed`, and exact recorded finite array `04f5795f17a9746f0a1cb0dc1d94d494bb0a75c6a6b4b95985081f31d97484ee`. The revised math display and scope do not change the replay or output bytes; I ran the exact full NumPy replay and compared all 48 indexed rows byte-for-byte.
+
+I verified the fixed maximal-order quaternion embedding and residue Lie orientation, split prime ideal words generating all 48 class indices, and repeated labels retained with their actual multiplicity. Inert 29 gives the principal prime-to-conductor class over the quadratic field and the common finite residue field. The squarefree ring-class kernel has the exact split/inert per-prime size; nonhorizontal cyclic lines represent it, with norm-Legendre character independent of central scalar. A coherently transported reference generator fixes the relative signs across all base words. Independently selecting a generator on each row would not certify the displayed sum.
+
+The actual odd reduction test uses the order-nine anti-component and kills the entire rational torsion available in the genus field. A nonzero signed aggregate there would imply nontorsion on the first original odd factor, using the separate algebraic rank-zero even factor. If the analytic comparison is used, the corrected exact height ratio retains the independent normalization denominator in the displayed ratio of normalized central values. The actual conductor and its signed aggregate are not evaluated, and no first-arm rank or marked point has been proved here. There is no companion proof or universal enumeration speedup in this packet.
