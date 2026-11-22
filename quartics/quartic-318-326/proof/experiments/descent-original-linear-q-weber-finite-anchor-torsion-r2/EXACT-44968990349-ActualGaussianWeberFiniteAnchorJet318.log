@@ -1,0 +1,21 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteAnchorJet318.lean:28:2: error: unsolved goals
+case refine_2
+F : Type u_1
+inst✝ : Field F
+V : ValuationSubring F
+t w A d : ↥V
+K : IntegralData V t w A (t * d)
+ht : t ∈ maximalIdeal ↥V
+hA : (residue ↥V) A = 0
+B : ↥V := t * d
+C : ↥V := 2 * d + (3 * A ^ 2 - 1) - (A ^ 3 + A) * (t ^ 2 * K.u)
+e : ↥V := -d + (1 + B * w) * K.u * K.beta ^ 3 * C
+hC : H t w A B = t * C
+ht0 : (residue ↥V) t = 0
+⊢ -1 - (residue ↥V) d + (residue ↥V) d * (residue ↥V) 2 = -1 + (residue ↥V) d

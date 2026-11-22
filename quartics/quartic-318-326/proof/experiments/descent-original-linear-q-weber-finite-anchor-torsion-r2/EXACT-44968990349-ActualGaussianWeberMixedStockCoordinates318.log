@@ -1,0 +1,54 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedStockCoordinates318.lean:119:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  X
+in the target expression
+  (curve F).toAffine.Nonsingular (V.subtype K.X) (V.subtype K.Y)
+
+F : Type u_1
+inst✝¹ : Field F
+V : ValuationSubring F
+inst✝ : DecidableEq F
+h2 : 2 ≠ 0
+a b : ↥V
+hQ : (curve F).toAffine.Nonsingular (V.subtype a) (V.subtype b)
+x y : F
+hn : (curve F).toAffine.Nonsingular x y
+hP : specialize V h2 (Point.some x y hn) = Point.zero
+hNonzero : Point.some x y hn ≠ Point.zero
+T : OriginData V (Point.some x y hn)
+hx : x ∉ V
+hx0 : x ≠ 0
+hy0 : y ≠ 0
+K : IntegralData V T.t T.w a b
+A : F := V.subtype a
+B : F := V.subtype b
+t : F := V.subtype T.t
+w : F := V.subtype T.w
+u : F := V.subtype K.u
+beta : F := V.subtype K.beta
+X : F := V.subtype K.X
+Y : F := V.subtype K.Y
+ell : F := (curve F).toAffine.slope x A y B
+hnAB : x ≠ A
+htn : t ≠ 0
+ht : t = -x / y
+hw0 : w = -1 / y
+hw : w ≠ 0
+ex : x = t / w
+ey : y = -1 / w
+hChart : identityChart t w
+hEqQ : B ^ 2 = A ^ 3 - A
+hwu : w = t ^ 3 * u
+hDen : (t - A * w) * beta = t
+hd : t - A * w ≠ 0
+hSquare : (-(1 + B * w) / (t - A * w)) ^ 2 - t / w - 2 * A = t * u * beta ^ 2 * H t w A B
+hShift : (1 + B * w) / (t - A * w) * (t * u * beta ^ 2 * H t w A B) = (1 + B * w) * u * beta ^ 3 * H t w A B
+hxD : t / w - A ≠ 0
+hSlope : ell = -(1 + B * w) / (t - A * w)
+hLine : ell * (x - A) = y - B
+hH : V.subtype (H T.t T.w a b) = H t w A B
+hX : X = A + t * u * beta ^ 2 * H t w A B
+hY : Y = -B + (1 + B * w) * u * beta ^ 3 * H t w A B
+hAddX : (curve F).toAffine.addX x A ell = X
+hDif : X - A = t * u * beta ^ 2 * H t w A B
+hAddY : (curve F).toAffine.addY x A y ell = Y
+⊢ (curve F).toAffine.Nonsingular (V.subtype K.X) (V.subtype K.Y)

@@ -1,0 +1,20 @@
+--- ActualGaussianWeberMixedStockCoordinates318.lean (r1)
++++ ActualGaussianWeberMixedStockCoordinates318.lean (r2)
+@@ -116,6 +116,7 @@
+         _ = _ := by rw [hShift]
+     have hOut : WeierstrassCurve.Affine.Nonsingular ((curve F).toAffine)
+         (V.subtype K.X) (V.subtype K.Y) := by
++      change WeierstrassCurve.Affine.Nonsingular ((curve F).toAffine) X Y
+       rw [←hAddX,←hAddY]
+       exact nonsingular_add hn hQ (fun h => hnAB h.1)
+     refine ⟨K,hOut,?_⟩
+--- ActualGaussianWeberFiniteAnchorJet318.lean (r1)
++++ ActualGaussianWeberFiniteAnchorJet318.lean (r2)
+@@ -26,6 +26,6 @@
+     dsimp only [e,B]
+     ring
+   · have ht0 := (residue_eq_zero_iff t).mpr ht
+-    simp [e,B,C,hA,ht0,K.u_res,K.beta_res] <;> ring
++    simp [e,B,C,hA,ht0,K.u_res,K.beta_res,map_ofNat] <;> ring
+ 
+ end ActualGaussianWeberFiniteAnchorJet318

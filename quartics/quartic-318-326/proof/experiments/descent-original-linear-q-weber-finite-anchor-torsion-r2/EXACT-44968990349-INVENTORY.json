@@ -1,0 +1,731 @@
+{
+  "all_packet_modules_compiled": false,
+  "audit": {
+    "command": [
+      "lean",
+      "-j1",
+      "-M",
+      "6144",
+      "-Ddebug.skipKernelTC=false",
+      "-R",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b",
+      "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/ExperimentAudit.lean"
+    ],
+    "declarations": 184,
+    "exit_code": 0,
+    "log_sha256": "e39b3f070933d8e452203dd125836261c65a9a9b989754365ba32e2c85c8fe9c",
+    "modules": [
+      "ActualGaussianWeberHenselianChart318",
+      "ActualGaussianWeberMixedPolynomial318",
+      "ActualGaussianWeberMixedValuedData318",
+      "ActualGaussianWeberHenselianAffineLift318",
+      "ActualGaussianWeberHenselianPointMap318",
+      "ActualGaussianWeberValuedKernelChart318",
+      "ActualGaussianWeberMixedStock318",
+      "ActualGaussianWeberFiniteFibreSlope318",
+      "ActualGaussianWeberFiniteFibreDifference318",
+      "ActualGaussianWeberOrdinarySlope318",
+      "ActualGaussianWeberReductionCoordinates318",
+      "ActualGaussianWeberOrdinaryStock318",
+      "ActualGaussianWeberStockReductionAdd318"
+    ],
+    "seconds": 1.167,
+    "status": "audit_pass",
+    "timed_out": false
+  },
+  "baseline_key": "859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d",
+  "baseline_snapshot": "768c64ba67b1e1901c7492948ef3b1e727f49e38641664e00d435d45d8bc96a8",
+  "checker_sha256": "a27802ce62f2cf6f227f65ff57b51b7e587588c88c92e54cd1b8c437d7396c8d",
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 13,
+    "compiler_error": 2
+  },
+  "deadline_epoch": 1795312847,
+  "dependency_ready_inventory_complete": true,
+  "experiment_artifact_reuse": false,
+  "head_sha": "3fb650e8107252ee06b68631574affe78f5ac052",
+  "module_seconds": 180,
+  "modules": {
+    "ActualGaussianWeberFiniteAnchorJet318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberFiniteAnchorJet318/ActualGaussianWeberFiniteAnchorJet318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteAnchorJet318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualGaussianWeberMixedPolynomial318",
+        "ActualGaussianWeberMixedValuedData318"
+      ],
+      "log_sha256": "1935e3359a6bd9ad50489be241cbce7ee61e9060cff3075fab02e646eeda71db",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteAnchorJet318",
+      "root_causes": [
+        "ActualGaussianWeberFiniteAnchorJet318"
+      ],
+      "seconds": 1.618,
+      "source_sha256": "02bca772f49e5d02ebacdf4e626b1ed827b988b04a613f3a3ef53d49b2302a13",
+      "status": "compiler_error",
+      "timed_out": false
+    },
+    "ActualGaussianWeberFiniteAnchorTorsion318": {
+      "blocker_statuses": {
+        "ActualGaussianWeberFiniteAnchorJet318": "compiler_error",
+        "ActualGaussianWeberMixedStockCoordinates318": "compiler_error"
+      },
+      "direct_blockers": [
+        "ActualGaussianWeberFiniteAnchorJet318",
+        "ActualGaussianWeberMixedStockCoordinates318"
+      ],
+      "imports": [
+        "ActualGaussianWeberFiniteAnchorJet318",
+        "ActualGaussianWeberMixedStockCoordinates318",
+        "ActualGaussianWeberStockReductionAdd318"
+      ],
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteAnchorTorsion318",
+      "root_causes": [
+        "ActualGaussianWeberFiniteAnchorJet318",
+        "ActualGaussianWeberMixedStockCoordinates318"
+      ],
+      "source_sha256": "68307ca46b884241687c4ab64ca21359b211d4e6fdf074b780285e838a6610f8",
+      "status": "blocked_by_import"
+    },
+    "ActualGaussianWeberFiniteFibreDifference318": {
+      "artifacts": {
+        ".ir": "2403e1427a54cabf529d9f67739791689598ea3f19fdeb93e2ce4eb5319553bc",
+        ".olean": "0d3af85421614a6c7206b27a76a25eed42e6b7d30c10abe88b0e5911efc854a1",
+        ".olean.private": "b7c4b45edce7dbf936fd3b799be17393395b1cf83499ac28ad60312333581567",
+        ".olean.server": "f57799870567bb7c5f6a2f543aa72e72ca16ffc7b5cd2b190491449351690d3a"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberFiniteFibreDifference318/ActualGaussianWeberFiniteFibreDifference318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteFibreDifference318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberFiniteFibreSlope318": {
+          ".ir": "351926dd88a170eabc89071f8f73639656d1d8af04439b7f740d1c6b452fed52",
+          ".olean": "8657adb9f77c12e5c2f9c9ec59e491a87be2e5ad3592f77a9931ae117ac70ecb",
+          ".olean.private": "6d4163d40b3f15066168dce9a13e685b67e8044cc2e5dc61fc23d6a95df1b5e3",
+          ".olean.server": "f07d8107ba8fcbaa25561703ca08119d8122f83df5d70830d151b8a1f7d383f1"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberFiniteFibreSlope318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula"
+      ],
+      "log_sha256": "36610d1231b00551fa700b60d52af6af16b1a5f2ca3102217f4ce4defa375c40",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteFibreDifference318",
+      "root_causes": [],
+      "seconds": 1.618,
+      "source_sha256": "5720fb8dfbaad58e3bd107ccb085a89c6104410b31f85a8a31b5d41c71cb5937",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberFiniteFibreSlope318": {
+      "artifacts": {
+        ".ir": "351926dd88a170eabc89071f8f73639656d1d8af04439b7f740d1c6b452fed52",
+        ".olean": "8657adb9f77c12e5c2f9c9ec59e491a87be2e5ad3592f77a9931ae117ac70ecb",
+        ".olean.private": "6d4163d40b3f15066168dce9a13e685b67e8044cc2e5dc61fc23d6a95df1b5e3",
+        ".olean.server": "f07d8107ba8fcbaa25561703ca08119d8122f83df5d70830d151b8a1f7d383f1"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberFiniteFibreSlope318/ActualGaussianWeberFiniteFibreSlope318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteFibreSlope318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianPointMap318": {
+          ".ir": "800b99d9ab7a2e2abb1b5a6bd0275c0b86e5c6965dd54e09641a424f0e727eee",
+          ".olean": "2f856a3ec755c1aa84f257a9b0465967f9796296a5593feaf44a5b60315c22a3",
+          ".olean.private": "822e92d96029f766e5ea7f9e048574b800dd8d63c844b49e1136d5f43dca508e",
+          ".olean.server": "ecfa3609031e54cca7cb3416edaa918b1dda788fc6007484e9be5093187bf42e"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318"
+      ],
+      "log_sha256": "40c49ce05ac6641cc6e8787432570c4d60a44ac37d67d4cc5ca76ff2b5518223",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberFiniteFibreSlope318",
+      "root_causes": [],
+      "seconds": 2.37,
+      "source_sha256": "707138ae415798dd25b2fa04abce8117ec9b8b1b26cd6cce31feb94a80291653",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberHenselianAffineLift318": {
+      "artifacts": {
+        ".ir": "86716a048a7eef175e2672ec324f2f97172ea721b24317501c702577bdafbbf9",
+        ".olean": "a5a1cdc3e760c4a3c2fa82997fe2b65ca8f14e01aeede5522cd08ab71d641598",
+        ".olean.private": "e64639d6512a4b2686e35aca3f3b560d5823cfe58708b223b9abbf98ca5fed4a",
+        ".olean.server": "b099b16cbb9787464cb8d9d13e018ac547c4e655cae20eb0e08679ae449e9353"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberHenselianAffineLift318/ActualGaussianWeberHenselianAffineLift318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberHenselianAffineLift318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianChart318": {
+          ".ir": "3f436d7fa03fb2b18d7e2b80445ffa0ef6992b29fa14604c84d0df41aa37ca28",
+          ".olean": "274e9bc74e93d38f42d28974d222eace6e1fddb144325ae0ec563be1f0283da1",
+          ".olean.private": "007e5a866f13a1d5c42dbc8668ce3d9b0b0efd71af51b67f2e951a6022ccec5e",
+          ".olean.server": "5e80e8b55cdd7589d46a035a685701fc8bc630bba50d3a11c2071f0f32e29906"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianChart318"
+      ],
+      "log_sha256": "50f02d57448d5c36537af4e5dd91534a4a1a3d5af84bac98b297b6494fd74546",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberHenselianAffineLift318",
+      "root_causes": [],
+      "seconds": 1.82,
+      "source_sha256": "390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberHenselianChart318": {
+      "artifacts": {
+        ".ir": "3f436d7fa03fb2b18d7e2b80445ffa0ef6992b29fa14604c84d0df41aa37ca28",
+        ".olean": "274e9bc74e93d38f42d28974d222eace6e1fddb144325ae0ec563be1f0283da1",
+        ".olean.private": "007e5a866f13a1d5c42dbc8668ce3d9b0b0efd71af51b67f2e951a6022ccec5e",
+        ".olean.server": "5e80e8b55cdd7589d46a035a685701fc8bc630bba50d3a11c2071f0f32e29906"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberHenselianChart318/ActualGaussianWeberHenselianChart318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberHenselianChart318.lean"
+      ],
+      "dependency_artifacts": {},
+      "exit_code": 0,
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Monic",
+        "Mathlib.RingTheory.Henselian",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "07da43c2c049bb114c7a235d423069d21ccc888f71e32e1ad92b815fc95cb2ad",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberHenselianChart318",
+      "root_causes": [],
+      "seconds": 2.02,
+      "source_sha256": "83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberHenselianPointMap318": {
+      "artifacts": {
+        ".ir": "800b99d9ab7a2e2abb1b5a6bd0275c0b86e5c6965dd54e09641a424f0e727eee",
+        ".olean": "2f856a3ec755c1aa84f257a9b0465967f9796296a5593feaf44a5b60315c22a3",
+        ".olean.private": "822e92d96029f766e5ea7f9e048574b800dd8d63c844b49e1136d5f43dca508e",
+        ".olean.server": "ecfa3609031e54cca7cb3416edaa918b1dda788fc6007484e9be5093187bf42e"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberHenselianPointMap318/ActualGaussianWeberHenselianPointMap318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberHenselianPointMap318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianAffineLift318": {
+          ".ir": "86716a048a7eef175e2672ec324f2f97172ea721b24317501c702577bdafbbf9",
+          ".olean": "a5a1cdc3e760c4a3c2fa82997fe2b65ca8f14e01aeede5522cd08ab71d641598",
+          ".olean.private": "e64639d6512a4b2686e35aca3f3b560d5823cfe58708b223b9abbf98ca5fed4a",
+          ".olean.server": "b099b16cbb9787464cb8d9d13e018ac547c4e655cae20eb0e08679ae449e9353"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianAffineLift318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.RingTheory.Valuation.ValuationSubring"
+      ],
+      "log_sha256": "43bb907eb8a61d37bb5f6fe26ae9cb9847469cb75ccb519f87c1bbe2c78f86e8",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberHenselianPointMap318",
+      "root_causes": [],
+      "seconds": 1.818,
+      "source_sha256": "789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberMixedPolynomial318": {
+      "artifacts": {
+        ".ir": "ff73a702e544a951313832431355a0b816317a0aee4c1200552da35313d35226",
+        ".olean": "fffb06878a0e465e4c94216316d5f9a5fffc15d01374c8b2a9236d091f9c8079",
+        ".olean.private": "5bb7d17867d3ef711471a1ab20a746472464eddde7ce22e2dd634511f92e94f3",
+        ".olean.server": "1476e089838736a89fc90270f78c71388cd14016e005de8973be7b8039dc8874"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberMixedPolynomial318/ActualGaussianWeberMixedPolynomial318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedPolynomial318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianChart318": {
+          ".ir": "3f436d7fa03fb2b18d7e2b80445ffa0ef6992b29fa14604c84d0df41aa37ca28",
+          ".olean": "274e9bc74e93d38f42d28974d222eace6e1fddb144325ae0ec563be1f0283da1",
+          ".olean.private": "007e5a866f13a1d5c42dbc8668ce3d9b0b0efd71af51b67f2e951a6022ccec5e",
+          ".olean.server": "5e80e8b55cdd7589d46a035a685701fc8bc630bba50d3a11c2071f0f32e29906"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianChart318"
+      ],
+      "log_sha256": "78c0faeba2cf71f056bb3631f7a581a9cb9e5743d41e7502d5a110883a6d9571",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedPolynomial318",
+      "root_causes": [],
+      "seconds": 1.718,
+      "source_sha256": "9a193602f19b546f12147dcd2b1c71cc7d404889c38e4fdd8755b95fa5970aba",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberMixedStock318": {
+      "artifacts": {
+        ".ir": "f122fb4c12572865fcfbfdb021e86991cacba818c55f40704b18051897bf3aee",
+        ".olean": "7ae0a6c647d2b5c80e668fe427640c39b427edde123b09a41cc32160ba7fe739",
+        ".olean.private": "2b95f1b62ad4aea28934d3b80603db7276fdc3137186fb04c2c64db8ed9397d9",
+        ".olean.server": "84171b901ac50f4d8baf6a29c033713338318f060a59d441778cfeec6c375397"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberMixedStock318/ActualGaussianWeberMixedStock318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedStock318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberMixedValuedData318": {
+          ".ir": "ecdc70ec33eca44bedf364e11cc73e6c5e2f6804f66512e2df17ab5fb2a185de",
+          ".olean": "b984b48ff2f308e8f169d46c45aaa9f7e22e2d8595984714a8b7fcbf4e9a5dd9",
+          ".olean.private": "5c116970848a7992981cbf06e599ba26d6e7d630eeffce66d96b34a6ba026362",
+          ".olean.server": "2e6a03878886e5042f6939e95bb0d63d8038846463899ff4dd5961c02985ce70"
+        },
+        "ActualGaussianWeberValuedKernelChart318": {
+          ".ir": "635f263f171ccb13e019d499a898ed94ea3b9bbe6c6b00dd1c539e9800d29f1b",
+          ".olean": "fc6a5312f7e9a8ad84b3836b2f69372e32f28e278e30b8d305d944d0139193f6",
+          ".olean.private": "7cf69f2ea6ae09cdd829da20725ab9bcc955e1160ca8728a06d52041931fdb23",
+          ".olean.server": "6459341f73bccb1ce10ce95ac69da42cc90fab16454a1d362efa13a27f70681f"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberMixedValuedData318",
+        "ActualGaussianWeberValuedKernelChart318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula"
+      ],
+      "log_sha256": "f99f96402a4ef42428d237f2978fc01850a343861f101a607ad81753baf4df98",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedStock318",
+      "root_causes": [],
+      "seconds": 2.219,
+      "source_sha256": "4716e07dc5bfcbef53a11b86fd82f481cf85bf0ee26ca4461733a2a0d9aad92f",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberMixedStockCoordinates318": {
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberMixedStockCoordinates318/ActualGaussianWeberMixedStockCoordinates318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedStockCoordinates318.lean"
+      ],
+      "exit_code": 1,
+      "imports": [
+        "ActualGaussianWeberMixedValuedData318",
+        "ActualGaussianWeberValuedKernelChart318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula"
+      ],
+      "log_sha256": "ac7f59cf2a88bd74ad47b517aada145816013b0ed437407ff0bb63ad7e014b8c",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedStockCoordinates318",
+      "root_causes": [
+        "ActualGaussianWeberMixedStockCoordinates318"
+      ],
+      "seconds": 2.119,
+      "source_sha256": "35aa7d8af4f04580e94301910dabf581f90ba547182c57e020b00ed67eee612a",
+      "status": "compiler_error",
+      "timed_out": false
+    },
+    "ActualGaussianWeberMixedValuedData318": {
+      "artifacts": {
+        ".ir": "ecdc70ec33eca44bedf364e11cc73e6c5e2f6804f66512e2df17ab5fb2a185de",
+        ".olean": "b984b48ff2f308e8f169d46c45aaa9f7e22e2d8595984714a8b7fcbf4e9a5dd9",
+        ".olean.private": "5c116970848a7992981cbf06e599ba26d6e7d630eeffce66d96b34a6ba026362",
+        ".olean.server": "2e6a03878886e5042f6939e95bb0d63d8038846463899ff4dd5961c02985ce70"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberMixedValuedData318/ActualGaussianWeberMixedValuedData318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedValuedData318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberMixedPolynomial318": {
+          ".ir": "ff73a702e544a951313832431355a0b816317a0aee4c1200552da35313d35226",
+          ".olean": "fffb06878a0e465e4c94216316d5f9a5fffc15d01374c8b2a9236d091f9c8079",
+          ".olean.private": "5bb7d17867d3ef711471a1ab20a746472464eddde7ce22e2dd634511f92e94f3",
+          ".olean.server": "1476e089838736a89fc90270f78c71388cd14016e005de8973be7b8039dc8874"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberMixedPolynomial318",
+        "Mathlib.RingTheory.Valuation.ValuationSubring"
+      ],
+      "log_sha256": "f4a00bf308e01185cbde19e85dab7f13299f0ac271b9d8447f33393bc1d9448c",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberMixedValuedData318",
+      "root_causes": [],
+      "seconds": 2.521,
+      "source_sha256": "759d1cb69a7b190f1d77579da8ec4d13c798c2b8c58de40b0c8b07a041b0b931",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberOrdinarySlope318": {
+      "artifacts": {
+        ".ir": "c6d9c59e80b876114b8457a0a391bd868612dedb0fbc7df4e0c503fb2a0df040",
+        ".olean": "72c6a1d0f6f92f41039bbaa31597251596c9655421a745bf9d25a4f775088572",
+        ".olean.private": "4573e4ac68dcbe1377fd68ce0cfdc68687e6a42886022309aaeb5033db7c599b",
+        ".olean.server": "ec0db53c83c70d7a0f0d69b2c3163d8d4e65f9c6d2817b67ebc22cdc687ceb15"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberOrdinarySlope318/ActualGaussianWeberOrdinarySlope318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberOrdinarySlope318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianPointMap318": {
+          ".ir": "800b99d9ab7a2e2abb1b5a6bd0275c0b86e5c6965dd54e09641a424f0e727eee",
+          ".olean": "2f856a3ec755c1aa84f257a9b0465967f9796296a5593feaf44a5b60315c22a3",
+          ".olean.private": "822e92d96029f766e5ea7f9e048574b800dd8d63c844b49e1136d5f43dca508e",
+          ".olean.server": "ecfa3609031e54cca7cb3416edaa918b1dda788fc6007484e9be5093187bf42e"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Formula"
+      ],
+      "log_sha256": "c9a446575c4b68caa53f6030e08541f29e07aab2a389eab79b416cb1d6b268f7",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberOrdinarySlope318",
+      "root_causes": [],
+      "seconds": 2.972,
+      "source_sha256": "328e14700486bf9932164cee1376b650cb6ad91ba813cd283c23632b391c395b",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberOrdinaryStock318": {
+      "artifacts": {
+        ".ir": "03549a92eb68a2f7e06f0f4f828e40f04ab7871d9a8ca833f3162cdd36ff75c3",
+        ".olean": "2497e1935ecf4128d8db7864f8a8dfd2619cb4df1a13729e4d454584e8d62455",
+        ".olean.private": "74b620ab2f7771cd1d96f6939c13bf14edb67489b625901f9db69002fc6038dd",
+        ".olean.server": "1d66af3cff6d2bf14eacc03551b5a1fe1d5f73d4c2407dedd84a6b19fe1a1de5"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberOrdinaryStock318/ActualGaussianWeberOrdinaryStock318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberOrdinaryStock318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberFiniteFibreDifference318": {
+          ".ir": "2403e1427a54cabf529d9f67739791689598ea3f19fdeb93e2ce4eb5319553bc",
+          ".olean": "0d3af85421614a6c7206b27a76a25eed42e6b7d30c10abe88b0e5911efc854a1",
+          ".olean.private": "b7c4b45edce7dbf936fd3b799be17393395b1cf83499ac28ad60312333581567",
+          ".olean.server": "f57799870567bb7c5f6a2f543aa72e72ca16ffc7b5cd2b190491449351690d3a"
+        },
+        "ActualGaussianWeberOrdinarySlope318": {
+          ".ir": "c6d9c59e80b876114b8457a0a391bd868612dedb0fbc7df4e0c503fb2a0df040",
+          ".olean": "72c6a1d0f6f92f41039bbaa31597251596c9655421a745bf9d25a4f775088572",
+          ".olean.private": "4573e4ac68dcbe1377fd68ce0cfdc68687e6a42886022309aaeb5033db7c599b",
+          ".olean.server": "ec0db53c83c70d7a0f0d69b2c3163d8d4e65f9c6d2817b67ebc22cdc687ceb15"
+        },
+        "ActualGaussianWeberReductionCoordinates318": {
+          ".ir": "56c7075bf216f9be02e8bbd712a1edcab9206cc303aca183a22d7e6868857f4a",
+          ".olean": "96e30138cbc0e85988eea07a23ba7188021731941142b8e72686396fd5e54503",
+          ".olean.private": "0181b957f4a7a57759dc4d762b7e9ffb90929e0b85865a6b2bfa19045af24776",
+          ".olean.server": "b0576f5dd1973835daea4fd8139477dc9f96cea71032736822cae04b372138a0"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberFiniteFibreDifference318",
+        "ActualGaussianWeberOrdinarySlope318",
+        "ActualGaussianWeberReductionCoordinates318"
+      ],
+      "log_sha256": "0380b1877b2353999dbe171b2c96e06e61fcf162f31556a4176720dcd16d6e30",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberOrdinaryStock318",
+      "root_causes": [],
+      "seconds": 2.119,
+      "source_sha256": "4535779c88413722894a026b912a315e1cfd0f0e25b95f7cea32bbb562e41f7a",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberReductionCoordinates318": {
+      "artifacts": {
+        ".ir": "56c7075bf216f9be02e8bbd712a1edcab9206cc303aca183a22d7e6868857f4a",
+        ".olean": "96e30138cbc0e85988eea07a23ba7188021731941142b8e72686396fd5e54503",
+        ".olean.private": "0181b957f4a7a57759dc4d762b7e9ffb90929e0b85865a6b2bfa19045af24776",
+        ".olean.server": "b0576f5dd1973835daea4fd8139477dc9f96cea71032736822cae04b372138a0"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberReductionCoordinates318/ActualGaussianWeberReductionCoordinates318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberReductionCoordinates318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianPointMap318": {
+          ".ir": "800b99d9ab7a2e2abb1b5a6bd0275c0b86e5c6965dd54e09641a424f0e727eee",
+          ".olean": "2f856a3ec755c1aa84f257a9b0465967f9796296a5593feaf44a5b60315c22a3",
+          ".olean.private": "822e92d96029f766e5ea7f9e048574b800dd8d63c844b49e1136d5f43dca508e",
+          ".olean.server": "ecfa3609031e54cca7cb3416edaa918b1dda788fc6007484e9be5093187bf42e"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318"
+      ],
+      "log_sha256": "0ebdee48a8af7bac5a46867c1032dc79be35600c039e3e17223b72dda0af3929",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberReductionCoordinates318",
+      "root_causes": [],
+      "seconds": 1.217,
+      "source_sha256": "a8ebc5078fbc8ac95de2e4cf04da9775a91a67db3b1476fb090a4ba3a9f94ced",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberStockReductionAdd318": {
+      "artifacts": {
+        ".ir": "6db689d49a29782d56656d4937f332bca0720deeadd3851c0451efe093fd1bbd",
+        ".olean": "a80475ae0fc7665329b60fe5beeddd78d3021d03e8c25c732fae8b591ddc7773",
+        ".olean.private": "af85950bb85f970e39ada99682b223b47bb76e0847683189931b216bba9defed",
+        ".olean.server": "4c7904556fc2117e74eafaf3e014058eafd0bfaf9809074740be5e4113b02c77"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberStockReductionAdd318/ActualGaussianWeberStockReductionAdd318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberStockReductionAdd318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberMixedStock318": {
+          ".ir": "f122fb4c12572865fcfbfdb021e86991cacba818c55f40704b18051897bf3aee",
+          ".olean": "7ae0a6c647d2b5c80e668fe427640c39b427edde123b09a41cc32160ba7fe739",
+          ".olean.private": "2b95f1b62ad4aea28934d3b80603db7276fdc3137186fb04c2c64db8ed9397d9",
+          ".olean.server": "84171b901ac50f4d8baf6a29c033713338318f060a59d441778cfeec6c375397"
+        },
+        "ActualGaussianWeberOrdinaryStock318": {
+          ".ir": "03549a92eb68a2f7e06f0f4f828e40f04ab7871d9a8ca833f3162cdd36ff75c3",
+          ".olean": "2497e1935ecf4128d8db7864f8a8dfd2619cb4df1a13729e4d454584e8d62455",
+          ".olean.private": "74b620ab2f7771cd1d96f6939c13bf14edb67489b625901f9db69002fc6038dd",
+          ".olean.server": "1d66af3cff6d2bf14eacc03551b5a1fe1d5f73d4c2407dedd84a6b19fe1a1de5"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberMixedStock318",
+        "ActualGaussianWeberOrdinaryStock318"
+      ],
+      "log_sha256": "7fab36dab83020330f6f79a77525f034da7a743a32fd0a16bf90ed61433a9c5c",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberStockReductionAdd318",
+      "root_causes": [],
+      "seconds": 1.418,
+      "source_sha256": "9fd6168eb3b0e13ea726fe33820d64ab36a619a77341d68d13ca74ab5f4b3fc2",
+      "status": "compile_pass",
+      "timed_out": false
+    },
+    "ActualGaussianWeberValuedKernelChart318": {
+      "artifacts": {
+        ".ir": "635f263f171ccb13e019d499a898ed94ea3b9bbe6c6b00dd1c539e9800d29f1b",
+        ".olean": "fc6a5312f7e9a8ad84b3836b2f69372e32f28e278e30b8d305d944d0139193f6",
+        ".olean.private": "7cf69f2ea6ae09cdd829da20725ab9bcc955e1160ca8728a06d52041931fdb23",
+        ".olean.server": "6459341f73bccb1ce10ce95ac69da42cc90fab16454a1d362efa13a27f70681f"
+      },
+      "command": [
+        "lean",
+        "-j1",
+        "-M",
+        "6144",
+        "-Ddebug.skipKernelTC=false",
+        "-R",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1",
+        "-o",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/build/progress-inventory/descent-original-linear-q-weber-finite-anchor-torsion-r1-s77d1414c0e803c7b/quarantine/ActualGaussianWeberValuedKernelChart318/ActualGaussianWeberValuedKernelChart318.olean",
+        "/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberValuedKernelChart318.lean"
+      ],
+      "dependency_artifacts": {
+        "ActualGaussianWeberHenselianPointMap318": {
+          ".ir": "800b99d9ab7a2e2abb1b5a6bd0275c0b86e5c6965dd54e09641a424f0e727eee",
+          ".olean": "2f856a3ec755c1aa84f257a9b0465967f9796296a5593feaf44a5b60315c22a3",
+          ".olean.private": "822e92d96029f766e5ea7f9e048574b800dd8d63c844b49e1136d5f43dca508e",
+          ".olean.server": "ecfa3609031e54cca7cb3416edaa918b1dda788fc6007484e9be5093187bf42e"
+        }
+      },
+      "exit_code": 0,
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318"
+      ],
+      "log_sha256": "337af9ba6408a0b3b5a9ebb5fb40b6f61b58af166956cf64f083ae6a2b992495",
+      "occurrence": "descent-original-linear-q-weber-finite-anchor-torsion-r1/ActualGaussianWeberValuedKernelChart318",
+      "root_causes": [],
+      "seconds": 2.27,
+      "source_sha256": "e180f04ac4ba764ce00a541840009c91419099ddcf43906a43d35a8f26b3ce75",
+      "status": "compile_pass",
+      "timed_out": false
+    }
+  },
+  "new_source_acceptance": false,
+  "order": [
+    "ActualGaussianWeberHenselianChart318",
+    "ActualGaussianWeberMixedPolynomial318",
+    "ActualGaussianWeberMixedValuedData318",
+    "ActualGaussianWeberHenselianAffineLift318",
+    "ActualGaussianWeberHenselianPointMap318",
+    "ActualGaussianWeberValuedKernelChart318",
+    "ActualGaussianWeberMixedStock318",
+    "ActualGaussianWeberFiniteFibreSlope318",
+    "ActualGaussianWeberFiniteFibreDifference318",
+    "ActualGaussianWeberOrdinarySlope318",
+    "ActualGaussianWeberReductionCoordinates318",
+    "ActualGaussianWeberOrdinaryStock318",
+    "ActualGaussianWeberStockReductionAdd318",
+    "ActualGaussianWeberMixedStockCoordinates318",
+    "ActualGaussianWeberFiniteAnchorJet318",
+    "ActualGaussianWeberFiniteAnchorTorsion318"
+  ],
+  "packet": "descent-original-linear-q-weber-finite-anchor-torsion-r1",
+  "packet_acceptance": false,
+  "packet_sha256": "e21cedfd5cf8b60062da8910e044c1937294390278069abba8897fce7ddc1fef",
+  "production_checker_sha256": "4abfb411e506170329f1a8b7d982ff05278b90c9bc2980b0781c58be9e39c96f",
+  "request_sha256": "215afa4a86b5dc6457fade7fa132a07edcc943a722e63fcd0545e9bf9342479a",
+  "requested_source_commit": "3a2f512e9d0ac31b5d5bc6940ba4e44d50a7398e",
+  "requested_source_tree": "23391c4dd6d7839bf4d054e7a08dac7d9bd6b82a",
+  "run_id": "44968990349",
+  "schema": 2,
+  "scope": "Diagnostic dependency-ready sweep only; ordinary full packet audit remains required",
+  "selected_dependency_ready_inventory_complete": true,
+  "selection": {
+    "intake_sha256": "e21cedfd5cf8b60062da8910e044c1937294390278069abba8897fce7ddc1fef",
+    "packet": "descent-original-linear-q-weber-finite-anchor-torsion-r1",
+    "selected_order": [
+      "ActualGaussianWeberHenselianChart318",
+      "ActualGaussianWeberMixedPolynomial318",
+      "ActualGaussianWeberMixedValuedData318",
+      "ActualGaussianWeberHenselianAffineLift318",
+      "ActualGaussianWeberHenselianPointMap318",
+      "ActualGaussianWeberValuedKernelChart318",
+      "ActualGaussianWeberMixedStock318",
+      "ActualGaussianWeberFiniteFibreSlope318",
+      "ActualGaussianWeberFiniteFibreDifference318",
+      "ActualGaussianWeberOrdinarySlope318",
+      "ActualGaussianWeberReductionCoordinates318",
+      "ActualGaussianWeberOrdinaryStock318",
+      "ActualGaussianWeberStockReductionAdd318",
+      "ActualGaussianWeberMixedStockCoordinates318",
+      "ActualGaussianWeberFiniteAnchorJet318",
+      "ActualGaussianWeberFiniteAnchorTorsion318"
+    ],
+    "selection_sha256": "77d1414c0e803c7bc741ccde9d96d6e7b034bb42a30130da1ac3cc2b821ff56c",
+    "targets": [
+      "ActualGaussianWeberFiniteAnchorTorsion318"
+    ]
+  },
+  "status": "INVENTORY_RECORDED",
+  "strict_flags": [
+    "-j1",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false"
+  ],
+  "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "verified_baseline_modules": {}
+}
