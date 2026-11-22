@@ -1,0 +1,11 @@
+--- a/SelectedSameASignedLiftCocycle318.lean
++++ b/SelectedSameASignedLiftCocycle318.lean
+@@ -50,7 +50,7 @@
+ variable (ht : ∀ i, S.g.hom.app (op (U i)) (t i) = res X S.X₃ le_top z)
+ 
+ include ht in
+-private theorem lifts_equal_restriction {W : Opens X} (i j : ι)
++theorem lifts_equal_restriction {W : Opens X} (i j : ι)
+     (hi : W ≤ U i) (hj : W ≤ U j) :
+     S.g.hom.app (op W) (res X S.X₂ hi (t i)) =
+       S.g.hom.app (op W) (res X S.X₂ hj (t j)) := by
