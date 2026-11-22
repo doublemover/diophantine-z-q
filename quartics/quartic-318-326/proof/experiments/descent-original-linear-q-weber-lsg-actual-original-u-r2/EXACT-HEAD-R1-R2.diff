@@ -1,0 +1,26 @@
+--- r1/ActualLSGOriginalFullUniformization318.lean
++++ r2/ActualLSGOriginalFullUniformization318.lean
+@@ -48,12 +48,12 @@
+   constructor
+   · rintro ⟨a,b,h⟩
+     refine ⟨literal a b,?_⟩
+-    change iota (literal a b)=z
++    change (((⟨a,b⟩ : GaussianInt) : ℂ)) = z
+     simpa only [GaussianInt.toComplex_def',Complex.ofReal_one,mul_one] using h
+   · rintro ⟨u,h⟩
+     obtain ⟨a,b⟩ := u
+     refine ⟨a,b,?_⟩
+-    change iota (literal a b)=z at h
++    change (((⟨a,b⟩ : GaussianInt) : ℂ)) = z at h
+     simpa only [GaussianInt.toComplex_def',Complex.ofReal_one,mul_one] using h
+ 
+ /-- No analytic structure is supplied as an input: this constructs
+@@ -68,7 +68,7 @@
+   obtain ⟨z,rfl⟩ := QuotientAddGroup.mk'_surjective lattice P
+   rw [scalar_on]
+   have hI : iota gaussianI=Complex.I := by
+-    change iota (literal 0 1)=_
++    change (((⟨0,1⟩ : GaussianInt) : ℂ)) = Complex.I
+     rw [GaussianInt.toComplex_def'] <;> norm_num
+   rw [hI]
+   change E (V (Complex.I*z))=turn _ Complex.I Complex.I_sq (E (V z))
