@@ -1,0 +1,11 @@
+--- descent-original-linear-q-weber-single-residual-point-transfer-r2/ActualGaussianWeberSelectedResidueSinglePoint318.lean
++++ descent-original-linear-q-weber-single-residual-point-transfer-r3/ActualGaussianWeberSelectedResidueSinglePoint318.lean
+@@ -74,7 +74,7 @@
+     apply RingHom.ext
+     intro x
+     change residueArithmeticFrob L w j hj hUnder x=x^p
+-    exact residue_arithmetic_frob_apply L w j hj hUnder x
++    unfold residueArithmeticFrob <;> rfl
+   change onCurvePoint (residueArithmeticFrob L w j hj hUnder) hR Q=
+     gaussian hR (residue V i) (chosen_square_residue V i hi) a b Q
+   calc

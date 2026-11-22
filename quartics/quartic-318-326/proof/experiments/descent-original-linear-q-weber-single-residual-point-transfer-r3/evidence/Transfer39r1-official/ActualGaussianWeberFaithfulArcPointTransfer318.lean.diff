@@ -1,0 +1,25 @@
+--- descent-original-linear-q-weber-single-residual-point-transfer-r1/ActualGaussianWeberFaithfulArcPointTransfer318.lean
++++ descent-original-linear-q-weber-single-residual-point-transfer-r2/ActualGaussianWeberFaithfulArcPointTransfer318.lean
+@@ -3,6 +3,7 @@
+ public import ActualGaussianWeberPowerSeriesArc318
+ public import ActualGaussianWeberValuedPolynomialPole318
+ public import ActualGaussianWeberStockReductionAdd318
++public import ActualGaussianWeberMixedStockCoordinates318
+ public import ActualGaussianWeberOddNormGeneric318
+ public import Mathlib.Algebra.CharP.Frobenius
+ public import Mathlib.Algebra.Polynomial.Eval.Coeff
+@@ -244,7 +245,13 @@
+       simpa only [map_pow,map_neg,map_one] using congrArg f hs
+     gaussian hK (f s) hf a b P=coordinateHom (frobenius K p) hK P := by
+   cases P with
+-  | zero => simp only [map_zero]
++  | zero =>
++    let hf : (f s)^2= -1 := by
++      simpa only [map_pow,map_neg,map_one] using congrArg f hs
++    change gaussian hK (f s) hf a b (0:WP K)=
++      coordinateHom (frobenius K p) hK (0:WP K)
++    exact ((gaussian hK (f s) hf a b).map_zero).trans
++      ((coordinateHom (frobenius K p) hK).map_zero).symm
+   | some x y hn =>
+     let F := FormalField K
+     let V := FormalValuation K
