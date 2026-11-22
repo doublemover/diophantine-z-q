@@ -1,0 +1,80 @@
+# An exact real CM replacement: the oriented ideal suffices
+
+On both actual odd targets, the inert-29 cubic phase can be received by a fixed CM-supported function over the totally real field \(\mathbb Q(\sqrt5,\sqrt6)\). The genus-half ratio is an inverse-conjugation element in a field of degree at most eight. Its **oriented fractional ideal** determines the required cubic residue. No moving ideal, phase, odd rank or marked rational point is computed.
+
+## 1. The two fixed Hecke functions
+
+Use \(C=X_0(48):Y^2=X^8+14X^4+1\) and the Tate cusp with \(X=q^{-1}+\cdots,\ Y/X^4\to1\). Set
+\[
+ b_0=1,\quad b_1=Y+X^4,\quad b_{j+1}=X^j(Y+X^4+7)\quad(1\le j\le4).
+\]
+Their only poles are at this cusp, with orders \(0,4,5,6,7,8\). At the other infinity \(Y=-(X^4+7-24X^{-4}+\cdots)\). Write \(b_i=b_i(P)\) and \(b_i'=b_i(Q)\). The kernels are
+\[
+\begin{aligned}
+ \mathcal G(P,Q)&=2+2(b_5+b_5')-2b_1b_1'-b_2b_4'-b_4b_2'+2b_3b_3',\\
+ \mathcal H(P,Q)&=2+2(b_5+b_5')-2b_1b_1'-b_2b_2'+2b_3b_3'-b_4b_4'.
+\end{aligned}
+\]
+The independently checked \(\mathcal G\) has divisor \(T_5+2\Delta-8(\{\infty\}\times C)-8(C\times\{\infty\})\) (exact earlier checksum list d900d47fe7b5f6e28b0f7ca3581262e3a106c554068937450d543d7d836731f1). The new \(\mathcal H\) has divisor \(T_7-8(\{\infty\}\times C)-8(C\times\{\infty\})\), with **no** diagonal. The literal eta quotient for \(X\) and the square-root expansion for \(Y\) make all the Laurent coefficients of \(\mathcal H(P(q),P(q^7))\) vanish from \(q^{-64}\) through \(q^{134}\); see [Colò, Appendix A, pp. 247–248](https://www.leonardocolo.com/documents/thesis/PhD_Thesis.pdf). The two projections of \(X_0(336)\) each have degree eight, so the total possible polar degree of this pullback is 128. This forces exact vanishing on the whole irreducible \(T_7\). A cyclic kernel is identified generically by the source-target pair: two isogenies to isomorphic targets give a composition with a dual of norm 49, hence \(\pm[7]\) on the generic elliptic curve with \(\operatorname{End}=\mathbb Z\), which forces equality of kernels. The reduced correspondence has bidegree \((8,8)\) and exhausts the zero budgets. No extra component or cusp factor remains. The same argument applies at good 29, with 2,3,7 inverted and the pole basis still independent. Specializing at an ordinary CM flag \(P\) gives only CM and cusp support, and all these zeros remain ordinary in characteristic 29. Both kernels are units at every supersingular flag in the other variable.
+
+## 2. Literal calibration and conjugation on full packets
+
+The only calibration CM field is \(K_*=\mathbb Q(\sqrt{-5})\), and the two **full flag** conductors are \(f=12,4\) (discriminants \(-2880,-320\)). Distinguish the conductors \(f_A, f_{A/C}\) of the two endpoints of the cyclic 48-isogeny from their least common multiple \(f\). Over \(K_*\), the field of moduli of the full isogeny is exactly the ring class field \(K_*(f)=K_*(j(A),j(A/C))\) by [Clark, Lemma 6.1](https://arxiv.org/pdf/2212.13316). Use ordinary canonical lifting, preserving the geometric endomorphisms, and lift the prime-to-29 cyclic flags by étaleness; see [Edixhoven, Proposition 3](https://arxiv.org/abs/math/0502213). The ordered ordinary canonical flags reduce injectively.
+
+The replay computes the endpoint conductors from the actual two \(j\)'s, \(j(P),j(w_{48}P)\). The Frobenius trace over \(k=\mathbf F_{29^2}\) is \(\pm22\), so \(\Delta_\pi=-20\cdot12^2\). At \(r=2,3\), \(\pi\) acts scalarly on \(A[r]\) iff \((\pi-a)/r\) is integral for some rational integer \(a\), iff the \(r\)-conductor exponent is smaller than \(v_r(12)\). Thus on the bottom of the ordinary volcano there is one rational eigenline, and off the bottom all \(r+1\) kernels are rational. At the bottom a nonrational descending kernel cannot secretly give a rational target \(j\): its target conductor would exceed the one allowed by \(\Delta_\pi\). Each descent raises the conductor exponent by one; distance to the bottom gives the exact exponent. The source builds the monic modular polynomials \(\Phi_2,\Phi_3\) by their symmetric Tate expansions past possible polar degree and preserves root multiplicities. It includes ordinary vertices without level-48 flags. The exact ordered counts are:
+- \(f=12\): 192 flags, with endpoint pairs \((4,12),(12,4),(12,2),(4,6),(2,12),(6,4)\), each occurring 32 times.
+- \(f=4\): 96 flags, with endpoint pairs \((4,2),(4,4),(2,4)\), each occurring 32 times.
+
+The two rational cyclic 7-kernels are the horizontal eigenlines, since the Frobenius discriminant is nonzero square modulo 7. The full-flag horizontal graph is read by \(\mathcal H=0\). Exact primitive reduced forms and ideal-HNF multiplication give:
+\[
+\begin{array}{c|c|c|c|c}
+D_*&|\mathrm{Cl}|&\text{nonidentity square}&\text{norm-seven forms}&\text{norm-29 class}\\
+-2880&16&(16,16,49)&(7,\pm2,103)&(29,22,29)\\
+-320&8&(9,2,9)&(7,\pm4,12)&(4,4,21).
+\end{array}
+\]
+In both fields the square subgroup has order two and is generated by a seven-class squared. The 29-class has order two and lies outside it. An alternating half of each 7-cycle is exactly one \(\mathrm{Cl}^2\)-orbit, and adjoining the distinct 29-Frobenius mate gives the full four-element orbit of \(\langle\mathrm{Cl}^2,\tau_{29}\rangle\). The exact counts are 48 and 24 four-flag packets, respectively.
+
+For **global** complex conjugation \(c_*\), normalize each flag by rational \(w_{16}\) and, as needed, rational \(w_3\), to put the maximal conductor at both 2 and 3 at the source. Conjugation commutes with these maps. The normalized source \(j\) generates the whole ring class field over \(K_*\) and is a class translate by \(\alpha\) of the principal real \(j\). The reflection fixing this actual source is \(\alpha c_*\alpha^{-1}=\alpha^2c_*\), which has the same effect on already complete class-square packets. There is no requirement to identify the principal finite \(j\).
+
+At the normalized source the 2-conductor is 4. In projective coordinates on the cyclic 16-line in the basis \(1,4\sqrt{-5}\), reflection sends \((a,b)\) to \((a,-b)\). Using the enlarged lattice generated by \((16,0),(0,64),(a,4b)\), the two lines giving target 2-conductor 2 are \((4,1),(4,3)\) and are exchanged. The two giving target 2-conductor 4 are \((0,1),(8,1)\), each fixed. The replay enumerates primitive projective vectors and the order-unit actions modulo 16, checks all four orbits are singletons, and computes the least positive multiple of \(\sqrt{-5}\) preserving each enlarged lattice.
+
+- At \(f=12\), the normalized source is 12 and the target 2 or 4. The 3-edge is the unique ascending kernel and is fixed. Thus keep the same source \(j\) and endpoint conductor, choose the other flag only in the swap row of the 2-table, and undo the rational Atkin operations.
+- At \(f=4\), the normalized source is 4 and the target 2 or 4. The split horizontal 3-eigenlines are exchanged by reflection. They lead to distinct \(j\)'s, since the norm-three forms \((3,\pm2,27)\) of discriminant \(-320\) have order four. In the actual chart \(j(w_3P)\) reads that 3-target, and \(t_{16}=X-2+3X/y_{48}\) reads the full ordered 16-flag at fixed source. Among the four choices of the same source \(j\) and endpoint conductor, switch the 3-target and change \(t_{16}\) precisely when the 2-table requires a swap. The choice is unique. Undo \(w_{16}\) if applied.
+
+The replay checks that the resulting map swaps or fixes **complete** packets, then forms the union of the two complete packets. There are 32 real packets at \(-2880\) and 12 at \(-320\). The products are closed under the full original square-subgroup and Frobenius choices as well as global conjugation, not just either local half.
+
+## 3. Eight signed rows and the real coefficient field
+
+For each of the 224 fixed ordered supersingular flags \(Q\), let \(\kappa(Q)\) be the literal exponent of \([4](1-\mathrm{Frob}_{29})\bar\phi(Q)\) modulo 3, in the order-nine generator \(G=(14,13s)\), \(s^2=2\). Set \(\gamma=14+5s\). For either kernel \(J\) and a complete real packet \(\mathcal P\), use
+\[
+ \left( \prod_{P\in\mathcal P}
+        \prod_{A=(1,w_{16},w_3,w_{48})} J(P,AQ)^{\epsilon_A}\right)^{560},
+ \qquad \epsilon=(1,1,-1,-1).
+\]
+There are 88 rows from the two kernels and 44 actual real packets. Their exponent vectors in \(\mu_3=\langle\gamma\rangle\) have rank 21 and contain \(\kappa\). The literal eight-row certificate is the signed whole-packet data in the exact JSON: each entry supplies kernel, discriminant, sign, and **all** four or eight physical affine flags in the encoding \(a+29b\) for \(a+bs\). The replay checks the actual Atkin phase, cubic character on all labels, complete packet membership and signs. No claim of minimality is made.
+
+The lifted products are invariant under \(\mathrm{Cl}^2,\tau_{29},c_*\). The generalized dihedral Galois quotient by \(\mathrm{Cl}^2\) is elementary abelian of exponent two; the invariant subfield here is totally real, unramified outside \(2,3,5\), and completely split at 29. The Legendre row on \(2,3,5\) is \((-,-,+)\), so the only positive radical classes needed are generated by 5 and 6. Take
+\[
+                              F_*=\mathbb Q(\sqrt5,\sqrt6).
+\]
+The resulting eight-row product \(\mathcal U\in F_*(C)^\times\) has only CM and cuspidal horizontal divisors and is a unit at the named supersingular reductions. There \(\bar{\mathcal U}(Q)^{560}=\gamma^{\kappa(Q)}\). Also \(\mathcal U(w_{48}Q)=\mathcal U(Q)^{-1}\) exactly as a rational-function identity, by permuting the signed Atkin factors.
+
+## 4. The remaining actual ideal input
+
+Use either real-factor genus interpretation of the **same** odd target \(E_n\): fixed base \(\mathbb Q(\sqrt{-1751})\) and conductor \(c\) or \(c\theta\), or moving base \(\mathbb Q(\sqrt{-n/241})\) and fixed conductor 241. Let \(L/K\) be its genus extension and \(M=\mathbb Q(\sqrt{-n})\). The only real quadratic subfield of \(L\) ramifies at a true prime outside \(\{2,3,5\}\), including 241 for the fixed-conductor case, so \(F_*\cap L=\mathbb Q\).
+
+Let \(R\) be the ratio of the two actual indexed genus-half products of \(\mathcal U\), with the literal ordered level-48 flags and multiplicities. Norms in finite étale base-change algebras preserve all indices if the full ring class field meets \(F_*\). The genus involution inverts \(R\). Global complex conjugation fixes the coefficients because \(F_*\) is totally real; Fricke reversal and class reindexing preserve the genus signs since the character on the norm-48 ideal is positive. The exact Atkin identity makes global conjugation also invert \(R\). Therefore \(R\in E=F_*M\), a CM field of degree at most eight, and all its archimedean absolute values are one. At the specified 29-place it is a unit with residue in \(\mathbf F_{29^2}\).
+
+The oriented fractional ideal \((R)\) in \(E\) suffices to determine its cubic residue among inverse-conjugation generators. Their ratio would be a unit of absolute value one at all embeddings, hence a root of unity. There is no \(\mu_3\) in \(E\): \(F_*\) is real and each imaginary quadratic subfield of \(E\) retains the ramified prime 103 of \(M\), unlike \(\mathbb Q(\sqrt{-3})\). Roots of unity therefore cause no cubic ambiguity. Equivalently, for **any** principal generator \(a\) of this ideal, \(a/\bar a\) differs from \(R^2\) by a root of unity, and squaring is invertible on cubic classes. An absolute rational norm or unlabelled prime pairs are not equivalent inputs.
+
+A noncube gives exact order nine and the corresponding marked rational side under the existing torsion and paired size-eight hypotheses. A cube does not exclude order three or a point. This proof evaluates no moving oriented ideal exponent, unit, point or rank.
+
+### Exact replay
+
+Python 3 and SymPy (only small lattice/ideal HNF). The earlier fixed chart and cubic records are hash-pinned. The replay checks the \(T_7\) Laurent identity, \(\Phi_2,\Phi_3\), horizontal cycles, and the complete real orbit identities. No moving orbit is enumerated.
+
+~~~sh
+sha256sum -c SHA256SUMS
+python3 -B verify_real_CM_cubic.py | cmp - EXACT-REAL-CM-CUBIC.json
+~~~
