@@ -1,0 +1,40 @@
+--- r2/ActualLSGOriginalPositiveIScale318.lean
++++ r3/ActualLSGOriginalPositiveIScale318.lean
+@@ -45,7 +45,9 @@
+   simp only [rotate_cube,tsum_mul_left,mul_neg]
+ 
+ private abbrev s : ℂ := (fourthScale:ℂ)
+-private theorem s_ne : s≠0 := by exact_mod_cast fourthScale_pos.ne'
++private theorem s_ne : s≠0 := by
++  change (fourthScale:ℂ)≠0
++  exact Complex.ofReal_ne_zero.mpr fourthScale_pos.ne'
+ private theorem twoC : (2:ℂ)≠0 := by norm_num
+ 
+ private theorem actual_model : LSG.Weierstrass.curve L=short (s^4) := by
+@@ -64,9 +66,15 @@
+ private def comparison : (LSG.Weierstrass.curveA L).Point≃+WP ℂ :=
+   (changeCurve actual_model).trans (normalizeEquiv twoC s_ne)
+ 
++private theorem comparison_nonsing {x y : ℂ}
++    (h : (LSG.Weierstrass.curveA L).Nonsingular x y) : (src s).Nonsingular x y := by
++  change (short (s^4)).toAffine.Nonsingular x y
++  rw [←actual_model]
++  exact h
++
+ private theorem comparison_some {x y : ℂ} (h : (LSG.Weierstrass.curveA L).Nonsingular x y) :
+     comparison (Point.some x y h)=Point.some (x/s^2) (y/s^3)
+-      (normalized_nonsing twoC s_ne (actual_model ▸ h)) := by
++      (normalized_nonsing twoC s_ne (comparison_nonsing h)) := by
+   unfold comparison
+   rw [AddEquiv.trans_apply,change_some,normalizeEquiv_apply,normalize_some]
+ 
+@@ -86,7 +94,8 @@
+   exact h (by simpa only [neg_neg] using L.lattice.neg_mem h')
+ 
+ /-- Positive imaginary rotation on the actual original point model. -/
+-theorem exp_I (z : ℂ) : expOriginal (Complex.I*z)=turn twoC Complex.I Complex.I_sq (expOriginal z) := by
++theorem exp_I (z : ℂ) : expOriginal (Complex.I*z)=
++    turn (by norm_num : (2:ℂ)≠0) Complex.I Complex.I_sq (expOriginal z) := by
+   simp only [exp_apply]
+   by_cases h : z∈L.lattice
+   · rw [LSG.Weierstrass.expE_of_mem L h,

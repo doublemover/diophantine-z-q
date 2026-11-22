@@ -1,0 +1,37 @@
+--- r1/ActualGaussianWeberShortScale318.lean
++++ r2/ActualGaussianWeberShortScale318.lean
+@@ -80,7 +80,7 @@
+   by_cases hx : x=z
+   · have hx' : x/u^2=z/u^2 := congrArg (fun a : K => a/u^2) hx
+     rw [slope_of_Y_ne hx' (fun e => h' ⟨hx',e⟩),slope_of_Y_ne hx (fun e => h ⟨hx,e⟩)]
+-    simp only [negY_src,negY_tgt,short,curve,toAffine,mul_zero,zero_mul,add_zero,sub_zero]
++    simp only [negY,short,curve,toAffine,mul_zero,zero_mul,add_zero,sub_zero]
+     rw [←sub_eq_add_neg (3*(x/u^2)^2) (1:K),
+         ←sub_eq_add_neg (3*x^2) (u^4),tangent_numerator u x hu,
+         show y/u^3 - -(y/u^3)=(y - -y)/u^3 by rw [sub_div,neg_div]]
+--- r1/ActualLSGUnitSquarePeriod318.lean
++++ r2/ActualLSGUnitSquarePeriod318.lean
+@@ -47,8 +47,9 @@
+ the degree-two Weierstrass equality, not from an asymptotic estimate. -/
+ def e : ℝ := (L.weierstrassP half).re
+ 
+-theorem half_abscissa : L.weierstrassP half=(e:ℂ) :=
+-  weierstrassP_ofReal period_one period_i ((1:ℝ)/2)
++theorem half_abscissa : L.weierstrassP (((1:ℝ)/2:ℝ):ℂ)=(e:ℂ) := by
++  unfold e
++  exact weierstrassP_ofReal (L := L) period_one period_i ((1:ℝ)/2)
+ 
+ private theorem half_abscissa_ne : L.weierstrassP half≠0 := by
+   intro hz
+@@ -67,7 +68,10 @@
+ /-- The real square-lattice scale needs no evaluation of a beta integral:
+ g₂ comes from the genuine nonzero real half-period root. -/
+ theorem g2_eq : L.g₂=4*(e:ℂ)^2 := by
+-  have hp : L.ω₁/2=half := by rw [period_one,Complex.ofReal_div] <;> simp
++  have hp : L.ω₁/2=half := by
++    rw [period_one]
++    change ((1:ℝ):ℂ)/2=(((1:ℝ)/2:ℝ):ℂ)
++    simpa only [Complex.ofReal_ofNat] using (Complex.ofReal_div (1:ℝ) 2).symm
+   have hm : L.ω₁/2∉L.lattice := hp.symm ▸ half_notMem
+   have h := weierstrassP_half_cubic L L.ω₁_mem_lattice hm
+   rw [hp,g3_zero,sub_zero] at h
