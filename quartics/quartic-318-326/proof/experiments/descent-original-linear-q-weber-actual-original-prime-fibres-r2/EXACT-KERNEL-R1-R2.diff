@@ -1,0 +1,10 @@
+--- r1/ActualGaussianComplexTorusKernel318.lean
++++ r2/ActualGaussianComplexTorusKernel318.lean
+@@ -69,6 +69,7 @@
+     have hrep : scaled_lift a ha (rep a u)=scaled_lift a ha g := by
+       apply (scaled_lift_congr a ha _ _).mpr
+       exact (Ideal.Quotient.eq (I:=Ide a)).mp (rep_good a u)
++    change scaled_lift a ha (rep a u) = ⟨P,hP⟩
+     rw [hrep]
+     apply Subtype.ext
+     change V (iota g/iota a)=P

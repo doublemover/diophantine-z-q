@@ -1,0 +1,103 @@
+{
+  "files": {
+    "ActualGaussianComplexTorusCore318.lean": {
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.NumberTheory.Zsqrtd.GaussianInt"
+      ],
+      "sha256": "81f34857b9596a94fce96cd36999ccd4f70c40a12e5a3ca711b24a6cf739ecde"
+    },
+    "ActualGaussianComplexTorusKernel318.lean": {
+      "imports": [
+        "ActualGaussianComplexTorusCore318",
+        "Mathlib.RingTheory.Ideal.Quotient.Basic"
+      ],
+      "sha256": "f3c3fdd9b92564c83e51b84ae9e9bfe849d375351a57dda49e23063266fa2787"
+    },
+    "ActualGaussianWeberComplexUniformizationFibres318.lean": {
+      "imports": [
+        "ActualGaussianComplexTorusKernel318",
+        "ActualGaussianWeberGaussianScalarCore318",
+        "ActualGaussianWeberOriginalUniformization318",
+        "ActualGaussianWeberSelectedGaussianPrime318"
+      ],
+      "sha256": "55a48b1bd0a25d7f5a1821c0d81170ebbd2131b0b4c644ce1dc6b94742dae876"
+    },
+    "ActualGaussianWeberGaussianScalarCore318.lean": {
+      "imports": [
+        "ActualGaussianWeberQuarterTurnAdd318",
+        "Mathlib.Tactic.Abel"
+      ],
+      "sha256": "986d265c26dd45ffb8447bcf383f38bd4f4954fb5bfdbb67637cbfb3153d1bb1"
+    },
+    "ActualGaussianWeberHenselianAffineLift318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianChart318"
+      ],
+      "sha256": "390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0"
+    },
+    "ActualGaussianWeberHenselianChart318.lean": {
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Monic",
+        "Mathlib.RingTheory.Henselian",
+        "Mathlib.Tactic"
+      ],
+      "sha256": "83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762"
+    },
+    "ActualGaussianWeberHenselianPointMap318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianAffineLift318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.RingTheory.Valuation.ValuationSubring"
+      ],
+      "sha256": "789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec"
+    },
+    "ActualGaussianWeberOriginalUniformization318.lean": {
+      "imports": [
+        "ActualGaussianComplexTorusCore318",
+        "ActualGaussianWeberQuarterTurn318",
+        "ActualGaussianWeberSelectedGaussianPrime318"
+      ],
+      "sha256": "f0e2be050ee3b1714b88bb8456ea1b8fd656ca9ce8b73aad4ace1de4cdfe8087"
+    },
+    "ActualGaussianWeberQuarterTurn318.lean": {
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318"
+      ],
+      "sha256": "33926bd30ec766f388a803edb25765fa4d4285948b44e77a11e93615acafe605"
+    },
+    "ActualGaussianWeberQuarterTurnAdd318.lean": {
+      "imports": [
+        "ActualGaussianWeberQuarterTurn318"
+      ],
+      "sha256": "ac46ca24e5cbac9c04c050e62545d2ef18119d4b4f9d6cc6754a4b2969e46bf8"
+    },
+    "ActualGaussianWeberSelectedGaussianPrime318.lean": {
+      "imports": [
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.NumberTheory.Zsqrtd.GaussianInt",
+        "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations",
+        "Mathlib.Tactic"
+      ],
+      "sha256": "9437609080ce5d875301578985a8e0de2ade0f2f7affb73e21868366fd203103"
+    }
+  },
+  "order": [
+    "ActualGaussianComplexTorusCore318",
+    "ActualGaussianComplexTorusKernel318",
+    "ActualGaussianWeberHenselianChart318",
+    "ActualGaussianWeberHenselianAffineLift318",
+    "ActualGaussianWeberHenselianPointMap318",
+    "ActualGaussianWeberQuarterTurn318",
+    "ActualGaussianWeberQuarterTurnAdd318",
+    "ActualGaussianWeberGaussianScalarCore318",
+    "ActualGaussianWeberSelectedGaussianPrime318",
+    "ActualGaussianWeberOriginalUniformization318",
+    "ActualGaussianWeberComplexUniformizationFibres318"
+  ],
+  "packet": "descent-original-linear-q-weber-literal-complex-fibres-r1",
+  "schema_version": 1,
+  "scope": "ORIGINAL_WEBER_GAUSSIAN_TORUS_TO_EXACT_COMPLEX_PRIME_FIBRES_POSITIVE_I_ONLY",
+  "status": "DRAFT_HOSTED_PENDING"
+}

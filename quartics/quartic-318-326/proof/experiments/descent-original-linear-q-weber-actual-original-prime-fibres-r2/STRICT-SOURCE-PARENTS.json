@@ -1,0 +1,490 @@
+{
+  "current_sources": {
+    "ActualGaussianComplexTorusCore318": {
+      "imports": [
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.NumberTheory.Zsqrtd.GaussianInt"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "9605ad5dda3cb4942ed308ebd69cd30063608a5cb5e9a7599db83a7c76150057",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianComplexTorusKernel318": {
+      "frozen_source_only_parent": "descent-original-linear-q-weber-literal-complex-fibres-r1",
+      "imports": [
+        "ActualGaussianComplexTorusCore318",
+        "Mathlib.RingTheory.Ideal.Quotient.Basic"
+      ],
+      "source_sha256": "f3c3fdd9b92564c83e51b84ae9e9bfe849d375351a57dda49e23063266fa2787"
+    },
+    "ActualGaussianWeberComplexUniformizationFibres318": {
+      "frozen_source_only_parent": "descent-original-linear-q-weber-literal-complex-fibres-r1",
+      "imports": [
+        "ActualGaussianComplexTorusKernel318",
+        "ActualGaussianWeberGaussianScalarCore318",
+        "ActualGaussianWeberOriginalUniformization318",
+        "ActualGaussianWeberSelectedGaussianPrime318"
+      ],
+      "source_sha256": "55a48b1bd0a25d7f5a1821c0d81170ebbd2131b0b4c644ce1dc6b94742dae876"
+    },
+    "ActualGaussianWeberGaussianScalarCore318": {
+      "imports": [
+        "ActualGaussianWeberQuarterTurnAdd318",
+        "Mathlib.Tactic.Abel"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979182647,
+      "source_sha256": "986d265c26dd45ffb8447bcf383f38bd4f4954fb5bfdbb67637cbfb3153d1bb1",
+      "strict_donor": "FIXEDUNIT7"
+    },
+    "ActualGaussianWeberHenselianAffineLift318": {
+      "imports": [
+        "ActualGaussianWeberHenselianChart318"
+      ],
+      "log_sha256": "7159529ac671edf0c6f7496d4ac166217eb49365de74c640d97de535be6bdca1",
+      "run": 44979720730,
+      "source_sha256": "390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianWeberHenselianChart318": {
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Monic",
+        "Mathlib.RingTheory.Henselian",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "cce4ad0df9189b46a7f6bcca14ee4d3893ad3575ca8be3eb8f88966fca849ffd",
+      "run": 44979720730,
+      "source_sha256": "83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianWeberHenselianPointMap318": {
+      "imports": [
+        "ActualGaussianWeberHenselianAffineLift318",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.RingTheory.Valuation.ValuationSubring"
+      ],
+      "log_sha256": "52494b616411fdf73323a1d7874d069c94b645258191f34281051ad09dd275b5",
+      "run": 44979720730,
+      "source_sha256": "789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianWeberOriginalUniformization318": {
+      "imports": [
+        "ActualGaussianComplexTorusCore318",
+        "ActualGaussianWeberQuarterTurn318",
+        "ActualGaussianWeberSelectedGaussianPrime318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "f0e2be050ee3b1714b88bb8456ea1b8fd656ca9ce8b73aad4ace1de4cdfe8087",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianWeberQuarterTurn318": {
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318"
+      ],
+      "log_sha256": "19df233d85bd3abfbddfc63c62e7971159f2eac01a1c09630541711eba362595",
+      "run": 44979720730,
+      "source_sha256": "33926bd30ec766f388a803edb25765fa4d4285948b44e77a11e93615acafe605",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianWeberQuarterTurnAdd318": {
+      "imports": [
+        "ActualGaussianWeberQuarterTurn318"
+      ],
+      "log_sha256": "cb6e659b7c547851d1fd5a6902a7b45f989966599c03a17881bc311ef0f0870d",
+      "run": 44979182647,
+      "source_sha256": "254cdcfe4bda86598ebb9a99ce5e8133a0331c285e14fe82b9f022726c6a450e",
+      "strict_donor": "FIXEDUNIT7"
+    },
+    "ActualGaussianWeberSelectedGaussianPrime318": {
+      "imports": [
+        "Mathlib.Data.ZMod.Basic",
+        "Mathlib.NumberTheory.Zsqrtd.GaussianInt",
+        "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+        "Mathlib.RingTheory.Ideal.Quotient.Operations",
+        "Mathlib.Tactic"
+      ],
+      "log_sha256": "e7e3e2ba4c19b6e255e7cb29594465cb196d59a6f260e10d52df65f7adf9215c",
+      "run": 44979720730,
+      "source_sha256": "9437609080ce5d875301578985a8e0de2ade0f2f7affb73e21868366fd203103",
+      "strict_donor": "U25R3"
+    },
+    "ActualGaussianWeberShortScale318": {
+      "imports": [
+        "ActualGaussianWeberHenselianPointMap318"
+      ],
+      "log_sha256": "57edcc36e919dde0020505ffe6d74b1001f8d0cffbbd197c0996cde59d3a6b4f",
+      "run": 44979720730,
+      "source_sha256": "4802e973cc17f4accc8f9d3ebc3765d9bc932b1fb3d5651ee5d49d46f9c34a63",
+      "strict_donor": "U25R3"
+    },
+    "ActualLSGOriginalFullUniformization318": {
+      "imports": [
+        "ActualGaussianWeberOriginalUniformization318",
+        "ActualLSGOriginalPositiveIScale318",
+        "ActualLSGWeierstrassSurjectivity318"
+      ],
+      "log_sha256": "d14486a8491eb8dabd1fc5887366d688b355ac99d5dcc4f09c3cefb9ae4fbff6",
+      "run": 44979720730,
+      "source_sha256": "7c2fc8c4823bab23aa28ca93929dba96c4cf4bf0476b3bb5b5b6d553aa922277",
+      "strict_donor": "U25R3"
+    },
+    "ActualLSGOriginalPositiveIScale318": {
+      "imports": [
+        "ActualGaussianWeberQuarterTurn318",
+        "ActualGaussianWeberShortScale318",
+        "ActualLSGUnitSquarePeriod318",
+        "ActualVendorLSGWeierstrassDictionary318"
+      ],
+      "log_sha256": "0d10ff0075e739c1cd78a116efc3566c36e66b3080558ecea76218d85ebfd029",
+      "run": 44979720730,
+      "source_sha256": "578c009fccc5625d9fca7ac71212e176d43b7e09fd6c9551dc257fe5ad7ffec1",
+      "strict_donor": "U25R3"
+    },
+    "ActualLSGOriginalPrimeFibres318": {
+      "imports": [
+        "ActualGaussianWeberComplexUniformizationFibres318",
+        "ActualLSGOriginalFullUniformization318"
+      ],
+      "new_uncompiled_no_u_application": true,
+      "source_sha256": "9b44218b4d6a0be79b941107645a48fcb34cf20026f8a80180bd92e0c51b7df7"
+    },
+    "ActualLSGUnitSquarePeriod318": {
+      "imports": [
+        "ActualVendorLSGLemniscateIndepSymm318",
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Tactic.LinearCombination"
+      ],
+      "log_sha256": "569257ec9b0d93004492ef9c6043ff68b86115bb1eca561ea8eb4a48f5770ade",
+      "run": 44979720730,
+      "source_sha256": "7ae61809ba347aa24ade6c548f08b193d8a4c07f87933c759feea589f2cde677",
+      "strict_donor": "U25R3"
+    },
+    "ActualLSGWeierstrassSurjectivity318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassDictionary318"
+      ],
+      "log_sha256": "004c2b18d277a439b7de8bc22bfec22d181e51a67566aa38d9e7bb81cc0ee828",
+      "run": 44979720730,
+      "source_sha256": "149efd05a806c5679f361d333bf90f948431a10e765396b29ae845515a4b8d24",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGLemniscateIndepSymm318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassAddition318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "a62be658def881e5f261bfcc7614f8b575c72db67f5d653b23f3556c975fe655",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassAddition318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassDegree318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "a98b378b9d2b1e82af971cb8ebc8cd28f74a3341bf4a1ee33471788db9dc4d20",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassBasic318": {
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Equiv",
+        "Mathlib.Algebra.Polynomial.Roots",
+        "Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point",
+        "Mathlib.Analysis.Complex.Exponential",
+        "Mathlib.Analysis.Complex.Liouville",
+        "Mathlib.Analysis.Normed.Module.Connected",
+        "Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass",
+        "Mathlib.Combinatorics.Nullstellensatz",
+        "Mathlib.FieldTheory.IntermediateField.Adjoin.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "d312a19ead1eaca3d2bf779e316ff3608c1c0303ff6892744227572e972e5583",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassDegree318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassResidue318",
+        "ActualVendorLSGWeierstrassSigmaSign318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "ff8a540705e391d0f9ae678ccb74f8fb2e9fb7c53c123dfabf9a201f92eefa92",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassDictionary318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassAddition318",
+        "Mathlib.FieldTheory.AlgebraicClosure"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "752af4f921312850c51056bb0f0d223b4fe1e8f29b7d5592ec7b05d401e586c8",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassLegendre318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassBasic318",
+        "ActualVendorLSGWeierstrassRectInv318",
+        "ActualVendorLSGWeierstrassZetaQuasiPeriod318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "bc2a44c7ec2a57db880bfb8909ea8c417729c824ad4c8897e761decc5e95da46",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassRectInv318": {
+      "imports": [
+        "Mathlib.Analysis.Complex.CauchyIntegral",
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Ring"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "b2ef19dc8f1c6f989b9d34ed40f92cce4ab4347e6ed067f8bc7b21eb27c890be",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassResidue318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassLegendre318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "6bc428399b80da3df723e0a714e3c157885f8284526499e9a6ad9155c83d130c",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassSigmaDef318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassZetaDef318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "7b83c16ddbb5099f2ebc775b2d67ec43249c8fed60b20ed792bf0a4e2a3106bb",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassSigmaQuasiPeriod318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassSigmaDef318",
+        "Mathlib.Analysis.Normed.Module.Connected"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "611ffb5046d4ed4a0143e2d36f7564a8dec16fcac710ec95b55505994321eae9",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassSigmaSign318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassSigmaQuasiPeriod318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "899f8dd08ebe43f704255c71ffdf1538eda4c07ee440fcd89e8c911639931bbb",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassZetaDef318": {
+      "imports": [
+        "Mathlib.Analysis.Calculus.LogDerivUniformlyOn",
+        "Mathlib.Analysis.Normed.Module.MultipliableUniformlyOn",
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogBounds",
+        "Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "423203f7b77ce50c32626240a91e5e92f02601be6d15e7ca26b01e8af180c160",
+      "strict_donor": "U25R3"
+    },
+    "ActualVendorLSGWeierstrassZetaQuasiPeriod318": {
+      "imports": [
+        "ActualVendorLSGWeierstrassSigmaQuasiPeriod318"
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run": 44979720730,
+      "source_sha256": "b4a13d26e4bb803ea8c0639214d28c953290d25db23985d7615833955e8d3397",
+      "strict_donor": "U25R3"
+    }
+  },
+  "exact_unaccepted_owners": [
+    "ActualGaussianComplexTorusKernel318",
+    "ActualGaussianWeberComplexUniformizationFibres318",
+    "ActualLSGOriginalPrimeFibres318"
+  ],
+  "fixedunit7": {
+    "artifact": 14736519895,
+    "audit_declarations": 75,
+    "audit_log_hash": "455eec2cd2131451020de118e4b192cf8ca8219c84e9717f837f92ef100ee5e2",
+    "baseline": 0,
+    "commit": "9aa9f2b34948f6118a0c5e28e7b959be85f24a9e",
+    "intake_sha256": "707f57d15d8e96f0a60371de9026053b8a961bc49b7bfc750370f3f538abb74f",
+    "inventory_sha256": "e9d7b41507aa58829c56003687ed16da5d9b8d83e316ba427ab40fd6732e7c80",
+    "job": 137076815553,
+    "log_hashes": {
+      "ActualGaussianWeberGaussianScalarCore318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualGaussianWeberHenselianAffineLift318": "fe3841203ba56504a908371a5664118fe6325e43b8d205d3ca7a05a58580b848",
+      "ActualGaussianWeberHenselianChart318": "b1245ee577192d9a29eeff14b445392db33948798ff4cfa462565fa53fb6fc3a",
+      "ActualGaussianWeberHenselianPointMap318": "fdca8a8ea1d136a053efef244d4a467421541cef85fec71a8cf0e317b86b8e52",
+      "ActualGaussianWeberQuarterTurn318": "48a3d74787a9d7237a30bbb069f8043a35170a64151116627be4b04248bf88ef",
+      "ActualGaussianWeberQuarterTurnAdd318": "cb6e659b7c547851d1fd5a6902a7b45f989966599c03a17881bc311ef0f0870d",
+      "ActualGaussianWeberUnitCoefficientRotation318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "marker": "c88d8f70b93707e31257f93be3b175905f77a6de",
+    "packet": "descent-original-linear-q-weber-fixed-unit-coefficients-r1",
+    "reuse": false,
+    "run": 44979182647,
+    "scope": "Actual Gaussian coefficient rotations, additive quarter-turn and inverse phase on the stock point model. No production of a generic phase, CM arithmetic, conductor, or rational-point claim.",
+    "selected_order": [
+      "ActualGaussianWeberHenselianChart318",
+      "ActualGaussianWeberHenselianAffineLift318",
+      "ActualGaussianWeberHenselianPointMap318",
+      "ActualGaussianWeberQuarterTurn318",
+      "ActualGaussianWeberQuarterTurnAdd318",
+      "ActualGaussianWeberGaussianScalarCore318",
+      "ActualGaussianWeberUnitCoefficientRotation318"
+    ],
+    "selection_sha256": "a9f857103a9a046cb6da6f6713cf4131b2ddbd7304504e8413151c27fd842c6b",
+    "source_hashes": {
+      "ActualGaussianWeberGaussianScalarCore318": "986d265c26dd45ffb8447bcf383f38bd4f4954fb5bfdbb67637cbfb3153d1bb1",
+      "ActualGaussianWeberHenselianAffineLift318": "390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0",
+      "ActualGaussianWeberHenselianChart318": "83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762",
+      "ActualGaussianWeberHenselianPointMap318": "789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec",
+      "ActualGaussianWeberQuarterTurn318": "33926bd30ec766f388a803edb25765fa4d4285948b44e77a11e93615acafe605",
+      "ActualGaussianWeberQuarterTurnAdd318": "254cdcfe4bda86598ebb9a99ce5e8133a0331c285e14fe82b9f022726c6a450e",
+      "ActualGaussianWeberUnitCoefficientRotation318": "ea44ffda8f07a38c110ce80dc0659439a4e5bf51dd7410c2baebf8a2a21eda48"
+    },
+    "tree": "f76c3e5995e092a77466273612ca61b993e157b4",
+    "zip_sha256": "e623b588b248f43a21b8a97e1725f8bfeee75f739d36df91e1021a793a5ebb1a"
+  },
+  "literal_fibres11_archive_sha256": "4dc5cc51aa7a37d516374598e389ddfc6d389222a9c72da25418569a2959975a",
+  "no_new_native_green": true,
+  "old_core_sha256": "81f34857b9596a94fce96cd36999ccd4f70c40a12e5a3ca711b24a6cf739ecde",
+  "old_quarter_add_sha256": "ac46ca24e5cbac9c04c050e62545d2ef18119d4b4f9d6cc6754a4b2969e46bf8",
+  "physically_common_old_u_fibre_sources": [
+    "ActualGaussianComplexTorusCore318",
+    "ActualGaussianWeberHenselianAffineLift318",
+    "ActualGaussianWeberHenselianChart318",
+    "ActualGaussianWeberHenselianPointMap318",
+    "ActualGaussianWeberOriginalUniformization318",
+    "ActualGaussianWeberQuarterTurn318",
+    "ActualGaussianWeberSelectedGaussianPrime318"
+  ],
+  "u25r3": {
+    "artifact": 14737219175,
+    "audit_declarations": 667,
+    "audit_log_hash": "f51f199430a9dec8c31b12a4b21216798c59c93331e87000beb81ecea23b5da4",
+    "baseline": 0,
+    "commit": "768ec8127b040cdf12556de8a9324f96cdeee9f6",
+    "intake_sha256": "33177313ed86721a3b8440fa3d8de271f3066054d566ebfdcd7d2de4d6dad9cb",
+    "inventory_sha256": "70ed5870653acb70f770fb3ef256ee14b4a824c17f74ad88e388fba8383c306d",
+    "job": 137078794770,
+    "log_hashes": {
+      "ActualGaussianComplexTorusCore318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualGaussianWeberHenselianAffineLift318": "7159529ac671edf0c6f7496d4ac166217eb49365de74c640d97de535be6bdca1",
+      "ActualGaussianWeberHenselianChart318": "cce4ad0df9189b46a7f6bcca14ee4d3893ad3575ca8be3eb8f88966fca849ffd",
+      "ActualGaussianWeberHenselianPointMap318": "52494b616411fdf73323a1d7874d069c94b645258191f34281051ad09dd275b5",
+      "ActualGaussianWeberOriginalUniformization318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualGaussianWeberQuarterTurn318": "19df233d85bd3abfbddfc63c62e7971159f2eac01a1c09630541711eba362595",
+      "ActualGaussianWeberSelectedGaussianPrime318": "e7e3e2ba4c19b6e255e7cb29594465cb196d59a6f260e10d52df65f7adf9215c",
+      "ActualGaussianWeberShortScale318": "57edcc36e919dde0020505ffe6d74b1001f8d0cffbbd197c0996cde59d3a6b4f",
+      "ActualLSGOriginalFullUniformization318": "d14486a8491eb8dabd1fc5887366d688b355ac99d5dcc4f09c3cefb9ae4fbff6",
+      "ActualLSGOriginalPositiveIScale318": "0d10ff0075e739c1cd78a116efc3566c36e66b3080558ecea76218d85ebfd029",
+      "ActualLSGUnitSquarePeriod318": "569257ec9b0d93004492ef9c6043ff68b86115bb1eca561ea8eb4a48f5770ade",
+      "ActualLSGWeierstrassSurjectivity318": "004c2b18d277a439b7de8bc22bfec22d181e51a67566aa38d9e7bb81cc0ee828",
+      "ActualVendorLSGLemniscateIndepSymm318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassAddition318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassBasic318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassDegree318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassDictionary318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassLegendre318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassRectInv318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassResidue318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassSigmaDef318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassSigmaQuasiPeriod318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassSigmaSign318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassZetaDef318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ActualVendorLSGWeierstrassZetaQuasiPeriod318": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "marker": "82699567549413d71596f8ba8b19eac3c33f2398",
+    "packet": "descent-original-linear-q-weber-lsg-actual-original-u-r3",
+    "reuse": false,
+    "run": 44979720730,
+    "scope": "Actual original positive-i complex uniformization without a supplied U, from the same normalized exponential onto literal y\u00b2=x\u00b3\u2212x with exact unit-square period kernel. No exact scalar-fibre count, CM Frobenius, conductor, or rational-point assertion.",
+    "selected_order": [
+      "ActualGaussianWeberHenselianChart318",
+      "ActualGaussianWeberHenselianAffineLift318",
+      "ActualGaussianWeberHenselianPointMap318",
+      "ActualGaussianWeberQuarterTurn318",
+      "ActualGaussianWeberShortScale318",
+      "ActualVendorLSGWeierstrassBasic318",
+      "ActualVendorLSGWeierstrassRectInv318",
+      "ActualVendorLSGWeierstrassZetaDef318",
+      "ActualVendorLSGWeierstrassSigmaDef318",
+      "ActualVendorLSGWeierstrassSigmaQuasiPeriod318",
+      "ActualVendorLSGWeierstrassZetaQuasiPeriod318",
+      "ActualVendorLSGWeierstrassLegendre318",
+      "ActualVendorLSGWeierstrassResidue318",
+      "ActualVendorLSGWeierstrassSigmaSign318",
+      "ActualVendorLSGWeierstrassDegree318",
+      "ActualVendorLSGWeierstrassAddition318",
+      "ActualVendorLSGLemniscateIndepSymm318",
+      "ActualLSGUnitSquarePeriod318",
+      "ActualVendorLSGWeierstrassDictionary318",
+      "ActualLSGOriginalPositiveIScale318",
+      "ActualGaussianComplexTorusCore318",
+      "ActualGaussianWeberSelectedGaussianPrime318",
+      "ActualGaussianWeberOriginalUniformization318",
+      "ActualLSGWeierstrassSurjectivity318",
+      "ActualLSGOriginalFullUniformization318"
+    ],
+    "selection_sha256": "357ebc1c8ce60c0733b1eac40a46789d5ba5755e4a85cad1ad2fd23d41c5bb90",
+    "source_hashes": {
+      "ActualGaussianComplexTorusCore318": "9605ad5dda3cb4942ed308ebd69cd30063608a5cb5e9a7599db83a7c76150057",
+      "ActualGaussianWeberHenselianAffineLift318": "390bc4424db1aebbf9a6945ddea0e7db625f13b3f13a539505d312d131a9d1e0",
+      "ActualGaussianWeberHenselianChart318": "83b8a3fb78cf46013bd1b03d2f4570712cee9d7ab7238e16ab2365e68a05a762",
+      "ActualGaussianWeberHenselianPointMap318": "789acd0d4b25d67338e3d2bd0063bc661ca0a966ecc2028f10bb5500721363ec",
+      "ActualGaussianWeberOriginalUniformization318": "f0e2be050ee3b1714b88bb8456ea1b8fd656ca9ce8b73aad4ace1de4cdfe8087",
+      "ActualGaussianWeberQuarterTurn318": "33926bd30ec766f388a803edb25765fa4d4285948b44e77a11e93615acafe605",
+      "ActualGaussianWeberSelectedGaussianPrime318": "9437609080ce5d875301578985a8e0de2ade0f2f7affb73e21868366fd203103",
+      "ActualGaussianWeberShortScale318": "4802e973cc17f4accc8f9d3ebc3765d9bc932b1fb3d5651ee5d49d46f9c34a63",
+      "ActualLSGOriginalFullUniformization318": "7c2fc8c4823bab23aa28ca93929dba96c4cf4bf0476b3bb5b5b6d553aa922277",
+      "ActualLSGOriginalPositiveIScale318": "578c009fccc5625d9fca7ac71212e176d43b7e09fd6c9551dc257fe5ad7ffec1",
+      "ActualLSGUnitSquarePeriod318": "7ae61809ba347aa24ade6c548f08b193d8a4c07f87933c759feea589f2cde677",
+      "ActualLSGWeierstrassSurjectivity318": "149efd05a806c5679f361d333bf90f948431a10e765396b29ae845515a4b8d24",
+      "ActualVendorLSGLemniscateIndepSymm318": "a62be658def881e5f261bfcc7614f8b575c72db67f5d653b23f3556c975fe655",
+      "ActualVendorLSGWeierstrassAddition318": "a98b378b9d2b1e82af971cb8ebc8cd28f74a3341bf4a1ee33471788db9dc4d20",
+      "ActualVendorLSGWeierstrassBasic318": "d312a19ead1eaca3d2bf779e316ff3608c1c0303ff6892744227572e972e5583",
+      "ActualVendorLSGWeierstrassDegree318": "ff8a540705e391d0f9ae678ccb74f8fb2e9fb7c53c123dfabf9a201f92eefa92",
+      "ActualVendorLSGWeierstrassDictionary318": "752af4f921312850c51056bb0f0d223b4fe1e8f29b7d5592ec7b05d401e586c8",
+      "ActualVendorLSGWeierstrassLegendre318": "bc2a44c7ec2a57db880bfb8909ea8c417729c824ad4c8897e761decc5e95da46",
+      "ActualVendorLSGWeierstrassRectInv318": "b2ef19dc8f1c6f989b9d34ed40f92cce4ab4347e6ed067f8bc7b21eb27c890be",
+      "ActualVendorLSGWeierstrassResidue318": "6bc428399b80da3df723e0a714e3c157885f8284526499e9a6ad9155c83d130c",
+      "ActualVendorLSGWeierstrassSigmaDef318": "7b83c16ddbb5099f2ebc775b2d67ec43249c8fed60b20ed792bf0a4e2a3106bb",
+      "ActualVendorLSGWeierstrassSigmaQuasiPeriod318": "611ffb5046d4ed4a0143e2d36f7564a8dec16fcac710ec95b55505994321eae9",
+      "ActualVendorLSGWeierstrassSigmaSign318": "899f8dd08ebe43f704255c71ffdf1538eda4c07ee440fcd89e8c911639931bbb",
+      "ActualVendorLSGWeierstrassZetaDef318": "423203f7b77ce50c32626240a91e5e92f02601be6d15e7ca26b01e8af180c160",
+      "ActualVendorLSGWeierstrassZetaQuasiPeriod318": "b4a13d26e4bb803ea8c0639214d28c953290d25db23985d7615833955e8d3397"
+    },
+    "tree": "9a2fd08860d7e0f226d61420c26ec6ad1f07ae9d",
+    "zip_sha256": "9c6f8bdf55745431b1498524cdae45cf2d8763e46574790c839c7d3ed3db9e40"
+  }
+}

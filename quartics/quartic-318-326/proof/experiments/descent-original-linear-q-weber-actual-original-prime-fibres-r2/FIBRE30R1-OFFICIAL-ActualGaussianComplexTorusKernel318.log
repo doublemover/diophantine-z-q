@@ -1,0 +1,21 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-original-prime-fibres-r1/ActualGaussianComplexTorusKernel318.lean:49:4: warning: Unused tactic linter: `change iota z / iota a - iota w / iota a ∈ lattice` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-original-prime-fibres-r1/ActualGaussianComplexTorusKernel318.lean:72:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  scaled_lift a ha (rep a u)
+in the target expression
+  (fun u => scaled_lift a ha (rep a u)) u = ⟨P, hP⟩
+
+case refine_2
+a : GaussianInt
+ha : a ≠ 0
+P : Torus
+hP : (scalar a) P = 0
+x : ℂ
+hx : (QuotientAddGroup.mk' lattice) x = P
+hz : V (iota a * x) = 0
+g : GaussianInt
+hg : iota.toAddMonoidHom g = iota a * x
+u : GaussianInt ⧸ Ide a := (Ideal.Quotient.mk (Ide a)) g
+hrep : scaled_lift a ha (rep a u) = scaled_lift a ha g
+⊢ (fun u => scaled_lift a ha (rep a u)) u = ⟨P, hP⟩
