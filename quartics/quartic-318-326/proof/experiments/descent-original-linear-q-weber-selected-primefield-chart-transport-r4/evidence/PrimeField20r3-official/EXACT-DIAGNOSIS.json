@@ -1,0 +1,75 @@
+{
+  "audit_declarations": 414,
+  "changes": {
+    "ActualGaussianWeberSelectedPrimeFieldFrobTransport318": {
+      "errors": [
+        [
+          55,
+          "Application type mismatch: The argument"
+        ],
+        [
+          55,
+          "Application type mismatch: The argument"
+        ],
+        [
+          55,
+          "Application type mismatch: The argument"
+        ],
+        [
+          59,
+          "(deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached"
+        ]
+      ],
+      "evidence_fragments": [
+        "has type\n  Type\nbut is expected to have type\n  Affine",
+        "(deterministic) timeout at `isDefEq`"
+      ],
+      "hunks": [
+        [
+          "    (a b : \u2124) (u v : L) (huv : (curve L).toAffine.Nonsingular u v)",
+          "    (a b : \u2124) (u v : FunctionField (ResidueField (BasePlace s hs)))\n    (huv : WeierstrassCurve.Affine.Nonsingular\n      (WeierstrassCurve.toAffine (ActualGaussianWeberHenselianPointMap318.curve\n        (FunctionField (ResidueField (BasePlace s hs))))) u v)"
+        ],
+        [
+          "      a b (genericPoint k h\u2080)=Point.some u v huv)",
+          "      a b (genericPoint k h\u2080)=\n        (show WP (FunctionField (ResidueField (BasePlace s hs))) from\n          WeierstrassCurve.Affine.Point.some u v huv))"
+        ]
+      ],
+      "log_sha256": "b17d58fa7e2806fc549d7e9841d57a3e2b577024652fa840637ebd5992fdbebb"
+    }
+  },
+  "counts": {
+    "compile_pass": 19,
+    "compiler_error": 1
+  },
+  "evidence_prefix": "evidence/PrimeField20r3-official/",
+  "head": "ActualGaussianWeberSelectedPrimeFieldFrobTransport318",
+  "identity": {
+    "asset": 14750624646,
+    "audit": "9d194d134ab2f1eb100903367eb2beaa88ba3ae6177f668c08108934337be22c",
+    "inv": "2c9294ead127c569f720750d89d782bbc75740ce2f5bf7e7b1d29f7266d8022c",
+    "job": 137182616367,
+    "marker": "f7193a848ec3f740c0ee7d17f1ea047203acfe38",
+    "run": 45013835729,
+    "source": "0da81130e9b1f64a7243c88f41a5c9ef4bb14d4b",
+    "tree": "a1224d897e05c17a713f5ca24b0992e4fd7696ee",
+    "zip": "b70d920020aa454caba33d1bfb1fd6c4ba508b5e43251f5761d9554169baec51"
+  },
+  "packet": "descent-original-linear-q-weber-selected-primefield-chart-transport-r4",
+  "previous_application": "665a9ff1659fa11faac8a9d44ab25cc999d29883bd7d3199c8557cdc09acb78c",
+  "previous_intake": "43d8eb283fe98ade1fcb5812a83b0b8bd9296a9381cfaffa3112279122660c99",
+  "previous_packet": "descent-original-linear-q-weber-selected-primefield-chart-transport-r3",
+  "previous_selector": "dbcfa810797da8fa8f8a185c76fc4e0e36d533dc11b716cc951f424a97d94238",
+  "previous_tar": "41b6bef05b2c8be854e51afbfd80dd465492e3e5ea9ac85e8f1b591292c4f5f4",
+  "scope_file": "SCOPE.md",
+  "selectors": [
+    [
+      "ActualGaussianWeberSelectedPrimeFieldChart318",
+      9
+    ],
+    [
+      "ActualGaussianWeberSelectedPrimeFieldFrobTransport318",
+      20
+    ]
+  ],
+  "smallest_repair_scope": 20
+}

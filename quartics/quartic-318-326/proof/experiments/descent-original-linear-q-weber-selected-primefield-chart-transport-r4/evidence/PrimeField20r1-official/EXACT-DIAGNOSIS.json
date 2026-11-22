@@ -1,0 +1,68 @@
+{
+  "audit_declarations": 402,
+  "changes": {
+    "ActualGaussianWeberSelectedPrimeFieldChart318": {
+      "errors": [
+        [
+          16,
+          "Application type mismatch: The argument"
+        ],
+        [
+          16,
+          "failed to synthesize instance of type class"
+        ],
+        [
+          20,
+          "Application type mismatch: The argument"
+        ]
+      ],
+      "evidence_fragments": [
+        "Function.Injective.comp (fractionMap_injective L)",
+        "Algebra (Chart L) (FunctionField K)"
+      ],
+      "hunks": [
+        [
+          "@[expose] def along_coefficients {K L : Type*} [Field K] [Field L] (f : K\u2192+*L) :\n    FunctionField K\u2192+*FunctionField L :=\n  IsFractionRing.lift ((fractionMap_injective L).comp (mapChart_injective f f.injective))\n\nprivate theorem along_chart {K L : Type*} [Field K] [Field L] (f : K\u2192+*L) (z : Chart K) :\n    along_coefficients f (fractionMap K z)=fractionMap L (mapChart f z) :=\n  IsFractionRing.lift_algebraMap ((fractionMap_injective L).comp (mapChart_injective f f.injective)) z\n",
+          "private theorem along_chart_injective {K L : Type*} [Field K] [Field L] (f : K\u2192+*L) :\n    Function.Injective (((fractionMap L).comp (mapChart f)) : Chart K\u2192+*FunctionField L) := by\n  intro A B h\n  have h' : fractionMap L (mapChart f A)=fractionMap L (mapChart f B) := h\n  exact mapChart_injective f f.injective (fractionMap_injective L h')\n\n@[expose] def along_coefficients {K L : Type*} [Field K] [Field L] (f : K\u2192+*L) :\n    FunctionField K\u2192+*FunctionField L :=\n  IsFractionRing.lift (K := FunctionField K)\n    (g := (((fractionMap L).comp (mapChart f)) : Chart K\u2192+*FunctionField L))\n    (along_chart_injective f)\n\nprivate theorem along_chart {K L : Type*} [Field K] [Field L] (f : K\u2192+*L) (z : Chart K) :\n    along_coefficients f (fractionMap K z)=fractionMap L (mapChart f z) := by\n  unfold along_coefficients\n  exact IsFractionRing.lift_algebraMap (K := FunctionField K)\n    (g := (((fractionMap L).comp (mapChart f)) : Chart K\u2192+*FunctionField L))\n    (along_chart_injective f) z\n"
+        ]
+      ],
+      "log_sha256": "de0c6809d0898d3e49e9d1916189194e3d376ee2a456858ff0631a8ddbd849e9"
+    }
+  },
+  "counts": {
+    "blocked_by_import": 1,
+    "compile_pass": 18,
+    "compiler_error": 1
+  },
+  "evidence_prefix": "evidence/PrimeField20r1-official/",
+  "head": "ActualGaussianWeberSelectedPrimeFieldFrobTransport318",
+  "identity": {
+    "asset": 14749980947,
+    "audit": "fadc7a1c3c7010e2ca2285f90eb29bd674b3a59b44c3759272ed6c4a0faaeb8c",
+    "inv": "f6e21e90b58bcc5d3b33f38337b93f8fefce850a5eb8e0e1f97e33ff567e3eef",
+    "job": 137171182638,
+    "marker": "3386272acf4d923beaa7f48ba170b32ee61d580f",
+    "run": 45010020103,
+    "source": "61d79d36a2d5ee21bf9e10d9528c15754a810d92",
+    "tree": "a647cd10f07a1af273a9502b2308bec9a9cde678",
+    "zip": "bcc9f53150e07aadfa9019e97d05331bfa7e9ee3a8cd1821dde353f4f5f80af3"
+  },
+  "packet": "descent-original-linear-q-weber-selected-primefield-chart-transport-r2",
+  "previous_application": "e4530c39cdd0204aaa509ad1788d90f9bf364108f80c6aa9179980b75928ef3e",
+  "previous_intake": "4d238d8d79bbee723b3f112599c7e1367a9155ed1a2eb716de46b027eef2bdf2",
+  "previous_packet": "descent-original-linear-q-weber-selected-primefield-chart-transport-r1",
+  "previous_selector": "003dc9dc8f532cc540895ce3d9acb2dc1653cb8f31684b1bfce3719225fa1909",
+  "previous_tar": "627517976dd06c7c1a42ceedae3d0fc3de6394d24d92d2a32cb8d3c35de29c37",
+  "scope_file": "SCOPE.md",
+  "selectors": [
+    [
+      "ActualGaussianWeberSelectedPrimeFieldChart318",
+      9
+    ],
+    [
+      "ActualGaussianWeberSelectedPrimeFieldFrobTransport318",
+      20
+    ]
+  ],
+  "smallest_repair_scope": 9
+}
