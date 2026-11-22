@@ -1,0 +1,130 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:53:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:56:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:61:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:69:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:71:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:86:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => Submonoid.map e.toRingEquiv.toMonoidHom _a.primeCompl = QW.primeCompl
+Error: Application type mismatch: The argument
+  this✝
+has type
+  Q.IsPrime
+but is expected to have type
+  _a.IsPrime
+in the application
+  @Ideal.primeCompl (OrdinaryRoot N p) CommRing.toCommSemiring.toSemiring _a ⋯
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+N : ℕ
+inst✝ : NeZero N
+p : (OpenJModel318.Base N)[X]
+hp : p.Monic
+hd : IsUnit ((AdjoinRoot.mk p) (derivative p))
+hf : IsField (AdjoinRoot (P N p))
+hRoots : fullRootSet N p
+t : SelectedActualComplexWholeRootField318.Period
+this✝³ : Field (K N p) := ⋯.toField
+F : Type := K N p
+this✝² : Algebra ℂ[X] F := (polynomial F 1).toAlgebra
+this✝¹ : Algebra Base F := ordinaryFieldAlgebra N p
+T : Subalgebra ℂ[X] F := B F
+W : Type := O F
+C : Type := OrdinaryRoot N p
+Q : Ideal (OrdinaryRoot N p) := RingHom.ker (atPeriod N p hRoots t)
+this✝ : Q.IsPrime := RingHom.ker_isPrime (atPeriod N p hRoots t)
+U : Type := Localization.AtPrime Q
+α : O (K N p) →+* K N p
+e : SelectedActualLiteralMarkedGenericTensor318.C N p ≃ₐ[Base] O (K N p)
+hα : α.comp (algebraMap (↥(B (K N p))) (O (K N p))) = algebraMap (↥(B (K N p))) (K N p)
+he :
+  ∀ (z : SelectedActualLiteralMarkedGenericTensor318.C N p),
+    α (e z) = (SelectedActualLiteralMarkedGenericTensor318.literalWholeTensor N p) (z ⊗ₜ[Base] 1)
+hSame : ∀ (z : C), α (e z) = (intoWhole N p) z
+χ : OrdinaryRoot N p →+* ℂ := atPeriod N p hRoots t
+χW : W →+* ℂ := χ.comp e.symm.toRingEquiv.toRingHom
+QW : Ideal W := RingHom.ker χW
+this : QW.IsPrime := RingHom.ker_isPrime χW
+P₀ : Ideal ↥T := Ideal.comap (algebraMap (↥T) W) QW
+hP₀ : P₀.IsPrime := Ideal.comap_isPrime (algebraMap (↥T) W) QW
+L : Type := Localization.AtPrime P₀
+M : Submonoid ↥T := Algebra.algebraMapSubmonoid (↥T) (Submonoid.powers denominator)
+dT : ↥T := (algebraMap ℂ[X] ↥T) denominator
+hdM : dT ∈ M
+hAway : dT ∉ P₀
+hQ : Ideal.comap e.toRingEquiv.toRingHom QW = Q
+⊢ Submonoid.map e.toRingEquiv.toMonoidHom Q.primeCompl = QW.primeCompl
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:89:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:90:9: error: failed to synthesize
+  SMul (↥T) V
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/actual-marked-elliptic-arbitrary-field-order-r4/SelectedActualMarkedCompactPrincipalBranch318.lean:90:64: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.552 = ?m.552
+but is expected to have type
+  algebraMap ?m.542 ?m.544 = (algebraMap ?m.543 ?m.544).comp (algebraMap ?m.542 ?m.543)
+in the application
+  IsScalarTower.of_algebraMap_eq' rfl
+'SelectedActualMarkedCompactPrincipalBranch318.actual_marked_compact_branch' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
