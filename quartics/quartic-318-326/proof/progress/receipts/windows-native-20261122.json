@@ -1,0 +1,812 @@
+{
+  "repositoryBase": "7253082d42049fc2d7b39fa93a7981527eaea02c",
+  "toolchain": "Lean 4.35.0 Windows x86_64-w64-windows-gnu, eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "nativeFlags": [
+    "-j2",
+    "-M",
+    "6144",
+    "-Ddebug.skipKernelTC=false",
+    "-DwarningAsError=true"
+  ],
+  "verification": "Path-specific Windows kernel checks; not default-target CI nor the full quartic theorem. Olean hashes record native artifacts, not committed build inputs.",
+  "groups": [
+    {
+      "id": "reverse-height",
+      "modules": [
+        "SelectedActualSameAPlusEleven318"
+      ],
+      "scope": "Height logarithmic bound < 2·normalizedDegree+11 and exact square finite/infinite transport for explicit local frames; assumes finite primitive lifts and archimedean period calibration. Does not construct actual same-A frames or prove the reverse contradiction."
+    },
+    {
+      "id": "reverse-curvature",
+      "modules": [
+        "SelectedActualSameACurvature64",
+        "SelectedActualSameAWeightedLaplacian318"
+      ],
+      "scope": "Certified ordinary curvature bound and explicit weighted-Laplacian transport in the selected finite setting. Does not identify the theorem’s entire intrinsic/geometric arithmetic metric or rule out rational zeros."
+    },
+    {
+      "id": "marked-positive-boundary",
+      "modules": [
+        "SelectedSameAActualLiftDifference318",
+        "SelectedSameAGenuineBoundaryLifts318",
+        "SelectedSameALiteralInjectiveRow318",
+        "SelectedSameALocalImageLift318",
+        "SelectedSameASignedLiftCocycle318",
+        "SelectedSameASignedOpenInjectiveImage318",
+        "SelectedSameACoboundaryGivesActualGlobalLift318",
+        "SelectedSameASignedCoefficientsAcrossRow318",
+        "SelectedSameASignedCoverInjectiveJoin318",
+        "SelectedSameACompareCoveredBoundaries318"
+      ],
+      "scope": "Actual lifts, overlap comparisons, gluing, and injective-row comparison yield the H¹ equality for an explicit same-cover restricted sign gauge; they do not construct the sign gauge, unconditional positive Φ, or an arithmetic point."
+    },
+    {
+      "id": "conditional-Artin-matrix",
+      "modules": [
+        "PointwiseConverseInnerStabilization",
+        "PointwiseConverseOuterDefect",
+        "PointwiseConverseRawMatrixReceiver",
+        "PointwiseConverseRawMatrixReconstruction",
+        "PointwiseConverseCochainFiniteNormalFactor",
+        "PointwiseConverseMatchedInnerOuter",
+        "PointwiseConverseRationalArtin",
+        "PointwiseConverseRetainedArtinRows",
+        "PointwiseConverseArtinRingCut"
+      ],
+      "scope": "Conditional §5.7 inner/outer stabilization and reconstruction; compact finite-normal factorization and finite rational Artin restriction, retained rows, and ring cut. No proof that actual Selmer corank one yields rational marked points."
+    },
+    {
+      "id": "rational-Hilbert-basis",
+      "modules": [
+        "RationalHilbertPrimeBasis318"
+      ],
+      "scope": "Finite odd Hilbert sign reciprocity, supplementary signs, rational coordinate matrix, pivot inverse and crossed annihilator; no genuine full local/global pairing, Cassels–Tate injection, or exact Selmer corank."
+    },
+    {
+      "id": "point-integral-certificate",
+      "modules": [
+        "ActualTorsorIntegralCertificates318"
+      ],
+      "scope": "Standalone polynomial certificates for integral torsor radical/Veronese model equations and map forms; no global torsor isomorphism or construction of rational marked points."
+    },
+    {
+      "id": "literal-A4-finite",
+      "modules": [
+        "LinearA4GaussianCounts318",
+        "LinearA4MixedNormCounts318",
+        "LinearSelbergOmittedPrime318",
+        "LinearA4EulerDensity318",
+        "LinearA4ObservedResidues318"
+      ],
+      "scope": "Exact finite rank-two and rank-four Gaussian norm counts, common intersection, union, and Euler-factor density for actual q or u+kQ²q forms with good distinct reductions, plus separate uniform omission factor for truncated Selberg sum. No analytic FT mass bound, continuum sieve remainder, prime existence or Ready proof."
+    }
+  ],
+  "sources": [
+    {
+      "module": "ActualTorsorIntegralCertificates318",
+      "sourceSHA256": "f698ba1ea1652b0c4f8ae51bfda4b36fac41dbd9b6020f5e5935579dbcb491e6",
+      "byteCount": 4962,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/ActualTorsorIntegralCertificates318.lean",
+      "imports": [
+        {
+          "module": "Mathlib.Tactic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 24.5723871,
+      "oleanSHA256": "8cb84cd1229e723b4b6646c3f145f115d4af8156fe05c670456725946eb91308"
+    },
+    {
+      "module": "LinearA4GaussianCounts318",
+      "sourceSHA256": "e05812068753987c340ddec5ab9c246c1737f0d65510067f7cab0e38471615be",
+      "byteCount": 6575,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/LinearA4GaussianCounts318.lean",
+      "imports": [
+        {
+          "module": "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Tactic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 18.0702796,
+      "oleanSHA256": "0ab6d81272f62087cfcc71fd5026e712d4a033d7ad009b6290e28297e5b81ea8"
+    },
+    {
+      "module": "LinearA4MixedNormCounts318",
+      "sourceSHA256": "9ff45a69872b52a761a9eec19bb841ec272a575f2d65cbb54ab6150e9d29664f",
+      "byteCount": 6203,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/LinearA4MixedNormCounts318.lean",
+      "imports": [
+        {
+          "module": "LinearA4GaussianCounts318",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 23.0660601,
+      "oleanSHA256": "aa3e501636dbc3986692e46efe4a9b4387b2052691fa2bc521a813a2d749e400"
+    },
+    {
+      "module": "LinearSelbergOmittedPrime318",
+      "sourceSHA256": "705e2b214f15cfd603559e227e8fa92f26fd769e1472c82f0f2e1d3471507968",
+      "byteCount": 6620,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/LinearSelbergOmittedPrime318.lean",
+      "imports": [
+        {
+          "module": "Mathlib.Data.Nat.Squarefree",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Data.Nat.PrimeFin",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Tactic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 16.9935742,
+      "oleanSHA256": "657316c5448726f05503ef6e9144a1c6ad47cd95ec2785f5defcf16a5b43fe86"
+    },
+    {
+      "module": "PointwiseConverseInnerStabilization",
+      "sourceSHA256": "5995fce038e5140bc1be8917ed448cad63e8a880e0dab74f1543c853c0aae5a6",
+      "byteCount": 4918,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseInnerStabilization.lean",
+      "imports": [
+        {
+          "module": "Mathlib.Order.Filter.Ultrafilter.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Order.Filter.Finite",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 8.9085824,
+      "oleanSHA256": "4a8ae7e55f0eb184dbd832a43c8271de1199ebbf8ae4b489191ed40035b2ac4d"
+    },
+    {
+      "module": "PointwiseConverseOuterDefect",
+      "sourceSHA256": "2e0046b820dec3ebea79ae17479e96c2bbc81bf3780dbb55baa6ef72f3c98f1d",
+      "byteCount": 6943,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseOuterDefect.lean",
+      "imports": [
+        {
+          "module": "Mathlib.Algebra.GroupWithZero.Units.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.LinearAlgebra.Pi",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Order.Filter.Finite",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.RingTheory.Ideal.Quotient.Basic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 11.0200295,
+      "oleanSHA256": "b7ae77234cd377892923648ae68974b0ba12202c4969e6027e2a78cf3822158a"
+    },
+    {
+      "module": "PointwiseConverseRawMatrixReceiver",
+      "sourceSHA256": "0d2577fd711e6062e92023641bf90fb605c6a27957577702347806a496412f56",
+      "byteCount": 5554,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseRawMatrixReceiver.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseInnerStabilization",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Algebra.Divisibility.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Data.Fintype.Pi",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Data.ZMod.Basic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 9.7592897,
+      "oleanSHA256": "1cb554f495ab2b0bb57ebc1d18352acd33d03319a570bfb0f84d1297e8200228"
+    },
+    {
+      "module": "PointwiseConverseRawMatrixReconstruction",
+      "sourceSHA256": "5f62305f2bd35ed8ab0df28c424cc3232979b6ce897bf6113d9b15e154cf2fa5",
+      "byteCount": 8428,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseRawMatrixReconstruction.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseRawMatrixReceiver",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Data.Nat.Prime.Defs",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.NumberTheory.Padics.RingHoms",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.RingTheory.PowerSeries.Basic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 12.5392565,
+      "oleanSHA256": "adc23bc6986347902487b71f50795b9ea66878a4189eb1d337f344aff06cf167"
+    },
+    {
+      "module": "RationalHilbertPrimeBasis318",
+      "sourceSHA256": "ce9c1777e86f9e951281b942f5e9287deeb763d6c56a6928a03665e7bd3f2f20",
+      "byteCount": 12248,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/RationalHilbertPrimeBasis318.lean",
+      "imports": [
+        {
+          "module": "Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Tactic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 21.1963526,
+      "oleanSHA256": "4ca1a7550fb86e43861f7a898b8d4a942ebeb3dd2af0288febf77c1191861d74"
+    },
+    {
+      "module": "SelectedActualSameACurvature64",
+      "sourceSHA256": "0c71d3373b04d1c19f8c3e2903a0b56787df261de80e0a626fe1896e5c000160",
+      "byteCount": 12633,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedActualSameACurvature64.lean",
+      "imports": [
+        {
+          "module": "FiveContactMetricBounds318",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 30.3347971,
+      "oleanSHA256": "bbb3fb4d2ea96c16b04f4f2b7e1e5693d7135372a32ccdeeff4e9d74c0095af9"
+    },
+    {
+      "module": "SelectedActualSameAPlusEleven318",
+      "sourceSHA256": "27bea05d7d289525e53ca72d3a32afdc30ed5962edc4450bc3bfe1fa73832d8c",
+      "byteCount": 8312,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedActualSameAPlusEleven318.lean",
+      "imports": [
+        {
+          "module": "RationalSectionHeight318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "InducedLattice318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.RingTheory.Kaehler.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.LinearAlgebra.Matrix.ToLin",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Algebra.Category.ModuleCat.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Analysis.Complex.ExponentialBounds",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 20.023283,
+      "oleanSHA256": "6dfbf800acf13862b5ffb41928185560dbe8f208fc85d22e0ad7430cb740a10b"
+    },
+    {
+      "module": "SelectedActualSameAWeightedLaplacian318",
+      "sourceSHA256": "be2f71f60e08dd9302afad792d528ecbc72e640b87b619bb3e02c085f2460983",
+      "byteCount": 11294,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedActualSameAWeightedLaplacian318.lean",
+      "imports": [
+        {
+          "module": "GradientNorm318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "SelectedActualSameACurvature64",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 23.8279991,
+      "oleanSHA256": "e1f11778a16e82d6df8bd7854be0c73af053d522ed6366027a1f0935b31629a0"
+    },
+    {
+      "module": "SelectedSameAActualLiftDifference318",
+      "sourceSHA256": "0e2b8590797d223a3b28d8b424dae181308a707b1001b4498d026d746f6f84af",
+      "byteCount": 4252,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameAActualLiftDifference318.lean",
+      "imports": [
+        {
+          "module": "Mathlib.CategoryTheory.Sites.SheafCohomology.ExactSequences",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Topology.Sheaves.Sheaf",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.CategoryTheory.Sites.Limits",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Algebra.Category.Grp.Limits",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Algebra.Category.Grp.EpiMono",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Kernels",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 14.2215149,
+      "oleanSHA256": "6a93e8b9fe707dd16638cf176108ec0cd8a7f6b250bbea65aa5a258aa9e1224d"
+    },
+    {
+      "module": "SelectedSameAGenuineBoundaryLifts318",
+      "sourceSHA256": "7b45cd5fdce8d55815661ae3428d9865c12649dcc3d307536b2e5322d4174a13",
+      "byteCount": 2857,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameAGenuineBoundaryLifts318.lean",
+      "imports": [
+        {
+          "module": "Mathlib.CategoryTheory.Sites.SheafCohomology.ExactSequences",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Topology.Sheaves.Sheaf",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 13.1771249,
+      "oleanSHA256": "39c8c38b30e75fabfadc41f08a69952eb274759fc8a81e6b4ca7df94cd08ba03"
+    },
+    {
+      "module": "SelectedSameALiteralInjectiveRow318",
+      "sourceSHA256": "c5b42a4aff109279bb157eaaa78e34f6bea155361c7b8983a52867cd66543e58",
+      "byteCount": 4923,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameALiteralInjectiveRow318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameAGenuineBoundaryLifts318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Algebra.Category.Grp.AB",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.CategoryTheory.Abelian.GrothendieckAxioms.Sheaf",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.CategoryTheory.Abelian.GrothendieckCategory.EnoughInjectives",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.CategoryTheory.Sites.LeftExact",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 13.5442138,
+      "oleanSHA256": "755a619f3777476750f42753660e50ed1854608bada5eb5c4b96736fd1c382fc"
+    },
+    {
+      "module": "SelectedSameALocalImageLift318",
+      "sourceSHA256": "2c5a04dd0a3043812cdb347d0cc24c84a4988451a0ba173a62d2c73ef62708bf",
+      "byteCount": 2017,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameALocalImageLift318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameALiteralInjectiveRow318",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 12.3537375,
+      "oleanSHA256": "98191b99597710598200193628154a20f27586a1633628bef5138c00e0e19f42"
+    },
+    {
+      "module": "SelectedSameASignedLiftCocycle318",
+      "sourceSHA256": "dc6ab05e2dd75760e1655fd7627d1868db09ae368d237030d1250b0196e51c81",
+      "byteCount": 3872,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameASignedLiftCocycle318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameAActualLiftDifference318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Tactic.Abel",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 12.8067489,
+      "oleanSHA256": "899f5b690736abc3f5ce3353f64b2acd168730ff207818acd46ea21c40a408d6"
+    },
+    {
+      "module": "SelectedSameASignedOpenInjectiveImage318",
+      "sourceSHA256": "c92eae355918ba3d77cc3c49e293b5cb18463bebbd74a79bb7211d2c8c677841",
+      "byteCount": 2037,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameASignedOpenInjectiveImage318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameALiteralInjectiveRow318",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 12.2713427,
+      "oleanSHA256": "6a5660e63e6820b41ffb15201b48416b2c4fab1f842b602a6216fb49f01e7798"
+    },
+    {
+      "module": "LinearA4EulerDensity318",
+      "sourceSHA256": "40dd39e751cc31c628fb1afaa3cd00227c54f4d18569ec9f0d4f5d73b099786c",
+      "byteCount": 8445,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/LinearA4EulerDensity318.lean",
+      "imports": [
+        {
+          "module": "LinearA4MixedNormCounts318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "LinearA4MixedNormCounts318",
+          "all": true,
+          "visibility": "default"
+        }
+      ],
+      "nativeElapsedSec": 26.7164797,
+      "oleanSHA256": "16965d4d36855dd1ba22bddf8db14c246b6c21606318736de04d983f7ed9fa1e"
+    },
+    {
+      "module": "PointwiseConverseCochainFiniteNormalFactor",
+      "sourceSHA256": "cb8cf1718b62cc705b70591464609983dcbc0a8196b0031351ad6a36ef336b47",
+      "byteCount": 6934,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseCochainFiniteNormalFactor.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseRawMatrixReceiver",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.FieldTheory.Galois.Profinite",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Order.Filter.Finite",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Topology.Algebra.ClopenNhdofOne",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Topology.Compactness.Compact",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 13.1274345,
+      "oleanSHA256": "ad1dc590e761c05973af8f3a4c96540354072f09f93dd3b2360cf5f39d8979da"
+    },
+    {
+      "module": "PointwiseConverseMatchedInnerOuter",
+      "sourceSHA256": "831417e5593f51ed81c0fd6efa71e2632a5f4d6af85873693e57a5f566c47542",
+      "byteCount": 4928,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseMatchedInnerOuter.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseRawMatrixReconstruction",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "PointwiseConverseOuterDefect",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 11.9990812,
+      "oleanSHA256": "5f8ba5ccd19787e18d1dae8d2c42ef4b193f6f95f893729999c90f1bb0754834"
+    },
+    {
+      "module": "PointwiseConverseRationalArtin",
+      "sourceSHA256": "a575dcb278588758d9a506cb0d6869a1b225258e3c4fcbd03cf288239055e1a4",
+      "byteCount": 5353,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseRationalArtin.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseCochainFiniteNormalFactor",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "PointwiseConverseMatchedInnerOuter",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.FieldTheory.AbsoluteGaloisGroup",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 21.5364602,
+      "oleanSHA256": "f563d345bb77b1af8866d992e4d12f41a8cf6fade28587e233f18b55de85978e"
+    },
+    {
+      "module": "PointwiseConverseRetainedArtinRows",
+      "sourceSHA256": "1f003b76c29b55b1760192c49c4b38b81e1d0e6e1dec8b7be140410aa2422e94",
+      "byteCount": 6393,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseRetainedArtinRows.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseRationalArtin",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.RingTheory.AdjoinRoot",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.GroupTheory.OrderOfElement",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Tactic.Choose",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 18.9640326,
+      "oleanSHA256": "20b591a1719ef53551d56ba8ebf77341e2b5c72b1e3885d32a3d22de9fb75c84"
+    },
+    {
+      "module": "SelectedSameACoboundaryGivesActualGlobalLift318",
+      "sourceSHA256": "5041d6aa3f1b4893216dbc64729e08f837b1e8fa590234c6e0a4d385e04bd3cd",
+      "byteCount": 3894,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameACoboundaryGivesActualGlobalLift318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameASignedLiftCocycle318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Topology.Sheaves.SheafCondition.UniqueGluing",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 15.673365,
+      "oleanSHA256": "a96d0b6513df2161df523dbb113d7a0cee0583109ee0e3b31e058f785d22b42b"
+    },
+    {
+      "module": "SelectedSameASignedCoefficientsAcrossRow318",
+      "sourceSHA256": "01d7565adb071bf9befb847e74144519f925b023176eb9b3ca8340ce3ca25777",
+      "byteCount": 3365,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameASignedCoefficientsAcrossRow318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameASignedLiftCocycle318",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 13.9937542,
+      "oleanSHA256": "be34491257c706b66aa730ba2db4a7637e2a3074233adf3bf747be331b7ef44d"
+    },
+    {
+      "module": "SelectedSameASignedCoverInjectiveJoin318",
+      "sourceSHA256": "47fd1ad2e8cf84b007e7bd339e3147b70dec94d4579f75cbc22cfcdd98e293ab",
+      "byteCount": 3607,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameASignedCoverInjectiveJoin318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameASignedLiftCocycle318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "SelectedSameALocalImageLift318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "SelectedSameASignedOpenInjectiveImage318",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 17.0069322,
+      "oleanSHA256": "6604df6f65db899ebef0e22e6ce6f6755b474b57efd3a40449ae00b0f965b963"
+    },
+    {
+      "module": "LinearA4ObservedResidues318",
+      "sourceSHA256": "d5289d010195db6a04019a498541c33ce2c38aa79f884a5ba5e96addc4266e83",
+      "byteCount": 6285,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/LinearA4ObservedResidues318.lean",
+      "imports": [
+        {
+          "module": "LinearA4EulerDensity318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "LinearA4EulerDensity318",
+          "all": true,
+          "visibility": "default"
+        },
+        {
+          "module": "LinearA4MixedNormCounts318",
+          "all": true,
+          "visibility": "default"
+        }
+      ],
+      "nativeElapsedSec": 16.5701601,
+      "oleanSHA256": "eaa700b1f377596617691f25b0c8127201495a0fdee6808ac6eb4e4f6d2a6f9f"
+    },
+    {
+      "module": "PointwiseConverseArtinRingCut",
+      "sourceSHA256": "30f52fce4542540ad44b25f90cb9442ce9284a341fcdc356f4d33e049f182e26",
+      "byteCount": 5330,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/PointwiseConverseArtinRingCut.lean",
+      "imports": [
+        {
+          "module": "PointwiseConverseRetainedArtinRows",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "PointwiseConverseRawMatrixReconstruction",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "PointwiseConverseRawMatrixReconstruction",
+          "all": true,
+          "visibility": "default"
+        },
+        {
+          "module": "Mathlib.Algebra.Polynomial.Coeff",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "Mathlib.Tactic",
+          "all": false,
+          "visibility": "public"
+        }
+      ],
+      "nativeElapsedSec": 20.4563729,
+      "oleanSHA256": "031be483d597d8daced56fc1d24c05a2b4af1a28f24b02c884e44db58db56fd5"
+    },
+    {
+      "module": "SelectedSameACompareCoveredBoundaries318",
+      "sourceSHA256": "7d86e7480af4a3f4e26c024c4e96a41e6dc9218c158c05fdc3453f39e7877640",
+      "byteCount": 6368,
+      "recommendedRelpath": "quartics/quartic-318-326/proof/progress/SelectedSameACompareCoveredBoundaries318.lean",
+      "imports": [
+        {
+          "module": "SelectedSameASignedCoverInjectiveJoin318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "SelectedSameACoboundaryGivesActualGlobalLift318",
+          "all": false,
+          "visibility": "public"
+        },
+        {
+          "module": "SelectedSameAGenuineBoundaryLifts318",
+          "all": true,
+          "visibility": "default"
+        }
+      ],
+      "nativeElapsedSec": 24.5185944,
+      "oleanSHA256": "593b3e67c76229abf76d6e7ace529849ee2829f53ad3ad6173609345facfd3c1"
+    }
+  ],
+  "stockSourceHashes": {
+    "CompactMetricComparison318": "853f50f8aecf8401f88287450049cbba9617a2d4423c002be0f4903708b49a7c",
+    "ConformalCurvature318": "eb743096ad53c4b36cc0e1f88cb606a72d69cb6a4626580cc253a4dd5a0611e6",
+    "Contact49Growth318": "a3620de45d785a409ef1e3dded183f13f6c90639f5a578cfc730c259a5958878",
+    "ContactCurvature318": "0d1a52eb8e1e3227739533688d553880981f3f2ab2e20d4a48aeadf25225a24c",
+    "DistanceLaplacian318": "cc83192ff13ef4de62f1689c01279016ab249f0b728adf14479180fb8dcbbeef",
+    "FiniteLaplacian318": "8cf6736f1889b4bb9c555a8cf6bd191aa3b8de12d29ffdaa94e7dfa7144b45c4",
+    "FiveContactMetricBounds318": "161875419a900eb4e88684a4cdebd057bee0619a1b3e58329ad6fefe2c92adb0",
+    "GradientNorm318": "b2355e02cacae86b26490e259aa4dd66436de9299bbefc8826554660afd78233",
+    "InducedLattice318": "f5cf4775d3ff7ee73c0819f892997de027ffc3cd4acded89fe907a79aa8c14f3",
+    "RationalAbsoluteHeight": "9c3e8c1792e5a7bdeb94d586eff43db36876c3f61351031f204534130c8b81ec",
+    "RationalSectionHeight318": "32131be9b052e0b8c59e3f2e4b6e335c0fb25430c024fc55121bc103178ccbfe",
+    "SectionHeight318": "accfa44bb2fb53ee367c7ec776e6a924f412c80cc3dc96fd490f2abea1dbb712"
+  }
+}
