@@ -1,0 +1,12 @@
+--- r3/ActualGaussianWeberComplexFibreDegree318.lean
++++ r4/ActualGaussianWeberComplexFibreDegree318.lean
+@@ -98,7 +98,8 @@
+       let E := eval₂RingHom f x
+       have hEv : E D = 0 := by
+         change E (A.derivative * B - A * B.derivative) = 0
+-        simp only [map_sub,map_mul,coe_eval₂RingHom]
++        simp only [map_sub,map_mul]
++        change A.derivative.eval₂ f x * B.eval₂ f x - A.eval₂ f x * B.derivative.eval₂ f x = 0
+         rw [hd,hE]
+         ring
+       exact hD (hinj (hEv.trans (map_zero E).symm))

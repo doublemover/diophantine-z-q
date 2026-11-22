@@ -1,0 +1,11 @@
+--- held/ActualGaussianWeberOneComplexFibre318.lean
++++ new/ActualGaussianWeberOneComplexFibre318.lean
+@@ -148,7 +148,7 @@
+   have hNegQ : -Q = Point.some c (-w) hNQ := by
+     change -(Point.some c w hQ) = _
+     rw [Point.neg_some]
+-    exact some_congr rfl (literal_negY ℂ c w)
++    exact some_congr rfl (ActualGaussianWeberOrdinarySlope318.literal_negY ℂ c w)
+   have produce (x : ↥R) : ∃ S : WP ℂ, xCoord S = x.val ∧ G S = Q := by
+     have hroots : x.val ∈ H.roots := Multiset.mem_toFinset.mp x.property
+     have hH : H ≠ 0 := by
