@@ -1,0 +1,30 @@
+--- a/SelectedSameAActualLiftDifference318.lean
++++ b/SelectedSameAActualLiftDifference318.lean
+@@ -36,7 +36,7 @@
+ 
+ /-- Sheaf evaluation preserves the actual kernel, even though it need
+ not preserve the epi onto the whole section group. -/
+-theorem original_left_kernel_at_open (hS : S.ShortExact) (U : Opens X) :
++def original_left_kernel_at_open (hS : S.ShortExact) (U : Opens X) :
+     IsLimit (KernelFork.ofι (S.f.hom.app (op U))
+       (show S.f.hom.app (op U) ≫ S.g.hom.app (op U) = 0 from by
+         have h := congrArg (fun m : S.X₁ ⟶ S.X₃ => m.hom.app (op U)) S.zero
+@@ -48,7 +48,7 @@
+   letI : PreservesLimit (parallelPair S.g (0 : S.X₂ ⟶ S.X₃)) F := by
+     dsimp only [F, sections]
+     infer_instance
+-  exact KernelFork.mapIsLimit hS.fIsKernel F
++  exact KernelFork.mapIsLimit (KernelFork.ofι S.f S.zero) hS.fIsKernel F
+ 
+ private theorem local_inclusion_isMono (hS : S.ShortExact) (U : Opens X) :
+     Mono (S.f.hom.app (op U)) :=
+--- a/SelectedSameAOldAffineLocalLifts318.lean
++++ b/SelectedSameAOldAffineLocalLifts318.lean
+@@ -87,6 +87,6 @@
+   refine ⟨s z, ?_⟩
+   have he := congrArg (fun f : S.X₃.obj.obj (op V) ⟶ S.X₃.obj.obj (op V) => f z) hs
+   change S.g.hom.app (op V) (s z) = (𝟙 (S.X₃.obj.obj (op V))) z at he
+-  exact he.trans (ConcreteCategory.id_apply (S.X₃.obj.obj (op V)) z)
++  exact he.trans (ConcreteCategory.id_apply (X := S.X₃.obj.obj (op V)) z)
+ 
+ end SelectedSameAOldAffineLocalLifts318

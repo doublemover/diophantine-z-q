@@ -1,0 +1,11 @@
+--- a/SelectedSameAOldAffineSignedHandoff318.lean
++++ b/SelectedSameAOldAffineSignedHandoff318.lean
+@@ -77,7 +77,7 @@
+     let b : S.X₃.obj.obj (op (V j)) := res X S.X₃ le_top z
+     have e := congrArg (fun f : S.X₃.obj.obj (op (V j)) ⟶ S.X₃.obj.obj (op (V j)) => f b) (hs j)
+     change S.g.hom.app (op (V j)) (s j b) = (𝟙 (S.X₃.obj.obj (op (V j)))) b at e
+-    exact e.trans (ConcreteCategory.id_apply (S.X₃.obj.obj (op (V j))) b)
++    exact e.trans (ConcreteCategory.id_apply (X := S.X₃.obj.obj (op (V j))) b)
+   refine ⟨ht, ?_⟩
+   exact SelectedSameASignedCoverInjectiveJoin318.factor_cover_coeff X
+     (original_additive_short_exact p i a x J) lambdaA V z t ht
