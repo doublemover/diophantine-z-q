@@ -1,0 +1,54 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r3/ActualGaussianWeberComplexFibreDegree318.lean:73:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r3/ActualGaussianWeberComplexFibreDegree318.lean:102:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  eval₂ f x (derivative A)
+in the target expression
+  E (derivative A) * E B - E A * E (derivative B) = 0
+
+K : Type u_1
+inst✝² : Field K
+inst✝¹ : Algebra K ℂ
+inst✝ : DecidableEq ℂ
+A B : K[X]
+hAB : IsCoprime A B
+hB : B ≠ 0
+c : ℂ
+hc : Transcendental K c
+f : K →+* ℂ := algebraMap K ℂ
+N : ℕ := max A.natDegree B.natDegree
+P : ℂ[X] := map f A - C c * map f B
+hAdeg : (map f A).natDegree = A.natDegree
+hBdeg : (map f B).natDegree = B.natDegree
+hProd : (C c * map f B).natDegree ≤ N
+hLe : P.natDegree ≤ N
+hn : ¬N = 0
+hTop : P.coeff N ≠ 0
+hDeg : P.natDegree = N
+this : CharZero K :=
+  {
+    cast_injective := fun ⦃m n⦄ h =>
+      Nat.cast_injective (Eq.mp (congr (congrArg Eq (map_natCast f m)) (map_natCast f n)) (congrArg (⇑f) h)) }
+D : K[X] := derivative A * B - A * derivative B
+hD : D ≠ 0
+x : ℂ
+h : eval x P = 0
+h' : eval x (derivative P) = 0
+hE : eval₂ f x A = c * eval₂ f x B
+hd : eval₂ f x (derivative A) = c * eval₂ f x (derivative B)
+left✝ : eval₂ (algebraMap K ℂ) x B ≠ 0
+hinj : Function.Injective ⇑(eval₂RingHom (algebraMap K ℂ) x)
+E : K[X] →+* ℂ := eval₂RingHom f x
+⊢ E (derivative A) * E B - E A * E (derivative B) = 0
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-original-abscissa-height-r3/ActualGaussianWeberComplexFibreDegree318.lean:101:35: warning: This simp argument is unused:
+  coe_eval₂RingHom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_sub, map_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

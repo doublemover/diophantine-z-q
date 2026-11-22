@@ -1,0 +1,10 @@
+--- r1/ActualGaussianWeberComplexFibreSeed318.lean
++++ r2/ActualGaussianWeberComplexFibreSeed318.lean
+@@ -46,6 +46,7 @@
+   have hY : ((aeval y A : S) : ℂ) ∈ S := (aeval y A).property
+   have h : aeval x A ∈ S := by
+     simpa only [y,coe_aeval_mk_apply] using hY
++  change A.eval₂ (algebraMap K ℂ) x ∈ S
+   simpa only [aeval_def] using h
+ 
+ /-- At each root of the same actual inverse fibre, the denominator does

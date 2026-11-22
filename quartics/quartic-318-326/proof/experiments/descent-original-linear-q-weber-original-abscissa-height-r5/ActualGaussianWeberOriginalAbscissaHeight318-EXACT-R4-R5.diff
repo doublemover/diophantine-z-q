@@ -1,0 +1,13 @@
+--- r4/ActualGaussianWeberOriginalAbscissaHeight318.lean
++++ r5/ActualGaussianWeberOriginalAbscissaHeight318.lean
+@@ -77,8 +77,8 @@
+         Nat.card {P : WP ℂ // gaussian hC (f originalI) hiC a b P = Q} = p := by
+     rw [same_scalar hiC Complex.I_sq hfI a b hC]
+     exact original_complex_prime_fibres p hp a b hN
+-  have hRat' : u = fractionMap Base (AdjoinRoot.of (relation Base) r.num) /
+-        fractionMap Base (AdjoinRoot.of (relation Base) r.denom) := hRat
++  have hRat' : u = fractionMap Base (AdjoinRoot.of (ActualGaussianWeberQuadraticGenericChart318.relation Base) r.num) /
++        fractionMap Base (AdjoinRoot.of (ActualGaussianWeberQuadraticGenericChart318.relation Base) r.denom) := hRat
+   obtain ⟨c,hc⟩ := exists_transcendental_complex (K:=Base)
+   obtain ⟨_,_,_,hCard⟩ := roots_embed_and_card_le base_two_ne hC originalI originalI_sq
+     a b r.num r.denom hAB u v huv hGen hRat' c hc p hFib
