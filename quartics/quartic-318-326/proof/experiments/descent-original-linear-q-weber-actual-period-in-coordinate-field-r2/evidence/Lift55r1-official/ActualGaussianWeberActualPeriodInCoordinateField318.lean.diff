@@ -1,0 +1,22 @@
+--- descent-original-linear-q-weber-actual-period-in-coordinate-field-r1/ActualGaussianWeberActualPeriodInCoordinateField318.lean
++++ descent-original-linear-q-weber-actual-period-in-coordinate-field-r2/ActualGaussianWeberActualPeriodInCoordinateField318.lean
+@@ -82,7 +82,9 @@
+     obtain ⟨b,hb⟩ := lift_integral_through_named_embedding e y hy
+     have hEqA : b^2=a^3-a := by
+       apply e.injective
+-      simpa only [map_pow,map_sub,ha,hb] using (literal_equation x y).mp hxy.1
++      have haEq : e.toRingHom a=x := ha
++      have hbEq : e.toRingHom b=y := hb
++      simpa only [map_pow,map_sub,haEq,hbEq] using (literal_equation x y).mp hxy.1
+     let hAb := nonsing_of_equation hA hEqA
+     let R := Point.some a b hAb
+     let G := coordinateHom e.toRingHom hF
+@@ -139,7 +141,7 @@
+   have hn₀ : 0<n := Nat.zero_lt_one.trans hn
+   have hnC : (n:ℂ)≠0 := by exact_mod_cast hn₀.ne'
+   have hT : n • V ((1:ℂ)/(n:ℂ))=0 := by
+-    rw [←map_nsmul,nsmul_eq_mul,mul_div_assoc,mul_one,div_self hnC]
++    rw [←map_nsmul,nsmul_eq_mul,one_div,mul_inv_cancel₀ hnC]
+     exact (QuotientAddGroup.eq_zero_iff (N:=lattice) _).mpr ⟨1,map_one iota⟩
+   have hQ : n • uniformization.point (V ((1:ℂ)/(n:ℂ)))=0 := by
+     rw [←map_nsmul,hT,map_zero]

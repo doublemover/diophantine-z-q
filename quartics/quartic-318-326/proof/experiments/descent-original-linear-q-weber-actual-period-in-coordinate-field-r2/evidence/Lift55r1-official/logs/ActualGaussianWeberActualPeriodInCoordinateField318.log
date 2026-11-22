@@ -1,0 +1,48 @@
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-period-in-coordinate-field-r1/ActualGaussianWeberActualPeriodInCoordinateField318.lean:85:6: error: Type mismatch: After simplification, term
+  (literal_equation x y).mp hxy.left
+ has type
+  y ^ 2 = x ^ 3 - x
+but is expected to have type
+  e.toRingHom b ^ 2 = e.toRingHom a ^ 3 - e.toRingHom a
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-period-in-coordinate-field-r1/ActualGaussianWeberActualPeriodInCoordinateField318.lean:133:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-period-in-coordinate-field-r1/ActualGaussianWeberActualPeriodInCoordinateField318.lean:136:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/home/runner/work/diophantine-z-q/diophantine-z-q/quartics/quartic-318-326/proof/experiments/descent-original-linear-q-weber-actual-period-in-coordinate-field-r1/ActualGaussianWeberActualPeriodInCoordinateField318.lean:142:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ?b / ?c
+in the target expression
+  V (↑n * (1 / ↑n)) = 0
+
+A : Type u_1
+inst✝² : Field A
+inst✝¹ : Algebra Base A
+inst✝ : IsAlgClosed A
+e : A →+* ℂ
+he : e.comp (algebraMap Base A) = complexEmbedding
+n : ℕ
+hn : 1 < n
+D : IntermediateField Base A
+hD : D = IntermediateField.adjoin Base (divisionCoordinates A n)
+this✝ : CharZero Base :=
+  {
+    cast_injective := fun a b h =>
+      Nat.cast_injective
+        (Eq.mp (congr (congrArg Eq (map_natCast complexEmbedding a)) (map_natCast complexEmbedding b))
+          (congrArg (⇑complexEmbedding) h)) }
+this : Algebra Base ℂ := complexEmbedding.toAlgebra
+f : A →ₐ[Base] ℂ := { toRingHom := e, commutes' := ⋯ }
+hn₀ : 0 < n
+hnC : ↑n ≠ 0
+⊢ V (↑n * (1 / ↑n)) = 0
