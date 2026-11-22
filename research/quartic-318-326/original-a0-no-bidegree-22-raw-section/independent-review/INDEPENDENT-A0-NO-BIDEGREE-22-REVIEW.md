@@ -1,0 +1,9 @@
+# Independent review: no bidegree-(2,2) raw companion parametrization
+
+**Disposition: exact classical proof and replay pass.** Author checksum list SHA-256 `fc6ce55e089c5ceb37f173704b69f4537f5234227eb4ef7a3a29af3a592021f8`, paper `db6142f5c7970e2a207b62a8baa39458ffc9c83ba3c40227d3be38a89f551f61`. All listed files verified. Fresh standard-library replay matched every interpolation output byte. The separate original raw-fibration donor has checksum list `61ddafd1b2519aafd5e5b20183ea7f7b0d33577fdc4bdd1eb8d2e44c1e262003`, paper `90ec5e0b937eb1437cca51be814bf7db2dd41035784214997e7bc310b51cc523`; it establishes the same fixed original positive nonsquare δ, not a new scalar.
+
+For two hypothesized degree-two parameter maps, the common geometric double cover is integral, and the rational involutions from the two genus-one projections yield orthogonal rational projectors because the elliptic image factors have zero rational Hom. This proves commutation on the curve by faithfulness on differentials. The product involution remains bielliptic, so the induced Klein four action is free at all eight branch points. The two independent Galois transpositions force the real and imaginary root-pairs as the intermediate branch blocks. The resulting geometric degree-four quotient cover has genus zero; cyclic inertia at each branch value forces exactly one overlap of the two quadratic branch loci. The eight rational interpolation cases leave four admissible Möbius matrices, with constants −3, −3, 9 and 1. In each case δ times that constant is a nonsquare.
+
+This excludes exact bidegree (2,2) rational parametrizations of the raw companion at the fixed original scalar, and does not exclude individual rational specializations, higher bidegrees, or an original existential companion. It is not a new native or hosted claim.
+
+**Signed:** Independent quartic reviewer, 2026-11-22 UTC.
