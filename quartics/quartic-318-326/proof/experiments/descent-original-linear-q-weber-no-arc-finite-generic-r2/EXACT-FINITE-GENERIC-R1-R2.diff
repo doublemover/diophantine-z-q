@@ -1,0 +1,14 @@
+--- r1/ActualGaussianWeberNoArcFiniteGenericScalar318.lean
++++ r2/ActualGaussianWeberNoArcFiniteGenericScalar318.lean
+@@ -130,8 +130,9 @@
+   let P := gaussian hF ((gauss V).subtype j) hsub a b (genericPoint K hK)
+   let ρ := coordinateHom (gaussResidue V).toRingHom hS
+   let s := specializeHom (gauss V) hF hR
+-  have hspec : s P = gaussian hR (residue (gauss V) j) hres a b (s (genericPoint K hK)) :=
+-    specialize_scalar_core (gauss V) hF hR j hj a b (genericPoint K hK)
++  have hspec : s P = gaussian hR (residue (gauss V) j) hres a b (s (genericPoint K hK)) := by
++    letI : DecidableEq (ResidueField (gauss (gauss V))) := Classical.decEq _
++    exact specialize_scalar_core (gauss V) hF hR j hj a b (genericPoint K hK)
+   have hC : ρ (gaussian hR (residue (gauss V) j) hres a b (s (genericPoint K hK))) =
+       gaussian hS (constGeneric (ResidueField V) (residue V i)) hj₀ a b
+         (ρ (s (genericPoint K hK))) :=
