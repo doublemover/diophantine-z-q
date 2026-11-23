@@ -22,11 +22,13 @@ DIFFERENT = "same-j-crt-different-r1"
 TWIST = "forward-detached-twist-point-r3"
 STRUCTURAL = "same-j-structural-normalization-r3"
 DYADIC = "finite-plus11-dyadic-vertical-r4"
-DJ = "same-j-integral-trace-diagonal-r2"
-REFLECT = "raw318-input-reflection-r2"
+DJ = "same-j-integral-trace-diagonal-r3"
+REFLECT = "raw318-input-reflection-r3"
 OBSERVED = "linear-a4-signed-observed-r1"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DJ: 4, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
-FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DJ: 4, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
+ARITH = "arithmetic-three-adic-nonroot-r1"
+PERIOD = "period-original-elliptic-sections-r1"
+EXPECTED = {ARITH: 8, PERIOD: 4, GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DJ: 4, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
+FRESH = {ARITH: 2, PERIOD: 1, GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DJ: 4, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
 
 
 def packets():
@@ -34,7 +36,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the twelve reviewed Mathlib rows")
+        raise ValueError("Expected one of the fourteen reviewed Mathlib rows")
     return (requested,)
 
 
@@ -84,11 +86,12 @@ class MathlibIntakeTests(unittest.TestCase):
                         self.assertEqual(data["order"][-1], "Raw318InputReflection318")
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                         donors = {n: runner.INTAKES + "/raw318-input-reflection-r1/" + n + ".lean"
-                                  for n in data["order"] if n != "AffineAnchor"}
+                                  for n in data["order"] if n not in {"AffineAnchor", "AnchorValueShear"}}
+                        donors["AffineAnchor"] = runner.INTAKES + "/raw318-input-reflection-r2/AffineAnchor.lean"
                         self.assertEqual(config["source_paths"], donors)
                         # The original progress sources are frozen in the historical commit;
                         # none are updated for this validation job. Reconstruct the exact
-                        # pre-lint-repair blob for the only strict-copy exception.
+                        # pre-lint-repair blob for the two strict-copy exceptions.
                         for name in data["order"][:-1]:
                             source = (folder / (name + ".lean")).read_bytes()
                             if name == "AffineAnchor":
@@ -100,6 +103,17 @@ class MathlibIntakeTests(unittest.TestCase):
                                     source = source.replace(new, old)
                                 self.assertEqual(runner.digest(source),
                                                  "6463cbe1e71a9359c3c8bee3a436f8cbc760df57c5401ce47f9edbd390b20cfc")
+                            elif name == "AnchorValueShear":
+                                simp = b"simp [forward,backward,hun,Ne.symm hun]"
+                                for stem, tail, count in [(b"  \xc2\xb7 subst i; ", b"; ring", 2),
+                                                          (b"    \xc2\xb7 subst i; ", b"; ring", 1),
+                                                          (b"    \xc2\xb7 subst i; ", b"", 1)]:
+                                    current = b"\n" + stem + simp + tail + b"\n"
+                                    old = b"\n" + stem + simp + b"<;> ring\n"
+                                    self.assertEqual(source.count(current), count)
+                                    source = source.replace(current, old)
+                                self.assertEqual(runner.digest(source),
+                                                 "d0e4cb0ae948ae86dfc36d97892ee8f7600bf5241aca577b4dca87fc0e159138")
                             path = runner.PROGRESS + "/" + name + ".lean"
                             historical = runner.tree_entries(runner.ROOT, head, path)[path]
                             self.assertEqual(historical, ("100644", "blob", hashlib.sha1(
@@ -108,7 +122,13 @@ class MathlibIntakeTests(unittest.TestCase):
                         self.assertEqual(data["order"][-1], "SelectedJDifferentAnnihilates318")
                         self.assertEqual(config["source_paths"], {
                             n: runner.INTAKES + "/same-j-integral-trace-diagonal-r1/" + n + ".lean"
-                            for n in ("SelectedJTraceDualCoefficients318", "SelectedJTraceDiagonalDerivation318")})
+                            for n in ("SelectedJTraceDualCoefficients318",)})
+                        self.assertIn(b"public meta import Lean.Elab.Command", audit)
+                    elif packet in (ARITH, PERIOD):
+                        expected = (["SelectedThreeAdicEscape318", "SelectedThreeAdicNonroot318"]
+                                    if packet == ARITH else ["OriginalEllipticPairSections318"])
+                        self.assertEqual(data["order"], expected)
+                        self.assertFalse(config.get("source_paths"))
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet == STRUCTURAL:
                         self.assertEqual(data["order"], ["SelectedJStructuralNormalization318"])
@@ -158,7 +178,7 @@ class MathlibIntakeTests(unittest.TestCase):
                         for module, path in config["source_paths"].items():
                             self.assertEqual(path, owner + module + ".lean")
 
-    def test_three_native_repair_matrix_fail_closed_elsewhere(self):
+    def test_four_native_matrix_fail_closed_elsewhere(self):
         # Parse the actual finite subset of GHA expressions emitted here; do
         # not infer a decision from the packet name or merely count strings.
         wf = (runner.ROOT / ".github/workflows/progress-standalone-intake.yml").read_text()
@@ -167,15 +187,17 @@ class MathlibIntakeTests(unittest.TestCase):
         self.assertIn("            /.github/workflows/progress-standalone-intake.yml\n", wf)
         # Freeze repaired reflection and prior kernel-verified signed contracts separately.
         self.assertEqual(runner.ALLOWLIST[REFLECT]["manifest_sha256"],
-                         "117382939d75bec28364a2cb6d7480b979c4831043f8a3c5c9e21bd66c14cf97")
+                         "31c4b9264fa838fd0b77845e80f8a09024e1801c2d9e87c25fa48c5330fedc01")
         self.assertEqual(runner.ALLOWLIST[OBSERVED]["manifest_sha256"],
                          "dc14c02c15ddfd937786e4cfa98b93c0c5615c8263eba1e0986fef70791849bd")
+        self.assertEqual(runner.ALLOWLIST[DYADIC]["manifest_sha256"],
+                         "bc7962e57b141eb75929509a90eccdf4e0cf34938a3d75e3eeca2b75b6075a50")
         cuts = re.findall(r"^          - packet: ([a-z][a-z0-9-]*)\n"
                           r"            profile: [^\n]+\n            root_count: [0-9]+\n"
                           r"            verification: (kernel check|>-\n(?: {14,}[^\n]+\n?)+)", wf, re.M)
         self.assertEqual([k for k, _ in cuts], list(runner.ALLOWLIST))
-        base = 'ce149275fc946fb7117af0843f76cf42324d746e'
-        newest = {REFLECT, DYADIC, DJ}
+        base = 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+        newest = {REFLECT, DJ, ARITH, PERIOD}
         narrow = ("${{ github.event.before == '"+base+"' && join(github.event.commits.*.id, ',') "
                   "== github.sha && !github.event.forced && 'source admission only' || 'kernel check' }}")
         def rows(event_before, commits, head, forced):
@@ -193,7 +215,7 @@ class MathlibIntakeTests(unittest.TestCase):
         head = "f" * 40
         selected = rows(base, [head], head, False)
         self.assertEqual({k for k, v in selected.items() if v == "native"}, newest)
-        self.assertEqual(list(selected.values()).count("source"), 10)
+        self.assertEqual(list(selected.values()).count("source"), 11)
         for ev in [("a"*40, [head], False), (base, [], False),
                    (base, ["a"*40, head], False), (base, [head], True), (None, [], False)]:
             self.assertEqual(set(rows(ev[0], ev[1], head, ev[2]).values()), {"native"})
