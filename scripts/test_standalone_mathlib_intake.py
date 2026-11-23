@@ -11,8 +11,8 @@ from unittest.mock import patch
 import check_standalone_intake as runner
 
 
-GRAM = "pel-original-order-gram-r1"
-DLOG = "finite-height-dlog-rows-r2"
+GRAM = "pel-original-order-gram-r2"
+DLOG = "finite-height-dlog-rows-r3"
 EXPECTED = {GRAM: 9, DLOG: 6}
 
 

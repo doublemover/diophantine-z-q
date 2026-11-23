@@ -73,11 +73,11 @@ ALLOWLIST = {
         "artifact_roots": (),
         "audit_sha256": "f7c94ff210df496a78533346774d435bfe52b02765ba61947a3c8d0346977fce",
     },
-    "pel-original-order-gram-r1": {
+    "pel-original-order-gram-r2": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
         "scope": "Original fixed split order's signed integral Gram and covolume in the checked same-basis period convention; not marked analytification or full quartic",
-        "manifest_sha256": "3cff49e25ca426e1a170df105382c1fe92bb580cbebf92a3b165ceb2030446a7",
+        "manifest_sha256": "fb3329745b3bf4c57f3e004d903025c84a0677e4ffdfd1ac8a3ba9e49de55aad",
         "modules": (
             ("QuaternionicRealPeriod318",
              "996fc76819df4867affa9870c6bb24ce5303db9db4f0f6f164070ab922f8ddda",
@@ -86,7 +86,7 @@ ALLOWLIST = {
              "b6d4ef954e793f054b547ff6ba9929fa7a56322ff8fd213df5fe287e215f73f8",
              ("Mathlib.LinearAlgebra.Basis.Defs", "Mathlib.LinearAlgebra.Matrix.Notation", "Mathlib.LinearAlgebra.Matrix.Trace", "Mathlib.Tactic", "QuaternionicRealPeriod318")),
             ("SelectedSameAOriginalOrderGram318",
-             "e8d88b07aae90c33c5692031b8af8f726df98c16b343d7347bbb3806414a7e06",
+             "681a346e26b368f23cf1cf75d03394f11e5ba1669757ac3aaecdf0b40740bd8f",
              ("Mathlib.Analysis.SpecialFunctions.Sqrt", "Mathlib.LinearAlgebra.Matrix.Determinant.Basic", "Mathlib.Tactic", "SelectedActualPELPeriodColumns318")),
         ),
         "source_roots": (
@@ -118,15 +118,15 @@ ALLOWLIST = {
             "SelectedActualPELPeriodColumns318": "quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean",
         },
     },
-    "finite-height-dlog-rows-r2": {
+    "finite-height-dlog-rows-r3": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
         "scope": "Three-source finite same-A dlog rows; exact original Stage A with two reviewed donor lint edits; not a structural model or endpoint",
-        "manifest_sha256": "568da10066303be10857b878e5cd10661f00ee03033a810aedbc19208363394c",
+        "manifest_sha256": "c45deb6451857dca289ceadcfd0ef7c70cf1ddddef3dd7c2daae12e207af3e9b",
         "modules": (
             ("SquareReflection318", "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
              ("Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic")),
-            ("LinearContactSquareclass318", "92f3225eff64e0c18bfb64928fbb11b4f0a46aa5c97efa6bea8877ce4cc10933",
+            ("LinearContactSquareclass318", "741bef76f07ed956f8d8a36d0b1986e200369b47671c1e240f8847066dfb494e",
              ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "SquareReflection318")),
             ("SelectedActualSameAFiniteDlogRows318", "a574ee2004739b68cc3747312f831b7b95e614ba10d1009db891537ad229780a",
              ("LinearContactSquareclass318", "Mathlib.Tactic")),
@@ -407,6 +407,25 @@ def mathlib_setup(root, packet, config):
     }
 
 
+def print_failure_excerpt(log, max_lines=60, max_bytes=24 * 1024):
+    """Show a bounded tail without treating compiler output as Actions commands."""
+    with log.open("rb") as handle:
+        length = handle.seek(0, os.SEEK_END)
+        skipped = max(0, length - max_bytes)
+        handle.seek(skipped)
+        raw = handle.read(max_bytes)
+    lines = raw.decode("utf-8", errors="replace").splitlines()
+    if skipped and len(lines) > 1:
+        # The first sampled line may start partway through an exact log line.
+        lines = lines[1:]
+    tail = lines[-max_lines:]
+    print(f"Lean failure excerpt ({log.name}; last {len(tail)} lines; full log in artifact):")
+    for line in tail:
+        clean = re.sub(r"[\x00-\x08\x0b-\x1f\x7f]", "?", line)
+        print("| " + clean)
+    print("End Lean failure excerpt.", flush=True)
+
+
 def invoke(command, folder, env, log, timeout):
     started = time.monotonic()
     with log.open("wb") as handle:
@@ -416,8 +435,10 @@ def invoke(command, folder, env, log, timeout):
         except subprocess.TimeoutExpired:
             handle.write(b"\nWALL_CLOCK_LIMIT_EXCEEDED\n")
             code = 124
-    return {"module": log.stem, "exit_code": code,
-            "seconds": round(time.monotonic() - started, 3)}
+    seconds = round(time.monotonic() - started, 3)
+    if code:
+        print_failure_excerpt(log)
+    return {"module": log.stem, "exit_code": code, "seconds": seconds}
 
 
 def audit_count(log, expected_modules):
@@ -487,7 +508,11 @@ def check(packet, config):
             row = invoke([*args, str(audit_path)], folder, env, audit_log, TIMEOUT)
             result["commands"].append(row)
             require(row["exit_code"] == 0, "Private recursive audit failed")
-            count = audit_count(audit_log.read_text(encoding="utf-8"), len(data["order"]))
+            try:
+                count = audit_count(audit_log.read_text(encoding="utf-8"), len(data["order"]))
+            except (ValueError, UnicodeError):
+                print_failure_excerpt(audit_log)
+                raise
             result.update(status="PASS", phase="complete", audited_declarations=count,
                           freshly_compiled_project_modules=len(data["order"]),
                           allowed_axioms=AXIOMS)

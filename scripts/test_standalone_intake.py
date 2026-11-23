@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Source/invocation fixtures; never execute Lean, Lake, or install packages."""
+from contextlib import redirect_stdout
 from copy import deepcopy
+import io
 import json
 from pathlib import Path
 import subprocess
@@ -88,6 +90,28 @@ class IntakeTests(unittest.TestCase):
                     marker.replace("declarations=5", "declarations=0")):
             with self.subTest(bad=bad), self.assertRaisesRegex(ValueError, "Incomplete"):
                 runner.audit_count(bad, 1)
+
+    def test_failure_excerpt_is_bounded_and_not_a_workflow_command(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            log = Path(tmp) / "ExperimentAudit.log"
+            raw = ("x" * 45_000 + "\n" +
+                   "\n".join(f"compiler line {i}" for i in range(80)) +
+                   "\n::error::not a workflow command\n").encode()
+            log.write_bytes(raw)
+            out = io.StringIO()
+            with redirect_stdout(out):
+                runner.print_failure_excerpt(log)
+            printed = out.getvalue().splitlines()
+            self.assertEqual(len(printed), 62)
+            self.assertTrue(all(line.startswith("| ") for line in printed[1:-1]))
+            self.assertIn("| ::error::not a workflow command", printed)
+            self.assertNotIn("| compiler line 19", printed)
+            self.assertEqual(log.read_bytes(), raw)
+            log.write_bytes(b"z" * 50_000)
+            out = io.StringIO()
+            with redirect_stdout(out):
+                runner.print_failure_excerpt(log)
+            self.assertLess(len(out.getvalue().encode()), 25 * 1024)
 
     def test_exact_hosted_identity(self):
         valid = {
