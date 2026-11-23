@@ -1,0 +1,82 @@
+{
+  "order": [
+    "QuarticOptimization",
+    "SparseQuartic",
+    "SparseReflectionDifference",
+    "Current318FinalPolynomial",
+    "Current326Polynomial",
+    "Current326CoefficientBindingNormalize",
+    "Current326CoefficientBindingExpanded",
+    "Current326CoefficientBindingData",
+    "Current326CoefficientBinding",
+    "DirectLiteralReflection318326"
+  ],
+  "files": {
+    "QuarticOptimization.lean": {
+      "sha256": "a30074aee2724d2ebb6b2559f606d7414c9563fb883cd1af3a994692084b300b",
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Degrees",
+        "Mathlib.Data.Nat.Squarefree",
+        "Mathlib.Data.Rat.Lemmas",
+        "Mathlib.Tactic"
+      ]
+    },
+    "SparseQuartic.lean": {
+      "sha256": "bbb0d5d9006e33f54ca92f45a6c677e4d948f4de23b9667e23cb3471730a490e",
+      "imports": [
+        "QuarticOptimization"
+      ]
+    },
+    "SparseReflectionDifference.lean": {
+      "sha256": "817949e1d926e08379769a5f36e54b46904785ca1a6defcee25ba1905e885c8a",
+      "imports": [
+        "SparseQuartic"
+      ]
+    },
+    "Current318FinalPolynomial.lean": {
+      "sha256": "ad54e02ec0321113faba7c68751876badd2f8db1f4a39ad9a8f09e1da01a9bb1",
+      "imports": [
+        "SparseQuartic"
+      ]
+    },
+    "Current326Polynomial.lean": {
+      "sha256": "be1ca76795518cf6c080a33fe69f1b9e2c32c165a271e23226d94e1cc78da376",
+      "imports": [
+        "SparseQuartic"
+      ]
+    },
+    "Current326CoefficientBindingNormalize.lean": {
+      "sha256": "75d7254fdaf4f5332a8c6ddedbd51a3383aadc9b57778c543871c2454afdc7e9",
+      "imports": [
+        "Current326Polynomial",
+        "Mathlib.Data.List.Sort"
+      ]
+    },
+    "Current326CoefficientBindingExpanded.lean": {
+      "sha256": "f3f698243bde25b4087363a9913b97e2021e0d59cc727e11a312e06a42036646",
+      "imports": [
+        "Current326CoefficientBindingNormalize"
+      ]
+    },
+    "Current326CoefficientBindingData.lean": {
+      "sha256": "cb915d7c3fddc20d8cc144b45b78256fd842e0d909c781a6c2954bd2abc4a878",
+      "imports": [
+        "Current326CoefficientBindingExpanded"
+      ]
+    },
+    "Current326CoefficientBinding.lean": {
+      "sha256": "47a805536d82cd5fc0f083272b73effda9712ffcf0b2f342339d7b9e52758e5a",
+      "imports": [
+        "Current326CoefficientBindingData"
+      ]
+    },
+    "DirectLiteralReflection318326.lean": {
+      "sha256": "92bd86026d099673ce9d2e30d57c8d48b036d86aa4c547654b4856b5b4a176ef",
+      "imports": [
+        "Current318FinalPolynomial",
+        "Current326CoefficientBinding",
+        "SparseReflectionDifference"
+      ]
+    }
+  }
+}

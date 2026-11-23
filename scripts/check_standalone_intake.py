@@ -59,11 +59,10 @@ PACKAGE_REVISIONS = {
 }
 CORE_PACKET = "linear-a4-weighted-readback-core-r1"
 CORE_MODULE = "LinearA4WeightedReadbackCoreSmoke318"
-DIRECT_REFLECTION = "direct-literal-reflection-r1"
+DIRECT_REFLECTION = "direct-literal-reflection-r2"
 DIRECT_ORIGINAL_BLOBS = {
     "Current318FinalPolynomial": "abd67dfc3e7bb314108d4ca959aab8fc5dc4793e",
     "Current326Polynomial": "b676cde25fc0921f598abea8650e332eadd0ee20",
-    "Current326CoefficientBindingNormalize": "b8e2395c443f575ee6079bc6194866b2b52ccf03",
     "Current326CoefficientBindingExpanded": "2690a2e204f09fcd3afc752c18a8ba8e47b0fc30",
     "Current326CoefficientBindingData": "07c36d7b8768968f08c3f0f1f9e01790f5c3b6d5",
     "Current326CoefficientBinding": "06c0a25dac6a429411f9d7525b157223c4fb575e",
@@ -488,17 +487,17 @@ ALLOWLIST = {
         ),
         "audit_sha256": "1d0f580619815e21271a6d9c4ed7db3f20f0a4d2dedfc42c18c381e8cf5cf439",
     },
-    "same-j-integral-trace-diagonal-r4": {
+    "same-j-integral-trace-diagonal-r5": {
         "profile": "pinned-mathlib",
-        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
+        "source_base": "0a2ee343a4d05667003f26bdbb66aacf84d215b3",
         "scope": "Four fresh source modules prove different membership annihilates relative derivations on a supplied finite-free generically separable extension, not the named modular model or a height bound.",
-        "manifest_sha256": "037b6c1b49a83b1d5b0fb43220e3046d082e0e23e27b2bb62627d44e27f0dc5f",
+        "manifest_sha256": "6377b4f845404e1048cdbdef0f3371d923186d308899b616ca92b98608fbe24d",
         "modules": (
             ("SelectedJIntegralScaledTraceDual318",
              "72d340736dfa1353d8b7bd70f38808ae6a799d32a35f1e459d0576b7c029c410",
              ("Mathlib.RingTheory.DedekindDomain.Different", "Mathlib.RingTheory.DedekindDomain.IntegralClosure")),
             ("SelectedJTraceDualCoefficients318",
-             "be7108e945d6cf0a09b0f3650a801162e2065ccf911f0ecd5b3bdbf3b6f1af4b",
+             "7502203febc10e74eb53e8ed23743312c243d9afe7923dcd66f1597b9d3f1eb0",
              ("Mathlib.RingTheory.Trace.Basic",)),
             ("SelectedJTraceDiagonalDerivation318",
              "1ca2c4b15089d01a96b11515a431c318d21b4c835c21aaf10ee356625279572b",
@@ -522,18 +521,19 @@ ALLOWLIST = {
         "audit_sha256": "d30f1094b7b855562bb7dfc65926f79859dbeb5d704e01435c96519feeaaa9fb",
         "audit_public_meta": True,
         "source_paths": {
-            "SelectedJTraceDualCoefficients318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/SelectedJTraceDualCoefficients318.lean",
+            "SelectedJIntegralScaledTraceDual318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r4/SelectedJIntegralScaledTraceDual318.lean",
             "SelectedJTraceDiagonalDerivation318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean",
+            "SelectedJDifferentAnnihilates318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r4/SelectedJDifferentAnnihilates318.lean",
         },
     },
-    "arithmetic-three-adic-nonroot-r2": {
+    "arithmetic-three-adic-nonroot-r3": {
         "profile": "pinned-mathlib",
-        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
+        "source_base": "0a2ee343a4d05667003f26bdbb66aacf84d215b3",
         "scope": "Affine points on the same twist form an infinite set from an actual supplied nonroot for integer n = 2 mod 3; no global nonroot producer, group-model attachment or claimed selected rank.",
-        "manifest_sha256": "45db8d16d7986f350ca0ace3aee3d44f6f50d6cfb65703f7e0e54dd0a37e8c22",
+        "manifest_sha256": "f285390755a2c6d89288f833664d05630ba83f88b9ba54acc204cf6180ccf56b",
         "modules": (
             ("SelectedThreeAdicEscape318",
-             "b7108cad5567281e7a0dd878f95731b2219f403411b46b5a6a61e80b8462d546",
+             "6f35031e6e165e6cfb507df614d890001ea7a5570bcf09ff4400fbaf1d3b0ee1",
              ("Mathlib.Algebra.Field.ZMod", "Mathlib.NumberTheory.Padics.PadicVal.Basic", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.LinearCombination", "Mathlib.Tactic.NormNum", "Mathlib.Tactic.Ring")),
             ("SelectedThreeAdicNonroot318",
              "046911b155521b5c97b826b37006d58712d7c7135036f6a0d07bce8e5d0fbe47",
@@ -609,11 +609,11 @@ ALLOWLIST = {
         "audit_sha256": "6c2c1b2ac47b0db7cbd7c510049f14475730744a4b072a96ccdf3d56a92a2cea",
         "audit_public_meta": True,
     },
-    "direct-literal-reflection-r1": {
+    "direct-literal-reflection-r2": {
         "profile": "pinned-mathlib",
-        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
+        "source_base": "0a2ee343a4d05667003f26bdbb66aacf84d215b3",
         "scope": "All-assignments equality of the 318 original and genuine stored 326 quartic values under x0 -> -1-x0, x118 -> x118+2*x0+1; both original existential zero-set equivalences. No rational-integrality or point supplier claim.",
-        "manifest_sha256": "81cb4a702ba08a4e4f1894cd6fc40aece64e5dc44c5b5387dbe6687bf8d2d2f4",
+        "manifest_sha256": "540ef9953b0ff23ca6c9bb407628e3c8467ad9be9c1ebbb9ae924a227b09df2f",
         "modules": (
             ("QuarticOptimization",
              "a30074aee2724d2ebb6b2559f606d7414c9563fb883cd1af3a994692084b300b",
@@ -622,7 +622,7 @@ ALLOWLIST = {
              "bbb0d5d9006e33f54ca92f45a6c677e4d948f4de23b9667e23cb3471730a490e",
              ("QuarticOptimization",)),
             ("SparseReflectionDifference",
-             "cd2f7b3a3f8ee674f04824b9adc6323d828d7bd8015b67a6ae96681e6446caa5",
+             "817949e1d926e08379769a5f36e54b46904785ca1a6defcee25ba1905e885c8a",
              ("SparseQuartic",)),
             ("Current318FinalPolynomial",
              "ad54e02ec0321113faba7c68751876badd2f8db1f4a39ad9a8f09e1da01a9bb1",
@@ -631,7 +631,7 @@ ALLOWLIST = {
              "be1ca76795518cf6c080a33fe69f1b9e2c32c165a271e23226d94e1cc78da376",
              ("SparseQuartic",)),
             ("Current326CoefficientBindingNormalize",
-             "c872b83c5c188e385f276b36dea74a1925479eff63038612a4dc5dfa46997724",
+             "75d7254fdaf4f5332a8c6ddedbd51a3383aadc9b57778c543871c2454afdc7e9",
              ("Current326Polynomial", "Mathlib.Data.List.Sort")),
             ("Current326CoefficientBindingExpanded",
              "f3f698243bde25b4087363a9913b97e2021e0d59cc727e11a312e06a42036646",
@@ -667,10 +667,10 @@ ALLOWLIST = {
             "SparseQuartic": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean",
             "Current318FinalPolynomial": "quartics/quartic-318-326/proof/progress/Current318FinalPolynomial.lean",
             "Current326Polynomial": "quartics/quartic-318-326/proof/progress/Current326Polynomial.lean",
-            "Current326CoefficientBindingNormalize": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingNormalize.lean",
             "Current326CoefficientBindingExpanded": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingExpanded.lean",
             "Current326CoefficientBindingData": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingData.lean",
             "Current326CoefficientBinding": "quartics/quartic-318-326/proof/progress/Current326CoefficientBinding.lean",
+            "DirectLiteralReflection318326": "quartics/quartic-318-326/proof/intake/direct-literal-reflection-r1/DirectLiteralReflection318326.lean",
         },
     },
 }

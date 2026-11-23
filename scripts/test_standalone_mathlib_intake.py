@@ -22,13 +22,13 @@ DIFFERENT = "same-j-crt-different-r1"
 TWIST = "forward-detached-twist-point-r3"
 STRUCTURAL = "same-j-structural-normalization-r3"
 DYADIC = "finite-plus11-dyadic-vertical-r4"
-DJ = "same-j-integral-trace-diagonal-r4"
+DJ = "same-j-integral-trace-diagonal-r5"
 REFLECT = "raw318-input-reflection-r4"
 OBSERVED = "linear-a4-signed-observed-r1"
-ARITH = "arithmetic-three-adic-nonroot-r2"
+ARITH = "arithmetic-three-adic-nonroot-r3"
 PERIOD = "period-original-elliptic-sections-r1"
 FLAT = "original-elliptic-lattice-descent-r1"
-DIRECT = "direct-literal-reflection-r1"
+DIRECT = "direct-literal-reflection-r2"
 EXPECTED = {FLAT: 1, DIRECT: 5, ARITH: 8, PERIOD: 4, GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DJ: 4, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
 FRESH = {FLAT: 1, DIRECT: 10, ARITH: 2, PERIOD: 1, GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DJ: 4, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
 
@@ -124,15 +124,26 @@ class MathlibIntakeTests(unittest.TestCase):
                     elif packet == DJ:
                         self.assertEqual(data["order"][-1], "SelectedJDifferentAnnihilates318")
                         self.assertEqual(config["source_paths"], {
-                            n: runner.INTAKES + "/same-j-integral-trace-diagonal-r1/" + n + ".lean"
-                            for n in ("SelectedJTraceDualCoefficients318",)} | {
-                                "SelectedJTraceDiagonalDerivation318": runner.INTAKES +
-                                "/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean"})
+                            n: runner.INTAKES + "/same-j-integral-trace-diagonal-r4/" + n + ".lean"
+                            for n in ("SelectedJIntegralScaledTraceDual318", "SelectedJDifferentAnnihilates318")
+                        } | {"SelectedJTraceDiagonalDerivation318": runner.INTAKES +
+                             "/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean"})
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet == DIRECT:
-                        self.assertEqual(len(runner.DIRECT_ORIGINAL_BLOBS), 6)
+                        self.assertEqual(len(runner.DIRECT_ORIGINAL_BLOBS), 5)
                         self.assertEqual(len(config["source_paths"]), 8)
                         self.assertEqual(data["order"][-1], "DirectLiteralReflection318326")
+                        name = "Current326CoefficientBindingNormalize.lean"
+                        path = runner.PROGRESS + "/" + name
+                        expected = ("100644", "blob", "b8e2395c443f575ee6079bc6194866b2b52ccf03")
+                        self.assertEqual(runner.tree_entries(runner.ROOT, head, path)[path], expected)
+                        source = (folder / name).read_bytes()
+                        for new, old in [(b"ite_eq_left", b"if_pos"), (b"ite_eq_right", b"if_neg")]:
+                            self.assertEqual(source.count(new), 1)
+                            source = source.replace(new, old)
+                        self.assertEqual(source, runner.checked_blob(runner.ROOT, head, path, expected))
+                        self.assertEqual(runner.digest(source),
+                                         "c872b83c5c188e385f276b36dea74a1925479eff63038612a4dc5dfa46997724")
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet == FLAT:
                         self.assertEqual(data["order"], ["OriginalEllipticHalfLatticeDescent318"])
@@ -195,7 +206,7 @@ class MathlibIntakeTests(unittest.TestCase):
                         for module, path in config["source_paths"].items():
                             self.assertEqual(path, owner + module + ".lean")
 
-    def test_five_native_matrix_fail_closed_elsewhere(self):
+    def test_three_native_matrix_fail_closed_elsewhere(self):
         # Parse the actual finite subset of GHA expressions emitted here; do
         # not infer a decision from the packet name or merely count strings.
         wf = (runner.ROOT / ".github/workflows/progress-standalone-intake.yml").read_text()
@@ -209,12 +220,14 @@ class MathlibIntakeTests(unittest.TestCase):
                          "dc14c02c15ddfd937786e4cfa98b93c0c5615c8263eba1e0986fef70791849bd")
         self.assertEqual(runner.ALLOWLIST[DYADIC]["manifest_sha256"],
                          "bc7962e57b141eb75929509a90eccdf4e0cf34938a3d75e3eeca2b75b6075a50")
+        self.assertEqual(runner.ALLOWLIST[FLAT]["manifest_sha256"],
+                         "d8e046d9dcb908d2da3ff6374d8a5666e9dc60ededc4166e5bc1ef25f938ec41")
         cuts = re.findall(r"^          - packet: ([a-z][a-z0-9-]*)\n"
                           r"            profile: [^\n]+\n            root_count: [0-9]+\n"
                           r"            verification: (kernel check|>-\n(?: {14,}[^\n]+\n?)+)", wf, re.M)
         self.assertEqual([k for k, _ in cuts], list(runner.ALLOWLIST))
-        base = '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
-        newest = {REFLECT, DJ, ARITH, FLAT, DIRECT}
+        base = '0a2ee343a4d05667003f26bdbb66aacf84d215b3'
+        newest = {DJ, ARITH, DIRECT}
         narrow = ("${{ github.event.before == '"+base+"' && join(github.event.commits.*.id, ',') "
                   "== github.sha && !github.event.forced && 'source admission only' || 'kernel check' }}")
         def rows(event_before, commits, head, forced):
@@ -232,7 +245,7 @@ class MathlibIntakeTests(unittest.TestCase):
         head = "f" * 40
         selected = rows(base, [head], head, False)
         self.assertEqual({k for k, v in selected.items() if v == "native"}, newest)
-        self.assertEqual(list(selected.values()).count("source"), 12)
+        self.assertEqual(list(selected.values()).count("source"), 14)
         for ev in [("a"*40, [head], False), (base, [], False),
                    (base, ["a"*40, head], False), (base, [head], True), (None, [], False)]:
             self.assertEqual(set(rows(ev[0], ev[1], head, ev[2]).values()), {"native"})
