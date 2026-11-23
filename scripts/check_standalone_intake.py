@@ -59,13 +59,17 @@ PACKAGE_REVISIONS = {
 }
 CORE_PACKET = "linear-a4-weighted-readback-core-r1"
 CORE_MODULE = "LinearA4WeightedReadbackCoreSmoke318"
-DIRECT_REFLECTION = "direct-literal-reflection-r2"
+DIRECT_REFLECTION = "direct-literal-reflection-r3"
 DIRECT_ORIGINAL_BLOBS = {
     "Current318FinalPolynomial": "abd67dfc3e7bb314108d4ca959aab8fc5dc4793e",
     "Current326Polynomial": "b676cde25fc0921f598abea8650e332eadd0ee20",
     "Current326CoefficientBindingExpanded": "2690a2e204f09fcd3afc752c18a8ba8e47b0fc30",
     "Current326CoefficientBindingData": "07c36d7b8768968f08c3f0f1f9e01790f5c3b6d5",
     "Current326CoefficientBinding": "06c0a25dac6a429411f9d7525b157223c4fb575e",
+}
+PINNED_ORIGINALS = {
+    DIRECT_REFLECTION: DIRECT_ORIGINAL_BLOBS,
+    "same-j-ordinary-diagonal-equation-r1": {"OpenJModel318": "068898a89b9c35cddbe1ce76d997303e2c077323"},
 }
 ALLOWLIST = {
     CORE_PACKET: {
@@ -526,17 +530,17 @@ ALLOWLIST = {
             "SelectedJDifferentAnnihilates318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r4/SelectedJDifferentAnnihilates318.lean",
         },
     },
-    "arithmetic-three-adic-nonroot-r3": {
+    "arithmetic-three-adic-nonroot-r4": {
         "profile": "pinned-mathlib",
-        "source_base": "0a2ee343a4d05667003f26bdbb66aacf84d215b3",
+        "source_base": "a83a08472ea5496a98f5c9bcf86a7a02f7689c36",
         "scope": "Affine points on the same twist form an infinite set from an actual supplied nonroot for integer n = 2 mod 3; no global nonroot producer, group-model attachment or claimed selected rank.",
-        "manifest_sha256": "f285390755a2c6d89288f833664d05630ba83f88b9ba54acc204cf6180ccf56b",
+        "manifest_sha256": "9c4f01deb45004b42922a9cbf0cf39907452611bf68c3ef3198b90f679edbf21",
         "modules": (
             ("SelectedThreeAdicEscape318",
              "6f35031e6e165e6cfb507df614d890001ea7a5570bcf09ff4400fbaf1d3b0ee1",
              ("Mathlib.Algebra.Field.ZMod", "Mathlib.NumberTheory.Padics.PadicVal.Basic", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.LinearCombination", "Mathlib.Tactic.NormNum", "Mathlib.Tactic.Ring")),
             ("SelectedThreeAdicNonroot318",
-             "046911b155521b5c97b826b37006d58712d7c7135036f6a0d07bce8e5d0fbe47",
+             "fd4d14592e9e8f6f60dcc4aa98167d14baf52cd3aba751a741ecc199d06bb2f4",
              ("Mathlib.Data.Rat.Lemmas", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.Linarith", "Mathlib.Tactic.LinearCombination", "Mathlib.Tactic.Ring", "SelectedThreeAdicEscape318")),
         ),
         "source_roots": (
@@ -562,7 +566,7 @@ ALLOWLIST = {
         "audit_sha256": "1f7bdac7d9dcbf02f58d613a8fe24ede7519ea10d31425cd1439514c5fe13b78",
         "audit_public_meta": True,
         "source_paths": {
-            "SelectedThreeAdicNonroot318": "quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r1/SelectedThreeAdicNonroot318.lean",
+            "SelectedThreeAdicEscape318": "quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r3/SelectedThreeAdicEscape318.lean",
         },
     },
     "period-original-elliptic-sections-r1": {
@@ -609,11 +613,11 @@ ALLOWLIST = {
         "audit_sha256": "6c2c1b2ac47b0db7cbd7c510049f14475730744a4b072a96ccdf3d56a92a2cea",
         "audit_public_meta": True,
     },
-    "direct-literal-reflection-r2": {
+    "direct-literal-reflection-r3": {
         "profile": "pinned-mathlib",
-        "source_base": "0a2ee343a4d05667003f26bdbb66aacf84d215b3",
+        "source_base": "a83a08472ea5496a98f5c9bcf86a7a02f7689c36",
         "scope": "All-assignments equality of the 318 original and genuine stored 326 quartic values under x0 -> -1-x0, x118 -> x118+2*x0+1; both original existential zero-set equivalences. No rational-integrality or point supplier claim.",
-        "manifest_sha256": "540ef9953b0ff23ca6c9bb407628e3c8467ad9be9c1ebbb9ae924a227b09df2f",
+        "manifest_sha256": "323405adf08fbbd4ddd7ce1256727dfcfeb274444a775bb69b407a736aed4744",
         "modules": (
             ("QuarticOptimization",
              "a30074aee2724d2ebb6b2559f606d7414c9563fb883cd1af3a994692084b300b",
@@ -643,7 +647,7 @@ ALLOWLIST = {
              "47a805536d82cd5fc0f083272b73effda9712ffcf0b2f342339d7b9e52758e5a",
              ("Current326CoefficientBindingData",)),
             ("DirectLiteralReflection318326",
-             "92bd86026d099673ce9d2e30d57c8d48b036d86aa4c547654b4856b5b4a176ef",
+             "53dfea18df254e9940847bc4e3722f0a0d85c2c8336debab49a5907522f9273f",
              ("Current318FinalPolynomial", "Current326CoefficientBinding", "SparseReflectionDifference")),
         ),
         "source_roots": (
@@ -665,13 +669,81 @@ ALLOWLIST = {
         "source_paths": {
             "QuarticOptimization": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/QuarticOptimization.lean",
             "SparseQuartic": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean",
+            "SparseReflectionDifference": "quartics/quartic-318-326/proof/intake/direct-literal-reflection-r2/SparseReflectionDifference.lean",
             "Current318FinalPolynomial": "quartics/quartic-318-326/proof/progress/Current318FinalPolynomial.lean",
             "Current326Polynomial": "quartics/quartic-318-326/proof/progress/Current326Polynomial.lean",
+            "Current326CoefficientBindingNormalize": "quartics/quartic-318-326/proof/intake/direct-literal-reflection-r2/Current326CoefficientBindingNormalize.lean",
             "Current326CoefficientBindingExpanded": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingExpanded.lean",
             "Current326CoefficientBindingData": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingData.lean",
             "Current326CoefficientBinding": "quartics/quartic-318-326/proof/progress/Current326CoefficientBinding.lean",
-            "DirectLiteralReflection318326": "quartics/quartic-318-326/proof/intake/direct-literal-reflection-r1/DirectLiteralReflection318326.lean",
         },
+    },
+    "same-j-ordinary-diagonal-equation-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "a83a08472ea5496a98f5c9bcf86a7a02f7689c36",
+        "scope": "Actual literal localized OpenJ structural self-product equation and nonzerodivisorness on its flat charts. Not the compact modular curve or a height bound.",
+        "manifest_sha256": "0a4accb5f161997cd8bdfecca3e1f6877a426fc4a3310c416af0983284dd9cf2",
+        "modules": (
+            ("OpenJModel318",
+             "9aa7e5da319652f44edde7b88e92747ec6b15aea08acbe038196e2f5983e1443",
+             ("Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass", "Mathlib.RingTheory.Localization.Away.Basic", "Mathlib.Tactic")),
+            ("SelectedJAbsoluteStructuralKernel318",
+             "b122bfcf0bcf3fbcbd836e98cfacdf3965684bec9d60dec3fa76f7cb2f757321",
+             ("Mathlib.LinearAlgebra.TensorProduct.Quotient", "Mathlib.RingTheory.TensorProduct.Maps", "OpenJModel318")),
+            ("SelectedJOrdinaryDiagonalRegular318",
+             "58c1195e261a377b7ba023e14afdc2ad4e19090163abed05207eaaa64cb828ec",
+             ("Mathlib.RingTheory.PolynomialAlgebra", "Mathlib.RingTheory.RingHom.Flat", "SelectedJAbsoluteStructuralKernel318")),
+        ),
+        "source_roots": (
+            "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+            "Mathlib.LinearAlgebra.TensorProduct.Quotient",
+            "Mathlib.RingTheory.Localization.Away.Basic",
+            "Mathlib.RingTheory.PolynomialAlgebra",
+            "Mathlib.RingTheory.RingHom.Flat",
+            "Mathlib.RingTheory.TensorProduct.Maps",
+            "Mathlib.Tactic",
+        ),
+        "artifact_roots": (
+            "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+            "Mathlib.LinearAlgebra.TensorProduct.Quotient",
+            "Mathlib.RingTheory.Localization.Away.Basic",
+            "Mathlib.RingTheory.PolynomialAlgebra",
+            "Mathlib.RingTheory.RingHom.Flat",
+            "Mathlib.RingTheory.TensorProduct.Maps",
+            "Mathlib.Tactic",
+        ),
+        "audit_sha256": "7978d45e62ddddc3a7f3515346658fc49eaa8d4b429162635c1c0d8edacdac1f",
+        "audit_public_meta": True,
+        "source_paths": {
+            "OpenJModel318": "quartics/quartic-318-326/proof/progress/OpenJModel318.lean",
+        },
+    },
+    "original-mu-intertwiner-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "a83a08472ea5496a98f5c9bcf86a7a02f7689c36",
+        "scope": "Primitive generator of generic twisted 2-by-2 intertwiners at a supplied structural DVR with reduced determinant quotient. No model, deformation, global bound or literal endpoint.",
+        "manifest_sha256": "94d56b24fdb762d55a46f9bbbeccc60b9b75e9e91343499d49e498d885b77442",
+        "modules": (
+            ("OriginalYuanMuIntertwiner318",
+             "d167881c0b7ceee33aa6ba50a08a20607a11d6456da1773f25ba4d21ab19fe32",
+             ("Mathlib.Data.Matrix.Basis", "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs", "Mathlib.RingTheory.DiscreteValuationRing.Basic", "Mathlib.RingTheory.Ideal.Quotient.Operations", "Mathlib.Tactic.Ring")),
+        ),
+        "source_roots": (
+            "Mathlib.Data.Matrix.Basis",
+            "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs",
+            "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+            "Mathlib.RingTheory.Ideal.Quotient.Operations",
+            "Mathlib.Tactic.Ring",
+        ),
+        "artifact_roots": (
+            "Mathlib.Data.Matrix.Basis",
+            "Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs",
+            "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+            "Mathlib.RingTheory.Ideal.Quotient.Operations",
+            "Mathlib.Tactic.Ring",
+        ),
+        "audit_sha256": "45fe6d84a956ab2986f60436104c3de32f8dd8e583b38610d743448596bc0012",
+        "audit_public_meta": True,
     },
 }
 
@@ -784,7 +856,7 @@ def source_paths(packet, config):
         file = n + ".lean"
         local = folder + "/" + file
         path = donors.get(n, local)
-        if packet == DIRECT_REFLECTION and n in DIRECT_ORIGINAL_BLOBS:
+        if n in PINNED_ORIGINALS.get(packet, {}):
             require(path == PROGRESS + "/" + file, "Invalid pinned original donor path: " + n)
         elif n in donors:
             require(path != local and re.fullmatch(
@@ -806,8 +878,8 @@ def read_payload(root, commit, packet, config):
             root, commit, path
         ).get(path)
         require(entry is not None, "Missing exact tracked source: " + path)
-        if packet == DIRECT_REFLECTION and name.removesuffix(".lean") in DIRECT_ORIGINAL_BLOBS:
-            expected = DIRECT_ORIGINAL_BLOBS[name.removesuffix(".lean")]
+        if name.removesuffix(".lean") in PINNED_ORIGINALS.get(packet, {}):
+            expected = PINNED_ORIGINALS[packet][name.removesuffix(".lean")]
             require(entry == ("100644", "blob", expected), "Changed original donor identity: " + path)
         payload[name] = checked_blob(root, commit, path, entry)
     return payload
