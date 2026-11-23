@@ -212,13 +212,13 @@ ALLOWLIST = {
         "audit_sha256": "da826d79bec5f71318d2ca42dd29e5d77ab8b9e4851ee2f9c4f0dbdca38f00ec",
         "audit_public_meta": True,
     },
-    "same-j-crt-trace-r1": {
+    "same-j-crt-trace-r2": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
         "scope": "Arbitrary-ideal trace reduction and CRT trace detects the positive rank of the selected factor; stock algebra only",
-        "manifest_sha256": "f297d0f05c8812300494431be6d5e1718ac7424ee3f5f0f9f29e7e0583bdc17d",
+        "manifest_sha256": "92bf47604b687d35e1a2281587ad2bfa9c963ad078c2de7bab9f56e5553b8c0a",
         "modules": (
-            ("SelectedJOneCRTTrace318", "c1852e88e2b0b6888e2714888c09ce41af00d60906be07c82bae3a37ff972c7a",
+            ("SelectedJOneCRTTrace318", "48c1f85b81c76098fe68b520bcbe59471c4302ad1c59319e41a46e72350c6036",
              ("Mathlib.LinearAlgebra.Dimension.Constructions", "Mathlib.RingTheory.LocalRing.Module", "Mathlib.RingTheory.TensorProduct.Finite", "Mathlib.RingTheory.TensorProduct.Quotient", "Mathlib.RingTheory.Trace.Basic")),
         ),
         "source_roots": (

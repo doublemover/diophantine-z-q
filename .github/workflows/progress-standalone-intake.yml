@@ -26,7 +26,7 @@ on:
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-mapped-trait-r1/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-direct-lenstra-clear-r2/**'
       - 'quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r3/**'
-      - 'quartics/quartic-318-326/proof/intake/same-j-crt-trace-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/**'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean'
@@ -52,7 +52,7 @@ jobs:
             profile: lean-core
             root_count: 0
             verification: >-
-              ${{ github.event.before == '9a2c68b080dd14e6fbbee9b2658547fa8a22ded2'
+              ${{ github.event.before == 'd0a8779294edda13206d47e59ca602deb7c9fd14'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -60,7 +60,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 9
             verification: >-
-              ${{ github.event.before == '9a2c68b080dd14e6fbbee9b2658547fa8a22ded2'
+              ${{ github.event.before == 'd0a8779294edda13206d47e59ca602deb7c9fd14'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -68,7 +68,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 7
             verification: >-
-              ${{ github.event.before == '9a2c68b080dd14e6fbbee9b2658547fa8a22ded2'
+              ${{ github.event.before == 'd0a8779294edda13206d47e59ca602deb7c9fd14'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -76,15 +76,19 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == '9a2c68b080dd14e6fbbee9b2658547fa8a22ded2'
+              ${{ github.event.before == 'd0a8779294edda13206d47e59ca602deb7c9fd14'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
           - packet: pel-actual-marking-crt-r3
             profile: pinned-mathlib
             root_count: 6
-            verification: kernel check
-          - packet: same-j-crt-trace-r1
+            verification: >-
+              ${{ github.event.before == 'd0a8779294edda13206d47e59ca602deb7c9fd14'
+                  && join(github.event.commits.*.id, ',') == github.sha
+                  && !github.event.forced
+                  && 'source admission only' || 'kernel check' }}
+          - packet: same-j-crt-trace-r2
             profile: pinned-mathlib
             root_count: 5
             verification: kernel check
@@ -122,7 +126,7 @@ jobs:
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-mapped-trait-r1/
             /quartics/quartic-318-326/proof/intake/same-j-direct-lenstra-clear-r2/
             /quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r3/
-            /quartics/quartic-318-326/proof/intake/same-j-crt-trace-r1/
+            /quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean
