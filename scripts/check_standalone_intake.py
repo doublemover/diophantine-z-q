@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact, no-baseline hosted intake. Only the reviewed Lean-core row is enabled."""
+"""Exact, no-baseline hosted intake for reviewed Lean-core and pinned-Mathlib leaves."""
 import argparse
 from contextlib import contextmanager
 from hashlib import sha256
@@ -14,6 +14,8 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 INTAKES = "quartics/quartic-318-326/proof/intake"
+PROGRESS = "quartics/quartic-318-326/proof/progress"
+DEP_OUTPUT = "build/dependency-setup"
 OUTPUT = "build/progress-standalone-intake"
 BRANCH = "refs/heads/add-quartic-318-326"
 COMPILER_TEXT = (
@@ -35,6 +37,26 @@ COMPILER_BLOBS = {
     "lean/lean-toolchain": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
     "quartics/quartic-318-326/proof/progress/lean-toolchain": "a6aff065db2882c535684f8c5bcd4f16e9a23915",
 }
+DEPENDENCY_BLOBS = {
+    ".github/actions/setup-pinned-dependency-sources/action.yml": "8723e78867131af5a1f93a288ae97d8cefdf14a4",
+}
+DEPENDENCY_HELPER_SHA = "f927646b0f8f3a5ef1cd0575d9428677476af87a7ec9430ac9eec97199412695"
+LAKE_LOCKS = {
+    "lake-manifest.json": "a770787f33b5824f61a0731d59e67fca3f44a531b21d1fc1a804064c6fb54e58",
+    "lakefile.toml": "908476df02b96238ec75ab9f7c953d7d5238b023b87e29a775709d4a62dc2d2a",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+}
+PACKAGE_REVISIONS = {
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+    "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+    "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+    "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+    "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+    "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+    "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+    "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+}
 CORE_PACKET = "linear-a4-weighted-readback-core-r1"
 CORE_MODULE = "LinearA4WeightedReadbackCoreSmoke318"
 ALLOWLIST = {
@@ -49,7 +71,69 @@ ALLOWLIST = {
         ),
         "source_roots": ("Init.Data.List.Lemmas",),
         "artifact_roots": (),
-        "audit_sha256": "3629826a314ac335ccb6f7e177905a90d3ae76573e3e7313f96aac782045a07a",
+        "audit_sha256": "f7c94ff210df496a78533346774d435bfe52b02765ba61947a3c8d0346977fce",
+    },
+    "pel-original-order-gram-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
+        "scope": "Original fixed split order's signed integral Gram and covolume in the checked same-basis period convention; not marked analytification or full quartic",
+        "manifest_sha256": "3cff49e25ca426e1a170df105382c1fe92bb580cbebf92a3b165ceb2030446a7",
+        "modules": (
+            ("QuaternionicRealPeriod318",
+             "996fc76819df4867affa9870c6bb24ce5303db9db4f0f6f164070ab922f8ddda",
+             ("Mathlib.Analysis.Complex.Basic", "Mathlib.Data.Matrix.Basic", "Mathlib.LinearAlgebra.Matrix.ToLin", "Mathlib.Tactic")),
+            ("SelectedActualPELPeriodColumns318",
+             "b6d4ef954e793f054b547ff6ba9929fa7a56322ff8fd213df5fe287e215f73f8",
+             ("Mathlib.LinearAlgebra.Basis.Defs", "Mathlib.LinearAlgebra.Matrix.Notation", "Mathlib.LinearAlgebra.Matrix.Trace", "Mathlib.Tactic", "QuaternionicRealPeriod318")),
+            ("SelectedSameAOriginalOrderGram318",
+             "e8d88b07aae90c33c5692031b8af8f726df98c16b343d7347bbb3806414a7e06",
+             ("Mathlib.Analysis.SpecialFunctions.Sqrt", "Mathlib.LinearAlgebra.Matrix.Determinant.Basic", "Mathlib.Tactic", "SelectedActualPELPeriodColumns318")),
+        ),
+        "source_roots": (
+            "Mathlib.Analysis.Complex.Basic",
+            "Mathlib.Analysis.SpecialFunctions.Sqrt",
+            "Mathlib.Data.Matrix.Basic",
+            "Mathlib.LinearAlgebra.Basis.Defs",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.LinearAlgebra.Matrix.Notation",
+            "Mathlib.LinearAlgebra.Matrix.ToLin",
+            "Mathlib.LinearAlgebra.Matrix.Trace",
+            "Mathlib.Tactic",
+        ),
+        "artifact_roots": (
+            "Mathlib.Analysis.Complex.Basic",
+            "Mathlib.Analysis.SpecialFunctions.Sqrt",
+            "Mathlib.Data.Matrix.Basic",
+            "Mathlib.LinearAlgebra.Basis.Defs",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.LinearAlgebra.Matrix.Notation",
+            "Mathlib.LinearAlgebra.Matrix.ToLin",
+            "Mathlib.LinearAlgebra.Matrix.Trace",
+            "Mathlib.Tactic",
+        ),
+        "audit_sha256": "55aff9c9cb217636677befc1370c55e1b73172ec5a3055991ffa9ddcf8f40dac",
+        "predecessor_source_commit": "a872d819a4a555fde19debe8233443876602e430",
+        "source_paths": {
+            "QuaternionicRealPeriod318": "quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/QuaternionicRealPeriod318.lean",
+            "SelectedActualPELPeriodColumns318": "quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean",
+        },
+    },
+    "finite-height-dlog-rows-r2": {
+        "profile": "pinned-mathlib",
+        "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
+        "scope": "Three-source finite same-A dlog rows; exact original Stage A with two reviewed donor lint edits; not a structural model or endpoint",
+        "manifest_sha256": "568da10066303be10857b878e5cd10661f00ee03033a810aedbc19208363394c",
+        "modules": (
+            ("SquareReflection318", "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
+             ("Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic")),
+            ("LinearContactSquareclass318", "92f3225eff64e0c18bfb64928fbb11b4f0a46aa5c97efa6bea8877ce4cc10933",
+             ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "SquareReflection318")),
+            ("SelectedActualSameAFiniteDlogRows318", "a574ee2004739b68cc3747312f831b7b95e614ba10d1009db891537ad229780a",
+             ("LinearContactSquareclass318", "Mathlib.Tactic")),
+        ),
+        "source_roots": ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic"),
+        "artifact_roots": ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic"),
+        "audit_sha256": "6ed4cf41bf0bbffab9cfc16628c4297376a354ed0ac9c18e0514d061af21ae51",
     },
 }
 
@@ -106,42 +190,84 @@ def checked_blob(root, commit, path, entry):
     return git_at(root, "cat-file", "blob", blob)
 
 
-def verify_helpers(root, commit):
+def verify_helpers(root, commit, profile):
     # Bind helpers before import; no byte from the working tree may override a pin.
-    for path, expected in {**HELPERS, **COMPILER_BLOBS}.items():
+    sha_pins = dict(HELPERS)
+    blob_pins = dict(COMPILER_BLOBS)
+    if profile == "pinned-mathlib":
+        sha_pins.update({PROGRESS + "/" + n: sha for n, sha in LAKE_LOCKS.items()})
+        sha_pins["scripts/pinned_dependency_sources.py"] = DEPENDENCY_HELPER_SHA
+        blob_pins.update(DEPENDENCY_BLOBS)
+    for path in sorted(sha_pins.keys() | blob_pins.keys()):
         entry = tree_entries(root, commit, path).get(path)
         require(entry is not None, "Missing tracked helper: " + path)
-        # setup_pinned_lean.sh may have standard executable Git mode.
         mode, kind, blob = entry
         require(kind == "blob" and mode in {"100644", "100755"},
                 "Invalid helper mode: " + path)
-        if path in COMPILER_BLOBS:
-            require(blob == expected, "Changed compiler setup pin: " + path)
+        if path in blob_pins:
+            require(blob == blob_pins[path], "Changed setup pin: " + path)
         target = root / path
         require(target.resolve() == target and target.is_file(), "Invalid helper path: " + path)
         raw = git_at(root, "cat-file", "blob", blob)
         require(target.read_bytes() == raw, "Working helper differs from tracked blob: " + path)
-        if path in HELPERS:
-            require(digest(raw) == expected, "Changed stock parser/checker: " + path)
+        if path in sha_pins:
+            require(digest(raw) == sha_pins[path], "Changed locked helper/input: " + path)
 
 
 def profile_contract(config):
-    # A future reviewed pinned-mathlib profile belongs here and in
-    # profile_environment, not in packet-controlled data or CLI overrides.
-    require(config["profile"] == "lean-core", "Unimplemented runner profile")
-    require(not config["artifact_roots"], "A Lean-core packet may not fetch artifacts")
-    require(all(root.split(".")[0] in {"Init", "Lean", "Std"}
-                for root in config["source_roots"]), "Non-core root in Lean-core profile")
+    profile = config["profile"]
+    roots = config["source_roots"]
+    fetched = config["artifact_roots"]
+    require(profile in {"lean-core", "pinned-mathlib"} and
+            (profile != "pinned-mathlib" or bool(fetched)),
+            "Unimplemented runner profile or missing pinned package roots")
+    require(tuple(sorted(set(roots))) == roots, "Root list is not sorted unique")
+    if profile == "lean-core":
+        require(not fetched, "A Lean-core packet may not fetch artifacts")
+        require(all(root.split(".")[0] in {"Init", "Lean", "Std"} for root in roots),
+                "Non-core root in Lean-core profile")
+    else:
+        require(tuple(r for r in roots if not r.startswith(("Init.", "Lean.", "Std."))) == fetched
+                and all(re.fullmatch(r"Mathlib(?:\.[A-Za-z0-9_]+)+", r) for r in fetched),
+                "Pinned Mathlib roots differ from admitted non-core imports")
+
+
+def source_paths(packet, config):
+    require(re.fullmatch(r"[a-z][a-z0-9-]*", packet) is not None, "Invalid packet slug")
+    folder = INTAKES + "/" + packet
+    modules = [n for n, _, _ in config["modules"]]
+    require(len(set(modules)) == len(modules) and
+            all(re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", n) for n in modules),
+            "Invalid reviewed module order")
+    donors = config.get("source_paths", {})
+    require(set(donors) <= set(modules), "External source assigned to an unlisted module")
+    files = {"intake.json": folder + "/intake.json"}
+    for n in modules:
+        file = n + ".lean"
+        local = folder + "/" + file
+        path = donors.get(n, local)
+        if n in donors:
+            require(path != local and re.fullmatch(
+                re.escape(INTAKES) + r"/[a-z][a-z0-9-]*/" + re.escape(file), path
+            ) is not None, "Invalid static external donor path: " + n)
+        files[file] = path
+    return files
 
 
 def read_payload(root, commit, packet, config):
     folder = INTAKES + "/" + packet
+    files = source_paths(packet, config)
     entries = tree_entries(root, commit, folder)
-    names = ["intake.json", *(n + ".lean" for n, _, _ in config["modules"])]
-    require(set(entries) == {folder + "/" + n for n in names},
+    require(set(entries) == {p for p in files.values() if p.startswith(folder + "/")},
             "Tracked intake filenames differ from exact scope")
-    return {n: checked_blob(root, commit, folder + "/" + n, entries[folder + "/" + n])
-            for n in names}
+    payload = {}
+    for name, path in files.items():
+        entry = entries.get(path) if path.startswith(folder + "/") else tree_entries(
+            root, commit, path
+        ).get(path)
+        require(entry is not None, "Missing exact tracked source: " + path)
+        payload[name] = checked_blob(root, commit, path, entry)
+    return payload
 
 
 def validate_payload(config, payload):
@@ -165,7 +291,7 @@ def validate_payload(config, payload):
 @contextmanager
 def admitted(root, commit, packet, config):
     profile_contract(config)
-    verify_helpers(root, commit)
+    verify_helpers(root, commit, config["profile"])
     # Keep these imports deferred until the tracked bytes have been checked.
     import check_progress_experiment as stock
 
@@ -183,21 +309,102 @@ def admitted(root, commit, packet, config):
                 "Stock import closure differs from reviewed roots")
         audit_source = stock.audit_text(data["order"])
         if config["profile"] == "lean-core":
-            # With no Mathlib.Tactic import, run_cmd needs CommandElabM explicitly.
+            # run_cmd elaborates a meta _eval. Without Mathlib.Tactic, both
+            # the command instances and collector need public meta visibility.
             header = "import Lean.Util.CollectAxioms\n"
             require(audit_source.count(header) == 1, "Unexpected stock audit header")
-            audit_source = audit_source.replace(header, header + "import Lean.Elab.Command\n", 1)
+            meta_header = ("public meta import Lean\n"
+                           "public meta import Lean.Elab.Command\n"
+                           "public meta import Lean.Util.CollectAxioms\n")
+            audit_source = audit_source.replace(header, meta_header, 1)
         audit = audit_source.encode("utf-8")
         require(digest(audit) == config["audit_sha256"], "Changed private recursive audit")
         yield folder, data, audit
 
 
-def profile_environment(config, lib, env):
+def profile_environment(config, lib, env, upstream=()):
     profile_contract(config)
+    require((not upstream) == (config["profile"] == "lean-core"),
+            "Profile and package library path disagree")
     sanitize = ("LEAN_", "LAKE_", "ELAN_", "LD_", "DYLD_")
     result = {k: v for k, v in env.items() if not k.startswith(sanitize)}
-    result["LEAN_PATH"] = str(lib)
+    result["LEAN_PATH"] = os.pathsep.join(str(path) for path in (lib, *upstream))
     return result
+
+
+def regular_bytes(path):
+    require(path.resolve() == path and path.is_file(), "Missing/redirected path: " + str(path))
+    return path.read_bytes()
+
+
+def validate_setup_receipts(config, targets, sources, artifacts):
+    identity = LAKE_LOCKS | {"protocol": 1, "helper_sha256": DEPENDENCY_HELPER_SHA}
+    require(targets == "".join(r + "\n" for r in config["artifact_roots"]).encode("ascii"),
+            "Artifact target file differs from reviewed roots")
+    for actual, mode in ((sources, "sources"), (artifacts, "artifacts")):
+        require(actual.get("status") == "PASS" and actual.get("mode") == mode and
+                actual.get("proof_check_run") is False and actual.get("identity") == identity,
+                "Missing exact successful " + mode + " setup receipt")
+    rows = sources.get("packages", [])
+    require(len(rows) == len(PACKAGE_REVISIONS) and
+            {p["name"]: p["rev"] for p in rows} == PACKAGE_REVISIONS,
+            "Wrong package revisions in source setup receipt")
+    attempts = artifacts.get("attempts", [])
+    require(attempts and attempts[-1].get("label") == "upstream-artifacts" and
+            attempts[-1].get("exit_code") == 0, "No successful pinned artifact acquisition")
+
+
+def mathlib_setup(root, packet, config):
+    project = root / PROGRESS
+    lock = {}
+    for name, pin in LAKE_LOCKS.items():
+        raw = regular_bytes(project / name)
+        require(digest(raw) == pin, "Changed runtime package lock: " + name)
+        if name == "lake-manifest.json":
+            lock = json.loads(raw)
+    require(lock.get("packagesDir") == ".lake/packages" and lock.get("lakeDir") == ".lake",
+            "Unexpected locked package layout")
+    package_rows = lock["packages"]
+    require(len(package_rows) == len(PACKAGE_REVISIONS) and
+            {p["name"]: p["rev"] for p in package_rows} == PACKAGE_REVISIONS,
+            "Unexpected package lock revisions")
+    setup = root / DEP_OUTPUT
+    targets = setup / (packet + ".targets.txt")
+    sources = setup / "sources.json"
+    artifacts = setup / (packet + ".artifacts.json")
+    sources_raw, artifacts_raw, targets_raw = map(regular_bytes, (sources, artifacts, targets))
+    validate_setup_receipts(config, targets_raw, json.loads(sources_raw), json.loads(artifacts_raw))
+    packages = project / ".lake/packages"
+    require(packages.resolve() == packages and packages.is_dir(), "Invalid verified package directory")
+    upstream = []
+    for p in package_rows:
+        folder = packages / p["name"]
+        require(folder.resolve() == folder and (folder / ".git").is_dir() and
+                not (folder / ".git").is_symlink(), "Not a fresh real package checkout: " + p["name"])
+        require(git_at(folder, "rev-parse", "HEAD").decode().strip() == p["rev"],
+                "Wrong package HEAD: " + p["name"])
+        require(git_at(folder, "remote", "get-url", "origin").decode().strip() == p["url"],
+                "Wrong package remote: " + p["name"])
+        git_at(folder, "diff", "--quiet", "HEAD", "--")
+        lib = folder / ".lake/build/lib/lean"
+        require(lib.resolve() == lib, "Redirected package Lean library: " + p["name"])
+        if lib.is_dir():
+            upstream.append(lib)
+    mathlib = packages / "mathlib/.lake/build/lib/lean"
+    require(mathlib in upstream, "Missing pinned Mathlib library")
+    for name in config["artifact_roots"]:
+        target = mathlib / (name.replace(".", "/") + ".olean")
+        require(target.resolve() == target and target.is_file(),
+                "Missing pinned upstream artifact: " + name)
+    return tuple(upstream), {
+        "upstream_policy": "Pinned package sources and upstream Mathlib cache; no project artifacts",
+        "dependency_revisions": PACKAGE_REVISIONS,
+        "dependency_receipts": {
+            "sources_sha256": digest(sources_raw),
+            "artifacts_sha256": digest(artifacts_raw),
+            "targets_sha256": digest(targets_raw),
+        },
+    }
 
 
 def invoke(command, folder, env, log, timeout):
@@ -242,6 +449,7 @@ def check(packet, config):
         with admitted(ROOT, commit, packet, config) as (folder, data, audit):
             result.update(
                 sources=data["files"], order=data["order"],
+                source_paths=source_paths(packet, config),
                 intake_path=INTAKES + "/" + packet,
                 intake_sha256=config["manifest_sha256"],
                 roots=config["source_roots"], artifact_roots=config["artifact_roots"],
@@ -249,7 +457,15 @@ def check(packet, config):
             )
             lib = folder.parent / "lib"
             lib.mkdir()
-            env = profile_environment(config, lib, os.environ)
+            upstream = ()
+            if config["profile"] == "pinned-mathlib":
+                result["phase"] = "pinned-upstream-setup"
+                upstream, provenance = mathlib_setup(ROOT, packet, config)
+                result.update(provenance)
+                result["phase"] = "compiler-identity"
+            if "predecessor_source_commit" in config:
+                result["predecessor_source_commit"] = config["predecessor_source_commit"]
+            env = profile_environment(config, lib, os.environ, upstream)
             compiler = Path.home() / ".elan/toolchains" / TOOLCHAIN_DIR / "bin/lean"
             version = subprocess.check_output(
                 [str(compiler), "--version"], cwd=folder, env=env, text=True, timeout=30

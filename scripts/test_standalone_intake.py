@@ -29,6 +29,18 @@ class IntakeTests(unittest.TestCase):
             self.assertIn(b"collectAxioms name", a)
             self.assertEqual(tuple(self.config["artifact_roots"]), ())
 
+    def test_core_audit_uses_public_meta_visibility(self):
+        with runner.admitted(runner.ROOT, self.head, self.packet, self.config) as (_, _, a):
+            imports = [line for line in a.splitlines() if b"import " in line]
+            self.assertEqual(imports, [
+                b"import all " + runner.CORE_MODULE.encode(),
+                b"public meta import Lean", b"public meta import Lean.Elab.Command",
+                b"public meta import Lean.Util.CollectAxioms",
+            ])
+            self.assertIn(b"run_cmd do", a)
+            self.assertIn(b"collectAxioms name", a)
+            self.assertIn(b"moduleData[idx]!.constNames", a)
+
     def test_rehashed_source_and_manifest_rejected(self):
         p = dict(self.payload)
         d = json.loads(p["intake.json"])

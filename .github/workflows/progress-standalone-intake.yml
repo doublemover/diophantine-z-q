@@ -8,15 +8,24 @@ on:
       - '.github/workflows/progress-standalone-intake.yml'
       - '.github/actions/setup-pinned-python/**'
       - '.github/actions/setup-pinned-lean/**'
+      - '.github/actions/setup-pinned-dependency-sources/**'
       - 'scripts/check_standalone_intake.py'
       - 'scripts/test_standalone_intake.py'
+      - 'scripts/test_standalone_mathlib_intake.py'
+      - 'scripts/pinned_dependency_sources.py'
       - 'scripts/check_lean.py'
       - 'scripts/check_progress_lean.py'
       - 'scripts/check_progress_experiment.py'
       - 'scripts/setup_pinned_lean.sh'
       - 'lean/lean-toolchain'
       - 'quartics/quartic-318-326/proof/progress/lean-toolchain'
+      - 'quartics/quartic-318-326/proof/progress/lakefile.toml'
+      - 'quartics/quartic-318-326/proof/progress/lake-manifest.json'
       - 'quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/pel-original-order-gram-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r2/**'
+      - 'quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/QuaternionicRealPeriod318.lean'
+      - 'quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean'
 
 permissions:
   contents: read
@@ -31,12 +40,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        packet:
-          - linear-a4-weighted-readback-core-r1
+        include:
+          - packet: linear-a4-weighted-readback-core-r1
+            profile: lean-core
+            root_count: 0
+          - packet: pel-original-order-gram-r1
+            profile: pinned-mathlib
+            root_count: 9
+          - packet: finite-height-dlog-rows-r2
+            profile: pinned-mathlib
+            root_count: 6
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 30
     env:
       PACKET: ${{ matrix.packet }}
+      PROFILE: ${{ matrix.profile }}
+      ROOT_COUNT: ${{ matrix.root_count }}
+      PROGRESS: quartics/quartic-318-326/proof/progress
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -46,15 +66,24 @@ jobs:
           sparse-checkout: |
             /.github/actions/setup-pinned-python/
             /.github/actions/setup-pinned-lean/
+            /.github/actions/setup-pinned-dependency-sources/
             /scripts/check_standalone_intake.py
             /scripts/test_standalone_intake.py
+            /scripts/test_standalone_mathlib_intake.py
+            /scripts/pinned_dependency_sources.py
             /scripts/check_lean.py
             /scripts/check_progress_lean.py
             /scripts/check_progress_experiment.py
             /scripts/setup_pinned_lean.sh
             /lean/lean-toolchain
             /quartics/quartic-318-326/proof/progress/lean-toolchain
+            /quartics/quartic-318-326/proof/progress/lakefile.toml
+            /quartics/quartic-318-326/proof/progress/lake-manifest.json
             /quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/
+            /quartics/quartic-318-326/proof/intake/pel-original-order-gram-r1/
+            /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r2/
+            /quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/QuaternionicRealPeriod318.lean
+            /quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean
       - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: '3.12.14'
@@ -62,11 +91,32 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -E -s -B scripts/test_standalone_intake.py -v
-          python -E -s -B scripts/check_standalone_intake.py targets --packet "$PACKET" \
-            > "$RUNNER_TEMP/standalone-targets.txt"
-          test ! -s "$RUNNER_TEMP/standalone-targets.txt"
+          case "$PROFILE" in
+            lean-core)
+              python -E -s -B scripts/test_standalone_intake.py -v
+              targets="$RUNNER_TEMP/standalone-targets.txt"
+              ;;
+            pinned-mathlib)
+              python -E -s -B scripts/test_standalone_mathlib_intake.py -v
+              mkdir -p build/dependency-setup
+              targets="build/dependency-setup/$PACKET.targets.txt"
+              ;;
+            *) exit 2 ;;
+          esac
+          python -E -s -B scripts/check_standalone_intake.py targets --packet "$PACKET" > "$targets"
+          test "$(wc -l < "$targets")" -eq "$ROOT_COUNT"
       - uses: ./.github/actions/setup-pinned-lean
+      - uses: ./.github/actions/setup-pinned-dependency-sources
+        if: matrix.profile == 'pinned-mathlib'
+      - name: Fetch only reviewed pinned upstream roots
+        if: matrix.profile == 'pinned-mathlib'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -E -s -B scripts/pinned_dependency_sources.py artifacts \
+            --project "$PROGRESS" \
+            --targets-file "build/dependency-setup/$PACKET.targets.txt" \
+            --receipt "build/dependency-setup/$PACKET.artifacts.json"
       - name: Compile only fresh sources and audit private declarations
         shell: bash
         run: |
@@ -83,3 +133,8 @@ jobs:
             build/progress-standalone-intake/${{ matrix.packet }}/RESULT.json
             build/progress-standalone-intake/${{ matrix.packet }}/ExperimentAudit.lean
             build/progress-standalone-intake/${{ matrix.packet }}/logs/
+            build/dependency-setup/sources.json
+            build/dependency-setup/sources.log
+            build/dependency-setup/${{ matrix.packet }}.targets.txt
+            build/dependency-setup/${{ matrix.packet }}.artifacts.json
+            build/dependency-setup/${{ matrix.packet }}.artifacts.log
