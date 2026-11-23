@@ -13,8 +13,8 @@ import check_standalone_intake as runner
 
 GRAM = "pel-original-order-gram-r2"
 DLOG = "finite-height-dlog-mapped-trait-r1"
-LENSTRA = "same-j-direct-lenstra-clear-r1"
-CRT = "pel-actual-marking-crt-r1"
+LENSTRA = "same-j-direct-lenstra-clear-r2"
+CRT = "pel-actual-marking-crt-r2"
 EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6}
 FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1}
 

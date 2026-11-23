@@ -159,13 +159,13 @@ ALLOWLIST = {
             "SelectedActualSameAFiniteDlogRows318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean",
         },
     },
-    "same-j-direct-lenstra-clear-r1": {
+    "same-j-direct-lenstra-clear-r2": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
         "scope": "Exact signed-factor strict principal ideal containment and multiplier membership; no signed cover constructor or endpoint",
-        "manifest_sha256": "5e30a3bb62a03a87477d3c6c6a4920e931371df6c46b2696b19cc329cb53559c",
+        "manifest_sha256": "7ae4f4e7933a323405c310a2225b943434f643ffd90d9638ec345ab91342dc36",
         "modules": (
-            ("SelectedJOneDirectLenstraClear318", "82230f3431cf434b67dcdb235ae964d78bb63b922a66e0e89215538a88596057",
+            ("SelectedJOneDirectLenstraClear318", "ff2077f089a9ccb78ab0d9a5ac42f8268b32edb7c8b5321d0b0bf518237f1133",
              ("Mathlib.NumberTheory.Padics.PadicVal.Basic", "Mathlib.RingTheory.Coprime.Lemmas", "Mathlib.RingTheory.DedekindDomain.Different", "Mathlib.RingTheory.Valuation.ValuationRing", "Mathlib.Tactic")),
         ),
         "source_roots": (
@@ -184,13 +184,13 @@ ALLOWLIST = {
         ),
         "audit_sha256": "48dc0470e8e6728951a7cd8a5ec079d10bc981580252fd5f15bb670117b70185",
     },
-    "pel-actual-marking-crt-r1": {
+    "pel-actual-marking-crt-r2": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
         "scope": "Exact CRT merge and restriction of supplied torsion markings; no original moduli classifier, occurrence or endpoint",
-        "manifest_sha256": "27a1415e6dd7d8947580a3c15a14f799a9874539b7694af36eafb4124cfa0994",
+        "manifest_sha256": "9d0ddd3d93e9da470768bc9e52acc1c2809e13dadb8097cb9d04b1615ba4f8f7",
         "modules": (
-            ("SelectedPELMarkingCRT318", "d83a9258db2594d4c787cd5429706f6ffac450a86b235b12c556684986ba62bb",
+            ("SelectedPELMarkingCRT318", "1b52b40597b2c07c294b9deeaa122b76d2e73d4d37740d338fb52a1b893faa6e",
              ("Mathlib.Algebra.Group.Prod", "Mathlib.Algebra.Group.Subgroup.Basic", "Mathlib.Algebra.Module.NatInt", "Mathlib.Algebra.Ring.Equiv", "Mathlib.Algebra.Ring.Prod", "Mathlib.Data.ZMod.Basic")),
         ),
         "source_roots": (
