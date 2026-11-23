@@ -16,8 +16,9 @@ DLOG = "finite-height-dlog-mapped-trait-r1"
 LENSTRA = "same-j-direct-lenstra-clear-r2"
 CRT = "pel-actual-marking-crt-r3"
 TRACE = "same-j-crt-trace-r2"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5}
-FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1}
+DIFFERENT = "same-j-crt-different-r1"
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10}
+FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3}
 
 
 def packets():
@@ -25,7 +26,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the five reviewed Mathlib rows")
+        raise ValueError("Expected one of the six reviewed Mathlib rows")
     return (requested,)
 
 
@@ -68,6 +69,17 @@ class MathlibIntakeTests(unittest.TestCase):
                         self.assertFalse(config.get("source_paths"))
                         self.assertEqual(len(data["order"]), 1)
                     self.assertIn(b"collectAxioms name", audit)
+                    if packet == DIFFERENT:
+                        self.assertEqual(data["order"], [
+                            "SelectedJOneDirectLenstraClear318", "SelectedJOneCRTTrace318",
+                            "SelectedJOneCRTDifferent318",
+                        ])
+                        self.assertEqual(config["source_paths"], {
+                            "SelectedJOneDirectLenstraClear318": runner.INTAKES + "/" + LENSTRA +
+                                "/SelectedJOneDirectLenstraClear318.lean",
+                            "SelectedJOneCRTTrace318": runner.INTAKES + "/" + TRACE +
+                                "/SelectedJOneCRTTrace318.lean",
+                        })
                     if packet == DLOG:
                         self.assertNotIn("packet", data)
                         self.assertEqual(set(config["source_paths"]), set(data["order"][:-1]))
