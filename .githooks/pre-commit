@@ -1,0 +1,13 @@
+#!/bin/sh
+# Opt-in only; don't overwrite an existing hooks setup.
+set -eu
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+if command -v python3 >/dev/null 2>&1; then
+    exec python3 -I -B scripts/check_staged_lean.py
+fi
+if command -v python >/dev/null 2>&1; then
+    exec python -I -B scripts/check_staged_lean.py
+fi
+printf '%s\n' 'NOT RUN / BLOCKED: Python 3 is not installed.' >&2
+exit 2

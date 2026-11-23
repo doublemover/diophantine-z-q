@@ -1,0 +1,134 @@
+{
+  "protocol": 1,
+  "publication_parent": "b3bcbbee66d4d61ba48101557a0dd1633581d62d",
+  "publication_title": "Canary actual Hodge Lean dependency artifacts",
+  "source_tree": "fc442c2757c49ac3011e17bf96fb2c602bda78ba",
+  "donors": [
+    {
+      "name": "SectionHeight318",
+      "path": "quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean",
+      "git_blob": "8269076a9bfe13452bb6208bfb95c8d92108703c",
+      "sha256": "021202d10b44c8850f2176df72666fc44e08117b30ef4d18b9967e7a8619b38f",
+      "imports": [
+        "Mathlib.Algebra.FiniteSupport.Basic",
+        "Mathlib.NumberTheory.Height.NumberField",
+        "Mathlib.NumberTheory.Height.Projectivization"
+      ]
+    },
+    {
+      "name": "InducedLattice318",
+      "path": "quartics/quartic-318-326/proof/progress/InducedLattice318.lean",
+      "git_blob": "d56132dbc6c26a12ea97b13540b1458e1ef89a79",
+      "sha256": "f5cf4775d3ff7ee73c0819f892997de027ffc3cd4acded89fe907a79aa8c14f3",
+      "imports": [
+        "SectionHeight318"
+      ]
+    },
+    {
+      "name": "RationalAbsoluteHeight",
+      "path": "quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean",
+      "git_blob": "d017d474477c26e145b2a540d839f6a2ccba3395",
+      "sha256": "9c3e8c1792e5a7bdeb94d586eff43db36876c3f61351031f204534130c8b81ec",
+      "imports": [
+        "Mathlib.NumberTheory.Height.NumberField"
+      ]
+    },
+    {
+      "name": "RationalSectionHeight318",
+      "path": "quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean",
+      "git_blob": "c1bb599fda8c425c4c903bde82ad14dfdf3eb8db",
+      "sha256": "32131be9b052e0b8c59e3f2e4b6e335c0fb25430c024fc55121bc103178ccbfe",
+      "imports": [
+        "RationalAbsoluteHeight",
+        "SectionHeight318"
+      ]
+    },
+    {
+      "name": "SelectedSameADirectBicanonicalHeight318",
+      "path": "quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean",
+      "git_blob": "037c03edf549df8af4b456edefc178d5d4efc505",
+      "sha256": "c27205e8ac11218fc8a3f4972f2b48de63eb5f0af7af89b370c06a87a1a0b695",
+      "imports": [
+        "InducedLattice318",
+        "Mathlib.Analysis.Complex.ExponentialBounds",
+        "Mathlib.Tactic",
+        "RationalSectionHeight318"
+      ]
+    },
+    {
+      "name": "SelectedSameABicanonicalYuanFrame318",
+      "path": "quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean",
+      "git_blob": "e6ec6d20bb540effe9adc4d850ad4229cae15e23",
+      "sha256": "7c6b3431ec810a0af3722b31c2e3a29ea5a5bc391cda00060c19b9a712158dd0",
+      "imports": [
+        "SelectedSameADirectBicanonicalHeight318"
+      ]
+    },
+    {
+      "name": "OriginalGlobalHodgeIdealHeight318",
+      "path": "quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean",
+      "git_blob": "224e43d06ce50b23f91f9aadc9136729236218a6",
+      "sha256": "56ce3bdc4e0ce4960c955c9ae7a9fc7bae4fe10045b4833f5b6487571dbc6d63",
+      "imports": [
+        "Mathlib.Algebra.Algebra.Operations",
+        "Mathlib.RingTheory.Coprime.Lemmas",
+        "Mathlib.RingTheory.FractionalIdeal.Basic",
+        "Mathlib.RingTheory.Localization.Away.Basic",
+        "Mathlib.Tactic",
+        "SelectedSameABicanonicalYuanFrame318"
+      ]
+    }
+  ],
+  "target": {
+    "name": "OriginalMarkedHodgeTensorHeight318",
+    "path": "quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r7/OriginalMarkedHodgeTensorHeight318.lean",
+    "git_blob": "7d30a50668ae3a876c9b752ddde25a1058047bcd",
+    "sha256": "9b4f3befaf1c49c5687a5c1f417a7f401e69f42cbe04a76af3429f62168c46c3",
+    "imports": [
+      "Mathlib.LinearAlgebra.TensorProduct.Lift",
+      "Mathlib.LinearAlgebra.TensorProduct.Submodule",
+      "Mathlib.RingTheory.FractionalIdeal.Operations",
+      "OriginalGlobalHodgeIdealHeight318"
+    ]
+  },
+  "negative": {
+    "name": "OriginalMarkedHodgeTensorHeight318",
+    "path": "quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r6/OriginalMarkedHodgeTensorHeight318.lean",
+    "git_blob": "937fa43e2b9b6270455e0e5137783b0181c2320e",
+    "sha256": "ef0e4cb5c1bf04b197c98dd2e2bbb168bb5ed9ee0ceab21319214723db084c67",
+    "imports": [
+      "Mathlib.LinearAlgebra.TensorProduct.Lift",
+      "Mathlib.LinearAlgebra.TensorProduct.Submodule",
+      "Mathlib.RingTheory.FractionalIdeal.Operations",
+      "OriginalGlobalHodgeIdealHeight318"
+    ]
+  },
+  "roots": [
+    "Mathlib.Algebra.Algebra.Operations",
+    "Mathlib.Algebra.FiniteSupport.Basic",
+    "Mathlib.Analysis.Complex.ExponentialBounds",
+    "Mathlib.LinearAlgebra.TensorProduct.Lift",
+    "Mathlib.LinearAlgebra.TensorProduct.Submodule",
+    "Mathlib.NumberTheory.Height.NumberField",
+    "Mathlib.NumberTheory.Height.Projectivization",
+    "Mathlib.RingTheory.Coprime.Lemmas",
+    "Mathlib.RingTheory.FractionalIdeal.Basic",
+    "Mathlib.RingTheory.FractionalIdeal.Operations",
+    "Mathlib.RingTheory.Localization.Away.Basic",
+    "Mathlib.Tactic"
+  ],
+  "locks": {
+    "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "quartics/quartic-318-326/proof/progress/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "quartics/quartic-318-326/proof/progress/lake-manifest.json": "a770787f33b5824f61a0731d59e67fca3f44a531b21d1fc1a804064c6fb54e58",
+    "quartics/quartic-318-326/proof/progress/lakefile.toml": "908476df02b96238ec75ab9f7c953d7d5238b023b87e29a775709d4a62dc2d2a"
+  },
+  "stock_inputs": {
+    ".github/actions/setup-pinned-dependency-sources/action.yml": "3400963e9443ce74dc8c70c04d44925bc4421a98cf303cd66701bbf1e29c7480",
+    ".github/actions/setup-pinned-lean/action.yml": "84f6a2ef4891a22ad64f27fddfd4fba0b844bf12cbb8a807a481fe937197d472",
+    ".github/actions/setup-pinned-python/action.yml": "ec249637fa7795d5debfe76725e9703cee16fecd25239cb5bd2625fde78f1d31",
+    "scripts/pinned_dependency_sources.py": "f927646b0f8f3a5ef1cd0575d9428677476af87a7ec9430ac9eec97199412695",
+    "scripts/setup_pinned_lean.sh": "af7f70c4140d41e3deb43127bf434f7b78ae94cb629a5c84b3d09a872e7d7e28"
+  },
+  "checker_sha256": "67eeb0ccfb673cdd2c34f99d9cf28774aa489a56086d8954644b2633cbeb879c"
+}

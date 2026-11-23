@@ -32,6 +32,58 @@ jobs:
         shell: pwsh
         run: git config --global core.longpaths true
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        if: runner.os != 'Windows'
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        if: runner.os == 'Windows'
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          # V13's audit reads pinned evidence from some earlier versions too.
+          # Keep these paths in sync with changes to the review contracts.
+          sparse-checkout: |
+            /.gitattributes
+            /.github/actions/setup-pinned-python/
+            /docs/audit-history/
+            /docs/manuscript-revisions/version10/responses.json
+            /docs/manuscript-revisions/version11/evidence/interface.md
+            /docs/manuscript-revisions/version11/evidence/norms.md
+            /docs/manuscript-revisions/version11/issue-snapshot.json
+            /docs/manuscript-revisions/version12/addition.tex
+            /docs/manuscript-revisions/version12/evidence/anchor-review.md
+            /docs/manuscript-revisions/version12/evidence/author-applications.json
+            /docs/manuscript-revisions/version12/evidence/composition-review.md
+            /docs/manuscript-revisions/version12/evidence/depth-review.md
+            /docs/manuscript-revisions/version12/evidence/finite-review.md
+            /docs/manuscript-revisions/version12/evidence/integration-checks.json
+            /docs/manuscript-revisions/version12/evidence/integration-review.md
+            /docs/manuscript-revisions/version12/evidence/kato-final-review.md
+            /docs/manuscript-revisions/version12/evidence/norm-review.md
+            /docs/manuscript-revisions/version12/evidence/portable-verification.json
+            /docs/manuscript-revisions/version12/evidence/product-review.md
+            /docs/manuscript-revisions/version12/evidence/reciprocal-review.md
+            /docs/manuscript-revisions/version12/portability/serialization-repair.json
+            /docs/manuscript-revisions/version13/
+            /docs/quartic-523-540/new-applications.json
+            /docs/theorem-application-audit/
+            /manuscripts/quartic_v10.tex
+            /manuscripts/quartic_v11.tex
+            /manuscripts/quartic_v12.tex
+            /manuscripts/quartic_v13.tex
+            /quartics/quartic-394-411/
+            /quartics/quartic-394-symbolic-coefficients.json
+            /quartics/quartic-394-symbolic-coefficients.txt
+            /quartics/quartic-411-fully-expanded.txt
+            /quartics/quartic-498-514/MANIFEST.json
+            /quartics/quartic-498-514/candidate498-ir.json
+            /quartics/quartic-498-514/polynomial498.json
+            /quartics/quartic-498-514/polynomial514.json
+            /scripts/build_paper.py
+            /scripts/check_application_reviews.py
+            /scripts/check_audit_history.py
+            /scripts/check_quartic394.py
+            /scripts/check_quartic394_portable.py
+            /scripts/check_version13_inventory.py
+            /scripts/quartic394_path_bootstrap.py
       - uses: ./.github/actions/setup-pinned-python
         with:
           python-version: ${{ matrix.python }}

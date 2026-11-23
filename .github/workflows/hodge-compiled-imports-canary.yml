@@ -1,0 +1,155 @@
+name: Hodge Linux compiled-import canary (one shot)
+'on':
+  push:
+    branches:
+    - add-quartic-318-326
+    paths:
+    - docs/ci-hodge-compiled-imports-once/plan.json
+permissions:
+  contents: read
+concurrency:
+  group: hodge-compiled-imports-canary-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  producer:
+    if: github.repository == 'doublemover/diophantine-z-q' && github.ref == 'refs/heads/add-quartic-318-326' && github.event.before
+      == 'b3bcbbee66d4d61ba48101557a0dd1633581d62d' && github.event.after == github.sha && github.run_attempt == 1 &&
+      !github.event.forced && join(github.event.commits.*.id, ',') == github.sha && github.event.head_commit.message
+      == 'Canary actual Hodge Lean dependency artifacts'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    name: Fresh exact Hodge dependency artifacts
+    outputs:
+      bundle-id: ${{ steps.upload.outputs.artifact-id }}
+      bundle-digest: ${{ steps.upload.outputs.artifact-digest }}
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        fetch-depth: 2
+        persist-credentials: false
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          /.github/actions/setup-pinned-dependency-sources/action.yml
+          /.github/actions/setup-pinned-lean/action.yml
+          /.github/actions/setup-pinned-python/action.yml
+          /.github/workflows/hodge-compiled-imports-canary.yml
+          /docs/ci-hodge-compiled-imports-once/plan.json
+          /docs/ci-hodge-compiled-imports-once/run.py
+          /lean/lean-toolchain
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r6/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r7/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+          /quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+          /quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+          /quartics/quartic-318-326/proof/progress/lake-manifest.json
+          /quartics/quartic-318-326/proof/progress/lakefile.toml
+          /quartics/quartic-318-326/proof/progress/lean-toolchain
+          /scripts/check_staged_lean.py
+          /scripts/pinned_dependency_sources.py
+          /scripts/setup_pinned_lean.sh
+    - name: Validate source and record exact 12 Mathlib cache targets
+      shell: bash
+      run: |-
+        set -euo pipefail
+        echo '0a4550524b18f2b12126e44c589d0c7bfe4839354b30c9d10fefd3b01fecbf01  docs/ci-hodge-compiled-imports-once/plan.json' | sha256sum -c -
+        echo '20534e4115c644b30a3af1c7d80c4d847491aad330fbd88870ed26373491b0a7  docs/ci-hodge-compiled-imports-once/run.py' | sha256sum -c -
+        mkdir -p build/dependency-setup
+        python3 -I -B docs/ci-hodge-compiled-imports-once/run.py targets > build/dependency-setup/hodge-imports.targets.txt
+        test "$(wc -l < build/dependency-setup/hodge-imports.targets.txt)" -eq 12
+    - uses: ./.github/actions/setup-pinned-python
+      with:
+        python-version: 3.12.14
+    - uses: ./.github/actions/setup-pinned-lean
+    - uses: ./.github/actions/setup-pinned-dependency-sources
+    - name: Acquire official compiled Mathlib import closure
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -I -B scripts/pinned_dependency_sources.py artifacts --project quartics/quartic-318-326/proof/progress --targets-file build/dependency-setup/hodge-imports.targets.txt --receipt build/dependency-setup/hodge-imports.artifacts.json
+    - name: Compile actual staged Hodge closure cold and seal reusable inputs
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -I -B docs/ci-hodge-compiled-imports-once/run.py produce --lean "$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean" --output "$RUNNER_TEMP/lean-bundle"
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      id: upload
+      with:
+        name: hodge-compiled-imports-linux-x86_64
+        path: ${{ runner.temp }}/lean-bundle/hodge-imports.tar.zst
+        compression-level: 0
+        retention-days: 7
+        if-no-files-found: error
+  consumer:
+    if: github.repository == 'doublemover/diophantine-z-q' && github.ref == 'refs/heads/add-quartic-318-326' && github.event.before
+      == 'b3bcbbee66d4d61ba48101557a0dd1633581d62d' && github.event.after == github.sha && github.run_attempt == 1 &&
+      !github.event.forced && join(github.event.commits.*.id, ',') == github.sha && github.event.head_commit.message
+      == 'Canary actual Hodge Lean dependency artifacts'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    name: Matched real Hodge lint, cold vs imported dependencies
+    needs:
+    - producer
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        fetch-depth: 2
+        persist-credentials: false
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          /.github/actions/setup-pinned-dependency-sources/action.yml
+          /.github/actions/setup-pinned-lean/action.yml
+          /.github/actions/setup-pinned-python/action.yml
+          /.github/workflows/hodge-compiled-imports-canary.yml
+          /docs/ci-hodge-compiled-imports-once/plan.json
+          /docs/ci-hodge-compiled-imports-once/run.py
+          /lean/lean-toolchain
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r6/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r7/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+          /quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+          /quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+          /quartics/quartic-318-326/proof/progress/lake-manifest.json
+          /quartics/quartic-318-326/proof/progress/lakefile.toml
+          /quartics/quartic-318-326/proof/progress/lean-toolchain
+          /scripts/check_staged_lean.py
+          /scripts/pinned_dependency_sources.py
+          /scripts/setup_pinned_lean.sh
+    - name: Verify exact fixture inputs before toolchain setup
+      shell: bash
+      run: |-
+        set -euo pipefail
+        echo '0a4550524b18f2b12126e44c589d0c7bfe4839354b30c9d10fefd3b01fecbf01  docs/ci-hodge-compiled-imports-once/plan.json' | sha256sum -c -
+        echo '20534e4115c644b30a3af1c7d80c4d847491aad330fbd88870ed26373491b0a7  docs/ci-hodge-compiled-imports-once/run.py' | sha256sum -c -
+        python3 -I -B docs/ci-hodge-compiled-imports-once/run.py targets >/dev/null
+    - uses: ./.github/actions/setup-pinned-python
+      with:
+        python-version: 3.12.14
+    - uses: ./.github/actions/setup-pinned-lean
+    - name: Download authenticated raw producer ZIP
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+      with:
+        artifact-ids: ${{ needs.producer.outputs.bundle-id }}
+        path: ${{ runner.temp }}/lean-import
+        skip-decompress: true
+        digest-mismatch: error
+    - name: Validate artifact and prove real warm reuse plus exact lint negative control
+      shell: bash
+      env:
+        PRODUCER_ZIP_SHA: ${{ needs.producer.outputs.bundle-digest }}
+      run: |-
+        set -euo pipefail
+        python -I -B docs/ci-hodge-compiled-imports-once/run.py consume --lean "$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean" --output "$RUNNER_TEMP/hodge-test" --artifact-dir "$RUNNER_TEMP/lean-import" --zip-sha "$PRODUCER_ZIP_SHA" --run "$GITHUB_RUN_ID"
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: hodge-compiled-imports-match-receipt
+        path: ${{ runner.temp }}/hodge-test/MATCHED-RECEIPT.json
+        retention-days: 7
+        if-no-files-found: error
