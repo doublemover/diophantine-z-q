@@ -23,7 +23,10 @@ on:
       - 'quartics/quartic-318-326/proof/progress/lake-manifest.json'
       - 'quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/**'
       - 'quartics/quartic-318-326/proof/intake/pel-original-order-gram-r2/**'
-      - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/**'
+      - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-mapped-trait-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean'
+      - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean'
+      - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean'
       - 'quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/QuaternionicRealPeriod318.lean'
       - 'quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean'
 
@@ -36,7 +39,7 @@ concurrency:
 
 jobs:
   standalone:
-    name: Standalone intake (${{ matrix.packet }})
+    name: Standalone ${{ matrix.verification }} (${{ matrix.packet }})
     strategy:
       fail-fast: false
       matrix:
@@ -44,12 +47,20 @@ jobs:
           - packet: linear-a4-weighted-readback-core-r1
             profile: lean-core
             root_count: 0
+            verification: kernel check
           - packet: pel-original-order-gram-r2
             profile: pinned-mathlib
             root_count: 9
-          - packet: finite-height-dlog-rows-r4
+            # This one attachment push need not repeat the immutable Gram kernel receipt.
+            verification: >-
+              ${{ github.event.before == '5c4ff737b79b8b481eb8beaff84134a9fb2ed4b8'
+                  && join(github.event.commits.*.id, ',') == github.sha
+                  && !github.event.forced
+                  && 'source admission only' || 'kernel check' }}
+          - packet: finite-height-dlog-mapped-trait-r1
             profile: pinned-mathlib
-            root_count: 6
+            root_count: 7
+            verification: kernel check
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -81,7 +92,10 @@ jobs:
             /quartics/quartic-318-326/proof/progress/lake-manifest.json
             /quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/
             /quartics/quartic-318-326/proof/intake/pel-original-order-gram-r2/
-            /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/
+            /quartics/quartic-318-326/proof/intake/finite-height-dlog-mapped-trait-r1/
+            /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
+            /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean
+            /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean
             /quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/QuaternionicRealPeriod318.lean
             /quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean
       - uses: ./.github/actions/setup-pinned-python
@@ -106,10 +120,11 @@ jobs:
           python -E -s -B scripts/check_standalone_intake.py targets --packet "$PACKET" > "$targets"
           test "$(wc -l < "$targets")" -eq "$ROOT_COUNT"
       - uses: ./.github/actions/setup-pinned-lean
+        if: matrix.verification == 'kernel check'
       - uses: ./.github/actions/setup-pinned-dependency-sources
-        if: matrix.profile == 'pinned-mathlib'
+        if: matrix.verification == 'kernel check' && matrix.profile == 'pinned-mathlib'
       - name: Fetch only reviewed pinned upstream roots
-        if: matrix.profile == 'pinned-mathlib'
+        if: matrix.verification == 'kernel check' && matrix.profile == 'pinned-mathlib'
         shell: bash
         run: |
           set -euo pipefail
@@ -118,12 +133,13 @@ jobs:
             --targets-file "build/dependency-setup/$PACKET.targets.txt" \
             --receipt "build/dependency-setup/$PACKET.artifacts.json"
       - name: Compile only fresh sources and audit private declarations
+        if: matrix.verification == 'kernel check'
         shell: bash
         run: |
           set -euo pipefail
           python -E -s -B scripts/check_standalone_intake.py check --packet "$PACKET"
       - name: Preserve scoped receipt, never project artifacts
-        if: always()
+        if: always() && matrix.verification == 'kernel check'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: standalone-intake-${{ matrix.packet }}

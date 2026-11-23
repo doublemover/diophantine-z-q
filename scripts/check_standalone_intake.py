@@ -118,11 +118,11 @@ ALLOWLIST = {
             "SelectedActualPELPeriodColumns318": "quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean",
         },
     },
-    "finite-height-dlog-rows-r4": {
+    "finite-height-dlog-mapped-trait-r1": {
         "profile": "pinned-mathlib",
-        "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
-        "scope": "Three-source finite same-A dlog rows; strict donor lint repairs and native-diagnostic repairs to Stage A; not a structural model or endpoint",
-        "manifest_sha256": "f72e8f5fb53e9bb1b44d66cada79aaeb4d809bd36bfcef5458fc980efa55d08b",
+        "source_base": "5c4ff737b79b8b481eb8beaff84134a9fb2ed4b8",
+        "scope": "Four-source finite coefficient attachment for a given regular chart map, dlog equations and integral multiplier; no original model, height or endpoint",
+        "manifest_sha256": "ed60f42192ee4298100d55c5381eaa3ffb98f68860a9e3a8fc0bec506760cd68",
         "modules": (
             ("SquareReflection318", "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
              ("Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic")),
@@ -130,10 +130,34 @@ ALLOWLIST = {
              ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "SquareReflection318")),
             ("SelectedActualSameAFiniteDlogRows318", "15f2e7c3b8caf41f3410f37daf914d9471c7a39d17703faa9284c711a7dd0ae6",
              ("LinearContactSquareclass318", "Mathlib.Tactic")),
+            ("SelectedActualSameAFiniteMappedDlogRows318", "ecc63d9aa47943ed1ab438de8652e389bacb281bfc6a774eab8e5b694e3c5585",
+             ("Mathlib.NumberTheory.NumberField.Completion.FinitePlace", "SelectedActualSameAFiniteDlogRows318")),
         ),
-        "source_roots": ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic"),
-        "artifact_roots": ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic"),
-        "audit_sha256": "6ed4cf41bf0bbffab9cfc16628c4297376a354ed0ac9c18e0514d061af21ae51",
+        "source_roots": (
+            "Mathlib.Algebra.Polynomial.RingDivision",
+            "Mathlib.Algebra.QuadraticAlgebra.Basic",
+            "Mathlib.Algebra.Squarefree.Basic",
+            "Mathlib.FieldTheory.RatFunc.Basic",
+            "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+            "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed",
+            "Mathlib.Tactic",
+        ),
+        "artifact_roots": (
+            "Mathlib.Algebra.Polynomial.RingDivision",
+            "Mathlib.Algebra.QuadraticAlgebra.Basic",
+            "Mathlib.Algebra.Squarefree.Basic",
+            "Mathlib.FieldTheory.RatFunc.Basic",
+            "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+            "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed",
+            "Mathlib.Tactic",
+        ),
+        "audit_sha256": "830d60158d82e9b6255224a1040ade09ab4d6ce541a3d504280da05413b1b5c6",
+        "predecessor_source_commit": "5c4ff737b79b8b481eb8beaff84134a9fb2ed4b8",
+        "source_paths": {
+            "SquareReflection318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean",
+            "LinearContactSquareclass318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean",
+            "SelectedActualSameAFiniteDlogRows318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean",
+        },
     },
 }
 

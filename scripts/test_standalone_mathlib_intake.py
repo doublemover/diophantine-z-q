@@ -12,8 +12,8 @@ import check_standalone_intake as runner
 
 
 GRAM = "pel-original-order-gram-r2"
-DLOG = "finite-height-dlog-rows-r4"
-EXPECTED = {GRAM: 9, DLOG: 6}
+DLOG = "finite-height-dlog-mapped-trait-r1"
+EXPECTED = {GRAM: 9, DLOG: 7}
 
 
 def packets():
@@ -46,7 +46,7 @@ class MathlibIntakeTests(unittest.TestCase):
             with self.subTest(packet=packet):
                 with runner.admitted(runner.ROOT, head, packet, config) as (folder, data, audit):
                     self.assertEqual(data["order"], [n for n, _, _ in config["modules"]])
-                    self.assertEqual(len(data["order"]), 3)
+                    self.assertEqual(len(data["order"]), 4 if packet == DLOG else 3)
                     self.assertEqual(len(config["artifact_roots"]), EXPECTED[packet])
                     self.assertEqual(set(p.name for p in folder.iterdir()),
                                      {"intake.json", *(n + ".lean" for n in data["order"])})
@@ -55,6 +55,10 @@ class MathlibIntakeTests(unittest.TestCase):
                     self.assertIn(b"collectAxioms name", audit)
                     if packet == DLOG:
                         self.assertNotIn("packet", data)
+                        self.assertEqual(set(config["source_paths"]), set(data["order"][:-1]))
+                        owner = runner.INTAKES + "/finite-height-dlog-rows-r4/"
+                        for module, path in config["source_paths"].items():
+                            self.assertEqual(path, owner + module + ".lean")
 
     def test_static_external_donors_are_canonical_and_named(self):
         config = runner.ALLOWLIST[GRAM]
