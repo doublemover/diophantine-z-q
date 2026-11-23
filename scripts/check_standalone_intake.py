@@ -159,6 +159,59 @@ ALLOWLIST = {
             "SelectedActualSameAFiniteDlogRows318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean",
         },
     },
+    "same-j-direct-lenstra-clear-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
+        "scope": "Exact signed-factor strict principal ideal containment and multiplier membership; no signed cover constructor or endpoint",
+        "manifest_sha256": "5e30a3bb62a03a87477d3c6c6a4920e931371df6c46b2696b19cc329cb53559c",
+        "modules": (
+            ("SelectedJOneDirectLenstraClear318", "82230f3431cf434b67dcdb235ae964d78bb63b922a66e0e89215538a88596057",
+             ("Mathlib.NumberTheory.Padics.PadicVal.Basic", "Mathlib.RingTheory.Coprime.Lemmas", "Mathlib.RingTheory.DedekindDomain.Different", "Mathlib.RingTheory.Valuation.ValuationRing", "Mathlib.Tactic")),
+        ),
+        "source_roots": (
+            "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+            "Mathlib.RingTheory.Coprime.Lemmas",
+            "Mathlib.RingTheory.DedekindDomain.Different",
+            "Mathlib.RingTheory.Valuation.ValuationRing",
+            "Mathlib.Tactic",
+        ),
+        "artifact_roots": (
+            "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+            "Mathlib.RingTheory.Coprime.Lemmas",
+            "Mathlib.RingTheory.DedekindDomain.Different",
+            "Mathlib.RingTheory.Valuation.ValuationRing",
+            "Mathlib.Tactic",
+        ),
+        "audit_sha256": "48dc0470e8e6728951a7cd8a5ec079d10bc981580252fd5f15bb670117b70185",
+    },
+    "pel-actual-marking-crt-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
+        "scope": "Exact CRT merge and restriction of supplied torsion markings; no original moduli classifier, occurrence or endpoint",
+        "manifest_sha256": "27a1415e6dd7d8947580a3c15a14f799a9874539b7694af36eafb4124cfa0994",
+        "modules": (
+            ("SelectedPELMarkingCRT318", "d83a9258db2594d4c787cd5429706f6ffac450a86b235b12c556684986ba62bb",
+             ("Mathlib.Algebra.Group.Prod", "Mathlib.Algebra.Group.Subgroup.Basic", "Mathlib.Algebra.Module.NatInt", "Mathlib.Algebra.Ring.Equiv", "Mathlib.Algebra.Ring.Prod", "Mathlib.Data.ZMod.Basic")),
+        ),
+        "source_roots": (
+            "Mathlib.Algebra.Group.Prod",
+            "Mathlib.Algebra.Group.Subgroup.Basic",
+            "Mathlib.Algebra.Module.NatInt",
+            "Mathlib.Algebra.Ring.Equiv",
+            "Mathlib.Algebra.Ring.Prod",
+            "Mathlib.Data.ZMod.Basic",
+        ),
+        "artifact_roots": (
+            "Mathlib.Algebra.Group.Prod",
+            "Mathlib.Algebra.Group.Subgroup.Basic",
+            "Mathlib.Algebra.Module.NatInt",
+            "Mathlib.Algebra.Ring.Equiv",
+            "Mathlib.Algebra.Ring.Prod",
+            "Mathlib.Data.ZMod.Basic",
+        ),
+        "audit_sha256": "da826d79bec5f71318d2ca42dd29e5d77ab8b9e4851ee2f9c4f0dbdca38f00ec",
+        "audit_public_meta": True,
+    },
 }
 
 
@@ -332,7 +385,7 @@ def admitted(root, commit, packet, config):
         require(not direct and sorted(upstream) == list(config["source_roots"]),
                 "Stock import closure differs from reviewed roots")
         audit_source = stock.audit_text(data["order"])
-        if config["profile"] == "lean-core":
+        if config["profile"] == "lean-core" or config.get("audit_public_meta") is True:
             # run_cmd elaborates a meta _eval. Without Mathlib.Tactic, both
             # the command instances and collector need public meta visibility.
             header = "import Lean.Util.CollectAxioms\n"

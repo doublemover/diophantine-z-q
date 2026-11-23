@@ -13,7 +13,10 @@ import check_standalone_intake as runner
 
 GRAM = "pel-original-order-gram-r2"
 DLOG = "finite-height-dlog-mapped-trait-r1"
-EXPECTED = {GRAM: 9, DLOG: 7}
+LENSTRA = "same-j-direct-lenstra-clear-r1"
+CRT = "pel-actual-marking-crt-r1"
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6}
+FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1}
 
 
 def packets():
@@ -21,7 +24,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the two reviewed Mathlib rows")
+        raise ValueError("Expected one of the four reviewed Mathlib rows")
     return (requested,)
 
 
@@ -39,19 +42,29 @@ def receipts(config):
 
 class MathlibIntakeTests(unittest.TestCase):
     def test_exact_modes_roots_and_stock_admission(self):
-        self.assertEqual(set(runner.ALLOWLIST), {GRAM, DLOG, runner.CORE_PACKET})
+        self.assertEqual(set(runner.ALLOWLIST), set(EXPECTED) | {runner.CORE_PACKET})
         head = runner.git_at(runner.ROOT, "rev-parse", "HEAD").decode().strip()
         for packet in packets():
             config = runner.ALLOWLIST[packet]
             with self.subTest(packet=packet):
                 with runner.admitted(runner.ROOT, head, packet, config) as (folder, data, audit):
                     self.assertEqual(data["order"], [n for n, _, _ in config["modules"]])
-                    self.assertEqual(len(data["order"]), 4 if packet == DLOG else 3)
+                    self.assertEqual(len(data["order"]), FRESH[packet])
                     self.assertEqual(len(config["artifact_roots"]), EXPECTED[packet])
                     self.assertEqual(set(p.name for p in folder.iterdir()),
                                      {"intake.json", *(n + ".lean" for n in data["order"])})
                     self.assertEqual(runner.digest(audit), config["audit_sha256"])
-                    self.assertNotIn(b"import Lean.Elab.Command\n", audit)
+                    if packet == CRT:
+                        self.assertEqual(audit.splitlines()[1:5], [
+                            b"import all SelectedPELMarkingCRT318",
+                            b"public meta import Lean", b"public meta import Lean.Elab.Command",
+                            b"public meta import Lean.Util.CollectAxioms",
+                        ])
+                    else:
+                        self.assertNotIn(b"import Lean.Elab.Command\n", audit)
+                    if packet in (LENSTRA, CRT):
+                        self.assertFalse(config.get("source_paths"))
+                        self.assertEqual(len(data["order"]), 1)
                     self.assertIn(b"collectAxioms name", audit)
                     if packet == DLOG:
                         self.assertNotIn("packet", data)

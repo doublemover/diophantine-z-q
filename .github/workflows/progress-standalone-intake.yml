@@ -24,6 +24,8 @@ on:
       - 'quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/**'
       - 'quartics/quartic-318-326/proof/intake/pel-original-order-gram-r2/**'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-mapped-trait-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/same-j-direct-lenstra-clear-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r1/**'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean'
@@ -43,23 +45,39 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # Prior verified rows admit source only on this exact attachment push.
         include:
           - packet: linear-a4-weighted-readback-core-r1
             profile: lean-core
             root_count: 0
-            verification: kernel check
+            verification: >-
+              ${{ github.event.before == '3f8af74ecd9596daea258dd6e4091c4eb60c4dc8'
+                  && join(github.event.commits.*.id, ',') == github.sha
+                  && !github.event.forced
+                  && 'source admission only' || 'kernel check' }}
           - packet: pel-original-order-gram-r2
             profile: pinned-mathlib
             root_count: 9
-            # This one attachment push need not repeat the immutable Gram kernel receipt.
             verification: >-
-              ${{ github.event.before == '5c4ff737b79b8b481eb8beaff84134a9fb2ed4b8'
+              ${{ github.event.before == '3f8af74ecd9596daea258dd6e4091c4eb60c4dc8'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
           - packet: finite-height-dlog-mapped-trait-r1
             profile: pinned-mathlib
             root_count: 7
+            verification: >-
+              ${{ github.event.before == '3f8af74ecd9596daea258dd6e4091c4eb60c4dc8'
+                  && join(github.event.commits.*.id, ',') == github.sha
+                  && !github.event.forced
+                  && 'source admission only' || 'kernel check' }}
+          - packet: same-j-direct-lenstra-clear-r1
+            profile: pinned-mathlib
+            root_count: 5
+            verification: kernel check
+          - packet: pel-actual-marking-crt-r1
+            profile: pinned-mathlib
+            root_count: 6
             verification: kernel check
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -93,6 +111,8 @@ jobs:
             /quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/
             /quartics/quartic-318-326/proof/intake/pel-original-order-gram-r2/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-mapped-trait-r1/
+            /quartics/quartic-318-326/proof/intake/same-j-direct-lenstra-clear-r1/
+            /quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r1/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean
