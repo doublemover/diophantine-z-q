@@ -28,10 +28,11 @@ on:
       - 'quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r3/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-crt-different-r1/**'
-      - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r1/CheckedHomogeneousTwistPoint937Smoke318.lean'
-      - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/**'
-      - 'quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r2/**'
-      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean'
+      - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r3/**'
+      - 'quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r3/**'
+      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean'
+      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/**'
       - 'quartics/quartic-318-326/proof/progress/FractionDerivation318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean'
@@ -58,7 +59,7 @@ jobs:
             profile: lean-core
             root_count: 0
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -66,7 +67,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 9
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -74,7 +75,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 7
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -82,7 +83,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -90,7 +91,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 6
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -98,7 +99,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -106,19 +107,19 @@ jobs:
             profile: pinned-mathlib
             root_count: 10
             verification: >-
-              ${{ github.event.before == '3fc1fd1244db0c120e87c5a79c46755b06d7a63d'
+              ${{ github.event.before == '6c77a7dc0db1de7f56938be87b6c953527d8bcad'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
-          - packet: forward-detached-twist-point-r2
+          - packet: forward-detached-twist-point-r3
+            profile: pinned-mathlib
+            root_count: 4
+            verification: kernel check
+          - packet: same-j-structural-normalization-r3
             profile: pinned-mathlib
             root_count: 3
             verification: kernel check
-          - packet: same-j-structural-normalization-r2
-            profile: pinned-mathlib
-            root_count: 3
-            verification: kernel check
-          - packet: finite-plus11-dyadic-vertical-r1
+          - packet: finite-plus11-dyadic-vertical-r2
             profile: pinned-mathlib
             root_count: 12
             verification: kernel check
@@ -158,10 +159,11 @@ jobs:
             /quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r3/
             /quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/
             /quartics/quartic-318-326/proof/intake/same-j-crt-different-r1/
-            /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r1/CheckedHomogeneousTwistPoint937Smoke318.lean
-            /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/
-            /quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r2/
-            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/
+            /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean
+            /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r3/
+            /quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r3/
+            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean
+            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean

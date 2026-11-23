@@ -17,10 +17,10 @@ LENSTRA = "same-j-direct-lenstra-clear-r2"
 CRT = "pel-actual-marking-crt-r3"
 TRACE = "same-j-crt-trace-r2"
 DIFFERENT = "same-j-crt-different-r1"
-TWIST = "forward-detached-twist-point-r2"
-STRUCTURAL = "same-j-structural-normalization-r2"
-DYADIC = "finite-plus11-dyadic-vertical-r1"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 3, STRUCTURAL: 3, DYADIC: 12}
+TWIST = "forward-detached-twist-point-r3"
+STRUCTURAL = "same-j-structural-normalization-r3"
+DYADIC = "finite-plus11-dyadic-vertical-r2"
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DYADIC: 12}
 FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DYADIC: 5}
 
 
@@ -71,8 +71,8 @@ class MathlibIntakeTests(unittest.TestCase):
                             "CheckedHomogeneousTwistPoint318", "CheckedHomogeneousTwistPoint937Smoke318",
                         ])
                         self.assertEqual(config["source_paths"], {
-                            "CheckedHomogeneousTwistPoint937Smoke318": runner.INTAKES +
-                            "/forward-detached-twist-point-r1/CheckedHomogeneousTwistPoint937Smoke318.lean",
+                            "CheckedHomogeneousTwistPoint318": runner.INTAKES +
+                            "/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean",
                         })
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet == STRUCTURAL:
@@ -98,14 +98,23 @@ class MathlibIntakeTests(unittest.TestCase):
                         })
                     if packet == DYADIC:
                         self.assertEqual(data["order"][-2:], ["FractionDerivation318", "SelectedSameADyadicVerticalD2_318"])
-                        self.assertEqual(config["source_paths"], {n: runner.INTAKES +
-                            "/finite-height-dlog-rows-r4/" + n + ".lean" for n in data["order"][:3]})
-                        # Compile a local, fresh source copy; it must be the same historical
-                        # blob as the real progress module, not a cached project object.
+                        donors = {n: runner.INTAKES + "/finite-height-dlog-rows-r4/" + n + ".lean"
+                                  for n in data["order"][:3]}
+                        donors["SelectedSameADyadicVerticalD2_318"] = (
+                            runner.INTAKES + "/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean")
+                        self.assertEqual(config["source_paths"], donors)
+                        # The repaired copy differs from the historical progress blob by
+                        # exactly one audited line; neither input is a project artifact.
                         src = runner.PROGRESS + "/FractionDerivation318.lean"
                         self.assertEqual(runner.tree_entries(runner.ROOT, head, src)[src],
                                          ("100644", "blob", "31e417380682bd958d1ce1be568831cc2899e96a"))
-                        self.assertEqual(runner.digest((folder / "FractionDerivation318.lean").read_bytes()),
+                        revised = (folder / "FractionDerivation318.lean").read_bytes()
+                        prefix = b"  apply isUnit_iff_ne_zero.mpr\n"
+                        good = prefix + b"  simp [jet]\n"
+                        before = prefix + (b"  simpa [jet] using (IsFractionRing.to_map_ne_zero_of_mem_nonZeroDivisors "
+                                  b"(S := K) s.property)\n")
+                        self.assertEqual(revised.count(good), 1)
+                        self.assertEqual(runner.digest(revised.replace(good, before, 1)),
                                          "79514f79cc4ff0bfc5a13b5a67214c838f3477f1a356b3eb71c380fdb6b67a42")
                     if packet == DLOG:
                         self.assertNotIn("packet", data)

@@ -282,43 +282,45 @@ ALLOWLIST = {
             "SelectedJOneCRTTrace318": "quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/SelectedJOneCRTTrace318.lean",
         },
     },
-    "forward-detached-twist-point-r2": {
+    "forward-detached-twist-point-r3": {
         "profile": "pinned-mathlib",
-        "source_base": "3fc1fd1244db0c120e87c5a79c46755b06d7a63d",
+        "source_base": "6c77a7dc0db1de7f56938be87b6c953527d8bcad",
         "scope": "Detached exact homogeneous point checks on two twists only; no literal Request or rank",
-        "manifest_sha256": "d968cc7bc2b5cddb3cc4c8afe11f16e5045404f5c67b0cdb56c5cb90debbe092",
+        "manifest_sha256": "5fc7078556d31bdb8a87623f8b37c668b1d1959695b6956b165f921199887bdb",
         "modules": (
             ("CheckedHomogeneousTwistPoint318",
              "d02c57fe32f91a92e2d9cd587a966307b57aa835392dbe680dc79e891521f47b",
              ("Mathlib.Data.Rat.Cast.Order", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.Ring")),
             ("CheckedHomogeneousTwistPoint937Smoke318",
-             "7d6e3d45e56bf8d172b99e4f5b8032e40aee231d85bf9792770a8530ee766a57",
-             ("CheckedHomogeneousTwistPoint318",)),
+             "d9813ac5c8e72d3438f2dbbcfcdd1780bc29b1696f5ae4bfe306cb88027eb5d4",
+             ("CheckedHomogeneousTwistPoint318", "Mathlib.Tactic.NormNum")),
         ),
         "source_roots": (
             "Mathlib.Data.Rat.Cast.Order",
             "Mathlib.Tactic.FieldSimp",
+            "Mathlib.Tactic.NormNum",
             "Mathlib.Tactic.Ring",
         ),
         "artifact_roots": (
             "Mathlib.Data.Rat.Cast.Order",
             "Mathlib.Tactic.FieldSimp",
+            "Mathlib.Tactic.NormNum",
             "Mathlib.Tactic.Ring",
         ),
         "audit_sha256": "af77a5827bbfae6ae239ab60756d29e0881c0ca2535d26652027439510cc1aa5",
         "source_paths": {
-            "CheckedHomogeneousTwistPoint937Smoke318": "quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r1/CheckedHomogeneousTwistPoint937Smoke318.lean",
+            "CheckedHomogeneousTwistPoint318": "quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean",
         },
         "audit_public_meta": True,
     },
-    "same-j-structural-normalization-r2": {
+    "same-j-structural-normalization-r3": {
         "profile": "pinned-mathlib",
-        "source_base": "3fc1fd1244db0c120e87c5a79c46755b06d7a63d",
+        "source_base": "6c77a7dc0db1de7f56938be87b6c953527d8bcad",
         "scope": "Structural DVR, finite free integral closure and its rank on supplied coefficient trait and fields; not the original j-cover",
-        "manifest_sha256": "0422ba1c330b0dbbeb03d4375d38f2b34b4b5a4dec1a45cf2ff6c0013ad62fc9",
+        "manifest_sha256": "ae7998b4d854948368def4a4052404d65d44b1661b0867a32b5929939c77fa69",
         "modules": (
             ("SelectedJStructuralNormalization318",
-             "2d322f2bea983dd4a21b5b0e069f0ea993071726c851c14bd2abeb17aec566ed",
+             "56ed500b4098129757a38616abb5c94e1466b40fce19567bc553fc336e005b97",
              ("Mathlib.RingTheory.DedekindDomain.Dvr", "Mathlib.RingTheory.DedekindDomain.IntegralClosure", "Mathlib.RingTheory.Polynomial.Basic")),
         ),
         "source_roots": (
@@ -334,11 +336,11 @@ ALLOWLIST = {
         "audit_sha256": "c03acb979ab36b550c19fc050f2081ac5c734e846183b4b33c3e219c3a84b810",
         "audit_public_meta": True,
     },
-    "finite-plus11-dyadic-vertical-r1": {
+    "finite-plus11-dyadic-vertical-r2": {
         "profile": "pinned-mathlib",
-        "source_base": "3fc1fd1244db0c120e87c5a79c46755b06d7a63d",
+        "source_base": "6c77a7dc0db1de7f56938be87b6c953527d8bcad",
         "scope": "Dyadic section coefficients on a supplied structural DVR and chosen frame only; no original model or all-place bound",
-        "manifest_sha256": "e4cbfb6dc9126def310e9f67459543af8a63c9a99a56f4a34aa8b89e6a384a24",
+        "manifest_sha256": "dc0a4b1f3d0c85f408a30a7e611c2d11953fcb4751e7b63a1a06c457400bd436",
         "modules": (
             ("SquareReflection318",
              "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
@@ -350,7 +352,7 @@ ALLOWLIST = {
              "15f2e7c3b8caf41f3410f37daf914d9471c7a39d17703faa9284c711a7dd0ae6",
              ("LinearContactSquareclass318", "Mathlib.Tactic")),
             ("FractionDerivation318",
-             "79514f79cc4ff0bfc5a13b5a67214c838f3477f1a356b3eb71c380fdb6b67a42",
+             "0ac1f2e2f31bacac42f15553048d89021de1d6c736adef751806c40a3137fa59",
              ("Mathlib.Algebra.TrivSqZeroExt.Basic", "Mathlib.RingTheory.Derivation.Basic", "Mathlib.RingTheory.Localization.FractionRing", "Mathlib.Tactic")),
             ("SelectedSameADyadicVerticalD2_318",
              "eb5b13367948d4a9104bc122c30bde83c08852db0ac18f543b68fae674fbc5ba",
@@ -389,6 +391,7 @@ ALLOWLIST = {
             "SquareReflection318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean",
             "LinearContactSquareclass318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean",
             "SelectedActualSameAFiniteDlogRows318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean",
+            "SelectedSameADyadicVerticalD2_318": "quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean",
         },
     },
 }
