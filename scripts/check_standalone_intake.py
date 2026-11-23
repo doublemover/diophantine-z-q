@@ -49,7 +49,7 @@ ALLOWLIST = {
         ),
         "source_roots": ("Init.Data.List.Lemmas",),
         "artifact_roots": (),
-        "audit_sha256": "0825e99f44816f0480ed2ff7d61ade073e86aebe76c512ab847ea06e53254c09",
+        "audit_sha256": "3629826a314ac335ccb6f7e177905a90d3ae76573e3e7313f96aac782045a07a",
     },
 }
 
@@ -181,7 +181,13 @@ def admitted(root, commit, packet, config):
         )
         require(not direct and sorted(upstream) == list(config["source_roots"]),
                 "Stock import closure differs from reviewed roots")
-        audit = stock.audit_text(data["order"]).encode("utf-8")
+        audit_source = stock.audit_text(data["order"])
+        if config["profile"] == "lean-core":
+            # With no Mathlib.Tactic import, run_cmd needs CommandElabM explicitly.
+            header = "import Lean.Util.CollectAxioms\n"
+            require(audit_source.count(header) == 1, "Unexpected stock audit header")
+            audit_source = audit_source.replace(header, header + "import Lean.Elab.Command\n", 1)
+        audit = audit_source.encode("utf-8")
         require(digest(audit) == config["audit_sha256"], "Changed private recursive audit")
         yield folder, data, audit
 
