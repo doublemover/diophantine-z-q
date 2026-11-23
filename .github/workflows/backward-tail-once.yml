@@ -1,0 +1,120 @@
+name: Exact backward proof-repair one-shot
+'on':
+  push:
+    branches:
+    - add-quartic-318-326
+    paths:
+    - docs/ci-backward-tail-once/REQUEST.json
+permissions:
+  contents: read
+concurrency:
+  group: exact-backward-tail-once
+  cancel-in-progress: false
+jobs:
+  verify:
+    name: Scoped strict backward (${{ matrix.packet }})
+    if: github.repository == 'doublemover/diophantine-z-q' && github.ref == 'refs/heads/add-quartic-318-326' && github.event.before
+      == 'a6b2d9c1bb96672b6b26c586c0529f1033233817' && github.run_attempt == 1 && !github.event.forced && join(github.event.commits.*.id,
+      ',') == github.sha && github.event.head_commit.message == 'Exact backward three proof repairs'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - packet: original-marked-calibration-prefix-r4
+          roots: 12
+        - packet: original-all-prime-dlog-r3
+          roots: 12
+        - packet: same-j-ordinary-diagonal-equation-r5
+          roots: 9
+    env:
+      PACKET: ${{ matrix.packet }}
+      ROOT_COUNT: ${{ matrix.roots }}
+      DRIVER: docs/ci-backward-tail-once/run.py
+      PROGRESS: quartics/quartic-318-326/proof/progress
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        fetch-depth: 2
+        persist-credentials: false
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          /.github/actions/setup-pinned-dependency-sources/action.yml
+          /.github/actions/setup-pinned-lean/action.yml
+          /.github/actions/setup-pinned-python/action.yml
+          /.github/workflows/backward-tail-once.yml
+          /docs/ci-backward-tail-once/CONTRACT.json
+          /docs/ci-backward-tail-once/REQUEST.json
+          /docs/ci-backward-tail-once/run.py
+          /lean/lean-toolchain
+          /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean
+          /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean
+          /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
+          /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean
+          /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r4/SelectedSameADyadicVerticalD2_318.lean
+          /quartics/quartic-318-326/proof/intake/original-all-prime-dlog-r3/OriginalAllPrimeDlog318.lean
+          /quartics/quartic-318-326/proof/intake/original-all-prime-dlog-r3/intake.json
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/OriginalMarkedHeightCalibration318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r4/OriginalGlobalHodgeIdealHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r4/intake.json
+          /quartics/quartic-318-326/proof/intake/same-j-ordinary-diagonal-equation-r4/SelectedJAbsoluteStructuralKernel318.lean
+          /quartics/quartic-318-326/proof/intake/same-j-ordinary-diagonal-equation-r5/SelectedJOrdinaryDiagonalRegular318.lean
+          /quartics/quartic-318-326/proof/intake/same-j-ordinary-diagonal-equation-r5/intake.json
+          /quartics/quartic-318-326/proof/progress/Contact49Growth318.lean
+          /quartics/quartic-318-326/proof/progress/FiveContactMetricBounds318.lean
+          /quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+          /quartics/quartic-318-326/proof/progress/OpenJModel318.lean
+          /quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+          /quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+          /quartics/quartic-318-326/proof/progress/SelectedActualSameACurvature64.lean
+          /quartics/quartic-318-326/proof/progress/lake-manifest.json
+          /quartics/quartic-318-326/proof/progress/lakefile.toml
+          /quartics/quartic-318-326/proof/progress/lean-toolchain
+          /scripts/check_lean.py
+          /scripts/check_progress_experiment.py
+          /scripts/check_progress_lean.py
+          /scripts/check_standalone_intake.py
+          /scripts/pinned_dependency_sources.py
+          /scripts/setup_pinned_lean.sh
+    - name: Verify exact approval paths and stock source admission before setup
+      shell: bash
+      run: |-
+        set -euo pipefail
+        echo '1ad3336e406981f63d0d98e9183dd421727688dc0aeed80915836a80e41ff71a  docs/ci-backward-tail-once/run.py' | sha256sum -c -
+        echo 'e5f996720c9d0f4fedcb2ec93d406c25354e617a4ec72f5b832a8007dbdc39d1  docs/ci-backward-tail-once/CONTRACT.json' | sha256sum -c -
+        mkdir -p build/dependency-setup
+        python3 -I -B "$DRIVER" targets --packet "$PACKET" > "build/dependency-setup/$PACKET.targets.txt"
+        test "$(wc -l < "build/dependency-setup/$PACKET.targets.txt")" -eq "$ROOT_COUNT"
+    - uses: ./.github/actions/setup-pinned-python
+      with:
+        python-version: 3.12.14
+    - uses: ./.github/actions/setup-pinned-lean
+    - uses: ./.github/actions/setup-pinned-dependency-sources
+    - name: Fetch only exact reviewed official roots
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -E -s -B scripts/pinned_dependency_sources.py artifacts --project "$PROGRESS" --targets-file "build/dependency-setup/$PACKET.targets.txt" --receipt "build/dependency-setup/$PACKET.artifacts.json"
+    - name: One fresh stock compilation and one final recursive audit
+      shell: bash
+      run: timeout 900s python -I -B "$DRIVER" check --packet "$PACKET"
+    - name: Preserve scoped logs with zero project artifacts
+      if: always()
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: scoped-backward-${{ matrix.packet }}
+        retention-days: 7
+        if-no-files-found: ignore
+        path: |
+          build/progress-standalone-intake/${{ matrix.packet }}/RESULT.json
+          build/progress-standalone-intake/${{ matrix.packet }}/ExperimentAudit.lean
+          build/progress-standalone-intake/${{ matrix.packet }}/logs
+          build/dependency-setup/sources.json
+          build/dependency-setup/${{ matrix.packet }}.artifacts.json
+          build/dependency-setup/${{ matrix.packet }}.artifacts.log
+          build/dependency-setup/${{ matrix.packet }}.targets.txt
