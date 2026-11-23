@@ -17,8 +17,9 @@ LENSTRA = "same-j-direct-lenstra-clear-r2"
 CRT = "pel-actual-marking-crt-r3"
 TRACE = "same-j-crt-trace-r2"
 DIFFERENT = "same-j-crt-different-r1"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10}
-FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3}
+TWIST = "forward-detached-twist-point-r1"
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 3}
+FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2}
 
 
 def packets():
@@ -26,7 +27,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the six reviewed Mathlib rows")
+        raise ValueError("Expected one of the seven reviewed Mathlib rows")
     return (requested,)
 
 
@@ -63,6 +64,12 @@ class MathlibIntakeTests(unittest.TestCase):
                             b"public meta import Lean", b"public meta import Lean.Elab.Command",
                             b"public meta import Lean.Util.CollectAxioms",
                         ])
+                    elif packet == TWIST:
+                        self.assertEqual(data["order"], [
+                            "CheckedHomogeneousTwistPoint318", "CheckedHomogeneousTwistPoint937Smoke318",
+                        ])
+                        self.assertFalse(config.get("source_paths"))
+                        self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     else:
                         self.assertNotIn(b"import Lean.Elab.Command\n", audit)
                     if packet in (LENSTRA, CRT, TRACE):

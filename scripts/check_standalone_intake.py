@@ -282,6 +282,32 @@ ALLOWLIST = {
             "SelectedJOneCRTTrace318": "quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/SelectedJOneCRTTrace318.lean",
         },
     },
+    "forward-detached-twist-point-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "df24547fedeebde5deb3777669189c5d5240c5b1",
+        "scope": "Detached exact homogeneous point checks on two twists only; no literal Request or rank",
+        "manifest_sha256": "48e0d785579b8744a2cfd4ed986b2717057828903977948ffd9ae6a5b1bcbf7f",
+        "modules": (
+            ("CheckedHomogeneousTwistPoint318",
+             "65f437b76fc3ba11c0532cef7c218745bf8b587601005050bcf0bcc502b6d21e",
+             ("Mathlib.Data.Rat.Cast.Order", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.Ring")),
+            ("CheckedHomogeneousTwistPoint937Smoke318",
+             "7d6e3d45e56bf8d172b99e4f5b8032e40aee231d85bf9792770a8530ee766a57",
+             ("CheckedHomogeneousTwistPoint318",)),
+        ),
+        "source_roots": (
+            "Mathlib.Data.Rat.Cast.Order",
+            "Mathlib.Tactic.FieldSimp",
+            "Mathlib.Tactic.Ring",
+        ),
+        "artifact_roots": (
+            "Mathlib.Data.Rat.Cast.Order",
+            "Mathlib.Tactic.FieldSimp",
+            "Mathlib.Tactic.Ring",
+        ),
+        "audit_public_meta": True,
+        "audit_sha256": "af77a5827bbfae6ae239ab60756d29e0881c0ca2535d26652027439510cc1aa5",
+    },
 }
 
 

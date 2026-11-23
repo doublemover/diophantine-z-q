@@ -28,6 +28,7 @@ on:
       - 'quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r3/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-crt-different-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r1/**'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean'
@@ -53,7 +54,7 @@ jobs:
             profile: lean-core
             root_count: 0
             verification: >-
-              ${{ github.event.before == 'c9f78ff2f297348175935255b39decc08f119c86'
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -61,7 +62,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 9
             verification: >-
-              ${{ github.event.before == 'c9f78ff2f297348175935255b39decc08f119c86'
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -69,7 +70,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 7
             verification: >-
-              ${{ github.event.before == 'c9f78ff2f297348175935255b39decc08f119c86'
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -77,7 +78,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == 'c9f78ff2f297348175935255b39decc08f119c86'
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -85,7 +86,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 6
             verification: >-
-              ${{ github.event.before == 'c9f78ff2f297348175935255b39decc08f119c86'
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -93,13 +94,21 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == 'c9f78ff2f297348175935255b39decc08f119c86'
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
           - packet: same-j-crt-different-r1
             profile: pinned-mathlib
             root_count: 10
+            verification: >-
+              ${{ github.event.before == 'df24547fedeebde5deb3777669189c5d5240c5b1'
+                  && join(github.event.commits.*.id, ',') == github.sha
+                  && !github.event.forced
+                  && 'source admission only' || 'kernel check' }}
+          - packet: forward-detached-twist-point-r1
+            profile: pinned-mathlib
+            root_count: 3
             verification: kernel check
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -137,6 +146,7 @@ jobs:
             /quartics/quartic-318-326/proof/intake/pel-actual-marking-crt-r3/
             /quartics/quartic-318-326/proof/intake/same-j-crt-trace-r2/
             /quartics/quartic-318-326/proof/intake/same-j-crt-different-r1/
+            /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r1/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean
