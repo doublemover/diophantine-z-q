@@ -1,0 +1,85 @@
+name: Progress Lean standalone intake
+
+on:
+  push:
+    branches:
+      - add-quartic-318-326
+    paths:
+      - '.github/workflows/progress-standalone-intake.yml'
+      - '.github/actions/setup-pinned-python/**'
+      - '.github/actions/setup-pinned-lean/**'
+      - 'scripts/check_standalone_intake.py'
+      - 'scripts/test_standalone_intake.py'
+      - 'scripts/check_lean.py'
+      - 'scripts/check_progress_lean.py'
+      - 'scripts/check_progress_experiment.py'
+      - 'scripts/setup_pinned_lean.sh'
+      - 'lean/lean-toolchain'
+      - 'quartics/quartic-318-326/proof/progress/lean-toolchain'
+      - 'quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: progress-standalone-intake-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  standalone:
+    name: Standalone intake (${{ matrix.packet }})
+    strategy:
+      fail-fast: false
+      matrix:
+        packet:
+          - linear-a4-weighted-readback-core-r1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PACKET: ${{ matrix.packet }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/actions/setup-pinned-python/
+            /.github/actions/setup-pinned-lean/
+            /scripts/check_standalone_intake.py
+            /scripts/test_standalone_intake.py
+            /scripts/check_lean.py
+            /scripts/check_progress_lean.py
+            /scripts/check_progress_experiment.py
+            /scripts/setup_pinned_lean.sh
+            /lean/lean-toolchain
+            /quartics/quartic-318-326/proof/progress/lean-toolchain
+            /quartics/quartic-318-326/proof/intake/linear-a4-weighted-readback-core-r1/
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - name: Fixture replay and exact no-baseline source admission
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -E -s -B scripts/test_standalone_intake.py -v
+          python -E -s -B scripts/check_standalone_intake.py targets --packet "$PACKET" \
+            > "$RUNNER_TEMP/standalone-targets.txt"
+          test ! -s "$RUNNER_TEMP/standalone-targets.txt"
+      - uses: ./.github/actions/setup-pinned-lean
+      - name: Compile only fresh sources and audit private declarations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -E -s -B scripts/check_standalone_intake.py check --packet "$PACKET"
+      - name: Preserve scoped receipt, never project artifacts
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: standalone-intake-${{ matrix.packet }}
+          retention-days: 30
+          if-no-files-found: ignore
+          path: |
+            build/progress-standalone-intake/${{ matrix.packet }}/RESULT.json
+            build/progress-standalone-intake/${{ matrix.packet }}/ExperimentAudit.lean
+            build/progress-standalone-intake/${{ matrix.packet }}/logs/
