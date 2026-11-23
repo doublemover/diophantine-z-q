@@ -1,0 +1,115 @@
+name: Windows Version 13 checkout pilot (one shot)
+on:
+  push:
+    branches: [add-quartic-318-326]
+    paths:
+      - .github/workflows/windows-v13-checkout-pilot-one-shot.yml
+permissions:
+  contents: read
+concurrency:
+  group: windows-v13-checkout-pilot-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  matched:
+    name: Version 13 Windows ${{ matrix.mode }} pilot
+    if: >-
+      github.repository == 'doublemover/diophantine-z-q' &&
+      github.ref == 'refs/heads/add-quartic-318-326' &&
+      github.event.after == github.sha &&
+      github.run_attempt == 1 && !github.event.forced &&
+      join(github.event.commits.*.id, ',') == github.sha &&
+      github.event.before == '130139880deecf9c66e7a926d1096f60f40e10d3' &&
+      github.event.head_commit.message == 'Exact Hodge tensor and Windows V13 checkout pilot'
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [full, sparse]
+    steps:
+      - name: Enable long checkout paths on Windows
+        shell: pwsh
+        run: git config --global core.longpaths true
+      - name: Checkout fixed source (full)
+        if: matrix.mode == 'full'
+        id: checkout_full
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          ref: 130139880deecf9c66e7a926d1096f60f40e10d3
+      - name: Checkout fixed source (sparse)
+        if: matrix.mode == 'sparse'
+        id: checkout_sparse
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          ref: 130139880deecf9c66e7a926d1096f60f40e10d3
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.gitattributes
+            /.github/actions/setup-pinned-python/
+            /docs/audit-history/
+            /docs/manuscript-revisions/version10/responses.json
+            /docs/manuscript-revisions/version11/evidence/interface.md
+            /docs/manuscript-revisions/version11/evidence/norms.md
+            /docs/manuscript-revisions/version11/issue-snapshot.json
+            /docs/manuscript-revisions/version12/addition.tex
+            /docs/manuscript-revisions/version12/evidence/anchor-review.md
+            /docs/manuscript-revisions/version12/evidence/author-applications.json
+            /docs/manuscript-revisions/version12/evidence/composition-review.md
+            /docs/manuscript-revisions/version12/evidence/depth-review.md
+            /docs/manuscript-revisions/version12/evidence/finite-review.md
+            /docs/manuscript-revisions/version12/evidence/integration-checks.json
+            /docs/manuscript-revisions/version12/evidence/integration-review.md
+            /docs/manuscript-revisions/version12/evidence/kato-final-review.md
+            /docs/manuscript-revisions/version12/evidence/norm-review.md
+            /docs/manuscript-revisions/version12/evidence/portable-verification.json
+            /docs/manuscript-revisions/version12/evidence/product-review.md
+            /docs/manuscript-revisions/version12/evidence/reciprocal-review.md
+            /docs/manuscript-revisions/version12/portability/serialization-repair.json
+            /docs/manuscript-revisions/version13/
+            /docs/quartic-523-540/new-applications.json
+            /docs/theorem-application-audit/
+            /manuscripts/quartic_v10.tex
+            /manuscripts/quartic_v11.tex
+            /manuscripts/quartic_v12.tex
+            /manuscripts/quartic_v13.tex
+            /quartics/quartic-394-411/
+            /quartics/quartic-394-symbolic-coefficients.json
+            /quartics/quartic-394-symbolic-coefficients.txt
+            /quartics/quartic-411-fully-expanded.txt
+            /quartics/quartic-498-514/MANIFEST.json
+            /quartics/quartic-498-514/candidate498-ir.json
+            /quartics/quartic-498-514/polynomial498.json
+            /quartics/quartic-498-514/polynomial514.json
+            /scripts/build_paper.py
+            /scripts/check_application_reviews.py
+            /scripts/check_audit_history.py
+            /scripts/check_quartic394.py
+            /scripts/check_quartic394_portable.py
+            /scripts/check_version13_inventory.py
+            /scripts/quartic394_path_bootstrap.py
+      - name: Record source and runner identity
+        shell: pwsh
+        run: |
+          $head = git rev-parse HEAD
+          if ($LASTEXITCODE -ne 0 -or $head -ne '130139880deecf9c66e7a926d1096f60f40e10d3') { throw "Unexpected source: $head" }
+          $tree = git rev-parse 'HEAD^{tree}'
+          if ($LASTEXITCODE -ne 0 -or $tree -ne '3054991ff26a6271b19159a755e773a924db518c') { throw "Unexpected tree: $tree" }
+          if (-not $env:ImageOS -or -not $env:ImageVersion) { throw 'Runner image identity unavailable' }
+          "source=$head tree=$tree image=$env:ImageOS version=$env:ImageVersion"
+          git --version
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.10'
+      - name: Record pinned Python version
+        run: python --version
+      - run: python -B docs/manuscript-revisions/version13/portability/test_portability.py
+      - run: python -B scripts/check_quartic394_portable.py
+      - run: python -B scripts/check_version13_inventory.py
+      - run: python -B scripts/check_audit_history.py --self-test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: quartic-394-windows-v13-pilot-${{ matrix.mode }}
+          path: build/quartic-394/
