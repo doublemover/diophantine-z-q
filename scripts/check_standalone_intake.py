@@ -184,13 +184,13 @@ ALLOWLIST = {
         ),
         "audit_sha256": "48dc0470e8e6728951a7cd8a5ec079d10bc981580252fd5f15bb670117b70185",
     },
-    "pel-actual-marking-crt-r2": {
+    "pel-actual-marking-crt-r3": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
         "scope": "Exact CRT merge and restriction of supplied torsion markings; no original moduli classifier, occurrence or endpoint",
-        "manifest_sha256": "9d0ddd3d93e9da470768bc9e52acc1c2809e13dadb8097cb9d04b1615ba4f8f7",
+        "manifest_sha256": "392348d6e395f6d24dc96588edf4be2ab47a153710f05266940d751c91ae0904",
         "modules": (
-            ("SelectedPELMarkingCRT318", "1b52b40597b2c07c294b9deeaa122b76d2e73d4d37740d338fb52a1b893faa6e",
+            ("SelectedPELMarkingCRT318", "b611a6f4bf21b79e3432dd43659d95fe9f4879a061b6082e7270c0dfed6089f9",
              ("Mathlib.Algebra.Group.Prod", "Mathlib.Algebra.Group.Subgroup.Basic", "Mathlib.Algebra.Module.NatInt", "Mathlib.Algebra.Ring.Equiv", "Mathlib.Algebra.Ring.Prod", "Mathlib.Data.ZMod.Basic")),
         ),
         "source_roots": (
@@ -210,6 +210,32 @@ ALLOWLIST = {
             "Mathlib.Data.ZMod.Basic",
         ),
         "audit_sha256": "da826d79bec5f71318d2ca42dd29e5d77ab8b9e4851ee2f9c4f0dbdca38f00ec",
+        "audit_public_meta": True,
+    },
+    "same-j-crt-trace-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
+        "scope": "Arbitrary-ideal trace reduction and CRT trace detects the positive rank of the selected factor; stock algebra only",
+        "manifest_sha256": "f297d0f05c8812300494431be6d5e1718ac7424ee3f5f0f9f29e7e0583bdc17d",
+        "modules": (
+            ("SelectedJOneCRTTrace318", "c1852e88e2b0b6888e2714888c09ce41af00d60906be07c82bae3a37ff972c7a",
+             ("Mathlib.LinearAlgebra.Dimension.Constructions", "Mathlib.RingTheory.LocalRing.Module", "Mathlib.RingTheory.TensorProduct.Finite", "Mathlib.RingTheory.TensorProduct.Quotient", "Mathlib.RingTheory.Trace.Basic")),
+        ),
+        "source_roots": (
+            "Mathlib.LinearAlgebra.Dimension.Constructions",
+            "Mathlib.RingTheory.LocalRing.Module",
+            "Mathlib.RingTheory.TensorProduct.Finite",
+            "Mathlib.RingTheory.TensorProduct.Quotient",
+            "Mathlib.RingTheory.Trace.Basic",
+        ),
+        "artifact_roots": (
+            "Mathlib.LinearAlgebra.Dimension.Constructions",
+            "Mathlib.RingTheory.LocalRing.Module",
+            "Mathlib.RingTheory.TensorProduct.Finite",
+            "Mathlib.RingTheory.TensorProduct.Quotient",
+            "Mathlib.RingTheory.Trace.Basic",
+        ),
+        "audit_sha256": "090cf72179e1524a42abf3c73879b4fa539b8923ae06ba93b07319a41755fcbe",
         "audit_public_meta": True,
     },
 }

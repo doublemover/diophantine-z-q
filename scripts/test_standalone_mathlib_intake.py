@@ -14,9 +14,10 @@ import check_standalone_intake as runner
 GRAM = "pel-original-order-gram-r2"
 DLOG = "finite-height-dlog-mapped-trait-r1"
 LENSTRA = "same-j-direct-lenstra-clear-r2"
-CRT = "pel-actual-marking-crt-r2"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6}
-FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1}
+CRT = "pel-actual-marking-crt-r3"
+TRACE = "same-j-crt-trace-r1"
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5}
+FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1}
 
 
 def packets():
@@ -24,7 +25,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the four reviewed Mathlib rows")
+        raise ValueError("Expected one of the five reviewed Mathlib rows")
     return (requested,)
 
 
@@ -54,15 +55,16 @@ class MathlibIntakeTests(unittest.TestCase):
                     self.assertEqual(set(p.name for p in folder.iterdir()),
                                      {"intake.json", *(n + ".lean" for n in data["order"])})
                     self.assertEqual(runner.digest(audit), config["audit_sha256"])
-                    if packet == CRT:
+                    if packet in (CRT, TRACE):
+                        module = {CRT: b"SelectedPELMarkingCRT318", TRACE: b"SelectedJOneCRTTrace318"}[packet]
                         self.assertEqual(audit.splitlines()[1:5], [
-                            b"import all SelectedPELMarkingCRT318",
+                            b"import all " + module,
                             b"public meta import Lean", b"public meta import Lean.Elab.Command",
                             b"public meta import Lean.Util.CollectAxioms",
                         ])
                     else:
                         self.assertNotIn(b"import Lean.Elab.Command\n", audit)
-                    if packet in (LENSTRA, CRT):
+                    if packet in (LENSTRA, CRT, TRACE):
                         self.assertFalse(config.get("source_paths"))
                         self.assertEqual(len(data["order"]), 1)
                     self.assertIn(b"collectAxioms name", audit)
