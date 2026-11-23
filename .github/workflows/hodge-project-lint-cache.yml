@@ -1,0 +1,225 @@
+name: Supplemental Hodge project lint cache
+'on':
+  push:
+    branches:
+    - add-quartic-318-326
+    paths:
+    - .github/actions/setup-pinned-dependency-sources/action.yml
+    - .github/actions/setup-pinned-lean/action.yml
+    - .github/actions/setup-pinned-python/action.yml
+    - .github/workflows/hodge-project-lint-cache.yml
+    - docs/ci-hodge-compiled-imports-once/run.py
+    - docs/hodge-project-cache/contract.json
+    - docs/hodge-project-cache/run.py
+    - lean/lean-toolchain
+    - quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+    - quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+    - quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+    - quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean
+    - quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r6/OriginalMarkedHodgeTensorHeight318.lean
+    - quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r7/OriginalMarkedHodgeTensorHeight318.lean
+    - quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+    - quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+    - quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+    - quartics/quartic-318-326/proof/progress/lake-manifest.json
+    - quartics/quartic-318-326/proof/progress/lakefile.toml
+    - quartics/quartic-318-326/proof/progress/lean-toolchain
+    - scripts/check_staged_lean.py
+    - scripts/pinned_dependency_sources.py
+    - scripts/setup_pinned_lean.sh
+concurrency:
+  group: compiled-hodge-lint-cache-${{ github.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  lint:
+    name: Strict Hodge lint (project-only cache)
+    if: github.repository == 'doublemover/diophantine-z-q' && github.ref == 'refs/heads/add-quartic-318-326' && github.event_name
+      == 'push' && github.run_attempt == 1 && !github.event.forced
+    outputs:
+      fresh: ${{ steps.trial.outputs.cold }}
+      key: ${{ steps.pin.outputs.key }}
+      objects_sha: ${{ steps.trial.outputs.objects_sha }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          /.github/actions/setup-pinned-dependency-sources/action.yml
+          /.github/actions/setup-pinned-lean/action.yml
+          /.github/actions/setup-pinned-python/action.yml
+          /.github/workflows/hodge-project-lint-cache.yml
+          /docs/ci-hodge-compiled-imports-once/run.py
+          /docs/hodge-project-cache/contract.json
+          /docs/hodge-project-cache/run.py
+          /lean/lean-toolchain
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r6/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r7/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+          /quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+          /quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+          /quartics/quartic-318-326/proof/progress/lake-manifest.json
+          /quartics/quartic-318-326/proof/progress/lakefile.toml
+          /quartics/quartic-318-326/proof/progress/lean-toolchain
+          /scripts/check_staged_lean.py
+          /scripts/pinned_dependency_sources.py
+          /scripts/setup_pinned_lean.sh
+    - name: Verify exact scoped sources before toolchain/official cache setup
+      shell: bash
+      run: |-
+        set -euo pipefail
+        echo '208bb1d68d6bf859a0ac2c0364b731461b933d2ec7013780236b20d8ada9edd4  docs/hodge-project-cache/run.py' | sha256sum -c -
+        echo 'bd0908c0d69fe23de681da28a0d0dbd5b1b039051f8b9bacc852cde5d8469974  docs/hodge-project-cache/contract.json' | sha256sum -c -
+        mkdir -p build/dependency-setup
+        python3 -I -B docs/hodge-project-cache/run.py targets > build/dependency-setup/hodge-imports.targets.txt
+        test "$(wc -l < build/dependency-setup/hodge-imports.targets.txt)" -eq 12
+    - uses: ./.github/actions/setup-pinned-python
+      with:
+        python-version: 3.12.14
+    - uses: ./.github/actions/setup-pinned-lean
+    - uses: ./.github/actions/setup-pinned-dependency-sources
+    - name: Acquire compiled Mathlib dependencies through the pinned official cache
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -I -B scripts/pinned_dependency_sources.py artifacts --project quartics/quartic-318-326/proof/progress --targets-file build/dependency-setup/hodge-imports.targets.txt --receipt build/dependency-setup/hodge-imports.artifacts.json
+    - name: Bind exact official Mathlib bytes and compute project-only content keys
+      id: pin
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -I -B docs/hodge-project-cache/run.py prepare --work "$RUNNER_TEMP/hodge-project-cache-v1" --lean "$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean"
+    - id: restore
+      name: Restore only the exact project-object cache
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: ${{ runner.temp }}/hodge-project-cache-v1/project-cache
+        key: ${{ steps.pin.outputs.key }}
+    - name: Strict native lint of actual staged Hodge leaf
+      id: trial
+      shell: bash
+      env:
+        RESTORE_EXACT: ${{ steps.restore.outputs.cache-hit }}
+      run: |
+        set -euo pipefail
+        python -I -B docs/hodge-project-cache/run.py primary --work "$RUNNER_TEMP/hodge-project-cache-v1" --lean "$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean" --exact-hit "$RESTORE_EXACT"
+        if [[ $RESTORE_EXACT == true ]]; then
+          echo cold=false >> "$GITHUB_OUTPUT"
+        else
+          echo cold=true >> "$GITHUB_OUTPUT"
+        fi
+    - name: Save only fully validated compiled project prerequisites
+      if: steps.restore.outputs.cache-hit != 'true'
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: ${{ runner.temp }}/hodge-project-cache-v1/project-cache
+        key: ${{ steps.pin.outputs.key }}
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: hodge-private-project-cache-objects-linux-x64
+        path: |-
+          ${{ runner.temp }}/hodge-project-cache-v1/primary-receipt.json
+          ${{ runner.temp }}/hodge-project-cache-v1/project-cache/
+        if-no-files-found: error
+        retention-days: 7
+  validate:
+    name: Validate newly created project cache and source invalidation
+    if: github.repository == 'doublemover/diophantine-z-q' && github.ref == 'refs/heads/add-quartic-318-326' && github.event_name
+      == 'push' && github.run_attempt == 1 && !github.event.forced && needs.lint.outputs.fresh == 'true'
+    needs:
+    - lint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          /.github/actions/setup-pinned-dependency-sources/action.yml
+          /.github/actions/setup-pinned-lean/action.yml
+          /.github/actions/setup-pinned-python/action.yml
+          /.github/workflows/hodge-project-lint-cache.yml
+          /docs/ci-hodge-compiled-imports-once/run.py
+          /docs/hodge-project-cache/contract.json
+          /docs/hodge-project-cache/run.py
+          /lean/lean-toolchain
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r6/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r7/OriginalMarkedHodgeTensorHeight318.lean
+          /quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+          /quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+          /quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+          /quartics/quartic-318-326/proof/progress/lake-manifest.json
+          /quartics/quartic-318-326/proof/progress/lakefile.toml
+          /quartics/quartic-318-326/proof/progress/lean-toolchain
+          /scripts/check_staged_lean.py
+          /scripts/pinned_dependency_sources.py
+          /scripts/setup_pinned_lean.sh
+    - name: Verify exact scoped sources before toolchain/official cache setup
+      shell: bash
+      run: |-
+        set -euo pipefail
+        echo '208bb1d68d6bf859a0ac2c0364b731461b933d2ec7013780236b20d8ada9edd4  docs/hodge-project-cache/run.py' | sha256sum -c -
+        echo 'bd0908c0d69fe23de681da28a0d0dbd5b1b039051f8b9bacc852cde5d8469974  docs/hodge-project-cache/contract.json' | sha256sum -c -
+        mkdir -p build/dependency-setup
+        python3 -I -B docs/hodge-project-cache/run.py targets > build/dependency-setup/hodge-imports.targets.txt
+        test "$(wc -l < build/dependency-setup/hodge-imports.targets.txt)" -eq 12
+    - uses: ./.github/actions/setup-pinned-python
+      with:
+        python-version: 3.12.14
+    - uses: ./.github/actions/setup-pinned-lean
+    - uses: ./.github/actions/setup-pinned-dependency-sources
+    - name: Acquire compiled Mathlib dependencies through the pinned official cache
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -I -B scripts/pinned_dependency_sources.py artifacts --project quartics/quartic-318-326/proof/progress --targets-file build/dependency-setup/hodge-imports.targets.txt --receipt build/dependency-setup/hodge-imports.artifacts.json
+    - name: Bind exact official Mathlib bytes and compute project-only content keys
+      id: pin
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -I -B docs/hodge-project-cache/run.py prepare --work "$RUNNER_TEMP/hodge-project-cache-v1" --lean "$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean"
+    - id: restore
+      name: Restore only the exact project-object cache
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: ${{ runner.temp }}/hodge-project-cache-v1/project-cache
+        key: ${{ steps.pin.outputs.key }}
+        fail-on-cache-miss: true
+    - id: changed
+      name: Look up a real changed-donor key without restoring or writing it
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+      with:
+        path: ${{ runner.temp }}/hodge-project-cache-v1/project-cache
+        key: ${{ steps.pin.outputs.changed_key }}
+        lookup-only: true
+    - name: Prove warm no-rebuild and cold invalidation of affected paths
+      shell: bash
+      env:
+        RESTORE_EXACT: ${{ steps.restore.outputs.cache-hit }}
+        CHANGED_EXACT: ${{ steps.changed.outputs.cache-hit }}
+        PRODUCER_KEY: ${{ needs.lint.outputs.key }}
+        PRODUCER_OBJECTS_SHA: ${{ needs.lint.outputs.objects_sha }}
+      run: |
+        set -euo pipefail
+        python -I -B docs/hodge-project-cache/run.py validate --work "$RUNNER_TEMP/hodge-project-cache-v1" --lean "$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean" --exact-hit "$RESTORE_EXACT" \
+          --changed-hit "$CHANGED_EXACT" --producer-key "$PRODUCER_KEY" --producer-objects-sha "$PRODUCER_OBJECTS_SHA"
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: hodge-private-project-cache-verified-receipt
+        path: ${{ runner.temp }}/hodge-project-cache-v1/validation-receipt.json
+        if-no-files-found: error
+        retention-days: 7
