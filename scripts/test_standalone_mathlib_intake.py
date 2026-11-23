@@ -22,13 +22,15 @@ DIFFERENT = "same-j-crt-different-r1"
 TWIST = "forward-detached-twist-point-r3"
 STRUCTURAL = "same-j-structural-normalization-r3"
 DYADIC = "finite-plus11-dyadic-vertical-r4"
-DJ = "same-j-integral-trace-diagonal-r3"
-REFLECT = "raw318-input-reflection-r3"
+DJ = "same-j-integral-trace-diagonal-r4"
+REFLECT = "raw318-input-reflection-r4"
 OBSERVED = "linear-a4-signed-observed-r1"
-ARITH = "arithmetic-three-adic-nonroot-r1"
+ARITH = "arithmetic-three-adic-nonroot-r2"
 PERIOD = "period-original-elliptic-sections-r1"
-EXPECTED = {ARITH: 8, PERIOD: 4, GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DJ: 4, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
-FRESH = {ARITH: 2, PERIOD: 1, GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DJ: 4, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
+FLAT = "original-elliptic-lattice-descent-r1"
+DIRECT = "direct-literal-reflection-r1"
+EXPECTED = {FLAT: 1, DIRECT: 5, ARITH: 8, PERIOD: 4, GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DJ: 4, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
+FRESH = {FLAT: 1, DIRECT: 10, ARITH: 2, PERIOD: 1, GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DJ: 4, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
 
 
 def packets():
@@ -36,7 +38,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the fourteen reviewed Mathlib rows")
+        raise ValueError("Expected one of the sixteen reviewed Mathlib rows")
     return (requested,)
 
 
@@ -86,7 +88,8 @@ class MathlibIntakeTests(unittest.TestCase):
                         self.assertEqual(data["order"][-1], "Raw318InputReflection318")
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                         donors = {n: runner.INTAKES + "/raw318-input-reflection-r1/" + n + ".lean"
-                                  for n in data["order"] if n not in {"AffineAnchor", "AnchorValueShear"}}
+                                  for n in data["order"] if n not in {"AffineAnchor", "AnchorValueShear", "Raw318InputReflection318"}}
+                        donors["AnchorValueShear"] = runner.INTAKES + "/raw318-input-reflection-r3/AnchorValueShear.lean"
                         donors["AffineAnchor"] = runner.INTAKES + "/raw318-input-reflection-r2/AffineAnchor.lean"
                         self.assertEqual(config["source_paths"], donors)
                         # The original progress sources are frozen in the historical commit;
@@ -122,13 +125,27 @@ class MathlibIntakeTests(unittest.TestCase):
                         self.assertEqual(data["order"][-1], "SelectedJDifferentAnnihilates318")
                         self.assertEqual(config["source_paths"], {
                             n: runner.INTAKES + "/same-j-integral-trace-diagonal-r1/" + n + ".lean"
-                            for n in ("SelectedJTraceDualCoefficients318",)})
+                            for n in ("SelectedJTraceDualCoefficients318",)} | {
+                                "SelectedJTraceDiagonalDerivation318": runner.INTAKES +
+                                "/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean"})
+                        self.assertIn(b"public meta import Lean.Elab.Command", audit)
+                    elif packet == DIRECT:
+                        self.assertEqual(len(runner.DIRECT_ORIGINAL_BLOBS), 6)
+                        self.assertEqual(len(config["source_paths"]), 8)
+                        self.assertEqual(data["order"][-1], "DirectLiteralReflection318326")
+                        self.assertIn(b"public meta import Lean.Elab.Command", audit)
+                    elif packet == FLAT:
+                        self.assertEqual(data["order"], ["OriginalEllipticHalfLatticeDescent318"])
+                        self.assertFalse(config.get("source_paths"))
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet in (ARITH, PERIOD):
                         expected = (["SelectedThreeAdicEscape318", "SelectedThreeAdicNonroot318"]
                                     if packet == ARITH else ["OriginalEllipticPairSections318"])
                         self.assertEqual(data["order"], expected)
-                        self.assertFalse(config.get("source_paths"))
+                        donors = ({"SelectedThreeAdicNonroot318": runner.INTAKES +
+                                   "/arithmetic-three-adic-nonroot-r1/SelectedThreeAdicNonroot318.lean"}
+                                  if packet == ARITH else {})
+                        self.assertEqual(config.get("source_paths", {}), donors)
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet == STRUCTURAL:
                         self.assertEqual(data["order"], ["SelectedJStructuralNormalization318"])
@@ -178,7 +195,7 @@ class MathlibIntakeTests(unittest.TestCase):
                         for module, path in config["source_paths"].items():
                             self.assertEqual(path, owner + module + ".lean")
 
-    def test_four_native_matrix_fail_closed_elsewhere(self):
+    def test_five_native_matrix_fail_closed_elsewhere(self):
         # Parse the actual finite subset of GHA expressions emitted here; do
         # not infer a decision from the packet name or merely count strings.
         wf = (runner.ROOT / ".github/workflows/progress-standalone-intake.yml").read_text()
@@ -187,7 +204,7 @@ class MathlibIntakeTests(unittest.TestCase):
         self.assertIn("            /.github/workflows/progress-standalone-intake.yml\n", wf)
         # Freeze repaired reflection and prior kernel-verified signed contracts separately.
         self.assertEqual(runner.ALLOWLIST[REFLECT]["manifest_sha256"],
-                         "31c4b9264fa838fd0b77845e80f8a09024e1801c2d9e87c25fa48c5330fedc01")
+                         "fc5e0159632f390d304c02a666287bff008abf4200807f451fa80cf35814e77b")
         self.assertEqual(runner.ALLOWLIST[OBSERVED]["manifest_sha256"],
                          "dc14c02c15ddfd937786e4cfa98b93c0c5615c8263eba1e0986fef70791849bd")
         self.assertEqual(runner.ALLOWLIST[DYADIC]["manifest_sha256"],
@@ -196,8 +213,8 @@ class MathlibIntakeTests(unittest.TestCase):
                           r"            profile: [^\n]+\n            root_count: [0-9]+\n"
                           r"            verification: (kernel check|>-\n(?: {14,}[^\n]+\n?)+)", wf, re.M)
         self.assertEqual([k for k, _ in cuts], list(runner.ALLOWLIST))
-        base = 'df0358c259bc2b16e056f346233ff45792d6c2cf'
-        newest = {REFLECT, DJ, ARITH, PERIOD}
+        base = '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
+        newest = {REFLECT, DJ, ARITH, FLAT, DIRECT}
         narrow = ("${{ github.event.before == '"+base+"' && join(github.event.commits.*.id, ',') "
                   "== github.sha && !github.event.forced && 'source admission only' || 'kernel check' }}")
         def rows(event_before, commits, head, forced):
@@ -215,7 +232,7 @@ class MathlibIntakeTests(unittest.TestCase):
         head = "f" * 40
         selected = rows(base, [head], head, False)
         self.assertEqual({k for k, v in selected.items() if v == "native"}, newest)
-        self.assertEqual(list(selected.values()).count("source"), 11)
+        self.assertEqual(list(selected.values()).count("source"), 12)
         for ev in [("a"*40, [head], False), (base, [], False),
                    (base, ["a"*40, head], False), (base, [head], True), (None, [], False)]:
             self.assertEqual(set(rows(ev[0], ev[1], head, ev[2]).values()), {"native"})
@@ -236,6 +253,32 @@ class MathlibIntakeTests(unittest.TestCase):
         broken["source_paths"]["Unlisted"] = "arbitrary.lean"
         with self.assertRaisesRegex(ValueError, "unlisted module"):
             runner.source_paths(GRAM, broken)
+
+    def test_exact_original_donor_rejections(self):
+        cfg = runner.ALLOWLIST[DIRECT]
+        head = runner.git_at(runner.ROOT, "rev-parse", "HEAD").decode().strip()
+        name = "Current326CoefficientBinding"
+        path = runner.PROGRESS + "/" + name + ".lean"
+        self.assertEqual(cfg["source_paths"][name], path)
+        with self.assertRaisesRegex(ValueError, "donor path"):
+            runner.source_paths("another-reflection", cfg)
+        for wrong in (runner.INTAKES + "/direct-old/" + name + ".lean",
+                      path.replace("/progress/", "/progress/../progress/")):
+            with self.subTest(path=wrong), self.assertRaisesRegex(ValueError, "donor path"):
+                runner.source_paths(DIRECT, {**cfg, "source_paths": cfg["source_paths"] | {name: wrong}})
+        lookup = runner.tree_entries
+        oid = runner.DIRECT_ORIGINAL_BLOBS[name]
+        for invalid in (("120000", "blob", oid), ("100755", "blob", oid),
+                        ("100644", "blob", "0"*40)):
+            def mutated(root, commit, target):
+                return {path: invalid} if target == path else lookup(root, commit, target)
+            with self.subTest(invalid=invalid), patch.object(runner, "tree_entries", side_effect=mutated):
+                with self.assertRaisesRegex(ValueError, "Changed original donor identity"):
+                    runner.read_payload(runner.ROOT, head, DIRECT, cfg)
+        payload = runner.read_payload(runner.ROOT, head, DIRECT, cfg)
+        payload[name + ".lean"] += b"\n"
+        with self.assertRaisesRegex(ValueError, "Changed exact source"):
+            runner.validate_payload(cfg, payload)
 
     def test_mismatched_roots_rejected(self):
         cfg = runner.ALLOWLIST[DLOG]

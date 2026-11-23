@@ -33,17 +33,27 @@ on:
       - 'quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r3/**'
       - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r4/**'
-      - 'quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r3/**'
+      - 'quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r4/**'
       - 'quartics/quartic-318-326/proof/intake/period-original-elliptic-sections-r1/**'
-      - 'quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/direct-literal-reflection-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/original-elliptic-lattice-descent-r1/**'
+      - 'quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r2/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/SelectedJTraceDualCoefficients318.lean'
-      - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r3/**'
+      - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r4/**'
       - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r2/AffineAnchor.lean'
       - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/CircuitReplay.lean'
       - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/QuarticOptimization.lean'
       - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318FinalReplayData.lean'
-      - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318InputReflection318.lean'
       - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean'
+      - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r3/AnchorValueShear.lean'
+      - 'quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean'
+      - 'quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r1/SelectedThreeAdicNonroot318.lean'
+      - 'quartics/quartic-318-326/proof/progress/Current326CoefficientBinding.lean'
+      - 'quartics/quartic-318-326/proof/progress/Current326CoefficientBindingData.lean'
+      - 'quartics/quartic-318-326/proof/progress/Current326CoefficientBindingExpanded.lean'
+      - 'quartics/quartic-318-326/proof/progress/Current326CoefficientBindingNormalize.lean'
+      - 'quartics/quartic-318-326/proof/progress/Current326Polynomial.lean'
+      - 'quartics/quartic-318-326/proof/progress/Current318FinalPolynomial.lean'
       - 'quartics/quartic-318-326/proof/intake/linear-a4-signed-observed-r1/**'
       - 'quartics/quartic-318-326/proof/progress/FractionDerivation318.lean'
       - 'quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean'
@@ -65,13 +75,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Prior verified rows admit source only on this exact attachment push.
+        # Prior rows admit source only on this exact attachment push.
         include:
           - packet: linear-a4-weighted-readback-core-r1
             profile: lean-core
             root_count: 0
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -79,7 +89,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 9
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -87,7 +97,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 7
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -95,7 +105,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -103,7 +113,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 6
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -111,7 +121,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -119,7 +129,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 10
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -127,7 +137,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 4
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -135,7 +145,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 3
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -143,11 +153,11 @@ jobs:
             profile: pinned-mathlib
             root_count: 12
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
-          - packet: raw318-input-reflection-r3
+          - packet: raw318-input-reflection-r4
             profile: pinned-mathlib
             root_count: 4
             verification: kernel check
@@ -155,21 +165,33 @@ jobs:
             profile: pinned-mathlib
             root_count: 3
             verification: >-
-              ${{ github.event.before == 'df0358c259bc2b16e056f346233ff45792d6c2cf'
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
-          - packet: same-j-integral-trace-diagonal-r3
+          - packet: same-j-integral-trace-diagonal-r4
             profile: pinned-mathlib
             root_count: 4
             verification: kernel check
-          - packet: arithmetic-three-adic-nonroot-r1
+          - packet: arithmetic-three-adic-nonroot-r2
             profile: pinned-mathlib
             root_count: 8
             verification: kernel check
           - packet: period-original-elliptic-sections-r1
             profile: pinned-mathlib
             root_count: 4
+            verification: >-
+              ${{ github.event.before == '1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a'
+                  && join(github.event.commits.*.id, ',') == github.sha
+                  && !github.event.forced
+                  && 'source admission only' || 'kernel check' }}
+          - packet: original-elliptic-lattice-descent-r1
+            profile: pinned-mathlib
+            root_count: 1
+            verification: kernel check
+          - packet: direct-literal-reflection-r1
+            profile: pinned-mathlib
+            root_count: 5
             verification: kernel check
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -213,17 +235,27 @@ jobs:
             /quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r3/
             /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean
             /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r4/
-            /quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r3/
+            /quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r4/
             /quartics/quartic-318-326/proof/intake/period-original-elliptic-sections-r1/
-            /quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r1/
+            /quartics/quartic-318-326/proof/intake/direct-literal-reflection-r1/
+            /quartics/quartic-318-326/proof/intake/original-elliptic-lattice-descent-r1/
+            /quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r2/
             /quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/SelectedJTraceDualCoefficients318.lean
-            /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r3/
+            /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r4/
             /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r2/AffineAnchor.lean
             /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/CircuitReplay.lean
             /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/QuarticOptimization.lean
             /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318FinalReplayData.lean
-            /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318InputReflection318.lean
             /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean
+            /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r3/AnchorValueShear.lean
+            /quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean
+            /quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r1/SelectedThreeAdicNonroot318.lean
+            /quartics/quartic-318-326/proof/progress/Current326CoefficientBinding.lean
+            /quartics/quartic-318-326/proof/progress/Current326CoefficientBindingData.lean
+            /quartics/quartic-318-326/proof/progress/Current326CoefficientBindingExpanded.lean
+            /quartics/quartic-318-326/proof/progress/Current326CoefficientBindingNormalize.lean
+            /quartics/quartic-318-326/proof/progress/Current326Polynomial.lean
+            /quartics/quartic-318-326/proof/progress/Current318FinalPolynomial.lean
             /quartics/quartic-318-326/proof/intake/linear-a4-signed-observed-r1/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean

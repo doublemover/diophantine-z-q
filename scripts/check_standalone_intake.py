@@ -59,6 +59,15 @@ PACKAGE_REVISIONS = {
 }
 CORE_PACKET = "linear-a4-weighted-readback-core-r1"
 CORE_MODULE = "LinearA4WeightedReadbackCoreSmoke318"
+DIRECT_REFLECTION = "direct-literal-reflection-r1"
+DIRECT_ORIGINAL_BLOBS = {
+    "Current318FinalPolynomial": "abd67dfc3e7bb314108d4ca959aab8fc5dc4793e",
+    "Current326Polynomial": "b676cde25fc0921f598abea8650e332eadd0ee20",
+    "Current326CoefficientBindingNormalize": "b8e2395c443f575ee6079bc6194866b2b52ccf03",
+    "Current326CoefficientBindingExpanded": "2690a2e204f09fcd3afc752c18a8ba8e47b0fc30",
+    "Current326CoefficientBindingData": "07c36d7b8768968f08c3f0f1f9e01790f5c3b6d5",
+    "Current326CoefficientBinding": "06c0a25dac6a429411f9d7525b157223c4fb575e",
+}
 ALLOWLIST = {
     CORE_PACKET: {
         "profile": "lean-core",
@@ -394,11 +403,11 @@ ALLOWLIST = {
             "FractionDerivation318": "quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean",
         },
     },
-    "raw318-input-reflection-r3": {
+    "raw318-input-reflection-r4": {
         "profile": "pinned-mathlib",
-        "source_base": "df0358c259bc2b16e056f346233ff45792d6c2cf",
+        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
         "scope": "Actual raw 288-row affine-input reflection only; no source existence, forward ranks, or literal biconditionals",
-        "manifest_sha256": "31c4b9264fa838fd0b77845e80f8a09024e1801c2d9e87c25fa48c5330fedc01",
+        "manifest_sha256": "fc5e0159632f390d304c02a666287bff008abf4200807f451fa80cf35814e77b",
         "modules": (
             ("QuarticOptimization",
              "a30074aee2724d2ebb6b2559f606d7414c9563fb883cd1af3a994692084b300b",
@@ -419,7 +428,7 @@ ALLOWLIST = {
              "c563f76c563192a218c3bdf22714ab73f36d3a0ed9c629a346d7d3bb9fa80457",
              ("AnchorValueShear",)),
             ("Raw318InputReflection318",
-             "1d7887c4292a68ef522b5bb23cc4a05a6b7a1d2cb46c370adb395ba0359b4a99",
+             "576f69ddf619b00333cb2e2e1154348d436607630c7d3ad619a261a50402bbcc",
              ("Raw318FinalReplayData",)),
         ),
         "source_roots": (
@@ -441,8 +450,8 @@ ALLOWLIST = {
             "SparseQuartic": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean",
             "CircuitReplay": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/CircuitReplay.lean",
             "AffineAnchor": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r2/AffineAnchor.lean",
+            "AnchorValueShear": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r3/AnchorValueShear.lean",
             "Raw318FinalReplayData": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318FinalReplayData.lean",
-            "Raw318InputReflection318": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318InputReflection318.lean",
         },
     },
     "linear-a4-signed-observed-r1": {
@@ -479,14 +488,14 @@ ALLOWLIST = {
         ),
         "audit_sha256": "1d0f580619815e21271a6d9c4ed7db3f20f0a4d2dedfc42c18c381e8cf5cf439",
     },
-    "same-j-integral-trace-diagonal-r3": {
+    "same-j-integral-trace-diagonal-r4": {
         "profile": "pinned-mathlib",
-        "source_base": "df0358c259bc2b16e056f346233ff45792d6c2cf",
+        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
         "scope": "Four fresh source modules prove different membership annihilates relative derivations on a supplied finite-free generically separable extension, not the named modular model or a height bound.",
-        "manifest_sha256": "d887dfb1faaa29f67a78bf5e83792ac59302dbddc8f913f6bc8094216e597534",
+        "manifest_sha256": "037b6c1b49a83b1d5b0fb43220e3046d082e0e23e27b2bb62627d44e27f0dc5f",
         "modules": (
             ("SelectedJIntegralScaledTraceDual318",
-             "ecd5b3e9e305a008919e2577aac1d8d4eb83f47303e85e43aee3afd1d9f18070",
+             "72d340736dfa1353d8b7bd70f38808ae6a799d32a35f1e459d0576b7c029c410",
              ("Mathlib.RingTheory.DedekindDomain.Different", "Mathlib.RingTheory.DedekindDomain.IntegralClosure")),
             ("SelectedJTraceDualCoefficients318",
              "be7108e945d6cf0a09b0f3650a801162e2065ccf911f0ecd5b3bdbf3b6f1af4b",
@@ -495,7 +504,7 @@ ALLOWLIST = {
              "1ca2c4b15089d01a96b11515a431c318d21b4c835c21aaf10ee356625279572b",
              ("Mathlib.RingTheory.Kaehler.Basic",)),
             ("SelectedJDifferentAnnihilates318",
-             "201f26e40f2cb86d02ce3cbab36c7508efaeafb0331cd903305e55ba881fbab7",
+             "a016068882a4b360837c9e745b716ee9f16590df8cadf781fa9dd909a08b534e",
              ("SelectedJIntegralScaledTraceDual318", "SelectedJTraceDiagonalDerivation318", "SelectedJTraceDualCoefficients318")),
         ),
         "source_roots": (
@@ -514,24 +523,25 @@ ALLOWLIST = {
         "audit_public_meta": True,
         "source_paths": {
             "SelectedJTraceDualCoefficients318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/SelectedJTraceDualCoefficients318.lean",
+            "SelectedJTraceDiagonalDerivation318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r3/SelectedJTraceDiagonalDerivation318.lean",
         },
     },
-    "arithmetic-three-adic-nonroot-r1": {
+    "arithmetic-three-adic-nonroot-r2": {
         "profile": "pinned-mathlib",
-        "source_base": "df0358c259bc2b16e056f346233ff45792d6c2cf",
+        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
         "scope": "Affine points on the same twist form an infinite set from an actual supplied nonroot for integer n = 2 mod 3; no global nonroot producer, group-model attachment or claimed selected rank.",
-        "manifest_sha256": "ca0ade4a65ae63644b02099fa3ddf36dc81689d4a0ccf2aeaa00065c0cb4223c",
+        "manifest_sha256": "45db8d16d7986f350ca0ace3aee3d44f6f50d6cfb65703f7e0e54dd0a37e8c22",
         "modules": (
             ("SelectedThreeAdicEscape318",
-             "3ead9c3716c438c26a5087e5437d9d7eaed12dae56fb3daec02776642124c0eb",
-             ("Mathlib.Data.ZMod.Basic", "Mathlib.NumberTheory.Padics.PadicVal.Basic", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.LinearCombination", "Mathlib.Tactic.NormNum", "Mathlib.Tactic.Ring")),
+             "b7108cad5567281e7a0dd878f95731b2219f403411b46b5a6a61e80b8462d546",
+             ("Mathlib.Algebra.Field.ZMod", "Mathlib.NumberTheory.Padics.PadicVal.Basic", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.LinearCombination", "Mathlib.Tactic.NormNum", "Mathlib.Tactic.Ring")),
             ("SelectedThreeAdicNonroot318",
              "046911b155521b5c97b826b37006d58712d7c7135036f6a0d07bce8e5d0fbe47",
              ("Mathlib.Data.Rat.Lemmas", "Mathlib.Tactic.FieldSimp", "Mathlib.Tactic.Linarith", "Mathlib.Tactic.LinearCombination", "Mathlib.Tactic.Ring", "SelectedThreeAdicEscape318")),
         ),
         "source_roots": (
+            "Mathlib.Algebra.Field.ZMod",
             "Mathlib.Data.Rat.Lemmas",
-            "Mathlib.Data.ZMod.Basic",
             "Mathlib.NumberTheory.Padics.PadicVal.Basic",
             "Mathlib.Tactic.FieldSimp",
             "Mathlib.Tactic.Linarith",
@@ -540,8 +550,8 @@ ALLOWLIST = {
             "Mathlib.Tactic.Ring",
         ),
         "artifact_roots": (
+            "Mathlib.Algebra.Field.ZMod",
             "Mathlib.Data.Rat.Lemmas",
-            "Mathlib.Data.ZMod.Basic",
             "Mathlib.NumberTheory.Padics.PadicVal.Basic",
             "Mathlib.Tactic.FieldSimp",
             "Mathlib.Tactic.Linarith",
@@ -551,6 +561,9 @@ ALLOWLIST = {
         ),
         "audit_sha256": "1f7bdac7d9dcbf02f58d613a8fe24ede7519ea10d31425cd1439514c5fe13b78",
         "audit_public_meta": True,
+        "source_paths": {
+            "SelectedThreeAdicNonroot318": "quartics/quartic-318-326/proof/intake/arithmetic-three-adic-nonroot-r1/SelectedThreeAdicNonroot318.lean",
+        },
     },
     "period-original-elliptic-sections-r1": {
         "profile": "pinned-mathlib",
@@ -576,6 +589,89 @@ ALLOWLIST = {
         ),
         "audit_sha256": "4b367566fa580bfd9d606aff7d673465a0292a18c68912deeb568be20990be47",
         "audit_public_meta": True,
+    },
+    "original-elliptic-lattice-descent-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
+        "scope": "Principal-ideal divisibility descends under a supplied faithfully flat algebra, injective comparison and same-frame forward/reverse scalar identities. No original model, chart or endpoint.",
+        "manifest_sha256": "d8e046d9dcb908d2da3ff6374d8a5666e9dc60ededc4166e5bc1ef25f938ec41",
+        "modules": (
+            ("OriginalEllipticHalfLatticeDescent318",
+             "2b55e84813eb6ed32d4011f06abc454fe0f9d6b5f1af38640513c9b1061973d3",
+             ("Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra",)),
+        ),
+        "source_roots": (
+            "Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra",
+        ),
+        "artifact_roots": (
+            "Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra",
+        ),
+        "audit_sha256": "6c2c1b2ac47b0db7cbd7c510049f14475730744a4b072a96ccdf3d56a92a2cea",
+        "audit_public_meta": True,
+    },
+    "direct-literal-reflection-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "1ebeb15a6a53cecd3c6b0ae1065adca8d49bb85a",
+        "scope": "All-assignments equality of the 318 original and genuine stored 326 quartic values under x0 -> -1-x0, x118 -> x118+2*x0+1; both original existential zero-set equivalences. No rational-integrality or point supplier claim.",
+        "manifest_sha256": "81cb4a702ba08a4e4f1894cd6fc40aece64e5dc44c5b5387dbe6687bf8d2d2f4",
+        "modules": (
+            ("QuarticOptimization",
+             "a30074aee2724d2ebb6b2559f606d7414c9563fb883cd1af3a994692084b300b",
+             ("Mathlib.Algebra.MvPolynomial.Degrees", "Mathlib.Data.Nat.Squarefree", "Mathlib.Data.Rat.Lemmas", "Mathlib.Tactic")),
+            ("SparseQuartic",
+             "bbb0d5d9006e33f54ca92f45a6c677e4d948f4de23b9667e23cb3471730a490e",
+             ("QuarticOptimization",)),
+            ("SparseReflectionDifference",
+             "cd2f7b3a3f8ee674f04824b9adc6323d828d7bd8015b67a6ae96681e6446caa5",
+             ("SparseQuartic",)),
+            ("Current318FinalPolynomial",
+             "ad54e02ec0321113faba7c68751876badd2f8db1f4a39ad9a8f09e1da01a9bb1",
+             ("SparseQuartic",)),
+            ("Current326Polynomial",
+             "be1ca76795518cf6c080a33fe69f1b9e2c32c165a271e23226d94e1cc78da376",
+             ("SparseQuartic",)),
+            ("Current326CoefficientBindingNormalize",
+             "c872b83c5c188e385f276b36dea74a1925479eff63038612a4dc5dfa46997724",
+             ("Current326Polynomial", "Mathlib.Data.List.Sort")),
+            ("Current326CoefficientBindingExpanded",
+             "f3f698243bde25b4087363a9913b97e2021e0d59cc727e11a312e06a42036646",
+             ("Current326CoefficientBindingNormalize",)),
+            ("Current326CoefficientBindingData",
+             "cb915d7c3fddc20d8cc144b45b78256fd842e0d909c781a6c2954bd2abc4a878",
+             ("Current326CoefficientBindingExpanded",)),
+            ("Current326CoefficientBinding",
+             "47a805536d82cd5fc0f083272b73effda9712ffcf0b2f342339d7b9e52758e5a",
+             ("Current326CoefficientBindingData",)),
+            ("DirectLiteralReflection318326",
+             "92bd86026d099673ce9d2e30d57c8d48b036d86aa4c547654b4856b5b4a176ef",
+             ("Current318FinalPolynomial", "Current326CoefficientBinding", "SparseReflectionDifference")),
+        ),
+        "source_roots": (
+            "Mathlib.Algebra.MvPolynomial.Degrees",
+            "Mathlib.Data.List.Sort",
+            "Mathlib.Data.Nat.Squarefree",
+            "Mathlib.Data.Rat.Lemmas",
+            "Mathlib.Tactic",
+        ),
+        "artifact_roots": (
+            "Mathlib.Algebra.MvPolynomial.Degrees",
+            "Mathlib.Data.List.Sort",
+            "Mathlib.Data.Nat.Squarefree",
+            "Mathlib.Data.Rat.Lemmas",
+            "Mathlib.Tactic",
+        ),
+        "audit_sha256": "104c726b9ca2d86b0df42a9e6a85fbe299b50256ec2d4a4da02c78cc0e212540",
+        "audit_public_meta": True,
+        "source_paths": {
+            "QuarticOptimization": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/QuarticOptimization.lean",
+            "SparseQuartic": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean",
+            "Current318FinalPolynomial": "quartics/quartic-318-326/proof/progress/Current318FinalPolynomial.lean",
+            "Current326Polynomial": "quartics/quartic-318-326/proof/progress/Current326Polynomial.lean",
+            "Current326CoefficientBindingNormalize": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingNormalize.lean",
+            "Current326CoefficientBindingExpanded": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingExpanded.lean",
+            "Current326CoefficientBindingData": "quartics/quartic-318-326/proof/progress/Current326CoefficientBindingData.lean",
+            "Current326CoefficientBinding": "quartics/quartic-318-326/proof/progress/Current326CoefficientBinding.lean",
+        },
     },
 }
 
@@ -688,7 +784,9 @@ def source_paths(packet, config):
         file = n + ".lean"
         local = folder + "/" + file
         path = donors.get(n, local)
-        if n in donors:
+        if packet == DIRECT_REFLECTION and n in DIRECT_ORIGINAL_BLOBS:
+            require(path == PROGRESS + "/" + file, "Invalid pinned original donor path: " + n)
+        elif n in donors:
             require(path != local and re.fullmatch(
                 re.escape(INTAKES) + r"/[a-z][a-z0-9-]*/" + re.escape(file), path
             ) is not None, "Invalid static external donor path: " + n)
@@ -708,6 +806,9 @@ def read_payload(root, commit, packet, config):
             root, commit, path
         ).get(path)
         require(entry is not None, "Missing exact tracked source: " + path)
+        if packet == DIRECT_REFLECTION and name.removesuffix(".lean") in DIRECT_ORIGINAL_BLOBS:
+            expected = DIRECT_ORIGINAL_BLOBS[name.removesuffix(".lean")]
+            require(entry == ("100644", "blob", expected), "Changed original donor identity: " + path)
         payload[name] = checked_blob(root, commit, path, entry)
     return payload
 
