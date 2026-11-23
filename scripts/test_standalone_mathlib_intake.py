@@ -2,6 +2,8 @@
 """Exact Mathlib admission and dependency-reader fixtures. No tools are installed."""
 from copy import deepcopy
 import json
+import hashlib
+import re
 import os
 from pathlib import Path
 import tempfile
@@ -20,8 +22,10 @@ DIFFERENT = "same-j-crt-different-r1"
 TWIST = "forward-detached-twist-point-r3"
 STRUCTURAL = "same-j-structural-normalization-r3"
 DYADIC = "finite-plus11-dyadic-vertical-r2"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DYADIC: 12}
-FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DYADIC: 5}
+REFLECT = "raw318-input-reflection-r1"
+OBSERVED = "linear-a4-signed-observed-r1"
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
+FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
 
 
 def packets():
@@ -29,7 +33,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the nine reviewed Mathlib rows")
+        raise ValueError("Expected one of the eleven reviewed Mathlib rows")
     return (requested,)
 
 
@@ -75,6 +79,18 @@ class MathlibIntakeTests(unittest.TestCase):
                             "/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean",
                         })
                         self.assertIn(b"public meta import Lean.Elab.Command", audit)
+                    elif packet == REFLECT:
+                        self.assertEqual(data["order"][-1], "Raw318InputReflection318")
+                        self.assertIn(b"public meta import Lean.Elab.Command", audit)
+                        self.assertFalse(config.get("source_paths"))
+                        for name in data["order"][:-1]:
+                            path = runner.PROGRESS + "/" + name + ".lean"
+                            historical = runner.tree_entries(runner.ROOT, head, path)[path]
+                            source = (folder / (name + ".lean")).read_bytes()
+                            # Recompute Git's blob identity without fetching the original
+                            # into this sparse worktree; no predecessor .olean is consulted.
+                            self.assertEqual(historical, ("100644", "blob", hashlib.sha1(
+                                b"blob " + str(len(source)).encode("ascii") + b"\x00" + source).hexdigest()))
                     elif packet == STRUCTURAL:
                         self.assertEqual(data["order"], ["SelectedJStructuralNormalization318"])
                         self.assertFalse(config.get("source_paths"))
@@ -122,6 +138,38 @@ class MathlibIntakeTests(unittest.TestCase):
                         owner = runner.INTAKES + "/finite-height-dlog-rows-r4/"
                         for module, path in config["source_paths"].items():
                             self.assertEqual(path, owner + module + ".lean")
+
+    def test_two_native_scoped_matrix_fail_closed_elsewhere(self):
+        # Parse the actual finite subset of GHA expressions emitted here; do
+        # not infer a decision from the packet name or merely count strings.
+        wf = (runner.ROOT / ".github/workflows/progress-standalone-intake.yml").read_text()
+        cuts = re.findall(r"^          - packet: ([a-z][a-z0-9-]*)\n"
+                          r"            profile: [^\n]+\n            root_count: [0-9]+\n"
+                          r"            verification: (kernel check|>-\n(?: {14,}[^\n]+\n?)+)", wf, re.M)
+        self.assertEqual([k for k, _ in cuts], list(runner.ALLOWLIST))
+        base = 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+        newest = {REFLECT, OBSERVED}
+        narrow = ("${{ github.event.before == '"+base+"' && join(github.event.commits.*.id, ',') "
+                  "== github.sha && !github.event.forced && 'source admission only' || 'kernel check' }}")
+        def rows(event_before, commits, head, forced):
+            result = {}
+            for key, raw in cuts:
+                if raw == "kernel check":
+                    self.assertIn(key, newest)
+                    result[key] = "native"
+                else:
+                    self.assertNotIn(key, newest)
+                    self.assertEqual(" ".join(raw.removeprefix(">-").split()), narrow)
+                    reduced = event_before == base and ",".join(commits) == head and not forced
+                    result[key] = "source" if reduced else "native"
+            return result
+        head = "f" * 40
+        selected = rows(base, [head], head, False)
+        self.assertEqual({k for k, v in selected.items() if v == "native"}, newest)
+        self.assertEqual(list(selected.values()).count("source"), 10)
+        for ev in [("a"*40, [head], False), (base, [], False),
+                   (base, ["a"*40, head], False), (base, [head], True), (None, [], False)]:
+            self.assertEqual(set(rows(ev[0], ev[1], head, ev[2]).values()), {"native"})
 
     def test_static_external_donors_are_canonical_and_named(self):
         config = runner.ALLOWLIST[GRAM]
