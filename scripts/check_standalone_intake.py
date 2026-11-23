@@ -336,11 +336,11 @@ ALLOWLIST = {
         "audit_sha256": "c03acb979ab36b550c19fc050f2081ac5c734e846183b4b33c3e219c3a84b810",
         "audit_public_meta": True,
     },
-    "finite-plus11-dyadic-vertical-r3": {
+    "finite-plus11-dyadic-vertical-r4": {
         "profile": "pinned-mathlib",
-        "source_base": "33d43a818f629ed79ba93e94807eba5a51778306",
+        "source_base": "ce149275fc946fb7117af0843f76cf42324d746e",
         "scope": "Dyadic section coefficients on a supplied structural DVR and chosen frame only; no original model or all-place bound",
-        "manifest_sha256": "656511ed5442187215d07f5a0e347193b4df02499692137bfa6c7f4d2fc363fe",
+        "manifest_sha256": "bc7962e57b141eb75929509a90eccdf4e0cf34938a3d75e3eeca2b75b6075a50",
         "modules": (
             ("SquareReflection318",
              "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
@@ -355,7 +355,7 @@ ALLOWLIST = {
              "0ac1f2e2f31bacac42f15553048d89021de1d6c736adef751806c40a3137fa59",
              ("Mathlib.Algebra.TrivSqZeroExt.Basic", "Mathlib.RingTheory.Derivation.Basic", "Mathlib.RingTheory.Localization.FractionRing", "Mathlib.Tactic")),
             ("SelectedSameADyadicVerticalD2_318",
-             "e591284d4ae888fce60b0cf288328392d4f007aacda53b1ea4e1b34e4e704c1a",
+             "c1c9f52cd9644a4c671ad67ddeaaa5456a1c517c3fc7ac8c39be8f7fbdceebbf",
              ("FractionDerivation318", "Mathlib.RingTheory.DiscreteValuationRing.Basic", "Mathlib.RingTheory.Ideal.Quotient.Operations", "Mathlib.RingTheory.Kaehler.Basic", "SelectedActualSameAFiniteDlogRows318")),
         ),
         "source_roots": (
@@ -394,11 +394,11 @@ ALLOWLIST = {
             "FractionDerivation318": "quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean",
         },
     },
-    "raw318-input-reflection-r1": {
+    "raw318-input-reflection-r2": {
         "profile": "pinned-mathlib",
-        "source_base": "e00436673024e42b0b26c2f205d3cfea43a04adb",
+        "source_base": "ce149275fc946fb7117af0843f76cf42324d746e",
         "scope": "Actual raw 288-row affine-input reflection only; no source existence, forward ranks, or literal biconditionals",
-        "manifest_sha256": "16c27344b6ec718385913ba26d3eb7c56fa2fbca9f8928d810fd450a59a9a37c",
+        "manifest_sha256": "117382939d75bec28364a2cb6d7480b979c4831043f8a3c5c9e21bd66c14cf97",
         "modules": (
             ("QuarticOptimization",
              "a30074aee2724d2ebb6b2559f606d7414c9563fb883cd1af3a994692084b300b",
@@ -410,7 +410,7 @@ ALLOWLIST = {
              "85107caaaead977e771a0241f5b702fc04fe8f0dbaad1ccdac2c6542f70db5e7",
              ("SparseQuartic",)),
             ("AffineAnchor",
-             "6463cbe1e71a9359c3c8bee3a436f8cbc760df57c5401ce47f9edbd390b20cfc",
+             "9fed3a614ca8dd1fa32ffb7c3a2b79d79394b4c03e5b25cca41db8ff3b8b6015",
              ("CircuitReplay",)),
             ("AnchorValueShear",
              "d0e4cb0ae948ae86dfc36d97892ee8f7600bf5241aca577b4dca87fc0e159138",
@@ -436,6 +436,14 @@ ALLOWLIST = {
         ),
         "audit_sha256": "4f34ae55912c0d9523ed16c1ad95a479b751c4d2de47e0e2f4506350baa5c15b",
         "audit_public_meta": True,
+        "source_paths": {
+            "AnchorValueShear": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/AnchorValueShear.lean",
+            "CircuitReplay": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/CircuitReplay.lean",
+            "QuarticOptimization": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/QuarticOptimization.lean",
+            "Raw318FinalReplayData": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318FinalReplayData.lean",
+            "Raw318InputReflection318": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/Raw318InputReflection318.lean",
+            "SparseQuartic": "quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/SparseQuartic.lean",
+        },
     },
     "linear-a4-signed-observed-r1": {
         "profile": "pinned-mathlib",
@@ -471,14 +479,14 @@ ALLOWLIST = {
         ),
         "audit_sha256": "1d0f580619815e21271a6d9c4ed7db3f20f0a4d2dedfc42c18c381e8cf5cf439",
     },
-    "same-j-integral-trace-diagonal-r1": {
+    "same-j-integral-trace-diagonal-r2": {
         "profile": "pinned-mathlib",
-        "source_base": "33d43a818f629ed79ba93e94807eba5a51778306",
+        "source_base": "ce149275fc946fb7117af0843f76cf42324d746e",
         "scope": "Four fresh source modules prove different membership annihilates relative derivations on a supplied finite-free generically separable extension, not the named modular model or a height bound.",
-        "manifest_sha256": "87e4f005cc1ac4af9d631a8c62715523d1fa4f32234a3d1b9c6cee2ebaa0beee",
+        "manifest_sha256": "20a3bc066e49ed9640c8aad0be153ed0d214003d3fb88ec69b7732927f757014",
         "modules": (
             ("SelectedJIntegralScaledTraceDual318",
-             "042afe2067fee25416f3bf980f8387314fff0b4c3f7328832c629427625ae402",
+             "07bd5a3fa5b76fe9aa4fef11eebf962e5b4bb1aabc22487dd91cd958587dff1e",
              ("Mathlib.RingTheory.DedekindDomain.Different", "Mathlib.RingTheory.DedekindDomain.IntegralClosure")),
             ("SelectedJTraceDualCoefficients318",
              "be7108e945d6cf0a09b0f3650a801162e2065ccf911f0ecd5b3bdbf3b6f1af4b",
@@ -487,7 +495,7 @@ ALLOWLIST = {
              "2ec5caef94d4e3a91b0a4396794b4804208b32e839f1d0e1e808fbc598228ed2",
              ("Mathlib.RingTheory.Kaehler.Basic",)),
             ("SelectedJDifferentAnnihilates318",
-             "a493c6bdd5e0fa3adf9944ee616b03c12bed580e2c0b71228b1497ccccd98981",
+             "741a3f97e67cc8748e712caa5a25dd09afcb052bbb670df20f903ea3c73833ab",
              ("SelectedJIntegralScaledTraceDual318", "SelectedJTraceDiagonalDerivation318", "SelectedJTraceDualCoefficients318")),
         ),
         "source_roots": (
@@ -504,6 +512,10 @@ ALLOWLIST = {
         ),
         "audit_sha256": "d30f1094b7b855562bb7dfc65926f79859dbeb5d704e01435c96519feeaaa9fb",
         "audit_public_meta": True,
+        "source_paths": {
+            "SelectedJTraceDiagonalDerivation318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/SelectedJTraceDiagonalDerivation318.lean",
+            "SelectedJTraceDualCoefficients318": "quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/SelectedJTraceDualCoefficients318.lean",
+        },
     },
 }
 
