@@ -12,12 +12,13 @@ namespace LinearA4CollisionBins318
 open LinearA4GaussianCounts318 LinearA4MixedNormCounts318
 variable {K : Type*} [Field K] [Fintype K] [DecidableEq K]
 
-@[expose] def translated (c : K) (x : Plane K) : K := norm (x.1-c,x.2)
+@[expose] def translated (c : K) (x : Plane K) : K :=
+  LinearA4GaussianCounts318.norm (x.1-c,x.2)
 
-def shiftedEquiv (c : K) : Fibre (translated c) 0 ≃ Fibre norm 0 where
+def shiftedEquiv (c : K) : Fibre (translated c) 0 ≃ Fibre (LinearA4GaussianCounts318.norm : Plane K → K) 0 where
   toFun x := ⟨(x.val.1-c,x.val.2),x.property⟩
   invFun x := ⟨(x.val.1+c,x.val.2),by
-    change norm (x.val.1+c-c,x.val.2)=0
+    change LinearA4GaussianCounts318.norm (x.val.1+c-c,x.val.2)=0
     rw [add_sub_cancel_right]
     exact x.property⟩
   left_inv x := by apply Subtype.ext; apply Prod.ext <;> simp
@@ -29,7 +30,7 @@ def diagonalBins : Finset (Box K) :=
   Finset.univ.filter (fun z => translated 1 z.1=0 ∧ translated (-1) z.1=0)
 
 theorem norm_zero_le (hchar : ringChar K≠2) (h2 : (2:K)≠0) :
-    Fintype.card (Fibre (norm : Plane K → K) 0) ≤ 2*Fintype.card K := by
+    Fintype.card (Fibre (LinearA4GaussianCounts318.norm : Plane K → K) 0) ≤ 2*Fintype.card K := by
   have H := norm_count (K:=K) hchar h2 0
   unfold fibreSize at H
   rw [ite_eq_left rfl] at H
@@ -39,7 +40,7 @@ theorem norm_zero_le (hchar : ringChar K≠2) (h2 : (2:K)≠0) :
     · simp only [show χ K=1 from e,le_refl]
     · norm_num [show χ K= -1 from e]
   have hmul := mul_le_mul_of_nonneg_left hc (sub_nonneg.mpr sz)
-  exact_mod_cast (show (Fintype.card (Fibre (norm : Plane K → K) 0):ℤ)≤2*size K by
+  exact_mod_cast (show (Fintype.card (Fibre (LinearA4GaussianCounts318.norm : Plane K → K) 0):ℤ)≤2*size K by
     linarith only [H,hmul])
 
 /-- Exact independent translated fibres. In particular the medium-CRT
@@ -51,34 +52,42 @@ theorem cross_card_le (hp : ringChar K≠2) (h2 : (2:K)≠0) :
     ⟨fun z => (⟨z.val.1,z.property.1⟩,⟨z.val.2,z.property.2⟩),
      fun z => ⟨(z.1.val,z.2.val),z.1.property,z.2.property⟩,
      fun _ => rfl,fun _ => rfl⟩
-  have hc := Fintype.card_congr e
-  rw [Fintype.card_subtype,Fintype.card_prod,
-    Fintype.card_congr (shiftedEquiv (1:K)),Fintype.card_congr (shiftedEquiv (-1:K))] at hc
-  unfold crossBins
-  rw [hc]
-  have hn := norm_zero_le hp h2
-  have hh := Nat.mul_le_mul hn hn
-  nlinarith only [hh]
+  have hshift (c : K) : Fintype.card (Fibre (translated c) 0) ≤ 2*Fintype.card K :=
+    (Fintype.card_congr (shiftedEquiv c)).le.trans (norm_zero_le hp h2)
+  calc
+    (crossBins (K:=K)).card =
+        Fintype.card (Fibre (translated (1:K)) 0) *
+          Fintype.card (Fibre (translated (-1:K)) 0) := by
+      have hc := Fintype.card_congr e
+      rw [Fintype.card_subtype,Fintype.card_prod] at hc
+      exact hc
+    _ ≤ (2*Fintype.card K)*(2*Fintype.card K) :=
+      Nat.mul_le_mul (hshift 1) (hshift (-1))
+    _ = _ := by ring
 
+omit [Fintype K] [DecidableEq K] in
 theorem diagonal_first (h2 : (2:K)≠0) (z : Plane K) :
     translated 1 z=0 ∧ translated (-1) z=0 ↔ z.1=0 ∧ z.2^2=(-1:K) := by
   constructor
   · rintro ⟨h₁,h₂⟩
-    have he : (4:K)*z.1=0 := by
-      unfold translated norm at h₁ h₂
-      dsimp only at h₁ h₂
-      linear_combination h₂-h₁
+    change (z.1-1)^2+z.2^2=0 at h₁
+    change (z.1-(-1))^2+z.2^2=0 at h₂
+    have he : (4:K)*z.1=0 := by linear_combination h₂-h₁
     have h4 : (4:K)≠0 := by
       rw [show (4:K)=2^2 by norm_num]
       exact pow_ne_zero _ h2
     have hn : z.1=0 := (mul_eq_zero.mp he).resolve_left h4
     refine ⟨hn,?_⟩
-    unfold translated norm at h₁
-    dsimp only at h₁
     rw [hn] at h₁
     linear_combination h₁
   · rintro ⟨ha,hb⟩
-    constructor <;> simp [translated,norm,ha,hb]
+    constructor
+    · change (z.1-1)^2+z.2^2=0
+      rw [ha,hb]
+      ring
+    · change (z.1-(-1))^2+z.2^2=0
+      rw [ha,hb]
+      ring
 
 /-- The same-position opposite-sign collision gives at most two values
 of its imaginary coordinate, with an unrestricted companion norm pair. -/
@@ -114,7 +123,7 @@ def reducePlane (x : ℤ × ℤ) : Plane (ZMod p) := ((x.1:ZMod p),(x.2:ZMod p))
 theorem translated_reading (c : ℤ) (x : ℤ × ℤ) :
     translated (c:ZMod p) (reducePlane p x)
       = (((x.1-c)^2+x.2^2:ℤ):ZMod p) := by
-  simp [translated,reducePlane,norm]
+  simp [translated,reducePlane,LinearA4GaussianCounts318.norm]
 
 theorem cross_mem_of_dvd (x y : ℤ × ℤ)
     (hx : (p:ℤ)∣(x.1-1)^2+x.2^2) (hy : (p:ℤ)∣(y.1+1)^2+y.2^2) :
