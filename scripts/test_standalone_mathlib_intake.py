@@ -12,7 +12,7 @@ import check_standalone_intake as runner
 
 
 GRAM = "pel-original-order-gram-r2"
-DLOG = "finite-height-dlog-rows-r3"
+DLOG = "finite-height-dlog-rows-r4"
 EXPECTED = {GRAM: 9, DLOG: 6}
 
 

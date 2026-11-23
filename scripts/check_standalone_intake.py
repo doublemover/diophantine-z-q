@@ -118,17 +118,17 @@ ALLOWLIST = {
             "SelectedActualPELPeriodColumns318": "quartics/quartic-318-326/proof/intake/pel-period-columns-corrected-r2/SelectedActualPELPeriodColumns318.lean",
         },
     },
-    "finite-height-dlog-rows-r3": {
+    "finite-height-dlog-rows-r4": {
         "profile": "pinned-mathlib",
         "source_base": "a32027a869fc1fc37004b4ad8482418b698b77be",
-        "scope": "Three-source finite same-A dlog rows; exact original Stage A with two reviewed donor lint edits; not a structural model or endpoint",
-        "manifest_sha256": "c45deb6451857dca289ceadcfd0ef7c70cf1ddddef3dd7c2daae12e207af3e9b",
+        "scope": "Three-source finite same-A dlog rows; strict donor lint repairs and native-diagnostic repairs to Stage A; not a structural model or endpoint",
+        "manifest_sha256": "f72e8f5fb53e9bb1b44d66cada79aaeb4d809bd36bfcef5458fc980efa55d08b",
         "modules": (
             ("SquareReflection318", "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
              ("Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic")),
             ("LinearContactSquareclass318", "741bef76f07ed956f8d8a36d0b1986e200369b47671c1e240f8847066dfb494e",
              ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "SquareReflection318")),
-            ("SelectedActualSameAFiniteDlogRows318", "a574ee2004739b68cc3747312f831b7b95e614ba10d1009db891537ad229780a",
+            ("SelectedActualSameAFiniteDlogRows318", "15f2e7c3b8caf41f3410f37daf914d9471c7a39d17703faa9284c711a7dd0ae6",
              ("LinearContactSquareclass318", "Mathlib.Tactic")),
         ),
         "source_roots": ("Mathlib.Algebra.Polynomial.RingDivision", "Mathlib.Algebra.QuadraticAlgebra.Basic", "Mathlib.Algebra.Squarefree.Basic", "Mathlib.FieldTheory.RatFunc.Basic", "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed", "Mathlib.Tactic"),
