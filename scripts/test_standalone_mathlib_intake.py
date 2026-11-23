@@ -21,11 +21,12 @@ TRACE = "same-j-crt-trace-r2"
 DIFFERENT = "same-j-crt-different-r1"
 TWIST = "forward-detached-twist-point-r3"
 STRUCTURAL = "same-j-structural-normalization-r3"
-DYADIC = "finite-plus11-dyadic-vertical-r2"
+DYADIC = "finite-plus11-dyadic-vertical-r3"
+DJ = "same-j-integral-trace-diagonal-r1"
 REFLECT = "raw318-input-reflection-r1"
 OBSERVED = "linear-a4-signed-observed-r1"
-EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
-FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
+EXPECTED = {GRAM: 9, DLOG: 7, LENSTRA: 5, CRT: 6, TRACE: 5, DIFFERENT: 10, TWIST: 4, STRUCTURAL: 3, DJ: 4, DYADIC: 12, REFLECT: 4, OBSERVED: 3}
+FRESH = {GRAM: 3, DLOG: 4, LENSTRA: 1, CRT: 1, TRACE: 1, DIFFERENT: 3, TWIST: 2, STRUCTURAL: 1, DJ: 4, DYADIC: 5, REFLECT: 7, OBSERVED: 5}
 
 
 def packets():
@@ -33,7 +34,7 @@ def packets():
     if requested is None:
         return tuple(EXPECTED)
     if requested not in EXPECTED:
-        raise ValueError("Expected one of the eleven reviewed Mathlib rows")
+        raise ValueError("Expected one of the twelve reviewed Mathlib rows")
     return (requested,)
 
 
@@ -91,6 +92,10 @@ class MathlibIntakeTests(unittest.TestCase):
                             # into this sparse worktree; no predecessor .olean is consulted.
                             self.assertEqual(historical, ("100644", "blob", hashlib.sha1(
                                 b"blob " + str(len(source)).encode("ascii") + b"\x00" + source).hexdigest()))
+                    elif packet == DJ:
+                        self.assertEqual(data["order"][-1], "SelectedJDifferentAnnihilates318")
+                        self.assertFalse(config.get("source_paths"))
+                        self.assertIn(b"public meta import Lean.Elab.Command", audit)
                     elif packet == STRUCTURAL:
                         self.assertEqual(data["order"], ["SelectedJStructuralNormalization318"])
                         self.assertFalse(config.get("source_paths"))
@@ -116,8 +121,8 @@ class MathlibIntakeTests(unittest.TestCase):
                         self.assertEqual(data["order"][-2:], ["FractionDerivation318", "SelectedSameADyadicVerticalD2_318"])
                         donors = {n: runner.INTAKES + "/finite-height-dlog-rows-r4/" + n + ".lean"
                                   for n in data["order"][:3]}
-                        donors["SelectedSameADyadicVerticalD2_318"] = (
-                            runner.INTAKES + "/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean")
+                        donors["FractionDerivation318"] = (
+                            runner.INTAKES + "/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean")
                         self.assertEqual(config["source_paths"], donors)
                         # The repaired copy differs from the historical progress blob by
                         # exactly one audited line; neither input is a project artifact.
@@ -139,16 +144,25 @@ class MathlibIntakeTests(unittest.TestCase):
                         for module, path in config["source_paths"].items():
                             self.assertEqual(path, owner + module + ".lean")
 
-    def test_two_native_scoped_matrix_fail_closed_elsewhere(self):
+    def test_four_native_scoped_matrix_fail_closed_elsewhere(self):
         # Parse the actual finite subset of GHA expressions emitted here; do
         # not infer a decision from the packet name or merely count strings.
         wf = (runner.ROOT / ".github/workflows/progress-standalone-intake.yml").read_text()
+        # The hosted checkout is intentionally sparse; this control reads the
+        # actual checked-out workflow rather than silently skipping the fixture.
+        self.assertIn("            /.github/workflows/progress-standalone-intake.yml\n", wf)
+        # These two cohorts missed Lean previously. Reuse exactly the original
+        # source-manifest contracts rather than silently changing their scope.
+        self.assertEqual(runner.ALLOWLIST[REFLECT]["manifest_sha256"],
+                         "16c27344b6ec718385913ba26d3eb7c56fa2fbca9f8928d810fd450a59a9a37c")
+        self.assertEqual(runner.ALLOWLIST[OBSERVED]["manifest_sha256"],
+                         "dc14c02c15ddfd937786e4cfa98b93c0c5615c8263eba1e0986fef70791849bd")
         cuts = re.findall(r"^          - packet: ([a-z][a-z0-9-]*)\n"
                           r"            profile: [^\n]+\n            root_count: [0-9]+\n"
                           r"            verification: (kernel check|>-\n(?: {14,}[^\n]+\n?)+)", wf, re.M)
         self.assertEqual([k for k, _ in cuts], list(runner.ALLOWLIST))
-        base = 'e00436673024e42b0b26c2f205d3cfea43a04adb'
-        newest = {REFLECT, OBSERVED}
+        base = '33d43a818f629ed79ba93e94807eba5a51778306'
+        newest = {REFLECT, OBSERVED, DYADIC, DJ}
         narrow = ("${{ github.event.before == '"+base+"' && join(github.event.commits.*.id, ',') "
                   "== github.sha && !github.event.forced && 'source admission only' || 'kernel check' }}")
         def rows(event_before, commits, head, forced):
@@ -166,7 +180,7 @@ class MathlibIntakeTests(unittest.TestCase):
         head = "f" * 40
         selected = rows(base, [head], head, False)
         self.assertEqual({k for k, v in selected.items() if v == "native"}, newest)
-        self.assertEqual(list(selected.values()).count("source"), 10)
+        self.assertEqual(list(selected.values()).count("source"), 9)
         for ev in [("a"*40, [head], False), (base, [], False),
                    (base, ["a"*40, head], False), (base, [head], True), (None, [], False)]:
             self.assertEqual(set(rows(ev[0], ev[1], head, ev[2]).values()), {"native"})

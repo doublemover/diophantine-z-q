@@ -336,11 +336,11 @@ ALLOWLIST = {
         "audit_sha256": "c03acb979ab36b550c19fc050f2081ac5c734e846183b4b33c3e219c3a84b810",
         "audit_public_meta": True,
     },
-    "finite-plus11-dyadic-vertical-r2": {
+    "finite-plus11-dyadic-vertical-r3": {
         "profile": "pinned-mathlib",
-        "source_base": "6c77a7dc0db1de7f56938be87b6c953527d8bcad",
+        "source_base": "33d43a818f629ed79ba93e94807eba5a51778306",
         "scope": "Dyadic section coefficients on a supplied structural DVR and chosen frame only; no original model or all-place bound",
-        "manifest_sha256": "dc0a4b1f3d0c85f408a30a7e611c2d11953fcb4751e7b63a1a06c457400bd436",
+        "manifest_sha256": "656511ed5442187215d07f5a0e347193b4df02499692137bfa6c7f4d2fc363fe",
         "modules": (
             ("SquareReflection318",
              "eac90b36f3f364cb003142fe184eb9f4e55e809ec874f108eb120f9ff9efc41f",
@@ -355,7 +355,7 @@ ALLOWLIST = {
              "0ac1f2e2f31bacac42f15553048d89021de1d6c736adef751806c40a3137fa59",
              ("Mathlib.Algebra.TrivSqZeroExt.Basic", "Mathlib.RingTheory.Derivation.Basic", "Mathlib.RingTheory.Localization.FractionRing", "Mathlib.Tactic")),
             ("SelectedSameADyadicVerticalD2_318",
-             "eb5b13367948d4a9104bc122c30bde83c08852db0ac18f543b68fae674fbc5ba",
+             "e591284d4ae888fce60b0cf288328392d4f007aacda53b1ea4e1b34e4e704c1a",
              ("FractionDerivation318", "Mathlib.RingTheory.DiscreteValuationRing.Basic", "Mathlib.RingTheory.Ideal.Quotient.Operations", "Mathlib.RingTheory.Kaehler.Basic", "SelectedActualSameAFiniteDlogRows318")),
         ),
         "source_roots": (
@@ -391,7 +391,7 @@ ALLOWLIST = {
             "SquareReflection318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean",
             "LinearContactSquareclass318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/LinearContactSquareclass318.lean",
             "SelectedActualSameAFiniteDlogRows318": "quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean",
-            "SelectedSameADyadicVerticalD2_318": "quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean",
+            "FractionDerivation318": "quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean",
         },
     },
     "raw318-input-reflection-r1": {
@@ -470,6 +470,40 @@ ALLOWLIST = {
             "Mathlib.Tactic",
         ),
         "audit_sha256": "1d0f580619815e21271a6d9c4ed7db3f20f0a4d2dedfc42c18c381e8cf5cf439",
+    },
+    "same-j-integral-trace-diagonal-r1": {
+        "profile": "pinned-mathlib",
+        "source_base": "33d43a818f629ed79ba93e94807eba5a51778306",
+        "scope": "Four fresh source modules prove different membership annihilates relative derivations on a supplied finite-free generically separable extension, not the named modular model or a height bound.",
+        "manifest_sha256": "87e4f005cc1ac4af9d631a8c62715523d1fa4f32234a3d1b9c6cee2ebaa0beee",
+        "modules": (
+            ("SelectedJIntegralScaledTraceDual318",
+             "042afe2067fee25416f3bf980f8387314fff0b4c3f7328832c629427625ae402",
+             ("Mathlib.RingTheory.DedekindDomain.Different", "Mathlib.RingTheory.DedekindDomain.IntegralClosure")),
+            ("SelectedJTraceDualCoefficients318",
+             "be7108e945d6cf0a09b0f3650a801162e2065ccf911f0ecd5b3bdbf3b6f1af4b",
+             ("Mathlib.RingTheory.Trace.Basic",)),
+            ("SelectedJTraceDiagonalDerivation318",
+             "2ec5caef94d4e3a91b0a4396794b4804208b32e839f1d0e1e808fbc598228ed2",
+             ("Mathlib.RingTheory.Kaehler.Basic",)),
+            ("SelectedJDifferentAnnihilates318",
+             "a493c6bdd5e0fa3adf9944ee616b03c12bed580e2c0b71228b1497ccccd98981",
+             ("SelectedJIntegralScaledTraceDual318", "SelectedJTraceDiagonalDerivation318", "SelectedJTraceDualCoefficients318")),
+        ),
+        "source_roots": (
+            "Mathlib.RingTheory.DedekindDomain.Different",
+            "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+            "Mathlib.RingTheory.Kaehler.Basic",
+            "Mathlib.RingTheory.Trace.Basic",
+        ),
+        "artifact_roots": (
+            "Mathlib.RingTheory.DedekindDomain.Different",
+            "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+            "Mathlib.RingTheory.Kaehler.Basic",
+            "Mathlib.RingTheory.Trace.Basic",
+        ),
+        "audit_sha256": "d30f1094b7b855562bb7dfc65926f79859dbeb5d704e01435c96519feeaaa9fb",
+        "audit_public_meta": True,
     },
 }
 

@@ -31,8 +31,9 @@ on:
       - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean'
       - 'quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r3/**'
       - 'quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r3/**'
-      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean'
-      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/**'
+      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean'
+      - 'quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r3/**'
+      - 'quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/**'
       - 'quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/**'
       - 'quartics/quartic-318-326/proof/intake/linear-a4-signed-observed-r1/**'
       - 'quartics/quartic-318-326/proof/progress/FractionDerivation318.lean'
@@ -61,7 +62,7 @@ jobs:
             profile: lean-core
             root_count: 0
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -69,7 +70,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 9
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -77,7 +78,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 7
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -85,7 +86,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -93,7 +94,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 6
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -101,7 +102,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 5
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -109,7 +110,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 10
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -117,7 +118,7 @@ jobs:
             profile: pinned-mathlib
             root_count: 4
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
@@ -125,18 +126,14 @@ jobs:
             profile: pinned-mathlib
             root_count: 3
             verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
+              ${{ github.event.before == '33d43a818f629ed79ba93e94807eba5a51778306'
                   && join(github.event.commits.*.id, ',') == github.sha
                   && !github.event.forced
                   && 'source admission only' || 'kernel check' }}
-          - packet: finite-plus11-dyadic-vertical-r2
+          - packet: finite-plus11-dyadic-vertical-r3
             profile: pinned-mathlib
             root_count: 12
-            verification: >-
-              ${{ github.event.before == 'e00436673024e42b0b26c2f205d3cfea43a04adb'
-                  && join(github.event.commits.*.id, ',') == github.sha
-                  && !github.event.forced
-                  && 'source admission only' || 'kernel check' }}
+            verification: kernel check
           - packet: raw318-input-reflection-r1
             profile: pinned-mathlib
             root_count: 4
@@ -144,6 +141,10 @@ jobs:
           - packet: linear-a4-signed-observed-r1
             profile: pinned-mathlib
             root_count: 3
+            verification: kernel check
+          - packet: same-j-integral-trace-diagonal-r1
+            profile: pinned-mathlib
+            root_count: 4
             verification: kernel check
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -159,6 +160,7 @@ jobs:
           persist-credentials: false
           sparse-checkout-cone-mode: false
           sparse-checkout: |
+            /.github/workflows/progress-standalone-intake.yml
             /.github/actions/setup-pinned-python/
             /.github/actions/setup-pinned-lean/
             /.github/actions/setup-pinned-dependency-sources/
@@ -184,8 +186,9 @@ jobs:
             /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r2/CheckedHomogeneousTwistPoint318.lean
             /quartics/quartic-318-326/proof/intake/forward-detached-twist-point-r3/
             /quartics/quartic-318-326/proof/intake/same-j-structural-normalization-r3/
-            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r1/SelectedSameADyadicVerticalD2_318.lean
-            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/
+            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean
+            /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r3/
+            /quartics/quartic-318-326/proof/intake/same-j-integral-trace-diagonal-r1/
             /quartics/quartic-318-326/proof/intake/raw318-input-reflection-r1/
             /quartics/quartic-318-326/proof/intake/linear-a4-signed-observed-r1/
             /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SquareReflection318.lean
