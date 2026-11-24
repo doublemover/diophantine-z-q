@@ -1,0 +1,89 @@
+{
+  "order": [
+    "OriginalPhysicalHZ210Coefficients318",
+    "OriginalPhysicalHZ210Map318",
+    "OriginalMarkedIntPolynomialCertificate318",
+    "OriginalRadixHZCertificate318",
+    "OriginalPhysicalHZ210Identity318",
+    "OriginalPhysicalNaganoJet318",
+    "OriginalPhysicalNaganoReadback318",
+    "OriginalPhysicalNaganoFirstJet318",
+    "OriginalPhysicalNaganoFourRoot318",
+    "OriginalPolarizedContactGauge318",
+    "OriginalPhysicalNaganoGauge318"
+  ],
+  "files": {
+    "OriginalPhysicalHZ210Coefficients318.lean": {
+      "sha256": "c60a99d89266a5b80ddbb4b322c0c6a73553899de421e49217bd1685ec8b2497",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Roots",
+        "Mathlib.Tactic"
+      ]
+    },
+    "OriginalPhysicalHZ210Map318.lean": {
+      "sha256": "4c610dcbb22ce2d356b565fc3c8ea6f5ec434a799f835d33dcd8f1e16b69c16b",
+      "imports": [
+        "OriginalPhysicalHZ210Coefficients318"
+      ]
+    },
+    "OriginalMarkedIntPolynomialCertificate318.lean": {
+      "sha256": "33b46cceb2fab29117f4f5de817291c9eaf5ad526e13e6d75d2430f8b203035a",
+      "imports": [
+        "OriginalPhysicalHZ210Coefficients318"
+      ]
+    },
+    "OriginalRadixHZCertificate318.lean": {
+      "sha256": "12fea1ace760c6fa35e74a6c625fd343a9332762d9dcc272360d11d79030d478",
+      "imports": [
+        "OriginalMarkedIntPolynomialCertificate318"
+      ]
+    },
+    "OriginalPhysicalHZ210Identity318.lean": {
+      "sha256": "fb7e7140012d54fcac5b329c828975eff2cec85c5fa0deec57628950cd184e32",
+      "imports": [
+        "OriginalPhysicalHZ210Map318",
+        "OriginalRadixHZCertificate318"
+      ]
+    },
+    "OriginalPhysicalNaganoJet318.lean": {
+      "sha256": "05e84f8c0feb372f8e19f21e31b05cae3b0571263e6eede69331d24b0e04dc52",
+      "imports": [
+        "OriginalPhysicalHZ210Identity318"
+      ]
+    },
+    "OriginalPhysicalNaganoReadback318.lean": {
+      "sha256": "cd94c8f42e84a8f0de2d97d98f38541cc69638922fd4352547df2f59f2e1cfb5",
+      "imports": [
+        "OriginalPhysicalNaganoJet318"
+      ]
+    },
+    "OriginalPhysicalNaganoFirstJet318.lean": {
+      "sha256": "919d358a67ff60a7362b9ea72568142457e6a0bdc10a1541b4679c62b3fc4da1",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Derivative",
+        "OriginalPhysicalNaganoReadback318"
+      ]
+    },
+    "OriginalPhysicalNaganoFourRoot318.lean": {
+      "sha256": "6d4441660712f4377fcffeb9ef939b85a1ba387fb5bc428fcccabb87e2efe358",
+      "imports": [
+        "OriginalPhysicalNaganoFirstJet318"
+      ]
+    },
+    "OriginalPolarizedContactGauge318.lean": {
+      "sha256": "0e055fdb4a36c5fdb1e9c9629f60fafb9eb4853d8512faf7fa0ebaad516d7fed",
+      "imports": [
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalPhysicalNaganoGauge318.lean": {
+      "sha256": "7635f77001d36a214aec9369407a1433323fbc17b700e1d5504cebaa18076229",
+      "imports": [
+        "OriginalPhysicalNaganoFourRoot318",
+        "OriginalPolarizedContactGauge318"
+      ]
+    }
+  }
+}
