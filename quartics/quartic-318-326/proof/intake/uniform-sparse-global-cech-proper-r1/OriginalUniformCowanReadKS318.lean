@@ -1,0 +1,18 @@
+module
+public import OriginalUniformCowanKS318
+public section
+namespace OriginalUniformCowanRead318
+open OriginalMarkedIntPolynomialCertificate318 OriginalUniformFractionCert318 OriginalUniformCowanData318 OriginalUniformCowanLaws318
+set_option maxRecDepth 65536
+set_option maxHeartbeats 32000000
+variable {K : Type*} [Field K]
+@[expose] def lawKS (m n p q J X Y : K) : K := ((5040 * J * (m^4) * (n^6)) + ((-1) * 75600 * J * (m^4) * (n^5)) + (378000 * J * (m^4) * (n^4)) + ((-1) * 630000 * J * (m^4) * (n^3)) + (50400 * J * (m^3) * (n^6)) + ((-1) * 957600 * J * (m^3) * (n^5)) + (6884640 * J * (m^3) * (n^4)) + ((-1) * 22226400 * J * (m^3) * (n^3)) + (27216000 * J * (m^3) * (n^2)) + ((-1) * 5040 * J * (m^2) * (n^7)) + (201600 * J * (m^2) * (n^6)) + ((-1) * 3276000 * J * (m^2) * (n^5)) + (27619200 * J * (m^2) * (n^4)) + ((-1) * 127234800 * J * (m^2) * (n^3)) + (303730560 * J * (m^2) * (n^2)) + ((-1) * 293932800 * J * (m^2) * n) + ((-1) * 50400 * J * m * (n^7)) + (957600 * J * m * (n^6)) + ((-1) * 6884640 * J * m * (n^5)) + (22226400 * J * m * (n^4)) + ((-1) * 27216000 * J * m * (n^3)) + ((-1) * 126000 * J * (n^7)) + (2898000 * J * (n^6)) + ((-1) * 26989200 * J * (n^5)) + (127234800 * J * (n^4)) + ((-1) * 303730560 * J * (n^3)) + (293932800 * J * (n^2)) + ((-1) * 16 * X * Y * (m^3) * (n^4) * (q^2)) + ((-1) * 80 * X * Y * (m^3) * (n^3) * (q^2)) + (1476 * X * Y * (m^3) * (n^2) * (q^2)) + ((-1) * 4380 * X * Y * (m^3) * n * (q^2)) + (3600 * X * Y * (m^3) * (q^2)) + (24 * X * Y * (m^2) * (n^5) * p * q) + (2 * X * Y * (m^2) * (n^5) * (q^2)) + ((-1) * 500 * X * Y * (m^2) * (n^4) * p * q) + ((-1) * 95 * X * Y * (m^2) * (n^4) * (q^2)) + (3376 * X * Y * (m^2) * (n^3) * p * q) + ((-1) * 20 * X * Y * (m^2) * (n^3) * (q^2)) + ((-1) * 8820 * X * Y * (m^2) * (n^2) * p * q) + (5717 * X * Y * (m^2) * (n^2) * (q^2)) + (7200 * X * Y * (m^2) * n * p * q) + ((-1) * 22620 * X * Y * (m^2) * n * (q^2)) + (21600 * X * Y * (m^2) * (q^2)) + (16 * X * Y * m * (n^6) * (p^2)) + ((-1) * 8 * X * Y * m * (n^6) * p * q) + ((-1) * 280 * X * Y * m * (n^5) * (p^2)) + (180 * X * Y * m * (n^5) * p * q) + (20 * X * Y * m * (n^5) * (q^2)) + (1744 * X * Y * m * (n^4) * (p^2)) + ((-1) * 1620 * X * Y * m * (n^4) * p * q) + (10 * X * Y * m * (n^4) * (q^2)) + ((-1) * 4440 * X * Y * m * (n^3) * (p^2)) + (7132 * X * Y * m * (n^3) * p * q) + ((-1) * 1040 * X * Y * m * (n^3) * (q^2)) + (3600 * X * Y * m * (n^2) * (p^2)) + ((-1) * 14820 * X * Y * m * (n^2) * p * q) + (3270 * X * Y * m * (n^2) * (q^2)) + (10800 * X * Y * m * n * p * q) + ((-1) * 2700 * X * Y * m * n * (q^2)) + (8 * X * Y * (n^7) * (p^2)) + ((-1) * 180 * X * Y * (n^6) * (p^2)) + ((-1) * 40 * X * Y * (n^6) * p * q) + (1620 * X * Y * (n^5) * (p^2)) + (780 * X * Y * (n^5) * p * q) + (50 * X * Y * (n^5) * (q^2)) + ((-1) * 7132 * X * Y * (n^4) * (p^2)) + ((-1) * 5120 * X * Y * (n^4) * p * q) + (425 * X * Y * (n^4) * (q^2)) + (14820 * X * Y * (n^3) * (p^2)) + (13260 * X * Y * (n^3) * p * q) + ((-1) * 7500 * X * Y * (n^3) * (q^2)) + ((-1) * 10800 * X * Y * (n^2) * (p^2)) + ((-1) * 10800 * X * Y * (n^2) * p * q) + (26325 * X * Y * (n^2) * (q^2)) + ((-1) * 24300 * X * Y * n * (q^2)))
+theorem evalKS (m n p q J X Y : K) : value [m,n,p,q,J,X,Y] KSTerms = lawKS m n p q J X Y := by
+  simp only [KSTerms,value,mno,lawKS]
+  ring
+theorem asKS (z : K) (hd : ∀ v ∈ KSVars, Ev z v.2 ≠ 0) : lawKS (read z regm) (read z regn) (read z regp) (read z regq) (read z regJ) (read z regX) (read z regY) = 0 := by
+  have hv := KS_all z hd
+  change value [(read z regm),(read z regn),(read z regp),(read z regq),(read z regJ),(read z regX),(read z regY)] KSTerms = 0 at hv
+  rwa [evalKS] at hv
+end OriginalUniformCowanRead318
+#print axioms OriginalUniformCowanRead318.asKS

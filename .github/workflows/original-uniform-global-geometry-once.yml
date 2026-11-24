@@ -1,0 +1,228 @@
+name: Exact original marked affine and global geometry one-shot
+'on':
+  push:
+    branches:
+    - add-quartic-318-326
+    paths:
+    - docs/ci-original-uniform-global-geometry-once/REQUEST.json
+permissions:
+  contents: read
+concurrency:
+  group: exact-original-uniform-global-geometry-once
+  cancel-in-progress: false
+jobs:
+  verify:
+    name: Scoped strict uniform global geometry (${{ matrix.packet }})
+    if: github.repository == 'doublemover/diophantine-z-q' && github.ref == 'refs/heads/add-quartic-318-326' && github.event.before
+      == '46cc4d9855bdb0e7250a36af8c654eb9da7a227d' && github.run_attempt == 1 && !github.event.forced && join(github.event.commits.*.id,
+      ',') == github.sha && github.event.head_commit.message == 'Strict original marked affine and global sparse geometry'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - packet: uniform-original-marked-affine-r7
+          roots: 34
+        - packet: uniform-sparse-global-cech-proper-r1
+          roots: 31
+    env:
+      PACKET: ${{ matrix.packet }}
+      ROOT_COUNT: ${{ matrix.roots }}
+      DRIVER: docs/ci-original-uniform-global-geometry-once/run.py
+      PROGRESS: quartics/quartic-318-326/proof/progress
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        fetch-depth: 2
+        persist-credentials: false
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          /.github/actions/setup-pinned-dependency-sources/action.yml
+          /.github/actions/setup-pinned-lean/action.yml
+          /.github/actions/setup-pinned-python/action.yml
+          /.github/workflows/original-uniform-global-geometry-once.yml
+          /docs/ci-original-uniform-global-geometry-once/CONTRACT.json
+          /docs/ci-original-uniform-global-geometry-once/PROVENANCE.json
+          /docs/ci-original-uniform-global-geometry-once/REQUEST.json
+          /docs/ci-original-uniform-global-geometry-once/run.py
+          /lean/lean-toolchain
+          /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r2/SquareReflection318.lean
+          /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r3/LinearContactSquareclass318.lean
+          /quartics/quartic-318-326/proof/intake/finite-height-dlog-rows-r4/SelectedActualSameAFiniteDlogRows318.lean
+          /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r2/FractionDerivation318.lean
+          /quartics/quartic-318-326/proof/intake/finite-plus11-dyadic-vertical-r4/SelectedSameADyadicVerticalD2_318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalMarkedIntPolynomialCertificate318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalHZ210Coefficients318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalHZ210Identity318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalHZ210Map318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalNaganoFirstJet318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalNaganoFourRoot318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalNaganoJet318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalPhysicalNaganoReadback318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-hz-tangent-calibration-r1/OriginalRadixHZCertificate318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalHodgeIdealFromFull33_318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalHodgeModuleOverlap318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalSeparableSexticJet318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalSexticJetMarked318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalSexticJetResidues318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalTwoLevelHodgeLattice318.lean
+          /quartics/quartic-318-326/proof/intake/original-119136-sparse-height-r1/OriginalTwoMarkedTensorsR8_318.lean
+          /quartics/quartic-318-326/proof/intake/original-all-prime-dlog-r3/OriginalAllPrimeDlog318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SectionHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r1/SelectedSameABicanonicalYuanFrame318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r3/SelectedSameADirectBicanonicalHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-marked-calibration-prefix-r5/OriginalGlobalHodgeIdealHeight318.lean
+          /quartics/quartic-318-326/proof/intake/original-reduced-fibre-saturation-r3/OriginalReducedFibreSaturation318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalAllPrimeAffineSections318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalCanonicalVerticalStalk318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalCharacterHorizontal318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalDirectMarkedAffine318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalIntegerAffineExtend318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalIntegralFrameLocalize318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalKleinMarkedCoordinates318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalKleinMarkedJet318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalKleinPrimitivePair318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalMarkedChartSpecialization318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalMarkedTraitInverse318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalMarkedTraitsHeight318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalOneRawMarkedGenerator318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalRawImageOnMark318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalUnramifiedMarkedCoordinate318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/OriginalWholeAffineSections318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-original-marked-affine-r7/intake.json
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalActualCechLifts318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalActualQuadraticLaurent318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalBranchCechCalculus318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalBranchCechOverlap318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalBranchPlaneLocal318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalBranchResidueLocal318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGlobalCechCup318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGlobalCechOverlap318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGlobalCechRegularLifts318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGlobalCechRemainder318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGlobalDualizingClass318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGlobalP1Residue318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGluedCechRestriction318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGluedCechTrace318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalGluedDualizingTransition318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalMarkedBranchPrincipalSum318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalMarkedGlobalCech318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalMarkedGluedCech318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalMarkedScalarLocalResidues318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalMarkedScalarSeparableTrace318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalMarkedSparseProper318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalQuadraticDualizing318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalReciprocalCechInfinity318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarCowanRegisters318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarEffectiveChart318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarExceptionalMap318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarExceptionalRow0318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarExceptionalRow1318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarExceptionalRow2318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarExceptionalRow3318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarExceptionalRow4318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarNamedUnits318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarProjectiveObstruction318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalScalarTraceActionGauge318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSexticRemainderCanonical318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseActualBranch318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseGluedScheme318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseP1ChartPullbacks318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseP1Overlap318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseP1Projection318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparsePolynomialReflection318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseProperModel318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseQuadraticCharts318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseQuadraticPlane318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseReciprocalSmooth318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalSparseSmoothProper318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCentralTwistTransport318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanData318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanDerivative318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanJJ318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanKS318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanMM318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanNN318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanQ0318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanQ1318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanRM318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadJJ318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadKS318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadMM318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadNN318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadQ0318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadQ1318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanReadRM318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformCowanUnits318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformFractionCert318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformMarkedMatrices318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformMarkedQMSurface318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformOriginalTGauge318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformSparseAffineModel318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformSparseClassifying318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformSparseIgusa318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformSparseJet318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformSparseReciprocalChart318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniformSparseSmoothChart318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniversalSparseCoefficients318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniversalSparseCoframe318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniversalSparsePolynomial318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniversalSparseSolutions318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/OriginalUniversalSparseTrace318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/ProjectiveChart318.lean
+          /quartics/quartic-318-326/proof/intake/uniform-sparse-global-cech-proper-r1/intake.json
+          /quartics/quartic-318-326/proof/progress/GenericOpenPushout318.lean
+          /quartics/quartic-318-326/proof/progress/InducedLattice318.lean
+          /quartics/quartic-318-326/proof/progress/JLineAtlas318.lean
+          /quartics/quartic-318-326/proof/progress/JLineEvaluation318.lean
+          /quartics/quartic-318-326/proof/progress/JacobianLocalSmooth318.lean
+          /quartics/quartic-318-326/proof/progress/ProjectiveJLine318.lean
+          /quartics/quartic-318-326/proof/progress/RationalAbsoluteHeight.lean
+          /quartics/quartic-318-326/proof/progress/RationalSectionHeight318.lean
+          /quartics/quartic-318-326/proof/progress/lake-manifest.json
+          /quartics/quartic-318-326/proof/progress/lakefile.toml
+          /quartics/quartic-318-326/proof/progress/lean-toolchain
+          /scripts/check_lean.py
+          /scripts/check_progress_experiment.py
+          /scripts/check_progress_lean.py
+          /scripts/check_standalone_intake.py
+          /scripts/pinned_dependency_sources.py
+          /scripts/setup_pinned_lean.sh
+    - name: Verify exact approval paths and stock source admission before setup
+      shell: bash
+      run: |-
+        set -euo pipefail
+        echo '0e97dea15972a36060aa8b8680d17ad5b85fae1154cd1759505a8ad084b2256a  docs/ci-original-uniform-global-geometry-once/run.py' | sha256sum -c -
+        echo '9f1b60c77d39aae6388e57d88c17dc31e1d704cf7f284d9becc033de98fc1d57  docs/ci-original-uniform-global-geometry-once/CONTRACT.json' | sha256sum -c -
+        mkdir -p build/dependency-setup
+        python3 -I -B "$DRIVER" targets --packet "$PACKET" > "build/dependency-setup/$PACKET.targets.txt"
+        test "$(wc -l < "build/dependency-setup/$PACKET.targets.txt")" -eq "$ROOT_COUNT"
+    - uses: ./.github/actions/setup-pinned-python
+      with:
+        python-version: 3.12.14
+    - uses: ./.github/actions/setup-pinned-lean
+    - uses: ./.github/actions/setup-pinned-dependency-sources
+    - name: Fetch only exact reviewed official roots
+      shell: bash
+      run: |-
+        set -euo pipefail
+        python -E -s -B scripts/pinned_dependency_sources.py artifacts --project "$PROGRESS" --targets-file "build/dependency-setup/$PACKET.targets.txt" --receipt "build/dependency-setup/$PACKET.artifacts.json"
+    - name: One fresh stock compilation and one final recursive audit
+      shell: bash
+      run: timeout 900s python -I -B "$DRIVER" check --packet "$PACKET"
+    - name: Preserve scoped logs with zero project artifacts
+      if: always()
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: scoped-backward-${{ matrix.packet }}
+        retention-days: 7
+        if-no-files-found: ignore
+        path: |
+          build/progress-standalone-intake/${{ matrix.packet }}/RESULT.json
+          build/progress-standalone-intake/${{ matrix.packet }}/ExperimentAudit.lean
+          build/progress-standalone-intake/${{ matrix.packet }}/logs
+          build/dependency-setup/sources.json
+          build/dependency-setup/${{ matrix.packet }}.artifacts.json
+          build/dependency-setup/${{ matrix.packet }}.artifacts.log
+          build/dependency-setup/${{ matrix.packet }}.targets.txt
