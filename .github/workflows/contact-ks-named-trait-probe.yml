@@ -1,0 +1,81 @@
+name: Five-contact original named-trait finite producer
+on:
+  push:
+    branches: [add-quartic-318-326]
+    paths:
+      - 'quartics/quartic-318-326/proof/intake/contact-ks-named-trait-r1/**'
+      - '.github/workflows/contact-ks-named-trait-probe.yml'
+permissions:
+  contents: read
+concurrency:
+  group: contact-ks-named-trait-probe-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  exact-leaf:
+    name: Exact R369 named-trait finite producer
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      ELAN_TOOLCHAIN: leanprover/lean4:v4.35.0
+      PROGRESS: quartics/quartic-318-326/proof/progress
+      PROBE: quartics/quartic-318-326/proof/intake/contact-ks-named-trait-r1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/actions/setup-pinned-lean/
+            /.github/actions/setup-pinned-python/
+            /.github/actions/setup-pinned-dependency-sources/
+            /lean/lean-toolchain
+            /scripts/
+            /quartics/quartic-318-326/proof/progress/
+            /quartics/quartic-318-326/proof/intake/contact-ks-local-image-r1/OriginalExactLocalKSUnit318.lean
+            /quartics/quartic-318-326/proof/intake/contact-ks-gauge-exact-r1/OriginalFiveContactExactGauge318.lean
+            /quartics/quartic-318-326/proof/intake/contact-ks-actual-span-r1/OriginalRawKSPrimitive210318.lean
+            /quartics/quartic-318-326/proof/intake/contact-ks-actual-span-r1/OriginalYuanPulledExactKSImage318.lean
+            /quartics/quartic-318-326/proof/intake/contact-ks-named-trait-r1/
+      - name: Restore only the matching audited snapshot
+        id: baseline
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: .cache/progress-ci
+          key: progress-v2-full-859b4f6a57f5c1ce17a5395ab17ebf2a5fe8bbd6fa9e4268ed288bc5cd0f3e9d-768c64ba67b1e1901c7492948ef3b1e727f49e38641664e00d435d45d8bc96a8
+      - name: Stop on cache miss without project rebuild
+        if: steps.baseline.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          echo 'Exact archived progress snapshot cache unavailable; no project rebuild or interface stand-in attempted' >&2
+          exit 1
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - uses: ./.github/actions/setup-pinned-lean
+      - uses: ./.github/actions/setup-pinned-dependency-sources
+      - name: Fetch only the exact required closure's official roots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/dependency-setup
+          python -B "$PROBE/check.py" targets > build/dependency-setup/contact-ks-trait.targets.txt
+          python -B scripts/pinned_dependency_sources.py artifacts --project "$PROGRESS" \
+            --targets-file build/dependency-setup/contact-ks-trait.targets.txt \
+            --receipt build/dependency-setup/contact-ks-trait.artifacts.json
+      - name: Authenticate project artifacts and replay attached exact R369 chain
+        shell: bash
+        run: timeout 450s python -B "$PROBE/check.py" check
+      - name: Preserve dependency and named-trait proof receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: contact-ks-named-trait
+          path: |
+            build/contact-ks-named-trait/RESULT.json
+            build/contact-ks-named-trait/GaugeAudit.lean
+            build/contact-ks-named-trait/logs/
+            build/dependency-setup/contact-ks-trait.targets.txt
+            build/dependency-setup/contact-ks-trait.artifacts.json
+          retention-days: 14
+          if-no-files-found: ignore
