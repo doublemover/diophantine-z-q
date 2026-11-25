@@ -40,9 +40,12 @@ def conormalMap : B →ₗ[A] M :=
 theorem read_mk (a : A) :
     conormalMap s p E x hx e (Ideal.Quotient.mk I a) =
       (I).toCotangent (a • generator s p E x hx e) := by
-  rw [conormalMap,Submodule.liftQ_apply]
+  refine (Submodule.liftQ_apply (I : Submodule A A)
+    (LinearMap.toSpanSingleton A M (conormalVector s p E x hx e))
+    (h := fun _ ha => Ideal.Cotangent.smul_eq_zero_of_mem ha
+      (conormalVector s p E x hx e)) a).trans ?_
   change a • (I).toCotangent (generator s p E x hx e) = _
-  rw [map_smul]
+  exact ((I).toCotangent.map_smul a (generator s p E x hx e)).symm
 
 /-- The actual local conormal I/I², as a module over the actual
 component, is free with the original Cartier equation as a basis. -/

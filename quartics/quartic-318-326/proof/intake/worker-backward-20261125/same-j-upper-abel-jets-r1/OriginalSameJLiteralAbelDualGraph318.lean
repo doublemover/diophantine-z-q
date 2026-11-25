@@ -104,12 +104,14 @@ theorem whole_kernel (u : A) (v : k) (hu : j u = ((0,v) : Jet k))
       rw [map_add, map_mul, first_scalar, add_comm]
       exact hv ▸ h2
     obtain ⟨d,hd⟩ := Ideal.mem_span_singleton'.mp hd
+    let z : Dual A := (c,d)
+    let q : Dual A := equation u v
     apply Ideal.mem_span_singleton'.mpr
-    refine ⟨((c,d) : Dual A), TrivSqZeroExt.ext ?_ ?_⟩
+    refine ⟨z, TrivSqZeroExt.ext ?_ ?_⟩
     · exact hc
-    · calc
-        (((c,d) : Dual A) * equation u v).snd = c * (-algebraMap k A v) + u * d :=
-          mul_snd ((c,d) : Dual A) (equation u v)
+    · change (z*q).snd = x.snd
+      calc
+        (z*q).snd = c * (-algebraMap k A v) + u * d := mul_snd z q
         _ = x.snd := by
           rw [mul_comm u d, hd]
           ring
@@ -124,8 +126,11 @@ theorem equation_regular (u : A) (v : k)
     Function.Injective (fun x : Dual A => equation u v * x) := by
   intro x y h
   have h₁ : x.fst = y.fst := hu (congrArg TrivSqZeroExt.fst h)
-  have h₂ := congrArg TrivSqZeroExt.snd h
-  simp only [mul_snd, equation, TrivSqZeroExt.fst_mk, TrivSqZeroExt.snd_mk] at h₂
+  have h₂ : (equation u v * x).snd = (equation u v * y).snd :=
+    congrArg TrivSqZeroExt.snd h
+  rw [mul_snd (equation u v) x, mul_snd (equation u v) y] at h₂
+  change u * x.snd + x.fst * (-algebraMap k A v) =
+    u * y.snd + y.fst * (-algebraMap k A v) at h₂
   rw [h₁] at h₂
   exact TrivSqZeroExt.ext h₁ (hu (add_right_cancel h₂))
 
