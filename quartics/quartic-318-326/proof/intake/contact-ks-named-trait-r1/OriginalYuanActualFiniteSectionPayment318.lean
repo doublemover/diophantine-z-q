@@ -47,8 +47,6 @@ from a separately postulated R-algebra map. -/
 def actualScalar : Algebra (chartRing U) (localRing w) :=
   (@evaluation E _ _ w Y U hU centre closed).toAlgebra
 
-local instance : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
-
 abbrev toHeldField : (localRing w)→+*E := (localRing w).val.toRingHom
 
 def sameGenericMap : chartRing U→+*E :=
@@ -64,25 +62,45 @@ theorem generic_section_factor_is_held :
   @realizes_old_mark (localRing w) E _ _ _ Y U hU centre closed (toHeldField w) retained onOldMark
 
 variable {N : Type u} [AddCommGroup N] [Module (chartRing U) N]
-variable (frame : N) (b : E)
-variable (δ : ((localRing w)⊗[(chartRing U)]N) ≃ₗ[(localRing w)]coeffLine (R:=(localRing w)) b)
-variable (frame_read : (δ ((1:(localRing w))⊗ₜ[(chartRing U)]frame):E)=b)
 
-def pullSection (s : (chartRing U)) : (localRing w)⊗[(chartRing U)]N := (1:(localRing w))⊗ₜ[(chartRing U)](s • frame)
+/-- The module on the actual marked centre. The algebra is stored in
+the concrete tensor, not sought as a global instance with an
+unrecoverable centre. -/
+abbrev ActualTensor (M : Type u) [AddCommGroup M] [Module (chartRing U) M] : Type u :=
+  letI : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
+  (localRing w) ⊗[chartRing U] M
+
+instance actualTensorModule : Module (localRing w) (ActualTensor w U hU centre closed N) := by
+  letI : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
+  exact inferInstanceAs (Module (localRing w) ((localRing w) ⊗[chartRing U] N))
+
+variable (frame : N) (b : E)
+variable (δ : ActualTensor w U hU centre closed N ≃ₗ[(localRing w)] coeffLine (R:=(localRing w)) b)
+
+def pullFrame : ActualTensor w U hU centre closed N := by
+  letI : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
+  exact (1:(localRing w)) ⊗ₜ[chartRing U] frame
+
+def pullSection (s : chartRing U) : ActualTensor w U hU centre closed N := by
+  letI : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
+  exact (1:(localRing w)) ⊗ₜ[chartRing U] (s • frame)
+
+variable (frame_read : (δ (pullFrame w U hU centre closed frame):E)=b)
 
 include frame_read in
-theorem tensor_is_actual_scalar_times_frame (s : (chartRing U)) :
+theorem tensor_is_actual_scalar_times_frame (s : chartRing U) :
     (δ (pullSection w U hU centre closed frame s):E)=
       toHeldField w ((@evaluation E _ _ w Y U hU centre closed) s)*b := by
+  letI : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
   have h : pullSection w U hU centre closed frame s=
-      ((@evaluation E _ _ w Y U hU centre closed) s) • ((1:(localRing w))⊗ₜ[(chartRing U)]frame) := by
-    unfold pullSection
-    rw [TensorProduct.tmul_smul]
-    change (((@evaluation E _ _ w Y U hU centre closed) s)*1) ⊗ₜ[(chartRing U)] frame = _
+      ((@evaluation E _ _ w Y U hU centre closed) s) • pullFrame w U hU centre closed frame := by
+    unfold pullSection pullFrame
+    rw [TensorProduct.tmul_smul, TensorProduct.smul_tmul']
+    change (((@evaluation E _ _ w Y U hU centre closed) s)*1) ⊗ₜ[chartRing U] frame = _
     simp only [mul_one,TensorProduct.smul_tmul',smul_eq_mul]
   rw [h,map_smul]
   change toHeldField w ((@evaluation E _ _ w Y U hU centre closed) s)*
-    (δ ((1:(localRing w))⊗ₜ[(chartRing U)]frame):E)=_
+    (δ (pullFrame w U hU centre closed frame):E)=_
   rw [frame_read]
 
 variable (π : (chartRing U))
@@ -104,6 +122,7 @@ same original marked affine using the actual scheme arrow. -/
 theorem literal_pair_paid (C : FrameNorms E) (hb : b≠0)
     (normRead : C.finiteNorm w=(w b)⁻¹) (i : Fin 2) :
     w (![(2765952000:E)^2,t*(2765952000:E)^2] i)*C.finiteNorm w≤1 := by
+  letI : Algebra (chartRing U) (localRing w) := actualScalar w U hU centre closed
   apply exact_place_paid_pair w C b hb normRead δ
     (fun j=>pullSection w U hU centre closed frame (sections j)) t
   intro j
