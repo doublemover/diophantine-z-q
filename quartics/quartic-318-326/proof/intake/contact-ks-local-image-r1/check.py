@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import check_progress_lean as ci
 from check_progress_experiment import audit_text
 
-MANIFEST_SHA = '9c5320ce324cc5644a573e6760b2639b6cf2c95fd7af7d9488e3266c474b1036'
+MANIFEST_SHA = 'aada03ca87ecbc088d5ded24599a6c4a35135bb8e78a470e9aa87e8e16ad71bf'
 name_map = ('SectionHeight318', 'OriginalExactLocalKSUnit318')
 if len(sys.argv) != 2 or sys.argv[1] not in {'targets', 'check'}:
     raise SystemExit('usage: check.py targets|check')

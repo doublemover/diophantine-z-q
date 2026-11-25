@@ -19,23 +19,24 @@ universe u
 variable {E : Type u} [Field E] [NumberField E]
 variable (w : FinitePlace E)
 local notation "O" => 𝓞 E
-local notation "p" => (FinitePlace.maximalIdeal w).asIdeal
+@[expose] abbrev placePrime (v : FinitePlace E) : Ideal (𝓞 E) :=
+  (FinitePlace.maximalIdeal v).asIdeal
 
 /-- The actual arithmetic local ring at w, embedded in the single
 common height field. This is the canonical localization as a
 subalgebra of E, not a completed or newly chosen valuation field. -/
 @[expose] def localRing : Subalgebra O E :=
-  Localization.subalgebra E p.primeCompl p.primeCompl_le_nonZeroDivisors
+  Localization.subalgebra E (placePrime w).primeCompl (placePrime w).primeCompl_le_nonZeroDivisors
 
 local notation "V" => localRing w
 
 theorem unit_norm (u : Vˣ) : w (↑(u:V):E) = 1 := by
-  letI : IsLocalization p.primeCompl V :=
-    Localization.subalgebra.isLocalization_subalgebra E p.primeCompl p.primeCompl_le_nonZeroDivisors
-  obtain ⟨⟨x,y⟩, e⟩ := IsLocalization.surj p.primeCompl (u:V)
+  letI : IsLocalization (placePrime w).primeCompl V :=
+    Localization.subalgebra.isLocalization_subalgebra E (placePrime w).primeCompl (placePrime w).primeCompl_le_nonZeroDivisors
+  obtain ⟨⟨x,y⟩, e⟩ := IsLocalization.surj (placePrime w).primeCompl (u:V)
   have s : IsUnit (algebraMap O V x) :=
     e ▸ u.isUnit.mul (IsLocalization.map_units V y)
-  have hx : x ∉ p := (IsLocalization.AtPrime.isUnit_to_map_iff V p x).mp s
+  have hx : x ∉ placePrime w := (IsLocalization.AtPrime.isUnit_to_map_iff V (placePrime w) x).mp s
   have nx : w (algebraMap O E x) = 1 :=
     (FinitePlace.norm_embedding_eq w _).symm.trans
       ((FinitePlace.norm_eq_one_iff_notMem E (FinitePlace.maximalIdeal w) x).mpr hx)
@@ -44,7 +45,7 @@ theorem unit_norm (u : Vˣ) : w (↑(u:V):E) = 1 := by
       ((FinitePlace.norm_eq_one_iff_notMem E (FinitePlace.maximalIdeal w) (y:O)).mpr y.2)
   have eg := congrArg (fun z : V => w (z:E)) e
   change w ((↑(u:V):E)*(algebraMap O E (y:O))) = w (algebraMap O E x) at eg
-  rw [map_mul,nx,ny,mul_one] at eg
+  rw [map_mul w,nx,ny,mul_one] at eg
   exact eg
 
 /-- A genuine equality of rank-one arithmetic lattices yields the
