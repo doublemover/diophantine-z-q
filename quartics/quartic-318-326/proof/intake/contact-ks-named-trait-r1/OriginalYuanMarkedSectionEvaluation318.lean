@@ -29,30 +29,34 @@ variable (tau : V→+*E)
 variable (π : chartRing U)
 variable (good : IsUnit (genericEval U hU m closed tau π))
 
-local notation "A₀" => chartRing U
-local notation "A₁" => Localization.Away π
-
 /-- Freeze the true localisation map's full dependent types before
 coercing it to an evaluation function. -/
-def markedLocalization : A₁ →+* E :=
+def markedLocalization : (Localization.Away π) →+* E :=
   @OriginalMarkedTraitAffineSectionPull318.liftEval V E _ _ _ Y U hU m closed tau π good
 
-variable (sections : Fin 2→A₀) (tLoc dLoc : A₁)
+/-- Checked outside the dependent ChartRing/Localization context:
+it exposes the generic function of the exact already-typed ring hom. -/
+def markedRingFunction {S K : Type u} [CommRing S] [CommRing K] (f : S→+*K) : S→K :=
+  fun a => f a
+
 /-- The coefficient of the relative \(dT\) in the chosen original
 dualizing frame, still carried through the same fine-point ring
 hom. This never evaluates a function field into E. -/
-abbrev dGeneric : E := (markedLocalization U hU m closed tau π good).toFun dLoc
+def dGeneric : Localization.Away π → E :=
+  @markedRingFunction (Localization.Away π) E _ _
+    (@markedLocalization V E _ _ _ Y U hU m closed tau π good)
 
+variable (sections : Fin 2→chartRing U) (tLoc dLoc : Localization.Away π)
 variable (t : E)
 variable (readT : dGeneric U hU m closed tau π good tLoc=t)
 variable (noncontact : P t≠0)
 
 -- Denominator-cleared original section identities on the literal principal
 -- open, before reading the marked coefficients. No localized unit in V.
-variable (firstIdentity : P tLoc*(algebraMap A₀ A₁ (sections 0))=
-  (2765952000:A₁)^2*dLoc^2)
-variable (secondIdentity : algebraMap A₀ A₁ (sections 1)=
-  tLoc*algebraMap A₀ A₁ (sections 0))
+variable (firstIdentity : P tLoc*(algebraMap (chartRing U) (Localization.Away π) (sections 0))=
+  (2765952000:(Localization.Away π))^2*dLoc^2)
+variable (secondIdentity : algebraMap (chartRing U) (Localization.Away π) (sections 1)=
+  tLoc*algebraMap (chartRing U) (Localization.Away π) (sections 0))
 
 abbrev readCoeff (i : Fin 2) : E := tau (eval U hU m closed (sections i))
 
@@ -60,23 +64,25 @@ include readT firstIdentity in
 theorem true_evaluated_numerator :
     P t*(readCoeff U hU m closed tau sections 0)=
       (2765952000:E)^2*(dGeneric U hU m closed tau π good dLoc)^2 := by
-  let f : A₁ →+* E := markedLocalization U hU m closed tau π good
+  let f : (Localization.Away π) →+* E :=
+    @markedLocalization V E _ _ _ Y U hU m closed tau π good
   have ht : f tLoc = t := readT
-  have hs : f (algebraMap A₀ A₁ (sections 0)) =
+  have hs : f (algebraMap (chartRing U) (Localization.Away π) (sections 0)) =
       readCoeff U hU m closed tau sections 0 :=
     @liftEval_read V E _ _ _ Y U hU m closed tau π good (sections 0)
-  have h := congrArg (fun x : A₁ => f x) firstIdentity
+  have h := congrArg (fun x : (Localization.Away π) => f x) firstIdentity
   simpa only [map_mul,maps_P,map_pow,map_ofNat,ht,hs] using h
 
 include readT secondIdentity in
 theorem true_evaluated_ratio :
     readCoeff U hU m closed tau sections 1=t*(readCoeff U hU m closed tau sections 0) := by
-  let f : A₁ →+* E := markedLocalization U hU m closed tau π good
+  let f : (Localization.Away π) →+* E :=
+    @markedLocalization V E _ _ _ Y U hU m closed tau π good
   have ht : f tLoc = t := readT
-  have hs (i : Fin 2) : f (algebraMap A₀ A₁ (sections i)) =
+  have hs (i : Fin 2) : f (algebraMap (chartRing U) (Localization.Away π) (sections i)) =
       readCoeff U hU m closed tau sections i :=
     @liftEval_read V E _ _ _ Y U hU m closed tau π good (sections i)
-  have h := congrArg (fun x : A₁ => f x) secondIdentity
+  have h := congrArg (fun x : (Localization.Away π) => f x) secondIdentity
   simpa only [map_mul,hs,ht] using h
 
 variable (b : E)
