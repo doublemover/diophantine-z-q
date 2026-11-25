@@ -1,0 +1,67 @@
+name: Five-contact original Yuan finite KS span probe
+on:
+  push:
+    branches: [add-quartic-318-326]
+    paths:
+      - 'quartics/quartic-318-326/proof/intake/contact-ks-actual-span-r1/**'
+      - '.github/workflows/contact-ks-actual-span-probe.yml'
+permissions:
+  contents: read
+concurrency:
+  group: contact-ks-actual-span-probe-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  exact-leaf:
+    name: Exact R364 actual pulled KS span
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      ELAN_TOOLCHAIN: leanprover/lean4:v4.35.0
+      PROGRESS: quartics/quartic-318-326/proof/progress
+      PROBE: quartics/quartic-318-326/proof/intake/contact-ks-actual-span-r1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/actions/setup-pinned-lean/
+            /.github/actions/setup-pinned-python/
+            /.github/actions/setup-pinned-dependency-sources/
+            /lean/lean-toolchain
+            /scripts/
+            /quartics/quartic-318-326/proof/progress/lean-toolchain
+            /quartics/quartic-318-326/proof/progress/lake-manifest.json
+            /quartics/quartic-318-326/proof/progress/lakefile.toml
+            /quartics/quartic-318-326/proof/intake/contact-ks-actual-span-r1/
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - uses: ./.github/actions/setup-pinned-lean
+      - uses: ./.github/actions/setup-pinned-dependency-sources
+      - name: Fetch only four exact official stock roots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/dependency-setup
+          python -B "$PROBE/check.py" targets > build/dependency-setup/contact-ks-span.targets.txt
+          python -B scripts/pinned_dependency_sources.py artifacts --project "$PROGRESS" \
+            --targets-file build/dependency-setup/contact-ks-span.targets.txt \
+            --receipt build/dependency-setup/contact-ks-span.artifacts.json
+      - name: Replay exact leaf and audit all its dependencies
+        shell: bash
+        run: timeout 360s python -B "$PROBE/check.py" check
+      - name: Preserve narrowly scoped receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: contact-ks-actual-span
+          path: |
+            build/contact-ks-actual-span/RESULT.json
+            build/contact-ks-actual-span/GaugeAudit.lean
+            build/contact-ks-actual-span/logs/
+            build/dependency-setup/contact-ks-span.artifacts.json
+            build/dependency-setup/contact-ks-span.targets.txt
+          if-no-files-found: ignore
+          retention-days: 14
