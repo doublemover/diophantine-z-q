@@ -72,11 +72,11 @@ theorem source_to_named_principal_open (T dT : Stalk eval) (s : Fin 2→A)
       (algebraMap A (Localization.Away π) (s 1)=tLoc*algebraMap A (Localization.Away π) (s 0)) := by
   obtain ⟨π,hπ,f,hf⟩ := actual_finite_denominators (Q:=Stalk eval) (p eval)
     (![T,dT] : Fin 2→Stalk eval)
-  let into := toStalk (p eval) π hπ
+  let into := toStalk (Q:=Stalk eval) (p eval) π hπ
   have eT : into (f 0)=T := hf 0
   have ed : into (f 1)=dT := hf 1
   have inj : Function.Injective (structuralRead (K:=K) eval ∘ into) :=
-    (structural_read_injective (K:=K) eval).comp (toStalk_injective (p eval) π hπ)
+    (structural_read_injective (K:=K) eval).comp (toStalk_injective (Q:=Stalk eval) (p eval) π hπ)
   have eval_restrict (z : Localization.Away π) :
       IsLocalization.Away.lift π (g:=eval) (point_unit eval ⟨π,hπ⟩) z=
         pointRead eval (into z) :=
