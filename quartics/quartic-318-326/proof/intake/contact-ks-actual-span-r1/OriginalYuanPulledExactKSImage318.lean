@@ -22,8 +22,8 @@ def multiplyBy (c : E) : E→ₗ[R]E where
   toFun z := z*c
   map_add' x y := add_mul x y c
   map_smul' r z := by
-    change (algebraMap R E r*z)*c=algebraMap R E r*(z*c)
-    exact mul_assoc _ _ _
+    rw [RingHom.id_apply]
+    exact Algebra.smul_mul_assoc r z c
 
 @[simp]
 theorem multiplyBy_apply (c z : E) : multiplyBy (R:=R) c z=z*c := rfl
@@ -65,7 +65,7 @@ theorem actual_raw_on_every_local_section (z : coeffLine (R:=R) (a^2)) :
       coeffLine (R:=R) b):E))=(z:E)*k at h
   simpa only [Algebra.smul_def,map_ofNat,actualPrimitive,LinearEquiv.trans_apply] using h.symm
 
-include genericRead in
+include rawInj regular210 exactImage genericRead in
 /-- Native finite-image statement in the original Q-coordinate
 gauge. It follows from the entire local lattice and the actual
 generic raw map, not by presuming a primitive unit or absolute
