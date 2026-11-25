@@ -71,7 +71,7 @@ theorem true_evaluated_numerator :
       readCoeff U hU m closed tau sections 0 :=
     @liftEval_read V E _ _ _ Y U hU m closed tau π good (sections 0)
   have h := congrArg (fun x : (Localization.Away π) => f x) firstIdentity
-  simpa only [map_mul,maps_P,map_pow,map_ofNat,ht,hs] using h
+  simpa only [map_mul,maps_P,map_pow,map_ofNat,ht,hs,dGeneric,markedRingFunction,f] using h
 
 include readT secondIdentity in
 theorem true_evaluated_ratio :
