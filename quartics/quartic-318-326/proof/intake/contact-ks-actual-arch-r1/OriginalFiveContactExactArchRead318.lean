@@ -36,34 +36,35 @@ theorem off_contact (w : InfinitePlace E)
     (i : Fin 4) : w.embedding Tₑ ≠ LiteralMetricExtension318.contacts i := by
   have hv : v ≠ 0 := forms 0
   have hvC : (v:ℂ) ≠ 0 := by exact_mod_cast hv
-  have hT : w.embedding Tₑ = 32*((u:ℂ)/(v:ℂ)) := by push_cast <;> rfl
+  have hT : w.embedding Tₑ = 32*((u:ℂ)/(v:ℂ)) := by
+    calc
+      _ = ((32*((u:ℚ)/(v:ℚ)):ℚ):ℂ) := map_ratCast w.embedding _
+      _ = _ := by push_cast
   intro he
   rw [hT, ← mul_div_assoc, div_eq_iff hvC] at he
   fin_cases i
   · apply forms 1
     change u = 0
-    have he' : (32:ℂ)*(u:ℂ) = 0 := by simpa [LiteralMetricExtension318.contacts] using he
+    change (32:ℂ)*(u:ℂ) = 0*(v:ℂ) at he
+    have he' : (32:ℂ)*(u:ℂ) = 0 := by simpa only [zero_mul] using he
     have e := (mul_eq_zero.mp he').resolve_left (by norm_num : (32:ℂ) ≠ 0)
     exact_mod_cast e
   · apply forms 2
     change u-v = 0
-    have h' : (32:ℂ)*((u:ℂ)-(v:ℂ)) = 0 := by
-      simp only [LiteralMetricExtension318.contacts, Matrix.cons_val_one] at he
-      linear_combination he
+    change (32:ℂ)*(u:ℂ) = 32*(v:ℂ) at he
+    have h' : (32:ℂ)*((u:ℂ)-(v:ℂ)) = 0 := by linear_combination he
     have e := (mul_eq_zero.mp h').resolve_left (by norm_num : (32:ℂ) ≠ 0)
     exact_mod_cast e
   · apply forms 3
     change u-2401*v = 0
-    have h' : (32:ℂ)*((u:ℂ)-2401*(v:ℂ)) = 0 := by
-      simp [LiteralMetricExtension318.contacts] at he
-      linear_combination he
+    change (32:ℂ)*(u:ℂ) = 76832*(v:ℂ) at he
+    have h' : (32:ℂ)*((u:ℂ)-2401*(v:ℂ)) = 0 := by linear_combination he
     have e := (mul_eq_zero.mp h').resolve_left (by norm_num : (32:ℂ) ≠ 0)
     exact_mod_cast e
   · apply forms 4
     change 32*u+343*v = 0
-    have e : 32*(u:ℂ)+343*(v:ℂ) = 0 := by
-      simp [LiteralMetricExtension318.contacts] at he
-      linear_combination he
+    change (32:ℂ)*(u:ℂ) = (-343)*(v:ℂ) at he
+    have e : 32*(u:ℂ)+343*(v:ℂ) = 0 := by linear_combination he
     exact_mod_cast e
 
 /-- Once the actual marked analytic chart has coordinate σ(T), the
