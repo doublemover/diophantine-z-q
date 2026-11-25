@@ -26,8 +26,7 @@ theorem residue_logPart (f : k[X]) (j : ℕ) :
   unfold residue logPart
   rw [← LaurentPolynomial.single_eq_C_mul_T, AddMonoidAlgebra.coeff_mul_single_apply]
   have hi : (-1:ℤ) + -(-((j+1:ℕ):ℤ)) = (j:ℤ) := by omega
-  have hi' : (-1:ℤ) - (-((j+1:ℕ):ℤ)) = (j:ℤ) := by omega
-  first | rw [hi] | rw [hi']
+  rw [hi]
   rw [LaurentPolynomial.coeff_toLaurent]
   change (f.toFinsupp.coeff.mapDomain Nat.castEmbedding) (Nat.castEmbedding j) *
     (((j+1:ℕ):k)⁻¹) = _
@@ -54,7 +53,8 @@ unmarked scalar occurs here. -/
 theorem actual_abel_derivative (f : k[X]) {m j : ℕ} (hj : j<m) :
     (formalAbel f m).derivative.coeff j = f.coeff j := by
   rw [Polynomial.coeff_derivative,formalAbel_coeff f hj]
-  exact div_mul_cancel₀ _ (Nat.cast_ne_zero.mpr (Nat.succ_ne_zero j))
+  have hn : (((j+1:ℕ):k)) ≠ 0 := Nat.cast_ne_zero.mpr (Nat.succ_ne_zero j)
+  simpa only [Nat.cast_add,Nat.cast_one] using div_mul_cancel₀ (f.coeff j) hn
 
 theorem invariant_mod_order (f g : k[X]) {m : ℕ}
     (same : (X:k[X])^m ∣ f-g) :
@@ -62,7 +62,10 @@ theorem invariant_mod_order (f g : k[X]) {m : ℕ}
       (formalAbel g m).derivative.coeff j := by
   intro j hj
   rw [actual_abel_derivative _ hj,actual_abel_derivative _ hj]
-  have h := Polynomial.X_pow_dvd_iff.mp same j hj
+  obtain ⟨q,hq⟩ := same
+  have h : (f-g).coeff j = 0 := by
+    rw [hq,Polynomial.coeff_X_pow_mul']
+    simp only [not_le_of_gt hj,ite_false]
   rw [Polynomial.coeff_sub] at h
   exact sub_eq_zero.mp h
 

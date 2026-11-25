@@ -169,10 +169,16 @@ theorem comparison_natural {r m : ℕ} (h : r ≤ m) :
       (actualTruncation e u hker regular m (Ideal.Quotient.mk _ p)) =
     actualTruncation e u hker regular r ((truncate (k:=k) h) (Ideal.Quotient.mk _ p))
   rw [truncation_polynomial,Ideal.Quotient.factor_mk]
-  change Ideal.Quotient.mk (thick u r) (evalAt u p) =
-    actualTruncation e u hker regular r
-      ((Ideal.Quotient.factor (thick_decreases (X:k[X]) h)) (Ideal.Quotient.mk _ p))
-  rw [Ideal.Quotient.factor_mk,truncation_polynomial]
+  have hP : parameterPower (A:=k) m ≤ parameterPower (A:=k) r :=
+    thick_decreases (X:k[X]) h
+  have hq : truncate (k:=k) h (Ideal.Quotient.mk (parameterPower (A:=k) m) p) =
+      Ideal.Quotient.mk (parameterPower (A:=k) r) p :=
+    Ideal.Quotient.factor_mk hP p
+  calc
+    Ideal.Quotient.mk (thick u r) (evalAt u p) =
+        actualTruncation e u hker regular r (Ideal.Quotient.mk (parameterPower (A:=k) r) p) :=
+      (truncation_polynomial e u hker regular r p).symm
+    _ = _ := congrArg (fun q : testRing (A:=k) r => actualTruncation e u hker regular r q) hq.symm
 
 end OriginalSameJExactTruncatedMark318
 

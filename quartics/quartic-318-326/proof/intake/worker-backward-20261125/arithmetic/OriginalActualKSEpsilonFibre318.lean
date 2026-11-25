@@ -67,10 +67,7 @@ def affineCentralFibre : (B ⧸ fibreIdeal K B) ≃ₐ[B] B ⊗[Sq K] K :=
 
 theorem projection_read (b : B) :
     affineCentralFibre K B (Ideal.Quotient.mk _ b) = reduction K B b := by
-  rw [Algebra.TensorProduct.algebraMap_apply]
-  rw [affineCentralFibre,AlgEquiv.trans_apply,
-    Algebra.TensorProduct.quotIdealMapEquivTensorQuot_mk,
-    Algebra.TensorProduct.congr_apply,Algebra.TensorProduct.map_tmul] <;> simp
+  exact (affineCentralFibre K B).commutes b
 
 theorem projection_ker :
     RingHom.ker (reduction K B) =
@@ -116,8 +113,15 @@ theorem actual_fst :
     apply CommRingCat.hom_ext
     apply RingHom.ext
     intro b
-    change (affineCentralFibre K B).symm (reduction K B b) = _
-    rw [← projection_read,AlgEquiv.symm_apply_apply]
+    change (affineCentralFibre K B).symm (reduction K B b) =
+      Ideal.Quotient.mk (fibreIdeal K B) b
+    calc
+      (affineCentralFibre K B).symm (reduction K B b) =
+          (affineCentralFibre K B).symm
+            (affineCentralFibre K B (Ideal.Quotient.mk (fibreIdeal K B) b)) :=
+        congrArg (affineCentralFibre K B).symm (projection_read K B b).symm
+      _ = Ideal.Quotient.mk (fibreIdeal K B) b :=
+        (affineCentralFibre K B).symm_apply_apply _
   rw [← Spec.map_comp,e]
 
 end OriginalActualKSEpsilonFibre318

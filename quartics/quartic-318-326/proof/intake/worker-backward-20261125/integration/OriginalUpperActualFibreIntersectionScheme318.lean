@@ -79,7 +79,7 @@ theorem embeddedCurve_over (closed : IsClosed ({p} : Set Z)) :
       (eqToIso (congrArg Scheme.IdealSheafData.subscheme h)).hom ≫ L.subschemeι = K.subschemeι := by
     subst L
     simp
-  rw [compatible]
+  rw [compatible (ι s p E).ker I (embedded_ker s p E)]
   exact (ι s p E).toImage_imageι
 
 end OriginalUpperActualFibreIntersectionScheme318

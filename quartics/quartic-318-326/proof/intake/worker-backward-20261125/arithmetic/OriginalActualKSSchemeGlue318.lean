@@ -1,6 +1,6 @@
 module
 public import OriginalActualKSEtaleRestriction318
-public import Mathlib.AlgebraicGeometry.Gluing
+public import Mathlib.AlgebraicGeometry.Pullbacks
 
 /-!
 The final ordinary Scheme-level gluing for the actual corrected

@@ -92,48 +92,48 @@ theorem true_stalk_injective
     (inj.comp (ConcreteCategory.bijective_of_isIso (inv t≫d)).1)
 
 variable (θ : B→+*T) (τ : affineStalk B z→+*T)
-variable (extends : τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom=θ)
+variable (readsBase : τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom=θ)
 
-include extends in
+include readsBase in
 theorem local_test_agrees :
     Spec.map (CommRingCat.ofHom τ)≫stalkChart j z=
       Spec.map (CommRingCat.ofHom θ)≫j := by
   rw [stalkChart,Spec.fromSpecStalk_eq',←Category.assoc,←Spec.map_comp]
   change Spec.map (CommRingCat.ofHom
       (τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom))≫j=_
-  rw [extends]
+  rw [readsBase]
 
-variable (λ : T→+*T)
+variable (nilMap : T→+*T)
 
-include extends in
+include readsBase in
 /-- Passage from equality of the genuine original affine thick test
 arrows to equality on the original stalk uses the actual open chart
 and natural Spec-stalk morphism. No independent local coframe or
 stalk compatibility is postulated. -/
 theorem whole_square_to_ring
     (square : (Spec.map (CommRingCat.ofHom θ)≫j)≫f=
-      Spec.map (CommRingCat.ofHom (λ.comp θ))≫j) :
-    τ.comp (actualEnd j z f fixed).hom=λ.comp τ := by
+      Spec.map (CommRingCat.ofHom (nilMap.comp θ))≫j) :
+    τ.comp (actualEnd j z f fixed).hom=nilMap.comp τ := by
   have sq : Spec.map (CommRingCat.ofHom (τ.comp (actualEnd j z f fixed).hom))≫stalkChart j z=
-      Spec.map (CommRingCat.ofHom (λ.comp τ))≫stalkChart j z := by
+      Spec.map (CommRingCat.ofHom (nilMap.comp τ))≫stalkChart j z := by
     let σ := stalkChart j z
     let qt := Spec.map (CommRingCat.ofHom τ)
     let q0 := Spec.map (CommRingCat.ofHom θ)
-    let qp := Spec.map (CommRingCat.ofHom λ)
+    let qp := Spec.map (CommRingCat.ofHom nilMap)
     calc
       Spec.map (CommRingCat.ofHom (τ.comp (actualEnd j z f fixed).hom))≫σ
           = qt≫(Spec.map (actualEnd j z f fixed)≫σ) := by
             change Spec.map (actualEnd j z f fixed≫CommRingCat.ofHom τ)≫σ=_
             rw [Spec.map_comp,Category.assoc]
       _ = (qt≫σ)≫f := by rw [actualEnd_comp j z f fixed,Category.assoc]
-      _ = (q0≫j)≫f := by rw [local_test_agrees j z θ τ extends]
-      _ = Spec.map (CommRingCat.ofHom (λ.comp θ))≫j := square
+      _ = (q0≫j)≫f := by rw [local_test_agrees j z θ τ readsBase]
+      _ = Spec.map (CommRingCat.ofHom (nilMap.comp θ))≫j := square
       _ = qp≫(q0≫j) := by
-            change Spec.map (CommRingCat.ofHom θ≫CommRingCat.ofHom λ)≫j=_
+            change Spec.map (CommRingCat.ofHom θ≫CommRingCat.ofHom nilMap)≫j=_
             rw [Spec.map_comp,Category.assoc]
-      _ = qp≫(qt≫σ) := by rw [local_test_agrees j z θ τ extends]
-      _ = Spec.map (CommRingCat.ofHom (λ.comp τ))≫σ := by
-            change _=Spec.map (CommRingCat.ofHom τ≫CommRingCat.ofHom λ)≫σ
+      _ = qp≫(qt≫σ) := by rw [local_test_agrees j z θ τ readsBase]
+      _ = Spec.map (CommRingCat.ofHom (nilMap.comp τ))≫σ := by
+            change _=Spec.map (CommRingCat.ofHom τ≫CommRingCat.ofHom nilMap)≫σ
             rw [Spec.map_comp,Category.assoc]
   have e := Spec.map_injective ((cancel_mono (stalkChart j z)).mp sq)
   exact congrArg (fun u : affineStalk B z ⟶ CommRingCat.of T => u.hom) e

@@ -1,5 +1,6 @@
 module
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Data.Fintype.Card
 public section
 noncomputable section
 

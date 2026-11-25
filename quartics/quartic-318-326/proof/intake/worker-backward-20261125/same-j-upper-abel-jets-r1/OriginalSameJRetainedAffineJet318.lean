@@ -23,7 +23,7 @@ theorem proj_square_zero : (RingHom.ker (proj (k:=k))) ^ 2 = ⊥ := by
   intro a ha b hb
   have ha' : a.fst = 0 := RingHom.mem_ker.mp ha
   have hb' : b.fst = 0 := RingHom.mem_ker.mp hb
-  apply Submodule.mem_bot.mpr
+  refine (Ideal.mem_bot (x := a*b)).mpr ?_
   apply TrivSqZeroExt.ext
   · simp [ha', hb']
   · simp [ha', hb']
@@ -71,10 +71,16 @@ def namedResidue (a : k) : k[X] →ₐ[k] k := Polynomial.aeval a
 
 theorem base_specializes (a v : k) :
     (proj (k:=k)).comp (namedBase a v).toRingHom = (namedResidue a).toRingHom := by
+  let g : Jet k →ₐ[k] k := TrivSqZeroExt.fstHom k k k
+  have h : g.comp (namedBase a v) = namedResidue a := by
+    apply Polynomial.algHom_ext
+    change g (namedBase a v (X:k[X])) = namedResidue a (X:k[X])
+    have hx : namedBase a v (X:k[X]) = ((a,v) : Jet k) := Polynomial.aeval_X _
+    have ha : namedResidue a (X:k[X]) = a := Polynomial.aeval_X _
+    exact (congrArg g hx).trans ((show g ((a,v) : Jet k) = a from rfl).trans ha.symm)
   apply RingHom.ext
   intro p
-  exact (Polynomial.aeval_algHom_apply
-    (TrivSqZeroExt.fstHom k k k) ((a,v) : Jet k) p).symm
+  exact DFunLike.congr_fun h p
 
 theorem namedBase_X (a v : k) : namedBase a v (Polynomial.X : k[X]) = ((a,v) : Jet k) :=
   Polynomial.aeval_X _
@@ -100,14 +106,23 @@ theorem reciprocal_read (χ π : A) (hχπ : χ * π = 1) (a v : k)
     (j π).fst = a⁻¹ ∧ (j π).snd = -(a⁻¹ * v * a⁻¹) := by
   let z : Jet k := ((a⁻¹, -(a⁻¹ * v * a⁻¹)) : Jet k)
   have hj : j χ * j π = 1 := by rw [← map_mul, hχπ, map_one]
+  have hfst : (j χ).fst = a :=
+    (congrArg (fun b : Jet k => b.fst) hχ).trans (TrivSqZeroExt.fst_mk a v)
+  have hsnd : (j χ).snd = v :=
+    (congrArg (fun b : Jet k => b.snd) hχ).trans (TrivSqZeroExt.snd_mk a v)
+  have hzfst : z.fst = a⁻¹ := rfl
+  have hzsnd : z.snd = -(a⁻¹ * v * a⁻¹) := rfl
   have hz : j χ * z = 1 := by
-    rw [hχ]
     apply TrivSqZeroExt.ext
-    · exact mul_inv_cancel₀ ha
-    · simp only [z, TrivSqZeroExt.snd_mul, TrivSqZeroExt.fst_mk,
-        TrivSqZeroExt.snd_mk, TrivSqZeroExt.snd_one, MulOpposite.op_smul, smul_eq_mul]
-      rw [mul_neg, ← mul_assoc a (a⁻¹ * v) a⁻¹, ← mul_assoc a a⁻¹ v,
-        mul_inv_cancel₀ ha, one_mul, mul_comm v a⁻¹, neg_add_cancel]
+    · rw [TrivSqZeroExt.fst_mul,hfst,hzfst,TrivSqZeroExt.fst_one]
+      exact mul_inv_cancel₀ ha
+    · rw [TrivSqZeroExt.snd_mul,hfst,hsnd,hzfst,hzsnd,TrivSqZeroExt.snd_one]
+      simp only [op_smul_eq_smul,smul_eq_mul,mul_neg]
+      have ha' : a * (a⁻¹ * v * a⁻¹) = a⁻¹ * v := by
+        calc
+          _ = (a * a⁻¹) * (v * a⁻¹) := by simp only [mul_assoc]
+          _ = _ := by rw [mul_inv_cancel₀ ha,one_mul,mul_comm v a⁻¹]
+      rw [ha',neg_add_cancel]
   have he : j π = z := by
     calc
       j π = j π * 1 := (mul_one _).symm

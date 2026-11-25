@@ -43,7 +43,7 @@ theorem thickAffine_fst (x : B) : (thickAffine e x).fst=e x := by
   let p := points (S:=k) e (LinearMap.id : M→ₗ[k]M)
   exact congrArg (fun q : B→ₐ[k]k => q x) p.property
 
-theorem thickAffine_snd (x : P) : (thickAffine e x.val).snd=P.toCotangent x := by
+theorem thickAffine_snd (x : P) : (thickAffine e x.val).snd=(originIdeal e).toCotangent x := by
   simpa only [thickAffine,points_snd,LinearMap.id_apply,differential_ideal]
 
 theorem oldOrigin_ViaAugmentation :
@@ -94,17 +94,17 @@ theorem actual_multiplier_stalk_injective (n : ℕ) (positive : 0<n) :
     Function.Injective ((installed (A:=A) n).left.stalkMap (C.incl z)).hom := by
   let f := (installed (A:=A) n).left
   have fixed : f (C.incl z)=C.incl z := multiplier_fixes_old_origin C n
-  letI : P.IsPrime := RingHom.ker_isPrime e.toRingHom
+  letI : (originIdeal e).IsPrime := RingHom.ker_isPrime e.toRingHom
   letI : Algebra B (affineStalk B z) := inferInstanceAs (Algebra (CommRingCat.of B) (affineStalk B z))
   letI : IsLocalization.AtPrime (affineStalk B z) P := inferInstanceAs
-    (IsLocalization.AtPrime (affineStalk B z) z.asIdeal)
+    (IsLocalization.AtPrime (affineStalk B z) (oldOrigin e).asIdeal)
   letI : IsNoetherianRing (affineStalk B z) :=
-    IsLocalization.isNoetherianRing P.primeCompl (affineStalk B z) inferInstance
+    IsLocalization.isNoetherianRing (originIdeal e).primeCompl (affineStalk B z) inferInstance
   let j := thickAffine e
   let τ : (affineStalk B z)→+*T := wholeJet e j (thickAffine_fst (e:=e))
-  have extends : τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom=j.toRingHom :=
+  have readsBase : τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom=j.toRingHom :=
     RingHom.ext (wholeJet_read e j (thickAffine_fst (e:=e)))
-  have whole := whole_square_to_ring C.incl z f fixed j.toRingHom τ extends
+  have whole := whole_square_to_ring C.incl z f fixed j.toRingHom τ readsBase
     (multiplyNil e n).toRingHom (square_on_actual_old_germ C n)
   have ker := wholeJet_ker (L:=affineStalk B z) e j (thickAffine_fst (e:=e)) (thickAffine_snd (e:=e))
   obtain ⟨res,lin⟩ := actual_germ_congruences e j (thickAffine_fst (e:=e))

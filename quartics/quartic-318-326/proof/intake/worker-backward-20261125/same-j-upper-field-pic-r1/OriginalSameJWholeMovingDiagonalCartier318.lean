@@ -38,6 +38,8 @@ theorem disc_kernel :
 
 abbrev graphMap := (movingRead (k:=k) (A:=A)).toRingHom
 
+omit [Algebra k[X] A] [IsScalarTower k k[X] A] [Algebra.EssFiniteType k[X] A]
+  [Algebra.FormallyUnramified k[X] A] in
 theorem graph_surjective : Function.Surjective (graphMap (k:=k) (A:=A)) :=
   OriginalSameJExactEtaleDiagonalFactor318.diagonal_surjective (D:=k) (A:=A)
 
@@ -84,12 +86,15 @@ theorem chart_meets (a : Spec (CommRingCat.of A)) :
   change pullback.diagonal f (j a) ∈ (Q.j ≫ e) ''ᵁ ⊤
   obtain ⟨v,hv,hav⟩ := ha
   refine ⟨v,hv,?_⟩
-  have w := congrArg (fun m : Spec (CommRingCat.of A) ⟶ pullback f f => m a)
+  have w : affineDiagonal k A ≫ e = j ≫ pullback.diagonal f :=
     (product_diagonal k A f j hbase).w
   calc
     (Q.j ≫ e) v = e (Q.j v) := Scheme.Hom.comp_apply Q.j e v
     _ = e (affineDiagonal k A a) := congrArg (fun q => e q) hav
-    _ = pullback.diagonal f (j a) := by simpa only [Scheme.Hom.comp_apply] using w
+    _ = (affineDiagonal k A ≫ e) a := (Scheme.Hom.comp_apply (affineDiagonal k A) e a).symm
+    _ = (j ≫ pullback.diagonal f) a :=
+      congrArg (fun m : Spec (CommRingCat.of A) ⟶ pullback f f => m a) w
+    _ = pullback.diagonal f (j a) := Scheme.Hom.comp_apply j (pullback.diagonal f) a
 
 end OriginalSameJWholeMovingDiagonalCartier318
 

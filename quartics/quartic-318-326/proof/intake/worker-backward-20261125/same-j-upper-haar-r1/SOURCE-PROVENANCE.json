@@ -60,14 +60,15 @@
     },
     {
       "module": "SelectedActualAbelExactRealPeriodCovolume318",
-      "source_sha256": "8ffae86c0e96f00e81031c986a39bf50f5356b639c54aa7cd0afedab88bec9f5",
-      "revision": "same-j-period-determinant-r20",
+      "source_sha256": "a652940f72997c0a04d6c429a675d6154359a52b5e5d808a6647914789eea884",
+      "revision": "batch7-windows-b6-source-repair",
       "audit_roots": [
+        "SelectedActualAbelExactRealPeriodCovolume318.literalRealPeriodMatrix_apply",
         "SelectedActualAbelExactRealPeriodCovolume318.covolume_eq_literal_real_period_determinant"
       ],
-      "status": "HISTORICAL_SOURCE_NOT_REPLAYED_IN_THIS_PACKET",
-      "parent_sha256": "6608347ebba1c81deb4ff165f7990badbc7e822327795360a7fe0713ee9d0d5f",
-      "revision_reason": "Rename obsolete ENNReal.one_toReal to pinned ENNReal.toReal_one, with literal volume identity unchanged."
+      "status": "SOURCE_ONLY_UNCOMPILED",
+      "parent_sha256": "8ffae86c0e96f00e81031c986a39bf50f5356b639c54aa7cd0afedab88bec9f5",
+      "revision_reason": "Expose the exact existing literal real period row and prove its entry read."
     },
     {
       "module": "SelectedActualAbelTargetLatticeHaar318",
@@ -81,8 +82,8 @@
     },
     {
       "module": "OriginalSameJLiteralPeriodHaar318",
-      "source_sha256": "70d46b82f3c4c60b25a5b8423ccdab708031dee98c3e2301594a29e6bec1bbca",
-      "revision": "same-j-period-determinant-r21",
+      "source_sha256": "78dc694594b1314c0fcead147d0ba433a00ad7eaa2f107382eeec4d3201c4ef0",
+      "revision": "batch7-windows-b6-source-repair",
       "audit_roots": [
         "OriginalSameJLiteralPeriodHaar318.exact_span",
         "OriginalSameJLiteralPeriodHaar318.literal_row_matrix",
@@ -91,8 +92,8 @@
         "OriginalSameJLiteralPeriodHaar318.actual_target_chart"
       ],
       "status": "SOURCE_ONLY_UNCOMPILED",
-      "parent_sha256": "787493ca7db57e31b6b140a92691555042faabe8d1b6260094c2657ab4094406",
-      "revision_reason": "Expose the exact row permutation used in public period statements and retain the actual exponential measurability proof in the two consumers."
+      "parent_sha256": "70d46b82f3c4c60b25a5b8423ccdab708031dee98c3e2301594a29e6bec1bbca",
+      "revision_reason": "Use the exact literal row API and pinned covolume comparison; preserve all marked inputs."
     }
   ]
 }

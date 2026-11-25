@@ -12,7 +12,7 @@ namespace OriginalSameJLiteralPeriodHaar318
 open Matrix MeasureTheory
 open OriginalSameJSymplecticPeriods318 OriginalSameJRealificationDet318
 open OriginalSameJGroupedPeriodBasis318
-open SelectedActualAbelExactRealPeriodCovolume318 (RealRow literalRealPeriodMatrix
+open SelectedActualAbelExactRealPeriodCovolume318 (RealRow literalRealPeriodMatrix literalRealPeriodMatrix_apply
   covolume_eq_literal_real_period_determinant)
 open SelectedActualAbelTargetLatticeHaar318 (targetVolume targetVolume_mass targetVolume_restrict_chart)
 
@@ -47,10 +47,23 @@ theorem literal_row_matrix :
     literalRealPeriodMatrix (literalZBasis P Q G h hG hp) =
       (groupedReal P Q).submatrix (interleaved g) (interleaved g) := by
   ext i j
-  rw [literalRealPeriodMatrix,literalZBasis,Module.Basis.reindex_apply,
-    Equiv.symm_symm,Module.Basis.restrictScalars_apply,reads_basis]
+  rw [literalRealPeriodMatrix_apply, Matrix.submatrix_apply]
+  have column :
+      ((literalZBasis P Q G h hG hp j : L P Q G h hG hp) :
+        OriginalSameJGroupedPeriodBasis318.V g) =
+      periodColumn P Q (interleaved g j) := by
+    unfold literalZBasis
+    rw [Module.Basis.reindex_apply, Equiv.symm_symm, Module.Basis.restrictScalars_apply]
+    exact reads_basis P Q G h hG hp (interleaved g j)
+  rw [column, ← grouped_read P Q (interleaved g i) (interleaved g j)]
   rcases i with ⟨i,t⟩
-  fin_cases t <;> exact (grouped_read P Q _ _).symm
+  fin_cases t
+  · change Complex.measurableEquivPi ((periodColumn P Q (interleaved g j)) i) 0 =
+      ((periodColumn P Q (interleaved g j)) i).re
+    exact congrFun (Complex.measurableEquivPi_apply _) (0 : Fin 2)
+  · change Complex.measurableEquivPi ((periodColumn P Q (interleaved g j)) i) 1 =
+      ((periodColumn P Q (interleaved g j)) i).im
+    exact congrFun (Complex.measurableEquivPi_apply _) (1 : Fin 2)
 
 theorem actual_covolume :
     ZLattice.covolume (L P Q G h hG hp)

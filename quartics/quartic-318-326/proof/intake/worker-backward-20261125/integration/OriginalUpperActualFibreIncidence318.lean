@@ -41,25 +41,36 @@ include different closed in
 theorem ambient_generic_not_other :
     ambientGeneric s p E ∉ ambientSupport s p F := by
   intro h
-  have h' := (support_image s p closed F) ▸ h
+  have h' : ambientGeneric s p E ∈ s.fiberι p '' (F : Set (s.fiber p)) := by
+    rw [← support_image s p closed F]
+    exact h
   obtain ⟨v,hv,he⟩ := h'
   have e : v = fibreGeneric s p E := (s.fiberι p).isEmbedding.injective he
-  exact fibre_generic_not_other s p E F different (e ▸ hv)
+  exact fibre_generic_not_other s p E F different (by simpa only [e] using hv)
 
 private theorem raises {x y : X} (sp : x ⤳ y) (neq : x ≠ y)
-    (n : ℕ∞) (le : n ≤ coheight x) :
+    (n : ℕ∞) (hle : n ≤ coheight x) :
     n + 1 ≤ coheight y := by
   have lt : y < x := lt_of_le_of_ne sp (Ne.symm neq)
-  exact (add_le_add_right le 1).trans (Order.coheight_add_one_le lt)
+  have hmono : n + 1 ≤ coheight x + 1 := add_le_add hle (le_refl (1 : ℕ∞))
+  exact hmono.trans (Order.coheight_add_one_le lt)
 
 include vertical in
 theorem generic_positive : 1 ≤ coheight (ambientGeneric s p E) := by
   have e : genericPoint X ≠ ambientGeneric s p E := by
     intro h
-    exact vertical (h ▸ ambientGeneric_over s p E)
-  simpa only [zero_add] using raises
-    ((genericPoint_spec X).specializes (Set.mem_univ (ambientGeneric s p E))) e
-    (0 : ℕ∞) (zero_le _)
+    exact vertical ((congrArg (fun y : X => s y) h).trans (ambientGeneric_over s p E))
+  have hg : genericPoint X ⤳ ambientGeneric s p E := genericPoint_specializes _
+  have hz : (0 : ℕ∞) + 1 ≤ coheight (ambientGeneric s p E) := raises hg e 0 zero_le
+  simpa only [zero_add] using hz
+
+/-- Read the true generization from the represented ordinary stalk. -/
+private theorem specializes_from_component {x : X} (hx : x ∈ ambientSupport s p E) :
+    ambientGeneric s p E ⤳ x := by
+  have hm : ambientGeneric s p E ∈ Set.range (X.fromSpecStalk x) :=
+    ⟨pointAt s p E x hx, pointAt_reads s p E x hx⟩
+  rw [Scheme.range_fromSpecStalk] at hm
+  exact hm
 
 include closed vertical different dim in
 /-- At a distinct-component meeting, the actual named component's
@@ -67,10 +78,12 @@ ambient generic point has coheight one. The proof uses the real
 specialization chain between the surface generic and the meeting point. -/
 theorem generic_height_one (x : X) (hx : x ∈ common s p E F) :
     coheight (ambientGeneric s p E) = 1 := by
-  have hsp : ambientGeneric s p E ⤳ x := specializes_iff_mem_closure.mpr hx.1
+  have hsp : ambientGeneric s p E ⤳ x := specializes_from_component s p E hx.1
   have neq : ambientGeneric s p E ≠ x := by
     intro e
-    exact ambient_generic_not_other s p E F different closed (e.symm ▸ hx.2)
+    apply ambient_generic_not_other s p E F different closed
+    rw [e]
+    exact hx.2
   have upper := (raises hsp neq _ le_rfl).trans (dim x)
   refine le_antisymm ?_ (generic_positive s p E vertical)
   exact (ENat.add_le_add_iff_right (by decide : (1:ℕ∞) ≠ ⊤)).mp
@@ -82,9 +95,11 @@ theorem no_strict_specialization_on_common {x y : X}
   by_contra ne
   have gne : ambientGeneric s p E ≠ x := by
     intro e
-    exact ambient_generic_not_other s p E F different closed (e.symm ▸ hx.2)
+    apply ambient_generic_not_other s p E F different closed
+    rw [e]
+    exact hx.2
   have lo : (2:ℕ∞) ≤ coheight x :=
-    raises (specializes_iff_mem_closure.mpr hx.1) gne 1 (generic_positive s p E vertical)
+    raises (specializes_from_component s p E hx.1) gne 1 (generic_positive s p E vertical)
   have impossible : (3:ℕ∞) ≤ 2 := (raises sp ne 2 lo).trans (dim y)
   exact (by decide : ¬ (3:ℕ∞) ≤ 2) impossible
 

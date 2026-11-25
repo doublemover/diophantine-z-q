@@ -76,6 +76,13 @@ def literalRealPeriodMatrix {g : ℕ} {L : Submodule ℤ (V g)}
     (b : Module.Basis (RealRow g) ℤ L) : Matrix (RealRow g) (RealRow g) ℝ :=
   fun i j => Complex.measurableEquivPi (((b j : L) : V g) i.1) i.2
 
+/-- Entrywise reading of the literal matrix, available without exposing its
+implementation or changing the period and volume normalizations. -/
+theorem literalRealPeriodMatrix_apply {g : ℕ} {L : Submodule ℤ (V g)}
+    (b : Module.Basis (RealRow g) ℤ L) (i j : RealRow g) :
+    literalRealPeriodMatrix b i j = Complex.measurableEquivPi (((b j : L) : V g) i.1) i.2 :=
+  rfl
+
 theorem covolume_eq_literal_real_period_determinant {g : ℕ}
     (L : Submodule ℤ (V g)) [DiscreteTopology L] [IsZLattice ℝ L]
     (b : Module.Basis (RealRow g) ℤ L) :
@@ -93,3 +100,5 @@ theorem covolume_eq_literal_real_period_determinant {g : ℕ}
 end SelectedActualAbelExactRealPeriodCovolume318
 
 #print axioms SelectedActualAbelExactRealPeriodCovolume318.covolume_eq_literal_real_period_determinant
+
+#print axioms SelectedActualAbelExactRealPeriodCovolume318.literalRealPeriodMatrix_apply

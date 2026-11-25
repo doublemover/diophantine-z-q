@@ -1,5 +1,6 @@
 module
 public import OriginalUpperActualFibreComponents318
+public import Mathlib.AlgebraicGeometry.FunctionField
 public import Mathlib.RingTheory.Ideal.Cotangent
 
 public section
@@ -13,9 +14,9 @@ universe u
 variable {X Z : Scheme.{u}} [IsIntegral X] (s : X ⟶ Z) (p : Z)
 variable (E : C s p) (x : X) (hx : x ∈ ambientSupport s p E)
 local notation "A" => X.presheaf.stalk x
-local notation "I" => (pointAt s p E x hx).asIdeal
+local notation "I" => PrimeSpectrum.asIdeal (pointAt s p E x hx)
 local notation "B" => A ⧸ I
-local notation "M" => I.Cotangent
+local notation "M" => Ideal.Cotangent I
 
 /-- A primitive equation for the genuine reduced component ideal in
 this ordinary stalk. The proof uses exactly Cartier primality from
@@ -30,7 +31,7 @@ variable (e : Equation s p E x hx)
 def generator : I :=
   ⟨e.f,e.ideal_eq.symm ▸ Ideal.mem_span_singleton_self e.f⟩
 
-def conormalVector : M := I.toCotangent (generator s p E x hx e)
+def conormalVector : M := (I).toCotangent (generator s p E x hx e)
 
 def conormalMap : B →ₗ[A] M :=
   (I : Submodule A A).liftQ (LinearMap.toSpanSingleton A M (conormalVector s p E x hx e))
@@ -38,9 +39,9 @@ def conormalMap : B →ₗ[A] M :=
 
 theorem read_mk (a : A) :
     conormalMap s p E x hx e (Ideal.Quotient.mk I a) =
-      I.toCotangent (a • generator s p E x hx e) := by
+      (I).toCotangent (a • generator s p E x hx e) := by
   rw [conormalMap,Submodule.liftQ_apply]
-  change a • I.toCotangent (generator s p E x hx e) = _
+  change a • (I).toCotangent (generator s p E x hx e) = _
   rw [map_smul]
 
 /-- The actual local conormal I/I², as a module over the actual
@@ -52,7 +53,7 @@ def conormalBasis : B ≃ₗ[B] M :=
       intro v hv
       obtain ⟨a,rfl⟩ := Ideal.Quotient.mk_surjective v
       rw [read_mk] at hv
-      have H := (I.toCotangent_eq_zero (a • generator s p E x hx e)).mp hv
+      have H := ((I).toCotangent_eq_zero (a • generator s p E x hx e)).mp hv
       change a * e.f ∈ I^2 at H
       rw [e.ideal_eq,Ideal.span_singleton_pow,Ideal.mem_span_singleton] at H
       obtain ⟨d,hd⟩ := H
@@ -63,10 +64,9 @@ def conormalBasis : B ≃ₗ[B] M :=
       rw [e.ideal_eq,Ideal.mem_span_singleton]
       exact ⟨d,hcancel⟩
     · intro v
-      obtain ⟨z,rfl⟩ := I.toCotangent_surjective v
-      have hz := z.property
-      rw [e.ideal_eq,Ideal.mem_span_singleton] at hz
-      obtain ⟨a,ha⟩ := hz
+      obtain ⟨z,rfl⟩ := (I).toCotangent_surjective v
+      have hz : (z : A) ∈ Ideal.span ({e.f} : Set A) := (le_of_eq e.ideal_eq) z.property
+      obtain ⟨a,ha⟩ := Ideal.mem_span_singleton.mp hz
       refine ⟨Ideal.Quotient.mk I a,?_⟩
       rw [read_mk]
       congr 1

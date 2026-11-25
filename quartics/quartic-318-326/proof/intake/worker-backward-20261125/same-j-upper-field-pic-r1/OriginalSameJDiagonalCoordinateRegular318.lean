@@ -35,9 +35,8 @@ theorem literally_monic :
   have r : polynomialRead (k:=k) (A:=A) ((1:k[X])⊗ₜ[k]χ (k:=k) (A:=A)) =
       C (χ (k:=k) (A:=A)) := by
     change (polyEquivTensor k A).symm (χ (k:=k) (A:=A)⊗ₜ[k](1:k[X])) = _
-    rw [polyEquivTensor_symm_apply_tmul_eq_smul,Polynomial.map_one]
-    change C (χ (k:=k) (A:=A)) * 1 = C (χ (k:=k) (A:=A))
-    exact mul_one _
+    rw [polyEquivTensor_symm_apply_tmul_eq_smul,Polynomial.map_one,
+      Polynomial.smul_eq_C_mul,mul_one]
   rw [before,map_sub,l,r]
 
 private theorem before_regular (b : B (k:=k) (A:=A))
@@ -75,19 +74,26 @@ theorem regular [Module.Flat k[X] A] (z : A⊗[k]A)
     Module.Flat.lTensor_preserves_injective_linearMap m hm
   let e := twoBase (k:=k) (A:=A)
   let y := (1:A)⊗ₜ[k[X]]before (k:=k) (A:=A)
-  have reads (v : A ⊗[k[X]] B (k:=k) (A:=A)) : m.lTensor A v = v*y := by
-    induction v using TensorProduct.induction_on with
-    | zero => rw [map_zero,zero_mul]
-    | tmul a b =>
-      simp only [y,LinearMap.lTensor_tmul,m,LinearMap.mulRight_apply,
-        Algebra.TensorProduct.tmul_mul_tmul,mul_one]
-    | add a b ha hb => rw [map_add,add_mul,ha,hb]
-  have h' : (m.lTensor A) (e.symm z) = (m.lTensor A) 0 := by
+  let right : (A ⊗[k[X]] B (k:=k) (A:=A)) →ₗ[k[X]]
+      (A ⊗[k[X]] B (k:=k) (A:=A)) := LinearMap.mulRight k[X] y
+  have reads : m.lTensor A = right := by
+    apply TensorProduct.ext'
+    intro a b
+    simp only [right,y,LinearMap.lTensor_tmul,m,LinearMap.mulRight_apply,
+      Algebra.TensorProduct.tmul_mul_tmul,mul_one]
+  have hy : e y = coordinateDifference (k:=k) (A:=A) := twoBase_equation
+  have hz' : e.symm z * y = 0 := by
     apply e.injective
-    rw [reads,map_zero,map_zero,map_mul,AlgEquiv.apply_symm_apply]
-    change z * (twoBase (k:=k) (A:=A) ((1:A)⊗ₜ[k[X]]before (k:=k) (A:=A))) = 0
-    rw [twoBase_equation]
-    exact hz
+    calc
+      e (e.symm z * y) = e (e.symm z) * e y := map_mul e _ _
+      _ = z * coordinateDifference (k:=k) (A:=A) := by rw [e.apply_symm_apply,hy]
+      _ = 0 := hz
+      _ = e 0 := (map_zero e).symm
+  have h' : (m.lTensor A) (e.symm z) = (m.lTensor A) 0 := by
+    calc
+      _ = e.symm z * y := DFunLike.congr_fun reads (e.symm z)
+      _ = 0 := hz'
+      _ = _ := (map_zero (m.lTensor A)).symm
   calc
     z = e (e.symm z) := (e.apply_symm_apply z).symm
     _ = e 0 := congrArg e (hT h')
