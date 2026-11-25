@@ -29,7 +29,8 @@ variable (read : ∀ i,j i ≫ f = Spec.map (CommRingCat.ofHom (algebraMap k (A 
 without any closed fibre of the diagonal: on it the equation is 1. -/
 theorem cover
     (onC : ∀ x : C, ∃ i,∃ a : Spec (CommRingCat.of (A i)),j i a=x)
-    (q : pullback f f) : ∃ Q : Chart (pullback.diagonal f),q ∈ Q.V.1 := by
+    (q : (pullback.diagonalObj f).carrier) :
+    ∃ Q : Chart (pullback.diagonal f), q ∈ Q.V.1 := by
   classical
   by_cases h : q ∈ Set.range (pullback.diagonal f)
   · obtain ⟨z,rfl⟩ := h

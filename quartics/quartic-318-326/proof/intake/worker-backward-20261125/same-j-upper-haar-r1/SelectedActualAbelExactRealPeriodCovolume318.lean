@@ -72,12 +72,12 @@ private theorem real_reference_box_volume (g : ℕ) :
 /-- The actual integer periods are the columns. The real/imaginary
 coordinates are determined by the original complex row, and no
 extra determinant, factor of π, or real volume scaling enters. -/
-def literalRealPeriodMatrix {g : ℕ} {L : Submodule ℤ (V g)}
+@[expose] def literalRealPeriodMatrix {g : ℕ} {L : Submodule ℤ (V g)}
     (b : Module.Basis (RealRow g) ℤ L) : Matrix (RealRow g) (RealRow g) ℝ :=
   fun i j => Complex.measurableEquivPi (((b j : L) : V g) i.1) i.2
 
-/-- Entrywise reading of the literal matrix, available without exposing its
-implementation or changing the period and volume normalizations. -/
+/-- Entrywise reading of the same literal matrix, without changing the
+period and volume normalizations. Consumers use this named equality. -/
 theorem literalRealPeriodMatrix_apply {g : ℕ} {L : Submodule ℤ (V g)}
     (b : Module.Basis (RealRow g) ℤ L) (i j : RealRow g) :
     literalRealPeriodMatrix b i j = Complex.measurableEquivPi (((b j : L) : V g) i.1) i.2 :=

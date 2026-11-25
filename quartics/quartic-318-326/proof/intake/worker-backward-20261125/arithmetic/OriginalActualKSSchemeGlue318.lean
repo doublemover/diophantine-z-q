@@ -52,13 +52,13 @@ private theorem second_inverse (i j : U.I₀) :
   simp only [Category.assoc,Iso.inv_hom_id,Category.comp_id,D.second_read]
   rw [← Category.assoc,Iso.inv_hom_id,Category.id_comp]
 
-private def forwards (i : U.I₀) : U.X i ⟶ Y :=
+def forwards (i : U.I₀) : U.X i ⟶ Y :=
   (D.chart i).hom ≫ (indexed U V idx).f i
 
-private def backwards (i : U.I₀) : (indexed U V idx).X i ⟶ X :=
+def backwards (i : U.I₀) : (indexed U V idx).X i ⟶ X :=
   (D.chart i).inv ≫ U.f i
 
-private theorem forwards_agree (i j : U.I₀) :
+theorem forwards_agree (i j : U.I₀) :
     pullback.fst (U.f i) (U.f j) ≫ forwards U V idx D i =
       pullback.snd (U.f i) (U.f j) ≫ forwards U V idx D j := by
   calc
@@ -74,7 +74,7 @@ private theorem forwards_agree (i j : U.I₀) :
         simpa only [forwards,Category.assoc] using
           congrArg (fun e => e ≫ (indexed U V idx).f j) (D.second_read i j).symm
 
-private theorem backwards_agree (i j : U.I₀) :
+theorem backwards_agree (i j : U.I₀) :
     pullback.fst ((indexed U V idx).f i) ((indexed U V idx).f j) ≫ backwards U V idx D i =
       pullback.snd ((indexed U V idx).f i) ((indexed U V idx).f j) ≫ backwards U V idx D j := by
   calc
@@ -89,18 +89,18 @@ private theorem backwards_agree (i j : U.I₀) :
         congrArg (fun e => e ≫ U.f j) (second_inverse U V idx D i j).symm
 
 def forward : X ⟶ Y :=
-  U.glueMorphisms (forwards U V idx D) (forwards_agree U V idx D)
+  Scheme.Cover.glueMorphisms U (forwards U V idx D) (forwards_agree U V idx D)
 
 def backward : Y ⟶ X :=
-  (indexed U V idx).glueMorphisms (backwards U V idx D) (backwards_agree U V idx D)
+  Scheme.Cover.glueMorphisms (indexed U V idx) (backwards U V idx D) (backwards_agree U V idx D)
 
 theorem forward_chart (i : U.I₀) :
     U.f i ≫ forward U V idx D = (D.chart i).hom ≫ (indexed U V idx).f i :=
-  U.ι_glueMorphisms _ _ i
+  Scheme.Cover.ι_glueMorphisms U _ _ i
 
 theorem backward_chart (i : U.I₀) :
     (indexed U V idx).f i ≫ backward U V idx D = (D.chart i).inv ≫ U.f i :=
-  (indexed U V idx).ι_glueMorphisms _ _ i
+  Scheme.Cover.ι_glueMorphisms (indexed U V idx) _ _ i
 
 /-- The actual global isomorphism on the original deformed scheme
 and its undeformed product, not an equality tested only at points. -/
@@ -108,12 +108,12 @@ def correctedIso : X ≅ Y where
   hom := forward U V idx D
   inv := backward U V idx D
   hom_inv_id := by
-    apply U.hom_ext
+    apply Scheme.Cover.hom_ext U
     intro i
     rw [← Category.assoc,forward_chart,Category.assoc,backward_chart,← Category.assoc,
       Iso.hom_inv_id,Category.id_comp,Category.comp_id]
   inv_hom_id := by
-    apply (indexed U V idx).hom_ext
+    apply Scheme.Cover.hom_ext (indexed U V idx)
     intro i
     rw [← Category.assoc,backward_chart,Category.assoc,forward_chart,← Category.assoc,
       Iso.inv_hom_id,Category.id_comp,Category.comp_id]
@@ -125,7 +125,7 @@ theorem global_base_read {S : Scheme.{u}} (x : X ⟶ S) (y : Y ⟶ S)
     (local_reads : ∀ i : U.I₀,
       (D.chart i).hom ≫ (indexed U V idx).f i ≫ y = U.f i ≫ x) :
     (correctedIso U V idx D).hom ≫ y = x := by
-  apply U.hom_ext
+  apply Scheme.Cover.hom_ext U
   intro i
   change U.f i ≫ forward U V idx D ≫ y = U.f i ≫ x
   rw [← Category.assoc,forward_chart,Category.assoc]

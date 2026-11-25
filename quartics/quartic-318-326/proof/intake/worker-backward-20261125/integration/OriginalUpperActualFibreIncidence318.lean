@@ -113,12 +113,16 @@ theorem finite_common : (common s p E F).Finite := by
   obtain ⟨W,hW,hClosed,hIrred,hcover⟩ :=
     NoetherianSpace.exists_finite_set_isClosed_irreducible
       ((ambientSupport s p E).isClosed.inter (ambientSupport s p F).isClosed)
+  change ((ambientSupport s p E : Set X) ∩ (ambientSupport s p F : Set X)).Finite
   rw [hcover]
   refine hW.sUnion ?_
   intro U hU
   let x := (hIrred U hU).genericPoint
   have gx : IsGenericPoint x U := (hIrred U hU).isGenericPoint_genericPoint (hClosed U hU)
-  have hx : x ∈ common s p E F := hcover ▸ Set.mem_sUnion_of_mem gx.mem hU
+  have hx : x ∈ common s p E F := by
+    change x ∈ (ambientSupport s p E : Set X) ∩ (ambientSupport s p F : Set X)
+    rw [hcover]
+    exact Set.mem_sUnion_of_mem gx.mem hU
   have hU' : U ⊆ ({x}:Set X) := by
     intro y hy
     exact Set.mem_singleton_iff.mpr

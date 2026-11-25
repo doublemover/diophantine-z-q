@@ -98,10 +98,24 @@ include readsBase in
 theorem local_test_agrees :
     Spec.map (CommRingCat.ofHom τ)≫stalkChart j z=
       Spec.map (CommRingCat.ofHom θ)≫j := by
-  rw [stalkChart,Spec.fromSpecStalk_eq',←Category.assoc,←Spec.map_comp]
-  change Spec.map (CommRingCat.ofHom
-      (τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom))≫j=_
-  rw [readsBase]
+  let c : CommRingCat.of B ⟶ affineStalk B z :=
+    StructureSheaf.toStalk (CommRingCat.of B) z
+  have hstalk : (Spec (CommRingCat.of B)).fromSpecStalk z=Spec.map c :=
+    Spec.fromSpecStalk_eq' (CommRingCat.of B) z
+  have hread : c≫CommRingCat.ofHom τ=CommRingCat.ofHom θ :=
+    congrArg (fun h : B→+*T => CommRingCat.ofHom h) readsBase
+  calc
+    _ = Spec.map (CommRingCat.ofHom τ)≫
+        ((Spec (CommRingCat.of B)).fromSpecStalk z≫j) := rfl
+    _ = Spec.map (CommRingCat.ofHom τ)≫(Spec.map c≫j) :=
+      congrArg (fun h : Spec (affineStalk B z) ⟶ Spec (CommRingCat.of B) =>
+        Spec.map (CommRingCat.ofHom τ)≫(h≫j)) hstalk
+    _ = (Spec.map (CommRingCat.ofHom τ)≫Spec.map c)≫j :=
+      (Category.assoc _ _ _).symm
+    _ = Spec.map (c≫CommRingCat.ofHom τ)≫j :=
+      congrArg (fun h : Spec (CommRingCat.of T) ⟶ Spec (CommRingCat.of B) => h≫j)
+        (Spec.map_comp c (CommRingCat.ofHom τ)).symm
+    _ = _ := congrArg (fun h : CommRingCat.of B ⟶ CommRingCat.of T => Spec.map h≫j) hread
 
 variable (nilMap : T→+*T)
 
