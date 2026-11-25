@@ -19,12 +19,12 @@ def toStalk : Localization.Away t→ₐ[A]Q :=
   IsLocalization.Away.liftAlgHom t (f:=Algebra.ofId A Q)
     (IsLocalization.map_units Q ⟨t,ht⟩)
 
-theorem toStalk_injective [IsDomain A] : Function.Injective (toStalk P t ht) := by
+theorem toStalk_injective [IsDomain A] : Function.Injective (toStalk (Q:=Q) P t ht) := by
   apply (IsLocalization.injective_iff_map_algebraMap_eq (.powers t)
-    (toStalk P t ht).toRingHom).2
+    (toStalk (Q:=Q) P t ht).toRingHom).2
   intro x y
-  change _ = _ ↔ toStalk P t ht (algebraMap A (Localization.Away t) x) =
-    toStalk P t ht (algebraMap A (Localization.Away t) y)
+  change _ = _ ↔ toStalk (Q:=Q) P t ht (algebraMap A (Localization.Away t) x) =
+    toStalk (Q:=Q) P t ht (algebraMap A (Localization.Away t) y)
   rw [AlgHom.commutes,AlgHom.commutes]
   have ht0 : t≠0 := fun e=>ht (by simpa [e] using (P.zero_mem : (0:A)∈P))
   exact (IsLocalization.injective (Localization.Away t)
@@ -38,18 +38,18 @@ principal open through the named point.  The map back to the stalk
 is injective on the entire new affine ring. -/
 theorem actual_finite_denominators (values : ι→Q) :
     ∃ (t : A) (ht : t ∈ P.primeCompl) (f : ι→Localization.Away t),
-      ∀ i,toStalk P t ht (f i)=values i := by
+      ∀ i,toStalk (Q:=Q) P t ht (f i)=values i := by
   classical
   choose e he using fun i => IsLocalization.surj P.primeCompl (values i)
   let t := ∏ i, ((e i).2:A)
   have ht : t ∈ P.primeCompl := P.primeCompl.prod_mem (fun i _ => (e i).2.property)
   let w (i : ι) : (Localization.Away t)ˣ :=
-    (IsLocalization.Away.isUnit_of_dvd (S:=Localization.Away t)
+    (IsLocalization.Away.isUnit_of_dvd (S:=Localization.Away t) t
       (Finset.dvd_prod_of_mem (fun i => ((e i).2:A)) (Finset.mem_univ i))).unit
   refine ⟨t,ht,fun i => algebraMap A (Localization.Away t) (e i).1 *
     ((w i)⁻¹:(Localization.Away t)ˣ),?_⟩
   intro i
-  let f := toStalk P t ht
+  let f := toStalk (Q:=Q) P t ht
   have h (a : A) : f (algebraMap A (Localization.Away t) a)=algebraMap A Q a :=
     f.commutes a
   have uw : ((w i: (Localization.Away t)ˣ):Localization.Away t)=
