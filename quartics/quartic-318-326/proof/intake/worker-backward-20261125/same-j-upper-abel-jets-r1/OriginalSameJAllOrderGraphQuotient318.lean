@@ -28,18 +28,21 @@ theorem eval_surj (u : A) : Function.Surjective (Polynomial.evalRingHom u) :=
 theorem mapped_parameter (u : A) (m : ℕ) :
     (parameterPower (A:=A) m).map (Polynomial.evalRingHom u) = thick u m := by
   unfold parameterPower thick
-  rw [Ideal.map_span,Set.image_singleton]
+  rw [Ideal.map_span]
   have hx : Polynomial.evalRingHom u (X : A[X]) = u := Polynomial.eval_X
   have hm : Polynomial.evalRingHom u ((X : A[X]) ^ m) = u ^ m :=
     (map_pow (Polynomial.evalRingHom u) (X : A[X]) m).trans (congrArg (fun z : A => z ^ m) hx)
-  rw [hm]
+  have hi : (Polynomial.evalRingHom u : A[X] → A) '' Set.singleton ((X : A[X]) ^ m) =
+      Set.singleton (Polynomial.evalRingHom u ((X : A[X]) ^ m)) :=
+    Set.image_singleton
+  exact congrArg (Ideal.span : Set A → Ideal A) (hi.trans (congrArg Set.singleton hm))
 
 theorem raw_kernel (u : A) (m : ℕ) :
     RingHom.ker (pointEval u m) =
       parameterPower (A:=A) m ⊔ Ideal.span (Set.singleton (X - C u)) := by
-  change (thick u m).comap (Polynomial.evalRingHom u) = _
-  rw [← mapped_parameter u m, Ideal.comap_map_of_surjective' _ (eval_surj u),
-    Polynomial.ker_evalRingHom]
+  unfold pointEval
+  rw [← RingHom.comap_ker,Ideal.mk_ker,← mapped_parameter u m,
+    Ideal.comap_map_of_surjective' _ (eval_surj u),Polynomial.ker_evalRingHom]
 
 theorem power_vanishes (u : A) (m : ℕ) :
     parameterPower (A:=A) m ≤ RingHom.ker (pointEval u m) := by
@@ -66,8 +69,13 @@ every truncation order. A positive Cartier equation can be u-t. -/
 theorem exact_graph (u : A) (m : ℕ) :
     RingHom.ker (graph u m) =
       Ideal.span (Set.singleton ((Ideal.Quotient.mk (parameterPower m)) (X - C u))) := by
-  rw [graph, RingHom.ker_quotient_lift, raw_kernel, Ideal.map_sup,
-    RingHom.map_mk_eq_bot_of_le le_rfl, bot_sup_eq, Ideal.map_span, Set.image_singleton]
+  rw [graph,Ideal.ker_quotient_lift,raw_kernel,Ideal.map_sup,
+    Ideal.map_quotient_self,bot_sup_eq,Ideal.map_span]
+  have hi : (Ideal.Quotient.mk (parameterPower (A:=A) m) : A[X] → testRing (A:=A) m) ''
+      Set.singleton (X - C u) =
+      Set.singleton (Ideal.Quotient.mk (parameterPower (A:=A) m) (X - C u)) :=
+    Set.image_singleton
+  exact congrArg (Ideal.span : Set (testRing (A:=A) m) → Ideal (testRing (A:=A) m)) hi
 
 end OriginalSameJAllOrderGraphQuotient318
 

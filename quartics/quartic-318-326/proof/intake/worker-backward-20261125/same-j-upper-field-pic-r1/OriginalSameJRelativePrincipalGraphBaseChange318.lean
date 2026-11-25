@@ -22,23 +22,26 @@ variable (hr : ∀ b : B, b*c=0 → b=0)
 abbrev into : A →ₗ[A] B := Algebra.linearMap A B
 abbrev mult : B →ₗ[A] B := LinearMap.mulRight A c
 
+include hk in
 theorem c_vanishes : g c=0 := by
   have h : c ∈ RingHom.ker g.toRingHom := by
     rw [hk]
     exact Ideal.mem_span_singleton_self c
   exact RingHom.mem_ker.mp h
 
+include hr in
 theorem cancel {b d : B} (h : b*c=d*c) : b=d := by
   apply sub_eq_zero.mp
   exact hr (b-d) (by rw [sub_mul,h,sub_self])
 
+include hk in
 theorem division (b : B) : ∃ a : B, a*c = b - into (A:=A) (B:=B) (g b) := by
-  apply Ideal.mem_span_singleton'.mp
-  rw [← hk]
-  apply RingHom.mem_ker.mpr
-  change g (b-algebraMap A B (g b))=0
-  rw [map_sub, g.commutes]
-  exact sub_self _
+  have hm : b - into (A:=A) (B:=B) (g b) ∈ Ideal.span (Set.singleton c) := by
+    rw [← hk]
+    apply RingHom.mem_ker.mpr
+    change g (b - algebraMap A B (g b)) = 0
+    simp only [map_sub,g.commutes,Algebra.algebraMap_self_apply,sub_self]
+  exact Ideal.mem_span_singleton'.mp hm
 
 abbrev quot (b : B) : B := Classical.choose (division g c hk b)
 
@@ -85,8 +88,7 @@ abbrev mappedC : T⊗[A]B := (1:T)⊗ₜ[A]c
 
 theorem mapped_divisor (q : T⊗[A]B) :
     (mult c).lTensor T q = q*mappedC c T := by
-  induction q using TensorProduct.induction_on with
-  | zero => rw [map_zero,zero_mul]
+  induction q using TensorProduct.inductionOn with
   | tmul t b =>
     simp only [LinearMap.lTensor_tmul,LinearMap.mulRight_apply,mappedC,
       Algebra.TensorProduct.tmul_mul_tmul,mul_one]
@@ -99,6 +101,7 @@ theorem mapped_eval_linear :
   simp only [mappedEval,AlgHom.toLinearMap_apply,Algebra.TensorProduct.map_tmul,
     AlgHom.id_apply,LinearMap.lTensor_tmul]
 
+include hk hr in
 /-- The original whole graph ideal remains a regular principal ideal
 after EVERY parameter algebra, including nonflat and nonreduced tests.
 The splitting uses the same structural ring map A → B, not a selected
@@ -113,7 +116,9 @@ theorem arbitrary_base :
     LinearMap.lTensor_id] at LR
   constructor
   · ext q
-    rw [RingHom.mem_ker,Ideal.mem_span_singleton']
+    have hmem : q ∈ Ideal.span (Set.singleton (mappedC c T)) ↔
+        ∃ a : T⊗[A]B, a * mappedC c T = q := Ideal.mem_span_singleton'
+    rw [RingHom.mem_ker,hmem]
     constructor
     · intro h
       refine ⟨(proj g c hk hr).lTensor T q,?_⟩

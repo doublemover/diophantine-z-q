@@ -31,12 +31,12 @@ def coeff : CommRingCat.of ℚ ⟶ B f q :=
 
 /-- The scalar algebra is determined by the structural arrow of the
 actual fibre. It is not a separate input to the point construction. -/
-def scalar : Algebra ℚ (B f q) := (coeff f q).hom.toAlgebra
+@[instance_reducible] def scalar : Algebra ℚ (B f q) := (coeff f q).hom.toAlgebra
 
 theorem moduleFinite :
     letI := scalar f q
     Module.Finite ℚ (B f q) := by
-  letI := scalar f q
+  let := scalar f q
   apply RingHom.finite_algebraMap.mp
   change (coeff f q).hom.Finite
   exact RingHom.Finite.comp (base f q).finite_appTop
@@ -44,19 +44,18 @@ theorem moduleFinite :
       (ConcreteCategory.bijective_of_isIso (Scheme.ΓSpecIso (CommRingCat.of ℚ)).inv).2)
 
 theorem base_read : (iso f q).inv ≫ base f q = Spec.map (coeff f q) := by
-  let r := (Scheme.ΓSpecIso (CommRingCat.of ℚ)).inv
+  let S := CommRingCat.of ℚ
+  let r := (Scheme.ΓSpecIso S).inv
+  apply (cancel_epi (iso f q).hom).mp
   calc
-    _ = (iso f q).inv ≫ (base f q ≫ Q.toSpecΓ) ≫ Spec.map r := by
-      simp only [Category.assoc,toSpecΓ_SpecMap_ΓSpecIso_inv,Category.comp_id]
-    _ = (iso f q).inv ≫ (actualFibre f q).toSpecΓ ≫
-          Spec.map (base f q).appTop ≫ Spec.map r := by
-      rw [Scheme.toSpecΓ_naturality,Category.assoc]
+    _ = base f q := by
+      rw [← Category.assoc, Iso.hom_inv_id, Category.id_comp]
+    _ = (base f q ≫ (Spec S).toSpecΓ) ≫ Spec.map r := by
+      rw [Category.assoc, toSpecΓ_SpecMap_ΓSpecIso_inv, Category.comp_id]
     _ = _ := by
-      have w : (iso f q).inv ≫ (actualFibre f q).toSpecΓ = 𝟙 _ :=
-        (iso f q).inv_hom_id
-      change (iso f q).inv ≫ (actualFibre f q).toSpecΓ ≫
-          Spec.map (base f q).appTop ≫ Spec.map r = Spec.map (r ≫ (base f q).appTop)
-      rw [←Category.assoc,w,Category.id_comp,←Spec.map_comp]
+      change (base f q ≫ (Spec S).toSpecΓ) ≫ Spec.map r =
+        (actualFibre f q).toSpecΓ ≫ Spec.map (coeff f q)
+      rw [Scheme.toSpecΓ_naturality, Category.assoc, coeff, Spec.map_comp]
 
 def projection : Spec (B f q) ⟶ Z :=
   (iso f q).inv ≫ pullback.fst f q
@@ -66,12 +65,12 @@ finite arrow; we do not assume any independently represented fibre. -/
 theorem actual_square :
     letI := scalar f q
     IsPullback (projection f q) (Spec.algebraMap ℚ (B f q)) f q := by
-  letI := scalar f q
-  have w : projection f q ≫ f = Spec.algebraMap ℚ (B f q) ≫ q := by
-    rw [←base_read f q]
+  change IsPullback (projection f q) (Spec.map (coeff f q)) f q
+  have w : projection f q ≫ f = Spec.map (coeff f q) ≫ q := by
+    rw [← base_read f q]
     change ((iso f q).inv ≫ pullback.fst f q) ≫ f =
       ((iso f q).inv ≫ pullback.snd f q) ≫ q
-    rw [Category.assoc,Category.assoc,pullback.condition]
+    rw [Category.assoc, Category.assoc, pullback.condition]
   exact IsPullback.of_iso_pullback ⟨w⟩ (iso f q).symm rfl (base_read f q)
 
 /-- Nonempty only where it is genuinely needed: one actual point above
@@ -88,9 +87,9 @@ number field. Its field structure is the exact maximal-ideal quotient. -/
 theorem exists_closedAt (h : ∃ x : Z, f x=q (⊥ : PrimeSpectrum ℚ)) :
     letI := scalar f q
     ∃ m : Ideal (B f q), m.IsMaximal ∧ Module.Finite ℚ ((B f q) ⧸ m) := by
-  letI := scalar f q
-  letI := nontrivialAt f q h
-  letI := moduleFinite f q
+  let := scalar f q
+  let := nontrivialAt f q h
+  let := moduleFinite f q
   obtain ⟨m,hm⟩ := Ideal.exists_maximal (α:=B f q)
   exact ⟨m,hm,Module.Finite.of_surjective (Ideal.Quotient.mkₐ ℚ m).toLinearMap
     (Ideal.Quotient.mkₐ_surjective ℚ m)⟩

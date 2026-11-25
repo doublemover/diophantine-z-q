@@ -66,8 +66,10 @@ section ActualReducedCotangent
 
 attribute [local instance] TrivSqZeroExt.algebraBase
 
-local instance sqTower : IsScalarTower R (Sq A) A :=
-  IsScalarTower.of_algebraMap_eq fun _ => rfl
+local instance sqTower : IsScalarTower R (Sq A) A where
+  smul_assoc r x a := by
+    change (r • x).fst * a = r • (x.fst * a)
+    rw [fst_smul,Algebra.smul_mul_assoc]
 
 /-- This coefficient is read from the real absolute cotangent of
 the first-order algebra, viewed at its reduced fibre. -/
@@ -104,6 +106,7 @@ theorem from_absolute_differentials (s t : Lift R A) (a : A) :
     _ = _ := by
       rw [reducedEpsilonFunctional,Derivation.liftKaehlerDifferential_comp_D,
         Derivation.liftKaehlerDifferential_comp_D]
+      rfl
 
 end ActualReducedCotangent
 
@@ -146,8 +149,8 @@ theorem literal_epsilon_map (hε : F (epsilon A) = epsilon B)
   rw [he,map_mul,hε]
   apply TrivSqZeroExt.ext
   · simp [epsilon]
-  · simp only [epsilon,snd_mul,fst_inr,snd_inr,zero_smul,zero_add,
-      op_smul_eq_smul,smul_eq_mul,mul_one,hr,fst_inl]
+  · simp only [epsilon,snd_mul,fst_inr,snd_inr,
+      op_smul_eq_smul,smul_eq_mul,zero_mul,zero_add,mul_one,hr,fst_inl]
 
 /-- This compares the connecting class on the literal same
 [11]/[3] marked germ whenever its actual affine arrow preserves the

@@ -88,8 +88,7 @@ abbrev mappedC : T⊗[A]B := (1:T)⊗ₜ[A]c
 
 theorem mapped_divisor (q : T⊗[A]B) :
     (mult c).lTensor T q = q*mappedC c T := by
-  induction q using TensorProduct.induction_on with
-  | zero => rw [map_zero,zero_mul]
+  induction q using TensorProduct.inductionOn with
   | tmul t b =>
     simp only [LinearMap.lTensor_tmul,LinearMap.mulRight_apply,mappedC,
       Algebra.TensorProduct.tmul_mul_tmul,mul_one]
@@ -102,6 +101,7 @@ theorem mapped_eval_linear :
   simp only [mappedEval,AlgHom.toLinearMap_apply,Algebra.TensorProduct.map_tmul,
     AlgHom.id_apply,LinearMap.lTensor_tmul]
 
+include hk hr in
 /-- The original whole graph ideal remains a regular principal ideal
 after EVERY parameter algebra, including nonflat and nonreduced tests.
 The splitting uses the same structural ring map A → B, not a selected
@@ -116,7 +116,9 @@ theorem arbitrary_base :
     LinearMap.lTensor_id] at LR
   constructor
   · ext q
-    rw [RingHom.mem_ker,Ideal.mem_span_singleton']
+    have hmem : q ∈ Ideal.span (Set.singleton (mappedC c T)) ↔
+        ∃ a : T⊗[A]B, a * mappedC c T = q := Ideal.mem_span_singleton'
+    rw [RingHom.mem_ker,hmem]
     constructor
     · intro h
       refine ⟨(proj g c hk hr).lTensor T q,?_⟩

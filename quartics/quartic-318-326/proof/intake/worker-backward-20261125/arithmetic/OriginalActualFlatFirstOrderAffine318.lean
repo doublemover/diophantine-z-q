@@ -35,7 +35,7 @@ def eMul : Sq R →ₗ[Sq R] Sq R where
 theorem eMul_reads (x : Sq R) : eMul R x = inr x.fst := by
   apply TrivSqZeroExt.ext
   · simp [eMul,epsilon]
-  · simp [eMul,epsilon,op_smul_eq_smul,smul_eq_mul]
+  · simp [eMul,epsilon,smul_eq_mul]
 
 theorem base_exact : Function.Exact (eMul R) (eMul R) := by
   intro x
@@ -64,8 +64,9 @@ theorem epsilon_square : (actualEps (R := R) (B := B))^2 = 0 := by
 private theorem tensor_reads (t : B ⊗[Sq R] Sq R) :
     (TensorProduct.rid (Sq R) B) ((eMul R).lTensor B t) =
       actualEps (R := R) (B := B) * (TensorProduct.rid (Sq R) B) t := by
-  refine TensorProduct.induction_on t ?_ ?_ ?_
-  · simp
+  refine TensorProduct.inductionOn (motive := fun z =>
+    (TensorProduct.rid (Sq R) B) ((eMul R).lTensor B z) =
+      actualEps (R := R) (B := B) * (TensorProduct.rid (Sq R) B) z) t ?_ ?_
   · intro b d
     rw [LinearMap.lTensor_tmul,TensorProduct.rid_tmul,TensorProduct.rid_tmul]
     change algebraMap (Sq R) B (epsilon R*d) * b =
@@ -96,12 +97,14 @@ end FlatRead
 
 section ActualReduction
 variable {R} {B C : Type*} [CommRing B] [CommRing C] [Algebra R B] [Algebra R C]
-variable [Algebra (Sq R) B] [Module.Flat (Sq R) B]
+variable [Algebra (Sq R) B]
 variable (q : B →ₐ[R] C)
 variable (hk : RingHom.ker q.toRingHom =
   Ideal.span ({actualEps (R := R) (B := B)} : Set B))
 
-theorem actual_ann (b : B) :
+include hk
+
+theorem actual_ann [Module.Flat (Sq R) B] (b : B) :
     actualEps (R := R) (B := B)*b=0 ↔ q b=0 := by
   rw [flat_exact (R := R)]
   have h : q b=0 ↔ actualEps (R := R) (B := B) ∣ b := by
@@ -117,7 +120,7 @@ theorem epsilon_reduces :
     exact Ideal.mem_span_singleton_self _
   exact h
 
-private theorem ker_nil : IsNilpotent (RingHom.ker q.toRingHom) := by
+theorem ker_nil : IsNilpotent (RingHom.ker q.toRingHom) := by
   refine ⟨2,?_⟩
   rw [hk,Ideal.span_singleton_pow,epsilon_square]
   simp
@@ -162,7 +165,7 @@ theorem split_epsilon : splitMap q hk hq (epsilon C) =
     actualEps (R := R) (B := B) * liftConstants q hk hq ((epsilon C).snd) = _
   simp [epsilon]
 
-theorem split_bijective : Function.Bijective (splitMap q hk hq) := by
+theorem split_bijective [Module.Flat (Sq R) B] : Function.Bijective (splitMap q hk hq) := by
   constructor
   · intro x y he
     have hf : x.fst=y.fst := by
@@ -198,13 +201,13 @@ theorem split_bijective : Function.Bijective (splitMap q hk hq) := by
 
 /-- This is an isomorphism of actual affine algebras, so Spec gives the
 actual local deformation chart needed to form the overlap cocycle. -/
-noncomputable def splitAffine : Sq C ≃ₐ[R] B :=
+noncomputable def splitAffine [Module.Flat (Sq R) B] : Sq C ≃ₐ[R] B :=
   AlgEquiv.ofBijective (splitMap q hk hq) (split_bijective q hk hq)
 
-theorem splitAffine_reads (x : Sq C) : q (splitAffine q hk hq x) = x.fst :=
+theorem splitAffine_reads [Module.Flat (Sq R) B] (x : Sq C) : q (splitAffine q hk hq x) = x.fst :=
   split_reads q hk hq x
 
-theorem splitAffine_epsilon :
+theorem splitAffine_epsilon [Module.Flat (Sq R) B] :
     splitAffine q hk hq (epsilon C) = actualEps (R := R) (B := B) :=
   split_epsilon q hk hq
 

@@ -45,7 +45,7 @@ abbrev ambientGeneric (E : C s p) : X := s.fiberι p (fibreGeneric s p E)
 def ambientSupport (E : C s p) : Closeds X :=
   .closure {ambientGeneric s p E}
 
-def ambientIdeal (E : C s p) : X.IdealSheafData :=
+@[expose] def ambientIdeal (E : C s p) : X.IdealSheafData :=
   vanishingIdeal (ambientSupport s p E)
 
 theorem fibre_closed_embedding (closed : IsClosed ({p} : Set Z)) :

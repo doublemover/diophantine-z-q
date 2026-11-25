@@ -38,7 +38,7 @@ theorem exists_field_point {X : Scheme.{u}} (f : X ⟶ Sk)
   have nz : (1:R)≠0 := by
     intro h
     let ξ : PrimeSpectrum R := r
-    exact ξ.isPrime.ne_top (Ideal.eq_top_iff_one.2 (h.symm ▸ ξ.asIdeal.zero_mem))
+    exact ξ.isPrime.ne_top ((Ideal.eq_top_iff_one ξ.asIdeal).2 (h.symm ▸ ξ.asIdeal.zero_mem))
   let nzR : Nontrivial R := nontrivial_of_ne 1 0 nz
   let algR : Algebra k R := u.hom.toAlgebra
   let ftR : Algebra.FiniteType k R := ft

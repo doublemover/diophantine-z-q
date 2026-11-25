@@ -16,14 +16,14 @@ variable {M : Type w} [Field M] [Algebra L M] [Algebra A M] [IsScalarTower A L M
 variable {B : Type z} [CommRing B] [Algebra A B] [Algebra B M] [IsScalarTower A B M]
 variable [IsIntegralClosure B A M]
 
-private theorem integral_image (σ : M ≃ₐ[L] M) (b : B) :
+theorem integral_image (σ : M ≃ₐ[L] M) (b : B) :
     IsIntegral A (σ (algebraMap B M b)) := by
   have hb : IsIntegral A (algebraMap B M b) :=
     (IsIntegralClosure.isIntegral_iff (A := B)).mpr ⟨b,rfl⟩
   exact IsIntegral.map ((σ.restrictScalars A).toAlgHom) hb
 
 @[expose] def restrictHom (σ : M ≃ₐ[L] M) : B →ₐ[A] B where
-  toFun b := IsIntegralClosure.mk' B (σ (algebraMap B M b)) (integral_image σ b)
+  toFun b := IsIntegralClosure.mk' B (σ (algebraMap B M b)) (integral_image (A:=A) σ b)
   map_one' := by
     apply IsIntegralClosure.algebraMap_injective B A M
     simp only [IsIntegralClosure.algebraMap_mk',map_one]
@@ -42,37 +42,39 @@ private theorem integral_image (σ : M ≃ₐ[L] M) (b : B) :
       IsScalarTower.algebraMap_apply A L M x, σ.commutes]
 
 @[simp] theorem restrictHom_read (σ : M ≃ₐ[L] M) (b : B) :
-    algebraMap B M (restrictHom σ b) = σ (algebraMap B M b) :=
-  IsIntegralClosure.algebraMap_mk' _ _
+    algebraMap B M (restrictHom (A:=A) σ b) = σ (algebraMap B M b) := by
+  change algebraMap B M (IsIntegralClosure.mk' B (σ (algebraMap B M b))
+    (integral_image (A:=A) σ b)) = σ (algebraMap B M b)
+  exact IsIntegralClosure.algebraMap_mk' B _ (integral_image (A:=A) σ b)
 
 /-- The actual generic automorphism acts on the exact same normalized finite
 order. This implements the restriction at the held integral-closure
 embedding, without an independently provided action on the arithmetic order. -/
 @[expose] def restrictEquiv (σ : M ≃ₐ[L] M) : B ≃ₐ[A] B :=
-  AlgEquiv.ofAlgHom (restrictHom σ) (restrictHom σ.symm)
+  AlgEquiv.ofAlgHom (restrictHom (A:=A) σ) (restrictHom (A:=A) σ.symm)
     (by
       ext b
       apply IsIntegralClosure.algebraMap_injective B A M
-      simp only [AlgHom.comp_apply, AlgHom.id_apply, restrictHom_read, AlgEquiv.apply_symm_apply])
+      simp only [AlgHom.comp_apply, AlgHom.id_apply, restrictHom_read (A:=A), AlgEquiv.apply_symm_apply])
     (by
       ext b
       apply IsIntegralClosure.algebraMap_injective B A M
-      simp only [AlgHom.comp_apply, AlgHom.id_apply, restrictHom_read, AlgEquiv.symm_apply_apply])
+      simp only [AlgHom.comp_apply, AlgHom.id_apply, restrictHom_read (A:=A), AlgEquiv.symm_apply_apply])
 
 @[simp] theorem restrictEquiv_read (σ : M ≃ₐ[L] M) (b : B) :
-    algebraMap B M (restrictEquiv σ b) = σ (algebraMap B M b) :=
-  restrictHom_read σ b
+    algebraMap B M (restrictEquiv (A:=A) σ b) = σ (algebraMap B M b) :=
+  restrictHom_read (A:=A) σ b
 
 @[expose] def action : (M ≃ₐ[L] M) →* (B ≃ₐ[A] B) where
-  toFun := restrictEquiv
+  toFun := restrictEquiv (A:=A)
   map_one' := by
     ext b
     apply IsIntegralClosure.algebraMap_injective B A M
-    simp only [restrictEquiv_read, AlgEquiv.one_apply]
+    simp only [restrictEquiv_read (A:=A), AlgEquiv.one_apply]
   map_mul' f g := by
     ext b
     apply IsIntegralClosure.algebraMap_injective B A M
-    simp only [AlgEquiv.mul_apply,restrictEquiv_read]
+    simp only [AlgEquiv.mul_apply,restrictEquiv_read (A:=A)]
 
 /-- Flat fixed elements for the actually restricted generic primitive/frame
 action; the one remaining geometric hypothesis is the genuine whole-field
@@ -82,16 +84,16 @@ theorem flat_fixed_of_generic {C G : Type*} [CommRing C] [Algebra A C] [Module.F
     (σ : G →* (M ≃ₐ[L] M))
     (generic_fixed : ∀ m : M, (∀ g : G, σ g m = m) → ∃ t : L, algebraMap L M t = m)
     (z : C ⊗[A] B) :
-    (∀ g : G, ((restrictEquiv (σ g)).toLinearMap.lTensor C) z = z) ↔
+    (∀ g : G, ((restrictEquiv (A:=A) (σ g)).toLinearMap.lTensor C) z = z) ↔
       ∃ c : C, c ⊗ₜ[A] (1 : B) = z := by
   apply OriginalR8WildFixedFlatBase318.fixed_after_flat
   intro b
   rw [← OriginalR8WildFixedIntegralOrder318.fixed_order σ generic_fixed b]
   constructor
   · intro h g
-    rw [← restrictEquiv_read,h g]
+    rw [← restrictEquiv_read (A:=A) (σ g) b,h g]
   · intro h g
-    exact IsIntegralClosure.algebraMap_injective B A M ((restrictEquiv_read (σ g) b).trans (h g))
+    exact IsIntegralClosure.algebraMap_injective B A M ((restrictEquiv_read (A:=A) (σ g) b).trans (h g))
 
 end OriginalR8WildRestrictGenericAction318
 

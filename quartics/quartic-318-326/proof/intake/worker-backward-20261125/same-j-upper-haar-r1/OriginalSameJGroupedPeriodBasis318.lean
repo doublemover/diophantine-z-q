@@ -22,7 +22,9 @@ def groupedCoordinates : V g ≃ₗ[ℝ] (Index g→ℝ) where
   invFun x i := (x (.inl i) : ℂ) + (x (.inr i) : ℂ)*Complex.I
   left_inv z := by
     funext i
-    apply Complex.ext <;> simp [Complex.mul_re,Complex.mul_im]
+    apply Complex.ext
+    · simp [Complex.mul_re]
+    · simp [Complex.mul_im]
   right_inv x := by
     funext i
     cases i <;> simp [Complex.mul_re,Complex.mul_im]
@@ -52,6 +54,7 @@ variable (G : Mat ℂ (Fin g))
 variable (h : complexIsotropy P Q=0)
 variable (hG : mixedPairing P Q = ((2:ℂ)*Complex.I) • G) (hp : 0<G.det.re)
 
+include G h hG hp in
 theorem matrix_nonsingular : (groupedReal P Q).det ≠ 0 := by
   intro he
   have hg := actual_determinant P Q G h hG hp
@@ -68,11 +71,16 @@ def periodBasis : Module.Basis (Index g) ℝ (V g) :=
 theorem reads_basis (j : Index g) : periodBasis P Q G h hG hp j = periodColumn P Q j := by
   apply (groupedCoordinates g).injective
   funext r
-  rw [grouped_read]
-  change (referenceBasis g).repr (periodBasis P Q G h hG hp j) r = _
-  rw [periodBasis,Module.Basis.map_apply,Matrix.toLinearEquiv_apply,Matrix.toLin_self,
-    Module.Basis.repr_sum_self]
+  calc
+    groupedCoordinates g (periodBasis P Q G h hG hp j) r =
+        (referenceBasis g).repr (periodBasis P Q G h hG hp j) r :=
+      (Module.Basis.ofEquivFun_repr_apply (groupedCoordinates g) (periodBasis P Q G h hG hp j) r).symm
+    _ = groupedReal P Q r j := by
+      rw [periodBasis,Module.Basis.map_apply,Matrix.toLinearEquiv_apply,Matrix.toLin_self,
+        Module.Basis.repr_sum_self]
+    _ = groupedCoordinates g (periodColumn P Q j) r := (grouped_read P Q r j).symm
 
+include G h hG hp in
 theorem actual_real_span : Submodule.span ℝ (Set.range (periodColumn P Q)) = ⊤ := by
   have he : (periodBasis P Q G h hG hp : Index g→V g) = periodColumn P Q :=
     funext (reads_basis P Q G h hG hp)
