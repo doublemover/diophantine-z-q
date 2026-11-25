@@ -1,0 +1,11 @@
+module
+
+public import OriginalRetainedActualKernelFiniteIndex318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualKernelFiniteIndex318.finite_interval_representatives
+#print axioms OriginalRetainedActualKernelFiniteIndex318.subtract_primitive_integer_part
+#print axioms OriginalRetainedActualKernelFiniteIndex318.actual_kernel_integer_span_finite_index
+#print axioms OriginalRetainedActualKernelFiniteIndex318.exact_uniform_denominator_of_actual_periods

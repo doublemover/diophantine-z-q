@@ -1,0 +1,11 @@
+module
+
+public import OriginalRetainedActualCenteredBand318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualCenteredBand318.openBand_open
+#print axioms OriginalRetainedActualCenteredBand318.oldPoint_read
+#print axioms OriginalRetainedActualCenteredBand318.localHomeo
+#print axioms OriginalRetainedActualCenteredBand318.homeo_reads_same_original

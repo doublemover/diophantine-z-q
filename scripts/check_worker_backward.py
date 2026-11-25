@@ -13,7 +13,7 @@ from check_progress_experiment import audit_text
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("mode", choices=["targets", "check"])
-parser.add_argument("packet", choices=["witness", "arithmetic", "integration", "finite"])
+parser.add_argument("packet", choices=["witness", "arithmetic", "integration", "finite", "signed", "same-j-upper-abel-jets-r1", "same-j-upper-diagonal-probe-r1", "same-j-upper-field-pic-r1", "same-j-upper-haar-r1", "same-j-upper-relative-test-probe-r1", "same-j-upper-verified-core-r1"])
 args = parser.parse_args()
 source = ROOT / "quartics/quartic-318-326/proof/intake/worker-backward-20261125" / args.packet
 order = json.loads((source / "kernel.json").read_bytes())

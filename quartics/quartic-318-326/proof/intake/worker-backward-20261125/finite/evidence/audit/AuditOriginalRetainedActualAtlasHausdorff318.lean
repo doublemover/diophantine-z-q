@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedActualAtlasHausdorff318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualAtlasHausdorff318.projector_ratio_recovers
+#print axioms OriginalRetainedActualAtlasHausdorff318.chart_independent
+#print axioms OriginalRetainedActualAtlasHausdorff318.pointProjector_injective
+#print axioms OriginalRetainedActualAtlasHausdorff318.pointProjector_continuous
+#print axioms OriginalRetainedActualAtlasHausdorff318.actual_hausdorff

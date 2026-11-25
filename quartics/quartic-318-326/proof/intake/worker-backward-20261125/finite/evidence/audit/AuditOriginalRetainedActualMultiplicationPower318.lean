@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedActualMultiplicationPower318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualMultiplicationPower318.on_actual_points
+#print axioms OriginalRetainedActualMultiplicationPower318.on_actual_origin
+#print axioms OriginalRetainedActualMultiplicationPower318.actual_proper
+#print axioms OriginalRetainedActualMultiplicationPower318.actual_power_on_square_zero
+#print axioms OriginalRetainedActualMultiplicationPower318.original_universal_cotangent_point

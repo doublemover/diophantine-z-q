@@ -20,8 +20,9 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        packet: [witness, arithmetic, integration, finite]
+        packet: [witness, arithmetic, integration, finite, signed, same-j-upper-abel-jets-r1, same-j-upper-diagonal-probe-r1, same-j-upper-field-pic-r1, same-j-upper-haar-r1, same-j-upper-relative-test-probe-r1, same-j-upper-verified-core-r1]
     env:
+      ELAN_TOOLCHAIN: leanprover/lean4:v4.35.0
       PACKET: ${{ matrix.packet }}
       PROGRESS: quartics/quartic-318-326/proof/progress
     steps:

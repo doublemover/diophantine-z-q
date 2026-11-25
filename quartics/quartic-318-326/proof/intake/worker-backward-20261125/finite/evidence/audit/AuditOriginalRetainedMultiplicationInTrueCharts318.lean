@@ -1,0 +1,10 @@
+module
+
+public import OriginalRetainedMultiplicationInTrueCharts318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedMultiplicationInTrueCharts318.actual_pair
+#print axioms OriginalRetainedMultiplicationInTrueCharts318.original_multiply_read
+#print axioms OriginalRetainedMultiplicationInTrueCharts318.original_mul_localization

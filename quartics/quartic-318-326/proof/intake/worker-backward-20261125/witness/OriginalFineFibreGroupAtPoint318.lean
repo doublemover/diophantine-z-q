@@ -8,18 +8,17 @@ noncomputable section
 namespace OriginalFineFibreGroupAtPoint318
 open AlgebraicGeometry CategoryTheory CategoryTheory.Limits
 open MonoidalCategory CartesianMonoidalCategory
-universe u
 set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
 
-variable {X Y : Scheme.{u}} {B L M : Type u}
+variable {X Y : Scheme.{0}} {B L M : Type}
 variable [CommRing B] [Algebra ℚ B]
-variable [Field L] [Algebra ℚ L] [Field M] [Algebra ℚ M]
+variable [CommRing L] [Algebra ℚ L] [CommRing M] [Algebra ℚ M]
 variable (j : Spec (CommRingCat.of B) ⟶ Y)
 variable (p : B →ₐ[ℚ] L)
 
 local notation "SL" => Spec (CommRingCat.of L)
-local notation "SQ" => Spec (CommRingCat.of.{u} ℚ)
+local notation "SQ" => Spec (CommRingCat.of ℚ)
 
 /-- The actual selected closed evaluation, with the map into the fine
 moduli scheme supplied by its own exact finite affine fibre. -/
@@ -54,41 +53,51 @@ theorem groupAt_isProper (A : Grp (Over Y)) [IsProper A.X.hom] :
     IsProper (groupAt j p A).X.hom :=
   inferInstanceAs (IsProper (pullback.snd A.X.hom (point j p)))
 
+/-- The actual scalar extension arrow retains the given algebra map.
+It is written as a definition, not a parser-sensitive projection notation. -/
+def coefficientMap (a : L →ₐ[ℚ] M) :
+    Spec (CommRingCat.of M) ⟶ SL :=
+  Spec.map (CommRingCat.ofHom a.toRingHom)
+
 /-- One exact field embedding changes the same chosen evaluation.
 This replaces any appeal to abstract equality of residue fields. -/
 theorem point_base_change (a : L →ₐ[ℚ] M) :
-    point j (a.comp p) =
-      Spec.map (CommRingCat.ofHom a.toRingHom) ≫ point j p := by
+    point j (a.comp p) = coefficientMap a ≫ point j p := by
+  have e : CommRingCat.ofHom (a.comp p).toRingHom =
+      CommRingCat.ofHom p.toRingHom ≫ CommRingCat.ofHom a.toRingHom := by
+    apply CommRingCat.hom_ext
+    apply RingHom.ext
+    intro x
+    rfl
   change Spec.map (CommRingCat.ofHom (a.comp p).toRingHom) ≫ j =
     Spec.map (CommRingCat.ofHom a.toRingHom) ≫ Spec.map (CommRingCat.ofHom p.toRingHom) ≫ j
-  rw [←Category.assoc,←Spec.map_comp]
-
-local notation "ι" a => Spec.map (CommRingCat.ofHom (a : L →ₐ[ℚ] M).toRingHom)
+  rw [e,Spec.map_comp,Category.assoc]
 
 /-- The actual selected base-change functors, with naturality in genuine
 group arrows. Named quaternion actions are transported by this one
 natural isomorphism, not identified from numerical invariants. -/
 def groupBaseChange (a : L →ₐ[ℚ] M) :
-    (Over.pullback (point j p)).mapGrp ⋙ (Over.pullback (ι a)).mapGrp ≅
-      (Over.pullback (ι a ≫ point j p)).mapGrp :=
-  ((Functor.mapGrpNatIso (Over.pullbackComp (ι a) (point j p))) ≪≫
-    (Functor.mapGrpCompIso (F:=Over.pullback (point j p)) (G:=Over.pullback (ι a)))).symm
+    (Over.pullback (point j p)).mapGrp ⋙ (Over.pullback (coefficientMap a)).mapGrp ≅
+      (Over.pullback (coefficientMap a ≫ point j p)).mapGrp :=
+  ((Functor.mapGrpNatIso (Over.pullbackComp (coefficientMap a) (point j p))) ≪≫
+    (Functor.mapGrpCompIso (F:=Over.pullback (point j p)) (G:=Over.pullback (coefficientMap a)))).symm
 
 theorem order_arrow_naturality (A : Grp (Over Y)) (e : A ⟶ A) (a : L →ₐ[ℚ] M) :
-    (Over.pullback (ι a)).mapGrp.map ((Over.pullback (point j p)).mapGrp.map e) ≫
+    (Over.pullback (coefficientMap a)).mapGrp.map ((Over.pullback (point j p)).mapGrp.map e) ≫
       (groupBaseChange j p a).hom.app A =
-    (groupBaseChange j p a).hom.app A ≫ (Over.pullback (ι a ≫ point j p)).mapGrp.map e :=
+    (groupBaseChange j p a).hom.app A ≫ (Over.pullback (coefficientMap a ≫ point j p)).mapGrp.map e :=
   (groupBaseChange j p a).hom.naturality e
 
 /-- The two reads after an actual embedding are isomorphic as genuine
 group objects. For an endomorphism from the represented original order,
 naturality of this same isomorphism applies to its exact mapped arrow. -/
 def groupAt_base_change (A : Grp (Over Y)) (a : L →ₐ[ℚ] M) :
-    (Over.pullback (Spec.map (CommRingCat.ofHom a.toRingHom))).mapGrp.obj (groupAt j p A) ≅
+    (Over.pullback (coefficientMap a)).mapGrp.obj (groupAt j p A) ≅
       groupAt j (a.comp p) A := by
-  unfold groupAt
-  rw [point_base_change]
-  exact (groupBaseChange j p a).app A
+  let K (s : Spec (CommRingCat.of M) ⟶ Y) := (Over.pullback s).mapGrp.obj A
+  have h : K (coefficientMap a ≫ point j p) = K (point j (a.comp p)) :=
+    congrArg K (point_base_change j p a).symm
+  exact (groupBaseChange j p a).app A ≪≫ eqToIso h
 
 end OriginalFineFibreGroupAtPoint318
 

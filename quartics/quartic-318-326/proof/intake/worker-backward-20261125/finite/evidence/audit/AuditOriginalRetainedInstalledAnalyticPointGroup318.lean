@@ -1,0 +1,11 @@
+module
+
+public import OriginalRetainedInstalledAnalyticPointGroup318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedInstalledAnalyticPointGroup318.inverseChart_base
+#print axioms OriginalRetainedInstalledAnalyticPointGroup318.chart_inverse_exact
+#print axioms OriginalRetainedInstalledAnalyticPointGroup318.original_inv_continuous
+#print axioms OriginalRetainedInstalledAnalyticPointGroup318.actual_compact_hausdorff_group

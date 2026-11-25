@@ -1,0 +1,10 @@
+module
+
+public import OriginalRetainedAffineMapContinuity318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedAffineMapContinuity318.exact_local_continuous_read
+#print axioms OriginalRetainedAffineMapContinuity318.mapped_left
+#print axioms OriginalRetainedAffineMapContinuity318.mapped_continuous

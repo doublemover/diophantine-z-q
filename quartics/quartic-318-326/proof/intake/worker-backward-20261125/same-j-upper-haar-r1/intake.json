@@ -1,0 +1,63 @@
+{
+  "packet": "same-j-upper-haar-r1",
+  "status": "SOURCE_ONLY_REVIEW",
+  "scope": "LITERAL_SAME_PERIOD_COLUMNS_HAAR_COVOLUME_NOT_ANALYTIC_ORIGIN",
+  "order": [
+    "OriginalSameJRealificationDet318",
+    "OriginalSameJSymplecticPeriods318",
+    "OriginalSameJGroupedPeriodBasis318",
+    "SelectedActualAbelExactRealPeriodCovolume318",
+    "SelectedActualAbelTargetLatticeHaar318",
+    "OriginalSameJLiteralPeriodHaar318"
+  ],
+  "files": {
+    "OriginalSameJRealificationDet318.lean": {
+      "sha256": "3fd3c06848a08ccb71d95366f41dc11e129f49d3f91da05b77f89a72c565989e",
+      "imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalSameJSymplecticPeriods318.lean": {
+      "sha256": "8c21143a56efe9ad00a3b2ed9af4aa84bfdb63f3a6275ba42da479f6fcf771e7",
+      "imports": [
+        "Mathlib.Algebra.Ring.Parity",
+        "OriginalSameJRealificationDet318"
+      ]
+    },
+    "OriginalSameJGroupedPeriodBasis318.lean": {
+      "sha256": "d5b582b6a42740fa987a950723b5a30f4a4703fb746cf1fc92828c0ffe9e2437",
+      "imports": [
+        "Mathlib.LinearAlgebra.Complex.Module",
+        "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+        "OriginalSameJSymplecticPeriods318"
+      ]
+    },
+    "SelectedActualAbelExactRealPeriodCovolume318.lean": {
+      "sha256": "6608347ebba1c81deb4ff165f7990badbc7e822327795360a7fe0713ee9d0d5f",
+      "imports": [
+        "Mathlib.Algebra.Module.ZLattice.Covolume",
+        "Mathlib.LinearAlgebra.Pi",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex"
+      ]
+    },
+    "SelectedActualAbelTargetLatticeHaar318.lean": {
+      "sha256": "311ceb03884fb78d0303e9318e30e4f9fa89b6c7357c472722265c16d94a6a03",
+      "imports": [
+        "Mathlib.Algebra.Module.ZLattice.Covolume",
+        "Mathlib.MeasureTheory.Group.FundamentalDomain"
+      ]
+    },
+    "OriginalSameJLiteralPeriodHaar318.lean": {
+      "sha256": "787493ca7db57e31b6b140a92691555042faabe8d1b6260094c2657ab4094406",
+      "imports": [
+        "Mathlib.Tactic.FinCases",
+        "OriginalSameJGroupedPeriodBasis318",
+        "SelectedActualAbelExactRealPeriodCovolume318",
+        "SelectedActualAbelTargetLatticeHaar318"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+module
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+public import OriginalRetainedActualExponentialTopology318
+public section
+#print axioms OriginalRetainedActualExponentialTopology318.exp_continuous
+#print axioms OriginalRetainedActualExponentialTopology318.exp_open
+#print axioms OriginalRetainedActualExponentialTopology318.ker_origin_isolated

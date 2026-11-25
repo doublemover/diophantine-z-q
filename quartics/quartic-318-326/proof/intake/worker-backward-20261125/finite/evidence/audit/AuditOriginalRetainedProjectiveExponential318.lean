@@ -1,0 +1,7 @@
+module
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+public import OriginalRetainedProjectiveExponential318
+public section
+#print axioms OriginalRetainedProjectiveExponential318.actual_exp_surjective_from_projectivity

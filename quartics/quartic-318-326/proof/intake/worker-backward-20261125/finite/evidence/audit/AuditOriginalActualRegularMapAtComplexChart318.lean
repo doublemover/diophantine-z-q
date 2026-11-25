@@ -1,0 +1,12 @@
+module
+
+public import OriginalActualRegularMapAtComplexChart318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalActualRegularMapAtComplexChart318.actual_local_ring
+#print axioms OriginalActualRegularMapAtComplexChart318.localPoint_returns
+#print axioms OriginalActualRegularMapAtComplexChart318.exact_field_read
+#print axioms OriginalActualRegularMapAtComplexChart318.actual_coordinate_fraction
+#print axioms OriginalActualRegularMapAtComplexChart318.same_whole_map

@@ -1,0 +1,11 @@
+module
+
+public import OriginalOriginLocalizationKernel318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalOriginLocalizationKernel318.onLocalRing_read
+#print axioms OriginalOriginLocalizationKernel318.onLocalRing_unique
+#print axioms OriginalOriginLocalizationKernel318.onLocalRing_ker
+#print axioms OriginalOriginLocalizationKernel318.onLocalRing_ker_power

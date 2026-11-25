@@ -1,0 +1,5 @@
+# Same-R8 canonical split first-slot successor, source only
+
+After the base staged packet is green, this leaf replaces both supplied splitting isomorphisms and both whole-coordinate read hypotheses by the actual finite étale split coordinate theorem from pinned Mathlib and its comap naturality. The lifted map is the scalar extension of the actual same affine map, not an independently supplied projection. The remaining geometric input is precisely surjectivity and the orbit fibre condition on the literal comaps of the represented frame and primitive-orbit rings, using the old short cubic and its actual H/sign action. The prime action is induced by the same tensor extension rather than selected anew. A one-coordinate equality cannot supply this theorem's geometric input.
+
+No compiler, stock fetch or Git action ran. This is intentionally not added to the previous eight-module staged CI lane. MATHLIB-MISSING-STATIC.tsv inventories its additional official source closure against the existing cache. Check the leaf after the earlier two modules and once genuine stock is available; do not register it as a production import now.
