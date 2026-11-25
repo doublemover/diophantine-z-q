@@ -42,7 +42,7 @@ to this exact k(p). -/
 def localIntersection (x : Meeting s p E F) : ℕ :=
   residueDegree s p E F closed x * (length s p E F x.1 x.property).toNat
 
-theorem local_positive (x : Meeting s p E F)
+theorem local_positive [IsIntegral X] (x : Meeting s p E F)
     (finiteResidue : letI := residueAlgebra s p E F closed x;
       Module.Finite (Z.residueField p) (X.residueField x.1))
     (finiteLength : length s p E F x.1 x.property ≠ ⊤) :

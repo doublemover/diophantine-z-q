@@ -107,10 +107,12 @@ theorem whole_kernel (u : A) (v : k) (hu : j u = ((0,v) : Jet k))
     apply Ideal.mem_span_singleton'.mpr
     refine ⟨((c,d) : Dual A), TrivSqZeroExt.ext ?_ ?_⟩
     · exact hc
-    · rw [mul_snd]
-      change c * (-algebraMap k A v) + u * d = x.snd
-      rw [mul_comm u d, hd]
-      ring
+    · calc
+        (((c,d) : Dual A) * equation u v).snd = c * (-algebraMap k A v) + u * d :=
+          mul_snd ((c,d) : Dual A) (equation u v)
+        _ = x.snd := by
+          rw [mul_comm u d, hd]
+          ring
   · apply Ideal.span_le.mpr
     intro x hx
     have he : x = equation u v := Set.mem_singleton_iff.mp hx
