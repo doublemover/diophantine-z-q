@@ -14,12 +14,12 @@ variable {B T : Type u} [CommRing B] [CommRing T]
 local notation "SB" => Spec (CommRingCat.of B)
 local notation "ST" => Spec (CommRingCat.of T)
 variable {X : Scheme.{u}} (j : SB ⟶ X) [IsOpenImmersion j] (z : SB)
-local notation "L" => SB.presheaf.stalk z
+local notation "L" => (Spec (CommRingCat.of B)).presheaf.stalk z
 local notation "O" => X.presheaf.stalk (j z)
 local notation "SL" => Spec L
 variable (f : X ⟶ X) (fixed : f (j z)=j z)
 
-def stalkChart : SL ⟶ X := SB.fromSpecStalk z≫j
+def stalkChart : SL ⟶ X := (Spec (CommRingCat.of B)).fromSpecStalk z≫j
 
 instance : Mono (stalkChart j z) := by
   unfold stalkChart

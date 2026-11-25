@@ -43,6 +43,7 @@ theorem raw_kernel (u : A) (m : ℕ) :
   unfold pointEval
   rw [← RingHom.comap_ker,Ideal.mk_ker,← mapped_parameter u m,
     Ideal.comap_map_of_surjective' _ (eval_surj u),Polynomial.ker_evalRingHom]
+  rfl
 
 theorem power_vanishes (u : A) (m : ℕ) :
     parameterPower (A:=A) m ≤ RingHom.ker (pointEval u m) := by

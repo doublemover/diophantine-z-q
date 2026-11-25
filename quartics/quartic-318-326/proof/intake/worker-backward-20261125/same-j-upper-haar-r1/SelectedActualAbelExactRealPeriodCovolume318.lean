@@ -67,7 +67,7 @@ private theorem real_reference_box_volume (g : ℕ) :
   have h : (volume : Measure (V g)) (ZSpan.fundamentalDomain (realReferenceBasis g)) = 1 := by
     rw [he, MeasureTheory.volume_pi_pi]
     simp only [complex_unit_box_volume, Finset.prod_const_one]
-  exact (congrArg ENNReal.toReal h).trans ENNReal.one_toReal
+  exact (congrArg ENNReal.toReal h).trans ENNReal.toReal_one
 
 /-- The actual integer periods are the columns. The real/imaginary
 coordinates are determined by the original complex row, and no

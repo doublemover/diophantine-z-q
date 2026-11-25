@@ -27,8 +27,12 @@ abbrev second : crossing s p E F ⟶ (J).subscheme := inclusion le_sup_right
 
 theorem actual_support : Set.range (intoX s p E F) =
     (ambientSupport s p E : Set X) ∩ (ambientSupport s p F : Set X) := by
-  simp only [intoX, range_subschemeι, support_sup, ambientIdeal,
-    TopologicalSpace.Closeds.coe_inf, coe_support_vanishingIdeal]
+  calc
+    Set.range (intoX s p E F) = ((I ⊔ J).support : Set X) := range_subschemeι (I ⊔ J)
+    _ = (↑((I).support ⊓ (J).support) : Set X) :=
+      congrArg (fun D : Closeds X => (D : Set X)) (support_sup I J)
+    _ = _ := by
+      simp only [TopologicalSpace.Closeds.coe_inf, ambientIdeal, coe_support_vanishingIdeal]
 
 /-- The natural closed subscheme is the intersection in schemes, not
 the reduced intersection and not simply the intersection of sets. -/

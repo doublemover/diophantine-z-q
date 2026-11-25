@@ -66,9 +66,22 @@ theorem actual_diagonal_selection :
   let q' := quotient (k:=k) (A:=A)
   refine ⟨q'.symm d, ?_, ?_⟩
   · exact ((map_mul q'.symm d d).symm.trans (congrArg q'.symm hd))
-  · rw [← exactly_factors,← RingHom.comap_ker,← Ideal.map_symm q',he,Ideal.map_span,
-      Set.image_singleton]
-    rfl
+  · let I := Ideal.span (Set.singleton d)
+    have hfac : (diagonalRead (D:=k[X]) (A:=A)).toRingHom.comp q'.toRingHom =
+        overDifference (k:=k) (A:=A) := exactly_factors
+    have hker : RingHom.ker (overDifference (k:=k) (A:=A)) =
+        (RingHom.ker (diagonalRead (D:=k[X]) (A:=A)).toRingHom).comap q'.toRingHom :=
+      (congrArg RingHom.ker hfac).symm.trans
+        (RingHom.comap_ker (diagonalRead (D:=k[X]) (A:=A)).toRingHom q'.toRingHom).symm
+    have hmap : I.comap q'.toRingHom = I.map q'.symm.toRingHom :=
+      (Ideal.map_symm (I:=I) q'.toRingEquiv).symm
+    have himage : (q'.symm : _ → _) '' Set.singleton d = Set.singleton (q'.symm d) :=
+      Set.image_singleton
+    calc
+      _ = I.comap q'.toRingHom := hker.trans (congrArg (Ideal.comap q'.toRingHom) he)
+      _ = I.map q'.symm.toRingHom := hmap
+      _ = Ideal.span (Set.singleton (q'.symm d)) :=
+        (Ideal.map_span q'.symm.toRingHom (Set.singleton d)).trans (congrArg Ideal.span himage)
 
 /-- A true localized ambient neighbourhood of the moving diagonal,
 not a chosen fibre point: the target evaluation remains the entire

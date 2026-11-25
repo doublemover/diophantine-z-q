@@ -32,7 +32,8 @@ theorem evaluation [DecidableEq I]
   have hz : z i₀ = a := Function.update_self _ _ _
   constructor
   · intro h
-    choose t ht using transitive
+    let t : I → G := fun i => Classical.choose (transitive i)
+    have ht (i : I) : t i • i₀ = i := Classical.choose_spec (transitive i)
     have same (i : I) (p q : G) (hp : p • i₀ = i) (hq : q • i₀ = i) :
         (p • z) i = (q • z) i := by
       let k := q⁻¹ * p

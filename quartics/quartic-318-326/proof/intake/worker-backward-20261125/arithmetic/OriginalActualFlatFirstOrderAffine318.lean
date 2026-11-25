@@ -69,9 +69,9 @@ private theorem tensor_reads (t : B ⊗[Sq R] Sq R) :
       actualEps (R := R) (B := B) * (TensorProduct.rid (Sq R) B) z) t ?_ ?_
   · intro b d
     rw [LinearMap.lTensor_tmul,TensorProduct.rid_tmul,TensorProduct.rid_tmul]
-    change algebraMap (Sq R) B (epsilon R*d) * b =
-      actualEps (R := R) (B := B) * (algebraMap (Sq R) B d * b)
-    rw [map_mul,mul_assoc]
+    have read : (eMul R) d = epsilon R * d := rfl
+    rw [read]
+    exact (mul_smul (epsilon R) d b).trans (Algebra.smul_def (epsilon R) (d • b))
   · intro a b ha hb
     simp only [map_add,ha,hb,mul_add]
 
