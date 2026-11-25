@@ -13,15 +13,13 @@ open OriginalUpperActualFibreCrossingIdeal318 (length length_positive)
 open scoped BigOperators
 
 universe u
-variable {X Z : Scheme.{u}} [IsIntegral X] (s : X ⟶ Z) (p : Z)
+variable {X Z : Scheme.{u}} (s : X ⟶ Z) (p : Z)
 variable (E F : C s p)
 variable (closed : IsClosed ({p} : Set Z))
-variable (vertical : s (genericPoint X) ≠ p) (dim : ∀ y : X, coheight y ≤ 2)
-variable (different : E ≠ F)
-variable [NoetherianSpace X]
 
 abbrev Meeting := ↥(common s p E F)
 
+include closed in
 theorem over_p (x : Meeting s p E F) : s x.1 = p := by
   have h : x.1 ∈ Set.range (s.fiberι p) := by
     obtain ⟨y,_,hy⟩ := (support_image s p closed E) ▸ x.property.1
@@ -31,7 +29,7 @@ theorem over_p (x : Meeting s p E F) : s x.1 = p := by
 
 /-- Not an arbitrary coefficient-field inclusion: the structural
 map of the genuine scheme stalks induces this residue field algebra. -/
-def residueAlgebra (x : Meeting s p E F) : Algebra (Z.residueField p) (X.residueField x.1) :=
+@[expose, instance_reducible] def residueAlgebra (x : Meeting s p E F) : Algebra (Z.residueField p) (X.residueField x.1) :=
   ((Z.residueFieldCongr (over_p s p E F closed x).symm).hom ≫ s.residueFieldMap x.1).hom.toAlgebra
 
 def residueDegree (x : Meeting s p E F) : ℕ :=
@@ -49,10 +47,13 @@ theorem local_positive (x : Meeting s p E F)
       Module.Finite (Z.residueField p) (X.residueField x.1))
     (finiteLength : length s p E F x.1 x.property ≠ ⊤) :
     0 < localIntersection s p E F closed x := by
-  letI := residueAlgebra s p E F closed x
-  letI := finiteResidue
+  let := residueAlgebra s p E F closed x
+  let := finiteResidue
   exact Nat.mul_pos Module.finrank_pos <|
     ENat.toNat_pos (length_positive s p E F x.1 x.property).ne' finiteLength
+
+variable [IsIntegral X] (vertical : s (genericPoint X) ≠ p)
+variable (dim : ∀ y : X, coheight y ≤ 2) (different : E ≠ F) [NoetherianSpace X]
 
 /-- True finite local-length sum of intersection multiplicities on
 the original proper fibre. The finite support is constructed from the
@@ -63,7 +64,7 @@ def intersection : ℤ :=
 
 theorem nonnegative :
     0 ≤ intersection s p E F closed vertical dim different := by
-  letI := (finite_common s p E F different closed vertical dim).fintype
+  let := (finite_common s p E F different closed vertical dim).fintype
   exact Finset.sum_nonneg fun _ _ => Int.natCast_nonneg _
 
 /-- The actual positive-at-meeting predicate of the reduced fibre
@@ -76,7 +77,7 @@ theorem positive_on_meet
     (finiteLength : ∀ x : Meeting s p E F, length s p E F x.1 x.property ≠ ⊤) :
     0 < intersection s p E F closed vertical dim different := by
   classical
-  letI := (finite_common s p E F different closed vertical dim).fintype
+  let := (finite_common s p E F different closed vertical dim).fintype
   obtain ⟨v,hv₁,hv₂⟩ := meet
   let x : Meeting s p E F := ⟨s.fiberι p v,
     ⟨(support_image s p closed E).symm ▸ (show s.fiberι p v ∈ s.fiberι p '' (E : Set (s.fiber p))
