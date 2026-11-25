@@ -96,8 +96,9 @@ theorem containing_prime (Q : Ideal A) (hQ : Q.IsPrime)
   have qlt : Q < m := lt_of_le_of_ne (IsLocalRing.le_maximalIdeal_of_isPrime Q) ne
   have lower := Ideal.height_add_one_le_of_lt_of_isPrime oneLess
   rw [h₁] at lower
-  have impossible := ((add_le_add_right lower (1 : ℕ∞)).trans
-    (Ideal.height_add_one_le_of_lt_of_isPrime qlt)).trans hmax
+  have step : ((1 : ℕ∞) + 1) + 1 ≤ Ideal.height Q + 1 :=
+    add_le_add lower (le_refl (1 : ℕ∞))
+  have impossible := (step.trans (Ideal.height_add_one_le_of_lt_of_isPrime qlt)).trans hmax
   exact (by decide : ¬ (((1 : ℕ∞) + 1) + 1) ≤ 2) impossible
 
 include different closed vertical dim in
@@ -124,11 +125,11 @@ abbrev length : ℕ∞ := Module.length A (A ⧸ cross s p E F x hx)
 theorem length_positive : 0 < length s p E F x hx :=
   Module.length_pos_iff.mpr (Ideal.Quotient.nontrivial_iff.mpr (proper s p E F x hx))
 
+omit [IsIntegral X] in
 /-- At a true thin semistable crossing with two distinguished
 original components, the chart equation identifies the sum with the
 maximal ideal. Under that actual ideal equality the length is one,
 without any additional Artinian stock. -/
-omit [IsIntegral X] in
 theorem thin_length_one (node : cross s p E F x hx = m) :
     length s p E F x hx = 1 := by
   change Module.length A (A ⧸ cross s p E F x hx) = 1

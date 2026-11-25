@@ -49,10 +49,17 @@ def graph : Dual A →+* Jet k where
     · simp only [TrivSqZeroExt.snd_mk, TrivSqZeroExt.fst_add, TrivSqZeroExt.snd_add, map_add]
       ring
   map_mul' x y := by
+    let p : Jet k := ((j x.fst).fst, (j x.fst).snd + (j x.snd).fst)
+    let q : Jet k := ((j y.fst).fst, (j y.fst).snd + (j y.snd).fst)
     apply TrivSqZeroExt.ext
-    · simp only [TrivSqZeroExt.fst_mk, TrivSqZeroExt.fst_mul, map_mul]
-    · simp only [TrivSqZeroExt.snd_mk, TrivSqZeroExt.fst_mk, TrivSqZeroExt.fst_mul,
-        mul_snd, TrivSqZeroExt.fst_add, map_mul, map_add]
+    · change (j (x.fst*y.fst)).fst = (j x.fst).fst * (j y.fst).fst
+      rw [map_mul, TrivSqZeroExt.fst_mul]
+    · change (j ((x*y).fst)).snd + (j ((x*y).snd)).fst = (p*q).snd
+      rw [mul_snd p q]
+      change (j ((x*y).fst)).snd + (j ((x*y).snd)).fst =
+        (j x.fst).fst * ((j y.fst).snd + (j y.snd).fst) +
+          (j y.fst).fst * ((j x.fst).snd + (j x.snd).fst)
+      simp only [TrivSqZeroExt.fst_mul, mul_snd, TrivSqZeroExt.fst_add, map_mul, map_add]
       ring
 
 theorem actual_graph_read (x : Dual A) :
