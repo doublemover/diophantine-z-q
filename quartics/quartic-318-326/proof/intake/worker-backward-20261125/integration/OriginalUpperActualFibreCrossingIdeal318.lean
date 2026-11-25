@@ -9,7 +9,8 @@ noncomputable section
 namespace OriginalUpperActualFibreCrossingIdeal318
 
 open AlgebraicGeometry CategoryTheory TopologicalSpace Order
-open OriginalUpperActualFibreComponents318 (C ambientGeneric ambientIdeal pointAt pointAt_reads idealAt_from_affine)
+open OriginalUpperActualFibreComponents318 (C fibreGeneric ambientGeneric ambientSupport ambientIdeal image_in_closure
+  pointAt pointAt_reads idealAt_from_affine)
 open OriginalUpperActualFibreIncidence318 (common ambient_generic_not_other generic_height_one)
 
 set_option backward.isDefEq.respectTransparency false
@@ -51,8 +52,10 @@ theorem ideals_ne : P₁ ≠ P₂ := by
   have he : pointAt s p E x hx.1 = pointAt s p F x hx.2 := PrimeSpectrum.ext h
   have hEF := congrArg (fun t : Spec A => X.fromSpecStalk x t) he
   rw [pointAt_reads,pointAt_reads] at hEF
-  exact ambient_generic_not_other s p E F different closed
-    (hEF.symm ▸ (subset_closure (Set.mem_singleton (ambientGeneric s p F))))
+  have hF : ambientGeneric s p F ∈ ambientSupport s p F :=
+    image_in_closure s p F ⟨fibreGeneric s p F,
+      (genericPoints.isGenericPoint_ofComponent F).mem,rfl⟩
+  exact ambient_generic_not_other s p E F different closed (hEF.symm ▸ hF)
 
 include different closed vertical dim in
 /-- Any prime of the actual crossing quotient comes from the true
@@ -61,22 +64,22 @@ uses only the true dimension-two regular model, not a completed split
 nodal map. -/
 theorem containing_prime (Q : Ideal A) (hQ : Q.IsPrime)
     (leQ : cross s p E F x hx ≤ Q) : Q = m := by
-  letI := hQ
+  let := hQ
   let H₁ := OriginalUpperGenerizationField318.codimension x (pointAt s p E x hx.1)
   let H₂ := OriginalUpperGenerizationField318.codimension x (pointAt s p F x hx.2)
-  have h₁ : P₁.height = 1 := by
+  have h₁ : Ideal.height P₁ = 1 := by
     apply H₁.symm.trans
     change coheight (X.fromSpecStalk x (pointAt s p E x hx.1)) = 1
     rw [pointAt_reads]
     exact generic_height_one s p E F different closed vertical dim x hx
-  have h₂ : P₂.height = 1 := by
+  have h₂ : Ideal.height P₂ = 1 := by
     apply H₂.symm.trans
     change coheight (X.fromSpecStalk x (pointAt s p F x hx.2)) = 1
     rw [pointAt_reads]
     exact generic_height_one s p F E different.symm closed vertical dim x ⟨hx.2,hx.1⟩
-  have hmax : m.height ≤ 2 := by
+  have hmax : Ideal.height m ≤ 2 := by
     have H := OriginalUpperGenerizationField318.codimension x (IsLocalRing.closedPoint A)
-    change coheight (X.fromSpecStalk x (IsLocalRing.closedPoint A)) = m.height at H
+    change coheight (X.fromSpecStalk x (IsLocalRing.closedPoint A)) = Ideal.height m at H
     rw [Scheme.fromSpecStalk_closedPoint] at H
     exact H ▸ dim x
   have hle₁ : P₁ ≤ Q := le_sup_left.trans leQ
@@ -125,6 +128,7 @@ theorem length_positive : 0 < length s p E F x hx :=
 original components, the chart equation identifies the sum with the
 maximal ideal. Under that actual ideal equality the length is one,
 without any additional Artinian stock. -/
+omit [IsIntegral X] in
 theorem thin_length_one (node : cross s p E F x hx = m) :
     length s p E F x hx = 1 := by
   change Module.length A (A ⧸ cross s p E F x hx) = 1

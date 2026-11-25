@@ -176,8 +176,8 @@ theorem specArrow_id : specArrow (AlgHom.id R (Sq A)) = 𝟙 (Spec (.of (Sq A)))
 def affineGauge (d : Derivation R A A) : Spec (.of (Sq A)) ≅ Spec (.of (Sq A)) where
   hom := specArrow (shear d)
   inv := specArrow (shear (-d))
-  hom_inv_id := by rw [←specArrow_comp,shear_add,neg_add_cancel,shear_zero,specArrow_id]
-  inv_hom_id := by rw [←specArrow_comp,shear_add,add_neg_cancel,shear_zero,specArrow_id]
+  hom_inv_id := by rw [←specArrow_comp,shear_add,add_neg_cancel,shear_zero,specArrow_id]
+  inv_hom_id := by rw [←specArrow_comp,shear_add,neg_add_cancel,shear_zero,specArrow_id]
 
 variable [Algebra A B] [IsScalarTower R A B] [Algebra.FormallyEtale A B]
   [Algebra C B] [IsScalarTower R C B] [Algebra.FormallyEtale C B]

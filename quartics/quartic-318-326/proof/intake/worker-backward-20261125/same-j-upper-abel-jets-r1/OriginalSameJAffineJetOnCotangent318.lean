@@ -67,7 +67,8 @@ theorem reads_d (j : A →ₐ[k] Jet k) (a : A) :
     ((1:k) ⊗ₜ[A] KaehlerDifferential.D k A a) = _
   calc
     _ = (derivation j).liftKaehlerDifferential (KaehlerDifferential.D k A a) :=
-      LinearMap.liftBaseChange_one_tmul _ _
+      LinearMap.liftBaseChange_one_tmul k (derivation j).liftKaehlerDifferential
+        (KaehlerDifferential.D k A a)
     _ = (derivation j) a := Derivation.liftKaehlerDifferential_comp_D _ _
     _ = (j a).snd := rfl
 
