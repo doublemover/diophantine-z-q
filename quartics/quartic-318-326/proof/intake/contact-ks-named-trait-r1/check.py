@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import check_progress_lean as ci
 from check_progress_experiment import required_baseline, restore_baseline, audit_text
 
-MANIFEST_SHA = '0b2c0a4752653a8f000e08036de78f2527e305ee3c3aac96123668e0d8ec83db'
+MANIFEST_SHA = 'd58f6c76aca796919a8a538b0fd29ed24c9d5d1a2e8fe29ab184aee7b89aab3c'
 if len(sys.argv) != 2 or sys.argv[1] not in {'targets', 'check'}:
     raise SystemExit('usage: check.py targets|check')
 raw = (HERE / 'kernel.json').read_bytes()
