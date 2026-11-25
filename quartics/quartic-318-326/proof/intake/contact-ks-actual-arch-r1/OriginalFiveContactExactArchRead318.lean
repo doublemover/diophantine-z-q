@@ -39,7 +39,7 @@ theorem off_contact (w : InfinitePlace E)
   have hT : w.embedding Tₑ = 32*((u:ℂ)/(v:ℂ)) := by
     calc
       _ = ((32*((u:ℚ)/(v:ℚ)):ℚ):ℂ) := map_ratCast w.embedding _
-      _ = _ := by push_cast
+      _ = _ := by push_cast <;> rfl
   intro he
   rw [hT, ← mul_div_assoc, div_eq_iff hvC] at he
   fin_cases i
