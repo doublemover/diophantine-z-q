@@ -1,0 +1,69 @@
+name: Backward Lean worker intake
+on:
+  push:
+    branches: [add-quartic-318-326]
+    paths:
+      - 'quartics/quartic-318-326/proof/intake/worker-backward-20261125/**'
+      - 'scripts/check_worker_backward.py'
+      - '.github/workflows/worker-backward-intake.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: worker-backward-intake-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        packet: [witness, arithmetic, integration, finite]
+    env:
+      PACKET: ${{ matrix.packet }}
+      PROGRESS: quartics/quartic-318-326/proof/progress
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/actions/setup-pinned-lean/
+            /.github/actions/setup-pinned-python/
+            /.github/actions/setup-pinned-dependency-sources/
+            /lean/lean-toolchain
+            /scripts/
+            /quartics/quartic-318-326/proof/progress/lean-toolchain
+            /quartics/quartic-318-326/proof/progress/lake-manifest.json
+            /quartics/quartic-318-326/proof/progress/lakefile.toml
+            /quartics/quartic-318-326/proof/intake/worker-backward-20261125/
+      - uses: ./.github/actions/setup-pinned-python
+        with:
+          python-version: '3.12.14'
+      - uses: ./.github/actions/setup-pinned-lean
+      - uses: ./.github/actions/setup-pinned-dependency-sources
+      - name: Fetch exact pinned Mathlib roots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/dependency-setup
+          python -B scripts/check_worker_backward.py targets "$PACKET" > "build/dependency-setup/$PACKET.targets.txt"
+          python -B scripts/pinned_dependency_sources.py artifacts --project "$PROGRESS" --targets-file "build/dependency-setup/$PACKET.targets.txt" --receipt "build/dependency-setup/$PACKET.artifacts.json"
+      - name: Compile drafts and audit recursive axioms
+        shell: bash
+        run: timeout 900s python -B scripts/check_worker_backward.py check "$PACKET"
+      - name: Preserve receipt and logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: backward-worker-${{ matrix.packet }}
+          path: |
+            build/worker-backward/${{ matrix.packet }}/RESULT.json
+            build/worker-backward/${{ matrix.packet }}/WorkerAudit.lean
+            build/worker-backward/${{ matrix.packet }}/logs/
+            build/dependency-setup/${{ matrix.packet }}.artifacts.json
+            build/dependency-setup/${{ matrix.packet }}.targets.txt
+          if-no-files-found: ignore
+          retention-days: 14

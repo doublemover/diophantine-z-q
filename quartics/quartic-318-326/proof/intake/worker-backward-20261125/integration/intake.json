@@ -1,0 +1,106 @@
+{
+  "packet": "original-r8-actual-intersection-adjunction-r1",
+  "status": "SOURCE_ONLY_HOSTED_KERNEL_CHECK_AND_INDEPENDENT_REVIEW_PENDING",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "mathlib_rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "order": [
+    "OriginalUpperGenerizationStalk318",
+    "OriginalUpperGenerizationField318",
+    "OriginalUpperActualFibreComponents318",
+    "OriginalUpperActualFibreIntersectionScheme318",
+    "OriginalUpperActualReducedComponentFibre318",
+    "OriginalUpperActualFibreIncidence318",
+    "OriginalUpperActualFibreCrossingIdeal318",
+    "OriginalUpperActualFibreIntersectionLength318",
+    "OriginalUpperActualComponentConormal318",
+    "OriginalUpperActualCrossingFiniteLength318"
+  ],
+  "new_modules": [
+    "OriginalUpperActualFibreComponents318",
+    "OriginalUpperActualFibreIntersectionScheme318",
+    "OriginalUpperActualReducedComponentFibre318",
+    "OriginalUpperActualFibreIncidence318",
+    "OriginalUpperActualFibreCrossingIdeal318",
+    "OriginalUpperActualFibreIntersectionLength318",
+    "OriginalUpperActualComponentConormal318",
+    "OriginalUpperActualCrossingFiniteLength318"
+  ],
+  "unchanged_predecessor_modules": [
+    "OriginalUpperGenerizationStalk318",
+    "OriginalUpperGenerizationField318"
+  ],
+  "files": {
+    "OriginalUpperGenerizationStalk318.lean": {
+      "sha256": "e760169e8d2bfc3bc10ae99ac5f0235788e940c97f964618094dd74429a63a8b",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.FunctionField",
+        "Mathlib.AlgebraicGeometry.Stalk"
+      ]
+    },
+    "OriginalUpperGenerizationField318.lean": {
+      "sha256": "438a4bd309f03138e489a836d952bb756fe96363048474e1559dcf54071f4282",
+      "imports": [
+        "OriginalUpperGenerizationStalk318"
+      ]
+    },
+    "OriginalUpperActualFibreComponents318.lean": {
+      "sha256": "a32001e49532c28537631a3147e1fca948f6109d667ac34623f1f0530e348eee",
+      "imports": [
+        "Mathlib.AlgebraicGeometry.Fiber",
+        "Mathlib.AlgebraicGeometry.IdealSheaf.Functorial",
+        "Mathlib.AlgebraicGeometry.Stalk"
+      ]
+    },
+    "OriginalUpperActualFibreIntersectionScheme318.lean": {
+      "sha256": "55907e3c0bb5f4271d9fe3d4c0a91679b9e33e063d306766d5a6688f66f4bf72",
+      "imports": [
+        "OriginalUpperActualFibreComponents318"
+      ]
+    },
+    "OriginalUpperActualReducedComponentFibre318.lean": {
+      "sha256": "6a1b1d39f812584b00ea9349de5f1794940c1b41d72fa754fe2e3f681f8aca7f",
+      "imports": [
+        "Mathlib.RingTheory.Localization.Ideal",
+        "OriginalUpperActualFibreComponents318"
+      ]
+    },
+    "OriginalUpperActualFibreIncidence318.lean": {
+      "sha256": "1dbe11d04e13c55c536a9bf32211464c72e3abe2737aea5ae93d59a2043a7917",
+      "imports": [
+        "Mathlib.Topology.KrullDimension",
+        "OriginalUpperActualFibreComponents318"
+      ]
+    },
+    "OriginalUpperActualFibreCrossingIdeal318.lean": {
+      "sha256": "568f8d586be56580c11cbbfa7605d4549fe58081882c5228720dd1388d56d331",
+      "imports": [
+        "Mathlib.RingTheory.KrullDimension.Zero",
+        "Mathlib.RingTheory.Length",
+        "OriginalUpperActualFibreIncidence318",
+        "OriginalUpperGenerizationField318"
+      ]
+    },
+    "OriginalUpperActualFibreIntersectionLength318.lean": {
+      "sha256": "a0ae58b3a4b58c060dc1a15a7baf526b697c764c9c2adb73ce240046344a774a",
+      "imports": [
+        "Mathlib.LinearAlgebra.Dimension.Finite",
+        "OriginalUpperActualFibreCrossingIdeal318"
+      ]
+    },
+    "OriginalUpperActualComponentConormal318.lean": {
+      "sha256": "7bf64b852ffe5089e3e3f878e07228f463fc83c8db69316cca891092ff5ff4fa",
+      "imports": [
+        "Mathlib.RingTheory.Ideal.Cotangent",
+        "OriginalUpperActualFibreComponents318"
+      ]
+    },
+    "OriginalUpperActualCrossingFiniteLength318.lean": {
+      "sha256": "161d6b4d1119ecd786a5496a0b32491af55a6aef9e6003c7aaec53a5f332eb31",
+      "imports": [
+        "Mathlib.RingTheory.HopkinsLevitzki",
+        "OriginalUpperActualFibreCrossingIdeal318"
+      ]
+    }
+  },
+  "notes": "Eight draft geometry leaves, two prior strictly checked R15 donors as exact source. No new draft has been run. No endpoint promotion."
+}
