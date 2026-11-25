@@ -16,10 +16,9 @@ open OriginalRawKSPrimitive210318 OriginalYuanPulledExactKSImage318
 open OriginalExactLocalKSUnit318 OriginalFiveContactExactGauge318
 
 variable {E : Type*} [Field E] [NumberField E] (w : FinitePlace E)
-local notation "V" => localRing w
 
-theorem local_integral_norm (u : V) : w (u:E)≤1 := by
-  letI : IsLocalization (placePrime w).primeCompl V :=
+theorem local_integral_norm (u : (localRing w)) : w (u:E)≤1 := by
+  letI : IsLocalization (placePrime w).primeCompl (localRing w) :=
     Localization.subalgebra.isLocalization_subalgebra E (placePrime w).primeCompl (placePrime w).primeCompl_le_nonZeroDivisors
   obtain ⟨⟨x,y⟩,e⟩ := IsLocalization.surj (placePrime w).primeCompl u
   have nx : w (algebraMap (𝓞 E) E x)≤1 :=
@@ -28,14 +27,14 @@ theorem local_integral_norm (u : V) : w (u:E)≤1 := by
   have ny : w (algebraMap (𝓞 E) E (y:𝓞 E))=1 :=
     (FinitePlace.norm_embedding_eq w _).symm.trans
       ((FinitePlace.norm_eq_one_iff_notMem E (FinitePlace.maximalIdeal w) (y:𝓞 E)).mpr y.property)
-  have ee := congrArg (fun t:V=>w (t:E)) e
+  have ee := congrArg (fun t:(localRing w)=>w (t:E)) e
   change w ((u:E)*algebraMap (𝓞 E) E (y:𝓞 E))=w (algebraMap (𝓞 E) E x) at ee
   rw [map_mul,ny,mul_one] at ee
   exact ee.trans_le nx
 
 theorem paid_section_coefficient (C : FrameNorms E) (b s : E) (hb : b≠0)
     (canonicalNorm : C.finiteNorm w=(w b)⁻¹)
-    (genuine : s∈coeffLine (R:=V) b) :
+    (genuine : s∈coeffLine (R:=(localRing w)) b) :
     w s*C.finiteNorm w≤1 := by
   obtain ⟨r,e⟩ := Submodule.mem_span_singleton.mp genuine
   change (r:E)*b=s at e
@@ -43,7 +42,7 @@ theorem paid_section_coefficient (C : FrameNorms E) (b s : E) (hb : b≠0)
   rw [←e,canonicalNorm,map_mul,mul_assoc,mul_inv_cancel₀ nb,mul_one]
   exact local_integral_norm w r
 
-variable {A M N : Type*} [CommRing A] [Algebra A V]
+variable {A M N : Type*} [CommRing A] [Algebra A (localRing w)]
   [AddCommGroup M] [AddCommGroup N] [Module A M] [Module A N]
 variable (raw : M→ₗ[A]N)
 variable (rawInj : Function.Injective raw)
@@ -53,10 +52,10 @@ variable (H C : FrameNorms E) (a b k : E)
 variable (ha : a≠0) (hb : b≠0)
 variable (hodgeNorm : H.finiteNorm w=(w a)⁻¹)
 variable (canonicalNorm : C.finiteNorm w=(w b)⁻¹)
-variable (η : (V⊗[A]M) ≃ₗ[V] coeffLine (R:=V) (a^2))
-variable (δ : (V⊗[A]N) ≃ₗ[V] coeffLine (R:=V) b)
-variable (rawFromSameGlobalMap : ∀ m : V⊗[A]M,
-  (δ (raw.baseChange V m):E)=(η m:E)*k)
+variable (η : ((localRing w)⊗[A]M) ≃ₗ[(localRing w)] coeffLine (R:=(localRing w)) (a^2))
+variable (δ : ((localRing w)⊗[A]N) ≃ₗ[(localRing w)] coeffLine (R:=(localRing w)) b)
+variable (rawFromSameGlobalMap : ∀ m : (localRing w)⊗[A]M,
+  (δ (raw.baseChange (localRing w) m):E)=(η m:E)*k)
 
 /-- This is the unchanged v1.1 field; the input a is the true
 primitive generator relative to the rational ℓ, not to ℓ².
@@ -71,13 +70,13 @@ def exact_place_image : OriginalFiveContactExactGauge318.FiniteImage H C k w whe
   canonical_norm := canonicalNorm
   exact_image := exact_coefficient_lattices raw rawInj regular trueImage a b k η δ rawFromSameGlobalMap
 
+include hb canonicalNorm in
 /-- In the Q gauge the literal coefficients are J² and T J².
 The outputs use the genuine globally extended sections at the
 actual centre via their exact tensor evaluations, not two
 integral witnesses recomputed in residue fields. -/
-include hb canonicalNorm in
 theorem exact_place_paid_pair
-    (y : Fin 2→V⊗[A]N) (t : E)
+    (y : Fin 2→(localRing w)⊗[A]N) (t : E)
     (read : ∀ i, (δ (y i):E)=![(2765952000:E)^2,t*(2765952000:E)^2] i)
     (i : Fin 2) :
     w (![ (2765952000:E)^2,t*(2765952000:E)^2] i)*C.finiteNorm w≤1 :=

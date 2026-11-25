@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import check_progress_lean as ci
 from check_progress_experiment import required_baseline, restore_baseline, audit_text
 
-MANIFEST_SHA = 'c836f26475266680d66939ffd2ee8bf71e129dd353db67bf15ad048d74be9502'
+MANIFEST_SHA = '0b2c0a4752653a8f000e08036de78f2527e305ee3c3aac96123668e0d8ec83db'
 if len(sys.argv) != 2 or sys.argv[1] not in {'targets', 'check'}:
     raise SystemExit('usage: check.py targets|check')
 raw = (HERE / 'kernel.json').read_bytes()
@@ -81,6 +81,23 @@ try:
     report.update(status='passed', audited_declarations=int(match[1]))
 except Exception as err:
     report['error'] = str(err)
+    compiled = [r['module'] for r in report['checks'] if r['exit_code'] == 0]
+    if compiled and len(compiled) < len(sources):
+        try:
+            audit = out/'GaugeAudit.lean'
+            audit.write_text(audit_text(compiled), encoding='utf-8')
+            ci.compile_one(ci.PROJECT, env, 'GaugeAudit', audit, None, out/'logs', root=out)
+            log = (out/'logs/GaugeAudit.log').read_text(encoding='utf-8')
+            prefix_audit = re.search(
+                rf'EXPERIMENT_AUDIT_PASS declarations=([1-9][0-9]*) modules={len(compiled)}\b', log)
+            if not prefix_audit:
+                raise RuntimeError('Missing exact compiled-prefix axiom audit')
+            report['ordinary_axiom_audited_prefix'] = compiled
+            report['audited_prefix_declarations'] = int(prefix_audit[1])
+            print(json.dumps({'ordinary_axiom_audited_prefix': compiled,
+                              'declarations': int(prefix_audit[1])}), flush=True)
+        except Exception as audit_error:
+            report['prefix_audit_error'] = str(audit_error)
     for f in sorted((out/'logs').glob('*.log')):
         lines = f.read_text(encoding='utf-8', errors='replace').splitlines()
         i = next((i for i,s in enumerate(lines) if 'error:' in s or 'error(' in s), None)
