@@ -1,0 +1,9 @@
+module
+
+public import OriginalRetainedEuclideanGroupMultiplication318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedEuclideanGroupMultiplication318.chart_product_continuousAt
+#print axioms OriginalRetainedEuclideanGroupMultiplication318.original_mul_continuous

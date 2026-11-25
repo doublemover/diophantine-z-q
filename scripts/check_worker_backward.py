@@ -56,6 +56,12 @@ try:
     report.update(status="passed", audited_declarations=int(match[1]))
 except Exception as e:
     report["error"] = str(e)
+    for path in sorted((out / "logs").glob("*.log")):
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        hits = [i for i, line in enumerate(lines) if "error:" in line or "error(" in line]
+        if hits:
+            print(f"{path.name}: first Lean failure")
+            print("\n".join(lines[hits[0]:hits[0]+22]))
     raise
 finally:
     (out / "RESULT.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

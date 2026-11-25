@@ -35,7 +35,8 @@ theorem image_eq_fixed [SMul G I] (p : I → J) (hsurj : Function.Surjective p)
   classical
   constructor
   · intro h
-    choose t ht using hsurj
+    have hchoose := hsurj
+    choose t ht using hchoose
     let a : J → K := fun j => f (t j)
     have he : pull p a = f := by
       funext i

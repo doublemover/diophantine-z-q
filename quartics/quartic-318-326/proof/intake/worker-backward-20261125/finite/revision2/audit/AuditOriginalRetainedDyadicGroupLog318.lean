@@ -1,0 +1,11 @@
+module
+
+public import OriginalRetainedDyadicGroupLog318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedDyadicGroupLog318.actual_log_respects_original_law
+#print axioms OriginalRetainedDyadicGroupLog318.log_local_inverse
+#print axioms OriginalRetainedDyadicGroupLog318.exists_original_local_log_with_region
+#print axioms OriginalRetainedDyadicGroupLog318.exists_original_local_log

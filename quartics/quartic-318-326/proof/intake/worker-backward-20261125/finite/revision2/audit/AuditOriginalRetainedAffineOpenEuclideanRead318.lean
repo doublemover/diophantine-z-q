@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedAffineOpenEuclideanRead318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedAffineOpenEuclideanRead318.in_open_iff
+#print axioms OriginalRetainedAffineOpenEuclideanRead318.oldOpen_isOpen
+#print axioms OriginalRetainedAffineOpenEuclideanRead318.readActual_returns
+#print axioms OriginalRetainedAffineOpenEuclideanRead318.readActual_on_lift
+#print axioms OriginalRetainedAffineOpenEuclideanRead318.readActual_continuous

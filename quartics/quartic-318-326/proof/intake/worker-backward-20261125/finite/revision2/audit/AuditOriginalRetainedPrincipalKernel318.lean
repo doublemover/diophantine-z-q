@@ -1,0 +1,9 @@
+module
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+public import OriginalRetainedPrincipalKernel318
+public section
+#print axioms OriginalRetainedPrincipalKernel318.every_actual_kernel_period
+#print axioms OriginalRetainedPrincipalKernel318.actualFrame
+#print axioms OriginalRetainedPrincipalKernel318.actualFrame_columns

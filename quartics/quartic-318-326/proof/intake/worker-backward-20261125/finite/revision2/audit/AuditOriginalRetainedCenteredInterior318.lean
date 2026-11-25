@@ -1,0 +1,10 @@
+module
+
+public import OriginalRetainedCenteredInterior318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedCenteredInterior318.residual_continuous
+#print axioms OriginalRetainedCenteredInterior318.centered_residual_zero
+#print axioms OriginalRetainedCenteredInterior318.choose_centered_open_branch

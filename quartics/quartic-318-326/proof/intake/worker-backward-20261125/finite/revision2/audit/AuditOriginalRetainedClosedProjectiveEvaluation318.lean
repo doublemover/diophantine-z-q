@@ -1,0 +1,13 @@
+module
+
+public import OriginalRetainedClosedProjectiveEvaluation318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedClosedProjectiveEvaluation318.choose
+#print axioms OriginalRetainedClosedProjectiveEvaluation318.kills_of_generators
+#print axioms OriginalRetainedClosedProjectiveEvaluation318.quotientRead_comp
+#print axioms OriginalRetainedClosedProjectiveEvaluation318.actual_ambient
+#print axioms OriginalRetainedClosedProjectiveEvaluation318.actual_overlap
+#print axioms OriginalRetainedClosedProjectiveEvaluation318.actual_is_old_point

@@ -22,23 +22,26 @@ variable (hr : ∀ b : B, b*c=0 → b=0)
 abbrev into : A →ₗ[A] B := Algebra.linearMap A B
 abbrev mult : B →ₗ[A] B := LinearMap.mulRight A c
 
+include hk in
 theorem c_vanishes : g c=0 := by
   have h : c ∈ RingHom.ker g.toRingHom := by
     rw [hk]
     exact Ideal.mem_span_singleton_self c
   exact RingHom.mem_ker.mp h
 
+include hr in
 theorem cancel {b d : B} (h : b*c=d*c) : b=d := by
   apply sub_eq_zero.mp
   exact hr (b-d) (by rw [sub_mul,h,sub_self])
 
+include hk in
 theorem division (b : B) : ∃ a : B, a*c = b - into (A:=A) (B:=B) (g b) := by
-  apply Ideal.mem_span_singleton'.mp
-  rw [← hk]
-  apply RingHom.mem_ker.mpr
-  change g (b-algebraMap A B (g b))=0
-  rw [map_sub, g.commutes]
-  exact sub_self _
+  have hm : b - into (A:=A) (B:=B) (g b) ∈ Ideal.span (Set.singleton c) := by
+    rw [← hk]
+    apply RingHom.mem_ker.mpr
+    change g (b - algebraMap A B (g b)) = 0
+    simp only [map_sub,g.commutes,Algebra.algebraMap_self_apply,sub_self]
+  exact Ideal.mem_span_singleton'.mp hm
 
 abbrev quot (b : B) : B := Classical.choose (division g c hk b)
 

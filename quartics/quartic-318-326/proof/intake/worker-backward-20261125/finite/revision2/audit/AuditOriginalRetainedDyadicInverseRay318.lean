@@ -1,0 +1,9 @@
+module
+
+public import OriginalRetainedDyadicInverseRay318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedDyadicInverseRay318.actual_inverse_on_marked_points_with_region
+#print axioms OriginalRetainedDyadicInverseRay318.actual_inverse_on_marked_points

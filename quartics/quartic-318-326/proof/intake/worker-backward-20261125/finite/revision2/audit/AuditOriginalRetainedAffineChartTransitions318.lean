@@ -1,0 +1,13 @@
+module
+
+public import OriginalRetainedAffineChartTransitions318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedAffineChartTransitions318.in_of_image
+#print axioms OriginalRetainedAffineChartTransitions318.chart_domain
+#print axioms OriginalRetainedAffineChartTransitions318.same_point
+#print axioms OriginalRetainedAffineChartTransitions318.transition_coordinates
+#print axioms OriginalRetainedAffineChartTransitions318.overlap_open
+#print axioms OriginalRetainedAffineChartTransitions318.transition_continuous

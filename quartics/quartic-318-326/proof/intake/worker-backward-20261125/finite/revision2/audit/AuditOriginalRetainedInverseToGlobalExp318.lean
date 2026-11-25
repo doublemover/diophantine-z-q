@@ -1,0 +1,11 @@
+module
+
+public import OriginalRetainedInverseToGlobalExp318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedInverseToGlobalExp318.produce_same_global_exp_with_region
+#print axioms OriginalRetainedInverseToGlobalExp318.produce_same_global_exp
+#print axioms OriginalRetainedInverseToGlobalExp318.local_E_lift_reads
+#print axioms OriginalRetainedInverseToGlobalExp318.local_three_lift_reads

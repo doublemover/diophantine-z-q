@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedActualCenteredRead318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualCenteredRead318.read_equations
+#print axioms OriginalRetainedActualCenteredRead318.read_quotient
+#print axioms OriginalRetainedActualCenteredRead318.read_denominator
+#print axioms OriginalRetainedActualCenteredRead318.read_ringHom
+#print axioms OriginalRetainedActualCenteredRead318.all_branch_evaluations_continuous

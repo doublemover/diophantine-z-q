@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedActualPositiveMultiplication318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualPositiveMultiplication318.multiplier_fixes_old_origin
+#print axioms OriginalRetainedActualPositiveMultiplication318.thickAffine_multiplied_is_named
+#print axioms OriginalRetainedActualPositiveMultiplication318.square_on_actual_old_germ
+#print axioms OriginalRetainedActualPositiveMultiplication318.actual_multiplier_stalk_injective
+#print axioms OriginalRetainedActualPositiveMultiplication318.actual_group_points_divisible

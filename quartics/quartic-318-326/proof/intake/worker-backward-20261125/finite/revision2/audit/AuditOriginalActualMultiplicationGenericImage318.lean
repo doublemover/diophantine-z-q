@@ -1,0 +1,11 @@
+module
+
+public import OriginalActualMultiplicationGenericImage318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalActualMultiplicationGenericImage318.identity_stalk_generic_value
+#print axioms OriginalActualMultiplicationGenericImage318.actual_generic_stalk_map
+#print axioms OriginalActualMultiplicationGenericImage318.actual_dominant_from_origin_stalk
+#print axioms OriginalActualMultiplicationGenericImage318.actual_scheme_surjective

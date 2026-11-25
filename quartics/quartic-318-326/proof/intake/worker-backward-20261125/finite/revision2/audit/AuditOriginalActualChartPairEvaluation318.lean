@@ -1,0 +1,12 @@
+module
+
+public import OriginalActualChartPairEvaluation318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalActualChartPairEvaluation318.quotient_eval_continuous
+#print axioms OriginalActualChartPairEvaluation318.tensor_values_continuous
+#print axioms OriginalActualChartPairEvaluation318.projection_fst
+#print axioms OriginalActualChartPairEvaluation318.projection_snd
+#print axioms OriginalActualChartPairEvaluation318.pair_exact

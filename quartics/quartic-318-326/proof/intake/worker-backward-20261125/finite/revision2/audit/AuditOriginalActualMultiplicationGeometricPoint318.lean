@@ -1,0 +1,9 @@
+module
+
+public import OriginalActualMultiplicationGeometricPoint318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalActualMultiplicationGeometricPoint318.exists_field_point
+#print axioms OriginalActualMultiplicationGeometricPoint318.lift_actual_geometric_point

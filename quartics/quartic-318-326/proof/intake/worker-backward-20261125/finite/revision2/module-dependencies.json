@@ -1,0 +1,1044 @@
+{
+  "lean": "leanprover/lean4:v4.35.0",
+  "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "modules": {
+    "OriginalRetainedClosedProjectiveEvaluation318": {
+      "file": "src/OriginalRetainedClosedProjectiveEvaluation318.lean",
+      "sha256": "82b2c4b1d50c4c6f1400b295a2e8cc0c5aa5aa1c83e312e5cae1f983c8bb7c6f",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedProjectiveRatio318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.Ideal.Quotient.Operations"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedClosedProjectiveEvaluation318.lean",
+        "sha256": "b9df2727aa9c61efa3f7569a749289f1aa69ed580660edb670a466b3bd4a53b0",
+        "roots": [
+          "OriginalRetainedClosedProjectiveEvaluation318.choose",
+          "OriginalRetainedClosedProjectiveEvaluation318.kills_of_generators",
+          "OriginalRetainedClosedProjectiveEvaluation318.quotientRead_comp",
+          "OriginalRetainedClosedProjectiveEvaluation318.actual_ambient",
+          "OriginalRetainedClosedProjectiveEvaluation318.actual_overlap",
+          "OriginalRetainedClosedProjectiveEvaluation318.actual_is_old_point"
+        ]
+      }
+    },
+    "OriginalRetainedProjectiveChartDomain318": {
+      "file": "src/OriginalRetainedProjectiveChartDomain318.lean",
+      "sha256": "7793da6662eca791d76169adfb951b49c2218e41b0159a2350190762394d4268",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedProjectiveRatio318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedProjectiveChartDomain318.lean",
+        "sha256": "bf1f11bdb87754a5a69ba445c63ec81ca59a8110952c12d30c86d73c10747be6",
+        "roots": [
+          "OriginalRetainedProjectiveChartDomain318.domain_on_actual_point",
+          "OriginalRetainedProjectiveChartDomain318.chart_range_iff"
+        ]
+      }
+    },
+    "OriginalRetainedAffineChartPointEquiv318": {
+      "file": "src/OriginalRetainedAffineChartPointEquiv318.lean",
+      "sha256": "d90f470e0dbf33549b7fd826de924fc7371b8246ab515adc02e0a5cb53a7fae5",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedClosedProjectiveEvaluation318",
+        "OriginalRetainedProjectiveAffinePoints318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedAffineChartPointEquiv318.lean",
+        "sha256": "b6c634a0ef09a5809452431d330f8254ef31ac83a7c6adf57ce4836255736ece",
+        "roots": [
+          "OriginalRetainedAffineChartPointEquiv318.evaluate_left",
+          "OriginalRetainedAffineChartPointEquiv318.evaluate_ambient",
+          "OriginalRetainedAffineChartPointEquiv318.eval_read",
+          "OriginalRetainedAffineChartPointEquiv318.read_eval",
+          "OriginalRetainedAffineChartPointEquiv318.chartEquiv"
+        ]
+      }
+    },
+    "OriginalRetainedAffineChartTransitions318": {
+      "file": "src/OriginalRetainedAffineChartTransitions318.lean",
+      "sha256": "66e3cee123508e87fc4ddcfa38fda59d2610efd8b58cef46eeb01cf0a88769c4",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedAffineChartPointEquiv318",
+        "OriginalRetainedProjectiveChartDomain318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Topology.Constructions"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedAffineChartTransitions318.lean",
+        "sha256": "6fb2cc275b18758ff79560937df45a1356156a15945c155bed24aaa622d3dc28",
+        "roots": [
+          "OriginalRetainedAffineChartTransitions318.in_of_image",
+          "OriginalRetainedAffineChartTransitions318.chart_domain",
+          "OriginalRetainedAffineChartTransitions318.same_point",
+          "OriginalRetainedAffineChartTransitions318.transition_coordinates",
+          "OriginalRetainedAffineChartTransitions318.overlap_open",
+          "OriginalRetainedAffineChartTransitions318.transition_continuous"
+        ]
+      }
+    },
+    "OriginalRetainedEuclideanAtlas318": {
+      "file": "src/OriginalRetainedEuclideanAtlas318.lean",
+      "sha256": "e06e3f89e0a8a654f88d264c3436c10c43be223e7b031bbedf8a1f2d56140518",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedAffineChartTransitions318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Data.Finset.Max"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedEuclideanAtlas318.lean",
+        "sha256": "f63bc09e4878ac88056c369cc889ca0d5c1857f42f694932fe2d14c59632bc28",
+        "roots": [
+          "OriginalRetainedEuclideanAtlas318.originalCharts",
+          "OriginalRetainedEuclideanAtlas318.all_points_addressed",
+          "OriginalRetainedEuclideanAtlas318.chart_open_embedding",
+          "OriginalRetainedEuclideanAtlas318.dominant_cover",
+          "OriginalRetainedEuclideanAtlas318.actual_compact"
+        ]
+      }
+    },
+    "OriginalActualRegularMapAtComplexChart318": {
+      "file": "src/OriginalActualRegularMapAtComplexChart318.lean",
+      "sha256": "d4bc752f5840a4580efc8029013d15225f3d8d1f507862cd17f6bb6bcdfe420f",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction",
+        "Mathlib.RingTheory.Localization.Away.Basic",
+        "Mathlib.Analysis.Complex.Basic"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalActualRegularMapAtComplexChart318.lean",
+        "sha256": "c380792e04bb076df19a28bdb2a8f2e00f2877efeeb7b56b2c1278cc60518548",
+        "roots": [
+          "OriginalActualRegularMapAtComplexChart318.actual_local_ring",
+          "OriginalActualRegularMapAtComplexChart318.localPoint_returns",
+          "OriginalActualRegularMapAtComplexChart318.exact_field_read",
+          "OriginalActualRegularMapAtComplexChart318.actual_coordinate_fraction",
+          "OriginalActualRegularMapAtComplexChart318.same_whole_map"
+        ]
+      }
+    },
+    "OriginalActualChartPairEvaluation318": {
+      "file": "src/OriginalActualChartPairEvaluation318.lean",
+      "sha256": "8845b5126522dc1a92a144d2dfa9a738405970c25d33c149f9e40b50648e1f79",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedProjectiveAffinePoints318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.TensorProduct.Maps"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalActualChartPairEvaluation318.lean",
+        "sha256": "555b40b14965a9eead52627006a7fc9ba5132c242960562a1d34c2a4f3452999",
+        "roots": [
+          "OriginalActualChartPairEvaluation318.quotient_eval_continuous",
+          "OriginalActualChartPairEvaluation318.tensor_values_continuous",
+          "OriginalActualChartPairEvaluation318.projection_fst",
+          "OriginalActualChartPairEvaluation318.projection_snd",
+          "OriginalActualChartPairEvaluation318.pair_exact"
+        ]
+      }
+    },
+    "OriginalRetainedMultiplicationInTrueCharts318": {
+      "file": "src/OriginalRetainedMultiplicationInTrueCharts318.lean",
+      "sha256": "e2a74032fc9ee944a4f0f13411a8b68b56ad0372b84dae0680891b6eadf7d600",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalActualChartPairEvaluation318",
+        "OriginalActualRegularMapAtComplexChart318",
+        "OriginalRetainedAffineChartPointEquiv318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedMultiplicationInTrueCharts318.lean",
+        "sha256": "c32a733ad17eec2fcdb3a9da23610ec56b9b804021ed777b31d83334e2dd3bb2",
+        "roots": [
+          "OriginalRetainedMultiplicationInTrueCharts318.actual_pair",
+          "OriginalRetainedMultiplicationInTrueCharts318.original_multiply_read",
+          "OriginalRetainedMultiplicationInTrueCharts318.original_mul_localization"
+        ]
+      }
+    },
+    "OriginalRetainedEuclideanGroupMultiplication318": {
+      "file": "src/OriginalRetainedEuclideanGroupMultiplication318.lean",
+      "sha256": "fe88a72cc02bac3ca71d41779fc90651f8cc57525dd47b4cb0f0514f2be91dc7",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedMultiplicationInTrueCharts318",
+        "OriginalRetainedEuclideanAtlas318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Topology.ContinuousOn"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedEuclideanGroupMultiplication318.lean",
+        "sha256": "4e9599568e5d044de15c999fcca59c27db4c9cb446661dcaf86d11b2fe916850",
+        "roots": [
+          "OriginalRetainedEuclideanGroupMultiplication318.chart_product_continuousAt",
+          "OriginalRetainedEuclideanGroupMultiplication318.original_mul_continuous"
+        ]
+      }
+    },
+    "OriginalRetainedAffineMapContinuity318": {
+      "file": "src/OriginalRetainedAffineMapContinuity318.lean",
+      "sha256": "0f649dc9ecd782c11bc72c62ced887d8745b3447a6d85eeb4646798a0e211867",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalActualRegularMapAtComplexChart318",
+        "OriginalRetainedEuclideanAtlas318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Topology.ContinuousOn"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedAffineMapContinuity318.lean",
+        "sha256": "8c081cf7b7d793f8641943d478a32a83f24af5730fb0128f9c78e13c15e26eb4",
+        "roots": [
+          "OriginalRetainedAffineMapContinuity318.exact_local_continuous_read",
+          "OriginalRetainedAffineMapContinuity318.mapped_left",
+          "OriginalRetainedAffineMapContinuity318.mapped_continuous"
+        ]
+      }
+    },
+    "OriginalRetainedAffineOpenEuclideanRead318": {
+      "file": "src/OriginalRetainedAffineOpenEuclideanRead318.lean",
+      "sha256": "1036ac0224fb9eb5e9e95274a35ad548a74656ada378489c7d2a91874119a157",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedAffineMapContinuity318",
+        "OriginalCyclicDivisorRetainedSchemeRead318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedAffineOpenEuclideanRead318.lean",
+        "sha256": "ca0d196971f5584b79ad6edd1d714466a991052a469e8c008d99002dcf8689db",
+        "roots": [
+          "OriginalRetainedAffineOpenEuclideanRead318.in_open_iff",
+          "OriginalRetainedAffineOpenEuclideanRead318.oldOpen_isOpen",
+          "OriginalRetainedAffineOpenEuclideanRead318.readActual_returns",
+          "OriginalRetainedAffineOpenEuclideanRead318.readActual_on_lift",
+          "OriginalRetainedAffineOpenEuclideanRead318.readActual_continuous"
+        ]
+      }
+    },
+    "OriginalRetainedActualCenteredRead318": {
+      "file": "src/OriginalRetainedActualCenteredRead318.lean",
+      "sha256": "b8cc886efde3478cb1f262ad54229cb0e41c9aed2959ab6ac3a8d59e1abfd7b2",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedComplexAffineEquation318",
+        "OriginalRetainedProjectiveAffinePoints318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualCenteredRead318.lean",
+        "sha256": "188bc9b590952c02cb881d41dd71346c16e60be12fab36b6836897f5abdd1262",
+        "roots": [
+          "OriginalRetainedActualCenteredRead318.read_equations",
+          "OriginalRetainedActualCenteredRead318.read_quotient",
+          "OriginalRetainedActualCenteredRead318.read_denominator",
+          "OriginalRetainedActualCenteredRead318.read_ringHom",
+          "OriginalRetainedActualCenteredRead318.all_branch_evaluations_continuous"
+        ]
+      }
+    },
+    "OriginalRetainedActualCenteredBand318": {
+      "file": "src/OriginalRetainedActualCenteredBand318.lean",
+      "sha256": "db18b15c6acc08e79e3a1a7f105b90fd233cea4eb8951e39765105612afbba45",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedAffineOpenEuclideanRead318",
+        "OriginalRetainedActualCenteredRead318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualCenteredBand318.lean",
+        "sha256": "948c7285dc3635a83d3b70d02c6720b889abe26b798bb3827b295ad0de258411",
+        "roots": [
+          "OriginalRetainedActualCenteredBand318.openBand_open",
+          "OriginalRetainedActualCenteredBand318.oldPoint_read",
+          "OriginalRetainedActualCenteredBand318.localHomeo",
+          "OriginalRetainedActualCenteredBand318.homeo_reads_same_original"
+        ]
+      }
+    },
+    "OriginalRetainedCenteredInterior318": {
+      "file": "src/OriginalRetainedCenteredInterior318.lean",
+      "sha256": "e190ca11ba9bf6294f786963b3fdf2bfbe12db72f41d155a2ce112aae07dbad7",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedComplexAffineEquation318",
+        "OriginalRetainedProjectiveAffinePoints318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.LinearAlgebra.Pi"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedCenteredInterior318.lean",
+        "sha256": "afecb0b9af2404328a96756d0f0f29bd8ab2bbfe7499bc03592e73f1a143da63",
+        "roots": [
+          "OriginalRetainedCenteredInterior318.residual_continuous",
+          "OriginalRetainedCenteredInterior318.centered_residual_zero",
+          "OriginalRetainedCenteredInterior318.choose_centered_open_branch"
+        ]
+      }
+    },
+    "OriginalRetainedActualAtlasHausdorff318": {
+      "file": "src/OriginalRetainedActualAtlasHausdorff318.lean",
+      "sha256": "a1ddcc250db24de89563b419968dd95e644b9a379a5e36585b4b095e435f4e9a",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedEuclideanAtlas318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Topology.Separation.Hausdorff"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualAtlasHausdorff318.lean",
+        "sha256": "e3a6ac6cbf8c3412c578ab5c9cf63da1bf666ad898b65a91853b838f84ebc0a5",
+        "roots": [
+          "OriginalRetainedActualAtlasHausdorff318.projector_ratio_recovers",
+          "OriginalRetainedActualAtlasHausdorff318.chart_independent",
+          "OriginalRetainedActualAtlasHausdorff318.pointProjector_injective",
+          "OriginalRetainedActualAtlasHausdorff318.pointProjector_continuous",
+          "OriginalRetainedActualAtlasHausdorff318.actual_hausdorff"
+        ]
+      }
+    },
+    "OriginalRetainedDyadicGroupLog318": {
+      "file": "src/OriginalRetainedDyadicGroupLog318.lean",
+      "sha256": "d62cfeb51d59e77b18b1463ff0379158ec1ffa9ae6190530f6c29c0027aec22c",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalDyadicChartLogLimit318",
+        "OriginalRetainedComplexPointsOverEEquiv318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.CategoryTheory.Monoidal.Cartesian.Mon"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedDyadicGroupLog318.lean",
+        "sha256": "2c2b8db8edb76f75e27b37a57401ee9f6bc0c5ff50c1b0a3bbe764867a0eca01",
+        "roots": [
+          "OriginalRetainedDyadicGroupLog318.actual_log_respects_original_law",
+          "OriginalRetainedDyadicGroupLog318.log_local_inverse",
+          "OriginalRetainedDyadicGroupLog318.exists_original_local_log_with_region",
+          "OriginalRetainedDyadicGroupLog318.exists_original_local_log"
+        ]
+      }
+    },
+    "OriginalRetainedOneActualLocalExponential318": {
+      "file": "src/OriginalRetainedOneActualLocalExponential318.lean",
+      "sha256": "31ffd127fa610af077b7fc03ab8bd90c5f220e62f52989bef143cea38d08232e",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedActualCenteredBand318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Topology.Homeomorph.Lemmas",
+        "Mathlib.Topology.MetricSpace.Lipschitz",
+        "Mathlib.Tactic.Abel"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedOneActualLocalExponential318.lean",
+        "sha256": "8c3139f9c5e382946110274d67a9ef7114a5e8e919e082d1345d7b55d52bbd7b",
+        "roots": [
+          "OriginalRetainedOneActualLocalExponential318.log_distances",
+          "OriginalRetainedOneActualLocalExponential318.inverseHomeo",
+          "OriginalRetainedOneActualLocalExponential318.actualSmallOpen_isOpen",
+          "OriginalRetainedOneActualLocalExponential318.actualLocal",
+          "OriginalRetainedOneActualLocalExponential318.reads_one_original"
+        ]
+      }
+    },
+    "OriginalRetainedDyadicInverseRay318": {
+      "file": "src/OriginalRetainedDyadicInverseRay318.lean",
+      "sha256": "35031415c71cb685bea69d79cb083aab57d22bf3dcc58c811dc6e9a311b23698",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedDyadicGroupLog318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Analysis.Normed.Group.Continuity",
+        "Mathlib.Analysis.Normed.Module.Basic"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedDyadicInverseRay318.lean",
+        "sha256": "c52fafc4da0175c8f88a0324b7507ff9c04ab79c0d9c983399fee207e270f23a",
+        "roots": [
+          "OriginalRetainedDyadicInverseRay318.actual_inverse_on_marked_points_with_region",
+          "OriginalRetainedDyadicInverseRay318.actual_inverse_on_marked_points"
+        ]
+      }
+    },
+    "OriginalRetainedInverseToGlobalExp318": {
+      "file": "src/OriginalRetainedInverseToGlobalExp318.lean",
+      "sha256": "db1a23d0f05c4cb0ac3c8bcae41490dd4cc3ac1cb57e6c7dd0359a829bb3c3c3",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedDyadicInverseRay318",
+        "OriginalRetainedF33ExponentialFromLog318",
+        "OriginalRetainedActualExponentialInThree318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedInverseToGlobalExp318.lean",
+        "sha256": "d3c66ca081d09268eb7cc105020b1280afb79433b26edfa6b32b5582133dabcc",
+        "roots": [
+          "OriginalRetainedInverseToGlobalExp318.produce_same_global_exp_with_region",
+          "OriginalRetainedInverseToGlobalExp318.produce_same_global_exp",
+          "OriginalRetainedInverseToGlobalExp318.local_E_lift_reads",
+          "OriginalRetainedInverseToGlobalExp318.local_three_lift_reads"
+        ]
+      }
+    },
+    "OriginalRetainedInstalledAnalyticPointGroup318": {
+      "file": "src/OriginalRetainedInstalledAnalyticPointGroup318.lean",
+      "sha256": "2488e9f6e2b57249cc560133d3161a049a59d9025561a2b9dcfc5815a315c505",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedEuclideanGroupMultiplication318",
+        "OriginalRetainedActualAtlasHausdorff318",
+        "OriginalRetainedAffineMapContinuity318",
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedInstalledAnalyticPointGroup318.lean",
+        "sha256": "8d5253584ea1b0d2174d14a1d6f3b0a8a37f247911d80c5850047e95bd681b3e",
+        "roots": [
+          "OriginalRetainedInstalledAnalyticPointGroup318.inverseChart_base",
+          "OriginalRetainedInstalledAnalyticPointGroup318.chart_inverse_exact",
+          "OriginalRetainedInstalledAnalyticPointGroup318.original_inv_continuous",
+          "OriginalRetainedInstalledAnalyticPointGroup318.actual_compact_hausdorff_group"
+        ]
+      }
+    },
+    "OriginalRetainedActualKernelFiniteIndex318": {
+      "file": "src/OriginalRetainedActualKernelFiniteIndex318.lean",
+      "sha256": "c39c9edfe33a91e3e2d762ecda6bbd76c1b3ee2f71b7c7670b7a89626c2d63b5",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Algebra.Order.Floor.Ring",
+        "Mathlib.Topology.MetricSpace.Bounded",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualKernelFiniteIndex318.lean",
+        "sha256": "338a2d1a1f4d91de1da14de4c8471a926dc52ac37194ef8fc47c8b3767ea0d3e",
+        "roots": [
+          "OriginalRetainedActualKernelFiniteIndex318.finite_interval_representatives",
+          "OriginalRetainedActualKernelFiniteIndex318.subtract_primitive_integer_part",
+          "OriginalRetainedActualKernelFiniteIndex318.actual_kernel_integer_span_finite_index",
+          "OriginalRetainedActualKernelFiniteIndex318.exact_uniform_denominator_of_actual_periods"
+        ]
+      }
+    },
+    "OriginalRetainedMultiplicationStalk318": {
+      "file": "src/OriginalRetainedMultiplicationStalk318.lean",
+      "sha256": "cd0a549a9171b31bdf4cf700d92eb17a7d24bf3c9b92689497e3991b562bfdaa",
+      "verification": "source-only repair to exact Windows diagnostics",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.Filtration",
+        "Mathlib.Tactic.Ring"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedMultiplicationStalk318.lean",
+        "sha256": "04fd86510e81485783ca7cede47033d723c56f976eadec0d5a6f68068046b646",
+        "roots": [
+          "OriginalRetainedMultiplicationStalk318.power_layer",
+          "OriginalRetainedMultiplicationStalk318.injective_from_cotangent_unit"
+        ]
+      }
+    },
+    "OriginalActualMultiplicationGenericImage318": {
+      "file": "src/OriginalActualMultiplicationGenericImage318.lean",
+      "sha256": "f6638342abf5a41b528ae84aa3346ba69f9fc0f6dd44ce0456c4a815c024e0dd",
+      "verification": "exact Windows Lean 4.35 compile verified separately; archive audit not asserted",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.FunctionField",
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper",
+        "Mathlib.AlgebraicGeometry.Stalk"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalActualMultiplicationGenericImage318.lean",
+        "sha256": "d62391c8d33a1edd33a892ac2a0b56f491b624072c49c13a34a34b4692c83e8c",
+        "roots": [
+          "OriginalActualMultiplicationGenericImage318.identity_stalk_generic_value",
+          "OriginalActualMultiplicationGenericImage318.actual_generic_stalk_map",
+          "OriginalActualMultiplicationGenericImage318.actual_dominant_from_origin_stalk",
+          "OriginalActualMultiplicationGenericImage318.actual_scheme_surjective"
+        ]
+      }
+    },
+    "OriginalActualMultiplicationGeometricPoint318": {
+      "file": "src/OriginalActualMultiplicationGeometricPoint318.lean",
+      "sha256": "d8459490ef84233948206b589ecd1dbb28f2407666e8429a7e1ad4fa00aef52d",
+      "verification": "source-only repair to exact Windows diagnostics",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.FiniteType",
+        "Mathlib.AlgebraicGeometry.PullbackCarrier",
+        "Mathlib.RingTheory.Jacobson.Ring",
+        "Mathlib.FieldTheory.IsAlgClosed.Basic"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalActualMultiplicationGeometricPoint318.lean",
+        "sha256": "6ce6e62da28731a1f9977326b41ce0524f9ce2c3ec3c7c01e32666f826216fdd",
+        "roots": [
+          "OriginalActualMultiplicationGeometricPoint318.exists_field_point",
+          "OriginalActualMultiplicationGeometricPoint318.lift_actual_geometric_point"
+        ]
+      }
+    },
+    "OriginalRetainedActualMultiplicationPower318": {
+      "file": "src/OriginalRetainedActualMultiplicationPower318.lean",
+      "sha256": "85c2e62e8f51af807bbac9a8a104a0105af79eee2051ab00701107dd81e0d02e",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalActualOriginLieAddition318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.Proper"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualMultiplicationPower318.lean",
+        "sha256": "d28513e8d145b85cd89c5f964c2bbffb74c3f89c421e9e2c20b42bb247cd0a3e",
+        "roots": [
+          "OriginalRetainedActualMultiplicationPower318.on_actual_points",
+          "OriginalRetainedActualMultiplicationPower318.on_actual_origin",
+          "OriginalRetainedActualMultiplicationPower318.actual_proper",
+          "OriginalRetainedActualMultiplicationPower318.actual_power_on_square_zero",
+          "OriginalRetainedActualMultiplicationPower318.original_universal_cotangent_point"
+        ]
+      }
+    },
+    "OriginalOriginLocalizationKernel318": {
+      "file": "src/OriginalOriginLocalizationKernel318.lean",
+      "sha256": "532b54d0083e2b701d018459ca37a39505135009e81788336b61e4412547c477",
+      "verification": "exact Windows Lean 4.35 compile verified separately; archive audit not asserted",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.Localization.AtPrime.Basic",
+        "Mathlib.RingTheory.Localization.Ideal"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalOriginLocalizationKernel318.lean",
+        "sha256": "7c9f998b90de4cbf331ef5680c54c04b97de4ada001f597e722b58848a06ccd5",
+        "roots": [
+          "OriginalOriginLocalizationKernel318.onLocalRing_read",
+          "OriginalOriginLocalizationKernel318.onLocalRing_unique",
+          "OriginalOriginLocalizationKernel318.onLocalRing_ker",
+          "OriginalOriginLocalizationKernel318.onLocalRing_ker_power"
+        ]
+      }
+    },
+    "OriginalRetainedProjectiveExponential318": {
+      "file": "src/OriginalRetainedProjectiveExponential318.lean",
+      "sha256": "f7068c50cbd0df54f8ac53473c83697e025be89353932f52acd2728349d4a6aa",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.GroupTheory.OrderOfElement",
+        "Mathlib.Topology.Algebra.Group.Quotient"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedProjectiveExponential318.lean",
+        "sha256": "c0855d3c0cb0a73b783dcbf78bb6009c92c35cbfd2299edb6b6b1850b50c3dcb",
+        "roots": [
+          "OriginalRetainedProjectiveExponential318.actual_exp_surjective_from_projectivity"
+        ]
+      }
+    },
+    "OriginalRetainedPrincipalKernel318": {
+      "file": "src/OriginalRetainedPrincipalKernel318.lean",
+      "sha256": "1e5527b53aecd8f38ed7cb541552ff9470c0684a299d19dc07e1a8131e251dfc",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedOriginalOrderGenerator318"
+      ],
+      "mathlib_imports": [],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedPrincipalKernel318.lean",
+        "sha256": "40d0a5164ab9ab286090138f70ded45c2d835e433565a2bd72c29d39b47872cf",
+        "roots": [
+          "OriginalRetainedPrincipalKernel318.every_actual_kernel_period",
+          "OriginalRetainedPrincipalKernel318.actualFrame",
+          "OriginalRetainedPrincipalKernel318.actualFrame_columns"
+        ]
+      }
+    },
+    "OriginalRetainedFullPeriodSpan318": {
+      "file": "src/OriginalRetainedFullPeriodSpan318.lean",
+      "sha256": "3b211981d95d895df24bdb96b9ab755a1d4661c779679649c0127ac55d3a7079",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedComplexPointFromE318",
+        "OriginalLiteralMarkedRealPeriodColumns318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.LinearAlgebra.Dual.Lemmas",
+        "Mathlib.Topology.Algebra.Group.Quotient"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedFullPeriodSpan318.lean",
+        "sha256": "48111cccaca4ead471d239b324997632ee7214115c59c8b91623a233b523455f",
+        "roots": [
+          "OriginalRetainedFullPeriodSpan318.dual_continuous",
+          "OriginalRetainedFullPeriodSpan318.discrete_actual_kernel",
+          "OriginalRetainedFullPeriodSpan318.whole_kernel_spans"
+        ]
+      }
+    },
+    "OriginalRetainedActualExponentialTopology318": {
+      "file": "src/OriginalRetainedActualExponentialTopology318.lean",
+      "sha256": "b80f6d31a43742caab0d2fe2370d8aac213d8047f66d32c1018279bf7cc2d754",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Topology.Algebra.Group.Basic"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualExponentialTopology318.lean",
+        "sha256": "22c3943bbadc4d10459a4d4d752e41bb08421950733185259b181293a367d857",
+        "roots": [
+          "OriginalRetainedActualExponentialTopology318.exp_continuous",
+          "OriginalRetainedActualExponentialTopology318.exp_open",
+          "OriginalRetainedActualExponentialTopology318.ker_origin_isolated"
+        ]
+      }
+    },
+    "OriginalRetainedProjectiveRatio318": {
+      "file": "src/OriginalRetainedProjectiveRatio318.lean",
+      "sha256": "c190604390b8c10ba4d501a072e20b38fa15b52e16a9e1053b7247e811a10631",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedProjectiveAffinePiece318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalRetainedProjectiveAffinePoints318": {
+      "file": "src/OriginalRetainedProjectiveAffinePoints318.lean",
+      "sha256": "4d4b985147d693fe01d8d5b0e717327ea2248be33941836c559a5b134e643a30",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedProjectiveAffinePiece318",
+        "OriginalCyclicDivisorRetainedSchemeRead318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.Ideal.Quotient.Operations"
+      ]
+    },
+    "OriginalCyclicDivisorRetainedSchemeRead318": {
+      "file": "src/OriginalCyclicDivisorRetainedSchemeRead318.lean",
+      "sha256": "7757a1ee1f20c9938155b6cd0247c84998c03244205b001f6a8fd93a5a9bcb4b",
+      "verification": "strict native in managed cloud",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction",
+        "Mathlib.Algebra.Polynomial.AlgebraMap"
+      ]
+    },
+    "OriginalRetainedComplexAffineEquation318": {
+      "file": "src/OriginalRetainedComplexAffineEquation318.lean",
+      "sha256": "92f6a8aca88bead65e21a06f534a641aa09e781738cbdeecc50c62e42091e85b",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedComplexPointsOverEEquiv318",
+        "OriginalCenteredAnalyticEquation318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Algebra.MvPolynomial.Eval",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Normed.Group.Constructions",
+        "Mathlib.RingTheory.Localization.Away.Basic"
+      ]
+    },
+    "OriginalRetainedComplexPointsOverEEquiv318": {
+      "file": "src/OriginalRetainedComplexPointsOverEEquiv318.lean",
+      "sha256": "6cdb840c5436e328e318178e114b6c7306d777b912ece8534d97bb5f3aa066c3",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedComplexPointFromE318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalRetainedComplexPointFromE318": {
+      "file": "src/OriginalRetainedComplexPointFromE318.lean",
+      "sha256": "c63aa9a30241668155643c80c67c15fb85d4ca60f8c4606f59eb21f35f171aec",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedComplexPointProducts318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalRetainedComplexPointProducts318": {
+      "file": "src/OriginalRetainedComplexPointProducts318.lean",
+      "sha256": "f3b322c3ec2cb3bfb13ba2164f1cf1f660127dbcc5b6d0414143525d3a683d27",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedComplexZeroByPasting318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.CategoryTheory.Monoidal.Cartesian.Mon"
+      ]
+    },
+    "OriginalRetainedComplexZeroByPasting318": {
+      "file": "src/OriginalRetainedComplexZeroByPasting318.lean",
+      "sha256": "dac10053cccc52a1d3d604d6d2f365425e6846f12c2208c2b1e22d6b38def40a",
+      "verification": "strict native in managed cloud",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.Pullbacks"
+      ]
+    },
+    "OriginalRetainedProjectiveNormalization318": {
+      "file": "src/OriginalRetainedProjectiveNormalization318.lean",
+      "sha256": "165f1a09f482ca36a38bd8ae0cb879d7eb9051bde84cd4d7e0120ba37f47c104",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedComplexPointsOverEEquiv318",
+        "ProjectiveChart318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion",
+        "Mathlib.Analysis.Complex.Basic"
+      ]
+    },
+    "OriginalRetainedProjectiveAffinePiece318": {
+      "file": "src/OriginalRetainedProjectiveAffinePiece318.lean",
+      "sha256": "48b696630d49b196b4e79a05683a38b5845b6fb56723b53b609ea4d06e862d5a",
+      "verification": "strict native in managed cloud",
+      "project_imports": [
+        "OriginalRetainedProjectiveNormalization318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalCenteredAnalyticEquation318": {
+      "file": "src/OriginalCenteredAnalyticEquation318.lean",
+      "sha256": "3f5dfe695f605552f0d9ab244eb0b610104592b543f77497604c48b2454d8333",
+      "verification": "strict native in managed cloud",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.Analysis.SpecificLimits.Basic",
+        "Mathlib.Analysis.Normed.Group.Continuity",
+        "Mathlib.Topology.MetricSpace.Pseudo.Constructions",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalLiteralMarkedRealPeriodColumns318": {
+      "file": "src/OriginalLiteralMarkedRealPeriodColumns318.lean",
+      "sha256": "69463b4a9c698e8c67735c37b2cbc31e1f66705252e44b4d81484c604b9df37c",
+      "verification": "strict native in managed cloud",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.LinearAlgebra.Matrix.Notation",
+        "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Positivity"
+      ]
+    },
+    "ProjectiveChart318": {
+      "file": "src/ProjectiveChart318.lean",
+      "sha256": "9e911c66bd8315fa04443e47af90ab8ee60763fadb8c3d1a2e04a74d0c8b97fd",
+      "verification": "strict native in managed cloud",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Proper",
+        "Mathlib.RingTheory.MvPolynomial.Homogeneous",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalDyadicChartLogLimit318": {
+      "file": "src/OriginalDyadicChartLogLimit318.lean",
+      "sha256": "7fb54894aa72f5e737a12af3e91cb91ff08f7e62fe73e96ddee4053b1b68e4e3",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalActualDoublingInverse318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "OriginalRetainedF33ExponentialFromLog318": {
+      "file": "src/OriginalRetainedF33ExponentialFromLog318.lean",
+      "sha256": "c2973686b881345daf347751f9c33f0cf75e96141e3d33d5ded73234cf6510f1",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalLocalNormalizedExponentialContinuation318",
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalRetainedActualExponentialInThree318": {
+      "file": "src/OriginalRetainedActualExponentialInThree318.lean",
+      "sha256": "2a5515b0a5187a9cc2825b9e1eb7f1a72f5e3b1382e70b9f146032926537e7e3",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalRetainedF33ExponentialQuotient318": {
+      "file": "src/OriginalRetainedF33ExponentialQuotient318.lean",
+      "sha256": "da08ff40876adcc5f940270852384004ee0527ef2d683f74796f520a85955de6",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedComplexPointsOverEEquiv318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.GroupTheory.QuotientGroup.Basic",
+        "Mathlib.Algebra.Group.Equiv.TypeTags",
+        "Mathlib.Topology.Algebra.OpenSubgroup",
+        "Mathlib.Topology.Connected.Clopen",
+        "Mathlib.LinearAlgebra.Pi"
+      ]
+    },
+    "OriginalActualOriginLieAddition318": {
+      "file": "src/OriginalActualOriginLieAddition318.lean",
+      "sha256": "b5571e17cdb6512fa5559635185b049aff0fb44e14f31753d6b53f546c5daa64",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalActualOriginAffineJet318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.LinearAlgebra.Prod"
+      ]
+    },
+    "OriginalRetainedOriginalOrderGenerator318": {
+      "file": "src/OriginalRetainedOriginalOrderGenerator318.lean",
+      "sha256": "ac6d77ee547b9ff830840e0f2b103c08b316d765796e8558bbe8b6882636f01c",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalLiteralMarkedRealPeriodColumns318",
+        "OriginalRetainedF33ExponentialQuotient318"
+      ],
+      "mathlib_imports": []
+    },
+    "OriginalActualDoublingInverse318": {
+      "file": "src/OriginalActualDoublingInverse318.lean",
+      "sha256": "043ad2a1b721067ba7d525af809dda119d0146fb107947916c8eebeea948cc71",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalCenteredAnalyticEquation318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Analysis.Normed.Module.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    "OriginalActualOriginAffineJet318": {
+      "file": "src/OriginalActualOriginAffineJet318.lean",
+      "sha256": "e2f4b361cf94cee7503033f62b1aaa6b1bcb65c373e73fc87fb126522bb4a93c",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalAffineOriginFirstOrder318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.Pullbacks",
+        "Mathlib.AlgebraicGeometry.OpenImmersion",
+        "Mathlib.AlgebraicGeometry.GammaSpecAdjunction"
+      ]
+    },
+    "OriginalAffineOriginFirstOrder318": {
+      "file": "src/OriginalAffineOriginFirstOrder318.lean",
+      "sha256": "48cb23fd0e0876c5dd022e32667decd161f4b7b23ac4f24b1109e1c5092ff1e2",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalAffineOriginCotangent318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Algebra.TrivSqZeroExt.Basic"
+      ]
+    },
+    "OriginalAffineOriginCotangent318": {
+      "file": "src/OriginalAffineOriginCotangent318.lean",
+      "sha256": "fd2fc98dbb0f35682e406c07727386b68ada3095579654ce0d1d7441517a6610",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.Ideal.Cotangent",
+        "Mathlib.LinearAlgebra.Dual.Defs",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "OriginalLocalNormalizedExponentialContinuation318": {
+      "file": "src/OriginalLocalNormalizedExponentialContinuation318.lean",
+      "sha256": "a027856b76fb420478e9458335c982ffb7fc3ac307b3d1e15b946d4a2b1e1d66",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Normed.Module.Basic",
+        "Mathlib.Algebra.Order.Archimedean.Basic",
+        "Mathlib.Topology.Algebra.Group.Neighborhood",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity"
+      ]
+    },
+    "OriginalOriginUniversalThickRead318": {
+      "file": "src/OriginalOriginUniversalThickRead318.lean",
+      "sha256": "d5afe3ff53298843e6c52a87c35d7d471c2c903db2a6d11029667bc65a476e06",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalOriginLocalizationKernel318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.Algebra.TrivSqZeroExt.Basic",
+        "Mathlib.RingTheory.Ideal.Cotangent"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalOriginUniversalThickRead318.lean",
+        "sha256": "64970050d2e8f993a5a850a8b830f234f29b3fee4b96b121791a1409bb9c1385",
+        "roots": [
+          "OriginalOriginUniversalThickRead318.thick_kernel",
+          "OriginalOriginUniversalThickRead318.wholeJet_ker",
+          "OriginalOriginUniversalThickRead318.residueJet_ker",
+          "OriginalOriginUniversalThickRead318.multiplyNil_pure",
+          "OriginalOriginUniversalThickRead318.actual_germ_congruences"
+        ]
+      }
+    },
+    "OriginalRetainedActualAffineStalkSquare318": {
+      "file": "src/OriginalRetainedActualAffineStalkSquare318.lean",
+      "sha256": "61d3b26f691d2219eea03c3bcde25138adbbf40d6926d40ee86e9683b1a8a35f",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [],
+      "mathlib_imports": [
+        "Mathlib.AlgebraicGeometry.Stalk"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualAffineStalkSquare318.lean",
+        "sha256": "47661b85a49f51d4f25e815c423fa71635a6da03f74c9ae5ccaccfc37ca45197",
+        "roots": [
+          "OriginalRetainedActualAffineStalkSquare318.stalkChart_through_ambient",
+          "OriginalRetainedActualAffineStalkSquare318.actualEnd_comp",
+          "OriginalRetainedActualAffineStalkSquare318.true_stalk_injective",
+          "OriginalRetainedActualAffineStalkSquare318.local_test_agrees",
+          "OriginalRetainedActualAffineStalkSquare318.whole_square_to_ring"
+        ]
+      }
+    },
+    "OriginalRetainedActualPositiveMultiplication318": {
+      "file": "src/OriginalRetainedActualPositiveMultiplication318.lean",
+      "sha256": "de7e01adb168afefba0de036a6d55f99a60c2e5154fc816134d0bdfded1ed6f4",
+      "verification": "source only; not kernel checked in this bundle",
+      "project_imports": [
+        "OriginalRetainedActualMultiplicationPower318",
+        "OriginalOriginUniversalThickRead318",
+        "OriginalRetainedActualAffineStalkSquare318",
+        "OriginalRetainedMultiplicationStalk318",
+        "OriginalActualMultiplicationGenericImage318",
+        "OriginalActualMultiplicationGeometricPoint318"
+      ],
+      "mathlib_imports": [
+        "Mathlib.RingTheory.Localization.Submodule"
+      ],
+      "audit": {
+        "file": "audit/AuditOriginalRetainedActualPositiveMultiplication318.lean",
+        "sha256": "82cd2d613904065373d1cf04259bdb551c72ca9d261e1fcbc24e20035733b8f7",
+        "roots": [
+          "OriginalRetainedActualPositiveMultiplication318.multiplier_fixes_old_origin",
+          "OriginalRetainedActualPositiveMultiplication318.thickAffine_multiplied_is_named",
+          "OriginalRetainedActualPositiveMultiplication318.square_on_actual_old_germ",
+          "OriginalRetainedActualPositiveMultiplication318.actual_multiplier_stalk_injective",
+          "OriginalRetainedActualPositiveMultiplication318.actual_group_points_divisible"
+        ]
+      }
+    }
+  },
+  "topological_order": [
+    "OriginalRetainedComplexZeroByPasting318",
+    "OriginalRetainedComplexPointProducts318",
+    "OriginalRetainedComplexPointFromE318",
+    "OriginalRetainedComplexPointsOverEEquiv318",
+    "ProjectiveChart318",
+    "OriginalRetainedProjectiveNormalization318",
+    "OriginalRetainedProjectiveAffinePiece318",
+    "OriginalRetainedProjectiveRatio318",
+    "OriginalRetainedClosedProjectiveEvaluation318",
+    "OriginalRetainedProjectiveChartDomain318",
+    "OriginalCyclicDivisorRetainedSchemeRead318",
+    "OriginalRetainedProjectiveAffinePoints318",
+    "OriginalRetainedAffineChartPointEquiv318",
+    "OriginalRetainedAffineChartTransitions318",
+    "OriginalRetainedEuclideanAtlas318",
+    "OriginalActualRegularMapAtComplexChart318",
+    "OriginalActualChartPairEvaluation318",
+    "OriginalRetainedMultiplicationInTrueCharts318",
+    "OriginalRetainedEuclideanGroupMultiplication318",
+    "OriginalRetainedAffineMapContinuity318",
+    "OriginalRetainedAffineOpenEuclideanRead318",
+    "OriginalCenteredAnalyticEquation318",
+    "OriginalRetainedComplexAffineEquation318",
+    "OriginalRetainedActualCenteredRead318",
+    "OriginalRetainedActualCenteredBand318",
+    "OriginalRetainedCenteredInterior318",
+    "OriginalRetainedActualAtlasHausdorff318",
+    "OriginalActualDoublingInverse318",
+    "OriginalDyadicChartLogLimit318",
+    "OriginalRetainedDyadicGroupLog318",
+    "OriginalRetainedOneActualLocalExponential318",
+    "OriginalRetainedDyadicInverseRay318",
+    "OriginalLocalNormalizedExponentialContinuation318",
+    "OriginalRetainedF33ExponentialQuotient318",
+    "OriginalRetainedF33ExponentialFromLog318",
+    "OriginalRetainedActualExponentialInThree318",
+    "OriginalRetainedInverseToGlobalExp318",
+    "OriginalRetainedInstalledAnalyticPointGroup318",
+    "OriginalRetainedActualKernelFiniteIndex318",
+    "OriginalRetainedMultiplicationStalk318",
+    "OriginalActualMultiplicationGenericImage318",
+    "OriginalActualMultiplicationGeometricPoint318",
+    "OriginalAffineOriginCotangent318",
+    "OriginalAffineOriginFirstOrder318",
+    "OriginalActualOriginAffineJet318",
+    "OriginalActualOriginLieAddition318",
+    "OriginalRetainedActualMultiplicationPower318",
+    "OriginalOriginLocalizationKernel318",
+    "OriginalRetainedProjectiveExponential318",
+    "OriginalLiteralMarkedRealPeriodColumns318",
+    "OriginalRetainedOriginalOrderGenerator318",
+    "OriginalRetainedPrincipalKernel318",
+    "OriginalRetainedFullPeriodSpan318",
+    "OriginalRetainedActualExponentialTopology318",
+    "OriginalOriginUniversalThickRead318",
+    "OriginalRetainedActualAffineStalkSquare318",
+    "OriginalRetainedActualPositiveMultiplication318"
+  ]
+}

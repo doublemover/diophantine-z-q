@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedOneActualLocalExponential318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedOneActualLocalExponential318.log_distances
+#print axioms OriginalRetainedOneActualLocalExponential318.inverseHomeo
+#print axioms OriginalRetainedOneActualLocalExponential318.actualSmallOpen_isOpen
+#print axioms OriginalRetainedOneActualLocalExponential318.actualLocal
+#print axioms OriginalRetainedOneActualLocalExponential318.reads_one_original

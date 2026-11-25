@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedAffineChartPointEquiv318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedAffineChartPointEquiv318.evaluate_left
+#print axioms OriginalRetainedAffineChartPointEquiv318.evaluate_ambient
+#print axioms OriginalRetainedAffineChartPointEquiv318.eval_read
+#print axioms OriginalRetainedAffineChartPointEquiv318.read_eval
+#print axioms OriginalRetainedAffineChartPointEquiv318.chartEquiv

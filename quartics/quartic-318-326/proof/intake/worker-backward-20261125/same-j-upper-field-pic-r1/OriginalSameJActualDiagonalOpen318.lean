@@ -50,6 +50,15 @@ theorem restricted_diagonal [Mono i] :
       (fun v : s.pt ⟶ pullback (i ≫ f) (i ≫ f) => v ≫ pullback.fst _ _) hm
     simpa only [t,Category.assoc,pullback.diagonal_fst,Category.comp_id] using h
 
+/-- Transport the chosen pullback by eliminating the actual equality of base
+maps first, not by simplifying through opaque chosen limit cones. -/
+theorem restricted_diagonal_over [Mono i] (g : U ⟶ S) (h : g = i ≫ f) :
+    IsPullback (pullback.diagonal g) i
+      (pullback.map g g f f i i (𝟙 S) ((Category.comp_id g).trans h)
+        ((Category.comp_id g).trans h)) (pullback.diagonal f) := by
+  subst g
+  exact restricted_diagonal i f
+
 section Affine
 variable (k A : Type u) [CommRing k] [CommRing A] [Algebra k A]
 variable {C : Scheme.{u}} (f : C ⟶ Spec (CommRingCat.of k))
@@ -68,7 +77,7 @@ abbrev affineProductOpen : Spec (CommRingCat.of (A ⊗[k] A)) ⟶ pullback f f :
   (pullbackSpecIso k A A).inv ≫ affineProductMap k A f j base_read
 
 theorem product_is_open : IsOpenImmersion (affineProductOpen k A f j base_read) := by
-  letI : IsOpenImmersion (affineProductMap k A f j base_read) := by
+  let : IsOpenImmersion (affineProductMap k A f j base_read) := by
     unfold affineProductMap
     infer_instance
   exact IsOpenImmersion.comp _ _
@@ -82,13 +91,12 @@ theorem product_diagonal :
     IsPullback (affineDiagonal k A) j (affineProductOpen k A f j base_read) (pullback.diagonal f) := by
   have h : IsPullback (pullback.diagonal (scalarMap k A)) j
       (affineProductMap k A f j base_read) (pullback.diagonal f) := by
-    have s := restricted_diagonal j f
-    simpa only [productMap, affineProductMap, scalarMap, base_read] using s
+    exact restricted_diagonal_over j f (scalarMap k A) base_read.symm
   apply h.of_iso (Iso.refl _) (pullbackSpecIso k A A) (Iso.refl _) (Iso.refl _)
   · simp only [Iso.refl_hom,Category.id_comp,affineDiagonal,scalarMap,
       diagonal_SpecMap,Category.assoc,Iso.inv_hom_id,Category.comp_id]
   · simp
-  · simp only [Iso.refl_hom,affineProductOpen,Category.assoc,Iso.hom_inv_id_assoc,
+  · simp only [Iso.refl_hom,affineProductOpen,Iso.hom_inv_id_assoc,
       Category.comp_id]
   · simp
 
@@ -96,5 +104,6 @@ end Affine
 end OriginalSameJActualDiagonalOpen318
 
 #print axioms OriginalSameJActualDiagonalOpen318.restricted_diagonal
+#print axioms OriginalSameJActualDiagonalOpen318.restricted_diagonal_over
 #print axioms OriginalSameJActualDiagonalOpen318.product_is_open
 #print axioms OriginalSameJActualDiagonalOpen318.product_diagonal

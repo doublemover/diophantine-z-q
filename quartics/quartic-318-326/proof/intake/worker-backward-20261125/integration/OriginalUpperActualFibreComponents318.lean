@@ -102,8 +102,9 @@ theorem on_affine (E : C s p) (U : X.affineOpens) (v : Spec Γ(X,U))
     (ambientIdeal s p E).ideal U = v.asIdeal := by
   rw [ambientIdeal,vanishingIdeal_ideal]
   change PrimeSpectrum.vanishingIdeal (U.2.fromSpec ⁻¹' (closure {ambientGeneric s p E})) = _
-  rw [← U.2.fromSpec.isOpenEmbedding.isOpenMap.preimage_closure_eq_closure_preimage
-      U.2.fromSpec.continuous,PrimeSpectrum.vanishingIdeal_closure]
+  rw [U.2.fromSpec.isOpenEmbedding.isOpenMap.preimage_closure_eq_closure_preimage
+      U.2.fromSpec.continuous ({ambientGeneric s p E} : Set X),
+      PrimeSpectrum.vanishingIdeal_closure]
   have H : U.2.fromSpec ⁻¹' {ambientGeneric s p E} = {v} := by
     ext t
     simp only [Set.mem_preimage,Set.mem_singleton_iff,←hv,

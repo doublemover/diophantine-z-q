@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedActualAffineStalkSquare318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedActualAffineStalkSquare318.stalkChart_through_ambient
+#print axioms OriginalRetainedActualAffineStalkSquare318.actualEnd_comp
+#print axioms OriginalRetainedActualAffineStalkSquare318.true_stalk_injective
+#print axioms OriginalRetainedActualAffineStalkSquare318.local_test_agrees
+#print axioms OriginalRetainedActualAffineStalkSquare318.whole_square_to_ring

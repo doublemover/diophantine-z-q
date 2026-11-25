@@ -33,9 +33,12 @@ theorem power_layer (k : ℕ) (x : R) (hx : x∈I^k) :
           change (n^k*u)*(f v-n*v)∈I^(k+2)
           rw [pow_add]
           exact Ideal.mul_mem_mul ((I^k).mul_mem_left _ hu) (linear v hv)
-        rw [map_mul,pow_succ]
-        have e : f u*f v-(n^k*n)*(u*v) =
-            (f u-n^k*u)*f v+(n^k*u)*(f v-n*v) := by ring
+        change f (u*v)-n^(k+1)*(u*v)∈I^(k+1+1)
+        rw [map_mul]
+        have e : f u*f v-n^(k+1)*(u*v) =
+            (f u-n^k*u)*f v+(n^k*u)*(f v-n*v) := by
+          rw [pow_succ]
+          ring
         rw [e]
         exact (I^(k+1+1)).add_mem a b
       · intro u v hu hv
@@ -59,7 +62,7 @@ theorem injective_from_cotangent_unit [IsNoetherianRing R] [IsLocalRing R]
           exact ((I^(k+1)).unit_mul_mem_iff_mem (nunit.pow k)).1 ((I^(k+1)).neg_mem_iff.1 e)
     have inter : x∈(⨅ k : ℕ,I^k) := Ideal.mem_iInf.2 every
     rw [Ideal.iInf_pow_eq_bot_of_isLocalRing I proper] at inter
-    exact Submodule.mem_bot.1 inter
+    exact (Submodule.mem_bot R).1 inter
   intro u v e
   apply sub_eq_zero.1
   apply kill

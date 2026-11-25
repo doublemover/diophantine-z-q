@@ -1,0 +1,12 @@
+module
+
+public import OriginalOriginUniversalThickRead318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalOriginUniversalThickRead318.thick_kernel
+#print axioms OriginalOriginUniversalThickRead318.wholeJet_ker
+#print axioms OriginalOriginUniversalThickRead318.residueJet_ker
+#print axioms OriginalOriginUniversalThickRead318.multiplyNil_pure
+#print axioms OriginalOriginUniversalThickRead318.actual_germ_congruences

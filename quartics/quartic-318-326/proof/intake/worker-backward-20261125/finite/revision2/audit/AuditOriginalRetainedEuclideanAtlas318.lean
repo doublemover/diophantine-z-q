@@ -1,0 +1,12 @@
+module
+
+public import OriginalRetainedEuclideanAtlas318
+public meta import Lean
+public meta import Lean.Elab.Command
+public meta import Lean.Util.CollectAxioms
+
+#print axioms OriginalRetainedEuclideanAtlas318.originalCharts
+#print axioms OriginalRetainedEuclideanAtlas318.all_points_addressed
+#print axioms OriginalRetainedEuclideanAtlas318.chart_open_embedding
+#print axioms OriginalRetainedEuclideanAtlas318.dominant_cover
+#print axioms OriginalRetainedEuclideanAtlas318.actual_compact
