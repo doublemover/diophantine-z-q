@@ -75,8 +75,17 @@ theorem source_to_named_principal_open (T dT : Stalk eval) (s : Fin 2→A)
   let into := toStalk (Q:=Stalk eval) (p eval) π hπ
   have eT : into (f 0)=T := hf 0
   have ed : into (f 1)=dT := hf 1
-  have inj : Function.Injective (structuralRead (K:=K) eval ∘ into) :=
+  let φ : Localization.Away π →+* K :=
+    (structuralRead (K:=K) eval).comp into.toRingHom
+  have inj : Function.Injective φ :=
     (structural_read_injective (K:=K) eval).comp (toStalk_injective (Q:=Stalk eval) (p eval) π hπ)
+  have readBase (a : A) : φ (algebraMap A (Localization.Away π) a) = algebraMap A K a := by
+    change structuralRead (K:=K) eval (into (algebraMap A (Localization.Away π) a)) = algebraMap A K a
+    rw [AlgHom.commutes, structuralRead, IsLocalization.lift_eq]
+  have readT : φ (f 0) = structuralRead (K:=K) eval T :=
+    congrArg (fun z : Stalk eval => structuralRead (K:=K) eval z) eT
+  have readdT : φ (f 1) = structuralRead (K:=K) eval dT :=
+    congrArg (fun z : Stalk eval => structuralRead (K:=K) eval z) ed
   have eval_restrict (z : Localization.Away π) :
       IsLocalization.Away.lift π (g:=eval) (point_unit eval ⟨π,hπ⟩) z=
         pointRead eval (into z) :=
@@ -85,11 +94,12 @@ theorem source_to_named_principal_open (T dT : Stalk eval) (s : Fin 2→A)
   · rw [eval_restrict,eT]
   · rw [eval_restrict,ed]
   · apply inj
-    change structuralRead (K:=K) eval (into _) = structuralRead (K:=K) eval (into _)
-    simpa only [map_mul,map_pow,map_ofNat,maps_P,AlgHom.commutes,into,structuralRead,
-      IsLocalization.lift_eq,hf] using wholeNum
+    change φ (P (f 0) * algebraMap A (Localization.Away π) (s 0)) =
+      φ ((2765952000 : Localization.Away π)^2 * (f 1)^2)
+    simpa only [map_mul, map_pow, map_ofNat, maps_P, readBase, readT, readdT] using wholeNum
   · apply inj
-    change structuralRead (K:=K) eval (into _) = structuralRead (K:=K) eval (into _)
-    simpa only [map_mul,AlgHom.commutes,into,structuralRead,IsLocalization.lift_eq,hf] using wholeRatio
+    change φ (algebraMap A (Localization.Away π) (s 1)) =
+      φ (f 0 * algebraMap A (Localization.Away π) (s 0))
+    simpa only [map_mul, readBase, readT] using wholeRatio
 
 end OriginalYuanOriginalSectionPrincipalOpen318
