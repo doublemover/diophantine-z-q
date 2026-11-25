@@ -41,11 +41,15 @@ theorem cartesian : IsPullback (first s p E F) (second s p E F) (I).subschemeι 
   · intro T
     let h := T.fst ≫ (I).subschemeι
     have hI : I ≤ h.ker := by
-      rw [←(I).ker_subschemeι]
-      exact T.fst.le_ker_comp _
+      calc
+        I = (I).subschemeι.ker := (ker_subschemeι I).symm
+        _ ≤ h.ker := T.fst.le_ker_comp (I).subschemeι
     have hJ : J ≤ h.ker := by
-      rw [show h = T.snd ≫ (J).subschemeι from T.condition,← (J).ker_subschemeι]
-      exact T.snd.le_ker_comp _
+      have hread : h = T.snd ≫ (J).subschemeι := T.condition
+      calc
+        J = (J).subschemeι.ker := (ker_subschemeι J).symm
+        _ ≤ (T.snd ≫ (J).subschemeι).ker := T.snd.le_ker_comp (J).subschemeι
+        _ = h.ker := congrArg (fun g : T.pt ⟶ X => g.ker) hread.symm
     exact h.toImage ≫ inclusion (sup_le hI hJ)
   · intro T
     apply (cancel_mono (I).subschemeι).mp

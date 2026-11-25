@@ -73,8 +73,9 @@ theorem actual_diagonal_selection :
         (RingHom.ker (diagonalRead (D:=k[X]) (A:=A)).toRingHom).comap q'.toRingHom :=
       (congrArg RingHom.ker hfac).symm.trans
         (RingHom.comap_ker (diagonalRead (D:=k[X]) (A:=A)).toRingHom q'.toRingHom).symm
+    let equ : ((A⊗[k]A) ⧸ Ideal.span (Set.singleton (x (k:=k) (A:=A)))) ≃+* (A⊗[k[X]]A) := q'
     have hmap : I.comap q'.toRingHom = I.map q'.symm.toRingHom :=
-      (Ideal.map_symm (I:=I) q'.toRingEquiv).symm
+      (Ideal.map_symm (I:=I) equ).symm
     have himage : (q'.symm : _ → _) '' Set.singleton d = Set.singleton (q'.symm d) :=
       Set.image_singleton
     calc

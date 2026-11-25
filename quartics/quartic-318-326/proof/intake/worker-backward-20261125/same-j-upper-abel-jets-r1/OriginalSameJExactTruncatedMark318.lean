@@ -35,7 +35,7 @@ theorem mod_u_is_constant :
   apply Polynomial.ringHom_ext
   · intro c
     change e (evalAt u (C c)) = (C c).eval 0
-    rw [eval_C, e.commutes, Polynomial.eval_C]
+    rw [eval_C, e.commutes, Polynomial.eval_C,Algebra.algebraMap_self_apply]
   · change e (evalAt u (X:k[X])) = (X:k[X]).eval 0
     rw [eval_X, reads_u_zero e u hker, Polynomial.eval_X]
 
@@ -49,7 +49,7 @@ theorem poly_remainder (m : ℕ) (a : A) :
   | succ m ih =>
       have hz : e.toRingHom (a - algebraMap k A (e a)) = 0 := by
         change e (a - algebraMap k A (e a)) = 0
-        rw [map_sub, e.commutes, sub_self]
+        rw [map_sub, e.commutes,Algebra.algebraMap_self_apply,sub_self]
       have hd : a - algebraMap k A (e a) ∈ Ideal.span (Set.singleton u) :=
         hker ▸ RingHom.mem_ker.mpr hz
       obtain ⟨b,hb⟩ := Ideal.mem_span_singleton.mp hd

@@ -41,8 +41,10 @@ theorem evaluation [DecidableEq I]
         rw [show k = q⁻¹ * p from rfl,mul_smul,hp,← hq,inv_smul_smul]
       have hread : (k • z) i₀ = z i₀ := (h k hk).trans hz.symm
       have H := perm q i₀ (k • z) z hread
-      have hmul : q * k = p := by simp [k,mul_assoc]
-      simpa only [hq,smul_smul,hmul] using H
+      have hmul : q * k = p := by simp [k]
+      have H' : (p • z) (q • i₀) = (q • z) (q • i₀) := by
+        simpa only [smul_smul,hmul] using H
+      exact Eq.mp (congrArg (fun j : I => (p • z) j = (q • z) j) hq) H'
     let x : ∀ i, B i := fun i => (t i • z) i
     have hbase : x i₀ = a := by
       change (t i₀ • z) i₀ = a
@@ -60,7 +62,9 @@ theorem evaluation [DecidableEq I]
     · intro y hy
       funext i
       have H := perm (t i) i₀ y z (hy.2.trans hz.symm)
-      simpa only [hy.1 (t i),ht i,x] using H
+      have H' : y (t i • i₀) = (t i • z) (t i • i₀) := by
+        simpa only [hy.1 (t i)] using H
+      exact Eq.mp (congrArg (fun j : I => y j = (t i • z) j) (ht i)) H'
   · rintro ⟨x,hx,-⟩ h hfix
     have H := perm h i₀ z x (hz.trans hx.2.symm)
     rw [hfix,hx.1 h,hx.2] at H

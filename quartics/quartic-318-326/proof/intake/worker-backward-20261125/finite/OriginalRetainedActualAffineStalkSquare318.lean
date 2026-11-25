@@ -11,15 +11,17 @@ open AlgebraicGeometry CategoryTheory
 
 universe u
 variable {B T : Type u} [CommRing B] [CommRing T]
-local notation "SB" => Spec (CommRingCat.of B)
-local notation "ST" => Spec (CommRingCat.of T)
-variable {X : Scheme.{u}} (j : SB ⟶ X) [IsOpenImmersion j] (z : SB)
-local notation "L" => (Spec (CommRingCat.of B)).presheaf.stalk z
-local notation "O" => X.presheaf.stalk (j z)
-local notation "SL" => Spec L
+/-- The actual prime stalk of the original affine, as a ring object.
+An explicit abbreviation avoids syntax quotation around dependent projections. -/
+abbrev affineStalk (B : Type u) [CommRing B]
+    (z : Spec (CommRingCat.of B)) : CommRingCat.{u} :=
+  (Spec (CommRingCat.of B)).presheaf.stalk z
+
+variable {X : Scheme.{u}} (j : Spec (CommRingCat.of B) ⟶ X)
+  [IsOpenImmersion j] (z : Spec (CommRingCat.of B))
 variable (f : X ⟶ X) (fixed : f (j z)=j z)
 
-def stalkChart : SL ⟶ X := (Spec (CommRingCat.of B)).fromSpecStalk z≫j
+def stalkChart : Spec (affineStalk B z) ⟶ X := (Spec (CommRingCat.of B)).fromSpecStalk z≫j
 
 instance : Mono (stalkChart j z) := by
   unfold stalkChart
@@ -29,7 +31,7 @@ theorem stalkChart_through_ambient :
     stalkChart j z=Spec.map (j.stalkMap z)≫X.fromSpecStalk (j z) :=
   (Scheme.SpecMap_stalkMap_fromSpecStalk j (x:=z)).symm
 
-def samePointTransport : O ⟶ X.presheaf.stalk (f (j z)) :=
+def samePointTransport : X.presheaf.stalk (j z) ⟶ X.presheaf.stalk (f (j z)) :=
   eqToHom (congrArg (fun x : X => X.presheaf.stalk x) fixed.symm)
 
 instance : IsIso (samePointTransport j z f fixed) := by
@@ -49,7 +51,7 @@ theorem samePointTransport_read :
 /-- The exact endomorphism of the old affine local ring induced by
 the true Scheme map fixing the given origin. It is the actual stalk
 map with the canonical open immersion and fixed-point transports. -/
-def actualEnd : L ⟶ L :=
+def actualEnd : affineStalk B z ⟶ affineStalk B z :=
   inv (j.stalkMap z)≫samePointTransport j z f fixed≫f.stalkMap (j z)≫j.stalkMap z
 
 theorem actualEnd_comp :
@@ -89,7 +91,7 @@ theorem true_stalk_injective
   exact (ConcreteCategory.bijective_of_isIso (inv d)).1.comp
     (inj.comp (ConcreteCategory.bijective_of_isIso (inv t≫d)).1)
 
-variable (θ : B→+*T) (τ : L→+*T)
+variable (θ : B→+*T) (τ : affineStalk B z→+*T)
 variable (extends : τ.comp (StructureSheaf.toStalk (CommRingCat.of B) z).hom=θ)
 
 include extends in
@@ -134,6 +136,6 @@ theorem whole_square_to_ring
             change _=Spec.map (CommRingCat.ofHom τ≫CommRingCat.ofHom λ)≫σ
             rw [Spec.map_comp,Category.assoc]
   have e := Spec.map_injective ((cancel_mono (stalkChart j z)).mp sq)
-  exact congrArg (fun u : L ⟶ CommRingCat.of T => u.hom) e
+  exact congrArg (fun u : affineStalk B z ⟶ CommRingCat.of T => u.hom) e
 
 end OriginalRetainedActualAffineStalkSquare318

@@ -16,7 +16,7 @@ open SelectedActualAbelExactRealPeriodCovolume318 (RealRow literalRealPeriodMatr
   covolume_eq_literal_real_period_determinant)
 open SelectedActualAbelTargetLatticeHaar318 (targetVolume targetVolume_mass targetVolume_restrict_chart)
 
-private def interleaved (g : ℕ) : RealRow g ≃ Index g where
+def interleaved (g : ℕ) : RealRow g ≃ Index g where
   toFun x := if x.2=0 then Sum.inl x.1 else Sum.inr x.1
   invFun := Sum.elim (fun i=>⟨i,0⟩) (fun i=>⟨i,1⟩)
   left_inv x := by
@@ -77,6 +77,7 @@ def actualTargetVolume : Measure J := by
     inferInstanceAs (IsZLattice ℝ (Submodule.span ℤ (Set.range B)))
   exact targetVolume (L P Q G h hG hp) (literalZBasis P Q G h hG hp) volume exp
 
+include hexp in
 theorem actual_target_mass :
     ((actualTargetVolume P Q G h hG hp exp) Set.univ).toReal = G.det.re := by
   let B := periodBasis P Q G h hG hp
@@ -87,6 +88,7 @@ theorem actual_target_mass :
   exact (targetVolume_mass _ (literalZBasis P Q G h hG hp) volume exp hexp).trans
     (actual_covolume P Q G h hG hp)
 
+include hexp in
 /-- Once the actual integral Abel-cycle comparison identifies exp's
 kernel with this integer span, the SAME volume on every injective
 exponential chart is ordinary local Lebesgue volume. -/
