@@ -139,11 +139,16 @@ relative divisor O(P_ε-P) has transition 1+ε·v/u, not the inverse. -/
 theorem positive_transition {T : Type*} [CommRing T] (u : Tˣ) (v : T) :
     ((u.val,-v) : Dual T) * ((1,(↑u⁻¹ : T)*v) : Dual T) =
       ((u.val,0) : Dual T) := by
+  let x : Dual T := (u.val,-v)
+  let y : Dual T := (1,(↑u⁻¹ : T)*v)
+  let z : Dual T := (u.val,0)
+  change x*y = z
   apply TrivSqZeroExt.ext
   · exact mul_one _
-  · rw [mul_snd]
-    change u.val * ((↑u⁻¹ : T)*v) + 1 * (-v) = 0
-    rw [u.mul_inv_cancel_left, one_mul, add_neg_cancel]
+  · change (x*y).snd = 0
+    calc
+      (x*y).snd = u.val * ((↑u⁻¹ : T)*v) + 1 * (-v) := mul_snd x y
+      _ = 0 := by rw [u.mul_inv_cancel_left, one_mul, add_neg_cancel]
 
 end OriginalSameJLiteralAbelDualGraph318
 

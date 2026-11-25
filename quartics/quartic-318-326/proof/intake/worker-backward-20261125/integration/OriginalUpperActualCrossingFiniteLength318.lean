@@ -16,11 +16,12 @@ variable {X Z : Scheme.{u}} [IsIntegral X] (s : X ⟶ Z) (p : Z)
 variable (E F : C s p) (x : X) (hx : x ∈ common s p E F)
 local notation "A" => X.presheaf.stalk x
 local notation "B" => A ⧸ cross s p E F x hx
-variable [IsNoetherianRing A]
+variable [noeth : IsNoetherianRing (X.presheaf.stalk x)]
 
 /-- Finiteness of the actual ordinary-stalk intersection quotient's
 length. This route does not require a split point or a chosen simple
 local node chart. Optional: Hopkins–Levitzki stock is not installed. -/
+include noeth in
 theorem length_not_infty (different : E ≠ F) (closed : IsClosed ({p} : Set Z))
     (vertical : s (genericPoint X) ≠ p) (dim : ∀ y : X, coheight y ≤ 2) :
     length s p E F x hx ≠ ⊤ := by
