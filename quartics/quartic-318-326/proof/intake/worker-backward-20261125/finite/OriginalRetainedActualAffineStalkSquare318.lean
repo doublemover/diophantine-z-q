@@ -134,21 +134,31 @@ theorem whole_square_to_ring
     let qt := Spec.map (CommRingCat.ofHom τ)
     let q0 := Spec.map (CommRingCat.ofHom θ)
     let qp := Spec.map (CommRingCat.ofHom nilMap)
+    have read_old : qt≫σ=q0≫j := local_test_agrees j z θ τ readsBase
+    have read_end : Spec.map (actualEnd j z f fixed)≫σ=σ≫f :=
+      actualEnd_comp j z f fixed
     calc
       Spec.map (CommRingCat.ofHom (τ.comp (actualEnd j z f fixed).hom))≫σ
-          = qt≫(Spec.map (actualEnd j z f fixed)≫σ) := by
+          = (qt≫Spec.map (actualEnd j z f fixed))≫σ := by
             change Spec.map (actualEnd j z f fixed≫CommRingCat.ofHom τ)≫σ=_
-            rw [Spec.map_comp,Category.assoc]
-      _ = (qt≫σ)≫f := by rw [actualEnd_comp j z f fixed,Category.assoc]
-      _ = (q0≫j)≫f := by rw [local_test_agrees j z θ τ readsBase]
+            exact congrArg (fun g : Spec (CommRingCat.of T) ⟶ Spec (affineStalk B z) => g≫σ)
+              (Spec.map_comp (actualEnd j z f fixed) (CommRingCat.ofHom τ))
+      _ = qt≫(Spec.map (actualEnd j z f fixed)≫σ) := Category.assoc _ _ _
+      _ = qt≫(σ≫f) := congrArg (fun g => qt≫g) read_end
+      _ = (qt≫σ)≫f := (Category.assoc _ _ _).symm
+      _ = (q0≫j)≫f := congrArg (fun g => g≫f) read_old
       _ = Spec.map (CommRingCat.ofHom (nilMap.comp θ))≫j := square
-      _ = qp≫(q0≫j) := by
+      _ = (qp≫q0)≫j := by
             change Spec.map (CommRingCat.ofHom θ≫CommRingCat.ofHom nilMap)≫j=_
-            rw [Spec.map_comp,Category.assoc]
-      _ = qp≫(qt≫σ) := by rw [local_test_agrees j z θ τ readsBase]
+            exact congrArg (fun g : Spec (CommRingCat.of T) ⟶ Spec (CommRingCat.of B) => g≫j)
+              (Spec.map_comp (CommRingCat.ofHom θ) (CommRingCat.ofHom nilMap))
+      _ = qp≫(q0≫j) := Category.assoc _ _ _
+      _ = qp≫(qt≫σ) := congrArg (fun g => qp≫g) read_old.symm
+      _ = (qp≫qt)≫σ := (Category.assoc _ _ _).symm
       _ = Spec.map (CommRingCat.ofHom (nilMap.comp τ))≫σ := by
             change _=Spec.map (CommRingCat.ofHom τ≫CommRingCat.ofHom nilMap)≫σ
-            rw [Spec.map_comp,Category.assoc]
+            exact congrArg (fun g : Spec (CommRingCat.of T) ⟶ Spec (affineStalk B z) => g≫σ)
+              (Spec.map_comp (CommRingCat.ofHom τ) (CommRingCat.ofHom nilMap)).symm
   have e := Spec.map_injective ((cancel_mono (stalkChart j z)).mp sq)
   exact congrArg (fun u : affineStalk B z ⟶ CommRingCat.of T => u.hom) e
 

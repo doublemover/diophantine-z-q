@@ -21,8 +21,8 @@ variable (E F : C s p)
 variable (x : X) (hx : x ∈ common s p E F)
 local notation "A" => X.presheaf.stalk x
 local notation "m" => IsLocalRing.maximalIdeal A
-local notation "P₁" => (pointAt s p E x hx.1).asIdeal
-local notation "P₂" => (pointAt s p F x hx.2).asIdeal
+local notation "P₁" => PrimeSpectrum.asIdeal (pointAt s p E x (And.left hx))
+local notation "P₂" => PrimeSpectrum.asIdeal (pointAt s p F x (And.right hx))
 
 /-- The true scheme-theoretic crossing ideal after passage to the
 ordinary ambient stalk. These are actual named point ideals, not two

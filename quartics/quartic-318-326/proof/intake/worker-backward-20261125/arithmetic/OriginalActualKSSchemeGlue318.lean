@@ -110,13 +110,33 @@ def correctedIso : X ≅ Y where
   hom_inv_id := by
     apply Scheme.Cover.hom_ext U
     intro i
-    rw [← Category.assoc,forward_chart,Category.assoc,backward_chart,← Category.assoc,
-      Iso.hom_inv_id,Category.id_comp,Category.comp_id]
+    calc
+      _ = (U.f i ≫ forward U V idx D) ≫ backward U V idx D :=
+        (Category.assoc _ _ _).symm
+      _ = ((D.chart i).hom ≫ (indexed U V idx).f i) ≫ backward U V idx D :=
+        congrArg (fun k => k ≫ backward U V idx D) (forward_chart U V idx D i)
+      _ = (D.chart i).hom ≫ ((indexed U V idx).f i ≫ backward U V idx D) :=
+        Category.assoc _ _ _
+      _ = (D.chart i).hom ≫ ((D.chart i).inv ≫ U.f i) :=
+        congrArg (fun k => (D.chart i).hom ≫ k) (backward_chart U V idx D i)
+      _ = U.f i ≫ 𝟙 X := by
+        rw [← Category.assoc,Iso.hom_inv_id,Category.id_comp,Category.comp_id]
   inv_hom_id := by
     apply Scheme.Cover.hom_ext (indexed U V idx)
-    intro i
-    rw [← Category.assoc,backward_chart,Category.assoc,forward_chart,← Category.assoc,
-      Iso.inv_hom_id,Category.id_comp,Category.comp_id]
+    intro k
+    let i : U.I₀ := k
+    change (indexed U V idx).f i ≫ (backward U V idx D ≫ forward U V idx D) =
+      (indexed U V idx).f i ≫ 𝟙 Y
+    calc
+      _ = ((indexed U V idx).f i ≫ backward U V idx D) ≫ forward U V idx D :=
+        (Category.assoc _ _ _).symm
+      _ = ((D.chart i).inv ≫ U.f i) ≫ forward U V idx D :=
+        congrArg (fun k => k ≫ forward U V idx D) (backward_chart U V idx D i)
+      _ = (D.chart i).inv ≫ (U.f i ≫ forward U V idx D) := Category.assoc _ _ _
+      _ = (D.chart i).inv ≫ ((D.chart i).hom ≫ (indexed U V idx).f i) :=
+        congrArg (fun k => (D.chart i).inv ≫ k) (forward_chart U V idx D i)
+      _ = (indexed U V idx).f i ≫ 𝟙 Y := by
+        rw [← Category.assoc,Iso.inv_hom_id,Category.id_comp,Category.comp_id]
 
 /-- The actual dual-base arrow is preserved globally when its literal
 chart maps are preserved. The R106 correction fixes ε, not merely its
@@ -128,8 +148,12 @@ theorem global_base_read {S : Scheme.{u}} (x : X ⟶ S) (y : Y ⟶ S)
   apply Scheme.Cover.hom_ext U
   intro i
   change U.f i ≫ forward U V idx D ≫ y = U.f i ≫ x
-  rw [← Category.assoc,forward_chart,Category.assoc]
-  exact local_reads i
+  calc
+    _ = (U.f i ≫ forward U V idx D) ≫ y := (Category.assoc _ _ _).symm
+    _ = ((D.chart i).hom ≫ (indexed U V idx).f i) ≫ y :=
+      congrArg (fun k => k ≫ y) (forward_chart U V idx D i)
+    _ = (D.chart i).hom ≫ (indexed U V idx).f i ≫ y := Category.assoc _ _ _
+    _ = _ := local_reads i
 
 section CorrectedAffineLegs
 open OriginalActualKSCotangentOverlap318 OriginalActualKSCoboundary318

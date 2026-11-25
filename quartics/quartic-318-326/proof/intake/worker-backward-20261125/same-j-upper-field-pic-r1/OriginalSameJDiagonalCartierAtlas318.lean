@@ -25,6 +25,7 @@ variable [∀ i,Module.Flat k[X] (A i)]
 variable (j : ∀ i,Spec (CommRingCat.of (A i)) ⟶ C) [∀ i,IsOpenImmersion (j i)]
 variable (read : ∀ i,j i ≫ f = Spec.map (CommRingCat.ofHom (algebraMap k (A i))))
 
+include read in
 /-- Full actual scheme coverage, including the complementary open
 without any closed fibre of the diagonal: on it the equation is 1. -/
 theorem cover

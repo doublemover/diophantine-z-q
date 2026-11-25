@@ -38,8 +38,13 @@ to a + vε. The two P¹ affine functions stay in the original A. -/
 def originalJet : A →ₐ[k] Jet k := by
   let : Algebra k[X] k := residueAlgebra a
   let : Algebra k[X] (Jet k) := jetAlgebra a v
-  let : IsScalarTower k k[X] (Jet k) := jet_tower a v
-  exact (lift (base_specializes a v) (overResidue a e he)).restrictScalars k
+  let l : A →ₐ[k[X]] Jet k := lift (base_specializes a v) (overResidue a e he)
+  refine { l.toRingHom with commutes' := fun c => ?_ }
+  have hA : algebraMap k A c = algebraMap k[X] A (algebraMap k k[X] c) :=
+    RingHom.congr_fun (IsScalarTower.algebraMap_eq k k[X] A) c
+  change l (algebraMap k A c) = algebraMap k (Jet k) c
+  rw [hA]
+  exact (l.commutes (algebraMap k k[X] c)).trans ((namedBase a v).commutes c)
 
 abbrev chi : A := algebraMap k[X] A (Polynomial.X : k[X])
 
