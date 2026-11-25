@@ -32,19 +32,23 @@ variable (good : IsUnit (genericEval U hU m closed tau π))
 local notation "A₀" => chartRing U
 local notation "A₁" => Localization.Away π
 
+/-- Freeze the true localisation map's full dependent types before
+coercing it to an evaluation function. -/
+def markedLocalization : A₁ →+* E :=
+  @OriginalMarkedTraitAffineSectionPull318.liftEval V E _ _ _ Y U hU m closed tau π good
+
 variable (sections : Fin 2→A₀) (tLoc dLoc : A₁)
 /-- The coefficient of the relative \(dT\) in the chosen original
 dualizing frame, still carried through the same fine-point ring
 hom. This never evaluates a function field into E. -/
-abbrev dGeneric : E := liftEval U hU m closed tau π good dLoc
+abbrev dGeneric : E := (markedLocalization U hU m closed tau π good).toFun dLoc
 
 variable (t : E)
-variable (readT : liftEval U hU m closed tau π good tLoc=t)
+variable (readT : dGeneric U hU m closed tau π good tLoc=t)
 variable (noncontact : P t≠0)
 
-/-- Denominator-cleared exact original section identities, proved
-in the literal principal open before the marked coefficients are
-evaluated. No localized coordinate is assumed a unit in V. -/
+-- Denominator-cleared original section identities on the literal principal
+-- open, before reading the marked coefficients. No localized unit in V.
 variable (firstIdentity : P tLoc*(algebraMap A₀ A₁ (sections 0))=
   (2765952000:A₁)^2*dLoc^2)
 variable (secondIdentity : algebraMap A₀ A₁ (sections 1)=
@@ -56,14 +60,24 @@ include readT firstIdentity in
 theorem true_evaluated_numerator :
     P t*(readCoeff U hU m closed tau sections 0)=
       (2765952000:E)^2*(dGeneric U hU m closed tau π good dLoc)^2 := by
-  have h := congrArg (liftEval U hU m closed tau π good) firstIdentity
-  simpa only [map_mul,maps_P,map_pow,map_ofNat,readT,liftEval_read] using h
+  let f : A₁ →+* E := markedLocalization U hU m closed tau π good
+  have ht : f tLoc = t := readT
+  have hs : f (algebraMap A₀ A₁ (sections 0)) =
+      readCoeff U hU m closed tau sections 0 :=
+    @liftEval_read V E _ _ _ Y U hU m closed tau π good (sections 0)
+  have h := congrArg (fun x : A₁ => f x) firstIdentity
+  simpa only [map_mul,maps_P,map_pow,map_ofNat,ht,hs] using h
 
 include readT secondIdentity in
 theorem true_evaluated_ratio :
     readCoeff U hU m closed tau sections 1=t*(readCoeff U hU m closed tau sections 0) := by
-  have h := congrArg (liftEval U hU m closed tau π good) secondIdentity
-  simpa only [map_mul,liftEval_read,readT] using h
+  let f : A₁ →+* E := markedLocalization U hU m closed tau π good
+  have ht : f tLoc = t := readT
+  have hs (i : Fin 2) : f (algebraMap A₀ A₁ (sections i)) =
+      readCoeff U hU m closed tau sections i :=
+    @liftEval_read V E _ _ _ Y U hU m closed tau π good (sections i)
+  have h := congrArg (fun x : A₁ => f x) secondIdentity
+  simpa only [map_mul,hs,ht] using h
 
 variable (b : E)
 variable (frameRead : b*(dGeneric U hU m closed tau π good dLoc)^2=P t)
